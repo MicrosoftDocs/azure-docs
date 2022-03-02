@@ -190,7 +190,7 @@ Follow these steps to configure advanced network settings such as creating a swi
 
 ## Configure network, topology
 
-You'll configure network as well as network topology on both the nodes. These steps can be done in parallel. The cabling on both nodes should be identical and should conform with the network topology you choose.
+You'll configure network and network topology on both the nodes. These steps can be done in parallel. The cabling on both nodes should be identical and should conform with the network topology you choose.
 
 ### Configure network on first node
 
@@ -202,7 +202,7 @@ Follow these steps to configure the network for your device.
     
     ![Screenshot of the Get started page in the local web UI of an Azure Stack Edge device. The Needs setup is highlighted on the Network tile.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-1.png)
 
-    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces. Port 1 is automatically configured as a management-only port, and Port 2 to Port 4 are all data ports.  Though Port 6 shows up in the local UI as the Wi-Fi port, the Wi-Fi functionality is not available in this release.
+    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces. Port 1 is automatically configured as a management-only port, and Port 2 to Port 4 are all data ports.  Though Port 6 shows up in the local UI as the Wi-Fi port, the Wi-Fi functionality isn't available in this release.
 
     For a new device, the **Network** page is as shown below.
     
@@ -227,7 +227,7 @@ Follow these steps to configure the network for your device.
     * <!--ENGG TO VERIFY --> Network Interface Card (NIC) Teaming or link aggregation isn’t supported with Azure Stack Edge. 
     * <!--ENGG TO VERIFY --> In this release, the 100-GbE interfaces aren't configured for RDMA mode.
     * Serial number for any port corresponds to the node serial number.
-    * Though Port 6 shows up in the local UI as the Wi-Fi port, the Wi-Fi functionality is not available in this release.
+    * Though Port 6 shows up in the local UI as the Wi-Fi port, the Wi-Fi functionality isn't available in this release.
 
     Once the device network is configured, the page updates as shown below.
 
@@ -241,7 +241,7 @@ Follow these steps to configure the network for your device.
 
 ### Reconfigure Port 1 on first node
 
-Based on the network topology you will choose, you would need to route Port 1 to the internet via a switch and assign it IPs.
+Based on the network topology you will, choose, you would need to route Port 1 to the internet via a switch and assign it IPs.
 
 Follow these steps to reconfigure Port 1:
 
@@ -289,7 +289,7 @@ Follow these steps to reconfigure Port 1:
 
     The network topology setting takes a few minutes to apply and you see a notification when the settings are successfully applied.
 
-1. Once the network topology is applied, the **Network** page updates. For example, if you selected network topology that uses external switches and separate virtual switches, you will see that on the device node, a virtual switch **vSwitch1** is created at Port 1 and another virtual switch, **vSwitch2** is created on Port 2. Port 3 and Port 4 do not have any virtual switches.
+1. Once the network topology is applied, the **Network** page updates. For example, if you selected network topology that uses external switches and separate virtual switches, you'll see that on the device node, a virtual switch **vSwitch1** is created at Port 1 and another virtual switch, **vSwitch2** is created on Port 2. Port 3 and Port 4 don't have any virtual switches.
 
     ![Local web UI "Network" page updated](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-settings-updated-1.png)
 
@@ -332,7 +332,7 @@ You'll now get the authentication token that will be needed when adding this nod
     ![Local web UI "Get authentication token" tile with "Prepare node" option selected on second node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-get-authentication-token-1.png)
 
 1. Select **Get token**.
-1. Copy the node serial number and the authentication token. You will use this information when you add this node to the cluster on the first node.
+1. Copy the node serial number and the authentication token. You'll use this information when you add this node to the cluster on the first node.
 
     ![Local web UI "Get authentication token" on second node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/get-authentication-token-1.png)
 

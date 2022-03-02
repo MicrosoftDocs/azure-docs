@@ -31,7 +31,7 @@ Before you configure and set up your Azure Stack Edge Pro 2, make sure that:
     
     - You've installed the physical device as detailed in [Install Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-install.md).
     - You've configured the network and compute network settings as detailed in [Configure network, compute network, web proxy](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md)
-    - You have uploaded your own or generated the device certificates on your device if you changed the device name or the DNS domain via the **Device** page. If you haven't done this step, you will see an error during the device activation and the activation will be blocked. For more information, go to [Configure certificates](azure-stack-edge-pro-2-deploy-configure-certificates.md).
+    - You've uploaded your own or generated the device certificates on your device if you changed the device name or the DNS domain via the **Device** page. If you haven't done this step, you'll see an error during the device activation and the activation will be blocked. For more information, go to [Configure certificates](azure-stack-edge-pro-2-deploy-configure-certificates.md).
     
 * You have the activation key from the Azure Stack Edge service that you created to manage the Azure Stack Edge Pro 2 device. For more information, go to [Prepare to deploy Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-prep.md).
 
@@ -50,7 +50,7 @@ Before you configure and set up your Azure Stack Edge Pro 2, make sure that:
     ![Screenshot of local web UI with "Activate" highlighted in the Activate blade.](./media/azure-stack-edge-pro-2-deploy-activate/activate-2.png)
 
 
-5. First the device is activated. You are then prompted to download the key file.
+5. First the device is activated. You're then prompted to download the key file.
     
     ![Screenshot of local web UI with Download and continue highlighted on the Device activated dialog.](./media/azure-stack-edge-pro-2-deploy-activate/activate-3.png)
     
@@ -78,8 +78,8 @@ Before you configure and set up your Azure Stack Edge Pro 2, make sure that:
     |`Id`    | This is the ID for the device.        |
     |`DataVolumeBitLockerExternalKeys`| These are the BitLocker keys for the data disks and are used to recover the local data on your device.|
     |`SystemVolumeBitLockerRecoveryKey`| This is the BitLocker key for the system volume. This key helps with the recovery of the system configuration and system data for your device. |
-    |`SEDEncryptionExternalKey`| This user provided or system generated key is used to protect the self-encrypting data drives that have a built in encryption. |
-    |`ServiceEncryptionKey`| This key protects the data flowing through the Azure service. This key ensures that a compromise of the Azure service will not result in a compromise of stored information. |
+    |`SEDEncryptionExternalKey`| This user provided or system generated key is used to protect the self-encrypting data drives that have a built-in encryption. |
+    |`ServiceEncryptionKey`| This key protects the data flowing through the Azure service. This key ensures that a compromise of the Azure service won't result in a compromise of stored information. |
 
 6. Go to the **Overview** page. The device state should show as **Activated**.
 
@@ -93,7 +93,7 @@ If you encounter any issues during activation, go to [Troubleshoot activation an
 
 ## Deploy workloads
 
-After you have activated the device, the next step is to deploy workloads.
+After you've activated the device, the next step is to deploy workloads.
 
 - To deploy VM workloads, see [What are VMs on Azure Stack Edge?](azure-stack-edge-gpu-virtual-machine-overview.md) and the associated VM deployment documentation.
 - To deploy network functions as managed applications:
