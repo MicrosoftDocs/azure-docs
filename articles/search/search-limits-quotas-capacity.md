@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/28/2022
 ---
 
 # Service limits in Azure Cognitive Search
