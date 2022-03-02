@@ -70,8 +70,13 @@ Support for Accelerated Networking can be found in the individual [virtual machi
 
 The list of Virtual Machine SKUs that support Accelerated Networking can be queried directly via the following Azure CLI [`az vm list-skus`](/cli/azure/vm?view=azure-cli-latest#az-vm-list-skus) command.
 
-```azure-cli
-az vm list-skus -l westus --all true -r virtualMachines --query '[].{size:size, name:name, acceleratedNetworkingEnabled: capabilities[?name==`AcceleratedNetworkingEnabled`].value | [0]}' -o table
+```azurecli-interactive
+az vm list-skus \
+  --location westus \
+  --all true \
+  --resource-type virtualMachines \
+  --query '[].{size:size, name:name, acceleratedNetworkingEnabled: capabilities[?name==`AcceleratedNetworkingEnabled`].value | [0]}'
+  --output table
 ```
 
 ### Custom images
