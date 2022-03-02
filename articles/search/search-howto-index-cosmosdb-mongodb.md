@@ -7,7 +7,7 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure Cosmos DB using the MongoDB API
@@ -128,9 +128,9 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 
 1. Create additional fields for more searchable content. See [Create an index](search-how-to-create-search-index.md) for details.
 
-### Mapping between JSON Data Types and Azure Cognitive Search Data Types
+### Mapping data types
 
-| JSON data type | Compatible target index field types |
+| JSON data type | Cognitive Search field types |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
 | Numbers that look like integers |Edm.Int32, Edm.Int64, Edm.String |
@@ -227,7 +227,9 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 Once an indexer has fully populated a search index, you might want subsequent indexer runs to incrementally index just the new and changed documents in your database.
 
-To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. For Cosmos DB, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
+To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. This property tells the indexer which change tracking mechanism is used on your data.
+
+For Cosmos DB indexers, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
 
 The following example shows a [data source definition](#define-the-data-source) with a change detection policy:
 
@@ -286,3 +288,4 @@ You can now control how you [run the indexer](search-howto-run-reset-indexers.md
 
 + [Set up an indexer connection to a Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md)
 + [Index large data sets](search-howto-large-index.md)
++ [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md)

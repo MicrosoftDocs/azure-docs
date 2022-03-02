@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 02/28/2022
+ms.date: 03/01/2022
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
 
@@ -248,7 +248,9 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 1. Use one of the following methods to configure the workspace to build Docker images using the compute cluster.
 
     > [!IMPORTANT]
-    > When using a compute cluster for image builds, only a CPU SKU is supported.
+    > The following limitations apply When using a compute cluster for image builds:
+    > * Only a CPU SKU is supported.
+    > * You can't use a compute cluster configured for no public IP address.
 
     # [Azure CLI](#tab/cli)
 
