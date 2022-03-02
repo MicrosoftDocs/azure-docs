@@ -184,42 +184,26 @@ public static void ListBlobsAnonymously()
 }
 ```
 
+## Build your application
 
-## Understand the object model
+Start by becoming familiar with the .NET object model. See [Explore the .NET object model for Azure Blob Storage](storage-blob-dotnet-object-model.md).
 
-Blob storage offers three types of resources:
+When you're ready to add the pieces of your application that interact with Blob Storage, see any of these articles for example snippets:
 
-- The storage account
-
-- A container in the storage account
-
-- A blob in the container
-
-The following diagram shows the relationship between these resources.
-
-![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
-
-Use the following .NET classes to interact with these resources:
-
-- [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
-
-- [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
-
-- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
-
-Get started with any of the articles listed in this **See Also** section below.
+| Work with containers | Work with blobs |
+|---|----|
+|[Create a container](storage-blob-container-create.md)|[Upload a blobs](storage-blob-upload.md)|
+|[Delete and restore](storage-blob-container-delete.md)|[Append data to blobs](storage-blob-append.md)|
+|[List containers](storage-blob-containers-list.md)|[Copy blobs](storage-blob-copy.md)|
+|[Manage properties and metadata](storage-blob-container-properties-metadata.md)|[List blobs](storage-blobs-list.md)|
+|[Create and manage leases (blobs & containers)](storage-blob-container-lease.md)|[Delete and restore](storage-blob-delete.md)|
+||[Find blobs using tags](storage-blob-tags.md)|
+||[Manage properties and metadata](storage-blob-properties-metadata.md)|
 
 ## See also
 
-- [Create a container in Azure Storage with .NET](storage-blob-container-create.md)
-- [Delete and restore a container in Azure Storage with .NET](storage-blob-container-delete.md)
-- [List blob containers with .NET](storage-blob-containers-list.md)
-- [Manage container properties and metadata with .NET](storage-blob-container-properties-metadata.md)
-- [Create and manage blob container leases with .NET](storage-blob-container-lease.md)
-- [Upload a blob to Azure Storage by using the .NET client library](storage-blob-upload.md)
-- [Append data to a blob in Azure Storage using the .NET client library](storage-blob-append.md)
-- [Copy a blob with Azure Storage using the .NET client library](storage-blob-copy.md)
-- [List blobs using the Azure Storage client library for .NET](storage-blobs-list.md)
-- [Delete and restore a blob in your Azure Storage account using the .NET client library](storage-blob-delete.md)
-- [Use blob index tags to manage and find data in Azure Blob Storage (.NET)](storage-blob-tags.md)
-- [Manage blob properties and metadata with .NET](storage-blob-properties-metadata.md)
+- [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
+- [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [API reference](/dotnet/api/azure.storage.blobs)
+- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+- [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
