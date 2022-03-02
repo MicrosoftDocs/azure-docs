@@ -22,39 +22,41 @@ ms.collection: M365-identity-device-management
 
 # Azure AD recommendation: Integrate your third party apps 
 
-[Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights with actionable guidance to align your tenant with recommended best practices.
+[Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
 This article covers the recommendation to integrate third party apps. 
 
 
 ## Description
 
-As an Azure AD admin responsible for managing applications, you want to use the Azure AD security features. 
+As an Azure AD admin responsible for managing applications, you want to use the Azure AD security features with your third party apps. Integrating these apps into Azure AD enables:
 
-No users are currently authenticating to any pre-integrated, custom app (BYOA) or SaaS app. 
+- You to use one unified method to manage access to your third party apps.
+- Your users to benefit from using single sign-on to access all your apps with a single password.
 
- 
+
 
 ## Logic 
 
-Any customer that is not currently authenticating to any pre-integrated, custom (BYOA), or SaaS app with AAD will receive this recommendation. This is validated by whether an application has an "application template id" or "parentappId" in the app metadata, These 2 values indicate that the customer has configured a pre-integrated app from our app gallery or configured a customer application via Bring Your Own App. 
+If Azure AD determines that none of your users are using Azure AD to authenticate to your third party apps, this recommendation shows up.
 
 ## Value 
 
-Integrating 3rd party apps with Azure AD allows you to leverage Azure AD's security features, which enables seamless, more productive and more secure sign-ins. You can add an additional security layer to your 3rd party app sign-ins by using conditional access.Action Plan 
+Integrating third party apps with Azure AD allows you to leverage Azure AD's security features.
+The integration:
+- Improves the productivity of your users.
 
-Review your apps. Enterprise applications 
+- Lowers your app management cost.
 
-For each eligible apps, integrate your 3rd party app with Azure AD. Tutorials for integrating SaaS applications with Azure AD 
+You can then add an additional security layer by using conditional access to control how your users can access your apps.
 
+## Action plan
+
+1. Review the configuration of your apps. 
+2. For each app that is not integrated into Azure AD yet, verify whether an integration is possible.
  
-
- 
-
-
 
 ## Next steps
 
-* [Azure AD reports overview](overview-reports.md)
-* [Programmatic access to Azure AD reports](concept-reporting-api.md)
-* [Azure Active Directory risk detections](../identity-protection/overview-identity-protection.md)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
+- [Azure AD reports overview](overview-reports.md)
