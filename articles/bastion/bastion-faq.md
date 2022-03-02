@@ -77,7 +77,7 @@ Review any error messages and [raise a support request in the Azure portal](../a
 
 Azure Bastion is deployed within VNets or peered VNets, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site VNet. In the event of an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
 
-## <a name="vm"></a>Target VMs and connections
+## <a name="vm"></a>VMs and connections
 
 ### <a name="roles"></a>Are any roles required to access a virtual machine?
 
