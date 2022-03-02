@@ -8,9 +8,9 @@ metadata:
   description: Learn how to manage your Azure subscriptions and resources using the Azure portal web-based console. The Azure portal is an alternative to using command-line tools.
   services: Azure portal
   ms.topic: landing-page
-  ms.service: azure
+  ms.service: azure-portal
   ms.collection: collection
-  ms.date: 03/15/2021
+  ms.date: 02/15/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -85,6 +85,20 @@ landingContent:
           - text: Secure your resources with Azure role-based access control (Azure RBAC)
             url: /learn/modules/secure-azure-resources-with-rbac
             
+  # Card
+  - title: View quotas and request increases
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View and increase quotas
+            url: supportability/view-quotas.md
+          - text: Increase VM-family vCPU quotas
+            url: supportability/per-vm-quota-requests.md
+          - text: Increase regional vCPU quotas
+            url: supportability/regional-quota-requests.md
+          - text: Increase spot vCPU quotas
+            url: supportability/spot-quota.md
+
   # Card
   - title: Customize the Azure portal
     linkLists:

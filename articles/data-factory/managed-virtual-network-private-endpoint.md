@@ -52,6 +52,9 @@ Private endpoint uses a private IP address in the managed Virtual Network to eff
 
 > [!NOTE]
 > It's recommended that you create Managed private endpoints to connect to all your Azure data sources. 
+
+> [!NOTE]
+> Make sure resource provider Microsoft.Network is registered to your subscription.
  
 > [!WARNING]
 > If a PaaS data store (Blob, ADLS Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using a managed private endpoint. If a private endpoint does not already exist, you must create one in such scenarios. 
@@ -143,7 +146,8 @@ The following data sources have native Private Endpoint support and can be conne
 - Azure Machine Learning
 - Azure Private Link Service
 - Azure Purview
-- Azure SQL Database (not including Azure SQL Managed Instance)
+- Azure SQL Database 
+- Azure SQL Managed Instance - (public preview)
 - Azure Synapse Analytics
 - Azure Table Storage (not including Storage account V1)
 
@@ -151,7 +155,7 @@ The following data sources have native Private Endpoint support and can be conne
 > You still can access all data sources that are supported by Data Factory through public network.
 
 > [!NOTE]
-> Because Azure SQL Managed Instance doesn't support native Private Endpoint right now, you can access it from managed Virtual Network using Private Linked Service and Load Balancer. Please see [How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint](tutorial-managed-virtual-network-sql-managed-instance.md).
+> Because Azure SQL Managed Instance native Private Endpoint in public preview, you can access it from managed Virtual Network using Private Linked Service and Load Balancer. Please see [How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint](tutorial-managed-virtual-network-sql-managed-instance.md).
 
 ### On-premises data sources
 To access on-premises data sources from managed Virtual Network using Private Endpoint, please see this tutorial [How to access on-premises SQL Server from Data Factory Managed VNET using Private Endpoint](tutorial-managed-virtual-network-on-premise-sql-server.md).

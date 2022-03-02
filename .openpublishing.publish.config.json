@@ -76,6 +76,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure_storage-snippets",
+      "url": "https://github.com/Azure-Samples/AzureStorageSnippets",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure_cli_scripts",
       "url": "https://github.com/Azure-Samples/azure-cli-samples",
       "branch": "master",
@@ -789,6 +795,24 @@
       "branch": "main",
       "branch_mapping": {}
     },
+    {  
+      "path_to_root": "active-directory-b2c-msal-node-sign-in-sign-out-webapp",
+      "url": "https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {  
+      "path_to_root": "active-directory-b2c-javascript-nodejs-webapi",
+      "url": "https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {  
+      "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
+      "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
+      "branch": "master",
+      "branch_mapping": {}
+    },
     {
       "path_to_root": "msdocs-python-flask-webapp-quickstart",
       "url": "https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart",
@@ -840,7 +864,7 @@
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.sql-database.json",
-    ".openpublishing.redirection.synapse-analytics.json",
+    "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
     ".openpublishing.redirection.azure-monitor.json",
     ".openpublishing.redirection.azure-percept.json",
@@ -871,6 +895,9 @@
     "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
     "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
     "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
-    "articles/mysql/.openpublishing.redirection.mysql.json"
+    "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
+    "articles/mysql/.openpublishing.redirection.mysql.json",
+    "articles/container-apps/.openpublishing.redirection.container-apps.json",
+    "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json"
   ]
 }

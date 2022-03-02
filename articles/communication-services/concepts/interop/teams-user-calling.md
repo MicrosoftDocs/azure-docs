@@ -104,6 +104,10 @@ The following list presents the set of Teams capabilities, which are currently a
 | PSTN                    | Make an Emergency call                                                               |   ❌      |
 |                         | Place a call honors location-based routing                                           |   ❌      |
 |                         | Support for survivable branch appliance                                              |   ❌      |
+| Phone system            | Receive a call from Teams auto attendant                                             |   ✔️      |
+|                         | Transfer a call to Teams auto attendant                                              |   ✔️      |
+|                         | Receive a call from Teams call queue (only conference mode)                          |   ✔️      |
+|                         | Transfer a call from Teams call queue (only conference mode)                         |   ✔️      |
 | Compliance              | Place a call honors information barriers                                             |   ✔️      |
 |                         | Support for compliance recording                                                     |   ✔️      |
 

@@ -12,7 +12,7 @@ ms.date: 12/09/2020
 
 # Bulk copy from a database with a control table
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 To copy data from a data warehouse in Oracle Server, Netezza, Teradata, or SQL Server to Azure Synapse Analytics, you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template to use in these scenarios.
 

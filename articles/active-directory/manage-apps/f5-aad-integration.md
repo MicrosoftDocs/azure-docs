@@ -16,15 +16,15 @@ ms.collection: M365-identity-device-management
 # Integrate F5 BIG-IP with Azure Active Directory
 
 The proliferation of mobility and evolving threat landscape is placing extra scrutiny on resource access and governance, putting [Zero Trust](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) front and center of all modernization programs.
-At Microsoft and F5, we realize this digital transformation is typically a multi-year journey for any business, potentially leaving critical resources exposed until modernized. The genesis behind F5 BIG-IP and Azure Active Directory Secure Hybrid Access (SHA) aims not only at improving remote access to on-premises applications, but also at strengthening the overall security posture of these vulnerable services.
+At Microsoft and F5, we realize that digital transformation is typically a multi-year journey for any business, potentially leaving critical resources exposed until modernized. The genesis behind F5 BIG-IP and Azure Active Directory Secure Hybrid Access (SHA) aims not only at improving remote access to on-premises applications, but also at strengthening the overall security posture of vulnerable legacy services.
 
 For context, research estimates that 60-80% of on-premises applications are legacy in nature, or in other words incapable of being integrated directly with Azure Active Directory (AD). The same study also indicated a large proportion of these systems runs on downlevel versions of SAP, Oracle, SAGE, and other well-known workloads that provide critical services.
 
-SHA addresses this blind spot by enabling organizations to continue using their F5 investments for superior network and application delivery. Combined with Azure AD it bridges the heterogeneous application landscape with the modern Identity control plane.
+SHA addresses this blind spot by enabling organizations to continue using their F5 investments for superior network and application delivery. Combined with Azure AD, SHA bridges the heterogeneous application landscape with the modern Identity control plane.
 
 Having Azure AD pre-authenticate access to BIG-IP published services provides many benefits:
 
-- Password-less authentication through [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md), and [Certificate-based authentication](../authentication/active-directory-certificate-based-authentication-get-started.md)
+- Password-less authentication through [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md), and [Certificate-based authentication](../authentication/concept-certificate-based-authentication.md)
 
 - Preemptive [Conditional Access](../conditional-access/overview.md) and [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 
@@ -50,13 +50,15 @@ As an Application Delivery Controller (ADC) and SSL-VPN, a BIG-IP system provide
 
 - REST and SOAP Web API services
 
-Its Local Traffic Manager (LTM) allows secure publishing of services through reverse proxy functionality. At the same time, a sophisticated Access Policy Manager (APM) extends the BIG-IP with a richer set of capabilities, enabling federation and Single sign-on (SSO).
+Its Local Traffic Manager (LTM) allows secure publishing of services, whilst a sophisticated Access Policy Manager (APM) further extends BIG-IP functionality with a rich set of capabilities, enabling identity federation and Single sign-on (SSO).
 
-The integration is based on a standard federation trust between the APM and Azure AD, common to most SHA use cases including the [SSL-VPN scenario](f5-aad-password-less-vpn.md). Security Assertion Markup Language (SAML), OAuth and Open ID Connect (OIDC) resources are no exception either, as they too can be secured for remote access. There could also be scenarios where a BIG-IP becomes a choke point for Zero Trust access to all services, including SaaS apps.
+Through this integration, you achieve the protocol transitioning required to secure legacy or non-Azure AD-integrated services with modern controls such as [Password-less authentication](https://www.microsoft.com/security/business/identity/passwordless) and [Conditional Access](../conditional-access/overview.md). In this scenario, a BIG-IP continues to fulfill its core role as a reverse proxy, while handing off pre-authentication and authorization to Azure AD, on a per service basis.
 
-A BIG-IP’s ability to integrate with Azure AD is what enables the protocol transitioning required to secure legacy or non-Azure AD-integrated services with modern controls such as [Password-less authentication](https://www.microsoft.com/security/business/identity/passwordless) and [Conditional Access](../conditional-access/overview.md). In this scenario, a BIG-IP continues to fulfill its role as a reverse proxy, while handing off pre-authentication and authorization to Azure AD, on a per service basis.
+The integration is based on a standard federation trust between the APM and Azure AD, common to most SHA use cases including the [SSL-VPN scenario](f5-aad-password-less-vpn.md). Security Assertion Markup Language (SAML), OAuth and Open ID Connect (OIDC) resources are no exception either, as they too can be secured through SHA. 
 
-Steps 1-4 in the diagram illustrate the front-end pre-authentication exchange between a user, a BIG-IP, and Azure AD, in a service provider initiated flow. Steps 5-6 show subsequent APM session enrichment and SSO to individual backend services.
+When used for both, local and remote access, a BIG-IP can also become a choke point for Zero Trust access to all services, including SaaS apps.
+
+Steps 1-4 in the diagram illustrate the front-end pre-authentication exchange between a user, a BIG-IP, and Azure AD, in a service provider (SP) initiated flow. Steps 5-6 show subsequent APM session enrichment and SSO to individual backend services.
 
 ![Image shows the high level architecture](./media/f5-aad-integration/integration-flow-diagram.png)
 
@@ -66,14 +68,14 @@ Steps 1-4 in the diagram illustrate the front-end pre-authentication exchange be
 | 2. | The BIG-IP redirects user to SAML IDP (Azure AD) for pre-authentication|
 | 3. | Azure AD processes Conditional Access policies and [session controls](../conditional-access/concept-conditional-access-session.md) for authorization|
 | 4. | User redirects back to BIG-IP presenting the SAML claims issued by Azure AD |
-| 5. | BIG-IP requests any additional session information to include in [SSO](../hybrid/how-to-connect-sso.md) and [Role based access control (RBAC)](../../role-based-access-control/overview.md) to the published service |
+| 5. | BIG-IP requests any additional session information to include for [SSO](../hybrid/how-to-connect-sso.md) and [Role based access control (RBAC)](../../role-based-access-control/overview.md) to the published service |
 | 6. | BIG-IP forwards the client request to the backend service
 
 ## User experience
 
 Whether a direct employee, affiliate, or consumer, most users are already acquainted with the Office 365 login experience, so accessing BIG-IP services via SHA remains largely familiar.
 
-Users now find their BIG-IP published services consolidated in the  [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) or [O365 launchpads](https://airhead.io/airbase/launchpads/R3kW-RkDFEedipcU1AFlnA) along with self-service capabilities to a broader set of services, no matter the type of device or location. Users can even continue accessing published services directly via the BIG-IPs proprietary Webtop portal, if preferred. When logging off, SHA ensures a users’ session is terminated at both ends, the BIG-IP and Azure AD, ensuring services remain fully protected from unauthorized access.  
+Users now find their BIG-IP published services consolidated in the Microsoft [MyApps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) or [O365 launchpads](https://support.microsoft.com/office/meet-the-microsoft-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) along with self-service capabilities to a broader set of services, no matter the type of device or location. Users can even continue accessing published services directly via the BIG-IP's proprietary Webtop portal, if preferred. When logging off, SHA ensures a users’ session is terminated at both ends, the BIG-IP and Azure AD, ensuring services remain fully protected from unauthorized access.  
 
 Users access the Microsoft MyApps portal to easily find their BIG-IP published services and for managing their account properties.  
 
@@ -166,6 +168,26 @@ Refer to the following guided configuration tutorials using Easy Button template
 
 - [BIG-IP Easy Button for SSO to Oracle JD Edwards](f5-big-ip-oracle-jde-easy-button.md)
 
+## Azure AD B2B guest access
+Azure AD B2B guest access to SHA protected applications is also possible, but some scenarios may require some additional steps not covered in the tutorials. One example is Kerberos SSO, where a BIG-IP will perform kerberos constrained delegation (KCD) to obtain a service ticket from domain contollers. Without a local representation of a guest user exisiting locally, a domain controller will fail to honour the request on the basis that the user does not exist. To support this scenario, you would need to ensure external identities are flowed down from your Azure AD tenant to the directory used by the application. See [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md) for guidance.
+
+
+## Next steps
+
+Consider running a SHA Proof of concept (POC) using your existing BIG-IP infrastructure, or by [Deploying a BIG-IP Virtual Edition (VE) VM into Azure](f5-bigip-deployment-guide.md). Deploying a VM in Azure takes approximately 30 minutes, at which point you'll have:
+
+- A fully secured platform to model a SHA pilot
+
+- A pre-production instance for testing new BIG-IP system updates and hotfixes
+
+You should should also identify one or two applications that can be published via the BIG-IP and protected with SHA.
+
+Our recommendation is to start with an application that isn’t yet published via a BIG-IP, so as to avoid potential disruption to production services. The guidelines mentioned in this article will help you get acquainted with the general procedure for creating the various BIG-IP configuration objects and setting up SHA. Once complete you should be able to do the same with any other new services, plus also have enough knowledge to convert existing BIG-IP published services over to SHA with minimal effort.
+
+The below interactive guide walks through the high-level procedure for implementing SHA using a non Easy Button template, and seeing the end-user experience.
+
+[![The image shows interactive guide cover](media/f5-aad-integration/interactive-guide.png)](https://aka.ms/Secure-Hybrid-Access-F5-Interactive-Guide)
+
 ## Additional resources
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
@@ -175,19 +197,3 @@ Refer to the following guided configuration tutorials using Easy Button template
 - [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
 
 - [Getting started with Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/?&OCID=AID2100131_SEM_XfknpgAAAHoVMTvh:20200922160358:s&msclkid=5e0e022409fc1c94dab85d4e6f4710e3&ef_id=XfknpgAAAHoVMTvh:20200922160358:s&dclid=CJnX6vHU_esCFUq-ZAod1iQF6A)
-
-## Next steps
-
-Consider running an SHA Proof of concept (POC) using your existing BIG-IP infrastructure, or by [Deploying a BIG-IP Virtual Edition (VE) VM into Azure](f5-bigip-deployment-guide.md) takes approximately 30 minutes, at which point you'll have:
-
-- A fully secured platform to model a SHA proof of concept
-
-- A pre-production instance for testing new BIG-IP system updates and hotfixes
-
-At the same time, you should identify one or two applications that can be published via the BIG-IP and protected with SHA.
-
-Our recommendation is to start with an application that isn’t yet published via a BIG-IP, so as to avoid potential disruption to production services. The guidelines mentioned in this article will help you get acquainted with the general procedure for creating the various BIG-IP configuration objects and setting up SHA. Once complete you should be able to do the same with any other new services, plus also have enough knowledge to convert existing BIG-IP published services over to SHA with minimal effort.
-
-The below interactive guide walks through the high-level procedure for implementing SHA using a non Easy Button template, and seeing the end-user experience.
-
-[![The image shows interactive guide cover](media/f5-aad-integration/interactive-guide.png)](https://aka.ms/Secure-Hybrid-Access-F5-Interactive-Guide)
