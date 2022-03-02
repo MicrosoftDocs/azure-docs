@@ -3,7 +3,7 @@ title: Azure Service Fabric networking best practices
 description: Rules and design considerations for managing network connectivity using Azure Service Fabric.
 author: chrpap
 ms.topic: conceptual
-ms.date: 10/29/2021
+ms.date: 03/01/2022
 ms.author: chrpap
 ---
 
@@ -36,7 +36,7 @@ Service Fabric cluster can be provisioned on [Linux with Accelerated Networking]
 
 Accelerated Networking is supported for Azure Virtual Machine Series SKUs: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms. Accelerated Networking was tested successfully using the Standard_DS8_v3 SKU on 01/23/2019 for a Service Fabric Windows Cluster, and using Standard_DS12_v2 on 01/29/2019 for a Service Fabric Linux Cluster. Please note that Accelerated Networking requires at least 4 vCPUs. 
 
-To enable Accelerated Networking on an existing Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](./virtual-machine-scale-set-scale-node-type-scale-out.md), to perform the following:
+To enable Accelerated Networking on an existing Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](../virtual-machine-scale-set-scale-node-type-scale-out.md), to perform the following:
 1. Provision a NodeType with Accelerated Networking enabled
 2. Migrate your services and their state to the provisioned NodeType with Accelerated Networking enabled
 
@@ -56,7 +56,7 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 The network security group rules described below are the recommended minimum for a typical configuration. We also include what rules are mandatory for an operational cluster if optional rules are not desired. Failure to open the mandatory ports or approving the IP/URL will prevent proper operation of the cluster and may not be supported. The [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is recommended for Windows Updates. If you use [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) an additional rule with the ServiceTag [AzureUpdateDelivery](../virtual-network/service-tags-overview.md) is needed.
 
-The rules marked as mandatory are needed for a proper operational cluster. Described is the minimum for typical configurations. It also enables a complete security lockdown with network peering and jumpbox concepts like Azure Bastion. Failure to open the mandatory ports or approving the IP/URL will prevent proper operation of the cluster and may not be supported. The [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the recommendation for Windows Updates, for the [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) an additional rule with the Virtual Network Service Tag [AzureUpdateDelivery](../virtual-network/service-tags-overview.md) is needed.
+The rules marked as mandatory are needed for a proper operational cluster. Described is the minimum for typical configurations. It also enables a complete security lockdown with network peering and jumpbox concepts like Azure Bastion. Failure to open the mandatory ports or approving the IP/URL will prevent proper operation of the cluster and may not be supported. The [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the recommendation for Windows Updates, using the [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) instead an additional rule with the Virtual Network Service Tag [AzureUpdateDelivery](../virtual-network/service-tags-overview.md) is needed.
 
 ### Inbound 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action        | Mandatory
@@ -77,7 +77,7 @@ More information about the inbound security rules:
 
 * **Client API**. The client connection endpoint for APIs used by PowerShell. Please open the port for the integration with Azure DevOps by using [AzureDevOps](../virtual-network/service-tags-overview.md) as Virtual Network Service Tag. 
 
-* **SFX + Client API**. This port is used by Service Fabric Explorer to browse and manage your cluster. In the same way it's used by most common APIs like REST/PowerShell (Microsoft.ServiceFabric.PowerShell.Http)/CLI/.NET. This port is recommended for extended management operations from the Service Fabric Resource Provider to guarantee higher reliability. Please open the port for the integration with Azure API Management by using [ApiManagement](../virtual-network/service-tags-overview.md) as Virtual Network Service Tag.
+* **SFX + Client API**. This port is used by Service Fabric Explorer to browse and manage your cluster. In the same way it's used by most common APIs like REST/PowerShell (Microsoft.ServiceFabric.PowerShell.Http)/CLI/.NET. This port is recommended for extended management operations from the Service Fabric Resource Provider to guarantee higher reliability. To make the integration with Azure API Management work, the Virtual Network Service Tag [ApiManagement](../virtual-network/service-tags-overview.md) is needed for Client API access. Deployments with Azure DevOps get access by the Service Tag [AzureCloud](../virtual-network/service-tags-overview.md) for hosted agents, the recommendation is to use [ARM application resources](service-fabric-application-arm-resource.md) instead.
 
 * **Cluster**. Used for inter-node communication; should never be blocked.
 
@@ -119,7 +119,7 @@ Use Azure Firewall with [NSG flow log](../network-watcher/network-watcher-nsg-fl
 
 * Use a reverse proxy such as [Traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) or the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) to expose common application ports such as 80 or 443.
 
-* For Windows Containers hosted on air-gapped machines that can't pull base layers from Azure cloud storage, override the foreign layer behavior, by using the [--allow-nondistributable-artifacts](/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) flag in the Docker daemon.
+* For Windows Containers hosted on air-gapped machines that can't pull base layers from Azure cloud storage, override the foreign layer behavior, by using the [--allow-nondistributable-artifacts](../virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) flag in the Docker daemon.
 
 ## Next steps
 
