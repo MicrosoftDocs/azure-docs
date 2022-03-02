@@ -31,7 +31,7 @@ To download the global profile:
 3. Select the configuration for which you want to download the profile.
 4. Select **Download virtual WAN user VPN profile**.
 
-   ![Screenshot that shows selections for downloading a global profile.](./media/global-hub-profile/global1.png)
+![Screenshot that shows selections for downloading a global profile.](./media/global-hub-profile/global1.png)
 
 ### Include or exclude a hub from a global profile
 
@@ -57,7 +57,7 @@ To include or exclude a specific hub from the global VPN profile:
 
    - Select **Include** if you want to include this hub's gateway in the Virtual WAN global User VPN profile. Users who are using this WAN-level profile will be able to connect to this gateway. 
 
-   ![Screenshot that shows the Exclude and Include buttons.](./media/global-hub-profile/include-exclude.png)
+   :::image type="content" source="./media/global-hub-profile/include-exclude.png" alt-text="Screenshot that shows the Exclude and Include buttons." lightbox="./media/global-hub-profile/include-exclude.png":::
 
 ## Hub-based profile
 

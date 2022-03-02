@@ -13,7 +13,7 @@ ms.author: rambala
 
 Azure Virtual WAN helps you aggregate, connect, centrally manage, and secure all of your global deployments. Your global deployments could include any combination of branches, point of presence (PoP), private users, offices, Azure virtual networks, and other multiple-cloud deployments. 
 
-You can use SD-WAN, site-to-site VPN, point-to-site VPN, and Azure ExpressRoute to connect your sites to a virtual hub. If you have multiple virtual hubs, all the hubs would be connected in full mesh in a standard Virtual WAN deployment.
+You can use SD-WAN, site-to-site VPN, point-to-site VPN, and Azure ExpressRoute to connect your sites to a virtual hub. If you have multiple virtual hubs, all the hubs are connected in full mesh in a standard Virtual WAN deployment.
 
 In this article, let's look at how to architect various types of back-end connectivity that Virtual WAN supports for disaster recovery.
 
@@ -43,18 +43,18 @@ Maximizing the high availability of your network architecture is a key first ste
 
 Disaster can strike at any time, anywhere. Disasters can occur in a cloud provider's regions or network, within a service provider's network, or within an on-premises network. Regional impact of a cloud or network service due to factors such as natural calamity, human errors, war, terrorism, or misconfiguration is hard to rule out. 
 
-For the continuity of your business-critical applications, you need to have a disaster recovery design. For a comprehensive disaster recovery design, you need to identify all the dependencies that might possibly fail in your end-to-end communication path, and then create non-overlapping redundancy for each dependency.
+For the continuity of your business-critical applications, you need to have a disaster recovery design. For a comprehensive disaster recovery design, you need to identify all the dependencies that can possibly fail in your end-to-end communication path, and then create non-overlapping redundancy for each dependency.
 
-Irrespective of whether you run your mission-critical applications in an Azure region, on-premises, or anywhere else, you can use another Azure region as your failover site. The following articles address disaster recovery from application and front-end access perspectives:
+Whether you run your mission-critical applications in an Azure region, on-premises, or anywhere else, you can use another Azure region as your failover site. The following articles address disaster recovery from the perspectives of applications and front-end access:
 
 - [Enterprise-scale disaster recovery](https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr/) 
 - [Disaster recovery with Azure Site Recovery](https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-azure-site-recovery/)
 
 ## Challenges of using redundant connectivity
 
-When you interconnect the same set of networks by using more than one connection, you introduce parallel paths between the networks. Parallel paths, when not properly architected, could lead to asymmetrical routing. 
+When you interconnect the same set of networks by using more than one connection, you introduce parallel paths between the networks. Parallel paths, when not properly architected, could lead to asymmetrical routing. If you have stateful entities (for example, NAT or firewalls) in a path, asymmetrical routing could block traffic flow. 
 
-If you have stateful entities (for example, NAT or firewalls) in the path, asymmetrical routing could block traffic flow. Over private connectivity, you typically won't have or come across stateful entities such as NAT or firewalls. Therefore, asymmetrical routing over private connectivity doesn't necessarily block traffic flow.
+Over private connectivity, you typically won't have or come across stateful entities such as NAT or firewalls. Asymmetrical routing over private connectivity doesn't necessarily block traffic flow.
 
 However, if you load balance traffic across geo-redundant parallel paths, you'll experience inconsistent network performance because of the difference in the physical path of the parallel connections. So you need to consider network traffic performance during both the steady state (non-failure state) and a failure state as part of your disaster recovery design.
 
@@ -85,19 +85,19 @@ In the diagram, the solid green lines show the primary site-to-site VPN connecti
 
 ## Site-to-site VPN considerations
 
-Let's consider the example site-to-site VPN connection shown in the following diagram for our discussion. To establish a site-to-site VPN connection with high-availability active/active tunnels, see [Tutorial: Create a Site-to-Site connection using Azure Virtual WAN](virtual-wan-site-to-site-portal.md).
+Let's consider the example site-to-site VPN connection shown in the following diagram for our discussion. To establish a site-to-site VPN connection with high-availability active/active tunnels, see [Tutorial: Create a site-to-site connection using Azure Virtual WAN](virtual-wan-site-to-site-portal.md).
 
 :::image type="content" source="./media/disaster-recovery-design/site-to-site-scenario.png" alt-text="Diagram that shows connecting an on-premises branch to Virtual WAN via site-to-site V P N.":::
 
 > [!NOTE]
-> For easy understanding of the concepts discussed in the section, we're not repeating the discussion of the high-availability feature of site-to-site VPN gateways that lets you create two tunnels to two different endpoints for each VPN link that you configure. While you're deploying any of the suggested architectures in this section, remember to configure two tunnels for each link that you establish.
+> For easy understanding of the concepts discussed in this section, we're not repeating the discussion of the high-availability feature of site-to-site VPN gateways that lets you create two tunnels to two different endpoints for each VPN link that you configure. While you're deploying any of the suggested architectures in this section, remember to configure two tunnels for each link that you establish.
 >
 
 ### Multiple-link topology
 
 To protect against failures of VPN customer premises equipment (CPE) at a branch site, you can configure parallel VPN links to a VPN gateway from parallel CPE devices at the branch site. To protect against network failures of a last-mile service provider to the branch office, you can configure different VPN links over different service provider networks. 
 
-The following diagram shows multiple VPN links originating from two CPEs of a branch site ending on the same VPN gateway.
+The following diagram shows multiple VPN links originating from two CPEs of a branch site and ending on the same VPN gateway.
 
 :::image type="content" source="./media/disaster-recovery-design/multi-on-premises-site-to-site.png" alt-text="Diagram that shows redundant site-to-site VPN connections to a branch site.":::
 
@@ -105,19 +105,19 @@ You can configure up to four links to a branch site from a virtual hub's VPN gat
 
 ### Multiple-hub, multiple-link topology
 
-A multiple-link topology helps protect against failures of CPE devices and a service provider's network at the on-premises branch location. A multiple-link topology also helps protect against any downtime of a virtual hub's VPN gateway. The following diagram shows the topology.
+A multiple-hub, multiple-link topology helps protect against failures of CPE devices and a service provider's network at the on-premises branch location. It also helps protect against any downtime of a virtual hub's VPN gateway. The following diagram shows the topology.
 
 :::image type="content" source="./media/disaster-recovery-design/multi-hub.png" alt-text="Diagram of multiple-hub site-to-site VPN connections to a branch site.":::
 
-In the preceding topology, latency over the connection between the hubs within an Azure region is insignificant. So you can use all the site-to-site VPN connections between the on-premises branch location and the two virtual hubs in active/active state by spreading the spoke virtual networks across the hubs. 
+In this topology, latency over the connection between the hubs within an Azure region is insignificant. So you can use all the site-to-site VPN connections between the on-premises branch location and the two virtual hubs in active/active state by spreading the spoke virtual networks across the hubs. 
 
-In the topology, by default, traffic between the on-premises branch location and a spoke virtual network traverses directly through the virtual hub to which the spoke virtual network is connected during the steady state. The traffic uses another virtual hub as a backup only during a failure state. Traffic traverses through the directly connected hub in the steady state because the BGP routes advertised by the directly connected hub have a shorter autonomous systems (AS) path compared to the backup hub.
+By default, traffic between the on-premises branch location and a spoke virtual network traverses directly through the virtual hub to which the spoke virtual network is connected during the steady state. The traffic uses another virtual hub as a backup only during a failure state. Traffic traverses through the directly connected hub in the steady state because the BGP routes advertised by the directly connected hub have a shorter autonomous systems (AS) path compared to the backup hub.
 
-The multiple-hub, multiple-link topology provides protection and business continuity in most of the failure scenarios. But it's not sufficient if a catastrophic failure takes down the entire Azure region.
+The multiple-hub, multiple-link topology provides protection and business continuity in most failure scenarios. But it's not sufficient if a catastrophic failure takes down the entire Azure region.
 
 ### Multiple-region, multiple-link topology
 
-A multiple-region, multiple-link topology helps protect against a catastrophic failure of an entire region, in addition to the protections offered by the multiple-hub, multiple-link topology. The following diagram shows the multiple-region, multiple-link topology.
+A multiple-region, multiple-link topology helps protect against a catastrophic failure of an entire region, along with providing the protections of a multiple-hub, multiple-link topology. The following diagram shows the multiple-region, multiple-link topology.
 
 :::image type="content" source="./media/disaster-recovery-design/multi-region.png" alt-text="Diagram that shows multiple-region site-to-site V P N connections to a branch site.":::
 
@@ -144,6 +144,6 @@ This article discussed design considerations for Virtual WAN disaster recovery. 
 
 To create a point-to-site connectivity to Virtual WAN, see [Tutorial: Create a User VPN connection using Azure Virtual WAN](virtual-wan-point-to-site-portal.md). 
 
-To create a site-to-site connectivity to Virtual WAN, see [Tutorial: Create a Site-to-Site connection using Azure Virtual WAN](virtual-wan-site-to-site-portal.md). 
+To create a site-to-site connectivity to Virtual WAN, see [Tutorial: Create a site-to-site connection using Azure Virtual WAN](virtual-wan-site-to-site-portal.md). 
 
-To associate an ExpressRoute circuit to Virtual WAN, see [Tutorial: Create an ExpressRoute association using Azure Virtual WAN](virtual-wan-expressroute-portal.md).
+To associate an ExpressRoute circuit with Virtual WAN, see [Tutorial: Create an ExpressRoute association using Azure Virtual WAN](virtual-wan-expressroute-portal.md).
