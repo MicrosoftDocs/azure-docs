@@ -13,7 +13,7 @@ metadata:
   ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 02/23/2022
+  ms.date: 02/24/2022
   ms.author: v-ydequadros
   
   
@@ -103,7 +103,7 @@ landingContent:
           - text: Generate and view a system report
             url: cloudknox-report-view-system-report.md
   # Card
-  # - title: Learn with CloudKnox Permissions Management training materials
+  # - title: Learn with CloudKnox videos
     # linkLists:
       # - linkListType: overview
         # links:

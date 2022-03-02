@@ -288,6 +288,8 @@
       href: database/sql-database-paas-overview.md
     - name: What's new?
       href: database/doc-changes-updates-release-notes-whats-new.md
+    - name: Try SQL Database for free
+      href: database/free-sql-db-free-account-how-to-deploy.md
     - name: Single databases
       href: database/single-database-overview.md
     - name: Elastic pools
@@ -950,6 +952,8 @@
       href: managed-instance/link-feature.md
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
+    - name: Data virtualization 
+      href: managed-instance/data-virtualization-overview.md
     - name: Management operations
       items:
       - name: Overview

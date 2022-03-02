@@ -110,11 +110,11 @@ items:
       items:
       - name: Generate SAS tokens for Document Translation
         href: document-translation/create-sas-tokens.md
-      - name: Create and use managed identity
+      - name: Create and use managed identities
         href: document-translation/managed-identity.md
     - name: Reference
       items:
-      - name:  Document Translation REST APIs
+      - name: Document Translation REST APIs
         href: document-translation/reference/rest-api-guide.md
       - name: Get supported document formats
         href: document-translation/reference/get-supported-document-formats.md
@@ -220,6 +220,9 @@ items:
     href: custom-translator/faq.md
 - name: Resources
   items:
+  - name: Sovereign Clouds
+    displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
+    href: sovereign-clouds.md
   - name: Compliance and certification
     href: https://www.microsoft.com/translator/business/notrace/
   - name: Code samples on GitHub

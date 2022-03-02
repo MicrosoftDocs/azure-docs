@@ -204,7 +204,7 @@ items:
       href: how-to-resource-set-pattern-rules.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
-  - name: Data discovery
+  - name: Search and manage data catalog
     items:
     - name: Browse Data Catalog
       href: how-to-browse-catalog.md
@@ -212,6 +212,10 @@ items:
       href: how-to-search-catalog.md
     - name: Manage catalog assets
       href: catalog-asset-details.md
+    - name: Bulk edit assets
+      href: how-to-bulk-edit-assets.md
+    - name: Asset certification
+      href: how-to-certify-assets.md
   - name: Lineage 
     items:
     - name: Lineage user guide
@@ -234,8 +238,6 @@ items:
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md  
-  - name: Bulk edit assets
-    href: how-to-bulk-edit-assets.md
   - name: Classify
     items: 
     - name: Create custom classifications
@@ -285,9 +287,9 @@ items:
     - name: Conditional access
       href: catalog-conditional-access.md
   - name: Data owner policies
-    items:
-    - name: Authoring and publishing data owner access policies
-      href: how-to-data-owner-policy-authoring-generic.md
+    href: how-to-data-owner-policy-authoring-generic.md
+  - name: Data use governance
+    href: how-to-enable-data-use-governance.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery
