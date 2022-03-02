@@ -191,6 +191,61 @@ Each resource represents a single database and all the collections under that da
 
 To get a list of all MongoDB database and collection combinations that exist on the account at the given timestamp and location, see [Restorable Mongodb Resources - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-mongodb-resources/list) article.
 
+### Restorable Graph resources
+Each resource represents a single database and all the graphs under that database. 
+|Property Name |Description  |
+|---------|---------|
+| gremlinDatabaseName	|The name of the Graph database. |
+| graphNames | The list of Graphs under this database. |
+
+### Restorable Graph database 
+
+Each resource contains information of a mutation event such as creation and deletion that occurred on the Graph Database. This information can help in the scenario where the database was accidentally deleted and user needs to find out when that event happened. 
+
+|Property Name |Description  |
+|---------|---------|
+|eventTimestamp| The time in UTC when this database event happened.|
+| ownerId| The name of the Graph database. |
+| ownerResourceId	| The resource ID of the Graph database. |
+| operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
+To get a list of all database mutation, see Restorable Graph Databases - List article. 
+
+### Restorable Graphs 
+
+Each resource contains information of a mutation event such as creation and deletion that occurred on the Graph. This information can help in scenarios where the graph was modified or deleted, and if you need to find out when that event happened. 
+
+|Property Name |Description  |
+|---------|---------|
+| eventTimestamp |The time in UTC when this collection event happened. |
+| ownerId| The name of the Graph collection. |
+| ownerResourceId	| The resource ID of the Graph collection. |
+| operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: Graph creation event</li><li>Delete: Graph deletion event</li><li>Replace: Graph modification event</li><li>SystemOperation: collection modification event triggered by the system. This event is not initiated by the user</li></ul> |
+
+To get a list of all container mutations under the same database, see graph rest article.
+
+### Restorable Table resources 
+
+Lists all the restorable Azure Cosmos DB Tables available for a specific database account at a given time and location. Please note - Table API does not have explicit database.
+|Property Name |Description  |
+|---------|---------|
+| TableNames | The list of Table containers under this account. |
+
+To get a list of TABLE that exist on the account at the given timestamp and location, see Restorable Table Resources - List article. 
+
+### Restorable Table  
+
+Each resource contains information of a mutation event such as creation and deletion that occurred on the Table. This information can help in scenarios where the table was modified or deleted, and if you need to find out when that event happened. 
+
+|Property Name |Description  |
+|---------|---------|
+|eventTimestamp| The time in UTC when this database event happened.|
+| ownerId| The name of the Table database. |
+| ownerResourceId	| The resource ID of the Table resource. |
+| operationType |	The operation type of this Table event. Here are the possible values:<br/><ul><li> Create: Table creation event</li><li> Delete: Table deletion event</li><li> Replace: Table modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
+
+To get a list of all table mutations under the same database, see Restorable Table - List article. 
+
+
 ## Next steps
 
 * Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
