@@ -35,7 +35,6 @@ As an Azure AD admin responsible for managing applications, you want to use the 
 - Your users to benefit from using single sign-on to access all your apps with a single password.
 
 
-
 ## Logic 
 
 If Azure AD determines that none of your users are using Azure AD to authenticate to your third party apps, this recommendation shows up.
