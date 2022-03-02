@@ -35,9 +35,9 @@ Changes in our roadmap and priorities have removed the need for the network traf
 
 ### Defender for Containers can now scan for vulnerabilities in Windows images (preview)
 
-Defender for Container's image scan (hosted in Azure Container Registry) now supports Windows images. This feature is being offered for free while in preview, and will incur a cost when it becomes generally available.
+Defender for Container's image scan now supports Windows images that are hosted in Azure Container Registry. This feature is free while in preview, and will incur a cost when it becomes generally available.
 
-Learn more in [view vulnerabilities for running images](defender-for-containers-introduction.md#view-vulnerabilities-for-running-images)
+Learn more in [Use Microsoft Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
 
 ## February 2022
 
