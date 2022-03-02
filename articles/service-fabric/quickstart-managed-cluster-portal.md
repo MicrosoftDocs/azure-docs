@@ -43,7 +43,7 @@ To create your own Azure Key Vault:
 
 1. In the [Azure portal](https://portal.azure.com), select **Key vaults** under **Azure services** and select **+ Create**. Alternatively, select **Create a resource**, enter **Key Vault** in the `Search services and marketplace` box, choose **Key Vault** from the results, and select **Create**.
 
-1. On the **Create a key vault** page provide the following information:
+1. On the **Create a key vault** page, provide the following information:
     - `Subscription`: Choose your Azure subscription.
     - `Resource group`: Choose the resource group you created in the prerequisites or create a new one if you didn't already. For this quickstart, we use **ServiceFabricResources**.
     - `Name`: Enter a unique name. For this quickstart, we use **QuickstartSFKeyVault**.
