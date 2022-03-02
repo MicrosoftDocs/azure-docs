@@ -16,7 +16,7 @@ IoT Central is a ready-made environment for IoT solution development. It's an ap
 
 This article provides an overview of the key elements in an IoT Central solution architecture.
 
-:::image type="content" source="media/concepts-architecture/architecture.png" alt-text="High-level architecture of an IoT Central solution" border="false" lightbox="media/concepts-architecture/architecture.png":::
+:::image type="content" source="media/concepts-architecture/architecture.png" alt-text="Diagram that shows the high-level architecture of an I o T Central solution." border="false" lightbox="media/concepts-architecture/architecture.png":::
 
 Key capabilities in an IoT Central application include:
 

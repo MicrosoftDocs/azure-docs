@@ -12,7 +12,7 @@ ms.author: v-amallick
 
 This article explains how to use _Enhanced policy_ to configure _Multiple Backups Per Day_ and back up [Trusted Launch VMs](../virtual-machines/trusted-launch.md) with Azure Backup service. _Enhanced policy_ for VM backup is in preview.
 
-Azure Backup now supports _Enhanced policy_ that's needed to support new Azure offerings. For example, [Trusted Launch VM](../virtual-machines/trusted-launch.md) is supported with _Enhanced policy_ only. To enroll your subscription for backup of Trusted Launch VM, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
+Azure Backup now supports _Enhanced policy_ that's needed to support new Azure offerings. For example, [Trusted Launch VM](../virtual-machines/trusted-launch.md) is supported with _Enhanced policy_ only.
 
 >[!Important]
 >The existing [default policy](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) won’t support protecting newer Azure offerings, such as Trusted Launch VM, UltraSSD, Shared disk, and Confidential Azure VMs.

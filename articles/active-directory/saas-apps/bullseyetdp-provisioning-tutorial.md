@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and BullseyeTDP](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure BullseyeTDP to support provisioning with Azure AD
-Contact to BullseyeTDP technical support team <hello@bullseyetdp.com> in order to obtain a SCIM Token. Under the Admin Credentials section, enter `https://scim.bullseyeengagement.com/scim` in Tenant URL. Input the provided value in Secret Token.
+Contact [BullseyeTDP support](mailto:hello@bullseyetdp.com) in order to obtain a SCIM Token.
 
 ## Step 3. Add BullseyeTDP from the Azure AD application gallery
 
@@ -83,7 +83,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your BullseyeTDP Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to BullseyeTDP. If the connection fails, ensure your BullseyeTDP account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your BullseyeTDP Tenant URL as `https://scim.bullseyeengagement.com/scim` and corresponding Secret Token. Click **Test Connection** to ensure Azure AD can connect to BullseyeTDP. If the connection fails, ensure your BullseyeTDP account has Admin permissions and try again.
 
  	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
