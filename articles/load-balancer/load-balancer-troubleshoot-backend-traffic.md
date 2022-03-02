@@ -62,7 +62,7 @@ If a VM doesn't respond to the data traffic, it may be because either the target
 
 4. If the port is marked as **LISTENING**, then check the target application on that port for any possible issues.
 
-## Cause 2: Network security group is blocking the port on the load balancer backend pool VM  
+## Cause 2: A network security group is blocking the port on the load balancer backend pool VM  
 
 If one or more network security groups configured on the subnet or on the VM, is blocking the source IP or port, then the VM is unable to respond.
 
@@ -80,7 +80,7 @@ For the public load balancer, the IP address of the Internet clients will be use
 
 4. Test if the VM has now started to respond to the health probes.
 
-## Cause 3: Accessing the load balancer from the same VM and network interface 
+## Cause 3: Access of the load balancer from the same VM and network interface 
 
 If your application hosted in the backend VM of a load balancer is trying to access another application hosted in the same backend VM over the same network interface, it's an unsupported scenario and will fail. 
 
@@ -92,7 +92,7 @@ You can resolve this issue via one of the following methods:
 
 * Configure the application in dual NIC VMs so each application was using its own network interface and IP address. 
 
-## Cause 4: Accessing the internal load balancer frontend from the participating load balancer backend pool VM
+## Cause 4: Access of the internal load balancer frontend from the participating load balancer backend pool VM
 
 If an internal load balancer is configured inside a virtual network, and one of the participant backend VMs is trying to access the internal load balancer frontend, failures can occur when the flow is mapped to the originating VM. This scenario isn't supported.
 
