@@ -559,7 +559,7 @@ items:
             items:
             - name: Configure and connect
               href: storage-blob-dotnet-get-started.md
-            - name: Tour of the object model
+            - name: Tour the object model
               href: storage-blob-dotnet-object-model.md
           - name: Work with containers
             items:

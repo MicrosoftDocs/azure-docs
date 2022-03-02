@@ -188,9 +188,9 @@ public static void ListBlobsAnonymously()
 
 Start by becoming familiar with the object model. See [Explore the .NET object model for Azure Blob Storage](storage-blob-dotnet-object-model.md).
 
-When you're ready to build your application, see any of these articles. Each article contains example snippets.
+When you're ready to build your application, see any of these guides. Each guide contains example snippets.<br><br>
 
-| Guides for operating on containers | Guides for operating on blobs |
+| Containers | Blobs |
 |---|----|
 |[Create a container](storage-blob-container-create.md)|[Upload a blobs](storage-blob-upload.md)|
 |[Delete and restore](storage-blob-container-delete.md)|[Append data to blobs](storage-blob-append.md)|
