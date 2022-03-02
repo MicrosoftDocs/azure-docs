@@ -13,7 +13,7 @@ ms.date: 03/01/2022
 
 Test out Service Fabric managed clusters in this quickstart by creating a **three-node Basic SKU cluster**.
 
-Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model. Managed clusters streamline your deployment and cluster management experience. Service Fabric managed clusters are a fully encapsulated resource that enable you to deploy a single Service Fabric cluster resource. Normally, you have to deploy all of the underlying resources that make up a Service Fabric cluster manually.
+Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model. Managed clusters streamline your deployment and cluster management experience. Service Fabric managed clusters are fully encapsulated resources that save you the effort of manually deploying all of the underlying resources that make up a Service Fabric cluster.
 
 This article describes how to do deploy a Service Fabric managed cluster for testing in Azure using the **Azure portal**. You can also [use an Azure Resource Manager template](quickstart-managed-cluster-template.md).
 
