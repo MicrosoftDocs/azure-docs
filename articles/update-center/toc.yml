@@ -11,7 +11,7 @@
     - name: Enable Update management center
       href: enable-machines.md
     - name: Configure Windows Update client
-      href: configure-wuagent.md
+      href: configure-wu-agent.md
   - name: Manage
     items:
     - name: View update compliance 
