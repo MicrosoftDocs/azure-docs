@@ -2834,13 +2834,17 @@
             "source_path_from_root": "/articles/virtual-machines/linux/deploy-ibm-db2-purescale-azure.md",
             "redirect_url": "/azure/virtual-machines/workloads/mainframe-rehosting/ibm/deploy-ibm-db2-purescale-azure",
             "redirect_document_id": false
-          }
-          ,
+          },
           {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-bom-templates-hana.md",
             "redirect_url": "/azure/virtual-machines/workloads/sap/automation-bom-templates-db",
             "redirect_document_id": false
-          }                                                                                                                                                                
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/windows/create-portal-availability-zone.md",
+            "redirect_url": "/azure/virtual-machines/create-portal-availability-zone",
+            "redirect_document_id": false
+          }                                                                                                                                                               
     ]
 }
 
