@@ -41,13 +41,13 @@ If Azure AD determines that none of your users are using Azure AD to authenticat
 
 ## Value 
 
-Integrating third party apps with Azure AD allows you to leverage Azure AD's security features.
+Integrating third party apps with Azure AD allows you to use Azure AD's security features.
 The integration:
 - Improves the productivity of your users.
 
 - Lowers your app management cost.
 
-You can then add an additional security layer by using conditional access to control how your users can access your apps.
+You can then add an extra security layer by using conditional access to control how your users can access your apps.
 
 ## Action plan
 
