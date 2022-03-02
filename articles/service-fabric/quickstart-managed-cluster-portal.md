@@ -18,7 +18,7 @@ Service Fabric managed clusters are an evolution of the Azure Service Fabric clu
 In this quickstart, you learn how to:
 
 * Use Azure Key Vault to create a client certificate for your managed cluster
-* Deploy a Service Fabric managed Cluster
+* Deploy a Service Fabric managed cluster
 * View your managed cluster in Service Fabric Explorer
 
 This article describes how to deploy a Service Fabric managed cluster for testing in Azure using the **Azure portal**. There is also a quickstart for [Azure Resource Manager templates](quickstart-managed-cluster-template.md).
