@@ -78,8 +78,6 @@ landingContent:
         links:
           - text: Provision SIMs
             url: provision-sims-azure-portal.md
-          - text: Activate SIMs
-            url: activate-sims.md
   # Card
   - title: Monitor your private mobile network
     linkLists:
