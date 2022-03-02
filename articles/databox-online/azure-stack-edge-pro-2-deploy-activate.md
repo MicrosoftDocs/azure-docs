@@ -117,7 +117,7 @@ In this tutorial, you learned about:
 > * Prerequisites
 > * Activate the physical device
 
-To learn how to transfer data with your Azure Stack Edge device, see:
+To learn how to deploy workloads on your Azure Stack Edge device, see:
 
 > [!div class="nextstepaction"]
-> [Transfer data with Azure Stack Edge](./azure-stack-edge-gpu-deploy-add-shares.md)
+> [Configure compute to deploy IoT Edge and Kubernetes workloads on Azure Stack Edge](./azure-stack-edge-gpu-deploy-configure-compute.md)
