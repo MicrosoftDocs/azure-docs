@@ -49,7 +49,7 @@ We recommend that you use the address ranges enumerated in [RFC 1918](https://to
 * 172.16.0.0 - 172.31.255.255  (172.16/12 prefix)
 * 192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
 
-Other address spaces may work but may have undesirable side effects.
+Other address spaces, including all other IETF-recognized private, non-routable address spaces, may work but may have undesirable side effects.
 
 In addition, you cannot add the following address ranges:
 * 224.0.0.0/4 (Multicast)
