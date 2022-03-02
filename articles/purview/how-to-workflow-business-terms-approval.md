@@ -22,10 +22,10 @@ This guide will take you through the creation and management of approval workflo
 1. To create new workflows, select on Workflows. This will take you to the workflow authoring experiences.  
 1. To create a new workflow, select on ‘+New’ button and you'll be presented with different categories of workflows in Purview. To create ‘Approval workflows for business terms’ Select ‘Data Catalog’ and select ‘Continue’
 1. In the next screen, you'll see all the templates provided by Azure Purview to create a workflow. Select the template using which you want to start your authoring experiences and select on ‘Continue’. In the screenshot below we've selected ‘Create glossary term’.  The four different templates available for business glossary are:
-    1. Create glossary term 
-    1. Update glossary term 
-    1. Delete glossary term 
-    1. Import terms
+    * Create glossary term 
+    * Update glossary term 
+    * Delete glossary term 
+    * Import terms
 1. You'll be now presented with a window where you need to enter workflow name and optionally add a description. Once you've populated the same, select ‘Continue’. 
 1. You'll now be presented with a canvas where the selected template is loaded by default.  
 1. The default template can be used as it is by just populating the approver’s email address in ‘Start and Wait for approval’ Connector. The default template has the following steps: 
@@ -58,8 +58,8 @@ To delete a workflow, select the workflow and select on ‘Delete’
 
 ## Limitations for business terms with approval workflow enabled  
 
-1. Non- Approved glossary terms aren't saved in Purview catalog. 
-1. The behavior of tagging terms to assets/schemas is same as of today that is, previously created draft terms can be tagged to assets/schemas. 
+* Non- Approved glossary terms aren't saved in Purview catalog. 
+* The behavior of tagging terms to assets/schemas is same as of today that is, previously created draft terms can be tagged to assets/schemas. 
 
 ## Next steps
 
