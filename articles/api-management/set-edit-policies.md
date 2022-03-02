@@ -4,22 +4,20 @@ description: Learn how to set or edit Azure API Management policies. These polic
 services: api-management
 documentationcenter: ''
 author: dlepow
-manager: cflower
-editor: ''
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 11/01/2018
+ms.topic: how-to
+ms.date: 03/01/2022
 ms.author: danlep
 ---
 
 # How to set or edit Azure API Management policies
 
+
+
 The policy definition is an XML document that describes a sequence of inbound and outbound statements. The XML can be edited directly in the definition window. You can also select a predefined policy from the list that is provided to the right of the policy window. The statements applicable to the current scope are enabled and highlighted. Clicking an enabled statement adds the appropriate XML at the location of the cursor in the definition view. 
 
-For detailed information about policies, see [Policies in Azure API Management](api-management-howto-policies.md).
+For an overview, see [Policies in Azure API Management](api-management-howto-policies.md).
 
 ## Set or edit a policy
 
@@ -56,16 +54,6 @@ To set or edit a policy, follow the following steps:
  
 ## Configure scope
 
-Policies can be configured globally or at the scope of a Product, API, or Operation. To begin configuring a policy, you must first select the scope at which the policy should apply.
-
-Policy scopes are evaluated in the following order:
-
-1. Global scope
-2. Product scope
-3. API scope
-4. Operation scope
-
-The statements within policies are evaluated according to the placement of the `base` element, if it is present. Global policy has no parent policy and using the `<base>` element in it has no effect.
 
 To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
 
@@ -133,3 +121,15 @@ See the following related topics:
 + [Transform APIs](transform-api.md)
 + [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
 + [Policy samples](./policy-reference.md)
+
+
+
+[ADD/INCORP FROM OVERVIEW]
+You can edit the XML directly in the definition window, which also provides:
+* A list of statements to the right.
+* Statements applicable to the current scope enabled and highlighted.
+
+Clicking an enabled statement will add the appropriate XML at the cursor in the definition view. 
+
+> [!NOTE]
+> If the policy that you want to add is not enabled, ensure that you are in the correct scope for that policy. Each policy statement is designed for use in certain scopes and policy sections. To review the policy sections and scopes for a policy, check the **Usage** section in the [Policy Reference][Policy Reference].
