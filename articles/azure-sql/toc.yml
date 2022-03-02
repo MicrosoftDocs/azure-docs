@@ -961,6 +961,8 @@
       href: managed-instance/link-feature.md
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
+    - name: Data virtualization 
+      href: managed-instance/data-virtualization-overview.md
     - name: Management operations
       items:
       - name: Overview

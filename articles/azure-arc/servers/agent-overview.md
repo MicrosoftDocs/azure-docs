@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 02/28/2022
+ms.date: 03/01/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -239,6 +239,8 @@ The Connected Machine agent for Windows can be installed by using one of the fol
 * Manually by running the Windows Installer package `AzureConnectedMachineAgent.msi` from the Command shell.
 * From a PowerShell session using a scripted method.
 
+Installing, updating, and removing the Connected Machine agent will not require you to restart your server.
+
 After installing the Connected Machine agent for Windows, the following system-wide configuration changes are applied.
 
 * The following installation folders are created during setup.
@@ -287,6 +289,8 @@ After installing the Connected Machine agent for Windows, the following system-w
 ### Linux agent installation details
 
 The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/). The agent is installed and configured with the shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
+
+Installing, updating, and removing the Connected Machine agent will not require you to restart your server.
 
 After installing the Connected Machine agent for Linux, the following system-wide configuration changes are applied.
 
