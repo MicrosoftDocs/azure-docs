@@ -37,9 +37,6 @@ Operation Identifier| Description
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 | cognitiveservices.vision.spatialanalysis.debug | Generic operation which can be used to run all scenarios mentioned above. This option is more useful when you want to run multiple scenarios on the same camera or use system resources (e.g. GPU) more efficiently. |
 
-Spatial Analysis can also be run with [Live Video Analytics](../../azure-video-analyzer/video-analyzer-docs/overview.md) as their Video AI module. 
-
-<!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
 | Operation Identifier| Description|
 |---------|---------|
@@ -49,7 +46,6 @@ Spatial Analysis can also be run with [Live Video Analytics](../../azure-video-a
 | cognitiveservices.vision.spatialanalysis-persondistance.livevideoanalytics | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 | cognitiveservices.vision.spatialanalysis.livevideoanalytics | Generic operation which can be used to run all scenarios mentioned above. This option is more useful when you want to run multiple scenarios on the same camera or use system resources (e.g. GPU) more efficiently. |
 
-Live Video Analytics operations are also available in the `.debug` version (e.g. cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics.debug) which has the capability to visualize the video frames as being processed. You will need to run `xhost +` on the host computer to enable the visualization of the video frames and events
 
 > [!IMPORTANT]
 > The computer vision AI models detect and locate human presence in video footage and output by using a bounding box around a human body. The AI models do not attempt to discover the identities or demographics of individuals.
