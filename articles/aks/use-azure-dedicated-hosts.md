@@ -95,8 +95,8 @@ In this example, we will use [az vm host group create][az-vm-host-group-create] 
 az vm host group create \
 --name myHostGroup \
 -g myDHResourceGroup \
--z 1\
---platform-fault-domain-count 1
+-z 1 \
+--platform-fault-domain-count 1 \
 --automatic-placement true
 ```
 
