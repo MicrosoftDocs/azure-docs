@@ -50,6 +50,7 @@ The following key services are available in Azure public MEC:
 
 - Azure Virtual Machines (Azure public MEC supports these [SKUs](key-concepts.md#azure-virtual-machines))
 - Virtual Machine Scale Sets
+- Azure Private Link
 - Standard public IP
 - Azure Virtual Networks
 - Virtual network peering
@@ -58,7 +59,7 @@ The following key services are available in Azure public MEC:
 - Azure Bastion (must be deployed in a virtual network in the parent Azure region)
 - Azure managed disks (Azure public MEC supports Standard SSD)
 
-The following diagram explains how services are deployed at the Azure public MEC location. With this capability, enterprises and developers can deploy the customer workloads closer to their users.
+The following diagram shows how services are deployed at the Azure public MEC location. With this capability, enterprises and developers can deploy the customer workloads closer to their users.
 
 :::image type="content" source="./media/overview/azure-public-mec-service-deployment.png" alt-text="Diagram showing Azure public MEC service deployment.":::  
 
