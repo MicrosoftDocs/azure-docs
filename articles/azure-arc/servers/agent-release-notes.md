@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 02/28/2022
+ms.date: 03/02/2022
 ms.custom: references_regions
 ---
 
@@ -29,6 +29,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ### Fixed
 
 - Improved reliability when disconnecting the agent from Azure
+- Improved reliability when installing and uninstalling the agent on Active Directory Domain Controllers
 - Extended the device login timeout to 5 minutes
 - Removed resource constraints for Azure Monitor Agent to support high throughput scenarios
 
