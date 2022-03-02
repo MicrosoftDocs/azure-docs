@@ -294,7 +294,7 @@ First, deploy a new Azure Digital Twins instance, using the guidance in [Set up 
 
 Next, add a model and twin to your instance. The model file that you'll upload to the instance is part of the sample project you downloaded in the [Prerequisites](#prerequisites) section, located at *Simulation Example/simulation-dtdl-model.json*.
 
-You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to upload the Simulation model, and create a new twin called *simulation-1*.
+You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to upload the Simulation model, and create a new twin called simulation-1.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png" alt-text="Screenshot of Azure Digital Twins Explorer, showing the Simulation model and simulation-1 twin.":::
 
