@@ -32,5 +32,5 @@ ms.author: glenga
 <sup>7</sup> Guaranteed for up to 60 minutes.  
 <sup>8</sup> Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM.   
 <sup>9</sup> When running on Linux in a Premium plan, you're currently limited to 20 instances.  
-<sup>10</sup> See [App Service limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) for details.
+<sup>10</sup> See [App Service limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) for details.  
 <sup>11</sup> Including the production slot.
