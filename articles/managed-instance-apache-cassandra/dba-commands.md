@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021
 
 # DBA commands for Azure Managed Instance for Apache Cassandra
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra data centers. This article describes how to supplement the automated [management operations](management-operations.md) provided by the service using your own DBA commands, where the need arises.
+Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra data centers. This article describes how to supplement the automated [management operations](management-operations.md) provided by the service, using DBA commands where the need arises.
 
 ## DBA command support
 Azure Managed Instance for Apache Cassandra allows you to run `nodetool` and `sstable` commands via Azure CLI, for routine DBA administration. Not all commands are supported and there are some limitations. For supported commands, see the sections below.
@@ -28,15 +28,15 @@ Azure Managed Instance for Apache Cassandra provides the following Azure CLI com
     az managed-cassandra cluster invoke-command  --resource-group  <rg>   --cluster-name <cluster> --host <ip of data node> --command-name nodetool --arguments "<nodetool-subcommand>"="" "paramerter1"="" 
 ```
 
-The particular sub-command needs to be in the `--arguments` section with an empty value. Nodetool commands without a value are in the form: `"<command>"=""`. If the command has a value, it is in the form: `"<command>"="value"`.
+The particular subcommand needs to be in the `--arguments` section with an empty value. `Nodetool` commands without a value are in the form: `"<command>"=""`. If the command has a value, it is in the form: `"<command>"="value"`.
 
-Here is an example of how to run a nodetool command with no value, in this case the `nodetool status` command:
+Here's an example of how to run a `nodetool` command with no value, in this case the `nodetool status` command:
 
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command  --resource-group  <rg>   --cluster-name <cluster> --host <ip of data node> --command-name nodetool --arguments "status"="" 
 ```
 
-Here is an example of how to run a nodetool command with a value, in this case the `nodetool describecluster` command:
+Here's an example of how to run a `nodetool` command with a value, in this case the `nodetool describecluster` command:
 
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command  --resource-group  <rg>   --cluster-name <cluster> --host <ip of data node> --command-name nodetool --arguments "describecluster"="<cluster>" 
@@ -54,7 +54,7 @@ Both will return a json of the following form:
 
 ## How to run an sstable command
 
-SStable commands require read/write access to the cassandra data directory and the cassandra database to be stopped. To accomodate this two additional parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
+The `sstable` commands require read/write access to the cassandra data directory and the cassandra database to be stopped. To accomodate this two additional parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
 
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command  --resource-group  <test-rg>   --cluster-name <test-cluster> --host 10.1.0.6 --cassandra-stop-start true --readwrite true  --command-name sstableutil --arguments "system"="peers"
@@ -72,71 +72,71 @@ SStable commands require read/write access to the cassandra data directory and t
 
 For more information on each command please look at https://cassandra.apache.org/doc/latest/cassandra/tools/sstable/index.html
 
-* sstableverify
-* sstablescrub
-* sstablemetadata
-* sstablelevelreset
-* sstableutil
-* sstablesplit
-* sstablerepairedset
-* sstableofflinerelevel
-* sstableexpiredblockers
+* `sstableverify`
+* `sstablescrub`
+* `sstablemetadata`
+* `sstablelevelreset`
+* `sstableutil`
+* `sstablesplit`
+* `sstablerepairedset`
+* `sstableofflinerelevel`
+* `sstableexpiredblockers`
 
 ## List of supported nodetool commands
 
 For more information on each command please look at https://cassandra.apache.org/doc/latest/cassandra/tools/nodetool/nodetool.html
 
-* status
-* cleanup
-* clearsnapshot
-* compact
-* compactionhistory
-* compactionstats
-* describecluster
-* describering
-* disableautocompaction
-* disablehandoff
-* disablehintsfordc
-* drain
-* enableautocompaction
-* enablehandoff
-* enablehintsfordc
-* failuredetector
-* flush
-* garbagecollect
-* gcstats
-* getcompactionthreshold
-* getcompactionthroughput
-* getconcurrentcompactors
-* getendpoints
-* getinterdcstreamthroughput
-* getlogginglevels
-* getsstables
-* getstreamthroughput
-* gettimeout
-* gettraceprobability
-* gossipinfo
-* info
-* invalidatecountercache
-* invalidatekeycache
-* invalidaterowcache
-* listsnapshots
-* netstats
-* pausehandoff
-* proxyhistograms
-* rangekeysample
-* rebuild
-* rebuild_index - for arguments use `"keyspace"="table indexname..."`
-* refresh
-* refreshsizeestimates
-* reloadlocalschema
-* replaybatchlog
-* resetlocalschema
-* resumehandoff
-* ring
-* scrub
-* setcachecapacity - for argumemts use `"key-cache-capacity" = "<row-cache-capacity> <counter-cache-capacity>"`
-* setcachekeystosave - for arguments use `"key-cache-keys-to-save":"<row-cache-keys-to-save> <counter-cache-keys-to-save>"`
+* `status`
+* `cleanup`
+* `clearsnapshot`
+* `compact`
+* `compactionhistory`
+* `compactionstats`
+* `describecluster`
+* `describering`
+* `disableautocompaction`
+* `disablehandoff`
+* `disablehintsfordc`
+* `drain`
+* `enableautocompaction`
+* `enablehandoff`
+* `enablehintsfordc`
+* `failuredetector`
+* `flush`
+* `garbagecollect`
+* `gcstats`
+* `getcompactionthreshold`
+* `getcompactionthroughput`
+* `getconcurrentcompactors`
+* `getendpoints`
+* `getinterdcstreamthroughput`
+* `getlogginglevels`
+* `getsstables`
+* `getstreamthroughput`
+* `gettimeout`
+* `gettraceprobability`
+* `gossipinfo`
+* `info`
+* `invalidatecountercache`
+* `invalidatekeycache`
+* `invalidaterowcache`
+* `listsnapshots`
+* `netstats`
+* `pausehandoff`
+* `proxyhistograms`
+* `rangekeysample`
+* `rebuild`
+* `rebuild_index` - for arguments use `"keyspace"="table indexname..."`
+* `refresh`
+* `refreshsizeestimates`
+* `reloadlocalschema`
+* `replaybatchlog`
+* `resetlocalschema`
+* `resumehandoff`
+* `ring`
+* `scrub`
+* `setcachecapacity` - for argumemts use `"key-cache-capacity" = "<row-cache-capacity> <counter-cache-capacity>"`
+* `setcachekeystosave` - for arguments use `"key-cache-keys-to-save":"<row-cache-keys-to-save> <counter-cache-keys-to-save>"`
 * setcompactionthreshold - for arguments use `"<keyspace>"="<table> <minthreshold> <maxthreshold>`
 * setcompactionthroughput
 * setconcurrentcompactors
