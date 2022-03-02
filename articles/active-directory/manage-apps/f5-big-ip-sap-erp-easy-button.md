@@ -13,7 +13,7 @@ ms.author: v-nisba
 ms.collection: M365-identity-device-management
 ---
 
-#Tutorial: Configure F5’s BIG-IP Easy Button for SSO to SAP ERP
+# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to SAP ERP
 
 In this article, learn to secure SAP ERP using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 
@@ -162,7 +162,7 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 4. Confirm the BIG-IP can successfully connect to your tenant and select **Next**
 
-   ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-sap-erp-easy-button/azure-configuration-properties.png)
+   ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-sap-erp/azure-configuration-properties.png)
    
 ### Service Provider
 
@@ -200,7 +200,7 @@ This section defines all properties that you would normally use to manually conf
 
 Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario, select ** **SAP ERP Central Component > Add** to start the Azure configurations.
 
-   ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-sap-erp-easy-button/azure-config-add-app.png)
+   ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-sap-erp/azure-config-add-app.png)
 
 #### Azure Configuration
 
@@ -208,7 +208,7 @@ Easy Button provides a set of pre-defined application templates for Oracle Peopl
 
 2. Leave the **Sign On URL (optional)** blank to enable IdP initiated sign-on.
 
-   ![Screenshot for Azure configuration add display info](./media/f5-big-ip-sap-erp-easy-button/azure-config-display-name.png)
+   ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-sap-erp/azure-config-display-name.png)
 
 3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
  
@@ -228,7 +228,7 @@ When a user successfully authenticates to Azure AD, it issues a SAML token with 
 
 As our example AD infrastructure is based on a .com domain suffix used both, internally and externally, we don’t require any additional attributes to achieve a functional KCD SSO implementation. See the [advanced tutorial](f5-big-kerberos-advanced.md) for cases where you have multiple domains or user’s login using an alternate suffix. 
 
-   ![Screenshot for user attributes and claims](./media/f5-big-ip-sap-erp-easy-button/user-attributes-claims.png)
+   ![Screenshot for user attributes and claims](./media/f5-big-ip-easy-button-sap-erp/user-attributes-claims.png)
    
 You can include additional Azure AD attributes, if necessary, but for this scenario SAP ERP only requires the default attributes.
 
