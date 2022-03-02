@@ -13,15 +13,15 @@ ms.date: 01/04/2022
 
 To [create a lab](tutorial-setup-lab.md), you need to [create a lab plan](tutorial-setup-lab-plan.md) for your organization first. The lab plan serves as a collection of configurations and settings that apply to the labs created from it.
 
-The service creates and manages resources in internal Microsoft subscriptions. They aren't created in your own Azure subscription, except if using the [advanced networking](how-to-connect-vnet-injection.md) option. The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is [billed back to your Azure subscription](cost-management-guide.md) that contains the lab plan.
+The service creates and manages resources in a subscriptions managed by Microsoft. Resources aren't created in your own Azure subscription.  The [advanced networking](how-to-connect-vnet-injection.md) option is an exception as there are a few resources saved in your subscription.  Virtual machines are always hosted in the Microsoft managed subscription.  The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is [billed back to your Azure subscription](cost-management-guide.md) that contains the lab plan.
 
 ## Key capabilities
 
-Azure Lab Services supports the following key capabilities/features:
+Azure Lab Services supports the following key capabilities and features:
 
 - **Fast and flexible setup of a lab**. Using Azure Lab Services, lab owners can quickly [set up a lab](tutorial-setup-lab.md) for their needs. The service takes care of all Azure infrastructure including built-in scaling and resiliency of infrastructure for labs.
 
-- **Simplified experience for lab users**. Users who are invited to your lab get immediate access to the resources you give them inside your labs. They just need to sign in to see the full list of virtual machines they have access to across multiple labs. They can select a single button to connect to the virtual machines and start working. Users don’t need Azure subscriptions to use the service.  [Lab users can register](how-to-use-lab.md) to a lab with a registration code and can access the lab anytime to use the lab’s resources.
+- **Simplified experience for lab users**. Students who are invited to a lab get immediate access to the resources you give them inside your labs. They just need to sign in to see the full list of virtual machines for all labs that they can access. They can select a single button to connect to the virtual machines and start working. Users don’t need Azure subscriptions to use the service.  [Lab users can register](how-to-use-lab.md) to a lab with a registration code and can access the lab anytime to use the lab’s resources.
 
 - **Cost optimization and analysis**. [Keep your budget in check](cost-management-guide.md) by controlling exactly how many hours your lab users can use the virtual machines. Set up [schedules](how-to-create-schedules.md) in the lab to allow users to use the virtual machines only during designated time slots. Set up [auto-shutdown policies](how-to-configure-auto-shutdown-lab-plans.md) to avoid unneeded VM usage. Keep track of [individual users’ usage](how-to-manage-classroom-labs.md) and [set limits](how-to-configure-student-usage.md#set-quotas-for-users).
 
@@ -44,8 +44,7 @@ Visit the [Azure Global Infrastructure products by region](https://azure.microso
 
 [Azure Lab Services January 2022 Update (preview](lab-services-whats-new.md)) doesn’t move or store customer data outside the region it’s deployed in.  However, accessing Azure Lab Services resources through the Azure Lab Services portal may cause customer data to cross regions.
 
-There are no guarantees customer data will stay in the region it’s deployed to when using Azure Lab Services previous to the January 2022 Update (preview). 
-
+There are no guarantees customer data will stay in the region it’s deployed to when using Azure Lab Services previous to the January 2022 Update (preview).
 
 ## Next steps
 

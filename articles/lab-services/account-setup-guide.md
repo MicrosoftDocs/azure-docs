@@ -12,19 +12,22 @@ ms.date: 06/26/2020
 If you're an administrator, before you set up your Azure Lab Services environment, you first need to create a *lab account* within your Azure subscription. A lab account is a container for one or more labs, and it takes only a few minutes to set up.
 
 This guide includes three sections:
--  Prerequisites
--  Plan your lab account settings
--  Set up your lab account
+
+- Prerequisites
+- Plan your lab account settings
+- Set up your lab account
 
 ## Prerequisites
+
 The following sections outline what you need to do before you can set up a lab account.
 
-
 ### Access your Azure subscription
-To create a lab account, you need access to an Azure subscription that's already set up for your school. Your school might have one or more subscriptions. You use a subscription to manage billing and security for all your Azure resources and services, including lab accounts.  Azure subscriptions are usually managed by your IT department.  For more information, see the "Subscription" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#subscription).
+
+To create a lab account, you need access to an Azure subscription that's already set up for your school. Your school might have one or more subscriptions. You use a subscription to manage billing and security for all your Azure resources and services, including lab accounts.  Azure subscriptions are usually managed by your IT department.  For more information, see [Azure Lab Services - Administrator guide](./administrator-guide-1.md#subscription).
 
 ### Estimate how many VMs and VM sizes you need
-It's important to know how many [virtual machines (VMs) and VM sizes](./administrator-guide-1.md#vm-sizing) your school lab requires. 
+
+It's important to know how many [virtual machines (VMs) and  which VM sizes](./administrator-guide-1.md#vm-sizing) your school lab requires.
 
 For guidance on structuring your labs and images, see the blog post [Moving from a physical lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
 

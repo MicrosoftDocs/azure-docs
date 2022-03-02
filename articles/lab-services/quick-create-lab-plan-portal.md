@@ -8,7 +8,7 @@ ms.custom: template-quickstart
 
 # Quickstart: Create a lab plan using the Azure portal
 
-A lab plan for Azure Lab Services can be created through the Azure portal.  This quickstart shows you, as the admin, how to use the Azure portal to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  You'll also add a role assignment so an educator can create labs based on the lab plan.  For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+A lab plan for Azure Lab Services can be created through the Azure portal.  This quickstart shows you, as the admin, how to use the Azure portal to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  You'll also add a role assignment so an educator can create labs based on the lab plan.  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ The following steps show how to use the Azure portal to create a lab plan.
 When no longer needed, you can delete the resource group, lab plan, and all related resources.
 
 1. On the **Overview** page for the lab plan, select the **Resource group** link.
-1. At the top of the page for the resource group, select **Delete** resource group.
+1. At the top of the page for the resource group, select **Delete resource group**.
 1. A page will open warning you that you're about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
 
 ## Next steps

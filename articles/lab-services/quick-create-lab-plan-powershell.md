@@ -9,7 +9,7 @@ ms.custom: template-quickstart
 
 # Quickstart: Create a lab plan using PowerShell and the Azure modules
 
-In this article you, as the admin, use PowerShell and the Azure module to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  You'll also add a role assignment so an educator can create labs based on the lab plan.  For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+In this article you, as the admin, use PowerShell and the Azure module to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  You'll also add a role assignment so an educator can create labs based on the lab plan.  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ $plan = New-AzLabServicesLabPlan -Name "ContosoLabPlan" `
 
 ## Add a user to the Lab Creator role
 
-To create or edit up a lab in the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)), the educator must be assigned the **Lab Creator** role.  Assigning **Lab Creator** role on the lab plan's resource group will allow an educator to use all lab plans in that resource group.
+To create or edit up a lab in the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)), the educator must be assigned the **Lab Creator** role.  Assigning the **Lab Creator** role on the lab plan's resource group will allow an educator to use all lab plans in that resource group.
 
 ```powershell
 New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
