@@ -24,7 +24,7 @@ Cognitive Services can be categorized into four main pillars:
 * [Vision](#vision-apis)
 * [Speech](#speech-apis)
 * [Language](#language-apis)
-* [Decision](decision#-apis)
+* [Decision](#decision-apis)
 
 See the tables below to learn about the services offered within those categories. 
 
