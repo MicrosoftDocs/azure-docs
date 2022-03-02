@@ -27,8 +27,9 @@ zip default.zip *.*
 # Save app name as variable for convenience
 appName=<app-name>
 
-az appservice plan create --resource-group $groupName --name $appName --sku FREE --location $region
-az webapp create --resource-group $groupName --plan $appName --name $appName
+az appservice plan create --resource-group $groupName --name $appName --sku FREE --location $region --os-preference "Linux"
+az webapp create --resource-group $groupName --plan $appName --name $appName --runtime "node|14-lts"
+az webapp config appsettings set --resource-group $groupName --name $appName --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 az webapp deployment source config-zip --resource-group $groupName --name $appName --src ./default.zip
 ```
 
