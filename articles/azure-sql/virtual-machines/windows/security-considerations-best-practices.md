@@ -14,7 +14,7 @@ ms.subservice: security
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/30/2021
+ms.date: 03/02/2022
 ms.author: pamela
 ms.reviewer: mathoma
 ---
@@ -25,14 +25,14 @@ This topic includes overall security guidelines that help establish secure acces
 
 Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a virtual machine. For information about regulatory compliance with Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
 
-First review the security best practices for [SQL Server](/sql/relational-databases/security/) and [Azure VMs](../../../virtual-machines/security-recommendations.md) and then review this article for the best practices that apply to SQL Server on Azure VMs specifically. 
+First review the security best practices for [SQL Server](/sql/relational-databases/security/sql-server-security-best-practices) and [Azure VMs](../../../virtual-machines/security-recommendations.md) and then review this article for the best practices that apply to SQL Server on Azure VMs specifically. 
 
 To learn more about SQL Server VM best practices, see the other articles in this series: [Checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [HADR configuration](hadr-cluster-best-practices.md), and [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
 
 ## Checklist
 
 
-Review the following checklist  in this section for a brief overview of the security best practices that the rest of the article covers in greater detail.
+Review the following checklist in this section for a brief overview of the security best practices that the rest of the article covers in greater detail.
 
 SQL Server features and capabilities provide a method of security at the data level and is how you achieve [defense-in-depth](https://azure.microsoft.com/resources/videos/defense-in-depth-security-in-azure/) at the infrastructure level for cloud-based and hybrid solutions. In addition, with Azure security measures, it is possible to encrypt your sensitive data, protect virtual machines from viruses and malware, secure network traffic, identify and detect threats, meet compliance requirements, and provides a single method for administration and reporting for any security need in the hybrid cloud. 
 
