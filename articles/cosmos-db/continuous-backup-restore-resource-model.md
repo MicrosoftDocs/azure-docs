@@ -192,11 +192,12 @@ Each resource represents a single database and all the collections under that da
 To get a list of all MongoDB database and collection combinations that exist on the account at the given timestamp and location, see [Restorable Mongodb Resources - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-mongodb-resources/list) article.
 
 ### Restorable Graph resources
+
 Each resource represents a single database and all the graphs under that database. 
 
 |Property Name |Description  |
 |---------|---------|
-| gremlinDatabaseName	|The name of the Graph database. |
+| gremlinDatabaseName	| The name of the Graph database. |
 | graphNames | The list of Graphs under this database. |
 
 ### Restorable Graph database 
