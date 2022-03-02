@@ -92,7 +92,8 @@ try {
                 Write-Host "Uploading the" $PolicyId "policy..."
     
                 $graphuri = 'https://graph.microsoft.com/beta/trustframework/policies/' + $PolicyId + '/$value'
-                $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $policycontent -Headers $headers
+                $content = [System.Text.Encoding]::UTF8.GetBytes($policycontent)
+                $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $content -Headers $headers
     
                 Write-Host "Policy" $PolicyId "uploaded successfully."
             }
