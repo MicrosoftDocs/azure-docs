@@ -348,7 +348,7 @@ Use the following steps to perform a manual upgrade for Arc appliance virtual ma
 1. Delete the download template corresponding to the VM.
 1. Get the previous script `Config_avs` file and add the following configuration item:
     1. `"register":false`
-1. Rerun the onboarding script wit the changes from the jump box VM, without changing other config items.
+1. Rerun the onboarding script with the changes from the jump box VM, without changing other config items.
 
 
 
