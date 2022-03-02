@@ -278,4 +278,4 @@ When you're done with this quickstart, delete the sample logic app resource and 
 In this quickstart, you created your first logic app workflow in the Azure portal to check an RSS feed, and send an email for each new item. To learn more about advanced scheduled workflows, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Check traffic with a scheduled-based logic app](tutorial-build-schedule-recurring-logic-app-workflow.md)
+> [Check traffic with a schedule-based logic app workflow](tutorial-build-schedule-recurring-logic-app-workflow.md)
