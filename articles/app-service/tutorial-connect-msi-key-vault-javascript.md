@@ -33,6 +33,12 @@ az webapp config appsettings set --resource-group $groupName --name $appName --s
 az webapp deployment source config-zip --resource-group $groupName --name $appName --src ./default.zip
 ```
 
+The preceding commands:
+* Create a linux app service plan
+* Create a web app for Node.js 14 LTS
+* Configure the web app to install the npm packages
+* Upload the zip file, and install the npm packages
+
 ## Configure secrets as app settings
 
 [!INCLUDE [tutorial-content-below-code](./includes/tutorial-connect-msi-key-vault/cleanup.md)]
