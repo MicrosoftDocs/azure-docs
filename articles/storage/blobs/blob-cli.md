@@ -25,7 +25,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using a storage account access key. Using Azure AD credentials is recommended, and this article's examples use Azure AD exclusively.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to *login* to authorize with Azure AD credentials. Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to *login* to authorize with Azure AD credentials. Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization. For more information, see [Choose how to authorize access to blob data with Azure CLI](authorize-data-operations-cli.md).
 
 Run the `login` command to open a browser and connect to your Azure subscription.
 
@@ -53,19 +53,19 @@ az storage container create \
 
 ```
 
-When you use the examples included in this article, you'll need to replace the placeholder values in brackets with your own values. For more information about signing into Azure with PowerShell, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+When you use the examples included in this article, you'll need to replace the placeholder values in brackets with your own values. For more information about signing into Azure with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Upload blobs
 
 Azure CLI offers commands that perform operations on one resource or on multiple resources, depending on your requirements.
 
-To upload a file to a block blob, pass the required parameter values to the `az storage blob upload` command. Supply the source path and file name with the `--file` parameter, and the name of the destination container with the `--container-name` parameter. You'll also need to authorize the operation with the `--account-name` parameter. This command creates a new blob or overwrites the original blob if it already exists.
+To upload a file to a block blob, pass the required parameter values to the `az storage blob upload` command. Supply the source path and file name with the `--file` parameter, and the name of the destination container with the `--container-name` parameter. You'll also need to supply the `--account-name` parameter. This command creates a new blob or overwrites the original blob if it already exists.
 
-You can use the `az storage blob upload-batch` command to recursively upload multiple blobs to a storage container. All files from the specified container can be uploaded by omitting values for the `--source` and `--destination` parameter values. You can also use Unix filename pattern matching specify a range of files to upload by  with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
+You can use the `az storage blob upload-batch` command to recursively upload multiple blobs to a storage container. By omitting values for the `--source` and `--destination` parameter values, you can upload all files from the specified directory. You can also use Unix filename pattern matching specify a range of files to upload by  with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
 
 In the following example, the first operation uses the `az storage blob upload` command to upload a single, named file. The source file and destination storage container are specified with the `--file` and `--container-name` parameters.  
 
-The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-modified-since` parameter ensures that only files modified with the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
+The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-unmodified-since` parameter ensures that only files modified with the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
 
 ```azurecli-interactive
 
@@ -99,22 +99,23 @@ az storage blob upload-batch \
 
 ## List blobs
 
-The `az storage blob list` command is used to list blobs stored within a container. You can use various approaches to define the scope of your search. There's no restriction on the number of containers or blobs a storage account may have. To potentially avoid retrieving thousands of blobs, it's a good idea to limit the amount of data returned.
+By default, the `az storage blob list` command lists all blobs stored within a container. You can use various approaches to refine the scope of your search. There's no restriction on the number of containers or blobs a storage account may have. To potentially avoid retrieving thousands of blobs, it's a good idea to limit the amount of data returned.
 
-Use the `--prefix` parameter to select either a single known file or a range of files whose names begin with a defined string. To generate an unfiltered list of all blobs within a specific container, use the `--container` parameter alone, without a `--prefix` value.
+Use the `--prefix` parameter to select either a single known file or a range of files whose names begin with a defined string.
 
-If needed, specify other datasets to include in your request by passing a value to the `--include` parameter. The values can be combined, and include (*c*)opy, (*d*)eleted, (*m*)etadata, (*s*)napshots, (*v*)ersions, (*t*)ags, (*i*)mmutabilitypolicy, (*l*)egalhold, and (*d*)eletedwithversions.
-
-Passing a `--delimeter` parameter value returns a `BlobPrefix` element at the beginning of the result list. The value may consist of a single character or a string. If present, the returned element acts as a placeholder for all blobs whose names begin with the specified value. The element will represent the name of the blobs up to the appearance of the delimiter character.
+By default, only blobs are returned in a listing operation. In some scenarios, you may want to pass a value for the `--include` parameter to return additional types of objects such as soft-deleted blobs, snapshots, and versions. These values can be combined to return more than multiple object types.
 
 The `--num-results` parameter can be used to limit the number of unfiltered blobs returned from a container. A service limit of 5,000 is imposed on all Azure resources. This limit ensures that manageable amounts of data are retrieved and that performance isn't impacted. If the number of blobs returned exceeds either the `--num-results` value or the service limit, a continuation token is returned. This token allows you to use multiple requests to retrieve any number of blobs. More information is available on [Enumerating blob resources](/rest/api/storageservices/enumerating-blob-resources).
 
-The following example shows several approaches used to provide a list of blobs. The first approach lists a single blob within a specific container resource. The second approach uses the `--prefix` parameter to list all files with a prefix of *louis*. The search is restricted to five containers using the `--num-results` parameter. The third approach uses `--num-results` and `--marker` parameters to limit the retrieval of all blobs within a container.
+The following example shows several approaches used to provide a list of blobs. The first approach lists a single blob within a specific container resource. The second approach uses the `--prefix` parameter to list all blobs in all containers with a prefix of *louis*. The search is restricted to five containers using the `--num-results` parameter. The third approach uses `--num-results` and `--marker` parameters to limit the retrieval of all blobs within a container.
+
+For additional information, see the [az storage blob list](/cli/azure/storage/blob#az-storage-blob-list) reference.
 
 ```azurecli-interactive
 
 #!/bin/bash
 storageAccount="<storage-account>"
+blobName="demo-file.txt"
 containerName="demo-container"
 blobPrefix="img-louis"
 numResults=5
@@ -123,6 +124,7 @@ numResults=5
 az storage blob list \
     --container $containerName \
     --account-name $storageAccount \
+    --prefix $blobName
     --auth-mode login
 
 #Approach 2: Use the --prefix parameter to list blobs in all containers
@@ -145,30 +147,6 @@ do
         --account-name $storageAccount \
         --auth-mode login
 done
-
-#Approach 3: List batches of blobs using --num-results and --marker parameters
-
-containerList=$( \
-    az storage blob list \
-        --container $containerName \
-        --num-results $numResults \
-        --show-next-marker \
-        --output json \
-        --account-name $storageAccount \
-        --auth-mode login
-)
-
-while []
-do
-    echo 
-
-for row in $(echo "${containerList}" | jq -c '.[]' )
-do
-    tmpName=$(echo $row | jq -r '.name')
-    echo $tmpName
-    echo $row
-    echo ""
-done
 ```
 
 ## Download a blob
@@ -178,6 +156,8 @@ Depending on your use case, you'll use either the `az storage blob download` or 
 To recursively download multiple blobs from a storage container, use the `az storage blob download-batch` command. This command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
 
 The following sample code provides an example of both single and multiple download approaches. It also offers a simplified approach to searching all containers for specific files using a wildcard. Because some environments may have many thousands of resources, using the `--num-results` parameter is recommended.
+
+For additional information, see the [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) and [az storage blob download batch](/cli/azure/storage/blob#az-storage-blob-download-batch)reference.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -189,8 +169,6 @@ destinationPath="C:\\temp\\downloads\\"
 destinationFilename="downloadedBlob.txt"
 file="$destinationPath$destinationFilename"
 sourceBlobName="demo-file.txt"
-
-fileList="*.png"
 
 #Download a single named blob
 
@@ -239,11 +217,13 @@ done
 
 A blob exposes both system properties and user-defined metadata. System properties exist on each Blob Storage resource. Some properties are read-only, while others can be read or set. Under the covers, some system properties map to certain standard HTTP headers.
 
-User-defined metadata consists of one or more name-value pairs that you specify for a Blob Storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own specific purposes only, and don't affect how the resource behaves.
+User-defined metadata consists of one or more name-value pairs that you specify for a Blob Storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes, and don't affect how the resource behaves.
 
 ### Reading blob properties
 
 To read blob properties or metadata, you must first retrieve the blob from the service. Use the `az storage blob show` command to retrieve a blob's properties and metadata, but not its content. The following example retrieves a blob and lists its properties.
+
+For additional information, see the [az storage blob show](/cli/azure/storage/blob#az-storage-blob-show) reference.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -261,6 +241,8 @@ az storage blob show \
 ### Read and write blob metadata
 
 Blob metadata is an optional set of name/value pairs associated with a blob. As shown in the previous example, there's no metadata associated with a blob initially, though it can be added when necessary. To read, use the `az storage blob metadata show` command. To update blob metadata, you'll use `az storage blob metadata update` . For more information, see the [az storage blob metadata](/cli/azure/storage/blob/metadata) reference.
+
+For additional information, see the [az storage blob metadata](/cli/azure/storage/blob#az-storage-blob-metadata) reference.
 
 The example below first updates and then commits a blob's metadata, and then retrieves it.
 
@@ -291,19 +273,18 @@ az storage blob metadata show \
 
 ## Copy operations for blobs
 
-There are many scenarios in which blobs of different types may be copied. Examples in this article are limited to block blobs.
-
-### Copy source blobs to destination blobs
-
-Azure CLI offers commands that perform operations on one resource or on multiple resources, depending on your requirements.
+There are many scenarios in which blobs of different types may be copied. Examples in this article are limited to block blobs. Azure CLI offers commands that perform operations on one resource or on multiple resources, depending on your requirements.
 
 To copy a specific blob, use the `az storage blob copy start` command and specify values for source and destination containers and blobs. It's also possible to provide a uniform resource identifier (URI), share, or shared access signature (SAS) as the source.
 
-You can also specify the conditions under which the blob will be copied. These conditions can be set for either the source or destination blob. You can reference the last modified date, tag data, or ETag value. You may, for example, choose to copy blobs that haven't been recently modified to a separate container.
+You can also specify the conditions under which the blob will be copied. These conditions can be set for either the source or destination blob. You can reference the last modified date, tag data, or ETag value. You may, for example, choose to copy blobs that haven't been recently modified to a separate container. For more information, see [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
 
 You can use the `az storage blob copy start-batch` command to recursively copy multiple blobs between storage containers within the same storage account. This command requires values for the `--source-container` and `--destination-container` parameters, and can copy all files between the source and destination. Like other CLI batch commands, this command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
 
-You should consider the use of AzCopy for ease and performance, especially when copying blobs between storage accounts. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. Find out more about how to [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+> [!NOTE]
+> Consider the use of AzCopy for ease and performance, especially when copying blobs between storage accounts. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. Find out more about how to [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+
+For more information, see the [az storage blob copy](/cli/azure/storage/blob/copy) reference.
 
 The following sample code provides an example of both single and multiple copy operations. Because some environments may have many thousands of resources, using the `--num-results` parameter is recommended. The first example copies the **secret-town-road.png** blob from the **photos** container to the **locations** container. Both containers exist within the same storage account. The result verifies the success of the copy operation.
 
@@ -323,27 +304,9 @@ az storage blob copy start \
     --auth-mode login
 ```
 
-### Copy a snapshot to a destination blob with a different name
-
-The resulting destination blob is a writeable blob and not a snapshot.
-
-The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
-
-The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. In other words, a blob can't be the destination for multiple pending copy operations.
-
-When you copy a blob within the same storage account, it's a synchronous operation. When you copy across accounts, it's an asynchronous operation.
-
-The entire source blob or file is always copied. Copying a range of bytes or set of blocks isn't supported.
-
-When a blob is copied, it's system properties are copied to the destination blob with the same values.
-
-It also shows how to abort an asynchronous copy operation.
-
 ## Snapshot blobs
 
-A snapshot is a read-only version of a blob that's taken at a point in time. A snapshot of a blob is identical to its base blob, except that the blob URI has a *DateTime* value appended. This value indicates the time at which the snapshot was taken, and is the only distinction between the base blob and the snapshot.
-
-Any leases associated with the base blob don't affect the snapshot. You can’t acquire a lease on a snapshot. Read more about [Blob snapshots](snapshots-overview.md).
+Any leases associated with the base blob don't affect the snapshot. You can’t acquire a lease on a snapshot. Read more about [Blob snapshots](snapshots-overview.md). For more information, see the [az storage blob snapshot](/cli/azure/storage/blob#az-storage-blob-snapshot) reference.
 
 The following sample code retrieves a blob from a storage container and creates a snapshot of it.
 
@@ -369,6 +332,8 @@ Depending on your requirements, you may also utilize the *Copy Blob* operation t
 
 Changing tiers from **Cool** or **Hot** to **Archive** takes place almost immediately. After a blob is moved to the **Archive** tier, it's considered to be offline and can't be read or modified. Before you can read or modify an archived blob's data, you'll need to rehydrate it to an online tier. Read more about [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
 
+For additional information, see the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) reference.
+
 The following sample code sets the tier to **Hot** for a single, named blob within the `archive` container.
 
 ```azurecli-interactive
@@ -382,15 +347,6 @@ az storage blob set-tier
     --tier Hot \
     --account-name $storageAccount \
     --auth-mode login
-
-az storage blob copy start \
-    --source-container <source-container> \
-    --source-blob <source-blob> \
-    --destination-container <dest-container> \
-    --destination-blob <dest-blob> \
-    --account-name <storage-account> \
-    --tier hot \
-    --auth-mode login
 ```
 
 ## Operations using blob tags
@@ -401,6 +357,8 @@ Blob index tags make data management and discovery easier. Blob index tags are u
 > The code sample provided below uses pattern matching to obtain text from an XML file having a known structure. The example is used to illustrate a simplified approach for adding blob tags using basic Bash functionality. The use of an actual data parsing tool is always recommended when consuming data for production workloads.
 
 The following example illustrates how to add blob index tags to a series of blobs. The example reads data from an XML file and uses it to create index tags on several blobs. To use the sample code, create a local *blob-list.xml* file in your *C:\temp* directory. The XML data is provided below.
+
+For additional information, see the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) reference.
 
 ```xml
 <Venue Name="House of Prime Rib" Type="Restaurant">
@@ -451,7 +409,11 @@ done < /mnt/c/temp/bloblist.xml
 
 You can delete either a single blob or series of blobs with the `az storage blob delete` and `az storage blob delete-batch` commands. When deleting multiple blobs, you can use conditional operations, loops, or other automation as shown in the examples below.
 
+[!WARNING] Running the following examples may permanently delete blobs. Microsoft recommends enabling container soft delete to protect containers and blobs from accidental deletion. For more info, see Soft delete for containers.
+
 The following sample code provides an example of both single and multiple download approaches. The first example deletes a single, named blob. The second example illustrates the use of logical operations in Bash to delete multiple blobs. The third example uses the `delete-batch` command to delete all blobs with the format *bennett-x*, except *bennett-2*.
+
+For more information, see the [az storage blob delete](/cli/azure/storage/blob#az-storage-blob-delete) and [az storage blob delete-batch](/cli/azure/storage/blob#az-storage-blob-delete-batch) reference.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -507,7 +469,7 @@ az storage blob delete-batch \
     --auth-mode login
 ```
 
-In some cases, it's possible to retrieve blobs that have been deleted. If your storage account's soft delete data protection option is enabled, the `--include` parameter will return blobs deleted within the associated retention period. To learn more about soft delete, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
+If your storage account's soft delete data protection option is enabled, you can use a listing operation to return blobs deleted within the associated retention period. To learn more about soft delete, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
 
 Use the following example to retrieve a list of blobs deleted within container's associated retention period. The result displays a list of recently deleted blobs.
 
@@ -543,7 +505,7 @@ As mentioned in the [List blobs](#list-blobs) section, you can configure the sof
 
 The following examples restore soft-deleted blobs with the `az storage blob undelete` method. The first example uses the `--name` parameter to restore a single named blob. The second example uses a loop to restore the remainder of the deleted blobs. Before you can follow this example, you'll need to enable soft delete on at least one of your storage accounts.
 
-To learn more about the soft delete data protection option, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
+To learn more about the soft delete data protection option, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article or the [az storage blob undelete](/cli/azure/storage/blob#az-storage-blob-undelete) reference.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -585,6 +547,6 @@ done
 
 ## Next steps
 
+- [Choose how to authorize access to blob data with Azure CLI](/azure/storage/blobs/authorize-data-operations-cli)
 - [Run PowerShell commands with Azure AD credentials to access blob data](/azure/storage/blobs/authorize-data-operations-cli)
-- [Create a storage account](/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-cli)
 - [Manage blob containers using CLI](blob-containers-cli.md)
