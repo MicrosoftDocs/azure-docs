@@ -18,7 +18,7 @@ Data use governance is a feature within your registered Azure Purview resources 
 
 ## Prerequisites
 
-To register a data source, resource group, or subscription in Azure Purview with the *Data use Governance* option set, a user nees to have **either one of the following** IAM role combinations on that resource:
+To register a data source, resource group, or subscription in Azure Purview with the *Data use Governance* option set, a user needs to have **either one of the following** IAM role combinations on that resource:
 
 - IAM *Owner*
 - Both IAM *Contributor* + IAM *User Access Administrator*
