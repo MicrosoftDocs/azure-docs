@@ -87,6 +87,8 @@ Users with this role have the highest level of access. They can:
 
 You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. They all inherit the department administrator role.
 
+The enterprise administrator role can be assigned to multiple accounts.
+
 ### EA purchaser
 
 Users with this role have permissions to purchase Azure services, but are not allowed to manage accounts. They can:
