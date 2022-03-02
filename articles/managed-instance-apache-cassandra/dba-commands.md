@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021
 
 # DBA commands for Azure Managed Instance for Apache Cassandra
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra data centers. This article describes how to supplement the automated [management operations](management-operations.md) provided by the service, using DBA commands where the need arises.
+Azure Managed Instance for Apache Cassandra provides automated deployment, scaling, and [management operations](management-operations.md) for open-source Apache Cassandra data centers. This article describes how to run DBA commands manually. 
 
 ## DBA command support
 Azure Managed Instance for Apache Cassandra allows you to run `nodetool` and `sstable` commands via Azure CLI, for routine DBA administration. Not all commands are supported and there are some limitations. For supported commands, see the sections below.
@@ -54,7 +54,7 @@ Both will return a json of the following form:
 
 ## How to run an sstable command
 
-The `sstable` commands require read/write access to the cassandra data directory and the cassandra database to be stopped. To accomodate this two additional parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
+The `sstable` commands require read/write access to the cassandra data directory and the cassandra database to be stopped. To accomodate this, two additional parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
 
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command  --resource-group  <test-rg>   --cluster-name <test-cluster> --host 10.1.0.6 --cassandra-stop-start true --readwrite true  --command-name sstableutil --arguments "system"="peers"
@@ -70,7 +70,7 @@ The `sstable` commands require read/write access to the cassandra data directory
 
 ## List of supported sstable commands
 
-For more information on each command please look at https://cassandra.apache.org/doc/latest/cassandra/tools/sstable/index.html
+For more information on each command, see https://cassandra.apache.org/doc/latest/cassandra/tools/sstable/index.html
 
 * `sstableverify`
 * `sstablescrub`
@@ -84,7 +84,7 @@ For more information on each command please look at https://cassandra.apache.org
 
 ## List of supported nodetool commands
 
-For more information on each command please look at https://cassandra.apache.org/doc/latest/cassandra/tools/nodetool/nodetool.html
+For more information on each command, see https://cassandra.apache.org/doc/latest/cassandra/tools/nodetool/nodetool.html
 
 * `status`
 * `cleanup`
@@ -137,27 +137,27 @@ For more information on each command please look at https://cassandra.apache.org
 * `scrub`
 * `setcachecapacity` - for argumemts use `"key-cache-capacity" = "<row-cache-capacity> <counter-cache-capacity>"`
 * `setcachekeystosave` - for arguments use `"key-cache-keys-to-save":"<row-cache-keys-to-save> <counter-cache-keys-to-save>"`
-* setcompactionthreshold - for arguments use `"<keyspace>"="<table> <minthreshold> <maxthreshold>`
-* setcompactionthroughput
-* setconcurrentcompactors
-* sethintedhandoffthrottlekb
-* setinterdcstreamthroughput
-* setstreamthroughput
-* settimeout
-* settraceprobability
-* statusbackup
-* statusbinary
-* statusgossip
-* statushandoff
-* stop
-* tablehistograms
-* tablestats
-* toppartitions
-* tpstats
-* truncatehints
-* verify
-* version
-* viewbuildstatus
+* `setcompactionthreshold` - for arguments use `"<keyspace>"="<table> <minthreshold> <maxthreshold>`
+* `setcompactionthroughput`
+* `setconcurrentcompactors`
+* `sethintedhandoffthrottlekb`
+* `setinterdcstreamthroughput`
+* `setstreamthroughput`
+* `settimeout`
+* `settraceprobability`
+* `statusbackup`
+* `statusbinary`
+* `statusgossip`
+* `statushandoff`
+* `stop`
+* `tablehistograms`
+* `tablestats`
+* `toppartitions`
+* `tpstats`
+* `truncatehints`
+* `verify`
+* `version`
+* `viewbuildstatus`
 
 ## Next steps
 
