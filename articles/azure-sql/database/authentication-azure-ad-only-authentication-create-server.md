@@ -22,7 +22,7 @@ This how-to guide outlines the steps to create a [logical server](logical-server
 
 - Version 2.26.1 or later is needed when using The Azure CLI. For more information on the installation and the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 - [Az 6.1.0](https://www.powershellgallery.com/packages/Az/6.1.0) module or higher is needed when using PowerShell.
-- If you're provisioning a managed instance using the Azure CLI, PowerShell, or Rest API, a virtual network and subnet needs to be created before you begin. For more information, see [Create a virtual network for Azure SQL Managed Instance](../managed-instance/virtual-network-subnet-create-arm-template.md).
+- If you're provisioning a managed instance using the Azure CLI, PowerShell, or REST API, a virtual network and subnet needs to be created before you begin. For more information, see [Create a virtual network for Azure SQL Managed Instance](../managed-instance/virtual-network-subnet-create-arm-template.md).
 
 ## Permissions
 
@@ -138,9 +138,9 @@ New-AzSqlServer -ResourceGroupName "<ResourceGroupName>" -Location "<Location>" 
 
 For more information, see [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver).
 
-# [Rest API](#tab/rest-api)
+# [REST API](#tab/rest-api)
 
-The [Servers - Create Or Update](/rest/api/sql/2020-11-01-preview/servers/create-or-update) Rest API can be used to create a logical server with Azure AD-only authentication enabled during provisioning. 
+The [Servers - Create Or Update](/rest/api/sql/2020-11-01-preview/servers/create-or-update) REST API can be used to create a logical server with Azure AD-only authentication enabled during provisioning. 
 
 The script below will provision a logical server, set the Azure AD admin as `<AzureADAccount>`, and enable Azure AD-only authentication. The server SQL Administrator login will also be created automatically and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this provisioning, the SQL Administrator login won't be used.
 
@@ -371,9 +371,9 @@ New-AzSqlInstance -Name "<managedinstancename>" -ResourceGroupName "<ResourceGro
 
 For more information, see [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance).
 
-# [Rest API](#tab/rest-api)
+# [REST API](#tab/rest-api)
 
-The [Managed Instances - Create Or Update](/rest/api/sql/2020-11-01-preview/managed-instances/create-or-update) Rest API can be used to create a managed instance with Azure AD-only authentication enabled during provisioning.
+The [Managed Instances - Create Or Update](/rest/api/sql/2020-11-01-preview/managed-instances/create-or-update) REST API can be used to create a managed instance with Azure AD-only authentication enabled during provisioning.
 
 > [!NOTE]
 > The script requires a virtual network and subnet be created as a prerequisite.

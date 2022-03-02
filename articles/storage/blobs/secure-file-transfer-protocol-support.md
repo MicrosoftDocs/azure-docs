@@ -109,8 +109,8 @@ You can use many different SFTP clients to securely connect and then transfer fi
 |----------|--------------|--------------------|---------------|------------|
 | rsa-sha2-256 | ecdh-sha2-nistp384 | aes128-gcm@openssh.com | hmac-sha2-256 | ssh-rsa |
 | rsa-sha2-512 | ecdh-sha2-nistp256 | aes256-gcm@openssh.com | hmac-sha2-512 | ecdsa-sha2-nistp256 |
-| ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| | ecdsa-sha2-nistp384 |
-| ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
+| ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| hmac-sha2-256-etm@openssh.com | ecdsa-sha2-nistp384 |
+| ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc | hmac-sha2-512-etm@openssh.com | 
 ||| aes192-cbc ||
 
 SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support based on security considerations. We strongly recommend that customers utilize Microsoft Security Development Lifecycle (SDL) approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations).
