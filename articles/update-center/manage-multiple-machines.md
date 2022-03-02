@@ -1,6 +1,6 @@
 ---
 title: Manage multiple machines in update management center (private preview)
-description: This article details how to use update management center (private preview) in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
+description: The article details how to use update management center (private preview) in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
 ms.service: update-management-center
 ms.date: 08/25/2021
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.author: magoedte
 
 # How to manage multiple machines in update management center (private preview)
 
-You can use update management center (private preview) in Azure to manage operating system updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. You can quickly assess the status of available operating system updates, deploy updates now, set up recurring update deployment schedule, take a look at the number of machines managed and how, and other relevant details.
+You can use update management center (private preview) in Azure to manage operating system updates for your Windows Server and Linux machines in Azure. You can also use in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. You can quickly assess the status of available operating system updates, deploy updates, set up recurring update deployment schedule, insight on number of machines managed and how they are managed, and other relevant details.
 
 Instead of performing these actions from a selected Azure VM or Arc-enabled server, you can manage all of your machines in a subscription.
 
@@ -28,14 +28,14 @@ On the **Overview** page, the summary tiles help answer the following questions:
 
 * **OS updates status of machines** tile informs you what the update status information for machines that were assessed and have applicable or needed updates. You can filter results based on classification types, and by default all classifications are selected. 
 
-   This graph provides a snapshot for all your machines that you have rights to in your subscription, regardless of whether or not you have used update management center (private preview) for that machine or not. This assessment data is coming from Azure Resource Graph, which is stored for 7 days. 
+   The graph provides a snapshot for all your machines that you have rights to in your subscription, regardless of whether or not you have used update management center (private preview) for that machine or not. This assessment data is coming from Azure Resource Graph, which is stored for seven days. 
 
-   On the basis of assessment data available, machines are classified into the following categories:
+   From assessment data available, machines are classified into the following categories:
 
    * **No pending updates** - Based on the latest assessment performed, no updates are pending for these machines and these machines are up-to-date.
-   * **With pending updates** - Based on the latest assessment performed, updates are pending for these machines and these machines are not up-to-date.
+   * **With pending updates** - Based on the latest assessment performed, updates are pending for these machines and these machines aren't up-to-date.
    * **With pending reboot** - These machines are pending a reboot in order for the updates to take effect.
-   * **No data available** - No assessment data is available for these machines. There could be multiple reasons for no assessment data such as: no assessment has been done over the last 7 days, machine has an unsupported OS, or the machine is in an unsupported region and an assessment cannot be performed.
+   * **No data available** - No assessment data is available for these machines. There could be multiple reasons for no assessment data such as: no assessment has been done over the last seven days, machine has an unsupported OS, or the machine is in an unsupported region and an assessment can't be performed.
 
 * **Azure Virtual Machines by OS update configuration** represents all of the Azure or Arc-enabled machines inventoried in the subscription, summarize by each update orchestration method. Values are:
 
@@ -48,17 +48,18 @@ On the **Overview** page, the summary tiles help answer the following questions:
 
 * **OS update management run status** tile shows how many update deployments failed and successfully completed by time range selected. By default, the tile shows the last 30 days. Using the **Time** picker, you can select a different preset range.
 
-Narrow the results in the tiles by using filters to focus on a subset of your resources. The selectors above the tiles return subscriptions, resource groups, resource types (that is, Azure VMs and Arc-enabled servers), regions, and OS type (that is Windows or Linux) based on the Azure role-based access rights you've been granted. You can combine filters to scope to a specific resource. Clicking on any one of the tiles opens the **Machines** page.
+Narrow the results in the tiles by using filters to focus on a subset of your resources. The selectors above the tiles return subscriptions, resource groups, resource types, (Azure VMs and Arc-enabled servers) regions, and OS type (Windows or Linux) based on the Azure role-based access rights you've been granted. You can combine filters to scope to a specific resource. Clicking on any one of the tiles opens the **Machines** page.
 
-Clicking on the **OS updates status of machines** and **Azure Virtual Machines by OS update configuration** directs you to the **Machines** page. Clicking on the **OS update management run status**, directs you to the **History** page. 
+- Click the **OS updates status of machines** and **Azure Virtual Machines by OS update configuration** to go  **Machines** page. 
+- Click the **OS update management run status**, to go to **History** page. 
 
 ## Summarized machine status
 
-Update management center (private preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to update management center (private preview). This section shows you how to filter information to better understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. In Update Center, select **Machines** from the left menu.
+Update management center (private preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to update management center (private preview). The section shows you how to filter information to better understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. In Update Center, select **Machines** from the left menu.
 
 ![Update management center Machines page in the Azure portal](./media/manage-multiple-machines/update-center-machines-page.png)
 
-On the page, the table lists all of the machines in the specified subscription, and for each machine it helps you understand the following:
+On the page, the table lists all of the machines in the specified subscription, and for each machine it helps you understand the following details:
 
 * Based on the latest assessment, the total number of updates available identified as applicable to the machine's OS.
 * The operating system running on the machine.
@@ -66,7 +67,7 @@ On the page, the table lists all of the machines in the specified subscription, 
 * Under the column **Update configuration**, the machine's patch mode. Values are:
 
    * **AutomaticByOS** - The machine is automatically updated by the OS.
-   * **AutomaticByPlatform** - The Azure VM is automatically updated by the platform. The VM is set to [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching), and for an Azure virtual machine scale set, it is set to [automatic OS image upgrade](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+   * **AutomaticByPlatform** - The Azure VM is automatically updated by the platform. The VM is set to [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching), and for an Azure virtual machine scale set, it's set to [automatic OS image upgrade](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
    * **ImageDefault** - For Linux machines, its default patching configuration is used.
    * **Manual** - You control the application of patches to a machine by applying patches manually inside the machine. In this mode for the Windows OS, automatic updates is disabled.
 
@@ -80,15 +81,15 @@ To manage the machine's update settings, see the following article [Manage updat
 
 ### Assess now
 
-For machines that have not had a compliance assessment scan for the first time, you can select one or more of them from the list and then select the **Assess now** option. You will receive status messages as the configuration is performed.
+For machines that haven't had a compliance assessment scan for the first time, you can select one or more of them from the list and then select the **Assess now** option. You'll receive status messages as the configuration is performed.
 
 ![Initiating a scan assessment for selected machines with the Assess now option](./media/manage-multiple-machines/update-center-assess-now-multi-selection.png)
 
-If it's an initial compliance assessment, the Update management center virtual machine extension is initiated and then the scan is performed. Otherwise, a compliance scan is initiated, and then the results are forwarded and stored in Azure Resource Graph. This process takes several minutes. When the assessment is completed, a banner on the page informs you it is complete.
+If it's an initial compliance assessment, the Update management center virtual machine extension is initiated and then the scan is performed. Otherwise, a compliance scan is initiated, and then the results are forwarded and stored in Azure Resource Graph. This process takes several minutes. When the assessment is completed, a banner on the page informs you it's complete.
 
 ![Assessment banner on Manage Machines page example](./media/manage-multiple-machines/update-center-assess-now-complete-banner.png)
 
-Selecting a machine from the list opens update management center (private preview) scoped to that machine, and from here you can view its detailed assessment status, update history, configure its patch orchestration options, and initiate an update deployment. 
+Select a machine from the list to open update management center (private preview) scoped to that machine. Here, you can view its detailed assessment status, update history, configure its patch orchestration options, and initiate an update deployment. 
 
 ### Deploy updates now
 
@@ -96,7 +97,7 @@ For assessed machines that are reporting updates available, you can select one o
 
 ![Install updates now for multiple machines on Manage Machines page example.](./media/manage-multiple-machines/update-center-install-updates-now-multi-selection.png)
 
-You are prompted to confirm for the machines selected, that you want to proceed with installing updates on them. Review the information and then select **Install Now** to proceed. Complete the following steps in the **Install one-time updates
+You're prompted to confirm for the machines selected, that you want to proceed with installing updates on them. Review the information and then select **Install Now** to proceed. Complete the following steps in the **Install one-time updates
 ** wizard to configure your update deployment.
 
 1. On the **Basics** page, select the **Reboot option** and **Maximum duration (in minutes)** and then select **Next**.
@@ -114,7 +115,7 @@ You are prompted to confirm for the machines selected, that you want to proceed 
 1. After selecting your update classification criteria, verify the list updates to reflect your criteria. Select **Next** to continue with your selection.
 1. On the **Review + install** page, verify your update deployment options and then select **Review+install**. 
 
-A notification is generated to inform you the activity has started and another is created when it is completed. When it's successfully completed, the installation operation results are available to view from either the **Update history** tab, when you select the machine from the **Machines** page, or on the **History** page, which you are redirected to automatically after initiating the update deployment. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
+A notification appears to confirm that an activity has started and another is created when it's completed. When it's successfully completed, the installation operation results are available to view from either the **Update history** tab, when you select the machine from the **Machines** page, or on the **History** page, which you are redirected to automatically after initiating the update deployment. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
 
 ### Set up a recurring update deployment
 
@@ -139,15 +140,15 @@ Within the history page, select **By maintenance run ID** tab to view history of
 
 ![Update Center History page by maintenance run ID in the Azure portal.](./media/manage-multiple-machines/update-center-history-by-maintenance-runID.png)
 
-When you click on any one maintenance run ID records, you can view an expanded status of the maintenance run. It contains information from both machines point of view as well as from updates point of view. It includes how many machines got updated, along with the status of each of the machines in form of a pie chart. It also shows how many updates got installed along with the status of the updates in form of pie chart. At the bottom, it contains list view of both machines and updates which were a part of this maintenance run.
+When you select on any one maintenance run ID records, you can view an expanded status of the maintenance run. It contains information from both machines point of view and from updates point of view. It includes how many machines got updated, along with the status of each of the machines in form of a pie chart. It also shows how many updates got installed along with the status of the updates in form of pie chart. At the bottom, it contains list view of both machines and updates that were a part of this maintenance run.
 
 ![Maintenance run ID record](./media/manage-multiple-machines/update-center-maintenance-run-record.png)
 
 ### Resource Graph
 
-The update assessment and deployment data is available for query in Azure Resource Graph. You can apply this data to scenarios that include security compliance, security operations, and troubleshooting. Selecting the option **Go to resource graph** takes you to Resource Graph Explorer, which enables running Resource Graph queries directly in the Azure portal. Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. For more information, see [First query with Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
+The update assessment and deployment data are available for query in Azure Resource Graph. You can apply this data to scenarios that include security compliance, security operations, and troubleshooting. Selecting the option **Go to resource graph** takes you to Resource Graph Explorer, which enables running Resource Graph queries directly in the Azure portal. Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. For more information, see [First query with Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
 
-When Resource Graph Explorer opens, it is automatically populated with the same query used to generate the results presented in the table on the **History** page in update management center (private preview). Before going any further, you should review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
+When Resource Graph Explorer opens, it's automatically populated with the same query used to generate the results presented in the table on the **History** page in update management center (private preview). Before going any further, you should review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
 
 ## Next steps
 

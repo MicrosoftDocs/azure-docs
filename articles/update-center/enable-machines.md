@@ -1,6 +1,6 @@
 ---
 title: Enable update management center (private preview)
-description: This article describes how to enable update management center (private preview) for Windows and Linux machines running on Azure or outside of Azure connected to Azure Arc-enabled servers.
+description: The article describes how to enable update management center (private preview) for Windows and Linux machines running on Azure or outside of Azure connected to Azure Arc-enabled servers.
 ms.service: update-management-center
 author: mgoedtel
 ms.author: magoedte
@@ -10,14 +10,14 @@ ms.topic: conceptual
 
 # How to enable update management center (private preview)
 
-This article describes how to enable update management center (private preview) in Azure for Windows and Linux machines running on Azure or outside of Azure connected to Azure Arc-enabled servers using one of the following methods:
+The article describes how to enable update management center (private preview) in Azure for Windows and Linux machines running on Azure or outside of Azure connected to Azure Arc-enabled servers using one of the following methods:
 
 * From the Azure portal
 * Using Azure PowerShell
 * Using the Azure CLI
 * Using the Azure REST API
 
-Enabling update management center (private preview) functionality requires registering the various feature resource providers in your Azure subscription, as detailed below. After registering for Private Preview features, you need to access Private Preview link: **https://aka.ms/umc-preview**
+To enable update management center (private preview) functionality, you must register the various feature resource providers in your Azure subscription, as detailed below. After registering for Private Preview features, you need to access Private Preview link: **https://aka.ms/umc-preview**
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Enabling update management center (private preview) functionality requires regis
 
 ## From the Azure portal
 
-The following examples describe how to enable various update management center (private preview) features for your subscription using the Azure portal.
+The following examples describe how to enable update management center (private preview) features for your subscription using the Azure portal.
 
 ### [Azure VM on-demand assessment and on-demand patching](#tab/portal-azure-vm)  
 
@@ -41,7 +41,7 @@ The following examples describe how to enable various update management center (
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**
 1. On the Azure portal menu, search for **Preview features**. Select it from the available options.
-1. On the **Preview features** page, search for **updatecenter**. Select **On-demand Azure Arc for Servers guest patching preview** from the list.
+1. On the **Preview features** page, search for **update center**. Select **On-demand Azure Arc for Servers guest patching preview** from the list.
 1. On the **On-demand Azure Arc for Servers guest patching preview** pane, select **Register** to register the provider with your subscription.
 
 After the **On-demand Azure Arc for Servers guest patching preview** resource provider is registered for your subscription, you need to complete the process by re-registering the **Microsoft.HybridCompute** provider. 
@@ -61,20 +61,22 @@ For Azure machines, your subscription needs to be allowlisted for Preview featur
 1. On the **Preview features** page, search for **InGuestAutoAssessmentVMPreview**. Select **Virtual Machine Guest Automatic Patch Assessment Preview** from the list.
 1. On the **Virtual Machine Guest Automatic Patch Assessment Preview** pane, select **Register** to register the provider with your subscription.
 
-**Please note**: This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
+>[!Note]
+> This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
 
 After registering for the above mentioned features, go to Update management center Private Preview portal link: **https://aka.ms/umc-preview**. For more details on
 
 ### [Scheduled patching for both Azure VMs and Arc-enabled servers](#tab/portal-scheduled-patching)
 
-For using scheduled patching functionality for Azure VMs as well as Arc-enabled servers, your subscriptions for both machine and maintenance configurations must be allowlisted for **InGuestScheduledPatchVMPreview**. Follow the steps below for resgistering for Preview feature **InGuestScheduledPatchVMPreview**:
+To use scheduled patching functionality for Azure VMs and Arc-enabled servers, your subscriptions for both machine and maintenance configurations must be allowlisted for **InGuestScheduledPatchVMPreview**. Follow the steps below to register for Preview feature **InGuestScheduledPatchVMPreview**:
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**
 1. On the Azure portal menu, search for **Preview features**. Select it from the available options.
 1. On the **Preview features** page, search for **InGuestScheduledPatchVMPreview**. Select **Allows subscription to enable automatic VM guest patching on schedule** from the list.
 1. On the **Allows subscription to enable automatic VM guest patching on schedule** pane, select **Register** to register the provider with your subscription.
 
-**Please note**: This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
+>[!Note]
+> This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
 
 For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching)
 
@@ -118,7 +120,8 @@ To register the resource provider, use:
 Register-AzResourceProvider -FeatureName InGuestScheduledPatchVMPreview -ProviderNamespace Microsoft.Compute
 ```
 
-**Please note**: This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
+>[!Note]
+> This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
 
 For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching)
 
@@ -130,7 +133,8 @@ For Arc-enabled servers, no onboarding is required for using Periodic assessment
 Register-AzResourceProvider -FeatureName InGuestAutoAssessmentVMPreview -ProviderNamespace Microsoft.Compute
 ```
 
-**Please note**: This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
+>[!Note]
+> This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
 
 ---
 
@@ -169,7 +173,8 @@ For Arc-enabled servers, no onboarding is required for using Periodic assessment
 az feature register --namespace Microsoft.Compute --name InGuestAutoAssessmentVMPreview
 ```
 
-**Please note**: This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
+> [!Note]
+> This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
 
 ### [Scheduled patching for both Azure VMs and Arc-enabled servers](#tab/cli-scheduled-patching)
 To register a resource provider, use:
@@ -178,7 +183,8 @@ To register a resource provider, use:
 az feature register --namespace Microsoft.Compute --name InGuestScheduledPatchVMPreview
 ```
 
-**Please note**: This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
+>[!Note]
+> This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
 
 For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching)
 
@@ -190,7 +196,8 @@ For detailed steps to start using scheduled patching, refer to [Prerequisites fo
 
 The following examples describe how to enable the update management center (private preview) features in Azure for your subscription using the [Azure REST API](/rest/api/azure).
 
-**Please note**: Using REST APIs is only applicable for Azure VMs
+> [!Note]
+> Using REST APIs is only applicable for Azure VMs
 
 ### [Azure VM on-demand assessment and on-demand patching](#tab/restapi-azurevm)
 
@@ -209,7 +216,8 @@ POST on `/subscriptions/subscriptionId/providers/Microsoft.Features/providers/Mi
 
 Replace the value `subscriptionId` with the ID of the target subscription.
 
-**Please note**: This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
+> [!Note]
+> This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
 
 For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching)
 
