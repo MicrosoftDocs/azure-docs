@@ -1,7 +1,6 @@
 ---
 title: Use query labels in Synapse SQL
 description: Included in this article are essential tips for using query labels in Synapse SQL.
-services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics

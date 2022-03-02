@@ -6,10 +6,9 @@ metadata:
   author: ajaykar
   ms.service: purview
   ms.subservice: purview-insights
-  ms.topic: 
+  ms.topic: faq
   ms.date: 09/17/2021
   ms.author: ajaykar
-    
 title: Sensitivity labels in Azure Purview FAQ
 summary: |
   This article lists frequently asked questions about sensitivity labeling in Azure Purview, with their answers and links to more information as needed.</br></br>
@@ -79,7 +78,7 @@ sections:
           Only compliance administrators, global administrators of the tenant, or a custom role that has access to the [Set-PolicyConfig](/powershell/module/exchange/set-policyconfig) cmdlet can [enable labels for Azure Purview](how-to-automatically-label-your-content.md). To verify whether an administrator has extended labeling to Azure Purview, connect to Exchange Online PowerShell and run the [Get-PolicyConfig](/powershell/module/exchange/get-policyconfig) cmdlet.  For example:
           
           ~~~powershell
-          Get-PolicyConfig | format-list Azure Purview*
+          Get-PolicyConfig | format-list Purview*
           ~~~
 
           When labeling has been extended to Azure Purview, you'll see **True** for the **PurviewLabelConsent** parameter and a timestamp indicating when consent was activated and an **ObjectId** of who activated consent.

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 02/17/2022
 ms.author: alkohli
 ---
 
@@ -40,6 +40,7 @@ Before you can enable Azure Arc on Kubernetes cluster, make sure that you have c
     - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
+    
     
 1. You have completed the procedure described in [Access the Kubernetes cluster on Azure Stack Edge Pro device](azure-stack-edge-gpu-create-kubernetes-cluster.md). You have:
     
@@ -86,7 +87,7 @@ You can also register resource providers via the `az cli`. For more information,
 
     `az ad sp create-for-rbac --name "<Informative name for service principal>"`  
 
-    For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
+    For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell). If using `az cli` on a local client to create the service principal, make sure that you are running version 2.25 or later.
 
     Here is an example. 
     
