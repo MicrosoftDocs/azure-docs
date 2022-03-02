@@ -292,12 +292,19 @@ To create an access policy for an Azure Storage account, follow the guidelines b
 
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
+### Enable data use governance
+
+Data use governance is an option on your Azure Purview sources that will allow you to manage access for that source from within Azure Purview.
+To enable data use governance, follow [the data use governance guide](how-to-enable-data-use-governance.md#enable-data-use-governance).
+
 ### Create an access policy
 
 Now that you’ve prepared your storage account and environment for access policies, you can follow one of these configuration guides to create your policies:
 
 * [Single storage account](./tutorial-data-owner-policies-storage.md) - This guide will allow you to enable access policies on a single storage account in your subscription.
 * [All sources in a subscription or resource group](./tutorial-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
+
+Or you can follow the [generic guide for creating data access policies](how-to-data-owner-policy-authoring-generic.md).
 
 ## Next steps
 
