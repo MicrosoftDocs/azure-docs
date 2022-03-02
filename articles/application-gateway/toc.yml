@@ -284,6 +284,8 @@
         href: application-gateway-backend-health-troubleshooting.md
       - name: Key Vault errors
         href: application-gateway-key-vault-common-errors.md
+      - name: Disabled listeners
+        href: disabled-listeners.md
   - name: Proxy buffer configuration
     href: proxy-buffers.md
   - name: Custom error pages
