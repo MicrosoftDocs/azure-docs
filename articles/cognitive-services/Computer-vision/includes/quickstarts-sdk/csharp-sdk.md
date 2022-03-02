@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 12/15/2020
+ms.date: 03/02/2022
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ---
