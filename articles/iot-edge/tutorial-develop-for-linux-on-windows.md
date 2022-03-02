@@ -167,7 +167,7 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 15. Search for **Docker: Host** section and add (_tcp://eflow-vm-ip:2375_) the EFLOW VM IP address for the remote Docker engine connection.
 
-   ![Remote Docker engine settings](./media/tutorial-develop-for-linux-on-windows/docker-engine-tcp-configuration.png)
+      ![Remote Docker engine settings](./media/tutorial-develop-for-linux-on-windows/docker-engine-tcp-configuration.png)
 
 16. Go back to the **Docker** panel and in the first **CONTAINERS** tile, select the &#8634; refresh button
 
@@ -339,3 +339,85 @@ Visual Studio Code now has access to your container registry, so it's time to tu
     ![View both image versions in container registry](./media/tutorial-develop-for-linux/view-repository-versions.png)
 
 <!--Alternative steps: Use VS Code Docker tools to view ACR images with tags-->
+
+### Troubleshoot
+
+If you encounter errors when building and pushing your module image, it often has to do with Docker configuration on your development machine. Use the following checks to review your configuration:
+
+* Did you run the `docker login` command using the credentials that you copied from your container registry? These credentials are different than the ones that you use to sign in to Azure.
+* Is your container repository correct? Does it have your correct container registry name and your correct module name? Open the **module.json** file in the SampleModule folder to check. The repository value should look like **\<registry name\>.azurecr.io/samplemodule**.
+* If you used a different name than **SampleModule** for your module, is that name consistent throughout the solution?
+* Is your machine running the same type of containers that you're building? This tutorial is for Linux IoT Edge devices, so Visual Studio Code should say **amd64** or **arm32v7** in the side bar, and Docker Desktop should be running Linux containers.
+
+## Deploy modules to device
+
+You verified that the built container images are stored in your container registry, so it's time to deploy them to a device. Make sure that your IoT Edge device is up and running.
+
+1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
+
+2. Right-click the IoT Edge device that you want to deploy to, then select **Create Deployment for Single Device**.
+
+   ![Create deployment for single device](./media/tutorial-develop-for-linux/create-deployment.png)
+
+3. In the file explorer, navigate into the **config** folder then select the **deployment.amd64.json** file.
+
+   Do not use the deployment.template.json file, which doesn't have the container registry credentials or module image values in it. If you're targeting a Linux ARM32 device, the deployment manifest will be named deployment.arm32v7.json.
+
+4. Under your device, expand **Modules** to see a list of deployed and running modules. Click the refresh button. You should see the new SimulatedTemperatureSensor and SampleModule modules running on your device.
+
+   It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
+
+   ![View modules running on your IoT Edge device](./media/tutorial-develop-for-linux/view-running-modules.png)
+
+## View messages from device
+
+The SampleModule code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages to SampleModule from SimulatedTemperatureSensor, and then forwarded messages from SampleModule to IoT Hub. The Azure IoT tools for Visual Studio Code allow you to see messages as they arrive at IoT Hub from your individual devices.
+
+1. In the Visual Studio Code explorer, right-click the IoT Edge device that you want to monitor, then select **Start Monitoring Built-in Event Endpoint**.
+
+2. Watch the output window in Visual Studio Code to see messages arriving at your IoT hub.
+
+   ![View incoming device to cloud messages](./media/tutorial-develop-for-linux/view-d2c-messages.png)
+
+## View changes on device
+
+If you want to see what's happening on your device itself, use the commands in this section to inspect the IoT Edge runtime and modules running on your device.
+
+The commands in this section are for your IoT Edge device, not your development machine. If you're using a virtual machine for your IoT Edge device, connect to it now. In Azure, go to the virtual machine's overview page and select **Connect** to access the secure shell connection.
+
+* View all modules deployed to your device, and check their status:
+
+   ```bash
+   iotedge list
+   ```
+
+   You should see four modules: the two IoT Edge runtime modules, SimulatedTemperatureSensor, and SampleModule. All four should be listed as running.
+
+* Inspect the logs for a specific module:
+
+   ```bash
+   iotedge logs <module name>
+   ```
+
+   IoT Edge modules are case-sensitive.
+
+   The SimulatedTemperatureSensor and SampleModule logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs will have information about implementing the deployment manifest. If any module isn't listed or isn't running, the edgeAgent logs will probably have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT hub, the edgeHub logs will probably have the errors.
+
+## Clean up resources
+
+If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device.
+
+Otherwise, you can delete the local configurations and the Azure resources that you used in this article to avoid charges.
+
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
+
+## Next steps
+
+In this tutorial, you set up Visual Studio Code on your development machine and deployed your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language:
+
+> [!div class="nextstepaction"]
+> [C](tutorial-c-module.md)
+> [C#](tutorial-csharp-module.md)
+> [Java](tutorial-java-module.md)
+> [Node.js](tutorial-node-module.md)
+> [Python](tutorial-python-module.md)
