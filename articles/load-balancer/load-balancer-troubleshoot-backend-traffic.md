@@ -21,21 +21,21 @@ This page provides troubleshooting information for Azure Load Balancer questions
 ## VMs behind a load balancer are receiving uneven distribution of traffic
 If you suspect backend pool members are receiving traffic, it could be due to the following causes. Azure Load Balancer distributes traffic based on connections. Be sure to check traffic distribution per connection and not per packet. Verify using the **Flow Distribution** tab in your pre-configured [Load Balancer Insights dashboard](load-balancer-insights.md#flow-distribution).
 
-Note that Azure Load Balancer doesn't support true round robin load balancing but supports a hash based [distribution mode](distribution-mode-concepts.md). 
+Azure Load Balancer doesn't support true round robin load balancing but supports a hash based [distribution mode](distribution-mode-concepts.md). 
 
 ## Cause 1: You have session persistence configured
 
-Using source persistence distribution mode can cause an uneven distribution of traffic. If this is not desired, update session persistence to be **None** so traffic is distributed across all healthy instances in the backend pool. Learn more about [distribution modes for Azure Load Balancer](distribution-mode-concepts.md).
+Using source persistence distribution mode can cause an uneven distribution of traffic. If this distribution isn't desired, update session persistence to be **None** so traffic is distributed across all healthy instances in the backend pool. Learn more about [distribution modes for Azure Load Balancer](distribution-mode-concepts.md).
 
 ## Cause 2: You have a proxy configured
 
 Clients that run behind proxies might be seen as one unique client application from the load balancer's point of view.
 
-## VMs behind a load balancer are not responding to traffic on the configured data port
+## VMs behind a load balancer aren't responding to traffic on the configured data port
 
-If a backend pool VM is listed as healthy and responds to the health probes, but is still not participating in the load balancing, or is not responding to the data traffic, it may be due to any of the following reasons:
+If a backend pool VM is listed as healthy and responds to the health probes, but is still not participating in the load balancing, or isn't responding to the data traffic, it may be due to any of the following reasons:
 
-* Load balancer backend pool VM is not listening on the data port
+* Load balancer backend pool VM isn't listening on the data port
 
 * Network security group is blocking the port on the load balancer backend pool VM  
 
@@ -43,18 +43,18 @@ If a backend pool VM is listed as healthy and responds to the health probes, but
 
 * Accessing the Internet load balancer frontend from the participating load balancer backend pool VM
 
-## Cause 1: Load balancer backend pool VM is not listening on the data port
+## Cause 1: Load balancer backend pool VM isn't listening on the data port
 
-If a VM does not respond to the data traffic, it may be because either the target port is not open on the participating VM, or, the VM is not listening on that port. 
+If a VM doesn't respond to the data traffic, it may be because either the target port isn't open on the participating VM, or, the VM isn't listening on that port. 
 
 **Validation and resolution**
 
-1. Log in to the backend VM. 
+1. Sign in to the backend VM. 
 
-2. Open a command prompt and run the following command to validate there is an application listening on the data port:  
+2. Open a command prompt and run the following command to validate there's an application listening on the data port:  
             netstat -an 
 
-3. If the port is not listed with state **LISTENING**, configure the proper listener port 
+3. If the port isn't listed with state **LISTENING**, configure the proper listener port 
 
 4. If the port is marked as listening, then check the target application on that port for any possible issues.
 
@@ -78,7 +78,7 @@ For the public load balancer, the IP address of the Internet clients will be use
 
 ## Cause 3: Accessing the load balancer from the same VM and network interface 
 
-If your application hosted in the backend VM of a load balancer is trying to access another application hosted in the same backend VM over the same network interface, it is an unsupported scenario and will fail. 
+If your application hosted in the backend VM of a load balancer is trying to access another application hosted in the same backend VM over the same network interface, it's an unsupported scenario and will fail. 
 
 **Resolution**
 
@@ -90,11 +90,11 @@ You can resolve this issue via one of the following methods:
 
 ## Cause 4: Accessing the internal load balancer frontend from the participating load balancer backend pool VM
 
-If an internal load balancer is configured inside a virtual network, and one of the participant backend VMs is trying to access the internal load balancer frontend, failures can occur when the flow is mapped to the originating VM. This scenario is not supported.
+If an internal load balancer is configured inside a virtual network, and one of the participant backend VMs is trying to access the internal load balancer frontend, failures can occur when the flow is mapped to the originating VM. This scenario isn't supported.
 
 **Resolution**
 
-There are several ways to unblock this scenario, including using a proxy. Evaluate Application Gateway or other 3rd party proxies (for example, nginx or haproxy). For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/overview.md)
+There are several ways to unblock this scenario, including using a proxy. Evaluate Application Gateway or other third party proxies (for example, nginx or haproxy). For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/overview.md)
 
 **Details**
 
@@ -110,4 +110,4 @@ You can combine an internal load balancer with any third-party proxy or use inte
 
 ## Next steps
 
-If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
+If the preceding steps don't resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
