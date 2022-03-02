@@ -353,8 +353,7 @@ customer can do.
 
 ## Next steps
 
-Check out the other tutorial under Advanced prototyping with Azure Percept section for your Azure Percept DK.
-
+Check out the tutorial [Create a people counting solution with Azure Percept Vision](./create-people-counting-solution-with-azure-percept-devkit-vision.md).
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
