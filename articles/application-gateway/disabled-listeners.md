@@ -20,7 +20,7 @@ A disabled listener doesn’t affect the traffic for other operational listeners
 
 ![An illustration showing affected listeners.](../application-gateway/media/disabled-listeners/affected-listener.png)
 
-## Periodic checks and its impact on Listeners
+## Periodic check and its impact on listeners
 
 Understanding the behavior of the Application Gateway’s periodic check and its potential impact on the state of a key vault-based listener could help you to preempt such occurrences or resolve them much faster.
 
