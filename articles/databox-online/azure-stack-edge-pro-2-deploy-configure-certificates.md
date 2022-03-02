@@ -43,7 +43,7 @@ Before you configure and set up your Azure Stack Edge Pro 2 device, make sure th
 
 1. If you didn't change the device name or DNS domain when you [configured device settings earlier](azure-stack-edge-gpu-deploy-set-up-device-update-time.md#configure-device-settings), and you don't want to use your own certificates, you don't need any configuration on this page. You just need to verify that the status of all the certificates shows as valid on this page. 
 
-     ![Screenshot of the Certificates page in the local web UI of Azure Stack Edge. The Certificates menu item is highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-2.png)
+     ![Screenshot of the Certificates page in the local web UI of Azure Stack Edge. The Certificates menu item is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/verify-certificate-status-1.png)
 
     You're ready to [Activate your device](azure-stack-edge-gpu-deploy-activate.md) with the existing device certificates.
 
