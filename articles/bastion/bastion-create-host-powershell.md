@@ -1,5 +1,6 @@
 ---
 title: 'Deploy Bastion:PowerShell'
+titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion using PowerShell.
 author: cherylmc
 ms.service: bastion
@@ -20,7 +21,7 @@ You can also deploy Bastion by using the following other  methods:
 
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure CLI](create-host-cli.md)
-* [ Quickstart - deploy with default settings](quickstart-host-portal.md)
+* [Quickstart - deploy with default settings](quickstart-host-portal.md)
 
 ## Prerequisites
 
@@ -64,10 +65,6 @@ This section helps you deploy Azure Bastion using Azure PowerShell.
    $bastion = New-AzBastion -ResourceGroupName "myBastionRG" -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
    ```
 
-## <a name="ip"></a>Disassociate VM public IP address
-
-Azure Bastion doesn't use the public IP address to connect to the client VM. If you don't need the public IP address for your VM, you can disassociate the public IP address. See [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
-
 ## <a name="connect"></a>Connect to a VM
 
 You can use any of the following articles to connect to a VM that's located in the virtual network to which you deployed Bastion. You can also use the [Connection steps](#steps) in the section below. Some connection types require the [Standard SKU](configuration-settings.md#skus).
@@ -76,7 +73,11 @@ You can use any of the following articles to connect to a VM that's located in t
 
 ### <a name="steps"></a>Connection steps
 
-[!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-connect.md)]
+[!INCLUDE [Connection steps](../../includes/bastion-vm-connect.md)]
+
+## <a name="ip"></a>Remove VM public IP address
+
+Azure Bastion doesn't use the public IP address to connect to the client VM. If you don't need the public IP address for your VM, you can disassociate the public IP address. See [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
 
 ## Next steps
 
