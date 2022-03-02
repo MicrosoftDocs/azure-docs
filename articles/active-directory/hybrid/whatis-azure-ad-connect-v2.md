@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management, has-adal-ref
 
 The first version of Azure Active Directory (Azure AD) Connect was released several years ago. Since then, we've scheduled several components of Azure AD Connect for deprecation and updates to newer versions. 
 
-To update all these components individually requires a lot of time and planning. To address this drawback, we've bundled as many of these newer components into a new, single release, so you have to update Azure AD Connect only once. This release, Azure AD Connect V2, is the same software you're already using to accomplish your hybrid identity goals, but it's updated with the latest foundational components. 
+To update all these components individually requires a lot of time and planning. To address this drawback, we've bundled as many of these newer components into a new, single release, so you have to update Azure AD Connect only once. This release, Azure AD Connect V2.0, is the same software you're already using to accomplish your hybrid identity goals, but it's updated with the latest foundational components. 
 
 ## What are the major changes? 
 
@@ -37,13 +37,13 @@ SQL Server 2019 requires the Visual C++ Redistributable 14 runtime, so we have u
 
 The Transport Layer Security (TLS) 1.0 and TLS 1.1 protocols are deemed unsafe and are being deprecated by Microsoft. Azure AD Connect V2.0 supports only TLS 1.2. All versions of Windows Server that are supported for Azure AD Connect V2.0 already default to TLS 1.2. If your server doesn't support TLS 1.2, you need to enable it before you can deploy Azure AD Connect V2.0. For more information, see [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md).
 
-### All binaries signed with SHA2 
+### All binaries signed with SHA-2 
 
-We noticed that some components have SHA1 signed binaries. We no longer support SHA1 for downloadable binaries, and we've upgraded all binaries to SHA2 signing. The digital signatures are used to ensure that the updates come directly from Microsoft and aren't tampered with during delivery. Because of weaknesses in the SHA-1 algorithm, and to align with industry standards, we've changed the signing of Windows updates to use the more secure SHA-2 algorithm.  
+We noticed that some components have Secure Hash Algorithm 1 (SHA-1) signed binaries. We no longer support SHA-1 for downloadable binaries, and we've upgraded all binaries to SHA-2 signing. The digital signatures are used to ensure that the updates come directly from Microsoft and aren't tampered with during delivery. Because of weaknesses in the SHA-1 algorithm, and to align with industry standards, we've changed the signing of Windows updates to use the more secure SHA-2 algorithm.  
 
-There is no action needed from you at this time. 
+No action is required of you at this time. 
 
-### Windows Server 2012 and Windows Server 2012 R2 are no longer supported 
+### Windows Server 2012 and 2012 R2 are no longer supported 
 
 SQL Server 2019 requires Windows Server 2016 or later as a server operating system. Because Azure AD Connect V2.0 contains SQL Server 2019 components, we no longer support earlier Windows Server versions. 
 
@@ -51,7 +51,7 @@ You can't install this version on earlier Windows Server versions. We suggest th
 
 For more information about upgrading from earlier Windows Server versions to Windows Server 2019, see [Install, upgrade, or migrate to Windows Server](/windows-server/get-started-19/install-upgrade-migrate-19). 
 
-### PowerShell 5.0 or later 
+### PowerShell 5.0 
 
 The Azure AD Connect V2.0 release contains several cmdlets that require PowerShell 5.0 or later, so this requirement is a new prerequisite for Azure AD Connect. 
 
@@ -88,12 +88,12 @@ Yes, you need to upgrade to remain in a supported state, even if you don't use S
 **After the upgrade of my Azure AD Connect instance to V2.0, will the SQL 2012 components automatically get uninstalled?** </br>
 No, the upgrade to SQL 2019 doesn't remove any SQL 2012 components from your server. If you no longer need these components, follow the instructions in [Uninstall an existing instance of SQL Server](/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup).
 
-**What happens if I do not upgrade?** </br>
+**What happens if I don't upgrade?** </br>
 Until a component that's being retired is actually deprecated, your current version of Azure AD Connect will keep working and you won't see any impact. 
 
 We expect TLS 1.0/1.1 to be deprecated in January 2022. You need to make sure that you're no longer using these protocols by that date, because your service might stop working unexpectedly. You can manually configure your server for TLS 1.2, though, which doesn't require an upgrade to Azure AD Connect V2.0. 
 
-In June 2022, ADAL will go out of support. At that time, authentication might stop working unexpectedly, and the Azure AD Connect server won't work properly. We strongly recommend that you upgrade to Azure AD Connect V2.0 before June 2022. You can't upgrade to a supported authentication library with your current Azure AD Connect version. 
+In June 2022, ADAL will no longer be supported. At that time, authentication might stop working unexpectedly, and the Azure AD Connect server won't work properly. We strongly recommend that you upgrade to Azure AD Connect V2.0 before June 2022. You can't upgrade to a supported authentication library with your current Azure AD Connect version. 
 
 **After I upgraded to Azure AD Connect V2.0, the ADSync PowerShell cmdlets don't work. What can I do?** </br>
 This is a known issue. To resolve this, restart your PowerShell session after you install or upgrade to Azure AD Connect V2.0, and then reimport the module. To import the module, do the following:
