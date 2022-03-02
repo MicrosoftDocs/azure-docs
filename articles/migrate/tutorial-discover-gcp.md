@@ -102,7 +102,7 @@ Set up a new project.
 2. Under **Services**, select **Azure Migrate**.
 3. In **Overview**, select **Create project**.
 4. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-5. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+5. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
    ![Boxes for project name and region](./media/tutorial-discover-gcp/new-project.png)
 

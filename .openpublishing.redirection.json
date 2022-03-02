@@ -2519,6 +2519,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/how-to-search-cross-workspace.md",
+      "redirect_url": "/azure/machine-learning/how-to-manage-workspace",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/resource-known-issues.md",
       "redirect_url": "/azure/machine-learning/how-to-configure-auto-train#troubleshooting",
       "redirect_document_id": false
