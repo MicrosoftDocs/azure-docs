@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 03/02/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -120,6 +120,8 @@ Users with this role can:
 - View usage for subscriptions.
 
 Each account requires a unique work, school, or Microsoft account. For more information about Azure Enterprise portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
+
+There can be only one account owner per account. However, there can be multiple accounts in an EA enrollment. Each account has a unique account owner.
 
 ### Service administrator
 
