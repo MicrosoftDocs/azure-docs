@@ -37,7 +37,7 @@ One possibility to accomplish this goal is to migrate users using SMS or voice c
 
 ## Logic 
 
-If Azure AD detects that your tenant has users authenticating using SMS or voice in the past week instead of the authenticator app, , this recommendation shows up.
+If Azure AD detects that your tenant has users authenticating using SMS or voice in the past week instead of the authenticator app, this recommendation shows up.
 
 ## Value 
 
