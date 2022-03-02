@@ -18,6 +18,12 @@ ms.custom: contperf-fy21q3, contperf-fy22q1
 
 The Azure Face service is updated on an ongoing basis. Use this article to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## February 2022
+
+### New Quality Attribute in Detection_01 and Detection_03
+* To help system builders and their customers capture high quality images which are necessary for high quality outputs from Face API, we’re introducing a new quality attribute **QualityForRecognition** to help decide whether an image is of sufficient quality to attempt face recognition. The value is an informal rating of low, medium, or high. The new attribute is only available when using any combinations of detection models `detection_01` or `detection_03`, and recognition models `recognition_03` or `recognition_04`. Only "high" quality images are recommended for person enrollment and quality above "medium" is recommended for identification scenarios. To learn more about the new quality attribute, see [Face detection and attributes](concepts/face-detection.md) and test it out in the [API console](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). 
+
+
 ## July 2021
 
 ### New HeadPose and Landmarks improvements for Detection_03
