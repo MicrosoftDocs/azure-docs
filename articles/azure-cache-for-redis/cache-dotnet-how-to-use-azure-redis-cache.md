@@ -94,7 +94,7 @@ using StackExchange.Redis;
 
 The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at `RedisConnection` code to see one implementation. For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
 
-:::code language="csharp" source="samples-cache/quickstart/dotnet/Redistest/quickstart/RedisConnection.cs":::
+:::code language="csharp" source="samples-cache/quickstart/dotnet/Redistest/RedisConnection.cs":::
 
 ## Executing cache commands
 
@@ -149,8 +149,7 @@ Press **Ctrl+F5** to build and run the console app.
 
 In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-![Console app partial](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png)
-
+:::image type="content" source="media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png" alt-text="Console app partial":::
 
 ## Work with .NET objects in the cache
 
@@ -208,7 +207,6 @@ Press **Ctrl+F5** to build and run the console app to test serialization of .NET
 
 :::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Console app completed":::
 
-
 ## Clean up resources
 
 If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
@@ -223,24 +221,19 @@ Sign in to the [Azure portal](https://portal.azure.com) and select **Resource gr
 
 In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-![Delete](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
+:::image type="content" source="media/cache-dotnet-core-quickstart/cache-delete-resource-group.png" alt-text="Delete":::
 
-You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
+You are asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
 
 After a few moments, the resource group and all of its contained resources are deleted.
 
-
-
-<a name="next-steps"></a>
 
 ## Next steps
 
 In this quickstart, you learned how to use Azure Cache for Redis from a .NET application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
 
-> [!div class="nextstepaction"]
-> [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
+- [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
 
 Want to optimize and save on your cloud spending?
 
-> [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
