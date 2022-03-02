@@ -33,7 +33,7 @@ Understanding the behavior of the Application Gateway’s periodic check and its
 
 1. The clients will observe the error "ERR_SSL_UNRECOGNIZED_NAME_ALERT" if any request is made to a disabled listener of your Application Gateway.
 
-![Screenshot of client error will look.](../application-gateway/media/disabled-listeners/client-error.png)
+[ ![Screenshot of client error will look.](../application-gateway/media/disabled-listeners/client-error.png) ](../application-gateway/media/disabled-listeners/client-error.png#lightbox)
 
 2. You can verify if the error is a result of a disabled listener on your gateway by checking your [Application Gateway’s Resource Health page](../application-gateway/resource-health-overview.md). You will see an event as shown below.
 
