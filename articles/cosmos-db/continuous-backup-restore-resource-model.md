@@ -193,6 +193,7 @@ To get a list of all MongoDB database and collection combinations that exist on 
 
 ### Restorable Graph resources
 Each resource represents a single database and all the graphs under that database. 
+
 |Property Name |Description  |
 |---------|---------|
 | gremlinDatabaseName	|The name of the Graph database. |
@@ -208,6 +209,7 @@ Each resource contains information of a mutation event such as creation and dele
 | ownerId| The name of the Graph database. |
 | ownerResourceId	| The resource ID of the Graph database. |
 | operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
+
 To get a list of all database mutation, see Restorable Graph Databases - List article. 
 
 ### Restorable Graphs 
@@ -226,11 +228,12 @@ To get a list of all container mutations under the same database, see graph rest
 ### Restorable Table resources 
 
 Lists all the restorable Azure Cosmos DB Tables available for a specific database account at a given time and location. Please note - Table API does not have explicit database.
+
 |Property Name |Description  |
 |---------|---------|
 | TableNames | The list of Table containers under this account. |
 
-To get a list of TABLE that exist on the account at the given timestamp and location, see Restorable Table Resources - List article. 
+To get a list of Table that exist on the account at the given timestamp and location, see Restorable Table Resources - List article. 
 
 ### Restorable Table  
 
