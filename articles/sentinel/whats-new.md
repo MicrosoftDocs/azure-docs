@@ -49,7 +49,6 @@ For more information, see:
 - [Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
 - [Restore archived logs from search (public preview)](#restore-archived-logs-from-search-public-preview)
 
-
 ### New custom log ingestion and data transformation at ingestion time (Public preview)
 
 Microsoft Sentinel supports two new features for data ingestion and transformation. These features, provided by Log Analytics, act on your data even before it's stored in your workspace.
