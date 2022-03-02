@@ -5,16 +5,13 @@ author: aersoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/25/2022
+ms.date: 03/02/2022
 ms.author: aersoy
 ---
 
 # DICOM cast access request
 
 This article describes the steps to request DICOM cast access.
-
-> [!IMPORTANT]
-> DICOM cast is currently in PRIVATE PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Create Azure support ticket
 
@@ -27,7 +24,7 @@ To enable DICOM cast for your Azure subscription, please request access for DICO
 
 1. In the **Summary** field, enter  "Access request for DICOM cast private preview".
  
-   [ ![Screenshot of basic tab in new support request](media/new-support-request-basic-tab.png) ](media/new-support-request-basic-tab.png#lightbox)
+   [ ![Screenshot of basic tab in new support request.](media/new-support-request-basic-tab.png) ](media/new-support-request-basic-tab.png#lightbox)
 
 1. Select the **Issue type** drop-down list, and then select **Technical**.
 1. Select the **Subscription** drop-down list, and then select your Azure subscription.
@@ -42,7 +39,7 @@ To enable DICOM cast for your Azure subscription, please request access for DICO
 
 1. Under the **Problem details** section, select today's date to submit your support request. You may keep the default time as 12:00AM.
 
-   [ ![Screenshot of details tab in new support request](media/new-support-request-details-tab.png) ](media/new-support-request-details-tab.png#lightbox)
+   [ ![Screenshot of details tab in new support request.](media/new-support-request-details-tab.png) ](media/new-support-request-details-tab.png#lightbox)
 
 1. In the **Description** box, ensure to include the Resource IDs of your FHIR service and DICOM service.
 

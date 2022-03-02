@@ -1,19 +1,15 @@
 ---
-title:  DICOM cast Overview - Azure Health Data Services
+title:  DICOM cast overview - Azure Health Data Services
 description: In this article, you'll learn the concepts of DICOM cast.
 author: aersoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/25/2022
+ms.date: 03/02/2022
 ms.author: aersoy
 ---
 
 # DICOM cast overview
-
-> [!IMPORTANT]
-> DICOM cast is currently in PRIVATE PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 
 DICOM cast offers customers the ability to synchronize the data from a DICOM service to a [FHIR service](../../healthcare-apis/fhir/overview.md), which allows healthcare organizations to integrate clinical and imaging data. DICOM cast expands the use cases for health data by supporting both a streamlined view of longitudinal patient data and the ability to effectively create cohorts for medical studies, analytics, and machine learning.
 
@@ -91,7 +87,7 @@ DICOM has different date time VR types. Some tags (like Study and Series) have t
 
 ## Summary
 
-In this concept, we reviewed the architecture and mappings of DICOM cast. This feature is currently under private preview. To enable DICOM cast for your Azure subscription, please request access for DICOM cast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOM cast, see [DICOM cast request access](dicom-cast-access-request.md). 
+In this concept, we reviewed the architecture and mappings of DICOM cast. This feature is available on demand. To enable DICOM cast for your Azure subscription, please request access for DICOM cast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOM cast, see [DICOM cast request access](dicom-cast-access-request.md). 
 
 > [!IMPORTANT]
 > Ensure that you include the **resource IDs** of your DICOM service and FHIR service when you submit a support ticket. 

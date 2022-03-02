@@ -70,6 +70,8 @@ items:
   items:
     - name: DICOM service open-source projects
       href: references-for-dicom-service.md
+    - name: DICOM cast access request
+      href: dicom-cast-access-request.md
 
 
 

@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 03/02/2022
 ms.author: aersoy
 ---
 
@@ -18,15 +18,15 @@ In this article, you'll learn how to enable diagnostic logging in DICOM service 
 1. To enable diagnostic logging DICOM service, select your DICOM service in the Azure portal.
 2. Select the **Activity log** blade, and then select **Diagnostic settings**.
 
-   [ ![Azure activity log.](media/dicom-activity-log.png) ](media/dicom-activity-log.png#lightbox)
+   [ ![Screenshot of Azure activity log.](media/dicom-activity-log.png) ](media/dicom-activity-log.png#lightbox)
 
 3. Select **+ Add diagnostic setting**.
 
-   [ ![Add Diagnostic settings.](media/add-diagnostic-settings.png) ](media/add-diagnostic-settings.png#lightbox)
+   [ ![Screenshot of Add Diagnostic settings.](media/add-diagnostic-settings.png) ](media/add-diagnostic-settings.png#lightbox)
 
 4. Enter the **Diagnostic settings name**.
 
-   [ ![Configure Diagnostic settings.](media/configure-diagnostic-settings.png) ](media/configure-diagnostic-settings.png#lightbox)
+   [ ![Screenshot of Configure Diagnostic settings.](media/configure-diagnostic-settings.png) ](media/configure-diagnostic-settings.png#lightbox)
 
 5. Select the **Category** and **Destination** details for accessing the diagnostic logs.
 

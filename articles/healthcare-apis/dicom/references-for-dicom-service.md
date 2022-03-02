@@ -5,7 +5,7 @@ author: aersoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/25/2022
+ms.date: 03/02/2022
 ms.author: aersoy
 ---
 
@@ -23,15 +23,15 @@ This article describes our open-source projects on GitHub that provide source co
 
 * [Integrate clinical and imaging data](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md): DICOM cast allows synchronizing the data from the DICOM service to the FHIR service, which allows healthcare organization to integrate clinical and imaging data. DICOM cast expands the use cases for health data by supporting both a streamlined view of longitudinal patient data and the ability to effectively create cohorts for medical studies, analytics, and machine learning.
 
-### DICOM Data Anonymization
+### DICOM data anonymization
 
 * [Anonymize DICOM metadata](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/DICOM-anonymization.md): A DICOM file not only contains a viewable image but also a header with a large variety of data elements. These meta-data elements include identifiable information about the patient, the study, and the institution. Sharing such sensitive data demands proper protection to ensure data safety and maintain patient privacy. DICOM Anonymization Tool helps anonymize metadata in DICOM files for this purpose.
 
-### Access Imaging Study Resources on Power BI, Power Apps, and Dynamics 365 Customer Insights
+### Access imaging study resources on Power BI, Power Apps, and Dynamics 365 Customer Insights
 
 * [Connect to a FHIR service from Power Query Desktop](https://docs.microsoft.com/power-query/connectors/fhir/fhir): After provisioning DICOM service, FHIR service and synchronizing imaging study for a given patient via DICOM cast, you can use the POWER Query connector for FHIR to import and shape data from the FHIR server including imaging study resource.
 
-### Convert Imaging Study Data to Hierarchical Parquet files
+### Convert imaging study data to hierarchical parquet files
 
 * [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md): After you provision a DICOM service, FHIR service and synchronizing imaging study for a given patient via DICOM cast, you can use FHIR to Synapse Sync Agent to perform Analytics and Machine Learning on imaging study data by moving FHIR data to Azure Data Lake in near real time and making it available to a Synapse workspace.
 

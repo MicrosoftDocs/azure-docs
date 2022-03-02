@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to 
-ms.date: 02/15/2022
+ms.date: 03/02/2022
 ms.author: aersoy
 ---
 # Configure Azure RBAC for the DICOM service
@@ -16,12 +16,12 @@ In this article, you'll learn how to use [Azure role-based access control (Azure
 
 To grant users, service principals, or groups access to the DICOM data plane, select the **Access control (IAM)** blade. Select the**Role assignments** tab, and select **+ Add**.
 
-[ ![dicom access control.](media/dicom-access-control.png) ](media/dicom-access-control.png#lightbox)
+[ ![Screenshot of DICOM access control.](media/dicom-access-control.png) ](media/dicom-access-control.png#lightbox)
 
 
 In the **Role** selection, search for one of the built-in roles for the DICOM data plane:
 
-[ ![Add RBAC role assignment.](media/rbac-add-role-assignment.png) ](media/rbac-add-role-assignment.png#lightbox)
+[ ![Screenshot of add RBAC role assignment.](media/rbac-add-role-assignment.png) ](media/rbac-add-role-assignment.png#lightbox)
 
 You can choose between:
 

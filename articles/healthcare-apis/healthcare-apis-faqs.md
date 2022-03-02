@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 03/01/2022
+ms.date: 03/02/2022
 ms.author: ginle
 ---
 
@@ -34,7 +34,7 @@ Azure Health Data Services enables you to:
 No, unfortunately we don't offer migration capabilities at this time. 
 
 ### What is the pricing of Azure Health Data Services?
-At this time, Azure Health Data Services is available for you to use at no charge. Pricing information will be coming soon.
+At this time, Azure Health Data Services is available for you to use at no charge. 
 
 ### What regions are Azure Health Data Services available?
 Refer to the [Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir) page for the most current information. 

@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 03/02/2022
 ms.author: aersoy
 ---
 
@@ -17,7 +17,7 @@ In this article, you'll learn how to obtain an access token for the DICOM servic
 
 Use the Bash environment in Azure Cloud Shell.
 
-[ ![Launch Azure Cloud Shell.](media/launch-cloud-shell.png) ](media/launch-cloud-shell.png#lightbox)
+[ ![Screenshot of Launch Azure Cloud Shell.](media/launch-cloud-shell.png) ](media/launch-cloud-shell.png#lightbox)
 
 If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 

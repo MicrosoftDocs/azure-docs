@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/01/2022
+ms.date: 03/02/2022
 ms.author: aersoy
 ms.custom: mode-api
 ---
@@ -24,21 +24,21 @@ To deploy DICOM service, you must have a workspace created in the Azure portal. 
 
 1. On the **Resource group** page of the Azure portal, select the name of your **Azure Health Data Services Workspace**.
 
-   [ ![select workspace resource group.](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
+   [ ![Screenshot of select workspace resource group.](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
 
 2. Select **Deploy DICOM service**.
 
-   [ ![deploy dicom service.](media/workspace-deploy-dicom-services.png) ](media/workspace-deploy-dicom-services.png#lightbox)
+   [ ![Screenshot of deploy DICOM service.](media/workspace-deploy-dicom-services.png) ](media/workspace-deploy-dicom-services.png#lightbox)
 
 
 3. Select **Add DICOM service**.
 
-   [ ![add dicom service.](media/add-dicom-service.png) ](media/add-dicom-service.png#lightbox)
+   [ ![Screenshot of add DICOM service.](media/add-dicom-service.png) ](media/add-dicom-service.png#lightbox)
 
 
 4. Enter a name for DICOM service, and then select **Review + create**. 
 
-    [ ![dicom service name.](media/enter-dicom-service-name.png) ](media/enter-dicom-service-name.png#lightbox)
+    [ ![Screenshot of DICOM service name.](media/enter-dicom-service-name.png) ](media/enter-dicom-service-name.png#lightbox)
 
 
    (**Optional**) Select **Next: Tags >**.
@@ -49,11 +49,11 @@ To deploy DICOM service, you must have a workspace created in the Azure portal. 
 
 6. When the deployment process completes, select **Go to resource**.  
 
-   [ ![dicom go to resource.](media/go-to-resource.png) ](media/go-to-resource.png#lightbox)
+   [ ![Screenshot of DICOM go to resource.](media/go-to-resource.png) ](media/go-to-resource.png#lightbox)
 
    The result of the newly deployed DICOM service is shown below.
 
-   [ ![dicom finished deployment.](media/results-deployed-dicom-service.png) ](media/results-deployed-dicom-service.png#lightbox)
+   [ ![Screenshot of DICOM finished deployment.](media/results-deployed-dicom-service.png) ](media/results-deployed-dicom-service.png#lightbox)
 
 
 ## Next steps

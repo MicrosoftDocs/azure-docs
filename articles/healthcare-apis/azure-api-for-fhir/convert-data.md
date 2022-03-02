@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/01/2022
+ms.date: 03/02/2022
 ms.author: ranku
 ---
 
@@ -34,7 +34,8 @@ $convert-data takes a [Parameter](http://hl7.org/fhir/parameters.html) resource 
 | templateCollectionReference | Reference to an [OCI image ](https://github.com/opencontainers/image-spec) template collection on [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/). It's the image containing Liquid templates to use for conversion. It can be a reference either to the default templates or a custom template image that is registered within the FHIR service. See below to learn about customizing the templates, hosting those on ACR, and registering to the FHIR service. | For ***default/sample*** templates: <br> **HL7v2** templates: <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br> **C-CDA** templates: <br> ``microsofthealth/ccdatemplates:default`` <br> **JSON** templates: <br> ``microsofthealth/jsontemplates:default`` <br><br> For ***custom*** templates: <br> \<RegistryServer\>/\<imageName\>@\<imageDigest\>, \<RegistryServer\>/\<imageName\>:\<imageTag\> |
 | rootTemplate | The root template to use while transforming the data. | For **HL7v2**:<br> "ADT_A01", "ADT_A02", "ADT_A03", "ADT_A04", "ADT_A05", "ADT_A08", "ADT_A11",  "ADT_A13", "ADT_A14", "ADT_A15", "ADT_A16", "ADT_A25", "ADT_A26", "ADT_A27", "ADT_A28", "ADT_A29", "ADT_A31", "ADT_A47", "ADT_A60", "OML_O21", "ORU_R01", "ORM_O01", "VXU_V04", "SIU_S12", "SIU_S13", "SIU_S14", "SIU_S15", "SIU_S16", "SIU_S17", "SIU_S26", "MDM_T01", "MDM_T02"<br><br> For **C-CDA**:<br> "CCD", "ConsultationNote", "DischargeSummary", "HistoryandPhysical", "OperativeNote", "ProcedureNote", "ProgressNote", "ReferralNote", "TransferSummary" <br><br> For **JSON**: <br> "ExamplePatient", "Stu3ChargeItem" <br> |
 
-💡 **Note**: JSON templates are sample templates for use, not "default" templates that adhere to any pre-defined JSON message types. JSON doesn't have any standardized message types, unlike HL7v2 messages or C-CDA documents. Therefore, instead of default templates we provide you with some sample templates that you can use as a starting guide for your own customized templates.
+> [!NOTE]
+> JSON templates are sample templates for use, not "default" templates that adhere to any pre-defined JSON message types. JSON doesn't have any standardized message types, unlike HL7v2 messages or C-CDA documents. Therefore, instead of default templates we provide you with some sample templates that you can use as a starting guide for your own customized templates.
 
 > [!WARNING]
 > Default templates are released under MIT License and are **not** supported by Microsoft Support.

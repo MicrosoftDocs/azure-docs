@@ -1,15 +1,15 @@
 ---
-title:  DICOM Extended Query Tags Overview - Azure Healthcare APIs
+title:  DICOM extended query tags overview - Azure Healthcare APIs
 description: In this article, you'll learn the concepts of Extended Query Tags.
 author: aersoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/25/2022
+ms.date: 03/02/2022
 ms.author: aersoy
 ---
 
-# Extended Query Tags
+# Extended query tags
 
 ## Overview
 
