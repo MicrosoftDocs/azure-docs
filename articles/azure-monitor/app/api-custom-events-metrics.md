@@ -661,7 +661,7 @@ For Example:
 *JS*
 
 ```javascript
-//Immediately send all queued telemetry. By default, it is sent async.
+// Immediately send all queued telemetry. By default, it is sent async.
 flush(async?: boolean = true)
 ```
 
