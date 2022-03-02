@@ -21,10 +21,10 @@ Azure Cognitive Services are cloud-based artificial intelligence (AI) services t
 
 Cognitive Services can be categorized into four main pillars:
 
-* [Vision](#vision-apis)
-* [Speech](#speech-apis)
-* [Language](#language-apis)
-* [Decision](#decision-apis)
+* Vision
+* Speech
+* Language
+* Decision
 
 See the tables below to learn about the services offered within those categories. 
 
