@@ -67,7 +67,7 @@ AZURE_TENANT_ID=$(az account list --query '[?isDefault].tenantId' -o tsv)
 ```
 
 ```bash
-AZURE_CLIENT_SECRET=$(az ad sp create-for-rbac --name "velero" --role "Contributor" --scopes /subscriptions/<subscription id> --query 'password' -o tsv \
+AZURE_CLIENT_SECRET=$(az ad sp create-for-rbac --name "velero" --role "Contributor" --query 'password' -o tsv \
 --scopes  /subscriptions/$AZURE_SUBSCRIPTION_ID)
 AZURE_CLIENT_ID=$(az ad sp list --display-name "velero" --query '[0].appId' -o tsv)
 
