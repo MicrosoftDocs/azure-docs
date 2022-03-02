@@ -218,7 +218,7 @@ sections:
         answer: |
           Yes. You can move your existing databases in Azure SQL Database to Hyperscale. For proofs of concept (POCs), we recommend you make a copy of your database and migrate the copy to Hyperscale. 
 
-          Reverse migration to the General Purpose service tier provides an "insurance policy" for customers who have recently migrated an existing database in Azure SQL Database to the Hyperscale service tier. Learn the [Limitations for reverse migration](manage-hyperscale-database.md#limitations-for-reverse-migration).
+          Reverse migration to the General Purpose service tier allows customers who have recently migrated an existing database in Azure SQL Database to the Hyperscale service tier to move back in an emergency, should Hyperscale not meet their needs. While reverse migration is initiated by a service tier change, it's essentially a size-of-data move between different architectures. Learn the [limitations for reverse migration](manage-hyperscale-database.md#limitations-for-reverse-migration).
           
           The time required to move an existing database to Hyperscale consists of the time to copy data, and the time to replay the changes made in the source database while copying data. The data copy time is proportional to data size. The time to replay changes will be shorter if the move is done during a period of low write activity.
 
