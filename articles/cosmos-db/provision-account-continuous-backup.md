@@ -4,7 +4,7 @@ description: Learn how to provision an account with continuous backup and point 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 03/02/2022
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -23,6 +23,7 @@ This article explains how to provision an account with continuous backup and poi
 > You can provision continuous backup mode account only if the following conditions are true:
 >
 > * If the account is of type SQL API or API for MongoDB.
+> * If the account is of type Table API or Graph API.
 > * If the account has a single write region.
 > * If the account isn't enabled with customer managed keys(CMK).
 
@@ -31,6 +32,8 @@ This article explains how to provision an account with continuous backup and poi
 When creating a new Azure Cosmos DB account, in the **Backup policy** tab, choose **continuous** mode to enable the point in time restore functionality for the new account. With the point-in-time restore, data is restored to a new account, currently you can't restore to an existing account.
 
 :::image type="content" source="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png":::
+
+Table API and Graph API are in preview at and can be provisioned with powershell and cli support at present.
 
 ## <a id="provision-powershell"></a>Provision using Azure PowerShell
 
@@ -81,6 +84,40 @@ New-AzCosmosDBAccount `
 
 ```
 
+#### <a id="provision-powershell-table-api"></a>Table API account
+
+To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
+
+The following cmdlet is an example of a single region write account *Pitracct* with continuous backup policy created in *West US* region under *MyRG* resource group:
+
+```azurepowershell
+
+New-AzCosmosDBAccount `
+  -ResourceGroupName "MyRG" `
+  -Location "West US" `
+  -BackupPolicyType Continuous `
+  -Name "pitracct" `
+  -ApiKind "Table"
+   	  
+```
+
+#### <a id="provision-powershell-graph-api"></a>Graph API account
+
+To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
+
+The following cmdlet is an example of a single region write account *Pitracct* with continuous backup policy created in *West US* region under *MyRG* resource group:
+
+```azurepowershell
+
+New-AzCosmosDBAccount `
+  -ResourceGroupName "MyRG" `
+  -Location "West US" `
+  -BackupPolicyType Continuous `
+  -Name "pitracct" `
+  -ApiKind "Gremlin"
+   	  
+```
+
 ## <a id="provision-cli"></a>Provision using Azure CLI
 
 Before provisioning the account, install Azure CLI with the following steps:
@@ -125,6 +162,34 @@ az cosmosdb create \
   --default-consistency-level Session \
   --locations regionName="West US"
 
+```
+### <a id="provision-cli-table-api"></a>Table API account
+
+The following command shows an example of a single region write account named *Pitracct* with continuous backup policy created the *West US* region under *MyRG* resource group:
+```azurecli-interactive
+
+az cosmosdb create \
+  --name Pitracct \
+  --kind GlobalDocumentDB  \
+  --resource-group MyRG \
+  --capabilities EnableTable \ 
+  --backup-policy-type Continuous \
+  --default-consistency-level Session \
+  --locations regionName="West US"
+```
+### <a id="provision-cli-graph-api"></a>Graph API account
+
+The following command shows an example of a single region write account named *Pitracct* with continuous backup policy created the *West US* region under *MyRG* resource group:
+```azurecli-interactive
+
+az cosmosdb create \
+  --name Pitracct \
+  --kind GlobalDocumentDB  \
+  --resource-group MyRG \
+  --capabilities EnableGremlin \ 
+  --backup-policy-type Continuous \
+  --default-consistency-level Session \
+  --locations regionName="West US"
 ```
 
 ## <a id="provision-arm-template"></a>Provision using Resource Manager template
