@@ -11,7 +11,8 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ---
-# Getting started with voice assistants on Windows
+
+# Get started with voice assistants on Windows
 
 This guide will take you through the steps to begin developing a voice assistant on Windows.
 

@@ -73,7 +73,7 @@ This article shows how to enable and set up the system-assigned identity or user
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
 
 * To give a managed identity access to an Azure resource, you need to add a role to the target resource for that identity. To add roles, you need [Azure AD administrator permissions](../active-directory/roles/permissions-reference.md) that can assign roles to identities in the corresponding Azure AD tenant.
 
@@ -584,7 +584,7 @@ After you [enable the managed identity for your logic app resource](#azure-porta
 
 > [!IMPORTANT]
 > If you have an Azure function where you want to use the system-assigned identity, 
-> first [enable authentication for Azure Functions](logic-apps-azure-functions.md#enable-authentication-for-functions).
+> first [enable authentication for Azure Functions](logic-apps-azure-functions.md#enable-authentication-functions).
 
 These steps show how to use the managed identity with a trigger or action through the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, review [Managed identity authentication](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 

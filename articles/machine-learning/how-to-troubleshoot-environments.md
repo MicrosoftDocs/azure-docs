@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: saachigopal
 ms.author:  sagopal
-ms.date: 10/21/2021
+ms.date: 03/01/2022
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 ---
@@ -210,6 +210,15 @@ Check if the [correct tag](./how-to-use-environments.md#create-an-environment) i
 If you're using default Docker images and enabling user-managed dependencies, use the MicrosoftContainerRegistry and AzureFrontDoor.FirstParty [service tags](./how-to-network-security-overview.md) to allowlist Azure Container Registry and its dependencies.
 
  For more information, see [Enabling virtual networks](./how-to-network-security-overview.md).
+
+### Error response from daemon: get "https://viennaglobal.azurecr.io": context deadline exceeded
+
+This error happens when you have configured the workspace to build images using a compute cluster, and the compute cluster is configured for no public IP address. Using a compute cluster to build images is required if your Azure Container Registry is behind a virtual network. For more information, see [Enable Azure Container Registry](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+
+To resolve this error, use the following steps:
+
+1. [Create a new compute cluster that has a public IP address](how-to-create-attach-compute-cluster.md).
+1. [Configure the workspace to build images using the compute cluster created in step 1](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 
 ## Next steps

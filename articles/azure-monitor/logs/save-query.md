@@ -3,8 +3,6 @@ title: Save a query in Azure Monitor Log Analytics (preview)
 description: Describes how to save a query in Log Analytics.
 ms.subservice: logs
 ms.topic: article
-author: bwren
-ms.author: bwren
 ms.date: 05/20/2021
 ---
 

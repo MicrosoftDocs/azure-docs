@@ -154,6 +154,8 @@ The following is a sample JSONL file for image classification:
 Once your data is in JSONL format, you can create a TabularDataset with the following code:
 
 ```python
+ws = Workspace.from_config()
+ds = ws.get_default_datastore()
 from azureml.core import Dataset
 
 training_dataset = Dataset.Tabular.from_json_lines_files(
@@ -493,8 +495,9 @@ Each of the tasks (and some models) have a set of parameters in the `model_setti
 | Task | Parameter name | Default  |
 |--------- |------------- | --------- |
 |Image classification (multi-class and multi-label) | `valid_resize_size`<br>`valid_crop_size` | 256<br>224 |
-|Object detection, instance segmentation| `min_size`<br>`max_size`<br>`box_score_thresh`<br>`box_nms_thresh`<br>`box_detections_per_img` | 600<br>1333<br>0.3<br>0.5<br>100 |
-|Object detection using `yolov5`| `img_size`<br>`model_size`<br>`box_score_thresh`<br>`box_iou_thresh` | 640<br>medium<br>0.1<br>0.5 |
+|Object detection | `min_size`<br>`max_size`<br>`box_score_thresh`<br>`nms_iou_thresh`<br>`box_detections_per_img` | 600<br>1333<br>0.3<br>0.5<br>100 |
+|Object detection using `yolov5`| `img_size`<br>`model_size`<br>`box_score_thresh`<br>`nms_iou_thresh` | 640<br>medium<br>0.1<br>0.5 |
+|Instance segmentation| `min_size`<br>`max_size`<br>`box_score_thresh`<br>`nms_iou_thresh`<br>`box_detections_per_img`<br>`mask_pixel_score_threshold`<br>`max_number_of_polygon_points`<br>`export_as_image`<br>`image_type` | 600<br>1333<br>0.3<br>0.5<br>100<br>0.5<br>100<br>False<br>JPG|
 
 For a detailed description on task specific hyperparameters, please refer to [Hyperparameters for computer vision tasks in automated machine learning](reference-automl-images-hyperparameters.md).
     
@@ -507,4 +510,5 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 ## Next steps
 
 * [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Make predictions with ONNX on computer vision models from AutoML](how-to-inference-onnx-automl-image-models.md) 
 * [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).

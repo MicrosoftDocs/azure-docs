@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
@@ -99,7 +99,7 @@ You implement at-start LID or continuous LID by calling methods for [recognize o
 You can choose to prioritize accuracy or latency with language identification. 
 
 > [!NOTE]
-> Low latency is prioritized by default with the Speech SDK. You can choose to prioritize accuracy or latency with the Speech SDKs for C#, C++, and Python.
+> Latency is prioritized by default with the Speech SDK. You can choose to prioritize accuracy or latency with the Speech SDKs for C#, C++, and Python.
 
 Prioritize `Latency` if you need a low-latency result such as during live streaming. Set the priority to `Accuracy` if the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning. Allowing the engine more time will improve language identification results. 
 
@@ -130,7 +130,11 @@ speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnect
 ```
 ::: zone-end
 
-For continuous LID using `Latency` as the priority, the Speech service returns one of the candidate languages provided even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either "French" or "English" would be returned. Otherwise the Speech service returns "Unknown" if none of the candidate languages are detected or if the language identification confidence is low. 
+When prioritizing `Latency`, the Speech service returns one of the candidate languages provided even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either `fr-FR` or `en-US` would be returned. When prioritizing `Accuracy`, the Speech service will return the string `Unknown` as the detected language if none of the candidate languages are detected or if the language identification confidence is low.
+
+> [!NOTE]
+> You may see cases where an empty string will be returned instead of `Unknown`, due to Speech service inconsistency.
+> While this note is present, applications should check for both the `Unknown` and empty string case and treat them identically.
 
 ### Recognize once or continuous
 
@@ -261,6 +265,8 @@ You use Speech-to-text recognition when you need to identify the language in an 
 
 > [!NOTE]
 > Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
+> 
+> Currently for speech-to-text recognition with continuous language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -648,7 +654,8 @@ You use Speech translation when you need to identify the language in an audio so
 
 > [!NOTE]
 > Speech translation with language identification is only supported with Speech SDKs in C#, C++, and Python. 
-
+> 
+> Currently for speech translation with language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 
 ::: zone pivot="programming-language-csharp"
 
