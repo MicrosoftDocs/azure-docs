@@ -149,6 +149,7 @@ Yes, connectivity via Bastion will continue to work for peered VNets across diff
 
 ### Does Bastion support connectivity to Azure Virtual Desktop?
 No, Bastion connectivity to Azure Virtual Desktop is not supported.
+For administrative purposes it is supported to connect to AVD VMs secure through Bastion.
 
 ### I have access to the peered VNet, but I can't see the VM deployed there.
 
