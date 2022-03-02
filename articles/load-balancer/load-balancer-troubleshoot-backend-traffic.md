@@ -18,7 +18,8 @@ ms.author: allensu
 
 This page provides troubleshooting information for Azure Load Balancer questions.
 
-## VMs behind a load balancer are receiving uneven distribution of traffic
+## Virtual machines behind a load balancer are receiving uneven distribution of traffic
+
 If you suspect backend pool members are receiving traffic, it could be due to the following causes. Azure Load Balancer distributes traffic based on connections. Be sure to check traffic distribution per connection and not per packet. Verify using the **Flow Distribution** tab in your pre-configured [Load Balancer Insights dashboard](load-balancer-insights.md#flow-distribution).
 
 Azure Load Balancer doesn't support true round robin load balancing but supports a hash based [distribution mode](distribution-mode-concepts.md). 
@@ -35,7 +36,7 @@ Clients that run behind proxies might be seen as one unique client application f
 
 If a backend pool VM is listed as healthy and responds to the health probes, but is still not participating in the load balancing, or isn't responding to the data traffic, it may be due to any of the following reasons:
 
-* Load balancer backend pool VM isn't listening on the data port
+* A load balancer backend pool VM isn't listening on the data port
 
 * Network security group is blocking the port on the load balancer backend pool VM  
 
@@ -43,7 +44,7 @@ If a backend pool VM is listed as healthy and responds to the health probes, but
 
 * Accessing the Internet load balancer frontend from the participating load balancer backend pool VM
 
-## Cause 1: Load balancer backend pool VM isn't listening on the data port
+## Cause 1: A load balancer backend pool VM isn't listening on the data port
 
 If a VM doesn't respond to the data traffic, it may be because either the target port isn't open on the participating VM, or, the VM isn't listening on that port. 
 
@@ -52,11 +53,14 @@ If a VM doesn't respond to the data traffic, it may be because either the target
 1. Sign in to the backend VM. 
 
 2. Open a command prompt and run the following command to validate there's an application listening on the data port:  
-            netstat -an 
+            
+    ```cmd
+    netstat -an 
+    ```
 
 3. If the port isn't listed with state **LISTENING**, configure the proper listener port 
 
-4. If the port is marked as listening, then check the target application on that port for any possible issues.
+4. If the port is marked as **LISTENING**, then check the target application on that port for any possible issues.
 
 ## Cause 2: Network security group is blocking the port on the load balancer backend pool VM  
 
