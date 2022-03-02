@@ -1,45 +1,48 @@
 ---
-title: Create a zoned VM with the Azure portal 
-description: Create a VM in an availability zone with the Azure portal
-documentationcenter: virtual-machines
+title: Create a zoned VMs with the Azure portal 
+description: Create VMs in an availability zone with the Azure portal
 author: mimckitt
 ms.service: virtual-machines
-ms.topic: conceptual
-ms.date: 5/10/2021
+ms.topic: how-to
+ms.date: 03/01/2022
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: 
 ---
 
-# Create a virtual machine in an availability zone using the Azure portal
+# Create virtual machines in an availability zone using the Azure portal
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-This article steps through using the Azure portal to create a virtual machine in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
+This article steps through using the Azure portal to create virtual machines in Azure availability zones. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-region.md).
-
-## Sign in to Azure 
+To use availability zones, create your virtual machines in a [supported Azure region](../../availability-zones/az-region.md).
+## Create VMs
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 
 1. Click **Create a resource** > **Compute** > **Virtual machine**. 
 
-3. Enter the virtual machine information. The user name and password is used to sign in to the virtual machine. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-). 
+1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
 
-4. Choose a region such as East US 2 that supports availability zones. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose a resource group or create a new one.
 
-5. Under **Availability options**, select **Availability zone** dropdown. 
+1. Under **Instance details**, type a name for the **Virtual machine name**.
+1. For **Availability options**, select **Availability zone**.
+1. For **Availability zone**, the drop-down defaults to *Zone 1*. If you choose multiple zones, a new VM will be created in each zone. For example, if you select all three zones, then three VMs will be created. The VM names are the original name you entered, with **-1**, **-2**, and **-3** appended to the name, depending on the zones you choose.
 
-1. Under **Availability zone**, select a zone from the drop-down list.
-        
-4. Choose a size for the VM. Select a recommended size, or filter based on features. Confirm the size is available in the zone you want to use.
+   :::image type="content" source="media/tutorial-zones/3-vm-names.png" alt-text="Screenshot showing that there are now 3 virtual machines that will be created.":::
 
-6. Finish filling in the information for your VM. When you are done, select **Review + create**.
+1. Complete the rest of the page as usual. If you want to create a load balancer, go to the Networking tab > Load Balancing > Load balancing options.
 
-7. Once the information is verified, select **Create**.
+1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
-1. After the VM is created, you can see the availability zone listed in the **Essentials section** on the page for the VM.
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+
+1. If the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**.
+
+1. When the deployment is finished, select **Go to resource**.
+
 
 ## Confirm zone for managed disk and IP address
 
