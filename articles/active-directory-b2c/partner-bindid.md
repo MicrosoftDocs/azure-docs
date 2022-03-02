@@ -120,7 +120,7 @@ You should now see BindID as a new OIDC Identity provider listed within your B2C
 
 2. Select **New user flow**
 
-3. Select **Sign up and sign in** > **Version** **Reccomended** > **Create**.
+3. Select **Sign up and sign in** > **Version Recommended** > **Create**.
 
 4. Enter a **Name** for your policy.
 

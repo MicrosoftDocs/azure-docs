@@ -317,11 +317,11 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
       ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
 
-<a name="view-run-history"></a>
+<a name="review-run-history"></a>
 
 ## Review run history
 
-For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, run history and trigger histories appear at the workflow level, not the logic app level. To review the trigger histories outside the run history context, see [Review trigger histories](#view-trigger-histories).
+For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, run history and trigger histories appear at the workflow level, not the logic app level. To review the trigger histories outside the run history context, see [Review trigger histories](#review-trigger-history).
 
 1. In the Azure portal, on the workflow menu, select **Overview**.
 
@@ -381,11 +381,11 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
 
-<a name="view-trigger-histories"></a>
+<a name="review-trigger-history"></a>
 
-## Review trigger histories
+## Review trigger history
 
-For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [run history context](#view-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. To find this historical data, follow these steps:
+For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [run history context](#review-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. To find this historical data, follow these steps:
 
 1. In the Azure portal, on the workflow menu, select **Overview**.
 
