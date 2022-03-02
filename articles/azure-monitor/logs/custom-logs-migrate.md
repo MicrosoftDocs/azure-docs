@@ -7,13 +7,13 @@ ms.date: 01/06/2022
 ---
 
 # Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs
-This article will describe how to reuse tables in a Log Analytics workspace in Azure Monitor that were populated with the [Data Collector API](data-collector-api.md) or the [custom fields](custom-fields.md) features with DCR-based custom logs. This includes both [direct ingestion](custom-logs-overview.md)), and [ingestion-time transformations](ingestion-time-transformations.md).
+This article will describe how to configure tables in a Log Analytics workspace in Azure Monitor that were populated with the [Data Collector API](data-collector-api.md) or the [custom fields](custom-fields.md) features for use with DCR-based custom logs. This includes both [direct ingestion](custom-logs-overview.md), and [ingestion-time transformations](ingestion-time-transformations.md).
 
 > [!IMPORTANT]
 > You do not need to follow this article if you are defining your DCR-based custom logs using the Azure Portal. This article only applies if you are using resource manager templates and the custom logs API.
 
 ## Background
-To use a table with the [direct ingestion](custom-logs-overview.md)), and [ingestion-time transformations](ingestion-time-transformations.md), it must be enabled to support these new features. When you complete the process described in this article, the following actions are taken:
+To use a table with the [direct ingestion](custom-logs-overview.md), and [ingestion-time transformations](ingestion-time-transformations.md), it must be configured to support these new features. When you complete the process described in this article, the following actions are taken:
 
 - The table will be reconfigured to enable all DCR-based custom logs features, including DCR and DCE support and management with the new Tables control plane.
 - Any previously defined custom fields will stop populating.
