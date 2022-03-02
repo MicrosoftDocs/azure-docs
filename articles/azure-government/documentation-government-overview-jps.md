@@ -33,7 +33,7 @@ The [Criminal Justice Information Services](https://www.fbi.gov/services/cjis) (
 
 Microsoft's commitment to meeting the applicable CJIS regulatory controls help criminal justice organizations be compliant with the CJIS Security Policy when implementing cloud-based solutions. For more information about Azure support for CJIS, see [Azure CJIS compliance offering](/azure/compliance/offerings/offering-cjis).
 
-The remainder of this article discusses technologies that you can use to safeguard CJI stored or processed in Azure cloud services. These technologies can help you establish sole control over CJI that you're responsible for.
+The remainder of this article discusses technologies that you can use to safeguard CJI stored or processed in Azure cloud services. **These technologies can help you establish sole control over CJI that you're responsible for.**
 
 > [!NOTE]
 > You are wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in this article does not constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.

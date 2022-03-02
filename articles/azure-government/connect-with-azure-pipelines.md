@@ -1,6 +1,6 @@
 ---
 title: Deploy an app in Azure Government with Azure Pipelines
-description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from Azure Pipelines.
+description: Configure continuous deployment to your applications hosted in Azure Government by connecting from Azure Pipelines.
 ms.service: azure-government
 ms.topic: article
 ms.custom: devx-track-azurepowershell
@@ -9,7 +9,7 @@ ms.date: 03/02/2022
 
 # Deploy an app in Azure Government with Azure Pipelines
 
-This article helps you use Azure Pipelines to set up continuous integration (CI) and continuous deployment (CD) of your web app running in Azure Government. CI/CD automates the build of your code from a repo along with the deployment (release) of the built code artifacts to a service or set of services in Azure Government. In this tutorial, you will build a web app and deploy it to an Azure Governments app service. This build and release process is triggered by a change to a code file in the repo.
+This article helps you use Azure Pipelines to set up continuous integration (CI) and continuous deployment (CD) of your web app running in Azure Government. CI/CD automates the build of your code from a repo along with the deployment (release) of the built code artifacts to a service or set of services in Azure Government. In this tutorial, you'll build a web app and deploy it to an Azure Governments app service. This build and release process is triggered by a change to a code file in the repo.
 
 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is used by teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](/azure/devops/pipelines/library/service-endpoints) for Azure Government. 
 
@@ -17,13 +17,13 @@ This article helps you use Azure Pipelines to set up continuous integration (CI)
 
 ## Prerequisites
 
-Before starting this tutorial, you must have the following:
+Before starting this tutorial, you must complete the following prerequisites:
 
 + [Create an organization in Azure DevOps](/azure/devops/organizations/accounts/create-organization)
 + [Create and add a project to the Azure DevOps organization](/azure/devops/organizations/projects/create-project?;bc=%2fazure%2fdevops%2fuser-guide%2fbreadcrumb%2ftoc.json&tabs=new-nav&toc=%2fazure%2fdevops%2fuser-guide%2ftoc.json)
 + Install and set up [Azure PowerShell](/powershell/azure/install-az-ps)
 
-If you don't have an active Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
+If you don't have an active Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
 ## Create Azure Government app service 
 
@@ -46,13 +46,13 @@ Follow through one of the quickstarts below to set up a Build for your specific 
     > This script will be updated to use the Azure Az PowerShell module instead of the deprecated AzureRM PowerShell module.
 
 2. Open up the file and navigate to the `param` parameter. Replace the `$environmentName` variable with 
-AzureUSGovernment." This sets the service principal to be created in Azure Government.
+AzureUSGovernment." This action sets the service principal to be created in Azure Government.
 
 3. Open your PowerShell window and run the following command. This command sets a policy that enables running local files.
 
    `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 
-   When you are asked whether you want to change the execution policy, enter "A" (for "Yes to All").
+   When you're asked whether you want to change the execution policy, enter "A" (for "Yes to All").
 
 4. Navigate to the directory that has the edited script above.
 
@@ -64,12 +64,12 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
 7. When prompted for the "password" parameter, enter your desired password. 
 
-8. After providing your Azure Government subscription credentials, you should see the following: 
+8. After providing your Azure Government subscription credentials, you should see the following message: 
 
     > [!NOTE]
     > The Environment variable should be `AzureUSGovernment`.
 
-9. After the script has run, you should see your service connection values. Copy these values as we will need them when setting up our endpoint.
+9. After the script has run, you should see your service connection values. Copy these values as we'll need them when setting up our endpoint.
 
    ![ps4](./media/documentation-government-vsts-img11.png)
 
@@ -89,7 +89,7 @@ Follow [Deploy a web app to Azure App Services](/azure/devops/pipelines/apps/cd/
 You need at least one [agent](/azure/devops/pipelines/agents/agents) to run your deployments. By default, the build and deployment processes are configured to use the [hosted agents](/azure/devops/pipelines/agents/agents#microsoft-hosted-agents). Configuring a private agent would limit data sharing outside of Azure Government.
 
 **I use Team Foundation Server on premises. Can I configure CD on my server to target Azure Government?** <br/>
-Currently, Team Foundation Server cannot be used to deploy to an Azure Government Cloud.
+Currently, Team Foundation Server can't be used to deploy to an Azure Government Cloud.
 
 ## Next steps
 
