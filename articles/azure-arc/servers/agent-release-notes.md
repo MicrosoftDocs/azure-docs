@@ -18,6 +18,9 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.15 - February 2022
 
+### Known issues
+- The "Arc" proxy bypass feature on Linux includes some endpoints that belong to Azure Active Directory. As a result, if you only specify the "Arc" bypass rule, traffic destined for Azure Active Directory endpoints will not use the proxy server as expected. This issue will be fixed in an upcoming release.
+
 ### New features
 
 - Network check improvements during onboarding:
