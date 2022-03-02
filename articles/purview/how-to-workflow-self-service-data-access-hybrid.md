@@ -59,7 +59,7 @@ To modify an existing workflow by selecting the workflow and then select on ‘E
 
 To disable a workflow, you can select the workflow and select ‘Disable’. You can also disable the workflow by clicking on ‘Edit’ and saving the workflow by changing the enable toggle in workflow canvas. 
 
-## Delete a workflow
+## Disable a workflow
 
 To delete a workflow, select the workflow and select on ‘Delete’.
 
