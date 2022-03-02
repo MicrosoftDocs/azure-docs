@@ -87,7 +87,7 @@ How often a device submits a provisioning request depends on the scenario.  When
 > * On errors other than 429 and 5xx, re-register through DPS 
 > * Ideally you should also support a [method](../iot-hub/iot-hub-devguide-direct-methods.md) to manually trigger provisioning on demand.
 > 
-> We also recommend to take into account the service limits when planning activities like pushing updates to your fleet. For example, updating the fleet all at once could cause all devices to re-register through DPS (which could easily be above the registration quota limit) - For such scenarios, consider to plan for device updates in phases instead of updating your entire fleet at the same time.
+> We also recommend taking into account the service limits when planning activities like pushing updates to your fleet. For example, updating the fleet all at once could cause all devices to re-register through DPS (which could easily be above the registration quota limit) - For such scenarios, consider planning for device updates in phases instead of updating your entire fleet at the same time.
 
 >[!Note]
 > The get the device registration state API does not currently work for TPM devices (the API surface does not include enough information to authenticate the request).
