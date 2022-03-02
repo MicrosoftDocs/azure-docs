@@ -239,7 +239,7 @@ As discussed previously, auto-failover groups can also be managed programmatical
 | [az sql failover-group update](/cli/azure/sql/failover-group#az-sql-failover-group-update) |Modifies a failover group's configuration  and/or adds one or more databases to a failover group|
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Triggers failover of a failover group to the secondary server |
 
-# [Rest API](#tab/rest-api)
+# [REST API](#tab/rest-api)
 
 | API | Description |
 | --- | --- |
