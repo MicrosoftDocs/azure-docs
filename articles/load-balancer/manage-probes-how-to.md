@@ -21,7 +21,7 @@ There are three types of health probes:
 | **Probe down behavior** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
 >[!IMPORTANT]
->Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance as up. Review [probe source IP address](#probe-source-ip-address) for details. To see this probe traffic within your backend instance, review [the Azure Load Balancer FAQ](./load-balancer-faqs.yml).
+>Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance as up. To see this probe traffic within your backend instance, review [the Azure Load Balancer FAQ](./load-balancer-faqs.yml).
 >
 >
 >Regardless of configured time-out threshold, HTTP(S) load balancer health probes will automatically mark the instance as down if the server returns any status code that isn't HTTP 200 OK or if the connection is terminated via TCP reset.
@@ -117,7 +117,7 @@ In this example, you'll create an HTTP health probe.
 
 7. Select **Add**.
 
-    :::image type="content" source="./media/manage-probes-how-to/add-http-probe.png" alt-text="Screenshot of TCP probe addition.":::
+    :::image type="content" source="./media/manage-probes-how-to/add-http-probe.png" alt-text="Screenshot of HTTP probe addition.":::
 
 ### Remove an HTTP health probe
 
@@ -135,7 +135,7 @@ In this example, you'll remove an HTTP health probe.
 
 6. Select **Delete**.
 
-    :::image type="content" source="./media/manage-probes-how-to/remove-http-probe.png" alt-text="Screenshot of TCP probe removal.":::
+    :::image type="content" source="./media/manage-probes-how-to/remove-http-probe.png" alt-text="Screenshot of HTTP probe removal.":::
 
 ## HTTPS health probe
 
@@ -170,7 +170,7 @@ In this example, you'll create an HTTPS health probe.
 
 7. Select **Add**.
 
-    :::image type="content" source="./media/manage-probes-how-to/add-https-probe.png" alt-text="Screenshot of TCP probe addition.":::
+    :::image type="content" source="./media/manage-probes-how-to/add-https-probe.png" alt-text="Screenshot of HTTPS probe addition.":::
 
 ### Remove an HTTPS health probe
 
@@ -188,7 +188,7 @@ In this example, you'll remove an HTTPS health probe.
 
 6. Select **Delete**.
 
-    :::image type="content" source="./media/manage-probes-how-to/remove-https-probe.png" alt-text="Screenshot of TCP probe removal.":::
+    :::image type="content" source="./media/manage-probes-how-to/remove-https-probe.png" alt-text="Screenshot of HTTPS probe removal.":::
 
 ## Next steps
 
