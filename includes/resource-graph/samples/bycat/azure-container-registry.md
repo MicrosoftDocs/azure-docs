@@ -14,7 +14,7 @@ Returns all the all the vulnerabilities found on container images. Azure Defende
 ```kusto
 SecurityResources
 | where type == 'microsoft.security/assessments'
-| where properties.displayName contains 'Container registry images should have vulnerability findings resolved'
+| where properties.displayName contains 'Vulnerabilities in Azure Container Registry images should be remediated'
 | summarize by assessmentKey=name //the ID of the assessment
 | join kind=inner (
 	securityresources

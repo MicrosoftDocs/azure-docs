@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 02/11/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -39,12 +39,12 @@ Microsoft is making security defaults available to everyone. The goal is to ensu
 
 ### Who's it for?
 
-- Organizations who want to increase their security posture, but don't know how or where to start.
-- Organizations using the free tier of Azure Active Directory licensing.
+- If you're an organization that wants to increase your security posture but you don't know how or where to start, security defaults are for you.
+- If you're an organization using the free tier of Azure Active Directory licensing, security defaults are for you.
 
 ### Who should use Conditional Access?
 
-- If you're an organization currently using Conditional Access policies, security defaults are probably not right for you. 
+- If you're an organization currently using Conditional Access policies to bring signals together, to make decisions, and enforce organizational policies, security defaults are probably not right for you. 
 - If you're an organization with Azure Active Directory Premium licenses, security defaults are probably not right for you.
 - If your organization has complex security requirements, you should consider Conditional Access.
 
@@ -110,13 +110,7 @@ Using Azure Resource Manager to manage your services is a highly privileged acti
 
 It's important to verify the identity of users who want to access Azure Resource Manager and update configurations. You verify their identity by requiring more authentication before you allow access.
 
-After you enable security defaults in your tenant, any user accessing the following services must complete multi-factor authentication: 
-
-- Azure portal
-- Azure PowerShell 
-- Azure CLI 
-
-This policy applies to all users who are accessing Azure Resource Manager services, whether they're an administrator or a user. 
+After you enable security defaults in your tenant, any user who's accessing the Azure portal, Azure PowerShell, or the Azure CLI will need to complete more authentication. This policy applies to all users who are accessing Azure Resource Manager, whether they're an administrator or a user. 
 
 > [!NOTE]
 > Pre-2017 Exchange Online tenants have modern authentication disabled by default. In order to avoid the possibility of a login loop while authenticating through these tenants, you must [enable modern authentication](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
@@ -140,7 +134,9 @@ Emergency access accounts are:
 - Aren't used on a daily basis
 - Are protected with a long complex password
  
-The credentials for these emergency access accounts should be stored offline in a secure location such as a fireproof safe. Only authorized individuals should have access to these credentials. 
+The credentials for these emergency access accounts should be stored offline in a secure location such as a fireproof safe. Only authorized individuals should have access to these credentials.
+
+For more detailed information about emergency access accounts, see the article [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
 
 To create an emergency access account: 
 
@@ -154,10 +150,6 @@ To create an emergency access account:
 1. Under **Roles**, assign the **Global Administrator** role.
 1. Under **Usage location**, select the appropriate location.
 1. Select **Create**.
-
-You may choose [disable password expiration](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) to for these accounts using Azure AD PowerShell.
-
-For more detailed information about emergency access accounts, see the article [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
 
 ### Authentication methods
 
@@ -183,11 +175,11 @@ If your organization is a previous user of per-user based Azure AD Multi-Factor 
 
 ### Conditional Access
 
-You can use Conditional Access to configure policies similar to security defaults, but with more granularity including user exclusions, which aren't available in security defaults. If you're using Conditional Access and have Conditional Access policies enabled in your environment, security defaults won't be available to you. More information about Azure AD licensing can be found on the [Azure AD pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+You can use Conditional Access to configure policies similar to security defaults, but with more granularity including user exclusions, which aren't available in security defaults. If you're using Conditional Access and have Conditional Access policies enabled in your environment, security defaults won't be available to you. If you have a license that provides Conditional Access but don't have any Conditional Access policies enabled in your environment, you're welcome to use security defaults until you enable Conditional Access policies. More information about Azure AD licensing can be found on the [Azure AD pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ![Warning message that you can have security defaults or Conditional Access not both](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 
-Here are step-by-step guides for Conditional Access to configure a set of policies, which form a good starting point for protecting your identities:
+Here are step-by-step guides on how you can use Conditional Access to configure a set of policies, which form a good starting point for protecting your identities:
 
 - [Require MFA for administrators](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - [Require MFA for Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md)

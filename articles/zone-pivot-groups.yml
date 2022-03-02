@@ -1325,11 +1325,9 @@ groups:
   - id: defender-for-container-aks
     title: Azure (AKS)
   - id: defender-for-container-arc
-    title: On-premises / IaaS (Arc)
+    title: On-premises / IaaS
   - id: defender-for-container-eks
     title: AWS (EKS)
-  - id: defender-for-container-gke
-    title: GCP (GKE)
 # Owner: mikeray
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Operating system / Console

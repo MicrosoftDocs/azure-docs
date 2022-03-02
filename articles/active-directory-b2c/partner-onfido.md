@@ -37,7 +37,7 @@ The Onfido integration includes the following components:
 
 - Onfido client – A configurable JavaScript client document collection utility deployed within other webpages. Collects the documents and does preliminary checks like document size and quality.
 
-- Intermediate REST API – Provides endpoints for the Azure AD B2C tenant to communicate with the Onfido API service, handling data processing and adhering to the security requirements of both.
+- Intermediate Rest API – Provides endpoints for the Azure AD B2C tenant to communicate with the Onfido API service, handling data processing and adhering to the security requirements of both.
 
 - Onfido API service – The backend service provided by Onfido, which saves and verifies the documents provided by the user.
 
@@ -77,7 +77,7 @@ For more information about Onfido, see [Onfido API documentation](https://docume
 
 #### Adding sensitive configuration settings
 
-Application settings can be configured in the [App service in Azure](../app-service/configure-common.md#configure-app-settings). The App service allows for settings to be securely configured without checking them into a repository. The REST API needs the following settings:
+Application settings can be configured in the [App service in Azure](../app-service/configure-common.md#configure-app-settings). The App service allows for settings to be securely configured without checking them into a repository. The Rest API needs the following settings:
 
 | Application setting name | Source | Notes |
 |:-------------------------|:-------|:-------|

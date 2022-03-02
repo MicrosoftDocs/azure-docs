@@ -6,7 +6,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 03/01/2022
+ms.date: 02/01/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -18,17 +18,6 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
-
-## February 2022
-
-### New articles
-
-- [Quickstart: Sign in users and call the Microsoft Graph API from an Android app](mobile-app-quickstart-portal-android.md)
-- [Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app](mobile-app-quickstart-portal-ios.md)
-
-### Updated articles
-
-- [Desktop app that calls web APIs: Acquire a token using WAM](scenario-desktop-acquire-token-wam.md)
 
 ## January 2022
 
@@ -77,3 +66,18 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Microsoft identity platform developer glossary](developer-glossary.md)
 - [Quickstart: Sign in and get an access token in an Angular SPA using the auth code flow](quickstart-v2-javascript-auth-code-angular.md)
 - [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
+
+## November 2021
+
+### Updated articles
+
+- [How to migrate a Node.js app from ADAL to MSAL](msal-node-migration.md)
+- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
+- [Microsoft identity platform access tokens](access-tokens.md)
+- [Microsoft identity web authentication library](microsoft-identity-web.md)
+- [Protected web API: App registration](scenario-protected-web-api-app-registration.md)
+- [Providing your own HttpClient and proxy using MSAL.NET](msal-net-provide-httpclient.md)
+- [Single sign-on with MSAL.js](msal-js-sso.md)
+- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
+- [What's new for authentication?](reference-breaking-changes.md)
+

@@ -91,10 +91,6 @@
       href: concepts-digital-twin.md
     - name: IoT Plug and Play bridge
       href: concepts-iot-pnp-bridge.md
-  - name: Security
-    items:
-    - name: Guidelines for secured embedded development
-      href: concepts-azure-rtos-security-practices.md 
 - name: How to
   items:
   - name: Install and use IoT explorer

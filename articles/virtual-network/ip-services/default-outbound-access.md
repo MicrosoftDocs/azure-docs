@@ -29,9 +29,6 @@ The public IPv4 address used for the access is called the default outbound acces
 ## When is default outbound access provided?
 
 If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP.
-
-:::image type="content" source="./media/default-outbound-access/default-outbound-access.png" alt-text="Diagram of default outbound access.":::
-
 ## Why is disabling default outbound access recommended?
 
 * Secure by default

@@ -199,7 +199,7 @@ Manage classifications and recommendations for Azure SQL Database and Azure SQL 
 - [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
-### Use the REST API
+### Use the Rest API
 
 You can use the REST API to programmatically manage classifications and recommendations. The published REST API supports the following operations:
 

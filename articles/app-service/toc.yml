@@ -255,8 +255,6 @@
               href: configure-authentication-provider-aad.md
             - name: Authenticate with Facebook
               href: configure-authentication-provider-facebook.md
-            - name: Authenticate with GitHub
-              href: configure-authentication-provider-github.md
             - name: Authenticate with Google
               href: configure-authentication-provider-google.md
             - name: Authenticate with Twitter

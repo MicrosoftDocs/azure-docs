@@ -27,14 +27,14 @@ This article describes how to view notification settings for a rule in the Cloud
 
 1. In the CloudKnox home page, select the **Autopilot** tab.
 1. In the **Autopilot** dashboard, from the **Authorization system types** dropdown, select Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
-1. From the **Authorization System** dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
+1. From the **Authorization system** dropdown, in the **List** and **Folders** box, select the account and folder names that you want, and then select **Apply**.  
 1. In the **Autopilot** dashboard, select a rule.
 1. In the far right of the row, select the ellipses **(...)**
-1. To view notification settings for a rule, select **Notification Settings**. 
+1. To view notification settings for a rule, select **Notification settings**. 
 
     CloudKnox displays a list of subscribed users. These users are signed up to receive notifications for the selected rule.
 
-1. To close the **Notification Settings** box, select **Close**.
+1. To close the **Notification settings** box, select **Close**.
 
 
 ## Next steps

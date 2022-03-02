@@ -31,13 +31,14 @@ npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsigh
 Initialize a connection to Application Insights:
 
 ```javascript
-import React from 'react';
+// AppInsights.js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-react-js';
-import { createBrowserHistory } from "history";
+import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
+import { createBrowserHistory } from 'history';
+
 const browserHistory = createBrowserHistory({ basename: '' });
-var reactPlugin = new ReactPlugin();
-var appInsights = new ApplicationInsights({
+const reactPlugin = new ReactPlugin();
+const appInsights = new ApplicationInsights({
     config: {
         instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
         extensions: [reactPlugin],
@@ -47,6 +48,7 @@ var appInsights = new ApplicationInsights({
     }
 });
 appInsights.loadAppInsights();
+export { reactPlugin, appInsights };
 ```
 
 Wrap your component with the higher-order component function to enable Application Insights on it:
@@ -67,21 +69,6 @@ class MyComponent extends React.Component {
 // the first two are required and the other two are optional.
 
 export default withAITracking(reactPlugin, MyComponent);
-```
-
-For `react-router v6` or other scenarios where router history is not exposed, appInsights config `enableAutoRouteTracking` can be used to auto track router changes:
-
-```javascript
-var reactPlugin = new ReactPlugin();
-var appInsights = new ApplicationInsights({
-    config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
-        enableAutoRouteTracking: true,
-        extensions: [reactPlugin]
-        }
-    }
-});
-appInsights.loadAppInsights();
 ```
 
 ## Configuration

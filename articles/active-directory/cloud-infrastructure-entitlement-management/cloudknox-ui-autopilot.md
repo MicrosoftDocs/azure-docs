@@ -28,10 +28,10 @@ The **Autopilot** dashboard in CloudKnox Permissions Management (CloudKnox) prov
 
 1. In the CloudKnox home page, select the **Autopilot** tab.
 1. In the **Autopilot** dashboard, from the **Authorization system types** dropdown, select the authorization system types you want: Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
-1. From the **Authorization System** dropdown, in the **List** and **Folders** box, select the account and folder names that you want.
+1. From the **Authorization system** dropdown, in the **List** and **Folders** box, select the account and folder names that you want.
 1. Select **Apply**. 
 
-    The following information displays in the **Autopilot Rules** table:
+    The following information displays in the **Autopilot rules** table:
 
     - **Rule Name**: The name of the rule.
     - **State**: The status of the rule: idle (not being use) or active (being used).
@@ -48,11 +48,11 @@ The **Autopilot** dashboard in CloudKnox Permissions Management (CloudKnox) prov
 
     The following options are available:
 
-    - **View Rule**: Select to view details of the rule.
-    - **Delete Rule**: Select to delete the rule. Only the user who created the selected rule can delete the rule. 
-    - **Generate Recommendations**: Creates recommendations for each user and the authorization system. Only the user who created the selected rule can create recommendations.
-    - **View Recommendations**: Displays the recommendations for each user and authorization system.
-    - **Notification Settings**: Displays the users subscribed to this rule. Only the user who created the selected rule can add other users to be notified.
+    - **View rule**: Select to view details of the rule.
+    - **Delete rule**: Select to delete the rule. Only the user who created the selected rule can delete the rule. 
+    - **Generate recommendations**: Creates recommendations for each user and the authorization system. Only the user who created the selected rule can create recommendations.
+    - **View recommendations**: Displays the recommendations for each user and authorization system.
+    - **Notification settings**: Displays the users subscribed to this rule. Only the user who created the selected rule can add other users to be notified.
 
 You can also select:
 

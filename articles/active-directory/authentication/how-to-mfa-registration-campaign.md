@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 02/11/2022
 
 ms.author: justinha
 author: mjsantani
@@ -253,57 +253,39 @@ The nudge will not appear on mobile devices that run Android or iOS.
 
 ## Frequently asked questions
 
-**Is registration campaign available for MFA Server?** 
-
-No. This feature is available only for users using Azure MFA. 
-
-**Can users be nudged within an application?** 
-
-Nudge is available only on browsers and not on applications.
+**Will this feature be available for MFA Server?** 
+No. This feature will be available only for users using Azure MFA. 
 
 **How long will the campaign run for?** 
-
 You can use the APIs to enable the campaign for as long as you like. Whenever you want to be done running the campaign, simply use the APIs to disable the campaign.  
  
 **Can each group of users have a different snooze duration?** 
-
 No. The snooze duration for the prompt is a tenant-wide setting and applies to all groups in scope. 
 
 **Can users be nudged to set up passwordless phone sign-in?** 
-
 The feature aims to empower admins to get users set up with MFA using the Authenticator app and not passwordless phone sign-in.  
 
 **Will a user who has a 3rd party authenticator app setup see the nudge?** 
-
 If this user doesn’t have the Microsoft Authenticator app set up for push notifications and are enabled for it by policy, yes, the user will see the nudge. 
 
-**Will a user who has a Microsoft Authenticator app setup only for TOTP codes see the nudge?** 
-
-Yes. If the Microsoft Authenticator app is not set up for push notifications and the user is enabled for it by policy, yes, the user will see the nudge.
+**Will a user who has a Microsoft Authenticator app setup only for TOTP codes see the nudge?** Yes. If the Microsoft Authenticator app is not set up for push notifications and the user is enabled for it by policy, yes, the user will see the nudge.
 
 **If a user just went through MFA registration, will they be nudged in the same sign-in session?** 
-
 No. To provide a good user experience, users will not be nudged to set up the Authenticator in the same session that they registered other authentication methods.  
 
 **Can I nudge my users to register another authentication method?** 
-
 No. The feature, for now, aims to nudge users to set up the Microsoft Authenticator app only. 
 
 **Is there a way for me to hide the snooze option and force my users to setup the Authenticator app?**  
-
 There is no way to hide the snooze option on the nudge. You can set the snoozeDuration to 0, which will ensure that users will see the nudge during each MFA attempt.  
 
 **Will I be able to nudge my users if I am not using Azure MFA?** 
-
 No. The nudge will only work for users who are doing MFA using the Azure MFA service. 
 
 **Will Guest/B2B users in my tenant be nudged?** 
-
 Yes. If they have been scoped for the nudge using the policy. 
 
-**What if the user closes the browser?** 
-
-It's the same as snoozing.
+**What if the user closes the browser?** It's the same as snoozing.
 
 
 ## Next steps

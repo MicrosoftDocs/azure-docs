@@ -28,9 +28,9 @@ This article describes how to generate and download the **Permissions analytics 
 1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
 
     The **Systems Reports** subtab displays a list of reports the **Reports** table.
-1. Find **Permissions Analytics Report** in the list, and to download the report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.
+1. Find **Permissions analytics report** in the list, and to download the report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.
 
-    The following message displays: **Successfully Started To Generate On Demand Report.**
+    The following message displays: **Successfully started to generate on-demand report.**
 
 1. For detailed information in the report, select the right arrow next to one of the following categories. Or, select the required category under the **Findings** column.
 
@@ -90,28 +90,28 @@ This article describes how to generate and download the **Permissions analytics 
 
 1. Select a category and view the following columns of information:
 
-	- **User**, **Role**, **Resource**, **Serverless Function Name**: Displays the name of the identity.
-	- **Authorization System**: Displays the authorization system to which the identity belongs.
+	- **User**, **Role**, **Resource**, **Serverless function name**: Displays the name of the identity.
+	- **Authorization system**: Displays the authorization system to which the identity belongs.
 	- **Domain**: Displays the domain name to which the identity belongs.
 	- **Permissions**: Displays the maximum number of permissions that the identity can be granted.
 		- **Used**: Displays how many permissions that the identity has used.
 		- **Granted**: Displays how many permissions that the identity has been granted.
 	- **PCI**: Displays the permission creep index (PCI) score of the identity.
-	- **Date Last Active On**: Displays the date that the identity was last active.
-	- **Date Created On**: Displays the date when the identity was created.
+	- **Date last active on**: Displays the date that the identity was last active.
+	- **Date created on**: Displays the date when the identity was created.
 
 
 
 <!---## Add and remove tags in the Permissions analytics report
 
 1. Select **Tags**.
-1. Select one of the categories from the **Permissions Analytics Report**.
+1. Select one of the categories from the **Permissions analytics report**.
 1. Select the identity name to which you want to add a tag. Then, select the checkbox at the top to select all identities.
-1. Select **Add Tag**.
-1. In the **Tag** column: 
-    - To select from the available options from the list, select **Select a Tag**.
+1. Select **Add tag**.
+1. In the **tag** column: 
+    - To select from the available options from the list, select **Select a tag**.
     - To search for a tag, enter the tag name.
-    - To create a new custom tag, select  **New Custom Tag**.
+    - To create a new custom tag, select  **New custom tag**.
     - To create a new tag, enter a name for the tag and select **Create**.
     - To remove a tag, select **Delete**.
 

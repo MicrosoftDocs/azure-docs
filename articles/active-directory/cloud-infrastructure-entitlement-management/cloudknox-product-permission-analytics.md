@@ -23,14 +23,14 @@ This article describes how you can create and view permission analytics triggers
 ## View permission analytics triggers
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. Select **Permission Analytics**, and then select the **Alerts** subtab.
+1. Select **Permission analytics**, and then select the **Alerts** subtab.
 
     The **Alerts** subtab displays the following information:
 
-      - **Alert Name**: Lists the name of the alert.
+      - **Alert name**: Lists the name of the alert.
            - To view the name, ID, role, domain, authorization system, statistical condition, anomaly date, and observance period, select **Alert name**.  
            - To expand the top information found with a graph of when the anomaly occurred, select **Details**. 
-      - **Anomaly Alert Rule**: Displays the name of the rule select when creating the alert.
+      - **Anomaly alert rule**: Displays the name of the rule select when creating the alert.
       - **# of Occurrences**: Displays how many times the alert trigger has occurred.
       - **Task**: Displays how many tasks are affected by the alert
       - **Resources**: Displays how many resources are affected by the alert
@@ -55,11 +55,11 @@ This article describes how you can create and view permission analytics triggers
 ## Create a permission analytics trigger
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. Select **Permission Analytics**, select the **Alerts** subtab, and then select **Create Permission Analytics Trigger**.
-1. In the **Alert Name** box,  enter a name for the alert.
-1. Select the **Authorization System**.
+1. Select **Permission analytics**, select the **Alerts** subtab, and then select **Create Permission Analytics Trigger**.
+1. In the **Alert name** box,  enter a name for the alert.
+1. Select the **Authorization system**.
 1. Select **Identity performed high number of tasks**, and then select **Next**.
-1. On the **Authorization Systems** tab, select the appropriate accounts and folders, or select **All**.  
+1. On the **Authorization systems** tab, select the appropriate accounts and folders, or select **All**.  
 
     This screen defaults to the **List** view but can also be changed to the **Folder** view, and the applicable folder can be selected instead of individually by system.
 
@@ -72,18 +72,18 @@ This article describes how you can create and view permission analytics triggers
 ## View permission analytics alert triggers
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. Select **Permission Analytics**, and then select the **Alert Triggers** subtab.
+1. Select **Permission analytics**, and then select the **Alert triggers** subtab.
 
     The **Alert triggers** subtab displays the following information:
 
       - **Alert**: Lists the name of the alert.
-      - **Anomaly Alert Rule**: Displays the name of the rule select when creating the alert.
+      - **Anomaly alert rule**: Displays the name of the rule select when creating the alert.
       - **# of users subscribed**: Displays the number of users subscribed to the alert.
-      - **Created By**: Displays the email address of the user who created the alert.
-      - **Last modified By**: Displays the email address of the user who last modified the alert.
+      - **Created by**: Displays the email address of the user who created the alert.
+      - **Last modified by**: Displays the email address of the user who last modified the alert.
       - **Last Modified On**: Displays the date and time the trigger was last modified.
       - **Subscription**: Toggle the button to **On** or **Off**.
-      - **View Trigger**: Displays the current trigger settings and applicable authorization system details.
+      - **View trigger**: Displays the current trigger settings and applicable authorization system details.
 
 1. To view other options available to you, select the ellipses (**...**), and then make a selection from the available options:
 

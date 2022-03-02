@@ -110,11 +110,11 @@ items:
       items:
       - name: Generate SAS tokens for Document Translation
         href: document-translation/create-sas-tokens.md
-      - name: Create and use managed identities
+      - name: Create and use managed identity
         href: document-translation/managed-identity.md
     - name: Reference
       items:
-      - name: Document Translation REST APIs
+      - name:  Document Translation REST APIs
         href: document-translation/reference/rest-api-guide.md
       - name: Get supported document formats
         href: document-translation/reference/get-supported-document-formats.md

@@ -37,6 +37,8 @@ This article describes limitations and known issues of SFTP support for Azure Bl
  
 ## Networking
 
+- Partitioned DNS endpoints are not supported.
+
 - To access the storage account using SFTP, your network must allow traffic on port 22.
 
 - When a firewall is configured, connections from non-allowed IPs are not rejected as expected. However, if there is a successful connection for an authenticated user then all data plane operations will be rejected.
@@ -87,6 +89,8 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 
 - Symbolic links are not supported.
 
+- PowerShell and Azure CLI are not supported. You can leverage Portal and ARM templates for Public Preview.
+
 - `ssh-keyscan` is not supported.
 
 - SSH commands, that are not SFTP, are not supported.
@@ -97,11 +101,13 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 
   - The account needs to be a GPv2 or Block Blob Storage account.
   
+  - The account needs to have LRS or ZRS replication setup.
+  
   - The account needs to have hierarchical namespace enabled on it.
   
   - The account needs to be in a [supported regions](secure-file-transfer-protocol-support.md#regional-availability).
   
-  - Customer's subscription needs to be signed up for the preview. Request to join via 'Preview features' in the Azure portal. Requests are automatically approved.
+  - Customer's subscription needs to be signed up for the preview. To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) *and* request to join via 'Preview features' in the Azure portal.
 
 - To resolve the `Home Directory not accessible error.` error, check that:
   

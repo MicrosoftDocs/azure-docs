@@ -4,7 +4,7 @@ description: Compares Azure Resource Manager templates developed with JSON and B
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 01/21/2022
 ---
 # Comparing JSON and Bicep for templates
 
@@ -37,26 +37,26 @@ func()
 To declare a parameter with a default value:
 
 ```bicep
-param orgName string = 'Contoso'
+param demoParam string = 'Contoso'
 ```
 
 ```json
 "parameters": {
-  "orgName": {
+  "demoParam": {
     "type": "string",
     "defaultValue": "Contoso"
   }
 }
 ```
 
-To get a parameter value, use the name you defined:
+To get a parameter value:
 
 ```bicep
-name: orgName
+demoParam
 ```
 
 ```json
-"name": "[parameters('orgName'))]"
+[parameters('demoParam'))]
 ```
 
 ## Variables
@@ -64,23 +64,23 @@ name: orgName
 To declare a variable:
 
 ```bicep
-var description = 'example value'
+var demoVar = 'example value'
 ```
 
 ```json
 "variables": {
-  "description": "example value"
+  "demoVar": "example value"
 },
 ```
 
-To get a variable value, use the name you defined:
+To get a variable value:
 
 ```bicep
-workloadSetting: description
+demoVar
 ```
 
 ```json
-"workloadSetting": "[variables('demoVar'))]"
+[variables('demoVar'))]
 ```
 
 ## Strings
@@ -88,11 +88,11 @@ workloadSetting: description
 To concatenate strings:
 
 ```bicep
-name: '${namePrefix}-vm'
+'${namePrefix}-vm'
 ```
 
 ```json
-"name": "[concat(parameters('namePrefix'), '-vm')]"
+[concat(parameters('namePrefix'), '-vm')]
 ```
 
 ## Logical operators
@@ -134,7 +134,7 @@ targetScope = 'subscription'
 To declare a resource:
 
 ```bicep
-resource virtualMachine 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
   ...
 }
 ```
@@ -152,7 +152,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2020-06-01' = {
 To conditionally deploy a resource:
 
 ```bicep
-resource virtualMachine 'Microsoft.Compute/virtualMachines@2020-06-01' = if(deployVM) {
+resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = if(deployVM) {
   ...
 }
 ```
@@ -193,7 +193,7 @@ nic1.id
 To iterate over items in an array or count:
 
 ```bicep
-[for storageName in storageAccountNames: {
+[for storageName in storageAccounts: {
   ...
 }]
 ```
@@ -201,7 +201,7 @@ To iterate over items in an array or count:
 ```json
 "copy": {
   "name": "storagecopy",
-  "count": "[length(parameters('storageAccountNames'))]"
+  "count": "[length(parameters('storageAccounts'))]"
 },
 ...
 ```
@@ -213,7 +213,7 @@ For Bicep, you can set an explicit dependency but this approach isn't recommende
 The following shows a network interface with an implicit dependency on a network security group. It references the network security group with `nsg.id`.
 
 ```bicep
-resource netSecurityGroup 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
+resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
   ...
 }
 
@@ -232,7 +232,7 @@ resource nic1 'Microsoft.Network/networkInterfaces@2020-06-01' = {
 If you must set an explicit dependence, use:
 
 ```bicep
-dependsOn: [ storageAccount ]
+dependsOn: [ stg ]
 ```
 
 ```json
@@ -244,39 +244,27 @@ dependsOn: [ storageAccount ]
 To get a property from a resource in the template:
 
 ```bicep
-storageAccount.properties.primaryEndpoints.blob
+diagsAccount.properties.primaryEndpoints.blob
 ```
 
 ```json
-[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))).primaryEndpoints.blob]
+[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]
 ```
 
 To get a property from an existing resource that isn't deployed in the template:
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
   name: storageAccountName
 }
 
 // use later in template as often as needed
-storageAccount.properties.primaryEndpoints.blob
+stg.properties.primaryEndpoints.blob
 ```
 
 ```json
 // required every time the property is needed
 "[reference(resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
-```
-
-In Bicep, use the [nested accessor](operators-access.md#nested-resource-accessor) (`::`) to get a property on a resource nested within a parent resource:
-
-```bicep
-VNet1::Subnet1.properties.addressPrefix
-```
-
-For JSON, use reference function:
-
-```json
-[reference(resourceId('Microsoft.Network/virtualNetworks/subnets', variables('subnetName'))).properties.addressPrefix]
 ```
 
 ## Outputs
@@ -312,7 +300,7 @@ output hostname string = condition ? publicIP.properties.dnsSettings.fqdn : ''
 }
 ```
 
-The Bicep ternary operator is the equivalent to the [if function](../templates/template-functions-logical.md#if) in an ARM template JSON, not the condition property. The ternary syntax has to evaluate to one value or the other. If the condition is false in the preceding samples, Bicep outputs a hostname with an empty string, but JSON outputs no values.
+The Bicep ternary operator is the equivalent to the [`if` function](../templates/template-functions-logical.md#if) in an ARM template JSON, not the condition property. The ternary syntax has to evaluate to one value or the other. If the condition is false in the preceding samples, Bicep outputs a hostname with an empty string, but JSON outputs no values.
 
 ## Code reuse
 

@@ -91,11 +91,11 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
-| Max number of transactions per second (TPS) per Speech service resource | Not available for F0 | See [General](#general) |
-| Max number of datasets per Speech service resource | N/A | 500 |
-| Max number of simultaneous dataset uploads per Speech service resource | N/A | 5 |
-| Max data file size for data import per dataset | N/A | 2 GB |
-| Upload of long audios or audios without script | N/A | Yes |
+| Max number of transactions per second (TPS) per Speech service resource | See [General](#general) | See [General](#general) |
+| Max number of datasets per Speech service resource | 10 | 500 |
+| Max number of simultaneous dataset uploads per Speech service resource | 2 | 5 |
+| Max data file size for data import per dataset | 2 GB | 2 GB |
+| Upload of long audios or audios without script | No | Yes |
 | Max number of simultaneous model trainings per Speech service resource | N/A | 3 |
 | Max number of custom endpoints per Speech service resource | N/A | 50 |
 | *Concurrent request limit for Custom Neural Voice* |  |  |

@@ -1,12 +1,12 @@
 ---
 title: Understand Azure IoT Hub module twins | Microsoft Docs
 description: Developer guide - use module twins to synchronize state and configuration data between IoT Hub and your devices
-author: kgremban
+author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/29/2020
-ms.author: kgremban
+ms.author: nehsin
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 

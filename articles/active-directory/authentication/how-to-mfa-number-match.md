@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 02/23/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -49,6 +49,9 @@ When a user responds to an MFA push notification using Microsoft Authenticator, 
 ### SSPR
 
 During self-service password reset, Microsoft Authenticator notification will show a number that the user will need to type in their Authenticator app notification. This number will only be seen to users who have been enabled for number matching.
+
+>[!NOTE]
+>Number matching for admin roles during SSPR is pending and unavailable for a couple days.
 
 ### Combined registration
 

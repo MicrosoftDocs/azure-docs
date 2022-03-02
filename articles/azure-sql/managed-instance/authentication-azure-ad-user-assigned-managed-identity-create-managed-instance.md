@@ -133,9 +133,9 @@ For more information, see [New-AzSqlInstance](/powershell/module/az.sql/new-azsq
 > [!NOTE]
 > The above example provisions a managed instance with only a user-assigned managed identity. You could set the You could set the `-IdentityType` to be `"UserAssigned,SystemAssigned"` if you wanted both types of managed identities to be created with the instance.
 
-# [REST API](#tab/rest-api)
+# [Rest API](#tab/rest-api)
 
-The [Managed Instances - Create Or Update](/rest/api/sql/2020-11-01-preview/managed-instances/create-or-update) REST API can be used to create a managed instance with a user-assigned managed identity.
+The [Managed Instances - Create Or Update](/rest/api/sql/2020-11-01-preview/managed-instances/create-or-update) Rest API can be used to create a managed instance with a user-assigned managed identity.
 
 > [!NOTE]
 > The script requires a virtual network and subnet be created as a prerequisite.

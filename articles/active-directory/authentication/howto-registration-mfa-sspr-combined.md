@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/1/2022
+ms.date: 06/28/2021
 
 ms.author: justinha
 author: justinha
 manager: karenhoran
-ms.reviewer: tilarso
+ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
 ---
@@ -21,7 +21,6 @@ Before combined registration, users registered authentication methods for Azure 
 
 > [!NOTE]
 > Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
-> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration. After this date tenants will be unable to utilize the sepperate legacy registration workflows for MFA and SSPR.
 
 To make sure you understand the functionality and effects before you enable the new experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 

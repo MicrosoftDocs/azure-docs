@@ -1,10 +1,12 @@
 ---
-title: Create logic app workflows faster with prebuilt templates
-description: Quickly build logic app workflows with prebuilt templates in Azure Logic Apps.
+title: Create logic app workflows faster by using prebuilt templates
+description: Quickly build logic app workflows by using prebuilt templates provided by Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
-ms.topic: how-to
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, logicappspm
+ms.topic: article
 ms.date: 10/15/2017
 ---
 

@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 02/15/2022
 ---
 
 # Index data from Azure Cosmos DB using the Gremlin API
@@ -145,9 +145,9 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 
 1. Create additional fields for more searchable content. See [Create an index](search-how-to-create-search-index.md) for details.
 
-### Mapping data types
+### Mapping between JSON Data Types and Azure Cognitive Search Data Types
 
-| JSON data type | Cognitive Search field types |
+| JSON data type | Compatible target index field types |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
 | Numbers that look like integers |Edm.Int32, Edm.Int64, Edm.String |
@@ -244,9 +244,7 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 Once an indexer has fully populated a search index, you might want subsequent indexer runs to incrementally index just the new and changed documents in your database.
 
-To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. This property tells the indexer which change tracking mechanism is used on your data.
-
-For Cosmos DB indexers, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
+To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. For Cosmos DB, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
 
 The following example shows a [data source definition](#define-the-data-source) with a change detection policy:
 
@@ -299,7 +297,7 @@ api-key: [Search service admin key]
 
 <a name="MappingGraphData"></a>
 
-## Mapping graph data to fields in a search index
+## Mapping graph data to a search index
 
 The Cosmos DB Gremlin API indexer will automatically map a couple pieces of graph data for you:
 
@@ -373,5 +371,3 @@ Notice how the Output Field Mapping starts with `/document` and does not include
 + To learn more about Azure Cosmos DB Gremlin API, see the [Introduction to Azure Cosmos DB: Gremlin API](../cosmos-db/graph-introduction.md).
 
 + For more information about Azure Cognitive Search scenarios and pricing, see the [Search service page on azure.microsoft.com](https://azure.microsoft.com/services/search/).
-
-+ To learn about network configuration for indexers, see the [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md).

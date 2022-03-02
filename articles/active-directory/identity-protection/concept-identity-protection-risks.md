@@ -70,8 +70,6 @@ These risks can be calculated in real-time or calculated offline using Microsoft
 | Activity from anonymous IP address | Offline | This detection is discovered by [Microsoft Defender for Cloud Apps](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). This detection identifies that users were active from an IP address that has been identified as an anonymous proxy IP address. |
 | Suspicious inbox forwarding | Offline | This detection is discovered by [Microsoft Defender for Cloud Apps](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). This detection looks for suspicious email forwarding rules, for example, if a user created an inbox rule that forwards a copy of all emails to an external address. |
 | Azure AD threat intelligence | Offline | This risk detection type indicates sign-in activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
-| Mass Access to Sensitive Files | Offline | This detection is discovered by [Microsoft Defender for Cloud Apps](/defender-cloud-apps/investigate-anomaly-alerts#unusual-file-access-by-user). This detection profiles your environment and triggers alerts when users access multiple files from Microsoft SharePoint or Microsoft OneDrive. An alert is triggered only if the number of accessed files is uncommon for the user and the files might contain sensitive information|
-
 
 ### Other risk detections
 
@@ -105,7 +103,7 @@ Microsoft finds leaked credentials in various places, including:
 - Law enforcement agencies.
 - Other groups at Microsoft doing dark web research.
 
-#### Why am I not seeing any leaked credentials?
+#### Why are not I seeing any leaked credentials?
 
 Leaked credentials are processed anytime Microsoft finds a new, publicly available batch. Because of the sensitive nature, the leaked credentials are deleted shortly after processing. Only new leaked credentials found after you enable password hash synchronization (PHS) will be processed against your tenant. Verifying against previously found credential pairs is not done. 
 

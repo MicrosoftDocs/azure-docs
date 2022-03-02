@@ -91,7 +91,7 @@ You can also restore a database to a point in time from Azure Data Studio as fol
 
 ### Monitor progress
 
-When a restore is initiated, a task is created in the Kubernetes cluster that executes the actual restore operations of full, differential, and log backups. The progress of this activity can be monitored from your Kubernetes cluster as follows:
+When a restore is initiated, a task is created in the kubernetes cluster that executes the actual restore operations of full, differential, and log backups. The progress of this activity can be monitored from your kubernetes cluster as follows:
 
 ```console
 kubectl get sqlmirestoretask -n <namespace>

@@ -79,7 +79,7 @@
         href: app-attach-glossary.md
       - name: FAQ
         href: app-attach-faq.yml
-  - name: Azure Monitor for Azure Virtual Desktop
+  - name: Azure Monitor with Azure Virtual Desktop
     items:
       - name: Estimate Azure Monitor costs
         href: azure-monitor-costs.md

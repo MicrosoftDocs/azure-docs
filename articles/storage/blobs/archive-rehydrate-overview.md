@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.author: tamram
-ms.date: 03/01/2022
+ms.date: 10/25/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -18,11 +18,13 @@ While a blob is in the Archive access tier, it's considered to be offline and ca
 
 - [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier): You can rehydrate an archived blob by copying it to a new blob in the Hot or Cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) operation. Microsoft recommends this option for most scenarios.
 
-- [Change an archived blob's access tier to an online tier](#change-a-blobs-access-tier-to-an-online-tier): You can rehydrate an archived blob to the Hot or Cool tier by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
+- [Change a blob's access tier to an online tier](#change-a-blobs-access-tier-to-an-online-tier): You can rehydrate an archived blob to the Hot or Cool tier by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
-Rehydrating a blob from the Archive tier can take several hours to complete. Microsoft recommends archiving larger blobs for optimal performance when rehydrating. Rehydrating a large number of small blobs may require additional time due to the processing overhead on each blob. A maximum of 10 GiB per storage account may be rehydrated per hour with priority retrieval.
+Rehydrating a blob from the Archive tier can take several hours to complete. Microsoft recommends rehydrating larger blobs for optimal performance. Rehydrating several small blobs concurrently may require additional time. A maximum of 10 GiB per storage account may be rehydrated per hour.
 
-To learn how rehydrate an archived blob to an online tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
+You can configure [Azure Event Grid](../../event-grid/overview.md) to raise an event when you rehydrate a blob from the Archive tier to an online tier and to send the event to an event handler. For more information, see [Handle an event on blob rehydration](#handle-an-event-on-blob-rehydration).
+
+For more information about access tiers in Azure Storage, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ## Rehydration priority
 
@@ -90,7 +92,7 @@ During the blob rehydration operation, you can call the [Get Blob Properties](/r
 
 ## Handle an event on blob rehydration
 
-Rehydration of an archived blob may take up to 15 hours, and repeatedly polling **Get Blob Properties** to determine whether rehydration is complete is inefficient. Microsoft recommends that you use [Azure Event Grid](../../event-grid/overview.md) to capture the event that fires when rehydration is complete for better performance and cost optimization.
+Rehydration of an archived blob may take up to 15 hours, and repeatedly polling **Get Blob Properties** to determine whether rehydration is complete is inefficient. Using [Azure Event Grid](../../event-grid/overview.md) to capture the event that fires when rehydration is complete offers better performance and cost optimization.
 
 Azure Event Grid raises one of the following two events on blob rehydration, depending on which operation was used to rehydrate the blob:
 
@@ -113,8 +115,7 @@ For more information about pricing for block blobs and data rehydration, see [Az
 
 ## See also
 
-- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
-- [Archive a blob](archive-blob.md)
+- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 - [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)
 - [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md)
 - [Reacting to Blob storage events](storage-blob-event-overview.md)

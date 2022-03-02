@@ -51,7 +51,7 @@ Follow these steps to create a new console application and install the Speech SD
         speech_recognition_result = speech_recognizer.recognize_once_async().get()
     
         if speech_recognition_result.reason == speechsdk.ResultReason.RecognizedSpeech:
-            print("Recognized: {}".format(speech_recognition_result.text))
+        print("Recognized: {}".format(speech_recognition_result.text))
         elif speech_recognition_result.reason == speechsdk.ResultReason.NoMatch:
             print("No speech could be recognized: {}".format(speech_recognition_result.no_match_details))
         elif speech_recognition_result.reason == speechsdk.ResultReason.Canceled:

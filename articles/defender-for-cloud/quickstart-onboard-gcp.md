@@ -23,7 +23,6 @@ To protect your GCP-based resources, you can connect an account in two different
 
     - **Defender for Cloud's CSPM features** extends to your GCP resources. This agentless plan assesses your GCP resources according to GCP-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to GCP. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your GCP resources alongside your Azure resources.
     - **Microsoft Defender for servers** brings threat detection and advanced defenses to your GCP VM instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more. You can view the full list of available features in the [Supported features for virtual machines and servers table](supported-machines-endpoint-solutions-clouds.md)
-    - **Microsoft Defender for Containers** - Microsoft Defender for Containers brings threat detection and advanced defenses to your Google's Kubernetes Engine (GKE) Standard clusters. This plan includes Kubernetes threat protection, behavioral analytics, Kubernetes best practices, admission control recommendations and more.
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
@@ -34,7 +33,7 @@ To protect your GCP-based resources, you can connect an account in two different
 |Aspect|Details|
 |----|:----|
 | Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to the Azure features that are in beta, preview, or otherwise not yet released into general availability. |
-|Pricing:|The **CSPM plan** is free.<br> The **Defender for servers** plan is billed at the same price as the [Microsoft Defender for servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine. <br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for GCP at the same price as for Azure resources.|
+|Pricing:|The **CSPM plan** is free.<br> The **Defender for servers** plan is billed at the same price as the [Microsoft Defender for servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 |||
@@ -97,9 +96,11 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Ensure that the following resources were created:
 
-    | CSPM | Defender for Containers|
-    |--|--|
-    | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool <br>*Microsoft Defender for Servers* service account (when the servers plan is enabled) <br>*Azure-Arc for servers onboarding* service account (when the Arc for servers auto-provisioning is enabled) | Microsoft Defender Containers’ service account role, <br> Microsoft Defender Data Collector service account role <br> microsoft defender for cloud identity pool |
+    - CSPM service account reader role
+    - MDFC identity federation
+    - CSPM identity pool
+    - *Microsoft Defender for Servers* service account (when the servers plan is enabled)
+    - *Azure-Arc for servers onboarding* service account (when the Arc for servers auto-provisioning is enabled)
 
 1. (**Servers only**) When Arc auto-provisioning is enabled, copy the unique numeric ID presented at the end of the Cloud Shell script.
 
@@ -123,7 +124,7 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Select the **Create**. 
 
-After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender for Cloud after up to 6 hours. If you enabled auto-provisioning, Azure Arc, and any enabled extensions will install automatically for each new resource detected.
+After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender for Cloud after up to 6 hours. If you enabled agent auto-provisioning, Arc agent installation will occur automatically for each new resource detected.
 
 ## (Optional) Configure selected plans
 
@@ -166,35 +167,7 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
     > [!Note]
     > If Azure Arc is toggled **Off**, you will need to follow the manual installation process mentioned above. 
 
-1. Select **Save**. 
-
-1. Continue from step number 8, of the [Connect your GCP projects](#connect-your-gcp-projects) instructions. 
-
-### Configure the Containers plan
-
-Microsoft Defender for Containers brings threat detection, and advanced defences to your GCP GKE Standard clusters. To get the full security value out of Defender for Containers, and to fully protect GCP clusters, ensure you have the following requirements configured:
-
-- **Kubernetes audit logs to Defender for Cloud** - Enabled by default. This configuration is available at a GCP Project level only. This provides agentless collection of the audit log data through [GCP Cloud Logging](https://cloud.google.com/logging/) to the Microsoft Defender for Cloud backend for further analysis.
-- **Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension** - Enabled by default. You can install Azure Arc-enabled Kubernetes and its extensions on your GKE clusters in 3 different ways:
-    - **(Recommended)** Enable the Defender for Container auto-provisioning at the project level as explained in the instructions below. 
-    - Defender for Cloud recommendations, for per cluster installation, which will appear on the Microsoft Defender for Cloud's Recommendations page. Learn how to [deploy the solution to specific clusters](defender-for-containers-enable.md?tabs=defender-for-container-gke#deploy-the-solution-to-specific-clusters).
-    - Manual installation for [Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md), and [extensions](../azure-arc/kubernetes/extensions.md).
-
-**To configure the Containers plan**:
-
-1. Follow the steps to [Connect your GCP project](#connect-your-gcp-project).
-
-1. On the Select plans screen select **Configure**.
-
-    :::image type="content" source="media/quickstart-onboard-gcp/containers-configure.png" alt-text="Screenshot showing where to click to configure the Containers plan.":::
-
-1. On the Auto provisioning screen, toggle the switches **On**.
-
-    :::image type="content" source="media/quickstart-onboard-gcp/containers-configuration.png" alt-text="Screenshot showing the toggle switches for the Containers plan.":::
-
 1. Select **Save**.
-
-1. Continue from step number 8, of the [Connect your GCP projects](#connect-your-gcp-projects) instructions. 
 
 ::: zone-end
 
