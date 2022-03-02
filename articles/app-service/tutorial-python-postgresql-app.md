@@ -174,8 +174,8 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location centralus 
 - The password must contain 8 to 128 characters from either:
   - English uppercase letters.
   - English lowercase letters.
-  - Numbers (0 through 9)
-  - Non-alphanumeric characters (for example, !, #, %). 
+  - Numbers (0 through 9).
+  - Non-alphanumeric characters (for example, !, #, %).
 - The password can't contain username.
 - Don't use the `$` character in the username or password. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
 - The B_Gen5_1 (Basic, Gen5, 1 core) [pricing tier](../postgresql/concepts-pricing-tiers.md) used here is the least expensive. For production databases, omit the `--sku-name` argument to use the GP_Gen5_2 (General Purpose, Gen 5, 2 cores) tier instead.
