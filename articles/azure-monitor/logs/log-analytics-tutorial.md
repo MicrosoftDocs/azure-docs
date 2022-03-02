@@ -2,8 +2,6 @@
 title: "Log Analytics tutorial"
 description: Learn from this tutorial how to use features of Log Analytics in Azure Monitor to build and run a log query and analyze its results in the Azure portal.
 ms.topic: tutorial
-author: bwren
-ms.author: bwren
 ms.date: 06/28/2021
 
 ---
@@ -25,10 +23,10 @@ This tutorial walks you through the Log Analytics interface, gets you started wi
 
 
 ## Prerequisites
-This tutorial uses the [Log Analytics demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data that supports the sample queries. You can also use your own Azure subscription, but you might not have data in the same tables.
+This tutorial uses the [Log Analytics demo environment](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data that supports the sample queries. You can also use your own Azure subscription, but you might not have data in the same tables.
 
 ## Open Log Analytics
-Open the [Log Analytics demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), or select **Logs** from the Azure Monitor menu in your subscription. This step will set the initial scope to a Log Analytics workspace, so that your query will select from all data in that workspace. If you select **Logs** from an Azure resource's menu, the scope is set to only records from that resource. For details about the scope, see [Log query scope](./scope.md).
+Open the [Log Analytics demo environment](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), or select **Logs** from the Azure Monitor menu in your subscription. This step will set the initial scope to a Log Analytics workspace, so that your query will select from all data in that workspace. If you select **Logs** from an Azure resource's menu, the scope is set to only records from that resource. For details about the scope, see [Log query scope](./scope.md).
 
 You can view the scope in the upper-left corner of the screen. If you're using your own environment, you'll see an option to select a different scope. This option isn't available in the demo environment.
 

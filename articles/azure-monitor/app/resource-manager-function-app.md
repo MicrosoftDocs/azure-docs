@@ -3,7 +3,6 @@ title: Resource Manager template samples for Azure Function App + Application In
 description: Sample Azure Resource Manager templates to deploy an Azure Function App with an Application Insights resource.
 ms.topic: sample
 ms.date: 08/06/2020
-
 ---
 
 # Resource Manager template sample for creating Azure Function apps with Application Insights monitoring
