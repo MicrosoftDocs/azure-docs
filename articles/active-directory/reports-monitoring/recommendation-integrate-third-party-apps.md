@@ -52,7 +52,7 @@ You can then add an extra security layer by using conditional access to control 
 ## Action plan
 
 1. Review the configuration of your apps. 
-2. For each app that is not integrated into Azure AD yet, verify whether an integration is possible.
+2. For each app that isn't integrated into Azure AD yet, verify whether an integration is possible.
  
 
 ## Next steps
