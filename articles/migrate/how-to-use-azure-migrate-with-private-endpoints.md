@@ -22,7 +22,7 @@ Review the following required permissions and the supported scenarios and tools.
 
 ### Supported geographies
 
-The functionality is now in preview in supported [public cloud](./migrate-support-matrix.md#supported-geographies-public-cloud) and [government cloud geographies.](./migrate-support-matrix.md#supported-geographies-azure-government)
+The functionality is now in preview in supported [public cloud](./migrate-support-matrix.md#public-cloud) and [government cloud geographies.](./migrate-support-matrix.md#azure-government)
 
 ### Required permissions
 

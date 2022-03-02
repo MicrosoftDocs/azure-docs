@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/07/2022
+ms.date: 02/02/2022
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -25,6 +25,8 @@ To improve accuracy, customization is available for some languages and baseline 
 
 | Language                          | Locale (BCP-47) | Customizations                                                  |
 |-----------------------------------|-----------------|-----------------------------------------------------------------|
+| Afrikaans (South Africa)          | `af-ZA`         | Plain text                                                            |
+| Amharic (Ethiopia)                | `am-ET`         | Plain text                                                            |
 | Arabic (Algeria)                  | `ar-DZ`         | Plain text                                                            |
 | Arabic (Bahrain), modern standard | `ar-BH`         | Plain text                                                            |
 | Arabic (Egypt)                    | `ar-EG`         | Plain text                                                            |
@@ -44,6 +46,7 @@ To improve accuracy, customization is available for some languages and baseline 
 | Arabic (United Arab Emirates)     | `ar-AE`         | Plain text                                                            |
 | Arabic (Yemen)                    | `ar-YE`         | Plain text                                                            |
 | Bulgarian (Bulgaria)              | `bg-BG`         | Plain text                                                            |
+| Burmese (Myanmar)                 | `my-MM`         | Plain text                                                            |
 | Catalan (Spain)                   | `ca-ES`         | Plain text<br/>Pronunciation                                          |
 | Chinese (Cantonese, Traditional)  | `zh-HK`         | Plain text                                       |
 | Chinese (Mandarin, Simplified)    | `zh-CN`         | Plain text                                       |
@@ -51,6 +54,7 @@ To improve accuracy, customization is available for some languages and baseline 
 | Croatian (Croatia)                | `hr-HR`         | Plain text<br/>Pronunciation                                          |
 | Czech (Czech)                     | `cs-CZ`         | Plain text<br/>Pronunciation                                          |
 | Danish (Denmark)                  | `da-DK`         | Plain text<br/>Pronunciation                                          |
+| Dutch (Belgium)                   | `nl-BE`         | Plain text                                                            |
 | Dutch (Netherlands)               | `nl-NL`         | Plain text<br/>Pronunciation                     |
 | English (Australia)               | `en-AU`         | Plain text<br/>Pronunciation                     |
 | English (Canada)                  | `en-CA`         | Plain text<br/>Pronunciation                     |
@@ -70,6 +74,7 @@ To improve accuracy, customization is available for some languages and baseline 
 | Estonian (Estonia)                 | `et-EE`         | Plain text<br/>Pronunciation                                          |
 | Filipino (Philippines)            | `fil-PH`        | Plain text<br/>Pronunciation                                          |
 | Finnish (Finland)                 | `fi-FI`         | Plain text<br/>Pronunciation                                          |
+| French (Belgium)                  | `fr-BE`         | Plain text                                                            |
 | French (Canada)                   | `fr-CA`         | Audio (20201015)<br>Plain text<br>Structured Text (20210908)<br>Pronunciation                     |
 | French (France)                   | `fr-FR`         | Audio (20201015)<br>Plain text<br>Structured Text (20210908)<br>Pronunciation                     |
 | French (Switzerland)              | `fr-CH`         | Plain text<br/>Pronunciation                                          |
@@ -81,14 +86,19 @@ To improve accuracy, customization is available for some languages and baseline 
 | Hebrew (Israel)                   | `he-IL`         | Plain text                                                            |
 | Hindi (India)                     | `hi-IN`         | Plain text                                       |
 | Hungarian (Hungary)               | `hu-HU`         | Plain text<br/>Pronunciation                                          |
+| Icelandic (Iceland)               | `is-IS`         | Plain text                                                            |
 | Indonesian (Indonesia)            | `id-ID`         | Plain text<br/>Pronunciation                                          |
 | Irish (Ireland)                   | `ga-IE`         | Plain text<br/>Pronunciation                                          |
 | Italian (Italy)                   | `it-IT`         | Audio (20201016)<br>Plain text<br>Pronunciation                     |
 | Japanese (Japan)                  | `ja-JP`         | Plain text                                                            |
+| Javanese (Indonesia)              | `jv-ID`         | Plain text                                                            |
 | Kannada (India)                   | `kn-IN`         | Plain text                                                            |
+| Khmer (Cambodia)                  | `km-KH`         | Plain text                                                            |
 | Korean (Korea)                    | `ko-KR`         | Audio (20201015)<br>Plain text                                       |
+| Lao (Laos)                        | `lo-LA`         | Plain text                                                            |
 | Latvian (Latvia)                  | `lv-LV`         | Plain text<br/>Pronunciation                                          |
 | Lithuanian (Lithuania)            | `lt-LT`         | Plain text<br/>Pronunciation                                          |
+| Macedonian (North Macedonia)      | `mk-MK`         | Plain text                                                            |
 | Malay (Malaysia)                  | `ms-MY`         | Plain text                                                            |
 | Maltese (Malta)                   | `mt-MT`         | Plain text                                                            |
 | Marathi (India)                   | `mr-IN`         | Plain text                                                            |
@@ -99,6 +109,8 @@ To improve accuracy, customization is available for some languages and baseline 
 | Portuguese (Portugal)             | `pt-PT`         | Plain text<br/>Pronunciation                                          |
 | Romanian (Romania)                | `ro-RO`         | Plain text<br/>Pronunciation                                          |
 | Russian (Russia)                  | `ru-RU`         | Plain text                                       |
+| Serbian (Serbia)                  | `sr-RS`         | Plain text                                                            |
+| Sinhala (Sri Lanka)               | `si-LK`         | Plain text                                                            |
 | Slovak (Slovakia)                 | `sk-SK`         | Plain text<br/>Pronunciation                                          |
 | Slovenian (Slovenia)              | `sl-SI`         | Plain text<br/>Pronunciation                                          |
 | Spanish (Argentina)               | `es-AR`         | Plain text<br/>Pronunciation                                          |
@@ -124,12 +136,16 @@ To improve accuracy, customization is available for some languages and baseline 
 | Spanish (USA)                     | `es-US`         | Plain text<br/>Pronunciation                                          |
 | Spanish (Venezuela)               | `es-VE`         | Plain text<br/>Pronunciation                                          |
 | Swahili (Kenya)                   | `sw-KE`         | Plain text                                                            |
+| Swahili (Tanzania)                | `sw-TZ`         | Plain text                                                            |
 | Swedish (Sweden)                  | `sv-SE`         | Plain text<br/>Pronunciation                                          |
 | Tamil (India)                     | `ta-IN`         | Plain text                                                            |
 | Telugu (India)                    | `te-IN`         | Plain text                                                            |
 | Thai (Thailand)                   | `th-TH`         | Plain text                                                            |
 | Turkish (Turkey)                  | `tr-TR`         | Plain text                                                            |
+| Ukrainian (Ukraine)               | `uk-UA`         | Plain text                                                            |
+| Uzbek (Uzbekistan)                | `uz-UZ`         | Plain text                                                            |
 | Vietnamese (Vietnam)              | `vi-VN`         | Plain text                                                            |
+| Zulu (South Africa)               | `zu-ZA`         | Plain text                                                            |
 
 ### Phrase list
 
@@ -213,11 +229,15 @@ The following table lists the prebuilt neural voices supported in each language.
 | Chinese (Cantonese, Traditional) | `zh-HK` | Female | `zh-HK-HiuGaaiNeural` | General |
 | Chinese (Cantonese, Traditional) | `zh-HK` | Female | `zh-HK-HiuMaanNeural` | General |
 | Chinese (Cantonese, Traditional) | `zh-HK` | Male | `zh-HK-WanLungNeural` | General |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaochenNeural`  | Optimized for spontaneous conversation |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | General, multiple role-play and styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural`  | Optimized for narrating |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` | Senior voice, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural`  | Child voice，optimized for child story and chat; multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)|
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` | General, multiple role-play and styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyanNeural`  | Optimized for customer service |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyouNeural` | Child voice, optimized for story narrating |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunyangNeural` | Optimized for news reading,<br /> multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -471,10 +491,6 @@ The following neural voices are in public preview.
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaochenNeural`  | Optimized for spontaneous conversation |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural`  | Optimized for narrating |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural`  | Child voice，optimized for child story and chat; multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyanNeural`  | Optimized for customer service |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-AbbiNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-BellaNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-HollieNeural` <sup>New</sup> | General |
@@ -543,15 +559,15 @@ Use the following table to determine supported styles and roles for each neural 
 |en-US-SaraNeural|`angry`, `cheerful`, `sad`|||
 |ja-JP-NanamiNeural|`chat`, `cheerful`, `customerservice`|||
 |pt-BR-FranciscaNeural|`calm`|||
-|zh-CN-XiaohanNeural|`affectionate`, `angry`, `cheerful`, `customerservice`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
-|zh-CN-XiaomoNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported|Supported|
-|zh-CN-XiaoruiNeural|`angry`, `fearful`, `sad`|Supported||
+|zh-CN-XiaohanNeural|`affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported||
+|zh-CN-XiaomoNeural|`affectionate`, `angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `envious`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
+|zh-CN-XiaoruiNeural|`angry`, `calm`, `fearful`, `sad`|Supported||
 |zh-CN-XiaoshuangNeural|`chat`|Supported||
-|zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `fearful`, `gentle`, `lyrical`, `newscast`, `sad`, `serious`|Supported||
-|zh-CN-XiaoxuanNeural|`angry`, `calm`, `cheerful`, `customerservice`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported||
-|zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `customerservice`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
-|zh-CN-YunyangNeural|`customerservice`|Supported||
-|zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `fearful`, `sad`, `serious`|Supported|Supported|
+|zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `newscast`, `sad`, `serious`|Supported||
+|zh-CN-XiaoxuanNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported|Supported|
+|zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `sad`, `serious`|Supported|Supported|
+|zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Supported||
+|zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
 
 ### Custom Neural Voice
 
@@ -793,5 +809,4 @@ The following table outlines supported languages for custom keyword and keyword 
 
 ## Next steps
 
-* [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-* [See how to recognize speech in C#](./get-started-speech-to-text.md?pivots=programming-language-chsarp)
+* [Region support](regions.md)
