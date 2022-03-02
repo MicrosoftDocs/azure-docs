@@ -237,7 +237,6 @@ The following features have known limitations in Azure Government:
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
   - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Azure AD B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md).
   - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
-  - Microsoft 365 Groups are not supported for B2B users and can't be enabled.
 
 - Limitations with multifactor authentication:
   - Hardware OATH tokens are not available in Azure Government.

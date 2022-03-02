@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/23/2022
+ms.date: 02/25/2022
 ---
 
 #  Transform data in TeamDesk (Preview) using Azure Data Factory or Synapse Analytics
@@ -57,7 +57,7 @@ The following properties are supported for the TeamDesk linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to **TeamDesk**. |Yes |
 | url | The URL of your TeamDesk database. An example is `https://www.teamdesk.net/secure/db/xxxxx`. | Yes |
-| authenticationType | Type of authentication used to connect to the TeamDesk service. Allowed values are **Basic** and **Token**. Refer to corresponding sections below on more properties and examples respectively.|Yes |
+| authenticationType | Type of authentication used to connect to the TeamDesk service. Allowed values are **basic** and **token**. Refer to corresponding sections below on more properties and examples respectively.|Yes |
 
 ### Basic authentication
 
