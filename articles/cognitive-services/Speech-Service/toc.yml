@@ -56,13 +56,11 @@ items:
         - name: Custom Speech overview
           href: custom-speech-overview.md
         - name: Prepare data for Custom Speech
-          items:
-            - name: Choose data types
-              href: how-to-custom-speech-test-and-train.md
-            - name: Create human-labeled transcriptions
-              href: how-to-custom-speech-human-labeled-transcriptions.md
-            - name: Create structured text data
-              href: customize-pronunciation.md
+          href: how-to-custom-speech-test-and-train.md
+        - name: Create human-labeled transcriptions
+          href: how-to-custom-speech-human-labeled-transcriptions.md
+        - name: Create structured text data
+          href: customize-pronunciation.md
         - name: Upload data for Custom Speech
           href: how-to-custom-speech-upload-data.md
         - name: Inspect Custom Speech data
