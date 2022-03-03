@@ -379,16 +379,6 @@
         "source_path_from_root": "/articles/dms/known-issues-oracle-azure-postgresql-online.md",
         "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
         "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/postgresql/concepts-aad-authentication.md",
-        "redirect_url": "/azure/postgresql/single-server/concepts-aad-authentication",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/postgresql/concepts-aks.md",
-        "redirect_url": "/azure/postgresql/single-server/concepts-aks",
-        "redirect_document_id": true
     }
     ]
 }
