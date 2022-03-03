@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 01/16/2022
+ms.date: 03/03/2022
 ms.author: yuajia
 zone_pivot_groups: front-door-tiers
 ---
@@ -73,7 +73,7 @@ In this example, we match all requests that have been detected as coming from a 
     "matchValues": [
       "Mobile"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters"
   }
 }
 ```
@@ -89,7 +89,7 @@ In this example, we match all requests that have been detected as coming from a 
     matchValues: [
       'Mobile'
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters'
   }
 }
 ```
@@ -130,7 +130,7 @@ In this example, we match all requests that have been sent by using the HTTP 2.0
     "matchValues": [
       "2.0"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleHttpVersionConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleHttpVersionConditionParameters"
   }
 }
 ```
@@ -146,7 +146,7 @@ In this example, we match all requests that have been sent by using the HTTP 2.0
     matchValues: [
       '2.0'
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleHttpVersionConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleHttpVersionConditionParameters'
   }
 }
 ```
@@ -190,7 +190,7 @@ In this example, we match all requests that have include a cookie named `deploym
       "1"
     ],
     "transforms": [],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCookiesConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCookiesConditionParameters"
   }
 }
 ```
@@ -207,7 +207,7 @@ In this example, we match all requests that have include a cookie named `deploym
     matchValues: [
       '1'
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleCookiesConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleCookiesConditionParameters'
   }
 }
 ```
@@ -255,7 +255,7 @@ In this example, we match all POST requests where a `customerName` argument is p
     "transforms": [
         "Uppercase"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters"
 }
 ```
 
@@ -275,7 +275,7 @@ In this example, we match all POST requests where a `customerName` argument is p
     transforms: [
       'Uppercase'
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters'
   }
 }
 ```
@@ -316,7 +316,7 @@ In this example, we match all requests where the query string contains the strin
     "matchValues": [
       "language=en-US"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters"
   }
 }
 ```
@@ -332,7 +332,7 @@ In this example, we match all requests where the query string contains the strin
     matchValues: [
       'language=en-US'
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters'
   }
 }
 ```
@@ -377,7 +377,7 @@ In this example, we match all requests where the request has not originated from
     "matchValues": [
       "US"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters"
   }
 }
 ```
@@ -393,7 +393,7 @@ In this example, we match all requests where the request has not originated from
     matchValues: [
       'US'
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters'
   }
 }
 ```
@@ -437,7 +437,7 @@ In this example, we match all requests where the request body contains the strin
     "transforms": [
       "Uppercase"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters"
   }
 }
 ```
@@ -456,7 +456,7 @@ In this example, we match all requests where the request body contains the strin
     transforms: [
       'Uppercase'
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters'
   }
 }
 ```
@@ -497,7 +497,7 @@ In this example, we match all requests where the request file name is `media.mp4
     "transforms": [
       "Lowercase"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters"
   }
 }
 ```
@@ -516,7 +516,7 @@ In this example, we match all requests where the request file name is `media.mp4
     transforms: [
       'Lowercase'
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters'
   }
 }
 ```
@@ -561,7 +561,7 @@ In this example, we match all requests where the request file extension is `pdf`
     "transforms": [
       "Lowercase"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters"
   }
 ```
 
@@ -580,7 +580,7 @@ In this example, we match all requests where the request file extension is `pdf`
     transforms: [
       'Lowercase'
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters'
   }
 }
 ```
@@ -617,7 +617,7 @@ In this example, we match all requests where the request contains a header named
     "selector": "MyCustomHeader",
     "operator": "Any",
     "negateCondition": false,
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters"
   }
 }
 ```
@@ -631,7 +631,7 @@ In this example, we match all requests where the request contains a header named
     selector: 'MyCustomHeader',
     operator: 'Any'
     negateCondition: false
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters'
   }
 }
 ```
@@ -668,7 +668,7 @@ In this example, we match all requests where the request uses the `DELETE` metho
     "matchValues": [
       "DELETE"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters"
   }
 }
 ```
@@ -684,7 +684,7 @@ In this example, we match all requests where the request uses the `DELETE` metho
     matchValues: [
       'DELETE
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters'
   }
 }
 ```
@@ -728,7 +728,7 @@ In this example, we match all requests where the request file path begins with `
     "transforms": [
       "Lowercase"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters"
   }
 }
 ```
@@ -747,7 +747,7 @@ In this example, we match all requests where the request file path begins with `
     transforms: [
       'Lowercase'
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters'
   }
 }
 ```
@@ -787,7 +787,7 @@ In this example, we match all requests where the request uses the `HTTP` protoco
     "matchValues": [
       "HTTP"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters"
   }
 }
 ```
@@ -803,7 +803,7 @@ In this example, we match all requests where the request uses the `HTTP` protoco
     matchValues: [
       'HTTP
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters'
   }
 }
 ```
@@ -847,7 +847,7 @@ In this example, we match all requests where the request URL begins with `https:
     "transforms": [
       "Lowercase"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters"
+    "typeName": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters"
   }
 }
 ```
@@ -866,7 +866,7 @@ In this example, we match all requests where the request URL begins with `https:
     transforms: [
       'Lowercase'
     ]
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters'
+    typeName: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters'
   }
 }
 ```
