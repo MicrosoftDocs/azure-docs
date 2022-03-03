@@ -9,9 +9,11 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Managed cluster
+  - name: Managed cluster with ARM template
     href: quickstart-managed-cluster-template.md
-  - name: ARM template
+  - name: Classic cluster with Azure portal
+    href: quickstart-classic-cluster-portal.md
+  - name: Classic cluster with ARM template
     displayName: Resource Manager
     href: quickstart-cluster-template.md
   - name: Create .NET application
