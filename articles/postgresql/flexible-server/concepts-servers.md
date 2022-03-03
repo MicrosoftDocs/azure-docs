@@ -4,6 +4,7 @@ description: This article provides considerations and guidelines for configuring
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---
