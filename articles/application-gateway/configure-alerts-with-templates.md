@@ -20,6 +20,13 @@ You can use ARM templates to quickly configure important alerts for Application 
 - Azure Monitor alert rules are charged based on the type and number of signals it monitors. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before deploying for pricing information. Or you can see the estimated cost in the portal after deployment:
    :::image type="content" source="media/configure-alerts-with-templates/alert-pricing.png" alt-text="Image showing application gateway pricing details":::
 - You need to create an Azure Monitor action group in advance and then use the Resource ID for as many alerts as you need. Azure Monitor alerts use this action group to notify users that an alert has been triggered. For more information, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
+>[!TIP]
+> You can manually form the ResourceID for your Action Group by following these steps.
+> 1. Select Azure Monitor in your Azure portal
+> 1. Open Alerts blade and select Action Groups
+> 1. Select the action group to view its details
+> 1. Use the Resource Group Name, Action Group Name and Subscription Info here to form the ResourceID for the action group as shown below. <br>
+> `/subscriptions/<subscription-id-from-your-account>/resourcegroups/<resource-group-name>/providers/microsoft.insights/actiongroups/<action-group-name>` 
 - The templates for alerts described here are defined generically for settings like Severity, Aggregation Granularity, Frequency of Evaluation, Condition Type, and so on. You can modify the settings after deployment to meet your needs. See [Understand how metric alerts work in Azure Monitor](../azure-monitor/alerts/alerts-metric-overview.md) for more information.
 - The templates for metric-based alerts use the  **Dynamic threshold** value with [High sensitivity](../azure-monitor/alerts/alerts-dynamic-thresholds.md#what-does-sensitivity-setting-in-dynamic-thresholds-mean). You can choose to adjust these settings based on your needs.
 
@@ -29,33 +36,28 @@ The following ARM templates are available to configure Azure Monitor alerts for 
 
 ### Alert for Backend Response Status as 5xx
 
-This notification is based on Metrics signal.
-
-<Deploy to Azure>
-
-### Alert for average unhealthy host count
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-alert-backend-5xx%2Fazuredeploy.json)
 
 This notification is based on Metrics signal.
 
-<Deploy to Azure>
+### Alert for average Unhealthy Host Count
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-alert-unhealthy-host%2Fazuredeploy.json)
+
+This notification is based on Metrics signal.
 
 ### Alert for Backend Last Byte Response Time
 
-This notification is based on Metrics signal.
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-alert-backend-lastbyte-resp%2Fazuredeploy.json)
 
-<Deploy to Azure>
+This notification is based on Metrics signal.
 
 ### Alert for Key Vault integration issues
 
-Based on its Azure Advisor recommendation.
-
-<Deploy to Azure>
-
-### Alert for Insufficient Instances to support traffic
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-alert-keyvault-advisor%2Fazuredeploy.json)
 
 This notification is based on its Azure Advisor recommendation.
 
-<Deploy to Azure>
 
 ## Next steps
 
