@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/08/2022
+ms.date: 02/22/2022
 ms.author: eur
 ---
 
@@ -33,11 +33,11 @@ ms.author: eur
 
 #### Samples [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
-- **C++, C#, Python, and Java samples** showing how to get detailed recognition results. The details include alternative recognition results, confidence score, Lexical form, Normalized form, Masked Normalized form, with word-level timing for each.
-- **iOS sample** added using AVFoundation as external audio source.
-- **Java sample** added to show how to get SRT (SubRip File Format) subtitle using WordBoundary event.
-- **Android samples** for Pronunciation Assessment.
-
+- **[C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L65), [C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L70), [Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L96)**, and **[Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L77)** samples showing how to get detailed recognition results. The details include alternative recognition results, confidence score, Lexical form, Normalized form, Masked Normalized form, with word-level timing for each.
+- **[iOS sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/swift/ios/from-external-microphone)** added using AVFoundation as external audio source.
+- **[Java sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisSamples.java#L705)** added to show how to get SRT (SubRip File Format) subtitle using WordBoundary event.
+- **[Android samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo)** for Pronunciation Assessment.
+- **[C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/diagnostics_logging_samples.cpp), [C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_diagnostics_logging_samples.cs)** showing usage of the new Diagnostics Logging classes.
 
 
 ### Speech SDK 1.19.0: 2021-Nov release 
@@ -64,7 +64,7 @@ ms.author: eur
 
 - **iOS/Mac**: Support for Mac catalyst related to [GitHub issue 1171](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1171). 
 
-- **Linux**: New tar package added for CentOS7 [About the Speech SDK](../../speech-sdk.md).
+- **Linux**: New tar package added for CentOS7 [About the Speech SDK](../../speech-sdk.md). The Linux .tar package now contains specific libraries for RHEL/CentOS 7 in `lib/centos7-x64`. Speech SDK libraries in lib/x64 are still applicable for all the other supported Linux x64 distributions (including RHEL/CentOS 8) and won't work on RHEL/CentOS 7.
 
 - **JavaScript**: VoiceProfile & SpeakerRecognizer APIs made async/awaitable. 
 

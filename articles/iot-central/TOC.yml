@@ -82,8 +82,6 @@
   items:
     - name: Architecture
       href: core/concepts-architecture.md
-    - name: Scalability and high availability
-      href: core/concepts-scalability-availability.md
     - name: Device connectivity guide
       href: core/overview-iot-central-developer.md
       items:
@@ -100,13 +98,17 @@
       href: core/overview-iot-central-operator.md
     - name: Data integration guide
       href: core/overview-iot-central-solution-builder.md
-    - name: Application management guide
+    - name: Application administration guide
       href: core/overview-iot-central-admin.md
     - name: FAQ
       href: core/howto-faq.yml
       items:
+      - name: Why should I start with IoT Central?
+        href: core/concepts-faq-start-iot-central.md
       - name: How do I extend IoT Central?
         href: core/concepts-faq-extend.md
+      - name: How does IoT Central scale and enable HADR?
+        href: core/concepts-faq-scalability-availability.md
       - name: What are IoT Central's scale limits?
         href: core/concepts-quotas-limits.md
       - name: How do I move between aPaaS and PaaS solutions?

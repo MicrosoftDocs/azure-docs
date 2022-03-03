@@ -5,7 +5,6 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
-ms.devlang: 
 ms.topic: tutorial
 author: emlisa
 ms.author: emlisa
@@ -16,13 +15,21 @@ ms.date: 01/26/2022
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Configure a failover group for an Azure SQL Database elastic pool and test failover using the Azure portal. In this tutorial, you'll learn how to:
+> [!div class="op_single_selector"]
+> * [Azure SQL Database (single database)](failover-group-add-single-database-tutorial.md)
+> * [Azure SQL Database (elastic pool)](failover-group-add-elastic-pool-tutorial.md)
+> * [Azure SQL Managed Instance](../managed-instance/failover-group-add-instance-tutorial.md)
+
+
+Configure an [auto-failover group](auto-failover-group-sql-db.md) for an Azure SQL Database elastic pool and test failover using the Azure portal. 
+
+In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 >
 > - Create a single database.
 > - Add the database to an elastic pool.
-> - Create a [failover group](auto-failover-group-overview.md) for two elastic pools between two servers.
+> - Create a failover group for two elastic pools between two servers.
 > - Test failover.
 
 ## Prerequisites

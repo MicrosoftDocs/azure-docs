@@ -1,6 +1,6 @@
 ---
 title: Understand access and permissions
-description: This article gives an overview permissions, access control, and collections in Azure Purview. Role-based access control (RBAC) is managed within Azure Purview itself, so this guide will cover the basics to secure your information.
+description: This article gives an overview permission, access control, and collections in Azure Purview. Role-based access control (RBAC) is managed within Azure Purview itself, so this guide will cover the basics to secure your information.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -14,35 +14,41 @@ Azure Purview uses **Collections** to organize and manage access across its sour
 
 ## Collections
 
-A collection is a tool Azure Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All access to Azure Purview's resources are managed from collections in the Azure Purview account itself.
+A collection is a tool Azure Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All accesses to Azure Purview's resources are managed from collections in the Azure Purview account itself.
 
 > [!NOTE]
 > As of November 8th, 2021, ***Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
->
->
+
 ## Roles
 
 Azure Purview uses a set of predefined roles to control who can access what within the account. These roles are currently:
 
-- **Collection admins** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
+- **Collection administrator** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
 - **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
-- **Data source admins** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+- **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+- **Policy author (Preview)** - a role that allows a user to view, update, and delete Azure Purview policies through the policy management app within Azure Purview.
+
+> [!NOTE] 
+> At this time, Azure Purview Policy author role is not sufficient to create policies. The Azure Purview Data source admin role is also required.
 
 ## Who should be assigned to what role?
 
 |User Scenario|Appropriate Role(s)|
 |-------------|-----------------|
-|I just need to find assets, I don't want to edit anything|Data Reader|
-|I need to edit information about assets, assign classifications, associate them with glossary entries, and so on.|Data Curator|
-|I need to edit the glossary or set up new classification definitions|Data Curator|
-|I need to view Insights to understand the governance posture of my data estate|Data Curator|
-|My application's Service Principal needs to push data to Azure Purview|Data Curator|
-|I need to set up scans via the Azure Purview Studio|Data Curator on the collection **or** Data Curator **And** Data Source Administrator where the source is registered|
-|I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data Source Admin|
-|I need to put users into roles in Azure Purview | Collection Admin |
+|I just need to find assets, I don't want to edit anything|Data reader|
+|I need to edit information about assets, assign classifications, associate them with glossary entries, and so on.|Data curator|
+|I need to edit the glossary or set up new classification definitions|Data curator|
+|I need to view Insights to understand the governance posture of my data estate|Data curator|
+|My application's Service Principal needs to push data to Azure Purview|Data curator|
+|I need to set up scans via the Azure Purview Studio|Data curator on the collection **or** data curator **and** data source administrator where the source is registered.|
+|I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data source administrator|
+|I need to put users into roles in Azure Purview | Collection administrator |
+|I need to create and publish access policies | Data source administrator and policy author |
 
-:::image type="content" source="./media/catalog-permissions/collection-permissions-roles.png" alt-text="Chart showing Azure Purview roles" lightbox="./media/catalog-permissions/collection-permissions-roles.png":::
+:::image type="content" source="./media/catalog-permissions/collection-permission-roles.svg" alt-text="Chart showing Azure Purview roles" lightbox="./media/catalog-permissions/collection-permission-roles.svg":::
+>[!NOTE]
+> **\*Data source administrator permissions on Policies** - Data source administrators are also able to publish data policies.
 
 ## Understand how to use Azure Purview's roles and collections
 
@@ -56,7 +62,7 @@ All other users can only access information within the Azure Purview account if 
 
 Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by its subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, its subcollections will no longer inherit permissions from the parent and will need to be added directly, though collection admins that are automatically inherited from a parent collection can't be removed.
 
-You can assign Azure Purview roles to users, security groups and service principals from your Azure Active Directory which is associated with your purview account's subscription.
+You can assign Azure Purview roles to users, security groups and service principals from your Azure Active Directory that is associated with your purview account's subscription.
 
 ## Assign permissions to your users
 
@@ -64,12 +70,12 @@ After creating an Azure Purview account, the first thing to do is create collect
 
 > [!NOTE]
 > If you created your Azure Purview account using a service principal, to be able to access the Azure Purview Studio and assign permissions to users, you will need to grant a user collection admin permissions on the root collection.
-> You can use [this Azure CLI command](/cli/azure/purview/account#az_purview_account_add_root_collection_admin):
+> You can use [this Azure CLI command](/cli/azure/purview/account#az-purview-account-add-root-collection-admin):
 >
 >   ```azurecli
 >   az purview account add-root-collection-admin --account-name [Azure Purview Account Name] --resource-group [Resource Group Name] --object-id [User Object Id]
 >   ```
-> The object-id is optional. For more information and an example, see the [CLI command reference page](/cli/azure/purview/account#az_purview_account_add_root_collection_admin).
+> The object-id is optional. For more information and an example, see the [CLI command reference page](/cli/azure/purview/account#az-purview-account-add-root-collection-admin).
 
 ### Create collections
 
@@ -105,4 +111,4 @@ For full instructions, see our [how-to guide for adding role assignments](how-to
 Now that you have a base understanding of collections, and access control, follow the guides below to create and manage those collections, or get started with registering sources into your Azure Purview Resource.
 
 - [How to create and manage collections](how-to-create-and-manage-collections.md)
-- [Azure Purview supported data sources](purview-connector-overview.md)
+- [Azure Purview supported data sources](azure-purview-connector-overview.md)

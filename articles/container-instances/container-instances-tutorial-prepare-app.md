@@ -44,7 +44,7 @@ The Dockerfile in the sample application shows how the container is built. It st
 ```Dockerfile
 FROM node:8.9.3-alpine
 RUN mkdir -p /usr/src/app
-COPY ./app/ /usr/src/app/
+COPY ./app/* /usr/src/app/
 WORKDIR /usr/src/app
 RUN npm install
 CMD node /usr/src/app/index.js
@@ -122,8 +122,7 @@ In this tutorial, you created a container image that can be deployed in Azure Co
 
 Advance to the next tutorial in the series to learn about storing your container image in Azure Container Registry:
 
-> [!div class="nextstepaction"]
-> [Push image to Azure Container Registry](container-instances-tutorial-prepare-acr.md)
+[Push image to Azure Container Registry](container-instances-tutorial-prepare-acr.md)
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png

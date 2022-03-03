@@ -21,10 +21,9 @@ In this tutorial, you learn how to:
 > * Run the latest released version of OPC Publisher as a container
 > * Specify Container Create Options in the Azure portal
 
-If you don’t have an Azure subscription, create a free trial account
-
 ## Prerequisites
 
+- An Azure subscription must be created. If you don’t have an Azure subscription, create a [free trial account](https://azure.microsoft.com/free/search/).
 - An IoT Hub must be created
 - An IoT Edge device must be created
 - An IoT Edge device must be registered

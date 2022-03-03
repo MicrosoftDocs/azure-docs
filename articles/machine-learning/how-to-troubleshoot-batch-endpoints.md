@@ -16,6 +16,8 @@ ms.date: 10/21/2021
 ---
 # Troubleshooting batch endpoints (preview)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) (preview) for batch scoring.
 
  [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]

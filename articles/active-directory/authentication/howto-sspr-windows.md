@@ -11,7 +11,7 @@ ms.date: 07/17/2020
 ms.author: justinha
 author: justinha
 manager: karenhoran
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
@@ -48,7 +48,7 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
 - The combination of the following specific three settings can cause this feature to not work.
     - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
     - *DisableLockScreenAppNotifications* = 1 or Enabled
-    - Windows SKU isn't Home or Professional edition
+    - Windows SKU is Home edition
 
 > [!NOTE]
 > These limitations also apply to Windows Hello for Business PIN reset from the device lock screen.
