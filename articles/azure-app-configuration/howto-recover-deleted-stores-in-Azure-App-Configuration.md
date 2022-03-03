@@ -11,7 +11,7 @@ ms.date: 03/01/2022
 
 # Recover App Configuration stores
 
-This article covers the soft delete feature of Azure App Configuration Stores. You will learn about how to setting retention policy, enable purge protection, recover and purge a soft-deleted store.
+This article covers the soft delete feature of Azure App Configuration Stores. You'll learn about how to set retention policy, enable purge protection, recover and purge a soft-deleted store.
 
 To learn more about the concept of soft delete feature, see this [document](./concept-soft-delete.md)
 
@@ -33,6 +33,7 @@ To create a new App Configuration store in the  Azure portal, follow these steps
 
     ![Select Create](../../includes/media/azure-app-configuration-create/azure-portal-app-configuration-create.png)
 1. On the **Create App Configuration** pane, enter the following settings:
+
     | Setting | Suggested value | Description |
     |---|---|---|
     | **Subscription** | Your subscription | Select the Azure subscription for your store |
@@ -43,7 +44,7 @@ To create a new App Configuration store in the  Azure portal, follow these steps
     | **Days to retain deleted stores** | Retention period for soft deleted stores | Select the number of days for which you would want the soft deleted stores and their content to be retained. |
     | **Enable Purge protection** | Purge protection status | Check to enable Purge protection on the store so no one can purge it before the retention period expires. |
 
- :::image type="content" source="./media/HowtosoftdeleteAppConfig_6.png" alt-text="In Overview, Soft-delete is highlighted.":::
+ :::image type="content" source="./media/HowtosoftdeleteAppConfig_6.png" alt-text="In Create, Recovery options are highlighted":::
 
 1. Select **Review + create** to validate your settings.
 1. Select **Create**. The deployment might take a few minutes.
@@ -54,7 +55,7 @@ To create a new App Configuration store in the  Azure portal, follow these steps
 1. Select your standard tier App Configuration store.
 1. Refer to the screenshot below on where to check for the soft delete status of an existing store.
 :::image type="content" source="./media/HowtosoftdeleteAppConfig_1.png" alt-text="In Overview, Soft-delete is highlighted.":::
-1. Click on the `Enabled` value of Soft Delete. You will be redirected to the **properties** of your store. At the bottom of the page, you can review the information related to soft delete. The Retention period is shown as "Days to retain deleted stores". You can't change this value once it's set. The Purge protection check box shows whether purge protection is enabled for this particular store or not. Once enabled, purge protection can't be disabled.
+1. Click on the `Enabled` value of Soft Delete. You'll be redirected to the **properties** of your store. At the bottom of the page, you can review the information related to soft delete. The Retention period is shown as "Days to retain deleted stores". You can't change this value once it's set. The Purge protection check box shows whether purge protection is enabled for this particular store or not. Once enabled, purge protection can't be disabled.
 :::image type="content" source="./media/HowtosoftdeleteAppConfig_2.png" alt-text="In Properties, Soft delete, Days to retain are highlighted.":::
 
 ## List, recover, or purge a soft deleted App Configuration store
@@ -72,7 +73,7 @@ To create a new App Configuration store in the  Azure portal, follow these steps
 
 ## Recover an App Configuration store with custom managed key enabled
 
-When recovering stores that use customer managed keys there are extra steps that need to be performed to access the recovered data. This is because the recovered store will no longer have a managed identity assigned that has access to the customer managed key. A new managed identity should be assigned to the store and the customer managed key settings should be reconfigured to use the newly assigned identity. When updating the managed key settings to use the newly assigned identity, ensure to continue using the same key from key vault. Refer to [doc](./concept-customer-managed-keys.md) on how to configure customer managed key encryption.
+When recovering stores that use customer managed keys, there are extra steps that need to be performed to access the recovered data. For the recovered store will no longer have a managed identity assigned that has access to the customer managed key. A new managed identity should be assigned to the store and the customer managed key settings should be reconfigured to use the newly assigned identity. When updating the managed key settings to use the newly assigned identity, ensure to continue using the same key from the key vault. Refer to [doc](./concept-customer-managed-keys.md) on how to configure customer managed key encryption.
 
 ## Next steps
 > [!div class="nextstepaction"]

@@ -1,5 +1,5 @@
 ---
-title: Soft Delete
+title: Soft delete
 description: Soft-Delete in Azure App Configuration 
 author: muksvso
 ms.author: mubatra
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/01/2022
 ---
 
-# Soft Delete
+# Soft delete
 
 App Configuration's soft delete feature allows recovery of your data such as key-values, feature flags and history of a deleted store. It's automatically enabled for all stores in the standard tier. In this article, learn more about the soft delete feature and its functionality.
 
@@ -33,10 +33,10 @@ Recover is the operation to get the stores in a soft deleted state back to an ac
 A variable to specify the time period, in days, for which a soft deleted store will be retained. Once set, this value can't be changed. Once the retention period elapses, the store will be permanently deleted automatically.
 
 ## Purge
-Purge is the operation to permanently delete the stores in a soft deleted state, provided the store doesn't have purge-protection enabled. To recreate the App Configuration store with the same name as a deleted store, you will have to purge the store first if it's not already past the retention period.
+Purge is the operation to permanently delete the stores in a soft deleted state, provided the store doesn't have purge-protection enabled. To recreate the App Configuration store with the same name as a deleted store, you need to purge the store first if it's not already past the retention period.
 
 ## Purge protection
-With Purge protection enabled, soft deleted stores can't be purged in the retention period. If disabled, the soft deleted store can be purged before the retention period expires. Once purge protection is enabled on a store, it cannot be disabled.
+With Purge protection enabled, soft deleted stores can't be purged in the retention period. If disabled, the soft deleted store can be purged before the retention period expires. Once purge protection is enabled on a store, it can't be disabled.
 
 ## Permissions to recover or purge store
 
@@ -48,7 +48,7 @@ A user has to have below permissions to recover or purge a soft-deleted app conf
 
 ## Billing implications
 
-There won't be any charges for the soft deleted stores. Once you recover a soft deleted store, the usual charges will start applying. Soft delete is not available with free tier.
+There won't be any charges for the soft deleted stores. Once you recover a soft deleted store, the usual charges will start applying. Soft delete isn't available with free tier.
 
 ## Next steps
 
