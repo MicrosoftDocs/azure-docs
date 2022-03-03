@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2022
+ms.date: 03/02/2022
 ms.author: duau
 ---
 # Azure Resource Manager deployment model templates for Front Door
@@ -39,6 +39,11 @@ The following table includes links to Azure Resource Manager deployment model te
 |-|-|
 | [Front Door (quick create)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium/) | Creates a basic Front Door profile including an endpoint, origin group, origin, and route.  |
 | [Rule set](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-rule-set/) | Creates a Front Door profile and rule set.  |
+|**Custom domain quickstarts**| **Description** |
+| [Custom domain and managed TLS certificate](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-custom-domain/) | Creates a Front Door profile with a custom domain and a Microsoft-managed TLS certificate.  |
+| [Custom domain and customer-managed TLS certificate](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-custom-domain-customer-certificate/) | Creates a Front Door profile with a custom domain and use your own TLS certificate by using Key Vault.  |
+| [Custom domain and Azure DNS](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-custom-domain-azure-dns/) | Creates a Front Door profile with a custom domain and an Azure DNS zone.  |
+|**WAF quickstarts**| **Description** |
 | [WAF policy with managed rule set](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-waf-managed/) | Creates a Front Door profile and WAF with managed rule set.  |
 | [WAF policy with custom rule](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-waf-custom/) | Creates a Front Door profile and WAF with custom rule.  |
 | [WAF policy with rate limit](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-rate-limit/) | Creates a Front Door profile and WAF with a custom rule to perform rate limiting.  |
