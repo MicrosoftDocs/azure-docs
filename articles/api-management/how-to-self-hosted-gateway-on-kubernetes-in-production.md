@@ -46,7 +46,7 @@ This is possible through native Kubernetes functionality, or by using [Kubernete
 > [!NOTE]
 > KEDA is an open-source technology that is not supported by Azure support and needs to be operated by customers.
 
-## Resource-based Autoscaling
+### Resource-based Autoscaling
 
 Kubernetes allows you to autoscale the self-hosted gateway based on resource usage by using a [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/). It allows you to [define CPU & memory thresholds](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-resource-metrics), and the number of replicas to scale out or in.
 
@@ -56,7 +56,7 @@ We recommend using KEDA to scale the self-hosted gateway horizontally, if you ar
 > [!TIP]
 > If you are already using KEDA to scale other workloads, we recommend using KEDA as a unified app autoscaler. If that is not the case, then we strongly suggest to rely on the native Kubernetes functionality through Horizontal Pod Autoscaler.
 
-## Traffic-based Autoscaling
+### Traffic-based Autoscaling
 
 Kubernetes does not provide an out-of-the-box mechanism for traffic-based autoscaling.
 
