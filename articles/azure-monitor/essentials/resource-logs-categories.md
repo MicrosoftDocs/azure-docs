@@ -232,6 +232,15 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ServiceLog|Service Logs|No|
 
 
+## Microsoft.BatchAI/workspaces 
+
+|Category|Category Display Name|Costs To Export| 
+|---|---|---| 
+|BaiClusterEvent|BaiClusterEvent|No| 
+|BaiClusterNodeEvent|BaiClusterNodeEvent|No| 
+|BaiJobEvent|BaiJobEvent|No| 
+
+
 ## microsoft.botservice/botservices
 
 |Category|Category Display Name|Costs To Export|
@@ -624,24 +633,24 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DataPlaneRequests|Data plane operations logs|Yes|
-|DeliveryFailures|Delivery Failure Logs|Yes|
-|PublishFailures|Publish Failure Logs|Yes|
+|DataPlaneRequests|Data plane operations logs|No|
+|DeliveryFailures|Delivery Failure Logs|No|
+|PublishFailures|Publish Failure Logs|No|
 
 
 ## Microsoft.EventGrid/partnerNamespaces
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DataPlaneRequests|Data plane operations logs|Yes|
-|PublishFailures|Publish Failure Logs|Yes|
+|DataPlaneRequests|Data plane operations logs|No|
+|PublishFailures|Publish Failure Logs|No|
 
 
 ## Microsoft.EventGrid/partnerTopics
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DeliveryFailures|Delivery Failure Logs|Yes|
+|DeliveryFailures|Delivery Failure Logs|No|
 
 
 ## Microsoft.EventGrid/systemTopics
@@ -655,9 +664,9 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DataPlaneRequests|Data plane operations logs|Yes|
-|DeliveryFailures|Delivery Failure Logs|Yes|
-|PublishFailures|Publish Failure Logs|Yes|
+|DataPlaneRequests|Data plane operations logs|No|
+|DeliveryFailures|Delivery Failure Logs|No|
+|PublishFailures|Publish Failure Logs|No|
 
 
 ## Microsoft.EventHub/Namespaces
@@ -995,7 +1004,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit|Yes|
+|Audit|Audit|No|
 
 
 ## Microsoft.PowerBI/tenants
@@ -1077,7 +1086,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ApplicationMetricsLogs|Application Metrics Logs|Yes|
 |OperationalLogs|Operational Logs|No|
 |RuntimeAuditLogs|Runtime Audit Logs|Yes|
-|VNetAndIPFilteringLogs|VNet/IP Filtering Connection Logs|Yes|
+|VNetAndIPFilteringLogs|VNet/IP Filtering Connection Logs|No|
 
 
 ## Microsoft.SignalRService/SignalR
