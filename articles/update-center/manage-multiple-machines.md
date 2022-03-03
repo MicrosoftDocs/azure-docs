@@ -138,7 +138,7 @@ The **Status** field reports if an assessment or update deployment is **Failed**
 ## Update deployment history by maintenance run ID
 Within the history page, select **By maintenance run ID** tab to view history of the maintenance run schedules. Each record shows the maintenance run ID, Status, Updated machines, Operation Start and End times. 
 
-![Update Center History page by maintenance run ID in the Azure portal.](./media/manage-multiple-machines/update-center-history-by-maintenance-runID.png)
+![Update Center History page by maintenance run ID in the Azure portal.](./media/manage-multiple-machines/update-center-history-by-maintenance-run-id.png)
 
 When you select on any one maintenance run ID records, you can view an expanded status of the maintenance run. It contains information from both machines point of view and from updates point of view. It includes how many machines got updated, along with the status of each of the machines in form of a pie chart. It also shows how many updates got installed along with the status of the updates in form of pie chart. At the bottom, it contains list view of both machines and updates that were a part of this maintenance run.
 

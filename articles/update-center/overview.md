@@ -140,7 +140,7 @@ Update management center (preview) supports specific versions of the Windows Ser
    | Amazon | Amazon Linux 2 (x64)   |
    | Oracle | Oracle 7.x |       
  
-Because update management center (preview) depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client are enabled and can connect with an update source or repository. If you are running a Windows Server OS on your machine, refer to the following article to [configure Windows Update settings](configure-wuagent.md).
+Because update management center (preview) depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client are enabled and can connect with an update source or repository. If you are running a Windows Server OS on your machine, refer to the following article to [configure Windows Update settings](configure-wu-agent.md).
  
  > [!NOTE]
  > For patching, update management center (preview) relies on classification data available on the machine. Unlike other distributions, CentOS YUM package manager does not have this information available in the RTM version to classify updates and packages in different categories.
