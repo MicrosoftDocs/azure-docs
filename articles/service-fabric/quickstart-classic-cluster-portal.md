@@ -106,7 +106,7 @@ In this quickstart, we use a Service Fabric cluster named **quickstartsfcluster*
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**, enter **Service Fabric** in the `Search services and marketplace` box, choose **Service Fabric Cluster** from the results, and select **Create**.
 
-1. On the **Create a Service Fabric cluster** page, provide the following information:
+1. On the **Create Service Fabric cluster** page, provide the following information:
     - `Subscription`: Choose your Azure subscription.
     - `Resource group`: Choose the resource group you created in the prerequisites or create a new one if you didn't already. For this quickstart, we use **ServiceFabricResources**.
     - `Cluster name`: Enter a unique name. For this quickstart, we use **quickstartsfcluster**.
@@ -127,7 +127,10 @@ In this quickstart, we use a Service Fabric cluster named **quickstartsfcluster*
 
 1. Select **Review + create** and, once the validation passes, choose **Create**.
 
-Now, your cluster's deployment is in progress. The deployment will likely take around five minutes to complete.
+Now, your cluster's deployment is in progress. The deployment will likely take around 20 minutes to complete.
+
+>[!NOTE]
+> The Azure portal may tell you the deployment succeeded before the deployment has completed. You will know it has completed when your cluster's **Overview** page shows three nodes with an OK **Health state**.
 
 ## Validate the deployment
 
@@ -135,7 +138,7 @@ Once the deployment completes, you're ready to view your new Service Fabric clus
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your cluster.
 
-1. On your cluster's **Overview** page, find the **SF Explorer** link and select it.
+1. On your cluster's **Overview** page, find the **Service Fabric Explorer** link and select it.
 
    ![Select the SF Explorer link on your cluster's Overview page.](./media/quickstart-classic-cluster-portal/service-fabric-explorer-address.png)
 
@@ -148,7 +151,7 @@ Once the deployment completes, you're ready to view your new Service Fabric clus
 
    ![View your cluster's page in the Service Fabric Explorer.](./media/quickstart-classic-cluster-portal/service-fabric-explorer.png)
 
-Your Service Fabric cluster consists of three nodes. These nodes are WindowsServer 2019-Datacenter virtual machines with 2 vCPUs, 8 GiB of RAM, and four 256-GiB disks. These features are determined by the values in the settings on the **Create a Service Fabric cluster** page.
+Your Service Fabric cluster consists of three nodes. These nodes are WindowsServer 2019-Datacenter virtual machines with 2 vCPUs and 8 GiB of RAM. These features are determined by the **VM Size** under **Node types** on the **Create Service Fabric cluster** page.
 
 ## Clean up resources
 
@@ -162,7 +165,7 @@ When no longer needed, delete the resource group for your Service Fabric cluster
 
 ## Next steps
 
-In this quickstart, you deployed a Service Fabric managed cluster. To learn more about how to scale a cluster, see:
+In this quickstart, you deployed a Service Fabric cluster. To learn more about how to scale a cluster, see:
 
 > [!div class="nextstepaction"]
-> [Scale out a Service Fabric managed cluster](tutorial-managed-cluster-scale.md)
+> [Scale a Service Fabric cluster in Azure](service-fabric-tutorial-scale-cluster.md)
