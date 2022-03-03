@@ -28,6 +28,10 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 [Create a Media Services account](./account-create-how-to.md).
 
+## [Poral](#tab/portal/)
+
+[!INCLUDE [task-create-asset-portal](includes/task-create-transform-portal.md)]
+
 ## [CLI](#tab/cli/)
 
 > [!NOTE]
