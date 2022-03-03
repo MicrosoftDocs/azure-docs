@@ -1,9 +1,9 @@
 ---
-author: robinsh
-ms.author: robinsh
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 0/02/2022
 ---
 The following table lists the limits associated with the different service tiers S1, S2, S3, and F1. For information about the cost of each *unit* in each tier, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -14,8 +14,7 @@ The following table lists the limits associated with the different service tiers
 
 > [!NOTE]
 > If you anticipate using more than 200 units with an S1 or S2 tier hub or 10 units with an S3 tier hub, contact Microsoft Support.
-> 
-> 
+>
 
 The following table lists the limits that apply to IoT Hub resources.
 
@@ -62,7 +61,7 @@ IoT Hub throttles requests when the following quotas are exceeded.
 | Device-to-cloud sends |6,000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. |
 | Cloud-to-device sends | 83.33/sec/unit (5,000/min/unit) (for S3), 1.67/sec/unit (100/min/unit) (for S1 and S2). |
 | Cloud-to-device receives |833.33/sec/unit (50,000/min/unit) (for S3), 16.67/sec/unit (1,000/min/unit) (for S1 and S2). |
-| File upload operations |83.33 file upload initiations/sec/unit (5,000/min/unit) (for S3), 1.67 file upload initiations/sec/unit (100/min/unit) (for S1 and S2). <br/> 10,000 SAS URIs can be out for an Azure Storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |
+| File upload operations |83.33 file upload initiations/sec/unit (5,000/min/unit) (for S3), 1.67 file upload initiations/sec/unit (100/min/unit) (for S1 and S2). <br/> 10 concurrent file uploads per device. |
 | Direct methods | 24 MB/sec/unit (for S3), 480 KB/sec/unit (for S2), 160 KB/sec/unit (for S1).<br/> Based on 8-KB throttling meter size. |
 | Device twin reads | 500/sec/unit (for S3), Maximum of 100/sec or 10/sec/unit (for S2), 100/sec (for S1) |
 | Device twin updates | 250/sec/unit (for S3), Maximum of 50/sec or 5/sec/unit (for S2), 50/sec (for S1) |

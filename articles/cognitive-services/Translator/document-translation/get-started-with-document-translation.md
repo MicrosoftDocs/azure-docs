@@ -22,17 +22,39 @@ ms.custom: mode-other
 
 > [!NOTE]
 >
-> 1. Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key or a single-service subscription key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
-> 2. Document Translation is **only** available in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> * Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key or a single-service subscription key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+>
+> * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
 To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account.
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
+
+  **Complete the Translator project and instance details fields as follows:**
+
+  1. **Subscription**. Select one of your available Azure subscriptions.
+
+  1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
+
+  1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](managed-identity.md) for authentication, choose a **non-global** region.
+
+  1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
+
+     > [!NOTE]
+     > Document Translation requires a custom domain endpoint. The value that you enter in the Name field will be the custom domain name parameter for your endpoint.
+
+  1. **Pricing tier**. Document Translation isn't supported in the free tier. Select Standard S1 to try the service.
+
+  1. Select **Review + Create**.
+
+  1. Review the service terms and select **Create** to deploy your resource.
+
+  1. After your resource has successfully deployed, select **Go to resource**.
 
 ## Custom domain name and subscription key
 
@@ -88,11 +110,11 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 >
 > * If you're translating **multiple** files (blobs) in an operation, **delegate SAS access at the  container level**.
 > * If you're translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
->
+> * As an alternative to SAS tokens, you can use a [**system-assigned managed identity**](managed-identity.md) for authentication.
 
-## Document Translation: HTTP requests
+## HTTP requests
 
-A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service.
+A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service. The translated documents will be listed in your target container.
 
 ### HTTP headers
 
@@ -102,7 +124,6 @@ The following headers are included with each Document Translator API request:
 |---|--|
 |Ocp-Apim-Subscription-Key|**Required**: The value is the Azure subscription key for your Translator or Cognitive Services resource.|
 |Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
-|Content-Length|**Required**: the length of the request body.|
 
 ### POST request body properties
 
@@ -139,9 +160,9 @@ The following headers are included with each Document Translator API request:
 
 ### Translate a specific document in a container
 
-* Ensure you have specified "storageType": "File"
-* Ensure you have created source URL & SAS token for the specific blob/document (not for the container)
-* Ensure you have specified the target filename as part of the target URL – though the SAS token is still for the container.
+* Specify `"storageType": "File"`
+* If you aren't using a [**system-assigned managed identity**](managed-identity.md) for authentication, make sure you've created source URL & SAS token for the specific blob/document (not for the container)
+* Ensure you've specified the target filename as part of the target URL – though the SAS token is still for the container.
 * Sample request below shows a single document getting translated into two target languages
 
 ```json
@@ -1274,7 +1295,7 @@ The table below lists the limits for data that you send to Document Translation.
 |Number of target languages in a batch| ≤ 10 |
 |Size of Translation memory file| ≤ 10 MB|
 
-Document Translation can not be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
+Document Translation can't be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
 
 ## Troubleshooting
 
@@ -1284,8 +1305,8 @@ Document Translation can not be used to translate secured documents such as thos
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. |
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
-| 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. When managing your subscription on the Azure portal, please ensure you're using the **Translator** single-service resource  _not_ the **Cognitive Services** multi-service resource.
-| 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 401 | Unauthorized | The request isn't authorized. Check to make sure your subscription key or token is valid and in the correct region. When managing your subscription on the Azure portal, make sure you're using the **Translator** single-service resource  _not_ the **Cognitive Services** multi-service resource.
+| 429 | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription. |
 | 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
 
 ## Learn more

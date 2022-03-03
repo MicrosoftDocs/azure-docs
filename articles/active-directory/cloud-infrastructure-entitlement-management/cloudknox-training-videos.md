@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management training videos
-description: Microsoft CloudKnox Permissions Management training videos.
+title: CloudKnox Permissions Management training videos
+description: CloudKnox Permissions Management training videos.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,15 +8,20 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/27/2021
+ms.date: 02/24/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management training videos
+# CloudKnox Permissions Management training videos
 
-To view step-by-step training videos on how to use CloudKnox features, select a link below.
+To view step-by-step training videos on how to use CloudKnox Permissions Management (CloudKnox) features, select a link below.
 
-## Privilege on demand (POD) work flows
+## Enable CloudKnox in your Azure Active Directory (Azure AD) tenant
+
+To view a video on how to enable CloudKnox in your Azure AD tenant, select
+[Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
+
+<!---## Privilege on demand (POD) work flows
 
 - View a step-by-step video on the [privilege on demand (POD) work flow from the Just Enough Permissions (JEP) Controller](https://vimeo.com/461508166/3d88107f41).
 
@@ -42,7 +47,7 @@ To view step-by-step training videos on how to use CloudKnox features, select a 
 
 ## Group permissions
 
-- View a step-by-step video on [how to create group-based permissions](https://vimeo.com/462797947/d041de9157).
+- View a step-by-step video on [how to create group-based permissions](https://vimeo.com/462797947/d041de9157).--->
 
 
 <!---## Next steps--->

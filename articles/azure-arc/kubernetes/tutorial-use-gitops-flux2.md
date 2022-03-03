@@ -28,7 +28,7 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 * An Azure Arc-enabled Kubernetes connected cluster that's up and running.
   
-  [Learn how to Azure Arc-enable a Kubernetes cluster](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
+  [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 * Read and write permissions on the `Microsoft.Kubernetes/connectedClusters` resource type.
 
 ### For Azure Kubernetes Service clusters
@@ -654,7 +654,7 @@ Arguments
     --timeout                      : Maximum time to reconcile the source before timing out.
 
 Auth Arguments
-    --local-auth-ref --local-ref   : Local reference to a kubernetes secret in the configuration
+    --local-auth-ref --local-ref   : Local reference to a Kubernetes secret in the configuration
                                      namespace to use for communication to the source.
 
 Bucket Auth Arguments
@@ -997,13 +997,14 @@ By using this annotation, the HelmRelease that is deployed will be patched with 
 
 ## Multi-tenancy
 
-Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy). This capability will be integrated into Azure GitOps with Flux v2 prior to general availability.
+Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability will be integrated into Azure GitOps with Flux v2 prior to general availability.
 
 >[!NOTE]
->This will be a breaking change if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects. To prepare for the release of this multi-tenancy feature, take one of these actions:
+>This will be a breaking change if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects.  It [may also be a breaking change](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default) if you use a Kubernetes version less than 1.20.6. To prepare for the release of this multi-tenancy feature, take these actions:
 >
->* (Recommended) Assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
->* If you need time to migrate, you can opt-out of multi-tenancy.
+>* Upgrade to Kubernetes version 1.20.6 or greater.
+>* In your Kubernetes manifests assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
+>    * If you need time to update your manifests, you can opt-out of multi-tenancy. However, you still need to upgrade your Kubernetes version.
 
 ### Update manifests for multi-tenancy
 
