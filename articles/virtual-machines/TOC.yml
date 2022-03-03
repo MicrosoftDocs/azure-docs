@@ -1258,23 +1258,23 @@
   - name: Ephemeral OS disks
     href: ephemeral-os-disks.md
   - name: Securely import/export a disk
+    items:
+    - name: Configure private links for disks - CLI
+      href: ./linux/disks-export-import-private-links-cli.md
+    - name: Configure private links for disks - Portal
+      href: disks-enable-private-links-for-import-export-portal.md
+    - name: Upload a vhd to a disk - PowerShell
+      href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
+    - name: Upload a vhd to a disk - CLI
+      href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
+    - name: Download a VHD
       items:
-      - name: Configure private links for disks - CLI
-        href: ./linux/disks-export-import-private-links-cli.md
-      - name: Configure private links for disks - Portal
-        href: disks-enable-private-links-for-import-export-portal.md
-      - name: Upload a vhd to a disk - PowerShell
-        href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
-      - name: Upload a vhd to a disk - CLI
-        href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
-      - name: Download a VHD
-        items:
-        - name: Linux
-          displayName: Download a VHD
-          href: ./linux/download-vhd.md
-        - name: Windows
-          displayName: Download a VHD
-          href: ./windows/download-vhd.md
+      - name: Linux
+        displayName: Download a VHD
+        href: ./linux/download-vhd.md
+      - name: Windows
+        displayName: Download a VHD
+        href: ./windows/download-vhd.md
   - name: Migration and conversion
     items:
     - name: Convert disk to another disk type
