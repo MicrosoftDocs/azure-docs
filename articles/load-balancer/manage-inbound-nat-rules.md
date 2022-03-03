@@ -55,10 +55,6 @@ In this example you'll create an inbound NAT rule to forward a range of ports st
     
     :::image type="content" source="./media/manage-inbound-nat-rules/add-inbound-nat-rule.png" alt-text="Screenshot of the add inbound NAT rules page":::
 
-# [**CLI**](#tab/inbound-nat-rule-cli)
-
-# [**Portal**](#tab/inbound-nat-rule-portal)
-
 ## Remove an inbound NAT rule
 
 In this example, you'll remove an inbound NAT rule.
