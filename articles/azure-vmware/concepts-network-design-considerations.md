@@ -11,7 +11,7 @@ Azure VMware Solution offers a VMware private cloud environment accessible for u
 
 ## Azure VMware Solution compatibility with AS-Path Prepend
 
-Azure VMware Solution is incompatible with AS-Path Prepend for redundant ExpressRoute configurations and doesn't honor the outbound path selection from Azure towards on-premises.  If you're running 2 or more ExpressRoute paths between on-prem and Azure plus the following listed conditions are true, you may experience impaired connectivity or no connectivity between your on-premises networks and AVS Azure VMware Solution.  This connectivity issue is caused by Azure VMware Solution not seeing the AS-Path Prepend and using ECMP to send traffic towards your environment over both ExR circuits, causing issues with stateful firewall inspection.
+Azure VMware Solution is incompatible with AS-Path Prepend for redundant ExpressRoute configurations and doesn't honor the outbound path selection from Azure towards on-premises.  If you're running 2 or more ExpressRoute paths between on-prem and Azure plus the following listed conditions are true, you may experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution.  This connectivity issue is caused by Azure VMware Solution not seeing the AS-Path Prepend and using ECMP to send traffic towards your environment over both ExR circuits, causing issues with stateful firewall inspection.
 
 **Check list of conditions that are true:**
 - Both or all circuits are connected to Azure VMware Solution with global reach.
@@ -21,7 +21,7 @@ Azure VMware Solution is incompatible with AS-Path Prepend for redundant Express
 
 **Solution**
 
-If you’re using BGP AS-Path Prepend to designate a circuit from Azure towards on-prem, open a [Customer Support Request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with AVS Azure VMware Solution. You’ll need to identify which circuit you’d like to be primary for a given network advertisement. Azure support staff will implement the AS-Path Prepend manually within the AVS Azure VMware Solution environment to match your on-prem configuration for route selection.  This does not affect redundancy as the other path(s) is still available if the primary one fails. 
+If you’re using BGP AS-Path Prepend to designate a circuit from Azure towards on-prem, open a [Customer Support Request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with Azure VMware Solution. You’ll need to identify which circuit you’d like to be primary for a given network advertisement. Azure support staff will implement the AS-Path Prepend manually within the Azure VMware Solution environment to match your on-prem configuration for route selection.  This does not affect redundancy as the other path(s) is still available if the primary one fails. 
 
 ## VMs and default routes from On-Premises 
 
