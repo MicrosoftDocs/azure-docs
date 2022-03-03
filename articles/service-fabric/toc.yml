@@ -11,7 +11,7 @@
   items:
   - name: Managed cluster with Azure portal
     href: quickstart-managed-cluster-portal.md
-  - name: Managed cluster with ARM temlate
+  - name: Managed cluster with ARM template
     href: quickstart-managed-cluster-template.md
   - name: Classic cluster with ARM template
     displayName: Resource Manager
