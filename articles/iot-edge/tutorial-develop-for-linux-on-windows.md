@@ -98,7 +98,7 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
    ```powershell
    Invoke-EflowVmCommand "sudo cp /lib/systemd/system/docker.service /etc/systemd/system/docker.service"
    ```
-4. Replace service execution line to listen external connections.
+4. Replace the service execution line to listen for external connections.
    ```powershell
    Invoke-EflowVmCommand "sudo sed -i 's/-H fd:\/\// -H fd:\/\/ -H tcp:\/\/0.0.0.0:2375/g'  /etc/systemd/system/docker.service"
    ```
