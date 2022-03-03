@@ -71,7 +71,7 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
         --backend-pool-name myBackendPool \
         --frontend-ip-name myFrontend \
         --frontend-port-range-end 1000 \
-         --frontend-port-range-start 500
+        --frontend-port-range-start 500
         
 ```
 
