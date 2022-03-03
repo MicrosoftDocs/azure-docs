@@ -123,9 +123,8 @@ Example function.json:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, invocation) {
+module.exports = async function (context, invocation) {
     context.log(`Receive ${context.bindingData.message} from ${invocation.ConnectionId}.`)
-    context.done();
 };
 ```
 

@@ -1,6 +1,6 @@
 ---
-title: Advanced SIEM Information Model (ASIM) schemas | Microsoft Docs
-description: This article explains Advanced SIEM Information Model (ASIM) schemas, and how they help. ASIM normalizes data from many different sources to a uniform presentation.
+title: Advanced Security Information Model (ASIM) schemas | Microsoft Docs
+description: This article explains Advanced Security Information Model (ASIM) schemas, and how they help. ASIM normalizes data from many different sources to a uniform presentation.
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
@@ -8,11 +8,11 @@ ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 --- 
 
-# Advanced SIEM Information Model (ASIM) schemas
+# Advanced Security Information Model (ASIM) schemas
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-An Advanced SIEM Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
+An Advanced Security Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
 
 To understand how schemas fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
@@ -20,7 +20,7 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 
 | Schema | Version | Status |
 | ------ | ------- | ------ |
-| [Authentication Event](authentication-normalization-schema.md) | 0.1 | Preview |
+| [Authentication Event](authentication-normalization-schema.md) | 0.1.1 | Preview |
 | [DNS Activity](dns-normalization-schema.md) | 0.1.3 | Preview |
 | [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
 | [File Activity](file-event-normalization-schema.md) | 0.1 | Preview |
@@ -105,18 +105,19 @@ The following fields are defined by ASIM for all schemas:
 | **EventCount**          | Mandatory   | Integer    |     The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record might represent multiple events. <br><br>For other sources, set to `1`.   |
 | **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time that the first event was generated. <br><br>Otherwise, this field aliases the [TimeGenerated](#timegenerated) field. |
 | **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
-|  <a name="eventtype"></a>**EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. Each schema documents the list of values valid for this field. |
-| **EventSubType** | Optional | Enumerated | Describes a subdivision of the operation reported in the [EventType](#eventtype) field. Each schema documents the list of values valid for this field. |
+|  <a name="eventtype"></a>**EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalType](#eventoriginaltype) field. |
+| <a name="eventsubtype"></a>**EventSubType** | Optional | Enumerated | Describes a subdivision of the operation reported in the [EventType](#eventtype) field. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalSubType](#eventoriginalsubtype) field. |
 | <a name="eventresult"></a>**EventResult** | Mandatory | Enumerated | One of the following values: **Success**, **Partial**, **Failure**, **NA** (Not Applicable).<br> <br>The value might be provided in the source record by using different terms, which should be normalized to these values. Alternatively, the source might provide only the [EventResultDetails](#eventresultdetails) field, which should be analyzed to derive the EventResult value.<br><br>Example: `Success`|
-| <a name="eventresultdetails"></a>**EventResultDetails** | Mandatory | Enumerated | Reason or details for the result reported in the [EventResult](#eventresult) field. Each schema documents the list of values valid for this field.<br><br>Example: `NXDOMAIN`|
+| <a name="eventresultdetails"></a>**EventResultDetails** | Mandatory | Enumerated | Reason or details for the result reported in the [EventResult](#eventresult) field. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalResultDetails](#eventoriginalresultdetails) field.<br><br>Example: `NXDOMAIN`|
 | **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
-| **EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source. For example, this field will be used to store the original Windows event ID.<br><br>Example: `4624`|
+| <a name="eventoriginaltype"></a>**EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source. For example, this field will be used to store the original Windows event ID. This value is used to derive [EventType](#eventtype), which should have only one of the values documented for each schema.<br><br>Example: `4624`|
+| <a name="eventoriginalsubtype"></a>**EventOriginalSubType**   | Optional    | String     |   The original event sub type or ID, if provided by the source. For example, this field will be used to store the original Windows logon type. This value is used to derive [EventSubType](#eventsubtype), which should have only one of the values documented for each schema.<br><br>Example: `2`|
 | <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails** | Optional | String | The original result details provided by the source. This value is used to derive [EventResultDetails](#eventresultdetails), which should have only one of the values documented for each schema. |
 | <a name="eventseverity"></a>**EventSeverity** | Enumerated | String | The severity of the event. Valid values are: `Informational`, `Low`, `Medium`, or `High`. | 
 | <a name="eventoriginalseverity"></a>**EventOriginalSeverity** | Optional | String | The original severity as provided by the source. This value is used to derive [EventSeverity](#eventseverity). | 
-| <a name="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field might not be available in the source record. In such cases, this field must be set by the parser.           |
+| <a name="eventproduct"></a>**EventProduct**        | Mandatory   | String     |  The product generating the event. The value should be one of the values listed in [Vendors and Products](#vendors-and-products).<br><br>Example: `Sysmon`  |
 | **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`      |
-| <a name="eventvendor"></a>**EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field might not be available in the source record. In such cases, this field must be set by the parser.  |
+| <a name="eventvendor"></a>**EventVendor**  | Mandatory   | String     |   The vendor of the product generating the event. The value should be one of the values listed in [Vendors and Products](#vendors-and-products).<br><br>Example: `Microsoft`  <br><br>  |
 | **EventSchema** | Mandatory | String | The schema the event is normalized to. Each schema documents its schema name. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. Each schema documents its current version.         |
 | **EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides more information about the event.|
@@ -274,12 +275,34 @@ Based on these entities, [Windows event 4624](/windows/security/threat-protectio
 |**Hostname**     |     Computer    |     Alias    |         |
 | | | | |
 
+## Vendors and products
+
+To maintain consistency, the list of allowed vendors and products is set as part of ASIM, and may not directly correspond to the value sent by the source, when available.
+
+The currently supported list of vendors and products used in the [EventVendor](#eventvendor) and [EventProduct](#eventproduct) fields respectively is:
+
+| Vendor | Products |
+| ------ | -------- | 
+| Apache | Squid Proxy | 
+| AWS | - CloudTrail<br> - VPC | 
+| Cisco | - ASA<br> - Umbrella |
+| Corelight | Zeek | 
+| GCP | Cloud DNS | 
+| Infoblox | NIOS | 
+| Microsoft | - AAD<br> - Azure Firewall<br> - Azure File Storage<br>    - Azure NSG flows<br> -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
+| Okta | Okta | 
+| Palo Alto | - PanOS<br> - CDL<br> |
+| Zscaler |  - ZIA DNS<br> - ZIA Firewall<br> - ZIA Proxy |
+|||
+
+If you are developing a parser for a vendor or a product which are not listed here, contact the [Microsoft Sentinel](mailto:azuresentinel@microsoft.com) team to allocate a new allowed vendor and product designators. 
+
 ## Next steps
 
 This article provides an overview of normalization in Microsoft Sentinel and ASIM.
 
 For more information, see:
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

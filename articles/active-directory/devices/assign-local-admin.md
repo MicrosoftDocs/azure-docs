@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -71,7 +71,7 @@ Currently, there's no UI in Intune to manage these policies and they need to be 
 
 - Adding Azure AD groups through the policy requires the group's SID that can be obtained by executing the [Microsoft Graph API for Groups](/graph/api/resources/group). The SID is defined by the property `securityIdentifier` in the API response.
 
-- Administrator privileges using this policy are evaluated only for the following well-known groups on a Windows 10 device - Administrators, Users, Guests, Power Users, Remote Desktop Users and Remote Management Users. 
+- Administrator privileges using this policy are evaluated only for the following well-known groups on a Windows 10 or newer device - Administrators, Users, Guests, Power Users, Remote Desktop Users and Remote Management Users. 
 
 - Managing local administrators using Azure AD groups isn't applicable to Hybrid Azure AD joined or Azure AD Registered devices.
 

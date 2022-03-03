@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/15/2022
 
 ms.author: justinha
 author: vimrang
 manager: daveba
-ms.reviewer: tommma
+ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
@@ -49,7 +49,9 @@ Let's cover each step:
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of the Sign-in if FIDO2 is also enabled.":::
 
-1. After the user clicks the link, the client is redirected to the certauth endpoint [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com). The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
+1. After the user clicks the link, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) for Azure Global. For [Azure Government](/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us). For the correct endpoint for other environments, see the specific Microsoft cloud docs. 
+
+   The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
    
@@ -234,4 +236,3 @@ For the next test scenario, configure the authentication policy where the Issuer
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
 - [FAQ](certificate-based-authentication-faq.yml)
 - [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
-

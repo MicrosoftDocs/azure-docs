@@ -872,7 +872,7 @@ For more information about troubleshooting the Add-on for Kubernetes, see the
 of the Azure Policy troubleshooting article.
 
 For Azure Policy extension for Arc extension related issues, please see:
-- [Azure Arc enabled Kubernetes troubleshooting](../../../azure-arc/kubernetes/troubleshooting.md#azure-arc-enabled-kubernetes-troubleshooting)
+- [Azure Arc enabled Kubernetes troubleshooting](../../../azure-arc/kubernetes/troubleshooting.md)
 
 For Azure Policy related issues, please see:
 - [Inspect Azure Policy logs](#logging)

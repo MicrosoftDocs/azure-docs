@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma, emlisa
-ms.date: 1/27/2022
+ms.date: 03/02/2022
 ---
 
 # High availability for Azure SQL Database and SQL Managed Instance
@@ -57,7 +57,7 @@ The zone-redundant version of the high availability architecture for the general
 ![Zone redundant configuration for general purpose](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Zone-redundant configuration is not available in SQL Managed Instance. In SQL Database this feature is only available when the Gen5 compute hardware is selected. Additionally, for serverless and provisioned general purpose tier, the zone-redundant configuration is only available in the following regions: East US, East US 2, West US 2, North Europe, West Europe, Southeast Asia, Australia East, Japan East, UK South, and France Central.
+> Zone-redundant configuration is not available in SQL Managed Instance. In SQL Database this feature is only available when the Gen5 hardware is selected. Additionally, for serverless and provisioned general purpose tier, the zone-redundant configuration is only available in the following regions: East US, East US 2, West US 2, North Europe, West Europe, Southeast Asia, Australia East, Japan East, UK South, and France Central.
 
 > [!NOTE]
 > General Purpose databases with a size of 80 vcore may experience performance degradation with zone-redundant configuration. Additionally, operations such as backup, restore, database copy, setting up Geo-DR relationships, and downgrading a zone-redundant database from Business Critical to General Purpose may experience slower performance for any single databases larger than 1 TB. Please see our [latency documentation on scaling a database](single-database-scale.md) for more information.
@@ -82,14 +82,14 @@ By default, the cluster of nodes for the premium availability model is created i
 Because the zone-redundant databases have replicas in different datacenters with some distance between them, the increased network latency may increase the commit time and thus impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone-redundancy setting. This process is an online operation similar to the regular service tier upgrade. At the end of the process, the database or pool is migrated from a zone-redundant ring to a single zone ring or vice versa.
 
 > [!IMPORTANT]
-> This feature is not available in SQL Managed Instance. In SQL Database, when using the Business Critical tier, zone-redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone-redundant databases, see [Services support by region](../../availability-zones/az-region.md).
+> This feature is not available in SQL Managed Instance. In SQL Database, when using the Business Critical tier, zone-redundant configuration is only available when the Gen5 hardware is selected. For up to date information about the regions that support zone-redundant databases, see [Services support by region](../../availability-zones/az-region.md).
 
 The zone-redundant version of the high availability architecture is illustrated by the following diagram:
 
 ![high availability architecture zone redundant](./media/high-availability-sla/zone-redundant-business-critical-service-tier.png)
 
 
-## Hyperscale service tier availability
+## Hyperscale service tier locally redundant availability
 
 The Hyperscale service tier architecture is described in [Distributed functions architecture](./service-tier-hyperscale.md#distributed-functions-architecture) and is only currently available for SQL Database, not SQL Managed Instance.
 
@@ -106,6 +106,79 @@ Compute nodes in all Hyperscale layers run on Azure Service Fabric, which contro
 
 For more information on high availability in Hyperscale, see [Database High Availability in Hyperscale](./service-tier-hyperscale.md#database-high-availability-in-hyperscale).
 
+## Hyperscale service tier zone redundant availability (Preview)
+
+Zone redundancy for the Azure SQL Database Hyperscale service tier is [now in public preview](https://aka.ms/zrhyperscale). Enabling this configuration ensures zone-level resiliency through replication across Availability Zones for all Hyperscale layers. By selecting zone-redundancy, you can make your Hyperscale databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes to the application logic.
+
+Consider the following limitations: 
+
+- Currently, only the following Azure regions are supported: UK South, Brazil South, West US 2, Japan East, North Europe, and Southeast Asia.
+- Zone redundant configuration can only be specified during database creation. This setting cannot be modified once the resource is provisioned. Use [Database copy](database-copy.md), [point-in-time restore](recovery-using-backups.md#point-in-time-restore), or create a [geo-replica](active-geo-replication-overview.md) to update the zone redundant configuration for an existing Hyperscale database. When using one of these update options, if the target database is in a different region than the source or if the database backup storage redundancy from the target differs from the source database, the [copy operation](database-copy.md#database-copy-for-azure-sql-hyperscale) will be a size of data operation.
+- Named replicas are not supported.
+- Only [zone-redundant backup](automated-backups-overview.md) is supported.
+- Only Gen5 hardware is supported.
+- [Geo-Restore](recovery-using-backups.md#geo-restore) is not currently supported.
+- Zone redundancy cannot currently be specified when migrating an existing database from another Azure SQL Database service tier to Hyperscale.
+
+> [!IMPORTANT]
+> At least 1 high availability compute replica and the use of zone-redundant backup storage is required for enabling the zone redundant configuration for Hyperscale.
+
+
+### Create a zone redundant Hyperscale database
+
+Use [Azure PowerShell](/powershell/azure/install-az-ps) or the [Azure CLI](/cli/azure/update-azure-cli) to create a zone redundant Hyperscale database. Confirm you have the latest version of the API to ensure support for any recent changes. 
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Specify the `-ZoneRedundant` parameter to enable zone redundancy for your Hyperscale database by using Azure PowerShell. The database must have at least 1 high availability replica and zone-redundant backup storage must be specified.
+
+To enable zone redundancy using Azure Powershell, use the following example command: 
+
+```powershell
+New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database01" `
+    -Edition "Hyperscale" -HighAvailabilityReplicaCount 1 -ZoneRedundant -BackupStorageRedundancy Zone
+```
+
+
+
+# [Azure CLI](#tab/azure-cli)
+
+Specify the `-zone-redundant parameter` to enable zone redundancy for your Hyperscale database by using the Azure CLI. The database copy must have at least 1 high availability replica and zone-redundant backup storage.
+
+To enable zone redundancy using the Azure CLI, use the following example command: 
+
+```azurecli
+az sql db create -g mygroup -s myserver -n mydb -e Hyperscale -f Gen5 –ha-replicas 1 –-zone-redundant -–backup-storage-redundancy Zone
+```
+
+* * *
+
+### Create a zone redundant Hyperscale database by creating a geo-replica
+
+To make an existing Hyperscale database zone redundant, use Azure PowerShell or the Azure CLI to create a zone redundant Hyperscale database using active geo-replication.  The geo-replica can be in the same or different region as the existing Hyperscale database. 
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Specify the `-ZoneRedundant` parameter to enable zone redundancy for your Hyperscale database secondary. The secondary database must have at least 1 high availability replica and zone-redundant backup storage must be specified. 
+
+To create your zone redundant database using Azure PowerShell, use the following example command: 
+
+```powershell
+New-AzSqlDatabaseSecondary -ResourceGroupName "myResourceGroup" -ServerName $sourceserver -DatabaseName "databaseName" -PartnerResourceGroupName "myPartnerResourceGroup" -PartnerServerName $targetserver -PartnerDatabaseName "zoneRedundantCopyOfMySampleDatabase” -ZoneRedundant -BackupStorageRedundancy Zone -HighAvailabilityReplicaCount 1
+```
+
+
+# [Azure CLI](#tab/azure-cli)
+
+Specify the `-zone-redundant parameter` to enable zone redundancy for your Hyperscale database secondary. The secondary database must have at least 1 high availability replica and zone-redundant backup storage. 
+
+To enable zone redundancy using the Azure CLI, use the following example command: 
+
+```azurecli
+az sql db replica create -g mygroup -s myserver -n originalDb --partner-server newDb –ha-replicas 1 –zone-redundant –backup-storage-redundancy Zone
+```
+
+* * *
 
 ## Accelerated Database Recovery (ADR)
 
@@ -119,9 +192,9 @@ A failover can be initiated using PowerShell, REST API, or Azure CLI:
 
 |Deployment type|PowerShell|REST API| Azure CLI|
 |:---|:---|:---|:---|
-|Database|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Database failover](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az_rest) may be used to invoke a REST API call from Azure CLI|
-|Elastic pool|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Elastic pool failover](/javascript/api/@azure/arm-sql/elasticpools#failover_string__string__string__msRest_RequestOptionsBase)|[az rest](/cli/azure/reference-index#az_rest) may be used to invoke a REST API call from Azure CLI|
-|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Managed Instances - Failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az_sql_mi_failover)|
+|Database|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Database failover](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
+|Elastic pool|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Elastic pool failover](/javascript/api/@azure/arm-sql/elasticpools)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
+|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Managed Instances - Failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover) may be used to invoke a REST API call from Azure CLI|
 
 > [!IMPORTANT]
 > The Failover command is not available for readable secondary replicas of Hyperscale databases.

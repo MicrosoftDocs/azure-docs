@@ -15,7 +15,7 @@ ms.author: ofshezaf
 
 The Web Session normalization schema is used to describe an IP network activity. For example, IP network activities are reported by web servers, web proxies, and web security gateways.
 
-For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The Network normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -85,9 +85,9 @@ The following filtering parameters are available:
 |----------|-----------|-------------|
 | **starttime** | datetime | Filter only Web sessions that **started** at or after this time. |
 | **endtime** | datetime | Filter only Web sessions that **started** running at or before this time. |
-| **srcipaddr_has_any_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. Note that the list of values can include IP addresses as well as IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. |
-| **url_has_any** | dynamic | Filter only Web sessions for which the [URL field](#url) has any of the values listed. If specified, and the session is not a web session, no result will be returned.|  
-| **httpuseragent_has_any** | dynamic | Filter only web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. | 
+| **srcipaddr_has_any_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. Note that the list of values can include IP addresses as well as IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
+| **url_has_any** | dynamic | Filter only Web sessions for which the [URL field](#url) has any of the values listed. If specified, and the session is not a web session, no result will be returned. The length of the list is limited to 10,000 items.|  
+| **httpuseragent_has_any** | dynamic | Filter only web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. The length of the list is limited to 10,000 items. | 
 | **ventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
 | **eventresult** | string | Filter only network sessions with a specific **EventResult** value. |
 | | | |
@@ -192,8 +192,8 @@ The Web Session schema relies on the Network Session schema. Therefore, [Network
 For more information, see:
 
 - Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)
 

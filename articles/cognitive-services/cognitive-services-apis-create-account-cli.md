@@ -1,23 +1,24 @@
 ---
-title: Create a Cognitive Services resource via the Azure CLI
+title: Create a Cognitive Services resource using the Azure CLI
 titleSuffix: Azure Cognitive Services
-description: Get started with Azure Cognitive Services by creating and subscribing to a resource via the Azure CLI.
+description: Get started with Azure Cognitive Services by using Azure CLI commands to create and subscribe to a resource.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.topic: quickstart
-ms.date: 06/04/2021
+ms.date: 03/02/2022
 ms.author: aahi
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
-# Quickstart: Create a Cognitive Services resource via the Azure CLI
+# Quickstart: Create a Cognitive Services resource using the Azure CLI
 
-Use this quickstart to get started with Azure Cognitive Services via the [Azure CLI](/cli/azure/install-azure-cli).
+Use this quickstart to get started with Azure Cognitive Services using [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands.
 
-Azure Cognitive Services are cloud-base services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
+Azure Cognitive Services are cloud-based services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
 
 Cognitive Services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md) that you create in your Azure subscription. After creating the resource, Use the keys and endpoint generated for you to authenticate your applications.
 

@@ -9,7 +9,8 @@ ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 06/21/2021
 ms.author: mbaldwin
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 #Customer intent: As a security admin who is new to Azure, I want to provision and activate a managed HSM
 ---
 
