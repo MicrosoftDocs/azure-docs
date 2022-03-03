@@ -124,7 +124,7 @@
       href: concept-feature-management.md
     - name: Event handling
       href: concept-app-configuration-event.md
-    - name: Soft Delete
+    - name: Soft delete
       href: concept-soft-delete.md
     - name: Security
       items:
