@@ -52,7 +52,6 @@ Use the following steps to tag your data
 
 5. Before you start tagging, add classes to your project from the top-right corner
 
-
     :::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing the data tagging screen" lightbox="../media/tag-1.png":::
 
 6. Start tagging your files.
