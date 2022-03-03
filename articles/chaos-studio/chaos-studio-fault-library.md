@@ -1164,7 +1164,8 @@ Known issues on Linux:
 | Target type | Microsoft-KeyVault |
 | Description | Blocks all network access to a Key Vault by temporarily modifying virtual network rules, denying an application dependent on the Key Vault from accessing secrets, keys, and/or certificates. When the fault starts, any virtual network rules that are setup on the target Key Vault are replaced with a deny all rule and restored at the end of the fault duration. |
 | Prerequisites | The target Key Vault cannot have a firewall and must not allow Azure services to bypass access. If the target Key Vault is not set to allow all access, there must be at least one virtual network rule. The Key Vault cannot be in recover mode. |
-| Urn | urn:csci:microsoft:virtualMachine:shutdown/1.0 |
+| Urn | urn:csci:microsoft:keyVault:denyAccess/1.0 |
+| Fault type | Continuous |
 | Parameters (key, value) | None. |
 
 
@@ -1177,12 +1178,7 @@ Known issues on Linux:
     {
       "type": "continuous",
       "name": "urn:csci:microsoft:keyvault:denyAccess/1.0",
-      "parameters": [
-        {
-          "key": "abruptShutdown",
-          "value": "false"
-        }
-      ],
+      "parameters": [],
       "duration": "PT10M",
       "selectorid": "myResources"
     }
