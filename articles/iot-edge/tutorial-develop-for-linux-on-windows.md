@@ -124,8 +124,8 @@ The final step is to test the Docker connection to the EFLOW VM Docker engine.
    ```powershell
    Get-EflowVmAddr
    ```
->[!TIP]
->If the EFLOW VM was deployed without Static IP, the IP address may change across Windows host OS reboots or networking changes. Make sure you are using the correct EFLOW VM IP address every time you want to establish a remote Docker engine connection. 
+   >[!TIP]
+   >If the EFLOW VM was deployed without Static IP, the IP address may change across Windows host OS reboots or networking changes. Make sure you are using the correct EFLOW VM IP address every time you want to establish a remote Docker engine connection. 
 
 
 3. Using the obtained IP address, connect to the EFLOW VM Docker engine, and run the Hello-World sample container.
