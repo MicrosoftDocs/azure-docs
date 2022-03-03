@@ -5,12 +5,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-
 ---
 
 # System performance counters in Application Insights
 
-Windows provides a wide variety of [performance counters](/windows/desktop/perfctrs/about-performance-counters) such as CPU occupancy, memory, disk, and network usage. You can also define your own performance counters. Performance counters collection is supported as long as your application is running under IIS on an on-premises host, or virtual machine to which you have administrative access. Though applications running as Azure Web Apps don't have direct access to performance counters, a subset of available counters are collected by Application Insights.
+Windows provides a wide variety of [performance counters](/windows/desktop/perfctrs/about-performance-counters) such as processor, memory, and disk usage statistics. You can also define your own performance counters. Performance counters collection is supported as long as your application is running under IIS on an on-premises host, or virtual machine to which you have administrative access. Though applications running as Azure Web Apps don't have direct access to performance counters, a subset of available counters are collected by Application Insights.
 
 ## View counters
 
