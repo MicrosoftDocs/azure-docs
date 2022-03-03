@@ -1530,6 +1530,8 @@
         href: openathens-tutorial.md
       - name: OpenID Connect OAuth
         href: openidoauth-tutorial.md
+      - name: OpenLearning
+        href: openlearning-tutorial.md
       - name: OpenText Directory Services
         href: opentext-directory-services-tutorial.md
       - name: OpsGenie
