@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 11/22/2021
+ms.date: 12/03/2021
 ---
 
 # Ratings and Reviews dashboard in commercial marketplace analytics
@@ -55,7 +55,7 @@ Reviews are displayed in chronological order for when they were posted. The defa
 
 ### Respond to a review
 
-You can respond to reviews from users and the response will be visible on either Azure Marketplace or AppSource storefronts. This functionality applies to the following offer types: Azure Application, Azure Container, Azure virtual machine, Dynamics 365 Business Central, Dynamics 365 Customer Engagement & Power Apps, Dynamics 365 Operations, IoT Edge Module, Managed service, Power BI app, and Software as a Service.
+You can respond to reviews from users and the response will be visible on either Azure Marketplace or AppSource storefronts. This functionality applies to the following offer types: Azure Application, Azure Container, Azure virtual machine, Dynamics 365 Business Central, Dynamics 365 apps on Dataverse and Power Apps, Dynamics 365 Operations Apps, IoT Edge Module, Managed service, Power BI app, and Software as a Service.
 
 To respond to a review, follow these steps:
 

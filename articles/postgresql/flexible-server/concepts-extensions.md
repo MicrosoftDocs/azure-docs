@@ -1,6 +1,6 @@
 ---
 title: Extensions - Azure Database for PostgreSQL - Flexible Server
-description: Learn about the available Postgres extensions in Azure Database for PostgreSQL - Flexible Server
+description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
@@ -14,8 +14,86 @@ ms.date: 11/30/2021
 
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a command. After being loaded in the database, extensions function like built-in features.
 
+
 ## How to use PostgreSQL extensions
-PostgreSQL extensions must be installed in your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
+Before you can install extensions in Azure Database for PostgreSQL - Flexible Server, you will need to allow-list these extensions for use. 
+
+Using the [Azure portal](https://portal.azure.com):
+
+   1. Select your Azure Database for PostgreSQL - Flexible Server.
+   2. On the sidebar, select **Server Parameters**.
+   3. Search for the `azure.extensions` parameter.
+   4. Select extensions you wish to allow-list.
+     :::image type="content" source="./media/concepts-extensions/allow-list.png" alt-text=" Screenshot showing Azure Database for PostgreSQL - allow-listing extensions for installation ":::
+  
+Using [Azure CLI](https://docs.microsoft.com/cli/azure/):
+
+   You can allow-list extensions via CLI parameter set [command]( https://docs.microsoft.com/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
+
+   ```bash
+az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name azure.extensions --value <extension name>,<extension name>
+   ```
+
+   Using [ARM Template](https://docs.microsoft.com/azure/azure-resource-manager/templates/):
+   Example below allow-lists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
+```json
+{
+
+    "$schema": https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#,
+
+    "contentVersion": "1.0.0.0",
+
+    "parameters": {
+
+        "flexibleServers_name": {
+
+            "defaultValue": "mypostgreserver",
+
+            "type": "String"
+
+        },
+
+        "azure_extensions_set_value": {
+
+            "defaultValue": " dblink,dict_xsyn,pg_buffercache",
+
+            "type": "String"
+
+        }
+
+    },
+
+    "variables": {},
+
+    "resources": [
+
+        {
+
+            "type": "Microsoft.DBforPostgreSQL/flexibleServers/configurations",
+
+            "apiVersion": "2021-06-01",
+
+            "name": "[concat(parameters('flexibleServers_name'), '/azure.extensions')]",
+
+            "properties": {
+
+                "value": "[parameters('azure_extensions_set_value')]",
+
+                "source": "user-override"
+
+            }
+
+        }
+
+    ]
+
+}
+
+
+  ```
+
+After extensions are allow-listed, these must be installed in your database before you can use them. To install a particular extension, you should run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
+
 
 Azure Database for PostgreSQL supports a subset of key extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document are not supported on Azure Database for PostgreSQL - Flexible Server. You cannot create or load your own extension in Azure Database for PostgreSQL.
 
@@ -26,8 +104,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.1.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.1.1           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.1.1           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.1.1           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/13/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
 > |[bloom](https://www.postgresql.org/docs/13/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/13/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -79,8 +157,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.0.0           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.0.0           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
 > |[bloom](https://www.postgresql.org/docs/12/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -133,8 +211,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1.1             | functions for verifying relation integrity|
 > |[bloom](https://www.postgresql.org/docs/11/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|

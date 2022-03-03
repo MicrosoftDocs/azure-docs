@@ -15,7 +15,9 @@ ms.date: 11/24/2021
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The external call transformation enables data engineers to call out to external REST end points row-by-row in order to add custom or 3rd party results into your data flow streams. 
+The external call transformation enables data engineers to call out to external REST end points row-by-row in order to add custom or 3rd party results into your data flow streams.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWPXGN]
 
 ## Configuration
 
@@ -25,7 +27,7 @@ In the external call transformation configuration panel, you will first pick the
 
 ### Settings
 
-Choose the inline dataset type and associated linked service. Today, only REST is supported. However, SQL stored procedures and other linked service types will become available as well. See the [REST source configuration](https://docs.microsoft.com/azure/data-factory/connector-rest?tabs=data-factory#source-transformation) for explanations of the settings properties.
+Choose the inline dataset type and associated linked service. Today, only REST is supported. However, SQL stored procedures and other linked service types will become available as well. See the [REST source configuration](connector-rest.md) for explanations of the settings properties.
 
 ### Mapping
 
@@ -109,4 +111,4 @@ ExternalCall1 sink(allowSchemaDrift: true,
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
 * Use the [Derived column transformation](data-flow-derived-column.md) to transform rows.
-* See the [REST source](https://docs.microsoft.com/azure/data-factory/connector-rest?tabs=data-factory#source-transformation) for more information on REST settings.
+* See the [REST source](connector-rest.md) for more information on REST settings.

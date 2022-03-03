@@ -10,12 +10,11 @@ editor: ''
 
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/12/2021
+ms.date: 03/02/2022
 ms.author: markvi
 ms.reviewer: tspring  
 
@@ -87,7 +86,7 @@ Flagged Sign-ins query for specific user by UPN (e.g.: user@contoso.com):
 Flagged Sign-ins query for specific user and date greater than:
 `https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true and createdDateTime ge 2021-10-01 and userPrincipalname eq 'user@contoso.com'`
  
-For more information on using the sign-ins Graph API, see [signIn resource type](/graph/api/resources/signin?preserve-view=true&view=graph-rest-1.0).
+For more information on using the sign-ins Graph API, see [signIn resource type](/graph/api/resources/signin).
 
 
 

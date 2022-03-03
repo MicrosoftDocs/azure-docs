@@ -1,8 +1,8 @@
 ---
 title: Set up the Azure Percept Audio device
 description: Learn how to connect your Azure Percept Audio device to your Azure Percept DK
-author: MrHamlet
-ms.author: amiyouss
+author: nkhuyent
+ms.author: davej
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/25/2021

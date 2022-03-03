@@ -5,7 +5,7 @@ author: spelluru
 ms.author: spelluru
 ms.date: 09/10/2021
 ms.topic: quickstart
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Use Azure portal to create a Service Bus namespace and a queue

@@ -6,7 +6,7 @@ manager: roshar
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
-ms.date: 11/18/2021
+ms.date: 12/02/2021
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
@@ -41,10 +41,10 @@ To register for the feature, use the following command:
 Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
 ```
 
-It may take a few minutes for registration to take complete. To confirm that you've registered, use the following command:
+It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:
 
 ```azurepowershell
-Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
+Get-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
 ```
 
 ## Resize a managed disk in the Azure portal
@@ -134,6 +134,11 @@ Remote into the VM, open **Computer Management** (or **Disk Management**) and ex
 
 ## Expand the volume in the operating system
 
+When you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using [Using Diskpart](#using-diskpart) or [Using Disk Manager](#using-disk-manager).
+
+### Using DiskPart
+
+
 When you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using **DiskPart**.
 
 1. Open an RDP connection to your VM.
@@ -146,6 +151,20 @@ When you have expanded the disk for the VM, you need to go into the OS and expan
 
 1. At the **DISKPART** prompt, type `extend [size=<size>]`. This extends the selected volume by *size* in megabytes (MB).
 
+### Using Disk Manager
+
+1. Start a remote desktop session with the VM.
+2. Open **Disk Management**.
+
+    :::image type="content" source="media/expand-os-disk/disk-mgr-1.png" alt-text="Screenshot showing Disk Management.":::
+
+1. Right-click on existing **C:** drive partition -> Extend Volume.
+
+    :::image type="content" source="media/expand-os-disk/disk-mgr-2.png" alt-text="Screenshot showing how to extend the volume.":::
+
+1. Follow the steps you should be able to see the disk with updated capacity:
+
+    :::image type="content" source="media/expand-os-disk/disk-mgr-3.png" alt-text="Screenshot showing the larger C: volume in Disk Manager.":::
 
 ## Next steps
 

@@ -3,7 +3,6 @@ title: Monitor applications running on Azure Functions with Application Insights
 description: Azure Monitor seamlessly integrates with your application running on Azure Functions, and allows you to monitor the performance and spot the problems with your apps in no time.
 ms.topic: conceptual
 ms.date: 08/27/2021
-
 ---
 
 # Monitoring Azure Functions with Azure Monitor Application Insights
@@ -37,6 +36,8 @@ Add the following application settings with below values, then click Save on the
 XDT_MicrosoftApplicationInsights_Java -> 1
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 ```
+> [!IMPORTANT]
+> This feature will have a cold start implication of 8-9 seconds in the Windows Consumption plan.
 
 #### Linux Dedicated/Premium
 ```

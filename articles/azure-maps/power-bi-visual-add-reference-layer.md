@@ -1,10 +1,9 @@
 ---
-title: Add a reference layer to the Azure Maps Power BI visual
+title: Add a reference layer to Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
-description: In this article, you will learn how to use the reference layer in the Microsoft Azure Maps Power BI visual.
+description: In this article, you will learn how to use the reference layer in Azure Maps Power BI visual.
 author: stevemunk
 ms.author: v-munksteve
-manager: erikland
 ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps

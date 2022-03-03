@@ -111,7 +111,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
 1. To access your key vault, you can use the user-assigned managed identity that you created when you [enabled a managed identity on your AKS cluster][use-managed-identity]:
 
     ```azurecli-interactive
-    az aks show -g <resource-group> -n <cluster-name> --query identityProfile.kubeletidentity.clientId -o tsv
+    az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv
     ```
 
     Alternatively, you can create a new managed identity and assign it to your virtual machine (VM) scale set or to each VM instance in your availability set:
@@ -168,7 +168,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     kubectl apply -f secretproviderclass.yaml
     ```
 
-1. Create a pod by using the following YAML, using the name of your identity:
+1. Create a pod by using the following YAML:
 
     ```yml
     # This is a sample pod definition for using SecretProviderClass and the user-assigned identity to access your key vault
@@ -270,7 +270,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     kubectl apply -f secretproviderclass.yaml
     ```
 
-1. Create a pod by using the following YAML, using the name of your identity:
+1. Create a pod by using the following YAML:
 
     ```yml
     # This is a sample pod definition for using SecretProviderClass and system-assigned identity to access your key vault

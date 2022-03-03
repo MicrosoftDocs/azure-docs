@@ -4,11 +4,14 @@ description: This article describes how to connect Linux computers hosted in oth
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/21/2020
+ms.date: 02/07/2022
 
 ---
 
 # Install Log Analytics agent on Linux computers
+The Log Analytics agents are on a **deprecation path** and will no longer be supported after **August 31, 2024**. If you use the Log Analytics agents to ingest data to Azure Monitor, make sure to [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.  
+
+
 This article provides details on installing the Log Analytics agent on Linux computers using the following methods:
 
 * [Install the agent for Linux using a wrapper-script](#install-the-agent-using-wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
@@ -70,14 +73,14 @@ Again, only if you are using an older version of the agent, the python2 executab
 The OMS Agent has limited customization and hardening support for Linux.
 
 The following are currently supported: 
-- FIPs
-- SELINUX (Marketplace images for CENTOS and RHEL with their default settings)
+- FIPS
+- SELinux (Marketplace images for CentOS and RHEL with their default settings)
 
 The following are not supported:
 - CIS
-- SELINUX (custom hardening like MLS)
+- SELinux (custom hardening like MLS)
 
-CIS and SELINUX hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent.  
+CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent. For instance, OS images like Github Enterprise Server which include customizations such as limitations to user account privileges are not supported.
 
 ## Agent prerequisites
 
@@ -97,6 +100,12 @@ The following table highlights the packages required for [supported Linux distro
 
 ## Network requirements
 See [Log Analytics agent overview](./log-analytics-agent.md#network-requirements) for the network requirements for the Linux agent.
+
+## Workspace ID and key
+
+Regardless of the installation method used, you will require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then select **Agents management** in the **Settings** section. 
+
+[![Workspace details](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
 
 ## Agent install package
 
@@ -227,3 +236,5 @@ The default cache size is 10 MB but can be modified in the [omsagent.conf file](
 - Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to reconfigure, upgrade, or remove the agent from the virtual machine.
 
 - Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while installing or managing the agent.
+
+- Review [Agent Data Sources](./agent-data-sources.md) to learn about data source configuration.

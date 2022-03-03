@@ -4,7 +4,7 @@ description: Describes how to create role assignments and role definitions by us
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 12/20/2021
 ---
 # Create Azure RBAC resources by using Bicep
 
@@ -31,7 +31,7 @@ If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. 
 
 ### Name
 
-A role assignment's resource name must be a globally unique identifier (GUID). It's a good practice to create a GUID that uses the scope, principal ID, and role ID together.
+A role assignment's resource name must be a globally unique identifier (GUID). It's a good practice to create a GUID that uses the scope, principal ID, and role ID together. Role assignment resource names must be unique within the Azure Active Directory tenant, even if the scope is narrower.
 
 > [!TIP]
 > Use the `guid()` function to help you to create a deterministic GUID for your role assignment names, like in this example:
@@ -42,7 +42,7 @@ A role assignment's resource name must be a globally unique identifier (GUID). I
 
 ### Role definition ID
 
-The role you assign can be a built-in role definition or a [custom role definition](#custom-role-definitions). To use a built-in role definition, [find the appropriate role definition ID](/azure/role-based-access-control/built-in-roles). For example, the *Contributor* role has a role definition ID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+The role you assign can be a built-in role definition or a [custom role definition](#custom-role-definitions). To use a built-in role definition, [find the appropriate role definition ID](../../role-based-access-control/built-in-roles.md). For example, the *Contributor* role has a role definition ID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
 When you create the role assignment resource, you need to specify a fully qualified resource ID. Built-in role definition IDs are subscription-scoped resources. It's a good practice to use an `existing` resource to refer to the built-in role, and to access its fully qualified resource ID by using the `.id` property:
 
@@ -64,6 +64,8 @@ The following example shows how to create a user-assigned managed identity and a
 ## Custom role definitions
 
 To create a custom role definition, define a resource of type `Microsoft.Authorization/roleDefinitions`. See the [Create a new role def via a subscription level deployment](https://azure.microsoft.com/resources/templates/create-role-def/) quickstart for an example.
+
+Role definition resource names must be unique within the Azure Active Directory tenant, even if the assignable scopes are narrower.
 
 > [!NOTE]
 > Some services manage their own role definitions and assignments. For example, Azure Cosmos DB maintains its own [`Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments`](/azure/templates/microsoft.documentdb/databaseaccounts/sqlroleassignments?tabs=bicep) and [`Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions`](/azure/templates/microsoft.documentdb/databaseaccounts/sqlroledefinitions?tabs=bicep) resources. For more information, see the specific service's documentation.

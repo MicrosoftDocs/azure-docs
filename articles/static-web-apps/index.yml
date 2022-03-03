@@ -31,6 +31,8 @@ landingContent:
             url: ./getting-started.md?tabs=react
           - text: Deploy a Vue app
             url: ./getting-started.md?tabs=vue
+          - text: Deploy a Blazor app
+            url: ./getting-started.md?tabs=blazor
       - linkListType: learn
         links:
           - text: Publish an Angular, React, Svelte, or Vue JavaScript app
@@ -44,25 +46,25 @@ landingContent:
       - linkListType: video
         links:
           - text: Build and deploy a static web app
-            url: https://channel9.msdn.com/Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
+            url: /Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
   - title: Build and deploy
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Gatsby
-            url: publish-gatsby.md
-          - text: Hugo
-            url: publish-hugo.md
-          - text: VuePress
-            url: publish-vuepress.md
-          - text: Jekyll
-            url: publish-jekyll.md
           - text: Blazor
             url: deploy-blazor.md
+          - text: Gatsby
+            url: publish-gatsby.md
+          - text: Jekyll
+            url: publish-jekyll.md
+          - text: Hugo
+            url: publish-hugo.md
           - text: Next.js
             url: deploy-nextjs.md
           - text: Nuxt.js
             url: deploy-nuxtjs.md
+          - text: VuePress
+            url: publish-vuepress.md
   - title: Key concepts
     linkLists:
       - linkListType: concept
@@ -76,9 +78,9 @@ landingContent:
           - text: Authentication and authorization
             url: authentication-authorization.md
           - text: Build configuration with GitHub Actions
-            url: publish-devops.md?tabs=github-actions
+            url: build-configuration.md?tabs=github-actions
           - text: Build configuration with Azure DevOps
-            url: publish-devops.md?tabs=azure-devops
+            url: build-configuration.md?tabs=azure-devops
   - title: Infrastructure as code
     linkLists:
      - linkListType: tutorial

@@ -146,6 +146,9 @@ To mount blobfuse, run the following command with your user. This command mounts
 sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
+> [!NOTE]
+> If you use an ADLS account, you must include `--use-adls=true`.
+
 You should now have access to your block blobs through the regular file system APIs. The user who mounts the directory is the only person who can access it, by default, which secures the access. To allow access to all users, you can mount via the option `-o allow_other`.
 
 ```bash

@@ -1,12 +1,12 @@
 ---
-title: Edit and manage logic apps by using Visual Studio with Cloud Explorer
-description: Edit, update, manage, add to source control, and deploy logic apps by using Visual Studio with Cloud Explorer
+title: Edit and manage logic apps using Visual Studio
+description: Edit, update, manage, add to source control, and deploy logic apps using Visual Studio with Cloud Explorer.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, jonfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.custom: mvc
-ms.date: 04/23/2021
+ms.date: 01/28/2022
 ---
 
 # Manage logic apps with Visual Studio
@@ -28,7 +28,7 @@ You can also [manage your logic apps in the Azure portal](manage-logic-apps-with
 
 * Download and install these tools, if you don't have them already:
 
-  * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). This quickstart uses Visual Studio Community 2017, which is free.
+  * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This quickstart uses Visual Studio Community 2017, which is free.
 
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
@@ -248,9 +248,9 @@ To check the status and diagnose problems with logic app runs, you can review th
 
 To stop the trigger from firing the next time when the trigger condition is met, disable your logic app. Disabling a logic app affects workflow instances in the following ways:
 
-* The Logic Apps service continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
+* Azure Logic Apps continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
 
-* The Logic Apps service doesn't create or run new workflow instances.
+* Azure Logic Apps doesn't create or run new workflow instances.
 
 * The trigger won't fire the next time that its conditions are met.
 
@@ -261,6 +261,8 @@ To stop the trigger from firing the next time when the trigger condition is met,
   1. In the logic app, edit any part of the workflow's trigger.
   1. Save your changes. This step resets your trigger's current state.
   1. [Reactivate your logic app](#enable-logic-apps).
+
+* When a workflow is disabled, you can still resubmit runs.
 
 <a name="disable-logic-apps"></a>
 
@@ -284,11 +286,11 @@ In Cloud Explorer, open your logic app's shortcut menu, and select **Enable**.
 
 Deleting a logic app affects workflow instances in following ways:
 
-* The Logic Apps service makes a best effort to cancel any in-progress and pending runs.
+* Azure Logic Apps makes a best effort to cancel any in-progress and pending runs.
 
   Even with a large volume or backlog, most runs are canceled before they finish or start. However, the cancellation process might take time to complete. Meanwhile, some runs might get picked up for execution while the runtime works through the cancellation process.
 
-* The Logic Apps service doesn't create or run new workflow instances.
+* Azure Logic Apps doesn't create or run new workflow instances.
 
 * If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 

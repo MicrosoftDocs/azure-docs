@@ -11,7 +11,6 @@ ms.assetid: fcfb0ce8-0e19-4fa8-b777-6b9f9cdda178
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: multiple
-ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
 ms.date: 02/12/2021

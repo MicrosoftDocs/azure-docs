@@ -4,7 +4,6 @@ titleSuffix: Microsoft Azure Maps
 description: Learn tips & tricks to optimize your use of the Azure Maps Web SDK. 
 author: stevemunk
 ms.author: v-munksteve
-manager: erikland
 ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -410,7 +409,7 @@ Report data issues using the [Azure Maps data feedback tool](https://feedback.az
 
 **How do I report a bug in a service or API?**
 
-Report issues on Azure's [Help + support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) page by selecting the **Create a support request** button.
+Report issues on Azure's [Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) page by selecting the **Create a support request** button.
 
 **Where do I get technical help for Azure Maps?**
 

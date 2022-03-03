@@ -11,6 +11,7 @@ ms.date: 11/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
+ms.custom: mode-other
 ---
 # Quickstart: Apply for a short code
 

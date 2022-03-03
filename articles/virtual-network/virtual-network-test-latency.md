@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid:
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -149,6 +148,7 @@ Run the following commands:
     sudo apt-get install -y autotools-dev
     sudo apt-get install -y automake
     sudo apt-get install -y autoconf
+    sudo apt-get install -y libtool
 ```
 
 #### For all distros

@@ -3,8 +3,8 @@ title: "Known issues: Online migrations from PostgreSQL to Azure Database for Po
 titleSuffix: Azure Database Migration Service
 description: Learn about known issues and migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL using the Azure Database Migration Service.
 services: database-migration
-author: arunkumarthiags
-ms.author: arthiaga
+author: rothja
+ms.author: jroth
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -39,7 +39,10 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 - The source and target database schemas must match.
 
 ## Size limitations
+
 - You can migrate up to 1 TB of data from PostgreSQL to Azure DB for PostgreSQL using a single DMS service.
+- The number of tables you can migrate in one DMS activity is limited based on the number of characters in your table names. An upper limit of 7,500 characters applies to the combined length of the schema_name.table_name. If the combined length of the schema_name.table_name exceeds this limit, you likely will see the error *(400) Bad Request.Entity too large*. To avoid this error, try to migrate your tables by using multiple DMS activities, with each activity adhering to the 7,500-character limit.
+
 ## Datatype limitations
 
   **Limitation**: If there's no primary key on tables, changes may not be synced to the target database.

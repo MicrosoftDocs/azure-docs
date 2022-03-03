@@ -2,7 +2,7 @@
 title: Share gallery images across tenants
 description: Learn how to share VM images across Azure tenants using Azure Compute Galleries and the Azure CLI.
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2019
@@ -16,7 +16,7 @@ Azure Compute Galleries let you share images using Azure RBAC. You can use Azure
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 > [!IMPORTANT]
-> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the Azure CLI or [Powershell](../windows/share-images-across-tenants.md).
+> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the Azure CLI or [PowerShell](../windows/share-images-across-tenants.md).
 
 ## Create a VM using Azure CLI
 

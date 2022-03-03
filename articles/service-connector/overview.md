@@ -3,7 +3,7 @@ title: What is Service Connector?
 description: Better understand what typical use case scenarios to use Service Connector, and learn the key benefits of Service Connector.
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: overview
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
@@ -54,6 +54,7 @@ Once a service connection is created. Developers can validate and check connecti
 * Azure Storage (Blob, Queue, File and Table storage)
 * Azure Key Vault
 * Azure SignalR Service
+* Azure Cache for Redis (Basic, Standard and Premium and Enterprise tiers)
 * Apache Kafka on Confluent Cloud
 
 ## How to use Service Connector?

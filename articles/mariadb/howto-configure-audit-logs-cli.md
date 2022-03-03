@@ -9,7 +9,7 @@ ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
 ---
 
-# Configure and access Azure Database for Maria DB audit logs in the Azure CLI
+# Configure and access Azure Database for MariaDB audit logs in the Azure CLI
 
 You can configure the [Azure Database for MariaDB audit logs](concepts-audit-logs.md) from the Azure CLI.
 

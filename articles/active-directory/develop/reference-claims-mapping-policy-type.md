@@ -10,9 +10,9 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/01/2021
+ms.date: 01/04/2022
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin, jeedes, luleon
+ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 ---
 
 # Claims mapping policy type
@@ -33,188 +33,174 @@ There are certain sets of claims that define how and when they're used in tokens
 
 ### Table 1: JSON Web Token (JWT) restricted claim set
 
+> [!NOTE]
+> Any claim starting with "xms_" is restricted.
+
 | Claim type (name) |
 | ----- |
-| _claim_names |
-| _claim_sources |
-| access_token |
-| account_type |
-| acr |
-| actor |
-| actortoken |
-| aio |
-| altsecid |
-| amr |
-| app_chain |
-| app_displayname |
-| app_res |
-| appctx |
-| appctxsender |
-| appid |
-| appidacr |
-| assertion |
-| at_hash |
-| aud |
-| auth_data |
-| auth_time |
-| authorization_code |
-| azp |
-| azpacr |
-| c_hash |
-| ca_enf |
-| cc |
-| cert_token_use |
-| client_id |
-| cloud_graph_host_name |
-| cloud_instance_name |
-| cnf |
-| code |
-| controls |
-| credential_keys |
-| csr |
-| csr_type |
-| deviceid |
-| dns_names |
-| domain_dns_name |
-| domain_netbios_name |
-| e_exp |
-| email |
-| endpoint |
-| enfpolids |
-| exp |
-| expires_on |
-| grant_type |
-| graph |
-| group_sids |
-| groups |
-| hasgroups |
-| hash_alg |
-| home_oid |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expired` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` |
-| iat |
-| identityprovider |
-| idp |
-| in_corp |
-| instance |
-| ipaddr |
-| isbrowserhostedapp |
-| iss |
-| jwk |
-| key_id |
-| key_type |
-| mam_compliance_url |
-| mam_enrollment_url |
-| mam_terms_of_use_url |
-| mdm_compliance_url |
-| mdm_enrollment_url |
-| mdm_terms_of_use_url |
-| nameid |
-| nbf |
-| netbios_name |
-| nonce |
-| oid |
-| on_prem_id |
-| onprem_sam_account_name |
-| onprem_sid |
-| openid2_id |
-| password |
-| polids |
-| pop_jwk |
-| preferred_username |
-| previous_refresh_token |
-| primary_sid |
-| puid |
-| pwd_exp |
-| pwd_url |
-| redirect_uri |
-| refresh_token |
-| refreshtoken |
-| request_nonce |
-| resource |
-| role |
-| roles |
-| scope |
-| scp |
-| sid |
-| signature |
-| signin_state |
-| src1 |
-| src2 |
-| sub |
-| tbid |
-| tenant_display_name |
-| tenant_region_scope |
-| thumbnail_photo |
-| tid |
-| tokenAutologonEnabled |
-| trustedfordelegation |
-| unique_name |
-| upn |
-| user_setting_sync_url |
-| username |
-| uti |
-| ver |
-| verified_primary_email |
-| verified_secondary_email |
-| wids |
-| win_ver |
+|.|
+|_claim_names|
+|_claim_sources|
+|aai|
+|access_token|
+|account_type|
+|acct|
+|acr|
+|acrs|
+|actor|
+|ageGroup|
+|aio|
+|altsecid|
+|amr|
+|app_chain|
+|app_displayname|
+|app_res|
+|appctx|
+|appctxsender|
+|appid|
+|appidacr|
+|at_hash|
+|auth_time|
+|azp|
+|azpacr|
+|c_hash|
+|ca_enf|
+|ca_policy_result|
+|capolids_latebind|
+|capolids|
+|cc|
+|cnf|
+|code|
+|controls_auds|
+|controls|
+|credential_keys|
+|ctry|
+|deviceid|
+|domain_dns_name|
+|domain_netbios_name|
+|e_exp|
+|email|
+|endpoint|
+|enfpolids|
+|expires_on|
+|fido_auth_data|
+|fwd_appidacr|
+|fwd|
+|graph|
+|group_sids|
+|groups|
+|hasgroups|
+|haswids|
+|home_oid|
+|home_puid|
+|home_tid|
+|identityprovider|
+|idp|
+|idtyp|
+|in_corp|
+|instance|
+|inviteTicket|
+|ipaddr|
+|isbrowserhostedapp|
+|isViral|
+|login_hint|
+|mam_compliance_url|
+|mam_enrollment_url|
+|mam_terms_of_use_url|
+|mdm_compliance_url|
+|mdm_enrollment_url|
+|mdm_terms_of_use_url|
+|msproxy|
+|nameid|
+|nickname|
+|nonce|
+|oid|
+|on_prem_id|
+|onprem_sam_account_name|
+|onprem_sid|
+|openid2_id|
+|origin_header|
+|platf|
+|polids|
+|pop_jwk|
+|preferred_username|
+|primary_sid|
+|prov_data|
+|puid|
+|pwd_exp|
+|pwd_url|
+|rdp_bt|
+|refresh_token_issued_on|
+|refreshtoken|
+|rh|
+|roles|
+|rt_type|
+|scp|
+|secaud|
+|sid|
+|sid|
+|signin_state|
+|source_anchor|
+|src1|
+|src2|
+|sub|
+|target_deviceid|
+|tbid|
+|tbidv2|
+|tenant_ctry|
+|tenant_display_name|
+|tenant_region_scope|
+|tenant_region_sub_scope|
+|thumbnail_photo|
+|tid|
+|tokenAutologonEnabled|
+|trustedfordelegation|
+|ttr|
+|unique_name|
+|upn|
+|user_setting_sync_url|
+|uti|
+|ver|
+|verified_primary_email|
+|verified_secondary_email|
+|vnet|
+|wamcompat_client_info|
+|wamcompat_id_token|
+|wamcompat_scopes|
+|wids|
+|xcb2b_rclient|
+|xcb2b_rcloud|
+|xcb2b_rtenant|
+|ztdid|
 
 ### Table 2: SAML restricted claim set
 
 | Claim type (URI) |
 | ----- |
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
+|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
+|`http://schemas.microsoft.com/2014/03/psso`|
+|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
+|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
+|`http://schemas.microsoft.com/claims/groups.link`|
 |`http://schemas.microsoft.com/identity/claims/accesstoken`|
-|`http://schemas.microsoft.com/identity/claims/openid2_id`|
+|`http://schemas.microsoft.com/identity/claims/acct`|
+|`http://schemas.microsoft.com/identity/claims/agegroup`|
+|`http://schemas.microsoft.com/identity/claims/aio`|
 |`http://schemas.microsoft.com/identity/claims/identityprovider`|
 |`http://schemas.microsoft.com/identity/claims/objectidentifier`|
+|`http://schemas.microsoft.com/identity/claims/openid2_id`|
 |`http://schemas.microsoft.com/identity/claims/puid`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1]`|
 |`http://schemas.microsoft.com/identity/claims/tenantid`|
+|`http://schemas.microsoft.com/identity/claims/xms_et`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
-|`http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
-|`http://schemas.microsoft.com/claims/groups.link`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
-|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
-|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
-|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
-|`http://schemas.microsoft.com/2014/03/psso`|
-|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
-|`http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`|
-|`http://schemas.microsoft.com/identity/claims/scope`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
+
 
 ## Claims mapping policy properties
 
@@ -332,6 +318,29 @@ The ID element identifies which property on the source provides the value for th
 > [!NOTE]
 > Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. For more information, see the "Exceptions and restrictions" section later in this article.
 
+### Group Filter (Preview)
+
+**String:** GroupFilter
+
+**Data type:** JSON blob
+
+**Summary:** Use this property to apply a filter on the user’s groups to be included in the group claim. This can be a useful means of reducing the token size.
+
+**MatchOn:** The **MatchOn** property identifies the group attribute on which to apply the filter. 
+
+Set the **MatchOn** property to one of the following values:
+
+- "displayname": The group display name.
+- "samaccountname": The On-premises SAM Account Name
+
+**Type:** The **Type** property selects the type of filter you wish to apply to the attribute selected by the **MatchOn** property. 
+
+Set the **Type** property to one of the following values:
+
+- "prefix": Include groups where the **MatchOn** property starts with the provided **Value** property.
+- "suffix": Include groups where the **MatchOn** property ends with the provided **Value** property.
+- "contains": Include groups where the **MatchOn** property contains with the provided **Value** property.
+
 ### Claims transformation
 
 **String:** ClaimsTransformation
@@ -353,10 +362,11 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|Email or UPN|extracted string|ExtensionAttributes 1-15 or any other Schema Extensions which are storing a UPN or email address value for the user e.g. johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
 
-**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and **TransformationClaimType**.
+**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has three attributes: **ClaimTypeReferenceId**, **TransformationClaimType** and **TreatAsMultiValue** (Preview)
 
 - **ClaimTypeReferenceId** is joined with ID element of the claim schema entry to find the appropriate input claim.
 - **TransformationClaimType** is used to give a unique name to this input. This name must match one of the expected inputs for the transformation method.
+- **TreatAsMultiValue** is a Boolean flag indicating if the transform should be applied to all values or just the first. By default, transformations will only be applied to the first element in a multi value claim, by setting this value to true it ensures it is applied to all. ProxyAddresses and groups are 2 examples for input claims that you would likely want to treat as a multi value. 
 
 **InputParameters:** Use an InputParameters element to pass a constant value to a transformation. It has two attributes: **Value** and **ID**.
 

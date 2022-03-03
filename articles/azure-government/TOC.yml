@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Azure Government Portal
+  - name: Azure Government portal
     href: documentation-government-get-started-connect-with-portal.md
   - name: Azure CLI
     href: documentation-government-get-started-connect-with-cli.md
@@ -49,12 +49,14 @@
       href: documentation-government-manage-marketplace.md
   - name: Industry segments
     items:
-    - name: Export controls
-      href: documentation-government-overview-itar.md
-    - name: Justice and public safety
-      href: documentation-government-overview-jps.md
     - name: Department of Defense
       href: documentation-government-overview-dod.md
+    - name: Export controls
+      href: documentation-government-overview-itar.md
+    - name: Power and utilities
+      href: documentation-government-overview-nerc.md
+    - name: Public safety and justice
+      href: documentation-government-overview-jps.md
     - name: Worldwide public sector
       href: documentation-government-overview-wwps.md
 - name: How-to guides

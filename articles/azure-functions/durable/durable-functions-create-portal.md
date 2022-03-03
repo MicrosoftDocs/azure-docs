@@ -4,6 +4,7 @@ description: Learn how to install the Durable Functions extension for Azure Func
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
+ms.devlang: csharp, javascript
 ---
 
 # Create Durable Functions using the Azure portal

@@ -3,7 +3,7 @@ title: Prerequisites for Azure role assignment conditions (preview)
 description: Prerequisites for Azure role assignment conditions (preview).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual

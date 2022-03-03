@@ -5,9 +5,10 @@ services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/28/2021
 ms.author: marhamil
+ms.devlang: python
 ms.custom: mode-other
 ---
 

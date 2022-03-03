@@ -1,11 +1,9 @@
 ---
 title: Tutorial - Run Python scripts through Data Factory
 description: Learn how to run Python scripts as part of a pipeline through Azure Data Factory using Azure Batch.
-author: pkshultz
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/12/2021
-ms.author: peshultz
 ms.custom: mvc, devx-track-python
 ---
 

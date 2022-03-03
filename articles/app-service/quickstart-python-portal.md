@@ -3,7 +3,8 @@ title: 'Quickstart: Create a Python app in the Azure portal'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service by using the Azure portal.
 ms.topic: quickstart
 ms.date: 04/01/2021
-ms.custom: devx-track-python, mode-other
+ms.devlang: python
+ms.custom: devx-track-python, mode-ui
 ROBOTS: noindex
 ---
 
@@ -27,7 +28,7 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](overvi
 
 1. On the upper right of the GitHub page, select **Fork** to make a copy of the repository in your own GitHub account:
 
-    ![Github fork command](media/quickstart-python-portal/github-fork-command.png)
+    ![GitHub fork command](media/quickstart-python-portal/github-fork-command.png)
 
     Azure requires that you have access to the GitHub organization that contains the repository. By forking the sample to your own GitHub account, you automatically have the necessary access and can also make changes to the code.
 

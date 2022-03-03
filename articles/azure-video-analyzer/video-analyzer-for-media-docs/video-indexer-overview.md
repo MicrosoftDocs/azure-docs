@@ -1,9 +1,8 @@
 ---
 title: What is Azure Video Analyzer for Media (formerly Video Indexer)?
-titleSuffix: Azure Video Analyzer for Media
 description: This article gives an overview of the Azure Video Analyzer for Media (formerly Video Indexer) service.
 ms.topic: overview
-ms.date: 07/15/2021
+ms.date: 02/15/2022
 ms.author: juliako
 ---
 
@@ -63,6 +62,7 @@ The following list shows the insights you can retrieve from your videos using Vi
 * **Editorial shot type detection**: Tagging shots based on their type (like wide shot, medium shot, close up, extreme close up, two shot, multiple people, outdoor and indoor, and so on). For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
 * **Observed People Tracking** (preview): detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
     * **People's detected clothing**: detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing are associated with the people wearing it and the exact timestamp (start,end) along with a confidence level for the detection are provided.
+* **Matched person**: matches between people that were observed in the video with the corresponding faces detected. The matching between the observed people and the faces contain a confidence level.
 
 ### Audio insights
 
@@ -79,7 +79,12 @@ The following list shows the insights you can retrieve from your videos using Vi
 * **Audio effects** (preview): Detects the following audio effects in the non-speech segments of the content: Gunshot, Glass shatter, Alarm, Siren, Explosion, Dog Bark, Screaming, Laughter, Crowd reactions (cheering, clapping, and booing) and Silence. Note: the full set of events is available only when choosing ‘Advanced Audio Analysis’ in upload preset, otherwise only ‘Silence’ and ‘Crowd reaction’ will be available.
 * **Emotion detection**: Identifies emotions based on speech (what's being said) and voice tonality (how it's being said). The emotion could be joy, sadness, anger, or fear.
 * **Translation**: Creates translations of the audio transcript to 54 different languages.
-* **Audio effects detection** (preview): Detects various acoustics events and classifies them into different acoustic categories (such as Gunshot, Screaming, Crowd Reaction and more). The detected acoustic events are in the closed captions file. The file can be downloaded from the Video Analyzer for Media portal. For more information, see [Audio effects detection](audio-effects-detection.md).
+* **Audio effects detection** (preview): Detects the following audio effects in the non-speech segments of the content: alarm or siren, dog barking, crowd reactions (cheering, clapping, and booing), gunshot or explosion, laughter, breaking glass, and silence.
+
+    The detected acoustic events are in the closed captions file. The file can be downloaded from the Video Analyzer for Media portal. For more information, see [Audio effects detection](audio-effects-detection.md).
+
+    > [!NOTE]
+    > The full set of events is available only when you choose **Advanced Audio Analysis** when uploading a file, in upload preset. By default, only silence is detected.
 
 ### Audio and video insights (multi-channels)
 
@@ -87,7 +92,7 @@ When indexing by one channel, partial result for those models will be available.
 
 * **Keywords extraction**: Extracts keywords from speech and visual text.
 * **Named entities extraction**: Extracts brands, locations, and people from speech and visual text via natural language processing (NLP).
-* **Topic inference**: Makes inference of main topics from transcripts. The 2nd-level IPTC taxonomy is included.
+* **Topic inference**: Extracts topics based on various keywords (i.e. keywords 'Stock Exchange', 'Wall Street' will produce the topic 'Economics'). The model uses three different ontologies ([IPTC](https://iptc.org/standards/media-topics/), [Wikipedia](https://www.wikipedia.org/) and the Video Indexer hierarchical topic ontology). The model uses transcription (spoken words), OCR content (visual text), and celebrities recognized in the video using the Video Indexer facial recognition model. 
 * **Artifacts**: Extracts rich set of "next level of details" artifacts for each of the models.
 * **Sentiment analysis**: Identifies positive, negative, and neutral sentiments from speech and visual text.
 

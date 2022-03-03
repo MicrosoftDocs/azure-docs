@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: pamela
 ms.reviewer: mathoma
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create SQL Server 2017 on a Windows virtual machine in the Azure portal

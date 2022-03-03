@@ -11,7 +11,7 @@ ms.devlang:
 ms.topic: conceptual
 author: AndreasWolter
 ms.author: anwolter
-ms.reviewer: vanto, mathoma
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 03/23/2020
 ---
 # Authorize database access to SQL Database, SQL Managed Instance, and Azure Synapse Analytics
@@ -27,9 +27,6 @@ In this article, you learn about:
 
 > [!IMPORTANT]
 > Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse are referred to collectively in the remainder of this article as databases, and the server is referring to the [server](logical-servers.md) that manages databases for Azure SQL Database and Azure Synapse.
-
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## Authentication and authorization
 
@@ -115,7 +112,7 @@ You can create accounts for non-administrative users using one of two methods:
   With this approach, the user authentication information is stored in each database, and replicated to geo-replicated databases automatically. However, if the same account exists in multiple databases and you are using Azure SQL Authentication, you must keep the passwords synchronized manually. Additionally, if a user has an account in different databases with different passwords, remembering those passwords can become a problem.
 
 > [!IMPORTANT]
-> To create contained users mapped to Azure AD identities, you must be logged in using an Azure AD account that is an administrator in the database in Azure SQL Database. In SQL Managed Instance, a SQL login with `sysadmin` permissions can also create an Azure AD login or user.
+> To create contained users mapped to Azure AD identities, you must be logged in using an Azure AD account in the database in Azure SQL Database. In SQL Managed Instance, a SQL login with `sysadmin` permissions can also create an Azure AD login or user.
 
 For examples showing how to create logins and users, see:
 

@@ -4,6 +4,8 @@
   items:
   - name: About application gateways
     href: overview.md
+  - name: Application Gateway v2
+    href: overview-v2.md
 - name: Quickstarts
   expanded: true
   items:
@@ -138,6 +140,8 @@
         href: tutorial-ssl-cli.md
       - name: Configure Key Vault - PowerShell
         href: configure-keyvault-ps.md
+      - name: Configure Key Vault - Portal
+        href: configure-key-vault-portal.md
     - name: End-to-end SSL
       items:
       - name: End-to-end SSL - Portal
@@ -280,12 +284,16 @@
         href: application-gateway-backend-health-troubleshooting.md
       - name: Key Vault errors
         href: application-gateway-key-vault-common-errors.md
+      - name: Disabled listeners
+        href: disabled-listeners.md
   - name: Proxy buffer configuration
     href: proxy-buffers.md
   - name: Custom error pages
     href: custom-error.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
+  - name: Classic to Resource Manager
+    href: classic-to-resource-manager.md  
 - name: Reference
   items:
   - name: Monitoring data

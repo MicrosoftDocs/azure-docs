@@ -7,10 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 02/28/2022
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
+ms.devlang: csharp
 ---
 
 # Run an Azure Function in response to a blob rehydration event
@@ -25,7 +26,7 @@ For more information about rehydrating blobs from the Archive tier, see [Overvie
 
 ## Prerequisites
 
-This article shows you how to use [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to develop an Azure Function with .NET. You can install Visual Studio Community for free. Make sure that you [configure Visual Studio for Azure Development with .NET](/dotnet/azure/configure-visual-studio).
+This article shows you how to use [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or later to develop an Azure Function with .NET. You can install Visual Studio Community for free. Make sure that you [configure Visual Studio for Azure Development with .NET](/dotnet/azure/configure-visual-studio).
 
 To debug the Azure Function locally, you will need to use a tool that can send an HTTP request, such as Postman.
 

@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Create a Synapse workspace using Azure CLI'
 description: Create an Azure Synapse workspace using Azure CLI by following the steps in this guide.
-services: synapse-analytics
 author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
-ms.date: 08/25/2020
+ms.date: 02/04/2022
 ms.author: wiassaf
-ms.reviewer: jrasnick
-ms.custom: mode-api
+ms.reviewer: sngun
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure synapse workspace with Azure CLI
@@ -88,6 +87,10 @@ In this quickstart, you learn to create a Synapse workspace by using the Azure C
     
     [ ![Azure Synapse workspace web](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png) ](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png#lightbox)
 
+1. Once deployed, additional permissions are required. 
+- In the Azure portal, assign other users of the workspace to the **Contributor** role in the workspace. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
+- Assign other users the appropriate **[Synapse RBAC roles](security/synapse-workspace-synapse-rbac-roles.md)** using Synapse Studio.
+- A member of the **Owner** role of the Azure Storage account must assign the **Storage Blob Data Contributor** role to the Azure Synapse workspace MSI and other users.
 
 ## Clean up resources
 

@@ -8,8 +8,8 @@ ms.topic: quickstart
 ms.date: 04/27/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
+ms.custom: mode-other, contperf-fy22q2
 #Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Central, and send telemetry.
-ms.custom: mode-other
 ---
 
 # Quickstart: Send telemetry from a device to Azure IoT Central

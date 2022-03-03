@@ -4,7 +4,7 @@ description: A Node.js tutorial that demonstrates how to connect to and query Az
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: dech

@@ -68,28 +68,28 @@ conceptualContent:
       footerLink:
         text: More
         url: index-text-to-speech.yml
-    - title: Speech translation
-      links:
-      - itemType: overview
-        text: About speech translation
-        url: speech-translation.md
-      - itemType: quickstart
-        text: Get started with speech translation
-        url: get-started-speech-translation.md      
-      footerLink:
-        text: More
-        url: index-speech-translation.yml
-    - title: Speaker Recognition
+    - title: Tools
       links:
         - itemType: overview
-          text: About Speaker Recognition
-          url: speaker-recognition-overview.md
-        - itemType: quickstart
-          text: Get started with Speaker Recognition          
-          url: ./get-started-speaker-recognition.md
+          text: About Speech Studio
+          url: speech-studio-overview.md
+        - itemType: overview
+          text: About Speech CLI
+          url: spx-overview.md
+    - title: Hosting
+      links:
         - itemType: how-to-guide
-          text: Speaker Recognition API reference
-          url: /rest/api/speakerrecognition/        
+          text: Speech service containers
+          url: speech-container-howto.md
+        - itemType: how-to-guide
+          text: Speech service containers with Kubernetes
+          url: speech-container-howto-on-premises.md
+        - itemType: how-to-guide
+          text: Speech service containers on Azure Container Instances
+          url: ../containers/azure-container-instance-recipe.md
+      footerLink:
+        text: More
+        url: index-hosting.yml        
     - title: Custom Keyword
       links:
         - itemType: overview
@@ -107,19 +107,41 @@ conceptualContent:
           text: Recognize speech intents with LUIS and C#
           url: how-to-recognize-intents-from-speech-csharp.md
         - itemType: how-to-guide
-          text: Recognize speech intents with simple pattern matching, C++
+          text: Recognize speech intents with simple pattern matching
           url: how-to-use-simple-language-pattern-matching.md
+        - itemType: how-to-guide
+          text: Recognize speech intents with custom entity matching
+          url: how-to-use-custom-entity-pattern-matching.md
         - itemType: reference
           text: Language Understanding (LUIS) portal
           url: https://www.luis.ai
       footerLink:
         text: More
-        url: index-intent-recognition.yml        
-    - title: Scenario deep-dives
+        url: index-intent-recognition.yml  
+    - title: Speaker Recognition
       links:
         - itemType: overview
-          text: About Conversation Transcription (meetings)
-          url: conversation-transcription.md
+          text: About Speaker Recognition
+          url: speaker-recognition-overview.md
+        - itemType: quickstart
+          text: Get started with Speaker Recognition          
+          url: ./get-started-speaker-recognition.md
+        - itemType: how-to-guide
+          text: Speaker Recognition API reference
+          url: /rest/api/speakerrecognition/  
+    - title: Speech translation
+      links:
+      - itemType: overview
+        text: About speech translation
+        url: speech-translation.md
+      - itemType: quickstart
+        text: Get started with speech translation
+        url: get-started-speech-translation.md      
+      footerLink:
+        text: More
+        url: index-speech-translation.yml    
+    - title: Scenario deep-dives
+      links:
         - itemType: overview
           text: About multi-device conversations (meetings)
           url: multi-device-conversation.md
@@ -135,50 +157,20 @@ conceptualContent:
         - itemType: how-to-guide
           text: Enable call center transcription
           url: call-center-transcription.md
-    - title: Tools
-      links:
-        - itemType: overview
-          text: About Speech Studio (no-code UI experience)
-          url: speech-studio-overview.md
-        - itemType: overview
-          text: About Speech CLI (no-code command line tool)
-          url: spx-overview.md
-    - title: Hosting
-      links:
-        - itemType: how-to-guide
-          text: Speech service containers
-          url: speech-container-howto.md
-        - itemType: how-to-guide
-          text: Speech service containers with Kubernetes
-          url: speech-container-howto-on-premises.md
-        - itemType: how-to-guide
-          text: Speech service containers on Azure Container Instances
-          url: ../containers/azure-container-instance-recipe.md
-      footerLink:
-        text: More
-        url: index-hosting.yml
-    - title: Devices
-      links:
-      - itemType: overview
-        text: About the Speech Devices SDK
-        url: speech-devices-sdk.md
-      - itemType: how-to-guide
-        text: Get the Speech Devices SDK
-        url: get-speech-devices-sdk.md
-      - itemType: quickstart
-        text: Use Speech Devices SDK
-        url: speech-devices-sdk-quickstart.md
-      footerLink:
-        text: More
-        url: index-devices.yml
     - title: Migration
       links:
         - itemType: how-to-guide
-          text: Migrate from Bing Speech
-          url: how-to-migrate-from-bing-speech.md
+          text: Migrate to neural voice
+          url: migration-overview-neural-voice.md
+        - itemType: how-to-guide
+          text: Migrate to the v3.0 REST API
+          url: migrate-v2-to-v3.md
         - itemType: how-to-guide
           text: Migrate from the Translator Speech API
           url: how-to-migrate-from-translator-speech-api.md
+        - itemType: how-to-guide
+          text: Migrate from Bing Speech
+          url: how-to-migrate-from-bing-speech.md
 
 tools:
   title: Software development kits (SDKs)

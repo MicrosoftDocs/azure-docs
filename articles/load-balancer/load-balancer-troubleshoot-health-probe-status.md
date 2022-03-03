@@ -7,7 +7,6 @@ author: asudbring
 manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -54,7 +53,7 @@ If the firewall on the VM is blocking the probe port, or one or more network sec
 - Check to make sure your VM firewall is not blocking probe traffic originating from IP address `168.63.129.16`
 - You can check listening ports by running `netstat -a` from a Windows command prompt or `netstat -l` from a Linux terminal
 - You can query your firewall profiles to check whether your policies are blocking incoming traffic by running `netsh advfirewall show allprofiles | more` from a Windows commands prompt or `sudo iptables -L` from a Linux terminal to see all configured firewall rules.
-- More details on troubleshooting firewall issues for Azure VMs, see [Azure VM Guest OS firewall is blocking inbound traffic](/azure/virtual-machines/guest-os-firewall-blocking-inbound-traffic).
+- More details on troubleshooting firewall issues for Azure VMs, see [Azure VM Guest OS firewall is blocking inbound traffic](/troubleshoot/azure/virtual-machines/guest-os-firewall-blocking-inbound-traffic).
 2. From the list of network security groups, check if the incoming or outgoing traffic on the probe port has interference.
 3. Also, check if a **Deny All** network security groups rule on the NIC of the VM or the subnet that has a higher priority than the default rule that allows LB probes & traffic (network security groups must allow Load Balancer IP of 168.63.129.16).
 4. If any of these rules are blocking the probe traffic, remove and reconfigure the rules to allow the probe traffic.  
