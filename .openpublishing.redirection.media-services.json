@@ -642,7 +642,7 @@
           },   
         {
             "source_path_from_root": "/articles/media-services/latest/latest/asset-publish-cli-how-to.md",
-            "redirect_url": "/articles/media-services/latest/video-on-demand-simple-portal-quickstart",
+            "redirect_url": "/azure/media-services/latest/video-on-demand-simple-portal-quickstart",
             "redirect_document_id": false
       }       
     ]
