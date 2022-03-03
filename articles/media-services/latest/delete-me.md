@@ -14,6 +14,7 @@ ms.author: inhenkel
 # Code snippets
 
 ## Code snippet
-:::code language="csharp" source="includes/cli-code-snippets.sh" id="ams" interactive="cloudshell-bash":::
+:::code language="bash" source="./includes/cli-code-snippets.sh" id="Ams" interactive="cloudshell-bash":::
 
 ## Codey code
+asdfasdf

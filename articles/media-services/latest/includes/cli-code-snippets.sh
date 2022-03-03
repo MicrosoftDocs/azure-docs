@@ -1,57 +1,67 @@
-<ams>
+# <Ams>
 ams
-</ams>
+# </Ams>
     #type: group
     #short-summary: Manage Azure Media Services resources.
 #"""
 
-<amsAccount>
+# <AmsAccount>
 ams account
     #type: group
     #short-summary: Manage Azure Media Services accounts.
 #"""
-</amsAccount>
+# </AmsAccount>
 
-<amsAccountCreate>
+# <AmsAccountCreate>
 ams account create
     #type: command
     #short-summary: Create an Azure Media Services account.
 #"""
-</amsAccountCreate>
+# </AmsAccountCreate>
 
-<amsAccountUpdate>
+# <AmsAccountUpdate>
 ams account update
     #type: command
     #short-summary: Update the details of an Azure Media Services account.
 #"""
-</amsAccountUpdate>
+# </AmsAccountUpdate>
 
-
+# <AmsAccountList>
 ams account list
     #type: command
     #short-summary: List Azure Media Services accounts for the entire subscription.
 #"""
+# </AmsAccountList>
 
+# <AmsAccountShow>
 ams account show
     #type: command
     #short-summary: Show the details of an Azure Media Services account.
 #"""
+# </AmsAccountShow>
 
+# <AmsAccountDelete>
 ams account delete
     #type: command
     #short-summary: Delete an Azure Media Services account.
 #"""
+# </AmsAccountDelete>
 
+# <AmsAccountCheckName>
 ams account check-name
     #type: command
     #short-summary: Checks whether the Media Service resource name is available.
 #"""
+# </AmsAccountCheckName>
 
+# <AmsAccountEncryption>
 ams account encryption
     #type: group
     #short-summary: Manage encryption for an Azure Media Services account.
 #"""
+# </AmsAccountEncryption>
 
+# <AmsAccountEncryptionShow>
 ams account encryption show
     #type: command
     #short-summary: Show the details of encryption settings for an Azure Media Services account.
@@ -60,7 +70,9 @@ ams account encryption show
           #text: >
             #az ams account encryption show --account-name myAmsAccount -g myRG
 #"""
+# </AmsAccountEncryptionShow>
 
+# <AmsAccountEncryptionSet>
 ams account encryption set
     #type: command
     #short-summary: Set the encryption settings for an Azure Media Services account.
@@ -72,6 +84,7 @@ ams account encryption set
           #text: >
             #az ams account encryption set -a myAmsAccount -g myRG --key-type SystemKey
 #"""
+# <AmsAccountEncryptionSet>
 
 ams account storage
     #type: group
