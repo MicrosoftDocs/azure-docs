@@ -22,9 +22,9 @@ Azure Bastion offers support for file transfer between your target VM and local 
 > * This feature requires the Standard SKU. The Basic SKU doesn't support using the native client.
 >
 
-## Upload and download files - RDP
+## Upload and download files using the *az network bastion rdp* command
 
-This section helps you transfer files between your local Windows computer and your target VM over RDP. The *az network bastion rdp command* uses the native client MSTSC to connect to the target VM. Once connected to the target VM, you can transfer files using right-click, then **Copy** and **Paste**.
+This section helps you transfer files between your local Windows computer and your target VM over RDP. The *az network bastion rdp* command uses the native client MSTSC to connect to the target VM. Once connected to the target VM, you can transfer files using right-click, then **Copy** and **Paste**.
 
 1. Sign in to your Azure account and select the subscription containing your Bastion resource.
 
@@ -42,9 +42,9 @@ This section helps you transfer files between your local Windows computer and yo
 
 1. Once you sign in to your target VM, the native client on your computer will open up with your VM session. You can now transfer files between your VM and local machine using right-click, then **Copy** and **Paste**.
 
-## Upload files - SSH
+## Upload files using the *az network bastion tunnel* command
 
-This section helps you upload files from your local computer to your target VM over SSH using the *az network bastion tunnel* command. The *az network tunnel command* allows you to use a native client of your choice. To learn more about the tunnel command, refer to [Connect to a VM using the *az network bastion tunnel* command](connect-native-client-windows.md#connect-tunnel).
+This section helps you upload files from your local computer to your target VM over SSH or RDP using the *az network bastion tunnel* command. The *az network tunnel command* allows you to use a native client of your choice on *non*-Windows local workstations. To learn more about the tunnel command, refer to [Connect to a VM using the *az network bastion tunnel* command](connect-native-client-windows.md#connect-tunnel).
 
 > [!NOTE]
 > File download over SSH is not currently supported.

@@ -299,11 +299,11 @@ This Exit code translates to `DSREG_AUTOJOIN_DISC_FAILED` because the extension 
 
 1. Verify the required endpoints are accessible from the VM using PowerShell:
 
-   - `curl https://login.microsoftonline.com/ -D -`
-   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-   - `curl https://enterpriseregistration.windows.net/ -D -`
-   - `curl https://device.login.microsoftonline.com/ -D -`
-   - `curl https://pas.windows.net/ -D -`
+   - `curl https://login.microsoftonline.com// -D`
+   - `curl https://login.microsoftonline.com/<TenantID>// -D`
+   - `curl https://enterpriseregistration.windows.net// -D`
+   - `curl https://device.login.microsoftonline.com// -D`
+   - `curl https://pas.windows.net// -D`
    
    > [!NOTE]
    > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.<br/>`enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
