@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 03/02/2022
+ms.date: 03/03/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -81,19 +81,6 @@ Learn how to [enable your database security at the subscription level](quickstar
 ### Threat protection for Google Kubernetes Engine (GKE) clusters
 
 Following our recent announcement [Native CSPM for GCP and threat protection for GCP compute instances](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances), Microsoft Defender for Containers has extended its Kubernetes threat protection, behavioral analytics, and built-in admission control policies to Google's Kubernetes Engine (GKE) Standard clusters. You can easily onboard any existing, or new GKE Standard clusters to your environment through our Automatic onboarding capabilities. Check out [Container security with Microsoft Defender for Cloud](defender-for-containers-introduction.md#vulnerability-assessment), for a full list of available features.
-
-## February 2022
-
-Updates in February include:
-
-- New alert for Microsoft Defender for Storage (in preview)
-
-### New alert for Microsoft Defender for Storage (in preview)
-To expand the threat protections provided by Microsoft Defender for Storage, we've added a new preview alert.
-
-Threat actors use applications, and tools to discover, and access storage accounts. Microsoft Defender for Storage detects these applications, and tools so that you can block them, and remediate your posture.
-
-This preview alert is called `Access from a suspicious application`. The alert is relevant to Azure Blob Storage, and ADLS Gen2 only.
 
 | Alert (alert type) | Description | MITRE tactic | Severity |
 |--|--|--|--|
