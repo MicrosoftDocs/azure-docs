@@ -29,11 +29,26 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 ## Deploy your model
 
-After your model is [trained](train-model.md), you can deploy it. Deploying your model lets you start using it to classify text. You can deploy your model using the [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) or Language Studio. To use Language Studio, see the steps below:
+Deploying a model is to host and makes it available for predictions through an endpoint.
 
-[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
+When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated with it.
 
-If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
+> [!NOTE]
+> You can only have ten deployment names
+
+1. Go to your project in [Language studio](https://aka.ms/custom-classification).
+2. From the left panel, select Deploy model
+3. Click on *Add deployment* to submit a new deployment job
+
+    :::image type="content" source="../../custom-named-entity-recognition/media/deploy-model.png" alt-text="run-inference" lightbox="../../custom-named-entity-recognition/media/deploy-model.png":::
+
+4. In the window that appears, you can create a new deployment name by or override an existing deployment name. Then, you can add a trained model to this deployment name.
+
+   :::image type="content" source="../../custom-named-entity-recognition/media/add-deployment.png" alt-text="run-inference" lightbox="../../custom-named-entity-recognition/media/add-deployment.png":::
+   
+### Delete deployment
+
+To delete a deployment, select the deployment you want to delete and click on “Delete deployment”
 
 > [!TIP]
 > You can [test your model in Language Studio](../quickstart.md?pivots=language-studio#test-your-model) by sending samples of text for it to classify. 
