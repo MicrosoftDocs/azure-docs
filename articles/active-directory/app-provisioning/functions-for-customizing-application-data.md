@@ -1049,7 +1049,7 @@ Example: Based on the user's first name, middle name and last name, you need to 
 SingleAppRoleAssignment([appRoleAssignments])
 
 **Description:** 
-Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. The best practice is to ensure only one appRoleAssignment is assigned to one user at a time, and if multiple roles are assigned the role string returned may not be predictable. 
+Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. The best practice is to ensure only one appRoleAssignment is assigned to one user at a time. This function is not supported in scenarios where users have multiple app role assignments. 
 
 **Parameters:** 
 

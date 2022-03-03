@@ -1325,9 +1325,11 @@ groups:
   - id: defender-for-container-aks
     title: Azure (AKS)
   - id: defender-for-container-arc
-    title: On-premises / IaaS
+    title: On-premises / IaaS (Arc)
   - id: defender-for-container-eks
     title: AWS (EKS)
+  - id: defender-for-container-gke
+    title: GCP (GKE)
 # Owner: mikeray
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Operating system / Console
@@ -1685,12 +1687,12 @@ groups:
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
-  prompt: Select an Azure SQL deployment option
+  prompt: "Select an Azure SQL Database deployment option:"
   pivots:
   - id: azure-sql-single-db
-    title: Azure SQL Database, single database
+    title: Single database
   - id: azure-sql-elastic-pool
-    title: Azure SQL Database, elastic pool
+    title: Elastic pool
 # Owner: karler
 - id: spring-cloud-tier-selection
   title: Azure Spring Cloud tier

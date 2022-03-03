@@ -41,6 +41,8 @@
       href: concept-route.md
     - name: Origin selection
       href: ../front-door-routing-methods.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+    - name: Routing limits
+      href: ../front-door-routing-limits.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Origin
     href: concept-origin.md
   - name: Health probes
