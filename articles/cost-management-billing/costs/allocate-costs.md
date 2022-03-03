@@ -126,5 +126,5 @@ The following items are currently unsupported by the cost allocation public prev
 ## Next steps
 
 - Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions and answers about cost allocation.
-- Create or update allocation rules using the [Cost allocation Rest API](/rest/api/cost-management/costallocationrules)
+- Create or update allocation rules using the [Cost allocation REST API](/rest/api/cost-management/costallocationrules)
 - Learn more about [How to optimize your cloud investment with Cost Management](cost-mgt-best-practices.md)
