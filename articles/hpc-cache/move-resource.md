@@ -5,7 +5,7 @@ author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/02/2022
+ms.date: 03/03/2022
 ms.author: rohogue
 #Customer intent: As an HPC Cache administrator, I want to move a cache to another region so that it can be used with different services or provide failover for another cache instance.
 ---
@@ -40,7 +40,7 @@ In the new region, move or recreate the infrastructure needed for the cache.
 
 Make sure your new region has a virtual network to hold the cache, and the required subnets. Depending on your configuration, you might need to move or re-create Blob containers for your storage targets.
 
-Confirm that the new resources meet all of the requirements described in the [Prerequisites](hpc-cache-prerequisites.md) article.
+Confirm that the new resources meet all of the requirements described in the cache[Prerequisites](hpc-cache-prerequisites.md) article.
 
 ### Shut down the cache
 
@@ -52,7 +52,7 @@ Before moving the cache, stop the cache and disconnect clients. Follow these ste
     1. The cache will synchronize its data with long-term storage systems, which can take some time depending on your cache settings and storage infrastructure.
     1. Wait until the cache status changes to **Stopped**.
 
-> [!TIP:]
+> [!TIP]
 > If you need to move or copy data to the new region, you can begin that process as soon as the original cache is stopped.
 
 ## Move
@@ -72,7 +72,7 @@ Follow these basic steps to decommission and re-create the HPC Cache in a differ
 
 1. Create a new cache in your target region using a convenient method. Read [Template deployment](../azure-resource-manager/templates/overview.md#template-deployment-process) to learn how to use your saved template. Read [Create an HPC Cache](hpc-cache-create.md) to learn about other methods.
 1. Wait until the cache has been created and appears in your subscription's **Resources** list with a status of **Healthy**.
-1. Follow the instructions to re-create storage targets and configure other settings.
+1. Follow the documentation instructions to re-create storage targets and configure other cache settings.
 1. When you are ready, mount clients to the new cache using its IP addresses.
 
 ## Verify
@@ -81,6 +81,6 @@ Use the Azure Portal to inspect the new cache and storage resources in the new r
 
 ## Clean up source resources
 
-If you haven't already done so, [delete](hpc-cache-manage.md?#delete-the-cache) the original cache.
+If you haven't already done so, [delete](hpc-cache-manage.md?#delete-the-cache) the original cache. Also delete its virtual networks and any other resources in the original region that are no longer needed.
 
 If you deployed all of your cache's resources in a unique resource group *and will not use the same resource group in new region*, you can delete the resource group to remove all cache resources from the old region.
