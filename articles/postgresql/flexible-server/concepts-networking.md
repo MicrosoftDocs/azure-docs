@@ -4,6 +4,7 @@ description: Learn about connectivity and networking options in the Flexible Ser
 author: niklarin
 ms.author: nlarin
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---

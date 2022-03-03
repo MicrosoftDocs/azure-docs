@@ -2,23 +2,23 @@
 title: Azure portal how-to video series
 description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
 keywords: 
-ms.date: 03/16/2021
+ms.date: 03/03/2022
 ms.topic: conceptual
 ---
 
 # Azure portal how-to video series
 
-The Azure portal how-to video series showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
+The [Azure portal how-to video series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
 
 ## Featured video
 
-In this featured video, we show you how to build tabs and alerts in Azure workbooks.
+In this featured video, we show you how to move your resources in Azure between resource groups and locations.
 
-> [!VIDEO https://www.youtube.com/embed/3XY3lYgrRvA]
+> [!VIDEO https://www.youtube.com/embed/8HVAP4giLdc]
 
-[How to build tabs and alerts in Azure workbooks](https://www.youtube.com/watch?v=3XY3lYgrRvA)
+[How to move Azure resources](https://www.youtube.com/watch?v=8HVAP4giLdc)
 
-Catch up on these recent videos you may have missed:
+Catch up on these videos you may have missed:
 
 | [How to easily manage your virtual machine](https://www.youtube.com/watch?v=vQClJHt2ulQ) | [How to use pills to filter in the Azure portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [How to get a visualization view of your resources](https://www.youtube.com/watch?v=wudqkkJd5E4) |
 | ------| ------ | ------ |
@@ -31,3 +31,4 @@ Explore the [Azure portal how-to series](https://www.youtube.com/playlist?list=P
 ## Next steps
 
 Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal).
+
