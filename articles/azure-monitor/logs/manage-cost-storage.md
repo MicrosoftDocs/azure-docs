@@ -658,8 +658,9 @@ To facilitate this assessment, the following query can be used to make a recomme
 Here is the pricing tier recommendation query:
 
 ```kusto
-// Set these parameters before running query
-// Pricing details available at https://azure.microsoft.com/pricing/details/monitor/
+// Set these parameters before running query.
+// For Pay-As-You-Go (per-GB) pricing details, see https://azure.microsoft.com/pricing/details/monitor/.
+// You can see your per-node costs in your Azure usage and charge data. For more information, see https://docs.microsoft.com/en-us/azure/cost-management-billing/understand/download-azure-daily-usage.  
 let daysToEvaluate = 7; // Enter number of previous days to analyze (reduce if the query is taking too long)
 let workspaceHasSecurityCenter = false;  // Specify if the workspace has Defender for Cloud (formerly known as Azure Security Center)
 let PerNodePrice = 15.; // Enter your monthly price per monitored nodes
