@@ -4,7 +4,7 @@ description: Step-by-step guidance to move from Azure MFA Server on-premises to 
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 03/03/2022
 ms.author: BaSelden
 author: BarbaraSelden
 manager: martinco
@@ -170,31 +170,41 @@ Once you've configured the servers, you can add Azure AD MFA as an additional au
 
 ## Prepare Azure AD and implement
 
-### Ensure SupportsMFA is set to True
+### Ensure SupportsMfa is set to $true
 
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain in Azure AD has a SupportsMFA flag. When the SupportsMFA flag is set to True, Azure AD redirects users to MFA on AD FS or another federation providers. For example, if a user is accessing an application for which a Conditional Access policy that requires MFA has been configured, the user will be redirected to AD FS. Adding Azure AD MFA as an authentication method in AD FS, enables Azure AD MFA to be invoked once your configurations are complete.
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain in Azure AD has a SupportsMfa flag. When the SupportsMfa flag is set to $true, Azure AD redirects users to MFA on AD FS or another federation provider. For example, if a user is accessing an application for which a Conditional Access policy that requires MFA has been configured, the user will be redirected to AD FS. Adding Azure AD MFA as an authentication method in AD FS enables Azure AD MFA to be invoked once your configurations are complete.
 
-If the SupportsMFA flag is set to False, you're likely not using Azure MFA; you're probably using claims rules on AD FS relying parties to invoke MFA.
+If the SupportsMfa flag is set to $false, you're likely not using Azure MFA; you're probably using claims rules on AD FS relying parties to invoke MFA.
 
-You can check the status of your SupportsMFA flag with the following [Windows PowerShell cmdlet](/powershell/module/msonline/get-msoldomainfederationsettings):
+You can check the status of your SupportsMfa flag with the following [Windows PowerShell cmdlet](/powershell/module/msonline/get-msoldomainfederationsettings):
 
 ```powershell
 Get-MsolDomainFederationSettings –DomainName yourdomain.com
 ```
 
-If the SupportsMFA flag is set to false or is blank for your federated domain, set it to true using the following Windows PowerShell cmdlet:
+If the SupportsMfa flag is set to $false or is blank for your federated domain, set it to $true using the following Windows PowerShell cmdlet:
 
 ```powershell
-Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true
+Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMfa $true
 ```
 
 This configuration allows the decision to use MFA Server or Azure MFA to be made on AD FS.
+
+### Configure federatedIdpMfaBehavior
+
+Starting in March 2022, a Microsoft Graph federatedIdpMfaBehavior API allows another option to ignore claims from an on-premises Identity provider (IdP). Ignoring claims provides additional security for users who should perform MFA again regardless of previous MFA by AD FS or another federation provider. The federatedIdpMfaBehavior API is an enum that also includes the same options as SupportsMfa to accept MFA claims if sent by the federated IdP in the issued token.
+
+Customers who have set the SupportsMfa flag do not need to make any changes unless they want to ignore claims from an on-premises Identity provider by using the federatedIdpMfaBehavior API. 
+
+After configuring the federatedIdpMfaBehavior API, any subsequent changes to the SupportsMfa flag are ignored. From that point, only the federatedIdpMfaBehavior API can be used to configure whether to accept or ignore claims sent by the federated IdP in the issued token.  
+
+For more information about how to configure whether to accept or ignore claims, see [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta).
 
 ### Configure Conditional Access policies if needed
 
 If you use Conditional Access to determine when users are prompted for MFA, you shouldn't need to change your policies.
 
-If your federated domain(s) have SupportsMFA set to false, analyze your claims rules on the Azure AD relying party trust and create Conditional Access policies that support the same security goals.
+If your federated domain(s) have SupportsMfa set to false, analyze your claims rules on the Azure AD relying party trust and create Conditional Access policies that support the same security goals.
 
 After creating conditional access policies to enforce the same controls as AD FS, you can back up and remove your claim rules customizations on the Azure AD Relying Party.
 
@@ -300,7 +310,7 @@ Detailed Azure MFA registration information can be found on the Registration tab
 
 ![Image of Authentication methods activity screen showing user registrations to MFA](./media/how-to-migrate-mfa-server-to-azure-mfa-with-federation/authentication-methods.png)
 
-   
+
 
 ## Clean up steps
 
