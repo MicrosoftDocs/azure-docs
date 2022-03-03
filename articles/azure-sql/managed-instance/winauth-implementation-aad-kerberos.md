@@ -21,7 +21,7 @@ This configuration allows users in the customer domain to access resources in yo
 
 The following diagram gives an overview of how Windows Authentication is implemented for a managed instance using Azure AD and Kerberos:
 
-:::image type="content" source="media/winauth-azuread/auth-kerberos.svg" alt-text="An overview of authentication: a client submits an encrypted Kerberos ticket as part of an authentication request to a managed instance. The managed instance submits the encrypted Kerberos ticket to Azure AD, who exchanges it for an Azure AD token that is returned the managed instance. The managed instance uses this token to authenticate the user." lightbox="media/winauth-azuread/auth-kerberos.svg":::
+:::image type="content" source="media/winauth-azuread/auth-kerberos.svg" alt-text="An overview of authentication: a client submits an encrypted Kerberos ticket as part of an authentication request to a managed instance. The managed instance submits the encrypted Kerberos ticket to Azure AD, who exchanges it for an Azure AD token that is returned the managed instance. The managed instance uses this token to authenticate the user.:::
 
 
 ## How Azure AD provides Kerberos authentication
