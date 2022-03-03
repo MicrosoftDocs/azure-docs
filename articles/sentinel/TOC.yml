@@ -328,7 +328,7 @@
       items: 
       - name: Deployment overview
         href: sap/deployment-overview.md
-      - name: Prerequisites
+      - name: Prerequisites for deploying SAP continuous threat monitoring
         href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
       - name: Prepare SAP environment by deploying SAP CRs, configure Authorization and create user
         href: sap/preparing_sap.md

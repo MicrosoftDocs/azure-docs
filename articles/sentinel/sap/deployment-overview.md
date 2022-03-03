@@ -18,7 +18,7 @@ This article takes you step by step through the process of deploying Microsoft S
 
 ## Overview
 
-[Microsoft Sentinel solutions](../sentinel-solutions.md) includes bundled security content, such as threat detections, workbooks, and watchlists. With these solutions, onboarding Microsoft Sentinel security content for a specific workload is simplified into a streamlined experience.
+[Microsoft Sentinel solutions](../sentinel-solutions.md) includes bundled security content, such as threat detections, workbooks, and watchlists. With these solutions, onboarding Microsoft Sentinel security content for a specific workload is simplified into a streamlined experience. Continuous Threat Monitoring for SAP is a solution, consisting of a data connector, analytic rules and workbooks.
 
 Using Microsoft Sentinel SAP data connector, SAP systems can be monitored for sophisticated threats within the business and application layers.
 
