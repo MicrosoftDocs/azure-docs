@@ -2,7 +2,7 @@
   "redirections": [
       {
           "source_path_from_root": "/articles/spatial-anchors/unity-overview.md",
-          "redirect_url": "/azure/spatial-anchors/quickstarts/get-started-unity-hololens.md",
+          "redirect_url": "/articles/spatial-anchors/quickstarts/get-started-unity-hololens.md",
           "redirect_document_id": false
       }
   ]
