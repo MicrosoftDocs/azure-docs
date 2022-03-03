@@ -73,6 +73,8 @@ In this example, you'll remove an inbound NAT rule.
 
 6. Select **Delete**.
 
+    :::image type="content" source="./media/manage-inbound-nat-rules/remove-inbound-nat-rule.png" alt-text="Screenshot of inbound NAT rule removal.":::
+
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
 
