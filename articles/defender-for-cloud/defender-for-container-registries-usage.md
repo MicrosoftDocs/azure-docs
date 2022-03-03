@@ -5,7 +5,7 @@ ms.date: 03/03/2022
 ms.topic: how-to
 ---
 
-# Use Defender for Containers to scan your images for vulnerabilities
+# Use Defender for Containers to scan your ACR images for vulnerabilities
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
