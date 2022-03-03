@@ -347,7 +347,7 @@ You can also specify spark session settings via a magic command **%%configure**.
 >
 
 
-## Parameterized session config  
+#### Parameterized session config  
 
 Parameter session config allows you to replace the value in %%configure magic with Pipeline run (Notebook activity) parameters. When preparing %%configure code cell, you can override default values (also configurable, "4" and "2000" in the below example) with an object like this:
 
