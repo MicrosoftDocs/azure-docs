@@ -29,7 +29,7 @@ ams account update
 #type: command
 #short-summary: List Azure Media Services accounts for the entire subscription.
 # <AmsAccountList>
-ams account list
+az ams account list
 # </AmsAccountList>
 
 # <AmsAccountShow>
@@ -564,84 +564,101 @@ ams streaming-endpoint stop
     #short-summary: Stop a streaming endpoint.
 # </AmsStreamingEndpointStop>
 
+# <AmsStreamingEndpointList>
 ams streaming-endpoint list
     #type: command
     #short-summary: List all the streaming endpoints within an Azure Media Services account.
-#"""
+# </AmsStreamingEndpointList>
 
+# <AmsStreamingEndpointCreate>
 ams streaming-endpoint create
     #type: command
     #short-summary: Create a streaming endpoint.
-#"""
+# </AmsStreamingEndpointCreate>
 
+# <AmsStreamingEndpointWait>
 ams streaming-endpoint wait
     #type: command
     #short-summary: Place the CLI in a waiting state until a condition of the streaming endpoint is met.
     #examples:
         #- name: Place the CLI in a waiting state until the streaming endpoint is created.
           #text: az ams streaming-endpoint wait -g MyResourceGroup -a MyAmsAccount -n MyStreamingEndpoint --created
-#"""
+# </AmsStreamingEndpointWait>
 
+# <AmsStreamingEndpointAkamai>
 ams streaming-endpoint akamai
     #type: group
     #short-summary: Manage AkamaiAccessControl objects to be used on streaming endpoints.
-#"""
+# </AmsStreamingEndpointAkamai>
 
+# <AmsStreamingEndpointAkamaiAdd>
 ams streaming-endpoint akamai add
     #type: command
     #short-summary: Add an AkamaiAccessControl to an existing streaming endpoint.
 #"""
+# </AmsStreamingEndpointAkamaiAdd>
 
+# <AmsStreamingEndpointShow>
 ams streaming-endpoint show
     #type: command
     #short-summary: Show the details of a streaming endpoint.
-#"""
+# </AmsStreamingEndpointShow>
 
+# <AmsStreamingEndpointDelete>
 ams streaming-endpoint delete
     #type: command
     #short-summary: Delete a streaming endpoint.
-#"""
+# </AmsStreamingEndpointDelete>
 
+# <AmsStreamingEndpointAkamaiRemove>
 ams streaming-endpoint akamai remove
     #type: command
     #short-summary: Remove an AkamaiAccessControl from an existing streaming endpoint.
-#"""
+# </AmsStreamingEndpointAkamaiRemove>
 
+# <AmsStreamingEndpointScale>
 ams streaming-endpoint scale
     #type: command
     #short-summary: Set the scale of a streaming endpoint.
-#"""
+# <AmsStreamingEndpointScale>
 
+# <AmsStreamingEndpointUpdate>
 ams streaming-endpoint update
     #type: command
     #short-summary: Update the details of a streaming endpoint.
-#"""
+# </AmsStreamingEndpointUpdate>
 
+# <AmsLiveEvent>
 ams live-event
     #type: group
     #short-summary: Manage live events for an Azure Media Service account.
-#"""
+# </AmsLiveEvent>
 
+# <AmsLiveEventCreate>
 ams live-event create
     #type: command
     #short-summary: Create a live event.
-#"""
+# </AmsLiveEventCreate>
 
+# <AmsLiveEventStart>
 ams live-event start
     #type: command
     #short-summary: Start a live event.
-#"""
+# </AmsLiveEventStart>
 
+# <AmsLiveEventStandby>
 ams live-event standby
     #type: command
     #short-summary: Allocate a live event to be started later.
-#"""
+# </AmsLiveEventStandby>
 
+# <AmsLiveEventShow>
 ams live-event show
     #type: command
     #short-summary: Show the details of a live event.
-#"""
+# </AmsLiveEventShow>
 
+# <AmsLiveEventList>
 ams live-event list
     #type: command
     #short-summary: List all the live events of an Azure Media Services account.
@@ -649,23 +666,27 @@ ams live-event list
         #- name: List all the live events by name and resourceState quickly.
           #text: >
             #az ams live-event list -a amsAccount -g resourceGroup --query [].{liveEventName:name,state:resourceState}
-#"""
+# </AmsLiveEventList>
 
+# <AmsLiveEventDelete>
 ams live-event delete
     #type: command
     #short-summary: Delete a live event.
-#"""
+# </AmsLiveEventDelete>
 
+# <AmsLiveEventStop>
 ams live-event stop
     #type: command
     #short-summary: Stop a live event.
-#"""
+# </AmsLiveEventStop>
 
+# <AmsLiveEventReset>
 ams live-event reset
     #type: command
     #short-summary: Reset a live event.
-#"""
+# </AmsLiveEventReset>
 
+# <AmsLiveEventUpdate>
 ams live-event update
     #type: command
     #short-summary: Update the details of a live event.
@@ -677,30 +698,34 @@ ams live-event update
           #text: >
             #az ams live-event update -a amsAccount -g resourceGroup -n liveEventName --ips 1.2.3.4/22 5.6.7.8/30
 
-#"""
+# <AmsLiveEventUpdate>
 
+# <AmsLiveEventWait>
 ams live-event wait
     #type: command
     #short-summary: Place the CLI in a waiting state until a condition of the live event is met.
     #examples:
         #- name: Place the CLI in a waiting state until the live event is created.
           #text: az ams live-event wait -g MyResourceGroup -a MyAmsAccount -n MyLiveEvent --created
-#"""
+# </AmsLiveEventWait>
 
+# <AmsLiveEOutput>
 ams live-output
     #type: group
     #short-summary: Manage live outputs for an Azure Media Service account.
-#"""
+# </AmsLiveEOutput>
 
+# <AmsLiveEOutputCreate>
 ams live-output create
     #type: command
     #short-summary: Create a live output.
-#"""
+# </AmsLiveEOutputCreate>
 
+# <AmsLiveEOutputShow>
 ams live-output show
     #type: command
     #short-summary: Show the details of a live output.
-#"""
+# </AmsLiveEOutputShow>
 
 ams live-output list
     #type: command
