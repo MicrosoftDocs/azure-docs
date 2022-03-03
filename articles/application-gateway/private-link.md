@@ -12,12 +12,12 @@ ms.author: victorh
 
 # Application Gateway Private Link
 
-Today, you can deploy your critical workloads securely behind Application Gateway, which acts as a layer 7 load balancer / reverse proxy.  Access to the backend workloads is possible in two ways:
+Today, you can deploy your critical workloads securely behind Application Gateway, gaining the flexibility of Layer 7 load balancing features. Access to the backend workloads is possible in two ways:
 
 - Public IP address - your workloads are accessible over the Internet. 
 - Private IP address- your workloads are accessible via a private IP address, but within the same VNet as the Application Gateway.
 
-The Application Gateway Private Link feature allows you to extend your workloads to be connected over a private link spanning across VNets and subscriptions. Connectivity to Application Gateway can be configured using an Azure resource called Private Endpoint. For a list of PaaS services that support Private Link functionality, see [What is Azure Private Link?](../private-link/private-link-overview.md).
+Private Link for Application Gateway allows you to connect workloads over a private connection spanning across VNets and subscriptions. Connectivity to Application Gateway can be configured using an Azure resource called Private Endpoint. For a list of PaaS services that support Private Link functionality, see [What is Azure Private Link?](../private-link/private-link-overview.md).
 
 :::image type="content" source="media/private-link/private-link.png" alt-text="Diagram showing Application Gateway Private Link":::
 
@@ -56,7 +56,7 @@ Four components are required to implement Private Link with Application Gateway:
 ## Limitations
 - API version 2020-03-01 or later should be used to configure Private Link configurations.
 - Static IP allocation method in the Private Link Configuration object isn't supported.
-- The subnet used for PrivateLinkConfiguration can’t be same as the Application Gateway subnet.
+- The subnet used for PrivateLinkConfiguration cannot be same as the Application Gateway subnet.
 
 ## Next steps
 
