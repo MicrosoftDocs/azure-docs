@@ -20,9 +20,11 @@ You can observe:
 * Container details and state
 * Streaming logs
 * Console
+<!--
 * Events
-* Azure Monitor and metrics
-* Alerts: User managed setting to receive notifications based on logged events and system metrics
+-->
+* Metrics
+* Alerts
 * Log Analytics
 
 ## Observability features
@@ -32,7 +34,7 @@ There are many methods to observe your application. Some features automatically 
   
 ### Container details and state
 
-The details for each container app and individual container are available via the Azure portal and the Azure CLI.  
+The details for each container app and individual containers are available via the Azure portal and the Azure CLI.  
 
 > [!NOTE] 
 > Add screen shot for portal. Add cli command and output
@@ -44,28 +46,32 @@ The details for each container app and individual container are available via th
 
 ## Console
 
-You can access your container apps console via bash or sh providing you have them installed in your image.  Console access allows you to work in your container app environment to test and debug your application.  You can connect to the console of each running container revision and replica via the Azure portal.
+You can connect to the console of a container that is part of your container app via bash or other shell providing they're installed in the container. Console access allows you to work in your container app to validate or diagnose your application. You can connect to the console of each running container revision and replica via the Azure portal.
 
 > [!NOTE]
-> insert image of the port page here
+> Do we want all of the instructions here or do we want to just link to a separate doc?
+> insert image of the portal page here
 > Add instructions for connecting to and logging into the console.
+> Insert CLI commands
 
+<!--
 ### Events
 
 What events are available.  Is there a list?  Does the user have to enable them? 
+-->
 
-### Azure Monitor and metrics
+### Metrics
 
-[Azure Monitor][azure-monitoring] provides insight into the compute resources used by your containers instances. This resource usage data helps you determine the best resource settings for your container groups. Azure Monitor also provides metrics that track network activity in your container instances.  These metrics can be gathered using both and Azure portal and the Azure CLI
+Metrics are collected by [Azure Monitor][azure-monitoring] and provide insight into the resources used by your container apps. This resource usage data helps you easily see the resources your container app is using such as CPU usage and network activity, and the number of requests it's handling. You can configure alerts so that you can quickly react if thresholds are exceeded. These metrics can be gathered using both and Azure portal and the Azure CLI.
 
-This document details gathering Azure Monitor metrics for container instances using both the Azure portal and Azure CLI.
-
+<!--
 > [!IMPORTANT]
 > Azure Monitor metrics in Azure Container Apps are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+-->
 
 #### Available metrics
 
-Azure Monitor provides the following metrics.  These metrics are available for each individual container and container app.
+Azure Monitor provides the following metrics.  These metrics are available for your container app.  The information can be split by container app revisions and replica.
 
 * CPU usage nanocores
 * Memory working set bytes
@@ -98,6 +104,8 @@ The Metric page allows you to select the metric, filter and split the informatio
 
 ### Alerts
 
+You can set up alerts in both metrics and log analytics, to receive notifications for events and when certain system thresholds are reached.
+
 What are alerts?  Are there any alerts outside of metrics and log analytics?
 
 ## Log Analytics
@@ -107,29 +115,31 @@ Each Container Apps environment must include a Log Analytics workspace with prov
 
 ## Observability throughout the application lifecycle
 
-Container Apps provides continuous monitoring across each phase of our DevOps and IT operations life cycle.  This help to continuously ensure the health, performance, and reliability  of your application and infrastructure as it moves from development to production.  Azure Monitor, the unified monitoring solution, provides full-stack observability across applications and infrastructure. 
+Container Apps provides continuous monitoring across each phase of your development-to-production life cycle.  This help to continuously ensure the health, performance, and reliability  of your application and infrastructure as it moves from development to production.  Azure Monitor, the unified monitoring solution, provides full-stack observability across applications and infrastructure. 
 
 ### Development and Test
 
-During development and test these observability features are key your DevOps experience.
+During development and test these observability features are key to building your container apps.
 
-* Console access via the Azure portal
 * Log streaming
+* Console
 * Log Analytics
 
 ### Deployment and Runtime
 
-You can monitor the performance and resource utilization and be set up notifications for  important events for your application via:
+You can monitor the performance and resource utilization and  set up notifications when important events occur in your container apps using:
 
-* Azure Monitor 
 * Metrics
+* Alerts
 * Log Analytics
-* Events
+<!-- * Events -->
+* Other Azure Monitor features
 
 ### Updates and Revisions
 
 Container Apps supports the monitoring of every active revision.  You can monitor and compare the behavior and performance across revisions through:
 
-* Azure Monitor
+* Log streaming
+* Console access
 * Metrics
-* Application Insights 
+* Log Analytics 
