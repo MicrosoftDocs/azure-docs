@@ -30,7 +30,7 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 ## Code snippets
 
-## [Poral](#tab/portal/)
+## [Portal](#tab/portal/)
 
 [!INCLUDE [task-create-asset-portal](includes/task-create-transform-portal.md)]
 
