@@ -4,7 +4,7 @@ description: Understand the available actions you can use with Chaos Studio incl
 services: chaos-studio
 author: johnkemnetz
 ms.topic: article
-ms.date: 02/09/2022
+ms.date: 03/03/2022
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
@@ -1162,8 +1162,8 @@ Known issues on Linux:
 |-|-|
 | Capability Name | DenyAccess-1.0 |
 | Target type | Microsoft-KeyVault |
-| Description | Blocks all network access to a Key Vault by temporarily modifying virtual network rules, denying an application dependent on the Key Vault from accessing secrets, keys, and/or certificates. When the fault starts, any virtual network rules that are setup on the target Key Vault are replaced with a deny all rule and restored at the end of the fault duration. |
-| Prerequisites | The target Key Vault cannot have a firewall and must not allow Azure services to bypass access. If the target Key Vault is not set to allow all access, there must be at least one virtual network rule. The Key Vault cannot be in recover mode. |
+| Description | Blocks all network access to a Key Vault by temporarily modifying the Key Vault network rules, preventing an application dependent on the Key Vault from accessing secrets, keys, and/or certificates. If the Key Vault allows access to all networks, this is changed to only allow access from selected networks with no virtual networks in the allowed list at the start of the fault and returned to allowing access to all networks at the end of the fault duration. If they Key Vault is set to only allow access from selected networks, any virtual networks in the allowed list are removed at the start of the fault and restored at the end of the fault duration. |
+| Prerequisites | The target Key Vault cannot have any firewall rules. If the target Key Vault is set to only allow access from selected networks, there must be at least one virtual network rule. The Key Vault cannot be in recover mode. |
 | Urn | urn:csci:microsoft:keyVault:denyAccess/1.0 |
 | Fault type | Continuous |
 | Parameters (key, value) | None. |
