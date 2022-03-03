@@ -86,6 +86,8 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
+  - name: Private Link
+      href: private-link.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
@@ -293,7 +295,9 @@
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
   - name: Classic to Resource Manager
-    href: classic-to-resource-manager.md  
+    href: classic-to-resource-manager.md
+  - name: Configure Private Link
+    href: private-link-configure.md
 - name: Reference
   items:
   - name: Monitoring data
