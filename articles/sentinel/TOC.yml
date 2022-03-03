@@ -307,17 +307,32 @@
 - name: Integrate SAP and Microsoft Sentinel
   items:
     - name: Deployment guide
-      href: sap/deployment-overview.md
+      items: 
+      - name: Deployment overview
+        href: sap/deployment-overview.md
+      - name: Prerequisites
+        href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
+      - name: Prepare SAP environment by deploying SAP CRs, configure Authorization and create user
+        href: sap/preparing_sap.md
+      - name: Deploy and configure the data connector agent container
+        href: sap/deploy_data_connector_agent_container.md
+      - name: Deploy SAP security content
+        href: sap/deploy_sap_security_content.md
     - name: Optional deployment steps
       href: sap/optional_deployment_steps.md
+    - name: Configure SAP data connector to use SNC
+      href: sap/configure_snc.md
+    - name: Configure auditing
+      href: sap/configure_audit.md
     - name: SAP solution data reference
       href: sap/sap-solution-log-reference.md
     - name: SAP solution content overview
       href: sap/sap-solution-security-content.md
-    - name: Configure SAP data connector to use SNC
-      href: sap/configure_snc.md
     - name: Troubleshooting SAP solution deployment
       href: sap/sap-deploy-troubleshoot.md
+    - name: Reference - Kickstart script
+      href: sap/reference_kickstart.md
+    - name: Reference - Systemconfig.ini file
 - name: Reference
   items:
   - name: Microsoft Sentinel REST-API
