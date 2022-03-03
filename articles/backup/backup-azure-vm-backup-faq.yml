@@ -206,7 +206,7 @@ sections:
 
       - question: Can I restore Azure VM from a recovery point in the powered-off state?
         answer: |
-          Azure VM must be in shutdown state while you restore. Otherwise, the restore operation would fail in the pre-check stage, with the error code UserErrorVmNotShutDown.
+          Azure VM must be in shutdown state while you restore. Otherwise, the restore operation would fail in the pre-check stage, with the error code *UserErrorVmNotShutDown*.
 
           Also, to swap VM disks, you must shut down the VM.
 
