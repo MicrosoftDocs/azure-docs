@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: .NET (Microsoft.Azure.Cosmos) examples for the SQL API'
-description: Find the C# .NET V3 SDK examples on GitHub for common tasks by using the Azure Cosmos DB SQL API.
+description: Find the C# .NET v3 SDK examples on GitHub for common tasks by using the Azure Cosmos DB SQL API.
 author: StefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
@@ -11,17 +11,17 @@ ms.custom: devx-track-dotnet
 
 ---
 
-# Azure Cosmos DB.NET V3 SDK (Microsoft.Azure.Cosmos) examples for the SQL API
+# Azure Cosmos DB .NET v3 SDK (Microsoft.Azure.Cosmos) examples for the SQL API
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
-> * [Java V4 SDK Examples](sql-api-java-sdk-samples.md)
-> * [Spring Data V3 SDK Examples](sql-api-spring-data-sdk-samples.md)
+> * [.NET v3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
+> * [Java v4 SDK Examples](sql-api-java-sdk-samples.md)
+> * [Spring Data v3 SDK Examples](sql-api-spring-data-sdk-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
-> * [.NET V2 SDK Examples (Legacy)](sql-api-dotnet-v2sdk-samples.md)
+> * [.NET v2 SDK Examples (Legacy)](sql-api-dotnet-v2sdk-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 >
 >
@@ -120,7 +120,7 @@ The [RunBasicChangeFeed](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/ma
 | [Basic change feed functionality](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L91-L119) |[Container.GetChangeFeedProcessorBuilder](/dotnet/api/microsoft.azure.cosmos.container.getchangefeedprocessorbuilder) |
 | [Read change feed from a specific time](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L127-L162) |[Container.GetChangeFeedProcessorBuilder](/dotnet/api/microsoft.azure.cosmos.container.getchangefeedprocessorbuilder) |
 | [Read change feed from the beginning](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L170-L198) |[ChangeFeedProcessorBuilder.WithStartTime(DateTime)](/dotnet/api/microsoft.azure.cosmos.changefeedprocessorbuilder.withstarttime) |
-| [Migrate from change feed processor to change feed in V3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L256-L333) |[Container.GetChangeFeedProcessorBuilder](/dotnet/api/microsoft.azure.cosmos.container.getchangefeedprocessorbuilder) |
+| [Migrate from change feed processor to change feed in v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L256-L333) |[Container.GetChangeFeedProcessorBuilder](/dotnet/api/microsoft.azure.cosmos.container.getchangefeedprocessorbuilder) |
 
 ## Server-side programming examples
 

@@ -18,7 +18,7 @@ In Azure Cosmos DB, you might notice slow requests. Delays can happen for multip
 
 ## Request rate too large
 
-Request throttling is the most common reason for slow requests. Azure Cosmos DB throttles requests if they exceed the allocated request units for the database or container. The SDK has built-in logic to retry these requests. The [request rate too large](troubleshoot-request-rate-too-large.md#how-to-investigate) troubleshooting article explains how to check if the requests are being throttled. The article also discusses how to scale your account to avoid these issues in the future.
+Request throttling is the most common reason for slow requests. Azure Cosmos DB throttles requests if they exceed the allocated request units for the database or container. The SDK has built-in logic to retry these requests. The [request rate too large](troubleshoot-request-rate-too-large.md#how-to-investigate) troubleshooting article explains how to check if the requests are being throttled. The article also discusses how to scale your account to avoid these problems in the future.
 
 ## Application design
 
@@ -171,7 +171,7 @@ If it's still slow, different patterns point to different problems. The followin
 |----------|-------------|-------------|
 | Single to all | `StoreResult` contains `TransportException` | Points to [SNAT port exhaustion](troubleshoot-dot-net-sdk.md#snat), or a lack of resources on the machine to process the request in time. |
 | Single or small percentage (SLA isn't violated) | All | A single or small percentage of slow requests can be caused by several different transient problems, and should be expected. | 
-| All | All | An issue with the infrastructure or networking. |
+| All | All | A problem with the infrastructure or networking. |
 | SLA violated | Requests contain multiple failure error codes, like `410` and `IsValid is true`. | Points to a problem with the Azure Cosmos DB service. |
 | SLA violated | Requests contain multiple failure error codes, like `410` and `IsValid is false`. | Points to a problem with the machine. |
 | SLA violated | `StorePhysicalAddress` are the same, with no failure status code. | Likely a problem with Azure Cosmos DB. |
@@ -189,8 +189,8 @@ Show the time for the different stages of sending and receiving a request in the
 
 * `ChannelAcquisitionStarted`: The time to get or create a new connection. You can create new connections for numerous different regions. For example, let's say that a connection was unexpectedly closed, or too many requests were getting sent through the existing connections. You create a new connection. 
 * *Pipelined time is large* might be caused by a large request.
-* *Transit time is large*, which leads to a networking issue. Compare this number to the `BELatencyInMs`. If `BELatencyInMs` is small, then the time was spent on the network, and not on the Azure Cosmos DB service.
-* *Received time is large* might be caused by a thread starvation issue. This the time between having the response and returning the result.
+* *Transit time is large*, which leads to a networking problem. Compare this number to the `BELatencyInMs`. If `BELatencyInMs` is small, then the time was spent on the network, and not on the Azure Cosmos DB service.
+* *Received time is large* might be caused by a thread starvation problem. This the time between having the response and returning the result.
 
 ```json
 "StoreResult": {
