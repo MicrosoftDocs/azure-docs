@@ -94,7 +94,7 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
    ```powershell
    Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 2375 -j ACCEPT"
    ```
-3. Create copy of the EFLOW VM _docker.service_ to the system folder.
+3. Create a copy of the EFLOW VM _docker.service_ in the system folder.
    ```powershell
    Invoke-EflowVmCommand "sudo cp /lib/systemd/system/docker.service /etc/systemd/system/docker.service"
    ```
