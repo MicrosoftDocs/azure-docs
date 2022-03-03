@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 11/02/2021
+ms.date: 03/03/2022
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,31 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## February 2022
+
+### New articles
+
+- [Configure authentication in a sample Node.js web application by using Azure Active Directory B2C](configure-a-sample-node-web-app.md)
+- [Configure authentication in a sample Node.js web API by using Azure Active Directory B2C](configure-authentication-in-sample-node-web-app-with-api.md)
+- [Enable authentication options in a Node.js web app by using Azure Active Directory B2C](enable-authentication-in-node-web-app-options.md)
+- [Enable Node.js web API authentication options using Azure Active Directory B2C](enable-authentication-in-node-web-app-with-api-options.md)
+- [Enable authentication in your own Node.js web API by using Azure Active Directory B2C](enable-authentication-in-node-web-app-with-api.md)
+- [Enable authentication in your own Node web application using Azure Active Directory B2C](enable-authentication-in-node-web-app.md)
+
+### Updated articles
+
+- [Configure session behavior in Azure Active Directory B2C](session-behavior.md)
+- [Customize the user interface with HTML templates in Azure Active Directory B2C](customize-ui-with-html.md)
+- [Define a self-asserted technical profile in an Azure Active Directory B2C custom policy](self-asserted-technical-profile.md)
+- [About claim resolvers in Azure Active Directory B2C custom policies](claim-resolver-overview.md)
+- [Date claims transformations](date-transformations.md)
+- [Integer claims transformations](integer-transformations.md)
+- [JSON claims transformations](json-transformations.md)
+- [Define phone number claims transformations in Azure AD B2C](phone-number-claims-transformations.md)
+- [Social accounts claims transformations](social-transformations.md)
+- [String claims transformations](string-transformations.md)
+- [Web sign in with OpenID Connect in Azure Active Directory B2C](openid-connect.md)
 
 ## January 2022
 

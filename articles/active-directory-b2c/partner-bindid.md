@@ -120,7 +120,7 @@ You should now see BindID as a new OIDC Identity provider listed within your B2C
 
 2. Select **New user flow**
 
-3. Select **Sign up and sign in** > **Version** **Reccomended** > **Create**.
+3. Select **Sign up and sign in** > **Version Recommended** > **Create**.
 
 4. Enter a **Name** for your policy.
 
@@ -138,7 +138,7 @@ You should now see BindID as a new OIDC Identity provider listed within your B2C
 
 11. Select **Run user flow**. 
 
-12. The browser will be redirected to the BindID login page. Enter the account name registered during User registration. The user will receive a push notification to the registered user mobile device for a Fast Identity Online (FIDO2) certified authentication. It can be a user finger print, biometric or decentralized pin.
+12. The browser will be redirected to the BindID login page. Enter the account name registered during User registration. The user enters the registered account email and authenticates using appless FIDO2 biometrics, such as fingerprint.
 
 13. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.
 
