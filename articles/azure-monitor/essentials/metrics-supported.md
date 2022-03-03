@@ -293,6 +293,25 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UnusableNodeCount|No|Unusable Node Count|Count|Total|Number of unusable nodes|No Dimensions|
 |WaitingForStartTaskNodeCount|No|Waiting For Start Task Node Count|Count|Total|Number of nodes waiting for the Start Task to complete|No Dimensions|
 
+## Microsoft.BatchAI/workspaces
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|Active Cores|Yes|Active Cores|Count|Average|Number of active cores|Scenario, ClusterName|
+|Active Nodes|Yes|Active Nodes|Count|Average|Number of running nodes|Scenario, ClusterName|
+|Idle Cores|Yes|Idle Cores|Count|Average|Number of idle cores|Scenario, ClusterName|
+|Idle Nodes|Yes|Idle Nodes|Count|Average|Number of idle nodes|Scenario, ClusterName|
+|Job Completed|Yes|Job Completed|Count|Total|Number of jobs completed|Scenario, ClusterName, ResultType|
+|Job Submitted|Yes|Job Submitted|Count|Total|Number of jobs submitted|Scenario, ClusterName|
+|Leaving Cores|Yes|Leaving Cores|Count|Average|Number of leaving cores|Scenario, ClusterName|
+|Leaving Nodes|Yes|Leaving Nodes|Count|Average|Number of leaving nodes|Scenario, ClusterName|
+|Preempted Cores|Yes|Preempted Cores|Count|Average|Number of preempted cores|Scenario, ClusterName|
+|Preempted Nodes|Yes|Preempted Nodes|Count|Average|Number of preempted nodes|Scenario, ClusterName|
+|Quota Utilization Percentage|Yes|Quota Utilization Percentage|Count|Average|Percent of quota utilized|Scenario, ClusterName, VmFamilyName, VmPriority|
+|Total Cores|Yes|Total Cores|Count|Average|Number of total cores|Scenario, ClusterName|
+|Total Nodes|Yes|Total Nodes|Count|Average|Number of total nodes|Scenario, ClusterName|
+|Unusable Cores|Yes|Unusable Cores|Count|Average|Number of unusable cores|Scenario, ClusterName|
+|Unusable Nodes|Yes|Unusable Nodes|Count|Average|Number of unusable nodes|Scenario, ClusterName|
 
 ## microsoft.botservice/botservices
 
@@ -1036,11 +1055,11 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ActivityFailedRuns|Yes|Failed activity runs metrics|Count|Total||ActivityType, PipelineName, FailureType, Name|
 |ActivitySucceededRuns|Yes|Succeeded activity runs metrics|Count|Total||ActivityType, PipelineName, FailureType, Name|
 |FactorySizeInGbUnits|Yes|Total factory size (GB unit)|Count|Maximum||No Dimensions|
-|IntegrationRuntimeAvailableMemory|Yes|Integration runtime available memory|Bytes|Average|No Dimensions|IntegrationRuntimeName, NodeName|
-|IntegrationRuntimeAvailableNodeNumber|Yes|Integration runtime available node count|Count|Average|No Dimensions|IntegrationRuntimeName|
-|IntegrationRuntimeAverageTaskPickupDelay|Yes|Integration runtime queue duration|Seconds|Average|No Dimensions|IntegrationRuntimeName|
-|IntegrationRuntimeCpuPercentage|Yes|Integration runtime CPU utilization|Percent|Average|No Dimensions|IntegrationRuntimeName, NodeName|
-|IntegrationRuntimeQueueLength|Yes|Integration runtime queue length|Count|Average|No Dimensions|IntegrationRuntimeName|
+|IntegrationRuntimeAvailableMemory|Yes|Integration runtime available memory|Bytes|Average||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeAvailableNodeNumber|Yes|Integration runtime available node count|Count|Average||IntegrationRuntimeName|
+|IntegrationRuntimeAverageTaskPickupDelay|Yes|Integration runtime queue duration|Seconds|Average||IntegrationRuntimeName|
+|IntegrationRuntimeCpuPercentage|Yes|Integration runtime CPU utilization|Percent|Average||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeQueueLength|Yes|Integration runtime queue length|Count|Average||IntegrationRuntimeName|
 |MaxAllowedFactorySizeInGbUnits|Yes|Maximum allowed factory size (GB unit)|Count|Maximum||No Dimensions|
 |MaxAllowedResourceCount|Yes|Maximum allowed entities count|Count|Maximum||No Dimensions|
 |PipelineCancelledRuns|Yes|Cancelled pipeline runs metrics|Count|Total||FailureType, Name|
@@ -1048,14 +1067,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PipelineFailedRuns|Yes|Failed pipeline runs metrics|Count|Total||FailureType, Name|
 |PipelineSucceededRuns|Yes|Succeeded pipeline runs metrics|Count|Total||FailureType, Name|
 |ResourceCount|Yes|Total entities count|Count|Maximum||No Dimensions|
-|SSISIntegrationRuntimeStartCancel|Yes|Cancelled SSIS integration runtime start metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStartFailed|Yes|Failed SSIS integration runtime start metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStartSucceeded|Yes|Succeeded SSIS integration runtime start metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStopStuck|Yes|Stuck SSIS integration runtime stop metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStopSucceeded|Yes|Succeeded SSIS integration runtime stop metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISPackageExecutionCancel|Yes|Cancelled SSIS package execution metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISPackageExecutionFailed|Yes|Failed SSIS package execution metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISPackageExecutionSucceeded|Yes|Succeeded SSIS package execution metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
+|SSISIntegrationRuntimeStartCancel|Yes|Cancelled SSIS integration runtime start metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStartFailed|Yes|Failed SSIS integration runtime start metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStartSucceeded|Yes|Succeeded SSIS integration runtime start metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStopStuck|Yes|Stuck SSIS integration runtime stop metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStopSucceeded|Yes|Succeeded SSIS integration runtime stop metrics|Count|Total||IntegrationRuntimeName|
+|SSISPackageExecutionCancel|Yes|Cancelled SSIS package execution metrics|Count|Total||IntegrationRuntimeName|
+|SSISPackageExecutionFailed|Yes|Failed SSIS package execution metrics|Count|Total||IntegrationRuntimeName|
+|SSISPackageExecutionSucceeded|Yes|Succeeded SSIS package execution metrics|Count|Total||IntegrationRuntimeName|
 |TriggerCancelledRuns|Yes|Cancelled trigger runs metrics|Count|Total||Name, FailureType|
 |TriggerFailedRuns|Yes|Failed trigger runs metrics|Count|Total||Name, FailureType|
 |TriggerSucceededRuns|Yes|Succeeded trigger runs metrics|Count|Total||Name, FailureType|
@@ -1979,7 +1998,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MaterializedViewHealth|Yes|Materialized View Health|Count|Average|The health of the materialized view (1 for healthy, 0 for non-healthy)|Database, MaterializedViewName|
 |MaterializedViewRecordsInDelta|Yes|Materialized View Records In Delta|Count|Average|The number of records in the non-materialized part of the view|Database, MaterializedViewName|
 |MaterializedViewResult|Yes|Materialized View Result|Count|Average|The result of the materialization process|Database, MaterializedViewName, Result|
-|QueryDuration|Yes|Query duration|Milliseconds|Average|Queries: duration in seconds|QueryStatus|
+|QueryDuration|Yes|Query duration|Milliseconds|Average|Queries' duration in seconds|QueryStatus|
 |QueryResult|No|Query Result|Count|Count|Total number of queries.|QueryStatus|
 |QueueLength|Yes|Queue Length|Count|Average|Number of pending messages in a component's queue.|ComponentType|
 |QueueOldestMessage|Yes|Queue Oldest Message|Count|Average|Time in seconds from when the oldest message in queue was inserted.|ComponentType|
@@ -3291,7 +3310,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MaterializedViewHealth|Yes|Materialized View Health|Count|Average|The health of the materialized view (1 for healthy, 0 for non-healthy)|Database, MaterializedViewName|
 |MaterializedViewRecordsInDelta|Yes|Materialized View Records In Delta|Count|Average|The number of records in the non-materialized part of the view|Database, MaterializedViewName|
 |MaterializedViewResult|Yes|Materialized View Result|Count|Average|The result of the materialization process|Database, MaterializedViewName, Result|
-|QueryDuration|Yes|Query duration|Milliseconds|Average|Queries- duration in seconds|QueryStatus|
+|QueryDuration|Yes|Query duration|Milliseconds|Average|Queries' duration in seconds|QueryStatus|
 |QueryResult|No|Query Result|Count|Count|Total number of queries.|QueryStatus|
 |QueueLength|Yes|Queue Length|Count|Average|Number of pending messages in a component's queue.|ComponentType|
 |QueueOldestMessage|Yes|Queue Oldest Message|Count|Average|Time in seconds from when the oldest message in queue was inserted.|ComponentType|
