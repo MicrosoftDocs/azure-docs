@@ -36,13 +36,18 @@ The UI supports selecting multiple subscriptions to view resource changes. Use t
 
 :::image type="content" source="./media/change-analysis/multiple-subscriptions-support.png" alt-text="Screenshot of subscription filter that supports selecting multiple subscriptions":::
 
-## Application Change Analysis in the Diagnose and solve problems tool
+## Diagnose and solve problems tool
 
 Application Change Analysis is:
 - A standalone detector in the Web App **Diagnose and solve problems** tool. 
 - Aggregated in **Application Crashes** and **Web App Down detectors**. 
 
-From your app service's overview page in Azure portal, select **Diagnose and solve problems** the left menu. As you enter the Diagnose and Solve Problems tool, the **Microsoft.ChangeAnalysis** resource provider will automatically be registered. Enable web app in-guest change tracking with the following instructions:
+From your resource's overview page in Azure portal, select **Diagnose and solve problems** the left menu. As you enter the Diagnose and Solve Problems tool, the **Microsoft.ChangeAnalysis** resource provider will automatically be registered. 
+
+### Diagnose and solve problems tool for Web App
+
+> [!NOTE]
+> You may not immediately see web app in-guest file changes and configuration changes. Restart your web app and you should be able to view changes within 30 minutes. If not, refer to [the troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app).
 
 1. Select **Availability and Performance**.
 
@@ -75,22 +80,26 @@ By default, the graph displays changes from within the past 24 hours help with i
 
 :::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view":::   
 
-## Diagnose and Solve Problems tool
-Change Analysis displays as an insight card in a virtual machine's **Diagnose and solve problems** tool. The insight card displays the number of changes or issues a resource experiences within the past 72 hours. 
+### Diagnose and solve problems tool for Virtual Machines
 
-Under **Common problems**, select **View change details** to view the filtered view from Change Analysis standalone UI.
-
-:::image type="content" source="./media/change-analysis/change-insight-diagnose-and-solve.png" alt-text="Screenshot of viewing change insight in Diagnose and Solve Problems tool.":::   
-
-## Virtual Machine Diagnose and Solve Problems
+Change Analysis displays as an insight card in a your virtual machine's **Diagnose and solve problems** tool. The insight card displays the number of changes or issues a resource experiences within the past 72 hours. 
 
 1. Within your virtual machine, select **Diagnose and solve problems** from the left menu. 
 1. Go to **Troubleshooting tools**.
 1. Scroll to the end of the troubleshooting options and select **Analyze recent changes** to view changes on the virtual machine.
 
-:::image type="content" source="./media/change-analysis/vm-dnsp-troubleshootingtools.png" alt-text="Screenshot of the VM Diagnose and Solve Problems":::   
+   :::image type="content" source="./media/change-analysis/vm-dnsp-troubleshootingtools.png" alt-text="Screenshot of the VM Diagnose and Solve Problems":::   
 
-:::image type="content" source="./media/change-analysis/analyze-recent-changes.png" alt-text="Change analyzer in troubleshooting tools":::   
+   :::image type="content" source="./media/change-analysis/analyze-recent-changes.png" alt-text="Change analyzer in troubleshooting tools":::   
+
+### Diagnose and solve problems tool for Azure SQL Database and other resources
+
+You can view Change Analysis data for [multiple Azure resources](./change-analysis.md#supported-resource-types), but we highlight Azure SQL Database below.
+
+1. Within your resource, select **Diagnose and solve problems** from the left menu.
+1. Under **Common problems**, select **View change details** to view the filtered view from Change Analysis standalone UI.
+
+   :::image type="content" source="./media/change-analysis/diagnose-tool-other-resources.png" alt-text="Screenshot of viewing common problems in Diagnose and Solve Problems tool.":::  
 
 ## Activity Log change history
 
@@ -106,7 +115,7 @@ Use the [View change history](../essentials/activity-log.md#view-change-history)
 1. Once registered, you can view changes from **Azure Resource Graph** immediately from the past 14 days.
    - Changes from other sources will be available after ~4 hours after subscription is onboard.
 
-:::image type="content" source="./media/change-analysis/activity-log-change-history.png" alt-text="Activity Log change history integration":::   
+   :::image type="content" source="./media/change-analysis/activity-log-change-history.png" alt-text="Activity Log change history integration":::   
 
 ## VM Insights integration
 
