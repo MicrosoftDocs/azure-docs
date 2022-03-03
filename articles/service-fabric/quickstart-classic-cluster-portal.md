@@ -11,9 +11,9 @@ ms.date: 03/02/2022
 
 # Quickstart: Deploy a Service Fabric cluster using the Azure portal
 
-Test out Service Fabric managed clusters in this quickstart by creating a **three-node Basic SKU cluster**.
+Test out Service Fabric managed clusters in this quickstart by creating a **three-node cluster**.
 
-Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model. Managed clusters streamline your deployment and cluster management experience. Service Fabric managed clusters are fully encapsulated resources that save you the effort of manually deploying all of the underlying resources that make up a Service Fabric cluster.
+Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. A Service Fabric cluster is a network-connected set of virtual machines into which your microservices are deployed and managed.
 
 In this quickstart, you learn how to:
 
@@ -21,9 +21,9 @@ In this quickstart, you learn how to:
 * Deploy a Service Fabric cluster
 * View your cluster in Service Fabric Explorer
 
-This article describes how to deploy a Service Fabric managed cluster for testing in Azure using the **Azure portal**. There is also a quickstart for [Azure Resource Manager templates](quickstart-managed-cluster-template.md).
+This article describes how to deploy a Service Fabric managed cluster for testing in Azure using the **Azure portal**. There is also a quickstart for [Azure Resource Manager templates](quickstart-cluster-template.md).
 
-The three-node Basic SKU cluster created in this tutorial is only intended for instructional purposes. The cluster will use a self-signed certificate for authentication and will operate in the bronze reliability tier, so it's not suitable for production workloads. For more information on SKUs, see [Service Fabric managed cluster SKUs](overview-managed-cluster.md#service-fabric-managed-cluster-skus). For more information about reliability tiers, see [Reliability characteristics of the cluster](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster).
+The three-node cluster created in this tutorial is only intended for instructional purposes. The cluster will use a self-signed certificate for authentication and will operate in the bronze reliability tier, so it's not suitable for production workloads. For more information on SKUs, see [Service Fabric managed cluster SKUs](overview-managed-cluster.md#service-fabric-managed-cluster-skus). For more information about reliability tiers, see [Reliability characteristics of the cluster](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster).
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To generate and retrieve your client certificate:
 
 1. Under **Settings** in the pane on the left, select **Certificates**.
 
-   ![Select the Certificates tab under Settings in the left pane.](./media/quickstart-managed-cluster-portal/key-vault-settings-certificates.png)
+   ![Select the Certificates tab under Settings in the left pane.](./media/quickstart-classic-cluster-portal/key-vault-settings-certificates.png)
 
 1. Choose **+ Generate/Import**.
 
@@ -81,7 +81,7 @@ To generate and retrieve your client certificate:
 
 1. Select **Download in PFX/PEM format** and select **Download**. The certificate's name will be formatted as `yourkeyvaultname-yourcertificatename-yyyymmdd.pfx`.
 
-   ![Select Download in PFX/PEM format to retrieve your certificate so you can import it into your computer's certificate store.](./media/quickstart-managed-cluster-portal/download-pfx.png)
+   ![Select Download in PFX/PEM format to retrieve your certificate so you can import it into your computer's certificate store.](./media/quickstart-classic-cluster-portal/download-pfx.png)
 
 Import the certificate to your computer's certificate store so that you may use it to access your Service Fabric managed cluster later.
 
@@ -94,7 +94,7 @@ Before you create your Service Fabric managed cluster, you need to make sure Azu
 
 1. Under **Settings** in the pane on the left, select **Access policies**.
 
-   ![Select the Access policies tab under Settings in the left pane.](./media/quickstart-managed-cluster-portal/key-vault-settings-access-policies.png)
+   ![Select the Access policies tab under Settings in the left pane.](./media/quickstart-classic-cluster-portal/key-vault-settings-access-policies.png)
 
 1. Toggle **Azure Virtual Machines for deployment** under **Enable access to:**.
 
@@ -109,18 +109,19 @@ In this quickstart, we use a Service Fabric managed cluster named **quickstartsf
 1. On the **Create a Service Fabric managed cluster** page, provide the following information:
     - `Subscription`: Choose your Azure subscription.
     - `Resource group`: Choose the resource group you created in the prerequisites or create a new one if you didn't already. For this quickstart, we use **ServiceFabricResources**.
-    - `Name`: Enter a unique name. For this quickstart, we use **quickstartsfcluster**.
-    - `Region`: Choose your preferred region from the dropdown menu.
-    - `SKU`: Toggle **Basic** for your SKU option.
+    - `Cluster name`: Enter a unique name. For this quickstart, we use **quickstartsfcluster**.
+    - `Location`: Choose your preferred region from the dropdown menu.
+    - `Operating system`: Choose **WindowsServer 2019-Datacenter-with-Containers** from the dropdown menu.
     - `Username`: Enter a username for your managed cluster's administrator account.
     - `Password`: Enter a password for your managed cluster's administrator account.
     - `Confirm password`: Reenter the password you chose.
-    - `Key vault and primary certificates`: Choose **Select a certificate**, pictured below. Select your Azure Key Vault from the **Key vault** dropdown menu and your certificate from the **Certificate** dropdown menu, pictured below.
+    - `Initial VM scale set capacity`: Adjust the slider to **3**. You will see a warning that choosing less than 5 for the initial VM scale set capacity will put your cluster on a reliability tier of bronze. Bronze tier is acceptable for the purposes of this quickstart but is not recommended for production workloads.
+    - `Key vault and primary certificate`: Choose **Select a certificate**, pictured below. Select your Azure Key Vault from the **Key vault** dropdown menu and your certificate from the **Certificate** dropdown menu, pictured below.
     - Leave the other options as their defaults.
 
-   ![Choose Select a certificate in the Authentication method section of the settings.](./media/quickstart-managed-cluster-portal/create-a-service-fabric-managed-cluster-authentication-method.png)
+   ![Choose Select a certificate in the Authentication method section of the settings.](./media/quickstart-classic-cluster-portal/create-a-service-fabric-managed-cluster-security.png)
 
-   ![Select your Azure Key Vault and certificate from the dropdown menus.](./media/quickstart-managed-cluster-portal/select-a-certificate-from-azure-key-vault.png)
+   ![Select your Azure Key Vault and certificate from the dropdown menus.](./media/quickstart-classic-cluster-portal/select-a-certificate-from-azure-key-vault.png)
 
    If you didn't already change your Azure Key Vault's access policies, you may get text prompting you to do so after you select your key vault and certificate. If so, choose **Edit access policies for yourkeyvaultname**, select **Click to show advanced access policies**, toggle **Azure Virtual Machines for deployment**, and save your changes.
 
@@ -136,7 +137,7 @@ Once the deployment completes, you're ready to view your new Service Fabric mana
 
 1. On your managed cluster's **Overview** page, find the **SF Explorer** link and select it.
 
-   ![Select the SF Explorer link on your managed cluster's Overview page.](./media/quickstart-managed-cluster-portal/service-fabric-explorer-address.png)
+   ![Select the SF Explorer link on your managed cluster's Overview page.](./media/quickstart-classic-cluster-portal/service-fabric-explorer-address.png)
 
 >[!NOTE]
 >You may get a warning that your connection to your cluster isn't private. Select **Advanced** and choose **continue to yourmanagedclusterfqdn (unsafe)**.
@@ -145,7 +146,7 @@ Once the deployment completes, you're ready to view your new Service Fabric mana
 
 1. You'll arrive at the Service Fabric Explorer display for your cluster, pictured below.
 
-   ![View your managed cluster's page in the Service Fabric Explorer.](./media/quickstart-managed-cluster-portal/service-fabric-explorer.png)
+   ![View your managed cluster's page in the Service Fabric Explorer.](./media/quickstart-classic-cluster-portal/service-fabric-explorer.png)
 
 Your Service Fabric managed cluster consists of three nodes. These nodes are WindowsServer 2019-Datacenter virtual machines with 2 vCPUs, 8 GiB of RAM, and four 256-GiB disks. These features are determined by the **Basic SKU** option and the default values in the **Primary node type** settings on the **Create a Service Fabric managed cluster** page.
 
