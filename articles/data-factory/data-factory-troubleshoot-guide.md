@@ -970,7 +970,7 @@ The following table applies to Azure Batch.
 
 If the HDI activity is stuck in preparing for cluster, follow the guidelines below:  
 
-1. Make sure the timeout is greater than what is described below, and wait for the execution to complete or until it is timed out.   
+1. Make sure the timeout is greater than what is described below and wait for the execution to complete or until it is timed out, and wait for Time To Live (TTL) time before submitting new jobs.  
 
     *The max default time that it takes to spin up a cluster is 2 hours, and if you have any init script, it will add up, up to another 2 hours.*
 
