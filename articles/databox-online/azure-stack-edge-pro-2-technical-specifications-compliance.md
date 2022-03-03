@@ -25,8 +25,8 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
 | Memory type     | Model 64G2T: 64 GB |
-| Memory: raw   | Model 64G2T: 128 GB RAM (2 x 64 GB) |
-| Memory: usable | Model 64G2T: 102 GB RAM                                                                  |
+| Memory: raw   | Model 64G2T: 64 GB RAM |
+| Memory: usable | Model 64G2T: 51 GB RAM |
 
 ## Power supply unit specifications
 
