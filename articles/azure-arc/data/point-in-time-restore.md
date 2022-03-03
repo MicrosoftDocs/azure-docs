@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 11/03/2021
+ms.date: 03/01/2022
 ms.topic: how-to
 ---
 
@@ -60,7 +60,7 @@ Currently, full backups are taken once a week, differential backups are taken ev
 The default retention period for a new Azure Arc-enabled SQL managed instance is seven days, and can be adjusted with values of 0, or 1-35 days. The retention period can be set during deployment of  the SQL managed instance by specifying the `--retention-days` property. Backup files older than the configured retention period are automatically deleted.
 
 
-## Create a database from a point in time using az
+## Create a database from a point in time using az CLI
 
 ```azurecli
 az sql midb-arc restore --managed-instance <SQL managed instance> --name <source DB name> --dest-name <Name for new db> --k8s-namespace <namespace of managed instance> --time "YYYY-MM-DDTHH:MM:SSZ" --use-k8s
@@ -75,6 +75,56 @@ az sql midb-arc restore --managed-instance <SQL managed instance> --name <source
 #Example
 az sql midb-arc restore --managed-instance sqlmi1 --name Testdb1 --dest-name mynewdb --k8s-namespace arc --time "2021-10-29T01:42:14.00Z" --use-k8s --dry-run
 ```
+
+## Create a database from a point in time using kubectl
+
+(1) To perform a point-in time restore kube-native way using kubectl, a task spec yaml file needs to be created as follows:
+
+```bash
+apiVersion: tasks.sql.arcdata.microsoft.com/v1
+kind: SqlManagedInstanceRestoreTask                 
+metadata:                                       
+  name: myrestoretask20220304
+  namespace: test                              
+spec:                                           
+  source:                                       
+    name: miarc1                                
+    database: testdb                            
+  restorePoint: "2021-10-12T18:35:33Z"          
+  destination:                                  
+    name: miarc1                           
+    database: testdb-pitr
+  dryRun: false  
+```
+Edit the properties as follows:
+
+name: Unique string for each Custom Resource (CR) which is a requirement from kubernetes
+
+namespace: Namespace where the Azure Arc enabled SQL managed instance is created
+
+source > name: Name of the source Arc SQL managed instance 
+
+source > database: Name of source database where the restore would be applied from
+
+restorePoint: Point in time for the restore operation in UTC datetime
+
+destination > name: Name of the destination Arc SQL managed instance. Today Point in time restore is only supported within the Arc SQL managed instance. This should be same as the source SQL managed instance.
+
+destination > database: Name of the new database where the restore would be applied to. 
+
+(2) Create a task to trigger the Point in time restore
+
+```
+kubectl apply -f myrestoretask20220304.yaml
+```
+
+(3) Check restore task status as follows:
+```
+kubectl get sqlmirestoretask -n <namespace>
+```
+Restore task status will be updated about every 10 seconds based on the PITR progress. The status would progress from Waiting to Restoring to Completed/Failed.
+
+
 
 
 ## Create a database from a point in time using Azure Data Studio
