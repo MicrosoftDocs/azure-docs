@@ -69,7 +69,7 @@ az acr create \
 
 In the command output, note the `zoneRedundancy` property for the registry. When enabled, the registry is zone redundant, and ORAS Artifact enabled:
 
-```json
+```output
 {
   [...]
   "zoneRedundancy": "Enabled",

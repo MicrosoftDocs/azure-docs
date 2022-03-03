@@ -149,7 +149,7 @@ az keyvault key create \
 
 In the command output, take note of the key's ID, `kid`. You use this ID in the next step:
 
-```json
+```output
 [...]
   "key": {
     "crv": null,
@@ -315,7 +315,7 @@ You can also use a Resource Manager template to create a registry and enable enc
 
 The following template creates a new container registry and a user-assigned managed identity. Copy the following contents to a new file and save it using a filename such as `CMKtemplate.json`.
 
-```JSON
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
