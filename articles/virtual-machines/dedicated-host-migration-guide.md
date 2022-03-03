@@ -48,7 +48,7 @@ Please note that both Dedicated Host SKUs will not be impacted by the 1 March, 2
 
 ## Migration steps
 
-To migrate your workloads to avoid Dedicated Host SKU retirement, please go through the following steps:
+To migrate your workloads to avoid Dedicated Host SKU retirement, please go through the following steps for VMs:
 
 1.	Choose a target Dedicated Host SKU to migrate to. 
 2.	Ensure you have quota for the VM family associated with the target Dedicated Host SKU in your given region.
@@ -60,9 +60,9 @@ To migrate your workloads to avoid Dedicated Host SKU retirement, please go thro
 
 More detailed instructions can be found in the following sections.
 
-### Get quota for the target VM family
+### Ensure quota for the target VM family
 
-Follow this guide to [request an increase in vCPU quota](../azure-portal/supportability/per-vm-quota-requests.md) for your target VM family in your target region. Select the Dsv3-series or Esv3-series as the VM family, depending on the target Dedicated Host SKU.
+Be sure that you have enough vCPU quota for the VM family of the Dedicated Host SKU that you will be using. If you need quota, follow this guide to [request an increase in vCPU quota](../azure-portal/supportability/per-vm-quota-requests.md) for your target VM family in your target region. Select the Dsv3-series or Esv3-series as the VM family, depending on the target Dedicated Host SKU.
 
 ### Create a new Dedicated Host
 
@@ -86,6 +86,8 @@ On Azure portal, please go through the following steps:
 2.	On the top navigation bar, click “Stop”.
 
 #### Reassign the VM(s) to the target Dedicated Host
+
+Skip this step for automatically placed VMs.
 
 Once the target Dedicated Host has been created and the VM has been stopped, [reassign the VM to the target Dedicated Host](dedicated-hosts-how-to.md#add-an-existing-vm).
 
