@@ -57,13 +57,26 @@ Use the following steps to tag your data
 
 6. Start tagging your files.
 
-    * **Single label classification**: your file can only be tagged with one class, you can do so by checking one of the radio buttons next to the class you want to tag this file with.
+*Section 1*: is where the content of the text file is displayed.
 
-      :::image type="content" source="../media/tag-single.png" alt-text="A screenshot showing the single label classification menu" lightbox="../media/tag-single.png":::
+*Section 2*: includes your project's classes and distribution across your files and tags. 
 
-    * **Multiple label classification**: your file can be tagged with multiple classes, you can do so by checking all applicable check boxes next to the classes you want to tag this file with.
+* **Single label classification**: your file can only be tagged with one class; you can do so by checking one of the radio buttons next to the class you want to tag this file with.
+      :::image type="content" source="../media/single.png" alt-text="A screenshot showing the single label classification tag page" lightbox="../media/single.png":::
 
-      :::image type="content" source="../media/tag-multi.png" alt-text="A screenshot showing the multiple label classification menu" lightbox="../media/tag-multi.png":::
+* **Multiple label classification**: your file can be tagged with multiple classes, you can do so by checking all applicable check boxes next to the classes you want to tag this file with.
+   :::image type="content" source="../media/mulitiple.png" alt-text="A screenshot showing the multiple label classification tag page" lightbox="../media/multiple.png":::
+
+For distribution section, you can **View class distribution across** Training and Testing sets.
+   
+      :::image type="content" source="../media/distribution.png" alt-text="A screenshot showing the distribution options" lightbox="../media/distribution.png":::
+
+*Section 3* is the split project data toggle. You can choose to add the selected text file to your training set or the testing set. By default, the toggle is off, and all text files are added to your training set.     
+
+To add a text file to a training or testing set, simply choose from the radio buttons to which set it belongs.
+
+> [!TIP]
+> It is recommended to define your testing set.
 
 While tagging, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on Save tags button at the top of the page.
 
