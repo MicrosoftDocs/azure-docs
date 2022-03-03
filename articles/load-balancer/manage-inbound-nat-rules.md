@@ -20,9 +20,9 @@ An inbound NAT rule is used to forward traffic from a port of the load balancer 
 
 - A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 
-## Create an inbound NAT rule
-
 # [**Portal**](#tab/inbound-nat-rule-portal)
+
+## Create an inbound NAT rule
 
 In this example you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. A standard public load balancer is used for the example.
 
@@ -57,9 +57,9 @@ In this example you'll create an inbound NAT rule to forward a range of ports st
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-## Remove an inbound NAT rule
-
 # [**Portal**](#tab/inbound-nat-rule-portal)
+
+## Remove an inbound NAT rule
 
 In this example, you'll remove an inbound NAT rule.
 
