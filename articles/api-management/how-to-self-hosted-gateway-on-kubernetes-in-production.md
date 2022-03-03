@@ -32,6 +32,10 @@ The minimum number of replicas suitable for production is two.
 
 By default, a self-hosted gateway is deployed with a **RollingUpdate** deployment [strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy). Review the default values and consider explicitly setting the [maxUnavailable](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#max-unavailable) and [maxSurge](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#max-surge) fields, especially when you're using a high replica count.
 
+## Autoscaling
+
+While we provide [guidance on the minimum number of replicas](#number-of-replicas) for the self-hosted gateway, we recommend that you use autoscaling to meet demand of your traffic more proactively.
+
 ## Container resources
 By default, the YAML file provided in the Azure portal doesn't specify container resource requests.
 
