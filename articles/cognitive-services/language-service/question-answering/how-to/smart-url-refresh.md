@@ -54,20 +54,19 @@ The prompts P1 and P2 of the old QnA pair are different from prompts P3 and P4 o
 
 |Question  |Answer  |Prompts  |
 |---------|---------|--|
-|"What is the new HR policy?" </br>\[alternate question: "What is the new payroll policy?"\]    |  "You may have to choose among the following options:"       | P3, P4  |
+|"What is the new HR policy?" </br>alternate question: "What is the new payroll policy?"    |  "You may have to choose among the following options:"       | P3, P4  |
 
 
 ## Duplicate answer scenario
 
 When the original source has two or more QnA pairs with the same answer (as in, Q1A1 and Q2A1), the merge behavior may be more complex.
 
-If these QnA pairs have individual prompts P1 and P2 attached to them (for example, Q1A1+P1 and Q2A1+P2) and the refreshed source content has a new QnA pair generated with the same answer A1 and a new prompt P3 (Q1'A1+P3), then
+If these QnA pairs have individual prompts P1 and P2 attached to them (for example, Q1A1+P1 and Q2A1+P2) and the refreshed source content has a new QnA pair generated with the same answer A1 and a new prompt P3 (Q1'A1+P3), then, after refreshing the source, the knowledge base status will look like the following:
 
-Then after refreshing the source, the knowledge base status will look like the following:
 Q1 (Q1' as alternate question) A1+P3    
 Q2 (Q1' as alternate question) A1+P3
 
-The questions are merged and all of the attached prompts are overwritten.
+The question is merged into both of the original pairs, and all of the attached prompts are overwritten.
 
 ## Refresh URLs using the REST API
 
@@ -76,4 +75,4 @@ You can use the **[Update Sources](https://docs.microsoft.com/rest/api/cognitive
 ## Next steps
 
 * [Question answering quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=studio)
-* [Update Sources API reference]((https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects/update-sources))
+* [Update Sources API reference](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects/update-sources)
