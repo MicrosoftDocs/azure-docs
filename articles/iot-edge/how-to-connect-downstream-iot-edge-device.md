@@ -4,7 +4,7 @@ description: How to configure an IoT Edge device to connect to Azure IoT Edge ga
 author: kgremban
 
 ms.author: kgremban
-ms.date: 01/09/2022
+ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -158,6 +158,10 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
    Be consistent with the hostname pattern across a gateway hierarchy. Use either FQDNs or IP addresses, but not both.
 
 1. *If this device is a child device*, find the **Parent hostname** section. Uncomment and update the `parent_hostname` parameter to be the FQDN or IP address of the parent device, matching whatever was provided as the hostname in the parent device's config file.
+
+   ```toml
+  parent_hostname = "my-parent-device"
+   ```
 
 1. Find the **Trust bundle cert** section. Uncomment and update the `trust_bundle_cert` parameter with the file URI to the root CA certificate on your device.
 

@@ -435,6 +435,8 @@ items:
         href: logs/tutorial-custom-logs.md
       - name: Tutorial (API)
         href: logs/tutorial-custom-logs-api.md
+      - name: Migrate from Data Collector API
+        href: logs/custom-logs-migrate.md
       - name: Data collector API 
         items:
         - name: Overview

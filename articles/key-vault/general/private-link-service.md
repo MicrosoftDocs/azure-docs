@@ -250,7 +250,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 ## Limitations and Design Considerations
 
 > [!NOTE]
-> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please send an email to akv-privatelink@microsoft.com. We will approve these requests on a case by case basis.
+> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please send an email to azurekeyvault@microsoft.com. We will approve these requests on a case by case basis.
 
 **Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
