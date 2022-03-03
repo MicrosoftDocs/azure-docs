@@ -47,7 +47,7 @@ Ledger provides a solution for these networks. Participants can verify the integ
 
 ### Trusted off-chain storage for blockchain
 
-When a blockchain network is necessary for a multiple-party business process, the ability query the data on the blockchain without sacrificing performance is a challenge. 
+When a blockchain network is necessary for a multiple-party business process, the ability to query the data on the blockchain without sacrificing performance is a challenge. 
 
 Typical patterns for solving this problem involve replicating data from the blockchain to an off-chain store, such as a database. But after the data is replicated to the database from the blockchain, the data integrity guarantees that a blockchain offer is lost. Ledger provides data integrity for off-chain storage of blockchain networks, which helps ensure complete data trust through the entire system.
 

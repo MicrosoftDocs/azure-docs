@@ -114,7 +114,7 @@ webdispatcher_server_count=0
 
 ## Deploying the SAP system
    
-The sample SAP System configuration file `DEV-WEEU-SAP01-X01.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X01` folder.
+The sample SAP System configuration file `DEV-WEEU-SAP01-X01.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X01` folder.
 
 Running the command below will deploy the SAP System.
 

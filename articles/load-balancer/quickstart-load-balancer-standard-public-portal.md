@@ -207,6 +207,10 @@ During the creation of the load balancer, you'll configure:
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
+<<<<<<< HEAD
+=======
+    | Backend pool | Select **myBackendPool**. |
+>>>>>>> 50c5f7fcc0af0abb0eaeafcc07f1a23a33ab9098
     | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
