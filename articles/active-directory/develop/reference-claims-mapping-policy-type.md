@@ -299,6 +299,19 @@ The ID element identifies which property on the source provides the value for th
 | User | employeeid | Employee ID |
 | User | facsimiletelephonenumber | Facsimile Telephone Number |
 | User | assignedroles | list of App roles assigned to user|
+| User | accountEnabled
+| User | consentprovidedforminor
+| User | createddatetime
+| User | creationtype
+| User | lastpasswordchangedatetime
+| User | mobilephone
+| User | officelocation
+| User | onpremisesdomainname
+| User | onpremisesimmutableid
+| User | onpremisessyncenabled
+| User | preferreddatalocation
+| User | proxyaddresses
+| User | usertype
 | application, resource, audience | displayname | Display Name |
 | application, resource, audience | objectid | ObjectID |
 | application, resource, audience | tags | Service Principal Tag |
