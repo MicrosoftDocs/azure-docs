@@ -191,17 +191,17 @@ The settings below can be used to modify other Operating System settings.
 
 ### Message of the Day
 
-Pass the ```--message-of-the-day``` flag with a Base64 encoded string to modify the Message of the Day on Linux nodes at cluster  creation or node pool creation.
+Pass the ```--message-of-the-day``` flag with the location of the file to replace the Message of the Day on Linux nodes at cluster  creation or node pool creation.
 
 
 #### Cluster creation
 ```azurecli
-az aks create --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day V2VsY29tZSB0byBBS1M=
+az aks create --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
 ```
 
 #### Nodepool creation
 ```azurecli
-az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day V2VsY29tZSB0byBBS1M=
+az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
 ```
 
 
