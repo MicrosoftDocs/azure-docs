@@ -254,13 +254,15 @@
   items:
     - name: Supported languages
       href: supported-languages.md
-    - name: C# (class library)
-      href: functions-dotnet-class-library.md
-    - name: C# (isolated process)
-      displayName: .NET isolated, .NET 5
-      href: dotnet-isolated-process-guide.md
-    - name: C# script (.csx)
-      href: functions-reference-csharp.md
+    - name: C#
+      items: 
+        - name: In-process
+          href: functions-dotnet-class-library.md
+        - name: Isolated process 
+          displayName: .NET isolated, .NET 5
+          href: dotnet-isolated-process-guide.md
+        - name: Script (.csx)
+          href: functions-reference-csharp.md
     - name: F#
       href: functions-reference-fsharp.md
     - name: JavaScript
