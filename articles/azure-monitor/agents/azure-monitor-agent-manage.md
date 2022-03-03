@@ -51,9 +51,11 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
 - [Managed system identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) must be enabled on Azure virtual machines. This is not required for Azure Arc-enabled servers. The system identity will be enabled automatically if the agent is installed via [creating and assigning a data collection rule using the Azure portal](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal).
 - The [AzureResourceManager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine.
 - The virtual machine must have access to the following HTTPS endpoints:
-  - *.ods.opinsights.azure.com
-  - *.ingest.monitor.azure.com
-  - *.control.monitor.azure.com
+  -	global.handler.control.monitor.azure.com
+  -	<virtual-machine-region-name>.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
+  -	<log-analytics-workspace-id>.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opsinsights.azure.com)  
+    (If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
+
 
 > [!NOTE]
 > This article only pertains to agent installation or management. After you install the agent, you must review the next article to [configure data collection rules and associate them with the machines](./data-collection-rule-azure-monitor-agent.md) with agents installed.  
