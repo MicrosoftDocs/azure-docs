@@ -16,7 +16,7 @@ ms.date: 03/02/2022
 This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account. More specifically, you create a [Consumption plan-based](logic-apps-pricing.md#consumption-pricing) logic app resource and workflow that uses the RSS connector and the Office 365 Outlook connector. This resource runs in [*multi-tenant* Azure Logic Apps](logic-apps-overview.md).
 
 > [!NOTE]
-> To create a workflow in a [Standard logic app resource that runs in *single-tenant* Azure Logic Apps], review 
+> To create a workflow in a Standard logic app resource that runs in *single-tenant* Azure Logic Apps, review 
 > [Create an integration workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md). 
 > For more information about multi-tenant versus single-tenant Azure Logic Apps, review 
 > [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
