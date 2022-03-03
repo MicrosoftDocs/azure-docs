@@ -88,10 +88,5 @@ For more information about the differences between custom images and formulas, s
 
 In DevTest Labs, an environment is a collection of Azure platform-as-a-service (PaaS) resources, such as an Azure Web App or a SharePoint farm. You can create environments in labs by using ARM templates. For more information, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md). For more information about ARM template structure and properties, see [Template format](../azure-resource-manager/templates/syntax.md#template-format).
 
-## Next steps
-
-- [What is Azure DevTest Labs?](devtest-lab-overview.md)
-- [DevTest Labs FAQ](devtest-lab-faq.yml)
-
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
