@@ -23,7 +23,7 @@ For more information about App Configuration, see
 
 * An Azure App Configuration store  - if you don't have a store, you can follow the steps provided below to create one.
 
-* You will need to have write/create permission on the App Configuration store. A contributor role will give you the right access.
+* You'll need to have write/create permission on the App Configuration store. A contributor role will give you the right access.
 
 ## Create a new App Configuration store
 
@@ -42,7 +42,7 @@ To create a new App Configuration store in the  Azure portal, follow these steps
     |---|---|---|
     | **Subscription** | Your subscription | Select the Azure subscription for your store |
     | **Resource group** | Your resource group | Select the Azure resource group for your store |
-    | **Resource name** | Globally unique name | Enter a unique resource name to use for the App Configuration store. This name cannot be the same name as the previous configuration store. |
+    | **Resource name** | Globally unique name | Enter a unique resource name to use for the App Configuration store. This name can't be the same name as the previous configuration store. |
     | **Location** | Your desired Location | Select the region you want to create your configuration store in. |
     | **Pricing tier** | *Standard* | Select the standard pricing tier. For more information, see the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration). |
     | **Days to retain deleted stores** | Retention period for soft deleted stores | Select the number of days for which you would want the soft deleted stores and their content to be retained. |
@@ -71,7 +71,7 @@ For more information about soft delete, see [Azure App Configuration Soft Delete
 1. Select your standard tier App Configuration store.
 1. Refer to the screenshot below on where to check for the soft delete status of an existing store.
 :::image type="content" source="./media/HowtosoftdeleteAppConfig_1.png" alt-text="In Overview, Soft-delete is highlighted.":::
-1. Click on the `Enabled` value of Soft Delete. This will redirect you to the **properties** of your store. At the bottom of the page you can review the information related to soft delete. The Retention period is shown as "Days to retain deleted stores". You cannot change this value once it is set. The Purge protection check box shows whether purge protection is enabled for this particular store or not. Once enabled, purge protection cannot be disabled.
+1. Click on the `Enabled` value of Soft Delete. You will be redirected to the **properties** of your store. At the bottom of the page, you can review the information related to soft delete. The Retention period is shown as "Days to retain deleted stores". You can't change this value once it's set. The Purge protection check box shows whether purge protection is enabled for this particular store or not. Once enabled, purge protection can't be disabled.
 :::image type="content" source="./media/HowtosoftdeleteAppConfig_2.png" alt-text="In Properties, Soft delete, Days to retain are highlighted.":::
 
 ### [Azure CLI](#tab/CLI)
@@ -90,11 +90,11 @@ For more information about soft delete, see [Azure App Configuration Soft Delete
 1. At the top of the screen, click the option to **Manage deleted stores**. A context pane will open on the right side of your screen.
     :::image type="content" source="./media/HowtosoftdeleteAppConfig_4.png" alt-text="On App Configuration stores, the Manage deleted stores option is highlighted.":::
 1. Select your subscription from the drop box. If you've deleted one or more App Configuration Stores with the option of soft delete enabled, these stores will appear in the context pane on the right. If there are too many deleted stores, you can click "Load More" at the bottom of the context pane to get the results.
-    :::image type="content" source="./media/HowtosoftdeleteAppConfig_5.png" alt-text="On Manage deleted stores, one store is highlighted and selected, and the Recover button is highlighted.":::
+    :::image type="content" source="./media/HowtosoftdeleteAppConfig_5.png" alt-text="On Manage deleted stores panel, list of deleted stores is shown.":::
 1. Once you find the store that you wish to recover or purge, select the checkbox next to it. You can select multiple stores
 1. Select the **Recover** option at the bottom of the context pane if you would like to recover the store.
 1. Select the **Purge** option if you would like to permanently delete the store. You won't be able to purge a store with purge protection enabled.
-    :::image type="content" source="./media/HowtosoftdeleteAppConfig_6.png" alt-text="On Manage deleted stores, one store is highlighted and selected, and the Recover button is highlighted.":::
+    :::image type="content" source="./media/HowtosoftdeleteAppConfig_6.png" alt-text="On Manage deleted stores panel, one store is selected, and the Recover button is highlighted.":::
 
 ### [Azure CLI](#tab/CLI)
 
@@ -102,7 +102,7 @@ For more information about soft delete, see [Azure App Configuration Soft Delete
 
 ---
 
-Note when recovering stores that use customer managed keys there are additional steps that need to be performed to access the recovered data. This is because the recovered store will no longer have a managed identity assigned that has access to the customer managed key. A new managed identity should be assigned to the store and the customer managed key settings should be reconfigured to use the newly assigned identity. When updating the managed key settings to use the newly assigned identity, ensure to continue using the same managed key. Refer to [doc](./concept-customer-managed-keys.md) on how to configure customer managed key encryption.
+Note when recovering stores that use customer managed keys there are extra steps that need to be performed to access the recovered data. This is because the recovered store will no longer have a managed identity assigned that has access to the customer managed key. A new managed identity should be assigned to the store and the customer managed key settings should be reconfigured to use the newly assigned identity. When updating the managed key settings to use the newly assigned identity, ensure to continue using the same managed key. Refer to [doc](./concept-customer-managed-keys.md) on how to configure customer managed key encryption.
 
 ## Next steps
 > [!div class="nextstepaction"]
