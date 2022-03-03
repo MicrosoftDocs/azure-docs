@@ -127,7 +127,7 @@ In this quickstart, we use a Service Fabric cluster named **quickstartsfcluster*
 
 1. Select **Review + create** and, once the validation passes, choose **Create**.
 
-Now, your cluster's deployment is in progress. The deployment will likely take around 20 minutes to complete.
+Now, your cluster's deployment is in progress. The deployment will likely take around five minutes to complete.
 
 ## Validate the deployment
 
