@@ -73,7 +73,7 @@ The Azure Stack Edge Pro 2 solution consists of Azure Stack Edge resource, Azure
 
 ## Region availability
 
-The Azure Stack Edge Pro GPU physical device, Azure resource, and target storage account to which you transfer data don’t all have to be in the same region.
+The Azure Stack Edge Pro 2 physical device, Azure resource, and target storage account to which you transfer data don’t all have to be in the same region.
 
 - **Resource availability** - For this release, the resource is available in East US, West EU, and South East Asia regions.
 
