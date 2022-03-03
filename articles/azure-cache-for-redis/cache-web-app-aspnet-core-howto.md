@@ -106,7 +106,6 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 
 2. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group, in the results list, select **...**, and then select **Delete resource group**.
 
-    
    :::image type="content" source="media/cache-web-app-howto/cache-delete-resource-group.png" alt-text="Delete":::
 
 You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.

@@ -75,7 +75,7 @@ var builder = new ConfigurationBuilder()
 var configuration = builder.Build();
 ```
 
-## Connnect to the cache with RedisConnection
+## Connect to the cache with RedisConnection
 
 The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from `Program.cs`:
 
@@ -86,7 +86,7 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 
 The value of the *CacheConnection* secret is accessed using the Secret Manager configuration provider and is used as the password parameter
 
-You must have this statement in your code to use the `RedisConnection` class. .
+You must add the `StackExchange.Redis` namespace with the `using` keyword in your code as seen in `RedisConnection.cs` before you use the `RedisConnection` class. This references the `StackExchange.Redis` namespace from package that you previously installed.
 
 ```csharp
 using StackExchange.Redis;
@@ -123,13 +123,7 @@ In `Program.cs`, see the following code for the `Main` procedure of the `Program
       getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
       Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
 
-      // Store serialized object to cache
-      Employee e007 = new Employee("007", "Davide Columbo", 100);
-      stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync("e007", JsonSerializer.Serialize(e007)));
-      Console.WriteLine($"{Environment.NewLine}{prefix}: Cache response from storing serialized Employee object: {stringSetResult}");
 ```
-
-Save *Program.cs*.
 
 Azure Cache for Redis has a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
 
@@ -180,17 +174,18 @@ class Employee
 At the bottom of `Main()` procedure in *Program.cs*, and before the call to `CloseConnection()`, see the following lines of code that cache and retrieve a serialized .NET object:
 <!-- Replace with lines 78-89 of Program.cs -->
 ```csharp
-  Employee e007 = new Employee("007", "Davide Columbo", 100);
-  stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync("e007", JsonSerializer.Serialize(e007)));
-  Console.WriteLine($"{Environment.NewLine}{prefix}: Cache response from storing serialized Employee object: {stringSetResult}");
+    // Store serialized object to cache
+    Employee e007 = new Employee("007", "Davide Columbo", 100);
+    stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync("e007", JsonSerializer.Serialize(e007)));
+    Console.WriteLine($"{Environment.NewLine}{prefix}: Cache response from storing serialized Employee object: {stringSetResult}");
 
-  // Retrieve serialized object from cache
-  getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync("e007"));
-  Employee e007FromCache = JsonSerializer.Deserialize<Employee>(getMessageResult.ToString());
-  Console.WriteLine($"{prefix}: Deserialized Employee .NET object:{Environment.NewLine}");
-  Console.WriteLine($"{prefix}: Employee.Name : {e007FromCache.Name}");
-  Console.WriteLine($"{prefix}: Employee.Id   : {e007FromCache.Id}");
-  Console.WriteLine($"{prefix}: Employee.Age  : {e007FromCache.Age}{Environment.NewLine}");
+    // Retrieve serialized object from cache
+    getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync("e007"));
+    Employee e007FromCache = JsonSerializer.Deserialize<Employee>(getMessageResult.ToString());
+    Console.WriteLine($"{prefix}: Deserialized Employee .NET object:{Environment.NewLine}");
+    Console.WriteLine($"{prefix}: Employee.Name : {e007FromCache.Name}");
+    Console.WriteLine($"{prefix}: Employee.Id   : {e007FromCache.Id}");
+    Console.WriteLine($"{prefix}: Employee.Age  : {e007FromCache.Age}{Environment.NewLine}");
 ```
 
 Save *Program.cs* and rebuild the app with the following command:

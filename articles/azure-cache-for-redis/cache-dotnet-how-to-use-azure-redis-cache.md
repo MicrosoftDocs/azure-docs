@@ -74,7 +74,7 @@ In Visual Studio, open your *App.config* file and update it to include an `appSe
 
 Never store credentials in source code. To keep this sample simple, we use an external secrets config file. A better approach would be to use [Azure Key Vault with certificates](/rest/api/keyvault/certificate-scenarios).
 
-## Connnect to the cache with RedisConnection
+## Connect to the cache with RedisConnection
 
 The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from `Program.cs`:
 
@@ -86,7 +86,7 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 
 The value of the *CacheConnection* appSetting is used to reference the cache connection string from the Azure portal as the password parameter.
 
-You must have this statement in your code to use the `ConnectionMultiplexer` as seen in `RedisConnection.cs` to use the `RedisConnection` class.  
+You must add the `StackExchange.Redis` namespace with the `using` keyword in your code as seen in `RedisConnection.cs` before you use the `RedisConnection` class. This references the `StackExchange.Redis` namespace from package that you previously installed.
 
 ```csharp
 using StackExchange.Redis;
@@ -101,42 +101,23 @@ The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstrac
 Add the following code for the `Main` procedure of the `Program` class for your console application:
 
 ```csharp
-        private static async Task RunRedisCommandsAsync(string prefix)
-        {
-            // Simple PING command
-            Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: PING");
-            RedisResult pingResult = await _redisConnection.BasicRetryAsync(async (db) => await db.ExecuteAsync("PING"));
-            Console.WriteLine($"{prefix}: Cache response: {pingResult}");
+    // Simple get and put of integral data types into the cache
+    string key = "Message";
+    string value = "Hello! The cache is working from a .NET console app!";
 
-            // Simple get and put of integral data types into the cache
-            string key = "Message";
-            string value = "Hello! The cache is working from a .NET console app!";
+    Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
+    RedisValue getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
+    Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
 
-            Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
-            RedisValue getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
-            Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
+    Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: SET {key} \"{value}\" via StringSetAsync()");
+    bool stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync(key, value));
+    Console.WriteLine($"{prefix}: Cache response: {stringSetResult}");
 
-            Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: SET {key} \"{value}\" via StringSetAsync()");
-            bool stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync(key, value));
-            Console.WriteLine($"{prefix}: Cache response: {stringSetResult}");
+    Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
+    getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
+    Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
 
-            Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
-            getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
-            Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
 
-            // Store serialized object to cache
-            Employee e007 = new Employee("007", "Davide Columbo", 100);
-            stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync("e007", JsonSerializer.Serialize(e007)));
-            Console.WriteLine($"{Environment.NewLine}{prefix}: Cache response from storing serialized Employee object: {stringSetResult}");
-
-            // Retrieve serialized object from cache
-            getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync("e007"));
-            Employee e007FromCache = JsonSerializer.Deserialize<Employee>(getMessageResult);
-            Console.WriteLine($"{prefix}: Deserialized Employee .NET object:{Environment.NewLine}");
-            Console.WriteLine($"{prefix}: Employee.Name : {e007FromCache.Name}");
-            Console.WriteLine($"{prefix}: Employee.Id   : {e007FromCache.Id}");
-            Console.WriteLine($"{prefix}: Employee.Age  : {e007FromCache.Age}{Environment.NewLine}");
-        }
 ```
 
 Azure Cache for Redis has a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
@@ -190,17 +171,18 @@ class Employee
 At the bottom of `Main()` procedure in *Program.cs*, and before the call to `CloseConnection()`, see the following lines of code to cache and retrieve a serialized .NET object:
 
 ```csharp
-    // Store .NET object to cache
+    // Store serialized object to cache
     Employee e007 = new Employee("007", "Davide Columbo", 100);
-    Console.WriteLine("Cache response from storing Employee .NET object : " + 
-    cache.StringSet("e007", JsonConvert.SerializeObject(e007)));
+    stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync("e007", JsonSerializer.Serialize(e007)));
+    Console.WriteLine($"{Environment.NewLine}{prefix}: Cache response from storing serialized Employee object: {stringSetResult}");
 
-    // Retrieve .NET object from cache
-    Employee e007FromCache = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e007"));
-    Console.WriteLine("Deserialized Employee .NET object :\n");
-    Console.WriteLine("\tEmployee.Name : " + e007FromCache.Name);
-    Console.WriteLine("\tEmployee.Id   : " + e007FromCache.Id);
-    Console.WriteLine("\tEmployee.Age  : " + e007FromCache.Age + "\n");
+    // Retrieve serialized object from cache
+    getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync("e007"));
+    Employee e007FromCache = JsonSerializer.Deserialize<Employee>(getMessageResult.ToString());
+    Console.WriteLine($"{prefix}: Deserialized Employee .NET object:{Environment.NewLine}");
+    Console.WriteLine($"{prefix}: Employee.Name : {e007FromCache.Name}");
+    Console.WriteLine($"{prefix}: Employee.Id   : {e007FromCache.Id}");
+    Console.WriteLine($"{prefix}: Employee.Age  : {e007FromCache.Age}{Environment.NewLine}");
 ```
 
 Press **Ctrl+F5** to build and run the console app to test serialization of .NET objects.
