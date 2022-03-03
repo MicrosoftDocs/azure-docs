@@ -163,6 +163,14 @@ items:
       href: app/pricing.md
     - name: Log data usage and costs
       href: logs/manage-cost-storage.md
+    - name: Pricing model
+      href: logs/cost-pricing-model.md
+    - name: View bill
+      href: logs/cost-view-bill.md
+    - name: Daily cap
+      href: logs/cost-daily-cap.md
+    - name: Analyze usage
+      href: logs/cost-analyze-usage.md    
   - name: Data security
     items:
     - name: Roles permissions and security
