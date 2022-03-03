@@ -2,7 +2,7 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 03/01/2022
+ms.date: 03/03/2022
 ---
 # Security alerts - a reference guide
 
