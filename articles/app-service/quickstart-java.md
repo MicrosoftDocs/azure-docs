@@ -7,9 +7,9 @@ author: jasonfreeberg
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 08/01/2020
+ms.date: 03/03/2022
 ms.author: jafreebe
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devdivchpfy22
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -67,7 +67,7 @@ cd helloworld
 
 ::: zone pivot="platform-windows"
 
-JBoss EAP is only available on the Linux version of App Service. Please select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
 
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -90,7 +90,7 @@ cd agoncal-application-petstore-ee7
 
 ## Configure the Maven plugin
 
-The deployment process to Azure App Service will use your Azure credentials from the Azure CLI automatically. If the Azure CLI is not installed locally, then the Maven plugin will authenticate with Oauth or device login. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+The deployment process to Azure App Service will use your Azure credentials from the Azure CLI automatically. If the Azure CLI isn't installed locally, then the Maven plugin will authenticate with Oauth or device sign in. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
@@ -167,7 +167,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
 
 # [JBoss EAP](#tab/jbosseap)
 
-JBoss EAP is only available on the Linux version of App Service. Please select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
 
 ---
 
@@ -281,7 +281,7 @@ Property | Required | Description | Version
 `<runtime>` | false | The runtime environment configuration, you could see the detail [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | false | The deployment configuration, you could see the details [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 
-Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they will be used later.
+Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they'll be used later.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
@@ -318,7 +318,7 @@ In the preceding steps, you created Azure resources in a resource group. If you 
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
 ```
 
-This command may take a minute to run.
+This command might take a minute to run.
 
 ## Next steps
 
