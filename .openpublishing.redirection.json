@@ -2385,8 +2385,13 @@
     },
     {
       "source_path_from_root": "/articles/aks/aks-ssh.md",
-      "redirect_url": "/azure/aks/ssh",
+      "redirect_url": "/azure/aks/node-access",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/aks/ssh.md",
+      "redirect_url": "/azure/aks/node-access",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/aks/windows-node-limitations.md",
@@ -2512,6 +2517,11 @@
       "source_path_from_root": "/articles/machine-learning/classic/migrate-execute-r-script.md",
       "redirect_url": "/azure/machine-learning/migrate-execute-r-script",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-search-cross-workspace.md",
+      "redirect_url": "/azure/machine-learning/how-to-manage-workspace",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/resource-known-issues.md",
@@ -19853,6 +19863,11 @@
       "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-custom-docker-image.md",
       "redirect_url": "/azure/machine-learning/how-to-deploy-custom-docker-image",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/service/tutorial-labeling.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-image-labeling-projects",
+      "redirect_document_id": "false"
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-existing-model.md",

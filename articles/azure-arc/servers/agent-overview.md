@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 02/28/2022
+ms.date: 03/03/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -97,7 +97,7 @@ The following versions of the Windows and Linux operating system are officially 
 * SUSE Linux Enterprise Server (SLES) 12 and 15 (x64)
 * Red Hat Enterprise Linux (RHEL) 7 and 8 (x64)
 * Amazon Linux 2 (x64)
-* Oracle Linux 7 (x64)
+* Oracle Linux 7 and 8 (x64)
 
 > [!WARNING]
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
@@ -223,9 +223,6 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 | At scale | [Connect machines with a Configuration Manager custom task sequence](onboard-configuration-manager-custom-task.md)
 | At scale | [Connect machines from Automation Update Management](onboard-update-management-machines.md) to create a service principal that installs and configures the agent for multiple machines managed with Azure Automation Update Management to connect machines non-interactively. |
 
-
-
-
 > [!IMPORTANT]
 > The Connected Machine agent cannot be installed on an Azure Windows virtual machine. If you attempt to, the installation detects this and rolls back.
 
@@ -238,6 +235,8 @@ The Connected Machine agent for Windows can be installed by using one of the fol
 * Running the file `AzureConnectedMachineAgent.msi`.
 * Manually by running the Windows Installer package `AzureConnectedMachineAgent.msi` from the Command shell.
 * From a PowerShell session using a scripted method.
+
+Installing, upgrading, or removing the Connected Machine agent will not require you to restart your server.
 
 After installing the Connected Machine agent for Windows, the following system-wide configuration changes are applied.
 
@@ -258,6 +257,21 @@ After installing the Connected Machine agent for Windows, the following system-w
     |himds |Azure Hybrid Instance Metadata Service |himds |This service implements the Hybrid Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
     |GCArcService |Guest configuration Arc Service |gc_service |Monitors the desired state configuration of the machine.|
     |ExtensionService |Guest configuration Extension Service | gc_service |Installs the required extensions targeting the machine.|
+
+* The following virtual service account is created during agent installation.
+
+    | Virtual Account  | Description |
+    |------------------|---------|
+    | NT SERVICE\\himds | Unprivileged account used to run the Hybrid Instance Metadata Service. |
+
+    > [!TIP]
+    > This account requires the "Log on as a service" right. This right is automatically granted during agent installation, but if your organization configures user rights assignments with Group Policy, you may need to adjust your Group Policy Object to grant the right to  "NT SERVICE\\himds" or "NT SERVICE\\ALL SERVICES" to allow the agent to function.
+
+* The following local security group is created during agent installation.
+
+    | Security group name | Description |
+    |---------------------|-------------|
+    | Hybrid agent extension applications | Members of this security group can request Azure Active Directory tokens for the system-assigned managed identity |
 
 * The following environmental variables are created during agent installation.
 
@@ -287,6 +301,8 @@ After installing the Connected Machine agent for Windows, the following system-w
 ### Linux agent installation details
 
 The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/). The agent is installed and configured with the shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
+
+Installing, upgrading, or removing the Connected Machine agent will not require you to restart your server.
 
 After installing the Connected Machine agent for Linux, the following system-wide configuration changes are applied.
 

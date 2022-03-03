@@ -8,16 +8,20 @@
     href: overview-monitoring.md
   - name: What is the sign-in diagnostic?
     href: overview-sign-in-diagnostics.md
+  - name: What are flagged sign-ins?
+    href: overview-flagged-sign-ins.md
   - name: What is Azure AD recommendations?
     href: overview-recommendations.md
    
 - name: Quickstarts
   expanded: true
   items:
-  - name: Download a sign-in report
-    href: quickstart-download-sign-in-report.md
-  - name: Download an audit report
-    href: quickstart-download-audit-report.md
+  - name: Filter your audit log 
+    href: quickstart-filter-audit-log.md
+  - name: Analyze sign-ins 
+    href: quickstart-analyze-sign-in.md
+  - name: Access logs with the Graph API
+    href: quickstart-access-log-with-graph-api.md
   - name: Route logs to storage account
     href: quickstart-azure-monitor-route-logs-to-storage-account.md
 
@@ -48,12 +52,16 @@
     href: concept-activity-logs-azure-monitor.md
   - name: Plan a reporting and monitoring deployment
     href: plan-monitoring-and-reporting.md
+  - name: Sign-in diagnostics scenarios
+    href: concept-sign-in-diagnostics-scenarios.md
 
 - name: How-to guides
   expanded: true
   items:
   - name: Reports
     items:
+    - name: Access activity logs
+      href: howto-access-activity-logs.md
     - name: Download logs
       href: howto-download-logs.md
     - name: Manage inactive user accounts in Azure AD
@@ -62,8 +70,6 @@
       href: howto-find-activity-reports.md
     - name: Troubleshoot sign-in errors for a user
       href: howto-troubleshoot-sign-in-errors.md
-    - name: Remediate users flagged for risk
-      href: howto-remediate-users-flagged-for-risk.md
     - name: Configure prerequisites for Reporting API
       href: howto-configure-prerequisites-for-reporting-api.md
     - name: How to use Azure AD workbooks
@@ -98,6 +104,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Basic info in the sign-in logs
+    href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
@@ -114,3 +122,19 @@
     href: reports-faq.yml
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md
+- name: Workbooks
+  items:
+    - name: Authentication prompts analysis
+      href: workbook-authentication-prompts-analysis.md
+    - name: Conditional access gap analyzer
+      href: workbook-conditional-access-gap-analyzer.md
+    - name: Cross-tenant access activity 
+      href: workbook-cross-tenant-access-activity.md
+    - name: Sensitive Operations Report 
+      href: workbook-sensitive-operations-report.md
+- name: Recommendations
+  items:
+    - name: Integrate your third party apps
+      href: recommendation-integrate-third-party-apps.md
+    - name: Migrate to Microsoft authenticator
+      href: recommendation-migrate-to-authenticator.md
