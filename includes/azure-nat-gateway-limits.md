@@ -14,3 +14,4 @@
 | Resource            | Limit              |
 |---------------------|--------------------|
 | Public IP addresses | 16 per NAT gateway |
+

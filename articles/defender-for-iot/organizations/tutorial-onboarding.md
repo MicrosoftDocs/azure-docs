@@ -221,13 +221,14 @@ The validation is available to both the **Support**, and **CyberX** user.
 
 1. Sign in to the sensor.
 
-1. Select **System Settings** from the left side pane.
+1. Select **System Settings**> **Health and troubleshooting** > **System Health Check**.
 
-1. Select the :::image type="icon" source="media/tutorial-onboarding/system-statistics-icon.png" border="false"::: button.
+1. Select a command.
 
-    :::image type="content" source="media/tutorial-onboarding/system-health-check-screen.png" alt-text="Screenshot of the system health check." lightbox="media/tutorial-onboarding/system-health-check-screen-expanded.png":::
-
-For post-installation validation, you must test to ensure the system is running, that you have the right version, and to verify that all of the input interfaces that were configured during the installation process are running.
+For post-installation validation, test that:
+- the system is running
+- you have the right version
+- all of the input interfaces that were configured during the installation process are running
 
 **To verify that the system is running**:
 
@@ -419,7 +420,7 @@ Before you can start using your Defender for IoT sensor, you will need to onboar
 
    - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
 
-1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Microsoft Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [View onboarded sensors](how-to-manage-sensors-on-the-cloud.md#view-onboarded-sensors).
+1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Microsoft Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [View onboarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
 
 1. Select **Register**.
 
@@ -445,27 +446,9 @@ Once registration is complete for the sensor, you will be able to download an ac
 
 1. Enter the credentials defined during the sensor installation.
 
-1. After you sign in, the **Activation** dialog box opens. Select **Upload** and go to the activation file that you downloaded during the sensor onboarding.
+1. Select **Log in** and follow the instructions described in [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md#activate-and-set-up-your-sensor).
 
-   :::image type="content" source="media/tutorial-onboarding/activation-upload-screen-with-upload-button.png" alt-text="Screenshot of selecting to upload and go to the activation file.":::
 
-1. Accept the terms and conditions.
-
-1. Select **Activate**. The SSL/TLS certificate dialog box opens.
-
-1. Define a certificate name.
-
-1. Upload the CRT and key files.
-
-1. Enter a passphrase and upload a PEM file if necessary.
-
-1. Select **Next**. The validation screen opens. By default, validation between the management console and connected sensors is enabled.
-
-1. Turn off the **Enable system-wide validation** toggle to disable validation. We recommend that you enable validation.
-
-1. Select **Save**.  
-
-You might need to refresh your screen after uploading the CA-signed certificate.
 
 ## Next steps
 

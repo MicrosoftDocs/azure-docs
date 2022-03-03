@@ -35,7 +35,7 @@ You can provide additional arguments for this command to customize it. See all a
 You can view all the arguments for this command with ```--help``` argument. 
 
 ```azurecli
-az postgresql flexible-server connect --help
+az postgres flexible-server connect --help
 ```
 
 ## Test database server connection
