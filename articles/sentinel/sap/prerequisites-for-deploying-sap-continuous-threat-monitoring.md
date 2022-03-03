@@ -47,7 +47,7 @@ To successfully deploy the SAP continuous threat monitoring, a number of pre-req
 
 ### Automatically installed software
 
-The [SAP data connector deployment script](deploy_data_connector_agent_container.md) installs the following software on the container host VM (depending on the Linux distribution used, list may vary slightly):
+The [SAP data connector deployment script](reference_kickstart.md) installs the following software on the container host VM (depending on the Linux distribution used, list may vary slightly):
 
 - [Unzip](http://infozip.sourceforge.net/UnZip.html)
 - [NetCat](https://sectools.org/tool/netcat/)
