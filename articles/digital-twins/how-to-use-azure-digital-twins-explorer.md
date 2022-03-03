@@ -50,7 +50,9 @@ You can use the **Query Explorer** panel to run [queries](concepts-query-languag
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/query-explorer-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Query Explorer panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/query-explorer-panel.png":::
 
-Enter the query you want to run and select the **Run Query** button. Doing so will load the query results in the **Twin Graph** panel.
+Enter the query you want to run. If you want to enter a query in multiple lines, you can use SHIFT + ENTER to add a new line to the query box. 
+
+Select the **Run Query** button to display query results in the **Twin Graph** panel.
 
 >[!NOTE]
 > Query results containing relationships can only be rendered in the **Twin Graph** panel if the results include at least one twin as well. While queries that return only relationships are possible in Azure Digital Twins, you can only view them in Azure Digital Twins Explorer by using the [Output panel](#accessibility-and-advanced-settings).
@@ -254,7 +256,7 @@ Once the two twins are simultaneously selected, right-click the target twin to b
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA and Consumer twins are selected, and a menu shows the option to Add relationships." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png":::
 
-Doing so will bring up the **Create Relationship** dialog, which shows the source twin and target twin of the relationship, followed by a **Relationship** dropdown menu that contains the types of relationship that the source twin can have (defined in its DTDL model). Select an option for the relationship type, and **Save** the new relationship.
+Doing so will bring up the **Create Relationship** dialog, populated with the source twin and target twin of the relationship (you can also use the **Swap Relationship** icon to switch them). There is a **Relationship** dropdown menu that contains the types of relationship that the source twin can have, according to its DTDL model. Select an option for the relationship type, and **Save** the new relationship.
 
 ### Edit twin and relationship properties
 
