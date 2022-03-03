@@ -95,7 +95,7 @@ using StackExchange.Redis;
 
 The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at `RedisConnection` code to see one implementation. For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
 
-:::code language="csharp" source="samples-cache/quickstart/dotnet-core/RedisConnection.cs":::
+:::code language="csharp" source="~/samples-cache/quickstart/dotnet-core/RedisConnection.cs":::
 
 ## Executing cache commands
 

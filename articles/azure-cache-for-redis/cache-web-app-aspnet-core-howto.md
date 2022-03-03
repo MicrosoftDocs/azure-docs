@@ -98,7 +98,7 @@ The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstrac
 
 For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
 
-:::code language="csharp" source="samples-cache/quickstart/aspnet-core/ContosoTeamStats/RedisConnection.cs":::
+:::code language="csharp" source="~/samples-cache/quickstart/aspnet-core/ContosoTeamStats/RedisConnection.cs":::
 
 ## Views in the sample
 
