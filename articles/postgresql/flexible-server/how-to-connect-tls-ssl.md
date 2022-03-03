@@ -4,6 +4,7 @@ description: Instructions and information on how to connect using TLS/SSL in Azu
 author: sunilagarwal 
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---
