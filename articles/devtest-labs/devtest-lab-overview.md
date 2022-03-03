@@ -9,7 +9,7 @@ ms.date: 03/03/2022
 
 [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) is a service for easily creating, using, and managing infrastructure-as-a-service (IaaS) virtual machines (VMs) and platform-as-a-service (PaaS) environments in labs. Labs offer preconfigured bases and artifacts for creating VMs, and Azure Resource Manager (ARM) templates for creating environments like Azure Web Apps or SharePoint farms.
 
-Labs offer preconfigured VM bases, ARM templates, and artifacts that have tools and software lab users need. Lab owners can create preconfigured VMs for lab users to claim, or users can create and configure their own VMs and environments. Lab policies and other methods track and control lab usage and costs.
+Lab owners can create preconfigured VMs that have tools and software lab users need. Lab users can claim preconfigured VMs, or create and configure their own VMs and environments. Lab policies and other methods track and control lab usage and costs.
 
 ### Common DevTest Labs scenarios
 
