@@ -3,8 +3,10 @@ title: Azure support for export controls
 description: Customer guidance for Azure export control support
 ms.service: azure-government
 ms.topic: article
-ms.date: 07/01/2021
+author: stevevi
 ms.author: stevevi
+recommendations: false
+ms.date: 02/28/2022
 ---
 
 # Azure support for export controls
@@ -39,7 +41,7 @@ Both Azure and Azure Government can help you meet your EAR compliance requiremen
 
 You are responsible for choosing Azure or Azure Government regions for deploying your applications and data. Moreover, you are responsible for designing your applications to apply end-to-end data encryption that meets EAR requirements. Microsoft does not inspect, approve, or monitor your applications deployed on Azure or Azure Government.
 
-Azure Government provides you with an extra layer of protection through contractual commitments regarding storage of your data in the United States and limiting potential access to systems processing your data to [screened US persons](./documentation-government-plan-security.md#screening).
+Azure Government provides you with an extra layer of protection through contractual commitments regarding storage of your data in the United States and limiting potential access to systems processing your data to [screened US persons](./documentation-government-plan-security.md#screening). For more information about Azure support for EAR, see [Azure EAR compliance offering](/azure/compliance/offerings/offering-ear).
 
 ## ITAR
 
@@ -51,13 +53,13 @@ There is no ITAR compliance certification; however, both Azure and Azure Governm
 
 You are responsible for choosing Azure or Azure Government regions for deploying your applications and data. Moreover, you are responsible for designing your applications to apply end-to-end data encryption that meets ITAR requirements. Microsoft does not inspect, approve, or monitor your applications deployed on Azure or Azure Government.
 
-Azure Government provides you with an extra layer of protection through contractual commitments regarding storage of your data in the United States and limiting potential access to systems processing your data to [screened US persons](./documentation-government-plan-security.md#screening).
+Azure Government provides you with an extra layer of protection through contractual commitments regarding storage of your data in the United States and limiting potential access to systems processing your data to [screened US persons](./documentation-government-plan-security.md#screening). For more information about Azure support for ITAR, see [Azure ITAR compliance offering](/azure/compliance/offerings/offering-itar).
 
 ## DoE 10 CFR Part 810
 
 The US Department of Energy (DoE) export control regulation [10 CFR Part 810](http://www.gpo.gov/fdsys/pkg/FR-2015-02-23/pdf/2015-03479.pdf) implements section 57b.(2) of the [Atomic Energy Act of 1954](https://www.nrc.gov/docs/ML1327/ML13274A489.pdf) (AEA), as amended by section 302 of the [Nuclear Nonproliferation Act of 1978](http://www.nrc.gov/docs/ML1327/ML13274A492.pdf#page=19) (NNPA). It is administered by the [National Nuclear Security Administration](https://www.energy.gov/nnsa/national-nuclear-security-administration) (NNSA). The revised Part 810 (final rule) became effective on 25 March 2015, and, among other things, it controls the export of unclassified nuclear technology and assistance. It enables peaceful nuclear trade by helping to assure that nuclear technologies exported from the United States will not be used for non-peaceful purposes. Paragraph 810.7 (b) states that specific DoE authorization is required for providing or transferring sensitive nuclear technology to any foreign entity.
 
-**Azure Government can help you meet your DoE 10 CFR Part 810 export control requirements** because it is designed to implement specific controls that restrict access to information and systems to [US persons](./documentation-government-plan-security.md#screening) among Azure operations personnel. If you are deploying data to Azure Government, you are responsible for your own security classification process. For data subject to DoE export controls, the classification system is augmented by the [Unclassified Controlled Nuclear Information](https://www.energy.gov/sites/prod/files/hss/Classification/docs/UCNI-Tri-fold.pdf) (UCNI) controls established by Section 148 of the AEA. 
+**Azure Government can help you meet your DoE 10 CFR Part 810 export control requirements** because it is designed to implement specific controls that restrict access to information and systems to [US persons](./documentation-government-plan-security.md#screening) among Azure operations personnel. If you are deploying data to Azure Government, you are responsible for your own security classification process. For data subject to DoE export controls, the classification system is augmented by the [Unclassified Controlled Nuclear Information](https://www.energy.gov/sites/prod/files/hss/Classification/docs/UCNI-Tri-fold.pdf) (UCNI) controls established by Section 148 of the AEA. For more information about Azure support for DoE 10 CFR Part 810, see [Azure DoE 10 CFR Part 810 compliance offering](/azure/compliance/offerings/offering-doe-10-cfr-part-810).
 
 ## NRC 10 CFR Part 110
 
@@ -137,6 +139,11 @@ Learn more about:
 
 - [Azure Security](../security/fundamentals/overview.md)
 - [Azure Compliance](../compliance/index.yml)
+- [Microsoft government solutions](https://www.microsoft.com/enterprise/government)
 - [What is Azure Government?](./documentation-government-welcome.md)
 - [Explore Azure Government](https://azure.microsoft.com/global-infrastructure/government/)
-- [Microsoft government solutions](https://www.microsoft.com/enterprise/government)
+- [Azure Government compliance](./documentation-government-plan-compliance.md)
+- [Azure EAR compliance offering](/azure/compliance/offerings/offering-ear)
+- [Azure FedRAMP compliance offering](/azure/compliance/offerings/offering-fedramp)
+- [Azure ITAR compliance offering](/azure/compliance/offerings/offering-itar)
+- [Azure DoE 10 CFR Part 810 compliance offering](/azure/compliance/offerings/offering-doe-10-cfr-part-810)

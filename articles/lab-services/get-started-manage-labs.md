@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Lab Services 
 description: This article describes how to get started with Azure Lab Services. 
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 11/18/2020
 ---
 
