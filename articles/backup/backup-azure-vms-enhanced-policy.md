@@ -55,7 +55,7 @@ Follow these steps:
 	 
    - **Backup schedule**: You can select frequency as **Hourly**/Daily/Weekly.
 	  
-     With backup schedule set to **Hourly**, the default selection for start time is **8 AM**, schedule as **Every 4 hours**, and duration as **24 Hours**. Hourly backup has a minimum RPO of 4 hours and a maximum of 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours respectively.
+     With backup schedule set to **Hourly**, the default selection for start time is **8 AM**, schedule is **Every 4 hours**, and duration is **24 Hours**. Hourly backup has a minimum RPO of 4 hours and a maximum of 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours respectively.
 
      Note that Hourly backup frequency is in preview. To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
    
