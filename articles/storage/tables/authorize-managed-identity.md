@@ -1,5 +1,5 @@
 ---
-title: Authorize access to table data with a managed identity (preview)
+title: Authorize access to table data with a managed identity
 titleSuffix: Azure Storage
 description: Use managed identities for Azure resources to authorize table data access from applications running in Azure VMs, function apps, and others.
 services: storage
@@ -15,7 +15,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Authorize access to table data with managed identities for Azure resources (preview)
+# Authorize access to table data with managed identities for Azure resources
 
 Azure Table Storage supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to table data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.
 
@@ -82,4 +82,4 @@ public static void CreateTable(string accountName, string tableName)
 ## Next steps
 
 - [Assign an Azure role for access to table data](assign-azure-role-data-access.md)
-- [Authorize access to tables using Azure Active Directory (preview)](authorize-access-azure-active-directory.md)
+- [Authorize access to tables using Azure Active Directory](authorize-access-azure-active-directory.md)

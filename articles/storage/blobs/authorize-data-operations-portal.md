@@ -54,9 +54,6 @@ For information about the built-in roles that support access to blob data, see [
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
-> [!NOTE]
-> The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify blob data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
-
 ## Navigate to blobs in the Azure portal
 
 To view blob data in the portal, navigate to the **Overview** for your storage account, and click on the links for **Blobs**. Alternatively you can navigate to the **Containers** section in the menu.
