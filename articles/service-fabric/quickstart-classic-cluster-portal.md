@@ -110,7 +110,7 @@ In this quickstart, we use a Service Fabric cluster named **quickstartsfcluster*
     - `Subscription`: Choose your Azure subscription.
     - `Resource group`: Choose the resource group you created in the prerequisites or create a new one if you didn't already. For this quickstart, we use **ServiceFabricResources**.
     - `Cluster name`: Enter a unique name. For this quickstart, we use **quickstartsfcluster**.
-    - `Location`: Choose your preferred region from the dropdown menu.
+    - `Location`: Choose your preferred region from the dropdown menu. This must be the same region as your Azure Key Vault.
     - `Operating system`: Choose **WindowsServer 2019-Datacenter-with-Containers** from the dropdown menu.
     - `Username`: Enter a username for your cluster's administrator account.
     - `Password`: Enter a password for your cluster's administrator account.
