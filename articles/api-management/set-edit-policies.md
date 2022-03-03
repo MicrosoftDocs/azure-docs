@@ -1,6 +1,6 @@
 ---
 title: How to set or edit Azure API Management policies | Microsoft Docs
-description: Learn how to set or edit Azure API Management policies. These policies are XML documents that describe a sequence of inbound and outbound statements.
+description: Learn how to use the Azure portal to set or edit policies in an Azure API Management instance. Policies are defined in XML documents that contain a sequence of statements that are run sequentially on the request or response of an API.
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -13,32 +13,82 @@ ms.author: danlep
 
 # How to set or edit Azure API Management policies
 
+This article shows you how to configure and manage policies in your API Management instance using the Azure portal. Each policy definition is an XML document that describes a sequence of inbound and outbound statements. This series of policy statements is run in order for each API request and response.
+
+The policy editor in the portal provides guided forms for API publishers to select and configure common policies. API publishers who more familiar with API Management policies can also edit the XML directly in the policy code editor.
+
+More information about policies:
+
+* For an overview, see [Policies in Azure API Management](api-management-howto-policies.md).
+* For a complete list, see [API Management policy reference](api-management-policies.md).
+* For policy XML examples, see [API Management policy samples](./policies/index.md). 
+
+## Prerequisites
+
+If you don't already have an API Management instance and a backend API, see:
+
+- [Create an Azure API Management instance](get-started-create-service-instance.md)
+- [Import and publish an API](import-and-publish.md)
+
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+
+## Configure policy for an API
+
+The following example shows how to add an inbound policy scoped to an API to filter IP addresses. API Management provides a guided form-based editors to simplify configuring many policies, or you can add or edit XML directly in a code editor. 
+
+> [!NOTE]
+> You can configure policies at other [scopes](api-management-howto-policies.md#policy-scopes), such as for all APIs, a product, or a single API operation. See [Configure scope](#configure-scope), later in this article, for other examples.
+
+To add a policy:
+
+# [Form](#tab/form)
+
+1. In the left navigation of your API Management instance, select **APIs**.
+1. Select an API that you previously imported.
+1. Select the **Design** tab.
+1. To apply the policy to all operations, select **All operations**.
+1. In the **Inbound processing** section, select **+ Add policy**.
 
 
-The policy definition is an XML document that describes a sequence of inbound and outbound statements. The XML can be edited directly in the definition window. You can also select a predefined policy from the list that is provided to the right of the policy window. The statements applicable to the current scope are enabled and highlighted. Clicking an enabled statement adds the appropriate XML at the location of the cursor in the definition view. 
+    :::image type="content" source="media/set-edit-policies/form-editor.png" alt-text="Add policy in API Management":::
 
-For an overview, see [Policies in Azure API Management](api-management-howto-policies.md).
+1. In **Add inbound policy**, select a policy to add. For example, select **Filter IP addresses**.
+    
+    :::image type="content" source="media/set-edit-policies/filter-ip-addresses.png" alt-text="Filter IP addresses policy":::
 
-## Set or edit a policy
+    > [!TIP]
+    > * Policies shown are scoped to the policy section you're configuring - in this case, for inbound processing.
+    > * If you don't see a policy you want, select the **Other policies** tile. This will open the XML code editor.
+1. Select **Allowed IPs** > **+ Add IP filter** and add the first and last IP addresses of a range of incoming addresses that are allowed to make API requests. Add other IP address ranges, if needed.
 
-To set or edit a policy, follow the following steps:
+    :::image type="content" source="media/set-edit-policies/configure-ip-filter.png" alt-text="Configure allowed IP addresses":::
+1. Select **Save** to propagate changes to the API Management gateway immediately.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Browse to your APIM instance.
-3. Click the **APIs** tab.
+    The **ip-filter** policy now appears in the **Inbound processing** section.
 
-    ![Edit policy](./media/set-edit-policies/code-editor.png)
+# [Code](#tab/editor)
 
-4. Select one of the APIs that you previously imported.
-5. Select the **Design** tab.
-6. Select an operation to which you want to apply the policy. If you want to apply the policy to all operations, select **All operations**.
-7. Select the **</>** (code editor) icon in the **Inbound processing** or **Outbound processing** section.
-8. Paste the desired policy code into one of the appropriate blocks.
+1. In the left navigation of your API Management instance, select **APIs**.
+1. Select an API that you previously imported.
+1. Select the **Design** tab.
+1. To apply the policy to all operations, select **All operations**.
+1. In the **Inbound processing** section, select the **</>** (code editor) icon.
 
+
+    :::image type="content" source="media/set-edit-policies/code-editor.png" alt-text="Add policy in API Management":::
+
+1. To see available policy XML code snippets, select **Show snippets**. For example, select **Restrict caller IPs**.
+
+    :::image type="content" source="media/set-edit-policies/insert-policy-snippet.png" alt-text="":::
+
+1. Paste or enter the desired policy code snippet into one of the appropriate blocks, and complete the policy configuration. Select **Save**. 
     ```xml
     <policies>
         <inbound>
             <base />
+            <ip-filter action="allow">
+                <address-range from="10.100.7.0" to="10.100.127.0" />
+            </ip-filter>
         </inbound>
         <backend>
             <base />
@@ -51,40 +101,44 @@ To set or edit a policy, follow the following steps:
         </on-error>
     </policies>
     ```
- 
+1. Select **Save** to propagate changes to the API Management gateway immediately.
+    
+    The **ip-filter** policy now appears in the **Inbound processing** section.
+---
 ## Configure scope
 
 
-To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
+To see the policies in the current scope in the policy editor, click **Recalculate effective policy**.
 
 ### Global scope
 
-Global scope is configured for **All APIs** in your APIM instance.
+Global scope is configured for **All APIs** in your API Management instance.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to your APIM instance.
-2. Click **All APIs**.
+1. In the left navigation of your API Management instance, select **APIs**.
+1. Select **All APIs**.
+1. Select the **Design** tab.
 
-    ![Global scope](./media/api-management-howto-policies/global-scope.png)
+    :::image type="content" source="media/set-edit-policies/product-scope-policy.png" alt-text="Configure policy at product scope":::
 
-3. Click the triangle icon.
-4. Select **Code editor**.
-5. Add or edit policies.
-6. Press **Save**. 
+1. In the **Inbound processing** or **Outbound processing** section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
 
-    The changes are propagated to the API Management gateway immediately.
+    > [!NOTE]
+    > The **Backend** policy section can only contain the **forward-request** policy element.
+6. Select **Save** to propagate changes to the API Management gateway immediately.
 
 ### Product scope
 
-Product scope is configured for the selected product.
+Product scope is configured for a selected product.
 
-1. Click **Products**.
+1. In the left menu, select **Products**, and then select a product to which you want to apply policies.
+1. In the product window, select **Policies**.
 
-    ![Product scope](./media/api-management-howto-policies/product-scope.png)
+    :::image type="content" source="media/set-edit-policies/global-scope-policy.png" alt-text="Configure policy at global scope":::
+1. In the **Inbound processing** or **Outbound processing** section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
 
-2. Select the product to which you want to apply policies.
-3. Click **Policies**.
-4. Add or edit policies.
-5. Press **Save**. 
+    > [!NOTE]
+    > The **Backend** policy section can only contain the **forward-request** policy element.
+6. Select **Save** to propagate changes to the API Management gateway immediately.
 
 ### API scope
 
