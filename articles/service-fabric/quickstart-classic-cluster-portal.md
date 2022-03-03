@@ -83,10 +83,10 @@ To generate and retrieve your client certificate:
 
    ![Select Download in PFX/PEM format to retrieve your certificate so you can import it into your computer's certificate store.](./media/quickstart-classic-cluster-portal/download-pfx.png)
 
-Import the certificate to your computer's certificate store so that you may use it to access your Service Fabric cluster later.
+1. Import the certificate to your computer's certificate store so that you may use it to access your Service Fabric cluster later.
 
->[!NOTE]
->The private key included in this certificate doesn't have a password. If your certificate store prompts you for a private key password, leave the field blank.
+   >[!NOTE]
+   >The private key included in this certificate doesn't have a password. If your certificate store prompts you for a private key password, leave the field blank.
 
 Before you create your Service Fabric cluster, you need to make sure Azure Virtual Machines can retrieve certificates from your Azure Key Vault. To do so:
 
@@ -142,8 +142,8 @@ Once the deployment completes, you're ready to view your new Service Fabric clus
 
    ![Select the SF Explorer link on your cluster's Overview page.](./media/quickstart-classic-cluster-portal/service-fabric-explorer-address.png)
 
->[!NOTE]
->You may get a warning that your connection to your cluster isn't private. Select **Advanced** and choose **continue to yourclusterfqdn (unsafe)**.
+   >[!NOTE]
+   >You may get a warning that your connection to your cluster isn't private. Select **Advanced** and choose **continue to yourclusterfqdn (unsafe)**.
 
 1. When prompted for a certificate, choose the certificate you created, downloaded, and stored for this quickstart and select **OK**. If you completed those steps successfully, the certificate should be in the list of certificates.
 
