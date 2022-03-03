@@ -57,6 +57,24 @@ In this example you'll create an inbound NAT rule to forward a range of ports st
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
+In this example you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. A standard public load balancer is used for the example.
+
+Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) to create the NAT rule.
+
+    ```azurecli-interactive
+    az network lb inbound-nat-rule create \
+        --backend-port 443 \
+        --lb-name myLoadBalancer \
+        --name myInboundNATrule \
+        --protocol Tcp \
+        --resource-group myResourceGroup \
+        --backend-pool-name myBackendPool \
+        --frontend-ip-name myFrontend \
+        --frontend-port-range-end 1000 \
+         --frontend-port-range-start 500
+        
+    ```
+
 ---
 
 ## Remove an inbound NAT rule
@@ -81,8 +99,18 @@ In this example, you'll remove an inbound NAT rule.
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
+In this example, you'll remove an inbound NAT rule.
+
+Use [az network lb inbound-nat-rule delete](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-delete) to remove the NAT rule.
+
+    ```azurecli-interactive
+        az network lb inbound-nat-rule delete \
+            --lb-name myLoadBalancer \
+            --name myInboundNATrule \
+            --resource-group myResourceGroup
+
+```
 
 ---
-
 
 ## Next steps
