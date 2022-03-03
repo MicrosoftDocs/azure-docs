@@ -119,4 +119,5 @@ To view help information, select the **Options** symbol in the upper-right corne
 
 ## Next steps
 
+- [Learn how to upload and share your distributed tracing data for diagnostics](distributed-tracing-share-traces.md)
 - [Learn more about how you can monitor your deployment using the packet core dashboards](packet-core-dashboards.md)
