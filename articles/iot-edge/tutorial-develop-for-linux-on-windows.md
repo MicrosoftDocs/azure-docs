@@ -175,7 +175,7 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 16. Go back to the **Docker** panel and in the first **CONTAINERS** tile, select the &#8634; refresh button
 
-If everything is correctly configurated, you should be able to see the containers running inside the EFLOW VM, if any, and the recent downloaded _hello-world_ image. 
+If everything is correctly configured, you should be able to see the containers running inside the EFLOW VM, if any, and the recently downloaded _hello-world_ image. 
 
    ![Remote Docker engine status](./media/tutorial-develop-for-linux-on-windows/docker-remote-engine.png)
 
