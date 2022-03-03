@@ -40,14 +40,22 @@ This guide is a step-by-step instruction on how to enable and configure auditing
 
 1. Logon to SAP GUI and run **RSAU_CONFIG** transaction
 1. In **Security Audit Log** select **Parameter** under **Security Audit Log Configuration** section in **Configuration** tree.
-1. If the **Static security audit active** checkbox is selected, system-level auditing is turned on, if it isn't, click on **Display <-> Change** and ensure **Static security audit active** checkbox is selected. A server reboot will be necessary to activate the auditing.
+1. If the **Static security audit active** checkbox is selected, system-level auditing is turned on, if it isn't, click on **Display <-> Change** and ensure **Static security audit active** checkbox is selected. 
+    > [!NOTE]
+    > By default SAP logs the client name (terminal ID) rather than client IP address<br>
+    > Consider enabling logging of client IP instead of hostname<br>
+    > To enable such logging, check the **Log peer address not terminal ID** checkbox in the **General Parameters** section
+1. If settings were changed in Security Audit Log Configuration - Parameter section, click **Save** to save the changes. A server reboot will be necessary to activate the auditing.<br>
+![RSAU_CONFIG parameters](./media/configure_audit/rsau_config_parameter.png "Set RSAU_CONFIG paramters")
 1. Right click Static Configuration and select **Create Profile**
+![RSAU_CONFIG create profile](./media/configure_audit/create_profile.png "RSAU_CONFIG create profile")
 1. Specify a name for the profile in the **Profile/Filter Number** field
 1. Check the **Filter for recording active** checkbox
 1. In Client field, enter **\***
 1. In User field enter **\***
 1. In Event Selection, select **Classic event selection** select all events (Dialog Logon, RFC/CPIC Logon, RFC Function Call, Transaction Start, Report Start, User Master Changes, System Events, Other Events). Alternatively, review list of message IDs listed in [Recommended audit categories](#recommended-audit-categories) section of this article and configure them in **Detail event selection**
-1. Click **Save**
+1. Click **Save**<br>
+![Static profile settings](./media/configure_audit/create_profile_settings.png "Static profile settings")
 1. Notice that **Static Configuration** section displays the newly created profile<br>
 Right click the profile and select **Activate**
 1. In the confirmation window click **Yes** to activate the newly created profile
