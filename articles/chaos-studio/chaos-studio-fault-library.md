@@ -1126,3 +1126,66 @@ Known issues on Linux:
 
 * The reboot fault causes a forced reboot to better simulate an outage event, which means there is the potential for data loss to occur.
 * The reboot fault is a **discrete** fault type. Unlike continuous faults, it is a one-time action and therefore has no duration.
+
+
+## Cloud Services (Classic) shutdown
+
+| Property | Value |
+|-|-|
+| Capability Name | Shutdown-1.0 |
+| Target type | Microsoft-DomainName |
+| Description | Stops a deployment for the duration of the fault and restarts the deployment at the end of the fault duration or if the experiment is canceled. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:domainName:shutdown/1.0 |
+| Fault type | Continuous |
+| Parameters | None.  |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:domainName:shutdown/1.0",
+      "parameters": [],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## Key Vault Deny Access
+| Property | Value |
+|-|-|
+| Capability Name | DenyAccess-1.0 |
+| Target type | Microsoft-KeyVault |
+| Description | Blocks all network access to a Key Vault by temporarily modifying virtual network rules, denying an application dependent on the Key Vault from accessing secrets, keys, and/or certificates. When the fault starts, any virtual network rules that are setup on the target Key Vault are replaced with a deny all rule and restored at the end of the fault duration. |
+| Prerequisites | The target Key Vault cannot have a firewall and must not allow Azure services to bypass access. If the target Key Vault is not set to allow all access, there must be at least one virtual network rule. The Key Vault cannot be in recover mode. |
+| Urn | urn:csci:microsoft:virtualMachine:shutdown/1.0 |
+| Parameters (key, value) | None. |
+
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:keyvault:denyAccess/1.0",
+      "parameters": [
+        {
+          "key": "abruptShutdown",
+          "value": "false"
+        }
+      ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
