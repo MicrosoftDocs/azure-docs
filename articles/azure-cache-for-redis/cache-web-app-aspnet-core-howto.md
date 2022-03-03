@@ -39,74 +39,33 @@ In your command window, execute the following command to store a new secret name
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<primary-access-key>"
 ```
 
-## Update the HomeController and Layout
+## Connect to the cache with RedisConnection
 
-The following statements in *Controllers\HomeController.cs* get and set values on the cache for use in the sample.
-
-<!-- This section can be revamped to copy the dotnet-core sample. So we could have one section talking about setting and getting values on the cache (the corresponding code is lines 41 - 72 in aspnet-core/ContosoTeamStats/Controllers/HomeController.cs), and another section about the ConnectionMultiplexer (corresponding to RedisConnection.cs) -->
-
-```csharp
-    public async Task<ActionResult> RedisCache()
-    {
-        _redisConnection = await _redisConnectionFactory;
-        ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET Core.";
-
-        // Perform cache operations using the cache object...
-
-        // Simple PING command
-        ViewBag.command1 = "PING";
-        ViewBag.command1Result = (await _redisConnection.BasicRetryAsync(async (db) => await db.ExecuteAsync(ViewBag.command1))).ToString();
-
-        // Simple get and put of integral data types into the cache
-        string key = "Message";
-        string value = "Hello! The cache is working from ASP.NET Core!";
-
-        ViewBag.command2 = $"SET {key} \"{value}\"";
-        ViewBag.command2Result = (await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync(key, value))).ToString();
-
-        ViewBag.command3 = $"GET {key}";
-        ViewBag.command3Result = (await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key))).ToString();
-
-        key = "LastUpdateTime";
-        value = DateTime.UtcNow.ToString();
-
-        ViewBag.command4 = $"GET {key}";
-        ViewBag.command4Result = (await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key))).ToString();
-
-        ViewBag.command5 = $"SET {key}";
-        ViewBag.command5Result = (await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync(key, value))).ToString();
-
-        return View();
-        }
-```
-
-## Connnect to the cache with RedisConnection
-
-The connection to your cache is managed by the `RedisConnection` class. The connection is made in the statement in HomeController.cs:
+The connection to your cache is managed by the `RedisConnection` class. The connection is made in this statement in `HomeController.cs`:
 
 ```csharp
 _redisConnection = await _redisConnectionFactory;
 ```
 
-You must have this statement in your code as seen in `RedisConnection.cs` to use the `RedisConnection` class.
+You must add the StackExchange.Redis namespace with the `using` keyword in your code as seen in `RedisConnection.cs` before you use the `RedisConnection` class. This references the `StackExchange.Redis` namespace from package that you previously installed.
 
 ```csharp
 using StackExchange.Redis;
 ```
 
-The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at this code to see one implementation.
+The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at this code in the sample to see our implementation.
 
 For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
 
 :::code language="csharp" source="~/samples-cache/quickstart/aspnet-core/ContosoTeamStats/RedisConnection.cs":::
 
-## Views in the sample
+## Layout views in the sample
 
 Open *Views\Shared\\_Layout.cshtml*.
 
-You should see:
+You should see in `<div class="navbar-header">`:
 
-```cshtml
+```html
 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="RedisCache">Azure Cache for Redis Test</a>
 ```
 
@@ -147,7 +106,8 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 
 2. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group, in the results list, select **...**, and then select **Delete resource group**.
 
-    ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
+    
+   :::image type="content" source="media/cache-web-app-howto/cache-delete-resource-group.png" alt-text="Delete":::
 
 You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.
 
@@ -157,20 +117,16 @@ After a few moments, the resource group and all of its resources are deleted.
 
 For information on deploying to Azure, see:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md)
+- [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md)
 
 For information about storing the cache connection secret in Azure Key Vault, see:
 
-> [!div class="nextstepaction"]
-> [Azure Key Vault configuration provider in ASP.NET Core](/aspnet/core/security/key-vault-configuration)
+- [Azure Key Vault configuration provider in ASP.NET Core](/aspnet/core/security/key-vault-configuration)
 
 Want to scale your cache from a lower tier to a higher tier?
 
-> [!div class="nextstepaction"]
-> [How to Scale Azure Cache for Redis](./cache-how-to-scale.md)
+- [How to Scale Azure Cache for Redis](./cache-how-to-scale.md)
 
 Want to optimize and save on your cloud spending?
 
-> [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

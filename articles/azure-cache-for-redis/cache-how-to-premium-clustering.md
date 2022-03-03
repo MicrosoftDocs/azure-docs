@@ -79,7 +79,6 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 For sample code on working with clustering with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
-
 ## Change the cluster size on a running premium cache
 
 To change the cluster size on a running premium cache with clustering enabled, select **Cluster Size** from the **Resource menu**.
@@ -186,7 +185,7 @@ Clustering is only available for premium caches.
 
 ### I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
 
-If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-client).
 
 ## Next steps
 

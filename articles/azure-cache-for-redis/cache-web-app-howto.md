@@ -78,7 +78,7 @@ Because the file *CacheSecrets.config* isn't deployed to Azure with your applica
 
 The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file can't be found. Your secrets (the connection string to your cache) aren't included as part of the source code for the application. When you deploy your web app to Azure, the *CacheSecrets.config* file isn't deployed.
 
-### Install StackExchange.Redis
+## Install StackExchange.Redis
 
 Your solution needs the `StackExchange.Redis` package to run. Install it, with this procedure:
 
@@ -94,11 +94,11 @@ Your solution needs the `StackExchange.Redis` package to run. Install it, with t
 
 <!--
 
-Isn't this superfluous now? 
+Philo - Isn't this superfluous now? 
 
 1. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis` package. -->
 
-## Connnect to the cache with RedisConnection
+## Connect to the cache with RedisConnection
 
 The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from `ContosoTeamStats/Controllers/HomeController.cs`:
 
@@ -109,7 +109,7 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 
 The value of the *CacheConnection* secret is accessed using the Secret Manager configuration provider and is used as the password parameter.
 
-You must have the following statement in your code to use the `RedisConnection` class. This references the StackExchange.Redis package that you previously installed.
+You must add the StackExchange.Redis namespace with the `using` keyword in your code as seen in `RedisConnection.cs` before you use the `RedisConnection` class. This references the `StackExchange.Redis` namespace from package that you previously installed.
 
 ```csharp
 using StackExchange.Redis;
@@ -119,7 +119,7 @@ The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstrac
 
 :::code language="csharp" source="~/samples-cache/quickstart/aspnet/ContosoTeamStats/RedisConnection.cs ":::
 
-### Layout
+### Layout views in the sample
 
 1. In **Solution Explorer**, expand the **Views** > **Shared** folder. Then open the *_Layout.cshtml* file.
 
