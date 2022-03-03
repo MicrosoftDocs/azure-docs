@@ -110,8 +110,13 @@ osuser = <SAPControl username>
 ospasswd = <SAPControl password>
 # Password to use to authenticate to SAPControl
 
-appserver = <SET_YOUR_SAPCTRL_SERVER>
-instance = <SET_YOUR_SAP_INSTANCE>
-x509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
+appserver = <server>
+#SAPControl server hostname/fqdn/IP address
+
+instance = <instance>
+#SAPControl instance name
+
+
 abapseverity = <SET_ABAP_SEVERITY>
 abaptz = <SET_ABAP_TZ>
+````

@@ -132,7 +132,7 @@ Explanation: Password that will be used to authenticate to ABAP server.
 #### NetWeaver SDK file location
 Parameter name: `--sdk`
 
-Parameter values: <filename>
+Parameter values: `<filename>`
 
 Required?: No, script will attempt to locate nwrfc*.zip file in the current folder, if not found, user will be prompted to supply a valid NetWeaver SDK archive file.
 
