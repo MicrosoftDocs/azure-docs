@@ -28,7 +28,7 @@ A test configuration uses the following keys:
 | `testName` | string | *Required*. Name of the test to run. The results of various test runs will be collected under this test name in the Azure portal. |
 | `testPlan` | string | *Required*. Relative path to the Apache JMeter test script to run. |
 | `engineInstances` | integer | *Required*. Number of parallel instances of the test engine to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
-| `configurationFiles` | array | List of relevant configuration files or other files that you reference in the Apache JMeter script. For example, a CSV data set file, images, or any other data file. These files will be uploaded to the Azure Load Testing resource alongside the test script. If the files are in a subfolder on your local machine, use file paths that are relative to the location of the test script. <BR><BR>Azure Load Testing currently doesn't support the use of file paths in the JMX file. When you reference an external file in the test script, make sure to only specify the file name.<BR><BR>By default, the wildcard `*.csv` is generated to reference all *.csv* files in the test plan's folder. |
+| `configurationFiles` | array | List of relevant configuration files or other files that you reference in the Apache JMeter script. For example, a CSV data set file, images, or any other data file. These files will be uploaded to the Azure Load Testing resource alongside the test script. If the files are in a subfolder on your local machine, use file paths that are relative to the location of the test script. <BR><BR>Azure Load Testing currently doesn't support the use of file paths in the JMX file. When you reference an external file in the test script, make sure to only specify the file name. |
 | `description` | string | Short description of the test run. |
 | `failureCriteria` | object | Criteria that indicate failure of the test. Each criterion is in the form of:<BR>`[Aggregate_function] ([client_metric]) > [value]`<BR><BR>- `[Aggregate function] ([client_metric])` is either `avg(response_time_ms)` or `percentage(error).`<BR>- `value` is an integer number. |
 | `secrets` | object | List of secrets that the Apache JMeter script references. |
@@ -47,7 +47,7 @@ testPlan: SampleTest.jmx
 description: Load test website home page
 engineInstances: 1
 configurationFiles:
-  - '*.csv'
+  - 'SampleData.csv'
 failureCriteria:
   - avg(response_time_ms) > 300
   - percentage(error) > 50

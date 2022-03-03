@@ -3,7 +3,6 @@ title: Monitor a SharePoint site with Application Insights
 description: Start monitoring a new application with a new instrumentation key
 ms.topic: conceptual
 ms.date: 09/08/2020
-
 ---
 
 # Monitor a SharePoint site with Application Insights

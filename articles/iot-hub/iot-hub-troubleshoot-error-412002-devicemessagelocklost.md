@@ -1,13 +1,13 @@
 ---
 title: Troubleshooting Azure IoT Hub error 412002 DeviceMessageLockLost
 description: Understand how to fix error 412002 DeviceMessageLockLost 
-author: jlian
+author: kgremban
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.author: jlian
+ms.author: kgremban
 #Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 412002 DeviceMessageLockLost errors.
 ---
 

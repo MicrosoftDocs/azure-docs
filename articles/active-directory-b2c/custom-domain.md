@@ -411,7 +411,7 @@ Azure Front Door passes the user's original IP address. It's the IP address that
 
 ### Can I use a third-party web application firewall (WAF) with B2C?
 
-To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows, or custom polies.  
+To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows, or custom policies.  
 
 ### Can my Azure Front Door instance be hosted in a different subscription than my Azure AD B2C tenant?
     

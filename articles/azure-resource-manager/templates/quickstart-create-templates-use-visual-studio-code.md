@@ -17,6 +17,9 @@ To complete this quickstart, you need [Visual Studio Code](https://code.visualst
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [Quickstart: Create Bicep files with Visual Studio Code](../bicep/quickstart-create-bicep-use-visual-studio-code.md).
+
 ## Create an ARM template
 
 Create and open with Visual Studio Code a new file named *azuredeploy.json*. Enter `arm` into the code editor, which initiates Azure Resource Manager snippets for scaffolding out an ARM template.
@@ -29,7 +32,7 @@ This snippet creates the basic building blocks for an ARM template.
 
 ![Image showing a fully scaffolded ARM template](./media/quickstart-create-templates-use-visual-studio-code/2.png)
 
-Notice that the Visual Studio Code language mode has changed from *JSON* to *Azure Resource Manager Template*. The extension includes a language server specific to ARM templates which provides ARM template-specific validation, completion, and other language services.
+Notice that the Visual Studio Code language mode has changed from *JSON* to *Azure Resource Manager Template*. The extension includes a language server specific to ARM templates that provides ARM template-specific validation, completion, and other language services.
 
 ![Image showing Azure Resource Manager as the Visual Studio Code language mode](./media/quickstart-create-templates-use-visual-studio-code/3.png)
 
@@ -53,7 +56,7 @@ The **tab** key can be used to tab through configurable properties on the storag
 
 One of the most powerful capabilities of the extension is its integration with Azure schemas. Azure schemas provide the extension with validation and resource-aware completion capabilities. Let's modify the storage account to see validation and completion in action.
 
-First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this action produces a warning indicating that `megaStorage` is not a valid value.
+First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this action produces a warning indicating that `megaStorage` isn't a valid value.
 
 ![Image showing an invalid storage configuration](./media/quickstart-create-templates-use-visual-studio-code/7.png)
 
@@ -105,7 +108,7 @@ Now that the parameter file has been mapped to the template, the extension valid
 
 ![Image showing an invalidated template due to parameter file issue](./media/quickstart-create-templates-use-visual-studio-code/17.png)
 
-Navigate back to the ARM template and notice that an error has been raised indicating that the value does not meet the parameter criteria.
+Navigate back to the ARM template and notice that an error has been raised indicating that the value doesn't meet the parameter criteria.
 
 ![Image showing a valid ARM template](./media/quickstart-create-templates-use-visual-studio-code/18.png)
 

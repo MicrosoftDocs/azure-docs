@@ -1,10 +1,10 @@
 ---
 title: Connect to Dynamics 365
-description: Create and manage Dynamics 365 records by using Azure Logic Apps
+description: Create and manage Dynamics 365 records by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jdaly, logicappspm
-ms.topic: conceptual
+ms.reviewer: jdaly, azla
+ms.topic: how-to
 ms.date: 05/09/2020
 tags: connectors
 ---

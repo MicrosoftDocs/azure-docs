@@ -7,10 +7,13 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Expose applications to the internet using Application Gateway
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article explains how to expose applications to the internet using Application Gateway. When an Azure Spring Cloud service instance is deployed in your virtual network, applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway.
 
@@ -97,7 +100,7 @@ Next, adapt the policy JSON as shown in the following example, indicating the `s
 }
 ```
 
-After you've finished updating the policy JSON (see [Update Certificate Policy](/rest/api/keyvault/update-certificate-policy/update-certificate-policy)), you can create a self-signed certificate in Key Vault by using the following commands:
+After you've finished updating the policy JSON (see [Update Certificate Policy](/rest/api/keyvault/certificates/update-certificate-policy/update-certificate-policy)), you can create a self-signed certificate in Key Vault by using the following commands:
 
 ```azurecli
 KV_NAME='name-of-key-vault'
@@ -339,7 +342,7 @@ az network public-ip show \
 
 You can now access the application using the public domain name.
 
-## See also
+## Next steps
 
 - [Troubleshooting Azure Spring Cloud in VNET](./troubleshooting-vnet.md)
 - [Customer Responsibilities for Running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md)

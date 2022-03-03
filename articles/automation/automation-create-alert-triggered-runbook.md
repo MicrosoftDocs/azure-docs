@@ -283,10 +283,22 @@ Ensure your VM is running. Navigate to the runbook **Stop-AzureVmInResponsetoVMA
 
    :::image type="content" source="./media/automation-create-alert-triggered-runbook/job-result-portal.png" alt-text="Showing output from job.":::
 
+## Common Azure VM management operations
+
+Azure Automation provides scripts for common Azure VM management operations like restart VM, stop VM, delete VM, scale up and down scenarios in Runbook gallery. The scripts can also be found in the Azure Automation [GitHub repository](https://github.com/azureautomation) You can also use these scripts as mentioned in the above steps. 
+
+|**Azure VM management operations** | **Details**|
+|--- | ---|
+[Stop-Azure-VM-On-Alert](https://github.com/azureautomation/Stop-Azure-VM-On-Alert) | This runbook will stop an Azure Resource Manager VM in response to an Azure alert trigger. </br></br> Input is alert data with information needed to identify which VM to stop.</br></br> The runbook must be called from an Azure alert via a webhook. </br></br> Latest version of Az module should be added to the automation account. </br></br> Managed Identity should be enabled and contributor access to the automation account should be given.
+[Restart-Azure-VM-On-Alert](https://github.com/azureautomation/Restart-Azure-VM-On-Alert) | This runbook will stop an Azure Resource Manager VM in response to an Azure alert trigger. </br></br> Input is alert data with information needed to identify which VM to stop.</br></br> The runbook must be called from an Azure alert via a webhook. </br></br> Latest version of Az module should be added to the automation account. </br></br> Managed Identity should be enabled and contributor access to the automation account should be given.
+[Delete-Azure-VM-On-Alert](https://github.com/azureautomation/Delete-Azure-VM-On-Alert) | This runbook will stop an Azure Resource Manager VM in response to an Azure alert trigger. </br></br> Input is alert data with information needed to identify which VM to stop.</br></br> The runbook must be called from an Azure alert via a webhook. </br></br> Latest version of Az module should be added to the automation account. </br></br> Managed Identity should be enabled and contributor access to the automation account should be given.
+[ScaleDown-Azure-VM-On-Alert](https://github.com/azureautomation/ScaleDown-Azure-VM-On-Alert) | This runbook will stop an Azure Resource Manager VM in response to an Azure alert trigger. </br></br> Input is alert data with information needed to identify which VM to stop.</br></br> The runbook must be called from an Azure alert via a webhook. </br></br> Latest version of Az module should be added to the automation account. </br></br> Managed Identity should be enabled and contributor access to the automation account should be given.
+[ScaleUp-Azure-VM-On-Alert](https://github.com/azureautomation/ScaleUp-Azure-VM-On-Alert) | This runbook will stop an Azure Resource Manager VM in response to an Azure alert trigger. </br></br> Input is alert data with information needed to identify which VM to stop.</br></br> The runbook must be called from an Azure alert via a webhook. </br></br> Latest version of Az module should be added to the automation account. </br></br> Managed Identity should be enabled and contributor access to the automation account should be given.
+
 
 ## Next steps
 
-* To discover different ways to start a runbook, see [Start a runbook](./start-runbooks.md).
-* To create an activity log alert, see [Create activity log alerts](../azure-monitor/alerts/activity-log-alerts.md).
-* To learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../azure-monitor/alerts/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* Discover different ways to start a runbook, see [Start a runbook](./start-runbooks.md).
+* Create an activity log alert, see [Create activity log alerts](../azure-monitor/alerts/activity-log-alerts.md).
+* Learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../azure-monitor/alerts/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
 

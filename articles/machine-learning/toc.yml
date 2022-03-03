@@ -53,7 +53,7 @@
               displayName: automl, automated, auto ml,
               href: tutorial-auto-train-models.md
             - name: Object detection with AutoML 
-              displayName: automl, automated, auto ml, computer vision, images
+              displayName: automl, automated, auto ml, computer vision, images, image model
               href: tutorial-auto-train-image-models.md
         - name: Prep your code for production
           displayName: mlops, mlopspython, production
@@ -300,6 +300,8 @@
                 href: how-to-move-workspace.md
               - name: Link to Azure Synapse Analytics workspace
                 href: how-to-link-synapse-ml-workspaces.md
+              - name: Securely integrate Azure Synapse & Azure Machine Learning
+                href: how-to-private-endpoint-integration-synapse.md
               - name: Workspace Diagnostics
                 href: how-to-workspace-diagnostic-api.md
           - name: Create & manage compute resources
@@ -310,9 +312,6 @@
               - name: Compute cluster
                 displayName: compute target, low priority, managed identity
                 href: how-to-create-attach-compute-cluster.md
-              - name: Upgrade host OS
-                displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
-                href: how-to-compute-cluster-instance-os-upgrade.md
               - name: Azure Arc-enabled machine learning
                 displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
                 href: how-to-attach-arc-kubernetes.md
@@ -526,13 +525,13 @@
             displayName: time series
             href: how-to-auto-train-forecast.md
           - name: Prep image data for computer vision models (Python)
-            displayName: SDK, automl, image, datasets, conversion scripts, schema
+            displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
             href: how-to-prepare-datasets-for-automl-images.md
           - name: Auto-train computer vision models (Python)
-            displayName: SDK, automl, image
+            displayName: SDK, automl, image, image model
             href: how-to-auto-train-image-models.md
           - name: Auto-train a small object detection model
-            displayName: computer vision, image
+            displayName: computer vision, image, image model
             href: how-to-use-automl-small-object-detect.md
           - name: Data splits & cross-validation (Python)
             displayName: automl, feature engineering, feature importance
@@ -542,10 +541,13 @@
             href: how-to-configure-auto-features.md
           - name: Understand charts and metrics
             href: how-to-understand-automated-ml.md
+          - name: Generate AutoML training code
+            href: how-to-generate-automl-training-code.md
           - name: Use ONNX model in .NET application
             href: how-to-use-automl-onnx-model-dotnet.md
           - name: Inference image models with ONNX model 
             href: how-to-inference-onnx-automl-image-models.md
+            displayName: automl, image, image model, computer vision
           - name: Troubleshoot automated ML
             href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
@@ -614,9 +616,6 @@
           href: how-to-deploy-inferencing-gpus.md
         - name: Azure Cognitive Search
           href: how-to-deploy-model-cognitive-search.md
-        - name: Azure Functions
-          displayName: functions app
-          href: how-to-deploy-functions.md
         - name: FPGA inference
           href: how-to-deploy-fpga-web-service.md
       - name: Prebuilt Docker images
@@ -659,9 +658,6 @@
       - name: Deploy designer models
         displayName: designer, studio
         href: how-to-deploy-model-designer.md
-      - name: No code deployment
-        displayName: no code
-        href: how-to-deploy-no-code-deployment.md
       - name: Package models
         displayName: docker file download
         href: how-to-deploy-package-models.md
@@ -811,13 +807,13 @@
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
     - name: Image data schemas for AutoML
-      displayName: automl, schema, data
+      displayName: automl, schema, data, computer vision, image model
       href: reference-automl-images-schema.md
     - name: Hyperparameters for AutoML computer vision tasks
-      displayName: automl, yolo-5
+      displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
-    - name: Designer module reference
-      displayName: module, reference, algorithm, studio
+    - name: Designer component reference
+      displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
