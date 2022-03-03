@@ -44,7 +44,7 @@ In this series of articles, you'll learn how to:
 ## Deployment milestones
 Deployment of the SAP continuous threat monitoring solution is divided into the following sections
 
-1. Deployment overview (*You are here*)
+1. **Deployment overview (*You are here*)**
 
 1. [Prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 
