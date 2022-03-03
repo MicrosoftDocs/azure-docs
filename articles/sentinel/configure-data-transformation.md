@@ -28,12 +28,33 @@ Before you start configuring DCRs for data transformation:
 
 - **Verify data connector support**. Make sure that your data connectors are supported for data transformation.
 
-    In our [data connector reference](data-connectors-reference.md) article, check the section for your data connector to understand the types of DCRs and data transformation supported.
+    In our [data connector reference](data-connectors-reference.md) article, check the section for your data connector to understand which types of DCRs are supported. Continue in this article to understand how the DCR type you select affects the rest of the ingestion and transformation process.
+
+## Determine your requirements
+
+| If you are ingesting | Ingestion-time transformation is... | Use this DCR type |
+| -------------------- | ---------------------------- | ----------------- |
+| **Custom data** through <br>the **DCR-based API** | <li>Required<li>Included in the DCR that defines the data model | Standard DCR |
+| **Built-in data types** <br>(Syslog, CommonSecurityLog, WindowsEvent, SecurityEvent) <br>using the **Azure Monitor Agent (AMA)** | <li>Optional<li>If desired, included in the DCR that defines the AMA configuration | Standard DCR |
+| **Built-in data types** <br>(Syslog, CommonSecurityLog, WindowsEvent, SecurityEvent) <br>using the legacy **Log Analytics Agent (MMA)** | <li>Optional<li>If desired, added to the DCR attached to the Workspace where this data is being ingested | Workspace transformation DCR |
+| **Built-in data types** <br>from most other sources | <li>Optional<li>If desired, added to the DCR attached to the Workspace where this data is being ingested | Workspace transformation DCR |
+|  |  |
+
+
 
 ## Configure your data transformation
 
 Use the following procedures from the Log Analytics and Azure Monitor documentation to configure your data transformation DCRs:
 
+[Direct ingestion through the DCR-based Custom Logs API](../azure-monitor/logs/custom-logs-overview.md):
+- Walk through a tutorial for [ingesting custom logs using the Azure portal](../azure-monitor/logs/tutorial-custom-logs.md).
+- Walk through a tutorial for [ingesting custom logs using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-custom-logs-api.md).
+
+[Ingestion-time data transformation](../azure-monitor/logs/ingestion-time-transformations.md):
+- Walk through a tutorial for [configuring ingestion-time transformation using the Azure portal](../azure-monitor/logs/tutorial-ingestion-time-transformations.md).
+- Walk through a tutorial for [configuring ingestion-time transformation using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-ingestion-time-transformations-api.md).- 
+
+[More on data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md):
 - [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
 - [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
 
@@ -51,7 +72,7 @@ Use one of the following methods:
 
     After you've verified that your data is properly ingested to the new table, you can delete the legacy table, as well as your legacy, custom data connector.
 
-- Continue using the custom table created by your custom data connector. You might use this option if you have a lot of custom security content created for your existing table. In such cases, consult [AMA migration for Microsoft Sentinel](ama-migrate.md).
+- Continue using the custom table created by your custom data connector. You might use this option if you have a lot of custom security content created for your existing table. In such cases, see [Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs](../azure-monitor/logs/custom-logs-migrate.md) in the Azure Monitor documentation.
 
 ## Next steps
 
@@ -59,7 +80,7 @@ For more information about data transformation and DCRs, see:
 
 - [Custom data ingestion and transformation in Microsoft Sentinel (preview)](data-transformation.md)
 - [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
-- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
 - [Custom logs API in Azure Monitor Logs (Preview)](../azure-monitor/logs/custom-logs-overview.md)
+- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
 - [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
 - [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)
