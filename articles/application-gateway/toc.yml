@@ -86,7 +86,7 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
-  - name: Private Link
+    - name: Private Link
       href: private-link.md
   - name: SSL
     items:
