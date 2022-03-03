@@ -418,11 +418,13 @@ ams content-key-policy option add
 #"""
 # </AmsContentKeyPolicyOptionAdd>
 
+#type: command
+#short-summary: Remove an option from an existing content key policy.
+# <AmsContentKeyPolicyOptionRemove>
 ams content-key-policy option remove
-    #type: command
-    #short-summary: Remove an option from an existing content key policy.
-#"""
+# </AmsContentKeyPolicyOptionRemove>
 
+# <AmsContentKeyPolicyOptionUpdate>
 ams content-key-policy option update
     #type: command
     #short-summary: Update an option from an existing content key policy.
@@ -431,22 +433,29 @@ ams content-key-policy option update
           #text: >
             #az ams content-key-policy option update -n contentKeyPolicyName -g resourceGroup -a amsAccount --policy-option-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --add-alt-token-key tokenKey --add-alt-token-key-type Symmetric
 #"""
+# </AmsContentKeyPolicyOptionUpdate>
 
+# <AmsJob>
 ams job
     #type: group
     #short-summary: Manage jobs for a transform.
 #"""
+# </AmsJob>
 
+# <AmsJobStart>
 ams job start
     #type: command
     #short-summary: Start a job.
 #"""
+# </AmsJobStart>
 
+# <AmsJobUpdate>
 ams job update
     #type: command
     #short-summary: Update an existing job.
-#"""
+# </AmsJobUpdate>
 
+# <AmsJobList>
 ams job list
     #type: command
     #short-summary: List all the jobs of a transform within an Azure Media Services account.
@@ -457,87 +466,103 @@ ams job list
         #- name: List all the jobs of a transform by name and input.
           #text: >
             #az ams job list -a amsAccount -g resourceGroup -t transformName --query [].{jobName:name,jobInput:input}
-#"""
+# </AmsJobList>
 
+# <AmsJobShow>
 ams job show
     #type: command
     #short-summary: Show the details of a job.
-#"""
+# </AmsJobShow>
 
+# <AmsJobDelete>
 ams job delete
     #type: command
     #short-summary: Delete a job.
-#"""
+# </AmsJobDelete>
 
+# <AmsJobCancel>
 ams job cancel
     #type: command
     #short-summary: Cancel a job.
-#"""
+# </AmsJobCancel>
 
+# <AmsStreamingLocator>
 ams streaming-locator
     #type: group
     #short-summary: Manage streaming locators for an Azure Media Services account.
-#"""
+# </AmsStreamingLocator>
 
+# <AmsStreamingLocatorCreate>
 ams streaming-locator create
     #type: command
     #short-summary: Create a streaming locator.
-#"""
+# </AmsStreamingLocatorCreate>
 
+# <AmsStreamingLocatorList>
 ams streaming-locator list
     #type: command
     #short-summary: List all the streaming locators within an Azure Media Services account.
-#"""
+# </AmsStreamingLocatorList>
 
+# <AmsStreamingLocatorShow>
 ams streaming-locator show
     #type: command
     #short-summary: Show the details of a streaming locator.
-#"""
+# </AmsStreamingLocatorShow>
 
+# <AmsStreamingLocatorGetPaths>
 ams streaming-locator get-paths
     #type: command
     #short-summary: List paths supported by a streaming locator.
-#"""
+# </AmsStreamingLocatorGetPaths>
 
+# <AmsStreamingLocatorListContentKeys>
 ams streaming-locator list-content-keys
     #type: command
     #short-summary: List content keys used by a streaming locator.
-#"""
+# </AmsStreamingLocatorListContentKeys>
 
+# <AmsStreamingPolicy>
 ams streaming-policy
     #type: group
     #short-summary: Manage streaming policies for an Azure Media Services account.
-#"""
+# </AmsStreamingPolicy>
 
+# <AmsStreamingPolicyCreate>
 ams streaming-policy create
     #type: command
     #short-summary: Create a streaming policy.
-#"""
+# </AmsStreamingPolicyCreate>
 
+# <AmsStreamingPolicyList>
 ams streaming-policy list
     #type: command
     #short-summary: List all the streaming policies within an Azure Media Services account.
-#"""
+# </AmsStreamingPolicyList>
 
+# <AmsStreamingPolicyShow>
 ams streaming-policy show
     #type: command
     #short-summary: Show the details of a streaming policy.
-#"""
+# </AmsStreamingPolicyShow>
 
+# <AmsStreamingEndpointShow>
 ams streaming-endpoint
     #type: group
     #short-summary: Manage streaming endpoints for an Azure Media Service account.
-#"""
+# </AmsStreamingEndpointShow>
 
+# <AmsStreamingEndpointStart>
 ams streaming-endpoint start
     #type: command
     #short-summary: Start a streaming endpoint.
-#"""
+# </AmsStreamingEndpointStart>
 
+# <AmsStreamingEndpointStop>
 ams streaming-endpoint stop
     #type: command
     #short-summary: Stop a streaming endpoint.
-#"""
+# </AmsStreamingEndpointStop>
 
 ams streaming-endpoint list
     #type: command

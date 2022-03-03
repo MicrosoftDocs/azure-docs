@@ -14,7 +14,7 @@ ms.author: inhenkel
 # Code snippets
 
 ## Code snippet
-:::code language="bash" source="./includes/cli-code-snippets.sh" id="AmsAccountList" interactive="cloudshell-bash":::
+:::code language="azurecli" source="./includes/cli-code-snippets.sh" id="AmsAccountList" interactive="azurecli-interactive":::
 
 ## Codey code
 asdfasdf
