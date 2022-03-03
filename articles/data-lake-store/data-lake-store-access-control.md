@@ -1,5 +1,4 @@
 ---
----
 title: Overview of access control in Data Lake Storage Gen1 | Microsoft Docs
 description: Learn about the basics of the access control model of Azure Data Lake Storage Gen1, which derives from HDFS.
 
