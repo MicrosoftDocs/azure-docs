@@ -19,7 +19,7 @@ In Azure Cognitive Search, an alias is a secondary name that can be used to refe
 
 The main goal of index aliases is to make it easier to manage your production indexes. For example, if you need to make a change to your index definition, such as editing a field or adding a new analyzer, you'll have to create a new search index because all search indexes are immutable. This means you either need to [drop and rebuild your index](search-howto-reindex.md) or create a new index and then migrate your application over to that index.
 
-Index aliases make this easier because you can create a new index alongside your current index and then whenever you're ready to migrate over to the new index, all you need to is update the mapping in your alias and requests will automatically start going to the new index.
+Index aliases make this easier because you can create a new index alongside your current index and then whenever you're ready to migrate over to the new index, all you need to do is update the mapping in your alias and requests will automatically start going to the new index.
 
 A typical workflow for using index aliases would be to: 
 
@@ -60,12 +60,12 @@ To create an alias in Visual Studio Code:
 
 ## Send requests
 
-Once you've created your alias, you're ready to start using it. Aliases can be used for all [document operations](rest/api/searchservice/document-operations) including querying, indexing, suggestions, and autocomplete. 
+Once you've created your alias, you're ready to start using it. Aliases can be used for all [document operations](/rest/api/searchservice/document-operations) including querying, indexing, suggestions, and autocomplete. 
 
-In the query below, instead of sending the request to `hotel-samples-index` you can instead send the request to `my-alias` and it will be routed accordingly. 
+In the query below, instead of sending the request to `hotel-samples-index`, you can instead send the request to `my-alias` and it will be routed accordingly. 
 
 ```http
-POST /indexes/my-alias/docs/search?api-version=2020-06-30
+POST /indexes/my-alias/docs/search?api-version=2021-04-30-preview
 {
     "search": "pool spa +airport",
     "searchMode": any,
@@ -75,14 +75,14 @@ POST /indexes/my-alias/docs/search?api-version=2020-06-30
 }
 ```
 
-In your client-side application, you can use the alias name rather than the index name to route all requests to the proper index. The alias gives you an easy mechanism to update where your application's requests are being routed to.
+If you expect that you may need to make updates to your index definition for your production indexes, you should use an alias rather than the index name for requests in your client-side application. Scenarios that require you to create a new index are outlined under these [rebuild conditions](search-howto-reindex.md#rebuild-conditions).
 
 > [!NOTE]
-> One area where aliases can't be used is with indexers: indexers don't support aliases so you can't include an alias as the `targetIndexName` on your indexer.
+> You can only use an alias with [document operations](/rest/api/searchservice/document-operations). Aliases can't be used to get or update an index definition, can't be used with the Analyze Text API, and can't be used as the `targetIndexName` on an indexer.
 
 ## Swap indexes
 
-Now, whenever you need to update your application to point to a new index, all you need to do is update the mapping in your alias. PUT is required for updates as described in [Create or Update Alias (REST preview)](rest/api/searchservice/preview-api/create-or-update-alias).
+Now, whenever you need to update your application to point to a new index, all you need to do is update the mapping in your alias. PUT is required for updates as described in [Create or Update Alias (REST preview)](/rest/api/searchservice/preview-api/create-or-update-alias).
 
 ```http
 PUT /aliases/my-alias?api-version=2021-04-30-preview

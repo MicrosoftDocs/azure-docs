@@ -121,9 +121,9 @@ Maximum number of synonym maps varies by tier. Each rule can have up to 20 expan
 | Maximum synonym maps |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Maximum number of rules per map |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
-## Alias limits
+## Index alias limits
 
-Maximum number of aliases varies by tier. In all tiers, the maximum number of aliases is the same as the maximum number of indexes.
+Maximum number of [index aliases](search-how-to-alias.md) varies by tier. In all tiers, the maximum number of aliases is the same as the maximum number of indexes.
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
