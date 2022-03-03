@@ -24,4 +24,6 @@ See the sections in this article for the Universal Phone Set for each locale.
 
 ## Next steps
 
-* [Prepare data for Custom Speech](how-to-custom-speech-test-and-train.md)
+- [Upload your data](how-to-custom-speech-upload-data.md)
+- [Inspect your data](how-to-custom-speech-inspect-data.md)
+- [Train your model](how-to-custom-speech-train-model.md)

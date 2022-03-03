@@ -272,6 +272,6 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 
 ## Next steps
 
+* [Upload your data](how-to-custom-speech-upload-data.md)
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
-* [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 * [Train a custom model](how-to-custom-speech-train-model.md)
