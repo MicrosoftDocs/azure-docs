@@ -69,7 +69,7 @@ All queries return records generated within a set time range. By default, the qu
 
 You can set a different time range using the [where operator](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor#filter-by-boolean-expression-where-1) in the query, or using the **Time range** dropdown list at the top of the screen. 
 
-Let’s change the time range of the query by selecting **Time range > Last 12 hours**. Select **Run** to return the results.
+Let’s change the time range of the query by selecting **Last 12 hours** from the **Time range** dropdown. Select **Run** to return the results.
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-max.png" alt-text="Screenshot that shows the time range." lightbox="media/log-analytics-tutorial/query-results-max.png":::
 
