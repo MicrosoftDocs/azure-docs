@@ -40,7 +40,7 @@ In the new region, move or recreate the infrastructure needed for the cache.
 
 Make sure your new region has a virtual network to hold the cache, and the required subnets. Depending on your configuration, you might need to move or re-create Blob containers for your storage targets.
 
-Confirm that the new resources meet all of the requirements described in the cache[Prerequisites](hpc-cache-prerequisites.md) article.
+Confirm that the new resources meet all of the requirements described in the cache [Prerequisites](hpc-cache-prerequisites.md) article.
 
 ### Shut down the cache
 
