@@ -240,7 +240,7 @@ az storage blob show \
 
 ### Read and write blob metadata
 
-Blob metadata is an optional set of name/value pairs associated with a blob. As shown in the previous example, there's no metadata associated with a blob initially, though it can be added when necessary. To read, use the `az storage blob metadata show` command. To update blob metadata, you'll use `az storage blob metadata update` . For more information, see the [az storage blob metadata](/cli/azure/storage/blob/metadata) reference.
+Blob metadata is an optional set of name/value pairs associated with a blob. As shown in the previous example, there's no metadata associated with a blob initially, though it can be added when necessary. To read, use the `az storage blob metadata show` command. To update blob metadata, you'll use `az storage blob metadata update` and supply an array of key-value pairs. For more information, see the [az storage blob metadata](/cli/azure/storage/blob/metadata) reference.
 
 For additional information, see the [az storage blob metadata](/cli/azure/storage/blob#az-storage-blob-metadata) reference.
 
@@ -252,14 +252,16 @@ storageAccount="<storage-account>"
 containerName="demo-container"
 blobName="blue-moon.mp3"
 
-metadata="Written=1934"
-metadata=("$metadata Recorded=1958")
+metadata=("Written=1934" "Recorded=1958")
+metadata+=("Lyricist=Lorenz Hart")
+metadata+=("Composer=Richard Rogers")
+metadata+=("Artist=Tony Bennett")
 
 #Update metadata
 az storage blob metadata update \
     --container-name $containerName \
     --name $blobName \
-    --metadata $metadata \
+    --metadata "${metadata[@]}" \
     --account-name $storageAccount \
     --auth-mode login
 
@@ -353,6 +355,10 @@ az storage blob set-tier
 
 Blob index tags make data management and discovery easier. Blob index tags are user-defined key-value index attributes that you can apply to your blobs. Once configured, you can categorize and find objects within an individual container or across all containers. Blob resources can be dynamically categorized by updating their index tags without requiring a change in container organization. This approach offers a flexible way to cope with changing data requirements. You can use both metadata and index tags simultaneously. For more information on index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
+> [!IMPORTANT]
+> Support for blob index tags is in preview status.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 > [!TIP]
 > The code sample provided below uses pattern matching to obtain text from an XML file having a known structure. The example is used to illustrate a simplified approach for adding blob tags using basic Bash functionality. The use of an actual data parsing tool is always recommended when consuming data for production workloads.
 
@@ -386,19 +392,20 @@ do
 if echo "$line" | grep -q "<Venue";then
     name=`echo "$line" | cut -d'"' -f 2`
     type=`echo "$line" | cut -d'"' -f 4`
-    tags="name=\"$name\" type=$type"
+    tags=("name=$name")
+    tags+=("type=$type")
 fi
 
 #Add tags to blobs
 if echo "$line" | grep -q "<File ";then
     blobName=`echo "$line" | cut -d'"' -f 2`
     
-    az storage blob tag set \
+    echo az storage blob tag set \
         --container-name $containerName \
         --name $blobName \
         --account-name $storageAccount \
         --auth-mode login \
-        --tags $tags
+        --tags "{$tags[@]}"
 fi
 
 done < /mnt/c/temp/bloblist.xml
