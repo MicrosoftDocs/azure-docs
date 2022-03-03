@@ -54,22 +54,20 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 ## Network Security Rules
 
-The network security group rules described below are the recommended minimum for a typical configuration. We also include what rules are mandatory for an operational cluster if optional rules are not desired. Failure to open the mandatory ports or approving the IP/URL will prevent proper operation of the cluster and may not be supported. 
-
-The rules marked as mandatory are needed for a proper operational cluster. Described is the minimum for typical configurations. It also enables a complete security lockdown with network peering and jumpbox concepts like Azure Bastion. Failure to open the mandatory ports or approving the IP/URL will prevent proper operation of the cluster and may not be supported. 
+The rules described below are the recommended minimum for a typical configuration. We also include what rules are mandatory for an operational cluster if optional rules are not desired. It allows a complete security lockdown with network peering and jumpbox concepts like Azure Bastion. Failure to open the mandatory ports or approving the IP/URL will prevent proper operation of the cluster and may not be supported. 
 
 ### Inbound 
-|Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action        | Mandatory
+|Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action        |Mandatory
 |---        |---                |---         |---       |---                |---               |---           |---
-|3900       |Azure portal       |19080       |TCP       |ServiceFabric      |Any               |Allow         | Yes
-|3910       |Client API         |19000       |TCP       |Internet           |Any               |Allow         | No
-|3920       |SFX + Client API   |19080       |TCP       |Internet           |Any               |Allow         | No
-|3930       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |Any               |Allow         | Yes
-|3940       |Ephemeral          |49152-65534 |TCP       |VirtualNetwork     |Any               |Allow         | Yes
-|3950       |Application        |20000-30000 |TCP       |VirtualNetwork     |Any               |Allow         | Yes
-|3960       |RDP                |3389-3488   |TCP       |Internet           |Any               |Deny          | No
-|3970       |SSH                |22          |TCP       |Internet           |Any               |Deny          | No
-|3980       |Custom endpoint    |443         |TCP       |Internet           |Any               |Deny          | No
+|3900       |Azure portal       |19080       |TCP       |ServiceFabric      |Any               |Allow         |Yes
+|3910       |Client API         |19000       |TCP       |Internet           |Any               |Allow         |No
+|3920       |SFX + Client API   |19080       |TCP       |Internet           |Any               |Allow         |No
+|3930       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |Any               |Allow         |Yes
+|3940       |Ephemeral          |49152-65534 |TCP       |VirtualNetwork     |Any               |Allow         |Yes
+|3950       |Application        |20000-30000 |TCP       |VirtualNetwork     |Any               |Allow         |Yes
+|3960       |RDP                |3389-3488   |TCP       |Internet           |Any               |Deny          |No
+|3970       |SSH                |22          |TCP       |Internet           |Any               |Deny          |No
+|3980       |Custom endpoint    |443         |TCP       |Internet           |Any               |Deny          |No
 
 More information about the inbound security rules:
 
@@ -96,10 +94,10 @@ More information about the inbound security rules:
 
 ### Outbound
 
-|Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action        | Mandatory 
-|---        |---                |---         |---       |---                |---               |---           |---
-|4010       |Resource Provider  |443         |TCP       |Any                |ServiceFabric     |Allow         | Yes
-|4020       |Download Binaries  |443         |TCP       |Any                |AzureFrontDoor.FirstParty |Allow | Yes
+|Priority   |Name               |Port        |Protocol  |Source    |Destination               |Action        |Mandatory 
+|---        |---                |---         |---       |---       |---                       |---           |---
+|4010       |Resource Provider  |443         |TCP       |Any       |ServiceFabric             |Allow         |Yes
+|4020       |Download Binaries  |443         |TCP       |Any       |AzureFrontDoor.FirstParty |Allow         |Yes
 
 
 More information about the outbound security rules:
@@ -121,26 +119,26 @@ All additional scenarios can be covered with [Azure Service Tags](../virtual-net
 
 The classic PowerShell tasks in Azure DevOps need Client API access to the cluster, examples are application deployments or operational tasks. This does not apply to the ARM templates only approach, including [ARM application resources](service-fabric-application-arm-resource.md).
 
-|Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action     |Directio     
-|---        |---                |---         |---       |---                |---               |---           |---     
-|3915       |Azure DevOps        |19000       |TCP       |AzureCloud           |Any               |Allow       | Inbound       
+|Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action     |Direction     
+|---        |---                |---         |---       |---                |---               |---        |---     
+|3915       |Azure DevOps       |19000       |TCP       |AzureCloud         |Any               |Allow      |Inbound       
 
 #### Updating Windows
 
 Best practice to patch the Windows operating system is replacing the OS disk by [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), no additional rule is required.
 The [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) is managing in-VM upgrades where Windows Updates applies operating system patches, this needs access to the Download Center to download the update binaries.
 
-|Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action  | Direction    |      
-|---        |---                |---         |---       |---                |---               |---     |---      
-|4015       |Windows Updates  |443         |TCP       |Any                |AzureUpdateDelivery     |Allow      | Outbound       
+|Priority   |Name               |Port        |Protocol  |Source    |Destination           |Action  |Direction      
+|---        |---                |---         |---       |---       |---                   |---     |---      
+|4015       |Windows Updates    |443         |TCP       |Any       |AzureUpdateDelivery   |Allow   |Outbound       
 
 #### API Management
 
 The integration of Azure API Management need Client API access to query endpoint information from the cluster. 
 
-|Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action        | Direction    |
-|---        |---                |---         |---       |---                |---               |---           |--- 
-|3920       |API Management   |19080       |TCP       |ApiManagement           |Any               |Allow     | Inbound
+|Priority   |Name               |Port        |Protocol  |Source             |Destination    |Action    |Direction
+|---        |---                |---         |---       |---                |---            |---       |--- 
+|3920       |API Management     |19080       |TCP       |ApiManagement      |Any            |Allow     |Inbound
 
 ## Application Networking
 
