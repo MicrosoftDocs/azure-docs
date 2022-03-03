@@ -45,11 +45,17 @@ Before starting the training process, files in your dataset are divided into two
 
 4. To train a new model, select **Train a new model** and type in the model name in the text box below. You can **overwrite an existing model** by selecting this option and select the model you want from the dropdown below.
 
-    :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
+    :::image type="content" source="../media/train-model.png" alt-text="Create a new training job" lightbox="../media/train-model.png":::
+    
+If you have enabled [Split project data manually toggle](https://docs.microsoft.com/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/tag-data) in Tag page, you will see two training options:
+
+* **Automatic split the testing**: The data will be randomly split for each class between training and testing sets, according to the percentages you choose. The default value is 80% for training and 20% for testing. To change these values, choose which set you want to change and write the new value.
+* **Use a manual split**: Assign each document to either the training or testing set, this required first adding files in the test dataset.
+
 
 5. Click on the **Train** button.
 
-6. You can check the status of the training job in the same page. Only successfully completed tasks will generate models.
+6. You can check the status of the training job in the same page. Only successfully completed training jobs will generate models.
 
 You can only have one training job running at a time. You cannot create or start other tasks in the same project. 
 
