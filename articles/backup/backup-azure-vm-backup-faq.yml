@@ -208,7 +208,7 @@ sections:
         answer: |
           Azure VM must be in the powered-off state while you restore. Otherwise, the restore operation would fail in the pre-check stage, with the error code *UserErrorVmNotShutDown*.
 
-          Also, to swap VM disks, you must power off the VM.
+          Also, before you swap VM disks, you must power off the VM.
 
       -  question: Is there a limit to trigger restore in a day?
          answer: |
