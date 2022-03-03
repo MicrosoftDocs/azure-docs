@@ -2,7 +2,7 @@
 title: Back up Azure VMs with Enhanced policy (in preview)
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 02/11/2022
+ms.date: 02/18/2022
 ms.reviewer: geg
 author: v-amallick
 ms.service: backup
@@ -51,11 +51,11 @@ Follow these steps:
 
    - **Policy sub-type**: Select **Enhanced** type. By default, the policy type is set to **Standard**.
    
-     :::image type="content" source="./media/backup-azure-vms-enhanced-policy/select-enhanced-backup-policy-sub-type.png" alt-text="Screenshot showing to select backup policies sub-type as enhanced.":::
+     :::image type="content" source="./media/backup-azure-vms-enhanced-policy/select-enhanced-backup-policy-sub-type.png" alt-text="Screenshot showing to select backup policies subtype as enhanced.":::
 	 
    - **Backup schedule**: You can select frequency as **Hourly**/Daily/Weekly.
 	  
-     By default, enhanced backup schedule is set to **Hourly**, with **8 AM** as start time, **Every 4 hours** as schedule, and **24 Hours** as duration. You can choose to modify the settings as needed.
+     With backup schedule set to **Hourly**, the default selection for start time is **8 AM**, schedule is **Every 4 hours**, and duration is **24 Hours**. Hourly backup has a minimum RPO of 4 hours and a maximum of 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours respectively.
 
      Note that Hourly backup frequency is in preview. To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
    
