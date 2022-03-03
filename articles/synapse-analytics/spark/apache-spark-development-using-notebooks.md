@@ -563,7 +563,7 @@ Reference unpublished notebook is helpful when you want to debug "locally", when
 
 For different cases comparison please check the table below:  
 
-Notice that [%run](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical#notebook-reference) and [mssparkutils.notebook.run](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/microsoft-spark-utilities?pivots=programming-language-python#reference-a-notebook) has same behavior here. We use `%run` here as an example. 
+Notice that [%run](./apache-spark-development-using-notebooks.md) and [mssparkutils.notebook.run](./microsoft-spark-utilities.md) has same behavior here. We use `%run` here as an example. 
 
 |Case|Disable|Enable| 
 |----|-------|------| 
