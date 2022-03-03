@@ -11,7 +11,7 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 03/03/2022
 ---
-# Customer-managed keys for Azure Machine Learning
+# Use customer-managed keys with Azure Machine Learning
 
 In the [customer-managed keys concepts article](concept-customer-managed-keys.md), you learned about the encryption capabilities that Azure Machine Learning provides. Now learn how to use customer-managed keys with Azure Machine Learning.
 
