@@ -64,6 +64,8 @@ In this example, we match all requests that have been detected as coming from a 
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "IsDevice",
@@ -78,7 +80,30 @@ In this example, we match all requests that have been detected as coming from a 
 }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "IsDevice",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "Mobile"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters"
+  }
+}
+```
+<!-- TODO make this change to the rest of the match conditions -->
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -93,6 +118,26 @@ In this example, we match all requests that have been detected as coming from a 
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'IsDevice'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'Mobile'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters'
+  }
+}
+```
+
+::: zone-end
 
 ---
 
