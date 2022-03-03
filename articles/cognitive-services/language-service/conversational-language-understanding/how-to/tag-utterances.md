@@ -38,25 +38,25 @@ For example, a developer might create an intent for each of their skills, and co
 
 :::image type="content" source="../media/tag-utterances.png" alt-text="A screenshot of the page for tagging utterances in Language Studio." lightbox="../media/tag-utterances.png":::
 
-*Section 1* is where you choose which dataset you are viewing. You can add utterances in Train dataset or Test dataset.
+*Section 1* is where you choose which dataset you are viewing. You can add utterances in the training set or testing set.
 
 Your utterances are split into two sets:
+* Training set: These utterances are used to create your conversational model during training. The training set is processed as part of the training job to produce a trained model.
+* Testing set: These utterances are used to test the performance of your conversation model when the model is created. Testing set is also used to output the evaluation of the model.
 
-* Train dataset is the main set used to train the model. The contents of this set are introduced to the model during training for it learn from your tagged data.
-* Test dataset is used to provide an unbiased evaluation of the model. This set is not introduced to the model during training and used for testing the model and evaluating its performance.
-
-When adding utterances, you have the option to add to a specific set explicitly (Train or test). If you choose to do this you need to set your split type in Train model page to “User defined”, otherwise keep all your utterances in the Train set and use “Random data split” splitting. Learn more about how your data is split before training [here]()
+When adding utterances, you have the option to add to a specific set explicitly (training or testing). If you choose to do this you need to set your split type in train model page to **manual split of training and testing data**, otherwise keep all your utterances in the train set and use **Automatically split the testing set from training data** splitting. Learn more about how your [data is split before training](https://docs.microsoft.com/azure/cognitive-services/language-service/conversational-language-understanding/how-to/train-model#train-model).
 
 *Section 2* is where you add your utterances. You must select one of the intents from the drop-down list, the language of the utterance (if applicable) and the utterance itself. Press the Enter key in the utterance's text box to add the utterance.
 
-*Section 3* includes your project's entities and distribution of intents and entities across your Training set and Test set. 
+*Section 3* includes your project's entities and distribution of intents and entities across your Training set and Testing set.
 
-You can select any of the entities you've added, and then hover over the text to label the entities within your utterances, shown in section 4. You can also add new entities here by pressing the + Add Entity button. You can also hide those entity's labels within your utterances.
+You can select the highlighter button next to any of the entities you've added, and then hover over the text to label the entities within your utterances, shown in *section 4*. You can also add new entities here by pressing the + Add Entity button. 
 
-For distribution section, you can View tag distribution across:
-* Entities in tags: shows distribution if each of your entities across the train and test sets. 
-* Entities in utterances:  shows how your entities are distributed among the different utterances you have.
-* Intents: shows the distribution of intents across your train and test sets.
+On clicking distribution, you can also view tag distribution across:
+
+* Total instances per tagged entity: shows the distribution of each of your entities across the training and testing sets. 
+* Unique utterances per tagged entity: shows how your entities are distributed among the different utterances you have.
+* Utterances per intent: shows the distribution of utterances among intents across your training and testing sets.
 
 :::image type="content" source="../media/label-distribution.png" alt-text="Distribution" lightbox="../media/label-distribution.png":::
 
@@ -66,6 +66,7 @@ For distribution section, you can View tag distribution across:
 
 > [!NOTE]
 > Unlike LUIS, you cannot label overlapping entities. The same characters cannot be labeled by more than one entity.
+> list and prebuilt components are not shown in the tag utterances page, and all labels here only apply to the learned component.
 
 ## Filter Utterances
 
