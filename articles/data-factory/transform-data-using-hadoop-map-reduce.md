@@ -25,6 +25,20 @@ To learn more, read through  the introduction articles for [Azure Data Factory](
 
 See [Pig](transform-data-using-hadoop-pig.md) and [Hive](transform-data-using-hadoop-hive.md) for details about running Pig/Hive scripts on a HDInsight cluster from a pipeline by using HDInsight Pig and Hive activities.
 
+## Add an HDInsight MapReduce activity to a pipeline with UI
+
+To use an HDInsight MapReduce activity to a pipeline, complete the following steps:
+
+1. Search for _MapReduce_ in the pipeline Activities pane, and drag a MapReduce activity to the pipeline canvas.
+1. Select the new MapReduce activity on the canvas if it is not already selected.
+1. Select the  **HDI Cluster** tab to select or create a new linked service to an HDInsight cluster that will be used to execute the MapReduce activity.
+
+   :::image type="content" source="media/transform-data-using-hadoop-map-reduce/map-reduce-activity.png" alt-text="Shows the UI for a MapReduce activity.":::
+
+1. Select the **Jar** tab to select or create a new Jar linked service to an Azure Storage account that will host your script.  Specify a class name to be executed there, and a file path within the storage location.  You can also configure advanced details including a Jar libs location, debugging configuration, and arguments and parameters to be passed to the script.
+
+   :::image type="content" source="media/transform-data-using-hadoop-map-reduce/map-reduce-script-configuration.png" alt-text="Shows the UI for the Jar tab for a MapReduce activity.":::
+
 ## Syntax
 
 ```json

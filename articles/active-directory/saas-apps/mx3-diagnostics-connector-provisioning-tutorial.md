@@ -12,8 +12,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/12/2021
 ms.author: Thwimmer
 ---
@@ -95,7 +94,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab that shows to select automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your MX3 Diagnostics Connector Tenant URL (https://scim.mx3.app) and Secret Token. Click **Test Connection** to ensure Azure AD can connect to MX3 Diagnostics Connector. If the connection fails, ensure your MX3 Diagnostics Connector account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your MX3 Diagnostics Connector Tenant URL `https://scim.mx3.app` and Secret Token. Click **Test Connection** to ensure Azure AD can connect to MX3 Diagnostics Connector. If the connection fails, ensure your MX3 Diagnostics Connector account has Admin permissions and try again.
 
  	![Screenshot that displays text field to enter Token and SCIM URL](common/provisioning-testconnection-tenanturltoken.png)
 

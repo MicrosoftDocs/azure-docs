@@ -38,6 +38,8 @@
       href: users-bulk-add.md    
     - name: Manage user profiles
       href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Assign custom security attributes
+      href: users-custom-security-attributes.md    
     - name: Download user info
       href: users-bulk-download.md
     - name: Share user accounts

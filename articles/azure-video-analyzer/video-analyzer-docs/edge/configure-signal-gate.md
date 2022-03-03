@@ -1,8 +1,8 @@
 ---
-title: Configuring a signal gate for event-based video recording - Azure
+title: Configuring a signal gate for event-based video recording 
 description: This article provides guidance about how to configure a signal gate in a pipeline.
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 

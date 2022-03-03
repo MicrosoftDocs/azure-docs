@@ -9,6 +9,7 @@ ms.date: 09/25/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

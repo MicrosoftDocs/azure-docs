@@ -24,7 +24,7 @@ In this article, you'll learn about how configurations are applied to your netwo
 
 ## <a name="deployment"></a>Deployment against network group membership types
 
-Deployment updates are different for static and dynamic group members in a network group. When you have dynamic group members, a goal state model is used. Azure Virtual Network Manager will automatically determine if the dynamic members meet the requirements of the configuration and adjust without you needing to deploy the configuration again. However, if you have virtual networks that are added as static members, you'll need to deploy the configuration again for the changes to apply. For example, if you add a new virtual network as a static member you'll need to deploy the configuration again to take effect.
+Changing the definition of a network group won't have an impact unless the configuration using this network group is deployed. As such, deployment updates are different for static and dynamic group members in a network group. When you have dynamic group membership defined, such as all virtual networks whose name contains "production", Azure Virtual Network Manager will automatically determine if the dynamic members meet the requirements of the configuration and adjust without you needing to deploy the configuration again. This is because you already defined the condition of the membership, and the definition didn't change. However, if you have virtual networks that are added as static members, you'll need to deploy the configuration again for the changes to apply. For example, if you add a new virtual network as a static member, you'll need to deploy the configuration again to take effect.
 
 ## Deployment status
 

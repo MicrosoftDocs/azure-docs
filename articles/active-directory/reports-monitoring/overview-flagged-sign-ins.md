@@ -2,14 +2,19 @@
 
 title: What are flagged sign-ins in Azure Active Directory?
 description: Provides a general overview of flagged sign-ins in Azure Active Directory.
+services: active-directory
+documentationcenter: ''
 author: MarkusVi
 manager: karenhoran
+editor: ''
+
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
 ms.topic: overview
+ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/27/2021
+ms.date: 03/02/2022
 ms.author: markvi
 ms.reviewer: tspring  
 
@@ -24,6 +29,8 @@ As an IT admin, when a user failed to sign-in, you want to resolve the issue as 
 This article gives you an overview of a feature that significantly improves the time it takes to resolve user sign-in problems by making the related problems easy to find.
 
 
+
+
 ## What it is
 
 Azure AD sign-in events are critical to understanding what went right or wrong with user sign-ins and the authentication configuration in a tenant. However, Azure AD processes over 8 billion authentications a day, which can result in so many sign-in events that admins may find it difficult to find the ones which matter. In other words, the sheer number of sign-in events can make the signal of users who need assistance get lost in the volume of a large number of events.
@@ -35,7 +42,9 @@ Flagged sign-ins gives the user the ability to enable flagging when an error is 
 In summary, you can use flagged sign-ins to:
 
 - **Empower** users to indicate the sign-in errors they need their tenant admins help on.
+
 - **Simplify** the process of locating the sign-in errors a user needs to be resolved.
+
 - **Enable**  help desk personal find the problems users want help with proactively- without the end user having to do anything other than flag the event.
 
 ## How it works
@@ -66,20 +75,27 @@ After enabling flagging, the same browser application and client must be used or
 
 ### Admin or Developer: Find flagged events using MS Graph
 
-You can find flagged sign-ins with a filtered query using the sign-ins reporting API. A sample query is:
+You can find flagged sign-ins with a filtered query using the sign-ins reporting API.
+
+Show all Flagged Sign-ins:
+`https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true`
+
+Flagged Sign-ins query for specific user by UPN (e.g.: user@contoso.com):
+`https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true and userPrincipalname eq 'user@contoso.com'`
+
+Flagged Sign-ins query for specific user and date greater than:
+`https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true and createdDateTime ge 2021-10-01 and userPrincipalname eq 'user@contoso.com'`
  
-`https://graph.microsoft.com/beta/auditlogs/signins?&$filter=(flaggedForReview eq true)`
-
-For more information on using the sign-ins Graph API, see [signIn resource type](/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true).
+For more information on using the sign-ins Graph API, see [signIn resource type](/graph/api/resources/signin).
 
 
 
  
-## Who can create it?
+## Who can create flagged sign-ins?
 
 Any user signing into Azure AD via web page can use flag sign-ins for review. Member and guest users alike can flag sign-in errors for review. 
 
-## Who can review it?
+## Who can review flagged sign-ins?
 
 Reviewing flagged sign-in events requires permissions to read the Sign-in Report events in the Azure AD portal. For more information, see [who can access it?](concept-sign-ins.md#who-can-access-it)
 

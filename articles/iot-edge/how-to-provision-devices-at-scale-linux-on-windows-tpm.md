@@ -5,23 +5,29 @@ author: kgremban
 manager: lizross
 ms.author: kgremban
 ms.reviewer: fcabrera
-ms.date: 10/28/2021
+ms.date: 02/09/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-monikerRange: "=iotedge-2018-06"
 ---
 
 # Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Linux on Windows device by using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+>[!NOTE]
+>The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
+:::moniker-end
+<!-- end 1.2 -->
+
 This article outlines two methodologies. Select your preference based on the architecture of your solution:
 
-- Autoprovision a Linux on Windows device with physical TPM hardware.
-- Autoprovision a Linux on Windows device by using a simulated TPM. We recommend this methodology only as a testing scenario. A simulated TPM doesn't offer the same security as a physical TPM.
+* Autoprovision a Linux on Windows device with physical TPM hardware.
+* Autoprovision a Linux on Windows device by using a simulated TPM. We recommend this methodology only as a testing scenario. A simulated TPM doesn't offer the same security as a physical TPM.
 
 The tasks are as follows:
 
@@ -81,9 +87,9 @@ The IoT Edge for Linux on Windows VM has a TPM feature that can be enabled or di
 
 # [Physical TPM](#tab/physical-tpm)
 
-To provision your device, you need to gather information from your TPM chip and provide it to your instance of the device provisioning service so that the service can recognize your device when it tries to connect.
+To provision your device, you need an **Endorsement key** for your TPM chip and **Registration ID** for your device. You provide this information to your instance of the device provisioning service so that the service can recognize your device when it tries to connect.
 
-First, you need to determine the endorsement key, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. Then, you need to provide a registration ID for your device. You can derive a unique registration ID for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
+The endorsement key is unique to each TPM chip. It is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
 
 IoT Edge for Linux on Windows provides a PowerShell script to help retrieve this information from your TPM. To use the script, follow these steps on your device:
 
@@ -92,7 +98,7 @@ IoT Edge for Linux on Windows provides a PowerShell script to help retrieve this
 1. Run the command.
 
    ```powershell
-   Get-EflowVmTpmProvisioningInfo
+   Get-EflowVmTpmProvisioningInfo | Format-List
    ```
 
 # [Simulated TPM](#tab/simulated-tpm)
@@ -121,6 +127,9 @@ Simulated TPM samples:
 
 ## Provision the device with its cloud identity
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 # [PowerShell](#tab/powershell)
 
 1. Open an elevated PowerShell session on the Windows device.
@@ -128,7 +137,7 @@ Simulated TPM samples:
 1. Provision your device by using the **Scope ID** that you collected from your instance of the device provisioning service.
 
    ```powershell
-   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "<scope id>"
+   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
    ```
 
 # [Windows Admin Center](#tab/windowsadmincenter)
@@ -146,13 +155,31 @@ Simulated TPM samples:
 
 ---
 
-## Verify successful configuration
+:::moniker-end
+<!-- end 1.1 -->
+
+:::moniker range=">=iotedge-2020-11"
+
+1. Open an elevated PowerShell session on the Windows device.
+
+1. Provision your device by using the **Scope ID** that you collected from your instance of the device provisioning service.
+
+   ```powershell
+   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
+   ```
+
+:::moniker-end
+
+## Verify successful installation
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
 
 If the runtime started successfully, you can go into your IoT hub and start deploying IoT Edge modules to your device.
 
 You can verify that the individual enrollment that you created in the device provisioning service was used. Go to your device provisioning service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 # [PowerShell](#tab/powershell)
 
@@ -197,6 +224,49 @@ Use the following commands on your device to verify that the IoT Edge installed 
    * The **IoT Edge Status** section shows the service status and should be reporting **active (running)**.
 
 ---
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Use the following commands on your device to verify that the IoT Edge installed and started successfully.
+
+1. Connect to your IoT Edge for Linux on Windows VM by using the following command in your PowerShell session:
+
+   ```powershell
+   Connect-EflowVm
+   ```
+
+   >[!NOTE]
+   >The only account allowed to SSH to the VM is the user who created it.
+
+1. After you're signed in, you can check the list of running IoT Edge modules by using the following Linux command:
+
+   ```bash
+   sudo iotedge list
+   ```
+
+1. If you need to troubleshoot the IoT Edge service, use the following Linux commands.
+
+    1. If you need to troubleshoot the service, retrieve the service logs.
+
+       ```bash
+       sudo iotedge system logs
+       ```
+
+    2. Use the `check` tool to verify configuration and connection status of the device.
+
+       ```bash
+       sudo iotedge check
+       ```
+
+:::moniker-end
+<!-- end 1.2 -->
+
+<!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
+[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]
 
 ## Next steps
 

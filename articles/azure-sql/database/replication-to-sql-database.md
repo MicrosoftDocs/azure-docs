@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: ferno-ms
 ms.author: ferno
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 04/28/2020
 ---
 # Replication to Azure SQL Database

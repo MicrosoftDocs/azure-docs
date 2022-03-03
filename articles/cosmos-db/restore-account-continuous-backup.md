@@ -4,11 +4,10 @@ description: Learn how to identify the restore time and restore a live or delete
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 12/09/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Restore an Azure Cosmos DB account that uses continuous backup mode
@@ -47,6 +46,10 @@ You can use Azure portal to restore an entire live account or selected databases
 1. After you select the above parameters, select the **Submit** button to kick off a restore. The restore cost is a one time charge, which is based on the size of data and the cost of backup storage in the selected region. To learn more, see the [Pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing) section.
 
 Deleting source account while a restore is in-progress could result in failure of the restore.
+
+### Restorable timestamp for live accounts
+
+To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to it's latest version.
 
 ### <a id="event-feed"></a>Use event feed to identify the restore time
 
@@ -89,7 +92,7 @@ After initiating a restore operation, select the **Notification** bell icon at t
 
 :::image type="content" source="./media/restore-account-continuous-backup/track-restore-operation-status.png" alt-text="The status of restored account changes from creating to online when the operation is complete." border="true" lightbox="./media/restore-account-continuous-backup/track-restore-operation-status.png":::
 
-### Get the restore details from the restored account
+### <a id="get-the-restore-details-portal"></a>Get the restore details from the restored account
 
 After the restore operation completes, you may want to know the source account details from which you restored or the restore time.
 
@@ -160,7 +163,7 @@ Restore-AzCosmosDBAccount `
 
 ```
 
-### Get the restore details from the restored account
+### <a id="get-the-restore-details-powershell"></a>Get the restore details from the restored account
 
 Import the `Az.CosmosDB` module and run the following command to get the restore details. The restoreTimestamp will be under the restoreParameters object:
 
@@ -331,9 +334,9 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 
    ```
 
-### Get the restore details from the restored account
+### <a id="get-the-restore-details-cli"></a>Get the restore details from the restored account
 
-Run the following command to get the restore details. The restoreTimestamp will be under the restoreParameters object:
+Run the following command to get the restore details. The `az cosmosdb show` command output shows the value of `createMode` property. If the value is set to **Restore**. it indicates that the account was restored from another account. The `restoreParameters` property has further details such as `restoreSource`, which has the source account ID. The last GUID in the `restoreSource` parameter is the instanceId of the source account. And the restoreTimestamp will be under the restoreParameters object:
 
 ```azurecli-interactive
 az cosmosdb show --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup

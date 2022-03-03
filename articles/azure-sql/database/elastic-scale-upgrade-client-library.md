@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/03/2019
 ---
 # Upgrade an app to use the latest elastic database client library

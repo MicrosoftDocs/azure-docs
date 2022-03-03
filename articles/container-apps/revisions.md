@@ -1,11 +1,11 @@
 ---
 title: Revisions in Azure Container Apps Preview
 description: Learn how revisions are created in Azure Container Apps
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -52,7 +52,7 @@ The following types of changes do not create a new revision:
 
 - Changes to [traffic splitting rules](revisions-manage.md#traffic-splitting)
 - Turning [ingress](ingress.md) on or off
-- Changes to [secret values](secure-app.md)
+- Changes to [secret values](manage-secrets.md)
 - Any change outside the `template` section of the configuration
 
 While changes to secrets are an application-scope change, revisions must be [restarted](revisions.md) before a container recognizes new secret values.
@@ -68,4 +68,4 @@ New revisions remain active until you deactivate them, or you set your container
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure an app](get-started.md)
+> [Application lifecycle management](application-lifecycle-management.md)

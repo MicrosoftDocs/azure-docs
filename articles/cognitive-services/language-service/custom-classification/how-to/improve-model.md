@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
@@ -27,7 +27,7 @@ To optionally improve a model, you will need to have:
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
 * Familiarized yourself with the [evaluation metrics](../concepts/evaluation.md) used for evaluation
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
 ## Review test set predictions
 

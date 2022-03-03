@@ -76,8 +76,9 @@ If you can't find the keys in your records, you can generate a new key from the 
 ### Known limitations
 
 The StorSimple Data Manager and Azure file shares have a few limitations you should consider before you begin your migration, as they can prevent a migration:
-* Only NTFS volumes from your StorSimple appliance are supported.
-* The service doesn't work with volumes that are BitLocker encrypted.
+* Only NTFS volumes from your StorSimple appliance are supported. ReFS volumes are not supported.
+* Any volume placed on [Windows Server Dynamic Disks](/troubleshoot/windows-server/backup-and-storage/best-practices-using-dynamic-disks) is not supported. (deprecated before Windows Server 2012)
+* The service doesn't work with volumes that are BitLocker encrypted or have [Data Deduplication](/windows-server/storage/data-deduplication/understand) enabled.
 * Corrupted StorSimple backups can't be migrated.
 * Special networking options, such as firewalls or private endpoint-only communication can't be enabled on either the source storage account where StorSimple backups are stored, nor on the target storage account that holds you Azure file shares.
 
@@ -449,6 +450,7 @@ There are no limits in defining migration jobs. You can define the same StorSimp
 
 * Only one migration job with the same StorSimple source volume can run at the same time.
 * Only one migration job with the same target Azure file share can run at the same time.
+* Before starting the next job, you ensured that any of the previous jobs are in the `copy stage` and show progress of moving files for at least 30 Minutes.
 * You can run up to four migration jobs in parallel per StorSimple device manager, as long as you also abide by the previous rules.
 
 When you attempt to start a migration job, the previous rules are checked. If there are jobs running, you may not be able to start the current job. You'll receive an alert that lists the name of currently running job(s) that must finish before you can start the new job.

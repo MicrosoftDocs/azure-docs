@@ -2,12 +2,12 @@
 title: Account Administrator tasks in the Azure portal
 description: Describes how to perform payment operations in Azure portal
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 12/10/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -21,12 +21,15 @@ This article explains how to perform the following tasks in the Azure portal:
 
 You must be the Account Administrator to perform any of these tasks.
 
-## Accounts portal is retiring
+## Accounts portal is retired
 
-Accounts portal will retire and customers will be redirected to the Azure portal by December 31, 2021. The features supported in the Accounts portal will be migrated to the Azure portal. This article explains how to perform some of the most common operations in the Azure portal.
+Accounts portal was retired December 31, 2021. The features supported in the Accounts portal were migrated to the Azure portal. This article explains how to perform some of the most common operations in the Azure portal.
 
 
 ## Navigate to your subscription's payment methods
+
+> [!NOTE]
+> The Reserve Bank of India has new regulations for storing credit card information that may impact credit card users in India. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
 
 1. Sign in to the Azure portal as the Account Administrator.
 

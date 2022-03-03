@@ -59,8 +59,10 @@ additionalContent:
           links:
             - text: What is Azure VPN Gateway?
               url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
-            - text: Site-to-site-connections
+            - text: Site-to-site connections
               url: ../vpn-gateway/tutorial-site-to-site-portal.md
+            - text: Point-to-site connections
+              url: ../vpn-gateway/point-to-site-about.md
             - text: See more
               url: ../vpn-gateway/index.yml   
         # Card
@@ -102,7 +104,27 @@ additionalContent:
               url: ../route-server/quickstart-configure-route-server-portal.md
             - text: See more
               url: ../route-server/index.yml
-   
+        
+        # Card
+        - title: Provide outbound connectivity to a virtual network
+          links:
+            - text: What is Azure Virtual Network NAT?
+              url: ../virtual-network/nat-gateway/nat-overview.md
+            - text: Create and configure NAT gateway resource
+              url: ../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md
+            - text: See more
+              url: ../virtual-network/nat-gateway/index.yml
+
+        # Card
+        - title: Manage virtual network connectivity and security rules
+          links:
+            - text: What is Azure Virtual Network Manager?
+              url: ../virtual-network-manager/overview.md
+            - text: Create a mesh network topology
+              url: ../virtual-network-manager/create-virtual-network-manager-portal.md
+            - text: See more
+              url: ../virtual-network-manager/index.yml
+
     - title: Application delivery services  # < 60 chars (optional)
       items:
         # Card

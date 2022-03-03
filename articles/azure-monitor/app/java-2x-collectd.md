@@ -3,10 +3,8 @@ title: Monitor Java web app performance on Linux - Azure | Microsoft Docs
 description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
+ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
-
 ---
 
 # collectd: Linux performance metrics in Application Insights [Deprecated]

@@ -7,8 +7,8 @@ ms.subservice: machine-learning
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: garyericson
-ms.author: garye
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: mathoma, davidph
 manager: cgronlun
 ms.date: 03/17/2021
@@ -51,9 +51,9 @@ For details on how this command affects SQL Managed Instance resources, see [Res
 
 ### Enable Machine Learning Services in a failover group
 
-In a [failover group](failover-group-add-instance-tutorial.md), system databases are not replicated to the secondary instance (see [Limitations of failover groups](../database/auto-failover-group-overview.md#limitations-of-failover-groups) for more information).
+In a [failover group](failover-group-add-instance-tutorial.md), system databases are not replicated to the secondary instance (see [Limitations of failover groups](auto-failover-group-sql-mi.md#limitations) for more information).
 
-If the Managed Instance you're using is part of a failover group, do the following:
+If the SQL Managed Instance you're using is part of a failover group, do the following:
 
 - Run the `sp_configure` and `RECONFIGURE` commands on each instance of the failover group to enable Machine Learning Services.
 

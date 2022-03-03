@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: shermanouko
-ms.reviewer: mmacy, hirsin
+ms.reviewer: mmacy, ludwignick
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
 

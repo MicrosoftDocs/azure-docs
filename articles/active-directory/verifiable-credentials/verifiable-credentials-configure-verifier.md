@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to configure your tenant to verify 
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021

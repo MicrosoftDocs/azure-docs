@@ -114,8 +114,8 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 | Number of instances per deployment | 20 |
 | Max request time out at endpoint level  | 90 seconds |
 | Total requests per second at endpoint level for all deployments  | 500 <sup>2</sup> |
-| Total connections per second at endpoint level for all deployments  | 100 <sup>2</sup> |
-| Total connections active at endpoint level for all deployments  | 100 <sup>2</sup> |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>2</sup> |
+| Total connections active at endpoint level for all deployments  | 500 <sup>2</sup> |
 | Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>2</sup> |
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
@@ -146,7 +146,7 @@ For more information, see [Container Instances limits](../azure-resource-manager
 ### Storage
 Azure Storage has a limit of 250 storage accounts per region, per subscription. This limit includes both Standard and Premium storage accounts.
 
-To increase the limit, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your case and can approve up to 250 storage accounts for a region.
+To increase the limit, make a request through [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your case and can approve up to 250 storage accounts for a region.
 
 
 ## Workspace-level quotas
@@ -190,7 +190,7 @@ You manage the Azure Machine Learning compute quota on your subscription separat
 
 ## Request quota increases
 
-To raise the limit or quota above the default limit, [open an online customer support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge.
+To raise the limit or quota above the default limit, [open an online customer support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge.
 
 You can't raise limits above the maximum values shown in the preceding tables. If there's no maximum limit, you can't adjust the limit for the resource.
 

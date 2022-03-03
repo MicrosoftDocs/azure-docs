@@ -6,113 +6,67 @@ author: alkohli
 
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 09/02/2021 
+ms.date: 12/08/2021 
 ms.author: alkohli
 
 ---
 # Options to migrate data from StorSimple 8000 series
 
 > [!IMPORTANT]
-> In December 2022, the StorSimple 8000 series will reach end of support (EOS) status. Microsoft will no longer support hardware and software of these devices, and the service will be discontinued.</br></br>
-> We strongly recommend that StorSimple 8000 series customers migrate to one of the alternatives described in this document.
-
-StorSimple 8000 series reaches [end of Support](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. The customers who are running StorSimple 8000 series can upgrade to other Azure first-party hybrid services. This article describes the Azure hybrid options available to migrate data.
+> In December 2022, the StorSimple 8000 series will reach the [end of its extended support](/lifecycle/products/azure-storsimple-8000-series). Microsoft will no longer support hardware and software of these devices, and the cloud service will be discontinued.</br></br>
+> Data loss! You will lose the ability to interpret the proprietary StorSimple data format. You must migrate your data before December 2022 or you will lose access.
 
 ## Migration options
 
-The customers using StorSimple 8000 series have Azure or third-party options.
+There are two main migration paths, cloud-side or on-premises:
 
-### Azure options
+### Cloud-side migrations
 
-#### Migrate to Azure File Sync
+There are two Azure offerings you can migrate to from StorSimple: Azure Files and Azure Blob Storage. Alternatively, you can migrate your data to another cloud location of your choice. However, you must migrate your data into either Azure Files or Azure Blob Storage. Then you can migrate to a location of your choice. Azure can't assist with migrations to external services.
 
-This brand new migration option enables customers to store their organization's file shares in the Azure Files. These files shares are then centralized for on-premises access using Azure File Sync (AFS). AFS can be deployed on a Windows Server host. The actual data migration is then performed as a host copy or using the migration tool.
+* **Azure file shares** </br>If you want to preserve your file and folder structure, ACLs, timestamps, attributes, and backups, then Azure Files is the ideal choice. Optionally, you can also make use of Azure File Sync and create an on-premises cache of your Azure file shares. Backup, cloud tiering, and multi-site sync are also highly utilized features that match or exceed previous StorSimple capabilities. To migrate to Azure Files, see [StorSimple 8100 and 8600 migration to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
+* Azure Blob Storage</br>If you don't want to preserve file and folder metadata, ACLs, or backups, and SMB access isn't important, then Azure Blob Storage may fit your needs. Specifically, the archive tier can provide long-term, cost efficient offline storage, if only the raw data needs to be preserved.
 
-For more information on how to migrate data to Azure File Sync, go to [StorSimple 8100 and 8600 migration to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
+The StorSimple Data Manager can be used to move the latest StorSimple volume backup into a blob container.
+The Data Manager has a dedicated migration service built-in, that allows you to split your StorSimple volumes into several Azure file shares, move all required backups, and preserves file fidelity to its best ability. To use this migration path, see [StorSimple 8100 and 8600 migration to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
-#### Migrate to Azure NetApp Files
+If neither of the Azure offerings are suitable for your data, you can migrate your data from either Azure Files or Azure Blob Storage to a location of your choice. RoboCopy or AzCopy can be helpful to accomplish such a move out. Check with the vendor of your choice to find the best possible migration path for data located in either Azure file shares or Azure blob containers.
 
-StorSimple 8000 Series customers can migrate to Azure NetApp Files (ANF) paired with NetApp Global File Cache (GFC) to continue storing critical data in Azure while maintaining content at remote sites. Customers can streamline and simplify IT storage and infrastructure by centralizing unstructured data in Microsoft Azure using Azure NetApp Files to provide fast local and geographically distributed access with NetApp Global File Cache.
+### On-premises recall and copy
 
-For an overview of capabilities, deployment methodologies, and migration, see [Reference Architecture: Globally Distributed
-Enterprise File Sharing with Azure NetApp Files and NetApp Global File Cache](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf), from NetApp.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
 
-### Third-party options
+If you want to maintain an on-premises solution, it's generally better to first migrate cloud-side into a number of Azure file shares, then copy from the Azure file shares back to on-premises. Migrating cloud-side first is quicker and allows you to retain backups. This method would only require a final RoboCopy `/MIR` from the StorSimple appliance before cutting over users and apps to the new on-premises storage location.
 
-#### Migrate to Panzura Freedom NAS
 
-StorSimple 5000-7000 series and StorSimple 8000 series customers can choose to migrate to Panzura Freedom NAS to keep their data in Azure. The Panzura Freedom solution provides a NAS solution that spans datacenters, offices, public and private clouds. The solution enables local, hybrid, and in-cloud data workflows for NFS, SMB, and mobile clients.
+Any file access against your StorSimple volume will cause the StorSimple appliance to either serve it from local cache or recall it from the cloud, on-demand. Theoretically, a RoboCopy run would sequentially recall all content and move it to a target storage device with SMB protocol capabilities. While this option can work, it will be slow. Furthermore, it has a chance to interrupt your business operations. The StorSimple appliances have a limited cache. Running RoboCopy will fill the cache and displace previously cached files that might be important to users or applications. Subsequent access to these files competes for space, network, and compute abilities of your Storimple appliance and may result in a degraded experience. 
 
-This migration is supported by Panzura and customers can get started by requesting migration support from the [Panzura website](https://panzura.com/migrate-storsimple-panzura/).
-
-#### Migrate to Nasuni
-
-Moving your entire StorSimple environment to a stable, secure, high-performance file services platform is easy with Nasuni. Nasuni offers the security and performance of on-premises file storage while combining it with the scalability and durability of Azure. As a leading Azure independent software vendor (ISV), Nasuni brings all the tools necessary to move your StorSimple data to a modern platform that lets you share and collaborate with your files across multiple locations.
-
-Get started today: [Nasuni website](https://info.nasuni.com/storsimple8000-webinar).
-
-<!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
-#### Migrate to Cohesity
-
-Cohesity enables you to migrate data from your current StorSimple 5000–7000 to the Cohesity Data Platform on Azure. The Cohesity Data Platform is a software-defined web-scale solution that consolidates files, backups, objects, and VMs onto a single cloud-native solution. After migration to the Data Platform, you can manage, protect, and provision data and apps from cloud to core through a single pane of glass. With Cohesity, start with as few as three nodes. 
-
-Learn more on [migration to the Cohesity Data Platform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
-
-#### Migrate to Nasuni
-
-Nasuni makes it easy for StorSimple 5000-7000 customers to migrate and keep their data in Azure.  Nasuni is a leading Azure-based NAS storage solution, giving customers the performance and security they expect from on-prem solutions, with cloud economics and scale.  In addition to high performance file storage, Nasuni and Azure handle backup and DR, while allowing you to share and collaborate on your data around the globe with centralized file storage management. 
-
-Nasuni has the experience to make your migration easy – get started today: https://info.nasuni.com/nasuni-storsimple-migration
-
-#### Migrate to Talon FAST
-
-Talon makes it easy for StorSimple 5000-7000 customers to continue to leverage the benefits they valued so much in the StorSimple platform (small on-site footprint backed by unlimited cloud resources) with even greater function.  With the Talon FAST solution, customers can migrate and keep their data in Azure, while now having an even smaller software-only onsite footprint and adding benefits such as global file locking, global namespace, and multi-site collaboration.  Talon is a leading Azure ecosystem solution, working with global customers to migrate their on-premises file server workloads into a consolidated, Azure-based footprint without compromising user workflow or experience.  
-
-Learn more about how to evolve to a cloud-consolidated enterprise at https://www.talonstorage.com/alliances/microsoft-storsimple.
--->
 
 ## Migration - Frequently asked questions
 
-### Q. When do the StorSimple 8000 series devices reach end of service?
 
-A. StorSimple 8000 series reaches [end of support](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. Beyond the end of support, Microsoft will no longer provide support for both hardware and software of these devices. That includes service support and software patches/security patches, and the service itself will be discontinued. We strongly recommend that you start formulating a plan to migrate the data from your devices now.
 
-### Q. What happens to the data I have stored in Azure?  
+### Q. What happens to the data I have stored in Azure - beyond the end-of-life date?
 
-A. You can continue to use the data in Azure once you migrate it to a newer service.
+A. Data loss! Your data is stored in a proprietary format in Azure storage accounts. It will remain there beyond the end-of-life date, until you delete it. However, you will no longer be able to interpret the data once the StorSimple cloud service is turned off.
 
-### Q. What happens to the data I have stored locally on my StorSimple device?
+### Q. What happens to the data I have stored locally on my StorSimple device - beyond the end-of-life date?
 
-A. The data that is on the local device can be copied to the newer service as described in the migration documents.
+A. You lose all data stored locally on your StorSimple device. Your StorSimple appliance has a limited, local cache capacity. Once the StorSimple cloud service is shut down, you won't be able to access tiered files that your local appliance only holds a cloud reference for. For a limited amount of time, it is likely but not guaranteed that you still have access to the files stored in the appliances local cache. However, you should never assume that even the locally cached files remain available past the end-of-life date. Eventually, the appliance will stop working when it is no longer able to reach the cloud service. To migrate and preserve your data, see [StorSimple 8100 and 8600 migration to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
-### Q. What happens if I want to keep my StorSimple 8000 series appliance?
+### Q. What happens if I want to keep my StorSimple 8000 series appliance - beyond the end-of-life date?
 
-A. Microsoft will no longer be able to provide hardware and software support. The StorSimple service won't work. Migration is strongly recommended for business continuity.
+A. Depending on your contractual obligations, you may keep the appliance hardware. Microsoft won't request leased devices to be returned. The device will stop working. Microsoft won't provide hardware and software support. The StorSimple service won't work. Migration is required for business continuity before the end-of-life date. To migrate and preserve your data, see [StorSimple 8100 and 8600 migration to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
-### Q. What options are available to migrate data from StorSimple 8000 series devices?
 
-A. Depending on their scenario, StorSimple 8000 series users have the following migration options:
 
-* **Migrate to Azure File Sync**: Use this option when you want to switch to Azure native format. You can use Azure File Sync for centralized management of file shares.
 
-* **Other options**: You can contact Microsoft Support to discuss migration options not listed here.
 
-### Q. Is migration to other storage solutions supported?
 
-A. Yes. Migration to other storage solutions using host copy of the data is supported.
-
-### Q. Is migration supported by Microsoft?
-
-A. Migrating from 8000 series is a fully supported operation. In fact, Microsoft recommends reaching out to Support before you start migration. Migration is currently an assisted operation. If you intend to migrate data from your StorSimple 8000 series device, [contact StorSimple support](mailto:storsimp@microsoft.com).
-
-### Q. What is the pricing model for migration to Azure File Sync?
-
-A. When using Azure File Sync, the subscription fees for the service may apply. Customers will also have to pay ongoing storage costs. Refer to [AFS pricing]( https://azure.microsoft.com/pricing/details/storage/files/) for an estimate.
 
 ### Q. How long does it take to complete a migration?
 
-A. The time to migrate data depends on the amount of the data and the upgrade option selected.
+A. The time to migrate depends on several factors. We often default to considering bandwidth as the most limiting factor in a migration - and that can be true. But the ability to enumerate a namespace can influence the total time to copy even more for larger namespaces with smaller files. Consider that copying 1 TiB of small files will take considerably longer than copying 1 TiB of fewer but larger files. Assuming that all other variables remain the same. Other factors are the structure of your StorSimple deployment. That will determine how many migration jobs you can run in parallel.
 
 ## Next steps
 
-* [Migrate data from a StorSimple 8000 series to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md)
+* [Migrate data from a StorSimple 8000 series with the dedicated migration service](../storage/files/storage-files-migration-storsimple-8000.md).

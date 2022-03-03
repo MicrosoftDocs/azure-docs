@@ -5,7 +5,8 @@ author: hickeys
 ms.service: azure-fluid
 ms.topic: quickstart
 ms.date: 09/09/2021
-ms.author: hickeys 
+ms.author: hickeys
+ms.custom: mode-other
 ---
 
 # Quickstart: Dice roller

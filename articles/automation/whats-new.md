@@ -18,6 +18,52 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+## February 2022
+
+### Permissions change in the built-in Reader role for the Automation Account.
+
+**Type:** New change
+
+To strengthen the overall Azure Automation security posture, the built-in RBAC Reader role would not have access to Automation account keys through the API call - `GET /automationAccounts/agentRegistrationInformation`. Read [here](/azure/automation/automation-role-based-access-control#reader) for more information.
+
+
+### Restore deleted Automation Accounts 
+
+**Type:** New change 
+
+Users can now restore an Automation account deleted within 30 days. Read [here](/azure/automation/delete-account?tabs=azure-portal#restore-a-deleted-automation-account) for more information.
+
+
+## December 2021
+
+### New scripts added for Azure VM management based on Azure Monitor Alert
+
+**Type:** New feature
+
+New scripts are added to the Azure Automation [GitHub repository](https://github.com/azureautomation) to address one of Azure Automation's key scenarios of VM management based on Azure Monitor alert. For more information, see [Trigger runbook from Azure alert](./automation-create-alert-triggered-runbook.md).
+
+- Stop-Azure-VM-On-Alert
+- Restart-Azure-VM-On-Alert
+- Delete-Azure-VM-On-Alert
+- ScaleDown-Azure-VM-On-Alert
+- ScaleUp-Azure-VM-On-Alert
+
+## November 2021 
+
+### General Availability of Managed Identity for Azure Automation 
+
+**Type:** New feature
+
+Azure Automation now supports Managed Identities in Azure public, Azure Gov, and Azure China cloud. [System Assigned Managed Identities](./enable-managed-identity-for-automation.md) is supported for cloud as well as hybrid jobs, while  [User Assigned Managed Identities](./automation-security-overview.md) is supported only for cloud jobs. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-managed-identities-ga/) for more information.
+
+### Preview support for PowerShell 7.1 
+
+**Type:** New feature
+
+Azure Automation support for PowerShell 7.1 runbooks is available as public preview in Azure public, Azure Gov, and Azure China clouds. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-powershell-7/) for more information.
+
+
+
 ## October 2021
 
 ### Preview support for Hybrid Runbook Worker extension for Azure VMs and Arc-enabled servers

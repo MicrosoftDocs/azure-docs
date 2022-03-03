@@ -133,8 +133,7 @@ The following metrics are reported for evaluating clustering models.
   
      If this number is high, it can mean that the cluster is widely dispersed. You should review this statistic together with the **Average Distance to Cluster Center** to determine the cluster's spread.   
 
--   The **Combined Evaluation** score at the bottom of the each section of results lists the averaged scores for the clusters created in that particular model.  
-  
+-   The **Combined Evaluation** score at the bottom of each section of results lists the averaged scores for the clusters created in that particular model.  
 
 ## Next steps
 

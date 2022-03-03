@@ -3,7 +3,7 @@ title: Using Azure Virtual Desktop with Azure NetApp Files | Microsoft Docs
 description: Provides best practice guidance and sample blueprints on deploying Azure Virtual Desktop with Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Benefits of using Azure NetApp Files with Azure Virtual Desktop 
 
@@ -24,7 +23,7 @@ Azure NetApp Files is a highly performant file storage service from Azure. It ca
 
 ## Sample blueprints
 
-The following sample blueprints show the integration of Azure Virtual Desktop with Azure NetApp Files. In a pooled desktop scenario, users are directed to the best available session (the [breadth-first mode](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method)) host in the pool, using [multi-session virtual machines](../virtual-desktop/windows-10-multisession-faq.yml#what-is-windows-10-enterprise-multi-session). On the other hand, personal desktops are reserved for scenarios in which each user has their own virtual machine.
+The following sample blueprints show the integration of Azure Virtual Desktop with Azure NetApp Files. In a pooled desktop scenario, users are directed to the best available session (the [breadth-first mode](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-algorithm)) host in the pool, using [multi-session virtual machines](../virtual-desktop/windows-10-multisession-faq.yml#what-is-windows-10-enterprise-multi-session). On the other hand, personal desktops are reserved for scenarios in which each user has their own virtual machine.
 
 ### Pooled desktop scenario
 

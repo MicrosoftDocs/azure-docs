@@ -62,9 +62,9 @@ The type of projection you specify in this structure determines the type of stor
 
 + `tables` project enriched content into Table Storage. Define a table projection when you need tabular reporting structures for inputs to analytical tools or export as data frames to other data stores. You can specify multiple `tables` within the same projection group to get a subset or cross section of enriched documents. Within the same projection group, table relationships are preserved so that you can work with all of them.
 
-  Projected content is not aggregated or normalized. The following screenshot shows a table, sorted by key phrase, with the parent document indicated in the adjacent column. In contrast with data ingestion during indexing, plural forms and differences in casing are considered unique instances.
+  Projected content is not aggregated or normalized. The following screenshot shows a table, sorted by key phrase, with the parent document indicated in the adjacent column. In contrast with data ingestion during indexing, there is no linguistic analysis or aggregation of content. Plural forms and differences in casing are considered unique instances.
 
-  :::image type="content" source="media/kstore-keyphrases-per-document.png" alt-text="Screenshot of key phrases and documents in a table" border="true":::
+  :::image type="content" source="media/knowledge-store-concept-intro/kstore-keyphrases-per-document.png" alt-text="Screenshot of key phrases and documents in a table" border="true":::
 
 + `objects` project JSON document into Blob storage. The physical representation of an `object` is a hierarchical JSON structure that represents an enriched document.
 
@@ -76,17 +76,19 @@ To create knowledge store, use the portal or an API. You will need [Azure Storag
 
 Go with the portal approach for the fastest route to a finished knowledge store. Or, choose the REST API for a deeper understanding of how objects are defined and related.
 
-### [**Azure portal**](#tab/kstore-portal)
+### [**Azure portal**](#tab/portal)
 
 [**Create your first knowledge store in four steps**](knowledge-store-create-portal.md) using the **Import data** wizard.
 
-1. Define your data source
+1. [Sign in to Azure portal](https://portal.azure.com).
+
+1. Define your data source.
 
 1. Define  your skillset and specify a knowledge store.
 
 1. Define  an index schema. The wizard requires it and can infer one for you.
 
-1. Run the wizard. Extraction, enrichment, and storage occur in this last step.
+1. Complete the wizard. Extraction, enrichment, and storage occur in this last step.
 
 The wizard automates tasks that you would otherwise have to be handled manually. Specifically, both shaping and projections (definitions of physical data structures in Azure Storage) are created for you. 
 
@@ -105,7 +107,7 @@ Within the skillset:
 + Include a Shaper skill in your skillset to determine the schema and contents of the projection
 + Assign the named shape to a projection
 
-### [**.NET SDK**](#tab/kstore-dotnet)
+### [**C#**](#tab/kstore-csharp)
 
 For .NET developers, use the [KnowledgeStore Class](/dotnet/api/azure.search.documents.indexes.models.knowledgestore) in the Azure.Search.Documents client library.
 

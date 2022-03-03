@@ -1,14 +1,13 @@
 ---
 title: Reference for writing expressions for attribute mappings in Azure Active Directory Application Provisioning
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory. Includes a reference list of functions.
-services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/27/2021
+ms.date: 02/16/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -34,7 +33,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 
 ## List of Functions
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [RandomString](#randomstring) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [RandomString](#randomstring) &nbsp;&nbsp;&nbsp;&nbsp; [Redact](#redact) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### Append
@@ -275,6 +274,8 @@ Returns a date/time string representing a date to which a specified time interva
 | **value** |Required | Number | The number of units you want to add. It can be positive (to get dates in the future) or negative (to get dates in the past). |
 | **dateTime** |Required | DateTime | DateTime representing date to which the interval is added. |
 
+When passing a date string as input use [CDate](#cdate) function to wrap the datetime string. To get system time in UTC use the [Now](#now) function. 
+
 The **interval** string must have one of the following values: 
  * yyyy Year 
  * m Month
@@ -284,30 +285,17 @@ The **interval** string must have one of the following values:
  * n Minute
  * s Second
 
-**Example 1: Add 7 days to hire date**  
+**Example 1: Generate a date value based on incoming StatusHireDate from Workday** <br>
 `DateAdd("d", 7, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/23/2012 7:00:00 AM
 
-**Example 2: Get a date ten days prior to hire date**  
-`DateAdd("d", -10, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/6/2012 7:00:00 AM
+| Example | interval | value | dateTime (value of variable StatusHireDate) | output |
+| --- | --- | --- | --- | --- |
+| Add 7 days to hire date | "d" | 7 | 2012-03-16-07:00 | 3/23/2012 7:00:00 AM |
+| Get a date ten days prior to hire date | "d" | -10 | 2012-03-16-07:00 | 3/6/2012 7:00:00 AM |
+| Add two weeks to hire date | "ww" | 2 | 2012-03-16-07:00 | 3/30/2012 7:00:00 AM |
+| Add ten months to hire date | "m" | 10 | 2012-03-16-07:00 | 1/16/2013 7:00:00 AM |
+| Add two years to hire date | "yyyy" | 10 | 2012-03-16-07:00 | 3/16/2014 7:00:00 AM |
 
-**Example 3: Add two weeks to hire date**  
-`DateAdd("ww", 2, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/30/2012 7:00:00 AM
-
-**Example 4: Add ten months to hire date**  
-`DateAdd("m", 10, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 1/16/2013 7:00:00 AM
-
-**Example 5: Add two years to hire date**  
-`DateAdd("yyyy", 2, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/16/2014 7:00:00 AM
 ---
 ### DateDiff
 **Function:**  
@@ -326,6 +314,8 @@ This function uses the *interval* parameter to return a number that indicates th
 | **interval** |Required | String | Interval of time to use for calculating the difference. |
 | **date1** |Required | DateTime | DateTime representing a valid date. |
 | **date2** |Required | DateTime | DateTime representing a valid date. |
+
+When passing a date string as input use [CDate](#cdate) function to wrap the datetime string. To get system time in UTC use the [Now](#now) function. 
 
 The **interval** string must have one of the following values: 
  * yyyy Year 
@@ -465,9 +455,30 @@ The IIF function returns one of a set of possible values based on a specified co
 | **valueIfTrue** |Required |Variable or String | If the condition evaluates to true, the returned value. |
 | **valueIfFalse** |Required |Variable or String |If the condition evaluates to false, the returned value.|
 
-**Example:**
+The following comparison operators can be used in the *condition*: 
+* Equal to (=) and not equal to (<>)  
+* Greater than (>) and greater than equal to (>=) 
+* Less than (<) and less than equal to (<=)
+
+**Example:** Set the target attribute value to source country attribute if country="USA", else set target attribute value to source department attribute.
 `IIF([country]="USA",[country],[department])`
 
+#### Known limitations and workarounds for IIF function
+* The IIF function currently does not support AND and OR logical operators. 
+* To implement AND logic, use nested IIF statement chained along the *trueValue* path. 
+  Example: If country="USA" and state="CA", return value "True", else return "False".
+  `IIF([country]="USA",IIF([state]="CA","True","False"),"False")`
+* To implement OR logic, use nested IIF statement chained along the *falseValue* path. 
+  Example: If country="USA" or state="CA", return value "True", else return "False".
+  `IIF([country]="USA","True",IIF([state]="CA","True","False"))`
+* If the source attribute used within the IIF function is empty or null, the condition check fails. 
+   * Unsupported IIF expression examples: 
+     * `IIF([country]="","Other",[country])`
+     * `IIF(IsNullOrEmpty([country]),"Other",[country])`
+     * `IIF(IsPresent([country]),[country],"Other")`
+   * Recommended workaround: Use the [Switch](#switch) function to check for empty/null values. Example: If country attribute is empty, set value "Other". If it is present, pass the country attribute value to target attribute. 
+     * `Switch([country],[country],"","Other")` 
+<br>   
 ---
 ### InStr
 **Function:** 
@@ -789,7 +800,7 @@ Let's say you are sourcing the attributes *firstName* and *lastName* from SAP Su
 RandomString(Length, MinimumNumbers, MinimumSpecialCharacters , MinimumCapital, MinimumLowerCase, CharactersToAvoid)
 
 **Description:** 
-The RandomString function generates a random string based on the conditions specified. Characters allowed can be identified [here](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
+The RandomString function generates a random string based on the conditions specified. Characters allowed can be identified [here](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
 **Parameters:** 
 
@@ -812,7 +823,32 @@ Generates a random string with 6 characters. The string contains 3 numbers and 3
 Generates a random string with 10 characters. The string contains at least 2 numbers, 2 special characters, 2 capital letters, 1 lower case letter and excludes the characters "?" and "," (1@!2BaRg53).
 
 ---
+### Redact
+**Function:** 
+Redact()
 
+**Description:** 
+The Redact function replaces the attribute value with the string literal "[Redact]" in the provisioning logs. 
+
+**Parameters:** 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **attribute/value** |Required |String|Specify the attribute or constant / string to redact from the logs.|
+
+**Example 1:** Redact an attribute:
+`Redact([userPrincipalName])`
+Removes the userPrincipalName from the provisioning logs.
+
+**Example 2:** Redact a string:
+`Redact("StringToBeRedacted")`
+Removes a constant string from the provisioning logs.
+
+**Example 3:** Redact a random string:
+`Redact(RandomString(6,3,0,0,3))`
+Removes the random string from the provisioning logs.
+
+---
 ### RemoveDuplicates
 **Function:** 
 RemoveDuplicates(attribute)
@@ -847,13 +883,15 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 * When **regexPattern** and **replacementValue** are provided:
 
   * The function applies the **regexPattern** to the **source** string and you can use the regex group names to construct the string for **replacementValue**
+> [!NOTE] 
+> To learn more about regex grouping constructs and named sub-expressions, see [Grouping Constructs in Regular Expressions](/dotnet/standard/base-types/grouping-constructs-in-regular-expressions).
 * When **regexPattern**, **regexGroupName**, **replacementValue** are provided:
   
   * The function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with **replacementValue**
 * When **regexPattern**, **regexGroupName**, **replacementAttributeName** are provided:
   
-  * If **source** has no value, **source** is returned
-  * If **source** has a value, the function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with the value associated with **replacementAttributeName**
+  * If **source** has a value, **source** is returned
+  * If **source** has no value, the function applies the **regexPattern** to the **replacementAttributeName** and returns the value matching **regexGroupName**
 
 **Parameters:** 
 
@@ -861,24 +899,104 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the **source** object. |
 | **oldValue** |Optional |String |Value to be replaced in **source** or **template**. |
-| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when **replacementPropertyName** is used, pattern to extract value from **replacementPropertyName**. |
-| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  **replacementPropertyName** is used, we will extract value of this group as **replacementValue** from **replacementPropertyName**. |
+| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. When **replacementAttributeName** is used, the **regexPattern** is applied to extract a value from **replacementAttributeName**. |
+| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. When named **replacementAttributeName** is used, we will extract the value of the named regex group from the **replacementAttributeName** and return it as the replacement value. |
 | **replacementValue** |Optional |String |New value to replace old one with. |
 | **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
 #### Replace characters using a regular expression
-Example: You need to find characters that match a regular expression value and remove them.
+**Example 1:** Using **oldValue** and **replacementValue** to replace the entire source string with another string.
 
-**Expression:** 
+Let's say your HR system has an attribute `BusinessTitle`. As part of recent job title changes, your company wants to update anyone with the business title "Product Developer" to "Software Engineer". 
+Then in this case, you can use the following expression in your attribute mapping. 
 
-Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+`Replace([BusinessTitle],"Product Developer", , , "Software Engineer", , )`
 
-**Sample input/output:**
+* **source**: `[BusinessTitle]`
+* **oldValue**: "Product Developer"
+* **replacementValue**: "Software Engineer"
+* **Expression output**: Software Engineer
 
-* **INPUT** (mailNickname: "john_doe72"
-* **OUTPUT**: "72"
+**Example 2:** Using **oldValue** and **template** to insert the source string into another *templatized* string. 
 
+The parameter **oldValue** is a misnomer in this scenario. It is actually the value that will get replaced.  
+Let's say you want to always generate login id in the format `<username>@contoso.com`. There is a source attribute called **UserID** and you want that value to be used for the `<username>` portion of the login id. 
+Then in this case, you can use the following expression in your attribute mapping. 
+
+`Replace([UserID],"<username>", , , , , "<username>@contoso.com")`
+
+* **source:** `[UserID]` = "jsmith"
+* **oldValue:** "`<username>`"
+* **template:** "`<username>@contoso.com`"
+* **Expression output:** "jsmith@contoso.com"
+
+**Example 3:** Using **regexPattern** and **replacementValue** to extract a portion of the source string and replace it with an empty string or a custom value built using regex patterns or regex group names.
+ 
+Let's say you have a source attribute `telephoneNumber` that has components `country code` and `phone number` separated by a space character. E.g. `+91 9998887777`
+Then in this case, you can use the following expression in your attribute mapping to extract the 10 digit phone number. 
+
+`Replace([telephoneNumber], , "\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})", , "${phoneNumber}", , )`
+
+* **source:** `[telephoneNumber]` = "+91 9998887777"
+* **regexPattern:** "`\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})`"
+* **replacementValue:** "`${phoneNumber}`"
+* **Expression output:** 9998887777
+
+You can also use this pattern to remove characters and collapse a string. 
+For example, the expression below removes parenthesis, dashes and space characters in the mobile number string and returns only digits. 
+
+`Replace([mobile], , "[()\\s-]+", , "", , )`
+
+* **source:** `[mobile] = "+1 (999) 888-7777"`
+* **regexPattern:** "`[()\\s-]+`"
+* **replacementValue:** "" (empty string)
+* **Expression output:** 19998887777
+
+**Example 4:** Using **regexPattern**, **regexGroupName** and **replacementValue** to extract a portion of the source string and replace it with another literal value or empty string.
+
+Let's say your source system has an attribute AddressLineData with two components street number and street name. As part of a recent move, let's say the street number of the address changed and you want to update only the street number portion of the address line. 
+Then in this case, you can use the following expression in your attribute mapping to extract the street number.
+
+`Replace([AddressLineData], ,"(?<streetNumber>^\\d*)","streetNumber", "888", , )`
+
+* **source:** `[AddressLineData]` = "545 Tremont Street"
+* **regexPattern:** "`(?<streetNumber>^\\d*)`"
+* **regexGroupName:** "streetNumber"
+* **replacementValue:** "888"
+* **Expression output:** 888 Tremont Street
+
+Here is another example where the domain suffix from a UPN is replaced with an empty string to generate login id without domain suffix. 
+
+`Replace([userPrincipalName], , "(?<Suffix>@(.)*)", "Suffix", "", , )`
+
+* **source:** `[userPrincipalName]` = "jsmith@contoso.com"
+* **regexPattern:** "`(?<Suffix>@(.)*)`"
+* **regexGroupName:** "Suffix"
+* **replacementValue:** "" (empty string)
+* **Expression output:** jsmith
+
+**Example 5:** Using **regexPattern**, **regexGroupName** and **replacementAttributeName** to handle scenarios when the source attribute is empty or doesn't have a value.
+
+Let's say your source system has an attribute telephoneNumber. If telephoneNumber is empty, you want to extract the 10 digits of the mobile number attribute.
+Then in this case, you can use the following expression in your attribute mapping. 
+
+`Replace([telephoneNumber], , "\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})", "phoneNumber" , , [mobile], )`
+
+* **source:** `[telephoneNumber]` = "" (empty string)
+* **regexPattern:** "`\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})`"
+* **regexGroupName:** "phoneNumber"
+* **replacementAttributeName:** `[mobile]` = "+91 8887779999"
+* **Expression output:** 8887779999
+
+**Example 6:** You need to find characters that match a regular expression value and remove them.
+
+`Replace([mailNickname], , "[a-zA-Z_]*", , "", , )`
+
+* **source** \[mailNickname\]
+* **oldValue**: "john_doe72"
+* **replaceValue**: ""
+* **Expression output**: 72
 
 ---
 ### SelectUniqueValue
@@ -931,7 +1049,7 @@ Example: Based on the user's first name, middle name and last name, you need to 
 SingleAppRoleAssignment([appRoleAssignments])
 
 **Description:** 
-Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. The best practice is to ensure only one appRoleAssignment is assigned to one user at a time, and if multiple roles are assigned the role string returned may not be predictable. 
+Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. The best practice is to ensure only one appRoleAssignment is assigned to one user at a time. This function is not supported in scenarios where users have multiple app role assignments. 
 
 **Parameters:** 
 
@@ -987,6 +1105,10 @@ Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description:** 
 When **source** value matches a **key**, returns **value** for that **key**. If **source** value doesn't match any keys, returns **defaultValue**.  **Key** and **value** parameters must always come in pairs. The function always expects an even number of parameters. The function should not be used for referential attributes such as manager. 
+
+> [!NOTE] 
+> Switch function performs a case-sensitive string comparison of the **source** and **key** values. If you'd like to perform a case-insensitive comparison, normalize the **source** string before comparison using a nested ToLower function and ensure that all **key** strings use lowercase. 
+> Example: `Switch(ToLower([statusFlag]), "0", "true", "1", "false", "0")`. In this example, the **source** attribute `statusFlag` may have values ("True" / "true" / "TRUE"). However, the Switch function will always convert it to lowercase string "true" before comparison with **key** parameters. 
 
 **Parameters:** 
 

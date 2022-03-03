@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 02/17/2022
 ms.author: banders
 ---
 
@@ -125,7 +125,7 @@ You must have an account admin role on a subscription or a support plan to opt i
 
 ## Share subscription and support plan invoice
 
-You may want to share the invoice for your subscription and support plan every month with your accounting team or send them to one of your other email addresses.
+You may want to share the invoice for your subscription and support plan every month with your accounting team or send them to one of your other email addresses. 
 
 1. Follow the steps in [Get your subscription's and support plan's invoices in email](#get-mosp-subscription-invoice-in-email) and select **Configure recipients**.  
     [![Screenshot that shows a user selecting configure recipients](./media/download-azure-invoice/invoice-article-step03.png)](./media/download-azure-invoice/invoice-article-step03-zoomed.png#lightbox)
@@ -200,6 +200,14 @@ You may want to share your invoice every month with your accounting team or send
     [![Screenshot that shows additional recipients for the invoice email](./media/download-azure-invoice/mca-billing-profile-add-invoice-recipients.png)](./media/download-azure-invoice/mca-billing-profile-add-invoice-recipients-zoomed.png#lightbox)
 1.  Select **Save**.
 
+## Azure Government support for invoices
+
+Azure Government users use the same agreement types as other Azure users.
+
+Azure Government customers can’t request their invoice by email. They can only download it.
+
+To download your invoice, follow the steps above at [Download your MOSP Azure subscription invoice](#download-your-mosp-azure-subscription-invoice).
+
 ##  Why you might not see an invoice
 
 <a name="noinvoice"></a>
@@ -242,7 +250,7 @@ There could be several reasons that you don't see an invoice:
 
            ![Screenshot that shows selecting switch directory in the portal](./media/download-azure-invoice/select-switch-directory.png)
 
-        3. Select a directory from the **All directories** section.
+        3. Select **Switch** for a directory from the **All directories** section.
 
            ![Screenshot that shows selecting a directory in the portal](./media/download-azure-invoice/select-directory.png)
 

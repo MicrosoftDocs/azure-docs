@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-author: FrancescaLazzeri
-ms.author: lazzeri
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 10/21/2021
 adobe-target: true
 ---
@@ -22,9 +22,9 @@ For more information, see [How to select algorithms](how-to-select-algorithms.md
 
 ## Download: Machine Learning Algorithm Cheat Sheet
 
-**Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf?WT.mc_id=docs-article-lazzeri)**
+**Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-july-2021.pdf)**
 
-![Machine Learning Algorithm Cheat Sheet: Learn how to choose a Machine Learning algorithm.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.png)
+:::image type="content" source="./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.png" alt-text="Machine Learning Algorithm Cheat Sheet: Learn how to choose a Machine Learning algorithm." lightbox="./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.png":::
 
 Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
 

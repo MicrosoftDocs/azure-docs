@@ -46,13 +46,13 @@ az account set --subscription <subscription ID>
 
 Create a private flexible server inside a virtual network (VNET) using the following command:
 ```azurecli
-az mysql flexible-server create --resource-group myresourcegroup --location westus2
+az mysql flexible-server create --resource-group myresourcegroup --location westus2 --vnet VNETName
 ```
 Copy the connection string and the name of the newly created virtual network. This command performs the following actions, which may take a few minutes:
 
 - Create the resource group if it doesn't already exist.
 - Generates a server name if it is not provided.
-- Create a new virtual network for your new MySQL server. Make a note of virtual network name and subnet name created for your server since you need to add the web app to the same virtual network.
+- Create a new virtual network, ```VNETName``` for your new MySQL server and subnet within this virtual network for the database server. Make sure the name is unique.
 - Creates admin username , password for your server if not provided.
 - Creates an empty database called **flexibleserverdb**
 
@@ -110,6 +110,12 @@ az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.da
 - Replace _&lt;username>_ and _&lt;password>_ with the credentials that the command also generated for you.
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named DBHOST, DBNAME, DBUSER, and DBPASS. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.
+
+
+Configure the web app to allow all outbound connections from within the virtual network.
+```azurecli
+az webapp config set --name mywebapp --resource-group myresourcesourcegroup --generic-configurations '{"vnetRouteAllEnabled": true}'
+```
 
 ## Clean up resources
 

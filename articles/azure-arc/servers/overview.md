@@ -13,7 +13,7 @@ To deliver this experience with your hybrid machines, you need to install the Az
 
 * You want to proactively monitor the OS and workloads running on the machine,
 * Manage it using Automation runbooks or solutions like Update Management, or
-* Use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
+* Use other Azure services like [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md).
 
 ## Supported cloud operations 
 
@@ -24,8 +24,8 @@ When you connect your machine to Azure Arc-enabled servers, it enables the abili
 |**Govern** ||
 | Azure Policy |Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) to audit settings inside the machine. To understand the cost of using Azure Policy Guest Configuration policies with Arc-enabled servers, see Azure Policy [pricing guide](https://azure.microsoft.com/pricing/details/azure-policy/)|
 |**Protect** ||
-| Azure Security Center | Protect non-Azure servers with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint), included through [Azure Defender](../../security-center/defender-for-servers-introduction.md), for threat detection, for vulnerability management, and to proactively monitor for potential security threats. Azure Security Center presents the alerts and remediation suggestions from the threats detected. |
-| Azure Sentinel | Machines connected to Arc-enabled servers can be [configured with Azure Sentinel](scenario-onboard-azure-sentinel.md) to collect security-related events and correlate them with other data sources. |
+| Microsoft Defender for Cloud | Protect non-Azure servers with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint), included through [Microsoft Defender for Cloud](../../security-center/defender-for-servers-introduction.md), for threat detection, for vulnerability management, and to proactively monitor for potential security threats. Microsoft Defender for Cloud presents the alerts and remediation suggestions from the threats detected. |
+| Microsoft Sentinel | Machines connected to Arc-enabled servers can be [configured with Microsoft Sentinel](scenario-onboard-azure-sentinel.md) to collect security-related events and correlate them with other data sources. |
 |**Configure** ||
 | Azure Automation |Automate frequent and time-consuming management tasks using PowerShell and Python [runbooks](../../automation/automation-runbook-execution.md).<br> Assess configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons using [Change Tracking and Inventory](../../automation/change-tracking/overview.md).<br> Use [Update Management](../../automation/update-management/overview.md) to manage operating system updates for your Windows and Linux servers. |
 | Azure Automanage (preview) | Automate onboarding and configuration of a set of Azure services when you use [Automanage Machine for Arc-enabled servers](../../automanage/automanage-arc.md). |
@@ -59,16 +59,20 @@ The following metadata information about the connected machine is collected and 
 
 For example, if the machine is registered with Azure Arc in the East US region, this data is stored in the US region.
 
-### Supported environments
+## Supported environments
 
 Azure Arc-enabled servers support the management of physical servers and virtual machines hosted *outside* of Azure. For specific details of which hybrid cloud environments hosting VMs are supported, see [Connected Machine agent prerequisites](agent-overview.md#supported-environments).
 
 > [!NOTE]
 > Azure Arc-enabled servers is not designed or supported to enable management of virtual machines running in Azure.
 
-### Agent status
+## Agent status
 
 The Connected Machine agent sends a regular heartbeat message to the service every 5 minutes. If the service stops receiving these heartbeat messages from a machine, that machine is considered offline and the status will automatically be changed to **Disconnected** in the portal within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed to **Connected**.
+
+## Service limits
+
+Azure Arc-enabled servers has a limit for the number of instances that can be created in each resource group. It does not have any limits at the subscription or service level. To learn about what resource type limits exist, see the [Resource instance limit](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) article.
 
 ## Next steps
 

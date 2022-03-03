@@ -1,11 +1,11 @@
 ---
 title: Application lifecycle management in Azure Container Apps Preview
 description: Learn about the full application lifecycle in Azure Container Apps Preview
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -51,4 +51,4 @@ If your application does not respond to the `SIGTERM` message, then [SIGKILL](ht
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Work with revisions](revisions.md)
+> [Microservices](microservices.md)
