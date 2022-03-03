@@ -13,6 +13,8 @@ ms.date: 03/02/2022
 
 Test out Service Fabric managed clusters in this quickstart by creating a **three-node Basic SKU cluster**.
 
+Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. A Service Fabric cluster is a network-connected set of virtual machines onto which your microservices are deployed and managed.
+
 Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model. Managed clusters streamline your deployment and cluster management experience. Service Fabric managed clusters are fully encapsulated resources that save you the effort of manually deploying all of the underlying resources that make up a Service Fabric cluster.
 
 In this quickstart, you learn how to:
@@ -23,7 +25,7 @@ In this quickstart, you learn how to:
 
 This article describes how to deploy a Service Fabric managed cluster for testing in Azure using the **Azure portal**. There is also a quickstart for [Azure Resource Manager templates](quickstart-managed-cluster-template.md).
 
-The three-node Basic SKU cluster in this tutorial is only intended for instructional purposes and not production workloads. For more information, see  [Service Fabric managed cluster SKUs](overview-managed-cluster.md#service-fabric-managed-cluster-skus).
+The three-node Basic SKU cluster created in this tutorial is only intended for instructional purposes. The cluster will use a self-signed certificate for authentication and will operate in the bronze reliability tier, so it's not suitable for production workloads. For more information on SKUs, see [Service Fabric managed cluster SKUs](overview-managed-cluster.md#service-fabric-managed-cluster-skus). For more information about reliability tiers, see [Reliability characteristics of the cluster](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster).
 
 ## Prerequisites
 
