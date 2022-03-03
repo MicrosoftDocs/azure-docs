@@ -1,9 +1,9 @@
 ---
-author: robinsh
-ms.author: robinsh
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 0/02/2022
 ---
 The following table lists the limits associated with the different service tiers S1, S2, S3, and F1. For information about the cost of each *unit* in each tier, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -14,8 +14,7 @@ The following table lists the limits associated with the different service tiers
 
 > [!NOTE]
 > If you anticipate using more than 200 units with an S1 or S2 tier hub or 10 units with an S3 tier hub, contact Microsoft Support.
-> 
-> 
+>
 
 The following table lists the limits that apply to IoT Hub resources.
 
