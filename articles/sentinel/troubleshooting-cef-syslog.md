@@ -223,6 +223,12 @@ For a syslog-ng daemon, the CEF validation script runs the following checks:
         filter f_oms_filter {match(\"CEF\|ASA\" ) ;};destination oms_destination {tcp(\"127.0.0.1\" port(25226));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
+If you are using TLS, you will need to to replace s_src with tls_src:
+
+ ```bash
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};destination oms_destination {tcp(\"127.0.0.1\" port(25226));};
+        log {source(tls_src);filter(f_oms_filter);destination(oms_destination);};
+        ```
 
 1. Restarts the syslog daemon and the Log Analytics agent:
 
