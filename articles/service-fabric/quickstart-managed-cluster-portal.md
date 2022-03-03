@@ -112,7 +112,7 @@ In this quickstart, we use a Service Fabric managed cluster named **quickstartsf
     - `Subscription`: Choose your Azure subscription.
     - `Resource group`: Choose the resource group you created in the prerequisites or create a new one if you didn't already. For this quickstart, we use **ServiceFabricResources**.
     - `Name`: Enter a unique name. For this quickstart, we use **quickstartsfcluster**.
-    - `Region`: Choose your preferred region from the dropdown menu.
+    - `Region`: Choose your preferred region from the dropdown menu. This must be the same region as your Azure Key Vault.
     - `SKU`: Toggle **Basic** for your SKU option.
     - `Username`: Enter a username for your managed cluster's administrator account.
     - `Password`: Enter a password for your managed cluster's administrator account.
