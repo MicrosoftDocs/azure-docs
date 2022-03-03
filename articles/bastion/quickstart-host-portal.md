@@ -80,7 +80,7 @@ When you deploy from VM settings, Bastion is automatically configured with defau
 In this quickstart, you deploy Bastion from your virtual machine settings in the Azure portal. You don't connect and sign in to your virtual machine or deploy Bastion from your VM directly.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the portal, navigate to the VM to which you want to connect. The values from the virtual network in which this VM resides will be used to create the Bastion deployment. 
+1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides will be used to create the Bastion deployment. 
 1. Select **Bastion** in the left menu. You can view some of the values that will be used when creating the bastion host for your virtual network. Select **Deploy Bastion**.
 
    :::image type="content" source="./media/quickstart-host-portal/deploy-bastion.png" alt-text="Screenshot of Deploy Bastion." lightbox="./media/quickstart-host-portal/deploy-bastion.png":::
