@@ -162,7 +162,7 @@ When no longer needed, delete the resource group for your Service Fabric cluster
 
 ## Next steps
 
-In this quickstart, you deployed a managed Service Fabric cluster. To learn more about how to scale a cluster, see:
+In this quickstart, you deployed a Service Fabric managed cluster. To learn more about how to scale a cluster, see:
 
 > [!div class="nextstepaction"]
 > [Scale out a Service Fabric managed cluster](tutorial-managed-cluster-scale.md)
