@@ -29,7 +29,7 @@ When it’s determined that LDAP will be used for operations such as name lookup
 The following information is passed to the server in the query:
    * [Base/user DN](configure-ldap-extended-groups.md#ldap-search-scope) (to narrow search scope)
    * Search scope type (subtree)
-   * Object class (`user`, `posixAccount` for users, and `posixGroup` for groups) <br>
+   * Object class (`user`, `posixAccount` for users, and `posixGroup` for groups)
    * UID or username 
    * Requested attributes (`uid`, `uidNumber`, `gidNumber` for users, or `gidNumber` for groups) 
 1. If the user or group isn’t found, the request fails, and access is denied.
