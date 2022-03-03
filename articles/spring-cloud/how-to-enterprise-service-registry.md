@@ -178,7 +178,7 @@ To create the application, use the `az spring-cloud app create` command.
 This time, we specify `--assign-endpoint` to grant a public IP for validation. This allows access from the external network.
 
 ```azurecli
- az spring-cloud app create \
+az spring-cloud app create \
     -g $RESOURCE-GROUP \
     -s $AZURE_SPRING_CLOUD_NAME  \
     --name serviceA \
@@ -253,7 +253,7 @@ az spring-cloud app list \
 
 When you run it, you will see the following results.
 
-```azurecli
+```text
 Name                      Location       ResourceGroup           Public Url                                                           Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
 ------------------------  -------------  ----------------------  -------------------------------------------------------------------  -----------------------  --------------------  -----  --------  ------------------  ---------------------  --------------------  -----------------------  ----------------------------------------
 servicea                  southeastasia  $RESOURCE-GROUP         https://$AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io      default                  Succeeded             1      2Gi       1/1                 N/A                    -                     -                        -
