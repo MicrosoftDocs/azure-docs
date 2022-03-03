@@ -57,6 +57,8 @@ In this example you'll create an inbound NAT rule to forward a range of ports st
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
+---
+
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
 ## Remove an inbound NAT rule
