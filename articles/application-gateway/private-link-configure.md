@@ -12,14 +12,14 @@ ms.author: victorh
 
 # Configure Azure Application Gateway Private Link
 
-The Application Gateway Private Link feature allows you to extend your workloads to be connected over a private link spanning across VNets and subscriptions. For more information, see [Application Gateway Private Link](private-link.md).
+Application Gateway Private Link integration allows you to connect your workloads over a private connection spanning across VNets and subscriptions. For more information, see [Application Gateway Private Link](private-link.md).
 
 :::image type="content" source="media/private-link/private-link.png" alt-text="Diagram showing Application Gateway Private Link":::
 
 
 ## Configuration options
 
-You can configure Application Gateway Private Link using the Azure portal, Azure PowerShell, and Azure CLI.
+Application Gateway Private Link can be configured via multiple options, such as, but not limited to, the Azure Portal, Azure PowerShell, and Azure CLI.
 
 # [Azure portal](#tab/portal)
 
@@ -36,8 +36,10 @@ The following steps can be completed to create a new subnet:
 
 **Configure Private Link Service**
 
-The following steps can be used to configure Private Link for your Application Gateway using the Azure portal.
+The Private link configuration defines the infrastructure used by Application Gateway to enable connections from Private Endpoints. To create the Private link configuration, complete the following steps:
 
+1. Go to the [Azure portal](https://portal.azure.com) to view your virtual networks. Search for and select **Application Gateways**.
+1. Select the name of the application gateway you want to enable private link.
 1. Select **Private link**
 1. Configure the following items:
 
@@ -49,8 +51,10 @@ The following steps can be used to configure Private Link for your Application G
 
 **Configure Private Endpoint**
 
-The private endpoint is the network interface that clients can send traffic to.  To create a private endpoint, complete the following steps:
+A private endpoint is a network interface that uses a private IP address from the virtual network containing clients wishing to connect to your gateway. Each of the clients will use the private IP address of the Private Endpoint to tunnel traffic to the Application Gateway. To create a private endpoint, complete the following steps:
 
+1. Go to the [Azure portal](https://portal.azure.com) to view your virtual networks. Search for and select **Application Gateways**.
+1. Select the name of the application gateway you want to enable private link.
 1. Select **Private Link**.
 1. Select the **Private endpoint connections** tab.
 1. Select **Create**.
@@ -61,6 +65,8 @@ The private endpoint is the network interface that clients can send traffic to. 
 1. Select **Create**.
 
 # [Azure PowerShell](#tab/powershell)
+
+To configure Private link on an existing Application Gateway via Azure PowerShell, the following commands can be referenced:
 
 ```azurepowershell
 # Disable Private Link Service Network Policies
@@ -121,6 +127,8 @@ New-AzPrivateEndpoint -Name "AppGWPrivateEndpoint" -ResourceGroupName $vnet_plen
 
 
 # [Azure CLI](#tab/cli)
+
+To configure Private link on an existing Application Gateway via Azure CLI, the following commands can be referenced:
 
 ```azurecli
 # Disable Private Link Service Network Policies
