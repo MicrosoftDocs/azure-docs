@@ -966,13 +966,19 @@ The following table applies to Azure Batch.
 
     :::image type="content" source="./media/connector-troubleshoot-guide/system-trust-store-setting.png" alt-text="Uncheck Use System Trust Store":::
 
-### HDI activity stuck in preparing for cluster
+### HDI activity stuck in preparing for cluster  
 
-If the HDI activity is stuck in preparing for cluster, make sure the timeout is greater than what is described below, and wait for the execution to complete or until it is timed out.  
+If the HDI activity is stuck in preparing for cluster, follow the guidelines below:  
 
-*The max default time that it takes to spin up a cluster is 2 hours, and if you have any init script, it will add up, up to another 2 hours.*
+1. Make sure the timeout is greater than what is described below, and wait for the execution to complete or until it is timed out.   
 
-## Web Activity
+    *The max default time that it takes to spin up a cluster is 2 hours, and if you have any init script, it will add up, up to another 2 hours.*
+
+2. Make sure the storage and HDI are provisioned in the same region.
+3. Make sure that the service principal used for accessing the HDI cluster is valid.
+4. If the issue still persists, as a work around, delete the HDI linked service and re-create it with a new name.
+
+## Web Activity  
 
 ### Error code: 2128
 
