@@ -131,7 +131,7 @@ az keyvault set-policy \
 
 Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command:
 
-```azurecli 
+```azurecli
 az role assignment create --assignee $identityPrincipalID \
   --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
@@ -149,7 +149,7 @@ az keyvault key create \
 
 In the command output, take note of the key's ID, `kid`. You use this ID in the next step:
 
-```JSON
+```json
 [...]
   "key": {
     "crv": null,
@@ -425,7 +425,7 @@ Follow the steps in the previous sections to create the following resources:
 
 Run the following [az deployment group create][az-deployment-group-create] command to create the registry using the preceding template file. Where indicated, provide a new registry name and managed identity name, as well as the key vault name and key ID you created.
 
-```bash
+```azurecli
 az deployment group create \
   --resource-group <resource-group-name> \
   --template-file CMKtemplate.json \
