@@ -62,7 +62,7 @@ Click following link "[Create Sample Service A](https://start.spring.io/#!type=m
 
    :::image type="content" source="./media/how-to-enterprise-service-registry/spring-initializr-with-config-dump.png" alt-text="Spring Initializr":::
 
-Then, press the 'GENERATE' button to get a sample project for Spring Boot with the following directory structure.
+Then, press the `GENERATE` button to get a sample project for Spring Boot with the following directory structure.
 
 ```text
 ├── HELP.md
@@ -160,7 +160,7 @@ public class ServiceAEndpoint {
 
 #### 1.4 Build a Spring Boot application
 
-Now that you have a simple service, please compile and build the source code. Run the 'mvn' command below.
+Now that you have a simple service, please compile and build the source code. Run the `mvn` command below.
 
 
 ```bash
@@ -175,7 +175,7 @@ In this section, explain how to deploy a `Service A` to `Azure Spring Cloud Ente
 
 First, create an application in Azure Spring Cloud.
 To create the application, use the `az spring-cloud app create` command.
-This time, we specify '--assign-endpoint' to grant a public IP for validation. This allows access from the external network.
+This time, we specify `--assign-endpoint` to grant a public IP for validation. This allows access from the external network.
 
 ```azurecli
  az spring-cloud app create \
@@ -275,7 +275,7 @@ The lists of environment variables will be displayed.
 curl https://$AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io/env
 ```
 
-If you look at the results, you can see that `eureka.client.service-url.defaultZone` has been added to the Java options ('JAVA_TOOL_OPTIONS'). This allows the application to register the service to the Service Registry and make it available from other services.
+If you look at the results, you can see that `eureka.client.service-url.defaultZone` has been added to the Java options (`JAVA_TOOL_OPTIONS`). This allows the application to register the service to the Service Registry and make it available from other services.
 
 ```text
 "JAVA_TOOL_OPTIONS":"-Deureka.client.service-url.defaultZone=https://$AZURE_SPRING_CLOUD_NAME.svc.azuremicroservices.io/eureka/default/eureka
@@ -313,7 +313,7 @@ public class SampleServiceBApplication {
 
 #### 3.3 Implement service endpoints　in `Service B`
 
-Next, implement a new service endpoint (`/invoke-serviceA`) which invokes the `Service A`. For simplicity, it implements with 'RestTemplate' in the sample, and it returns the string with an additional string (`INVOKE SERVICE A FROM SERVICE B: "`) to indicate that it was called by `Service B`.
+Next, implement a new service endpoint (`/invoke-serviceA`) which invokes the `Service A`. For simplicity, it implements with `RestTemplate` in the sample, and it returns the string with an additional string (`INVOKE SERVICE A FROM SERVICE B: "`) to indicate that it was called by `Service B`.
 
 We've also added another endpoint (`/list-all`) for validation. This is implemented to ensure that the service is communicating correctly with the Service Registry. You can call this endpoint to get the lists of applications registered in the Service Registry.
 
@@ -413,7 +413,7 @@ serviceb  southeastasia  SpringCloud-Enterprise  https://$AZURE_SPRING_CLOUD_NAM
 
 ### 5. Invoke `Service A` from `Service B`
 
-You can get the access URL of `Service B` from the result of the above command. Please access to the service endpoint with ('/invoke-serviceA'). You can see the string `INVOKE SERVICE A FROM SERVICE B: This is a result of Service A` in your terminal or browser.  
+You can get the access URL of `Service B` from the result of the above command. Please access to the service endpoint with (`/invoke-serviceA`). You can see the string `INVOKE SERVICE A FROM SERVICE B: This is a result of Service A` in your terminal or browser.  
 From the result, we were able to invoke `Service A` from `Service B` and see that the result was returned correctly.
 
 ```bash
