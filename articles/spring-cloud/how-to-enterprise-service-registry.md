@@ -425,7 +425,13 @@ INVOKE SERVICE A FROM SERVICE B: This is a result of Service A
 Let's review the implementation which invoke `Service A` in the source code of `Service B` again.
 
 ```java
-String response = restTemplate.getForObject("http://servicea/serviceA",String.class);   
+    @GetMapping(value = "/invoke-serviceA")
+    public String invokeServiceA() 
+    {   
+        RestTemplate  restTemplate = new RestTemplate();
+        String response = restTemplate.getForObject("http://servicea/serviceA",String.class);   
+        return "INVOKE SERVICE A FROM SERVICE B: " + response;
+    }
 ```
 
 Like this, you had invoked the `Service A` as `http://servicea`. The service name is equal to the name in which you specified the creation of the Azure Spring Cloud application. (e.g. `az spring-cloud app create --name ServiceA`)  
