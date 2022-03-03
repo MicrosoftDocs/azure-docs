@@ -7,7 +7,7 @@ author:   sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 03/02/2022
 ms.author: sipastak
 ---
 
@@ -206,6 +206,16 @@ In accordance with Article 10.8(a) and 10.8(b) of the Radio Equipment Directive 
 ### Japan
 :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-japan.png" alt-text="Japan.":::
 
+
+## Declarations of conformity
+
+A Declaration of Conformity (DoC) is a document stating that a product meets the legal standards to which it must adhere, such as safety regulations. Here is the declaration of conformity for EU:
+
+![Screenshot of the Declaration of conformity for EU.](./media/azure-stack-edge-pro-2-safety/declaration-of-conformity-eu.png)
+
+Here is the declaration of conformity for UK:
+
+![Screenshot of the Declaration of conformity for UK.](./media/azure-stack-edge-pro-2-safety/declaration-of-conformity-uk.png)
 
 ## Next steps
 
