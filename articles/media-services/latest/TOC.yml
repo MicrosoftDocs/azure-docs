@@ -605,9 +605,6 @@
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
       displayName: descriptive audio, accessibility, access, accessible
-    - name: Publish
-      href: asset-publish-cli-how-to.md
-      displayName: publish, manifest, HLS, DASH, URL, Streaming URL, Streaming Locator, CLI, how-to, how to, sample
   - name: Security
     items:
       - name: Account security
