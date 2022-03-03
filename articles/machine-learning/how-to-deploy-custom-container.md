@@ -122,7 +122,7 @@ and `tfserving-deployment.yml` contains:
 model:
     name: tfserving-mounted
     version: 1
-    local_path: ./half_plus_two
+    path: ./half_plus_two
 ```
 
 then your model will be located under `/var/azureml-app/azureml-models/tfserving-deployment/1` in your deployment:
@@ -140,7 +140,7 @@ endpoint_name: tfserving-endpoint
 model:
   name: tfserving-mounted
   version: 1
-  local_path: ./half_plus_two
+  path: ./half_plus_two
 model_mount_path: /var/tfserving-model-mount
 .....
 ```

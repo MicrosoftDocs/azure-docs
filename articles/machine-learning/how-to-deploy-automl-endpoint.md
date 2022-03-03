@@ -138,8 +138,8 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
 
     | Path | Change to |
     | --- | --- |
-    | `model:local_path` | The path to the `model.pkl` file you downloaded. |
-    | `code_configuration:code:local_path` | The directory in which you placed the scoring file. | 
+    | `model:path` | The path to the `model.pkl` file you downloaded. |
+    | `code_configuration:code:path` | The directory in which you placed the scoring file. | 
     | `code_configuration:scoring_script` | The name of the Python scoring file (`scoring_file_<VERSION>.py`). |
     | `environment:conda_file` | A file URL for the downloaded conda environment file (`conda_env_<VERSION>.yml`). |
 

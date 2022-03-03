@@ -146,7 +146,7 @@ This section shows how you can deploy Triton to managed online endpoint using [A
     ```yml
     name: densenet-onnx-model
     version: 1
-    local_path: ./models
+    path: ./models
     model_format: Triton
     description: Registering my Triton format model.
     ```

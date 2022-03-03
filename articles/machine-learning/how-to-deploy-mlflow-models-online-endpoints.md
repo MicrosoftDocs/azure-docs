@@ -102,7 +102,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
     $schema: https://azuremlschemas.azureedge.net/latest/model.schema.json
     name: sklearn-diabetes-mlflow
     version: 1
-    local_path: sklearn-diabetes/model
+    path: sklearn-diabetes/model
     model_format: mlflow
     description: Scikit-learn MLflow model.
     ```
