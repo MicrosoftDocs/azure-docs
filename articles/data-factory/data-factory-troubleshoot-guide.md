@@ -976,7 +976,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 2. Make sure the storage and HDI are provisioned in the same region.
 3. Make sure that the service principal used for accessing the HDI cluster is valid.
-4. If the issue still persists, as a work around, delete the HDI linked service and re-create it with a new name.
+4. If the issue still persists, as a workaround, delete the HDI linked service and re-create it with a new name.
 
 ## Web Activity  
 
