@@ -79,7 +79,7 @@ In this example, you'll remove an inbound NAT rule.
 
 
 
-
+# [**CLI**](#tab/inbound-nat-rule-cli)
 
 
 ## Next steps
