@@ -78,6 +78,8 @@ To migrate your workloads to avoid Dedicated Host SKU retirement, please go thro
 5.  Delete the old Dedicated Host.
 6.	Start the VMSS.
 
+---
+
 More detailed instructions can be found in the following sections.
 
 > [!NOTE]
@@ -93,43 +95,50 @@ Within the same Host Group as the existing Dedicated Host, [create a Dedicated H
 
 ### Stop the VM(s) or VMSS
 
-#### PowerShell
+#### [PowerShell](#tab/PS)
 
 Refer to the PowerShell documentation to [stop a VM through PowerShell](/powershell/module/servicemanagement/stop-azurevm) or [stop a VMSS through PowerShell](/powershell/module/servicemanagement/stop-azvmss).
 
-#### Command Line Interface
+#### [CLI](#tab/CLI)
 
 Refer to the Command Line Interface (CLI) documentation to [stop a VM through CLI](/cli/azure/vm#az-vm-stop) or [stop a VMSS through CLI](/cli/azure/vmss#az-vmss-stop).
 
-#### Portal
+#### [Portal](#tab/Portal)
 
 On Azure portal, please go through the following steps:
 
 1.	Navigate to your VM or VMSS.
 2.	On the top navigation bar, click “Stop”.
 
+---
+
 #### Reassign the VM(s) to the target Dedicated Host
 
 >[!NOTE] 
-> **Skip this step for automatically placed VMs and VMSS.**
+> **Skip this step for automatically placed VMs and VMSS.** 
 
 Once the target Dedicated Host has been created and the VM has been stopped, [reassign the VM to the target Dedicated Host](dedicated-hosts-how-to.md#add-an-existing-vm).
 
 ### Start the VM(s)
 
-#### PowerShell
-Refer to the PowerShell documentation to [start a VM through PowerShell](/powershell/module/servicemanagement/start-azurevm).
+>[!NOTE]
+**Automatically placed VM(s) and VMSS require that you delete the old host _before_ starting the autoplaced VM(s) or VMSS.**
 
-#### Command Line Interface
+#### [PowerShell](#tab/PS)
+Refer to the PowerShell documentation to [start a VM through PowerShell](/powershell/module/servicemanagement/start-azurevm) or [start a VMSS through PowerShell](/powershell/module/servicemanagement/start-azvmss).
 
-Refer to the Command Line Interface (CLI) documentation to [start a VM through CLI](/cli/azure/vm#az-vm-start).
+#### [CLI](#tab/CLI)]
 
-#### Portal
+Refer to the Command Line Interface (CLI) documentation to [start a VM through CLI](/cli/azure/vm#az-vm-start) or [start a VMSS through CLI](/cli/azure/vmss#az-vmss-start).
+
+#### [Portal](#tab/Portal)
 
 On Azure portal, please go through the following steps:
 
-1.	Navigate to your VM.
+1.	Navigate to your VM or VMSS.
 2.	On the top navigation bar, click “Start”.
+
+---
 
 #### Delete the old Dedicated Host
 
