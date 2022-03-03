@@ -208,7 +208,7 @@ Import the downloaded file, and create an appliance.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to Azure URLs [public](migrate-support-matrix.md#public-cloud-urls) and [government](migrate-support-matrix.md#government-cloud-urls) clouds.
+Make sure that the appliance can connect to Azure URLs [public](migrate-support-matrix.md#public-cloud) and [government](migrate-support-matrix.md#azure-government) clouds.
 
 ### 4. Configure the appliance
 
