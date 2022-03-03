@@ -819,6 +819,12 @@
       "branch": "master",
       "branch_mapping": {}
     },
+    {  
+      "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
+      "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
+      "branch": "master",
+      "branch_mapping": {}
+    },
     {
       "path_to_root": "msdocs-python-flask-webapp-quickstart",
       "url": "https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart",
