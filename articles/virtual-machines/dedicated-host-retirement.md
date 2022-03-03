@@ -52,3 +52,7 @@ A:
 | -------------- | -----------------------------------------------------------------------|
 | March 15, 2022 | Dsv3-Type1, Dsv3-Type2, Esv3-Type1, Esv3-Type2 retirement announcement |
 | March 31, 2023 | Dsv3-Type1, Dsv3-Type2, Esv3-Type1, Esv3-Type2 retirement              |
+
+### Q: What will happen to my Azure Reservation?
+
+A: You will need to [exchange your reservation](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md#how-to-exchange-or-refund-an-existing-reservation) through the Azure Portal to match the new Dedicated Host SKU. 
