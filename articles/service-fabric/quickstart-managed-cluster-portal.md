@@ -15,7 +15,7 @@ Test out Service Fabric managed clusters in this quickstart by creating a **thre
 
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. A Service Fabric cluster is a network-connected set of virtual machines onto which your microservices are deployed and managed.
 
-Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model. Managed clusters streamline your deployment and cluster management experience. Service Fabric managed clusters are fully encapsulated resources that save you the effort of manually deploying all of the underlying resources that make up a Service Fabric cluster.
+Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model. Managed clusters streamline your deployment and cluster management experience. Service Fabric managed clusters are fully-encapsulated resources that save you the effort of manually deploying all the underlying resources that make up a Service Fabric cluster.
 
 In this quickstart, you learn how to:
 
