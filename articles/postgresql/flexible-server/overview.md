@@ -112,7 +112,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Southeast Asia | :heavy_check_mark: | :x: $  | :x: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
-| Switzerland North | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
+| Switzerland North | :heavy_check_mark: | :x: | :x: |
 | UAE North | :heavy_check_mark: | :x: | :x: |
 | US Gov Arizona | :heavy_check_mark: | :x: | :x: |
 | US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -125,7 +125,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 
 $ New Zone-redundant high availability deployments are temporarily blocked in these regions. Already provisioned HA servers are fully supported. 
 
-** Zone-redundant high availability can now be deployed with new servers in these regions. Enabling HA for an already provisioned servers deployed in AZ with *no preference*, the standby will be provisioned in the same AZ. To provision zone-redundant HA, consider performing a point-in-time restore of the server and enable zone-redundant HA on the restored server.
+** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Pre-existing servers deployed in AZ with *no preference* (which you can check on the Azure Portal), the standby will be provisioned in the same AZ. To configure zone-redundant high availability, perform a point-in-time restore of the server and enable HA on the restored server.
 
 <!-- We continue to add more regions for flexible server. -->
 > [!NOTE]

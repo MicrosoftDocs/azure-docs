@@ -19,7 +19,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for [US Gov regions](overview.md#azure-regions) - Arizona and Virginia
 * Support for [extensions](concepts-extensions.md) TimescaleDB, orafce, and pg_repack with new servers<sup>$</sup> 
 * Extensions need to be [allow-listed](concepts-extensions.md#how-to-use-postgresql-extensions) before they can be installed.
-* Support for zone redundant high availability for new server creates in [regions](overview.md#azure-regions) Central India, Korea Central, Switzerland North, East Asia, and West US 3.
+* Support for zone redundant high availability for new server creates in [regions](overview.md#azure-regions) Central India, Korea Central, East Asia, and West US 3.
 * Several bug fixes, stability, security, and performance improvements<sup>$</sup>.
 
 <sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
