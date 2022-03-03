@@ -125,6 +125,13 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | blockchainMembers | global | 2-20 | Lowercase letters and numbers.<br><br>Start with lowercase letter. |
 
+## Microsoft.Blueprint
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | blueprintAssignments | Management groups, Subscriptions, Resource groups | 90 | Alphanumerics, underscores, and hyphens. |
+
 ## Microsoft.BotService
 
 > [!div class="mx-tableFixed"]
@@ -635,7 +642,7 @@ In the following tables, the term alphanumeric refers to:
 > | autoProvisioningSettings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
 > | connectors | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
 > | deviceSecurityGroups | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
-> | informationProtectionPolicies | resource group | see values | Use one of:<br>`custom`<br>`effective` | 
+> | informationProtectionPolicies | resource group | see values | Use one of:<br>`custom`<br>`effective` |
 > | iotSecuritySolutions | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
 > | locations / applicationWhitelistings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
 > | locations / jitNetworkAccessPolicies | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
@@ -756,7 +763,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  | 
+> | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  |
 > | serverfarms | resource group | 1-40 | Alphanumerics and hyphens. |
 > | sites | global or per domain. See note below. | 2-60 | Contains alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumerics and hyphens. |
