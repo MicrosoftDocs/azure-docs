@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 02/26/2022
+ms.date: 03/02/2022
 ---
 
 # Compare Azure Government and global Azure
@@ -232,18 +232,16 @@ This section outlines variations and considerations when using Identity services
 
 ### [Azure Active Directory Premium P1 and P2](../active-directory/index.yml)
 
+For feature variations and limitations, see [Cloud feature availability](../active-directory/authentication/feature-availability.md).
+
 The following features have known limitations in Azure Government:
 
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
   - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Azure AD B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md).
   - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
 
-- Limitations with multifactor authentication:
-  - Hardware OATH tokens are not available in Azure Government.
-  - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address.
-
-- Limitations with Azure AD join:
-  - Enterprise state roaming for Windows 10 devices is not available
+- Limitations with multi-factor authentication:
+    - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and should not be required based off the user's current IP address.
 
 ## Management and governance
 
@@ -405,7 +403,7 @@ The following Azure Migrate **features are not currently available** in Azure Go
 - Containerizing ASP.NET apps and deploying them on Windows containers on App Service.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
 
-For more information, see [Azure Migrate support matrix](../migrate/migrate-support-matrix.md#supported-geographies-azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
+For more information, see [Azure Migrate support matrix](../migrate/migrate-support-matrix.md#azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
 
 ## Networking
 

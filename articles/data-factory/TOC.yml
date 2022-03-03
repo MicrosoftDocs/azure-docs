@@ -524,6 +524,8 @@ items:
       displayName: timeout 
     - name: Shopify
       href: connector-shopify.md
+    - name: Smartsheet
+      href: connector-smartsheet.md
     - name: Snowflake
       href: connector-snowflake.md
     - name: Spark
@@ -547,6 +549,8 @@ items:
       href: connector-xero.md
     - name: XML format
       href: format-xml.md
+    - name: Zendesk
+      href: connector-zendesk.md
     - name: Zoho
       href: connector-zoho.md
   - name: Move data
@@ -839,7 +843,7 @@ items:
         - name: Diagnostic tool for self-hosted integration runtime
           href: self-hosted-integration-runtime-diagnostic-tool.md
           displayName: self hosted
-        - name: Monitoring self-hosted intgegration runtime in Azure
+        - name: Monitoring self-hosted integration runtime in Azure
           href: monitor-shir-in-azure.md
         - name: Configuring self-hosted integration runtime for log analytics collection
           href: how-to-configure-shir-for-log-analytics-collection.md
