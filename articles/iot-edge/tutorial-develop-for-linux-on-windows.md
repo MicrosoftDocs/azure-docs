@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 A development machine:
 
-* Install [IoT Edge for Linux on Windows](./how-to-provision-single-device-linux-on-windows-x509.md)
+* Install [IoT Edge for Linux on Windows (EFLOW)](./how-to-provision-single-device-linux-on-windows-x509.md)
 * Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
@@ -50,7 +50,7 @@ Cloud resources:
 
 This tutorial walks through the development of an IoT Edge module. An *IoT Edge module*, or sometimes just *module* for short, is a container with executable code. You can deploy one or more modules to an IoT Edge device. Modules perform specific tasks like ingesting data from sensors, cleaning and analyzing data, or sending messages to an IoT hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
 
-When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*. For this tutorial, you'll be using your Windows host for development and the EFLOW VM for building and deploying the modules. 
+When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*. For this tutorial, you'll be using your Windows host for development and the IoT Edge for Linux on Windows (EFLOW) VM for building and deploying the modules. 
 
 This tutorial targets devices running IoT Edge with Linux containers. You can use your preferred operating system as long as your development machine runs Linux containers. We recommend using Visual Studio Code to develop with Linux containers, so that's what this tutorial will use. You can use Visual Studio as well, although there are differences in support between the two tools.
 
@@ -73,7 +73,7 @@ IoT Edge modules are packaged as containers, so you need a container engine on y
 The first step is to configure docker-cli on the Windows development machine to be able to connect to the remote docker engine. 
 
 1. Download the precompiled **docker.exe** version of the docker-cli from [docker-cli-builder GitHub](https://github.com/StefanScherer/docker-cli-builder). You can also download the official **cli** project from [docker/cli GitHub](https://github.com/docker/cli) and compile it following the repo instructions.
-2. Copy the **docker.exe** to a directory in your development machine. E.g. _C:\Docker\bin_
+2. Copy the **docker.exe** to a directory in your development machine. For example, _C:\Docker\bin_
 3. Open **System Properties**
 4. Select **Advanced** -> **Environment variables** -> **Path**
 5. Edit the **Path** variable and add the location of the **docker.exe**
