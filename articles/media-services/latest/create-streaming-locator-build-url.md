@@ -2,17 +2,12 @@
 title: Create a streaming locator and build URLs
 description: This article demonstrates how to create a streaming locator and build URLs.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: 
-ms.devlang: java,csharp
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/01/2022
 ms.author: inhenkel
-ms.custom: devx-track-csharp
 ---
 
 # Create a streaming locator and build URLs
@@ -23,70 +18,19 @@ In Azure Media Services, to build a streaming URL, you need to first create a [S
 
 This article demonstrates how to create a streaming locator and build a streaming URL using Java and .NET SDKs.
 
-## Prerequisite
+## Prerequisites
 
 Preview [Dynamic packaging](encode-dynamic-packaging-concept.md)
 
-## Java
+## Create a streaming locator
 
-```java
-/**
-* Creates a StreamingLocator for the specified asset and with the specified streaming policy name.
-* Once the StreamingLocator is created the output asset is available to clients for playback.
-* @param manager       The entry point of Azure Media resource management
-* @param resourceGroup The name of the resource group within the Azure subscription
-* @param accountName   The Media Services account name
-* @param assetName     The name of the output asset
-* @param locatorName   The StreamingLocator name (unique in this case)
-* @return              The locator created
-*/
-private static StreamingLocator getStreamingLocator(MediaManager manager, String resourceGroup, String accountName,
-    String assetName, String locatorName) {
-    // Note that we are using one of the PredefinedStreamingPolicies which tell the Origin component
-    // of Azure Media Services how to publish the content for streaming.
-    System.out.println("Creating a streaming locator...");
-    StreamingLocator locator = manager
-        .streamingLocators().define(locatorName)
-        .withExistingMediaservice(resourceGroup, accountName)
-        .withAssetName(assetName)
-        .withStreamingPolicyName("Predefined_ClearStreamingOnly")
-        .create();
+## [Portal](#tab/portal/)
 
-    return locator;
-}
+[!INCLUDE [task-create-asset-portal](includes/task-create-streaming-locator-portal.md)]
 
-/**
-* Checks if the streaming endpoint is in the running state, if not, starts it.
-* @param manager       The entry point of Azure Media resource management
-* @param resourceGroup The name of the resource group within the Azure subscription
-* @param accountName   The Media Services account name
-* @param locatorName   The name of the StreamingLocator that was created
-* @param streamingEndpoint     The streaming endpoint.
-* @return              List of streaming urls
-*/
-private static List<String> getStreamingUrls(MediaManager manager, String resourceGroup, String accountName,
-    String locatorName, StreamingEndpoint streamingEndpoint) {
-    List<String> streamingUrls = new ArrayList<>();
+## [.NET](#tab/net/)
 
-    ListPathsResponse paths = manager.streamingLocators().listPathsAsync(resourceGroup, accountName, locatorName)
-        .toBlocking().first();
-    
-    for (StreamingPath path: paths.streamingPaths()) {
-        StringBuilder uriBuilder = new StringBuilder();
-        uriBuilder.append("https://")
-            .append(streamingEndpoint.hostName())
-            .append("/")
-            .append(path.paths().get(0));
-
-        streamingUrls.add(uriBuilder.toString());
-    }
-    return streamingUrls;
-}
-```
-
-See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
-
-## .NET
+## Using .NET
 
 ```csharp
 /// <summary>
@@ -159,12 +103,4 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/Encoding_PredefinedPreset/Program.cs)
 
-## See also
-
-* [Create filters with .NET](filters-dynamic-manifest-dotnet-how-to.md)
-* [Create filters with REST](filters-dynamic-manifest-rest-howto.md)
-* [Create filters with CLI](filters-dynamic-manifest-cli-how-to.md)
-
-## Next steps
-
-[Protect your content with DRM](drm-protect-with-drm-tutorial.md).
+---
