@@ -45,9 +45,9 @@ Deployment of the SAP continuous threat monitoring solution is divided into the 
 >
 > The steps below may differ depending on the version of the SAP system and should be considered as a sample only
 > 
-> For this guide, the following assumed: a `SAP ABAP Platfor 1909 Developer edition`, SID `A4H`, System number `00` and Client number `001` installed on a host with IP address `192.168.136.4`. Administrator user of this instance is `a4hadm`, however SSH connection to the SAP system is established with `root` user credentials. 
->
 > Obtain details of the **SAP system version**, **SID**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning
+> For this guide, the following is assumed: a `SAP ABAP Platfor 1909 Developer edition`, SID `A4H`, System number `00` and Client number `001` installed on a host with IP address `192.168.136.4`. Administrator user of this instance is `a4hadm`, however SSH connection to the SAP system is established with `root` user credentials. 
+
 
 
 Deployment of Sentinel continuous protection for SAP requires installation of several CRs, more details about the required CRs can be found in the [Validate and configure existing SAP environment](#required-abap-authorizations) step of this guide.
@@ -60,15 +60,15 @@ To deploy the CRs, follow the steps outlined below:
 1. Copy the cofiles (K-prefixed files) to `/usr/sap/trans/cofiles` folder and data files (R-prefixed files) to `/usr/sap/trans/data` folder, preserving the permissions (use `cp` with `-p` switch).
 1. Launch **SAP Logon** and logon to the SAP GUI<br>
 ![Logon to SAP GUI](./media/preparing_sap/saplogon.png "Logon to SAP GUI")
-4. Run the **STMS_IMPORT** transaction
+4. Run the **STMS_IMPORT** transaction<br>
 To run the transaction, type the name of the transaction **STMS_IMPORT** in the field in the top-left corner of the screen and press **Enter**<br>
 ![Running STMS_IMPORT transaction](./media/preparing_sap/stms_import.png "Running STMS_IMPORT transaction")
 > [!NOTE]
-> If an error occurs at this step, SAP transport management system has to be configured, expand section below to review the details, else proceed with next steps
+> If an error occurs at this step, SAP transport management system has to be configured. Expand section below to review the details, else proceed with next steps
 > 
 <details>
 <summary>Steps to configure transport management system</summary>
-Transport management system is normally already configured on production systems, however in a lab environment, where CRs haven't been previously installed, configuration may be required
+Transport management system is normally already configured on production systems, however in a lab environment, where CRs haven't been previously installed, configuration may be required.<br>
 If an error similar to the below appears, transport management system has to be configured
 
 ![Error while running STMS_IMPORT transaction](./media/preparing_sap/stms_import_error.png "Error while running STMS_IMPORT transaction")<br>
@@ -106,7 +106,7 @@ Close SAP GUI logged on to client `000` as `DDIC` and return to SAP GUI logged o
 5. In **Import Queue** window, click **More**, select **Extras**->**Other Requests**->**Add**<br>
 ![Import Queue - More - Extras - Other Requests - Add](./media/preparing_sap/import_queue_add.png "Import Queue - More - Extras - Other Requests - Add")
 1. In **Add Transport Requests to Import Queue** click on the boxes next to *Transp. Request* field
-1. **Transport requests** window should display list of CRs available to be deployed. Select a CR and click the green checkbox
+1. **Transport requests** window should display a list of CRs available to be deployed. Select a CR and click the green checkbox
 1. In **Add Transport Request to Import Queue** click **Continue**
 1. In **Add Transport Request** click **Yes**
 1. Repeat the procedure in steps 5-9 to add all additional Change Requests that need to be deployed
@@ -125,13 +125,13 @@ Close SAP GUI logged on to client `000` as `DDIC` and return to SAP GUI logged o
 
 ### Role configuration step-by-step guide
 
-After the NPLK900163 CR (change request) is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If role is created manually, it may bear a different name.
+After the NPLK900163 CR (change request) is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If the role is created manually, it may bear a different name.
 In this guide, it will be assumed that the role created has a name **/MSFTSEN/SENTINEL_CONNECTOR**
 <br>
 
 The next step is to generate an active role profile
 
-1. Run the **PFCG** transaction
+1. Run the **PFCG** transaction<br>
 To run the transaction, in main SAP GUI window type **PFCG** in the top-left corner and press **Enter**
 1. In **Role Maintenance** window in the **Role** textbox type the role name `/MSFTSEN/SENTINEL_CONNECTOR` and click  **Change** button
 1. In **Change Roles** window select the **Authorizations** tab
@@ -149,22 +149,10 @@ To run the transaction, in main SAP GUI window type **PFCG** in the top-left cor
 
 Sentinel continuous protection for SAP requires a user account to connect to SAP system
 
-> [!NOTE]
-> The following guide provides a step-by-step guidance to create a user account in SAP system and assign it to the required role.
-> 
-> It is strongly recommended that management of SAP system is carried out by an experienced SAP system administrator
->
-> The steps below may differ depending on the version of the SAP system and should be considered as a sample only
-> 
-> For this guide, the following assumed: a `SAP ABAP Platfor 1909 Developer edition`, SID `A4H`, System number `00` and Client number `001` installed on a host with IP address `192.168.136.4`.
-> Administrator user of this instance is `a4hadm`, however SSH connection to the SAP system is established with `root` user credentials. 
->
-> Obtain details of the **SAP system version**, **SID**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning
-
 The following steps outline the basics on how to create a user account and assign it to the role that was created in the previous step.
 This step-by-step guide will assume the role name is `/MSFTSEN/SENTINEL_CONNECTOR`
 
-1. In SAP GUI run the **SU01** transaction
+1. In SAP GUI run the **SU01** transaction<br>
 To run the transaction, in SAP GUI type **SU01** in top-left corner and press **Enter**
 2. In **User Maintenance: Initial Screen** screen type in the name of the new user in the **User** field and press **Create Technical User button**
 3. In **Maintain Users** screen select **User Type** of **System**, compose and enter a complicated password in **New Password** and **Repeat Password** fields, then select the **Roles** tab
@@ -175,7 +163,7 @@ To run the transaction, in SAP GUI type **SU01** in top-left corner and press **
 
 ### Required ABAP authorizations
 
-The following table lists the ABAP authorizations required to ensure SAP logs can be correctly retreived by the account used by Microsoft Sentinel data connector
+The following table lists the ABAP authorizations required to ensure SAP logs can be correctly retreived by the account used by Microsoft Sentinel data connector.
 
 Required authorizations are listed by log type. Only authorizations listed for the types of logs that are planneed to be ingested into Microsoft Sentinel are required.
 
