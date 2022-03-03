@@ -2,7 +2,7 @@
 title: Create and add a virtual machine to a lab
 description: Learn how to use the Azure portal to add a virtual machine (VM) to a lab in Azure DevTest Labs. Configure basic settings, artifacts, and advanced settings.
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 03/03/2022
 ---
 
 # Create lab virtual machines in Azure DevTest Labs
@@ -11,7 +11,7 @@ This article describes how to create Azure virtual machines (VMs) in Azure DevTe
 
 ## Prerequisite
 
-- At least user access to a lab in DevTest Labs. For more information about creating labs, see [Create a lab in the Azure portal](devtest-lab-create-lab.md).
+You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) access to a lab in DevTest Labs. For more information about creating labs, see [Create a lab in the Azure portal](devtest-lab-create-lab.md).
 
 <a name="create-and-add-virtual-machines"></a>
 ## Configure basic settings
@@ -40,7 +40,7 @@ This article describes how to create Azure virtual machines (VMs) in Azure DevTe
 <a name="add-artifacts-during-installation"></a>
 ## Add optional artifacts
 
-You can add artifacts to VMs from the [DevTest Labs public artifact repository](https://github.com/Azure/azure-devtestlab/Artifacts), or from private artifact repositories connected to the lab. For more information, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
+Artifacts are tools, actions, or software you can add to lab VMs. You can add artifacts to VMs from the [DevTest Labs public artifact repository](https://github.com/Azure/azure-devtestlab/Artifacts), or from private artifact repositories connected to the lab. For more information, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
 
 To add or modify artifacts during VM creation:
 
@@ -58,10 +58,10 @@ To add or modify artifacts during VM creation:
 
 Optionally, select the **Advanced Settings** tab on the **Create lab resource** screen, and change any of the following values:
 
-- **Virtual network**: Select a different virtual network from the dropdown list. For more information, see [Add a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md).
+- **Virtual network**: Select a network from the dropdown list. For more information, see [Add a virtual network](devtest-lab-configure-vnet.md).
 - **Subnet**: If necessary, select a different subnet from the dropdown list.
-- **IP address**: Leave at **Shared**, or select **Public** or **Private**. For more information, see [Understand shared IP addresses in Azure DevTest Labs](devtest-lab-shared-ip.md).
-- **Expiration date**: Leave at **Will not expire**, or set an expiration date and time for the VM. For more information, see [Set VM expiration date](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date).
+- **IP address**: Leave at **Shared**, or select **Public** or **Private**. For more information, see [Understand shared IP addresses](devtest-lab-shared-ip.md).
+- **Expiration date**: Leave at **Will not expire**, or [set an expiration date](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) and time for the VM.
 - **Make this machine claimable**: Leave at **No** to keep yourself as the owner of the VM. Select **Yes** to make the VM claimable by any lab user after creation. For more information, see [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md).
 - **Number of instances**: To create more than one VM with this configuration, enter the number of VMs to create.
 - **View ARM Template**: Select to view and save the VM configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to [deploy new VMs with Azure PowerShell](../azure-resource-manager/templates/overview.md).

@@ -2,16 +2,18 @@
 title: What is Azure DevTest Labs?
 description: Learn how DevTest Labs makes it easy to create, manage, and monitor Azure virtual machines and environments.
 ms.topic: overview
-ms.date: 02/22/2022
+ms.date: 03/03/2022
 ---
 
 # What is Azure DevTest Labs?
 
 [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) is a service for easily creating, using, and managing infrastructure-as-a-service (IaaS) virtual machines (VMs) and platform-as-a-service (PaaS) environments in labs. Labs offer preconfigured bases and artifacts for creating VMs, and Azure Resource Manager (ARM) templates for creating environments like Azure Web Apps or SharePoint farms.
 
-Common [DevTest Labs scenarios](devtest-lab-guidance-get-started.md) include development VMs, test environments, and classroom or training labs. DevTest Labs promotes efficiency, consistency, and cost control by keeping all resource usage within the lab context.
+Labs offer preconfigured VM bases, ARM templates, and artifacts that have tools and software lab users need. Lab owners can create preconfigured VMs for lab users to claim, or users can create and configure their own VMs and environments. Lab policies and other methods track and control lab usage and costs.
 
-Labs offer preconfigured VM bases, ARM templates, and artifacts that have tools and software lab users need. You can create preconfigured VMs for lab users to claim, or users can create and configure their own VMs and environments. Lab policies and other methods track and control lab usage and costs.
+### Common DevTest Labs scenarios
+
+Common [DevTest Labs scenarios](devtest-lab-guidance-get-started.md) include development VMs, test environments, and classroom or training labs. DevTest Labs promotes efficiency, consistency, and cost control by keeping all resource usage within the lab context.
 
 ## Custom VM bases, artifacts, and templates
 
@@ -23,12 +25,9 @@ Lab owners can store artifacts and ARM templates in private Git repositories, an
 
 DevTest Labs users can quickly and easily create [IaaS VMs](devtest-lab-add-vm.md) and [PaaS environments](devtest-lab-create-environment-from-arm.md) from preconfigured bases, artifacts, and templates. Developers, testers, and trainers can:
 
-- Quickly create Windows and Linux environments by using reusable templates and artifacts.
-- Easily integrate deployment pipelines with DevTest Labs to create environments on demand.
-- Create development or testing environments directly from [continuous integration and deployment (CI/CD) tools](devtest-lab-integrate-ci-cd.md), integrated development environments (IDEs), or automated release pipelines.
-- Scale up load testing by creating multiple test agents and prepared environments.
-- Test the latest versions of applications.
-- Use ARM templates to create environments or sandbox resource groups for training, demos, or exploring Azure.
+- Create Windows and Linux training and demo environments, or sandbox resource groups for exploring Azure, by using reusable ARM templates and artifacts.
+- Test app versions and scale up load testing by creating multiple test agents and environments.
+- Create development or testing environments from [continuous integration and deployment (CI/CD)](devtest-lab-integrate-ci-cd.md) tools, integrated development environments (IDEs), or automated release pipelines. Integrate deployment pipelines with DevTest Labs to create environments on demand.
 - Use the [Azure CLI](devtest-lab-vmcli.md) command-line tool to manage VMs and environments.
 
 ## Lab policies and procedures to control costs
@@ -36,10 +35,9 @@ DevTest Labs users can quickly and easily create [IaaS VMs](devtest-lab-add-vm.m
 Lab owners can take several measures to reduce waste and control lab costs.
 
 - [Set lab policies](devtest-lab-set-lab-policy.md) like allowed number or sizes of VMs per user or lab.
-- Set [auto-shutdown](devtest-lab-auto-shutdown.md) and [auto-startup](devtest-lab-auto-startup-vm.md) schedules to shut down and start up all lab VMs at specific times of day.
-- [View and configure cost management](devtest-lab-configure-cost-management.md) to track lab and resource costs and estimate trends.
-- [Set VM expiration dates](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) at VM creation time.
-- [Delete labs or lab VMs](devtest-lab-delete-lab-vm.md) when no longer needed.
+- [Set auto-shutdown](devtest-lab-auto-shutdown.md) and [auto-startup](devtest-lab-auto-startup-vm.md) schedules to shut down and start up lab VMs at specific times of day.
+- [Monitor costs](devtest-lab-configure-cost-management.md) to track lab and resource usage and estimate trends.
+- [Set VM expiration dates](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date), or [delete labs or lab VMs](devtest-lab-delete-lab-vm.md) when no longer needed.
 
 ## Next steps
 
