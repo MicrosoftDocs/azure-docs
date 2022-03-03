@@ -1163,7 +1163,7 @@ Known issues on Linux:
 | Capability Name | DenyAccess-1.0 |
 | Target type | Microsoft-KeyVault |
 | Description | Blocks all network access to a Key Vault by temporarily modifying the Key Vault network rules, preventing an application dependent on the Key Vault from accessing secrets, keys, and/or certificates. If the Key Vault allows access to all networks, this is changed to only allow access from selected networks with no virtual networks in the allowed list at the start of the fault and returned to allowing access to all networks at the end of the fault duration. If they Key Vault is set to only allow access from selected networks, any virtual networks in the allowed list are removed at the start of the fault and restored at the end of the fault duration. |
-| Prerequisites | The target Key Vault cannot have any firewall rules. If the target Key Vault is set to only allow access from selected networks, there must be at least one virtual network rule. The Key Vault cannot be in recover mode. |
+| Prerequisites | The target Key Vault cannot have any firewall rules and must not be set to allow Azure services to bypass the firewall. If the target Key Vault is set to only allow access from selected networks, there must be at least one virtual network rule. The Key Vault cannot be in recover mode. |
 | Urn | urn:csci:microsoft:keyVault:denyAccess/1.0 |
 | Fault type | Continuous |
 | Parameters (key, value) | None. |
