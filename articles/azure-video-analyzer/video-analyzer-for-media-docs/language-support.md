@@ -10,7 +10,7 @@ ms.date: 02/02/2022
 
 # Language support in Video Analyzer for Media
 
-This article provides a comprehensive list of language support by service features in Azure Video Analyzer for Media (formerly Video Indexer). For the list and definions of all the features, see [Overview](video-indexer-overview.md).
+This article provides a comprehensive list of language support by service features in Azure Video Analyzer for Media (formerly Video Indexer). For the list and definitions of all the features, see [Overview](video-indexer-overview.md).
 
 ## General language support
 
@@ -108,14 +108,14 @@ This section describes language support in Video Analyzer for Media.
 | Urdu                             | `ur-PK`      |                 |  |  | ✔        | ✔                                |
 | Vietnamese                       | `vi-VN`      |                 |  |  | ✔        | ✔                                |
 
-## Languge support in frontend experiences
+## Language support in frontend experiences
 
-The following table describres language support in the Video Analyzer for Media frontend experiences.
+The following table describes language support in the Video Analyzer for Media frontend experiences.
 
 * [portal](https://aka.ms/vi-portal-link) experience provided in the settings page
 * [widgets](video-indexer-embed-widgets.md), as provided in the language dropdown in the insights widget
 
-| **Language**                      | **Code**       | **Web experience** | **Widgests experience**   | 
+| **Language**                      | **Code**       | **Web experience** | **Widgets experience**   | 
 |:------------:|:------------:|:--------------------:|:-------:|
 | Afrikaans                        | `af-ZA`      |           | ✔ |  
 | Arabic (Iraq)                    | `ar-IQ`      |           |  |
