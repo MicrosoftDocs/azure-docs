@@ -119,15 +119,15 @@ On Azure portal, please go through the following steps:
 
 Once the target Dedicated Host has been created and the VM has been stopped, [reassign the VM to the target Dedicated Host](dedicated-hosts-how-to.md#add-an-existing-vm).
 
-### Start the VM(s)
+### Start the VM(s) or VMSS
 
 >[!NOTE]
-**Automatically placed VM(s) and VMSS require that you delete the old host _before_ starting the autoplaced VM(s) or VMSS.**
+>**Automatically placed VM(s) and VMSS require that you delete the old host _before_ starting the autoplaced VM(s) or VMSS.**
 
 #### [PowerShell](#tab/PS)
 Refer to the PowerShell documentation to [start a VM through PowerShell](/powershell/module/servicemanagement/start-azurevm) or [start a VMSS through PowerShell](/powershell/module/servicemanagement/start-azvmss).
 
-#### [CLI](#tab/CLI)]
+#### [CLI](#tab/CLI)
 
 Refer to the Command Line Interface (CLI) documentation to [start a VM through CLI](/cli/azure/vm#az-vm-start) or [start a VMSS through CLI](/cli/azure/vmss#az-vmss-start).
 
