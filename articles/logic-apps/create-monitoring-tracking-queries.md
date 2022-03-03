@@ -10,6 +10,10 @@ ms.date: 01/30/2020
 
 # View and create queries for monitoring and tracking in Azure Monitor logs for Azure Logic Apps
 
+> [!NOTE]
+> This article applies only to Consumption logic apps. For information about monitoring Standard logic apps, review 
+> [Enable or open Application Insights after deployment for Standard logic apps](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
+
 You can view the underlying queries that produce the results from [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) and create queries that filter the results based your specific criteria. For example, you can find messages based on a specific interchange control number. Queries use the [Kusto query language](/azure/data-explorer/kusto/query/), which you can edit if you want to view different results. For more information, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/).
 
 ## Prerequisites

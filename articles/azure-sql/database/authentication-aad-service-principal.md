@@ -63,7 +63,7 @@ To enable an Azure AD object creation in SQL Database on behalf of an Azure AD a
     - To check if the server identity is assigned to the server, execute the Get-AzSqlServer command.
 
     > [!NOTE]
-    > Server identity can be assigned using REST API and CLI commands as well. For more information, see [az sql server create](/cli/azure/sql/server#az_sql_server_create), [az sql server update](/cli/azure/sql/server#az_sql_server_update), and [Servers - REST API](/rest/api/sql/2020-08-01-preview/servers).
+    > Server identity can be assigned using REST API and CLI commands as well. For more information, see [az sql server create](/cli/azure/sql/server#az-sql-server-create), [az sql server update](/cli/azure/sql/server#az-sql-server-update), and [Servers - REST API](/rest/api/sql/2020-08-01-preview/servers).
 
 
 2. Grant the Azure AD [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission to the server identity created or assigned to the server.

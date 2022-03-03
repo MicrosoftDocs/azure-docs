@@ -28,7 +28,7 @@ Blob soft delete is disabled by default for a new storage account. You can enabl
 To enable blob soft delete for your storage account by using the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
-1. Locate the **Data Protection** option under **Blob service**.
+1. Locate the **Data Protection** option under **Data management**.
 1. In the **Recovery** section, select **Turn on soft delete for blobs**.
 1. Specify a retention period between 1 and 365 days. Microsoft recommends a minimum retention period of seven days.
 1. Save your changes.

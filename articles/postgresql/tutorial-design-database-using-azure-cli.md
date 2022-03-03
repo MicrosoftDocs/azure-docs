@@ -63,7 +63,7 @@ Create a server with the [az postgres server create](/cli/azure/postgres/server#
 
 ## Configure a server-based firewall rule
 
-Create a firewall rule with the [az postgres server firewall-rule create](/cli/azure/postgre/server/firewall-rule) command to give your local environment access to connect to the server.
+Create a firewall rule with the [az postgres server firewall-rule create](/azure/postgresql/concepts-firewall-rules) command to give your local environment access to connect to the server.
 
 :::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="25-27":::
 
