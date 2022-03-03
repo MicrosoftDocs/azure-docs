@@ -100,7 +100,7 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 > You can scope the vCenter Server account to limit discovery to specific vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers. Learn how to [scope the vCenter Server user account](set-discovery-scope.md).
 
 > [!NOTE]
-> vCenter assets connected via Linked-Mode to the vCenter server specified for discovery will not be discovered by Azure Migrate. An Azure Migrate Appliance should be deployed for each vCenter environment you wish to discover.
+> vCenter assets connected via Linked-Mode to the vCenter server specified for discovery will not be discovered by Azure Migrate.
 
 ### Create an account to access servers
 
@@ -121,7 +121,7 @@ To set up a new project:
 1. In **Overview**,  select one of the following options, depending on your migration goals: **Servers, databases and web apps**, **SQL Server (only)**, or **Explore more scenarios**.
 1. Select **Create project**.
 1. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-1. In **Project Details**, specify the project name and the geography where you want to create the project. Review [supported geographies for public clouds](migrate-support-matrix.md#supported-geographies-public-cloud) and [supported geographies for government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+1. In **Project Details**, specify the project name and the geography where you want to create the project. Review [supported geographies for public clouds](migrate-support-matrix.md#public-cloud) and [supported geographies for government clouds](migrate-support-matrix.md#azure-government).
 
     :::image type="content" source="./media/tutorial-discover-vmware/new-project.png" alt-text="Screenshot that shows how to add project details for a new Azure Migrate project.":::
 

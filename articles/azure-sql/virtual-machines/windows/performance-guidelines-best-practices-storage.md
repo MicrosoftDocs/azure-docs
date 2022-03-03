@@ -43,7 +43,7 @@ Review the following checklist for a brief overview of the storage best practice
 - Stripe multiple Azure data disks using [Storage Spaces](/windows-server/storage/storage-spaces/overview) to increase I/O bandwidth up to the target virtual machine's IOPS and throughput limits.
 - Set [host caching](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits) to read-only for data file disks.
 - Set [host caching](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits) to none for log file disks.
-    - Do not enable read/write caching on disks that contain SQL Server files. 
+    - Do not enable read/write caching on disks that contain SQL Server data or log files. 
     - Always stop the SQL Server service before changing the cache settings of your disk.
 - For development and test workloads, and long-term backup archival consider using standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
 - [Credit-based Disk Bursting](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) should only be considered for smaller dev/test workloads and departmental systems.
@@ -275,7 +275,8 @@ There are specific Azure Monitor metrics that are invaluable for discovering cap
 
 ## Next steps
 
-To learn more about performance best practices, see the other articles in this series:
+To learn more, see the other articles in this best practices series:
+
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [VM size](performance-guidelines-best-practices-vm-size.md)
 - [Security](security-considerations-best-practices.md)

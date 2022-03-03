@@ -16,7 +16,10 @@ ms.date: 02/27/2021
 # User-initiated manual failover on SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article explains how to manually failover a primary node on SQL Managed Instance General Purpose (GP) and Business Critical (BC) service tiers, and how to manually failover a secondary read-only replica node on the BC service tier only.
+This article explains how to manually failover a primary node on SQL Managed Instance General Purpose (GP) and Business Critical (BC) service tiers, and how to manually failover a secondary read-only replica node on the BC service tier only. 
+
+> [!NOTE]
+> This article is not related with cross-region failovers on [auto-failover groups](../database/auto-failover-group-overview.md).
 
 ## When to use manual failover
 
@@ -91,7 +94,7 @@ Use the following CLI command to failover read secondary node, applicable to BC 
 az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableSecondary
 ```
 
-### Using Rest API
+### Using REST API
 
 For advanced users who would perhaps need to automate failovers of their SQL Managed Instances for purposes of implementing continuous testing pipeline, or automated performance mitigators, this function can be accomplished through initiating failover through an API call. see [Managed Instances - Failover REST API](/rest/api/sql/managed%20instances%20-%20failover/failover) for details.
 

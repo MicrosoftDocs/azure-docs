@@ -167,6 +167,8 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
    > [!div class="mx-imgBorder"]
    > ![Successful completion output](./media/upgrade-to-data-lake-storage-gen2-how-to/success-message-powershell.png)
 
+   > [!IMPORTANT]
+   > A rough estimate of the upgrade time would be approximately 5-10 minutes per 2 million blobs. For example, if the account has 10 million blobs, then the upgrade will take approximately 25-50 minutes. Accounts that contain fewer than 2 million blobs typically upgrade in less than 10 minutes.
 
 ### [Azure CLI](#tab/azure-cli)
 

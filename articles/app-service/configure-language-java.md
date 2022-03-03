@@ -488,13 +488,13 @@ To enable via the Azure CLI, you will need to create an Application Insights res
 
 1. Enable the Applications Insights extension
 
-    ```bash
+    ```azurecli
     az extension add -n application-insights
     ```
 
 2. Create an Application Insights resource using the CLI command below. Replace the placeholders with your desired resource name and group.
 
-    ```bash
+    ```azurecli
     az monitor app-insights component create --app <resource-name> -g <resource-group> --location westus2  --kind web --application-type web
     ```
 
@@ -506,7 +506,7 @@ To enable via the Azure CLI, you will need to create an Application Insights res
 
 3. Set the instrumentation key, connection string, and monitoring agent version as app settings on the web app. Replace `<instrumentationKey>` and `<connectionString>` with the values from the previous step.
 
-    ```bash
+    ```azurecli
     az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default" "XDT_MicrosoftApplicationInsights_Java=1"
     ```
 
@@ -515,7 +515,7 @@ To enable via the Azure CLI, you will need to create an Application Insights res
 
 3. Set the instrumentation key, connection string, and monitoring agent version as app settings on the web app. Replace `<instrumentationKey>` and `<connectionString>` with the values from the previous step.
 
-    ```bash
+    ```azurecli
     az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default"
     ```
 
@@ -809,7 +809,7 @@ The platform also needs to know where your custom version of Tomcat is installed
 
 You can use the Azure CLI to change this setting:
 
-```powershell
+```azurecli
     az webapp config appsettings set -g $MyResourceGroup -n $MyUniqueApp --settings CATALINA_BASE="%LOCAL_EXPANDED%\tomcat"
 ```
 

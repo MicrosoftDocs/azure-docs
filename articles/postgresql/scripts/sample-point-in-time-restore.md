@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 01/26/2022 
+ms.date: 02/11/2022 
 ---
 
 # Restore an Azure Database for PostgreSQL server using Azure CLI
@@ -24,7 +24,7 @@ This sample CLI script restores a single Azure Database for PostgreSQL server to
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/backup-restore/backup-restore.sh" range="4-40":::
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/backup-restore/backup-restore.sh" range="4-39":::
 
 ## Clean up deployment
 

@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/01/2022
+ms.date: 02/02/2022
 tags: connectors
 ---
 
@@ -36,16 +36,9 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   * OpenText GXS
   * Globalscape
   * SFTP for Azure Blob Storage
+  * FileMage Gateway
 
-* SFTP-SSH actions that support [chunking](../logic-apps/logic-apps-handle-large-messages.md) can handle files up to 1 GB, while SFTP-SSH actions that don't support chunking can handle files up to 50 MB. The default chunk size is 15 MB. However, this size can dynamically change, starting from 5 MB and gradually increasing to the 50-MB maximum. Dynamic sizing is based on factors such as network latency, server response time, and so on.
-
-  > [!NOTE]
-  > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-  > this connector's ISE-labeled version requires chunking to use the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
-
-  You can override this adaptive behavior when you [specify a constant chunk size](#change-chunk-size) to use instead. This size can range from 5 MB to 50 MB. For example, suppose you have a 45-MB file and a network that can that support that file size without latency. Adaptive chunking results in several calls, rather that one call. To reduce the number of calls, you can try setting a 50-MB chunk size. In different scenario, if your logic app is timing out, for example, when using 15-MB chunks, you can try reducing the size to 5 MB.
-
-  Chunk size is associated with a connection. This attribute means you can use the same connection for both actions that support chunking and actions that don't support chunking. In this case, the chunk size for actions that don't support chunking ranges from 5 MB to 50 MB. This table shows which SFTP-SSH actions support chunking:
+* The following SFTP-SSH actions support [chunking](../logic-apps/logic-apps-handle-large-messages.md):
 
   | Action | Chunking support | Override chunk size support |
   |--------|------------------|-----------------------------|
@@ -63,11 +56,15 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   | **Update file** | No | Not applicable |
   ||||
 
-  > [!IMPORTANT]
-  > If you use chunking with SFTP-SSH operations that create files on your SFTP server, 
-  > these operations create temporary `.partial` and `.lock` files. These files help 
-  > the operations use chunking. Don't remove or change these files. Otherwise, 
-  > the file operations fail. When the operations finish, they delete the temporary files.
+  SFTP-SSH actions that support chunking can handle files up to 1 GB, while SFTP-SSH actions that don't support chunking can handle files up to 50 MB. The default chunk size is 15 MB. However, this size can dynamically change, starting from 5 MB and gradually increasing to the 50-MB maximum. Dynamic sizing is based on factors such as network latency, server response time, and so on.
+
+  > [!NOTE]
+  > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+  > this connector's ISE-labeled version requires chunking to use the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
+
+  You can override this adaptive behavior when you [specify a constant chunk size](#change-chunk-size) to use instead. This size can range from 5 MB to 50 MB. For example, suppose you have a 45-MB file and a network that can that support that file size without latency. Adaptive chunking results in several calls, rather that one call. To reduce the number of calls, you can try setting a 50-MB chunk size. In different scenario, if your logic app is timing out, for example, when using 15-MB chunks, you can try reducing the size to 5 MB.
+
+  Chunk size is associated with a connection. This attribute means you can use the same connection for both actions that support chunking and actions that don't support chunking. In this case, the chunk size for actions that don't support chunking ranges from 5 MB to 50 MB.
 
 * SFTP-SSH triggers don't support message chunking. When triggers request file content, they select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
@@ -183,6 +180,12 @@ If this trigger problem happens, remove the files from the folder that the trigg
 ### Create file
 
 To create a file on your SFTP server, you can use the SFTP-SSH **Create file** action. When this action creates the file, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if you move the newly created file before the Logic Apps service can make the call to get the metadata, you get a `404` error message, `'A reference was made to a file or folder which does not exist'`. To skip reading the file's metadata after file creation, follow the steps to [add and set the **Get all file metadata** property to **No**](#file-does-not-exist).
+
+> [!IMPORTANT]
+> If you use chunking with SFTP-SSH operations that create files on your SFTP server, 
+> these operations create temporary `.partial` and `.lock` files. These files help 
+> the operations use chunking. Don't remove or change these files. Otherwise, 
+> the file operations fail. When the operations finish, they delete the temporary files.
 
 <a name="connect"></a>
 
