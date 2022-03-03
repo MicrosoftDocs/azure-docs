@@ -396,7 +396,7 @@ az spring-cloud app deploy \
 After the deployment is complete, check the status of the application with following command.
 
 ```azurecli
- az spring-cloud app list \
+az spring-cloud app list \
     -g $RESOURCE-GROUP \
     -s $AZURE_SPRING_CLOUD_NAME \
     -o table
