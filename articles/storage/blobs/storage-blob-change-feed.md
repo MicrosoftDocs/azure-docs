@@ -222,28 +222,28 @@ The following example shows a change event record in JSON format that uses event
 
 ```json
 {
-     "schemaVersion": 1,
-     "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
-     "subject": "/blobServices/default/containers/<container>/blobs/<blob>",
-     "eventType": "BlobCreated",
-     "eventTime": "2019-02-22T18:12:01.079Z",
-     "id": "55e5531f-8006-0000-00da-ca3467000000",
-     "data": {
-         "api": "PutBlob",
-         "clientRequestId": "edf598f4-e501-4750-a3ba-9752bb22df39",
-         "requestId": "00000000-0000-0000-0000-000000000000",
-         "etag": "0x8D698F13DCB47F6",
-         "contentType": "application/octet-stream",
-         "contentLength": 128,
-         "blobType": "BlockBlob",
-         "url": "",
-         "sequencer": "000000000000000100000000000000060000000000006d8a",
-         "storageDiagnostics": {
-             "bid": "11cda41c-13d8-49c9-b7b6-bc55c41b3e75",
-             "seq": "(6,5614,28042,28038)",
-             "sid": "591651bd-8eb3-c864-1001-fcd187be3efd"
-         }
-  }
+    "schemaVersion": 1,
+    "topic": "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "subject": "/blobServices/default/containers/<container>/blobs/<blob>",
+    "eventType": "BlobCreated",
+    "eventTime": "2022-02-17T12:59:41.4003102Z",
+    "id": "322343e3-8020-0000-00fe-233467066726",
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "f0270546-168e-4398-8fa8-107a1ac214d2",
+        "requestId": "322343e3-8020-0000-00fe-233467000000",
+        "etag": "0x8D9F2155CBF7928",
+        "contentType": "application/octet-stream",
+        "contentLength": 128,
+        "blobType": "BlockBlob",
+        "url": "https://www.myurl.com",
+        "sequencer": "00000000000000010000000000000002000000000000001d",
+        "storageDiagnostics": {
+            "bid": "9d725a00-8006-0000-00fe-233467000000",
+            "seq": "(2,18446744073709551615,29,29)",
+            "sid": "4cc94e71-f6be-75bf-e7b2-f9ac41458e5a"
+        }
+    }
 }
 ```
 
