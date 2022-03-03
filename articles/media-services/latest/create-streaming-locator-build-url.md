@@ -22,7 +22,7 @@ This article demonstrates how to create a streaming locator and build a streamin
 
 Preview [Dynamic packaging](encode-dynamic-packaging-concept.md)
 
-## Create a streaming locator
+## Create a streaming locators
 
 ## [Portal](#tab/portal/)
 
