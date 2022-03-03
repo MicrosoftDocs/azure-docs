@@ -34,7 +34,7 @@ In this example you'll create an inbound NAT rule to forward a range of ports st
 
 3. Select **myLoadBalancer** or your load balancer.
 
-4. In the load balancer page in, select **Inbound NAT rules** in **Settings**.
+4. In the load balancer page, select **Inbound NAT rules** in **Settings**.
 
 5. Select **+ Add** in **Inbound NAT rules** to add the rule.
 
