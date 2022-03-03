@@ -169,7 +169,7 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 14. In the first **CONTAINERS** tile, select the (?) button and then select **Edit settings...**
 
-15. Search for **Docker: Host** section and add (_tcp://eflow-vm-ip:2375_) the EFLOW VM IP address for the remote Docker engine connection.
+15. Search for **Docker: Host** section and add the EFLOW VM IP address for the remote Docker engine connection. For example, _tcp://eflow-vm-ip:2375_.
 
       ![Remote Docker engine settings](./media/tutorial-develop-for-linux-on-windows/docker-engine-tcp-configuration.png)
 
