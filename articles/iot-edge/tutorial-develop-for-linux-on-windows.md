@@ -110,7 +110,7 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
     ```powershell
    Invoke-EflowVmCommand "sudo systemctl restart docker.service"
    ```
-7. Check Docker engine is listening to external connections.
+7. Check that the Docker engine is listening to external connections.
    ```powershell
    Invoke-EflowVmCommand "sudo netstat -lntp | grep dockerd"
    ```
