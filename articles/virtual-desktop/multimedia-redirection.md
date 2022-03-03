@@ -3,7 +3,7 @@ title: Multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 03/05/2022
 ms.author: helohr
 manager: femila
 ---
@@ -18,14 +18,32 @@ manager: femila
 >
 >Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 10 machines. Multimedia redirection requires the Windows Desktop client, version 1.2.2222 or later.
 
-Multimedia redirection (MMR) gives you smooth video playback while watching videos in your Azure Virtual Desktop browser. Multimedia redirection remotes the media element from the browser to the local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support the multimedia redirection feature. However, the public preview version of multimedia redirection for Azure Virtual Desktop has restricted playback on YouTube. To test YouTube within your organization's deployment, you'll need to [enable an extension](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
+Multimedia redirection (MMR) gives you smooth video playback while watching videos in your Azure Virtual Desktop browser. Multimedia redirection remotes the media element from the browser to the local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support the multimedia redirection feature. However, the public preview version of multimedia redirection for Azure Virtual Desktop has restricted playback on sites in the "Known Sites" list. To test sites on the list within your organization's deployment, you'll need to [enable an extension](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
+
+## Websites that work with MMR 
+
+The following list shows websites that are known to work with MMR. MMR is supposed to work on these sites by default, when you haven't selected the **Enable on all sites** check box.
+
+- YouTube 
+- Facebook 
+- Google News 
+- Los Angeles Times 
+- Sina Weibo 
+- Instagram 
+- Udacity 
+- Si.com 
+- mediaservices.windows.net 
+- IMDB 
+- Teams live events (on web browsers)  
+
+Currently, Teams live events aren't optimized on Azure Virtual Desktop and Windows 365. MMR is a short-term workaround for a smoother Teams live events playback on Azure Virtual Desktop. For more information, see [How to use MMR for Teams live events](#how-to-use-mmr-for-teams-live-events).
 
 ## Requirements
 
 Before you can use Multimedia Redirection on Azure Virtual Desktop, you'll need
 to do these things:
 
-1. [Install the Windows Desktop client](./user-documentation/connect-windows-7-10.md#install-the-windows-desktop-client) on a Windows 10 or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2222 or later of the client will also install the multimedia redirection plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
+1. [Install the Windows Desktop client](./user-documentation/connect-windows-7-10.md#install-the-windows-desktop-client) on a Windows 11, Windows 10, or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2222 or later of the client will also install the multimedia redirection plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 
 2. [Create a host pool for your users](create-host-pools-azure-marketplace.md).
 
@@ -38,7 +56,7 @@ to do these things:
 
    To learn more about the Insiders program, see [Windows Desktop client for admins](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups).
 
-4. Use [the MSI installer (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) to install the multimedia redirection extensions for your internet browser on your Azure VM. Multimedia redirection for Azure Virtual Desktop currently only supports Microsoft Edge and Google Chrome.
+4. Use [the MSI installer (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) to install both the host native component and the multimedia redirection extensions for your internet browser on your Azure VM. Keep in mind that when you install an extension with MSI, you'll see a prompt that says "New Extension added." In order to use the app, you'll need to confirm the prompt. If you select **Cancel**, then your browser will uninstall the extension. If you want the browser to force install the extension without any input from your users, we recommend you use the group policy in the following section.
 
 ## Managing group policies for the multimedia redirection browser extension
 
@@ -54,7 +72,13 @@ In some cases, you can change the group policy to manage the browser extensions 
 
 To configure the group policies, you'll need to edit the Microsoft Edge Administrative Template. You should see the extension configuration options under **Administrative Templates Microsoft Edge Extensions** > **Configure extension management settings**.
 
-The following code is an example of a Microsoft Edge group policy that makes the browser install the multimedia redirection extension and only lets multimedia redirection load on YouTube:
+The following code is an example of a Microsoft Edge group policy that doesn't restrict site access: 
+ 
+```cmd
+{ "joeclbldhdmoijbaagobkhlpfjglcihd": { "installation_mode": "force_installed", "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx" } } 
+```
+
+This next example group policy makes the browser install the multimedia redirection extension, but only lets multimedia redirection load on YouTube: 
 
 ```cmd
 { "joeclbldhdmoijbaagobkhlpfjglcihd": { "installation_mode": "force_installed", "runtime_allowed_hosts": [ "*://*.youtube.com" ], "runtime_blocked_hosts": [ "*://*" ], "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx" } }
@@ -102,54 +126,19 @@ To quickly tell if multimedia redirection is active in your browser, we've added
 
 Selecting the icon will display a pop-up menu that has a checkbox you can select to enable or disable multimedia redirection on all websites. It also lists the version numbers for each component of the service.
 
+### How to use MMR for Teams live events 
+
+To use MMR for Teams live events:
+
+1. Make sure the green check symbol is next to the status icon.
+
+2. Open the link to the Teams live event in a Microsoft Edge or Chrome browser.
+
+3. Select **Watch on the web instead** instead of using the Teams app. The Teams live event should automatically start playing in your browser.
+
 ## Support during public preview
-Microsoft Support is not handling issues for multimedia redirection during public preview.
 
-If you run into any issues, you can tell us in the feedback hub on both the client and VM host.
-
-To send us feedback:
-
-1. Open the **feedback hub** on both the client and server.
-
-2. Select **Report a problem**.
-
-3. Use the same title on both issue reports, but specify where you're submitting the report from by putting either "[Client]" or "[Host]" at the beginning.
-
-    For example, if you're submitting an issue from the client, you'd format it like this:
-
-    >[Client] Title of your report
-
-    If you're submitting an issue from the host, you'd format it like this:
-
-    >[Host] Title of your report
-
-4. In the **Explain in more detail** field, describe the issue you're experiencing. We recommend also including the URL of the video you were watching when the issue happened.
-
-5. Once you're done, select **Next**.
-
-6. Select the **Problem** bubble, then select **Apps** and **Remote Desktop** from the two drop-down menus, as shown in the following screenshot.
-
-    ![A screenshot of the "2. Choose a category" window. The user has selected the Problem bubble, then has selected Apps and Remote Desktop in the drop-down menus below it.](media/problem-category.png)
-
-7. Select **Next**.
-
-8. Check to see if there's a similar issue in the list to the one you plan to submit.
-   
-   - If a bubble appears that links to an active bug, make sure the bug's description matches the issue you're reporting. If it does, select the bubble, then select **Link to bug**, as shown in the following screenshot.
-
-    ![A screenshot of the "3. Find similar feedback" window. The user has selected the bubble for the option "Link to bug number 32350300 Active."](media/link-to-bug.png)
-
-    - If you don't see a similar issue, select **Make new bug**.
-
-    ![A screenshot of the "3. Find similar feedback window." This time, the "Link to bug" option is absent, and the user has instead selected "Make new bug."](media/make-new-bug.png)
-
-9. Select **Next**.
-
-10. In the **Add more details** window, select **Include data about Remote Desktop (Default)**, then answer all questions with as much detail as possible.
-
-    If you'd like to add a video recording of the issue, select **Include data about Remote Desktop (Default)**, then select the **Start recording** button. While recording, open Remote Desktop and do the process that led to the issue happening. When you're done, return to the browser, then test the video to make sure it recorded properly.
-
-    Once you're done, agree to send the attached files and diagnostics to Microsoft, then select **Submit**.
+If you run into issues while using the public preview version of multimedia redirection, we reccomend contacting Microsoft Support.
 
 ### Known issues and limitations
 
