@@ -4,6 +4,8 @@
   items:
   - name: About application gateways
     href: overview.md
+  - name: Application Gateway v2
+    href: overview-v2.md
 - name: Quickstarts
   expanded: true
   items:
@@ -282,6 +284,8 @@
         href: application-gateway-backend-health-troubleshooting.md
       - name: Key Vault errors
         href: application-gateway-key-vault-common-errors.md
+      - name: Disabled listeners
+        href: disabled-listeners.md
   - name: Proxy buffer configuration
     href: proxy-buffers.md
   - name: Custom error pages
@@ -290,6 +294,8 @@
     href: migrate-v1-v2.md
   - name: Configure alerts
     href: configure-alerts-with-templates.md
+  - name: Classic to Resource Manager
+    href: classic-to-resource-manager.md  
 - name: Reference
   items:
   - name: Monitoring data

@@ -1,5 +1,6 @@
 ---
-title: Retrieve large cost datasets recurringly with exports from Azure Cost Management
+title: Retrieve large cost datasets recurringly with exports from Cost Management
+titleSuffix: Azure Cost Management + Billing
 description: This article helps you regularly export large amounts of data with exports from Cost Management.
 author: bandersmsft
 ms.author: banders

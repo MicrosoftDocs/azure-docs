@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/10/2021
 ms.author: aahi
 ms.custom: language-service-key-phrase, ignite-fall-2021

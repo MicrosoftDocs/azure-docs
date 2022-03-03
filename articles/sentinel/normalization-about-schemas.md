@@ -1,6 +1,6 @@
 ---
-title: Advanced SIEM Information Model (ASIM) schemas | Microsoft Docs
-description: This article explains Advanced SIEM Information Model (ASIM) schemas, and how they help. ASIM normalizes data from many different sources to a uniform presentation.
+title: Advanced Security Information Model (ASIM) schemas | Microsoft Docs
+description: This article explains Advanced Security Information Model (ASIM) schemas, and how they help. ASIM normalizes data from many different sources to a uniform presentation.
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
@@ -8,26 +8,31 @@ ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 --- 
 
-# Advanced SIEM Information Model (ASIM) schemas (preview)
+# Advanced Security Information Model (ASIM) schemas
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-An Advanced SIEM Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
+An Advanced Security Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
 
 To understand how schemas fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
 Schema references outline the fields that comprise each schema. ASIM currently defines the following schemas:
 
- - [Network Session](normalization-schema.md)
- - [DNS Activity](dns-normalization-schema.md)
- - [DHCP Activity](dhcp-normalization-schema.md)
- - [Process Event](process-events-normalization-schema.md)
- - [Authentication Event](authentication-normalization-schema.md)
- - [Registry Event](registry-event-normalization-schema.md)
- - [File Activity](file-event-normalization-schema.md)
+| Schema | Version | Status |
+| ------ | ------- | ------ |
+| [Authentication Event](authentication-normalization-schema.md) | 0.1.1 | Preview |
+| [DNS Activity](dns-normalization-schema.md) | 0.1.3 | Preview |
+| [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
+| [File Activity](file-event-normalization-schema.md) | 0.1 | Preview |
+| [Network Session](normalization-schema.md) | 0.2.2 | Preview |
+| [Process Event](process-events-normalization-schema.md) | 0.1 | Preview |
+| [Registry Event](registry-event-normalization-schema.md) | 0.1 | Preview |
+| [User Management](user-management-normalization-schema.md) | 0.1 | Preview |
+| [Web Session](web-normalization-schema.md) | 0.2.2 | Preview |
+|||
 
 > [!IMPORTANT]
-> ASIM is currently in *preview*. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> ASIM schemas and parsers are currently in *preview*. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Schema concepts
@@ -54,7 +59,16 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |**Date/Time**     |  Depending on the ingestion method capability, use any of the following physical representations in descending priority: <br><br>- Log Analytics built-in datetime type <br>- An integer field using Log Analytics datetime numerical representation. <br>- A string field using Log Analytics datetime numerical representation <br>- A string field storing a supported [Log Analytics date/time format](/azure/data-explorer/kusto/query/scalar-data-types/datetime).       |  [Log Analytics date and time representation](/azure/kusto/query/scalar-data-types/datetime) is similar but different than Unix time representation. For more information, see the [conversion guidelines](/azure/kusto/query/datetime-timespan-arithmetic). <br><br>**Note**: When applicable, the time should be time zone adjusted. |
 |**MAC address**    |  String       | Colon-Hexadecimal notation.        |
 |**IP address**     |String         |    Microsoft Sentinel schemas don't have separate IPv4 and IPv6 addresses. Any IP address field might include either an IPv4 address or an IPv6 address, as follows: <br><br>- **IPv4** in a dot-decimal notation.<br>- **IPv6** in 8-hextets notation, allowing for the short form.<br><br>For example:<br>- **IPv4**: `192.168.10.10` <br>- **IPv6**: `FEDC:BA98:7654:3210:FEDC:BA98:7654:3210`<br>- **IPv6 short form**: `1080::8:800:200C:417A`     |
-|**FQDN**        |   String      |    A fully qualified domain name using a dot notation, for example, `docs.microsoft.com`. |
+|**FQDN**        |   String      |    A fully qualified domain name using a dot notation, for example, `docs.microsoft.com`. For more information, see [The Device entity](#the-device-entity). |
+|<a name="hostname"></a>**Hostname** | String | A hostname which is not an FQDN, includes up to 63 characters including letters, numbers and hyphens. For more information, see [The Device entity](#the-device-entity).|
+|<a name="domaintype"></a>**DomainType** | Enumerated | The type of domain stored in domain and FQDN fields. Supported values include `FQDN` and `Windows`. For more information, see [The Device entity](#the-device-entity). |
+|<a name="dvcidtype"></a>**DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. Supported values include `AzureResourceId`, `MDEid`, `MD4IoTid`, `VMConnectionId`, `AwsVpcId`, and `Other`. For more information, see [The Device entity](#the-device-entity). |
+|<a name="devicetype"></a>**DeviceType** | Enumerated | The type of the device stored in DeviceType fields. For a list of allowed values and further information refer to [DeviceType](#devicetype). |
+|<a name="username"></a>**Username** | String | A valid username in one of the supported [types](#usernametype). For more information, see [The User entity](#the-user-entity). |
+|<a name="usernametype"></a>**UsernameType** | Enumerated | The type of username stored in username fields. Supported values include `UPN`, `Windows`, `DN`, `Simple`, and `Unknown`. For more information, see [The User entity](#the-user-entity). |
+|<a name="useridtype"></a>**UserIdType** | Enumerated | The type of the ID stored in user ID fields. <br><br>Supported values are `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. For more information, see [The User entity](#the-user-entity).  |
+|<a name="usertype"></a>**UserType** | Enumerated | The type of a user. Supported values include: `Regular`, `Machine`, `Admin`, `System`, `Application`, `Service Principal`, and `Other`<br><br>.  For more information, see [The User entity](#the-user-entity).  |
+|<a name="apptype"></a>**AppType** | Enumerated | The type of an application. Supported values include: `Process`<br>, `Service`,  `Resource`, `URL`, `SaaS application`, `CloudService`, and `Other`. |
 |**Country**     |   String      |    A string using [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html), according to the following priority: <br><br> - Alpha-2 codes, such as `US` for the United States. <br> - Alpha-3 codes, such as `USA` for the United States. <br>- Short name.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
 |**Region**     | String        |   The country subdivision name, using ISO 3166-2.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
 |**City**     |  String       |         |
@@ -75,7 +89,7 @@ The following fields are generated by Log Analytics for each record. They can be
 | Field         | Type     | Discussion      |
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | datetime | The time the event was generated by the reporting device.|
-| **_ResourceId**   | guid     | The Azure Resource ID of the reporting device or service, or the log forwarder resource ID for events forwarded by using Syslog, CEF, or WEF. |
+| **_ResourceId**   | guid     | The Azure Resource ID of the reporting device or service, or the log forwarder resource ID for events forwarded by using Syslog, CEF, or WEF. **_ResourceId** is not generated for sources for that do not have a resource concept, such as Microsoft Defender for Endpoint and will be empty for events from these sources.   |
 | **Type** | String | The original table from which the record was fetched. This field is useful when the same event can be received through multiple channels to different tables, and have the same [EventVendor](#eventvendor) and [EventProduct](#eventproduct) values.<br><br>For example, a Sysmon event can be collected either to the `Event` table or to the `WindowsEvent` table. |
 | | | |
 
@@ -91,35 +105,38 @@ The following fields are defined by ASIM for all schemas:
 | **EventCount**          | Mandatory   | Integer    |     The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record might represent multiple events. <br><br>For other sources, set to `1`.   |
 | **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time that the first event was generated. <br><br>Otherwise, this field aliases the [TimeGenerated](#timegenerated) field. |
 | **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
-|  <a name="eventtype"></a>**EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. Each schema documents the list of values valid for this field. |
-| **EventSubType** | Optional | Enumerated | Describes a subdivision of the operation reported in the [EventType](#eventtype) field. Each schema documents the list of values valid for this field. |
+|  <a name="eventtype"></a>**EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalType](#eventoriginaltype) field. |
+| <a name="eventsubtype"></a>**EventSubType** | Optional | Enumerated | Describes a subdivision of the operation reported in the [EventType](#eventtype) field. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalSubType](#eventoriginalsubtype) field. |
 | <a name="eventresult"></a>**EventResult** | Mandatory | Enumerated | One of the following values: **Success**, **Partial**, **Failure**, **NA** (Not Applicable).<br> <br>The value might be provided in the source record by using different terms, which should be normalized to these values. Alternatively, the source might provide only the [EventResultDetails](#eventresultdetails) field, which should be analyzed to derive the EventResult value.<br><br>Example: `Success`|
-| <a name="eventresultdetails"></a>**EventResultDetails** | Mandatory | Alias | Reason or details for the result reported in the [EventResult](#eventresult) field. Each schema documents the list of values valid for this field.<br><br>Example: `NXDOMAIN`|
+| <a name="eventresultdetails"></a>**EventResultDetails** | Mandatory | Enumerated | Reason or details for the result reported in the [EventResult](#eventresult) field. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalResultDetails](#eventoriginalresultdetails) field.<br><br>Example: `NXDOMAIN`|
 | **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
-| **EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source. For example, this field will be used to store the original Windows event ID.<br><br>Example: `4624`|
+| <a name="eventoriginaltype"></a>**EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source. For example, this field will be used to store the original Windows event ID. This value is used to derive [EventType](#eventtype), which should have only one of the values documented for each schema.<br><br>Example: `4624`|
+| <a name="eventoriginalsubtype"></a>**EventOriginalSubType**   | Optional    | String     |   The original event sub type or ID, if provided by the source. For example, this field will be used to store the original Windows logon type. This value is used to derive [EventSubType](#eventsubtype), which should have only one of the values documented for each schema.<br><br>Example: `2`|
 | <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails** | Optional | String | The original result details provided by the source. This value is used to derive [EventResultDetails](#eventresultdetails), which should have only one of the values documented for each schema. |
 | <a name="eventseverity"></a>**EventSeverity** | Enumerated | String | The severity of the event. Valid values are: `Informational`, `Low`, `Medium`, or `High`. | 
 | <a name="eventoriginalseverity"></a>**EventOriginalSeverity** | Optional | String | The original severity as provided by the source. This value is used to derive [EventSeverity](#eventseverity). | 
-| <a name="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field might not be available in the source record. In such cases, this field must be set by the parser.           |
+| <a name="eventproduct"></a>**EventProduct**        | Mandatory   | String     |  The product generating the event. The value should be one of the values listed in [Vendors and Products](#vendors-and-products).<br><br>Example: `Sysmon`  |
 | **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`      |
-| <a name="eventvendor"></a>**EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field might not be available in the source record. In such cases, this field must be set by the parser.  |
+| <a name="eventvendor"></a>**EventVendor**  | Mandatory   | String     |   The vendor of the product generating the event. The value should be one of the values listed in [Vendors and Products](#vendors-and-products).<br><br>Example: `Microsoft`  <br><br>  |
 | **EventSchema** | Mandatory | String | The schema the event is normalized to. Each schema documents its schema name. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. Each schema documents its current version.         |
 | **EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides more information about the event.|
 | <a name="dvc"></a>**Dvc** | Mandatory       | String     | A unique identifier of the device on which the event occurred or which reported the event, depending on the schema. <br><br>This field might alias the [DvcFQDN](#dvcfqdn), [DvcId](#dvcid), [DvcHostname](#dvchostname), or [DvcIpAddr](#dvcipaddr) fields. For cloud sources, for which there is no apparent device, use the same value as the [Event Product](#eventproduct) field.            |
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP address | The IP address of the device on which the event occurred or which reported the event, depending on the schema. <br><br>Example: `45.21.42.12`    |
-| <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   | The hostname of the device on which the event occurred or which reported the event, depending on the schema. <br><br>Example: `ContosoDc.Contoso.Azure`               |
+| <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   | The hostname of the device on which the event occurred or which reported the event, depending on the schema. <br><br>Example: `ContosoDc`               |
 | <a name="dvcdomain"></a>**DvcDomain** | Recommended | String | The domain of the device on which the event occurred or which reported the event, depending on the schema.<br><br>Example: `Contoso` |
-| <a name="dvcdomaintype"></a>**DvcDomainType** | Recommended | Enumerated | The type of  [DvcDomain](#dvcdomain), if known. Possible values include:<br>- `Windows`, such as for `contoso\mypc`<br>- `FQDN`, such as for `docs.microsoft.com`<br><br>**Note**: This field is required if the [DvcDomain](#dvcdomain) field is used. |
+| <a name="dvcdomaintype"></a>**DvcDomainType** | Recommended | Enumerated | The type of  [DvcDomain](#dvcdomain). For a list of allowed values and further information refer to [DomainType](#domaintype).<br><br>**Note**: This field is required if the [DvcDomain](#dvcdomain) field is used. |
 | <a name="dvcfqdn"></a>**DvcFQDN** | Optional | String | The hostname of the device on which the event occurred or which reported the event, depending on the schema. <br><br> Example: `Contoso\DESKTOP-1282V4D`<br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The  [DvcDomainType](#dvcdomaintype) field reflects the format used.  |
 | <a name ="dvcid"></a>**DvcId**               | Optional    | String     | The unique ID of the device on which the event occurred or which reported the event, depending on the schema. <br><br>Example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| **DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list, and store the others by using the field names **DvcAzureResourceId** and **DvcMDEid**, respectively.<br><br>**Note**: This field is required if the [DvcId](#dvcid) field is used. |
+| **DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid). For a list of allowed values and further information refer to [DvcIdType](#dvcidtype).<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list, and store the others by using the field names **DvcAzureResourceId** and **DvcMDEid**, respectively.<br><br>**Note**: This field is required if the [DvcId](#dvcid) field is used. |
 | **DvcMacAddr**          | Optional    | MAC        |   The MAC address of the device on which the event occurred.  <br><br>Example: `00:1B:44:11:3A:B7`       |
 | **DvcZone** | Optional | String | The network on which the event occurred or which reported the event, depending on the schema. The zone is defined by the reporting device.<br><br>Example: `Dmz` |
 | **DvcOs**               | Optional    | String     |         The operating system running on the device on which the event occurred.    <br><br>Example: `Windows`    |
 | **DvcOsVersion**        | Optional    | String     |   The version of the operating system on the device on which the event occurred. <br><br>Example: `10` |
 | <a name="dvcaction"></a>**DvcAction** | Optional | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
 | <a name="dvcoriginalaction"></a>**DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
+| <a name="dvcinterface"></a>**DvcInterface** | Optional | String | The network interface on which data was captured. This field is  typically relevant to network related activity which is captured by an intermediate or tap device. | 
+| <a name="dvcsubscription"></a>**DvcSubscriptionId** | Optional | String | The cloud platform subscription ID the device belongs to. **DvcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | <a name="additionalfields"></a>**AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic **AdditionalFields** field, and add to it the extra information as key/value pairs.    |
 | | | | |
 
@@ -258,12 +275,34 @@ Based on these entities, [Windows event 4624](/windows/security/threat-protectio
 |**Hostname**     |     Computer    |     Alias    |         |
 | | | | |
 
+## Vendors and products
+
+To maintain consistency, the list of allowed vendors and products is set as part of ASIM, and may not directly correspond to the value sent by the source, when available.
+
+The currently supported list of vendors and products used in the [EventVendor](#eventvendor) and [EventProduct](#eventproduct) fields respectively is:
+
+| Vendor | Products |
+| ------ | -------- | 
+| Apache | Squid Proxy | 
+| AWS | - CloudTrail<br> - VPC | 
+| Cisco | - ASA<br> - Umbrella |
+| Corelight | Zeek | 
+| GCP | Cloud DNS | 
+| Infoblox | NIOS | 
+| Microsoft | - AAD<br> - Azure Firewall<br> - Azure File Storage<br>    - Azure NSG flows<br> -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
+| Okta | Okta | 
+| Palo Alto | - PanOS<br> - CDL<br> |
+| Zscaler |  - ZIA DNS<br> - ZIA Firewall<br> - ZIA Proxy |
+|||
+
+If you are developing a parser for a vendor or a product which are not listed here, contact the [Microsoft Sentinel](mailto:azuresentinel@microsoft.com) team to allocate a new allowed vendor and product designators. 
+
 ## Next steps
 
 This article provides an overview of normalization in Microsoft Sentinel and ASIM.
 
 For more information, see:
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

@@ -3,23 +3,22 @@ title: Edit an API with the Azure portal  | Microsoft Docs
 description: Learn how to use API Management (APIM) to edit an API. Add, delete, or rename operations in the APIM instance, or edit the API's swagger.
 services: api-management
 documentationcenter: ''
-author: dlepow
-manager: cfowler
+author: adrianhall
 editor: ''
 
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/08/2017
-ms.author: danlep
+ms.date: 01/19/2022
+ms.author: adhal
 
 ---
 # Edit an API
 
-The steps in this tutorial show you how to use API Management (APIM) to edit an API. 
+The steps in this tutorial show you how to use API Management (APIM) to edit an API.
 
-+ You can do it by adding, deleting, renaming operations in the APIM instance. 
++ You can add, rename, or delete operations in the Azure portal.
 + You can edit your API's swagger.
 
 ## Prerequisites
@@ -54,6 +53,21 @@ You can update your backbend API from the Azure portal by following these steps:
 
 3. Update the swagger.
 4. Press **Save**.
+
+> [!CAUTION]
+> If you are editing a non-current revision of an API, you cannot change the following properties:
+>
+> * Name
+> * Type
+> * Description
+> * Subscription required
+> * API version
+> * API version description
+> * Path
+> * Protocols
+>
+> If your edits change any of the above properties of a non-current revision, the error message 
+> `Can't change property for non-current revision` will be displayed.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

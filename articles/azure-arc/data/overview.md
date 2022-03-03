@@ -24,7 +24,7 @@ Currently, the following Azure Arc-enabled data services are available:
 
 For an introduction to how Azure Arc-enabled data services supports your hybrid work environment, see this introductory video:
 
-> [!VIDEO https://channel9.msdn.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
 
 ## Always current
 

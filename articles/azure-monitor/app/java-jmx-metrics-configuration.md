@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Configuring JMX metrics
@@ -35,7 +33,7 @@ The available JMX metrics, with the object names and attribute names will appear
 
 The output in the log file will look similar to the example below. In some cases the list can be quite extensive.
 > [!div class="mx-imgBorder"]
-> ![Screenshot of available JMX metrics in the log file](media/java-ipa/jmx/available-mbeans.png)
+> ![Screenshot of available JMX metrics in the log file.](media/java-ipa/jmx/available-mbeans.png)
 
 
 ## Configuration example

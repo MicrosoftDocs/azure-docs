@@ -74,13 +74,15 @@ For existing clusters, you may need to enable the Kubernetes resource view. To e
 
 > [!TIP]
 > The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. Another option for such clusters is updating `--api-server-authorized-ip-ranges` to include access for a local client computer or IP address range (from which portal is being browsed). To allow this access, you need the computer's public IPv4 address. You can find this address with below command or by searching "what is my IP address" in an internet browser.
+
 ```bash
 # Retrieve your IP address
 CURRENT_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+```
 
+```azurecli
 # Add to AKS approved list
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
-
 ```
 
 ## Next steps

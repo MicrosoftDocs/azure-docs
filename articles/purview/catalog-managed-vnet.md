@@ -6,9 +6,9 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/13/2022
 ms.custom: references_regions
-# Customer intent: As a Purview admin, I want to set up Managed Virtual Network and managed private endpoints for my Purview account.
+# Customer intent: As a Azure Purview admin, I want to set up Managed Virtual Network and managed private endpoints for my Azure Purview account.
 ---
 
 # Use a Managed VNet with your Azure Purview account
@@ -18,6 +18,7 @@ ms.custom: references_regions
 
 > [!IMPORTANT]
 > Currently, Managed Virtual Network and managed private endpoints are available for Azure Purview accounts that are deployed in the following regions:
+> - Australia East
 > - Canada Central
 > - East US 2
 > - West Europe 
@@ -29,6 +30,7 @@ This article describes how to configure Managed Virtual Network and managed priv
 ### Supported regions
 
 Currently, Managed Virtual Network and managed private endpoints are available for Azure Purview accounts that are deployed in the following regions:
+- Australia East
 - Canada Central
 - East US 2
 - West Europe 
@@ -50,13 +52,13 @@ Additionally, you can deploy managed private endpoints for your Azure Key Vault 
 
 ### Managed Virtual Network
 
-A Managed Virtual Network in Azure Purview is a virtual network which is deployed and managed by Azure inside the same region as Purview account to allow scanning Azure data sources inside a managed network, without having to deploy and manage any self-hosted integration runtime virtual machines by the customer in Azure.
+A Managed Virtual Network in Azure Purview is a virtual network which is deployed and managed by Azure inside the same region as Azure Purview account to allow scanning Azure data sources inside a managed network, without having to deploy and manage any self-hosted integration runtime virtual machines by the customer in Azure.
 
-:::image type="content" source="media/catalog-managed-vnet/purview-managed-vnet-architecture.png" alt-text="Purview Managed Virtual Network architecture":::
+:::image type="content" source="media/catalog-managed-vnet/purview-managed-vnet-architecture.png" alt-text="Azure Purview Managed Virtual Network architecture":::
 
 You can deploy an Azure Managed Integration Runtime within an Azure Purview Managed Virtual Network. From there, the Managed VNet Runtime will leverage private endpoints to securely connect to and scan supported data sources.
 
-Creating an Managed VNet Runtime within Managed Virtual Network ensures that data integration process is isolated and secure. 
+Creating a Managed VNet Runtime within Managed Virtual Network ensures that data integration process is isolated and secure. 
 
 Benefits of using Managed Virtual Network:
 
@@ -70,13 +72,13 @@ Benefits of using Managed Virtual Network:
 > [!Note]
 > You cannot switch a global Azure integration runtime or self-hosted integration runtime to a Managed VNet Runtime and vice versa.
 
-A Managed VNet is created for your Azure Purview account when you create a Managed VNet Runtime for the first time in your Purview account. You can't view or manage the Managed VNets.
+A Managed VNet is created for your Azure Purview account when you create a Managed VNet Runtime for the first time in your Azure Purview account. You can't view or manage the Managed VNets.
 
 ### Managed private endpoints
 
-Managed private endpoints are private endpoints created in the Azure Purview Managed Virtual Network establishing a private link to Purview and Azure resources. Azure Purview manages these private endpoints on your behalf. 
+Managed private endpoints are private endpoints created in the Azure Purview Managed Virtual Network establishing a private link to Azure Purview and Azure resources. Azure Purview manages these private endpoints on your behalf. 
 
-:::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list-2.png" alt-text="Purview Managed private endpoint":::
+:::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list-2.png" alt-text="Azure Purview Managed private endpoint":::
 
 Azure Purview supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure Synapse Analytics).
 
@@ -88,7 +90,7 @@ Private endpoint uses a private IP address in the Managed Virtual Network to eff
 > To reduce administrative overhead, it's recommended that you create managed private endpoints to scan all supported Azure data sources. 
  
 > [!WARNING]
-> If an Azure PaaS data store (Blob, Azure Data Lake Storage Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, Purview would only be able to access it using a managed private endpoint. If a private endpoint does not already exist, you must create one in such scenarios. 
+> If an Azure PaaS data store (Blob, Azure Data Lake Storage Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, Azure Purview would only be able to access it using a managed private endpoint. If a private endpoint does not already exist, you must create one in such scenarios. 
 
 A private endpoint connection is created in a "Pending" state when you create a managed private endpoint in Azure Purview. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
 
@@ -114,20 +116,20 @@ Before deploying a Managed VNet and Managed VNet Runtime for an Azure Purview ac
 
 1. An Azure Purview account deployed in one of the [supported regions](#supported-regions).
 2. From Azure Purview roles, you must be a data curator at root collection level in your Azure Purview account.
-3. From Azure RBAC roles, you must be contributor on the Purview account and data source to approve private links.
+3. From Azure RBAC roles, you must be contributor on the Azure Purview account and data source to approve private links.
 
 ### Deploy Managed VNet Runtimes
 
 > [!NOTE]
 > The following guide shows how to register and scan an Azure Data Lake Storage Gen 2 using Managed VNet Runtime. 
 
-1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_.
+1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Azure Purview accounts** page and select your _Purview account_.
 
-   :::image type="content" source="media/catalog-managed-vnet/purview-managed-azure-portal.png" alt-text="Screenshot that shows the Purview account":::
+   :::image type="content" source="media/catalog-managed-vnet/purview-managed-azure-portal.png" alt-text="Screenshot that shows the Azure Purview account":::
 
-2. **Open Purview Studio** and navigate to the **Data Map --> Integration runtimes**.
+2. **Open Azure Purview Studio** and navigate to the **Data Map --> Integration runtimes**.
 
-   :::image type="content" source="media/catalog-managed-vnet/purview-managed-vnet.png" alt-text="Screenshot that shows Purview Data Map menus":::
+   :::image type="content" source="media/catalog-managed-vnet/purview-managed-vnet.png" alt-text="Screenshot that shows Azure Purview Data Map menus":::
 
 3. From **Integration runtimes** page, select **+ New** icon, to create a new runtime. Select Azure and then select **Continue**.
 
@@ -137,15 +139,15 @@ Before deploying a Managed VNet and Managed VNet Runtime for an Azure Purview ac
 
    :::image type="content" source="media/catalog-managed-vnet/purview-managed-ir-region.png" alt-text="Screenshot that shows to create a Managed VNet Runtime":::
 
-5. Deploying the Managed VNet Runtime for the first time triggers multiple workflows in Purview Studio for creating managed private endpoints for Azure Purview and its Managed Storage Account. Click on each workflow to approve the private endpoint for the corresponding Azure resource.
+5. Deploying the Managed VNet Runtime for the first time triggers multiple workflows in Azure Purview Studio for creating managed private endpoints for Azure Purview and its Managed Storage Account. Click on each workflow to approve the private endpoint for the corresponding Azure resource.
 
    :::image type="content" source="media/catalog-managed-vnet/purview-managed-ir-workflows.png" alt-text="Screenshot that shows deployment of a Managed VNet Runtime":::
 
-6. In Azure portal, from your Purview account resource blade, approve the managed private endpoint. From Managed storage account blade approve the managed private endpoints for blob and queue services:
+6. In Azure portal, from your Azure Purview account resource blade, approve the managed private endpoint. From Managed storage account blade approve the managed private endpoints for blob and queue services:
 
-   :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-purview.png" alt-text="Screenshot that shows how to approve a managed private endpoint for Purview":::
+   :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-purview.png" alt-text="Screenshot that shows how to approve a managed private endpoint for Azure Purview":::
 
-   :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-purview-approved.png" alt-text="Screenshot that shows how to approve a managed private endpoint for Purview - approved":::
+   :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-purview-approved.png" alt-text="Screenshot that shows how to approve a managed private endpoint for Azure Purview - approved":::
    
    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-managed-storage.png" alt-text="Screenshot that shows how to approve a managed private endpoint for managed storage account":::
 
@@ -153,9 +155,9 @@ Before deploying a Managed VNet and Managed VNet Runtime for an Azure Purview ac
 
 7. From Management, select Managed private endpoint to validate if all managed private endpoints are successfully deployed and approved. All private endpoints be approved.
    
-    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list.png" alt-text="Screenshot that shows managed private endpoints in Purview":::
+    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list.png" alt-text="Screenshot that shows managed private endpoints in Azure Purview":::
 
-    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list-approved.png" alt-text="Screenshot that shows managed private endpoints in Purview - approved ":::
+    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list-approved.png" alt-text="Screenshot that shows managed private endpoints in Azure Purview - approved ":::
 
 ### Deploy managed private endpoints for data sources
 
@@ -208,7 +210,7 @@ For more information, see [Manage data sources in Azure Purview](manage-data-sou
 
 #### Scan data source
 
-You can use any of the following options to scan data sources using Purview Managed VNet Runtime:
+You can use any of the following options to scan data sources using Azure Purview Managed VNet Runtime:
 
 
 - [Using Managed Identity](#scan-using-managed-identity) (Recommended) - As soon as the Azure Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview system-assigned managed identity (SAMI) to perform the scans.
@@ -221,9 +223,9 @@ You can use any of the following options to scan data sources using Purview Mana
 
 ##### Scan using Managed Identity
 
-To scan a data source using a Managed VNet Runtime and Purview managed identity perform these steps:
+To scan a data source using a Managed VNet Runtime and Azure Purview managed identity perform these steps:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the Azure Purview Studio.
 
 1. Select the data source that you registered.
 
@@ -247,7 +249,7 @@ To scan a data source using a Managed VNet Runtime and Purview managed identity 
 
 ##### Scan using other authentication options
 
-You can also use other supported options to scan data sources using Purview Managed Runtime. This requires setting up a private connection to Azure Key Vault where the secret is stored.
+You can also use other supported options to scan data sources using Azure Purview Managed Runtime. This requires setting up a private connection to Azure Key Vault where the secret is stored.
 
 To set up a scan using Account Key or SQL Authentication follow these steps:
 
@@ -265,7 +267,7 @@ To set up a scan using Account Key or SQL Authentication follow these steps:
 
 6. Provide a name for the managed private endpoint, select the Azure subscription and the Azure Key Vault from the drop down lists. Select **create**.
 
-    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-key-vault-create.png" alt-text="Screenshot that shows how to create a managed private endpoint for Azure Key Vault in Purview Studio":::
+    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-key-vault-create.png" alt-text="Screenshot that shows how to create a managed private endpoint for Azure Key Vault in Azure Purview Studio":::
 
 7. From the list of managed private endpoints, click on the newly created managed private endpoint for your Azure Key Vault and then click on **Manage approvals in the Azure portal**, to approve the private endpoint in Azure portal.
 
@@ -281,7 +283,7 @@ To set up a scan using Account Key or SQL Authentication follow these steps:
    
     :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list-3.png" alt-text="Screenshot that shows managed private endpoints including Azure Key Vault in purview studio":::
 
-10. Select the **Data Map** tab on the left pane in the Purview Studio.
+10. Select the **Data Map** tab on the left pane in the Azure Purview Studio.
     
 11. Select the data source that you registered.
 

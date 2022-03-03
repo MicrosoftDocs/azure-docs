@@ -9,9 +9,10 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: ddos-protection
-ms.topic: how-to
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+ms.custom: mode-ui
 ms.date: 05/17/2019
 ms.author: yitoh
 
@@ -71,7 +72,7 @@ You cannot move a virtual network to another resource group or subscription when
 
 ### Configure an Azure DDoS Protection Plan using Azure Firewall Manager (preview)
 
-Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. This functionality is currently available in Public Preview. See [Configure an Azure DDoS Protection Plan using Azure Firewall Manager](/azure/firewall-manager/configure-ddos)
+Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. This functionality is currently available in Public Preview. See [Configure an Azure DDoS Protection Plan using Azure Firewall Manager](../firewall-manager/configure-ddos.md)
 
 :::image type="content" source="/azure/firewall-manager/media/configure-ddos/ddos-protection.png" alt-text="Screenshot showing virtual network with DDoS Protection Plan":::
 

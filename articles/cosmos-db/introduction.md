@@ -43,7 +43,6 @@ Build fast with open source APIs, multiple SDKs, schemaless data and no-ETL anal
 - Deeply integrated with key Azure services used in modern (cloud-native) app development including Azure Functions, IoT Hub, AKS (Azure Kubernetes Service), App Service, and more.
 - Choose from multiple database APIs including the native Core (SQL) API, API for MongoDB, Cassandra API, Gremlin API, and Table API.
 - Build apps on Core (SQL) API using the languages of your choice with SDKs for .NET, Java, Node.js and Python. Or your choice of drivers for any of the other database APIs.
-- Run no-ETL analytics over the near-real time operational data stored in Azure Cosmos DB with Azure Synapse Analytics.
 - Change feed makes it easy to track and manage changes to database containers and create triggered events with Azure Functions.
 - Azure Cosmos DB’s schema-less service automatically indexes all your data, regardless of the data model, to deliver blazing fast queries.
 
@@ -64,6 +63,19 @@ End-to-end database management, with serverless and automatic scaling matching y
 - Cost-effective options for unpredictable or sporadic workloads of any size or scale, enabling developers to get started easily without having to plan or manage capacity.
 - Serverless model offers spiky workloads automatic and responsive service to manage traffic bursts on demand.
 - Autoscale provisioned throughput automatically and instantly scales capacity for unpredictable workloads, while maintaining [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db).
+
+### Azure Synapse Link for Azure Cosmos DB
+
+[Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables near real time analytics over operational data in Azure Cosmos DB. Azure Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
+
+- Reduced analytics complexity with No ETL jobs to manage.
+- Near real-time insights into your operational data.
+- No impact on operational workloads.
+- Optimized for large-scale analytics workloads.
+- Cost effective.
+- Analytics for locally available, globally distributed, multi-region writes.
+- Native integration with Azure Synapse Analytics.
+
 
 ## Solutions that benefit from Azure Cosmos DB
 

@@ -2,7 +2,7 @@
 metadata:
   title: Configuration and management issues FAQ
   description: This article lists the frequently asked questions about configuration and management for Microsoft Azure Cloud Services.
-  ms.topic: article
+  ms.topic: faq
   ms.service: cloud-services
   ms.subservice: deployment-files
   ms.date: 10/14/2020
@@ -10,7 +10,6 @@ metadata:
   ms.author: hirshah
   ms.reviewer: mimckitt
   ms.custom: 
-    
 title: 'Configuration and management issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)'
 summary: |
   [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
@@ -212,7 +211,7 @@ sections:
           For more information, see:
           
           - [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2)
-          - [Video: HTTP/2 in Windows 10: Browser, Apps and Web Server](https://channel9.msdn.com/Events/Build/2015/3-88)
+          - Video: HTTP/2 in Windows 10: Browser, Apps and Web Server
                    
           
           These steps could be automated via a startup task, so that whenever a new PaaS instance gets created, it can do the changes above in the system registry. For more information, see [How to configure and run startup tasks for a Cloud Service](cloud-services-startup-tasks.md).

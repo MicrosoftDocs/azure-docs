@@ -120,7 +120,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
         {
           "mapping": {
             "first_name": {
-              "claim": "$.vc.credentialSubject.firstName",
+              "claim": "$.vc.credentialSubject.firstName"
             },
             "last_name": {
               "claim": "$.vc.credentialSubject.lastName",
@@ -143,7 +143,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
     "vc": {
       "type": [
         "ProofOfNinjaNinja"
-      ],
+      ]
     }
   }
   ```
@@ -168,21 +168,19 @@ During the issuance flow, the user can be asked to input some self-attested info
 ```json
 {
   "attestations": {
-    "selfIssued": {
+    "selfIssued" :
+    {
       "mapping": {
-        "alias": {
-          "claim": "name"
-        }
-      },
-    },
-    "validityInterval": 25920000,
-    "vc": {
-      "type": [
-        "ProofOfNinjaNinja"
-      ],
+        "firstName": { "claim": "firstName" },
+        "lastName": { "claim": "lastName" }
+      }
     }
+  },
+  "validityInterval": 2592001,
+  "vc": {
+    "type": [ "VerifiedCredentialExpert" ]
   }
-
+}
 
 
 ```

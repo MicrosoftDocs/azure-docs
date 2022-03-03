@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 1/05/2022
 ms.author: justinha
 author: justinha
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 # Customer intent: As an Azure AD Administrator, I want to learn how to enable and use self-service password reset so that my end-users can unlock their accounts or reset their passwords through a web browser.
 ---
@@ -28,6 +28,10 @@ In this tutorial you learn how to:
 > * Enable self-service password reset for a group of Azure AD users
 > * Set up authentication methods and registration options
 > * Test the SSPR process as a user
+
+## Video tutorial
+
+You can also follow along in a related video: [How to enable and configure SSPR in Azure AD](https://www.youtube.com/embed/rA8TvhNcCvQ?azure-portal=true).
 
 ## Prerequisites
 

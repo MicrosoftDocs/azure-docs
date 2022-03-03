@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Manual failover of an Azure IoT hub | Microsoft Docs
 description: Tutorial - Learn how to perform a manual failover of your IoT hub to a different region and confirm it's working, and then return it to the original region and check it again.
-author: eross-msft
+author: kgremban
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 08/10/2021
-ms.author: lizross
+ms.author: kgremban
 ms.custom: [mvc, mqtt]
 #Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
 ---

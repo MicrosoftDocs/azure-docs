@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 12/27/2021
+ms.date: 02/28/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -390,7 +390,7 @@ In the following tables, the term alphanumeric refers to:
 > | namespaces | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with letter or number. |
 > | namespaces / AuthorizationRules | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 > | namespaces / disasterRecoveryConfigs | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with alphanumeric. |
-> | namespaces / eventhubs | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
+> | namespaces / eventhubs | namespace | 1-256 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 > | namespaces / eventhubs / authorizationRules | event hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 > | namespaces / eventhubs / consumergroups | event hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 
@@ -460,7 +460,7 @@ In the following tables, the term alphanumeric refers to:
 > | integrationAccounts / sessions | integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
 > | integrationServiceEnvironments | resource group | 1-80 | Alphanumerics, hyphens, periods, and underscores. |
 > | integrationServiceEnvironments / managedApis | integration service environment | 1-80 | Alphanumerics, hyphens, periods, and underscores. |
-> | workflows | resource group | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
+> | workflows | resource group | 1-43 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
 
 ## Microsoft.MachineLearning
 
@@ -731,6 +731,15 @@ In the following tables, the term alphanumeric refers to:
 > | streamingjobs / inputs | streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
 > | streamingjobs / outputs | streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
 > | streamingjobs / transformations | streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
+
+## Microsoft.Synapse
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | workspaces | global | 1-50 | Lowercase letters, hyphens, and numbers.<br><br>Start and end with letter or number.<br><br>Can't contain `-ondemand` |
+> | workspaces / bigDataPools | workspace | 1-15 | Letters and numbers.<br><br>Start with letter. End with letter or number.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
+> | workspaces / sqlPools | workspace | 1-60 | Can't contain `<>*%&:\/?@-` or control characters.<br><br>Can't end with `.` or space.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
 
 ## Microsoft.TimeSeriesInsights
 

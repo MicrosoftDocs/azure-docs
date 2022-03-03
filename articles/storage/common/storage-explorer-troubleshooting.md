@@ -120,7 +120,7 @@ Follow these steps to find them:
 
     - Windows: Open the installation directory, select **/bin/**, and then double-click **openssl.exe**.
     - Mac and Linux: Run `openssl` from a terminal.
-1. Run the command `openssl s_client -showcerts -connect <hostname>:443` for any of the Microsoft or Azure host names that your storage resources are behind. For more information, see this [list of host names that are frequently accessed by Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-network).
+1. Run the command `openssl s_client -showcerts -connect <hostname>:443` for any of the Microsoft or Azure host names that your storage resources are behind. For more information, see this [list of host names that are frequently accessed by Storage Explorer](./storage-explorer-network.md).
 1. Look for self-signed certificates. If the subject `("s:")` and issuer `("i:")` are the same, the certificate is most likely self-signed.
 1. When you find the self-signed certificates, for each one, copy and paste everything from, and including, `-----BEGIN CERTIFICATE-----` to `-----END CERTIFICATE-----` into a new .cer file.
 1. Open Storage Explorer and go to **Edit** > **SSL Certificates** > **Import Certificates**. Then use the file picker to find, select, and open the .cer files you created.
@@ -236,6 +236,17 @@ If you can't retrieve your subscriptions after you successfully sign in, try the
 - If you're behind a proxy server, make sure you configured the Storage Explorer proxy correctly.
 - Try removing and re-adding the account.
 - If there's a "More information" or "Error details" link, check which error messages are being reported for the tenants that are failing. If you aren't sure how to respond to the error messages, [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+
+## Problem interacting with your OS credential store during an AzCopy transfer
+
+If you see this message on Windows, most likely the Windows Credential Manager is full. To make room in the Windows Credential Manager
+
+1. Close Storage Explorer
+1. On the **Start** menu, search for **Credential Manager** and open it.
+1. Go to **Windows Credentials**.
+1. Under **Generic Credentials**, look for entries associated with programs you no longer use and delete them. You can also look for entries like `azcopy/aadtoken/<some number>` and delete those.
+
+If the message continues to appear after completing the above steps, or if you encounter this message on platforms other than Windows, then please [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## Can't remove an attached storage account or resource
 

@@ -35,7 +35,7 @@ For example:
 - `http://hl7.org/fhir/StructureDefinition/bmi` is another base profile that defines how to represent Body Mass Index (BMI) observations.
 - `http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance` is a US Core profile that sets minimum expectations for `AllergyIntolerance` resource associated with a patient, and it identifies mandatory fields such as extensions and value sets.
 
-When a resource conforms to a profile, the profile is specified inside the `profile` element of the resource.
+When a resource conforms to a profile, the profile is specified inside the `profile` element of the resource. Below you can see an example of the beginning of a 'Patient' resource which has http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient profile.
 
 ```json
 {
@@ -53,7 +53,7 @@ When a resource conforms to a profile, the profile is specified inside the `prof
 > [!NOTE]
 > Profiles must build on top of the base resource and cannot conflict with the base resource. For example, if an element has a cardinality of 1..1, the profile cannot make it optional.
 
-Profiles are also specified by various Implementation Guides. Some common Implementation Guides are:
+Profiles are also specified by various Implementation Guides (IGs). Some common IGs are listed below. You can go to the specific IG site to learn more about the IG and the profiles defined within it.
 
 |Name |URL
 |---- |----
@@ -61,6 +61,9 @@ Us Core |<https://www.hl7.org/fhir/us/core/>
 CARIN Blue Button |<http://hl7.org/fhir/us/carin-bb/>
 Da Vinci Payer Data Exchange |<http://hl7.org/fhir/us/davinci-pdex/>
 Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
+
+> [!NOTE]
+> The Azure API for FHIR does not store any profiles from implementation guides by default. You will need to load them into the Azure API for FHIR.
 
 ## Accessing profiles and storing profiles
 
@@ -79,7 +82,7 @@ To store profiles in Azure API for FHIR, you can `POST` the `StructureDefinition
 }
 ```
 
-For example, if you'd like to store the `us-core-allergyintolerance` profile, you'd do the following:
+For example, if you'd like to store the `us-core-allergyintolerance` profile, you'd use the following rest command with the US Core allergy intolerance profile in the body. We have included a snippet of this profile for the example.
 
 ```rest
 POST https://myAzureAPIforFHIR.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
@@ -112,7 +115,7 @@ POST https://myAzureAPIforFHIR.azurehealthcareapis.com/StructureDefinition?url=h
   ],
     "description" : "Defines constraints and extensions on the AllergyIntolerance resource for the minimal set of data to query and retrieve allergy information.",
 ```
-For more examples, see the [US Core sample REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) on the open-source site that walks through storing US Core profiles. 
+For more examples, see the [US Core sample REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) on the open-source site that walks through storing US Core profiles. To get the most up to date profiles you should get the profiles directly from HL7 and the implementation guide that defines them.
 
 ### Viewing profiles
 
