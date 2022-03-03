@@ -186,7 +186,7 @@ az spring-cloud app create \
     --assign-endpoint
 ```
 
-#### How to connect to the Service Registry from App (About Binding)
+#### 2.2 How to connect to the Service Registry from App (About Binding)
 
 Now you've created a service with Spring Boot and created an application in Azure Spring Cloud.
 Since now we will deploy the application and confirm the operation, but before that, there is one thing that needs to be done to use Service Registry. It's about `binding` your application to the Service Registry so that you can get connection information to the Service Registry.
@@ -310,11 +310,11 @@ public class SampleServiceBApplication {
 }
 ```
 
-#### 3.3 Implement service endpoints　in `Service B`
+#### 3.3 Implement service endpoints in `Service B`
 
 Next, implement a new service endpoint (`/invoke-serviceA`) which invokes the `Service A`. For simplicity, it implements with `RestTemplate` in the sample, and it returns the string with an additional string (`INVOKE SERVICE A FROM SERVICE B: "`) to indicate that it was called by `Service B`.
 
-We've also added another endpoint (`/list-all`) for validation. This is implemented to ensure that the service is communicating correctly with the Service Registry. You can call this endpoint to get the lists of applications registered in the Service Registry.
+We've also implemented another endpoint (`/list-all`) for validation. This is implemented to ensure that the service is communicating correctly with the Service Registry. You can call this endpoint to get the lists of applications registered in the Service Registry.
 
 ```java
 package foo.bar.Sample.Service.B;
