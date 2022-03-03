@@ -18,7 +18,7 @@ The SQL best practices assessment feature of the Azure portal identifies possibl
 
 
 To learn more, watch this video on [SQL best practices assessment](/shows/Data-Exposed/?WT.mc_id=dataexposed-c9-niner):
-<iframe src="https://aka.ms/docs/player?id=13b2bf63-485c-4ec2-ab14-a1217734ad9f" width="640" height="370" style="border: 0; max-width: 100%; min-width: 100%;"></iframe>
+<iframe src="https://aka.ms/docs/player?id=13b2bf63-485c-4ec2-ab14-a1217734ad9f" width="640" height="370"></iframe>
 
 
 
