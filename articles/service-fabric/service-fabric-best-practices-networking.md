@@ -117,7 +117,7 @@ All additional scenarios can be covered with [Azure Service Tags](../virtual-net
 
 #### Azure DevOps
 
-The classic PowerShell tasks in Azure DevOps need Client API access to the cluster, examples are application deployments or operational tasks. This does not apply to the ARM templates only approach, including [ARM application resources](service-fabric-application-arm-resource.md).
+The classic PowerShell tasks in Azure DevOps (Service Tag: AzureCloud) need Client API access to the cluster, examples are application deployments or operational tasks. This does not apply to the ARM templates only approach, including [ARM application resources](service-fabric-application-arm-resource.md).
 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action     |Direction     
 |---        |---                |---         |---       |---                |---               |---        |---     
@@ -126,7 +126,7 @@ The classic PowerShell tasks in Azure DevOps need Client API access to the clust
 #### Updating Windows
 
 Best practice to patch the Windows operating system is replacing the OS disk by [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), no additional rule is required.
-The [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) is managing in-VM upgrades where Windows Updates applies operating system patches, this needs access to the Download Center to download the update binaries.
+The [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) is managing in-VM upgrades where Windows Updates applies operating system patches, this needs access to the Download Center (Service Tag: AzureUpdateDelivery) to download the update binaries.
 
 |Priority   |Name               |Port        |Protocol  |Source    |Destination           |Action  |Direction      
 |---        |---                |---         |---       |---       |---                   |---     |---      
@@ -134,7 +134,7 @@ The [Patch Orchestration Application](service-fabric-patch-orchestration-applica
 
 #### API Management
 
-The integration of Azure API Management need Client API access to query endpoint information from the cluster. 
+The integration of Azure API Management (Service Tag: ApiManagement) need Client API access to query endpoint information from the cluster. 
 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination    |Action    |Direction
 |---        |---                |---         |---       |---                |---            |---       |--- 
