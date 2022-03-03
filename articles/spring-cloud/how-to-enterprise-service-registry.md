@@ -26,7 +26,7 @@ With Azure Spring Cloud Enterprise, you don't have to create or start the Eureka
 ## Prerequisites
 
 Please enable Tanzu Service Registry and provision Azure Spring Cloud Enterprise in advance.
-For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](https://docs.microsoft.com/en-us/azure/spring-cloud/quickstart-provision-service-instance-enterprise?tabs=azure-portal)
+For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](https://docs.microsoft.com/azure/spring-cloud/quickstart-provision-service-instance-enterprise)
 
    :::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-enterprise-creation.png" alt-text="Azure Spring Cloud Enterprise VMWare Tanzu settings":::
 
@@ -421,7 +421,7 @@ curl https://$AZURE_SPRING_CLOUD_NAME-serviceb.azuremicroservices.io/invoke-serv
 
 INVOKE SERVICE A FROM SERVICE B: This is a result of Service A
 ```
-。
+
 Let's review the implementation which invoke `Service A` in the source code of `Service B` again.
 
 ```java
