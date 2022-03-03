@@ -40,12 +40,14 @@ In the following section, the resource group name and instance name used to crea
 |  Resource Group Name  |  $RESOURCE-GROUP  |
 |  Instance Name  |  $AZURE_SPRING_CLOUD_NAME  |
 
-## How to proceed this guide
 
-This guide explains how to register a service for azure spring cloud Service Registry, and how to discover the service from another service with the following steps.
+## Create Applications using Service Registry
+
+### How to proceed this guide
+
+This guide shows how to register a service for azure spring cloud Service Registry, and how to discover the service from another service with the following steps.
 
    :::image type="content" source="./media/how-to-enterprise-service-registry/how-to-guide-story.png" alt-text="How to guide Story":::
-
 
 1. Create `Service A` and Learn the basics implementation of it
 2. Deploy your `Service A` to `Azure Spring Cloud` and register it to Service Registry
@@ -53,10 +55,7 @@ This guide explains how to register a service for azure spring cloud Service Reg
 4. Deploy `Service B` and register with `Service Registry`
 5. Invoke `Service A` through `Service B`
 
-
-## Create Applications using Service Registry
-
-### 1. Create and Implement `Service A `with Spring Boot
+### 1. Create and Implement `Service A ` with Spring Boot
 
 Click following link "[Create Sample Service A](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.4&packaging=jar&jvmVersion=11&groupId=foo.bar&artifactId=Sample%20Service%20A&name=Sample%20Service%20A&description=Demo%20project%20for%20Spring%20Boot&packageName=foo.bar.Sample%20Service%20A&dependencies=web,cloud-eureka)". Then, the following screen will be displayed.
 
