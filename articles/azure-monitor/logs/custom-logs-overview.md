@@ -7,7 +7,7 @@ ms.date: 01/06/2022
 ---
 
 # Custom logs API in Azure Monitor Logs (Preview)
-With the DCR based custom logs API in Azure Monitor, you can send data to a Log Analytics workspace from any REST API client. This allows you to send data from virtually any source to [supported built-in tables](tables-feature-support.md) or to custom tables that you create. You can even extend the schema of built-in tables with custom columns.
+With the DCR based custom logs API in Azure Monitor, you can send data to a Log Analytics workspace from any REST API client. This allows you to send data from virtually any source to [supported built-in tables](#tables) or to custom tables that you create. You can even extend the schema of built-in tables with custom columns.
 
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
