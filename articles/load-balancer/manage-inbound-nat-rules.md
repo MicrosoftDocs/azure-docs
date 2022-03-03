@@ -55,10 +55,11 @@ In this example you'll create an inbound NAT rule to forward a range of ports st
 
 7. Leave the rest at the defaults and select **Add**.
     
-    :::image type="content" source="./media/manage-inbound-nat-rules/add-inbound-nat-rule.png" alt-text="Screenshot of the inbound NAT rules page for Azure Load Balancer":::
+    :::image type="content" source="./media/manage-inbound-nat-rules/add-inbound-nat-rule.png" alt-text="Screenshot of the add inbound NAT rules page":::
 
 # [**CLI**](#tab/create-inbound-nat-rule-cli)
 
+---
 ---
 
 ## Remove an inbound NAT rule
