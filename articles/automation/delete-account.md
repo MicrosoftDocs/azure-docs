@@ -169,7 +169,7 @@ To recover an Automation account, ensure that the following conditions are met:
 - Before you attempt to recover a deleted Automation account, ensure that resource group for that account exists.
 
 > [!NOTE]
-> To recover your deleted Automation account, you must recreate the resource group with the same name. 
+> If the resource group of the Automation account is deleted, to recover, you must recreate the resource group with the same name. After a few hours, the Automation account is repopulated in the list of deleted accounts. Then you can restore the account. 
 
 ### Recover a deleted Automation account
 
