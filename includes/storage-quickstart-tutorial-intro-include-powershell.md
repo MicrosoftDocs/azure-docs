@@ -42,5 +42,5 @@ $StorageHT = @{
   Location          =  $Location
 }
 $StorageAccount = New-AzStorageAccount @StorageHT
-$Ctx = $StorageAccount.Context
+$Context = $StorageAccount.Context
 ```
