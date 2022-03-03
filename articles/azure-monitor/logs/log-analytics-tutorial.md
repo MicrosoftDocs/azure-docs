@@ -71,6 +71,9 @@ You can set a different time range using the [where operator](/azure/data-explor
 
 Let’s change the time range of the query by selecting **Last 12 hours** from the **Time range** dropdown. Select **Run** to return the results.
 
+> [!NOTE]
+> Changing the time range using the **Time range** dropdown does not change the query in the query editor.
+
 :::image type="content" source="media/log-analytics-tutorial/query-results-max.png" alt-text="Screenshot that shows the time range." lightbox="media/log-analytics-tutorial/query-results-max.png":::
 
 
