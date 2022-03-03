@@ -69,6 +69,8 @@
         href: adoddle-csaas-platform-tutorial.md
       - name: ADP
         href: adpfederatedsso-tutorial.md
+      - name: ADP EMEA French HR Portal mon.adp.com
+        href: adp-emea-french-hr-portal-tutorial.md  
       - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
       - name: Agiloft Contract Management Suite
