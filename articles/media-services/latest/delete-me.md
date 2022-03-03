@@ -11,4 +11,9 @@ ms.date: 03/03/2022
 ms.author: inhenkel
 ---
 
-:::code language="csharp" source="includes/cli-code-snippets.sh" id="ams":::
+# Code snippets
+
+## Code snippet
+:::code language="csharp" source="includes/cli-code-snippets.sh" id="ams" interactive="cloudshell-bash":::
+
+## Codey code
