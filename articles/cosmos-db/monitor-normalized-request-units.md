@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.author: esarroyo
 author: StefArroyo
-ms.date: 02/22/2022
+ms.date: 03/03/2022
 
 ---
 
@@ -14,10 +14,10 @@ ms.date: 02/22/2022
 
 Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly.
 
-## Definition
-The **Normalized RU Consumption** metric is a metric between 0% to 100% that is used to help measure the utilization of provisioned throughput on a database or container. The metric is emitted at 1 minute intervals and is defined as the maximum RU/s utilization across all partition key ranges in the time interval. Each partition key range maps to one physical partition and is assigned to hold data for a range of possible hash values. In general, the higher the value, the more you have utilized the provisioned throughput. The metric can also be used to view the utilization of individual partition key ranges on a database or container.
+## Metric Definition
+The **Normalized RU Consumption** metric is a metric between 0% to 100% that is used to help measure the utilization of provisioned throughput on a database or container. The metric is emitted at 1 minute intervals and is defined as the maximum RU/s utilization across all partition key ranges in the time interval. Each partition key range maps to one physical partition and is assigned to hold data for a range of possible hash values. In general, the higher the Normalized RU percentage, the more you have utilized your provisioned throughput. The metric can also be used to view the utilization of individual partition key ranges on a database or container.
 
-For example, suppose you have a container where you have set autoscale max throughput of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and you have two partition key ranges (physical partitions) *P1* and *P2*. Because Azure Cosmos DB distributes the provisioned throughput equally across all the partition key ranges, *P1* and *P2* each can scale between 1000 - 10,000 RU/s. Suppose in a 1 minute interval, in a given second, *P1* consumed 6000 request units and *P2* consumed 8000 request units. The normalized RU consumption of P1 is 60% and 80% for *P2*. The overall normalized RU consumption of the entire container is MAX(60%, 80%) = 80%.
+For example, suppose you have a container where you have set [autoscale max throughput](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and you have two partition key ranges (physical partitions) *P1* and *P2*. Because Azure Cosmos DB distributes the provisioned throughput equally across all the partition key ranges, *P1* and *P2* each can scale between 1000 - 10,000 RU/s. Suppose in a 1 minute interval, in a given second, *P1* consumed 6000 request units and *P2* consumed 8000 request units. The normalized RU consumption of P1 is 60% and 80% for *P2*. The overall normalized RU consumption of the entire container is MAX(60%, 80%) = 80%.
 
 If you are interested in seeing the request unit consumption at a per second interval, along with operation type, you can use the opt-in feature [Diagnostic Logs](cosmosdb-monitor-resource-logs.md) and query the **PartitionKeyRUConsumption** table. To get a high-level overview of the operations and status code your application is performing on the Azure Cosmos DB resource, you can use the built-in Azure Monitor **Total Requests** (SQL API), **Mongo Requests**, **Gremlin Requests**, or **Cassandra Requests** metric. Later you can filter on these requests by the 429 status code and split them by **Operation Type**.
 
@@ -27,10 +27,9 @@ When the normalized RU consumption reaches 100% for given partition key range, a
 
 This does not necessarily mean there is a problem with your resource. By default, the Azure Cosmos DB client SDKs and data import tools such as Azure Data Factory and bulk executor library automatically retry requests on 429s. They retry typically up to 9 times. As a result, while you may see 429s in the metrics, these errors may not even have been returned to your application.
 
-In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. In this case, the normalized RU consumption metric reaching 100% only means that in a given second, at least one partition key range used all its provisioned throughput. This is ok because the overall rate of 429s is low. No action is required.
+In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. In this case, the normalized RU consumption metric reaching 100% only means that in a given second, at least one partition key range used all its provisioned throughput. This is acceptable because the overall rate of 429s is still low. No further action is required.
 
-To determine what percent of your requests to your database or container resulted in 429s, from your Azure Cosmos DB account blade, navigate to **Insights** > **Requests** > **Total Requests by Status Code**. Filter to a specific database and container. For other APIs, use the **Mongo Requests**, **Gremlin Requests**, or **Cassandra Requests** metric.
-
+To determine what percent of your requests to your database or container resulted in 429s, from your Azure Cosmos DB account blade, navigate to **Insights** > **Requests** > **Total Requests by Status Code**. Filter to a specific database and container. For Gremlin API, use the **Gremlin Requests** metric.
 :::image type="content" source="sql/media/troubleshoot-request-rate-too-large/insights-429-requests.png" alt-text="Total Requests by Status Code chart that shows number of 429 and 2xx requests.":::
 
 If the normalized RU consumption metric is consistently 100% across multiple partition key ranges and the rate of 429s is greater than 5%, it's recommended to increase the throughput. You can find out which operations are heavy and what their peak usage is by using the [Azure monitor metrics and Azure monitor diagnostic logs](sql/troubleshoot-request-rate-too-large.md#step-3-determine-what-requests-are-returning-429s). Follow the [best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md).
@@ -39,7 +38,7 @@ It is not always the case that you'll see a 429 rate limiting error just because
 
 Learn more about how to [interpret and debug 429 rate limiting errors](sql/troubleshoot-request-rate-too-large.md).
 
-## Monitor for hot partitions
+## How to monitor for hot partitions
 The normalized RU consumption metric can be used to monitor if your workload has a hot partition. A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests. It results in many requests being directed to a small subset of logical partitions, (which implies partition key ranges) that become "hot." Because all data for a logical partition resides on one partition key range and total RU/s is evenly distributed among all the partition key ranges, a hot partition can lead to 429s and inefficient use of throughput.
 
 #### How to identify if there is a hot partition

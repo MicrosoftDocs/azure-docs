@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix request rate too large exceptions.
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 02/28/2022
+ms.date: 03/03/2022
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -35,7 +35,7 @@ There are different error messages that correspond to different types of 429 exc
 This is the most common scenario. It occurs when the request units consumed by operations on data exceed the provisioned number of RU/s. If you're using manual throughput, this occurs when you have consumed more RU/s than the manual throughput provisioned. If you're using autoscale, this occurs when you have consumed more than the maximum RU/s provisioned. For example, if you have a resource provisioned with manual throughput of 400 RU/s, you will see 429 when you consume more than 400 request units in a single second. If you have a resource provisioned with autoscale max RU/s of 4000 RU/s (scales between 400 RU/s - 4000 RU/s), you will see 429s when you consume more than 4000 request units in a single second.
 
 ### Step 1: Check the metrics to determine the percentage of requests with 429 error
-Seeing 429 error messages doesn't necessarily mean there is a problem with your database or container. A small percentage of 429s is normal whether you are using manual or autoscale throughput, and is a sign that you are using the RU/s you have provisioned.
+Seeing 429 error messages doesn't necessarily mean there is a problem with your database or container. A small percentage of 429s is normal whether you are using manual or autoscale throughput, and is a sign that you are maximizing the RU/s you have provisioned.
 
 #### How to investigate
 
