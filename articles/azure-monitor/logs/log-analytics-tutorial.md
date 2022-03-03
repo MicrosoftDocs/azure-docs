@@ -67,7 +67,7 @@ A **where** statement is added to the query with the value that you selected. Th
 
 All queries return records generated within a set time range. By default, the query returns records generated in the last 24 hours. 
 
-You can set a different time range using the [where operator](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor#filter-by-boolean-expression-where-1) in the query or by selecting a different value from the **Time range** dropdown list at the top of the screen. 
+You can set a different time range using the [where operator](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor#filter-by-boolean-expression-where-1) in the query, or using the **Time range** dropdown list at the top of the screen. 
 
 Let’s change the time range of the query by selecting **Time range > Last 12 hours**. Select **Run** to return the results.
 
