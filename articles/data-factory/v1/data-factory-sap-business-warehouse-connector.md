@@ -1,8 +1,8 @@
 ---
 title: Move data from SAP Business Warehouse using Azure Data Factory 
 description: Learn about how to move data from SAP Business Warehouse using Azure Data Factory.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
