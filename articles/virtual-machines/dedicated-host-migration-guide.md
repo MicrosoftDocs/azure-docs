@@ -48,7 +48,9 @@ Please note that both Dedicated Host SKUs will not be impacted by the 1 March, 2
 
 ## Migration steps
 
-To migrate your workloads to avoid Dedicated Host SKU retirement, please go through the following steps for VMs:
+To migrate your workloads to avoid Dedicated Host SKU retirement, please go through the respective steps for your manually placed VMs, automatically VMs, and VMSS on your Dedicated Host:
+
+### [Manually Placed VMs](#tab/manualVM)
 
 1.	Choose a target Dedicated Host SKU to migrate to. 
 2.	Ensure you have quota for the VM family associated with the target Dedicated Host SKU in your given region.
@@ -56,9 +58,30 @@ To migrate your workloads to avoid Dedicated Host SKU retirement, please go thro
 4.	Stop and deallocate the VM(s) on your old Dedicated Host.
 5.	Reassign the VM(s) to the target Dedicated Host.
 6.	Start the VM(s).
-7. Delete the old host.
+7.  Delete the old host.
+
+### [Automatically Placed VMs](#tab/autoVM)
+
+1.	Choose a target Dedicated Host SKU to migrate to. 
+2.	Ensure you have quota for the VM family associated with the target Dedicated Host SKU in your given region.
+3.	Provision a new Dedicated Host of the target Dedicated Host SKU in the same Host Group.
+4.	Stop and deallocate the VM(s) on your old Dedicated Host.
+5.  Delete the old Dedicated Host.
+6.	Start the VM(s).
+
+### [VMSS](#tab/VMSS)
+
+1.	Choose a target Dedicated Host SKU to migrate to. 
+2.	Ensure you have quota for the VM family associated with the target Dedicated Host SKU in your given region.
+3.	Provision a new Dedicated Host of the target Dedicated Host SKU in the same Host Group.
+4.	Stop the VMSS on your old Dedicated Host.
+5.  Delete the old Dedicated Host.
+6.	Start the VMSS.
 
 More detailed instructions can be found in the following sections.
+
+> [!NOTE]
+>  **Certain sections may be different for automatically placed VMs or VMSS**. These differences will explicitly be called out in the respective steps.
 
 ### Ensure quota for the target VM family
 
@@ -68,26 +91,27 @@ Be sure that you have enough vCPU quota for the VM family of the Dedicated Host 
 
 Within the same Host Group as the existing Dedicated Host, [create a Dedicated Host](dedicated-hosts-how-to.md#create-a-dedicated-host) of the target Dedicated Host SKU.
 
-### Stop the VM(s)
+### Stop the VM(s) or VMSS
 
 #### PowerShell
 
-Refer to the PowerShell documentation to [stop a VM through PowerShell](/powershell/module/servicemanagement/stop-azurevm).
+Refer to the PowerShell documentation to [stop a VM through PowerShell](/powershell/module/servicemanagement/stop-azurevm) or [stop a VMSS through PowerShell](/powershell/module/servicemanagement/stop-azvmss).
 
 #### Command Line Interface
 
-Refer to the Command Line Interface (CLI) documentation to [stop a VM through CLI](/cli/azure/vm#az-vm-stop).
+Refer to the Command Line Interface (CLI) documentation to [stop a VM through CLI](/cli/azure/vm#az-vm-stop) or [stop a VMSS through CLI](/cli/azure/vmss#az-vmss-stop).
 
 #### Portal
 
 On Azure portal, please go through the following steps:
 
-1.	Navigate to your VM.
+1.	Navigate to your VM or VMSS.
 2.	On the top navigation bar, click “Stop”.
 
 #### Reassign the VM(s) to the target Dedicated Host
 
-Skip this step for automatically placed VMs.
+>[!NOTE] 
+> **Skip this step for automatically placed VMs and VMSS.**
 
 Once the target Dedicated Host has been created and the VM has been stopped, [reassign the VM to the target Dedicated Host](dedicated-hosts-how-to.md#add-an-existing-vm).
 
