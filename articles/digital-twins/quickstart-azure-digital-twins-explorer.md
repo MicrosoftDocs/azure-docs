@@ -100,14 +100,14 @@ For this quickstart, the model files are already written and validated for you. 
 
 Follow these steps to upload models (the *.json* files you downloaded earlier).
 
-1. In the **Models** panel, select the **Upload a Model** icon that shows an arrow pointing into a cloud.
+1. In the **Models** panel, select the **Upload a Model** icon that shows an arrow pointing upwards.
 
    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="Screenshot of the Azure Digital Twins Explorer, highlighting the Models panel and the 'Upload a Model' icon in it." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
  
 1. In the Open window that appears, navigate to the folder containing the **Room.json** and **Floor.json** files that you downloaded earlier.
 1. Select **Room.json** and **Floor.json**, and select **Open** to upload them both. 
 
-Azure Digital Twins Explorer will upload these model files to your Azure Digital Twins instance. They should show up in the **Models** panel and display their friendly names and full model IDs. You can select the **View Model** information icons to see the DTDL code behind them.
+Azure Digital Twins Explorer will upload these model files to your Azure Digital Twins instance. They should show up in the **Models** panel and display their friendly names and full model IDs. You can select **View Model** for either model to see the DTDL code behind it.
 
 :::row:::
     :::column:::
@@ -138,7 +138,7 @@ Follow these steps to import the graph (the *.xlsx* file you downloaded earlier)
 
 1. In the **Twin Graph** panel, select the **Import Graph** icon that shows an arrow pointing into a cloud.
 
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-graph.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing the Graph View panel, with the 'Import Graph' icon highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/import-graph.png":::
+   :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The Import Graph button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import.png":::
 
 2. In the Open window, navigate to the **buildingScenario.xlsx** file you downloaded earlier. This file contains a description of the sample graph. Select **Open**.
 
@@ -158,9 +158,7 @@ Follow these steps to import the graph (the *.xlsx* file you downloaded earlier)
     :::column-end:::
    :::row-end:::
 
-5. The graph has now been uploaded to Azure Digital Twins Explorer. Switch back to the **Twin Graph** panel.
- 
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png" alt-text="Screenshot of the Azure Digital Twins Explorer with the Twin Graph tab highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png"::: 
+    The graph has now been uploaded to Azure Digital Twins Explorer, and the **Twin Graph** panel will reload. It will appear empty.
  
 6. To see the graph, select the **Run Query** button in the **Query Explorer** panel, near the top of the Azure Digital Twins Explorer window.
 
