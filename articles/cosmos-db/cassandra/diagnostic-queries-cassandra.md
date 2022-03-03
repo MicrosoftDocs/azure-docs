@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot issues with advanced diagnostics queries for Cassandra API
 titleSuffix: Azure Cosmos DB
-description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB for the Cassandra API.
+description: Learn how to use Azure Log Analytics to improve the performance and health of your Azure Cosmos DB Cassandra API account.
 author: StefArroyo
-services: cosmos-db
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/12/2021
 ms.author: esarroyo 
@@ -21,7 +21,7 @@ ms.author: esarroyo
 > * [Gremlin API](../queries-gremlin.md)
 
 
-In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB account by using diagnostics logs sent to **Azure Diagnostics (legacy)** and **resource-specific (preview)** tables.
+In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB Cassansra API account by using diagnostics logs sent to **resource-specific** tables.
 
 For Azure Diagnostics tables, all data is written into one single table. Users specify which category they want to query. If you want to view the full-text query of your request, see [Monitor Azure Cosmos DB data by using diagnostic settings in Azure](../cosmosdb-monitor-resource-logs.md#full-text-query) to learn how to enable this feature.
 
@@ -31,160 +31,163 @@ For [resource-specific tables](../cosmosdb-monitor-resource-logs.md#create-setti
 - Provides better discoverability of the schemas.
 - Improves performance across both ingestion latency and query times.
 
-## Common queries
-Common queries are shown in the resource-specific and Azure Diagnostics tables.
 
-### Top N(10) Request Unit (RU) consuming requests or queries in a specific time frame
+## Prerequisites
 
-# [Resource-specific](#tab/resource-specific)
+- Create [Cassandra API account](create-account-java.md)
+- Create a [Log Analytics Workspace](../../azure-monitor/logs/quick-create-workspace.md).
+- Create [Diagnostic Settings](../cosmosdb-monitor-resource-logs.md).
 
-   ```Kusto
-   let topRequestsByRUcharge = CDBDataPlaneRequests 
-   | where TimeGenerated > ago(24h)
-   | project  RequestCharge , TimeGenerated, ActivityId;
-   CDBCassandraRequests
-   | project PIICommandText, ActivityId, DatabaseName , CollectionName
-   | join kind=inner topRequestsByRUcharge on ActivityId
-   | project DatabaseName , CollectionName , PIICommandText , RequestCharge, TimeGenerated
-   | order by RequestCharge desc
-   | take 10
-   ```
+> [!WARNING]
+> When creating a Diagnostic Setting for the Cassandra API account, ensure that "DataPlaneRequests" remain unselected. In addition, for the Destination table, ensure "Resource specific" is chosen as it offers significant cost savings over "Azure diagnostics.
 
-# [Azure Diagnostics](#tab/azure-diagnostics)
+> [!NOTE]
+> Note that enabling full text diagnostics, the queries returned will contain PII data.
+> This feature will not only log the skeleton of the query with obfuscated parameters but log the values of the parameters themselves. 
+> This can help in diagnosing whether queries on a specific Primary Key (or set of Primary Keys) are consuming far more RUs than queries on other Primary Keys.
 
-   ```Kusto
-   let topRequestsByRUcharge = AzureDiagnostics
-   | where Category == "DataPlaneRequests" and TimeGenerated > ago(1h)
-   | project  requestCharge_s , TimeGenerated, activityId_g;
-   AzureDiagnostics
-   | where Category == "CassandraRequests"
-   | project piiCommandText_s, activityId_g, databasename_s , collectionname_s
-   | join kind=inner topRequestsByRUcharge on activityId_g
-   | project databasename_s , collectionname_s , piiCommandText_s , requestCharge_s, TimeGenerated
-   | order by requestCharge_s desc
-   | take 10
-   ```    
----
+## Log Analytics queries with different scenarios
 
-### Requests throttled (statusCode = 429) in a specific time window 
+:::image type="content" source="./media/cassandra-log-analytics/log-analytics-questions-bubble.png" alt-text="Image of a bubble word map with possible questions on how to leverage Log Analytics within Cosmos DB":::
 
-# [Resource-specific](#tab/resource-specific)
+### RU consumption
+- What application queries are causing high RU consumption
+```kusto
+CDBCassandraRequests 
+| where DatabaseName startswith "azure"
+| project TimeGenerated, RequestCharge, OperationName,
+requestType=split(split(PIICommandText,'"')[3], ' ')[0]
+| summarize max(RequestCharge) by bin(TimeGenerated, 10m), tostring(requestType);
+```
 
-   ```Kusto
-   let throttledRequests = CDBDataPlaneRequests
-   | where StatusCode == "429"
-   | project  OperationName , TimeGenerated, ActivityId;
-   CDBCassandraRequests
-   | project PIICommandText, ActivityId, DatabaseName , CollectionName
-   | join kind=inner throttledRequests on ActivityId
-   | project DatabaseName , CollectionName , PIICommandText , OperationName, TimeGenerated
-   ```
+- Monitoring RU Consumption per operation on logical partition keys.
+```kusto
+CDBPartitionKeyRUConsumption
+| where DatabaseName startswith "azure"
+| summarize TotalRequestCharge=sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
+| order by TotalRequestCharge;
 
-# [Azure Diagnostics](#tab/azure-diagnostics)
+CDBPartitionKeyRUConsumption
+| where DatabaseName startswith "azure"
+| summarize TotalRequestCharge=sum(todouble(RequestCharge)) by OperationName, PartitionKey
+| order by TotalRequestCharge;
 
-   ```Kusto
-   let throttledRequests = AzureDiagnostics
-   | where Category == "DataPlaneRequests"
-   | where statusCode_s == "429"
-   | project  OperationName , TimeGenerated, activityId_g;
-   AzureDiagnostics
-   | where Category == "CassandraRequests"
-   | project piiCommandText_s, activityId_g, databasename_s , collectionname_s
-   | join kind=inner throttledRequests on activityId_g
-   | project databasename_s , collectionname_s , piiCommandText_s , OperationName, TimeGenerated
-   ```    
----
 
-### Queries with large response lengths (payload size of the server response)
+CDBPartitionKeyRUConsumption
+| where DatabaseName startswith "azure"
+| summarize TotalRequestCharge=sum(todouble(RequestCharge)) by bin(TimeGenerated, 1m), PartitionKey, PartitionKeyRangeId
+| render timechart;
+```
 
-# [Resource-specific](#tab/resource-specific)
+- What are the top queries impacting RU consumption?
+```kusto
+let topRequestsByRUcharge = CDBDataPlaneRequests 
+| where TimeGenerated > ago(24h)
+| project  RequestCharge , TimeGenerated, ActivityId;
+CDBCassandraRequests
+| project ActivityId, DatabaseName, CollectionName, queryText=split(split(PIICommandText,'"')[3], ' ')[0]
+| join kind=inner topRequestsByRUcharge on ActivityId
+| project DatabaseName, CollectionName, tostring(queryText), RequestCharge, TimeGenerated
+| order by RequestCharge desc
+| take 10;
+```
+- RU Consumption based on variations in payload sizes for read and write operations.
+```kusto
+// This query is looking at read operations
+CDBDataPlaneRequests
+| where OperationName in ("Read", "Query")
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), OperationName
 
-   ```Kusto
-   let operationsbyUserAgent = CDBDataPlaneRequests
-   | project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
-   CDBCassandraRequests
-   //specify collection and database
-   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
-   | join kind=inner operationsbyUserAgent on ActivityId
-   | summarize max(ResponseLength) by PIICommandText
-   | order by max_ResponseLength desc
-   ```
+// This query is looking at write operations
+CDBDataPlaneRequests
+| where OperationName in ("Create", "Upsert", "Delete", "Execute")
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), OperationName
 
-# [Azure Diagnostics](#tab/azure-diagnostics)
+// Write operations over a time period.
+CDBDataPlaneRequests
+| where OperationName in ("Create", "Update", "Delete", "Execute")
+| summarize maxResponseLength=max(ResponseLength) by bin(TimeGenerated, 1m), OperationName
+| render timechart;
+```
 
-   ```Kusto
-   let operationsbyUserAgent = AzureDiagnostics
-   | where Category=="DataPlaneRequests"
-   | project OperationName, duration_s, requestCharge_s, responseLength_s, activityId_g;
-   AzureDiagnostics
-   | where Category == "CassandraRequests"
-   //specify collection and database
-   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
-   | join kind=inner operationsbyUserAgent on activityId_g
-   | summarize max(responseLength_s1) by piiCommandText_s
-   | order by max_responseLength_s1 desc
-   ```    
----
+- RU consumption by physical and logical partition.
+```kusto
+CDBPartitionKeyRUConsumption
+| where DatabaseName==”uprofile” and AccountName startswith “azure”
+| summarize totalRequestCharge=sum(RequestCharge) by PartitionKey, PartitionKeyRangeId;
+```
 
-### RU consumption by physical partition (across all replicas in the replica set)
+- Is there a high RU consumption because of having hot partition?
+```kusto
+CDBPartitionKeyStatistics
+| where AccountName startswith “azure”
+| where  TimeGenerated > now(-8h)
+| summarize StorageUsed = sum(SizeKb) by PartitionKey
+| order by StorageUsed desc
+```
 
-# [Resource-specific](#tab/resource-specific)
+- How does the partition key affect RU consumption?
+```kusto
+let storageUtilizationPerPartitionKey = 
+CDBPartitionKeyStatistics
+| project AccountName=tolower(AccountName), PartitionKey, SizeKb;
+CDBCassandraRequests
+| project AccountName=tolower(AccountName),RequestCharge, ErrorCode, OperationName, ActivityId, DatabaseName, CollectionName, PIICommandText, RegionName
+| where DatabaseName != "<empty>"
+| join kind=inner storageUtilizationPerPartitionKey  on $left.AccountName==$right.AccountName
+| where ErrorCode != -1 //successful
+| project AccountName, PartitionKey,ErrorCode,RequestCharge,SizeKb, OperationName, ActivityId, DatabaseName, CollectionName, PIICommandText, RegionName;
+```
 
-   ```Kusto
-   CDBPartitionKeyRUConsumption
-   | where TimeGenerated >= now(-1d)
-   //specify collection and database
-   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
-   // filter by operation type
-   //| where operationType_s == 'Create'
-   | summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
-   | render columnchart
-   ```
+### Latency
+- Number of server-side timeouts (Status Code - 408) seen in the time window.
+```kusto
+CDBDataPlaneRequests
+| where TimeGenerated >= now(-6h)
+| where AccountName startswith "azure"
+| where StatusCode == 408
+| summarize count() by bin(TimeGenerated, 10m)
+| render timechart 
+```
 
-# [Azure Diagnostics](#tab/azure-diagnostics)
+- Do we observe spikes in server-side latencies in the specified time window?
+```kusto
+CDBDataPlaneRequests
+| where TimeGenerated > now(-6h)
+| where AccountName startswith "azure"
+| summarize max(DurationMs) by bin(TimeGenerated, 10m)
+| render timechart
+```
 
-   ```Kusto
-   AzureDiagnostics
-   | where TimeGenerated >= now(-1d)
-   | where Category == 'PartitionKeyRUConsumption'
-   //specify collection and database
-   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
-   // filter by operation type
-   //| where operationType_s == 'Create'
-   | summarize sum(todouble(requestCharge_s)) by toint(partitionKeyRangeId_s)
-   | render columnchart  
-   ```    
----
+- Query operations that are getting throttled.
+```kusto
+CDBCassandraRequests
+| project RequestLength, ResponseLength,
+RequestCharge, DurationMs, TimeGenerated, OperationName,
+query=split(split(PIICommandText,'"')[3], ' ')[0]
+| summarize max(DurationMs) by bin(TimeGenerated, 10m), RequestCharge, tostring(query),
+RequestLength, OperationName
+| order by RequestLength, RequestCharge;
+```
 
-### RU consumption by logical partition (across all replicas in the replica set)
+### Throttling
+- Is your application experiencing any throttling?
+```kusto
+CDBCassandraRequests
+| where RetriedDueToRateLimiting != false and RateLimitingDelayMs > 0;
+```
+- What queries are causing your application to throttle with a specified time period looking specifically at 429.
+```kusto
+let throttledRequests = CDBDataPlaneRequests
+| where StatusCode==429
+| project  OperationName , TimeGenerated, ActivityId; 
+CDBCassandraRequests
+| project PIICommandText, ActivityId, DatabaseName , CollectionName
+| join kind=inner throttledRequests on ActivityId
+| project DatabaseName , CollectionName , CassandraCommands=split(split(PIICommandText,'"')[3], ' ')[0] , OperationName, TimeGenerated;
+```
 
-# [Resource-specific](#tab/resource-specific)
-   ```Kusto
-   CDBPartitionKeyRUConsumption
-   | where TimeGenerated >= now(-1d)
-   //specify collection and database
-   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
-   // filter by operation type
-   //| where operationType_s == 'Create'
-   | summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
-   | render columnchart  
-   ```
 
-# [Azure Diagnostics](#tab/azure-diagnostics)
-
-   ```Kusto
-   AzureDiagnostics
-   | where TimeGenerated >= now(-1d)
-   | where Category == 'PartitionKeyRUConsumption'
-   //specify collection and database
-   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
-   // filter by operation type
-   //| where operationType_s == 'Create'
-   | summarize sum(todouble(requestCharge_s)) by partitionKey_s, partitionKeyRangeId_s
-   | render columnchart  
-   ```
----
-
-## Next steps 
-* For more information on how to create diagnostic settings for Azure Cosmos DB, see [Create diagnostic settings](../cosmosdb-monitor-resource-logs.md).
-* For detailed information about how to create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic settings to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
+## Next steps
+- Enable [log analytics](../../azure-monitor/logs/log-analytics-overview.md) on your Cassandra API account.
+- Overview [error code definition](error-codes-solution.md).
