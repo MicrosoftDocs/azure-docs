@@ -48,16 +48,40 @@ It's impossible to reliably predict and recommend the amount of per-container CP
 We recommend setting resource requests to two cores and 2 GiB as a starting point. Perform a load test and scale up/out or down/in based on the results.
 
 ## Container image tag
-The YAML file provided in the Azure portal uses the **latest** tag. This tag always references the most recent version of the self-hosted gateway container image.
 
-Consider using a specific version tag in production to avoid unintentional upgrade to a newer version.
+We provide a variety of container images for self-hosted gateways to meet your needs:
+- `2.0.0` - The most specific tag for a container image.
+  - *Use this image if you always want to run the same container image.*
+- `v2` - The latest stable version of the v2 container image. (Moving tag) 
+  - *Use this image if you always want to run our v2 container image with every new feature and patch.*
+- `v2-preview` - The latest preview version of the container image. (Moving tag)
+  - *Use this image if you always want to run our latest preview container image, but not recommended for production.*
+- `latest` - The latest stable version of the container image. (Moving tag)
+  - *Use this image to evaluate the self-hosted gateway, but not recommended for production.*
 
-You can [download a full list of available tags](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
+You can find a full list of available tags [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
 
-> [!TIP]
-> When installing with Helm, image tagging is optimized for you. The Helm chart's application version pins the gateway to a given version and does not rely on `latest`.
-> 
-> Learn more on how to [install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
+### Use of tags in our official deployment options
+
+Our deployment options in the Azure portal use the `v2` tag which allows customers to use the most recent version of the self-hosted gateway v2 container image with all feature updates and patches.
+
+> [!NOTE]
+> We provide the command and YAML snippets as reference, feel free to use a more specific tag if you wish to.
+
+When installing with our Helm chart, image tagging is optimized for you. The Helm chart's application version pins the gateway to a given version and does not rely on `latest`.
+
+Learn more on how to [install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
+
+### Risk of using moving tags
+
+Moving tags are tags that are potentially updated when a new version of the container image is released. This allows container users to receive updates to the container image without having to update their deployments.
+
+This means that you can potentially run different versions in parallel without noticing it, for example when you perform scaling actions once `v2` tag was updated.
+
+Example - `v2` tag was released with `2.0.0` container image, but when `2.1.0` will be released, the `v2` tag will be linked to the `2.1.0` image.
+
+> [!IMPORTANT]
+> Consider using a specific version tag in production to avoid unintentional upgrade to a newer version.
 
 ## DNS policy
 DNS name resolution plays a critical role in a self-hosted gateway's ability to connect to dependencies in Azure and dispatch API calls to backend services.
