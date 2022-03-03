@@ -60,10 +60,10 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
 			"defaultValue": "Standard_D4ds_v4",
 			"type": "String"
 		},
-		"haEnabled": {
-			"defaultValue": "Disabled",
-			"type": "string"
-		},
+		"haMode": {
+            "defaultValue": "ZoneRedundant",
+            "type": "string"
+        },
 		"availabilityZone": {
 			"defaultValue": "1",
 			"type": "String"
@@ -125,7 +125,9 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
 				"delegatedSubnetResourceId": "[if(empty(parameters('virtualNetworkExternalId')), json('null'), json(concat(parameters('virtualNetworkExternalId'), '/subnets/' , parameters('subnetName'))))]",
 				"privateDnsZoneArmResourceId": "[if(empty(parameters('virtualNetworkExternalId')), json('null'), parameters('privateDnsZoneArmResourceId'))]"
 			},
-			"haEnabled": "[parameters('haEnabled')]",
+			"highAvailability": {
+                "mode": "[parameters('haMode')]"
+              },
 			"storage": {
 				"storageSizeGB": "[parameters('skuSizeGB')]"
 			},
