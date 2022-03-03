@@ -1,11 +1,11 @@
 ---
 title: Group and run actions by scope
-description: Create scoped actions that run based on group status in Azure Logic Apps
+description: Create scoped actions that run based on group status in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 10/03/2018
-ms.topic: article
 ---
 
 # Run actions based on group status by using scopes in Azure Logic Apps
@@ -65,7 +65,7 @@ First, create this sample logic app so that you can add a scope later:
 Bing Maps service at an interval that you specify
 * A **Bing Maps - Get route** action that checks the 
 travel time between two locations
-* A conditional statement that checks whether the 
+* A condition action that checks whether the 
 travel time exceeds your specified travel time
 * An action that sends you email that current 
 travel time exceeds your specified time
@@ -85,7 +85,7 @@ so save your work often.
    > To visually simplify your view and hide each action's details in the designer, 
    > collapse each action's shape as you progress through these steps.
 
-1. Add the **Bing Maps - Get route** action. 
+1. Add the **Bing Maps - Get route** action.
 
    1. If you don't already have a Bing Maps connection, 
    you're asked to create a connection.
@@ -455,7 +455,7 @@ visit the [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 
-* [Run steps based on a condition (conditional statements)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Run steps based on different values (switch statements)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Run steps based on a condition (condition action)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Run steps based on different values (switch action)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Run and repeat steps (loops)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Run or merge parallel steps (branches)](../logic-apps/logic-apps-control-flow-branches.md)

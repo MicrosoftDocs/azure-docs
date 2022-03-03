@@ -76,6 +76,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure_storage-snippets",
+      "url": "https://github.com/Azure-Samples/AzureStorageSnippets",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure_cli_scripts",
       "url": "https://github.com/Azure-Samples/azure-cli-samples",
       "branch": "master",
@@ -798,6 +804,12 @@
     {  
       "path_to_root": "active-directory-b2c-javascript-nodejs-webapi",
       "url": "https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {  
+      "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
+      "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
       "branch": "master",
       "branch_mapping": {}
     },

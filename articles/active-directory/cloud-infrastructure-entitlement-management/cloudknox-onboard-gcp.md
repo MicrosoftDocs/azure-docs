@@ -75,7 +75,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
         
 1. You can choose to download and run the script at this point, or you can do it via Google Cloud Shell, as described in the [next step](cloudknox-onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
     
-### 4. Run scripts in Cloud Shell. (Optional if not already executed.)
+### 4. Run scripts in Cloud Shell. (Optional if not already executed)
 
 1. In the **CloudKnox Onboarding - GCP Project Ids** page, select **Launch SSH**.
 1. To copy all your scripts into your current directory, in **Open in Cloud Shell**, select **Trust repo**, and then select **Confirm**.
