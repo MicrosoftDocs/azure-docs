@@ -32,7 +32,10 @@ Before including the Azure Spatial Anchors SDK in your Unity project, be sure to
 ### Import ASA packages
 [!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
-### HoloLens only
+### Extra Configurations
+If you are developing for HoloLens or Android please follow the additional setup steps below
+
+# [HoloLens](#tab/ExtraConfigurationsHoloLens)
 
 #### Configure your Unity project XR settings
 When developing MixedReality apps on HoloLens, you need to set the XR configuration in Unity. For more information, see [Setting up your XR configuration - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/xr-project-setup?tabs=openxr) and [Choosing a Unity version and XR plugin - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/choosing-unity-version).
@@ -50,7 +53,8 @@ Be sure to enable the following capabilities in your Unity project:
 
 > [!WARNING]
 > Failure to enable the PrivateNetworkClientServer capability may lead to a failure to query anchors when the device is using a network that is configured to be private.
-### Android only: Configure the mainTemplate.gradle file
+# [Android](#tab/ExtraConfigurationsAndroid)
+Configure the mainTemplate.gradle file
 
 1. Go to **Edit** > **Project Settings** > **Player**.
 2. In the **Inspector Panel** for **Player Settings**, select the **Android** icon.
