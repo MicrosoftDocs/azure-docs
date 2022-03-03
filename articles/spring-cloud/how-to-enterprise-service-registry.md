@@ -26,7 +26,7 @@ With Azure Spring Cloud Enterprise, you don't have to create or start the Eureka
 ## Prerequisites
 
 Please enable Tanzu Service Registry and provision Azure Spring Cloud Enterprise in advance.
-For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise)
+For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
 
    :::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-enterprise-creation.png" alt-text="Azure Spring Cloud Enterprise VMWare Tanzu settings":::
 
