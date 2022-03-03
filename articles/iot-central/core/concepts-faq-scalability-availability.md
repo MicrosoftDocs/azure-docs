@@ -20,15 +20,15 @@ This article provides background information about how IoT Central scales and de
 
 IoT Central applications internally use multiple Azure services such as IoT Hub and the Device Provisioning Service (DPS). Many of these underlying services are multi-tenanted. However, to ensure the full isolation of customer data, IoT Central uses single-tenant IoT hubs.
 
-IoT Central automatically scales its IoT hubs based on the load profiles in your application. IoT Central can scale up individual IoT hubs and scale out the number of IoT hubs. IoT Central also automatically scales other underlying services.
+IoT Central automatically scales its IoT hubs based on the load profiles in your application. IoT Central can scale up individual IoT hubs and scale out the number of IoT hubs in an application. IoT Central also automatically scales other underlying services.
 
 ## High availability and disaster recovery
 
-For highly available device connectivity, every IoT Central application always has at least two IoT hubs. The number of hubs can grow or shrink as IoT Central scales the application in response to changes in the load profile.
+For highly available device connectivity, an IoT Central application always have at least two IoT hubs. For exceptions to to this rule, see [Limitations](#limitations). The number of hubs can grow or shrink as IoT Central scales the application in response to changes in the load profile.
 
 IoT Central also uses [availability zones](../../availability-zones/az-overview.md#availability-zones) to make various services it uses highly available.
 
-If a whole Azure region becomes available, disaster recovery procedures failover IoT Central applications to another region in the same geography.
+An incident that requires disaster recovery could range from a subset of services becoming unavailable to a whole region becoming unavailable. IoT Central follows different recovery processes depending on the nature and scale of the incident. For example, if an entire Azure region becomes unavailable in the wake of a catastrophic failure, disaster recovery procedures failover applications to another region in the same geography.
 
 ## Work with multiple IoT hubs
 
@@ -42,7 +42,7 @@ Although IoT Central manages the IoT hubs in your application for you, a device 
 
 ### Device provisioning
 
-When a device is provisioned in your application, it's associated with a specific IoT hub. As the number of IoT hubs in your application changes, a device might need to connect to a different hub.
+As the number of IoT hubs in your application changes, a device might need to connect to a different hub.
 
 Before a device connects to IoT Central, it must be registered and provisioned in the underlying services. When you add a device to an IoT Central application, IoT Central adds an entry to a DPS enrollment group. Information from the enrollment group such as the ID scope, device ID, and keys is surfaced in the IoT Central UI.
 
