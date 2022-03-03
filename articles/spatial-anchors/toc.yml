@@ -32,10 +32,10 @@ items:
         href: quickstarts/get-started-xamarin-ios.md
 - name: Tutorials
   items:
-  - name: Create your own HoloLens app (Unity)
+  - name: Create your own HoloLens app - Unity
     href: tutorials/tutorial-new-unity-hololens-app.md
     displayName: Azure CLI, az spatial-anchors-account
-  - name: Create your own Android app (Android Studio)
+  - name: Create your own Android app - Android Studio
     href: tutorials/tutorial-new-android-app.md
     displayName: Azure CLI, az spatial-anchors-account
   - name: Sharing across sessions and devices
