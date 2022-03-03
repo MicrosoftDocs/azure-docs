@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 11/02/2021
+ms.date: 03/03/2022
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
