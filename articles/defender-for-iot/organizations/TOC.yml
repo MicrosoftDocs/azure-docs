@@ -229,6 +229,8 @@
     href: references-defender-for-iot-glossary.md
 - name: Resources
   items:
+  - name: Release notes archive
+    href: release-notes-archive.md
   - name: Pre-deployment checklist
     displayNAme: pre-deployment
     href: resources-sensor-deployment-checklist.md
