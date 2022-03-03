@@ -29,7 +29,7 @@ The three-node cluster created in this tutorial is only intended for instruction
 
 * An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* A resource group to manage all of the resources you use in this quickstart. We use the example resource group name **ServiceFabricResources** throughout this quickstart.
+* A resource group to manage all the resources you use in this quickstart. We use the example resource group name **ServiceFabricResources** throughout this quickstart.
 
    1. Sign in to the [Azure portal](https://portal.azure.com).
 
