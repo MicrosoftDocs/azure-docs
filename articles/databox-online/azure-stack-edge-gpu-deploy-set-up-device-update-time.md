@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 03/03/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -74,13 +74,6 @@ Follow these steps to configure device related settings:
 
     ![Local web UI "Device" page 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
-::: zone pivot="two-node"
-
-Repeat all the above steps for the second node of your device. Make sure that the same DNS domain is used for both the nodes.
-
-::: zone-end
-
-
 ## Configure update
 
 1. On the **Update** page, you can now configure the location from where to download the updates for your device.  
@@ -98,13 +91,6 @@ Repeat all the above steps for the second node of your device. Make sure that th
 
 1. Select **Apply**.
 1. After the update server is configured, select **Next: Time**.
-
-::: zone pivot="two-node"
-
-Repeat all the above steps for the second node of your device. Make sure that the same update server is used for both the nodes.
-
-::: zone-end 
-    
 
 ## Configure time
 
@@ -130,12 +116,6 @@ NTP servers are required because your device must synchronize time so that it ca
         ![Local web UI "Time" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/time-2.png)
 
 1. After the settings are applied, select **Next: Certificates**.
-
-::: zone pivot="two-node"
-
-Repeat all the above steps for the second node of your device. Make sure that the same NTP server is used for both the nodes.
-
-::: zone-end 
 
 ## Next steps
 
