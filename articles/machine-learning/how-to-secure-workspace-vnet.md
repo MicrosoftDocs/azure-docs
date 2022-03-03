@@ -207,7 +207,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information.
+    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information. The v1 extension does not return this information.
 
     ```azurecli-interactive
     az ml workspace show -w yourworkspacename -g resourcegroupname --query 'container_registry'
