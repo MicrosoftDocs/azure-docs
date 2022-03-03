@@ -14,7 +14,7 @@ ms.custom: mvc
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
 ## Update (February 2022)
-- Azure Migrate is now supported in Azure China. [Learn more](/azure/china/overview-operations.md#azure-operations-in-china).
+- Azure Migrate is now supported in Azure China. [Learn more](/azure/china/overview-operations#azure-operations-in-china).
 - Public preview of at-scale, software inventory, and agentless dependency analysis for Hyper-V virtual machines and bare metal servers or servers running on other clouds like AWS, GCP etc.
 
 ## Update (December 2021)
