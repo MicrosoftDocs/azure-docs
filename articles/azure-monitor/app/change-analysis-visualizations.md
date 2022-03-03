@@ -99,7 +99,7 @@ You can view Change Analysis data for [multiple Azure resources](./change-analys
 1. Within your resource, select **Diagnose and solve problems** from the left menu.
 1. Under **Common problems**, select **View change details** to view the filtered view from Change Analysis standalone UI.
 
-:::image type="content" source="./media/change-analysis/diagnose-tool-other-resources.png" alt-text="Screenshot of viewing common problems in Diagnose and Solve Problems tool.":::  
+   :::image type="content" source="./media/change-analysis/diagnose-tool-other-resources.png" alt-text="Screenshot of viewing common problems in Diagnose and Solve Problems tool.":::  
 
 ## Activity Log change history
 
@@ -115,7 +115,7 @@ Use the [View change history](../essentials/activity-log.md#view-change-history)
 1. Once registered, you can view changes from **Azure Resource Graph** immediately from the past 14 days.
    - Changes from other sources will be available after ~4 hours after subscription is onboard.
 
-:::image type="content" source="./media/change-analysis/activity-log-change-history.png" alt-text="Activity Log change history integration":::   
+   :::image type="content" source="./media/change-analysis/activity-log-change-history.png" alt-text="Activity Log change history integration":::   
 
 ## VM Insights integration
 
