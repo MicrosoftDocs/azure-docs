@@ -143,7 +143,7 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 
 ## Application extension properties
 
-- [Create extension properties](/graph/api/application-list-extensionproperty)
+- [Create extension properties](/graph/api/application-post-extensionproperty)
 - [List extension properties](/graph/api/application-list-extensionproperty)
 - [Get an extension property](/graph/api/extensionproperty-get)
 - [Delete extension property](/graph/api/extensionproperty-delete)
