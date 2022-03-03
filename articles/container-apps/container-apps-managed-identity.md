@@ -4,7 +4,7 @@ description: Using Managed identity in Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
-ms.topic: concept
+ms.topic: conceptualAQ
 ms.date: 02/08/2022
 ms.author: v-bcatherine
 
@@ -12,23 +12,26 @@ ms.author: v-bcatherine
 
 # Managed Identities in Azure Container Apps Preview
 
-A managed identity from Azure Active Directory (Azure AD) allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../articles/active-directory/managed-identities-azure-resources/overview.md).
+A managed identity from Azure Active Directory (Azure AD) allows your container app to access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../articles/active-directory/managed-identities-azure-resources/overview.md).
 
 Your container app can be granted two types of identities:
 
-- A **system-assigned identity** is tied to your app and is deleted if your app is deleted. An app can only have one system-assigned identity.
-- A **user-assigned identity** is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
+> [!NOTE]
+> Is the system assigned identity deleted when the app revision deactivated.?
+
+- A **system-assigned identity** is tied to your container app and is deleted when your container app is deleted. An app can only have one system-assigned identity.
+- A **user-assigned identity** is a standalone Azure resource that can be assigned to your container app. A container app can have multiple user-assigned identities. 
 
 ## Why use a managed identity?
 
-Use a managed identity in a running container app to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) without managing credentials in your container code. For services that don't support AD authentication, you can store secrets in an Azure key vault and use the managed identity to access the key vault to retrieve credentials. For more information about using a managed identity, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+You can use a managed identity in a running container app to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) without managing credentials in your container app. To authenicate with services hat don't support AD authentication, you can store secrets in an Azure key vault and use the managed identity to access the key vault to retrieve credentials. For more information about using a managed identity, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 ## Limitations
 
 There are a few limitations that will be addressed in future releases.
 
 - You can't use a managed identity to pull an image from Azure Container Registry when creating a container app. The identity is only available within a running container.
-- Currently, you can't use managed identity in scaling rules.  Resources that require a connection string or key, such as  storage resources, will still need to define the connection string or key in the`secretref` of the scaling rule.
+- Currently, you can't use managed identity in scaling rules.  To access resources that require a connection string or key, such as  storage resources, you will still need to include the connection string or key in the`secretref` of the scaling rule.
 
 ## How to configure managed identities
 
@@ -38,7 +41,8 @@ There are different ways to configure managed identities.
 * Add and delete managed identities via the Azure portal.
 * Add and delete managed identities via the Azure CLI.
 
-???What happens to the container when an identity is adding or deleted to a running app.  Will this cause a restart of the container app?
+> [!NOTE] 
+>What happens to the container when an identity is added or deleted to a running app.  Will this cause a restart of the container app?
 
 
 ## Add a system-assigned identity
@@ -76,7 +80,10 @@ az containerapp identity assign --name myApp --resource-group myResourceGroup
 
 An Azure Resource Manager template can be used to automate deployment of your Azure resources. 
 
-??? what is appropriate here???
+
+> [!NOTE]
+> ??? what is appropriate here???
+> Need an ARM template
 
 Any resource of type `Microsoft.Web/sites` can be created with an identity by including the following property in the resource definition:
 
@@ -254,7 +261,8 @@ The principalId is a unique identifier for the identity that's used for Azure AD
 
 ## Configure target resource
 
-??? does any of this apply ???
+> [!NOTE]
+> ??? does any of this apply ???
 
 You may need to configure the target resource to allow access from your app. For example, if you [request a token](#connect-to-azure-services-in-app-code) to access Key Vault, you must also add an access policy that includes the managed identity of your app or function. Otherwise, your calls to Key Vault will be rejected, even if you use a valid token. The same is true for Azure SQL Database. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
@@ -265,7 +273,8 @@ You may need to configure the target resource to allow access from your app. For
 
 With its managed identity, an app can obtain tokens for Azure resources that are protected by Azure Active Directory, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application accessing the resource, and not any specific user of the application. 
 
-???  Do we do this ???
+> [!NOTE]
+> ???  Do we do this ???
 
 Container Apps provides an internally accessible [REST endpoint](#rest-endpoint-reference) for token retrieval. The REST endpoint can be accessed from within the app with a standard HTTP GET, which can be implemented with a generic HTTP client in every language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint and simplifies the development experience. Connecting to other Azure services is as simple as adding a credential object to the service-specific client.
 
