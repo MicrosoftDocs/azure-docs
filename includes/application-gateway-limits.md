@@ -38,6 +38,8 @@ ms.author: victorh
 | Maximum file upload size (Standard SKU) |V2 - 4 GB<br>V1 - 2GB | |
 | Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4GB<sup>3</sup>| |
 | WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128KB<br>V2 (with CRS 3.2 or newer) - 2MB<sup>3</sup>| |
+| Maximum Private Link Configurations| 2 | 1 for public IP, 1 for private IP |
+| Maximum Private Link IP Configurations| 8 | |
 | Maximum WAF custom rules|100||
 | Maximum WAF exclusions per Application Gateway|40||
 
