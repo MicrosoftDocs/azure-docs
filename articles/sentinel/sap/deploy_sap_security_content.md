@@ -11,7 +11,7 @@ ms.date: 02/01/2022
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-The following article provides a step-by-step guidance to deploy Microsoft Sentinel continuous protection for SAP data connector Virtual Machine in Azure. Azure key vault will be used to store secrets (such as credentials to access SAP and Log Analytics workspace). Virtual Machine will use Azure Managed identity to authenticate to Azure key vault.
+The following article provides a step-by-step guidance to deploy Microsoft Sentinel security content into existing Microsoft Sentinel workspace.
 
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
