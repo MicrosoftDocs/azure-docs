@@ -126,8 +126,8 @@ The Azure Monitor agent supports Azure service tags (both AzureMonitor and Azure
 |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
 |------|------|---------|--------|--------|
 |global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes |  
-|<virtual-machine-region-name>.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |  
-|<log-analytics-workspace-id>.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes |  
+|`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |  
+|`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes |  
 
 If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)
 
