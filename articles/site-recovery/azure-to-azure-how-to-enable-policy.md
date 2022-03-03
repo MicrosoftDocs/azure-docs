@@ -65,7 +65,7 @@ To create a policy assignment for the built-in Azure Site Recovery policy that e
    
    :::image type="content" source="./media/azure-to-azure-how-to-enable-policy/select-assignments.png" alt-text="Screenshot of selecting Assignments from the Azure Policy overview page." border="false":::
 
-1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
+1. Select **Assign policy** from the top of the **Policy - Assignments** page.
 
    :::image type="content" source="./media/azure-to-azure-how-to-enable-policy/select-assign-policy.png" alt-text="Screenshot of selecting Assign Policy from the Assignments page." border="false":::
 
@@ -74,7 +74,7 @@ To create a policy assignment for the built-in Azure Site Recovery policy that e
    > [!NOTE]
    > You can also choose to exclude a few resource groups from assignment of the policy by selecting them under **Exclusions**. This ability is useful when you want to assign the policy to all but a few resource groups in a subscription. 
 
-1. Open the Policy Definition Picker by selecting the ellipses next to **Policy definition**. Search for **disaster recovery** or **site recovery**. You'll find a built-in policy titled **Configure disaster recovery on virtual machines by enabling replication via Azure Site Recovery**. Select it and click **Select**.
+1. Open the policy definition picker by selecting the ellipses next to **Policy definition**. Search for **disaster recovery** or **site recovery**. You'll find a built-in policy titled **Configure disaster recovery on virtual machines by enabling replication via Azure Site Recovery**. Select it and click **Select**.
 
    :::image type="content" source="./media/azure-to-azure-how-to-enable-policy/select-policy-definition.png" alt-text="Screenshot of selecting a policy definition from the Basics page." border="true":::
 
@@ -84,7 +84,7 @@ To create a policy assignment for the built-in Azure Site Recovery policy that e
 
 ## Configure target settings and properties
 
-You're on your way to creating a policy to enable Azure Site Recovery. Now, configure the target settings and properties:
+You're on your way to creating a policy that enables Azure Site Recovery. Now, configure the target settings and properties:
 
 1. Go to the **Parameters** tab in the **Assign policy** workflow. Clear **Only show parameters that need input or review**. The parameters look as follows:
 
@@ -101,15 +101,15 @@ You're on your way to creating a policy to enable Azure Site Recovery. Now, conf
     - **Target Resource Group**: Enter the resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region.
     - **Vault Resource Group**: Enter the resource group in which the Recovery Services vault exists.
     - **Recovery Services Vault**: This is the vault in which all the VMs of the scope will be protected. The policy can create a new vault on your behalf, if required.
-    - **Recovery Virtual Network** **(optional)**: Pick an existing virtual network in the target region to be used for the recovery virtual machine. The policy can create a new virtual network for you, if required.
+    - **Recovery Virtual Network** **(optional)**: Choose an existing virtual network in the target region to be used for the recovery virtual machine. The policy can create a new virtual network for you, if required.
     - **Target Availability Zone** **(optional)**: Enter the availability zone of the target region where the virtual machine will fail over. If some of the virtual machines in your resource group are already in the target availability zone, the policy won't be applied to them in case you're setting up zone-to-zone DR.
     - **Cache storage account** **(optional)**: Azure Site Recovery makes use of a storage account for caching replicated data in the source region. Select an account of your choice. You can choose the default cache storage account if you don't have any special considerations.
     
       > [!NOTE]
       > Before you choose a cache storage account, check the cache storage account limits in the [support matrix](../site-recovery/azure-to-azure-support-matrix.md#cache-storage). 
 
-    - **Tag name** **(optional)**: You can apply tags to your replicated VMs to logically organize them into a taxonomy. Each tag consists of a name/value pair. An example tag name is **Environment**. 
-    - **Tag values** **(optional)**: You can use this field to enter a tag value, such as **Production**.
+    - **Tag name** **(optional)**: You can apply tags to your replicated VMs to logically organize them into a taxonomy. Each tag consists of a name/value pair. For example, enter **Environment**. 
+    - **Tag values** **(optional)**: You can use this field to enter a tag value. For example, enter **Production**.
     - **Tag type** **(optional)**: You can use tags to include VMs as part of the policy assignment by selecting **Tag type = Inclusion**. This type ensures that only the VMs that have the tag (provided via **Tag name** and **Tag values** fields) are included in the policy assignment. 
     
       Alternatively, you can choose **Tag type = Exclusion**. This type ensures that the VMs that have the tag (provided via **Tag name** and **Tag values** fields) are excluded from the policy assignment. 
@@ -137,7 +137,7 @@ To create a remediation task and set other properties:
 
 ## Check the protection status of VMs after policy assignment
 
-After you assign the policy, wait for up to 1 hour for replication to be enabled. After that, go to the Recovery Services vault that you chose during policy assignment and look for replication jobs. You should be able to locate all VMs for which Site Recovery was enabled via policy in this vault.  
+After you assign the policy, wait for up to 1 hour for replication to be enabled. After that, go to the Recovery Services vault that you chose during policy assignment and look for replication jobs. You should be able to find all VMs for which Site Recovery was enabled via policy in this vault.  
 
 If the VMs don't show up in the vault as protected, you can go back to the policy assignment and try to remediate. 
 
