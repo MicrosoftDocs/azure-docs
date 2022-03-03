@@ -117,14 +117,14 @@ In this quickstart, we use a Service Fabric managed cluster named **quickstartsf
     - `Username`: Enter a username for your managed cluster's administrator account.
     - `Password`: Enter a password for your managed cluster's administrator account.
     - `Confirm password`: Reenter the password you chose.
-    - `Key vault and primary certificates`: Choose **Select a certificate**, pictured below. Select your Azure Key Vault from the **Key vault** dropdown menu and your certificate from the **Certificate** dropdown menu, pictured below.
+    - `Key vault and primary certificate`: Choose **Select a certificate**, pictured below. Select your Azure Key Vault from the **Key vault** dropdown menu and your certificate from the **Certificate** dropdown menu, pictured below.
     - Leave the other options as their defaults.
 
    ![Choose Select a certificate in the Authentication method section of the settings.](./media/quickstart-managed-cluster-portal/create-a-service-fabric-managed-cluster-authentication-method.png)
 
    ![Select your Azure Key Vault and certificate from the dropdown menus.](./media/quickstart-managed-cluster-portal/select-a-certificate-from-azure-key-vault.png)
 
-   If you didn't already change your Azure Key Vault's access policies, you may get text prompting you to do so after you select your key vault and certificate. If so, choose **Edit access policies for yourkeyvaultname**, select **Click to show advanced access policies**, toggle **Azure Virtual Machines for deployment**, and save your changes.
+   If you didn't already change your Azure Key Vault's access policies, you may get text prompting you to do so after you select your key vault and certificate. If so, choose **Edit access policies for yourkeyvaultname**, select **Click to show advanced access policies**, toggle **Azure Virtual Machines for deployment**, and save your changes. Click **Create a Service Fabric managed cluster** to return to the creation page.
 
 1. Select **Review + create** and, once the validation passes, choose **Create**.
 
