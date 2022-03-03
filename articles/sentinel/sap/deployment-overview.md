@@ -18,11 +18,11 @@ This article takes you step by step through the process of deploying Microsoft S
 
 ## Overview
 
-[Microsoft Sentinel solutions](../sentinel-solutions.md) includes bundled security content, such as threat detections, workbooks, and watchlists. With these solutions, you can onboard Microsoft Sentinel security content for a specific data connector by using a single process.
+[Microsoft Sentinel solutions](../sentinel-solutions.md) includes bundled security content, such as threat detections, workbooks, and watchlists. With these solutions, onboarding Microsoft Sentinel security content for a specific workload is simplified into a streamlined experience.
 
-By using the Microsoft Sentinel SAP data connector, you can monitor SAP systems for sophisticated threats within the business and application layers.
+Using Microsoft Sentinel SAP data connector, SAP systems can be monitored for sophisticated threats within the business and application layers.
 
-The SAP data connector streams 14 application logs from the entire SAP system landscape. The data connector collects logs from Advanced Business Application Programming (ABAP) via NetWeaver RFC calls and from file storage data via OSSAP Control interface. The SAP data connector adds to the ability of Microsoft Sentinel to monitor the SAP underlying infrastructure.
+The SAP data connector streams a number of application logs from the entire SAP system landscape. The data connector collects logs from Advanced Business Application Programming (ABAP) via NetWeaver RFC calls and from file storage data via OSSAP Control interface. The SAP data connector adds to the ability of Microsoft Sentinel to monitor the SAP infrastructure.
 
 To ingest SAP logs into Microsoft Sentinel, Microsoft Sentinel SAP data connector needs to be installed and connected to SAP environment. Microsoft Sentinel SAP data connector is packaged as a Docker container. For the deployment, it is recommended to deploy the container onto an Azure virtual machine, however deployment to a an on-premise physical or virtual machine is also supported.
 
