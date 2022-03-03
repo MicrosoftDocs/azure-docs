@@ -69,6 +69,8 @@ landingContent:
             url: ./concepts/authentication.md
           - text: Anchor relationships and way-finding
             url: ./concepts/anchor-relationships-way-finding.md
+          - text: Sharing across sessions and devices
+            url: ./tutorials/tutorial-share-anchors-across-devices.md
           - text: Coarse relocalization
             url: ./concepts/coarse-reloc.md
             
