@@ -31,11 +31,11 @@ If you’re routing back to your on-premises networks using only a default route
 
 Now that you've covered Azure VMware Solution network design considerations, you might consider learning more.
 
-- [Network interconnectivity concepts - Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/concepts-networking)
+- [Network interconnectivity concepts - Azure VMware Solution](concepts-networking.md)
 
 ## Recommended content
 
-- [Tutorial - Configure networking for your VMware private cloud in Azure - Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/tutorial-network-checklist)
+- [Tutorial - Configure networking for your VMware private cloud in Azure - Azure VMware Solution](tutorial-network-checklist.md)
 
 
 
