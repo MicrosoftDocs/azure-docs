@@ -121,6 +121,8 @@ items:
       href: manage-integration-runtimes.md
     - name: Create Service Principal
       href: create-service-principal-azure.md
+    - name: Request access to source
+      href: how-to-request-access.md
   - name: Sources
     items: 
     - name: Azure Multiple Source
