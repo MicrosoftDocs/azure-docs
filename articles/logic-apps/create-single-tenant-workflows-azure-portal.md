@@ -7,6 +7,8 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 03/02/2022
 ms.custom: ignite-fall-2021
+
+#Customer intent: As a developer, I want to create an automated integration workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal
@@ -60,7 +62,7 @@ As you progress, you'll complete these high-level tasks:
 
 <a name="create-logic-app-resource"></a>
 
-## Create the logic app resource
+## Create a Standard logic app resource
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
