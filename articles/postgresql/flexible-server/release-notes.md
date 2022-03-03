@@ -5,6 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: overview
 ms.date: 02/28/2022
 ---
