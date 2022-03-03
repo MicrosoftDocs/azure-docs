@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 03/03/2022
 ms.custom: "project-no-code, ignite-fall-2021, b2c-support"
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -167,7 +167,7 @@ For more information about accessing Azure AD B2C audit logs, see [Accessing Azu
 When you want to manage Microsoft Graph, you can either do it as the application using the application permissions, or you can use delegated permissions. For delegated permissions, either the user or an administrator consents to the permissions that the app requests. The app is delegated with the permission to act as a signed-in user when it makes calls to the target resource. Application permissions are used by apps that do not require a signed in user present and thus require application permissions. Because of this, only administrators can consent to application permissions.
 
 > [!NOTE]
-> Delegated permissions for users signing in through user flows or custom policies cannot be used against delegated permissions for Microsoft Graph.
+> Delegated permissions for users signing in through user flows or custom policies cannot be used against delegated permissions for Microsoft Graph API.
 ## Code sample: How to programmatically manage user accounts
 
 This code sample is a .NET Core console application that uses the [Microsoft Graph SDK](/graph/sdks/sdks-overview) to interact with Microsoft Graph API. Its code demonstrates how to call the API to programmatically manage users in an Azure AD B2C tenant.
@@ -212,46 +212,11 @@ The `RunAsync` method in the _Program.cs_ file:
 1. Initializes the auth provider using [OAuth 2.0 client credentials grant](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) flow. With the client credentials grant flow, the app is able to get an access token to call the Microsoft Graph API.
 1. Sets up the Microsoft Graph service client with the auth provider:
 
-    ```csharp
-    // Read application settings from appsettings.json (tenant ID, app ID, client secret, etc.)
-    AppSettings config = AppSettingsFile.ReadFromJsonFile();
-
-    // Initialize the client credential auth provider
-    IConfidentialClientApplication confidentialClientApplication = ConfidentialClientApplicationBuilder
-        .Create(config.AppId)
-        .WithTenantId(config.TenantId)
-        .WithClientSecret(config.ClientSecret)
-        .Build();
-    ClientCredentialProvider authProvider = new ClientCredentialProvider(confidentialClientApplication);
-
-    // Set up the Microsoft Graph service client with client credentials
-    GraphServiceClient graphClient = new GraphServiceClient(authProvider);
-    ```
+:::code language="csharp" source="~/ms-identity-dotnetcore-b2c-account-management/src/Program.cs" id="ms_docref_set_auth_provider":::
 
 The initialized *GraphServiceClient* is then used in _UserService.cs_ to perform the user management operations. For example, getting a list of the user accounts in the tenant:
 
-```csharp
-public static async Task ListUsers(GraphServiceClient graphClient)
-{
-    Console.WriteLine("Getting list of users...");
-
-    // Get all users (one page)
-    var result = await graphClient.Users
-        .Request()
-        .Select(e => new
-        {
-            e.DisplayName,
-            e.Id,
-            e.Identities
-        })
-        .GetAsync();
-
-    foreach (var user in result.CurrentPage)
-    {
-        Console.WriteLine(JsonConvert.SerializeObject(user));
-    }
-}
-```
+:::code language="csharp" source="~/ms-identity-dotnetcore-b2c-account-management/src/Services/UserService.cs" id="ms_docref_get_list_of_user_accounts":::
 
 [Make API calls using the Microsoft Graph SDKs](/graph/sdks/create-requests) includes information on how to read and write information from Microsoft Graph, use `$select` to control the properties returned, provide custom query parameters, and use the `$filter` and `$orderBy` query parameters.
 

@@ -807,6 +807,12 @@
       "branch": "master",
       "branch_mapping": {}
     },
+    {  
+      "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
+      "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
+      "branch": "master",
+      "branch_mapping": {}
+    },
     {
       "path_to_root": "msdocs-python-flask-webapp-quickstart",
       "url": "https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart",
@@ -887,6 +893,7 @@
     "articles/purview/.openpublishing.redirection.purview.json",
     "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
     "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
+    "articles/spatial-anchors/.openpublishing.redirection.spatial-anchors.json",
     "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
     "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
     "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
