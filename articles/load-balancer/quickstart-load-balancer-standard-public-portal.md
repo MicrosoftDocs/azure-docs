@@ -74,47 +74,9 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
 11. Select the **Review + create** tab or select the **Review + create** button.
 
 12. Select **Create**.
-
-When the virtual network and bastion host is created, proceed to the next section.
-
-## Create NAT gateway
-
-In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
-
-1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
-
-2. In **NAT gateways**, select **+ Create**.
-
-3. In **Create network address translation (NAT) gateway**, enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **CreatePubLBQS-rg**. |
-    | **Instance details** |    |
-    | NAT gateway name | Enter **myNATgateway**. |
-    | Region | Select **West Europe**. |
-    | Availability zone | Select **None**. |
-    | Idle timeout (minutes) | Enter **15**. |
-
-4. Select the **Outbound IP** tab or select **Next: Outbound IP** at the bottom of the page.
-
-5. In **Outbound IP**, select **Create a new public IP address** next to **Public IP addresses**.
-
-6. Enter **myNATgatewayIP** in **Name**.
-
-7. Select **OK**.
-
-8. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
-
-9. In **Virtual network** in the **Subnet** tab, select **myVNet**.
-
-10. Select **myBackendSubnet** under **Subnet name**.
-
-11. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
-
-12. Select **Create**.
+    
+    > [!NOTE]
+    > The virtual network and subnet are created immediately. The Bastion host creation is submitted as a job and will complete within 10 minutes. You can proceed to the next steps while the Bastion host is creating.
 
 ## Create load balancer
 
@@ -207,10 +169,6 @@ During the creation of the load balancer, you'll configure:
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-<<<<<<< HEAD
-=======
-    | Backend pool | Select **myBackendPool**. |
->>>>>>> 50c5f7fcc0af0abb0eaeafcc07f1a23a33ab9098
     | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
@@ -225,8 +183,47 @@ During the creation of the load balancer, you'll configure:
 27. Select **Create**.
 
     > [!NOTE]
-    > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
+    > In this example we'll create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
     > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
+
+## Create NAT gateway
+
+In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
+
+1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
+
+2. In **NAT gateways**, select **+ Create**.
+
+3. In **Create network address translation (NAT) gateway**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **CreatePubLBQS-rg**. |
+    | **Instance details** |    |
+    | NAT gateway name | Enter **myNATgateway**. |
+    | Region | Select **West Europe**. |
+    | Availability zone | Select **None**. |
+    | Idle timeout (minutes) | Enter **15**. |
+
+4. Select the **Outbound IP** tab or select **Next: Outbound IP** at the bottom of the page.
+
+5. In **Outbound IP**, select **Create a new public IP address** next to **Public IP addresses**.
+
+6. Enter **myNATgatewayIP** in **Name**.
+
+7. Select **OK**.
+
+8. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
+
+9. In **Virtual network** in the **Subnet** tab, select **myVNet**.
+
+10. Select **myBackendSubnet** under **Subnet name**.
+
+11. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
+
+12. Select **Create**.
 
 ## Create virtual machines
 
