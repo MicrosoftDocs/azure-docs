@@ -1,17 +1,17 @@
 ---
-title: How to use Microsoft Defender for container registries
-description: Learn about using Microsoft Defender for container registries to scan Linux images in your Linux-hosted registries
-ms.date: 12/09/2021
+title: How to use Defender for Containers
+description: Learn how to use  Defender for Containers to scan Linux images in your Linux-hosted registries
+ms.date: 03/03/2022
 ms.topic: how-to
 ---
 
-# Use Microsoft Defender for container registries to scan your images for vulnerabilities
+# Use Defender for Containers to scan your images for vulnerabilities
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This page explains how to use the built-in vulnerability scanner to scan the container images stored in your Azure Resource Manager-based Azure Container Registry.
 
-When **Microsoft Defender for container registries** is enabled, any image you push to your registry will be scanned immediately. In addition, any image pulled within the last 30 days is also scanned.
+When **Defender for Containers** is enabled, any image you push to your registry will be scanned immediately. In addition, any image pulled within the last 30 days is also scanned.
 
 When the scanner reports vulnerabilities to Defender for Cloud, Defender for Cloud presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
 
@@ -22,7 +22,7 @@ When the scanner reports vulnerabilities to Defender for Cloud, Defender for Clo
 
 To enable vulnerability scans of images stored in your Azure Resource Manager-based Azure Container Registry:
 
-1. Enable **Microsoft Defender for container registries** for your subscription. Defender for Cloud is now ready to scan images in your registries.
+1. Enable **Defender for Containers** for your subscription. Defender for Cloud is now ready to scan images in your registries.
 
     >[!NOTE]
     > This feature is charged per image.
