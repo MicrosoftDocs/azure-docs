@@ -1072,7 +1072,7 @@ In this example, we match all requests from IP addresses in the range 5.5.5.64/2
 
 ## Client port
 
-The **client port** match condition identifies requests based on the IP port of the client that made the request. You can specify multiple values to match, which will be combined using OR logic. 
+The **client port** match condition identifies requests based on the TCP port of the client that made the request. You can specify multiple values to match, which will be combined using OR logic. 
 
 > [!NOTE]
 > The **client port** match condition is only available on Azure Front Door Standard/Premium.
@@ -1128,7 +1128,7 @@ In this example, we match all requests with a client port of 1234.
 
 ## Server port
 
-The **server port** match condition identifies requests based on the IP port of the Azure Front Door server that accepted the request. You can specify multiple values to match, which will be combined using OR logic. 
+The **server port** match condition identifies requests based on the TCP port of the Azure Front Door server that accepted the request. You can specify multiple values to match, which will be combined using OR logic. 
 
 > [!NOTE]
 > The **server port** match condition is only available on Azure Front Door Standard/Premium.
