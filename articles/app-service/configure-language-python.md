@@ -36,23 +36,23 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
   - Show the current Python version with [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
 
-        ```azurecli
-        az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
-        ```
+    ```azurecli
+    az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+    ```
 
-        Replace `<resource-group-name>` and `<app-name>` with the names appropriate for your web app.
+    Replace `<resource-group-name>` and `<app-name>` with the names appropriate for your web app.
 
   - Set the Python version with [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set)
 
-        ```azurecli
-        az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
-        ```
+    ```azurecli
+    az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
+    ```
 
   - Show all Python versions that are supported in Azure App Service with [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
 
-        ```azurecli
-        az webapp list-runtimes --os linux | grep PYTHON
-        ```
+    ```azurecli
+    az webapp list-runtimes --os linux | grep PYTHON
+    ```
 
 You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-linux).
 
