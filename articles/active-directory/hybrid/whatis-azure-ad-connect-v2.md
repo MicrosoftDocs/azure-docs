@@ -15,9 +15,9 @@ ms.collection: M365-identity-device-management, has-adal-ref
 
 # Introduction to Azure AD Connect V2.0 
 
-The first version of Azure Active Directory (Azure AD) Connect was released several years ago. Since then, we've scheduled several components of Azure AD Connect for deprecation and updates to newer versions. 
+The first version of Azure Active Directory (Azure AD) Connect was released several years ago. Since then, we've scheduled several components of Azure AD Connect for deprecation and updated them to newer versions. 
 
-To update all these components individually requires a lot of time and planning. To address this drawback, we've bundled as many of these newer components into a new, single release, so you have to update Azure AD Connect only once. This release, Azure AD Connect V2.0, is the same software you're already using to accomplish your hybrid identity goals, but it's updated with the latest foundational components. 
+Making updates to all these components individually requires a lot of time and planning. To address this drawback, we've bundled many of the newer components into a new, single release, so you have to update Azure AD Connect only once. This release, Azure AD Connect V2.0, is the same software you're already using to accomplish your hybrid identity goals, but it's updated with the latest foundational components. 
 
 ## What are the major changes? 
 
