@@ -26,11 +26,10 @@ ams account update
 #"""
 # </AmsAccountUpdate>
 
+#type: command
+#short-summary: List Azure Media Services accounts for the entire subscription.
 # <AmsAccountList>
 ams account list
-    #type: command
-    #short-summary: List Azure Media Services accounts for the entire subscription.
-#"""
 # </AmsAccountList>
 
 # <AmsAccountShow>
@@ -84,28 +83,37 @@ ams account encryption set
           #text: >
             #az ams account encryption set -a myAmsAccount -g myRG --key-type SystemKey
 #"""
-# <AmsAccountEncryptionSet>
+# </AmsAccountEncryptionSet>
 
+# <AmsAccountStorage>
 ams account storage
     #type: group
     #short-summary: Manage storage for an Azure Media Services account.
 #"""
+# </AmsAccountStorage>
 
+# <AmsAccountStorageAdd>
 ams account storage add
     #type: command
     #short-summary: Attach a secondary storage to an Azure Media Services account.
 #"""
+# </AmsAccountStorageAdd>
 
+# <AmsAccountStorageRemove>
 ams account storage remove
     #type: command
     #short-summary: Detach a secondary storage from an Azure Media Services account.
 #"""
+# </AmsAccountStorageRemove>
 
+# <AmsAccountSp>
 ams account sp
     #type: group
     #short-summary: Manage service principal and role based access for an Azure Media Services account.
 #"""
+# </AmsAccountStorageSp>
 
+# <AmsAccountSpCreate>
 ams account sp create
     #type: command
     #short-summary: Create or update a service principal and configure its access to an Azure Media Services account.
@@ -118,37 +126,51 @@ ams account sp create
           #text: >
             #az ams account sp create -a myAmsAccount -g myRG -n mySpName --new-sp-name myNewSpName --role newRole
     #"""
+# </AmsAccountSpCreate>
 
+# <AmsAccountSpResetCredentials>
 ams account sp reset-credentials
     #type: command
     #short-summary: Generate a new client secret for a service principal configured for an Azure Media Services account.
 #"""
+# <AmsAccountSpResetCredentials>
 
+# <AccountStorageSyncStorageKeys>
 ams account storage sync-storage-keys
     #type: command
     #short-summary: Synchronize storage account keys for a storage account associated with an Azure Media Services account.
 #"""
+# </AccountStorageSyncStorageKeys>
 
+# <AccountStorageSetAuthentication>
 ams account storage set-authentication
     #type: command
     #short-summary: Set the authentication of a storage account attached to an Azure Media Services account.
 #"""
+# </AccountStorageSetAuthentication>
 
+# <AmsTransform>
 ams transform
     #type: group
     #short-summary: Manage transforms for an Azure Media Services account.
 #"""
+# </AmsTransform>
 
+# <AmsTransformList>
 ams transform list
     #type: command
     #short-summary: List all the transforms of an Azure Media Services account.
 #"""
+# </AmsTransformList>
 
+# <AmsTransformShow>
 ams transform show
     #type: command
     #short-summary: Show the details of a transform.
 #"""
+# </AmsTransformShow>
 
+# <AmsTransformCreate>
 ams transform create
     #type: command
     #short-summary: Create a transform.
@@ -160,12 +182,16 @@ ams transform create
           #text: >
             #az ams transform create -a myAmsAccount -n transformName -g myResourceGroup --preset \"C:\\MyPresets\\CustomPreset.json\" --relative-priority Low
     #"""
+# </AmsTransformCreate>
 
+# <AmsTransformDelete>
 ams transform delete
     #type: command
     #short-summary: Delete a transform.
 #"""
+# </AmsTransformDelete>
 
+# <AmsTransformUpdate>
 ams transform update
     #type: command
     #short-summary: Update the details of a transform.
@@ -174,12 +200,16 @@ ams transform update
           #text: >
             #az ams transform update -a myAmsAccount -n transformName -g myResourceGroup --set outputs[0].relativePriority=High
     #"""
+# </AmsTransformUpdate>
 
+# <AmsTransformOutput>
 ams transform output
     #type: group
     #short-summary: Manage transform outputs for an Azure Media Services account.
 #"""
+# </AmsTransformOutput>
 
+# <AmsTransformOutputAdd>
 ams transform output add
     #type: command
     #short-summary: Add an output to an existing transform.
@@ -191,7 +221,9 @@ ams transform output add
           #text: >
             #az ams transform output add -a myAmsAccount -n transformName -g myResourceGroup --preset VideoAnalyzer --audio-language es-ES --insights-to-extract AudioInsightsOnly
     #"""
+# </AmsTransformOutputAdd>
 
+# <AmsTransformOutputRemove>
 ams transform output remove
     #type: command
     #short-summary: Remove an output from an existing transform.
@@ -200,27 +232,37 @@ ams transform output remove
           #text: >
             #az ams transform output remove -a myAmsAccount -n transformName -g myResourceGroup --output-index 1
 #"""
+# </AmsTransformOutputRemove>
 
+# <AmsAsset>
 ams asset
     #type: group
     #short-summary: Manage assets for an Azure Media Services account.
 #"""
+# </AmsAsset>
 
+# <AmsAssetFilter>
 ams asset-filter
     #type: group
     #short-summary: Manage asset filters for an Azure Media Services account.
 #"""
+# </AmsAssetFilter>
 
+# <AmsAccountFilter>
 ams account-filter
     #type: group
     #short-summary: Manage account filters for an Azure Media Services account.
 #"""
+# </AmsAccountFilter>
 
+# <AmsAssetShow>
 ams asset show
     #type: command
     #short-summary: Show the details of an asset.
 #"""
+# </AmsAssetShow>
 
+# <AmsAssetList>
 ams asset list
     #type: command
     #short-summary: List all the assets of an Azure Media Services account.
@@ -229,37 +271,51 @@ ams asset list
           #text: >
             #az ams asset list -a amsAccount -g resourceGroup --query [?starts_with(name,'Something')]
 #"""
+# </AmsAssetList>
 
+# <AmsAssetListStreamingLocators>
 ams asset list-streaming-locators
     #type: command
     #short-summary: List streaming locators which are associated with this asset.
 #"""
+# </AmsAssetListStreamingLocators>
 
+# <AmsAssetCreate>
 ams asset create
     #type: command
     #short-summary: Create an asset.
 #"""
+# </AmsAssetCreate>
 
+# <AmsAssetUpdate>
 ams asset update
     #type: command
     #short-summary: Update the details of an asset.
 #"""
+# </AmsAssetUpdate>
 
+# <AmsAssetDelete>
 ams asset delete
     #type: command
     #short-summary: Delete an asset.
 #"""
+# </AmsAssetDelete>
 
+# <AmsAssetGetSASUrls>
 ams asset get-sas-urls
     #type: command
     #short-summary: Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
 #"""
+# </AmsAssetGetSASUrls>
 
+# <AmsAssetGetEncryptionKey>
 ams asset get-encryption-key
     #type: command
     #short-summary: Get the asset storage encryption keys used to decrypt content created by version 2 of the Media Services API.
 #"""
+# </AmsAssetGetEncryptionKey>
 
+# <AmsAssetFilterCreate>
 ams asset-filter create
     #type: command
     #short-summary: Create an asset filter.
@@ -268,32 +324,44 @@ ams asset-filter create
           #text: >
             #az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --force-end-timestamp=False --end-timestamp 200000 --start-timestamp 100000 --live-backoff-duration 60 --presentation-window-duration 600000 --timescale 1000 --first-quality 720 --asset-name assetName --tracks @C:\\tracks.json
 #"""
+# </AmsAssetFilterCreate>
 
+# <AmsAssetFilterUpdate>
 ams asset-filter update
     #type: command
     #short-summary: Update the details of an asset filter.
 #"""
+# </AmsAssetFilterUpdate>
 
+# <AmsAssetFilterDelete>
 ams asset-filter delete
     #type: command
     #short-summary: Delete an asset filter.
 #"""
+# </AmsAssetFilterDelete>
 
+# <AmsAssetFilterList>
 ams asset-filter list
     #type: command
     #short-summary: List all the asset filters of an Azure Media Services account.
 #"""
+# </AmsAssetFilterList>
 
+# <AmsAssetFilterShow>
 ams asset-filter show
     #type: command
     #short-summary: Show the details of an asset filter.
 #"""
+# </AmsAssetFilterShow>
 
+# <AmsContentKeyPolicy>
 ams content-key-policy
     #type: group
     #short-summary: Manage content key policies for an Azure Media Services account.
 #"""
+# </AmsContentKeyPolicy>
 
+# <AmsContentKeyPolicyCreate>
 ams content-key-policy create
     #type: command
     #short-summary: Create a new content key policy.
@@ -302,17 +370,23 @@ ams content-key-policy create
           #text: >
             #az ams content-key-policy create -a amsAccount -g resourceGroup -n contentKeyPolicyName --policy-option-name policyOptionName --open-restriction --ask "ask-32-chars-hex-string" --fair-play-pfx pfxPath --fair-play-pfx-password "pfxPassword" --rental-and-lease-key-type PersistentUnlimited --rental-duration 5000
 #"""
+# </AmsContentKeyPolicyCreate>
 
+# <AmsContentKeyPolicyShow>
 ams content-key-policy show
     #type: command
     #short-summary: Show an existing content key policy.
 #"""
+# </AmsContentKeyPolicyShow>
 
+# <AmsContentKeyPolicyDelete>
 ams content-key-policy delete
     #type: command
     #short-summary: Delete a content key policy.
 #"""
+# </AmsContentKeyPolicyDelete>
 
+# <AmsContentKeyPolicyUpdate>
 ams content-key-policy update
     #type: command
     #short-summary: Update an existing content key policy.
@@ -321,21 +395,28 @@ ams content-key-policy update
           #text: >
             #az ams content-key-policy update -n contentKeyPolicyName -a amsAccount --description newDescription --set options[0].restriction.issuer=newIssuer --set options[0].restriction.audience=newAudience
 #"""
+# </AmsContentKeyPolicyUpdate>
 
+# <AmsContentKeyPolicyList>
 ams content-key-policy list
     #type: command
     #short-summary: List all the content key policies within an Azure Media Services account.
 #"""
+# </AmsContentKeyPolicyList>
 
+# <AmsContentKeyPolicyOption>
 ams content-key-policy option
     #type: group
     #short-summary: Manage options for an existing content key policy.
 #"""
+# </AmsContentKeyPolicyOption>
 
+# <AmsContentKeyPolicyOptionAdd>
 ams content-key-policy option add
     #type: command
     #short-summary: Add a new option to an existing content key policy.
 #"""
+# </AmsContentKeyPolicyOptionAdd>
 
 ams content-key-policy option remove
     #type: command
