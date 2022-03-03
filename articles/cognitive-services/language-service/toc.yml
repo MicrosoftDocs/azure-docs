@@ -246,8 +246,6 @@ items:
         href: entity-linking/how-to/call-api.md
   - name: Reference
     items:
-    - name: Data and service limits
-      href: concepts/data-limits.md
     - name: REST API
       items:
         - name: v3.2-preview.2
@@ -313,8 +311,6 @@ items:
         href: ../containers/index.yml
   - name: Reference
     items:
-    - name: Data and service limits
-      href: concepts/data-limits.md
     - name: REST API
       items:
         - name: v3.2-preview.2
@@ -385,8 +381,6 @@ items:
       href: key-phrase-extraction/tutorials/integrate-power-bi.md
   - name: Reference
     items:
-    - name: Data and service limits
-      href: concepts/data-limits.md
     - name: REST API
       items:
         - name: v3.2-preview.2
@@ -449,8 +443,6 @@ items:
       href: named-entity-recognition/tutorials/extract-excel-information.md
   - name: Reference
     items:
-    - name: Data and service limits
-      href: concepts/data-limits.md
     - name: REST API
       items:
         - name: v3.2-preview.2
@@ -509,8 +501,6 @@ items:
       href: personally-identifiable-information/concepts/entity-categories.md 
   - name: Reference
     items:
-    - name: Data and service limits
-      href: concepts/data-limits.md
     - name: REST API
       items:
         - name: v3.2-preview.2
@@ -682,8 +672,6 @@ items:
       href: /learn/modules/python-flask-build-ai-web-app/
   - name: Reference
     items:
-    - name: Data and service limits
-      href: concepts/data-limits.md
     - name: REST API
       items:
         - name: v3.2-preview.2
@@ -756,8 +744,6 @@ items:
       href: text-analytics-for-health/concepts/assertion-detection.md
   - name: Reference
     items:
-    - name: Data and service limits
-      href: concepts/data-limits.md
     - name: REST API
       items:
         - name: v3.2-preview.2
@@ -811,8 +797,6 @@ items:
       href: text-summarization/how-to/call-api.md
   - name: Reference
     items:
-    - name: Data and service limits
-      href: concepts/data-limits.md
     - name: REST API
       items:
         - name: v3.2-preview.2
