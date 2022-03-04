@@ -1,0 +1,17 @@
+---
+author: IngridAtMicrosoft
+ms.service: media-services 
+ms.topic: include
+ms.date: 03/04/2022
+ms.author: inhenkel
+---
+
+<!-- ### List available locations -->
+
+## List available locations
+
+To list available locations, use the following command:
+
+:::code language="azurecli" source="cli-code-snippets.sh" id="ListLocations" interactive="azurecli-interactive":::
+
+[!INCLUDE [task-create-resource-group-cli](task-create-resource-group-cli.md)]

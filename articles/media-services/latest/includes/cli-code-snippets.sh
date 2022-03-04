@@ -22,7 +22,7 @@ az account list-locations
 az group create -n resourceGroupName --location chooseLocation
 # </CreateRG>
 
-#AMS
+#AMS COMMANDS
 #type: command
 #short-summary: Create an Azure Media Services account.
 # <AmsAccountCreate>
@@ -56,7 +56,7 @@ az ams account delete -n amsAccountName -g resourceGroupName
 #type: command
 #short-summary: Checks whether the Media Service resource name is available.
 # <AmsAccountCheckName>
-az ams account check-name --location chooseLocation --name amsAccountName
+az ams account check-name --location chooseLocation -n myAccountName
 # </AmsAccountCheckName>
 
 #type: command
