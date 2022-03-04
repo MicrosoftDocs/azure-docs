@@ -5,6 +5,7 @@
 ### For any other command, the name value is simply expressed as amsAccountName or liveEventName.
 ### This is to differentiate between giving something a name and referencing an object name.
 ### Where possible the shorthand command switch has been used instead of the verbose form.
+### DO NOT DELETE THIS FILE.  SNIPPETS ARE USED IN MANY PAGES.
 
 # AZURE
 # Azure storage
