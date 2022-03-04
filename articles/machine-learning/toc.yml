@@ -76,9 +76,6 @@
             - name: 2. Deploy that model
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
-        - name: Label image data
-          displayName: tag, tagging, images
-          href: tutorial-labeling.md
     - name: Visual Studio Code
       items:
         - name: Train a TensorFlow image classification model
