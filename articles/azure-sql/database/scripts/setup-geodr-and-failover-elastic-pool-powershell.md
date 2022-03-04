@@ -9,10 +9,11 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/12/2019
 ---
 # Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure PowerShell script example configures active geo-replication for a pooled database in Azure SQL Database and fails it over to the secondary replica of the database.

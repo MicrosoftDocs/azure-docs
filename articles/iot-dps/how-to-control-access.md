@@ -1,12 +1,12 @@
 ---
 title: Security endpoints in Microsoft Azure IoT Device Provisioning Service 
 description: Concepts - how to control access to IoT Device Provisioning Service (DPS) for backend apps. Includes information about security tokens.
-author: anastasia-ms
+author: kgremban
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.author: v-stharr
+ms.author: kgremban
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -273,11 +273,7 @@ The result, which would grant access to read all enrollment records, would be:
 
 `SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=enrollmentread`
 
-## Reference topics:
-
-The following reference topics provide you with more information about controlling access to your IoT Device Provisioning Service.
-
-### Device Provisioning Service permissions
+## Device Provisioning Service permissions
 
 The following table lists the permissions you can use to control access to your IoT Device Provisioning Service.
 

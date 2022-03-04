@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 11/29/2021
 ms.author: cherylmc
 
 ---
@@ -43,7 +43,7 @@ To connect to the Windows VM, you must have the following ports open on your Win
 *	Inbound port: Custom value (you will then need to specify this custom port when you connect to the VM via Azure Bastion)
 
 > [!NOTE]
-> If you want to specify a custom port value, Azure Bastion must be configured using the Standard SKU. The Basic SKU does not allow you to specify custom ports. The Standard SKU is currently in Preview.
+> If you want to specify a custom port value, Azure Bastion must be configured using the Standard SKU. The Basic SKU does not allow you to specify custom ports.
 >
 
 ## <a name="rdp"></a>Connect

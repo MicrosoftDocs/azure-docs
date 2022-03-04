@@ -89,8 +89,6 @@ Create variables for your Computer Vision subscription key and endpoint. Paste y
 
 Next, you'll begin adding code to carry out different OCR operations.
 
-> [!div class="nextstepaction"]
-> [I set up the variables](?success=set-up-client#object-model) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client&product=computer-vision&page=go-sdk)
 
 ## Object model
 
@@ -116,9 +114,6 @@ These code snippets show you how to do the following tasks with the OCR client l
 Create a `main` function and add the following code to it to instantiate a client with your endpoint and key.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
-
-> [!div class="nextstepaction"]
-> [I authenticated the client](?success=authenticate-client#read-printed-and-handwritten-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=authenticate-client&product=computer-vision&page=go-sdk)
 
 
 
@@ -151,8 +146,6 @@ Add the following code to parse and display the retrieved text data, and finish 
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
-> [!div class="nextstepaction"]
-> [I read text](?success=read-printed-handwritten-text#run-the-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=read-printed-handwritten-text&product=computer-vision&page=go-sdk)
 
 ## Run the application
 
@@ -162,8 +155,6 @@ Run the application from your application directory with the `go run` command.
 go run sample-app.go
 ```
 
-> [!div class="nextstepaction"]
-> [I ran the application](?success=run-the-application#clean-up-resources) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=run-the-application&product=computer-vision&page=go-sdk)
 
 ## Clean up resources
 
@@ -172,8 +163,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-> [!div class="nextstepaction"]
-> [I cleaned up resources](?success=clean-up-resources#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=clean-up-resources&product=computer-vision&page=go-sdk)
 
 ## Next steps
 

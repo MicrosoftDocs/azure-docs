@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/27/2020
+ms.date: 01/31/2022
 ---
 
 # Transformation with Azure Databricks
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create an end-to-end pipeline that contains the **Validation**, **Copy data**, and **Notebook** activities in Azure Data Factory.
 
@@ -20,7 +20,7 @@ In this tutorial, you create an end-to-end pipeline that contains the **Validati
 
 - **Copy data** duplicates the source dataset to the sink storage, which is mounted as DBFS in the Azure Databricks notebook. In this way, the dataset can be directly consumed by Spark.
 
-- **Notebook** triggers the Databricks notebook that transforms the dataset. It also adds the dataset to a processed folder or Azure Azure Synapse Analytics.
+- **Notebook** triggers the Databricks notebook that transforms the dataset. It also adds the dataset to a processed folder or Azure Synapse Analytics.
 
 For simplicity, the template in this tutorial doesn't create a scheduled trigger. You can add one if necessary.
 

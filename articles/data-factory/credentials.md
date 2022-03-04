@@ -27,7 +27,7 @@ Below are the generic steps for using a **user-assigned managed identity** in th
 
 # [Azure Data Factory](#tab/data-factory)
 
-1. If you do not have a user-assigned managed identity created in Azure, first create one in the Azure portal [Managed Identities](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ManagedIdentity%2FuserAssignedIdentities) page.
+1. If you do not have a user-assigned managed identity created in Azure, first create one in the Azure portal [Managed Identities](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ManagedIdentity%2FuserAssignedIdentities) page.
 
 1. Associate the user-assigned managed identity to the data factory instance using Azure portal, SDK, PowerShell, REST API. The screenshot below used Azure portal (data factory blade) to associate the user-assigned managed identity.
 
@@ -47,7 +47,7 @@ Below are the generic steps for using a **user-assigned managed identity** in th
 
 # [Azure Synapse](#tab/synapse-analytics)
 
-1. If you do not have a user-assigned managed identity created in Azure, first create one in the Azure portal [Managed Identities](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ManagedIdentity%2FuserAssignedIdentities) page.
+1. If you do not have a user-assigned managed identity created in Azure, first create one in the Azure portal [Managed Identities](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ManagedIdentity%2FuserAssignedIdentities) page.
 
 1. Associate the user-assigned managed identity to the workspace using Azure portal, SDK, PowerShell, REST API. The screenshot below used Azure portal (Identity blade) to associate the user-assigned managed identity.
 
@@ -69,6 +69,7 @@ Below are the generic steps for using a **user-assigned managed identity** in th
 
 > [!NOTE] 
 > You can use SDK/ PowerShell/ REST APIs for the above actions.
+> Linked services with user-assigned managed identity are currently not supported in Synapse Spark. 
 
 ## Next steps
 

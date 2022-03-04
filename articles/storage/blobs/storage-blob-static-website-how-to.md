@@ -46,7 +46,7 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 <a id="cli"></a>
 
-You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](/cli/azure/).
+You can enable static website hosting by using the [Azure CLI](/cli/azure/).
 
 1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 

@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/12/2021
+ms.date: 02/11/2022
 ms.author: radeltch
 
 ---
@@ -65,7 +65,7 @@ Read the following SAP Notes and papers first:
 * SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * SAP Note [401162] has information on how to avoid "address already in use" when setting up HANA System Replication.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all of the required SAP Notes for Linux.
-* [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+* [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120)
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide] guide.
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] (this article).
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide] guide.
@@ -113,7 +113,7 @@ To deploy the template, follow these steps:
 ### Manual deployment
 
 > [!IMPORTANT]
-> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type
+> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type
 >  
 
 1. Create a resource group.
@@ -916,7 +916,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 ### SUSE tests
 
 > [!IMPORTANT]
-> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type
+> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type
 
 Run all test cases that are listed in the SAP HANA SR Performance Optimized Scenario or SAP HANA SR Cost Optimized Scenario guide, depending on your use case. You can find the guides on the [SLES for SAP best practices page][sles-for-sap-bp].
 

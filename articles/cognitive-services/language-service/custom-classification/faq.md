@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -42,10 +42,11 @@ The training process can take some time. As a rough estimate, the expected train
 
 You can use the [REST APIs](https://aka.ms/ct-authoring-swagger) to build your custom models. Follow this [quickstart](quickstart.md?pivots=rest-api) to get started with creating a project and creating a model through APIs for examples of how to call the Authoring API. 
 
+When you're ready to start [using your model to make predictions](#how-do-i-use-my-trained-model-to-make-predictions), you can use the REST API, or the client library.
 
 ## What is the recommended CI/CD process?
 
-You can train multiple models on the same dataset within the same project. After you have trained your model successfully, you can [view its evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you train a new model, your dataset is [split](how-to/train-model.md#data-splits) randomly into training and testing sets. Because of this, there is no guarantee that the model evaluation is performed on the same test set, so results are not comparable. It is recommended that you develop your own test set and use it to evaluate both models so you can measure improvement.
+You can train multiple models on the same dataset within the same project. After you have trained your model successfully, you can [view its evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you train a new model, your dataset is [split](how-to/train-model.md#data-split) randomly into training and testing sets. Because of this, there is no guarantee that the model evaluation is performed on the same test set, so results are not comparable. It is recommended that you develop your own test set and use it to evaluate both models so you can measure improvement.
 
 ## Does a low or high model score guarantee bad or good performance in production?
 
@@ -68,7 +69,7 @@ See the [data selection and schema design](how-to/design-schema.md) article for 
 
 ## When I retrain my model I get different results, why is this?
 
-* When you train a new model your dataset is [split](how-to/train-model.md#data-splits) randomly into training and testing sets, so there is no guarantee that the reflected model evaluation is on the same test set, so results are not comparable.
+* When you train a new model your dataset is [split](how-to/train-model.md#data-split) randomly into training and testing sets, so there is no guarantee that the reflected model evaluation is on the same test set, so results are not comparable.
 
 * If you are retraining the same model, your test set will be the same, but you might notice a slight change in predictions made by the model. This is because the trained model is not robust enough, which is a factor of how representative and distinct your data is, and the quality of your tagged data. 
 
@@ -82,7 +83,7 @@ You need to [deploy your model](quickstart.md#deploy-your-model) before you can 
 
 ## How do I use my trained model to make predictions?
 
-After deploying your model, you [call the prediction API](how-to/call-api.md). See the [Prediction API reference](https://aka.ms/ct-runtime-swagger) for more information.
+After deploying your model, you [call the prediction API](how-to/call-api.md), using either the [REST API](how-to/call-api.md?tabs=rest-api) or [client libraries](how-to/call-api.md?tabs=client).
 
 ## Data privacy and security
 

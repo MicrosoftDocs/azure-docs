@@ -1,13 +1,12 @@
 ---
 title: Overview of Azure Synapse Analytics notebooks
 description: This article provides an overview of the capabilities available through Azure Synapse Analytics notebooks.
-services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: midesa
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.subservice: spark
 ---
 

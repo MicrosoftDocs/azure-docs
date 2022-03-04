@@ -26,13 +26,13 @@ As a service provider, you can manage on-premises Windows Server or Linux machin
 
 You can manage these connected machines using Azure constructs, such as Azure Policy and tagging, the same way that you’d manage the customer's Azure resources. You can also work across customer tenants to manage all connected hybrid machines together.
 
-For example, you can [ensure the same set of policies are applied across customers' hybrid machines](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md). You can also use Azure Security Center to monitor compliance across all of your customers' hybrid environments, or [use Azure Monitor to collect data directly from hybrid machines](../../azure-arc/servers/learn/tutorial-enable-vm-insights.md) into a Log Analytics workspace. [Virtual machine extensions](../../azure-arc/servers/manage-vm-extensions.md) can be deployed to non-Azure Windows and Linux VMs, simplifying management of customer's hybrid machines.
+For example, you can [ensure the same set of policies are applied across customers' hybrid machines](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md). You can also use Microsoft Defender for Cloud to monitor compliance across all of your customers' hybrid environments, or [use Azure Monitor to collect data directly from hybrid machines](../../azure-arc/servers/learn/tutorial-enable-vm-insights.md) into a Log Analytics workspace. [Virtual machine extensions](../../azure-arc/servers/manage-vm-extensions.md) can be deployed to non-Azure Windows and Linux VMs, simplifying management of customer's hybrid machines.
 
 ## Manage hybrid Kubernetes clusters at scale with Azure Arc-enabled Kubernetes
 
 You can manage Kubernetes clusters that have been [connected to a customer's subscription with Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md), just as if they were running in Azure.
 
-If your customer has created a [service principal account to onboard Kubernetes clusters to Azure Arc](../../azure-arc/kubernetes/create-onboarding-service-principal.md), you can access this account so that you can onboard and manage clusters. To do so, a user in the managing tenant must have been granted the "Kubernetes Cluster - Azure Arc Onboarding" Azure built-in role when the subscription containing the service principal account was [onboarded to Azure Lighthouse](onboard-customer.md).
+If your customer has created a service principal account to onboard Kubernetes clusters to Azure Arc, you can access this account so that you can onboard and manage clusters. To do so, a user in the managing tenant must have been granted the [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) when the subscription containing the service principal account was [onboarded to Azure Lighthouse](onboard-customer.md).
 
 You can deploy [configurations](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) and [Helm charts](../../azure-arc/kubernetes/use-gitops-with-helm.md) using GitOps for connected clusters.
 

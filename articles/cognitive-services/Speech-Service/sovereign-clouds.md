@@ -7,9 +7,9 @@ author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: references_regions
-ms.date: 08/24/2021
+ms.date: 11/09/2021
 ms.author: alexeyo
 ---
 
@@ -63,12 +63,33 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 
 #### Speech SDK
 
-For Speech SDK in sovereign clouds you need to use "from host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint" instantiation and `--endpoint` Speech CLI option).
+For [Speech SDK](speech-sdk.md) in sovereign clouds you need to use "from host / with host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint / with endpoint" instantiation and `--endpoint` Speech CLI option).
 
 `SpeechConfig` class should be instantiated like this:
+
+# [C#](#tab/c-sharp)
 ```csharp
 var config = SpeechConfig.FromHost(usGovHost, subscriptionKey);
 ```
+# [C++](#tab/cpp)
+```cpp
+auto config = SpeechConfig::FromHost(usGovHost, subscriptionKey);
+```
+# [Java](#tab/java)
+```java
+SpeechConfig config = SpeechConfig.fromHost(usGovHost, subscriptionKey);
+```
+# [Python](#tab/python)
+```python
+import azure.cognitiveservices.speech as speechsdk
+speech_config = speechsdk.SpeechConfig(host=usGovHost, subscription=subscriptionKey)
+```
+# [Objective-C](#tab/objective-c)
+```objectivec
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithHost:usGovHost subscription:subscriptionKey];
+```
+***
+
 Speech CLI should be used like this (note the `--host` option):
 ```dos
 spx recognize --host "usGovHost" --file myaudio.wav
@@ -87,8 +108,7 @@ Replace `subscriptionKey` with your Speech resource key. Replace `usGovHost` wit
 
 ## Azure China
 
-Available to organizations with a business presence in China. See more information about Azure China [here.](/azure/china/overview-operations) 
-
+Available to organizations with a business presence in China. See more information about Azure China [here](/azure/china/overview-operations). 
 
 - **Azure portal:**
   - [https://portal.azure.cn/](https://portal.azure.cn/)
@@ -134,12 +154,33 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 
 #### Speech SDK
 
-For Speech SDK in sovereign clouds you need to use "from host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint" instantiation and `--endpoint` Speech CLI option).
+For [Speech SDK](speech-sdk.md) in sovereign clouds you need to use "from host / with host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint / with endpoint" instantiation and `--endpoint` Speech CLI option).
 
 `SpeechConfig` class should be instantiated like this:
+
+# [C#](#tab/c-sharp)
 ```csharp
 var config = SpeechConfig.FromHost(azCnHost, subscriptionKey);
 ```
+# [C++](#tab/cpp)
+```cpp
+auto config = SpeechConfig::FromHost(azCnHost, subscriptionKey);
+```
+# [Java](#tab/java)
+```java
+SpeechConfig config = SpeechConfig.fromHost(azCnHost, subscriptionKey);
+```
+# [Python](#tab/python)
+```python
+import azure.cognitiveservices.speech as speechsdk
+speech_config = speechsdk.SpeechConfig(host=azCnHost, subscription=subscriptionKey)
+```
+# [Objective-C](#tab/objective-c)
+```objectivec
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithHost:azCnHost subscription:subscriptionKey];
+```
+***
+
 Speech CLI should be used like this (note the `--host` option):
 ```dos
 spx recognize --host "azCnHost" --file myaudio.wav

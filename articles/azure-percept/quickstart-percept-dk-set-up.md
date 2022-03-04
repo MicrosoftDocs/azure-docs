@@ -1,12 +1,12 @@
 ---
 title: Set up the Azure Percept DK device
-description: Set up you Azure Percept DK and connect it to Azure IoT Hub
-author: WendyAnn0079
-ms.author: amiyouss
+description: Set up your Azure Percept DK and connect it to Azure IoT Hub
+author: nkhuyent
+ms.author: wendyowen
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.custom: template-quickstart 
+ms.custom: template-quickstart, mode-other
 ---
 
 # Set up the Azure Percept DK device
@@ -59,7 +59,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
     > [!WARNING]
     > While connected to the Azure Percept DK's Wi-Fi access point, your host computer will temporarily lose its connection to the Internet. Active video conference calls, web streaming, or other network-based experiences will be interrupted.
 
-1. Once connected to the dev kit’s Wi-Fi access point, the host computer will automatically launch the setup experience in a new browser window with **your.new.device/** in the address bar. If the tab does not open automatically, launch the setup experience by going to [http://10.1.1.1](http://10.1.1.1) in a web browser. Make sure your browser is signed in with the same Azure account credentials you intend to use with Azure Percept.
+1. Once connected to the dev kit’s Wi-Fi access point, the host computer should automatically launch the setup experience in a new browser window with **your.new.device/** in the address bar. If the tab does not open automatically, launch the setup experience by going to [http://10.1.1.1](http://10.1.1.1) in a web browser. Make sure your browser is signed in with the same Azure account credentials you intend to use with Azure Percept.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-welcome.png" alt-text="Welcome page.":::
 
@@ -155,6 +155,8 @@ To verify if your Azure account is an “owner” or “contributor” within th
 1. Select your Azure IoT Hub
 
 1. Enter a device name for your dev kit and select **Next**.
+    > [!NOTE]
+    > You **cannot** reuse an existing IoT Edge device name when going through the **Create New Device** flow.  If you wish to reuse the same name and deploy the default Percept modules, you must first delete the existing cloud-side device instance from the Azure IoT Hub before proceeding.
 
 1. The device modules will now be deployed to your device. – this can take a few minutes.
 

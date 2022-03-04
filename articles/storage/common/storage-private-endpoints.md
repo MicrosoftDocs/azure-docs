@@ -17,6 +17,9 @@ ms.subservice: common
 
 You can use [private endpoints](../../private-link/private-endpoint-overview.md) for your Azure Storage accounts to allow clients on a virtual network (VNet) to securely access data over a [Private Link](../../private-link/private-link-overview.md). The private endpoint uses a separate IP address from the VNet address space for each storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
+> [!NOTE]
+> Private endpoints are not available for general-purpose v1 storage accounts.   
+
 Using private endpoints for your storage account enables you to:
 
 - Secure your storage account by configuring the storage firewall to block all connections on the public endpoint for the storage service.

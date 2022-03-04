@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: overview
 ms.workload: infrastructure-services
-ms.date: 03/09/2021
+ms.date: 01/27/2022
 ms.author: duau
 # Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---
@@ -39,7 +39,7 @@ With Front Door you can build, operate, and scale out your dynamic web applicati
 
 Key features included with Front Door:
 
-* Accelerated application performance by using **[split TCP](front-door-routing-architecture.md#splittcp)**-based **[anycast protocol](front-door-routing-architecture.md#anycast)**.
+* Accelerated application performance by using **[split TCP](front-door-traffic-acceleration.md?pivots=front-door-classic#splittcp)**-based **[anycast protocol](front-door-traffic-acceleration.md?pivots=front-door-classic#anycast)**.
 
 * Intelligent **[health probe](front-door-health-probes.md)** monitoring for backend resources.
 

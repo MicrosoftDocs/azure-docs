@@ -115,7 +115,7 @@ Create a Batch pool with at least two compute nodes.
    f. Select **OK** to create the pool.
 
 #### Azure Storage Explorer
-You use [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software) to inspect and alter the data in your Storage projects. You also can inspect and alter the data in the logs of your cloud-hosted applications.
+You use [Azure Storage Explorer 6](https://azure.microsoft.com/features/storage-explorer/) or [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software) to inspect and alter the data in your Storage projects. You also can inspect and alter the data in the logs of your cloud-hosted applications.
 
 1. Create a container named **mycontainer** with private access (no anonymous access).
 

@@ -11,7 +11,7 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/28/2021
+ms.date: 02/11/2022
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
 
@@ -34,7 +34,7 @@ This article makes the following assumptions:
 - You've reviewed and understood the Service Level Agreement (SLA) of the target (to-be) architecture. 
 - Commercial terms between HLIs and VMs are different. Monitor the usage of your VMs for cost management.
 - You understand that HLI is a dedicated compute platform while VMs run on shared yet isolated infrastructure.
-- You've validated that target VMs support your intended architecture. For a list of supported VM SKUs certified for SAP HANA deployment, see the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
+- You've validated that target VMs support your intended architecture. For a list of supported VM SKUs certified for SAP HANA deployment, see the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120).
 - You've validated the design and migration plan.
 - Plan for disaster recovery VM along with the primary site.  You can't use the HLI as the DR node for the primary site running on VMs after the migration.
 - You copied the required backup files to target VMs, based on business recoverability and compliance requirements. With VM accessible backups, it allows for point-in-time recovery during the transition period.

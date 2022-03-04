@@ -12,8 +12,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/27/2021
 ms.author: Zhchia
 ---
@@ -41,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-1. Determine what data to [map between Azure AD and Vonage](../app-provisioning/customize-application-attributes.md).
+1. Determine what data to [map between Azure AD and Facebook Work Accounts](../app-provisioning/customize-application-attributes.md).
 
 
 ## Step 2. Add Facebook Work Accounts from the Azure AD application gallery

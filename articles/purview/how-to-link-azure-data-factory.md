@@ -14,7 +14,7 @@ This document explains the steps required for connecting an Azure Data Factory a
 
 ## View existing Data Factory connections
 
-Multiple Azure Data Factories can connect to a single Azure Purview to push lineage information. The current limit allows you to connect up 10 Data Factory accounts at a time from the Purview management center. To show the list of Data Factory accounts connected to your Purview account, do the following:
+Multiple Azure Data Factories can connect to a single Azure Purview to push lineage information. The current limit allows you to connect up 10 Data Factory accounts at a time from the Azure Purview management center. To show the list of Data Factory accounts connected to your Azure Purview account, do the following:
 
 1. Select **Management** on the left navigation pane.
 2. Under **Lineage connections**, select **Data Factory**.
@@ -24,7 +24,7 @@ Multiple Azure Data Factories can connect to a single Azure Purview to push line
 
 4. Notice the various values for connection **Status**:
 
-    - **Connected**: The data factory is connected to the Purview account.
+    - **Connected**: The data factory is connected to the Azure Purview account.
     - **Disconnected**: The data factory has access to the catalog, but it's connected to another catalog. As a result, data lineage won't be reported to the catalog automatically.
     - **CannotAccess**: The current user doesn't have access to the data factory, so the connection status is unknown.
 
@@ -40,7 +40,7 @@ Multiple Azure Data Factories can connect to a single Azure Purview to push line
 >
 > Also, it requires the users to be the data factory's "Owner" or "Contributor".
 
-Follow the steps below to connect an existing data factory to your Purview account. You can also [connect Data Factory to Purview account from ADF](../data-factory/connect-data-factory-to-azure-purview.md).
+Follow the steps below to connect an existing data factory to your Azure Purview account. You can also [connect Data Factory to Azure Purview account from ADF](../data-factory/connect-data-factory-to-azure-purview.md).
 
 1. Select **Management** on the left navigation pane.
 2. Under **Lineage connections**, select **Data Factory**.
@@ -50,9 +50,9 @@ Follow the steps below to connect an existing data factory to your Purview accou
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/connect-data-factory.png" alt-text="Screenshot showing how to connect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/connect-data-factory.png":::
 
-    Some Data Factory instances might be disabled if the data factory is already connected to the current Purview account, or the data factory doesn't have a managed identity.
+    Some Data Factory instances might be disabled if the data factory is already connected to the current Azure Purview account, or the data factory doesn't have a managed identity.
 
-    A warning message will be displayed if any of the selected Data Factories are already connected to other Purview account. By selecting OK, the Data Factory connection with the other Purview account will be disconnected. No additional confirmations are required.
+    A warning message will be displayed if any of the selected Data Factories are already connected to other Azure Purview account. By selecting OK, the Data Factory connection with the other Azure Purview account will be disconnected. No additional confirmations are required.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
 
@@ -61,9 +61,9 @@ Follow the steps below to connect an existing data factory to your Purview accou
 
 ### How authentication works
 
-Data factory's managed identity is used to authenticate lineage push operations from data factory to Purview. When connecting data factory to Purview on UI, it adds the role assignment automatically.
+Data factory's managed identity is used to authenticate lineage push operations from data factory to Azure Purview. When connecting data factory to Azure Purview on UI, it adds the role assignment automatically.
 
-Grant the data factory's managed identity **Data Curator** role on Purview **root collection**. Learn more about [Access control in Azure Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
+Grant the data factory's managed identity **Data Curator** role on Azure Purview **root collection**. Learn more about [Access control in Azure Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
 ### Remove data factory connections
 
@@ -85,7 +85,7 @@ Azure Purview captures runtime lineage from the following Azure Data Factory act
 > [!IMPORTANT]
 > Azure Purview drops lineage if the source or destination uses an unsupported data storage system.
 
-The integration between Data Factory and Purview supports only a subset of the data systems that Data Factory supports, as described in the following sections.
+The integration between Data Factory and Azure Purview supports only a subset of the data systems that Data Factory supports, as described in the following sections.
 
 [!INCLUDE[data-factory-supported-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
@@ -95,9 +95,9 @@ Refer to [supported data stores](how-to-lineage-sql-server-integration-services.
 
 ## Access secured Azure Purview account
       
-If your Purview account is protected by firewall, learn how to let Data Factory [access a secured Purview account](../data-factory/how-to-access-secured-purview-account.md) through Purview private endpoints.
+If your Azure Purview account is protected by firewall, learn how to let Data Factory [access a secured Azure Purview account](../data-factory/how-to-access-secured-purview-account.md) through Azure Purview private endpoints.
 
-## Bring Data Factory lineage into Purview
+## Bring Data Factory lineage into Azure Purview
 
 For an end to end walkthrough, follow the [Tutorial: Push Data Factory lineage data to Azure Purview](../data-factory/turorial-push-lineage-to-purview.md).
 

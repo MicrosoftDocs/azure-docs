@@ -77,63 +77,34 @@ When represented as a JSON object, a digital twin will display the following fie
 | --- | --- |
 | `$dtId` | A user-provided string representing the ID of the digital twin |
 | `$etag` | Standard HTTP field assigned by the web server |
-| `$conformance` | An enum containing the conformance status of this digital twin (*conformant*, *non-conformant*, *unknown*) |
+| `$metadata.$model` | The ID of the model interface that characterizes this digital twin |
+| `$metadata.<property-name>` | Other metadata information about properties of the digital twin |
 | `<property-name>` | The value of a property in JSON (`string`, number type, or object) |
 | `$relationships` | The URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing relationship edges. |
-| `$metadata.$model` | [Optional] The ID of the model interface that characterizes this digital twin |
-| `$metadata.<property-name>.desiredValue` | [Only for writable properties] The desired value of the specified property |
-| `$metadata.<property-name>.desiredVersion` | [Only for writable properties] The version of the desired value |
-| `$metadata.<property-name>.ackVersion` | The version acknowledged by the device app implementing the digital twin |
-| `$metadata.<property-name>.ackCode` | [Only for writable properties] The `ack` code returned by the device app implementing the digital twin |
-| `$metadata.<property-name>.ackDescription` | [Only for writable properties] The `ack` description returned by the device app implementing the digital twin |
 | `<component-name>` | A JSON object containing the component's property values and metadata, similar to those of the root object. This object exists even if the component has no properties. |
-| `<component-name>.<property-name>` | The value of the component's property in JSON (`string`, number type, or object) |
 | `<component-name>.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
+| `<component-name>.<property-name>` | The value of the component's property in JSON (`string`, number type, or object) |
 
-Here's an example of a digital twin formatted as a JSON object:
+Here's an example of a digital twin formatted as a JSON object. This twin has two properties, Humidity and Temperature, and a component called Thermostat.
 
 ```json
 {
-  "$dtId": "Cafe",
-  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
-  "Temperature": 72,
-  "Location": {
-    "x": 101,
-    "y": 33
-  },
-  "component": {
-    "TableOccupancy": 1,
+    "$dtId": "myRoomID",
+    "$etag": "W/\"8e6d3e89-1166-4a1d-9a99-8accd8fef43f\"",
     "$metadata": {
-      "TableOccupancy": {
-        "desiredValue": 1,
-        "desiredVersion": 3,
-        "ackVersion": 2,
-        "ackCode": 200,
-        "ackDescription": "OK"
-      }
-    }
-  },
-  "$metadata": {
-    "$model": "dtmi:com:contoso:Room;1",
-    "Temperature": {
-      "desiredValue": 72,
-      "desiredVersion": 5,
-      "ackVersion": 4,
-      "ackCode": 200,
-      "ackDescription": "OK"
+        "$model": "dtmi:example:Room23;1",
+        "Humidity": {
+          "lastUpdateTime": "2021-11-30T18:47:53.7648958Z"
+        },
+        "Temperature": {
+          "lastUpdateTime": "2021-11-30T18:47:53.7648958Z"
+        }
     },
-    "Location": {
-      "desiredValue": {
-        "x": 101,
-        "y": 33,
-      },
-      "desiredVersion": 8,
-      "ackVersion": 8,
-      "ackCode": 200,
-      "ackDescription": "OK"
+    "Humidity": 55,
+    "Temperature": 35,
+    "Thermostat": {
+        "$metadata": {}
     }
-  }
-}
 ```
 
 ### Relationship JSON format

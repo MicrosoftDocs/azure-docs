@@ -1,20 +1,16 @@
 ---
 title: Media Services account ARM template
-: Azure Media Services
 description: This article shows you how to use an ARM template to create a media services account.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
-ms.workload:
 ms.topic: quickstart
 ms.date: 03/23/2021
 ms.author: inhenkel
-ms.custom: subject-armqs
-
+ms.custom: subject-armqs, mode-arm
 ---
 
 # Quickstart: Media Services account ARM template

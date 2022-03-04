@@ -6,6 +6,7 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
+ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ---
 
 # Connect to Azure Database for MySQL - Flexible Server with encrypted connections

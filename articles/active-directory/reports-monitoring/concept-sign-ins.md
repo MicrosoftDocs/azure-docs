@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -162,7 +161,7 @@ The **Location** - The location the connection was initiated from:
 
 
 > [!NOTE]
-> Due to privacy commitments, Azure AD does not populate this field this field to the home tenant in the case of a cross-tenant scenario.
+> Due to privacy commitments, Azure AD does not populate this field to the home tenant in the case of a cross-tenant scenario.
 
 
 |Name|Modern authentication|Description|

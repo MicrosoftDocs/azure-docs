@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AWS Single-Account Access | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with AWS Single-Account Access'
 description: Learn how to configure single sign-on between Azure Active Directory and AWS Single-Account Access.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 02/28/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with AWS Single-Account Access
+# Tutorial: Azure AD SSO integration with AWS Single-Account Access
 
 In this tutorial, you'll learn how to integrate AWS Single-Account Access with Azure Active Directory (Azure AD). When you integrate AWS Single-Account Access with Azure AD, you can:
 
@@ -341,6 +341,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. Select **Close**.
 
+> [!NOTE]
+> AWS has a set of permissions/limts are required to configure AWS SSO. To know more information on AWS limits, please refer [this](https://docs.aws.amazon.com/singlesignon/latest/userguide/limits.html) page.
+
 ### How to configure role provisioning in AWS Single-Account Access
 
 1. In the Azure AD management portal, in the AWS app, go to **Provisioning**.
@@ -409,12 +412,11 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Change log
 
-* 01/12/2020 - Increased role length limit from 119 characters to 239 characters. 
+* 01/12/2020 - Increased role length limit from 119 characters to 239 characters.
 
 ## Next steps
 
-Once you configure AWS Single-Account Access you can enforce Session Control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
-
+Once you configure AWS Single-Account Access you can enforce Session Control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png

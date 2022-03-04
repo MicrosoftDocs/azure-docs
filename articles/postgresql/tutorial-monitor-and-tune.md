@@ -61,9 +61,6 @@ The [Query Performance Insight](concepts-query-performance-insight.md) view in t
    
    :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight wait statistics":::
 
-### Permissions
-**Owner** or **Contributor** permissions required to view the text of the queries in Query Performance Insight. **Reader** can view charts and tables but not query text.
-
 
 ## Performance recommendations
 The [Performance Recommendations](concepts-performance-recommendations.md) feature analyzes workloads across your server to identify indexes with the potential to improve performance.

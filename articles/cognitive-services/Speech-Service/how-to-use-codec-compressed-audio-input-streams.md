@@ -1,37 +1,81 @@
 ---
-title: Stream codec compressed audio with the Speech SDK - Speech service
+title: Support compressed input audio with the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to stream compressed audio to the Speech service with the Speech SDK. Available for C++, C#, and Java for Linux, Java in Android and Objective-C in iOS.
+description: Learn how to stream compressed audio to the Speech service with the Speech SDK. 
 services: cognitive-services
-author: amitkumarshukla
+author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 03/30/2020
-ms.author: amishu
+ms.topic: how-to
+ms.date: 01/13/2022
+ms.devlang: cpp, csharp, golang, java, python
 ms.custom: devx-track-csharp
-zone_pivot_groups: programming-languages-set-twenty-two
+zone_pivot_groups: programming-languages-set-twenty-eight
 ---
 
-# Use codec compressed audio input
+# Support compressed input audio
 
-The Speech SDK and Speech CLI can accept compressed audio formats using GStreamer. GStreamer decompresses the audio before it is sent over the wire to the Speech service as raw PCM.
-
-Platform | Languages | Supported GStreamer version
-| :--- | ---: | :---:
-Windows (excluding UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/)
-Linux  | C++, C#, Java, Python | [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md)
-Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/)
-
-## Speech SDK version required for compressed audio input
-* Speech SDK version 1.10.0 or later is required for RHEL 8 and CentOS 8
-* Speech SDK version 1.11.0 or later is required for for Windows.
-* Speech SDK version 1.16.0 or later for latest GStreamer on Windows and Android.
+The Speech SDK and Speech CLI use GStreamer to support different kinds of input audio formats. GStreamer decompresses the audio before it's sent over the wire to the Speech service as raw PCM.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## GStreamer required to handle compressed audio
+## Install GStreamer
+
+Choose a platform for installation instructions.
+
+Platform | Languages | Supported GStreamer version
+| :--- | ---: | :---:
+Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/)
+Linux  | C++, C#, Java, Python, Go | [Supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md)
+Windows (excluding UWP) | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi)
+
+### [Android](#tab/android)
+
+For more information about building libgstreamer_android.so, see [GStreamer configuration by programming language](#gstreamer-configuration).
+
+For more information, see [Android installation instructions](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
+
+### [Linux](#tab/linux)
+
+For more information, see [Linux installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c).  
+
+```sh
+sudo apt install libgstreamer1.0-0 \
+gstreamer1.0-plugins-base \
+gstreamer1.0-plugins-good \
+gstreamer1.0-plugins-bad \
+gstreamer1.0-plugins-ugly
+```
+### [Windows](#tab/windows)
+
+Make sure that packages of the same platform (x64 or x86) are installed. For example, if you installed the x64 package for Python, you need to install the x64 GStreamer package. The following instructions are for the x64 packages.
+
+1. Create the folder c:\gstreamer.
+1. Download the [installer](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi).
+1. Copy the installer to c:\gstreamer.
+1. Open PowerShell as an administrator.
+1. Run the following command in PowerShell:
+
+    ```powershell
+    cd c:\gstreamer
+    msiexec /passive INSTALLLEVEL=1000 INSTALLDIR=C:\gstreamer /i gstreamer-1.0-msvc-x86_64-1.18.3.msi
+    ```
+
+1. Add the system variables GST_PLUGIN_PATH with the value C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0.
+1. Add the system variables GSTREAMER_ROOT_X86_64 with the value C:\gstreamer\1.0\msvc_x86_64.
+1. Add another entry in the path variable as C:\gstreamer\1.0\msvc_x86_64\bin.
+1. Reboot the machine.
+
+For more information about GStreamer, see [Windows installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c).
+
+***
+
+## GStreamer configuration
+
+> [!NOTE]
+> GStreamer configuration requirements vary by programming language. For more information, choose your programming language at the top of this page. The contents of this section will be updated.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]
@@ -49,7 +93,11 @@ Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/prerequisites.md)]
 ::: zone-end
 
-## Example code using codec compressed audio input
+::: zone pivot="programming-language-go"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/go/prerequisites.md)]
+::: zone-end
+
+## Example
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/examples.md)]
@@ -65,6 +113,10 @@ Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/examples.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/go/examples.md)]
 ::: zone-end
 
 ## Next steps

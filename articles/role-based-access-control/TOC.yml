@@ -46,13 +46,13 @@
       href: conditions-prerequisites.md
     - name: Conditions FAQ
       href: conditions-faq.md
+    - name: Custom security attributes example
+      href: conditions-custom-security-attributes-example.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
-  - name: Conditional Access for Azure management
-    href: conditional-access-azure-management.md
 - name: How-to guides
   items:
   - name: List role definitions
@@ -104,6 +104,8 @@
       href: conditions-role-assignments-template.md
     - name: Troubleshoot conditions
       href: conditions-troubleshoot.md
+    - name: Conditions and custom security attributes
+      href: conditions-custom-security-attributes.md
   - name: Remove role assignments
     href: role-assignments-remove.md
   - name: List deny assignments

@@ -3,6 +3,7 @@ title: PowerShell developer reference for Azure Functions
 description: Understand how to develop functions by using PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
+ms.devlang: powershell
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 
@@ -333,7 +334,8 @@ Use an `HttpResponseContext` object to return a response, as shown in the follow
     },
     {
       "type": "http",
-      "direction": "out"
+      "direction": "out",
+      "name": "Response"
     }
   ]
 }
@@ -346,7 +348,7 @@ param($req, $TriggerMetadata)
 
 $name = $req.Query.Name
 
-Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
     StatusCode = [System.Net.HttpStatusCode]::OK
     Body = "Hello $name!"
 })

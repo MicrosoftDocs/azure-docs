@@ -11,7 +11,6 @@ keywords: kinect, reset
 ms.custom: CI 113492, CSSTroubleshooting
 audience: ITPro
 manager: dcscontentpm
-ms.localizationpriority: high
 ---
 
 # Reset Azure Kinect DK

@@ -11,7 +11,7 @@ ms.date: 02/26/2020
 
 [!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
 
-Learn how to use [Azure CLI](/cli/azure/) to manage Azure HDInsight clusters. The Azure command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources.
+Learn how to use [Azure CLI](/cli/azure/) to manage Azure HDInsight clusters. The Azure CLI is Microsoft's cross-platform command-line experience for managing Azure resources.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

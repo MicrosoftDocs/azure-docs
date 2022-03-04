@@ -35,16 +35,17 @@ The rest of this article summarizes how the language is used in Azure Digital Tw
 
 ### Azure Digital Twins DTDL implementation specifics
 
-Not all services that use DTDL implement the exact same features of DTDL. For example, IoT Plug and Play doesn't use the DTDL features that are for graphs, while Azure Digital Twins doesn't currently implement DTDL commands. 
+Not all services that use DTDL implement the exact same features of DTDL. There are some DTDL features that Azure Digital Twins doesn't currently support, including:
+* DTDL commands
+* The `writable` attribute on properties or relationships. Although this attribute can be set as per DTDL specifications, the value isn't used by Azure Digital Twins. Instead, these attributes are always treated as writable by external clients that have general write permissions to the Azure Digital Twins service.
+* The `minMultiplicity` and `maxMultiplicity` properties on relationships. Although these attributes can be set as per DTDL specifications, the values aren't enforced by Azure Digital Twins.
 
-For a DTDL model to be compatible with Azure Digital Twins, it must meet these requirements:
+For a DTDL model to be compatible with Azure Digital Twins, it must also meet these requirements:
 
 * All top-level DTDL elements in a model must be of type *interface*. The reason for this requirement is that Azure Digital Twins model APIs can receive JSON objects that represent either an interface or an array of interfaces. As a result, no other DTDL element types are allowed at the top level.
 * DTDL for Azure Digital Twins must not define any *commands*.
 * Azure Digital Twins only allows a single level of component nesting, meaning that an interface that's being used as a component can't have any components itself. 
 * Interfaces can't be defined inline within other DTDL interfaces; they must be defined as separate top-level entities with their own IDs. Then, when another interface wants to include that interface as a component or through inheritance, it can reference its ID.
-
-Azure Digital Twins also doesn't observe the `writable` attribute on properties or relationships. Although this attribute can be set as per DTDL specifications, the value isn't used by Azure Digital Twins. Instead, these attributes are always treated as writable by external clients that have general write permissions to the Azure Digital Twins service.
 
 ## Model overview
 
@@ -96,6 +97,9 @@ This model describes a Home, with one **property** for an ID. The Home model als
 This section goes into more detail about **properties** and **telemetry** in DTDL models.
 
 For a comprehensive list of the fields that may appear as part of a property, see [Property in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property). For a comprehensive list of the fields that may appear as part of telemetry, see [Telemetry in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#telemetry).
+
+> [!NOTE]
+> The `writable` DTDL attribute for properties is not currently supported in Azure Digital Twins. It can be added to the model, but Azure Digital Twins will not enforce it. For more information, see [Azure Digital Twins DTDL implementation specifics](#azure-digital-twins-dtdl-implementation-specifics).
 
 ### Difference between properties and telemetry
 
@@ -156,6 +160,9 @@ The following example shows a Sensor model with a semantic-type telemetry for Te
 This section goes into more detail about **relationships** in DTDL models.
 
 For a comprehensive list of the fields that may appear as part of a relationship, see [Relationship in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship).
+
+> [!NOTE]
+> The `writable`, `minMultiplicity`, and `maxMultiplicity` DTDL attributes for relationships are not currently supported in Azure Digital Twins. They can be added to the model, but Azure Digital Twins will not enforce them. For more information, see [Azure Digital Twins DTDL implementation specifics](#azure-digital-twins-dtdl-implementation-specifics).
 
 ### Basic relationship example
 

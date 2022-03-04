@@ -15,9 +15,13 @@ ms.reviewer: laobri
 
 # CLI (v2) environment YAML schema
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/environment.schema.json.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -60,15 +64,15 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: local Docker build context
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-context.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-context.yml":::
 
 ## YAML: Docker image
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image.yml":::
 
 ## YAML: Docker image plus conda file
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image-plus-conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
 
 ## Next steps
 

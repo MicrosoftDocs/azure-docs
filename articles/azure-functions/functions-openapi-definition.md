@@ -36,7 +36,7 @@ To create an API Management instance linked to your function app:
 
     ![Create new API Management service](media/functions-openapi-definitions/new-apim-service-openapi.png)
 
-1. Choose **Create** to create the API Management instance, which may take several minutes.
+1. Choose **Export** to create the API Management instance, which may take several minutes.
 
 1. After Azure creates the instance, it enables the **Enable Application Insights** option on the page. Select it to send logs to the same place as the function application.
 

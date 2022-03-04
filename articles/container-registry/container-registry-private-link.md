@@ -16,7 +16,7 @@ This article shows how to configure a private endpoint for your registry using t
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 > [!NOTE]
-> Starting October 2021, new container registries allow a maximum of 200 private endpoints. Registries created earlier allow a maximum of 10 private endpoints. Use the [az acr show-usage](/cli/az/acr#az_acr_show_usage) command to see the limit for your registry.
+> Starting October 2021, new container registries allow a maximum of 200 private endpoints. Registries created earlier allow a maximum of 10 private endpoints. Use the [az acr show-usage](/cli/azure/acr#az_acr_show_usage) command to see the limit for your registry.
 
 ## Prerequisites
 
@@ -376,7 +376,7 @@ xxxx.westeurope.cloudapp.azure.com. 10	IN A 20.45.122.144
 
 Also verify that you can perform registry operations from the virtual machine in the network. Make an SSH connection to your virtual machine, and run [az acr login][az-acr-login] to login to your registry. Depending on your VM configuration, you might need to prefix the following commands with `sudo`.
 
-```bash
+```azurecli
 az acr login --name $REGISTRY_NAME
 ```
 

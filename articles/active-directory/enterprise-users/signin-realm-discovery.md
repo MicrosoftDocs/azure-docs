@@ -3,7 +3,7 @@ title: Username lookup during sign-in - Azure Active Directory | Microsoft Docs
 description: How on-screen messaging reflects username lookup during sign-in in Azure Active Directory
 services: active-directory
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: enterprise-users

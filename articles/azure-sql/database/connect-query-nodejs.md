@@ -5,13 +5,13 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma, v-masebo
+ms.reviewer: kendralittle, mathoma, v-masebo
 ms.date: 05/19/2021
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js, mode-api
 ---
 # Quickstart: Use Node.js to query a database in Azure SQL Database or Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

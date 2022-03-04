@@ -5,7 +5,7 @@ description: You can simplify the task of migrating between Azure Data Lake Stor
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 07/13/2021
+ms.date: 12/21/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
@@ -62,6 +62,9 @@ As you create the account, make sure to configure settings with the following va
 > [!NOTE]
 > The migration tool in the Azure portal doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection.
 
+> [!IMPORTANT]
+> Ensure that you use a newly created Gen2 account that is empty. It's important that you don’t migrate to a previously used Gen2 account.
+
 ## Verify RBAC role assignments
 
 For Gen2, ensure that the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role has been assigned to your Azure Active Directory (Azure AD) user identity in the scope of the storage account, parent resource group, or subscription.
@@ -100,7 +103,8 @@ If you perform a complete migration, data is copied from Gen1 to Gen2. Then, you
    > [!div class="mx-imgBorder"]
    > ![Checkbox to provide consent](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   While your data is being migrated, your Gen1 account becomes read-only, and your Gen2-enabled account is disabled. After the migration completes, you can read and write to both accounts.
+   > [!IMPORTANT] 
+   > While your data is being migrated, your Gen1 account becomes read-only and your Gen2-enabled account is disabled. When the migration is finished, you can read and write to both accounts.
 
    You can stop the migration at any time by selecting the **Stop migration** button.
 
@@ -128,9 +132,12 @@ If you perform a complete migration, data is copied from Gen1 to Gen2. Then, you
    > [!div class="mx-imgBorder"]
    > ![Consent checkbox](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   - While your data is being migrated, your Gen1 account becomes read-only, and the Gen2-enabled account is disabled.
-   - While the Gen1 URI is being redirected, both accounts are disabled.
-   - After the migration completes, your Gen1 account is disabled, and you can read and write to your Gen2-enabled account.
+   > [!IMPORTANT] 
+   > While your data is being migrated, your Gen1 account becomes read-only and the Gen2-enabled account is disabled.
+   > 
+   > Also, while the Gen1 URI is being redirected, both accounts are disabled.
+   > 
+   > When the migration is finished, your Gen1 account is disabled and you can read and write to your Gen2-enabled account.
 
    You can stop the migration at any time before the URI is redirected by selecting the **Stop migration** button.
 
@@ -140,6 +147,20 @@ If you perform a complete migration, data is copied from Gen1 to Gen2. Then, you
 ## Migrate workloads and applications
 
 1. Configure [services in your workloads](./data-lake-storage-supported-azure-services.md) to point to your Gen2 endpoint.
+
+
+   For HDInsight clusters, you can add storage account configuration settings to the %HADOOP_HOME%/conf/core-site.xml file. If you plan to migrate external Hive tables from Gen1 to Gen2, then make sure to add storage account settings to the %HIVE_CONF_DIR%/hive-site.xml file as well.
+
+   You can modify the settings each file by using [Apache Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md). To find storage account settings, see [Hadoop Azure Support: ABFS — Azure Data Lake Storage Gen2](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html). This example uses the `fs.azure.account.key` setting to enable Shared Key authorization:
+
+   ```xml
+   <property>
+     <name>fs.azure.account.key.abfswales1.dfs.core.windows.net</name>
+     <value>your-key-goes-here</value>
+   </property>
+   ```
+ 
+   For links to articles that help you configure HDInsight, Azure Databricks, and other Azure services to use Gen2, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
 2. Update applications to use Gen2 APIs. See these guides:
 
@@ -199,7 +220,11 @@ Once the migration is complete, both in "Copy data" and "Complete migration" opt
 
 #### Gen1 doesn't have containers and Gen2 has them - what should I expect?
 
-When we copy the data over to your Gen2-enabled account, we automatically create a container named `Gen1`. If you choose to copy only data, then you can rename that container after the data copy is complete. If you perform a complete migration, and you plan to use the application compatibility layer, then you should avoid changing the container name. When you no longer want to use the compatibility layer, you can change the name of the container.
+When we copy the data over to your Gen2-enabled account, we automatically create a container named 'Gen1'. In Gen2 container names cannot be renamed and hence post migration data can be copied to new container in Gen2 as needed.
+
+#### What should I consider in terms of migration performance?
+
+When you copy the data over to your Gen2-enabled account, two factors that can affect performance are the number of files and the amount of metadata you have. For example, many small files can affect the performance of the migration.
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/08/2021
+ms.date: 11/23/2021
 ---
 
 # Using column patterns in mapping data flow
@@ -45,6 +45,12 @@ To verify your matching condition is correct, you can validate the output schema
 You can build pattern matching inside of complex hierarchical structures as well. Expand the section `Each MoviesStruct that matches` where you will be prompted for each hierarchy in your data stream. You can then build matching patterns for properties within that chosen hierarchy.
 
 :::image type="content" source="media/data-flow/patterns-hierarchy.png" alt-text="Screenshot shows hierarchical column pattern.":::
+
+#### Flattening structures
+
+When your data has complex structures like arrays, hierarchical structures, and maps, you can use the [Flatten transformation](data-flow-flatten.md) to unroll arrays and denormalize your data. For structures and maps, use the derived column transformation with column patterns to form your flattened relational table from the hierarchies. You can use the column patterns that would look like this sample, which flattens the geography hierarchy into a relational table form:
+
+:::image type="content" source="media/data-flow/column-pattern-004.png" alt-text="Screenshot shows the Derived column's flatten structure.":::
 
 ## Rule-based mapping in select and sink
 
@@ -89,5 +95,5 @@ The above example matches on all subcolumns of complex column `a`. `a` contains 
 * `origin` is the transformation where a column originated or was last updated
 
 ## Next steps
-* Learn more about the mapping data flow [expression language](data-flow-expression-functions.md) for data transformations
+* Learn more about the mapping data flow [expression language](data-transformation-functions.md) for data transformations
 * Use column patterns in the [sink transformation](data-flow-sink.md) and [select transformation](data-flow-select.md) with rule-based mapping

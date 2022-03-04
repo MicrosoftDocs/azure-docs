@@ -12,7 +12,9 @@ The **Query language reference** can be found under **Reference** in the left ta
 * Clauses
     * [SELECT](../articles/digital-twins/reference-query-clause-select.md)
     * [FROM](../articles/digital-twins/reference-query-clause-from.md)
+    * [MATCH (preview)](../articles/digital-twins/reference-query-clause-match.md)
     * [JOIN](../articles/digital-twins/reference-query-clause-join.md)
     * [WHERE](../articles/digital-twins/reference-query-clause-where.md)
 * [Functions](../articles/digital-twins/reference-query-functions.md)
 * [Operators](../articles/digital-twins/reference-query-operators.md)
+* [Reserved Keywords](../articles/digital-twins/reference-query-reserved.md)

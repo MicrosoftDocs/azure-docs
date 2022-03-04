@@ -51,7 +51,19 @@ To restore a dropped Azure Database for PostgreSQL server, you need following:
     }
     ```
 
-    For example, if the current time is 2020-11-02T23:59:59.0000000Z, we recommend a minimum of 15 minutes prior restore point in time 2020-11-02T23:44:59.0000000Z.
+    For example, if the current time is 2020-11-02T23:59:59.0000000Z, we recommend a minimum of 15 minutes prior restore point in time 2020-11-02T23:44:59.0000000Z. Please see below example and ensure that you are changing three parameters (location,restorePointInTime,sourceServerId) as per your restore requirements.
+
+    ```json
+    {
+      "location": "EastUS",  
+      "properties": 
+      {
+        "restorePointInTime": "2020-11-02T23:44:59.0000000Z",
+        "createMode": "PointInTimeRestore",
+        "sourceServerId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver"
+      }
+    }
+    ```
 
     > [!Important]
     > There is a time limit of five days after the server was dropped. After five days, an error is expected since the backup file cannot be found.

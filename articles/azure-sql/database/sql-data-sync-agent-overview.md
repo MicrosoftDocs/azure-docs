@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: MaraSteiu 
 ms.author: masteiu
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/20/2018
 ---
 # Data Sync Agent for SQL Data Sync

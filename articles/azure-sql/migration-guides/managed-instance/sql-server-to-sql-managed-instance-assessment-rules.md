@@ -8,15 +8,54 @@ ms.devlang:
 ms.topic: how-to
 author: rajeshsetlem
 ms.author: rsetlem
-ms.reviewer: mathoma, cawrites
+ms.reviewer: mathoma
 ms.date: 12/15/2020
 ---
 # Assessment rules for SQL Server to  Azure SQL Managed Instance migration
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
 
-Migration tools validate your source SQL Server instance by running a number of assessment rules to identify issues that must be addressed before migrating your SQL Server database to Azure SQL Managed Instance. 
+Migration tools validate your source SQL Server instance by running a number of assessment rules. The rules identify issues that must be addressed before migrating your SQL Server database to Azure SQL Managed Instance. 
 
 This article provides a list of the rules used to assess the feasibility of migrating your SQL Server database to Azure SQL Managed Instance. 
+
+## Rules Summary
+
+ | Rule Title | Level | Category | Details | 
+ | - | - | - | - | 
+ | AnalysisCommandJob | Instance | Warning | [AnalysisCommand job step isn't supported in Azure SQL Managed Instance.](#AnalysisCommandJob) | 
+ | AnalysisQueryJob | Instance | Warning | [AnalysisQuery job step isn't supported in Azure SQL Managed Instance.](#AnalysisQueryJob) | 
+ | AssemblyFromFile | Database | Issue | ['CREATE ASSEMBLY' and 'ALTER ASSEMBLY' with a file parameter are unsupported in Azure SQL Managed Instance.](#AssemblyFromFile) | 
+ | BulkInsert | Database | Issue | [BULK INSERT with non-Azure blob data source isn't supported in Azure SQL Managed Instance.](#BulkInsert) | 
+ | ClrStrictSecurity | Database | Warning | [CLR assemblies marked as SAFE or EXTERNAL_ACCESS are considered UNSAFE.](#ClrStrictSecurity) | 
+ | ComputeClause | Database | Warning | [COMPUTE clause is no longer supported and has been removed.](#ComputeClause) | 
+ | CryptographicProvider | Database | Issue | [A use of CREATE CRYPTOGRAPHIC PROVIDER or ALTER CRYPTOGRAPHIC PROVIDER was found. This isn't supported in Azure SQL Managed Instance.](#CryptographicProvider) | 
+ | DatabasePrincipalAlias | Database | Issue | [SYS.DATABASE_PRINCIPAL_ALIASES is no longer supported and has been removed.](#DatabasePrincipalAlias) | 
+ | DbCompatLevelLowerThan100 | Database | Warning | [Database compatibility level below 100 isn't supported.](#DbCompatLevelLowerThan100) | 
+ | DisableDefCNSTCHK | Database | Issue | [SET option DISABLE_DEF_CNST_CHK is no longer supported and has been removed.](#DisableDefCNSTCHK) | 
+ | FastFirstRowHint | Database | Warning | [FASTFIRSTROW query hint is no longer supported and has been removed.](#FastFirstRowHint) | 
+ | FileStream | Database | Issue | [Filestream and Filetable are not supported in Azure SQL Managed Instance.](#FileStream) | 
+ | LinkedServerWithNonSQLProvider | Database | Issue | [Linked server with non-SQL Server Provider isn't supported in Azure SQL Managed Instance.](#LinkedServerWithNonSQLProvider) | 
+ | MergeJob | Instance | Warning | [Merge job step isn't supported in Azure SQL Managed Instance.](#MergeJob) | 
+ | MIDatabaseSize | Database | Issue | [Azure SQL Managed Instance does not support database size greater than 8 TB.](#MIDatabaseSize<) | 
+ | MIHeterogeneousMSDTCTransactSQL | Database | Issue | [BEGIN DISTRIBUTED TRANSACTION with non-SQL Server remote server isn't supported in Azure SQL Managed Instance.](#MIHeterogeneousMSDTCTransactSQL) | 
+ | MIHomogeneousMSDTCTransactSQL | Database | Issue | [BEGIN DISTRIBUTED TRANSACTION is supported across multiple servers for Azure SQL Managed Instance.](#MIHomogeneousMSDTCTransactSQL) | 
+ | MIInstanceSize | Instance | Warning | [Maximum instance storage size in Azure SQL Managed Instance cannot be greater than 8 TB.](#MIInstanceSize<) | 
+ | MultipleLogFiles | Database | Issue | [Azure SQL Managed Instance does not support databases with multiple log files.](#MultipleLogFiles<) | 
+ | NextColumn | Database | Issue | [Tables and Columns named NEXT will lead to an error In Azure SQL Managed Instance.](#NextColumn) | 
+ | NonANSILeftOuterJoinSyntax | Database | Warning | [Non-ANSI style left outer join is no longer supported and has been removed.](#NonANSILeftOuterJoinSyntax) | 
+ | NonANSIRightOuterJoinSyntax | Database | Warning | [Non-ANSI style right outer join is no longer supported and has been removed.](#NonANSIRightOuterJoinSyntax) | 
+ | NumDbExceeds100 | Instance | Warning | [Azure SQL Managed Instance supports a maximum of 100 databases per instance.](#NumDbExceeds100) | 
+ | OpenRowsetWithNonBlobDataSourceBulk | Database | Issue | [OpenRowSet used in bulk operation with non-Azure blob storage data source isn't supported in Azure SQL Managed Instance.](#OpenRowsetWithNonBlobDataSourceBulk) | 
+ | OpenRowsetWithNonSQLProvider | Database | Issue | [OpenRowSet with non-SQL provider isn't supported in Azure SQL Managed Instance.](#OpenRowsetWithNonSQLProvider) | 
+ | PowerShellJob | Instance | Warning | [PowerShell job step isn't supported in Azure SQL Managed Instance.](#PowerShellJob) | 
+ | QueueReaderJob | Instance | Warning | [Queue Reader job step isn't supported in Azure SQL Managed Instance.](#QueueReaderJob) | 
+ | RAISERROR | Database | Warning | [Legacy style RAISERROR calls should be replaced with modern equivalents.](#RAISERROR) | 
+ | SqlMail | Database | Warning | [SQL Mail is no longer supported.](#SqlMail) | 
+ | SystemProcedures110 | Database | Warning | [Detected statements that reference removed system stored procedures that are not available in Azure SQL Managed Instance.](#SystemProcedures110) | 
+ | TraceFlags | Instance | Warning | [Trace flags not supported in Azure SQL Managed Instance were found.](#TraceFlags) | 
+ | TransactSqlJob | Instance | Warning | [TSQL job step includes unsupported commands in Azure SQL Managed Instance.](#TransactSqlJob) | 
+ | WindowsAuthentication | Instance | Warning | [Database users mapped with Windows authentication (integrated security) are not supported in Azure SQL Managed Instance.](#WindowsAuthentication) | 
+ | XpCmdshell | Database | Issue | [xp_cmdshell is not supported in Azure SQL Managed Instance.](#XpCmdshell) | 
 
 ## AnalysisCommand job<a id="AnalysisCommandJob"></a>
 
@@ -91,7 +130,7 @@ More information: [CLR strict security](/sql/database-engine/configure-windows/c
 
 ## Compute clause<a id="ComputeClause"></a>
 
-**Title: COMPUTE clause is discontinued and has been removed.**   
+**Title: COMPUTE clause is no longer supported and has been removed.**   
 **Category**: Warning   
 
 **Description**   
@@ -148,11 +187,11 @@ More information: [Supported compatibility levels in Azure SQL Managed Instance 
 
 ## Database principal alias<a id="DatabasePrincipalAlias"></a>
 
-**Title: SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed.**   
+**Title: SYS.DATABASE_PRINCIPAL_ALIASES is no longer supported and has been removed.**   
 **Category**: Issue   
 
 **Description**   
-SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed in Azure SQL Managed Instance.
+SYS.DATABASE_PRINCIPAL_ALIASES is no longer supported and has been removed in Azure SQL Managed Instance.
 
 
 **Recommendation**   
@@ -162,22 +201,22 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 
 ## DISABLE_DEF_CNST_CHK option<a id="DisableDefCNSTCHK"></a>
 
-**Title: SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed.**   
+**Title: SET option DISABLE_DEF_CNST_CHK is no longer supported and has been removed.**   
 **Category**: Issue   
 
 **Description**   
-SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed in Azure SQL Managed Instance.
+SET option DISABLE_DEF_CNST_CHK is no longer supported and has been removed in Azure SQL Managed Instance.
 
 
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 ## FASTFIRSTROW hint<a id="FastFirstRowHint"></a>
 
-**Title: FASTFIRSTROW query hint is discontinued and has been removed.**   
+**Title: FASTFIRSTROW query hint is no longer supported and has been removed.**   
 **Category**: Warning   
 
 **Description**   
-FASTFIRSTROW query hint is discontinued and has been removed in Azure SQL Managed Instance.
+FASTFIRSTROW query hint is no longer supported and has been removed in Azure SQL Managed Instance.
 
 
 **Recommendation**   
@@ -300,7 +339,7 @@ More information: [Hardware generation characteristics of Azure SQL Managed Inst
 **Category**: Issue   
 
 **Description**   
-SQL Server allows a database to log to multiple files. This database has multiple log files which is not supported in Azure SQL Managed Instance. **This database can't be migrated as the backup can't be restored on Azure SQL Managed Instance. 
+SQL Server allows a database to log to multiple files. This database has multiple log files, which is not supported in Azure SQL Managed Instance. **This database can't be migrated as the backup can't be restored on Azure SQL Managed Instance. 
 **
 
 **Recommendation**   
@@ -320,21 +359,21 @@ More information: [Unsupported database options in Azure SQL Managed Instance  ]
 **Category**: Issue   
 
 **Description**   
-Tables or columns named NEXT were detected. Sequences, introduced in Microsoft SQL Server, use the ANSI standard NEXT VALUE FOR function. If a table or a column is named NEXT and the column is aliased as VALUE, and if the ANSI standard AS is omitted, the resulting statement can cause an error.
+Tables or columns named NEXT were detected. Sequences, introduced in Microsoft SQL Server, use the ANSI standard NEXT VALUE FOR function. Tables or columns named NEXT and column aliased as VALUE with the ANSI standard AS omitted can cause an error.
 
 
 **Recommendation**   
-Rewrite statements to include the ANSI standard AS keyword when aliasing a table or column. For example, when a column is named NEXT and that column is aliased as VALUE, the query SELECT NEXT VALUE FROM TABLE will cause an error and should be rewritten as SELECT NEXT AS VALUE FROM TABLE. Similarly, when a table is named NEXT and that table is aliased as VALUE, the query SELECT Col1 FROM NEXT VALUE will cause an error and should be rewritten as SELECT Col1 FROM NEXT AS VALUE.
+Rewrite statements to include the ANSI standard AS keyword when aliasing a table or column. For example, when a column is named NEXT and that column is aliased as VALUE, the query SELECT NEXT VALUE FROM TABLE will cause an error and should be rewritten as SELECT NEXT AS VALUE FROM TABLE. Similarly, for a table named NEXT and aliased as VALUE, the query SELECT Col1 FROM NEXT VALUE will cause an error and should be rewritten as SELECT Col1 FROM NEXT AS VALUE.
 
 
 
 ## Non-ANSI style left outer join<a id="NonANSILeftOuterJoinSyntax"></a>
 
-**Title: Non-ANSI style left outer join is discontinued and has been removed.**   
+**Title: Non-ANSI style left outer join is no longer supported and has been removed.**   
 **Category**: Warning   
 
 **Description**   
-Non-ANSI style left outer join is discontinued and has been removed in Azure SQL Managed Instance. 
+Non-ANSI style left outer join is no longer supported and has been removed in Azure SQL Managed Instance. 
 
 
 **Recommendation**   
@@ -344,11 +383,11 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 
 ## Non-ANSI style right outer join<a id="NonANSIRightOuterJoinSyntax"></a>
 
-**Title: Non-ANSI style right outer join is discontinued and has been removed.**   
+**Title: Non-ANSI style right outer join is no longer supported and has been removed.**   
 **Category**: Warning   
 
 **Description**   
-Non-ANSI style right outer join is discontinued and has been removed in Azure SQL Managed Instance. 
+Non-ANSI style right outer join is no longer supported and has been removed in Azure SQL Managed Instance. 
 
 
 
@@ -374,7 +413,7 @@ More information: [Azure SQL Managed Instance Resource Limits ](../../managed-in
 
 ## OPENROWSET (non-blob data source)<a id="OpenRowsetWithNonBlobDataSourceBulk"></a>
 
-**Title: OpenRowSet used in bulk operation with non-Azure blob storage data source is not supported in Azure SQL Managed Instance.**   
+**Title: OpenRowSet used in bulk operation with non-Azure Blob Storage data source is not supported in Azure SQL Managed Instance.**   
 **Category**: Issue   
 
 **Description**   
@@ -437,7 +476,7 @@ More information: [SQL Server Agent differences in Azure SQL Managed Instance ](
 **Category**: Warning   
 
 **Description**   
-RAISERROR calls like the below example are termed as legacy-style because they do not include the commas and the parenthesis. RAISERROR 50001 'this is a test'. This method of calling RAISERROR is discontinued and removed in Azure SQL Managed Instance.
+RAISERROR calls like the below example are termed as legacy-style because they do not include the commas and the parenthesis. RAISERROR 50001 'this is a test'. This method of calling RAISERROR is no longer supported and removed in Azure SQL Managed Instance.
 
 
 
@@ -449,12 +488,12 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 
 ## SQL Mail<a id="SqlMail"></a>
 
-**Title: SQL Mail has been discontinued.**   
+**Title: SQL Mail has been no longer supported.**   
 **Category**: Warning   
 
 
 **Description**   
-SQL Mail has been discontinued and removed in Azure SQL Managed Instance.
+SQL Mail has been no longer supported and removed in Azure SQL Managed Instance.
 
 
 
@@ -542,7 +581,7 @@ More information: [SQL Managed Instance security capabilities](../../database/se
 
 
 **Description**   
-Xp_cmdshell which spawns a Windows command shell and passes in a string for execution is not supported in Azure SQL Managed Instance. 
+Xp_cmdshell, which spawns a Windows command shell and passes in a string for execution isn't supported in Azure SQL Managed Instance. 
 
 
 
@@ -557,7 +596,7 @@ To start migrating your SQL Server to Azure SQL Managed Instance, see the [SQL S
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
-- To learn more about Azure SQL Managed Instance see:
+- To learn more about Azure SQL Managed Instance, see:
    - [Service Tiers in Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md#service-tiers)
    - [Differences between SQL Server and Azure SQL Managed Instance](../../managed-instance/transact-sql-tsql-differences-sql-server.md)
    - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 

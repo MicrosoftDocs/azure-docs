@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workday for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Workday.
 services: active-directory
 author: cmmdesai
@@ -426,7 +426,7 @@ Once the Workday provisioning app configurations have been completed and you hav
 
 1. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
    > [!div class="mx-imgBorder"]
-   > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+   > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/workday-sync.png)
 
 ## Frequently Asked Questions (FAQ)
 

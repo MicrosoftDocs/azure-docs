@@ -25,7 +25,7 @@ Clone or download [azure-search-postman-samples](https://github.com/Azure-Sample
 
 ## Set up sample data
 
-Sample documents aren't specifically included with the Projections collection, but the [AI enrichment demo data files](https://github.com/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) from the [azure-search-sample-data repo](https://github.com/Azure-Samples/azure-search-sample-data) contain text and images, and will work with the projections described in this example.
+Sample documents aren't specifically included with the Projections collection, but the [AI enrichment demo data files](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) from the [azure-search-sample-data repo](https://github.com/Azure-Samples/azure-search-sample-data) contain text and images, and will work with the projections described in this example.
 
 Create a blob container in Azure Storage and upload all 14 items.
 

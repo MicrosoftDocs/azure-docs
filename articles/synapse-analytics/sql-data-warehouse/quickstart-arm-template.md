@@ -2,10 +2,10 @@
 title: Create a dedicated SQL pool (formerly SQL DW) by using Azure Resource Manager template
 description: Learn how to create an Azure Synapse Analytics SQL pool by using Azure Resource Manager template.
 services: azure-resource-manager
-author: julieMSFT
+author: WilliamDAssafMSFT
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.author: jrasnick
+ms.author: wiassaf
 ms.date: 06/09/2020
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 ---

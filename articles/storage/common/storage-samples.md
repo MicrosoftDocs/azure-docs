@@ -47,9 +47,9 @@ To explore the Node.js samples, download the [Node.js Storage Client Library](ht
 
 To explore the C++ samples, get the [Azure Storage Client Library for C++](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage) from GitHub.
 
-- [Get started with Azure Blobs](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp)
-- [Get started with Azure Data Lake](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp)
-- [Get started with Azure Files](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp)
+- [Get started with Azure Blobs](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp)
+- [Get started with Azure Data Lake](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp)
+- [Get started with Azure Files](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp)
 
 ## Azure CLI
 

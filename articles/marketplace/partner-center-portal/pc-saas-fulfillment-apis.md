@@ -4,9 +4,9 @@ description: An introduction to the fulfillment APIs that enable you to integrat
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/18/2020
-author: saasguide
-ms.author: souchak
+ms.date: 11/09/2021
+author: arifgani
+ms.author: argani
 ---
 
 # SaaS fulfillment APIs in the Microsoft commercial marketplace
@@ -61,4 +61,4 @@ For more information about CSP, refer to https://partner.microsoft.com/licensing
 
 ## Next steps
 
-- If you have not already done so, register your SaaS application in the [Azure portal](https://ms.portal.azure.com) as explained in [Register an Azure AD Application](./pc-saas-registration.md).  Afterwards, use the most current version of this interface for development: [SaaS fulfillment Subscription APIs v2](pc-saas-fulfillment-subscription-api.md) and [SaaS fulfillment Operations APIs v2](pc-saas-fulfillment-operations-api.md).
+- If you have not already done so, register your SaaS application in the [Azure portal](https://portal.azure.com) as explained in [Register an Azure AD Application](./pc-saas-registration.md).  Afterwards, use the most current version of this interface for development: [SaaS fulfillment Subscription APIs v2](pc-saas-fulfillment-subscription-api.md) and [SaaS fulfillment Operations APIs v2](pc-saas-fulfillment-operations-api.md).

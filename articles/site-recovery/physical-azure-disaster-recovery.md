@@ -148,13 +148,13 @@ Select and verify target resources.
 1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
 2. In **Create replication policy**, specify a policy name.
 3. In **RPO threshold**, specify the recovery point objective (RPO) limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit.
-4. In **Recovery point retention**, specify how long (in hours) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
-5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
+4. In **Recovery point retention**, specify how long (in days) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 15 days retention is supported.
+5. In **App-consistent snapshot frequency**, specify how often (in hours) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
 
     ![Screenshot of the options for creating a replication policy.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
-The policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.
+By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.
 
 ## Enable replication
 

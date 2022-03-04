@@ -1,20 +1,18 @@
 ---
 title: Conditional Access require terms of use - Azure Active Directory
 description: In this quickstart, you learn how you can require that your terms of use are accepted before access to selected cloud apps is granted by Azure Active Directory Conditional Access.
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: quickstart 
+ms.topic: quickstart
 ms.date: 11/21/2019
-
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
-
-#Customer intent: As an IT admin, I want to ensure that users have accepted my terms of use before accessing selected cloud apps, so that I have a consent from them.
 ms.collection: M365-identity-device-management
+ms.custom: mode-other
+#Customer intent: As an IT admin, I want to ensure that users have accepted my terms of use before accessing selected cloud apps, so that I have a consent from them.
 ---
 # Quickstart: Require terms of use to be accepted before accessing cloud apps
 

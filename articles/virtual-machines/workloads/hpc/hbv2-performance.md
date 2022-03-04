@@ -1,17 +1,16 @@
---- 
+---
 title: HBv2-series VM size performance 
 description: Learn about performance testing results for HBv2-series VM sizes in Azure.  
-services: virtual-machines 
-author: vermagit 
+services: virtual-machines  
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
 ms.date: 09/28/2020 
-ms.author: amverma 
 ms.reviewer: cynthn
+ms.author: mamccrea
+author: mamccrea
 --- 
-
 
 # HBv2-series virtual machine sizes
 
@@ -33,25 +32,21 @@ Several performance tests have been run on [HBv2-series](../../hbv2-series.md) s
 
 MPI latency test from the OSU microbenchmark suite is run. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
 
-
-```bash 
+```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency
-``` 
- 
-:::image type="content" source="./media/latency-hbv2.png" alt-text="MPI latency on Azure HB.":::
+```
 
+:::image type="content" source="./media/latency-hbv2.png" alt-text="MPI latency on Azure HB.":::
 
 ## MPI bandwidth
 
 MPI bandwidth test from the OSU microbenchmark suite is run. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
 
-
 ```bash
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
-``` 
+```
 
 :::image type="content" source="./media/bandwidth-hbv2.png" alt-text="MPI bandwidth on Azure HB.":::
-
 
 ## Mellanox Perftest
 

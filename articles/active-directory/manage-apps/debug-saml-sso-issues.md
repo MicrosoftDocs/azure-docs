@@ -14,7 +14,7 @@ ms.date: 02/18/2019
 ms.reviewer: ergreenl
 ---
 
-# Debug SAML-based single sign-on to applications in Azure Active Directory
+# Debug SAML-based single sign-on to applications
 
 Learn how to find and fix [single sign-on](what-is-single-sign-on.md) issues for applications in Azure Active Directory (Azure AD) that use SAML-based single sign-on.
 

@@ -12,14 +12,15 @@ ms.workload: identity
 ms.date: 09/21/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
-# Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
+ms.custom: contperf-fy22q2, mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
 ---
 
-# Quickstart: Enable single sign-on for an enterprise application in Azure Active Directory
+# Quickstart: Enable single sign-on for an enterprise application
 
 In this quickstart, you use the Azure Active Directory Admin Center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. 
 
-Azure AD has a gallery that contains thousands of pre-integrated applications that use SSO. This quickstart uses an enterprise application named **Azure AD SAML Toolkit** as an example, but the concepts apply for most pre-configured [enterprise applications in the gallery](../saas-apps/tutorial-list.md).
+Azure AD has a gallery that contains thousands of pre-integrated applications that use SSO. This quickstart uses an enterprise application named **Azure AD SAML Toolkit** as an example, but the concepts apply for most pre-configured enterprise applications in the gallery.
 
 It is recommended that you use a non-production environment to test the steps in this quickstart.
 
@@ -27,7 +28,7 @@ It is recommended that you use a non-production environment to test the steps in
 
 To configure SSO, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - Completion of the steps in [Quickstart: Create and assign a user account](add-application-portal-assign-users.md).
 
@@ -107,7 +108,7 @@ To test SSO:
 
 ## Clean up resources
 
-If you are planning to complete the next quickstart, keep the enterprise application that you created. Otherwise, you can consider deleting it to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
+If you are planning to complete the next quickstart, keep the enterprise application that you created. Otherwise, you can consider deleting it to clean up your tenant.
 
 ## Next steps
 

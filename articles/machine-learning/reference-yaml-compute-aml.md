@@ -15,9 +15,13 @@ ms.reviewer: laobri
 
 # CLI (v2) compute cluster (AmlCompute) YAML schema
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -55,23 +59,23 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: minimal
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-minimal.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-minimal.yml":::
 
 ## YAML: basic
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-basic.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-basic.yml":::
 
 ## YAML: custom location
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-location.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-location.yml":::
 
 ## YAML: low priority
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-low-priority.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-low-priority.yml":::
 
 ## YAML: SSH username and password
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-ssh-password.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-ssh-password.yml":::
 
 ## Next steps
 

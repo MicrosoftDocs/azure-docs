@@ -2,18 +2,12 @@
 title: Azure Virtual Network FAQ
 titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
-services: virtual-network
-documentationcenter: na
 author: KumudD
-manager: twooley
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-
 ---
 # Azure Virtual Network frequently asked questions (FAQ)
 
@@ -226,6 +220,18 @@ Yes. For details, see [Azure Network Security Overview](../security/fundamentals
 ### Do Virtual Networks store customer data?
 No. Virtual Networks doesn't store any customer data. 
 
+### Can I set [FlowTimeoutInMinutes](/powershell/module/az.network/set-azvirtualnetwork) property for an entire subscription? 
+No. This must be set at the virtual network. The following can assist automate setting this property for larger subscriptions:  
+```Powershell
+$Allvnet = Get-AzVirtualNetwork
+$time = 4 #The value should be between 4 and 30 minutes (inclusive) to enable tracking, or null to disable tracking. $null to disable. 
+ForEach ($vnet in $Allvnet)
+{
+    $vnet.FlowTimeoutInMinutes = $time
+    $vnet | Set-AzVirtualNetwork
+}
+```
+
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?
@@ -235,7 +241,7 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/v
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) deployment models.
 - PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure.service/) deployment models.
-- The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.  
+- The Azure CLI or Azure classic CLI to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.
 
 ## VNet peering
 
@@ -257,7 +263,7 @@ The following resources can use Basic Load Balancers which means you cannot reac
 - Active Directory Domain Service (ADDS)
 - Logic Apps
 - HDInsight
--	Azure Batch
+-    Azure Batch
 - App Service Environment
 
 You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
@@ -277,7 +283,7 @@ Yes. You can peer VNets across subscriptions and across regions.
 ### Can I peer two VNets with matching or overlapping address ranges?
 No. Address spaces must not overlap to enable VNet Peering.
 
-### Can I peer a VNet to two different VNets with the the 'Use Remote Gateway' option enabled on both the peerings?
+### Can I peer a VNet to two different VNets with the 'Use Remote Gateway' option enabled on both the peerings?
 No. You can only enable the 'Use Remote Gateway' option on one peering to one of the VNets.
 
 ### How much do VNet peering links cost?
@@ -358,7 +364,7 @@ Yes, it is possible. Virtual networks and Azure service resources can be either 
 ### Can I turn on VNet service endpoints and set up VNet ACLs if the virtual network and the Azure service resources belong to different AD tenants?
 Yes, it is possible when using service endpoints for Azure Storage and Azure Key Vault. For rest of services, VNet service endpoints and VNet ACLs are not supported across AD tenants.
 
-### Can an on-premises device’s IP address that is connected through Azure Virtual Network gateway (VPN) or ExpressRoute gateway access Azure PaaS Service over VNet service endpoints?
+### Can an on-premises device's IP address that is connected through Azure Virtual Network gateway (VPN) or ExpressRoute gateway access Azure PaaS Service over VNet service endpoints?
 By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow traffic from on-premises, you must also allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. These IP addresses can be added through the IP firewall configuration for the Azure service resources.
 
 ### Can I use VNet Service Endpoint feature to secure Azure service to multiple subnets within a virtual network or across multiple virtual networks?
@@ -409,16 +415,16 @@ Azure Active Directory (Azure AD) doesn't support service endpoints natively. Co
 ### Are there any limits on how many VNet service endpoints I can set up from my VNet?
 There is no limit on the total number of VNet service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. The following table shows some example limits: 
 
-|Azure service|	Limits on VNet rules|
+|Azure service|    Limits on VNet rules|
 |---|---|
-|Azure Storage|	100|
-|Azure SQL|	128|
-|Azure Synapse Analytics|	128|
-|Azure KeyVault|	200 |
-|Azure Cosmos DB|	64|
-|Azure Event Hub|	128|
-|Azure Service Bus|	128|
-|Azure Data Lake Store V1|	100|
+|Azure Storage|    200|
+|Azure SQL|    128|
+|Azure Synapse Analytics|    128|
+|Azure KeyVault|    200 |
+|Azure Cosmos DB|    64|
+|Azure Event Hub|    128|
+|Azure Service Bus|    128|
+|Azure Data Lake Store V1|    100|
  
 >[!NOTE]
 > The limits are subjected to changes at the discretion of the Azure service. Refer to the respective service documentation for services details.

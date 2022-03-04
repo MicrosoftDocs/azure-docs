@@ -3,12 +3,11 @@ title: Azure role assignment condition format and syntax (preview) - Azure RBAC
 description: Get an overview of the format and syntax of Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
-manager: mtillman
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 12/07/2021
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
@@ -35,9 +34,32 @@ The following shows the format of a simple condition.
 
 ![Format of a simple condition with a single action and a single expression.](./media/conditions-format/format-simple.png)
 
+```
+(
+    (
+        !(ActionMatches{'<action>'})
+    )
+    OR
+    (
+        <attribute> <operator> <value>
+    )
+)
+```
+
 The following condition has an action of "Read a blob". The expression checks whether the container name is blobs-example-container.
 
-![Simple condition example with a blobs read action and a container name expression.](./media/conditions-format/format-simple-example.png)
+```
+(
+    (
+        !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})
+    )
+    OR 
+    (
+        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name]
+        StringEquals 'blobs-example-container'
+    )
+)
+```
 
 ![Diagram showing read access to blobs with particular container name.](./media/conditions-format/format-simple-example-diagram.png)
 
@@ -73,11 +95,40 @@ Some actions have suboperations. For example, the "Read a blob" data action has 
 
 ![Format for an action with a suboperation.](./media/conditions-format/format-suboperation.png)
 
+```
+(
+    (
+        !(ActionMatches{'<action>'}
+        AND
+        SubOperationMatches{'<subOperation>'})
+
+    )
+    OR
+    (
+        <attribute> <operator> <value>
+    )
+)
+```
+
 ### Multiple actions
 
 A condition can include multiple actions that you want to allow if the condition is true. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
 
 ![Format for multiple actions to allow if condition is true.](./media/conditions-format/format-multiple-actions.png)
+
+```
+(
+    (
+        !(ActionMatches{'<action>'})
+        AND
+        !(ActionMatches{'<action>'})
+    )
+    OR
+    (
+        <attribute> <operator> <value>
+    )
+)
+```
 
 ### Multiple expressions
 
@@ -85,11 +136,55 @@ A condition can include multiple expressions. Depending on the operator, attribu
 
 ![Format for multiple expressions using Boolean operators and multiple values.](./media/conditions-format/format-multiple-expressions.png)
 
+```
+(
+    (
+        !(ActionMatches{'<action>'})
+    )
+    OR
+    (
+        <attribute> <operator> <value>
+        AND | OR
+        <attribute> <operator> {<value>, <value>, <value>}
+        AND | OR
+        <attribute> <operator> <value>
+    )
+)
+```
+
 ### Multiple conditions
 
 You can also combine conditions to target multiple actions.
 
 ![Format for multiple conditions using Boolean operator.](./media/conditions-format/format-multiple-conditions.png)
+
+```
+(
+    (
+        !(ActionMatches{'<action>'})
+    )
+    OR
+    (
+        <attribute> <operator> <value>
+        AND | OR
+        <attribute> <operator> {<value>, <value>, <value>}
+        AND | OR
+        <attribute> <operator> <value>
+    )
+)
+AND
+(
+    (
+        !(ActionMatches{'<action>'})
+    )
+    OR
+    (
+        <attribute> <operator> <value>
+        AND | OR
+        <attribute> <operator> <value>
+    )
+)
+```
 
 ## Condition syntax
 
@@ -98,9 +193,9 @@ The following shows the syntax for a role assignment condition.
 ```
 (
     (
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
         ...
     )
@@ -116,9 +211,9 @@ The following shows the syntax for a role assignment condition.
 AND
 (
     (
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
         ...
     )
@@ -143,7 +238,7 @@ Currently, conditions can be added to built-in or custom role assignments that h
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
 - [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)
 
-For a a list of the storage blob actions you can use in conditions, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
+For a list of the storage blob actions you can use in conditions, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md).
 
 ## Attributes
 
@@ -152,10 +247,29 @@ Depending on the selected actions, the attribute might be found in different pla
 > [!div class="mx-tableFixed"]
 > | Attribute source | Description | Code |
 > | --- | --- | --- |
-> | Resource | Indicates that the attribute is on the resource, such as container name. | `@Resource` |
+> | Resource | Indicates that the attribute is on the resource, such as a container name. | `@Resource` |
 > | Request | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
+> | Principal | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. | `@Principal` |
 
-For a a list of the storage blob attributes you can use in conditions, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
+#### Resource and request attributes
+
+For a list of the storage blob attributes you can use in conditions, see:
+
+- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
+
+#### Principal attributes
+
+To use principal attributes, you must have **all** of the following:
+
+- Azure AD Premium P1 or P2 license
+- Azure AD permissions for signed-in user, such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role
+- Custom security attributes defined in Azure AD
+
+For more information about custom security attributes, see:
+
+- [Allow read access to blobs based on tags and custom security attributes](conditions-custom-security-attributes.md)
+- [Principal does not appear in Attribute source when adding a condition](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
+- [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 ## Operators
 
@@ -208,7 +322,7 @@ The following table lists the operators that are available to construct conditio
 
 ## Grouping and precedence
 
-You use parentheses `()` to group expressions and define precedence in a condition. If you have three or more expressions for a targeted action, you must add parentheses to define the order that the expressions are evaluated. Expressions enclosed in parentheses have higher precedence. For example, if you have the following expression:
+If you have three or more expressions for a targeted action with different operators between the expressions, the evaluation order is ambiguous. You use parentheses `()` to group expressions and specify the order that the expressions are evaluated. Expressions enclosed in parentheses have higher precedence. For example, if you have the following expression:
 
 ```
 a AND b OR c
@@ -228,3 +342,4 @@ a AND (b OR c)
 
 - [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
 - [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
+- [Add or edit Azure role assignment conditions using the Azure portal (preview)](conditions-role-assignments-portal.md)

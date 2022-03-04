@@ -17,7 +17,7 @@ ms.reviewer: tilarso
 #Customer intent: As a developer, I want to learn how to protect against app-based consent phishing attacks so I can protect my users from malicious threat actors.
 ---
 
-# Protecting against consent phishing in Azure Active Directory
+# Protecting against consent phishing
 
 Productivity is no longer confined to private networks, and work has shifted dramatically toward cloud services. While cloud applications enable employees to be productive remotely, attackers can also use application-based attacks to gain access to valuable organization data. You may be familiar with attacks focused on users, such as email phishing or credential compromise. ***Consent phishing*** is another threat vector to be aware of.
 This article explores what consent phishing is, what Microsoft does to protect you, and what steps organizations can take to stay safe.
@@ -36,7 +36,7 @@ Admins, users, or Microsoft security researchers may flag OAuth applications tha
 
 When Azure AD disables an OAuth application, a few things happen:
 - The malicious application and related service principals are placed into a fully disabled state. Any new token requests or requests for refresh tokens will be denied, but existing access tokens will still be valid until their expiration.
-- We surface the disabled state through an exposed property called *disabledByMicrosoftStatus* on the related [application](/graph/api/resources/application?view=graph-rest-1.0&preserve-view=true) and [service principal](/graph/api/resources/serviceprincipal?view=graph-rest-1.0&preserve-view=true) resource types in Microsoft Graph.
+- We surface the disabled state through an exposed property called *disabledByMicrosoftStatus* on the related [application](/graph/api/resources/application) and [service principal](/graph/api/resources/serviceprincipal) resource types in Microsoft Graph.
 - Global admins who may have had a user in their organization that consented to an application before disablement by Microsoft should receive an email reflecting the action taken and recommended steps they can take to investigate and improve their security posture.
 
 ## Recommended response and remediation
@@ -62,7 +62,7 @@ At Microsoft, we want to put admins in control by providing the right insights a
     - Check for poor spelling and grammar. If an email message or the application’s consent screen has spelling and grammatical errors, it’s likely a suspicious application. In that case, you can report it directly on the [consent prompt](../develop/application-consent-experience.md#building-blocks-of-the-consent-prompt) with the “*Report it here*” link and Microsoft will investigate if it is a malicious application and disable it, if confirmed.
     - Don’t rely on app names and domain URLs as a source of authenticity. Attackers like to spoof app names and domains that make it appear to come from a legitimate service or company to drive consent to a malicious app. Instead validate the source of the domain URL and use applications from [verified publishers](../develop/publisher-verification-overview.md) when possible.
     - Block [consent phishing emails with Microsoft Defender for Office 365](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies#impersonation-settings-in-anti-phishing-policies-in-microsoft-defender-for-office-365) by protecting against phishing campaigns where an attacker is impersonating a known user in your organization.
-    - Configure Microsoft cloud app security policies such as [activity policies](/cloud-app-security/user-activity-policies), [anomaly detection](/cloud-app-security/anomaly-detection-policy), and [OAuth app policies](/cloud-app-security/app-permission-policy) to help manage and take action on abnormal application activity in to your organization.
+    - Configure Microsoft Defender for Cloud Apps policies such as [activity policies](/cloud-app-security/user-activity-policies), [anomaly detection](/cloud-app-security/anomaly-detection-policy), and [OAuth app policies](/cloud-app-security/app-permission-policy) to help manage and take action on abnormal application activity in to your organization.
     - Investigate and hunt for consent phishing attacks by following the guidance on [advanced hunting with Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview).
 * Allow access to apps you trust and protect against those you don’t trust
     - Use applications that have been publisher verified. [Publisher verification](../develop/publisher-verification-overview.md) helps admins and end users understand the authenticity of application developers through a Microsoft supported vetting process.

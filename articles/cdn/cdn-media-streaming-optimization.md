@@ -11,12 +11,11 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: duau
 ---
-# Media streaming optimization with Azure CDN 
+# Media streaming optimization with Azure CDN
  
 Use of high-definition video is increasing on the internet, which creates difficulties for efficient delivery of large files. Customers expect smooth playback of video on demand or live video assets on a variety of networks and clients all over the world. A fast and efficient delivery mechanism for media streaming files is critical to ensure a smooth and enjoyable consumer experience.  
 

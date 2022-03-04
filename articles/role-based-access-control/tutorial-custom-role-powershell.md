@@ -4,7 +4,7 @@ description: Get started creating an Azure custom role using Azure PowerShell an
 services: active-directory
 documentationCenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.service: role-based-access-control

@@ -80,24 +80,26 @@ Notification received at time t2
 - To know more about this state transition: Navigation link to the state transition happened at time t2.
 
 ## Configure notifications
-To be proactively notified of an alert triggered by guest health, create an [action group](../alerts/action-groups.md) to define the different actions to perform such as sending an SMS message or starting a Logic App. Then create an [action rule](../alerts/alerts-action-rules.md) that specifies the scope of monitors and virtual machines and  uses that action group.
+To be proactively notified of an alert triggered by guest health, create an [action group](../alerts/action-groups.md) to define the different actions to perform such as sending an SMS message or starting a Logic App. Then create an [alert processing rule](../alerts/alerts-action-rules.md) that specifies the scope of monitors and virtual machines and  uses that action group.
 
-In the **Monitor** menu in the Azure portal, select **Alerts**.  Select **Manage actions** and then **Action rules (preview)**. 
+In the **Monitor** menu in the Azure portal, select **Alerts** and then **Alert processing rules (preview)**. 
+:::image type="content" source="media/vminsights-health-alerts/alerts-view.png" alt-text="Alerts view" lightbox="media/vminsights-health-alerts/alerts-view.png":::
 
-![New action rule](media/vminsights-health-alerts/action-rule-new.png)
+Click **Create** to create a new alert processing rule. 
 
-Click **New action rule** to create a new rule. Click **Select** next to scope and select either a subscription, resource group, or one or more specific virtual machines. The notification will only be fired for virtual machines that fall within the scope.
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-new.png" alt-text="New alert processing rule" lightbox="media/vminsights-health-alerts/alert-processing-rule-new.png":::
 
-![Action rule scope](media/vminsights-health-alerts/action-rule-scope.png)
+On the **Scope tab**, click **Select scope** and select either a subscription, resource group, or one or more specific virtual machines. The notification will only be fired for virtual machines that fall within the scope. Add a filter where **Monitor service Equals VM Insights - Health**. Add other filters to specify the particular alerts that should trigger the notification. For example, you can use **Severity** to match alerts from all monitors that match a particular severity.
 
-Click **Add** next to **Filter**. Create a filter where **Monitor service Equals VM Insights - Health**. Add other filters to specify the particular alerts that should trigger the notification. For example, you can use **Severity** to match alerts from all monitors that match a particular severity.
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-scope.png" alt-text="Alert processing rule scope" lightbox="media/vminsights-health-alerts/alert-processing-rule-scope.png":::
 
-![Action rule filter](media/vminsights-health-alerts/action-rule-filter.png)
+Select the **Rule settings** tab, and select **Apply action group** for the **Rule type**. Click **Add action groups** and then select the action group to associate with the monitor. Give the rule a name and select the resource group it should be saved in. Click **Create** to create the rule.
 
-In **Define on this scope**, select **Action group** and then select the action group to associate with the monitor. Give the rule a name and select the resource group it should be saved in. Click **Create** to create the rule.
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-settings.png" alt-text="Alert processing rule settings" lightbox="media/vminsights-health-alerts/alert-processing-rule-settings.png":::
 
-![Action rule](media/vminsights-health-alerts/action-rule.png)
+Select the **Details** tab. Select a **Subscription** and **Resource group** to store the alert processing rule and provide a descriptive **Rule name**. Click **Remove + create** to create and enable the alert processing rule.
 
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-details.png" alt-text="Alert processing rule details" lightbox="media/vminsights-health-alerts/alert-processing-rule-details.png":::
 
 ## Next steps
 

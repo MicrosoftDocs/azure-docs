@@ -11,7 +11,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure

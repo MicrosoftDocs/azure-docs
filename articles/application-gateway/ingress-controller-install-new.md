@@ -39,7 +39,7 @@ Follow the steps below to create an Azure Active Directory (AAD) [service princi
 
 1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
-    az ad sp create-for-rbac --skip-assignment -o json > auth.json
+    az ad sp create-for-rbac -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
     password=$(jq -r ".password" auth.json)
     ```
@@ -227,7 +227,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --role Contributor --sdk-auth | base64 -w0" >>
     
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not

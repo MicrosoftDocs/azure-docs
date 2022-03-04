@@ -8,7 +8,6 @@ manager: twooley
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA

@@ -57,7 +57,7 @@ Single Server is available in three SKU tiers: Basic, General Purpose, and Memor
 
 Single Server uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default) or [customer managed](concepts-data-encryption-mysql.md). The service encrypts data in-motion with transport layer security (SSL/TLS) enforced by default. The service supports TLS versions 1.2, 1.1 and 1.0 with an ability to enforce [minimum TLS version](concepts-ssl-connection-security.md). 
 
-The service allows private access to the servers using [private link](concepts-data-access-security-private-link.md) and offers threat protection through the optional [Azure Defender for open-source relational databases](../security-center/defender-for-databases-introduction.md) plan. Azure Defender detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+The service allows private access to the servers using [private link](concepts-data-access-security-private-link.md) and offers threat protection through the optional [Microsoft Defender for open-source relational databases](../security-center/defender-for-databases-introduction.md) plan. Microsoft Defender for open-source relational databases detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
 In addition to native authentication, Single Server supports [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) authentication. Azure AD authentication is a mechanism of connecting to the MySQL servers using identities defined and managed in Azure AD. With Azure AD authentication, you can manage database user identities and other Azure services in a central location, which simplifies and centralizes access control.
 
@@ -86,7 +86,7 @@ For any questions or suggestions you might have about working with Azure Databas
 In addition, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 - To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0).
 
 ## Next steps

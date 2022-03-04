@@ -1,6 +1,7 @@
 ---
 title: Migrate availability group
-description: Learn how to lift and shift your Always On availability group high availability solution to SQL Server on Azure VMs using Azure Migrate. 
+titleSuffix: SQL Server on Azure VMs
+description: Learn how to lift and shift your Always On availability group high availability solution to SQL Server on Azure VMs using Azure Migrate.
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
 author: rahugup
@@ -8,6 +9,7 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
+ms.reviewer: mathoma
 ---
 # Migrate availability group to SQL Server on Azure VM
 
@@ -42,7 +44,7 @@ Prepare Azure for migration with the [Server Migration tool](../../../migrate/mi
 |**Task** | **Details**|
 |--- | ---
 |**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](../../../migrate/create-manage-projects.md).|
-|**Verify permissions for your Azure account** | Your Azure account needs Contributor or Owner permissions on the Azure subscription, permissions to register Azure Active Directory (AAD) apps, and User Access Administrator permissions on the Azure subscription to create a Key Vault, to create a VM, and to write to an Azure managed disk. |
+|**Verify permissions for your Azure account** | Your Azure account needs Contributor or Owner permissions on the Azure subscription, permissions to register Azure Active Directory (Azure AD) apps, and User Access Administrator permissions on the Azure subscription to create a Key Vault, to create a VM, and to write to an Azure managed disk. |
 |**Set up an Azure virtual network** | [Setup](../../../virtual-network/virtual-networks-overview.md) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.|
 
 
@@ -340,10 +342,10 @@ Your Always On availability group is ready.
     - Keep data secure by backing up Azure VMs using the [Azure Backup service](../../../backup/quick-backup-vm-portal.md). 
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with [Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
-    - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../../../security-center/security-center-just-in-time.md).
+    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../../../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../../../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
-    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
+    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
     - Consider deploying [Azure Cost Management](../../../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
 

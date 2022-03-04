@@ -4,7 +4,7 @@ description: Connect Raspberry Pi web simulator to Azure IoT Hub for Raspberry P
 author: wesmc7777
 keywords: raspberry pi simulator, azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud
 ms.service: iot-hub
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 05/27/2021
 ms.author: wesmc

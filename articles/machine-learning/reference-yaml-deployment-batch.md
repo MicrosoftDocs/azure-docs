@@ -15,9 +15,13 @@ ms.reviewer: laobri
 
 # CLI (v2) batch deployment YAML schema
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -56,11 +60,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic (MLflow)
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
 
 ## YAML: custom model and scoring code
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/nonmlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
 
 ## Next steps
 

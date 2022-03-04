@@ -20,7 +20,7 @@ To complete this tutorial, install [Visual Studio 2019](https://visualstudio.mic
 >[!NOTE]
 > Ensure your installation of Visual Studio 2019 includes the [Azure Development Workload](/dotnet/azure/configure-visual-studio). This workload enables an application to publish Azure functions and perform other Azure development tasks.
 
-The tutorial is driven by an [Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). **Get the sample project** on your machine by navigating to the sample link, and selecting the *Browse code* button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a .zip by selecting the *Code* button and *Download ZIP*.
+The tutorial is driven by an [Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). **Get the sample project** on your machine by navigating to the sample link, and selecting the **Browse code** button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a .zip by selecting the **Code** button followed by **Download ZIP**.
 
 :::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub, highlighting the steps to download it as a zip." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
 

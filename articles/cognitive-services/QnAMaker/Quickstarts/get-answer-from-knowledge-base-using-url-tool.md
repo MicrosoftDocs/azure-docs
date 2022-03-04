@@ -16,6 +16,9 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the latest question answering APIs consult the [question answering authoring guide](../../language-service/question-answering/how-to/authoring.md).
+
 ::: zone pivot="url-test-tool-curl"
 
 [!INCLUDE [Get answer using cURL](../includes/quickstart-test-tool-curl.md)]

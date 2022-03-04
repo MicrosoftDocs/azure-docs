@@ -1,44 +1,42 @@
 ---
 title: Create a skillset
 titleSuffix: Azure Cognitive Search
-description: Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Cognitive Search.
+description: A skillset defines data extraction, natural language processing, and image analysis steps. A skillset is attached to indexer. It's used to enrich and extract information from source data for use in Azure Cognitive Search.
 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/15/2021
+ms.date: 01/31/2022
 ---
 
 # Create a skillset in Azure Cognitive Search
 
 ![indexer stages](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "indexer stages")
 
-A skillset defines the operations that extract and enrich data to make it searchable. A skillset executes after document cracking, when text and image content are extracted from source documents, and after any fields from the source document are (optionally) mapped to destination fields in an index or knowledge store.
+A skillset defines the operations that extract and enrich data to make it searchable. It executes after text and images are extracted, and after [field mappings](search-indexer-field-mappings.md) are processed.
 
-In this article, you'll learn the steps of creating a skillset. For reference, this article uses the [Create Skillset (REST API)](/rest/api/searchservice/create-skillset). 
-
-Some usage rules for skillsets include the following:
+This article explains how to create a skillset with the [Create Skillset (REST API)](/rest/api/searchservice/create-skillset). Rules for skillset definition include:
 
 + A skillset is a top-level resource, which means it can be created once and referenced by many indexers.
 + A skillset must contain at least one skill.
 + A skillset can repeat skills of the same type (for example, multiple Shaper skills).
 
-Recall that indexers drive skillset execution, which means that you will also need to create an [indexer](search-howto-create-indexers.md), [data source](search-data-sources-gallery.md), and [search index](search-what-is-an-index.md) before you can test your skillset.
+An indexer drives skillset execution. You need an [indexer](search-howto-create-indexers.md), [data source](search-data-sources-gallery.md), and [search index](search-what-is-an-index.md) before you can test your skillset.
 
 > [!TIP]
 > Enable [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to reuse the content you've already processed and lower the cost of development.
 
-## Skillset definition
+## Add a skillset definition
 
-Start with the basic structure. In the [REST API](/rest/api/searchservice/create-skillset), a skillset is authored in JSON and has the following sections:
+Start with the basic structure. In the [Create Skillset REST API](/rest/api/searchservice/create-skillset), the body of the request is authored in JSON and has the following sections:
 
 ```json
 {
    "name":"skillset-template",
    "description":"A description makes the skillset self-documenting (comments aren't allowed in JSON itself)",
    "skills":[
-      
+       
    ],
    "cognitiveServices":{
       "@odata.type":"#Microsoft.Azure.Search.CognitiveServicesByKey",
@@ -61,17 +59,17 @@ Start with the basic structure. In the [REST API](/rest/api/searchservice/create
 
 After the name and description, a skillset has four main properties:
 
-+ `skills` array, an unordered [collection of skills](cognitive-search-predefined-skills.md), for which the search service determines the sequence of execution based on the inputs required for each skill. If skills are independent, they will execute in parallel. Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide. An example of a skills array is provided in the following section.
++ `skills` array, an unordered [collection of skills](cognitive-search-predefined-skills.md), for which the search service determines the sequence of execution based on the inputs required for each skill. If skills are independent, they execute in parallel. Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide. An example of a skills array is provided in the next section.
 
 + `cognitiveServices` is used for [billable skills](cognitive-search-predefined-skills.md) that call Cognitive Services APIs. Remove this section if you aren't using billable skills or Custom Entity Lookup. [Attach a resource](cognitive-search-attach-cognitive-services.md) if you are.
 
-+ `knowledgeStore`, (optional) specifies an Azure Storage account and settings for projecting skillset output into tables, blobs, and files in Azure Storage. Remove this section if you don't need it, otherwise [specify a knowledge store](knowledge-store-create-rest.md).
++ `knowledgeStore` (optional) specifies an Azure Storage account and settings for projecting skillset output into tables, blobs, and files in Azure Storage. Remove this section if you don't need it, otherwise [specify a knowledge store](knowledge-store-create-rest.md).
 
-+ `encryptionKey`, (optional) specifies an Azure Key Vault and [customer-managed keys](search-security-manage-encryption-keys.md) used to encrypt sensitive content in a skillset definition. Remove this property if you aren't using customer-managed encryption.
++ `encryptionKey` (optional) specifies an Azure Key Vault and [customer-managed keys](search-security-manage-encryption-keys.md) used to encrypt sensitive content in a skillset definition. Remove this property if you aren't using customer-managed encryption.
 
-## Add a skills array
+## Insert a skills array
 
-Within a skillset definition, the skills array specifies which skills to execute. The following example introduces you to its composition by showing you two unrelated, [built-in skills](cognitive-search-predefined-skills.md). Notice that each skill has a type, context, inputs, and outputs. 
+Inside the skillset definition, the skills array specifies which skills to execute. All skills have a type, context, inputs, and outputs. The following example shows two unrelated, [built-in skills](cognitive-search-predefined-skills.md). Notice that each skill has a type, context, inputs, and outputs. 
 
 ```json
 "skills":[
@@ -113,11 +111,11 @@ Within a skillset definition, the skills array specifies which skills to execute
 ```
 
 > [!NOTE]
-> You can build complex skillsets with looping and branching, using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A `"/"` traverses a level lower in the tree and  `"*"` acts as a for-each operator in the context. Numerous examples in this article illustrate the syntax. 
+> You can build complex skillsets with looping and branching using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A `"/"` traverses a level lower in the tree and `"*"` acts as a for-each operator in the context. Numerous examples in this article illustrate the [the syntax](cognitive-search-skill-annotation-language.md). 
 
 ### How built-in skills are structured
 
-Each skill is unique in terms of its input values and the parameters it takes. The [documentation for each skill](cognitive-search-predefined-skills.md) describes all of the parameters and properties of a given skill. Although there are differences, most skills share a common set and are similarly patterned. To illustrate several points, the [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md) provides an example:
+Each skill is unique in terms of its input values and the parameters that it takes. The [documentation for each skill](cognitive-search-predefined-skills.md) describes all of the parameters and properties of a given skill. Although there are differences, most skills share a common set and are similarly patterned. To illustrate several points, the [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md) provides an example:
 
 ```json
 {
@@ -142,23 +140,23 @@ Each skill is unique in terms of its input values and the parameters it takes. T
 
 Common parameters include "odata.type", "inputs", and "outputs". The other parameters, namely "categories" and "defaultLanguageCode", are examples of parameters that are specific to Entity Recognition. 
 
-+ **"odata.type"** uniquely identifies each skill. You can find the type in the [skill reference documentation](cognitive-search-predefined-skills.md).
++ **"odata.type"** uniquely identifies each skill. You can find the type in the [skill reference documentation](cognitive-search-predefined-skills.md). 
 
-+ **"context"** is a node in an enrichment tree and it represents the level at which operations take place. All skills have this property. If the "context" field is not explicitly set, the default context is `"/document"`. In the example, the context is the whole document, meaning that the entity recognition skill is called once per document.
++ **"context"** is a node in an enrichment tree and it represents the level at which operations take place. All skills have this property. If the "context" field isn't explicitly set, the default context is `"/document"`. In the example, the context is the whole document, which means that the entity recognition skill is called once per document.
 
-  The context also determines where outputs are also produced in the enrichment tree. In this example, the skill returns a property called `"organizations"`, captured as `orgs`, which is added as a child node of `"/document"`. In downstream skills, the path to this newly-created enrichment node is `"/document/orgs"`. For a particular document, the value of `"/document/orgs"` is an array of organizations extracted from the text (for example: `["Microsoft", "LinkedIn"]`). For more information about path syntax, see [Referencing annotations in a skillset](cognitive-search-concept-annotations-syntax.md).
+  The context also determines where outputs are produced in the enrichment tree. In this example, the skill returns a property called `"organizations"`, captured as `orgs`, which is added as a child node of `"/document"`. In downstream skills, the path to this node is `"/document/orgs"`. For a particular document, the value of `"/document/orgs"` is an array of organizations extracted from the text (for example: `["Microsoft", "LinkedIn"]`). For more information about path syntax, see [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md).
 
-+ **"inputs"** specify the origin of the incoming data and how it will be used. In the case of Entity Recognition, one of the inputs is `"text"`, which is the content to be analyzed for entities. The content is sourced from the `"/document/content"` node in an enrichment tree. In an enrichment tree, `"/document"` is the root node. For documents retrieved using an Azure Blob indexer, the `content` field of each document is a standard field created by the indexer. 
++ **"inputs"** specify the origin of the incoming data and how it's used. In the [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) skill, one of the inputs is `"text"`, which is the content to be analyzed for entities. The content is sourced from the `"/document/content"` node in an enrichment tree. In an enrichment tree, `"/document"` is the root node. For documents retrieved by an Azure Blob indexer, the `content` field of each document is a standard field created by the indexer. 
 
-+ **"outputs"** represent the output of the skill. Each skill is designed to emit specific kinds of output, which are referenced by name in the skillset. In the case of Entity Recognition, `"organizations"` is one of the outputs it supports. The documentation for each skill describes the outputs it can produce.
++ **"outputs"** represent the output of the skill. Each skill is designed to emit specific kinds of output, which are referenced by name in the skillset. In Entity Recognition, `"organizations"` is one of the outputs it supports. The documentation for each skill describes the outputs it can produce.
 
-Outputs exist only during processing. To chain this output to a downstream skill's input, reference the output as `"/document/orgs"`. To send output to a field in a search index, [create an output field mapping](cognitive-search-output-field-mapping.md) in an indexer. To send output to a knowledge store, [create a projection](knowledge-store-projection-overview.md).
+Outputs exist only during processing. To chain this output to the input of a downstream skill, reference the output as `"/document/orgs"`. To send output to a field in a search index, [create an output field mapping](cognitive-search-output-field-mapping.md) in an indexer. To send output to a knowledge store, [create a projection](knowledge-store-projection-overview.md).
 
-Outputs from the one skill can conflict with outputs from a different skill. If you have multiple skills returning the same output, use the `"targetName"` for name disambiguation in enrichment node paths.
+Outputs from the one skill can conflict with outputs from a different skill. If you have multiple skills that return the same output, use the `"targetName"` for name disambiguation in enrichment node paths.
 
-Some situations call for referencing each element of an array separately. For example, suppose you want to pass *each element* of `"/document/orgs"` separately to another skill. To do so, add an asterisk to the path: `"/document/orgs/*"` 
+Some situations call for referencing each element of an array separately. For example, suppose you want to pass *each element* of `"/document/orgs"` separately to another skill. To do so, add an asterisk to the path: `"/document/orgs/*"`.
 
-The second skill for sentiment analysis follows the same pattern as the first enricher. It takes `"/document/content"` as input, and returns a sentiment score for each content instance. Since you did not set the "context" field explicitly, the output (mySentiment) is now a child of `"/document"`.
+The second skill for sentiment analysis follows the same pattern as the first enricher. It takes `"/document/content"` as input, and returns a sentiment score for each content instance. Since you didn't set the "context" field explicitly, the output (mySentiment) is now a child of `"/document"`.
 
 ```json
 {
@@ -178,13 +176,33 @@ The second skill for sentiment analysis follows the same pattern as the first en
 }
 ```
 
-## Adding a custom skill
+## Set context and input source
 
-Below is an example of a [custom skill](cognitive-search-custom-skill-web-api.md). The URI points to an Azure Function, which in turn invokes the model or transformation that you provide. For more information, see [Define a custom interface](cognitive-search-custom-skill-interface.md).
+1. Set the skill's [context property](cognitive-search-working-with-skillsets.md#context). Context determines the level at which operations take place, and where outputs are produced in the enrichment tree. It's usually one of the following examples:
+
+    | Context example | Description |
+    |-----------------|-------------|
+    | "context": "/document"  | (Default) Inputs and outputs are at the document level. |
+    | "context": "/document/pages/*" | Some skills like sentiment analysis perform better over smaller chunks of text. If you're splitting a large content field into pages or sentences, the context should be over each component part. |
+    | "context": "/document/normalized_images/*" | Inputs and outputs are one per image in the parent document. |
+
+1. Set the skill's input source to the node that's providing the data to be processed. For text-based skills, it's a field in the document or row that provides text. For image-based skills, the node providing the input is normalized images.
+
+    | Source example | Description |
+    |-----------------|-------------|
+    | "source": "/document/content"  | For blobs, the source is usually the blob's content property. |
+    | "source": "/document/some-named-field" | For text-based skills, such as entity recognition or key phrase extraction, the origin should be a field that contains sufficient text to be analyzed, such as a "description" or "summary". |
+    | "source": "/document/normalized_images/*" | For image content, the source is image that's been normalized during document cracking. |
+
+If the skill iterates over an array, both context and input source should include `/*` in the correct positions. 
+
+## Add a custom skill
+
+This section includes an example of a [custom skill](cognitive-search-custom-skill-web-api.md). The URI points to an Azure Function, which in turn invokes the model or transformation that you provide. For more information, see [Define a custom interface](cognitive-search-custom-skill-interface.md).
 
 Although the custom skill is executing code that is external to the pipeline, in a skills array, it's just another skill. Like the built-in skills, it has a type, context, inputs, and outputs. It also reads and writes to an enrichment tree, just as the built-in skills do. Notice that the "context" field is set to `"/document/orgs/*"` with an asterisk, meaning the enrichment step is called *for each* organization under `"/document/orgs"`.
 
-Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path `"/document/orgs/*/companyDescription"` to do so. 
+Output, such as the company description in this example, is generated for each organization that's identified. When referring to the node in a downstream step (for example, in key phrase extraction), you would use the path `"/document/orgs/*/companyDescription"` to do so. 
 
 ```json
 {
@@ -212,29 +230,29 @@ Output, in this case a company description, is generated for each organization i
 
 ## Send output to an index
 
-As each skill executes, its output is added as nodes in a document's enrichment tree. Enriched documents exist in the pipeline as temporary data structures. To create a permanent data structure, and gain full visibility into what a skill is actually producing, you will need to send the output to a search index or a [knowledge store](knowledge-store-concept-intro.md).
+As each skill executes, its output is added as nodes in a document's enrichment tree. Enriched documents exist in the pipeline as temporary data structures. To create a permanent data structure, and gain full visibility into what a skill is actually producing, send the output to a search index or a [knowledge store](knowledge-store-concept-intro.md).
 
-In the early stages of skillset evaluation, you'll want to check preliminary results with minimal effort. We recommend the search index because it's simpler to set up. For each skill output, [define an output field mapping](cognitive-search-output-field-mapping.md) in the indexer, and a field in the index.
+In the early stages of skillset evaluation, checking preliminary results is important. We recommend a search index over a knowledge store because it's simpler to set up. For each skill output, [define an output field mapping](cognitive-search-output-field-mapping.md) in the indexer, and a field in the search index.
 
-:::image type="content" source="media/cognitive-search-defining-skillset/skillset-indexer-index-combo.png" alt-text="Object diagram showing how a persons entity is defined in skill output, indexer field mapping, and index field.":::
+:::image type="content" source="media/cognitive-search-defining-skillset/skillset-indexer-index-combo.png" alt-text="Object diagram that shows the person entity as a skill output, indexer field mapping, and index field.":::
 
-After running the indexer, you can use [Search Explorer](search-explorer.md) to return documents from the index and check the contents of each field to determine what the skillset detected or created.
+After you run the indexer, use [Search Explorer](search-explorer.md) to return documents from the index and check the contents of each field to determine what the skillset detected or created.
 
-The following example shows the results of an entity recognition skill that detected persons, locations, organizations, and other entities in a chunk of text. Viewing the results in Search Explorer can help you determine whether a skill adds value to your solution.
+This screenshot shows the results of an entity recognition skill that detected persons, locations, organizations, and other entities in a chunk of text. You can view the results to decide whether a skill adds value to your solution.
 
 :::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="Screenshot of a document in Search Explorer.":::
 
 ## Tips for a first skillset
 
-+ Assemble a representative sample of your content in Blob Storage or another supported indexer data source and run the **Import data** wizard to create the skillset, index, indexer, and data source object. 
++ Assemble a representative sample of your content in Blob Storage or another supported data source and run the [**Import data** wizard](search-import-data-portal.md). 
 
-  The wizard automates several steps that can be challenging the first time around, including defining the fields in an index, defining output filed mappings in an indexer, and projections in a knowledge store if you are using one. For some skills, such as OCR or image analysis, the wizard will add utility skills that merge image and text content that was separated during document cracking.
+  The wizard automates several steps that can be challenging the first time around. It defines fields in an index, field mappings in an indexer, and projections in a knowledge store if you're using one. For some skills, such as OCR or image analysis, the wizard adds utility skills that merge the image and text content that was separated during document cracking.
 
-+ Alternatively, you can import skill Postman collections that provide full examples of all of the object definitions required to evaluate a skill, from skillset to an index that you can query to view the results of a transformation.
++ Alternatively, you can [import sample Postman collections](https://github.com/Azure-Samples/azure-search-postman-samples) that provide a full articulation of the object definitions required to evaluate a skill.
 
 ## Next steps
 
-Context and input source fields are paths to nodes in an enrichment tree. As a next step, learn more about the syntax for setting up paths to nodes in an enrichment tree.
+Context and input source fields are paths to nodes in an enrichment tree. As a next step, learn more about the path syntax for nodes in an enrichment tree.
 
 > [!div class="nextstepaction"]
 > [Referencing annotations in a skillset](cognitive-search-concept-annotations-syntax.md)

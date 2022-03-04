@@ -4,7 +4,7 @@ description: Describes columns that are common to multiple data types in Azure M
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/16/2021
+ms.date: 02/18/2022
 
 ---
 
@@ -180,7 +180,7 @@ union withsource = tt *
 ```
 
 ## \_BilledSize
-The **\_BilledSize** column specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true.
+The **\_BilledSize** column specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true. [Learn more](manage-cost-storage.md#data-size) about the details of how the billed size is calculated. 
 
 
 ### Examples

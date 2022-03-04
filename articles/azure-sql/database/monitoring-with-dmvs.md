@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/15/2021
 ---
 # Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views
@@ -114,6 +114,8 @@ ORDER BY total_cpu_millisec DESC;
 ```
 
 Once you identify the problematic queries, it's time to tune those queries to reduce CPU utilization.  If you don't have time to tune the queries, you may also choose to upgrade the SLO of the database to work around the issue.
+
+For Azure SQL Database users, learn more about handling CPU performance problems in [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)
 
 ## Identify IO performance issues
 
@@ -769,4 +771,6 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 ## See also
 
-[Introduction to Azure SQL Database and Azure SQL Managed Instance](sql-database-paas-overview.md)
+- [Introduction to Azure SQL Database and Azure SQL Managed Instance](sql-database-paas-overview.md)
+- [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)
+- [Tune applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance](performance-guidance.md)

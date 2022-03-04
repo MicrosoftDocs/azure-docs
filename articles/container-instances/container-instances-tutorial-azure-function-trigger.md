@@ -36,7 +36,7 @@ This article assumes you publish the project using the name *myfunctionapp*, in 
 
 The following commands enable a system-assigned [managed identity](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity) in your function app. The PowerShell host running the app can automatically authenticate to Azure using this identity, enabling functions to take actions on Azure services to which the identity is granted access. In this tutorial, you grant the managed identity permissions to create resources in the function app's resource group. 
 
-[Add an identity](../app-service/overview-managed-identity.md?tabs=dotnet#using-azure-powershell-1) to the function app:
+[Add an identity](../app-service/overview-managed-identity.md?tabs=ps%2Cdotnet) to the function app:
 
 ```powershell
 Update-AzFunctionApp -Name myfunctionapp `

@@ -23,8 +23,9 @@ The steps in this article focus on setting up nested virtualization for Windows 
     1. When the **Trusted sites** dialog appears, add `https://github.com` to the trusted websites list, and select **Close**.
 
         ![Trusted sites](./media/how-to-enable-nested-virtualization-template-vm-using-script/trusted-sites-dialog.png)
+
 1. Download the Git repository files as outlined in the following steps.
-    1. Go to  [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/).
+    1. Go to https://github.com/Azure/azure-devtestlab/archive/refs/heads/master.zip or [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/).
     1. Click the **Clone or Download** button.
     1. Click **Download ZIP**.
     1. Extract the ZIP file

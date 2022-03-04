@@ -3,11 +3,11 @@ title: 'Quickstart: In-depth MRTK walkthrough'
 description: In this quickstart, you'll get an in-depth coverage of the Azure Object Anchors MRTK Unity sample application
 author: RamonArguelles
 manager: virivera
-
 ms.author: rgarcia
 ms.date: 07/12/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
+ms.custom: mode-other
 ---
 # Quickstart: In-depth MRTK walkthrough
 

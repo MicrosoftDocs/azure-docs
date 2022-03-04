@@ -308,4 +308,4 @@ This section covers some troubleshooting steps:
 
 ## Next steps
 
-- Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md) with the discovered ONVIF device
+- Try [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md) with the discovered ONVIF device

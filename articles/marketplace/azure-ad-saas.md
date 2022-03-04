@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 12/07/2021
 ---
 
 # Azure AD and transactable SaaS offers in the commercial marketplace

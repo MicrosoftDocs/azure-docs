@@ -1,9 +1,9 @@
 ---
 title: Create an Azure Cognitive Services resource with commitment tier pricing
-description: Learn how to sign up for commitment tier pricing, which is different than pay-as-you-go pricing. 
+description: Learn how to sign up for commitment tier pricing, which is different than pay-as-you-go pricing.
 author: aahill
 ms.author: aahi
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, mode-other
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/04/2021
@@ -29,6 +29,9 @@ Commitment tier pricing is also available for the following Applied AI service:
 For more information, see [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
 ## Request approval to purchase a commitment plan
+
+> [!CAUTION]
+> The following instructions are for purchasing a commitment tier for web-based APIs and connected containers only. For instructions on purchasing plans for disconnected containers, see [Run containers in disconnected environments](containers/disconnected-containers.md).  
 
 Before you can purchase a commitment plan, you must [submit an online application](https://aka.ms/csgatecommitment). If your application is approved, you will be able to purchase a commitment tier on the Azure portal, for both new and existing Azure Resources. 
 
@@ -61,7 +64,9 @@ Once you are approved, you can use either create a new resource to use a commitm
     > * The resource is using the standard pricing tier.
     > * You have been approved to purchase  commitment tier pricing. 
  
-1. Select **Change** to view the available commitments for hosted API and container usage. 
+3. Select **Change** to view the available commitments for hosted API and container usage. Choose a commitment plan for one or more of the following offerings:
+    * **Web**: web-based APIs, where you send data to Azure for processing.
+    * **Connected container**: Docker containers that enable you to [deploy Cognitive services on premises](cognitive-services-container-support.md), and maintain an internet connection for billing and metering.
 
     :::image type="content" source="media/commitment-tier/commitment-tier-pricing.png" alt-text="A screenshot showing the commitment tier pricing page on the Azure portal." lightbox="media/commitment-tier/commitment-tier-pricing.png":::
 
@@ -92,7 +97,7 @@ If you need a larger commitment plan than any of the ones offered, contact `csga
 
 ## End a commitment plan
 
-If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You will be able to continue using the Azure resource to make API calls, and you would be charged at pay-as-you-go pricing.
+If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You will be able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of each month to end a commitment plan, and not be charged for the following month. 
 
 ## See also
 

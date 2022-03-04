@@ -8,6 +8,7 @@ ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
+ms.devlang: cpp
 ---
 
 # Azure Storage samples using v12 C++ client libraries
@@ -21,31 +22,31 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column:::
-        [Authenticate using a connection string](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L18)
+        [Authenticate using a connection string](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L18)
    :::column-end:::
    :::column:::
-        [Create a blob container](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L20)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-        [Get a blob client](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L30)
-   :::column-end:::
-   :::column:::
-        [Upload a blob](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L32)
+        [Create a blob container](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L20)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column:::
-        [Set metadata on a blob](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L34)
+        [Get a blob client](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L30)
    :::column-end:::
    :::column:::
-        [Get blob properties](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L37)
+        [Upload a blob](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L32)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+        [Set metadata on a blob](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L34)
+   :::column-end:::
+   :::column:::
+        [Get blob properties](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L37)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-        [Download a blob](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L44)
+        [Download a blob](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L44)
    :::column-end:::
 :::row-end:::
 
@@ -53,42 +54,42 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column:::
-        [Create a service client using a connection string](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L22)
+        [Create a service client using a connection string](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L22)
    :::column-end:::
    :::column:::
-        [Create a file system client using a connection string](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L25)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-        [Create a file system](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L30)
-   :::column-end:::
-   :::column:::
-        [Create a directory](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L48)
+        [Create a file system client using a connection string](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L25)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column:::
-        [Create a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L52)
+        [Create a file system](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L30)
    :::column-end:::
    :::column:::
-        [Append data to a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L68)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-        [Flush file data](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L77)
-   :::column-end:::
-   :::column:::
-        [Read a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L80)
+        [Create a directory](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L48)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column:::
-        [List all file systems](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L88)
+        [Create a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L52)
    :::column-end:::
    :::column:::
-        [Delete file system](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L102)
+        [Append data to a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L68)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+        [Flush file data](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L77)
+   :::column-end:::
+   :::column:::
+        [Read a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L80)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+        [List all file systems](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L88)
+   :::column-end:::
+   :::column:::
+        [Delete file system](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L102)
    :::column-end:::
 :::row-end:::
 
@@ -96,31 +97,31 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
     :::column:::
-        [Create a share client using a connection string](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L18)
+        [Create a share client using a connection string](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L18)
     :::column-end:::
     :::column:::
-        [Create a file share](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L21)
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [Get a file client](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L29)
-    :::column-end:::
-    :::column:::
-        [Upload a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L31)
+        [Create a file share](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L21)
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [Set metadata on a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L33)
+        [Get a file client](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L29)
     :::column-end:::
     :::column:::
-        [Get file properties](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L36)
+        [Upload a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L31)
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [Set metadata on a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L33)
+    :::column-end:::
+    :::column:::
+        [Get file properties](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L36)
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        [Download a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L43)
+        [Download a file](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L43)
     :::column-end:::
 :::row-end:::
 
@@ -128,9 +129,9 @@ The following table provides an overview of our samples repository and the scena
 
 To view the complete C++ sample libraries, go to:
 
-- [Azure Blob code samples](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/sample)
-- [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-datalake/sample)
-- [Azure Files code samples](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-shares/sample)
+- [Azure Blob code samples](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/samples)
+- [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-datalake/samples)
+- [Azure Files code samples](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-shares/samples)
 
 You can browse and clone the GitHub repository for each library.
 

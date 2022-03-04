@@ -6,9 +6,9 @@ ms.date: 09/30/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: shsagir
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
+ms.custom: mode-other
 ---
 
 # Quickstart: Analyze with Data Explorer (Preview)

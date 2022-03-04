@@ -1,14 +1,14 @@
 ---
-title:  Overview of the Connected Machine agent
+title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 11/03/2021
+ms.date: 03/03/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Overview of Azure Arc-enabled servers agent
+# Overview of Azure Connected Machine agent
 
-The Azure Arc-enabled servers Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
+The Azure Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
 
 >[!NOTE]
 > The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA) does not replace the Connected Machine agent. The Azure Monitor agent will replace the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines. Review the Azure Monitor documentation about the new agent for more details.
@@ -40,7 +40,6 @@ Metadata information about the connected machine is collected after the Connecte
 * Computer manufacturer and model
 * Computer fully qualified domain name (FQDN)
 * Domain name (if joined to an Active Directory domain)
-* Connected Machine agent version
 * Active Directory and DNS fully qualified domain name (FQDN)
 * UUID (BIOS ID)
 * Connected Machine agent heartbeat
@@ -49,6 +48,10 @@ Metadata information about the connected machine is collected after the Connecte
 * Policy compliance status and details (if using guest configuration policies)
 * SQL Server installed (Boolean value)
 * Cluster resource ID (for Azure Stack HCI nodes)
+* Hardware manufacturer
+* Hardware model
+* Cloud provider
+* Amazon Web Services (AWS) account ID, instance ID and region (if running in AWS)
 
 The following metadata information is requested by the agent from Azure:
 
@@ -85,19 +88,22 @@ Azure Arc-enabled servers *does not* support installing the agent on virtual mac
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
-* Windows Server 2008 R2 SP1, Windows Server 2012 R2, 2016, 2019, and 2022 (including Server Core)
+* Windows Server 2008 R2 SP1, 2012 R2, 2016, 2019, and 2022
+  * Both Desktop and Server Core experiences are supported
+  * Azure Editions are supported when running as a virtual machine on Azure Stack HCI
+* Azure Stack HCI
 * Ubuntu 16.04, 18.04, and 20.04 LTS (x64)
 * CentOS Linux 7 and 8  (x64)
 * SUSE Linux Enterprise Server (SLES) 12 and 15 (x64)
 * Red Hat Enterprise Linux (RHEL) 7 and 8 (x64)
 * Amazon Linux 2 (x64)
-* Oracle Linux 7
+* Oracle Linux 7 and 8 (x64)
 
 > [!WARNING]
-> The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
+> The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
 
 > [!NOTE]
-> While Azure Arc-enabled servers supports Amazon Linux, the following do not support this distro:
+> While Azure Arc-enabled servers supports Amazon Linux, the following features are not support by this distribution:
 >
 > * The Dependency agent used by Azure Monitor VM insights
 > * Azure Automation Update Management
@@ -127,8 +133,9 @@ Azure Arc-enabled servers depend on the following Azure resource providers in yo
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
+* **Microsoft.HybridConnectivity**
 
-If they are not registered, you can register them using the following commands:
+If these resource providers are not already registered, you can register them using the following commands:
 
 Azure PowerShell:
 
@@ -137,6 +144,7 @@ Login-AzAccount
 Set-AzContext -SubscriptionId [subscription you want to onboard]
 Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridConnectivity
 ```
 
 Azure CLI:
@@ -145,9 +153,10 @@ Azure CLI:
 az account set --subscription "{Your Subscription Name}"
 az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
+az provider register --namespace 'Microsoft.HybridConnectivity'
 ```
 
-You can also register the resource providers in the Azure portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+You can also register the resource providers in the [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ### Transport Layer Security 1.2 protocol
 
@@ -160,13 +169,12 @@ To ensure the security of data in transit to Azure, we strongly encourage you to
 
 ## Networking configuration
 
-The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine needs to connect through a firewall or proxy server to communicate over the internet, the agent communicates outbound instead using the HTTP protocol. Proxy servers don't make the Connected Machine agent more secure because the traffic is already encrypted.
+The Azure Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. By default, the agent uses the default route to the internet to reach Azure services. You can optionally [configure the agent to use a proxy server](manage-agent.md#update-or-remove-proxy-settings) if your network requires it. Proxy servers don't make the Connected Machine agent more secure because the traffic is already encrypted.
 
 To further secure your network connectivity to Azure Arc, instead of using public networks and proxy servers, you can implement an [Azure Arc Private Link Scope](private-link-security.md) (preview).
 
 > [!NOTE]
 > Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
->
 
 If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked. When you only allow the IP ranges or domain names required for the agent to communicate with the service, you need to allow access to the following Service Tags and URLs.
 
@@ -180,35 +188,43 @@ Service Tags:
 
 URLs:
 
-| Agent resource | Description |
-|---------|---------|
-|`azgn*.servicebus.windows.net`|Azure Arc Connectivity Platform|
-|`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Azure Active Directory|
-|`login.microsoftonline.com`|Azure Active Directory|
-|`pas.windows.net`|Azure Active Directory|
-|`*.guestconfiguration.azure.com` |Extension and guest configuration services|
-|`*.his.arc.azure.com`|Metadata and hybrid identity services|
-|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|
-|`dc.services.visualstudio.com`|Agent telemetry|
+| Agent resource | Description | When required| Endpoint used with private link |
+|---------|---------|--------|---------|
+|`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
+|`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
+|`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only| Public |
+|`login.windows.net`|Azure Active Directory|Always| Public |
+|`login.microsoftonline.com`|Azure Active Directory|Always| Public |
+|`pas.windows.net`|Azure Active Directory|Always| Public |
+|`management.azure.com`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
+|`*.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
+|`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
+|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service for extension and connectivity scenarios|Always| Private |
+|`azgn*.servicebus.windows.net`|Notification service for extension and connectivity scenarios|Always| Public |
+|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
+|`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
 
-For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
+For a list of IP addresses for each service tag/region, see the JSON file [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
-For more information, review [Service tags overview](../../virtual-network/service-tags-overview.md).
+For more information, see [Virtual network service tags](../../virtual-network/service-tags-overview.md).
 
 ## Installation and configuration
 
-Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best for your organization.
-
-> [!IMPORTANT]
-> The Connected Machine agent cannot be installed on an Azure Windows virtual machine. If you attempt to, the installation detects this and rolls back.
+Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods, depending on your requirements and the tools you prefer to use. The following table highlights each method so that you can determine which works best for your deployment.
 
 | Method | Description |
 |--------|-------------|
-| Interactively | Manually install the agent on a single or small number of machines following the steps in [Connect machines from Azure portal](onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
-| At scale | Install and configure the agent for multiple machines following the [Connect machines using a Service Principal](onboard-service-principal.md).<br> This method creates a service principal to connect machines non-interactively.|
-| At scale | Install and configure the agent for multiple machines following the method [Connect hybrid machines to Azure from Automation Update Management](onboard-update-management-machines.md).<br> This method creates a service principal, and installs and configures the agent for multiple machines managed with Azure Automation Update Management to connect machines non-interactively. |
-| At scale | Install and configure the agent for multiple machines following the method [Using Windows PowerShell DSC](onboard-dsc.md).<br> This method uses a service principal to connect machines non-interactively with PowerShell DSC. |
+| Interactively | Manually install the agent on a single or small number of machines by [connecting machines using a deployment script](onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
+| Interactively | [Connect machines from Windows Admin Center](onboard-windows-admin-center.md) |
+| Interactively or at scale | [Connect machines using PowerShell](onboard-powershell.md) |
+| Interactively or at scale | [Connect machines using Windows PowerShell Desired State Configuration (DSC)](onboard-dsc.md) |
+| At scale | [Connect machines using a service principal](onboard-service-principal.md) to install the agent at scale non-interactively.|
+| At scale | [Connect machines by running PowerShell scripts with Configuration Manager](onboard-configuration-manager-powershell.md)
+| At scale | [Connect machines with a Configuration Manager custom task sequence](onboard-configuration-manager-custom-task.md)
+| At scale | [Connect machines from Automation Update Management](onboard-update-management-machines.md) to create a service principal that installs and configures the agent for multiple machines managed with Azure Automation Update Management to connect machines non-interactively. |
+
+> [!IMPORTANT]
+> The Connected Machine agent cannot be installed on an Azure Windows virtual machine. If you attempt to, the installation detects this and rolls back.
 
 ## Connected Machine agent technical overview
 
@@ -216,9 +232,11 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 
 The Connected Machine agent for Windows can be installed by using one of the following three methods:
 
-* Double-click the file `AzureConnectedMachineAgent.msi`.
+* Running the file `AzureConnectedMachineAgent.msi`.
 * Manually by running the Windows Installer package `AzureConnectedMachineAgent.msi` from the Command shell.
 * From a PowerShell session using a scripted method.
+
+Installing, upgrading, or removing the Connected Machine agent will not require you to restart your server.
 
 After installing the Connected Machine agent for Windows, the following system-wide configuration changes are applied.
 
@@ -240,12 +258,27 @@ After installing the Connected Machine agent for Windows, the following system-w
     |GCArcService |Guest configuration Arc Service |gc_service |Monitors the desired state configuration of the machine.|
     |ExtensionService |Guest configuration Extension Service | gc_service |Installs the required extensions targeting the machine.|
 
+* The following virtual service account is created during agent installation.
+
+    | Virtual Account  | Description |
+    |------------------|---------|
+    | NT SERVICE\\himds | Unprivileged account used to run the Hybrid Instance Metadata Service. |
+
+    > [!TIP]
+    > This account requires the "Log on as a service" right. This right is automatically granted during agent installation, but if your organization configures user rights assignments with Group Policy, you may need to adjust your Group Policy Object to grant the right to  "NT SERVICE\\himds" or "NT SERVICE\\ALL SERVICES" to allow the agent to function.
+
+* The following local security group is created during agent installation.
+
+    | Security group name | Description |
+    |---------------------|-------------|
+    | Hybrid agent extension applications | Members of this security group can request Azure Active Directory tokens for the system-assigned managed identity |
+
 * The following environmental variables are created during agent installation.
 
     |Name |Default value |Description |
     |-----|--------------|------------|
-    |IDENTITY_ENDPOINT |<http://localhost:40342/metadata/identity/oauth2/token> ||
-    |IMDS_ENDPOINT |<http://localhost:40342> ||
+    |IDENTITY_ENDPOINT |<`http://localhost:40342/metadata/identity/oauth2/token`> ||
+    |IMDS_ENDPOINT |<`http://localhost:40342`> ||
 
 * There are several log files available for troubleshooting. They are described in the following table.
 
@@ -268,6 +301,8 @@ After installing the Connected Machine agent for Windows, the following system-w
 ### Linux agent installation details
 
 The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/). The agent is installed and configured with the shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
+
+Installing, upgrading, or removing the Connected Machine agent will not require you to restart your server.
 
 After installing the Connected Machine agent for Linux, the following system-wide configuration changes are applied.
 
@@ -303,8 +338,8 @@ After installing the Connected Machine agent for Linux, the following system-wid
 
     |Name |Default value |Description |
     |-----|--------------|------------|
-    |IDENTITY_ENDPOINT |<http://localhost:40342/metadata/identity/oauth2/token> ||
-    |IMDS_ENDPOINT |<http://localhost:40342> ||
+    |IDENTITY_ENDPOINT |<`http://localhost:40342/metadata/identity/oauth2/token`> ||
+    |IMDS_ENDPOINT |<`http://localhost:40342`> ||
 
 * During uninstall of the agent, the following artifacts are not removed.
 
@@ -313,7 +348,7 @@ After installing the Connected Machine agent for Linux, the following system-wid
 
 ### Agent resource governance
 
-Azure Arc-enabled servers Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
+Azure Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
 
 * The Guest Configuration agent is limited to use up to 5% of the CPU to evaluate policies.
 * The Extension Service agent is limited to use up to 5% of the CPU to install and manage extensions.

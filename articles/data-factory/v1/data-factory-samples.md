@@ -14,6 +14,7 @@ ms.date: 10/22/2021
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [PowerShell samples in Data Factory](../samples-powershell.md) and [code samples in the Azure Code Samples gallery](https://azure.microsoft.com/resources/samples/?service=data-factory).
 
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 ## Samples on GitHub
 The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafactory) contains several samples that help you quickly ramp up with Azure Data Factory service (or) modify the scripts and use it in own application. The Samples\JSON folder contains JSON snippets for common scenarios.

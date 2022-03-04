@@ -3,7 +3,7 @@ title: Service Connector Troubleshooting Guidance
 description: Error list and suggested actions of Service Connector
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: how-to
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
@@ -48,8 +48,8 @@ If you come across an issue, you can refer to the error message to find suggeste
 | Only one auth info is needed | User can only provide one auth info parameter, check whether auth info is not provided or multiple auth info parameters are provided. |
 | Auth info argument should be provided when updating the connection: `{ConnectionName}` | When updating a secret type connection, auth info parameter should be provided. (This is because user's secret can not be accessed through ARM api) |
 | Either client type or auth info should be specified to update | When updating a connection, either client type or auth info should be provided. |
-| Usage error: {} [KEY=VALUE ...] | Check the available keys and provide values for the the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
-| Unsupported Key `{Key}` is provided for parameter `{Parameter}`. All possible keys are: `{Keys}` | Check the available keys and provide values for the the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
+| Usage error: {} [KEY=VALUE ...] | Check the available keys and provide values for the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
+| Unsupported Key `{Key}` is provided for parameter `{Parameter}`. All possible keys are: `{Keys}` | Check the available keys and provide values for the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
 | Provision failed, please create the target resource manually and then create the connection. Error details: `{ErrorTrace}` | <ul><li>Retry.</li><li>Create the target resource manually and then create the connection.</li></ul> |
 
 ## Next steps

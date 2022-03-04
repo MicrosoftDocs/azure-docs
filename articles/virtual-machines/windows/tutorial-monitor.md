@@ -140,7 +140,7 @@ In this tutorial, you configured and viewed performance of your VM. You learned 
 > * View VM metrics
 > * Create an alert
 
-Advance to the next tutorial to learn about Azure Security Center.
+Advance to the next tutorial to learn about Microsoft Defender for Cloud.
 
 > [!div class="nextstepaction"]
 > [Manage VM security](../../security/fundamentals/overview.md)

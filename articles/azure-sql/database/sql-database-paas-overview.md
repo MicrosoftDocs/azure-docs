@@ -8,9 +8,9 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=3
 ms.devlang: 
 ms.topic: overview
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer:
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 09/21/2020
 ---
 
@@ -25,11 +25,10 @@ Azure SQL Database is based on the latest stable version of the [Microsoft SQL S
 
 SQL Database enables you to easily define and scale performance within two different purchasing models: a [vCore-based purchasing model](service-tiers-vcore.md) and a [DTU-based purchasing model](service-tiers-dtu.md). SQL Database is a fully managed service that has built-in high availability, backups, and other common maintenance operations. Microsoft handles all patching and updating of the SQL and operating system code. You don't have to manage the underlying infrastructure.
 
-If you're new to Azure SQL Database, check out the *Azure SQL Database Overview* video from our in-depth [Azure SQL video series](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
-> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
+If you're new to Azure SQL Database, check out the *Azure SQL Database Overview* video from our in-depth [Azure SQL video series](/shows/Azure-SQL-for-Beginners/?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://docs.microsoft.com/shows/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
 
-> [!TIP]
-> How can we make Azure SQL better? [Take the survey](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
+
 
 ## Deployment models
 
@@ -46,7 +45,7 @@ SQL Database delivers predictable performance with multiple resource types, serv
 ## Scalable performance and pools
 
 You can define the amount of resources assigned. 
-- With single databases, each database is isolated from others and is portable. Each has its own guaranteed amount of compute, memory, and storage resources. The amount of the resources assigned to the database is dedicated to that database, and isn't shared with other databases in Azure. You can dynamically [scale single database resources](single-database-scale.md) up and down. The single database option provides different compute, memory, and storage resources for different needs. For example, you can get 1 to 80 vCores, or 32 GB to 4 TB. The [hyperscale service tier](service-tier-hyperscale.md) for single databases enables you to scale to 100 TB, with fast backup and restore capabilities.
+- With single databases, each database is isolated from others and is portable. Each has its own guaranteed amount of compute, memory, and storage resources. The amount of the resources assigned to the database is dedicated to that database, and isn't shared with other databases in Azure. You can dynamically [scale single database resources](single-database-scale.md) up and down. The single database option provides different compute, memory, and storage resources for different needs. For example, you can get 1 to 80 vCores, or 32 GB to 4 TB. The [Hyperscale service tier](service-tier-hyperscale.md) for single databases enables you to scale to 100 TB, with fast backup and restore capabilities.
 - With elastic pools, you can assign resources that are shared by all databases in the pool. You can create a new database, or move the existing single databases into a resource pool to maximize the use of resources and save money. This option also gives you the ability to dynamically [scale elastic pool resources](elastic-pool-scale.md) up and down.
 
 You can build your first app on a small, single database at a low cost per month in the general-purpose service tier. You can then change its service tier manually or programmatically at any time to the business-critical service tier, to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You pay for only the resources that you need when you need them.
@@ -163,7 +162,7 @@ SQL Database provides a range of [built-in security and compliance features](../
 
 ### Advance threat protection
 
-Azure Defender for SQL is a unified package for advanced SQL security capabilities. It includes functionality for managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
+Microsoft Defender for SQL is a unified package for advanced SQL security capabilities. It includes functionality for managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
 
 - [Vulnerability assessment](sql-vulnerability-assessment.md):
 

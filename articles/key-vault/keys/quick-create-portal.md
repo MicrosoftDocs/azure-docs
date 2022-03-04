@@ -4,14 +4,13 @@ description: Quickstart showing how to set and retrieve a key from Azure Key Vau
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-ui
 ms.date: 03/24/2020
 ms.author: mbaldwin
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys in Azure
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys in Azure
 ---
 # Quickstart: Set and retrieve a key from Azure Key Vault using the Azure portal
 
@@ -38,7 +37,9 @@ To add a key to the vault, you just need to take a couple of additional steps. I
     - **Name**: ExampleKey.
     - Leave the other values to their defaults. Click **Create**.
 
-Once that you receive the message that the key has been successfully created, you may click on it on the list. You can then see some of the properties. 
+## Retrieve a key from Key Vault
+
+Once that you receive the message that the key has been successfully created, you may click on it on the list. You can then see some of the properties and click **Download public key** to retrieve the key.
 
 :::image type="content" source="../media/keys/quick-create-portal/current-version-hidden.png" alt-text="Key properties":::
 

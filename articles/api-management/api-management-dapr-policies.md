@@ -28,6 +28,8 @@ template:
         dapr.io/app-id: "app-name"
 ```
 
+> [!TIP]
+> You can also deploy the [self-hosted gateway with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md) and use the Dapr configuration options.
 
 ## Distributed Application Runtime (Dapr) integration policies
 

@@ -179,7 +179,7 @@ You can get the URL assigned to Twistlock console with this command:
 
 Follow the Twistlock documentation.
 
-### Install Defender
+### Install Defender for Cloud
 
 During `oc create -f defender.yaml` in Step 2, you'll get Errors when creating the Cluster Role and Cluster Role Binding.
 You can ignore them.

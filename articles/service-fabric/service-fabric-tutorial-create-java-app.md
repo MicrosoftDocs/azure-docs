@@ -69,7 +69,7 @@ The table gives a short description of each item in the package explorer from th
 | build.gradle | Gradle file used to manage the project. |
 | settings.gradle | Contains names of Gradle projects in this folder. |
 
-### Add HTML and Javascript to the VotingWeb service
+### Add HTML and JavaScript to the VotingWeb service
 
 To add a UI that can be rendered by the stateless service, add an HTML file. This HTML file is then rendered by the lightweight HTTP server embedded into the stateless Java service.
 

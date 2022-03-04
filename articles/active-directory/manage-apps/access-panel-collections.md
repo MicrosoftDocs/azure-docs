@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 #customer intent: As an admin, I want to enable and create collections for My Apps portal in Azure AD so that I can create a simpler My Apps experience for users.
 ---
 
-# Create collections on the My Apps portal in Azure Active Directory
+# Create collections on the My Apps portal
 
 Your users can use the My Apps portal to view and start the cloud-based applications they have access to. By default, all the applications a user can access are listed together on a single page. To better organize this page for your users, if you have an Azure AD Premium P1 or P2 license you can set up collections. With a collection, you can group together applications that are related (for example, by job role, task, or project) and display them on a separate tab. A collection essentially applies a filter to the applications a user can already access, so the user sees only those applications in the collection that have been assigned to them.
 
@@ -30,21 +30,6 @@ To create collections on the My Apps portal, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-
-## Enable the latest My Apps features
-
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a user administrator or Global Administrator.
-
-2. Go to **Azure Active Directory** > **User settings**.
-
-3. Under **User features**, select **Manage user feature settings**.
-
-4. Under **Users can use preview features for My Apps**, choose one of the following options:
-   * **Selected** - Enables the features for a specific group. Use the **Select a group** option to select the group for which you want to enable the features.  
-   * **All** - Enables the features for all users.
-
-> [!NOTE]
-> To open the My Apps portal, users can use the link `https://myapps.microsoft.com` or the customized link for your organization, such as `https://myapps.microsoft.com/contoso.com`. After you enable the new My Apps experience, the **An updated My Applications experience is available** banner will display at the top of the My Apps page, and users can select **Try it** to view the new experience. To stop using the new experience, users can select **Yes** from the **Leave new experience** banner at the top of the page.
 
 ## Create a collection
 
@@ -62,7 +47,7 @@ To create a collection, you must have an Azure AD Premium P1 or P2 license.
 
    ![Add an application to the collection](media/acces-panel-collections/add-applications.png)
 
-6. When you're finished adding applications, select **Add**. The list of selected applications appears. You can use the up arrows to change the order of applications in the list.
+6. When you're finished adding applications, select **Add**. The list of selected applications appears. You can use the arrows to change the order of applications in the list.
 
 7. Select the **Owners** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign ownership to. When you're finished selecting users and groups, choose **Select**.
 
@@ -72,6 +57,15 @@ To create a collection, you must have an Azure AD Premium P1 or P2 license.
 
 > [!NOTE]
 > Admin collections are managed through the [Azure portal](https://portal.azure.com), not from [My Apps portal](https://myapps.microsoft.com). For example, if you assign users or groups as an owner, then they can only manage the collection through the Azure portal.
+
+> [!NOTE]
+> There is a known issue with Office apps in collections. If you already have at least one Office app in a collection and want to add more, follow these steps: 
+> 1. Select the collection you'd like to manage, then select the **Applications** tab.
+> 2. Remove all Office apps from the collection but do not save the changes.
+> 3. Select **+ Add application**.
+> 4. In the **Add applications** page, select all the Office apps you want to add to the collection (including the ones that you removed in step 2).
+> 5. When you're finished adding applications, select **Add**. The list of selected applications appears. You can use the arrows to change the order of applications in the list.
+> 5. Select **Save** to apply the changes.
 
 ## View audit logs
 

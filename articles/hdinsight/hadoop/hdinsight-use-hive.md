@@ -199,6 +199,9 @@ For more information, see the [Azure Feature Pack](/sql/integration-services/azu
 
 Apache Oozie is a workflow and coordination system that manages Hadoop jobs. For more information on using Oozie with Hive, see the [Use Apache Oozie to define and run a workflow](../hdinsight-use-oozie-linux-mac.md) document.
 
+> [!NOTE]  
+> [Phoenix Storage Handler for Hive](https://phoenix.apache.org/hive_storage_handler.html) is not supported in HDInsight
+
 ## Next steps
 
 Now that you've learned what Hive is and how to use it with Hadoop in HDInsight, use the following links to explore other ways to work with Azure HDInsight.

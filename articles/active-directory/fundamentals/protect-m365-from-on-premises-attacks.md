@@ -3,7 +3,7 @@ title: Protecting Microsoft 365 from on-premises attacks
 description: Guidance about how to ensure an on-premises attack doesn't affect Microsoft 365.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -129,7 +129,7 @@ We recommend the following provisioning methods:
 
    * Limit guest access to browsing groups and other properties in the directory. Use the external collaboration settings to restrict guests' ability to read groups they're not members of. 
 
-    * Block access to the Azure portal. You can make rare necessary exceptions.  Create a Conditional Access policy that includes all guests and external users. Then [implement a policy to block access](../../role-based-access-control/conditional-access-azure-management.md). 
+    * Block access to the Azure portal. You can make rare necessary exceptions.  Create a Conditional Access policy that includes all guests and external users. Then [implement a policy to block access](../conditional-access/concept-conditional-access-cloud-apps.md). 
 
 * **Disconnected forests**: Use [Azure AD cloud provisioning](../cloud-sync/what-is-cloud-sync.md). This method enables you to connect to disconnected forests, eliminating the need to establish cross-forest connectivity or trusts, which can broaden the effect of an on-premises breach.
  
@@ -212,16 +212,16 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
 
 * **Suspicious activity** 
 
-    Monitor all [Azure AD risk events](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) for suspicious activity. [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) is natively integrated with Azure Security Center.
+    Monitor all [Azure AD risk events](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) for suspicious activity. [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) is natively integrated with Microsoft Defender for Cloud.
 
     Define the network [named locations](../conditional-access/location-condition.md) to avoid noisy detections on location-based signals. 
 *  **User and Entity Behavioral Analytics (UEBA) alerts** 
 
     Use UEBA to get insights on anomaly detection.
 
-    * Microsoft Cloud App Security (MCAS) provides [UEBA in the cloud](/cloud-app-security/tutorial-ueba).
+    * Microsoft Defender for Cloud Apps provides [UEBA in the cloud](/cloud-app-security/tutorial-ueba).
 
-    * You can [integrate on-premises UEBA from Azure Advanced Threat Protection (ATP)](/defender-for-identity/install-step2). MCAS reads signals from Azure AD Identity Protection. 
+    * You can [integrate on-premises UEBA from Azure Advanced Threat Protection (ATP)](/defender-for-identity/install-step2). Defender for Cloud Apps reads signals from Azure AD Identity Protection. 
 
 * **Emergency access accounts activity** 
 
@@ -265,7 +265,7 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
 
 ### Log management
 
-Define a log storage and retention strategy, design, and implementation to facilitate a consistent tool set. For example, you could consider security information and event management (SIEM) systems like Azure Sentinel, common queries, and investigation and forensics playbooks.
+Define a log storage and retention strategy, design, and implementation to facilitate a consistent tool set. For example, you could consider security information and event management (SIEM) systems like Microsoft Sentinel, common queries, and investigation and forensics playbooks.
 
 * **Azure AD logs**: Ingest generated logs and signals by consistently following best practices for settings such as diagnostics, log retention, and SIEM ingestion. 
 

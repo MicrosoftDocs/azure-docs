@@ -7,7 +7,6 @@ author: sama
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 08/18/2021

@@ -14,7 +14,7 @@ You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API 
 
 ### Microsoft Learn
 
-To learn more about the what-if operation, and for hands-on guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif/) on **Microsoft Learn**.
+If you would rather learn about the what-if operation through step-by-step guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif/) on **Microsoft Learn**.
 
 ## Install Azure PowerShell module
 

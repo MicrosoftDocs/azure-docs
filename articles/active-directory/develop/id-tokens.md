@@ -3,15 +3,15 @@ title: Microsoft identity platform ID tokens | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to use id_tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/25/2021
-ms.author: hirsin
-ms.reviewer: hirsin
+ms.date: 01/25/2022
+ms.author: ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
 
@@ -77,8 +77,8 @@ The table below shows the claims that are in most ID tokens by default (except w
 | `c_hash`| String |The code hash is included in ID tokens only when the ID token is issued with an OAuth 2.0 authorization code. It can be used to validate the authenticity of an authorization code. To understand how to do this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). |
 |`at_hash`| String |The access token hash is included in ID tokens only when the ID token is issued from the `/authorize` endpoint with an OAuth 2.0 access token. It can be used to validate the authenticity of an access token. To understand how to do this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). This is not returned on ID tokens from the `/token` endpoint. |
 |`aio` | Opaque String | An internal claim used by Azure AD to record data for token reuse. Should be ignored.|
-|`preferred_username` | String | The primary username that represents the user. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. Since this value can be changed, it must not be used to make authorization decisions. The `profile` scope is required to receive this claim.|
-|`email` | String | The `email` claim is present by default for guest accounts that have an email address.  Your app can request the email claim for managed users (those from the same tenant as the resource) using the `email` [optional claim](active-directory-optional-claims.md).  On the v2.0 endpoint, your app can also request the `email` OpenID Connect scope - you don't need to request both the optional claim and the scope to get the claim.  The email claim only supports addressable mail from the user's profile information. |
+|`preferred_username` | String |The primary username that represents the user. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. Since it is mutable, this value must not be used to make authorization decisions. It can be used for username hints, however, and in human-readable UI as a username. The `profile` scope is required in order to receive this claim. Present only in v2.0 tokens.|
+|`email` | String | The `email` claim is present by default for guest accounts that have an email address.  Your app can request the email claim for managed users (those from the same tenant as the resource) using the `email` [optional claim](active-directory-optional-claims.md).  On the v2.0 endpoint, your app can also request the `email` OpenID Connect scope - you don't need to request both the optional claim and the scope to get the claim.|
 |`name` | String | The `name` claim provides a human-readable value that identifies the subject of the token. The value isn't guaranteed to be unique, it can be changed, and it's designed to be used only for display purposes. The `profile` scope is required to receive this claim. |
 |`nonce`| String | The nonce matches the parameter included in the original /authorize request to the IDP. If it does not match, your application should reject the token. |
 |`oid` | String, a GUID | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they're considered different accounts, even though the user logs into each account with the same credentials. The `oid` claim is a GUID and cannot be reused. |
@@ -86,8 +86,8 @@ The table below shows the claims that are in most ID tokens by default (except w
 |`rh` | Opaque String |An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`sub` | String | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. If a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be wanted depending on your architecture and privacy requirements. |
 |`tid` | String, a GUID | Represents the tenant that the user is signing in to. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user is signing in to. For sign-ins to the personal Microsoft account tenant (services like Xbox, Teams for Life, or Outlook), the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. To receive this claim, your app must request the `profile` scope. |
-|`unique_name` | String | Provides a human readable value that identifies the subject of the token. This value is unique at any given point in time, but as emails and other identifiers can be reused, this value can reappear on other accounts. As such, the value should be used only for display purposes. Only issued in v1.0 `id_tokens`. |
-|`uti` | Opaque String | An internal claim used by Azure to revalidate tokens. Should be ignored. |
+| `unique_name` | String | Only present in v1.0 tokens. Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and should be used only for display purposes. |
+| `uti` | String | Token identifier claim, equivalent to `jti` in the JWT specification. Unique, per-token identifier that is case-sensitive.|
 |`ver` | String, either 1.0 or 2.0 | Indicates the version of the id_token. |
 |`hasgroups`|Boolean|If present, always true, denoting the user is in at least one group. Used in place of the groups claim for JWTs in implicit grant flows if the full groups claim would extend the URI fragment beyond the URL length limits (currently 6 or more groups). Indicates that the client should use the Microsoft Graph API to determine the user's groups (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`).|
 |`groups:src1`|JSON object | For token requests that are not limited in length (see `hasgroups` above) but still too large for the token, a link to the full groups list for the user will be included. For JWTs as a distributed claim, for SAML as a new claim in place of the `groups` claim. <br><br>**Example JWT Value**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> For more info, see [Groups overage claim](#groups-overage-claim).|

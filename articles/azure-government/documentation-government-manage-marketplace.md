@@ -44,11 +44,11 @@ If your subscription is under an Enterprise Agreement (EA), the Azure Government
 
    ![Screenshot shows Azure Government portal New page with Compute selected.](./media/government-manage-marketplace-launch.png)  
 
-1. Browse through different products to find the right one. The marketplace publisher provides a list of certifications as part of the product description to help you make the right choice. 
+1. Browse through different products to find the right one. The marketplace publisher provides a list of certifications as part of the product description to help you make the right choice.
 
    ![Screenshot shows marketplace Compute page and recommended apps.](./media/government-manage-marketplace-service.png)
 
-1. Choose an product\image and click **Create**.
+1. Choose a product/image and click **Create**.
 
    ![Screenshot shows selected example Red Hat Enterprise Linux 7.2 description and the Create button.](./media/government-manage-marketplace-image.png)
 

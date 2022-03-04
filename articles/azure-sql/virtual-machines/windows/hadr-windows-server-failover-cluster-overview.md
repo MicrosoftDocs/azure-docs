@@ -11,7 +11,7 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "06/01/2021"
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
 ---
@@ -75,9 +75,11 @@ To get started, see [Configure cluster quorum](hadr-cluster-quorum-configure-how
 
 ## Virtual network name (VNN)
 
+To match the on-premises experience for connecting to your availability group listener or failover cluster instance, deploy your SQL Server VMs to multiple subnets within the same virtual network. Having multiple subnets negates the need for the extra dependency on an Azure Load Balancer to route traffic to your HADR solution.  To learn more, see [Multi-subnet AG](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md), and [Multi-subnet FCI](failover-cluster-instance-prepare-vm.md#subnets). 
+
 In a traditional on-premises environment, clustered resources such as failover cluster instances or Always On availability groups rely on the Virtual Network Name to route traffic to the appropriate target - either the failover cluster instance, or the listener of the Always On availability group. The virtual name binds the IP address in DNS, and clients can use either the virtual name or the IP address to connect to their high availability target, regardless of which node currently owns the resource. The VNN is a network name and address managed by the cluster, and the cluster service moves the network address from node to node during a failover event. During a failure, the address is taken offline on the original primary replica, and brought online on the new primary replica.
 
-On Azure Virtual Machines, an additional component is necessary to route traffic from the client to the Virtual Network Name of the clustered resource (failover cluster instance, or the listener of an availability group). In Azure, a load balancer holds the IP address for the VNN that the clustered SQL Server resources rely on and is necessary to route traffic to the appropriate high availability target. The load balancer also detects failures with the networking components and moves the address to a new host. 
+On Azure Virtual Machines in a single subnet, an additional component is necessary to route traffic from the client to the Virtual Network Name of the clustered resource (failover cluster instance, or the listener of an availability group). In Azure, a load balancer holds the IP address for the VNN that the clustered SQL Server resources rely on and is necessary to route traffic to the appropriate high availability target. The load balancer also detects failures with the networking components and moves the address to a new host. 
 
 The load balancer distributes inbound flows that arrive at the front end, and then routes that traffic to the instances defined by the back-end pool. You configure traffic flow by using load-balancing rules and health probes. With SQL Server FCI, the back-end pool instances are the Azure virtual machines running SQL Server, and with availability groups, the back-end pool is the listener. There is a slight failover delay when you're using the load balancer, because the health probe conducts alive checks every 10 seconds by default. 
 
@@ -87,11 +89,13 @@ To get started, learn how to configure Azure Load Balancer for a [failover clust
 **Supported SQL version**: All   
 **Supported HADR solution**: Failover cluster instance, and availability group   
 
-Configuration of the VNN can be cumbersome, it's an additional source of failure, it can cause a delay in failure detection, and there is an overhead and cost associated with managing the additional resource. To address some of these limitations, SQL Server 2019 introduced support for the Distributed Network Name feature. 
+Configuration of the VNN can be cumbersome, it's an additional source of failure, it can cause a delay in failure detection, and there is an overhead and cost associated with managing the additional resource. To address some of these limitations, SQL Server introduced support for the Distributed Network Name feature. 
 
 ## Distributed network name (DNN)
 
-Starting with SQL Server 2019, the Distributed Network Name feature provides an alternative way for SQL Server clients to connect to the SQL Server failover cluster instance or availability group listener without using a load balancer. 
+To match the on-premises experience for connecting to your availability group listener or failover cluster instance, deploy your SQL Server VMs to multiple subnets within the same virtual network. Having multiple subnets negates the need for the extra dependency on a DNN to route traffic to your HADR solution. To learn more, see [Multi-subnet AG](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md), and [Multi-subnet FCI](failover-cluster-instance-prepare-vm.md#subnets). 
+
+For SQL Server VMs deployed to a single subnet, the distributed network name feature provides an alternative way for SQL Server clients to connect to the SQL Server failover cluster instance or availability group listener without using a load balancer. The DNN feature is available starting with [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31),  [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9),  [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72), on Windows Server 2016 and later.
 
 When a DNN resource is created, the cluster binds the DNS name with the IP addresses of all the nodes in the cluster. The client will try to connect to each IP address in this list to find which resource to connect to. You can accelerate this process by specifying `MultiSubnetFailover=True` in the connection string. This setting tells the provider to try all IP addresses in parallel, so the client can connect to the FCI or listener instantly. 
 

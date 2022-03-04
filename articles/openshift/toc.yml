@@ -26,7 +26,7 @@
           href: howto-upgrade.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
-    - name: Networking
+    - name: Networking 
       items:
         - name: Create a private ARO cluster
           href: howto-create-private-cluster-4x.md
@@ -76,8 +76,10 @@
           href: howto-deploy-with-s2i.md
         - name: Deploy an application using OpenShift Serverless
           href: howto-deploy-with-serverless.md
-        - name: Deploy an Open Liberty/WebSphere Liberty app
+        - name: Deploy an Open Liberty/WebSphere Liberty Java app
           href: howto-deploy-java-liberty-app.md
+        - name: Deploy a JBoss EAP Java app
+          href: howto-deploy-java-jboss-enterprise-application-platform-app.md
     - name: Azure Red Hat OpenShift 3.11
       items:
         - name: Set up your Azure Red Hat OpenShift dev environment for Azure Red Hat OpenShift 3.11
@@ -117,6 +119,8 @@
       href: concepts-networking.md
     - name: Migrate from ARO 3.11 to ARO 4
       href: migration.md
+    - name: Overview of egress lockdown
+      href: concepts-egress-lockdown.md
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI
@@ -129,6 +133,8 @@
   items:
     - name: Frequently asked questions
       href: openshift-faq.yml
+    - name: Azure Red Hat Openshift service definition
+      href: openshift-service-definitions.md
     - name: Troubleshooting
       href: troubleshoot.md
     - name: Support policies for ARO 4

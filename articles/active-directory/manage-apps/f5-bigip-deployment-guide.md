@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 ms.reviewer: miccohen
 ---
 
-# Deploy an F5 BIG-IP Virtual Edition VM to Azure Active Directory
+# Deploy F5 BIG-IP Virtual Edition VM in Azure
 
 This tutorial walks you through the end to end process of deploying BIG-IP Vitural Edition (VE) in Azure IaaS. By the end of this tutorial you should have:
 

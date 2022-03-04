@@ -5,6 +5,8 @@ author: tfitzmac
 ms.date: 05/04/2021
 ms.topic: quickstart
 ms.author: tomfitz
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Create and deploy template spec

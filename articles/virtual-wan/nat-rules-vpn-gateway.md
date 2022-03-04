@@ -25,6 +25,16 @@ In order to use NAT, VPN devices need to use any-to-any (wildcard) traffic selec
 
 You can configure and view NAT rules on your VPN gateway settings at any time.
 
+## <a name="type"></a>NAT type: static & dynamic
+
+NAT on a gateway device translates the source and/or destination IP addresses, based on the NAT policies or rules to avoid address conflict. There are different types of NAT translation rules:
+
+* **Static NAT**: Static rules define a fixed address mapping relationship. For a given IP address, it will be mapped to the same address from the target pool. The mappings for static rules are stateless because the mapping is fixed. For example, a NAT rule created to map 10.0.0.0/24 to 192.168.0.0/24 will have a fixed 1-1 mapping. 10.0.0.0 is translated to 192.168.0.0, 10.0.0.1 is translated to 192.168.0.1, and so on. 
+
+* **Dynamic NAT**: For dynamic NAT, an IP address can be translated to different target IP addresses and TCP/UDP port based on availability, or with a different combination of IP address and TCP/UDP port. The latter is also called NAPT, Network Address and Port Translation. Dynamic rules will result in stateful translation mappings depending on the traffic flows at any given time. Due to the nature of Dynamic NAT and the ever changing IP/Port combinations, flows that make use of Dyanmic NAT rules have to be initiated from the **InternalMapping** (Pre-NAT) IP Range. The dynamic mapping is released once the flow is disconnected or gracefully terminated.
+
+Another consideration is the address pool size for translation. If the target address pool size is the same as the original address pool, use static NAT rule to define a 1:1 mapping in a sequential order. If the target address pool is smaller than the original address pool, use dynamic NAT rule to accommodate the differences.
+
 > [!NOTE]
 > Site-to-site NAT is not supported with Site-to-site VPN connections where policy based traffic selectors are used.
 
@@ -35,7 +45,8 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
 1. On the **Edit NAT Rule** page, you can **Add/Edit/Delete** a NAT rule using the following values:
 
    * **Name:** A unique name for your NAT rule.
-   * **Type:** Static. Static one-to-one NAT establishes a one-to-one relationship between an internal address and an external address.
+   * **Type:** Static or Dynamic. Static one-to-one NAT establishes a one-to-one relationship between an internal address and an external address while Dynamic NAT assigns an IP and port based on availability. 
+   * **IP Configuration ID:** A NAT rule must be configured to a specific VPN Gateway instance. This is applicable to Dynamic NAT only. Static NAT rules are automatically applied to both VPN Gateway instances.
    * **Mode:** IngressSnat or EgressSnat.  
       * IngressSnat mode (also known as Ingress Source NAT) is applicable to traffic entering the Azure hub’s Site-to-site VPN gateway. 
       * EgressSnat mode (also known as Egress Source NAT) is applicable to traffic leaving the Azure hub’s Site-to-site VPN gateway. 
@@ -44,7 +55,7 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
    * **Link Connection:** Connection resource that virtually connects a VPN site to the Azure Virtual WAN Hub's Site-to-site VPN gateway.
  
 > [!NOTE]
-> If you want the Site-to-site VPN Gateway to advertise translated (**ExternalMapping**) address prefixes via BGP, click the **Enable BGP Translation** button, due to which on-premises will automatically learn the post-NAT range of Egress Rules and Azure (Virtual WAN Hub, connected Virtual Networks, VPN and ExpressRoute branches) will automatically learn the post-NAT range of Ingress rules. 
+> If you want the Site-to-site VPN Gateway to advertise translated (**ExternalMapping**) address prefixes via BGP, click the **Enable BGP Translation** button, due to which on-premises will automatically learn the post-NAT range of Egress Rules and Azure (Virtual WAN Hub, connected Virtual Networks, VPN and ExpressRoute branches) will automatically learn the post-NAT range of Ingress rules. The new POST NAT ranges will be shown in the Effective Routes table in a Virtual Hub. 
 > Please note that the **Enable Bgp Translation** setting is applied to all NAT rules on the Virtual WAN Hub Site-to-site VPN Gateway. 
 
 ## <a name="examples"></a>Example configurations
@@ -91,13 +102,15 @@ The following diagram shows the projected end result:
 * The Site-to-site VPN Gateway automatically translates the on-premises BGP peer IP address **if** the on-premises BGP peer IP address is contained within the **Internal Mapping** of an **Ingress NAT Rule**. As a result, the VPN site's **Link Connection BGP address** must reflect the NAT-translated address (part of the External Mapping). 
 
     For instance, if the on-premises BGP IP address is 10.30.0.133 and there is an **Ingress NAT Rule** that translates 10.30.0.0/24 to 127.30.0.0/24, the VPN Site's **Link Connection BGP Address** must be configured to be the translated address (127.30.0.133).
-
+* In Dynamic NAT, on-premises BGP peer IP cannot be part of the pre-NAT address range (**Interal Mapping**) as IP and port translations are not fixed. If there is a need to translate the on-premises BGP peering IP, please create a separate **Static NAT Rule** that translates BGP Peering IP address only. 
+   
+   For instance, if the on-premises network has an address space of 10.0.0.0/24 with an on-premise BGP peer IP of 10.0.0.1 and there is an **Ingress Dynamic NAT Rule** to translate 10.0.0.0/24 to 192.198.0.0/32, a separate **Ingress Static NAT Rule** translating 10.0.0.1/32 to 192.168.0.02/32 is required and the corresponding VPN site's **Link Connection BGP address** must be updated to the NAT-translated address (part of the External Mapping). 
  
 ### Ingress SNAT (VPN site with statically configured routes)
 
 **Ingress SNAT rules** are applied on packets that are entering Azure through the Virtual WAN Site-to-site VPN gateway. In this scenario, you want to connect two Site-to-site VPN branches to Azure. VPN Site 1 connects via Link A, and VPN Site 2 connects via Link B. Each site has the same address space 10.30.0.0/24.
 
-In this example, we will NAT VPN site 1 to 127.30.0.0.0/24. However, because the VPN Site is not connected to the Site-to-site VPN Gateway via BGP, the configuration steps are slightly different than the BGP-enabled example. 
+In this example, we will NAT VPN site 1 to 172.30.0.0.0/24. However, because the VPN Site is not connected to the Site-to-site VPN Gateway via BGP, the configuration steps are slightly different than the BGP-enabled example. 
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/diagram-static.png" alt-text="Screenshot showing diagram configurations for VPN sites that use static routing.":::
 
@@ -149,6 +162,19 @@ In the preceding examples, an on-premises device wants to reach a resource in a 
 
 This section shows checks to verify that your configuration is set up properly. 
 
+#### Validate Dynamic NAT Rules
+
+   * Use Dynamic NAT Rules if the target address pool is smaller than the original address pool. 
+   * As IP/Port combinations are not fixed in a Dynamic NAT Rule, the on-premises BGP Peer IP cannot be part of the pre-NAT (**InternalMapping**) addres range. Please create a specific Static NAT Rule that translates the BGP Peering IP address only. 
+      
+      For example:
+      
+      * **On-Premises Address Range:** 10.0.0.0/24
+      * **On-premises BGP IP:** 10.0.0.1
+      * **Ingress Dynamic NAT Rule:** 192.168.0.1/32
+      * **Ingress Static NAT Rule:** 10.0.0.1 -> 192.168.0.2
+ 
+
 #### Validate DefaultRouteTable, rules, and routes
 
 Branches in Virtual WAN associate to the **DefaultRouteTable**, implying all branch connections learn routes that are populated within the DefaultRouteTable. You will see the NAT rule with the translated prefix in the effective routes of the DefaultRouteTable.
@@ -158,6 +184,7 @@ From the previous example:
 * **Prefix:** 172.30.0.0/24  
 * **Next Hop Type:** VPN_S2S_Gateway
 * **Next Hop:** VPN_S2S_Gateway Resource
+
 
 #### Validate address prefixes
 

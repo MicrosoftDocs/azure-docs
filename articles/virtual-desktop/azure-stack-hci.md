@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: helohr
 manager: femila
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 # Set up Azure Virtual Desktop for Azure Stack HCI (preview)
 
@@ -27,6 +27,8 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 - [An on-premises Active Directory (AD) synced with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
 
 - A stable connection to Azure from your on-premises network.
+
+- Access from your on-premises network to all the required URLs listed in Azure Virtual Desktop's [required URL list](safe-url-list.md) for virtual machines.
 
 ## Configure Azure Virtual Desktop for Azure Stack HCI
 
@@ -88,7 +90,7 @@ Downloading a Windows VHD without deploying a VM has several extra steps. To dow
 
 ### Requirements to download a VHD without a VM
 
-Before you begin, make sure you're connected to Azure and are running [Azure Cloud Shell](../cloud-shell/quickstart.md) in either a command prompt or in the bash environment. You can also run CLI reference commands on the Azure command-line interface (CLI).
+Before you begin, make sure you're connected to Azure and are running [Azure Cloud Shell](../cloud-shell/quickstart.md) in either a command prompt or in the bash environment. You can also run CLI reference commands via the Azure CLI.
 
 If you're using a local installation, run the [az login](/cli/azure/reference-index#az_login) command to sign into Azure.
 

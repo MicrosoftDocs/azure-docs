@@ -2,8 +2,8 @@
 title: Copy data from SAP BW
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP Business Warehouse to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: ulrichchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
@@ -36,6 +36,9 @@ Specifically, this SAP Business Warehouse connector supports:
 - SAP Business Warehouse **version 7.x**.
 - Copying data from **InfoCubes and QueryCubes** (including BEx queries) using MDX queries.
 - Copying data using basic authentication.
+
+>[!NOTE]
+>The SAP Business Warehouse connector does not currently support parameters with MDX.  If filtering with MDX parameters is required you can consider using the alternative [SAP Open Hub connector](connector-sap-business-warehouse-open-hub.md) instead.
 
 ## Prerequisites
 

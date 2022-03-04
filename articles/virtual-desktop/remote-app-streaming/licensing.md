@@ -3,7 +3,6 @@ title: Understanding Azure Virtual Desktop per-user access pricing for remote ap
 description: An overview of Azure Virtual Desktop licensing considerations for remote app streaming.
 services: virtual-desktop
 author: Heidilohr
-
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/14/2021
@@ -43,9 +42,10 @@ For more information about prices, see [Azure Virtual Desktop pricing](https://a
 
 Each price tier has flat per-user access charges. For example, a user incurs the same charge to your subscription no matter when or how many hours they used the service during that billing cycle.
 
-Azure Virtual Desktop will also charge users with separate assigned licenses that otherwise entitle them to Azure Virtual Desktop access. If you have internal users you're purchasing eligible licenses for, we recommend you give them access to Azure Virtual Desktop through a separate subscription that isn't enrolled in per-user access pricing to avoid effectively paying twice for those users.
+> [!IMPORTANT]
+> Azure Virtual Desktop will also charge users with separate assigned licenses that otherwise entitle them to Azure Virtual Desktop access. If you have internal users you're purchasing eligible licenses for, we recommend you give them access to Azure Virtual Desktop through a separate subscription that isn't enrolled in per-user access pricing to avoid effectively paying twice for those users.
 
-Azure Virtual Desktop will issue at most one access charge for a given user in a given billing period. So if your deployment grants user Alice access to Azure Virtual Desktop resources across two different Azure subscriptions in the same tenant, only the first subscription accessed by Alice will incur a usage charge.
+Azure Virtual Desktop will issue at most one access charge for a given user in a given billing period. For example, if your deployment grants user Alice access to Azure Virtual Desktop resources across two different Azure subscriptions in the same tenant, only the first subscription accessed by Alice will incur a usage charge.
 
 ## Comparing licensing options
 
@@ -65,7 +65,7 @@ Here's a summary of the two types of licenses for Azure Virtual Desktop you can 
 
 ## Licensing other products and services for use with Azure Virtual Desktop
 
-The Azure Virtual Desktop per-user access license isn't a full replacement for a Windows or Microsoft 365 license. Per-user licenses only grant access rights to Azure Virtual Desktop and don't include Microsoft Office, Microsoft Defender, or Universal Print. This means that if you choose a per-user license, you'll need to separately license other products and services to grant your users access to them in your Azure Virtual Desktop environment.
+The Azure Virtual Desktop per-user access license isn't a full replacement for a Windows or Microsoft 365 license. Per-user licenses only grant access rights to Azure Virtual Desktop and don't include Microsoft Office, Microsoft 365 Defender, or Universal Print. This means that if you choose a per-user license, you'll need to separately license other products and services to grant your users access to them in your Azure Virtual Desktop environment.
 
 ## Next steps
 

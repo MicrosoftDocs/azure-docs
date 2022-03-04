@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -26,8 +25,8 @@ ms.collection: M365-identity-device-management
 You can route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. This feature allows you to:
 
 * Archive Azure AD activity logs to an Azure storage account, to retain the data for a long time.
-* Stream Azure AD activity logs to an Azure Event Hub for analytics, using popular Security Information and Event Management (SIEM) tools, such as Splunk, QRadar, and Azure Sentinel.
-* Integrate Azure AD activity logs with your own custom log solutions by streaming them to an Event Hub.
+* Stream Azure AD activity logs to an Azure event hub for analytics, using popular Security Information and Event Management (SIEM) tools such as Splunk, QRadar, and Microsoft Sentinel.
+* Integrate Azure AD activity logs with your own custom log solutions by streaming them to an event hub.
 * Send Azure AD activity logs to Azure Monitor logs to enable rich visualizations, monitoring and alerting on the connected data.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
@@ -36,7 +35,7 @@ You can route Azure Active Directory (Azure AD) activity logs to several endpoin
 
 ## Supported reports
 
-You can route Azure AD audit logs and sign-in logs to your Azure storage account, Event Hub, Azure Monitor logs or custom solution by using this feature. 
+You can route Azure AD audit logs and sign-in logs to your Azure Storage account, event hub, Azure Monitor logs, or custom solution by using this feature.
 
 * **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to information about changes applied to your tenant, such as users and group management, or updates applied to your tenant’s resources.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.

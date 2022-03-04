@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge devices using gateways.
-author: v-tcassi
+author: kgremban
 
-ms.author: v-tcassi
+ms.author: kgremban
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: iot-edge
@@ -278,7 +278,7 @@ You can view the status of your modules using the command:
 
    This command will output all the edgeAgent reported properties. Here are some helpful ones for monitoring the status of the device: *runtime status*, *runtime start time*, *runtime last exit time*, *runtime restart count*.
 
-You can also see the status of your modules on the [Azure portal](https://ms.portal.azure.com/). Navigate to the **IoT Edge** section of your IoT Hub to see your devices and modules.
+You can also see the status of your modules on the [Azure portal](https://portal.azure.com/). Navigate to the **IoT Edge** section of your IoT Hub to see your devices and modules.
 
 Once you are satisfied with your module deployments, you are ready to proceed.
 

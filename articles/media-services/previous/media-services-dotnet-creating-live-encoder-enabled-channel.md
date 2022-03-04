@@ -10,7 +10,7 @@ ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: anilmur

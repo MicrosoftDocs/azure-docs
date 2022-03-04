@@ -50,11 +50,15 @@ Applying locks can lead to unexpected results because some operations that don't
 
 - A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting the virtual machine. These operations require a POST request.
 
+- A read-only lock on a **resource group** that contains an **automation account** prevents all runbooks from starting. These operations require a POST request.
+
 - A cannot-delete lock on a **resource group** prevents Azure Resource Manager from [automatically deleting deployments](../templates/deployment-history-deletions.md) in the history. If you reach 800 deployments in the history, your deployments will fail.
 
 - A cannot-delete lock on the **resource group** created by **Azure Backup Service** causes backups to fail. The service supports a maximum of 18 restore points. When locked, the backup service can't clean up restore points. For more information, see [Frequently asked questions-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.yml).
 
 - A cannot-delete lock on a **resource group** prevents **Azure Machine Learning** from autoscaling [Azure Machine Learning compute clusters](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) to remove unused nodes.
+
+- A read-only lock on a **Log Analytics workspace** prevents **User and Entity Behavior Analytics (UEBA)** from being enabled.
 
 - A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
 
@@ -92,9 +96,9 @@ To delete everything for the service, including the locked infrastructure resour
 
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
-### ARM template
+### Template
 
-When using an Azure Resource Manager template (ARM template) to deploy a lock, you need to be aware of the scope of the lock and the scope of the deployment. To apply a lock at the deployment scope, such as locking a resource group or subscription, don't set the scope property. When locking a resource within the deployment scope, set the scope property.
+When using an Azure Resource Manager template (ARM template) or Bicep file to deploy a lock, you need to be aware of the scope of the lock and the scope of the deployment. To apply a lock at the deployment scope, such as locking a resource group or subscription, don't set the scope property. When locking a resource within the deployment scope, set the scope property.
 
 The following template applies a lock to the resource group it's deployed to. Notice there isn't a scope property on the lock resource because the scope of the lock matches the scope of deployment. This template is deployed at the resource group level.
 
@@ -386,7 +390,7 @@ Remove-AzResourceLock -LockId $lockId
 
 ### Azure CLI
 
-You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az_lock_create) command.
+You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az-lock-create) command.
 
 To lock a resource, provide the name of the resource, its resource type, and its resource group name.
 
@@ -400,7 +404,7 @@ To lock a resource group, provide the name of the resource group.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-To get information about a lock, use [az lock list](/cli/azure/lock#az_lock_list). To get all the locks in your subscription, use:
+To get information about a lock, use [az lock list](/cli/azure/lock#az-lock-list). To get all the locks in your subscription, use:
 
 ```azurecli
 az lock list

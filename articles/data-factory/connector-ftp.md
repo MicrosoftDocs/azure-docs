@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/29/2021
 ms.author: jianleishen
 ---
 
@@ -204,8 +204,7 @@ The following properties are supported for FTP under `storeSettings` settings in
 | enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
 | partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it is not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path is not specified, no extra column will be generated. | No                                            |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
-
-When copying data form FTP, the service tries to get the file length first, then divide the file into multiple parts and read them in parallel. If your FTP server doesn't support getting file length or seeking to read from a certain offset, you may encounter failure.
+| disableChunking | When copying data from FTP, the service tries to get the file length first, then divide the file into multiple parts and read them in parallel. Specify whether your FTP server supports getting file length or seeking to read from a certain offset. <br/>Allowed values are **false** (default), **true**. | No |
 
 **Example:**
 
@@ -237,7 +236,8 @@ When copying data form FTP, the service tries to get the file length first, then
                     "type": "FtpReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
-                    "wildcardFileName": "*.csv"
+                    "wildcardFileName": "*.csv",
+                    "disableChunking": false
                 }
             },
             "sink": {

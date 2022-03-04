@@ -5,7 +5,7 @@
   - name: What is Azure Front Door Standard/Premium (Preview)?
     href: overview.md
   - name: Choose the right load balancer
-    href: /architecture/guide/technology-choices/load-balancing-overview.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+    href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Tier comparison
     href: tier-comparison.md
 - name: Quickstarts
@@ -13,12 +13,16 @@
   items:
   - name: Create a Front Door Standard/Premium - Portal
     href: create-front-door-portal.md
+  - name: Create a Front Door Standard/Premium - CLI
+    href: create-front-door-cli.md  
 - name: Samples
   items:
   - name: Resource Manager templates
     href: ../front-door-quickstart-template-samples.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: Tutorials
   items:
+  - name: Add delivery rules with the Azure CLI
+    href: front-door-add-rules-cli.md
   - name: Configure security headers with Rules engine 
     href: ../front-door-security-headers.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: Concepts
@@ -27,26 +31,30 @@
     href: concept-endpoint-manager.md
   - name: Caching
     href: concept-caching.md
+  - name: Traffic acceleration
+    href: ../front-door-traffic-acceleration.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
   - name: Routing
     items:
     - name: Routing architecture
-      href: ../front-door-routing-architecture.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      href: ../front-door-routing-architecture.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
     - name: Route matching
       href: concept-route.md
+    - name: Origin selection
+      href: ../front-door-routing-methods.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+    - name: Routing limits
+      href: ../front-door-routing-limits.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Origin
     href: concept-origin.md
   - name: Health probes
     href: ../front-door-health-probes.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Wildcard domain
     href: ../front-door-wildcard-domain.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
-  - name: Geo-filtering
-    href: geo-filtering.md
-  - name: Rule Set
+  - name: Rule Engine
     items:
     - name: Rules Engine architecture
       href: concept-rule-set.md
     - name: Rules match conditions
-      href: concept-rule-set-match-conditions.md
+      href: ../rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Rules actions
       href: concept-rule-set-actions.md
   - name: URL redirect and URL rewrite
@@ -61,6 +69,20 @@
       href: ../concept-end-to-end-tls.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Private Link
       href: concept-private-link.md
+    - name: Web Application Firewall
+      items:
+      - name: Tuning
+        href: ../../web-application-firewall/afds/waf-front-door-tuning.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      - name: Managed rules
+        href: ../../web-application-firewall/afds/waf-front-door-drs.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      - name: Custom rules
+        href: ../../web-application-firewall/afds/waf-front-door-custom-rules.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      - name: Exclusion lists
+        href: ../../web-application-firewall/afds/waf-front-door-exclusion.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      - name: Policy settings
+        href: ../../web-application-firewall/afds/waf-front-door-policy-settings.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      - name: Geo-filtering
+        href: ../front-door-geo-filtering.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Protocol
     items:
     - name: HTTP/2
@@ -119,8 +141,8 @@
       href: how-to-reports.md
   - name: Troubleshoot
     items:
-    - name: Trouble routing issues
-      href: troubleshoot-route-issues.md
+    - name: Troubleshooting Front Door issues
+      href: ../troubleshoot-issues.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Allowed certificate authorities
       href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
     - name: File Compression
@@ -134,9 +156,9 @@
   - name: Azure Front Door edge locations
     items:
     - name: Edge locations by region
-      href: edge-locations.md
+      href: ../edge-locations-by-region.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Edge locations by abbreviation
-      href: edge-locations-by-abbreviation.md
+      href: ../edge-locations-by-abbreviation.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.cdn
   - name: REST API

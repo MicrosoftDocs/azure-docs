@@ -7,8 +7,8 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: disks
 ms.topic: quickstart
-ms.date: 05/17/2019 
-ms.custom: devx-track-azurecli
+ms.date: 05/17/2019
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create and encrypt a Linux VM with the Azure CLI

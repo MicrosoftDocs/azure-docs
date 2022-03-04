@@ -1,16 +1,16 @@
 ---
-title: Create your first durable function in Azure using C#
+title: "Create your first durable function in Azure using C#"
 description: Create and publish an Azure Durable Function using Visual Studio or Visual Studio Code.
 author: anthonychu
-
 ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-
+ms.devlang: csharp
+ms.custom: mode-other
 ---
 
-# Create your first durable function in C\#
+# Create your first durable function in C#
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 

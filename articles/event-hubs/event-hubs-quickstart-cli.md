@@ -3,8 +3,8 @@ title: Create an event hub using Azure CLI - Azure Event Hubs | Microsoft Docs
 description: This quickstart describes how to create an event hub using Azure CLI and then send and receive events using Java.
 ms.topic: quickstart
 ms.date: 06/18/2021
-ms.author: spelluru 
-ms.custom: devx-track-azurecli
+ms.author: spelluru
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create an event hub using Azure CLI

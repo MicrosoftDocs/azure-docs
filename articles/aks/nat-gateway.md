@@ -25,6 +25,17 @@ To use Managed NAT gateway, you must have the following:
 * The `aks-preview` extension version 0.5.31 or later
 * Kubernetes version 1.20.x or above
 
+### Install aks-preview CLI extension
+
+You also need the *aks-preview* Azure CLI extension version 0.5.31 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Register the `AKS-NATGatewayPreview` feature flag
 
@@ -55,8 +66,9 @@ az group create --name myresourcegroup --location southcentralus
 ```
 
 ```azurecli-interactive
-az aks create --resource-group myresourcegroup 
-    --name natcluster  \
+az aks create \
+    --resource-group myresourcegroup \
+    --name natcluster \
     --node-count 3 \
     --outbound-type managedNATGateway \ 
     --nat-gateway-managed-outbound-ip-count 2 \
@@ -76,6 +88,76 @@ az aks update \
     --nat-gateway-managed-outbound-ip-count 5
 ```
 
+## Create an AKS cluster with a user-assigned NAT Gateway
+To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type userAssignedNATGateway` when running `az aks create`. This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-kubenet] or [Azure CNI][byo-vnet-azure-cni]) and that the NAT Gateway is preconfigured on the subnet. The following commands create the required resources for this scenario. Make sure to run them all in the same session so that the values stored to variables are still available for the `az aks create` command.
+
+1. Create the resource group:
+    ```azurecli-interactive
+    az group create --name myresourcegroup \
+        --location southcentralus
+    ```
+
+2. Create a managed identity for network permissions and store the ID to `$IDENTITY_ID` for later use:
+    ```azurecli-interactive
+    IDENTITY_ID=$(az identity create \
+        --resource-group myresourcegroup \
+        --name natclusterid \
+        --location southcentralus \
+        --query id \
+        --output tsv)
+    ```
+
+3. Create a public IP for the NAT gateway:
+    ```azurecli-interactive
+    az network public-ip create \
+        --resource-group myresourcegroup \
+        --name mynatgatewaypip \
+        --location southcentralus \
+        --sku standard
+    ```
+
+4. Create the NAT gateway:
+    ```azurecli-interactive
+    az network nat gateway create \
+        --resource-group myresourcegroup \
+        --name mynatgateway \
+        --location southcentralus \
+        --public-ip-addresses mynatgatewaypip
+    ```
+
+5. Create a virtual network:
+    ```azurecli-interactive
+    az network vnet create \
+        --resource-group myresourcegroup \
+        --name myvnet \
+        --location southcentralus \
+        --address-prefixes 172.16.0.0/20 
+    ```
+
+6. Create a subnet in the virtual network using the NAT gateway and store the ID to `$SUBNET_ID` for later use:
+    ```azurecli-interactive
+    SUBNET_ID=$(az network vnet subnet create \
+        --resource-group myresourcegroup \
+        --vnet-name myvnet \
+        --name natcluster \
+        --address-prefixes 172.16.0.0/22 \
+        --nat-gateway mynatgateway \
+        --query id \
+        --output tsv)
+    ```
+
+7. Create an AKS cluster using the subnet with the NAT gateway and the managed identity:
+    ```azurecli-interactive
+    az aks create \
+        --resource-group myresourcegroup \
+        --name natcluster \
+        --location southcentralus \
+        --network-plugin azure \
+        --vnet-subnet-id $SUBNET_ID \
+        --outbound-type userAssignedNATGateway \
+        --enable-managed-identity \
+        --assign-identity $IDENTITY_ID
+    ```
 
 ## Next Steps
 - For more information on Azure NAT Gateway, see [Azure NAT Gateway][nat-docs].
@@ -87,3 +169,7 @@ az aks update \
 [nat-docs]: ../virtual-network/nat-gateway/nat-overview.md
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[byo-vnet-azure-cni]: configure-azure-cni.md
+[byo-vnet-kubenet]: configure-kubenet.md
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update

@@ -97,7 +97,7 @@ You can enable a managed bot protection rule set to take custom actions on reque
 
 There are three bot categories supported: Bad, Good, and Unknown. Bot signatures are managed and dynamically updated by the WAF platform.
 
-Bad bots include bots from malicious IP addresses and bots that have falsified their identities. Malicious IP addresses  are sourced from the Microsoft Threat Intelligence feed and updated every hour. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft Threat Intelligence and is used by multiple services including Azure Security Center.
+Bad bots include bots from malicious IP addresses and bots that have falsified their identities. Malicious IP addresses  are sourced from the Microsoft Threat Intelligence feed and updated every hour. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft Threat Intelligence and is used by multiple services including Microsoft Defender for Cloud.
 
 Good Bots include validated search engines. Unknown categories include additional bot groups that have identified themselves as bots. For example, market analyzer, feed fetchers and data collection agents. 
 

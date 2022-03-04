@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB: SQL Async Java API, SDK & resources'
 description: Learn all about the SQL Async Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 04/06/2021
-ms.author: anfeldma
+ms.date: 11/11/2021
+ms.author: jroth
 ms.custom: devx-track-java
 ---
 
@@ -59,7 +59,10 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 | **Performance tips**| [GitHub readme](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
 | **Minimum supported runtime**|[JDK 8](/java/azure/jdk/) | 
 
-[!INCLUDE [Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
+## Release history
+
+Release history is maintained in the Azure Cosmos DB Java SDK source repo. For a detailed list of feature releases and bugs fixed in each release, see the [SDK changelog documentation](https://github.com/Azure/azure-cosmosdb-java/blob/master/changelog/README.md)
+
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 

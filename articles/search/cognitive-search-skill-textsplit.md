@@ -5,7 +5,7 @@ description: Break text into chunks or pages of text based on length in an AI en
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 

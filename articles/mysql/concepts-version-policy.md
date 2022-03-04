@@ -20,7 +20,7 @@ Azure Database for MySQL has been developed from [MySQL Community Edition](https
 
 Azure Database for MySQL currently supports the following major and minor versions of MySQL:
 
-| Version | [Single Server](overview.md) <br/> Current minor version |[Flexible Server (Preview)](./flexible-server/overview.md) <br/> Current minor version  |
+| Version | [Single Server](overview.md) <br/> Current minor version |[Flexible Server](./flexible-server/overview.md) <br/> Current minor version  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL Version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(Retired) | Not supported|
 |MySQL Version 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
@@ -66,5 +66,5 @@ After the retirement date for each MySQL database version, if you continue runni
 ## Next steps
 
 - See Azure Database for MySQL - Single Server [supported versions](./concepts-supported-versions.md)
-- See Azure Database for MySQL - Flexible Server (Preview) [supported versions](flexible-server/concepts-supported-versions.md)
+- See Azure Database for MySQL - Flexible Server [supported versions](flexible-server/concepts-supported-versions.md)
 - See MySQL [dump and restore](./concepts-migrate-dump-restore.md) to perform upgrades.

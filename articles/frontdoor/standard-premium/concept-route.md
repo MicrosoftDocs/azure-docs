@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 01/12/2022
 ms.author: duau
 ---
 
@@ -23,6 +23,9 @@ A Front Door Standard/Premium routing configuration is composed of two major par
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!NOTE]
+> When you use the [Front Door rules engine](concept-rule-set.md), you can configure a rule to [override the origin group](concept-rule-set-actions.md#OriginGroupOverride) for a request. The origin group set by the rules engine overrides the routing process described in this article.
 
 ### Incoming match (left-hand side)
 
@@ -128,7 +131,9 @@ Given that configuration, the following example matching table would result:
 
 ### Routing decision
 
-Once Azure Front Door Standard/Premium has matched to a single routing rule, it then needs to choose how to process the request. If Azure Front Door Standard/Premium has a cached response available for the matched routing rule, then the request gets served back to the client. The next thing Azure Front Door Standard/Premium evaluates is whether or not you have a Rule Set for the matched routing rule. If there isn't a Rule Set defined, then the request gets forwarded to the backend pool as is. Otherwise, the Rule Set gets executed in the order as they're configured.
+Once Azure Front Door Standard/Premium has matched to a single routing rule, it then needs to choose how to process the request. If Azure Front Door Standard/Premium has a cached response available for the matched routing rule, then the request gets served back to the client.
+
+Finally, Azure Front Door Standard/Premium evaluates whether or not you have a [rule set](concept-rule-set.md) for the matched routing rule. If there's no rule set defined, then the request gets forwarded to the origin group as-is. Otherwise, the rule sets get executed in the order they're configured. [Rule sets can override the route](concept-rule-set-actions.md#OriginGroupOverride), forcing traffic to a specific origin group.
 
 ## Next steps
 

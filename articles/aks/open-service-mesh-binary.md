@@ -4,7 +4,6 @@ description: Download and configure the Open Service Mesh (OSM) client library
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
-ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
 ---

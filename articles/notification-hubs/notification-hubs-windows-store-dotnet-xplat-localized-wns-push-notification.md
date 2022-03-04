@@ -9,7 +9,7 @@ manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
 ms.date: 08/23/2021

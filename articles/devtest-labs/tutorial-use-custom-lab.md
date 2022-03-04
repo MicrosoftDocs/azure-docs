@@ -3,7 +3,6 @@ title: Access a lab
 description: In this tutorial, you access a lab in Azure DevTest Labs. You use a virtual machine, unclaim it, and then claim it.
 ms.topic: tutorial
 ms.date: 11/03/2021
-ms.author: spelluru
 ---
 
 # Tutorial: Access a lab in Azure DevTest Labs

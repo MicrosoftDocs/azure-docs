@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a public IP address prefix - Azure portal'
-titlesuffix: Azure Virtual Network
+titleSuffix: Azure Virtual Network
 description: Learn how to create a public IP address prefix using the Azure portal.
 services: virtual-network
 author: asudbring
@@ -9,6 +9,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a public IP address prefix using the Azure portal

@@ -19,7 +19,7 @@ Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificat
 1. From a computer running Windows 10 or Windows Server 2016, open a Windows PowerShell console with elevated privileges. These examples do not work in the Azure Cloud Shell "Try It". You must run these examples locally.
 1. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*, or *Manage User Certificates*.
 
-   Sign in using the `Connect-AzAccount` cmdlet. Then, run the following example with any necessary modifications.
+   Run the following example with any necessary modifications.
 
    ```powershell
    $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -66,7 +66,7 @@ If you are creating additional client certificates, or are not using the same Po
 
    ```
    Thumbprint                                Subject
-  
+   ----------                                -------
    AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
    ```
@@ -74,7 +74,7 @@ If you are creating additional client certificates, or are not using the same Po
 1. Declare a variable for the root certificate using the thumbprint from the previous step. Replace THUMBPRINT with the thumbprint of the root certificate from which you want to generate a child certificate.
 
    ```powershell
-   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\<THUMBPRINT>"
    ```
 
    For example, using the thumbprint for P2SRootCert in the previous step, the variable looks like this:

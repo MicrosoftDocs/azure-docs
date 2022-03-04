@@ -4,7 +4,7 @@ description: This quickstart provides a PHP code sample you can use to connect a
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018

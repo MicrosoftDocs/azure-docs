@@ -26,7 +26,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Pe
 The scenario outlined in this tutorial assumes that you already have the following prerequisites
 
 * An Azure AD tenant.
-* [A Peakon tenant](https://peakon.com/us/pricing/).
+* [A Peakon tenant](https://www.workday.com/en-us/products/employee-voice/overview.html).
 * A user account in Peakon  with Admin permissions.
 
 > [!NOTE]

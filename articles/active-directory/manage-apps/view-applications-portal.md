@@ -12,10 +12,11 @@ ms.topic: quickstart
 ms.date: 09/07/2021
 ms.author: davidmu
 ms.reviewer: arvinh
-# Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
+ms.custom: mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
 ---
 
-# Quickstart: View enterprise applications in Azure Active Directory
+# Quickstart: View enterprise applications
 
 In this quickstart, you learn how to use the Azure Active Directory Admin Center to search for and view the enterprise applications that are already configured in your Azure Active Directory (Azure AD) tenant.
 
@@ -25,7 +26,7 @@ It is recommended that you use a non-production environment to test the steps in
 
 To view applications that have been registered in your Azure AD tenant, you need:
 
-- An Azure account. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - Completion of the steps in [Quickstart: Add an enterprise application](add-application-portal.md).
 
@@ -56,6 +57,7 @@ Select options according to what you're looking for:
 1. Under **Application Type**, choose one of these options:
     - **Enterprise Applications** shows non-Microsoft applications.
     - **Microsoft Applications** shows Microsoft applications.
+    - **Managed Identities** shows applications that are used to authenticate to services that support Azure AD authentication.
     - **All Applications** shows both non-Microsoft and Microsoft applications.
 1. Under **Application Status**, choose **Any**, **Disabled**, or **Enabled**. The **Any** option includes both disabled and enabled applications.
 1. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.

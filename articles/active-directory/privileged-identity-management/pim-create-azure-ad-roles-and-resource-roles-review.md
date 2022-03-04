@@ -4,7 +4,7 @@ description: Learn how to create an access review of Azure resource and Azure AD
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -26,6 +26,9 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
  To create access reviews for Azure resources, you must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role for the Azure resources. To create access reviews for Azure AD roles, you must be assigned to the [Global Administrator](../roles/permissions-reference.md#global-administrator) or the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
+> [!Note]
+> In public preview, you can scope an access review to service principals with access to Azure AD and Azure resource roles with an Azure Active Directory Premium P2 edition active in your tenant. After general availability, additional licenses might be required.
+
 ## Create access reviews
 
 1. Sign in to [Azure portal](https://portal.azure.com/) as a user that is assigned to one of the prerequisite role(s).
@@ -36,7 +39,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in Azure Portal screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
  
-4. For **Azure AD roles**, select **Azure AD roles** again under **Manage**. For **Azure resources**, select the resource you want to manage, such as a subscription.
+4. For **Azure AD roles**, select **Azure AD roles** again under **Manage**. For **Azure resources**, select the subscription you want to manage.
 
 
 5. Under Manage, select **Access reviews**, and then select **New** to create a new access review.
@@ -108,7 +111,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/advanced-settings.png" alt-text="Advanced settings for show recommendations, require reason on approval, mail notifications, and reminders screenshot.":::
 
-1. Set **Show recommendations** to **Enable** to show the reviewers the system recommendations based the user's access information.
+1. Set **Show recommendations** to **Enable** to show the reviewers the system recommendations based the user's access information. Recommendations are based on a 30-day interval period where users who have logged in the past 30 days are recommended access, while users who have not are recommended denial of access. These sign-ins are irrespective of whether they were interactive. The last sign-in of the user is also displayed along with the recommendation. 
 
 1. Set **Require reason on approval** to **Enable** to require the reviewer to supply a reason for approval.
 

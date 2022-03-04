@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/19/2018
 ---
 # Ring Buffer target code for extended events in Azure SQL Database

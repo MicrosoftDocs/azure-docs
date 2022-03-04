@@ -4,11 +4,10 @@ description: With Conditional Access control, Azure AD checks the specific condi
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -55,7 +54,7 @@ The following table helps in determining the advantages and disadvantages of eac
 ### Client experience
 The strategy that you use will dictate the user sign-in experience.  The following tables provide you with information on what the users should expect their sign-in experience to be.  Not all federated identity providers support SSO in all scenarios.
 
-**Doman-joined and private network applications**:
+**Domain-joined and private network applications**:
 
 | Application | Synchronized Identity | Federated Identity |
 | --- | --- | --- |

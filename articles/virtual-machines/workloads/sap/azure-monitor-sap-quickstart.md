@@ -7,8 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/08/2021
-
----    
+---
 
 # Deploy Azure Monitor for SAP Solutions by using the Azure portal
 
@@ -172,7 +171,7 @@ To install the NetWeaver provider on the Azure portal:
    ALTER ROLE [db_datareader] ADD MEMBER [AMS]
    ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
    GO
-   ``` 
+   ```
 
 1. Select **Add provider**, and then:
 

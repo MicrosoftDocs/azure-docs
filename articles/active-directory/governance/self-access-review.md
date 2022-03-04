@@ -3,12 +3,11 @@ title: Review your access to resources in access reviews - Azure AD
 description: Learn how to review your own access to resources in Azure Active Directory access reviews.
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 08/27/2021
@@ -19,71 +18,69 @@ ms.collection: M365-identity-device-management
 
 # Self-review of access packages and resources in Azure AD entitlement management
 
-Azure AD entitlement management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how a user does a self-review of their assigned access package(s).
+Azure Active Directory (Azure AD) entitlement management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how you can do a self-review of your assigned access packages.
 
-## Review your own access using My Access
+## Review your own access by using My Access
 
-You can review your own access to a group, application, or access package in the two ways as detailed below:
+You can review your own access to a group, application, or access package in two ways.
 
-### Email
+### Use email
 
 >[!IMPORTANT]
-> There could be delays in receiving email and it some cases it could take up to 24 hours. Add azure-noreply@microsoft.com to your safe recipients list to make sure that you are receiving all emails.
+> There could be delays in receiving email, and in some cases it could take up to 24 hours. Add azure-noreply@microsoft.com to your safe recipients list to make sure you receive all emails.
 
-1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
+1. Look for an email from Microsoft that asks you to review access. Here's an example email message.
 
- ![Example email from Microsoft to review access to a group](./media/self-access-review/access-review-email-preview.png)
+   ![Screenshot that shows an example email from Microsoft that asks you to review access to a group.](./media/self-access-review/access-review-email-preview.png)
 
-2. Click the **Review access** link to open the access review.
+1. Select **Review access** to open the access review.
 
-3. Continue in the section **Perform the access review**
+1. Continue in the section **Perform the access review**.
 
-### Directly at My Access
+### Use My Access
 
-You can also view your pending access reviews by using your browser to open My Access.
+You can also view your pending access reviews by using your browser to open **My Access**.
 
-1. Sign  in to the My Access at https://myaccess.microsoft.com/
+1. Sign in to [My Access](https://myaccess.microsoft.com/).
 
-2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
+1. On the menu on the left, select **Access reviews** to see a list of pending access reviews assigned to you.
 
-   ![access reviews in the menu](./media/self-access-review/access-review-menu.png)
+   ![Screenshot that shows Access reviews on the menu.](./media/self-access-review/access-review-menu.png)
 
-## Perform the access review
+## Do the access review
 
-1. Under Groups and Apps you can see:
-    
-    - **Name** The name of the access review.
-    - **Due** The due date for the review. After this date denied users could be removed from the group or app being reviewed.
-    - **Resource** The name of the resource under review.
-    - **Progress** The number of users reviewed over the total number of users part of this access review.
-    
-2. Click on the name of an access review to get started.
+1. Under **Groups and Apps**, you can see:
 
-   ![Pending access reviews list for apps and groups](./media/self-access-review/access-reviews-list-preview.png)
+    - **Name**: The name of the access review.
+    - **Due**: The due date for the review. After this date, denied users could be removed from the group or app being reviewed.
+    - **Resource**: The name of the resource under review.
+    - **Progress**: The number of users reviewed out of the total number of users who are part of this access review.
 
-3. Review your access and decide whether you still need access.
+1. Select the name of an access review to get started.
+
+   ![Screenshot that shows a pending access reviews list for apps and groups.](./media/self-access-review/access-reviews-list-preview.png)
+
+1. Review your access and decide if you still need access.
 
     If the request is to review access for others, the page will look different. For more information, see [Review access to groups or applications](perform-access-review.md).
 
-    ![Open access review asking whether you still need access to a group](./media/self-access-review/review-access-preview.png)
+    ![Screenshot that shows an open access review that asks if you still need access to a group.](./media/self-access-review/review-access-preview.png)
 
-1. Select **Yes** to keep your access or select **No** to remove your access.
+1. Select **Yes** to keep your access, or select **No** to remove your access.
 
-1. If you click **Yes**, you might need to specify a justification in the **Reason** box.
+1. If you select **Yes**, you might need to specify a justification in the **Reason** box.
 
-    ![Completed access review asking whether you still need access to a group](./media/self-access-review/review-access-yes-preview.png)
+    ![Screenshot that shows selecting Yes to keep access to a group.](./media/self-access-review/review-access-yes-preview.png)
 
-1. Click **Submit**.
+1. Select **Submit**.
 
-    Your selection is submitted and you returned to the My Access page.
+    Your selection is submitted, and you're returned to the **My Access** page.
 
-    If you want to change your response, reopen the access reviews page and update your response. You can change your response at any time until the access review has ended.
+    If you want to change your response, reopen the **Access reviews** page and update your response. You can change your response at any time until the access review has ended.
 
     > [!NOTE]
-    > If you indicated that you no longer need access, you aren't removed immediately. You are removed when the review has ended or when an administrator stops the review.
+    > If you indicated that you no longer need access, you aren't removed immediately. You're removed when the review has ended or when an administrator stops the review.
 
 ## Next steps
 
-- [Complete an access review of groups or applications](complete-access-review.md)
-
-
+[Complete an access review of groups or applications](complete-access-review.md)

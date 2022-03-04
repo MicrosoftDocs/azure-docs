@@ -191,7 +191,7 @@ For each scenario, you can target the action against one or more subscriptions, 
 
 ## Sequenced start and stop scenario
 
-In an environment that includes two or more components on multiple Azure Resource Manager VMs in a distributed application architecture, supporting the sequence in which components are started and stopped in order is important.
+In an environment that includes two or more components on multiple Azure Resource Manager VMs in a distributed application architecture, supporting the sequence in which components are started and stopped in order is important. Make sure you have applied the **sequencestart** and **sequencestop** tags to the target VMs as described on the [Overview page](../../azure-functions/start-stop-vms/overview.md#overview) before configuring this scenario.
 
 1. From the list of Logic apps, to configure sequenced start, select **ststv2_vms_Sequenced_start**. To configure sequenced stop, select **ststv2_vms_Sequenced_stop**.
 

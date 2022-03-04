@@ -11,9 +11,9 @@ ms.topic: conceptual
 
 # Application Gateway multiple site hosting
 
-Multiple site hosting enables you to configure more than one web application on the same port of application gateways using public-facing listeners. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
+Multiple site hosting enables you to configure more than one web application on the same port of application gateways using public-facing listeners. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting.
 
-You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](#wildcard-host-names-in-listener-preview).
+You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](#wildcard-host-names-in-listener).
 
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Multi-site Application Gateway":::
 
@@ -39,7 +39,7 @@ The priority field only impacts the order of evaluation of a request routing rul
 >[!NOTE]
 >If you wish to use rule priority, you will have to specify rule-priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
 
-## Wildcard host names in listener (Preview)
+## Wildcard host names in listener
 
 Application Gateway allows host-based routing using multi-site HTTP(S) listener. Now, you can use wildcard characters like asterisk (*) and question mark (?) in the host name, and up to 5 host names per multi-site HTTP(S) listener. For example, `*.contoso.com`.
 
@@ -48,7 +48,7 @@ Using a wildcard character in the host name, you can match multiple host names i
 :::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Wildcard Listener":::
 
 >[!NOTE]
-> This feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This feature is available only for Standard_v2 and WAF_v2 SKU of Application Gateway.
 
 In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com","*.fabrikam.com"`
 
@@ -66,6 +66,8 @@ In the Azure portal, under the multi-site listener, you must chose the **Multipl
 * `*` - can match with multiple characters in the allowed range
 * `?` - can match with a single character in the allowed range
 
+<!-- docutune:disable -->
+
 ### Conditions for using wildcard characters and multiple host names in a listener
 
 * You can only mention up to 5 host names in a single listener
@@ -73,6 +75,8 @@ In the Azure portal, under the multi-site listener, you must chose the **Multipl
 * There can only be up to two asterisks `*` in a host name. For example, `*.contoso.*` is valid and `*.contoso.*.*.com` is invalid.
 * There can only be a maximum of 4 wildcard characters in a host name. For example, `????.contoso.com`, `w??.contoso*.edu.*` are valid, but `????.contoso.*` is invalid.
 * Using asterisk `*` and question mark `?` together in a component of a host name (`*?` or `?*` or `**`) is invalid. For example, `*?.contoso.com` and `**.contoso.com` are invalid.
+
+<!-- docutune:enable -->
 
 ### Considerations and limitations of using wildcard or multiple host names in a listener
 

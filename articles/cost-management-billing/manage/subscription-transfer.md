@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 11/17/2021
 ms.author: banders
 ms.custom:
 ---
@@ -101,6 +101,22 @@ Microsoft doesn't provide a tool to automatically move resources between subscri
 ## Other planning considerations
 
 Read the following sections to learn more about other considerations before you start a product transfer.
+
+### Transfer terms and conditions
+
+When you send or accept a transfer you agree to terms and conditions. The following information provides additional details.
+
+#### Send transfer
+
+When you send a transfer request, must select the **Send transfer request** option. By making the selection you also agree to the following terms and conditions:
+
+_By sending this transfer request, you acknowledge and agree that the selected items will transfer to your account as of the Transition Date (date when the transfer completed successfully). You will be responsible to Microsoft for all ongoing, scheduled billings related to the transfer items as of the Transition Date; provided that Microsoft will move any prepaid subscriptions (including reserved instances) to your account. You agree that you may not cancel any prepaid subscriptions transferred to your account._
+
+#### Transfer acceptance
+
+When you accept a transfer, must select the **Review + validate** option. By making the selection you also agree to the following terms and conditions:
+
+_By accepting this transfer request, you acknowledge and agree that the indicated items will transfer to the nominated destination account as of the Transition Date (date when the transfer completed successfully). Any prepaid subscriptions, if selected, (including reserved instances) will be moved to the destination account and, as of the Transition Date, you will no longer be responsible to Microsoft for ongoing payment obligations (if any) related to the transfer items._
 
 ### Resources transfer with subscriptions
 

@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python Django app with Postgres'
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework and the app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/02/2021
+ms.date: 11/30/2021
 ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli]
 zone_pivot_groups: postgres-server-options
 ---
@@ -11,7 +11,7 @@ zone_pivot_groups: postgres-server-options
 
 ::: zone pivot="postgres-single-server"
 
-This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an Azure Database for Postgres database. You can also try the PostgresSQL Flexible Server (Preview) by selecting the option above. Flexible Server provides a simpler deployment mechanism and lower ongoing costs.
+This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an Azure Database for Postgres database. You can also try the PostgresSQL Flexible Server by selecting the option above. Flexible Server provides a simpler deployment mechanism and lower ongoing costs.
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
@@ -29,7 +29,7 @@ You can also use the [Azure portal version of this tutorial](/azure/developer/py
 
 ::: zone pivot="postgres-flexible-server"
 
-This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible Server (Preview)](../postgresql/flexible-server/index.yml) database. If you cannot use PostgreSQL Flexible Server (Preview), then select the Single Server option above. 
+This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible Server](../postgresql/flexible-server/index.yml) database. If you cannot use PostgreSQL Flexible Server, then select the Single Server option above. 
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
@@ -111,7 +111,7 @@ cd djangoapp
 
 ::: zone pivot="postgres-flexible-server"
 
-For Flexible Server (Preview), use the flexible-server branch of the sample, which contains a few necessary changes, such as how the database server URL is set and adding `'OPTIONS': {'sslmode': 'require'}` to the Django database configuration as required by Azure PostgreSQL Flexible Server.
+For Flexible Server, use the flexible-server branch of the sample, which contains a few necessary changes, such as how the database server URL is set and adding `'OPTIONS': {'sslmode': 'require'}` to the Django database configuration as required by Azure PostgreSQL Flexible Server.
 
 ```terminal
 git checkout flexible-server
@@ -124,7 +124,7 @@ git checkout flexible-server
 Visit [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp).
 
 ::: zone pivot="postgres-flexible-server"
-For Flexible Server (Preview), select the branches control that says "master" and select the flexible-server branch instead.
+For Flexible Server, select the branches control that says "master" and select the flexible-server branch instead.
 ::: zone-end
 
 Select **Clone**, and then select **Download ZIP**. 
@@ -332,6 +332,9 @@ Also replace `flexibleserverdb` with the database name if you changed it with th
 In your Python code, you access these settings as environment variables with statements like `os.environ.get('DBHOST')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
 
 Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
+
+> [!NOTE]
+> If you want to try an alternative approach to connect your app to the Postgres database in Azure, see the [Service Connector version](../service-connector/tutorial-django-webapp-postgres-cli.md) of this tutorial. Service Connector is a new Azure service that is currently in public preview. [Section 4.2](../service-connector/tutorial-django-webapp-postgres-cli.md#42-configure-environment-variables-to-connect-the-database) of that tutorial introduces a simplified process for creating the connection.
 
 ### 4.3 Run Django database migrations
 

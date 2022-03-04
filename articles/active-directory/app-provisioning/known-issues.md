@@ -3,13 +3,12 @@ title: Known issues for application provisioning in Azure Active Directory
 description: Learn about known issues when you work with automated application provisioning in Azure Active Directory.
 author: kenwith
 ms.author: kenwith
-manager: karenh444
-services: active-directory
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/07/2021
+ms.date: 11/18/2021
 ms.reviewer: arvinh
 ---
 
@@ -92,6 +91,10 @@ When a group is in scope and a member is out of scope, the group will be provisi
 
 If a user and their manager are both in scope for provisioning, the service provisions the user and then updates the manager. If on day one the user is in scope and the manager is out of scope, we'll provision the user without the manager reference. When the manager comes into scope, the manager reference won't be updated until you restart provisioning and cause the service to reevaluate all the users again. 
 
+#### Global reader
+
+The global reader role is unable to read the provisioning configuration. Please create a custom role with the `microsoft.directory/applications/synchronization/standard/read` permission in order to read the provisioning configuration from the Azure Portal. 
+
 ## On-premises application provisioning
 The following information is a current list of known limitations with the Azure AD ECMA Connector Host and on-premises application provisioning.
 
@@ -116,8 +119,8 @@ The following attributes and objects aren't supported:
    - Reference attributes (for example, manager).
    - Groups.
    - Complex anchors (for example, ObjectTypeName+UserName).
-   - On-premises applications are sometimes not federated with Azure AD and require local passwords. The on-premises provisioning preview *doesn't support provisioning one-time passwords or synchronizing passwords* between Azure AD and third-party applications.
-   - The **export_password** virtual attribute, **SetPassword**, and **ChangePassword** operations aren't supported.
+   - Binary attributes.
+   - On-premises applications are sometimes not federated with Azure AD and require local passwords. The on-premises provisioning preview does not support password synchronization. Provisioning initial one-time passwords is supported. Please ensure that you are using the [Redact](./functions-for-customizing-application-data.md#redact) function to redact the passwords from the logs. In the SQL and LDAP connectors, the passwords are not exported on the initial call to the application, but rather a second call with set password.   
 
 #### SSL certificates
    The Azure AD ECMA Connector Host currently requires either an SSL certificate to be trusted by Azure or the provisioning agent to be used. The certificate subject must match the host name the Azure AD ECMA Connector Host is installed on.
@@ -127,6 +130,13 @@ The following attributes and objects aren't supported:
 
 #### Attribute discovery and mapping
    The attributes that the target application supports are discovered and surfaced in the Azure portal in **Attribute Mappings**. Newly added attributes will continue to be discovered. If an attribute type has changed, for example, string to Boolean, and the attribute is part of the mappings, the type won't change automatically in the Azure portal. Customers will need to go into advanced settings in mappings and manually update the attribute type.
+
+#### Provisioning agent
+- The agent does not currently support auto update for the on-prem application provisioning scenario. We are actively working to close this gap and ensure that auto update is enabled by default and required for all customers. 
+- The same provisioning agent cannot be used for on-prem app provisioning and cloud sync / HR- driven provisioning. 
+
+#### ECMA Host
+The ECMA host does not support updating the password in the connectivity page of the wizard. Please create a new connector when changing the password. 
 
 ## Next steps
 [How provisioning works](how-provisioning-works.md)

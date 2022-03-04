@@ -38,6 +38,9 @@ The following steps provide an overview of managing your API Management service 
 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
 
+> [!IMPORTANT]
+> This feature is designed to work with API Management services that have a small/medium configuration. Services with large number of configuration elements (APIs, Operations, Schemas etc.) may experience unexpected failures when processing Git commands. If you encounter such failures, please reduce the size of your service configuration and try again. Contact support if you need assistance. 
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Access Git configuration in your service
@@ -51,7 +54,7 @@ To view and configure your Git configuration settings, you can click the **Deplo
 >
 >
 
-For information on enabling or disabling Git access using the REST API, see [Enable or disable Git access using the REST API](/rest/api/apimanagement/2020-12-01/tenant-access?EnableGit).
+For information on enabling or disabling Git access using the REST API, see [Enable or disable Git access using the REST API](/rest/api/apimanagement/current-ga/tenant-access?EnableGit).
 
 ## To save the service configuration to the Git repository
 
@@ -63,7 +66,7 @@ After a few moments the configuration is saved, and the configuration status of 
 
 Once the configuration is saved to the repository, it can be cloned.
 
-For information on performing this operation using the REST API, see [Commit configuration snapshot using the REST API](/rest/api/apimanagement/2020-12-01/tenant-access?CommitSnapshot).
+For information on performing this operation using the REST API, see [Commit configuration snapshot using the REST API](/rest/api/apimanagement/current-ga/tenant-access?CommitSnapshot).
 
 ## To clone the repository to your local machine
 
@@ -137,7 +140,7 @@ git push
 
 Once your local changes are committed and pushed to the server repository, you can deploy them to your API Management service instance.
 
-For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](/rest/api/apimanagement/2020-12-01/tenant-configuration).
+For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](/rest/api/apimanagement/current-ga/tenant-configuration).
 
 ## File and folder structure reference of local Git repository
 
@@ -167,8 +170,8 @@ These files can be created, deleted, edited, and managed on your local file syst
 > [!NOTE]
 > The following entities are not contained in the Git repository and cannot be configured using Git.
 >
-> * [Users](/rest/api/apimanagement/2020-12-01/user)
-> * [Subscriptions](/rest/api/apimanagement/2020-12-01/subscription)
+> * [Users](/rest/api/apimanagement/current-ga/user)
+> * [Subscriptions](/rest/api/apimanagement/current-ga/subscription)
 > * Named Values
 > * Developer portal entities other than styles
 >
@@ -217,14 +220,14 @@ The final setting, `$ref-policy`, maps to the global policy statements file for 
 ### apis folder
 The `apis` folder contains a folder for each API in the service instance, which contains the following items.
 
-* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](/rest/api/apimanagement/2020-12-01/apis/get) with `export=true` in `application/json` format.
+* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](/rest/api/apimanagement/current-ga/apis/get) with `export=true` in `application/json` format.
 * `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](/java/api/com.microsoft.azure.storage.table.entityproperty).
 * `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API, which maps to the `description` property of the [operation entity](/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
 
 ### groups folder
 The `groups` folder contains a folder for each group defined in the service instance.
 
-* `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](/rest/api/apimanagement/2020-12-01/group/get) operation.
+* `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](/rest/api/apimanagement/current-ga/group/get) operation.
 * `groups\<group name>\description.html` - this is the description of the group and corresponds to the `description` property of the [group entity](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### policies folder
@@ -244,7 +247,7 @@ The `portalStyles` folder contains configuration and style sheets for developer 
 ### products folder
 The `products` folder contains a folder for each product defined in the service instance.
 
-* `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](/rest/api/apimanagement/2020-12-01/product/get) operation.
+* `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](/rest/api/apimanagement/current-ga/product/get) operation.
 * `products\<product name>\product.description.html` - this is the description of the product and corresponds to the `description` property of the [product entity](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) in the REST API.
 
 ### templates

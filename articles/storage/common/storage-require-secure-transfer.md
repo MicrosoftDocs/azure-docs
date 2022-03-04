@@ -11,7 +11,8 @@ ms.date: 06/01/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Require secure transfer to ensure secure connections

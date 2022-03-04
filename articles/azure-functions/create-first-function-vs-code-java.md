@@ -1,12 +1,14 @@
 ---
 title: Create a Java function using Visual Studio Code - Azure Functions
-description: Learn how to create a Java function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
+description: Learn how to create a Java function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
+ms.devlang: java
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a Java function in Azure using Visual Studio Code
@@ -28,7 +30,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 or 11.
++ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 11 or 8.
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
@@ -55,7 +57,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     + **Select a language for your function project**: Choose `Java`.
 
-    + **Select a version of Java**: Choose `Java 8` or `Java 11`, the Java version on which your functions run in Azure. Choose a Java version that you've verified locally.
+    + **Select a version of Java**: Choose `Java 11` or `Java 8`, the Java version on which your functions run in Azure. Choose a Java version that you've verified locally.
 
     + **Provide a group ID**: Choose `com.function`.
 

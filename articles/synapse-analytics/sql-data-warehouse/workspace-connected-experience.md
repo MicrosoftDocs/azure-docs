@@ -1,15 +1,14 @@
 ---
 title: Enabling Synapse workspace features on a dedicated SQL pool (formerly SQL DW) 
-description: This document describes how a customer can access and use their existing SQL DW standalone instance in the Workspace.   
-services: synapse-analytics
-author: antvgski
+description: This document describes how a customer can access and use their existing SQL DW standalone instance in the Workspace.
+author: sowmi93
+ms.author: sosivara
 manager: igorstan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 11/23/2020
-ms.author: anvang
-ms.reviewer: jrasnick
+ms.date: 02/15/2022
+ms.reviewer: sngun
 ---
 
 # Enabling Synapse workspace features on an existing dedicated SQL pool (formerly SQL DW)

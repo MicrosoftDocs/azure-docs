@@ -47,7 +47,7 @@ It's important to understand and track your usage after you start using Azure Mo
 
 #### Azure Cost Management + Billing
 
-Azure provides useful functionality in the [Azure Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) hub. After you open the hub, select **Cost Management** and select the [scope](../cost-management-billing/costs/understand-work-scopes.md) (the set of resources to investigate). 
+Azure provides useful functionality in the [Azure Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) hub. After you open the hub, select **Cost Management** and select the [scope](../cost-management-billing/costs/understand-work-scopes.md) (the set of resources to investigate). You might need additional access to Cost Management data ([learn more](../cost-management-billing/costs/assign-access-acm-data.md)).
 
 To see the Azure Monitor costs for the last 30 days, select the **Daily Costs** tile, select **Last 30 days** under **Relative dates**, and add a filter that selects the service names:
 

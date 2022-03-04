@@ -7,8 +7,7 @@ ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: duau
-ms.custom: mvc
-
+ms.custom: mvc, mode-other
 ---
 # Quickstart: Create an Azure CDN profile and endpoint
 

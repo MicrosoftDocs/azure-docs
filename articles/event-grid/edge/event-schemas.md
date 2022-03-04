@@ -54,7 +54,7 @@ All events have the following top-level data:
 | subject | string | Yes | Publisher-defined path to the event subject. |
 | eventType | string | Yes | Event type for this event source, for example, BlobCreated. |
 | eventTime | string | Yes | The time the event is generated based on the provider's UTC time. |
-| ID | string | No | Unique identifier for the event. |
+| id | string | No | Unique identifier for the event. |
 | data | object | No | Used to capture event data that's specific to the publishing entity. |
 | dataVersion | string | Yes | The schema version of the data object. The publisher defines the schema version. |
 | metadataVersion | string | No | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
@@ -100,11 +100,11 @@ No mandatory properties. It's up to the publishing entity to determine the paylo
 
 ## CloudEvent schema
 
-In addition to the above schemas, Event Grid natively supports events in the [CloudEvents JSON schema](https://github.com/cloudevents/spec/blob/master/json-format.md). CloudEvents is an open specification for describing event data. It simplifies interoperability by providing a common event schema for publishing, and consuming events. It is part of [CNCF](https://www.cncf.io/) and currently available version is 1.0-rc1.
+In addition to the above schemas, Event Grid natively supports events in the [CloudEvents JSON schema](https://github.com/cloudevents/spec/blob/main/cloudevents/formats/json-format.md). CloudEvents is an open specification for describing event data. It simplifies interoperability by providing a common event schema for publishing, and consuming events. It is part of [CNCF](https://www.cncf.io/) and currently available version is 1.0-rc1.
 
 ### CloudEvent schema properties
 
-Refer to [CloudEvents specification](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) on the mandatory envelope properties.
+Refer to [CloudEvents specification](https://github.com/cloudevents/spec/blob/main/cloudevents/formats/json-format.md#3-envelope) on the mandatory envelope properties.
 
 ### Example — cloud event
 ```json

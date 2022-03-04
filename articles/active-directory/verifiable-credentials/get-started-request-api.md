@@ -4,7 +4,7 @@ titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to issue and verify by using the Request Service REST API
 documentationCenter: ''
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -231,7 +231,7 @@ Authorization: Bearer  <token>
 
 For the complete code, see one of the following code samples:
 
-- [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/AspNetCoreVerifiableCredentials/IssuerController.cs)
+- [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs)
 - [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js)
 
 ## Presentation request example
@@ -317,7 +317,7 @@ try
 }
 ```
 
-For the complete code, see the [issuance](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/AspNetCoreVerifiableCredentials/IssuerController.cs) and [presentation](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/AspNetCoreVerifiableCredentials/VerifierController.cs) code on the GitHub repo.
+For the complete code, see the [issuance](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs) and [presentation](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs) code on the GitHub repo.
 
 # [Node.js](#tab/nodejs)
 

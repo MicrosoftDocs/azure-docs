@@ -2,15 +2,16 @@
 title: Use managed identities from a virtual machine to access Cosmos DB  | Microsoft Docs 
 description: Learn how to use managed identities with Windows VMs using the Azure portal, CLI, PowerShell, Azure Resource Manager template  
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: tutorial
-ms.date: 10/14/2021
+ms.date: 01/11/2022
 ms.author: barclayn
-ms.custom: ep-miar
-#Customer intent: As an administrator I want to know how to access Cosmos DB from a virtual machine using a managed identity
+ms.custom: ep-miar, devx-track-azurecli 
+ms.devlang: azurecli
+#Customer intent: As an administrator, I want to know how to access Cosmos DB from a virtual machine using a managed identity
 ---
 
 # How to use managed identities to connect to Cosmos DB from an Azure virtual machine
@@ -309,7 +310,7 @@ To use the sample below, you need to have the following NuGet packages:
 - Microsoft.Azure.Cosmos
 - Microsoft.Azure.Management.CosmosDB
 
-In addition to the NuGet packages above you also need to enable **Include prerelease** and then add **Azure.ResourceManager.CosmosDB**. 
+In addition to the NuGet packages above, you also need to enable **Include prerelease** and then add **Azure.ResourceManager.CosmosDB**. 
 
 ```csharp
 using Azure.Identity;

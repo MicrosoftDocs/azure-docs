@@ -4,15 +4,13 @@ description: Quickstart showing how to create an Azure Key Vault using Azure Pow
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
-
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
-
+ms.custom: mode-api
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Create a key vault using PowerShell
 
@@ -47,4 +45,3 @@ In this quickstart you created a Key Vault using Azure PowerShell. To learn more
 - Read an [Overview of Azure Key Vault](overview.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)
 - Review the [Azure Key Vault security overview](security-features.md)
-

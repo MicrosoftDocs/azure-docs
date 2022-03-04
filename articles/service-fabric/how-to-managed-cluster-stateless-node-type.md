@@ -8,10 +8,11 @@ ms.date: 3/4/2022
 
 Service Fabric node types come with an inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types change this assumption for a node type. This allows the node type to benefit from features such as faster scale out operations, support for Automatic OS Upgrades, Spot VMs, and scaling out to more than 100 nodes in a node type.
 
-* Primary node types cannot be configured to be stateless
-* Stateless node types require an API version of **2021-05-01** or later
-* This will automatically set the **multipleplacementgroup** property to **true** which you can [learn more here](how-to-managed-cluster-large-virtual-machine-scale-sets.md)
-* This enables support for up to 1000 nodes for the given node type
+* Primary node types cannot be configured to be stateless.
+* Stateless node types require an API version of **2021-05-01** or later.
+* This will automatically set the **multipleplacementgroup** property to **true** which you can [learn more here](how-to-managed-cluster-large-virtual-machine-scale-sets.md).
+* This enables support for up to 1000 nodes for the given node type.
+* Stateless node types can utilize a VM SKU temporary disk.
 
 ## Enabling stateless node types in a Service Fabric managed cluster
 
@@ -83,6 +84,37 @@ To configure a Stateless node type spanning across multiple availability zones f
 
 >[!NOTE]
 > The zonal resiliency property must be set at the cluster level, and this property cannot be changed in place.
+
+## Temporary disk support
+Stateless node types can be configured to use temporary disk as the data disk instead of a Managed Disk. Using a temporary disk can reduce costs for stateless workloads. To configure a stateless node type to use the temporary disk set the **useTempDataDisk** property to **true**. 
+
+* Temporary disk size must be 32GB or more. The size of the temporary disk depends on the VM size.
+* The temporary disk is not encrypted by server side encryption unless you enable encryption at host.
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
+
+```json
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+  ],
+  "properties": {
+    "isStateless": true,
+    "isPrimary": false,
+    "vmImagePublisher": "[parameters('vmImagePublisher')]",
+    "vmImageOffer": "[parameters('vmImageOffer')]",
+    "vmImageSku": "[parameters('vmImageSku')]",
+    "vmImageVersion": "[parameters('vmImageVersion')]",
+    "vmSize": "[parameters('nodeTypeSize')]",
+    "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
+    "useTempDataDisk": true
+  }
+}
+```
+
 
 ## Migrate to using stateless node types in a cluster
 For all migration scenarios, a new stateless node type needs to be added. Existing node type cannot be migrated to be stateless. You can add a new stateless node type to an existing Service Fabric managed cluster, and remove any original node types from the cluster. 

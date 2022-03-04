@@ -7,14 +7,14 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-### IoT Edge for Linux on Windows installation
+### Device requirements
 
 A Windows device with the following minimum requirements:
 
 * System Requirements
-   * Windows 10¹/11 (Pro, Enterprise, IoT Enterprise)
-   * Windows Server 2019¹/2022  
-   <sub>¹ Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
+   * Windows 10<sup>1</sup>/11 (Pro, Enterprise, IoT Enterprise)
+   * Windows Server 2019<sup>1</sup>/2022  
+   <sub><sup>1</sup> Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
 
 * Hardware requirements
   * Minimum Free Memory: 1 GB
@@ -35,6 +35,11 @@ A Windows device with the following minimum requirements:
 > You will need to install the correct drivers depending on your GPU architecture, and you may need access to a Windows Insider Program build. To determine your configuration needs and satisfy these prerequisites, see [GPU acceleration for Azure IoT Edge for Linux on Windows](../articles/iot-edge/gpu-acceleration.md).
 >
 > Make sure you take the time to satisfy the prerequisites for GPU acceleration now. You will need to restart the installation process if you decide you want GPU acceleration during installation.
+
+### Developer tools
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 You can use either **PowerShell** or **Windows Admin Center** to manage your IoT Edge devices. Each utility has its own prerequisites:
 
@@ -77,3 +82,27 @@ If you want to use Windows Admin Center, use the following steps to download and
    1. After the installation completes, you should see Azure IoT Edge in the list of installed extensions on the **Installed extensions** tab.
 
 ---
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Prepare your target device for the installation of Azure IoT Edge for Linux on Windows and the deployment of the Linux virtual machine:
+
+1. Set the execution policy on the target device to `AllSigned`. You can check the current execution policy in an elevated PowerShell prompt using the following command:
+
+   ```powershell
+   Get-ExecutionPolicy -List
+   ```
+
+   If the execution policy of `local machine` is not `AllSigned`, you can set the execution policy using:
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
+   ```
+
+For more information on the Azure IoT Edge for Linux on Windows PowerShell module, see the [PowerShell functions reference](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md).
+
+:::moniker-end
+<!-- end 1.2 -->

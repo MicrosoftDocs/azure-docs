@@ -19,6 +19,11 @@ ms.date: 09/09/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+
+> [!NOTE] 
+> Since Machine Learning Studio (classic) resources can no longer be created after 1 Dec, 2021, users are encouraged to use [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) with the [Machine Learning Execute Pipeline activity](transform-data-machine-learning-service.md) rather than using the Batch Execution activity to execute Machine Learning Studio (classic) batches.
+
 [ML Studio (classic)](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
 1. **Create a training experiment**. You do this step by using the ML Studio (classic). ML Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.

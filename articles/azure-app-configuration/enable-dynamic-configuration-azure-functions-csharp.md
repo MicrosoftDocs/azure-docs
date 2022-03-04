@@ -52,7 +52,7 @@ In this tutorial, you learn how to:
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
                    // Load all keys that start with `TestApp:`
                    .Select("TestApp:*")
-                   // Configure to reload configuration if the registered 'Sentinel' key is modified
+                   // Configure to reload configuration if the registered sentinel key is modified
                    .ConfigureRefresh(refreshOptions =>
                       refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
         });
@@ -60,7 +60,7 @@ In this tutorial, you learn how to:
     ```
 
    > [!TIP]
-   > When you are updating multiple key-values in App Configuration, you would normally don't want your application to reload configuration before all changes are made. You can register a **sentinel** key and only update it when all other configuration changes are completed. This helps to ensure the consistency of configuration in your application.
+   > When you are updating multiple key-values in App Configuration, you would normally don't want your application to reload configuration before all changes are made. You can register a *sentinel key* and only update it when all other configuration changes are completed. This helps to ensure the consistency of configuration in your application.
 
 2. Update the `Configure` method to make Azure App Configuration services available through dependency injection.
 

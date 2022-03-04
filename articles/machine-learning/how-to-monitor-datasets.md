@@ -272,7 +272,7 @@ This section contains feature-level insights into the change in the selected fea
 
 The target dataset is also profiled over time. The statistical distance between the baseline distribution of each feature is compared with the target dataset's over time.  Conceptually, this is similar to the data drift magnitude.  However this statistical distance is for an individual feature rather than all features. Min, max, and mean are also available.
 
-In the Azure Machine Learning studio, click on a bar in the graph to see the the feature level details for that date. By default, you see the baseline dataset's distribution and the most recent run's distribution of the same feature.
+In the Azure Machine Learning studio, click on a bar in the graph to see the feature-level details for that date. By default, you see the baseline dataset's distribution and the most recent run's distribution of the same feature.
 
 :::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Drift magnitude by features":::
 

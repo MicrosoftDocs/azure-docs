@@ -7,6 +7,7 @@ ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/10/2019
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.

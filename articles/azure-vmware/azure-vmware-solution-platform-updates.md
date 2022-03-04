@@ -2,17 +2,62 @@
 title: Platform updates for Azure VMware Solution
 description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
-ms.date: 09/21/2021
+ms.date: 12/22/2021
 ---
 
 # Platform updates for Azure VMware Solution
 
 Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
+## February 18, 2022
+
+Per VMware security advisory [VMSA-2022-0004](https://www.vmware.com/security/advisories/VMSA-2022-0004.html), multiple vulnerabilities in VMware ESXi have been reported to VMware.
+
+To address the vulnerabilities (CVE-2021-22040 and CVE-2021-22041) reported in this VMware security advisory, ESXi hosts have been patched in all Azure VMware Solution private clouds to ESXi 6.7, Patch Release ESXi670-202111001. All new Azure VMware Solution private clouds are deployed with the same version.
+
+For more information on this ESXi version, see [VMware ESXi 6.7, Patch Release ESXi670-202111001](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/esxi670-202111001.html).
+
+No further action is required.
+
+## December 22, 2021
+
+Azure VMware Solution (AVS) has completed maintenance activities to address critical vulnerabilities in Apache Log4j. 
+The fixes documented in the VMware security advisory [VMSA-2021-0028.6](https://www.vmware.com/security/advisories/VMSA-2021-0028.html) to address CVE-2021-44228 and CVE-2021-45046 have been applied to these AVS managed VMware products: vCenter, NSX-T, SRM and HCX. 
+We strongly encourage customers to apply the fixes to on-premises HCX connector appliances.
+ 
+We also recommend customers to review the security advisory and apply the fixes for other affected VMware products or workloads.
+ 
+If you need any assistance or have questions, please [contact us](https://portal.azure.com/#home).
+
+
+
+## December 12, 2021
+
+VMware has announced a security advisory [VMSA-2021-0028](https://www.vmware.com/security/advisories/VMSA-2021-0028.html), addressing a critical vulnerability in Apache Log4j identified by CVE-2021-44228.
+
+Azure VMware Solution is actively monitoring this issue. We are addressing this issue by applying VMware recommended workarounds or patches for AVS managed VMware components as they become available.
+
+Please note that you may experience intermittent connectivity to these components when we apply a fix.
+
+We strongly recommend that you read the advisory and patch or apply the recommended workarounds for any additional VMware products that you may have deployed in Azure VMware Solution.
+
+If you need any assistance or have questions, please [contact us](https://portal.azure.com).
+
+## November 23, 2021
+
+Per VMware security advisory [VMSA-2021-0027](https://www.vmware.com/security/advisories/VMSA-2021-0027.html), multiple vulnerabilities in VMware vCenter server have been reported to VMware.
+
+To address the vulnerabilities (CVE-2021-21980 and CVE-2021-22049) reported in VMware security advisory, vCenter server has been updated to 6.7 Update 3p release in all Azure VMware Solution private clouds.
+
+For more information, see [VMware vCenter Server 6.7 Update 3p Release Notes](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/vsphere-vcenter-server-67u3p-release-notes.html)
+
+No further action is required.
+
+
 ## September 21, 2021
 Per VMware security advisory [VMSA-2021-0020](https://www.vmware.com/security/advisories/VMSA-2021-0020.html), multiple vulnerabilities in the VMware vCenter server have been reported to VMware.
  
-To address the vulnerabilities (CVE-2021-21980, CVE-2021-21991, CVE-2021-21992, CVE-2021-21993, CVE-2021-22005, CVE-2021-22006, CVE-2021-22007, CVE-2021-22008, CVE-2021-22009, CVE-2021-22010, CVE-2021-22011, CVE-2021-22012,CVE-2021-22013, CVE-2021-22014, CVE-2021-22015, CVE-2021-22016, CVE-2021-22017, CVE-2021-22018, CVE-2021-22019, CVE-2021-22020) reported in VMware security advisory [VMSA-2021-0020](https://www.vmware.com/security/advisories/VMSA-2021-0020.html), vCenter Server has been updated to 6.7 Update 3o in all Azure VMware Solution private clouds. All new Azure VMware Solution private clouds are deployed with vCenter server version 6.7 Update 3o.
+To address the vulnerabilities (CVE-2021-21991, CVE-2021-21992, CVE-2021-21993, CVE-2021-22005, CVE-2021-22006, CVE-2021-22007, CVE-2021-22008, CVE-2021-22009, CVE-2021-22010, CVE-2021-22011, CVE-2021-22012,CVE-2021-22013, CVE-2021-22014, CVE-2021-22015, CVE-2021-22016, CVE-2021-22017, CVE-2021-22018, CVE-2021-22019, CVE-2021-22020) reported in VMware security advisory [VMSA-2021-0020](https://www.vmware.com/security/advisories/VMSA-2021-0020.html), vCenter Server has been updated to 6.7 Update 3o in all Azure VMware Solution private clouds. All new Azure VMware Solution private clouds are deployed with vCenter server version 6.7 Update 3o.
  
 For more information, see [VMware vCenter Server 6.7 Update 3o Release Notes](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/vsphere-vcenter-server-67u3o-release-notes.html)
  

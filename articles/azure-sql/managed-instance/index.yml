@@ -35,15 +35,13 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure SQL Managed Instance overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
+            url: /shows/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
       - linkListType: concept
         links:
           - text: What is SQL Managed Instance?
             url: sql-managed-instance-paas-overview.md
-          - text: Purchasing options
-            url: ../database/purchasing-models.md
-          - text: Service tiers
-            url: ../database/service-tiers-general-purpose-business-critical.md
+          - text: vCore purchasing model
+            url: service-tiers-managed-instance-vcore.md
           - text: Transactional replication 
             url: replication-transactional-overview.md 
           - text: Migrate from SQL Server

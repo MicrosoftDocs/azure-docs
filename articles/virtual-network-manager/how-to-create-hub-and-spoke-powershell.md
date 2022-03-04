@@ -30,7 +30,7 @@ This section will help you create a network group containing the virtual network
 
 ### Static membership
 
-1. Create a static virtual network member with [New-AzNetworkManagerGroupMembersItem](/powershell/module/az.network/new-aznetworkmanagergroupmembersitem).
+1. Create a static virtual network member with New-AzNetworkManagerGroupMembersItem.
 
     ```azurepowershell-interactive
     $member = New-AzNetworkManagerGroupMembersItem –ResourceId "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA"
@@ -58,7 +58,7 @@ This section will help you create a network group containing the virtual network
     }' 
     ```
 
-1. Create the network group using either the static membership group (GroupMember) or the dynamic membership group (ConditionalMembership) defined previously using [New-AzNetworkManagerGroup](/powershell/module/az.network/new-aznetworkmanagergroup).
+1. Create the network group using either the static membership group (GroupMember) or the dynamic membership group (ConditionalMembership) defined previously using New-AzNetworkManagerGroup.
 
     ```azurepowershell-interactive
     $ng = @{
@@ -76,7 +76,7 @@ This section will help you create a network group containing the virtual network
 
 This section will guide you through how to create a hub-and-spoke configuration with the network group you created in the previous section.
 
-1. Create a spokes connectivity group item to add a network group with [New-AzNetworkManagerConnectivityGroupItem](/powershell/module/az.network/new-aznetworkmanagerconnectivitygroupitem). You can enable direct connectivity with the `-GroupConnectivity` flag, global mesh with `-IsGlobal` flag, or `-UseHubGateway` flag to use the gateway in the hub virtual network:
+1. Create a spokes connectivity group item to add a network group with New-AzNetworkManagerConnectivityGroupItem. You can enable direct connectivity with the `-GroupConnectivity` flag, global mesh with `-IsGlobal` flag, or `-UseHubGateway` flag to use the gateway in the hub virtual network:
 
     ```azurepowershell-interactive
     $spokes = @{
@@ -92,7 +92,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
     $configGroup.Add($spokesGroup) 
     ```
 
-1. Create a hub connectivity group item and define the virtual network you'll use as the hub with [New-AzNetworkManagerHub](/powershell/module/az.network/new-aznetworkmanagerhub).
+1. Create a hub connectivity group item and define the virtual network you'll use as the hub with New-AzNetworkManagerHub.
 
     ```azurepowershell-interactive
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerHub]]$hubList = @()
@@ -106,7 +106,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
     $hubList.Add($hubvnet)
     ```
 
-1. Create the connectivity configuration with [New-AzNetworkManagerConnectivityConfiguration](/powershell/module/az.network/new-aznetworkmanagerconnectivityconfiguration).
+1. Create the connectivity configuration with New-AzNetworkManagerConnectivityConfiguration.
 
     ```azurepowershell-interactive
     $config = @{
@@ -122,7 +122,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
 
 ## Deploy the hub-and-spoke configuration
 
-Commit the configuration to the target regions with [Deploy-AzNetworkManagerCommit](/powershell/module/az.network/deploy-aznetworkmanagercommit).
+Commit the configuration to the target regions with Deploy-AzNetworkManagerCommit.
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()  

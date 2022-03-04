@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 09/13/2021
+ms.date: 02/18/2022
 ms.author: mbaldwin
 
 ---
@@ -21,13 +21,14 @@ Microsoft is updating Azure services to use TLS certificates from a different se
 
 Existing Azure endpoints have been transitioning in a phased manner since August 13, 2020. All newly created Azure TLS/SSL endpoints contain updated certificates chaining up to the new Root CAs.
 
-All Azure services are impacted by this change. Here are some additional details for specific services:
+All Azure services are impacted by this change. Here are some more details for specific services:
 
 - [Azure Active Directory](../../active-directory/index.yml) (Azure AD) services began this transition on July 7, 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and [DPS](../../iot-dps/index.yml) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
+- [Azure Cosmos DB](../../cosmos-db/index.yml) will begin this transition in July 2022 with an expected completion in October 2022.
 - For [Azure Storage](../../storage/index.yml), [click here for details](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
-- [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](../../azure-cache-for-redis/cache-whats-new.md).
-- Azure Instance Metadata Service will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
+- [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) Azure Cache for Redis is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022. [Click here for details](../../azure-cache-for-redis/cache-whats-new.md).
+- For [Azure Instance Metadata Service](../../virtual-machines/linux/instance-metadata-service.md?tabs=linux), see [Azure Instance Metadata Service-Attested data TLS: Critical changes are almost here!](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953) for details.
 
 > [!IMPORTANT]
 > Customers may need to update their application(s) after this change to prevent connectivity failures when attempting to connect to Azure Storage.
@@ -67,7 +68,7 @@ Here are some ways to detect if your application is impacted:
 
 - If you have an application that integrates with Azure APIs or other Azure services and you are unsure if it uses certificate pinning, check with the application vendor.
 
-- Different operating systems and language runtimes that communicate with Azure services may require additional steps to correctly build the certificate chain with these new roots:
+- Different operating systems and language runtimes that communicate with Azure services may require more steps to correctly build the certificate chain with these new roots:
     - **Linux**: Many distributions require you to add CAs to /etc/ssl/certs. For specific instructions, refer to the distribution’s documentation.
     - **Java**: Ensure that the Java key store contains the CAs listed above.
     - **Windows running in disconnected environments**: Systems running in disconnected environments will need to have the new roots added to the Trusted Root Certification Authorities store, and the intermediates added to the Intermediate Certification Authorities store.

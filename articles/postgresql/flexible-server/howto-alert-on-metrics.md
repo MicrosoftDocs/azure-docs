@@ -4,14 +4,14 @@ description: This article describes how to configure and access metric alerts fo
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ---
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 

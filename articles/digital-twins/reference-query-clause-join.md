@@ -67,7 +67,7 @@ Graph traversal depth is restricted to five `JOIN` levels per query.
 
 #### Example
 
-The following query illustrates the maximum number of `JOIN` clauses that are possible in an Azure Digital Twins query. It gets all the LightBulbs in Buliding1.
+The following query illustrates the maximum number of `JOIN` clauses that are possible in an Azure Digital Twins query. It gets all the LightBulbs in Building1.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MaxJoinExample":::
 

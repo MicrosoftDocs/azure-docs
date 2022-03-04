@@ -7,7 +7,7 @@ author: sidramadoss
 ms.author: sidram
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 05/28/2020
 ---
 

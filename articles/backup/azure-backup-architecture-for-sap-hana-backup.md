@@ -46,7 +46,7 @@ See the [high-level architecture of Azure Backup for SAP HANA databases](./sap-h
 1. Also, ensure that the [other pre-requisites](./tutorial-backup-sap-hana-db.md#prerequisites) are fulfilled.
 
    >[!Important]
-   >Ensure that the prerequisite to set up the right network connectivity is met. See the recommendation on [how to set up Azure VMs running in SAP HANA with additional network components to use the backup offering](./tutorial-backup-sap-hana-db.md#set-up-network-connectivity).
+   >Ensure that the prerequisite to set up the right network connectivity is met. See the recommendation on [how to set up Azure VMs running in SAP HANA with additional network components to use the backup offering](./backup-azure-sap-hana-database.md#establish-network-connectivity).
 
 1. See the details about [what the pre-registration script does](./tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). If you attempt to configure backup for SAP HANA databases without running this script, you might receive the error _UserErrorHanaScriptNotRun_.
 

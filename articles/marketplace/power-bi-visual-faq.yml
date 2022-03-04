@@ -4,12 +4,11 @@ metadata:
   description: Frequently asked questions about moving Power BI visual offers from Office Store to the commercial marketplace.
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
-  ms.topic: conceptual
-  ms.date: 09/27/2021
+  ms.topic: faq
+  ms.date: 11/22/2021
   author: posurnis
-  ms.author: pooja.surnis
+  ms.author: posurnis
   ms.reviewer: pooja.surnis
-    
 title: Power BI visuals FAQs
 summary: Power BI visual offers will be moved to the commercial marketplace within Partner Center to streamline the offer management experience. All existing and new Power BI visual offers will be accessible in the commercial marketplace after the move by Microsoft in September 2021. This article addresses frequently asked questions about the move and enhancements to the offer management experience.
 
@@ -82,10 +81,6 @@ sections:
           
           **Access the right program in Partner Center**
 
-          [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-          #### [Workspaces view](#tab/workspaces-view)
-
           1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) with the same credentials as before. You'll see the tiles associated with the programs you are enrolled in, such as the MPN program, the Office Store, and the commercial marketplace. 
 
           1. To access your offers on the Home page, select the **Marketplace offers** tile. 
@@ -95,16 +90,6 @@ sections:
               If you signed up for more than one marketplace program, you will see the tabs at the top of the _Marketplace offers_ page. If so, make sure the **Commercial marketplace** tab is selected. If you don't see the **Commercial marketplace** tab, it means that you are not enrolled in the commercial marketplace yet and you are only signed up for the Office store.
 
               [ ![Shows the Commercial marketplace tab on the Marketplace offers page.](media/workspaces/commercial-marketplace-tab.png) ](media/workspaces/commercial-marketplace-tab.png#lightbox)
-
-          #### [Current view](#tab/current-view)
-
-          1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) with the same credentials as before. The navigation menu on the left (left-nav menu) displays options associated with the programs you are enrolled in, such as the MPN program, the Office Store, and the commercial marketplace.
-
-          1. Select **Commercial Marketplace** > **Overview** to access your offers. If you don’t see the commercial marketplace in the left-nav menu, it means your account is not enrolled in the commercial marketplace yet.
-
-             :::image type="content" source="media/power-bi-visual/overview-tab.png" alt-text="Shows the Overview tab in Partner Center.":::
-
-          ---
 
           **Access the right account in Partner Center**
       
@@ -134,20 +119,10 @@ sections:
              :::image type="content" source="media/power-bi-visual/enhanced-preview.png" lightbox="media/power-bi-visual/enhanced-preview.png" alt-text="Shows the offer compare page in Partner Center.":::
 
           1. **Branding and navigation changes**
-
-              #### [Workspaces view](#tab/workspaces-view)   
-          
+       
               You’ll notice some branding changes. For example, **products** are branded as **offers** in the commercial marketplace:
 
               :::image type="content" source="media/power-bi-visual/branding-navigation-workspaces.png" alt-text="Shows the offer Overview page in Partner Center.":::
-
-              #### [Current view](#tab/current-view)
-
-              You’ll notice some branding changes. For example, **products** are branded as **offers** in the commercial marketplace:
-
-              :::image type="content" source="media/power-bi-visual/branding-navigation.png" alt-text="Shows the offer Overview page in Partner Center.":::
-
-              ---    
 
           1. **Analytics**
 

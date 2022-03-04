@@ -3,7 +3,7 @@ title: Quickstart - Create a service connection in Spring Cloud from Azure porta
 description: Quickstart showing how to create a service connection in Spring Cloud from Azure portal
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: overview
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
@@ -42,7 +42,7 @@ You will use Service Connector to create a new service connection in Spring Clou
 
 ## View service connections in Spring Cloud
 
-1. In **Service Connector (Preview)**, you see an Spring Cloud connection to the target service.
+1. In **Service Connector (Preview)**, you see a Spring Cloud connection to the target service.
 
 1. Click **>** button to expand the list, you can see the properties required by your Spring boot application.
 

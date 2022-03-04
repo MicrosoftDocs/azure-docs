@@ -4,7 +4,7 @@ description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
@@ -13,18 +13,18 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 04/08/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: 
 ---
 
-# Known issues with Managed Identities
+# Known issues with managed identities for Azure resources
 
 This article discusses a couple of issues around managed identities and how to address them. Common questions about managed identities are documented in our [frequently asked questions](managed-identities-faq.md) article.
 ## VM fails to start after being moved 
 
-If you move a VM in a running state from a resource group or subscription, it continues to run during the move. However, after the move, if the VM is stopped and restarted, it will fail to start. This issue happens because the VM is not updating the reference to the managed identities for Azure resources identity and continues to point to it in the old resource group.
+If you move a VM in a running state from a resource group or subscription, it continues to run during the move. However, after the move, if the VM is stopped and restarted, it fails to start. This issue happens because the VM doesn't update the managed identity reference and it continues to use an outdated URI.
 
 **Workaround** 
  
@@ -36,7 +36,7 @@ az vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
  
 This command sets a new tag "fixVM" with a value of 1 on the VM. 
  
-By setting this property, the VM updates with the correct managed identities for Azure resources resource URI, and then you should be able to start the VM. 
+By setting this property, the VM updates with the correct managed identities for Azure resources URI, and then you should be able to start the VM.
  
 Once the VM is started, the tag can be removed by using following command:
 
@@ -46,7 +46,7 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 ## Transferring a subscription between Azure AD directories
 
-Managed identities do not get updated when a subscription is moved/transferred to another directory. As a result, any existent system-assigned or user-assigned managed identities will be broken. 
+Managed identities don't get updated when a subscription is moved/transferred to another directory. As a result, any existent system-assigned or user-assigned managed identities will be broken. 
 
 Workaround for managed identities in a subscription that has been moved to another directory:
 

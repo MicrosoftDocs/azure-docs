@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-i
 - [AWS](../saas-apps/amazon-web-service-tutorial.md)
 - [Slack](../saas-apps/slack-tutorial.md)
 
-In addition you can [integrate applications not in the gallery](../manage-apps/view-applications-portal.md), including any application that already exists in your organization, or any third-party application from a vendor who is not already part of the Azure AD gallery. You can also [add your app to the gallery](../develop/v2-howto-app-gallery-listing.md) if it is not there.
+In addition you can [integrate applications not in the gallery](../manage-apps/view-applications-portal.md), including any application that already exists in your organization, or any third-party application from a vendor who is not already part of the Azure AD gallery. You can also [add your app to the gallery](../manage-apps/v2-howto-app-gallery-listing.md) if it is not there.
 
 Finally, you can also integrate the apps you develop in-house. This is covered in step five of this guide.
 
@@ -42,7 +42,7 @@ Finally, you can also integrate the apps you develop in-house. This is covered i
 
 Next, discover the applications employees are frequently using, and prioritize your work for integrating them with Azure AD.
 
-You can start by using Microsoft Cloud App Security's [cloud discovery tools](/cloud-app-security/tutorial-shadow-it) to discover and manage "shadow" IT in your network (that is, apps not managed by the IT department). You can [use Microsoft Defender Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) to simplify and extend the discovery process.
+You can start by using the Microsoft Defender for Cloud Apps [cloud discovery tools](/cloud-app-security/tutorial-shadow-it) to discover and manage "shadow" IT in your network (that is, apps not managed by the IT department). You can [use Microsoft Defender Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) to simplify and extend the discovery process.
 
 In addition, you can use the [AD FS application activity report](../manage-apps/migrate-adfs-application-activity.md) in the Azure portal to discover all the AD FS apps in your organization, the number of unique users that have signed in to them, and compatibility for integrating them with Azure AD.
 
@@ -84,15 +84,15 @@ You can also migrate apps that use a different cloud-based identity provider to 
 
 Traditionally, applications were kept secure by allowing access only while connected to the corporate network. However, in an increasingly connected world we want to allow access to apps for customers, partners, and/or employees, regardless of where they are in the world. [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) (AppProxy) is a feature of Azure AD that connects your existing on-premises apps to Azure AD and does not require that you maintain edge servers or other additional infrastructure to do so.
 
-![A diagram shows the Application Proxy Service in action. A user accesses "https://sales.contoso.com" and their request is redirected through "https://sales-contoso.msappproxy.net" in Azure Active Directory to the on premises address "http://sales"](./media/five-steps-to-full-application-integration-with-azure-ad\app-proxy.png)
+![A diagram shows the Application Proxy Service in action. A user accesses "https://sales.contoso.com" and their request is redirected through "https://sales-contoso.msappproxy.net" in Azure Active Directory to the on-premises address "http://sales"](./media/five-steps-to-full-application-integration-with-azure-ad\app-proxy.png)
 
 You can use [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md) to enable Application Proxy and add an on-premises application to your Azure AD tenant.
 
-In addition, you can integrate application delivery controllers like F5 Big-IP APM or Zscaler Private Access. By integrating these with Azure AD, you get the modern authentication and identity management of Azure AD alongside the traffic management and security features of the partner product. We call this solution [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md). If you use any of the following services today, we have tutorials that will step you through how to integrate them with Azure AD.
+In addition, you can integrate application delivery controllers like F5 BIG-IP APM or Zscaler Private Access. By integrating these with Azure AD, you get the modern authentication and identity management of Azure AD alongside the traffic management and security features of the partner product. We call this solution [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md). If you use any of the following services today, we have tutorials that will step you through how to integrate them with Azure AD.
 
 - [Akamai Enterprise Application Access (EAA)](../saas-apps/akamai-tutorial.md)
 - [Citrix Application Deliver Controller (ADC)](../saas-apps/citrix-netscaler-tutorial.md) (Formerly known as Citrix Netscaler)
-- [F5 Big-IP APM](../saas-apps/headerf5-tutorial.md)
+- [F5 BIG-IP APM](../manage-apps/f5-aad-integration.md)
 - [Zscaler Private Access (ZPA)](../saas-apps/zscalerprivateaccess-tutorial.md)
 
 ## 5. Integrate apps your developers build

@@ -9,7 +9,7 @@ documentationcenter: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: inhenkel

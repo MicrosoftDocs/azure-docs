@@ -2,8 +2,8 @@
 title: Copy data from SAP HANA
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP HANA to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: ulrichchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
@@ -86,7 +86,7 @@ The following properties are supported for SAP HANA linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SapHana** | Yes |
-| connectionString | Specify information that's needed to connect to the SAP HANA by using either **basic authentication** or **Windows authentication**. Refer to the following samples.<br>In connection string, server/port is mandatory (default port is 30015), and username and password is mandatory when using basic authentication. For additional advanced settings, refer to [SAP HANA ODBC Connection Properties](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>You can also put password in Azure Key Vault and pull the password configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| connectionString | Specify information that's needed to connect to the SAP HANA by using either **basic authentication** or **Windows authentication**. Refer to the following samples.<br>In connection string, server/port is mandatory (default port is 30015), and username and password is mandatory when using basic authentication. For additional advanced settings, refer to [SAP HANA ODBC Connection Properties](https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html)<br/>You can also put password in Azure Key Vault and pull the password configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
 | userName | Specify user name when using Windows authentication. Example: `user@domain.com` | No |
 | password | Specify password for the user account. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |

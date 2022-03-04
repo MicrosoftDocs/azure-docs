@@ -1,14 +1,14 @@
 ---
 title: Train a model - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Training a model is an important step when building a translation model. Training happens based on documents you select for that trainings.
+description: How to train and build a custom translation model.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 12/06/2021
 ms.author: lajanuar
-ms.topic: conceptual
+ms.topic: how-to
 #Customer intent: As a Custom Translator user, I want to understand how to train, so that I can start start building my custom translation model.
 ---
 
@@ -36,11 +36,11 @@ To train a model:
 
     ![Train model](media/how-to/how-to-train-model.png)
 
-3. Click "Create model" button.
+3. Select **Create model** button.
 
-4. On the dialog, specify the name for your model. By default, "Train immediately" is selected to start the training pipeline when you click "Create model" button. You can select "Save as draft" to create the model metadata and put the model in a draft state but model training would not start. At a later time, you have to manually select models in draft state to train.
+4. On the dialog, specify the name for your model. By default, "Train immediately" is selected to start the training pipeline when you select the **Create model** button. You can select **Save as draft** to create the model metadata and put the model in a draft state but model training would not start. At a later time, you have to manually select models in draft state to train.
 
-5. Click "Create model" button.
+5. Select the **Create model** button.
 
     ![Train model dialog](media/how-to/how-to-train-model-2.png)
 
@@ -56,10 +56,10 @@ To train a model:
 
 You can modify a model name from the Model Details page.
 
-1. From the projects page, click on the project name where the model exists.
-2. Click on the model tab.
-3. Click on the model name to view the model details.
-4. Click on the Pencil icon.
+1. From the projects page, select the project name where the model exists.
+2. Select the model tab.
+3. Select the model name to view the model details.
+4. Select the **pencil icon**.
 
     ![Edit model](media/how-to/how-to-edit-model.png)
 
@@ -67,8 +67,8 @@ You can modify a model name from the Model Details page.
 
     ![Edit more dialog](media/how-to/how-to-edit-model-dialog.png)
 
-6. Click Save.
+6. Select **Save**.
 
 ## Next steps
 
-- Learn [how to view model details](how-to-view-model-details.md).
+- Learn [how to view a model's details](how-to-view-model-details.md).

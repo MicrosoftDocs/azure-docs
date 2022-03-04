@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Transform data using a mapping data flow"
 description:  This tutorial provides step-by-step instructions for using Azure Synapse Analytics to transform data with mapping data flow.
-author: djpmsft
-ms.author: daperlov
+author: kromerm
+ms.author: makromer
 ms.reviewer: makromer
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/03/2020
+ms.date: 02/15/2022
 ---
 
 # Quickstart: Transform data using mapping data flows
@@ -35,7 +35,7 @@ In this quickstart, you do the following steps:
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
 
-* Open your Synapse workspace in the [Azure portal](https://ms.portal.azure.com/#home). Select **Open** on the Open Synapse Studio card under Getting started.
+* Open your Synapse workspace in the [Azure portal](https://portal.azure.com/#home). Select **Open** on the Open Synapse Studio card under Getting started.
 * Open [Azure Synapse Analytics](https://web.azuresynapse.net/) and sign in to your workspace.
 
 In this quickstart, we use the workspace named "adftest2020" as an example. It will automatically navigate you to the Synapse Studio home page.

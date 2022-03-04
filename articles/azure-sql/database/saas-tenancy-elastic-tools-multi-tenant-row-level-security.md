@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/18/2018
 ---
 # Multi-tenant applications with elastic database tools and row-level security

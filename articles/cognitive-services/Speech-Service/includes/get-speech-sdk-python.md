@@ -6,28 +6,24 @@ ms.date: 03/27/2020
 ms.author: eur
 ---
 
-:::row:::
-    :::column span="3":::
-        The Python Speech SDK is available as a Python Package Index (PyPI) module, for more information, see <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">azure-cognitiveservices-speech </a>. The Python Speech SDK is compatible with Windows, Linux, and macOS.
-    :::column-end:::
-    :::column:::
-        <br>
-        <div class="icon is-large">
-            <img alt="Python" src="https://docs.microsoft.com/media/logos/logo_python.svg" width="60px">
-        </div>
-    :::column-end:::
-:::row-end:::
+The Python Speech SDK is available as a Python Package Index (PyPI) module. For more information, see <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">azure-cognitiveservices-speech </a>. The Python Speech SDK is compatible with Windows, Linux, and macOS. Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/).
 
-```Bash
+Before you install the Python Speech SDK, make sure to satisfy the [system requirements and prerequisites](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-python#prerequisites). 
+
+To install the Speech SDK, run this command in a terminal.
+
+```console
 pip install azure-cognitiveservices-speech
 ```
 
-> [!TIP]
-> If you are on macOS, you may need to run the following command to get the pip command above to work:
-> ```Bash
-> python3 -m pip install --upgrade pip
-> ```
+If you're on macOS and run into install issues, you may need to run this command first.
 
-#### Additional resources
+```console
+python3 -m pip install --upgrade pip
+```
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python" target="_blank">Python Speech SDK quickstart source code </a>
+Now you can import the Speech SDK into your Python project.
+
+```Python
+import azure.cognitiveservices.speech as speechsdk
+```

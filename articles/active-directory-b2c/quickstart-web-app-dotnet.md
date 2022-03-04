@@ -5,10 +5,9 @@ description: In this Quickstart, run a sample ASP.NET web app that uses Azure Ac
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
 ms.topic: quickstart
-ms.custom: "devx-track-csharp, mvc"
+ms.custom: devx-track-csharp, mvc, mode-other
 ms.date: 10/01/2021
 ms.author: kengaderdus
 ms.subservice: B2C

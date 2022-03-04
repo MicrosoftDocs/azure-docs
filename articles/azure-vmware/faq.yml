@@ -2,11 +2,10 @@
 metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
-  ms.topic: article
+  ms.topic: faq
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
   ms.date:  09/29/2021
-    
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 
@@ -110,16 +109,16 @@ sections:
         answer: No. To meet the VM prerequisites, follow the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html). 
 
       - question: Can I use vRealize Suite running on-premises? 
-        answer: Specific integrations and use cases are evaluated on a case-by-case basis.
+        answer: vRealize Automation, vRealize Operations Manager, and vRealize Network Insight are certified for use with Azure VMware Solution when those products are installed in an on-premises datacenter. The cloud-based versions of these products--vRealize Automation Cloud, vRealize Operations Cloud, and vRealize Network Insight Cloud--are also certified for use. Installing these products within an Azure VMware Solution private cloud is not supported.
 
       - question: Can I migrate vSphere VMs from on-premises environments to Azure VMware Solution private clouds?
         answer: Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter [vMotion requirements](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952) are met.
           
       - question: Is a specific version of vSphere required in on-premises environments?
-        answer: All cloud environments come with VMware HCX, vSphere 5.5, or later in on-premises environments for vMotion.
+        answer: The on-premises environment must be running vSphere 6.0 or later if VMware HCX will be used to migrate VMs.
 
       - question: Is VMware HCX supported on VPNs?
-        answer: No, because of bandwidth and latency requirements.
+        answer: Yes, provided VMware HCX [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html) are met.
 
       - question: What versions of VMware software are used in private clouds?
         answer: |
@@ -151,8 +150,8 @@ sections:
       - question: Why can't I see my Sentinel Management tab in the HCX Manager when using the Sentinel Appliance service?
         answer: The Sentinel Management tab provides you access to download the Sentinel software.  It appears in the HCX Interconnect interface when an HCX Enterprise license is activated, and you have deployed a service mesh with a Sentinel Gateway (SGW) and Sentinel Data Receiver (SDR) pair deployed. Also, in traditional on-premises to cloud deployments, the Sentinel tab is only visible in the Connector, not cloud manager.
 
-      - question: If we migrate a VM created with thin provisioning on the on-premises side to Azure VMware Solution, will the VM remain thin?
-        answer: No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.  
+      - question: If we migrate a VM created with thick provisioning on the on-premises side to Azure VMware Solution, will the VM remain thick?
+        answer: You can specify the type of format you want when you migrate a VM to Azure VMware Solution. However, vSAN is primarily the datastore you will use in Azure VMware Solution, so it depends on the storage policy that's selected. The datastore default storage policy is the *vSAN default storage policy*, which is thick provisioned; however, the other storage policy options are thin. You can use Run commands to change the default datastore storage policy.
 
 
 
@@ -213,7 +212,11 @@ sections:
         answer: Azure VMware Solution uses the officially registered Public 4-byte ASNs to ensure there is never a conflict with your on-premises use of Private ASNs in the customer's routing path to Azure VMware Solution.
 
       - question: How can I use ExpressRoute to connect to Azure VMware Solution if the on-premises ExpressRoute-carrier partners/ISPs don't support 4-byte ASN?
-        answer: The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4 byte to 2-byte ASN in the BGP prefix ASN path advertisement.        
+        answer: |
+          The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4-byte to 2-byte ASN in the BGP prefix ASN path advertisement.        
+
+          > [!NOTE]
+          > Currently, private ASN (64512 - 65534) prepending from a customer on-premises environment isn't supported by Azure VMware Solution. This scenario might lead to intermittent connection drops from on-premises to Azure VMware Solution. To prepend a public ASN from on-premises, create a support request.
 
       - question: What network IP address planning is required to incorporate private clouds with on-premises environments?
         answer: A private network /22 address space is required to deploy an Azure VMware Solution private cloud. This private address space shouldn't overlap with other virtual networks in a subscription or with on-premises networks.

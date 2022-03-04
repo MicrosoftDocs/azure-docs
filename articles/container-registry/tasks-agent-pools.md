@@ -106,7 +106,7 @@ The following example creates an agent pool in the *mysubnet* subnet of network 
 ```azurecli
 # Get the subnet ID
 subnetId=$(az network vnet subnet show \
-        --resource-grop myresourcegroup \
+        --resource-group myresourcegroup \
         --vnet-name myvnet \
         --name mysubnetname \
         --query id --output tsv)
