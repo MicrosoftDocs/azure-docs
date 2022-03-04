@@ -121,7 +121,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 1. In the _App location_, enter **./** in the box.
 1. Leave the _Api location_ box empty.
-1. In the _Output location_ box, enter **out**.
+1. In the _Output location_ box, enter **dist**.
 
 ### Review and create
 
