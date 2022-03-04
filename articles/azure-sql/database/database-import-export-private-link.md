@@ -16,8 +16,9 @@ ms.date: 2/16/2022
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-## What is Import-Export Private Link?
 Running Import or Export via Azure PowerShell or Azure portal requires you to set [Allow Access to Azure Services](network-access-controls-overview.md) to ON, otherwise Import/Export operation fails with an error. Often, users want to perform Import or Export using a private end point without allowing access to all Azure services. 
+
+## What is Import-Export Private Link?
 
 Import Export Private Link is a Service Managed Private Endpoint created by Microsoft and that is exclusively used by the Import-Export, database and Azure Storage services for all communications. The private end point has to be manually approved by user in the Azure portal for both server and storage. 
 
@@ -78,7 +79,7 @@ Import-Export Private Link can be configured via Azure portal, PowerShell or usi
 After the Private End points are approved both in Azure SQL Server and Storage account, Import or Export jobs will be kicked off. Until then, the jobs will be on hold.
 
 You can check the status of Import or Export jobs in Import-Export History page under Data Management section in Azure SQL Server page.
-:::image type="content" source="./media/database-import-export-private-link/import-export-status.png" alt-text="Screenshot that shows how to check Import Export Jobs Status":::
+:::image type="content" source="./media/database-import-export-private-link/import-export-status.png" alt-text="Screenshot that shows how to check Import Export Jobs Status" lightbox="media/database-import-export-private-link/import-export-status.png":::
 
 ---
 
