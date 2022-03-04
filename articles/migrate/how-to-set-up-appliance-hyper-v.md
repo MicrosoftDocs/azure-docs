@@ -49,7 +49,7 @@ In **2: Download Azure Migrate appliance**, select the .VHD file and click on **
    :::image type="content" source="./media/tutorial-assess-hyper-v/servers-discover.png" alt-text="Screenshot of selections for Discover servers.":::
 
 
-   :::image type="content" source="./media/tutorial-assess-hyper-v/generate-key-hyperv-inline-1.png" alt-text="Screenshots of selections for Generate Key." lightbox="./media/tutorial-assess-hyper-v/generate-key-hyperv-expanded-1.png":::
+   :::image type="content" source="./media/tutorial-assess-hyper-v/generate-key-hyper-v-inline-1.png" alt-text="Screenshots of selections for Generate Key." lightbox="./media/tutorial-assess-hyper-v/generate-key-hyper-v-expanded-1.png":::
 
 ### Verify security
 
