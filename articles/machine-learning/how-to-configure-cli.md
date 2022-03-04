@@ -104,12 +104,15 @@ You can show your current defaults using `--list-defaults/-l`:
 
 ## Secure communications
 
-The `ml` CLI extension for Azure Machine Learning sends data for _all operations_ over the _public internet_. This includes operations that may potentially contain sensitive data, such as job submissions or deploying models. For example, when using the [az ml job](/cli/azure/ml/job) commands, the YAML parameter file is sent over the public internet.
+The `ml` CLI extension (sometimes called 'CLI v2') for Azure Machine Learning sends operational data (YAML parameters and metadata) over the public internet. All the `ml` CLI extension commands communicate with the Azure Resource Manager. This communication is secured using HTTPS/TLS 1.2.
+
+> [!NOTE]
+> With the previous extension (`azure-cli-ml`, sometimes called 'CLI v1'), only some of the commands communicate with the Azure Resource Manager. Specifically, commands that create, update, delete, list, or show Azure resources. Operations such as submitting a training job communicate directly with the Azure Machine Learning workspace. If your workspace is [secured with a private endpoint](how-to-configure-private-link.md), that is enough to secure commands provided by the `azure-cli-ml` extension.
 
 > [!TIP]
 > Data stored in a data store that is secured in a virtual network is _not_ sent over the public internet. For example, if your training data is secured on the default storage account for the workspace, and the storage account is in the virtual network.
 
-If you don't want your CLI/YAML parameter data sent over the public internet, you can use the following steps:
+You can increase the security of CLI communications with Azure Resource Manager by using Azure Private Link. The following links provide information on using a Private Link for managing Azure resources:
 
 1. [Secure your Azure Machine Learning workspace inside a virtual network using a private endpoint](how-to-configure-private-link.md).
 2. [Create a Private Link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal). 
@@ -117,12 +120,6 @@ If you don't want your CLI/YAML parameter data sent over the public internet, yo
 
 > [!IMPORTANT]
 > To configure the private link for Azure Resource Manager, you must be the _subscription owner_ for the Azure subscription, and an _owner_ or _contributor_ of the root management group. For more information, see [Create a private link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
-
-> [!NOTE]
-> In the previous extension (`azure-cli-ml`, sometimes called 'CLI v1'), a workspace [secured with a private endpoint](how-to-configure-private-link.md) is enough to protect data passed as part of the command. Operations that pass data for machine learning directly connect to the Azure Machine Learning service. Operations to create, update, list, delete, etc. Azure services are sent over the public internet and communicate with the Azure Resource Manager.
->
-> In the `ml`  (sometimes called 'CLI v2'), _all_ operations communicate with the Azure Resource Manager. The communication defaults to the public internet unless you [Create a Private Link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal). 
-
 
 ## Next steps
 
