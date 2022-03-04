@@ -2,7 +2,7 @@
 # AZURE
 # Azure storage
 # <CreateStorage>
-az storage account create --name mystorageaccount -g myRG --location chooseLocation --sku chooseSKU
+az storage account create -n mystorageaccount -g resourceGroup  --location chooseLocation --sku chooseSKU
 # </CreateStorage>
 
 # List locations
@@ -12,21 +12,20 @@ az account list-locations
 
 # Create a resource group
 # <CreateRG>
-az group create --name myRG --location chooseLocation
+az group create -n resourceGroupName --location chooseLocation
 # </CreateRG>
 
 #AMS
 #type: command
 #short-summary: Create an Azure Media Services account.
 # <AmsAccountCreate>
-az ams account create -g myRG -n myAmsAccount --storage-account myStorageAccount 
+az ams account create -g resourceGroupName -n myAmsAccount --storage-account storageAccountName 
 # </AmsAccountCreate>
 
+#type: command
+#short-summary: Update the details of an Azure Media Services account.
 # <AmsAccountUpdate>
-az ams account update -g myRG -n myAmsAccount
-    #type: command
-    #short-summary: Update the details of an Azure Media Services account.
-
+az ams account update -g resourceGroupName -n amsAccountName
 # </AmsAccountUpdate>
 
 #type: command
@@ -35,656 +34,462 @@ az ams account update -g myRG -n myAmsAccount
 az ams account list
 # </AmsAccountList>
 
+#type: command
+#short-summary: Show the details of an Azure Media Services account.
 # <AmsAccountShow>
-az ams account show --name myAmsAccount -g myRG
-    #type: command
-    #short-summary: Show the details of an Azure Media Services account.
-
+az ams account show -n amsAccountName -g resourceGroupName
 # </AmsAccountShow>
 
+#type: command
+#short-summary: Delete an Azure Media Services account.
 # <AmsAccountDelete>
-az ams account delete --name myAmsAccount -g myRG
-    #type: command
-    #short-summary: Delete an Azure Media Services account.
-
+az ams account delete -n amsAccountName -g resourceGroupName
 # </AmsAccountDelete>
 
+#type: command
+#short-summary: Checks whether the Media Service resource name is available.
 # <AmsAccountCheckName>
-az ams account check-name --location chooseLocation --name myAmsAccount
-    #type: command
-    #short-summary: Checks whether the Media Service resource name is available.
-
+az ams account check-name --location chooseLocation --name amsAccountName
 # </AmsAccountCheckName>
 
-# <AmsAccountEncryption>
-az ams account encryption
-    #type: group
-    #short-summary: Manage encryption for an Azure Media Services account.
-
-# </AmsAccountEncryption>
-
+#type: command
+#short-summary: Show the details of encryption settings for an Azure Media Services account.
 # <AmsAccountEncryptionShow>
-az ams account encryption show --account-name myAmsAccount -g myRG
-    #type: command
-    #short-summary: Show the details of encryption settings for an Azure Media Services account.
-    #examples:
-        #- name: Show the media account's encryption details
-          #text: >
-            #az ams account encryption show --account-name myAmsAccount -g myRG
-
+az ams account encryption show -a amsAccountName -g resourceGroupName
 # </AmsAccountEncryptionShow>
 
-# <AmsAccountEncryptionSet>
-az ams account encryption set -a myAmsAccount -g myRG --key-type CustomerKey --key-identifier keyVaultId
-    #type: command
-    #short-summary: Set the encryption settings for an Azure Media Services account.
-    #examples:
-        #- name: Set the media account's encryption to a customer managed key
-          #text: >
-            #az ams account encryption set -a myAmsAccount -g myRG --key-type CustomerKey --key-identifier keyVaultId
-        #- name: Set the media account's encryption to a system managed key
-          #text: >
-            #az ams account encryption set -a myAmsAccount -g myRG --key-type SystemKey
+#type: command
+#short-summary: Set the encryption settings for an Azure Media Services account.
+#- name: Set the media account's encryption to a customer managed key
+# <AmsAccountEncryptionSetCustomerManagedKey>
+az ams account encryption set -a amsAccountName -g resourceGroupName --key-type CustomerKey --key-identifier keyVaultId
+# </AmsAccountEncryptionSetCustomerManagedKey>
 
-# </AmsAccountEncryptionSet>
+#- name: Set the media account's encryption to a system managed key
+# <AmsAccountEncryptionSetSystemManagedKey>
+az ams account encryption set -a amsAccountName -g resourceGroupName --key-type SystemKey
+# </AmsAccountEncryptionSetSystemManagedKey>
 
+#type: command
+#short-summary: Attach a secondary storage to an Azure Media Services account.
 # <AmsAccountStorageAdd>
-az ams account storage add -g myRG -account-name myStorageAccount --name myAmsAccount
-    #type: command
-    #short-summary: Attach a secondary storage to an Azure Media Services account.
-
+az ams account storage add -g resourceGroupName -a amsAccountName -n myStorageAccount
 # </AmsAccountStorageAdd>
 
+#type: command
+#short-summary: Detach a secondary storage from an Azure Media Services account.
 # <AmsAccountStorageRemove>
-az ams account storage remove
-    #type: command
-    #short-summary: Detach a secondary storage from an Azure Media Services account.
-
+az ams account storage remove -g resourceGroupName -a storageAccountName -n amsAccountName
 # </AmsAccountStorageRemove>
 
-# <AmsAccountSp>
-az ams account sp
-    #type: group
-    #short-summary: Manage service principal and role based access for an Azure Media Services account.
+#type: command
+#short-summary: Create or update a service principal and configure its access to an Azure Media Services account.
+#long-summary: Service principal propagation throughout Azure Active Directory may take some extra seconds to complete. 
+# <AmsAccountSpCreatePassword>
+az ams account sp create -a amsAccountName -g resourceGroupName -n mySpName --password l33t541t&p3pp3r --role Owner --xml    
+# </AmsAccountSpCreatePassword>
 
-# </AmsAccountStorageSp>
+# <AmsAccountSpCreateRole>
+az ams account sp create -a amsAccountName -g resourceGroupName -n mySpName --new-sp-name myNewSpName --role newRole
+# <AmsAccountSpCreateRole>
 
-# <AmsAccountSpCreate>
-az ams account sp create
-    #type: command
-    #short-summary: Create or update a service principal and configure its access to an Azure Media Services account.
-    long-summary: Service principal propagation throughout Azure Active Directory may take some extra seconds to complete.
-    #examples:
-        #- name: Create a service principal with password and configure its access to an Azure Media Services account. Output will be in xml format.
-          #text: >
-            #az ams account sp create -a myAmsAccount -g myRG -n mySpName --password mySecret --role Owner --xml
-        #- name: Update a service principal with a new role and new name.
-          #text: >
-            #az ams account sp create -a myAmsAccount -g myRG -n mySpName --new-sp-name myNewSpName --role newRole
-    
-# </AmsAccountSpCreate>
-
+#type: command
+#short-summary: Generate a new client secret for a service principal configured for an Azure Media Services account.
 # <AmsAccountSpResetCredentials>
-az ams account sp reset-credentials
-    #type: command
-    #short-summary: Generate a new client secret for a service principal configured for an Azure Media Services account.
+az ams account sp reset-credentials -a amsAccountName -g resourceGroupName 
+# </AmsAccountSpResetCredentials>
 
-# <AmsAccountSpResetCredentials>
-
+#type: command
+#short-summary: Synchronize storage account keys for a storage account associated with an Azure Media Services account.
 # <AccountStorageSyncStorageKeys>
-az ams account storage sync-storage-keys
-    #type: command
-    #short-summary: Synchronize storage account keys for a storage account associated with an Azure Media Services account.
-
+az ams account storage sync-storage-keys --storage-account-id
 # </AccountStorageSyncStorageKeys>
 
+#type: command
+#short-summary: Set the authentication of a storage account attached to an Azure Media Services account.
 # <AccountStorageSetAuthentication>
-az ams account storage set-authentication
-    #type: command
-    #short-summary: Set the authentication of a storage account attached to an Azure Media Services account.
-
+az ams account storage set-authentication --storage-auth
 # </AccountStorageSetAuthentication>
 
-# <AmsTransform>
-az ams transform
-    #type: group
-    #short-summary: Manage transforms for an Azure Media Services account.
-
-# </AmsTransform>
-
+#type: command
+#short-summary: List all the transforms of an Azure Media Services account.
 # <AmsTransformList>
-az ams transform list
-    #type: command
-    #short-summary: List all the transforms of an Azure Media Services account.
-
+az ams transform list -g resourceGroupName -a amsAccountName
 # </AmsTransformList>
 
+#type: command
+#short-summary: Show the details of a transform.
 # <AmsTransformShow>
-az ams transform show
-    #type: command
-    #short-summary: Show the details of a transform.
-
+az ams transform show -a amsAccountName -g resourceGroupName -n transformName
 # </AmsTransformShow>
 
+#type: command
+#short-summary: Create a transform.
+#- name: Create a transform with AdaptiveStreaming built-in preset and High relative priority.
 # <AmsTransformCreate>
-az ams transform create
-    #type: command
-    #short-summary: Create a transform.
-    #examples:
-        #- name: Create a transform with AdaptiveStreaming built-in preset and High relative priority.
-          #text: >
-            #az ams transform create -a myAmsAccount -n transformName -g myResourceGroup --preset AdaptiveStreaming --relative-priority High
-        #- name: Create a transform with a custom Standard Encoder preset from a JSON file and Low relative priority.
-          #text: >
-            #az ams transform create -a myAmsAccount -n transformName -g myResourceGroup --preset \"C:\\MyPresets\\CustomPreset.json\" --relative-priority Low
-    
+az ams transform create -a amsAccountName -n transformName -g resourceGroupName --preset presetName --relative-priority priority
 # </AmsTransformCreate>
 
-# <AmsTransformDelete>
-az ams transform delete
-    #type: command
-    #short-summary: Delete a transform.
+#- name: Create a transform with a custom Standard Encoder preset from a JSON file and Low relative priority.
+# <AmsTransformCreateCustom>
+az ams transform create -a amsAccountName -n transformName -g resourceGroupName --preset \"C:\\path\\to\\local\\preset\\CustomPreset.json\" --relative-priority priority
+# </AmsTransformCreateCustom>
 
+#type: command
+#short-summary: Delete a transform.
+# <AmsTransformDelete>
+az ams transform delete -g resourceGroupName -a amsAccountName -n transformName
 # </AmsTransformDelete>
 
+#type: command
+#short-summary: Update the details of a transform.
 # <AmsTransformUpdate>
-az ams transform update
-    #type: command
-    #short-summary: Update the details of a transform.
-    #examples:
-        #- name: Update the first transform output of a transform by setting its relative priority to High.
-          #text: >
-            #az ams transform update -a myAmsAccount -n transformName -g myResourceGroup --set outputs[0].relativePriority=High
-    
+az ams transform update -a amsAccountName -n transformName -g resourceGroupName --set outputs[0].relativePriority=High
 # </AmsTransformUpdate>
 
-# <AmsTransformOutput>
-az ams transform output
-    #type: group
-    #short-summary: Manage transform outputs for an Azure Media Services account.
+#type: command
+#short-summary: Add an output to an existing transform.
+#- name: Add an output with a custom Standard Encoder preset from a JSON file.
+# <AmsTransformOutputAddCustom>
+az ams transform output add -a amsAccountName -n transformName -g resourceGroupName --preset \"C:\\path\\to\\local\\preset\\CustomPreset.json\"
+# </AmsTransformOutputAddCustom>
 
-# </AmsTransformOutput>
+### ONE OFF
+#- name: Add an output with a VideoAnalyzer preset with es-ES as audio language and only with audio insights.
+# <AmsTransformOutputAddAudio>
+az ams transform output add -a amsAccountName -n transformName -g resourceGroupName --preset presetName --audio-language es-ES --insights-to-extract AudioInsightsOnly
+# </AmsTransformOutputAddAudio>
 
-# <AmsTransformOutputAdd>
-az ams transform output add
-    #type: command
-    #short-summary: Add an output to an existing transform.
-    #examples:
-        #- name: Add an output with a custom Standard Encoder preset from a JSON file.
-          #text: >
-            #az ams transform output add -a myAmsAccount -n transformName -g myResourceGroup --preset \"C:\\MyPresets\\CustomPreset.json\"
-        #- name: Add an output with a VideoAnalyzer preset with es-ES as audio language and only with audio insights.
-          #text: >
-            #az ams transform output add -a myAmsAccount -n transformName -g myResourceGroup --preset VideoAnalyzer --audio-language es-ES --insights-to-extract AudioInsightsOnly
-    
-# </AmsTransformOutputAdd>
-
+#type: command
+#short-summary: Remove an output from an existing transform.
+# NOTE TO SELF what is the output index number?
 # <AmsTransformOutputRemove>
-az ams transform output remove
-    #type: command
-    #short-summary: Remove an output from an existing transform.
-    #examples:
-        #- name: Remove the output element at the index specified with --output-index argument.
-          #text: >
-            #az ams transform output remove -a myAmsAccount -n transformName -g myResourceGroup --output-index 1
-
+az ams transform output remove -a amsAccountName -n transformName -g resourceGroupName --output-index 1
 # </AmsTransformOutputRemove>
 
-# <AmsAsset>
-az ams asset
-    #type: group
-    #short-summary: Manage assets for an Azure Media Services account.
-
-# </AmsAsset>
-
-# <AmsAssetFilter>
-az ams asset-filter
-    #type: group
-    #short-summary: Manage asset filters for an Azure Media Services account.
-
-# </AmsAssetFilter>
-
-# <AmsAccountFilter>
-az ams account-filter
-    #type: group
-    #short-summary: Manage account filters for an Azure Media Services account.
-
-# </AmsAccountFilter>
-
+#type: command
+#short-summary: Show the details of an asset.
 # <AmsAssetShow>
-az ams asset show
-    #type: command
-    #short-summary: Show the details of an asset.
-
+az ams asset show -a amsAccountName -g resourceGroupName -n assetName
 # </AmsAssetShow>
 
+#type: command
+#short-summary: List all the assets of an Azure Media Services account.
 # <AmsAssetList>
-az ams asset list
-    #type: command
-    #short-summary: List all the assets of an Azure Media Services account.
-    #examples:
-        #- name: List all the assets whose names start with the string 'Something'.
-          #text: >
-            #az ams asset list -a amsAccount -g resourceGroup --query [?starts_with(name,'Something')]
-
+az ams asset list -g resourceGroupName -a amsAccountName
 # </AmsAssetList>
 
+#type: command
+#short-summary: List streaming locators which are associated with this asset.
 # <AmsAssetListStreamingLocators>
-az ams asset list-streaming-locators
-    #type: command
-    #short-summary: List streaming locators which are associated with this asset.
-
+az ams asset list-streaming-locators -g resourceGroupName -a amsAccountName -n assetName
 # </AmsAssetListStreamingLocators>
 
+#type: command
+#short-summary: Create an asset.
 # <AmsAssetCreate>
-az ams asset create
-    #type: command
-    #short-summary: Create an asset.
-
+az ams asset create -a amsAccountName -g resourceGroupName -n myAsset
 # </AmsAssetCreate>
 
+#type: command
+#short-summary: Update the details of an asset.
 # <AmsAssetUpdate>
-az ams asset update
-    #type: command
-    #short-summary: Update the details of an asset.
-
+az ams asset update -g resourceGroupName -a amsAccountName -n assetName
 # </AmsAssetUpdate>
 
+#type: command
+#short-summary: Delete an asset.
 # <AmsAssetDelete>
-az ams asset delete
-    #type: command
-    #short-summary: Delete an asset.
-
+az ams asset delete -g resourceGroupName -a amsAccountName -n assetName
 # </AmsAssetDelete>
 
+#type: command
+#short-summary: Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
 # <AmsAssetGetSASUrls>
-az ams asset get-sas-urls
-    #type: command
-    #short-summary: Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
-
+az ams asset get-sas-urls -g resourceGroupName -a amsAccountName -n assetName
 # </AmsAssetGetSASUrls>
 
+#type: command
+#short-summary: Get the asset storage encryption keys used to decrypt content created by version 2 of the Media Services API.
 # <AmsAssetGetEncryptionKey>
-az ams asset get-encryption-key
-    #type: command
-    #short-summary: Get the asset storage encryption keys used to decrypt content created by version 2 of the Media Services API.
-
+az ams asset get-encryption-key -g resourceGroupName -a amsAccountName -n assetName
 # </AmsAssetGetEncryptionKey>
 
+#type: command
+#short-summary: Create an asset filter.
 # <AmsAssetFilterCreate>
-az ams asset-filter create
-    #type: command
-    #short-summary: Create an asset filter.
-    #examples:
-        #- name: Create an asset filter with filter track selections.
-          #text: >
-            #az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --force-end-timestamp=False --end-timestamp 200000 --start-timestamp 100000 --live-backoff-duration 60 --presentation-window-duration 600000 --timescale 1000 --first-quality 720 --asset-name assetName --tracks @C:\\tracks.json
-
+az ams asset-filter create -a amsAccountName -g resourceGroupName --asset-name assetName -n myFilter
 # </AmsAssetFilterCreate>
 
+#type: command
+#short-summary: Update the details of an asset filter.
 # <AmsAssetFilterUpdate>
-az ams asset-filter update
-    #type: command
-    #short-summary: Update the details of an asset filter.
-
+az ams asset-filter update -g resourceGroupName -a amsAccountName --asset-name assetName -n assetFilterName
 # </AmsAssetFilterUpdate>
 
+#type: command
+#short-summary: Delete an asset filter.
 # <AmsAssetFilterDelete>
-az ams asset-filter delete
-    #type: command
-    #short-summary: Delete an asset filter.
-
+az ams asset-filter delete -g resourceGroupName -a amsAccountName --asset-name assetName -name assetFilterName
 # </AmsAssetFilterDelete>
 
 # <AmsAssetFilterList>
-az ams asset-filter list
+az ams asset-filter list -g resourceGroupName -a amsAccountName --asset-name assetName
     #type: command
     #short-summary: List all the asset filters of an Azure Media Services account.
-
 # </AmsAssetFilterList>
 
+#type: command
+#short-summary: Show the details of an asset filter.
 # <AmsAssetFilterShow>
-az ams asset-filter show
-    #type: command
-    #short-summary: Show the details of an asset filter.
-
+az ams asset-filter show -a amsAccountName -g resourceGroupName --asset-name assetName -n assetFilterName
 # </AmsAssetFilterShow>
 
-# <AmsContentKeyPolicy>
-az ams content-key-policy
-    #type: group
-    #short-summary: Manage content key policies for an Azure Media Services account.
-
-# </AmsContentKeyPolicy>
-
 # <AmsContentKeyPolicyCreate>
-az ams content-key-policy create
-    #type: command
-    #short-summary: Create a new content key policy.
-    #examples:
-        #- name: Create an content-key-policy with a FairPlay Configuration.
-          #text: >
-            #az ams content-key-policy create -a amsAccount -g resourceGroup -n contentKeyPolicyName --policy-option-name policyOptionName --open-restriction --ask "ask-32-chars-hex-string" --fair-play-pfx pfxPath --fair-play-pfx-password "pfxPassword" --rental-and-lease-key-type PersistentUnlimited --rental-duration 5000
-
+az ams content-key-policy create -g resourceGroupName -a amsAccountName -n contentKeyPolicyName --policy-option-name policyOptionName
 # </AmsContentKeyPolicyCreate>
 
+#type: command
+#short-summary: Show an existing content key policy.
 # <AmsContentKeyPolicyShow>
-az ams content-key-policy show
-    #type: command
-    #short-summary: Show an existing content key policy.
-
+az ams content-key-policy show -g resourceGroupName -a amsAccountName -n contentKeyPolicyName
 # </AmsContentKeyPolicyShow>
 
+#type: command
+#short-summary: Delete a content key policy.
 # <AmsContentKeyPolicyDelete>
-az ams content-key-policy delete
-    #type: command
-    #short-summary: Delete a content key policy.
-
+az ams content-key-policy delete -g resourceGroupName -a amsAccountName -n contentKeyPolicyName
 # </AmsContentKeyPolicyDelete>
 
+#type: command
+#short-summary: Update an existing content key policy.
 # <AmsContentKeyPolicyUpdate>
-az ams content-key-policy update
-    #type: command
-    #short-summary: Update an existing content key policy.
-    #examples:
-        #- name: Update an existing content-key-policy, set a new description and edit its first option setting a new issuer and audience.
-          #text: >
-            #az ams content-key-policy update -n contentKeyPolicyName -a amsAccount --description newDescription --set options[0].restriction.issuer=newIssuer --set options[0].restriction.audience=newAudience
-
+az ams content-key-policy update -g resourceGroupName -a amsAccountName -n contentKeyPolicyName
 # </AmsContentKeyPolicyUpdate>
 
+#type: command
+#short-summary: List all the content key policies within an Azure Media Services account.
 # <AmsContentKeyPolicyList>
-az ams content-key-policy list
-    #type: command
-    #short-summary: List all the content key policies within an Azure Media Services account.
-
+az ams content-key-policy list -g resourceGroupName -a amsAccountName
 # </AmsContentKeyPolicyList>
 
-# <AmsContentKeyPolicyOption>
-az ams content-key-policy option
-    #type: group
-    #short-summary: Manage options for an existing content key policy.
-
-# </AmsContentKeyPolicyOption>
-
+#type: command
+#short-summary: Add a new option to an existing content key policy.
 # <AmsContentKeyPolicyOptionAdd>
-az ams content-key-policy option add
-    #type: command
-    #short-summary: Add a new option to an existing content key policy.
-
+az ams content-key-policy option add --policy-option-name policyOptionName
 # </AmsContentKeyPolicyOptionAdd>
 
 #type: command
 #short-summary: Remove an option from an existing content key policy.
 # <AmsContentKeyPolicyOptionRemove>
-az ams content-key-policy option remove
+az ams content-key-policy option remove --policy-option-id policyOptionId
 # </AmsContentKeyPolicyOptionRemove>
 
+#type: command
+#short-summary: Update an option from an existing content key policy.
 # <AmsContentKeyPolicyOptionUpdate>
-az ams content-key-policy option update
-    #type: command
-    #short-summary: Update an option from an existing content key policy.
-    #examples:
-        #- name: Update an existing content-key-policy by adding an alternate token key to an existing option.
-          #text: >
-            #az ams content-key-policy option update -n contentKeyPolicyName -g resourceGroup -a amsAccount --policy-option-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --add-alt-token-key tokenKey --add-alt-token-key-type Symmetric
-
+az ams content-key-policy option update --policy-option-id policyOptionId
 # </AmsContentKeyPolicyOptionUpdate>
 
-# <AmsJob>
-az ams job
-    #type: group
-    #short-summary: Manage jobs for a transform.
-
-# </AmsJob>
-
+#type: command
+#short-summary: Start a job.
 # <AmsJobStart>
-az ams job start
-    #type: command
-    #short-summary: Start a job.
-
+az ams job start --output-assets outputAssets
 # </AmsJobStart>
 
 # <AmsJobUpdate>
-az ams job update
+az ams job update -g resourceGroupName -a amsAccountName --t transformName  -n jobName
     #type: command
     #short-summary: Update an existing job.
 # </AmsJobUpdate>
 
+#type: command
+#short-summary: List all the jobs of a transform within an Azure Media Services account.
 # <AmsJobList>
-az ams job list
-    #type: command
-    #short-summary: List all the jobs of a transform within an Azure Media Services account.
-    #examples:
-        #- name: List all the jobs of a transform with 'Normal' priority by name.
-          #text: >
-            #az ams job list -a amsAccount -g resourceGroup -t transformName --query [?priority=='Normal'].{jobName:name}
-        #- name: List all the jobs of a transform by name and input.
-          #text: >
-            #az ams job list -a amsAccount -g resourceGroup -t transformName --query [].{jobName:name,jobInput:input}
+az ams job list -g resourceGroupName -a amsAccountName -t transformName
 # </AmsJobList>
 
+#type: command
+#short-summary: Show the details of a job.
 # <AmsJobShow>
-az ams job show
-    #type: command
-    #short-summary: Show the details of a job.
+az ams job show -g resourceGroupName -a amsAccountName -t transformName -n jobName
 # </AmsJobShow>
 
+#type: command
+#short-summary: Delete a job.
 # <AmsJobDelete>
-az ams job delete
-    #type: command
-    #short-summary: Delete a job.
+az ams job delete -g resourceGroupName -a amsAccountName -t transformName -n jobName
 # </AmsJobDelete>
 
+#type: command
+#short-summary: Cancel a job.
 # <AmsJobCancel>
-az ams job cancel
-    #type: command
-    #short-summary: Cancel a job.
+az ams job cancel -g resourceGroupName -a amsAccountName -t transformName -n jobName
 # </AmsJobCancel>
 
-# <AmsStreamingLocator>
-az ams streaming-locator
-    #type: group
-    #short-summary: Manage streaming locators for an Azure Media Services account.
-# </AmsStreamingLocator>
-
+#type: command
+#short-summary: Create a streaming locator.
 # <AmsStreamingLocatorCreate>
-az ams streaming-locator create
-    #type: command
-    #short-summary: Create a streaming locator.
+az ams streaming-locator create -g resourceGroupName -a amsAccountName -n streamingLocatorName --streaming-policy-name streamingPolicyName --asset-name assetName
 # </AmsStreamingLocatorCreate>
 
+#type: command
+#short-summary: List all the streaming locators within an Azure Media Services account.
 # <AmsStreamingLocatorList>
-az ams streaming-locator list
-    #type: command
-    #short-summary: List all the streaming locators within an Azure Media Services account.
+az ams streaming-locator list -g resourceGroupName -a amsAccountName
 # </AmsStreamingLocatorList>
 
+#type: command
+#short-summary: Show the details of a streaming locator.
 # <AmsStreamingLocatorShow>
-az ams streaming-locator show
-    #type: command
-    #short-summary: Show the details of a streaming locator.
+az ams streaming-locator show -g resourceGroupName -a amsAccountName
 # </AmsStreamingLocatorShow>
 
+#type: command
+#short-summary: List paths supported by a streaming locator.
 # <AmsStreamingLocatorGetPaths>
-az ams streaming-locator get-paths
-    #type: command
-    #short-summary: List paths supported by a streaming locator.
+az ams streaming-locator get-paths -g resourceGroupName -a amsAccountName
 # </AmsStreamingLocatorGetPaths>
 
+#type: command
+#short-summary: List content keys used by a streaming locator.
 # <AmsStreamingLocatorListContentKeys>
-az ams streaming-locator list-content-keys
-    #type: command
-    #short-summary: List content keys used by a streaming locator.
+az ams streaming-locator list-content-keys -g resourceGroupName -a amsAccountName
 # </AmsStreamingLocatorListContentKeys>
 
-# <AmsStreamingPolicy>
-az ams streaming-policy
-    #type: group
-    #short-summary: Manage streaming policies for an Azure Media Services account.
-# </AmsStreamingPolicy>
-
+#type: command
+#short-summary: Create a streaming policy.
 # <AmsStreamingPolicyCreate>
-az ams streaming-policy create
-    #type: command
-    #short-summary: Create a streaming policy.
+az ams streaming-policy create -g resourceGroupName -a amsAccountName -n streamingPolicyName
 # </AmsStreamingPolicyCreate>
 
+#type: command
+#short-summary: List all the streaming policies within an Azure Media Services account.
 # <AmsStreamingPolicyList>
-az ams streaming-policy list
-    #type: command
-    #short-summary: List all the streaming policies within an Azure Media Services account.
+az ams streaming-policy list -g resourceGroupName -a amsAccountName
 # </AmsStreamingPolicyList>
 
+#type: command
+#short-summary: Show the details of a streaming policy.
 # <AmsStreamingPolicyShow>
-az ams streaming-policy show
-    #type: command
-    #short-summary: Show the details of a streaming policy.
+az ams streaming-policy show -g resourceGroupName -a amsAccountName -n streamingPolicyName
 # </AmsStreamingPolicyShow>
 
-# <AmsStreamingEndpointShow>
-az ams streaming-endpoint
-    #type: group
-    #short-summary: Manage streaming endpoints for an Azure Media Service account.
-# </AmsStreamingEndpointShow>
-
+#type: command
+#short-summary: Start a streaming endpoint.
 # <AmsStreamingEndpointStart>
-az ams streaming-endpoint start
-    #type: command
-    #short-summary: Start a streaming endpoint.
+az ams streaming-endpoint start -g resourceGroupName -a amsAccountName -n streamingEnpointName
 # </AmsStreamingEndpointStart>
 
+#type: command
+#short-summary: Stop a streaming endpoint.
 # <AmsStreamingEndpointStop>
-az ams streaming-endpoint stop
-    #type: command
-    #short-summary: Stop a streaming endpoint.
+az ams streaming-endpoint stop -g resourceGroupName -a amsAccountName -n streamingEnpointName
 # </AmsStreamingEndpointStop>
 
+#type: command
+#short-summary: List all the streaming endpoints within an Azure Media Services account.
 # <AmsStreamingEndpointList>
-az ams streaming-endpoint list
-    #type: command
-    #short-summary: List all the streaming endpoints within an Azure Media Services account.
+az ams streaming-endpoint list -g resourceGroupName -a amsAccountName
 # </AmsStreamingEndpointList>
 
+#type: command
+#short-summary: Create a streaming endpoint.
 # <AmsStreamingEndpointCreate>
-az ams streaming-endpoint create
-    #type: command
-    #short-summary: Create a streaming endpoint.
+az ams streaming-endpoint create -g resourceGroupName -a amsAccountName -n streamingEndpointName --scale-units x
 # </AmsStreamingEndpointCreate>
 
+#type: command
+#short-summary: Place the CLI in a waiting state until a condition of the streaming endpoint is met.
 # <AmsStreamingEndpointWait>
-az ams streaming-endpoint wait
-    #type: command
-    #short-summary: Place the CLI in a waiting state until a condition of the streaming endpoint is met.
-    #examples:
-        #- name: Place the CLI in a waiting state until the streaming endpoint is created.
-          #text: az ams streaming-endpoint wait -g MyResourceGroup -a MyAmsAccount -n MyStreamingEndpoint --created
+az ams streaming-endpoint wait -g resourceGroupName -a amsAccountName -n streamingEndpointName
 # </AmsStreamingEndpointWait>
 
-# <AmsStreamingEndpointAkamai>
-az ams streaming-endpoint akamai
-    #type: group
-    #short-summary: Manage AkamaiAccessControl objects to be used on streaming endpoints.
-# </AmsStreamingEndpointAkamai>
-
+#type: command
+#short-summary: Add an AkamaiAccessControl to an existing streaming endpoint.
 # <AmsStreamingEndpointAkamaiAdd>
-az ams streaming-endpoint akamai add
-    #type: command
-    #short-summary: Add an AkamaiAccessControl to an existing streaming endpoint.
-
+az ams streaming-endpoint akamai add -a amsAccountName -g resourceGroupName -n streamingEndpointName
 # </AmsStreamingEndpointAkamaiAdd>
 
+#type: command
+#short-summary: Show the details of a streaming endpoint.
 # <AmsStreamingEndpointShow>
-az ams streaming-endpoint show
-    #type: command
-    #short-summary: Show the details of a streaming endpoint.
+az ams streaming-endpoint show -a amsAccountName -g resourceGroupName -n streamingEndpointName
 # </AmsStreamingEndpointShow>
 
+#type: command
+#short-summary: Delete a streaming endpoint.
 # <AmsStreamingEndpointDelete>
-az ams streaming-endpoint delete
-    #type: command
-    #short-summary: Delete a streaming endpoint.
+az ams streaming-endpoint delete -a amsAccountName -g resourceGroupName -n streamingEndpointName
 # </AmsStreamingEndpointDelete>
 
+#type: command
+#short-summary: Remove an AkamaiAccessControl from an existing streaming endpoint.
 # <AmsStreamingEndpointAkamaiRemove>
-az ams streaming-endpoint akamai remove
-    #type: command
-    #short-summary: Remove an AkamaiAccessControl from an existing streaming endpoint.
+az ams streaming-endpoint akamai remove --identifier
 # </AmsStreamingEndpointAkamaiRemove>
 
+#type: command
+#short-summary: Set the scale of a streaming endpoint.
 # <AmsStreamingEndpointScale>
-az ams streaming-endpoint scale
-    #type: command
-    #short-summary: Set the scale of a streaming endpoint.
+az ams streaming-endpoint scale --scale-units x
 # <AmsStreamingEndpointScale>
 
+#type: command
+#short-summary: Update the details of a streaming endpoint.
 # <AmsStreamingEndpointUpdate>
-az ams streaming-endpoint update
-    #type: command
-    #short-summary: Update the details of a streaming endpoint.
+az ams streaming-endpoint update -g resourceGroupName -a amsAccountName -n streamingEndpointName    
 # </AmsStreamingEndpointUpdate>
 
-# <AmsLiveEvent>
-az ams live-event
-    #type: group
-    #short-summary: Manage live events for an Azure Media Service account.
-# </AmsLiveEvent>
-
+#type: command
+#short-summary: Create a live event.
 # <AmsLiveEventCreate>
-az ams live-event create
-    #type: command
-    #short-summary: Create a live event.
+az ams live-event create -g resourceGroupName -a amsAccountName -n myLiveEvent --streaming-protocol streamingProtocol --ips idaddresses
 # </AmsLiveEventCreate>
 
+#type: command
+#short-summary: Start a live event.
 # <AmsLiveEventStart>
-az ams live-event start
-    #type: command
-    #short-summary: Start a live event.
+az ams live-event start -g resourceGroupName -a amsAccountName -n liveEventName
 # </AmsLiveEventStart>
 
+#type: command
+#short-summary: Allocate a live event to be started later.
 # <AmsLiveEventStandby>
-az ams live-event standby
-    #type: command
-    #short-summary: Allocate a live event to be started later.
+az ams live-event standby -g resourceGroupName -a amsAccountName -n liveEventName
 # </AmsLiveEventStandby>
 
+#type: command
+ #short-summary: Show the details of a live event.
 # <AmsLiveEventShow>
-az ams live-event show
-    #type: command
-    #short-summary: Show the details of a live event.
+az ams live-event show -g resourceGroupName -a amsAccountName -n liveEventName
 # </AmsLiveEventShow>
 
+#type: command
+#short-summary: List all the live events of an Azure Media Services account.
 # <AmsLiveEventList>
-az ams live-event list
-    #type: command
-    #short-summary: List all the live events of an Azure Media Services account.
-    #examples:
-        #- name: List all the live events by name and resourceState quickly.
-          #text: >
-            #az ams live-event list -a amsAccount -g resourceGroup --query [].{liveEventName:name,state:resourceState}
+az ams live-event list -g resourceGroupName -a amsAccountName
 # </AmsLiveEventList>
 
+#type: command
+#short-summary: Delete a live event.
 # <AmsLiveEventDelete>
-az ams live-event delete
-    #type: command
-    #short-summary: Delete a live event.
+az ams live-event delete -g resourceGroupName -a amsAccountName
 # </AmsLiveEventDelete>
 
+#type: command
+#short-summary: Stop a live event.
 # <AmsLiveEventStop>
-az ams live-event stop
-    #type: command
-    #short-summary: Stop a live event.
+az ams live-event stop -g resourceGroupName -a amsAccountName
 # </AmsLiveEventStop>
 
+#type: command
+#short-summary: Reset a live event.
 # <AmsLiveEventReset>
-az ams live-event reset
-    #type: command
-    #short-summary: Reset a live event.
+az ams live-event reset -g resourceGroupName -a amsAccountName
 # </AmsLiveEventReset>
 
-# <AmsLiveEventUpdate>
-az ams live-event update
-    #type: command
+#type: command
     #short-summary: Update the details of a live event.
     #examples:
         #- name: Set a new allowed IP address and remove an existing IP address at index '0'.
@@ -693,86 +498,73 @@ az ams live-event update
         #- name: Clear existing IP addresses and set new ones.
           #text: >
             #az ams live-event update -a amsAccount -g resourceGroup -n liveEventName --ips 1.2.3.4/22 5.6.7.8/30
-
+# <AmsLiveEventUpdate>
+az ams live-event update -g resourceGroupName -a amsAccountName
 # <AmsLiveEventUpdate>
 
-# <AmsLiveEventWait>
-az ams live-event wait
     #type: command
     #short-summary: Place the CLI in a waiting state until a condition of the live event is met.
     #examples:
         #- name: Place the CLI in a waiting state until the live event is created.
-          #text: az ams live-event wait -g MyResourceGroup -a MyAmsAccount -n MyLiveEvent --created
+          #text: az ams live-event wait -g MyResourceGroup -a amsAccountName -n MyLiveEvent --created
+# <AmsLiveEventWait>
+az ams live-event wait -g resourceGroupName -a amsAccountName
 # </AmsLiveEventWait>
 
-# <AmsLiveEOutput>
-az ams live-output
-    #type: group
-    #short-summary: Manage live outputs for an Azure Media Service account.
-# </AmsLiveEOutput>
-
+#type: command
+#short-summary: Create a live output.
 # <AmsLiveEOutputCreate>
-az ams live-output create
-    #type: command
-    #short-summary: Create a live output.
+az ams live-output create -g resourceGroupName -a amsAccountName --live-event-name liveEventName -n myLiveOutput --asset-name assetName --archive-window-length X
 # </AmsLiveEOutputCreate>
 
+#type: command
+#short-summary: Show the details of a live output.
 # <AmsLiveEOutputShow>
-az ams live-output show
-    #type: command
-    #short-summary: Show the details of a live output.
+az ams live-output show -g resourceGroupName -a amsAccountName --live-event-name liveEventName -n liveOutputName
 # </AmsLiveEOutputShow>
 
-az ams live-output list
-    #type: command
+#type: command
     #short-summary: List all the live outputs in a live event.
+# <AmsLiveOutputList>
+az ams live-output list -g resourceGroupName -a amsAccountName --live-event-name liveEventName
+# </AmsLiveOutputList>
 
-
-az ams live-output delete
+# <AmsLiveOutputDelete>
+az ams live-output delete -g resourceGroupName -a amsAccountName --live-event-name liveEventName -n liveEventOutputName
     #type: command
     #short-summary: Delete a live output.
+# </AmsLiveOutputDelete>
 
-
-az ams account-filter show
+# <AmsAccountFilterShow>
+az ams account-filter show  -g resourceGroupName -a amsAccountName -n accountFilterName
     #type: command
     #short-summary: Show the details of an account filter.
+# </AmsAccountFilterShow>
 
-
-az ams account-filter list
+# <AmsAccountFilterList>
+az ams account-filter list -g resourceGroupName -a amsAccountName
     #type: command
     #short-summary: List all the account filters of an Azure Media Services account.
+# </AmsAccountFilterList>
 
+#type: command
+#short-summary: Create an account filter.
+#examples:
+#- name: Create an asset filter with filter track selections.
+#text: >
+#az ams account-filter create -a amsAccount -g resourceGroup -n filterName --force-end-timestamp=False --end-timestamp 200000 --start-timestamp 100000 --live-backoff-duration 60 --presentation-window-duration 600000 --timescale 1000 --first-quality 720 --tracks @C:\\tracks.json
+# <AmsAccountFilterCreate>
+az ams account-filter create -a amsAccountName -g resourceGroupName -n myFilter
+# </AmsAccountFilterCreate>
 
-az ams account-filter create
-    #type: command
-    #short-summary: Create an account filter.
-    #examples:
-        #- name: Create an asset filter with filter track selections.
-          #text: >
-            #az ams account-filter create -a amsAccount -g resourceGroup -n filterName --force-end-timestamp=False --end-timestamp 200000 --start-timestamp 100000 --live-backoff-duration 60 --presentation-window-duration 600000 --timescale 1000 --first-quality 720 --tracks @C:\\tracks.json
-
-
-az ams account-filter update
+# <AmsAccountFilterUpdate>
+az ams account-filter update -g resourceGroupName -a amsAccountName -n accountFilterName
     #type: command
     #short-summary: Update the details of an account filter.
+# </AmsAccountFilterUpdate>
 
-
-az ams account-filter delete
+# <AmsAccountFilterDelete>
+az ams account-filter delete -g resourceGroupName -a amsAccountName -n accountFilterName
     #type: command
     #short-summary: Delete an account filter.
-
-
-az ams account mru
-    #type: group
-    #short-summary: Manage media reserved units for an Azure Media Services account. This doesn't work with accounts created with 2020-05-01 version of the Media Services API or later. Accounts created this way no longer need to set media reserved units as the system will automaticaly scale up and down based on load.
-
-
-az ams account mru set
-    #type: command
-    #short-summary: Set the type and number of media reserved units for an Azure Media Services account. This doesn't work with accounts created with 2020-05-01 version of the Media Services API or later. Accounts created this way no longer need to set media reserved units as the system will automaticaly scale up and down based on load.
-
-
-az ams account mru show
-    #type: command
-    #short-summary: Show the details of media reserved units for an Azure Media Services account. This doesn't work with accounts created with 2020-05-01 version of the Media Services API or later. Accounts created this way no longer need to set media reserved units as the system will automaticaly scale up and down based on load.
-
+# </AmsAccountFilterDelete>
