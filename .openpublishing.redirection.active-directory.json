@@ -3483,7 +3483,7 @@
         {
             "source_path_from_root": "/articles/active-directory/active-directory-windows-enterprise-state-roaming-enable.md",
             "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-enable",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-windows-enterprise-state-roaming-faqs.md",
