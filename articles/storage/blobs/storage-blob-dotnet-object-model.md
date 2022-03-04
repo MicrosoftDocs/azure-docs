@@ -17,6 +17,8 @@ ms.custom: template-how-to
 
 Put a cool introduction here.
 
+## The basic building blocks
+
 Blob storage offers three types of resources:
 
 - The storage account
@@ -29,19 +31,77 @@ The following diagram shows the relationship between these resources.
 
 ![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
 
-## Understand the object model
+## Service client
 
-Use the following .NET classes to interact with these resources:
+Use the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class to interact with the Blob Storage service instance of your account. Use this class to do things like:
 
-- [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
+- Thing 1
+- Thing 2
+- Thing 3
 
-- [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
+You'll create one of these by blah. Here's a quick example
 
-- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
+```csharp
+Example goes here
+```
 
-## Another subhead
+For more examples of creating a service object instance, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
 
-Put something here.
+## Container client
+
+To operate on a container, use the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class. Use this object to do things like:
+
+- Thing 1
+- Thing 2
+- Thing 3
+
+You can get this object by blah. Here's a quick example.
+
+```csharp
+Example goes here
+```
+
+## Blob client
+
+To operate on a blob, use the [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) class. You can use this object to do these types of tasks:
+
+- Thing 1
+- Thing 2
+- Thing 3
+
+Get this object by blah. Here's a quick example.
+
+```csharp
+Example goes here
+```
+
+### Specialized blob clients
+
+If you want to stuff specific to a type of blob, you have to create a client for it. Here's a list:
+
+- [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient): Use this class to create an append blob, append data to it, blah and blah.
+- [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient): Use this class to blah, blah, blah, and blah.
+- [PageBlobClient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient): Use this class to blah, blah, blah, and blah.
+- [BlobLeaseClient](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient): Use this class to blah.
+- [BlobBatchClient](/dotnet/api/azure.storage.blobs.specialized.blobbatchclient): Use this class to blah.
+
+You can get each of these objects off of the container. Here's an example.
+
+```csharp
+Example goes here
+```
+
+### Blob client options
+
+Something here about the options objects for adding custom options such as retry, encryption etc.
+
+## Client namespaces
+
+Take folks through the different namespaces and what sorts of objects they contain. For example, the models, specialized namespaces.
+
+## Exception handling
+
+Something here about the exception handling model along with an example.
 
 ## See also
 
