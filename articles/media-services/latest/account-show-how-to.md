@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Media Services account
-description: This tutorial walks you through the steps of creating an Azure Media Services account.
+title: Show the details of a Media Services account
+description: This article shows you how to show the details of a Media Services account.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -13,7 +13,7 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-A Media Services account can be updated as needed.
+This article shows you how to show the details of a Media Services account.
 
 ## [Portal](#tab/portal/)
 
