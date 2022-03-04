@@ -127,7 +127,7 @@ Choose your language and the regional format that will influence how data such a
 
 ### Language
 
-Use the drop-down list to select from the list of available languages. This setting controls the language you see for text throughout the Azure portal. Azure Portal supports the following 18 languages in addition to English: Chinese (Simplified), Chinese (Traditional), Czech, Dutch, French, German, Hungarian, Indonesian, Italian, Japanese, Korean, Polish, Portuguese (Brazil), Portuguese (Portugal), Russian, Spanish, Swedish, and Turkish.
+Use the drop-down list to select from the list of available languages. This setting controls the language you see for text throughout the Azure portal. Azure portal supports the following 18 languages in addition to English: Chinese (Simplified), Chinese (Traditional), Czech, Dutch, French, German, Hungarian, Indonesian, Italian, Japanese, Korean, Polish, Portuguese (Brazil), Portuguese (Portugal), Russian, Spanish, Swedish, and Turkish.
 
 ### Regional format
 
