@@ -1452,12 +1452,11 @@ In this example, we match all requests where the request URL begins with `https:
 
 ---
 
+::: zone pivot="front-door-standard-premium"
+
 ## Host name
 
 The **host name** match condition identifies requests based on the specified hostname in the request from the client. The match condition uses the `Host` header value to evaluate the hostname. You can specify multiple values to match, which will be combined using OR logic. 
-
-> [!NOTE]
-> The **host name** match condition is only available on Azure Front Door Standard/Premium.
 
 ### Properties
 
@@ -1514,9 +1513,6 @@ In this example, we match all requests with a `Host` header that ends with `cont
 ## SSL protocol
 
 The **SSL protocol** match condition identifies requests based on the SSL protocol of an established TLS connection. You can specify multiple values to match, which will be combined using OR logic.
-
-> [!NOTE]
-> The **SSL protocol** match condition is only available on Azure Front Door Standard/Premium.
 
 ### Properties
 
@@ -1583,9 +1579,6 @@ The **socket address** match condition identifies requests based on the IP addre
     * **IPv4 example**: if you add two IP addresses `1.2.3.4` and `10.20.30.40`, the condition is matched for any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
     * **IPv6 example**: if you add two IP addresses `1:2:3:4:5:6:7:8` and `10:20:30:40:50:60:70:80`, the condition is matched for any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
 
-> [!NOTE]
-> The **socket address** match condition is only available on Azure Front Door Standard/Premium.
-
 ### Properties
 
 | Property | Supported values |
@@ -1638,9 +1631,6 @@ In this example, we match all requests from IP addresses in the range 5.5.5.64/2
 ## Client port
 
 The **client port** match condition identifies requests based on the TCP port of the client that made the request. You can specify multiple values to match, which will be combined using OR logic. 
-
-> [!NOTE]
-> The **client port** match condition is only available on Azure Front Door Standard/Premium.
 
 ### Properties
 
@@ -1695,9 +1685,6 @@ In this example, we match all requests with a client port of 1234.
 
 The **server port** match condition identifies requests based on the TCP port of the Azure Front Door server that accepted the request. The port must be 80 or 443. You can specify multiple values to match, which will be combined using OR logic. 
 
-> [!NOTE]
-> The **server port** match condition is only available on Azure Front Door Standard/Premium.
-
 ### Properties
 
 | Property | Supported values |
@@ -1746,6 +1733,8 @@ In this example, we match all requests with a server port of 443.
 ```
 
 ---
+
+::: zone-end
 
 ## Operator list
 
