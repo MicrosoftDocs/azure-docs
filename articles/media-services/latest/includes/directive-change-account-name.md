@@ -8,4 +8,4 @@ ms.author: inhenkel
 
 <!--Create a media services account -->
 
-Change `myAmsAccount` to the name of your Media Services account.
+Change `myAmsAccount` to name the account.

@@ -11,8 +11,8 @@ ms.custom: CLI, devx-track-azurecli
 
 The following Azure CLI command creates a new Media Services account. 
 
-[!INCLUDE [directive-change-my-resource-group](directive-change-my-resource-group.md)]
+[!INCLUDE [directive-change-my-resource-group](directive-change-resource-group.md)]
 
-[!INCLUDE [directive-change-my-resource-group](directive-change-account-name.md)]
+[!INCLUDE [directive-change-my-account-name](directive-change-my-account-name.md)]
 
-:::code language="azurecli" source="cli-code-snippets.sh" id="CreateStorage" interactive="azurecli-interactive":::
+:::code language="azurecli" source="cli-code-snippets.sh" id="AmsAccountCreate" interactive="azurecli-interactive":::

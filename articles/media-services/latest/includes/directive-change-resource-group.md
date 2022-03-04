@@ -8,4 +8,4 @@ ms.author: inhenkel
 
 <!--Create a media services account -->
 
-Change `myRG` to the name you want to give to your resource group.
+Change `resourceGroupName` to the name of the resource grou you want to use with the command.

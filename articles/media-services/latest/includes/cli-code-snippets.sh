@@ -9,7 +9,7 @@
 # AZURE
 # Azure storage
 # <CreateStorage>
-az storage account create -n mystorageaccount -g resourceGroup  --location chooseLocation --sku chooseSKU
+az storage account create -n myStorageAccount -g resourceGroup  --location chooseLocation --sku chooseSKU
 # </CreateStorage>
 
 # List locations
