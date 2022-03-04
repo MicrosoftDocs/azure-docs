@@ -39,7 +39,7 @@ The following example shows how to add a policy using the policy editor in the p
 In this example, the policy filters requests from certain incoming IP addresses. It's scoped to a selected API.
 
 > [!NOTE]
-> You can configure policies at other [scopes](api-management-howto-policies.md#policy-scopes), such as for all APIs, a product, or a single API operation. See [Configure scope](#configure-scope), later in this article, for other examples.
+> You can configure policies at other [scopes](api-management-howto-policies.md#scopes), such as for all APIs, a product, or a single API operation. See [Configure scope](#configure-policies-at-different-scopes), later in this article, for other examples.
 
 To configure a policy:
 
@@ -81,7 +81,7 @@ To configure a policy:
 
 1. To see available policy XML code snippets, select **Show snippets**. For example, select **Restrict caller IPs**.
 
-    :::image type="content" source="media/set-edit-policies/insert-policy-snippet.png" alt-text="":::
+    :::image type="content" source="media/set-edit-policies/insert-policy-snippet.png" alt-text="Insert policy snippet":::
 
 1. Paste or enter the desired policy code snippet into one of the appropriate blocks, and complete the policy configuration. 
     ```xml
@@ -116,7 +116,7 @@ API Management gives you flexibility to configure policy definitions at multiple
 > Not all policies can be applied at each scope or policy section. If the policy that you want to add isn't enabled, ensure that you are in a supported policy section and scope for that policy. To review the policy sections and scopes for a policy, check the **Usage** section in the [Policy reference](api-management-policies.md) topics.
 
 > [!NOTE]
-> The **Backend** policy section can only contain one policy element. By default, API Management configures the [`forward-request`](api-management-advanced-policies#ForwardRequest) policy in the **Backend** section at the global scope, and the `base` element at other scopes.
+> The **Backend** policy section can only contain one policy element. By default, API Management configures the [`forward-request`](api-management-advanced-policies.md#ForwardRequest) policy in the **Backend** section at the global scope, and the `base` element at other scopes.
 
 ### Global scope
 
