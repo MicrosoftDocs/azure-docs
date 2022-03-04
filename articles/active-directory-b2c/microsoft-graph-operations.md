@@ -147,6 +147,7 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 - [List extension properties](/graph/api/application-list-extensionproperty)
 - [Get an extension property](/graph/api/extensionproperty-get)
 - [Delete extension property](/graph/api/extensionproperty-delete)
+- [Get available extension properties](/graph/api/directoryobject-getavailableextensionproperties)
 
 <!--
 #Hiding this note because user flows and extension attributes are different things in Microsoft Graph.
@@ -157,7 +158,7 @@ Azure AD B2C provides a directory that can hold 100 custom attributes per user. 
 Azure AD B2C provides a directory that can hold 100 extension values per user. To manage the extension values for a user, use the following [User APIs](/graph/api/resources/user) in Microsoft Graph.
 
 - [Update user](/graph/api/user-update): To write or remove the extension property value from the user.
-- [Get a user](/graph/api/user-get): To retrieve the extension property value for the user. The property will be returned by default through the `beta` endpoint but only on $select through the `v1.0` endpoint.
+- [Get a user](/graph/api/user-get): To retrieve the extension property value for the user. The extension property will be returned by default through the `beta` endpoint, but only on `$select` through the `v1.0` endpoint.
 
 ## Audit logs
 
