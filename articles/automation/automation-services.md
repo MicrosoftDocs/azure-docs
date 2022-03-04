@@ -21,13 +21,13 @@ Using these services, you can shift effort from manually performing operational 
 
 Automation is mainly required in three broad categories of operations.
 
-### Deployment & management of resources
+**Deployment & management of resources**
  You can create and configure programmatically using automation or infrastructure as code tooling to deliver repeatable and consistent deployment and management of cloud resources. For example, an Azure Network Security Group can be deployed, and security group rules are created using an Azure Resource Manager template or by using an automation script.
 
-### Responding to external events
+**Responding to external events**
 On the basis of critical external event like responding to database changes, taking action on the basis of inputs given to a web page etc, you can diagnose and resolve issues.
 
-### Complex Orchestration
+**Complex Orchestration**
 BY integrating with first or third party products, you can define end to end automation workflows.
 
 ## What are these services
