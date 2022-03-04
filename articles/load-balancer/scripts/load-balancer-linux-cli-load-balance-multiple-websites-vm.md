@@ -28,9 +28,6 @@ This Azure CLI script sample creates a virtual network with two virtual machines
 
 :::code language="azurecli" source="~/azure_cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh" id="FullScript":::
 
-old version
-[!code-azurecli-interactive[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Load balance multiple web sites")]
-
 ## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
