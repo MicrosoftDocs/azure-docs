@@ -5,11 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-<<<<<<< HEAD
-ms.date: 03/02/2022
-=======
 ms.date: 03/03/2022
->>>>>>> front-door-rules-typename
 ms.author: yuajia
 zone_pivot_groups: front-door-tiers
 ---

@@ -21,40 +21,45 @@ An Azure Front Door Standard/Premium [Rule Set](concept-rule-set.md) consist of 
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The following actions are available to use in Azure Front Door rule set.  
+Azure Front Door Standard/Premium supports server variable on conditions. Please refer to more details in the server variables section of this document. <!-- TODO link -->
 
-## <a name="CacheExpiration"></a> Cache expiration
+The following actions are available to use in Azure Front Door rule set.
 
-Use the **cache expiration** action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
+## Route configuration override
 
-> [!NOTE]
-> Origins may specify not to cache specific responses using the `Cache-Control` header with a value of `no-cache`, `private`, or `no-store`. In these circumstances, Front Door will never cache the content and this action will have no effect.
+Use the **route configuration override** action to override the origin group or the caching configuration to use for the request.
 
-### Properties
+You can choose to override or honor the origin group configurations specified in the route. However, whenever you configure a route configurations override, you must configure caching. Otherwise, the caching will be disabled.
+
+### <a name="OriginGroupOverride"></a> Origin group override
+
+Use the **Origin group override** action to change the origin group that the request should be routed to.
+
+##### Properties
 
 | Property | Supported values |
-|-------|------------------|
-| Cache behavior | <ul><li>**Bypass cache:** The content should not be cached. In ARM templates, set the `cacheBehavior` property to `BypassCache`.</li><li>**Override:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `Override`.</li><li>**Set if missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `SetIfMissing`.</li></ul> |
-| Cache duration | When _Cache behavior_ is set to `Override` or `Set if missing`, these fields must specify the cache duration to use. The maximum duration is 366 days.<ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: specify the duration in the format `d.hh:mm:ss`. |
+|----------|------------------|
+| Origin group | The origin group that the request should be routed to. This overrides the configuration specified in the Front Door endpoint route. |
+| Forwarding protocol | The protocol for Front Door to use when forwarding the request to the origin. Supported values are HTTP only, HTTPS only, Match incoming request. This overrides the configuration specified in the Front Door endpoint route. |
 
-### Example
+##### Example
 
-In this example, we override the cache expiration to 6 hours, for matched requests that don't specify a cache duration already.
+In this example, we route all matched requests to an origin group named `SecondOriginGroup`, regardless of the configuration in the Front Door endpoint route. <!-- TODO these examples probably need updating -->
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/cache-expiration.png" alt-text="Portal screenshot showing cache expiration action.":::
+:::image type="content" source="../media/concept-rule-set-actions/origin-group-override.png" alt-text="Portal screenshot showing origin group override action.":::
 
 # [JSON](#tab/json)
 
 ```json
 {
-  "name": "CacheExpiration",
+  "name": "OriginGroupOverride",
   "parameters": {
-    "cacheBehavior": "SetIfMissing",
-    "cacheType": "All",
-    "cacheDuration": "0.06:00:00",
-    "typeName": "DeliveryRuleCacheExpirationActionParameters"
+    "originGroup": {
+      "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup"
+    },
+    "typeName": "DeliveryRuleOriginGroupOverrideActionParameters"
   }
 }
 ```
@@ -63,30 +68,38 @@ In this example, we override the cache expiration to 6 hours, for matched reques
 
 ```bicep
 {
-  name: 'CacheExpiration'
+  name: 'OriginGroupOverride'
   parameters: {
-    cacheBehavior: 'SetIfMissing'
-    cacheType: All
-    cacheDuration: '0.06:00:00'
-    typeName: 'DeliveryRuleCacheExpirationActionParameters'
+    originGroup: {
+      id: '/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup'
+    }
+    typeName: 'DeliveryRuleOriginGroupOverrideActionParameters'
   }
 }
 ```
 
 ---
 
-## <a name="CacheKeyQueryString"></a> Cache key query string
+### Caching
 
-Use the **cache key query string** action to modify the cache key based on query strings. The cache key is the way that Front Door identifies unique requests to cache.
+Use these settings to control how files get cached for requests that contain query strings. Whether to cache your content based on all parameters or on selected parameters. You can use additional settings to overwrite the time to live (TTL) value to control how long contents stay in cache. To force caching as an action, set the caching field to "Enabled." When you force caching, the following options appear: 
 
-### Properties
+- Query string caching behavior 
+- Compression, Front Door can dynamically compress content on the edge, resulting in a smaller and faster response. read Azure Front Door - caching | Microsoft Docs for more details. 
+- Cache behavior
+
+#### <a name="CacheKeyQueryString"></a> Query string caching behavior
+
+Use the **query string caching behavior** action to modify the cache key based on query strings. The cache key is the way that Front Door identifies unique requests to cache. 
+
+##### Properties
 
 | Property | Supported values |
 |-------|------------------|
 | Behavior | <ul><li>**Include:** Query strings specified in the parameters get included when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `Include`.</li><li>**Cache every unique URL:** Each unique URL has its own cache key. In ARM templates, use the `queryStringBehavior` of `IncludeAll`.</li><li>**Exclude:** Query strings specified in the parameters get excluded when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `Exclude`.</li><li>**Ignore query strings:** Query strings aren't considered when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `ExcludeAll`.</li></ul>  |
 | Parameters | The list of query string parameter names, separated by commas. |
 
-### Example
+##### Example
 
 In this example, we modify the cache key to include a query string parameter named `customerId`.
 
@@ -116,6 +129,58 @@ In this example, we modify the cache key to include a query string parameter nam
     queryStringBehavior: 'Include'
     queryParameters: 'customerId'
     typeName: 'DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'
+  }
+}
+```
+
+---
+
+#### <a name="CacheBehavior"></a> Cache behavior
+
+Use the **cache behavior** action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
+
+> [!NOTE]
+> Origins may specify not to cache specific responses using the `Cache-Control` header with a value of `no-cache`, `private`, or `no-store`. In these circumstances, Front Door will never cache the content and this action will have no effect.
+
+##### Properties
+
+| Property | Supported values |
+|-------|------------------|
+| Cache behavior | <ul><li>**Honor origin:** Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days. In ARM templates, set the `cacheBehavior` property to `TODO`.</li><li>**Override always:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `Override`.</li><li>**Override if origin missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `SetIfMissing`.</li></ul> |
+| Cache duration | When _Cache behavior_ is set to `Override always` or `Override if origin missing`, these fields must specify the cache duration to use. The maximum duration is 366 days.<ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: specify the duration in the format `d.hh:mm:ss`. |
+
+##### Example
+
+In this example, this rule actions will override the origin group from the one configured in the route to origingroup2 and use Matching incoming request while going back to origin. Caching is enabled for the associated route with ignoring query string and compression enabled. The cache behavior is configured to honor the settings from the origin.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-actions/cache-expiration.png" alt-text="Portal screenshot showing cache expiration action.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "CacheExpiration",
+  "parameters": {
+    "cacheBehavior": "SetIfMissing",
+    "cacheType": "All",
+    "cacheDuration": "0.06:00:00",
+    "typeName": "DeliveryRuleCacheExpirationActionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'CacheExpiration'
+  parameters: {
+    cacheBehavior: 'SetIfMissing'
+    cacheType: All
+    cacheDuration: '0.06:00:00'
+    typeName: 'DeliveryRuleCacheExpirationActionParameters'
   }
 }
 ```
@@ -321,54 +386,6 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
     destination: '/redirection'
     preserveUnmatchedPath: false
     typeName: 'DeliveryRuleUrlRewriteActionParameters'
-  }
-}
-```
-
----
-
-## <a name="OriginGroupOverride"></a> Origin group override
-
-Use the **Origin group override** action to change the origin group that the request should be routed to.
-
-### Properties
-
-| Property | Supported values |
-|----------|------------------|
-| Origin group | The origin group that the request should be routed to. This overrides the configuration specified in the Front Door endpoint route. |
-
-### Example
-
-In this example, we route all matched requests to an origin group named `SecondOriginGroup`, regardless of the configuration in the Front Door endpoint route.
-
-# [Portal](#tab/portal)
-
-:::image type="content" source="../media/concept-rule-set-actions/origin-group-override.png" alt-text="Portal screenshot showing origin group override action.":::
-
-# [JSON](#tab/json)
-
-```json
-{
-  "name": "OriginGroupOverride",
-  "parameters": {
-    "originGroup": {
-      "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup"
-    },
-    "typeName": "DeliveryRuleOriginGroupOverrideActionParameters"
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-{
-  name: 'OriginGroupOverride'
-  parameters: {
-    originGroup: {
-      id: '/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup'
-    }
-    typeName: 'DeliveryRuleOriginGroupOverrideActionParameters'
   }
 }
 ```
