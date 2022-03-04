@@ -25,7 +25,7 @@ Azure Front Door Standard/Premium supports server variable on conditions. Please
 
 The following actions are available to use in Azure Front Door rule set.
 
-## Route configuration override
+## <a name="RouteConfigurationOverride"></a> Route configuration override
 
 Use the **route configuration override** action to override the origin group or the caching configuration to use for the request.
 
@@ -151,7 +151,7 @@ Use the **cache behavior** action to overwrite the time to live (TTL) value of t
 
 ##### Example
 
-In this example, this rule actions will override the origin group from the one configured in the route to origingroup2 and use Matching incoming request while going back to origin. Caching is enabled for the associated route with ignoring query string and compression enabled. The cache behavior is configured to honor the settings from the origin.
+In this example, this rule actions will override the origin group from the one configured in the route to origingroup2 and use Matching incoming request while going back to origin. Caching is enabled for the associated route with ignoring query string and compression enabled. The cache behavior is configured to honor the settings from the origin. <!-- TODO update example -->
 
 # [Portal](#tab/portal)
 
@@ -426,11 +426,11 @@ Server variables can be specified using the following formats:
 
 Server variables are supported on the following actions:
 
-* Cache key query string
-* Modify request header
-* Modify response header
-* URL redirect
-* URL rewrite
+* Query string caching behavior in [Route configuration override](#routeconfigurationoverride)
+* [Modify request header](#modifyrequestheader)
+* [Modify response header](#modifyresponseheader)
+* [URL redirect](#urlredirect)
+* [URL rewrite](#urlrewrite)
 
 ## Next steps
 
