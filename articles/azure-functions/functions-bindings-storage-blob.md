@@ -1,11 +1,9 @@
 ---
 title: Azure Blob storage trigger and bindings for Azure Functions
 description: Learn to use the Azure Blob storage trigger and bindings in Azure Functions.
-author: craigshoemaker
 
 ms.topic: reference
-ms.date: 11/22/2021
-ms.author: cshoe
+ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

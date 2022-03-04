@@ -1,10 +1,8 @@
 ---
 title: Azure Blob storage input binding for Azure Functions
 description: Learn how to provide Azure Blob storage input binding data to an Azure Function.
-author: craigshoemaker
 ms.topic: reference
-ms.date: 11/30/2021
-ms.author: cshoe
+ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
