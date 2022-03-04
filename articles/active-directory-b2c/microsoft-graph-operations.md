@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 03/03/2022
 ms.custom: "project-no-code, ignite-fall-2021, b2c-support"
 ms.author: kengaderdus
 ms.subservice: B2C

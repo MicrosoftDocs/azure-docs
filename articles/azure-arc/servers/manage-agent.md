@@ -105,7 +105,7 @@ To clear a configuration property's value, run the following command:
 
 The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that are not using the latest version of machine agent and recommends that you upgrade to the latest version. It will notify you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
 
-The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. Installing, upgrading, and uninstalling the Azure Connected Machine Agent will not require you to restart your server.
+The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. Installing, upgrading, or uninstalling the Azure Connected Machine Agent will not require you to restart your server.
 
 The following table describes the methods supported to perform the agent upgrade.
 

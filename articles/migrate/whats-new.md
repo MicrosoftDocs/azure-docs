@@ -14,7 +14,7 @@ ms.custom: mvc
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
 ## Update (February 2022)
-- Azure Migrate is now supported in Azure China. [Learn more](/azure/china/overview-operations.md#azure-operations-in-china).
+- Azure Migrate is now supported in Azure China. [Learn more](/azure/china/overview-operations#azure-operations-in-china).
 
 ## Update (December 2021)
 - Support to discover, assess, and migrate VMs from multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
