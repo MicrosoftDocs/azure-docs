@@ -4,6 +4,7 @@ description: Create and manage virtual networks for Azure Database for PostgreSQ
 author: sunilagarwal 
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/30/2021
 ---
