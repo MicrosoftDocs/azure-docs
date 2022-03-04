@@ -6,16 +6,15 @@ ms.date: 02/18/2022
 ---
  
 # Azure Monitor Logs pricing model
+The default pricing Azure Monitor Logs is a cloud-friendly, consumption-based pricing **Pay-As-You-Go** model that's based on ingested data volume and, optionally, for longer data retention. Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable, depending on the following factors: 
 
-
-## Pricing model
-
-The default pricing for Log Analytics is a **Pay-As-You-Go** model that's based on ingested data volume and, optionally, for longer data retention. Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable, depending on the following factors: 
-
-  - The set of management solutions enabled and their configuration
+  - The set of insights and services enabled and their configuration
   - The number and type of monitored resources
   - Type of data collected from each monitored resource
-  
+
+
+Pricing details are available for [alerting, metrics, and notifications](https://azure.microsoft.com/pricing/details/monitor/); [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/); and [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
+
 ## Commitment Tiers
 In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers**, which can save you as much as 30 percent compared to the Pay-As-You-Go price. With the commitment tier pricing, you can commit to buy data ingestion starting at 100 GB/day at a lower price than Pay-As-You-Go pricing. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected. 
 
@@ -30,7 +29,7 @@ Billing for the commitment tiers is done on a daily basis. [Learn more](https://
 
 
 ## Data size calculation
-In all pricing tiers, an event's data size is calculated from a string representation of the properties that are stored in the Log Analytics workspace for this event, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
+In all pricing tiers, an event's data size is calculated from a string representation of the properties that are stored in the Log Analytics workspace for this event, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [custom logs API](custom-logs-overview.md), [ingestion-time transformations](ingestion-time-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
 
 ### Excluded columns
 The following [standard columns](log-standard-columns.md) that are common to all tables, are excluded in the calculation of the event size. All other columns stored in Log Analytics are included in the calculation of the event size.
@@ -73,7 +72,22 @@ In cluster billing options, data retention is billed for each workspace. Cluster
 
 ## Log Analytics and Microsoft Defender for Cloud
 
-[Microsoft Defender for Servers (part of Defender for Cloud)](../../security-center/index.yml) billing is closely tied to Log Analytics billing. Microsoft Defender for Servers [bills by the number of monitored services](https://azure.microsoft.com/pricing/details/azure-defender/) and provides 500 MB/server/day data allocation that is applied to the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) and the Update and UpdateSummary data types when the Update Management solution isn't running on the workspace or solution targeting is enabled ([learn more](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance)). The count of monitored servers is calculated on an hourly granularity. The daily data allocation contributions from each monitored server are aggregated at the workspace level. If the workspace is in the legacy Per Node pricing tier, the Microsoft Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
+[Microsoft Defender for Servers (part of Defender for Cloud)](../../security-center/index.yml) billing is closely tied to Log Analytics billing. Microsoft Defender for Servers [bills by the number of monitored services](https://azure.microsoft.com/pricing/details/azure-defender/) and provides 500 MB/server/day data allocation that is applied to the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
+
+- [WindowsEvent]()
+- [SecurityAlert]()
+- [SecurityBaseline]()
+- [SecurityBaselineSummary]()
+- [SecurityDetection]()
+- [SecurityEvent]()
+- [WindowsFirewall]()
+- [MaliciousIPCommunication]()
+- [LinuxAuditLog]()
+- [SysmonEvent]()
+- [ProtectionStatus]()
+- [Update]() and [UpdateSummary]() when the Update Management solution isn't running in the workspace or solution targeting is enabled ([learn more](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance))
+ 
+The count of monitored servers is calculated on an hourly granularity. The daily data allocation contributions from each monitored server are aggregated at the workspace level. If the workspace is in the legacy Per Node pricing tier, the Microsoft Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
 
 To view the daily Defender for Servers data allocations for a workspace, you need to [export your usage details](#viewing-log-analytics-usage-on-your-azure-bill), open the usage spreadsheet and filter the meter category to "Insight and Analytics".  You'll then see usage with the meter name "Data Included per Node" which has a zero price per GB.  The consumed quantity column will show the number of GBs of Defender for Cloud data allocation for the day. (If the workspace is in the legacy Per Node Log Analytics pricing tier, this meter will also include the data allocations from this Log Analytics pricing tier.) 
 
