@@ -48,7 +48,7 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 
 - You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-- If delegated auth is used, make sure proper [Power BI license](/power-bi/admin/service-admin-licensing-organization.md#subscription-license-types) is assigned to Power BI admin user that is used for the scan.
+- If delegated auth is used, make sure proper [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to Power BI admin user that is used for the scan.
 
 - If self-hosted integration runtime is used:
 
@@ -383,7 +383,7 @@ To create and run a new scan using Azure runtime, perform the following steps:
 
 If delegated auth is used:
 - Check your key vault. Make sure there are no typos in the password.
-- Assign proper [Power BI license](/power-bi/admin/service-admin-licensing-organization.md#subscription-license-types) to Power BI administrator user.
+- Assign proper [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) to Power BI administrator user.
 - Validate if user is assigned to Power BI Administrator role.
 - If user is recently created, make sure password is reset successfully and user can successfully initiate the session.
 
