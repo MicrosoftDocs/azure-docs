@@ -11,7 +11,7 @@ ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli,
 
 # Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service
 
-In this tutorial, you'll learn how to deploy an ASP.NET Core app to Azure App Service and connect to an Azure SQL Database. Azure App Service is a highly scalable, self-fixing, web-hosting service that can easily deploy apps on Windows or Linux. Although this tutorial uses an ASP.NET Core 6.0.2 app, the process is the same for other versions of ASP.NET Core and ASP.NET Framework.
+In this tutorial, you'll learn how to deploy an ASP.NET Core app to Azure App Service and connect to an Azure SQL Database. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. Although this tutorial uses an ASP.NET Core 6.0 app, the process is the same for other versions of ASP.NET Core and ASP.NET Framework.
 
 This article assumes you're familiar with [.NET](https://dotnet.microsoft.com/download/dotnet/6.0) and have it installed locally. You'll also need an Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
 
@@ -32,7 +32,7 @@ Let's first create the Azure App Service that hosts our deployed Web App. There 
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow the steps to create your Azure App Service resources:
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources:
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -89,21 +89,21 @@ Next, let's create the Azure SQL Database that manages the data in our app.
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow the steps to create your Azure App Service resources:
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources:
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Create database step 1](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Azure SQL in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-01.png"::: |
 | [!INCLUDE [Create database step 2](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-02-240px.png" alt-text="A screenshot showing the create button on the SQL Servers page used to create a new database server." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-02.png"::: |
 | [!INCLUDE [Create database step 3](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-03.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-03-240px.png" alt-text="A screenshot showing the form to fill out to create a SQL Server in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-03.png"::: |
-| [!INCLUDE [Create database step 4](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-04.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-04-240px.png" alt-text="A screenshot showing the form used to allow other Azure services to use the database." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-04.png"::: |
+| [!INCLUDE [Create database step 4](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-04.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-04-240px.png" alt-text="A screenshot showing the form used to allow other Azure services to connect to the database." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-04.png"::: |
 | [!INCLUDE [Create database step 5](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-05.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-05-240px.png" alt-text="A screenshot showing how to use the search box to find the SQL databases item in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-05.png"::: |
 | [!INCLUDE [Create database step 6](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-06.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-06-240px.png" alt-text="A screenshot showing the create button in on the SQL databases page." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-06.png"::: |
 | [!INCLUDE [Create database step 7](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-07.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-07-240px.png" alt-text="A screenshot showing the form to fill out to create a new SQL database in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-07.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create an Azure SQL database, we must first create an SQL Server to host it. Create a new Azure SQL Server using the [az sql server create ](/cli/azure/sql/server#az_sql_server_create) command.
+First, create an Azure SQL Server to host the database. A new Azure SQL Server is created by using the [az sql server create ](/cli/azure/sql/server#az_sql_server_create) command.
 
 Replace the *server-name* placeholder with a unique SQL Database name. The SQL Database name is used as part of the globally unique SQL Database endpoint. Also, replace *db-username* and *db-username* with a username and password of your choice.
 
@@ -125,7 +125,7 @@ az sql db create \
     --name coreDb
 ```
 
-We also need to add the following firewall rule to our database server to allow other Azure resources to use it.
+We also need to add the following firewall rule to our database server to allow other Azure resources to connect to it.
 
 ```azurecli-interactive
 az sql server firewall-rule create \
@@ -195,7 +195,7 @@ az sql db show-connection-string \
 
 Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it gets loaded by our app during startup.
 
-Ensure to replace the username and password in the connection string with your own before running the command.
+Replace the username and password in the connection string with your own before running the command.
 
 ```azurecli-interactive
 az webapp config connection-string set \
@@ -231,7 +231,7 @@ az sql server firewall-rule create -resource-group msdocs-core-sql --server <you
 
 ---
 
-Next, update the appsettings.json file in our local app code with the Connection String of our Azure SQL Database. The update allows us to run migrations locally against our database hosted in Azure. Ensure to replace the username and password placeholders with the values you chose when creating your database.
+Next, update the appsettings.json file in our local app code with the Connection String of our Azure SQL Database. The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
 
 ```json
 "ConnectionStrings": {
@@ -252,7 +252,7 @@ dotnet ef migrations add InitialCreate \
 dotnet ef database update
 ```
 
-After the migration finishes, your Azure SQL database gets the correct schema.
+After the migration finishes, the correct schema is created.
 
 If you receive an error stating `Client with IP address xxx.xxx.xxx.xxx is not allowed to access the server`, that means the IP address you entered into your Azure firewall rule is incorrect. To fix this issue, update the Azure firewall rule with the IP address provided in the error message.
 
@@ -264,13 +264,13 @@ Go back to your web app in the browser. You can always get back to your site by 
 
 Next, let's take a closer look at the deployed files of our app using a tool called Kudu.
 
-Azure App Service provides a web-based diagnostics console named Kudu. Kudu lets you examine the server-hosting environment for your web app. You can view the files deployed to Azure, review the deployment history, and even open an SSH session into the hosting environment.
+Azure App Service provides a web-based diagnostics console named Kudu. Kudu lets you examine the server-hosting environment, view deployed files to Azure, review deployment history, and even open an SSH session into the hosting environment.
 
 To use Kudu, go to one of the following URLs. You'll need to sign into the Kudu site with your Azure credentials.
 
 * For apps deployed in Free, Shared, Basic, Standard, and Premium App Service plans - `https:/<app-name>.scm.azurewebsites.net`
 * For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
-From the main page in Kudu, you can use information about the application-hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
+From the main page in Kudu, you can find information about the application-hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
 
 :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/kudu-main-page.png" alt-text="A screenshot showing the Kudu admin page." :::
 
@@ -294,7 +294,7 @@ Azure App Service captures messages logged to the console to assist you in diagn
 
 ### [Azure CLI](#tab/azure-cli-logs)
 
-You can set up Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
+You can configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
 
 ```azurecli
 az webapp log config \
@@ -347,7 +347,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 ### [Azure CLI](#tab/azure-cli-resources)
 
-You can delete the resource group you created by using the [az group delete](/cli/azure/group#az_group_delete) command. It deletes all of the resources contained inside of it.
+You can delete the resource group you created by using the [az group delete](/cli/azure/group#az_group_delete) command. Deleting the resource group deletes all of the resources contained within it.
 
 ```azurecli
 az group delete --name msdocs-core-sql
