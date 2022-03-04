@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Sign in users and call Microsoft Graph in a Windows desktop app | Azure"
-description: In this quickstart, learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by the Microsoft identity platform.
+description: Learn how a Windows Presentation Foundation (WPF) application can get an access token and call an API protected by the Microsoft identity platform.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 01/14/2022
+ms.date: 03/04/2022
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, mode-api
 #Customer intent: As an application developer, I want to learn how my Windows Presentation Foundation (WPF) application can get an access token and call an API that's protected by the Microsoft identity platform.
@@ -22,7 +22,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
 
 ## Register and download your quickstart app
 You have two options to start your quickstart application:
@@ -79,6 +79,13 @@ Where:
 
     To find the values of **Directory (tenant) ID** and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
+#### Step 4: Run the application
+
+To build and run the sample application in Visual Studio, select the **Debug menu** > **Start Debugging**, or press the F5 key. Your application's MainWindow is displayed.
+
+When the app's main window appears, select the Call Microsoft Graph API button. You'll be prompted to sign in using your Azure Active Directory account (work or school account) or Microsoft account (live.com, outlook.com) credentials.
+
+If you're running the application for the first time, you'll be prompted to provide consent to allow the application to access your user profile and sign you in. After consenting to the requested permissions, the application displays that you've successfully logged in. You should see some basic token information and user data obtained from the call to the Microsoft Graph API.
 
 ## More information
 
