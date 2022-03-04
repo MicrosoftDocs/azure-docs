@@ -35,6 +35,10 @@ Tip: When setting up this test for the first time, you might try a shorter test 
 > [!NOTE]
 > The sender **and** receiver must specify **the same** test duration
 parameter (-t).
+>
+> The IP Address in both Sender and Reciever commands is the Reciever's IP address.
+> 
+> The -r and -s flags are no longer required for the reciever and sender parameters.
 
 To test a single TCP stream for 10 seconds:
 
