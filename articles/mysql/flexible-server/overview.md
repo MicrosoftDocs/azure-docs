@@ -13,7 +13,7 @@ ms.date: 08/10/2021
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!VIDEO https://docs.microsoft.com/shows/data-exposed/top-3-reasons-to-consider-azure-database-for-mysql-flexible-server]
+> [!VIDEO <iframe src="https://aka.ms/docs/player?id=521839" width="1920" height="1080" style="border: 0; max-width: 100%; min-width: 100%;"></iframe>]
 
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 
