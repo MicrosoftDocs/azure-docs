@@ -1693,7 +1693,7 @@ In this example, we match all requests with a client port of 1234.
 
 ## Server port
 
-The **server port** match condition identifies requests based on the TCP port of the Azure Front Door server that accepted the request. You can specify multiple values to match, which will be combined using OR logic. 
+The **server port** match condition identifies requests based on the TCP port of the Azure Front Door server that accepted the request. The port must be 80 or 443. You can specify multiple values to match, which will be combined using OR logic. 
 
 > [!NOTE]
 > The **server port** match condition is only available on Azure Front Door Standard/Premium.
@@ -1703,7 +1703,7 @@ The **server port** match condition identifies requests based on the TCP port of
 | Property | Supported values |
 |-------|------------------|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | One or more port numbers, expressed as integers. If multiple values are specified, they're evaluated using OR logic. |
+| Value | A port number, which must be either 80 or 443. If multiple values are specified, they're evaluated using OR logic. |
 
 ### Example
 
