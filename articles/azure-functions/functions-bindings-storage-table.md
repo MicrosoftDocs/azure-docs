@@ -1,10 +1,10 @@
 ---
 title: Azure Tables bindings for Azure Functions
 description: Understand how to use Azure Tables bindings in Azure Functions.
-author: craigshoemaker
+author: ggailey777
 ms.topic: reference
-ms.date: 01/23/2022
-ms.author: cshoe
+ms.date: 03/04/2022
+ms.author: glenga
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---

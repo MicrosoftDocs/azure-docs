@@ -1,10 +1,8 @@
 ---
 title: Azure Queue storage trigger and bindings for Azure Functions overview
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
-author: ggailey777
 ms.topic: reference
-ms.date: 10/28/2020
-ms.author: glenga
+ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
