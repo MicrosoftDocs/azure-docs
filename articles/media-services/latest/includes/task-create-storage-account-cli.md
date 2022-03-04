@@ -13,10 +13,10 @@ The following command creates a Storage account.
 This command assumes that you have already created a resource group within a location.
 
 To list available regions, use the followng command:
-:::code language="azurecli" source="./includes/cli-code-snippets.sh" id="ListLocations" interactive="azurecli-interactive":::
+:::code language="azurecli" source="cli-code-snippets.sh" id="ListLocations" interactive="azurecli-interactive":::
 
 To create a resource group, use the following command:
-:::code language="azurecli" source="./includes/cli-code-snippets.sh" id="CreateRG" interactive="azurecli-interactive":::
+:::code language="azurecli" source="cli-code-snippets.sh" id="CreateRG" interactive="azurecli-interactive":::
 
 Change `mystorageaccount` to a unique name with a length of less than 24 characters.
 
@@ -24,4 +24,4 @@ Change `chooseRegion` to the region you want to work within. Change `chooseSKU` 
 
 [!INCLUDE [sku-list](sku-list.md)]
 
-:::code language="azurecli" source="./includes/cli-code-snippets.sh" id="CreateStorage" interactive="azurecli-interactive":::
+:::code language="azurecli" source="cli-code-snippets.sh" id="CreateStorage" interactive="azurecli-interactive":::

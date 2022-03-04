@@ -15,4 +15,4 @@ The following Azure CLI command creates a new Media Services account.
 
 [!INCLUDE [directive-change-my-resource-group](directive-change-account-name.md)]
 
-:::code language="azurecli" source="./includes/cli-code-snippets.sh" id="CreateStorage" interactive="azurecli-interactive":::
+:::code language="azurecli" source="cli-code-snippets.sh" id="CreateStorage" interactive="azurecli-interactive":::
