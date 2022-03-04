@@ -2,21 +2,22 @@
 title: Deploy a Service Fabric managed cluster with stateless node types
 description: Learn how to create and deploy stateless node types in Service Fabric managed clusters
 ms.topic: how-to
-ms.date: 8/23/2021
+ms.date: 3/4/2022
 ---
 # Deploy a Service Fabric managed cluster with stateless node types
 
-Service Fabric node types come with an inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types relax this assumption for a node type. Relaxing this assumption enables node stateless node types to benefit from faster scale-out operations by removing some of the restrictions on repair and maintenance operations.
+Service Fabric node types come with an inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types change this assumption for a node type. This allows the node type to benefit from features such as faster scale out operations, support for Automatic OS Upgrades, Spot VMs, and scaling out to more than 100 nodes in a node type.
 
 * Primary node types cannot be configured to be stateless
 * Stateless node types require an API version of **2021-05-01** or later
 * This will automatically set the **multipleplacementgroup** property to **true** which you can [learn more here](how-to-managed-cluster-large-virtual-machine-scale-sets.md)
 * This enables support for up to 1000 nodes for the given node type
 
-Sample templates are available: [Service Fabric Stateless Node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+## Enabling stateless node types in a Service Fabric managed cluster
 
-## Enable stateless node types in a Service Fabric managed cluster
 To set one or more node types as stateless in a node type resource, set the **isStateless** property to **true**. When deploying a Service Fabric cluster with stateless node types, it is required to have at least one primary node type, which is not stateless in the cluster.
+
+Sample templates are available: [Service Fabric Stateless Node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
@@ -32,6 +33,40 @@ To set one or more node types as stateless in a node type resource, set the **is
   "properties": {
     "isStateless": true,
     "isPrimary": false,
+    "vmImagePublisher": "[parameters('vmImagePublisher')]",
+    "vmImageOffer": "[parameters('vmImageOffer')]",
+    "vmImageSku": "[parameters('vmImageSku')]",
+    "vmImageVersion": "[parameters('vmImageVersion')]",
+    "vmSize": "[parameters('nodeTypeSize')]",
+    "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
+    "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
+  }
+}
+```
+
+## Enabling stateless node types using Spot VMs in a Service Fabric managed cluster (Preview)
+
+[Azure Spot Virtual Machines on scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot) enables users to take advantage of unused compute capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict these Azure Spot Virtual Machine instances. Therefore, Spot VM node types are great for workloads that can handle interruptions and don't need to be completed within a specific timeframe. Recommended workloads include development, testing, batch processing jobs, big data, or other large-scale stateless scenarios.
+
+To set one or more node types as stateless in a node type resource, set the **isStateless** property to **true**. When deploying a Service Fabric cluster with stateless node types, it is required to have at least one primary node type, which is not stateless in the cluster. Virtual machine scale sets in Spot priority node types have Eviction Policy set to 'Delete'.
+
+Sample templates are available: [Service Fabric Stateless Node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+
+* The Service Fabric managed cluster resource apiVersion should be **2022-02-01-preview** or later.
+
+```json
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+  ],
+  "properties": {
+    "isStateless": true,
+    "isPrimary": false,
+    "isSpotPriority": true,
     "vmImagePublisher": "[parameters('vmImagePublisher')]",
     "vmImageOffer": "[parameters('vmImageOffer')]",
     "vmImageSku": "[parameters('vmImageSku')]",
