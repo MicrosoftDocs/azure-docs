@@ -1,9 +1,0 @@
-{
-    "markdownlint.config": {
-        "MD028": false,
-        "MD025": {
-            "front_matter_title": ""
-        }
-    },
-    "acrolinx.serverAddress": "https://microsoft-ce-csi.acrolinx.cloud:443"
-}
