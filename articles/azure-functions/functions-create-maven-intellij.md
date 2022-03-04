@@ -1,10 +1,10 @@
 ---
 title: Create a Java function in Azure Functions using IntelliJ 
 description: Learn how to use IntelliJ to create a simple HTTP-triggered Java function, which you then publish to run in a serverless environment in Azure.
-author: yucwan
+author: silenceJialuo
 ms.topic: how-to
-ms.date: 07/01/2018
-ms.author: yucwan
+ms.date: 04/03/2022
+ms.author: silenceJialuo
 ms.devlang: java
 ms.custom: mvc, devcenter, devx-track-java
 ---
@@ -116,7 +116,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
     ![Show function app properties](media/functions-create-first-java-intellij/explorer-functions-show-properties.png)
 
-1. Right click on your *HttpTrigger-Java* function app, and select *Trigger Function*, you will see that the browser is opened with the trigger URL.
+1. Right click on your *HttpTrigger-Java* function app, and select *Trigger Function in Browser*, you will see that the browser is opened with the trigger URL.
 
     ![Screenshot shows a browser with the U R L.](media/functions-create-first-java-intellij/explorer-trigger-functions.png)
 
@@ -134,7 +134,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
 ## Cleaning up functions
 
-1. Click to select on one of your function apps with *Azure Explorer* in your IDEA, and right click, select *Delete* to finish this step. This command might take several minutes to run. When it's done, the status will refresh in *Azure Explorer*.
+1. Click to select on one of your function apps with *Azure Explorer* in your IDEA, and right click, select *Delete* to finish the following steps. This command might take several minutes to run. When it's done, the status will refresh in *Azure Explorer*.
       
       ![Screenshot shows Delete selected from a context menu.](media/functions-create-first-java-intellij/delete-function.png)
 
