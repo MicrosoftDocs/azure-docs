@@ -23,7 +23,7 @@ Configuration of the connection to the application's database is done via a wiza
 * Oracle 12c and 18c
 * MySQL 5.x
 
-Note: The table-based strategy of the generic SQL connector requires that column names are case-insensitive. MySQL is case-sensitive on Linux and Postgres is case-sensitive across platforms. As a result, they are not currently supported with table-based strategy and configuring provisioning users into those databases is outside the scope of this article.
+Note: The table-based method of the generic SQL connector requires that column names are case-insensitive. MySQL is case-sensitive on Linux and Postgres is case-sensitive across platforms. As a result, they are not currently supported with table-based method and configuring provisioning users into those databases is outside the scope of this article.
 
 ### Cloud requirements
 
@@ -48,23 +48,23 @@ In this article, you will configure the Azure AD SQL connector to interact with 
 
 ## Determine how the Azure AD SQL Connector will interact with your database
 
-If you have an already existing database for your application, then you will need to determine how Azure AD should interact with that database: through SQL statements that query and update rows in a table directly, or via stored procedures.  This is because a more complex application might have in its database additional auxiliary tables, require paging for tables with thousands of users, or could require Azure AD to call a stored procedure that performs additional data processing, such as encryption, hashing or validity checks.
+If you have an already existing database for your application, then you will need to determine how Azure AD should interact with that database: direct interaction with tables and views, via stored procedures already present in the database, or via SQL statements you provide for query and updates.  This is because a more complex application might have in its database additional auxiliary tables, require paging for tables with thousands of users, or could require Azure AD to call a stored procedure that performs additional data processing, such as encryption, hashing or validity checks.
 
-When you create the configuration for the connector to interact with an application's database, you will configure this approach via a run profile. Each run profile specifies how the connector should generate SQL statements.  The choice of run profiles, and the strategy within a run profile, depends on what your database engine supports and the application requires.
+When you create the configuration for the connector to interact with an application's database, you will configure first an approach for how the connector host reads the schema of your database, and then configure the approach the connector should use on an ongoing basis, via run profiles. Each run profile specifies how the connector should generate SQL statements.  The choice of run profiles, and the method within a run profile, depends on what your database engine supports and the application requires.
 
 - After configuration, when the provisioning service starts, it will automatically perform the interactions configured in the **Full Import** run profile.  In this run profile, the connector will read in all the records for users from the application's database, typically using a **SELECT** statement.  This run profile is necessary so that later, if Azure AD needs to make a change for a user, Azure AD will know to update an existing record for that user in the database, rather than create a new record for that user.
 
-- Each time changes are made in Azure AD, such as to assign a new user to the application, the provisioning service will perform the SQL database interactions configured **Export** run profile. In the **Export** run profile, Azure AD will issue SQL statements to insert, update and delete records in the database, in order to bring the contents of the database in sync with Azure AD.
+- Each time changes are made in Azure AD, such as to assign a new user to the application or update an existing user, the provisioning service will perform the SQL database interactions configured **Export** run profile. In the **Export** run profile, Azure AD will issue SQL statements to insert, update and delete records in the database, in order to bring the contents of the database in sync with Azure AD.
 
 - If your database supports it, you can also optionally configure a **Delta Import** run profile. In this run profile, Azure AD will read in changes that were made in the database, other than by Azure AD, since the last full or delta import.  This run profile is optional since it requires the database to be structured to allow changes to be read.
 
-In the configuration of each run profile of the connector, you will specify whether the Azure AD connector should generate its own SQL statements for a table or view, call your stored procedures, or use custom SQL queries you provide.  Typically you will use the same strategy for all run profiles in a connector.
+In the configuration of each run profile of the connector, you will specify whether the Azure AD connector should generate its own SQL statements for a table or view, call your stored procedures, or use custom SQL queries you provide.  Typically you will use the same method for all run profiles in a connector.
 
-- If you select the Table or View method for a run profile, then the Azure AD connector will generate the necessary SQL statements, *SELECT*, *INSERT*, *UPDATE* and *DELETE*, to interact with the table or view in the database.  This is the simplest approach, if your database has a single  table with few existing rows.
-- If you select the Stored Procedure method, then your database will need to have four stored procedures: read a page of users, add a user, update a user and delete a user, you will configure the Azure AD connector with the names and parameters of those stored procedures to call.  This approach requires more configuration in your SQL database and would typically only be needed if your application requires additional processing for each change to a user.
-- If you select the SQL Query method, then you will type in the specific SQL statements you want the connector to issue during a run profile.
+- If you select the Table or View method for a run profile, then the Azure AD connector will generate the necessary SQL statements, *SELECT*, *INSERT*, *UPDATE* and *DELETE*, to interact with the table or view in the database.  This is the simplest approach, if your database has a single  table or an updatable view with few existing rows.
+- If you select the Stored Procedure method, then your database will need to have four stored procedures: read a page of users, add a user, update a user and delete a user, you will configure the Azure AD connector with the names and parameters of those stored procedures to call.  This approach requires more configuration in your SQL database and would typically only be needed if your application requires additional processing for each change to a user, of for paging through large result sets.
+- If you select the SQL Query method, then you will type in the specific SQL statements you want the connector to issue during a run profile.  You'll configure the connector with the parameters that the connector should populate in your SQL statements, such as to page through result sets during an import, or to set the attributes of a new user being created during an export.
 
-This article illustrates how to use the table method to interact with the sample database table `Employees`, in the **Export** and **Full Import** run profiles. To learn more about configuring the Stored Procedure or SQL Query methods, see the [Generic SQL configuration guide](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
+This article illustrates how to use the table method to interact with the sample database table `Employees`, in the **Export** and **Full Import** run profiles. To learn more about configuring the Stored Procedure or SQL Query methods, see the [Generic SQL configuration guide](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) which provides more details and specific requirements.
 
 ## Choose the unique identifiers in your application's database schema
 
@@ -131,6 +131,9 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
  3. Select **Save**.
 
 ## Create a generic SQL connector
+
+In this section, you'll create the connector configuration for your database.
+
  1. Select the ECMA Connector Host shortcut on the desktop.
  2. Select **New Connector**.
      ![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-3.png)</br>
@@ -152,28 +155,33 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
      |User Name|The username of an account with rights to make updates to the table in the SQL instance. If the target database is SQL Server, the user name must be in the form of hostname\sqladminaccount for standalone servers or domain\sqladminaccount for domain member servers.|
      |Password|The password of the username just provided.|
      |DN is Anchor|Unless your environment is known to require these settings, don't select the **DN is Anchor** and **Export Type:Object Replace** checkboxes.|
- 5. On the **Schema 1** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+
+### Retrieve the schema from the database
+
+After having provided credentials, the ECMA Connector Host will be ready to retrieve the schema of your database.
+
+ 5. On the **Schema 1** page, you'll specify the list of object types. In this sample, there is a single object type, `User`. Fill in the boxes with the values specified in the table that follows the image and select **Next**.
      ![Screenshot that shows the Schema 1 page.](.\media\active-directory-app-provisioning-sql\conn-3.png)</br>
 
      |Property|Value|
      |-----|-----|
      |Object type detection method|Fixed Value|
      |Fixed value list/Table/View/SP|User|
- 6. On the **Schema 2** page, you'll indicate how users are represented in your database. In this sample, it's a table named `Employees`. Fill in the boxes with the values specified in the table that follows the image and select **Next**.
+ 6. Once you clicked **Next**, an additional page will automatically appear, for the configuration of the `User` object type. On the **Schema 2** page, you'll indicate how users are represented in your database. In this sample, it's a single SQL table, named `Employees`. Fill in the boxes with the values specified in the table that follows the image and select **Next**.
      ![Screenshot that shows the Schema 2 page.](.\media\active-directory-app-provisioning-sql\conn-4.png)</br>
  
      |Property|Value|
      |-----|-----|
      |User:Attribute Detection|Table|
      |User:Table/View/SP|Employees|
- 7. On the **Schema 3** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+ 7. Once you clicked **Next**, an additional page will automatically appear, for you to select the columns of the `Employees` table that are to be used as the `Anchor` and `DN` of users.  for On the **Schema 3** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
      ![Screenshot that shows the Schema 3 page.](.\media\active-directory-app-provisioning-sql\conn-5.png)
 
      |Property|Description|
      |-----|-----|
      |Select Anchor for :User|User:ContosoLogin|
      |Select DN attribute for User|AzureID|
-8. On the **Schema 4** page, leave the defaults and select **Next**.
+8. Once you clicked **Next**, an additional page will automatically appear, for you to confirm the data type of each of the columns of the `Employee` table, and whether the connector should import or export them. On the **Schema 4** page, leave the defaults and select **Next**.
      ![Screenshot that shows the Schema 4 page.](.\media\active-directory-app-provisioning-sql\conn-6.png)</br>
  9. On the **Global** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.
      ![Screenshot that shows the Global page.](.\media\active-directory-app-provisioning-sql\conn-7.png)</br>
@@ -183,6 +191,11 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
      |Data Source Date Time Format|yyyy-MM-dd HH:mm:ss|
  10. On the **Partitions** page, select **Next**.
      ![Screenshot that shows the Partitions page.](.\media\active-directory-app-provisioning-sql\conn-8.png)</br>
+
+### Configure the run profiles
+
+Next, you'll configure the **Export** and **Full import** run profiles.  The **Export** run profile will be used when the ECMA Connector host needs to send changes from Azure AD to the database, to insert, update and delete records.  The **Full Import** run profile will be used when the ECMA Connector host service starts, to read in the current content of the database.  In this sample, you'll use the Table method in both run profiles, so that the ECMA Connector Host will generate the necessary SQL statements.
+
  11. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**.
      ![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-sql\conn-9.png)</br>
      
@@ -191,7 +204,7 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
      |Export|Run profile that will export data to SQL. This run profile is required.|
      |Full import|Run profile that will import all data from SQL sources specified earlier.|
      |Delta import|Run profile that will import only changes from SQL since the last full or delta import.|
- 12. On the **Export** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes. 
+ 12.  Once you clicked **Next**, an additional page will automatically appear, for you to configure the method for the **Export** run profile. On the **Export** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.
      ![Screenshot that shows the Export page.](.\media\active-directory-app-provisioning-sql\conn-10.png)</br>
      
      |Property|Description|
@@ -205,9 +218,12 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
      |-----|-----|
      |Operation Method|Table|
      |Table/View/SP|Employees|
+
+### Configure how attributes are surfaced in Azure AD
+
  14. On the **Object Types** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.   
-      - **Anchor**: This attribute should be unique in the target system. The Azure AD provisioning service will query the ECMA host by using this attribute after the initial cycle. This anchor value should be the same as the anchor value in schema 3.
-      - **Query Attribute**: Used by the ECMA host to query the in-memory cache. This attribute should be unique.
+      - **Anchor**: This attribute should be unique in the target system. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle. This anchor value should be the same as the anchor value you configured earlier on the **Schema 3** page.
+      - **Query Attribute**: Used by the ECMA connector host to query the in-memory cache. The values of this attribute should be unique for each user.
       - **DN**: The **Autogenerated** option should be selected in most cases. If it isn't selected, ensure that the DN attribute is mapped to an attribute in Azure AD that stores the DN in this format: CN = anchorValue, Object = objectType.  For additional information on anchors and the DN see [About anchor attributes and distinguished names](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names).
      ![Screenshot that shows the Object Types page.](.\media\active-directory-app-provisioning-sql\conn-12.png)</br>
      
@@ -218,7 +234,7 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
      |Query Attribute|AzureID|
      |DN|AzureID|
      |Autogenerated|Checked|      
- 15. The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.On the **Select Attributes** page, add all the attributes in the dropdown list and select **Next**. 
+ 15. The ECMA connector host discovers the attributes supported by the target system. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.On the **Select Attributes** page, add all the attributes in the dropdown list and select **Next**. 
      ![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-sql\conn-13.png)</br>
       The **Attribute** dropdown list shows any attribute that was discovered in the target system and *wasn't* chosen on the previous **Select Attributes** page. 
  
@@ -238,7 +254,7 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
  1. Sign in to the Azure portal.
  2. Go to **Enterprise applications** and the **On-premises ECMA app** application.
  3. Go to **Edit Provisioning**.
- 4. Under the **Admin credentials** section, enter the following URL. Replace the `{connectorName}` portion with the name of the connector on the ECMA host. You can also replace `localhost` with the host name.
+ 4. Under the **Admin credentials** section, enter the following URL. Replace the `{connectorName}` portion with the name of the connector on the ECMA connector host. You can also replace `localhost` with the host name.
 
  |Property|Value|
  |-----|-----|
