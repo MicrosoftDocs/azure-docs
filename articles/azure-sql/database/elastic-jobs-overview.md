@@ -92,6 +92,14 @@ ELSE
 
 Similarly, a script must be able to execute successfully by logically testing for and countering any conditions it finds.
 
+## Known limitations
+
+  These are the current limitations to the Elastic Jobs service.  We're actively working to remove as many of these limitations as possible.
+
+  | Issue | Description |
+  | :---- | :--------- |
+  | Elastic Job agent needs to be recreated and restarted in the new region after a failover/move to a new Azure region | Elastic Jobs service stores all its job metadata in the *Job database*. Any failover or move of SQL database server contaiing the Job database to a new Azure region will also move the Job database to that new region. However *Elastic Job agent* is a compute only resource and needs to be explicitly re-created and restarted in the new region before jobs will start executing again. Once restarted, Job agent will resume executing jobs in the new region as per the previously defined job schedules.
+
 ## Next steps
 
 - [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell-create.md)
