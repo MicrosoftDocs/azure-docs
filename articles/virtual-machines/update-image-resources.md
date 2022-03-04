@@ -4,11 +4,10 @@ description: List, update, and delete image resources in your Azure Compute Gall
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
-ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 03/03/2022
 ms.author: cynthn
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # List, update, and delete image resources 
@@ -25,19 +24,51 @@ Get the location, status and other information about the available image galleri
 az sig list -o table
 ```
 
-List the image definitions in a gallery, including information about OS type and status, using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list).
+**List the image definitions** 
+
+See all of image definitions in your gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list):
 
 ```azurecli-interactive 
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-List the image versions in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list).
+List all of the image definitions shared with your subscription using [az sig image-definition list-shared](/cli/azure/sig/image-definition#az_sig_image_definition_list_shared):
+
+```azurecli-interactive 
+az sig image-definition list-shared --resource-group myGalleryRG --gallery-name myGallery -o table
+```
+
+List all fo the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community):
+
+```azurecli-interactive 
+az sig image-definition list-community --resource-group myGalleryRG --gallery-name myGallery -o table
+```
+
+**List image versions** 
+
+List image versions in your gallery using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list):
 
 ```azurecli-interactive
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
 ```
 
-Get the ID of an image version using [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show).
+List image versions that are shared with your subscription using [az sig image-version list-shared](/cli/azure/sig/image-version#az_sig_image_version_list_shared):
+
+```azurecli-interactive
+az sig image-version list-shared --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
+```
+
+List image versions shared in a community gallery using [az sig image-version list-community](/cli/azure/sig/image-version#az_sig_image_version_list_community):
+
+```azurecli-interactive
+az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
+```
+
+**Get the image version ID**
+
+Get the ID of an image version in your gallery using [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show). Like the other `list` and `show` commands, you can use `list-shared` to see image versions shared to your subscription, or `list-community` to see images shared into a community gallery. 
+
+In this example, we are querying for the image ID of an image version in our *myGallery** image gallery:
 
 ```azurecli-interactive
 az sig image-version show \
