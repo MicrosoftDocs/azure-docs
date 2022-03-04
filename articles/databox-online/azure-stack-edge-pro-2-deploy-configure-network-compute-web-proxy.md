@@ -280,15 +280,15 @@ Follow these steps to reconfigure Port 1:
 
 1. Make sure that your node is cabled as per the selected topology.
 1. Select **Apply**.
-1. You'll see a **Confirm network setting** dialog. This dialog reminds you to make sure that your node is cabled as per the network topology you selected. Once you choose the network cluster topology, you can't change this topology without a device reset. Select **Yes** to confirm the network topology. 
+1. You'll see a **Confirm network setting** dialog. This dialog reminds you to make sure that your node is cabled as per the network topology you selected. Once you choose the network cluster topology and create a cluster, you can't update the topology without a device reset. Select **Yes** to confirm the network topology. 
 
     ![Screenshot of local web UI "Confirm network setting" dialog.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/confirm-network-setting-1.png)
 
     The network topology setting takes a few minutes to apply and you see a notification when the settings are successfully applied.
 
-    If for any reason, you need to reset or update the network topology, you can use the Update topology option.
+    If for any reason, you need to reset or update the network topology, you can use the **Update topology** option. If you update the topology, you may need to make sure the cabling for the device is changed accordingly.
 
-    ![Screenshot of local web UI "Update network topology" selected.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/confirm-network-setting-1.png)
+    ![Screenshot of local web UI "Update network topology" selected.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/update-topology-1.png)
 
 1. Once the network topology is applied, the **Network** page updates. For example, if you selected network topology that uses external switches and separate virtual switches, you'll see that on the device node, a virtual switch **vSwitch1** is created at Port 1 and another virtual switch, **vSwitch2** is created on Port 2. Port 3 and Port 4 don't have any virtual switches.
 
@@ -501,7 +501,7 @@ After the cluster is formed and configured, you'll now create new virtual switch
 
 1. The configuration takes a couple minutes to apply and you may need to refresh the browser. You can see that the specified virtual switch is created and enabled for compute. 
  
-    ![Screenshot of configuring compute in Advanced networking in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
+    ![Screenshot of configuring compute in Advanced networking in local UI 3](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 
 
 To delete a virtual switch, under the **Virtual switch** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks will also be deleted.
