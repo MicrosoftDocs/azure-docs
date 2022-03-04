@@ -241,7 +241,7 @@ First define a user assigned identity (default values are included as examples) 
   ]}
 ```
 
-Then grant this identity access to the vault secrets - refer to the [official documentation](/rest/api/keyvault/vaults/updateaccesspolicy) for current information:
+Then grant this identity access to the vault secrets - refer to the [official documentation](/rest/api/keyvault/keyvault/vaults/update-access-policy) for current information:
 ```json
   "resources":
   [{
