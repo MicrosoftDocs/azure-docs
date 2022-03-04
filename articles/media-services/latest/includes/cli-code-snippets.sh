@@ -36,21 +36,21 @@ az ams account list
 # </AmsAccountList>
 
 # <AmsAccountShow>
-az ams account show
+az ams account show --name myAmsAccount -g myRG
     #type: command
     #short-summary: Show the details of an Azure Media Services account.
 
 # </AmsAccountShow>
 
 # <AmsAccountDelete>
-az ams account delete
+az ams account delete --name myAmsAccount -g myRG
     #type: command
     #short-summary: Delete an Azure Media Services account.
 
 # </AmsAccountDelete>
 
 # <AmsAccountCheckName>
-az ams account check-name
+az ams account check-name --location chooseLocation --name myAmsAccount
     #type: command
     #short-summary: Checks whether the Media Service resource name is available.
 
@@ -88,15 +88,8 @@ az ams account encryption set -a myAmsAccount -g myRG --key-type CustomerKey --k
 
 # </AmsAccountEncryptionSet>
 
-# <AmsAccountStorage>
-az ams account storage
-    #type: group
-    #short-summary: Manage storage for an Azure Media Services account.
-
-# </AmsAccountStorage>
-
 # <AmsAccountStorageAdd>
-az ams account storage add
+az ams account storage add -g myRG -account-name myStorageAccount --name myAmsAccount
     #type: command
     #short-summary: Attach a secondary storage to an Azure Media Services account.
 
