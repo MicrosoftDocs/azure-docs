@@ -4,8 +4,8 @@ description: The article details how to use update management center (preview) i
 ms.service: update-management-center
 ms.date: 10/28/2021
 ms.topic: conceptual
-author: riva-yadav
-ms.author: riyadav
+author: SGSneha
+ms.author: v-ssudhir
 ms.custom: references_regions
 ---
 

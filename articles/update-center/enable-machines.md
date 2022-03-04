@@ -237,6 +237,8 @@ Replace the value `subscriptionId` with the ID of the target subscription.
 >[!Note]
 > The Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
 
+---
+
 ## Next steps
 
 - [View updates for single machine](view-updates.md) 
