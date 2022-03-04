@@ -19,10 +19,12 @@ ms.author: v-baolianzou
 
 The custom neural voice lets you build higher-quality voice models while requiring less data. You can develop more realistic, natural, and conversational voices. Your customers and end users will benefit from the latest Text-to-Speech technology, in a responsible way. 
 
-|Custom voice  |Custom neural voice | 
+|Custom voice |Custom neural voice | 
 |--|--|
 | The standard, or "traditional," method of custom voice breaks down spoken language into phonetic snippets that can be remixed and matched using classical programming or statistical methods.  | Custom neural voice synthesizes speech using deep neural networks that have "learned" the way phonetics are combined in natural human speech rather than using classical programming or statistical methods.|
-| Custom voice requires a large volume of voice data to produce a more human-like voice model. With fewer recorded lines, a standard custom voice model will tend to sound more obviously robotic. |The custom neural voice capability enables you to create a unique brand voice in multiple languages and styles by using a small set of recordings.|
+| Custom voice<sup>1</sup>  requires a large volume of voice data to produce a more human-like voice model. With fewer recorded lines, a standard custom voice model will tend to sound more obviously robotic. |The custom neural voice capability enables you to create a unique brand voice in multiple languages and styles by using a small set of recordings.|
+
+<sup>1</sup> When creating a custom voice model, the maximum number of data files allowed to be imported per subscription is 10 .zip files for free subscription (F0) users, and 500 for standard subscription (S0) users. 
 
 ## Action required
 
@@ -89,6 +91,68 @@ If you've created a custom voice font, use the endpoint that you've created. You
 | West Central US | `https://westcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+
+ ## Custom Text-to-Speech container image tags
+
+The [Custom Text-to-Speech][sp-ctts] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech`. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-text-to-speech/tags/list).
+
+
+# [Latest version](#tab/current)
+
+Release note for `1.15.0-amd64`:
+
+Regular monthly release
+
+| Image Tags                    | Notes | Digest                                                                    |
+|-------------------------------|:------|:--------------------------------------------------------------------------|
+| `latest`                      |       | `sha256:06eef68482a917a5c405b61146dc159cff6aef0bd8e13cfd8f669a79c6b1a071` |
+| `1.15.0-amd64`                |       | `sha256:06eef68482a917a5c405b61146dc159cff6aef0bd8e13cfd8f669a79c6b1a071` |
+
+
+# [Previous version](#tab/previous)
+
+Release note for `1.14.1-amd64`:
+
+Regular monthly release
+
+Release note for `1.13.0-amd64`:
+
+**Fixes**
+* Keep user's inputs case-sensitive.
+
+Release note for `1.12.0-amd64`:
+
+Regular monthly release
+
+Release note for `1.11.0-amd64`:
+
+**Features**
+* More error details for issues when fetching custom models by ID.
+
+Release note for `1.9.0-amd64`:
+
+Regular monthly release
+
+Release note for `1.8.0-amd64`:
+
+**Features**
+* Fully migrated to .NET 3.1
+
+Release note for `1.7.0-amd64`:
+
+**Features**
+* Partially migrated to .NET 3.1
+
+| Image Tags                    | Notes               |
+|-------------------------------|:--------------------|
+| `1.13.0-amd64`                |                     |
+| `1.12.0-amd64`                |                     |
+| `1.11.0-amd64`                |                     |
+| `1.9.0-amd64`                 |                     |
+| `1.8.0-amd64`                 |                     |
+| `1.7.0-amd64`                 |   1st GA version    |
+
+---
 
 ## Next steps
 
