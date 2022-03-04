@@ -31,7 +31,7 @@ This Azure CLI script example creates everything needed to run several Ubuntu vi
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/load-balancer/load-balance-vms-within-specific-availability-zone.sh" id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/load-balancer/load-balance-vms-within-specific-availability-zone/load-balance-vms-within-specific-availability-zone.sh" id="FullScript":::
 
 ## Clean up resources
 
