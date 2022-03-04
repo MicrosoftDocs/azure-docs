@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/04/2022
+ms.date: 03/04/2022
 ms.author: ryanwi
 ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 ---
@@ -30,6 +30,10 @@ There are certain sets of claims that define how and when they're used in tokens
 | Core claim set | Are present in every token regardless of the policy. These claims are also considered restricted, and can't be modified. |
 | Basic claim set | Includes the claims that are emitted by default for tokens (in addition to the core claim set). You can [omit or modify basic claims](active-directory-claims-mapping.md#omit-the-basic-claims-from-tokens) by using the claims mapping policies. |
 | Restricted claim set | Can't be modified using policy. The data source cannot be changed, and no transformation is applied when generating these claims. |
+
+This section lists:
+- [Table 1: JSON Web Token (JWT) restricted claim set](#table-1-json-web-token-jwt-restricted-claim-set)
+- [Table 2: SAML restricted claim set](#table-2-saml-restricted-claim-set)
 
 ### Table 1: JSON Web Token (JWT) restricted claim set
 
@@ -175,32 +179,40 @@ There are certain sets of claims that define how and when they're used in tokens
 
 ### Table 2: SAML restricted claim set
 
-| Claim type (URI) |
-| ----- |
-|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
-|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
-|`http://schemas.microsoft.com/2014/03/psso`|
-|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
-|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
-|`http://schemas.microsoft.com/claims/groups.link`|
-|`http://schemas.microsoft.com/identity/claims/accesstoken`|
-|`http://schemas.microsoft.com/identity/claims/acct`|
-|`http://schemas.microsoft.com/identity/claims/agegroup`|
-|`http://schemas.microsoft.com/identity/claims/aio`|
-|`http://schemas.microsoft.com/identity/claims/identityprovider`|
-|`http://schemas.microsoft.com/identity/claims/objectidentifier`|
-|`http://schemas.microsoft.com/identity/claims/openid2_id`|
-|`http://schemas.microsoft.com/identity/claims/puid`|
-|`http://schemas.microsoft.com/identity/claims/tenantid`|
-|`http://schemas.microsoft.com/identity/claims/xms_et`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
+The following table lists the SAML claims that are by default in the restricted claim set. Some claims are not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest and/or have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).  See the Notes column for more information.
 
+| Claim type (URI) | Notes |
+| ----- | ----_ |
+|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`| |
+|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`| |
+|`http://schemas.microsoft.com/2014/03/psso`| |
+|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`| |
+|`http://schemas.microsoft.com/claims/authnmethodsreferences`| |
+|`http://schemas.microsoft.com/claims/groups.link`| |
+|`http://schemas.microsoft.com/identity/claims/accesstoken`| |
+|`http://schemas.microsoft.com/identity/claims/acct`| |
+|`http://schemas.microsoft.com/identity/claims/agegroup`| |
+|`http://schemas.microsoft.com/identity/claims/aio`| |
+|`http://schemas.microsoft.com/identity/claims/identityprovider`| |
+|`http://schemas.microsoft.com/identity/claims/objectidentifier`| |
+|`http://schemas.microsoft.com/identity/claims/openid2_id`| |
+|`http://schemas.microsoft.com/identity/claims/puid`| |
+|`http://schemas.microsoft.com/identity/claims/tenantid`| |
+|`http://schemas.microsoft.com/identity/claims/xms_et`| |
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`| |
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`| |
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`| |
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`| |
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`| |
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`| |
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`| |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname` | This claim is restricted by default, but is not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *OR* you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key). |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` | This claim is restricted by default, but is not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *OR* you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).|
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid` | This claim is restricted by default, but is not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *OR* you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).|
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid` | This claim is restricted by default, but is not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *OR* you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).|
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname` | This claim is restricted by default, but is not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *OR* you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).|
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` | This claim is restricted by default, but is not restricted if you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key). |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` | This claim is restricted by default, but is not restricted if you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key). |
 
 ## Claims mapping policy properties
 
