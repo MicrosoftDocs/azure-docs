@@ -1,11 +1,9 @@
 ---
 title: Azure Event Grid trigger for Azure Functions
 description: Learn to run code when Event Grid events in Azure Functions are dispatched.
-author: ggailey777
 
 ms.topic: reference
-ms.date: 02/14/2020
-ms.author: cshoe
+ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, fasttrack-edit, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
