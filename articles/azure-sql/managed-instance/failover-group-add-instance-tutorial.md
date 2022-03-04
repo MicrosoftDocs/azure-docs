@@ -16,11 +16,18 @@ ms.date: 08/27/2019
 # Tutorial: Add SQL Managed Instance to a failover group
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Add managed instances of Azure SQL Managed Instance to a failover group. In this article, you will learn how to:
+> [!div class="op_single_selector"]
+> * [Azure SQL Database (single database)](../database/failover-group-add-single-database-tutorial.md)
+> * [Azure SQL Database (elastic pool)](../database/failover-group-add-elastic-pool-tutorial.md)
+> * [Azure SQL Managed Instance](failover-group-add-instance-tutorial.md)
+
+Add managed instances of Azure SQL Managed Instance to an [auto-failover group](auto-failover-group-sql-mi.md). 
+
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > - Create a primary managed instance.
-> - Create a secondary managed instance as part of a [failover group](../database/auto-failover-group-overview.md). 
+> - Create a secondary managed instance as part of a failover group. 
 > - Test failover.
 
  There are multiple ways to establish connectivity between managed instances in different virtual networks, including:
