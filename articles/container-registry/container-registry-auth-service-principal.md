@@ -107,7 +107,7 @@ For example steps, see [Pull images from a container registry to an AKS cluster 
 
 ## Service principal renewal
 
-The service principal is created with one-year validity. You have options to extend the validity further than one year, or can provide expiry date of your choice using `az ad sp credential reset` command. For more information, [visit](https://docs.microsoft.com/cli/azure/ad/sp/credential?view=azure-cli-latest#az-ad-sp-credential-reset)
+The service principal is created with one-year validity. You have options to extend the validity further than one year, or can provide expiry date of your choice using the [`az ad sp credential reset`](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command. 
 
 ## Next steps
 
