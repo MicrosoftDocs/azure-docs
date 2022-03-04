@@ -46,10 +46,10 @@ To set up the appliance using a VHD template:
 
 In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**.
 
-   ![Screenshot of selections for Discover servers.](./media/tutorial-assess-hyper-v/servers-discover.png)
+   :::image type="content" source="./media/tutorial-assess-hyper-v/servers-discover.png" alt-text="Screenshot of selections for Discover servers.":::
 
 
-   ![Scereenshot of selections for Generate Key.](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
+   :::image type="content" source="./media/tutorial-assess-hyper-v/generate-key-hyperv-inline.png" alt-text="Screenshots of selections for Generate Key." lightbox="./media/tutorial-assess-hyper-v/generate-key-hyperv-expanded.png":::
 
 ### Verify security
 

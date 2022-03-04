@@ -88,7 +88,7 @@ Ensure the user downloading the inventory from the portal has Contributor privil
 
 Azure Migrate supports software inventory by using Azure Migrate: Discovery and assessment. [Learn more](how-to-discover-applications.md) about how software inventory is performed.
 
-For VMware VMs, software inventory is performed by connecting to the servers via the vCenter Server using the VMware APIs. For Hyper-V VMs and physical servers, software inventory is performed by directly connecting to Windows servers using PS remoting on port 5985 (HTTP) and to Linux servers using SSH connectivity on port 22 (TCP).
+For VMware VMs, software inventory is performed by connecting to the servers via the vCenter Server using the VMware APIs. For Hyper-V VMs and physical servers, software inventory is performed by directly connecting to Windows servers using PowerShell remoting on port 5985 (HTTP) and to Linux servers using SSH connectivity on port 22 (TCP).
 
 The table below summarizes all errors encountered when gathering software inventory data through VMware APIs or by directly connecting to servers:
 

@@ -47,7 +47,7 @@ Before you start this tutorial, ensure you have these prerequisites in place.
 
 To create a project and register the Azure Migrate appliance, you need an account with:
 - Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Azure Active Directory (AAD) apps.
+- Permissions to register Azure Active Directory apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -66,13 +66,13 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Screenshot of the Add Role assignment page to assign a role to the account.](./media/tutorial-discover-physical/assign-role.png)
 
-1. To register the appliance, your Azure account needs **permissions to register AAD apps.**
+1. To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps.**
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
 1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-physical/register-apps.png)
 
-9. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare physical servers
 
@@ -84,10 +84,10 @@ For Windows servers, use a domain account for domain-joined servers, and a local
 
 ### Option 1
 
-- Create an account that has administrator privileges on the servers. This account can be used to pull configuration and performance data through CIM connection and perform software inventory (discovery of installed applications) and enbale agentless depenendency analysis using PS remoting.
+- Create an account that has administrator privileges on the servers. This account can be used to pull configuration and performance data through CIM connection and perform software inventory (discovery of installed applications) and enable agentless dependency analysis using PowerShell remoting.
 
 > [!Note]
-> If you want to perform software inventory (discovery of installed applications) and enbale agentless depenendency analysis on Windows servers, it recommended to use Option 1.
+> If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Windows servers, it recommended to use Option 1.
 
 ### Option 2
 - The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
@@ -103,13 +103,13 @@ For Windows servers, use a domain account for domain-joined servers, and a local
 For Linux servers, you can create a user account in one of three ways:
 
 ### Option 1
-- You need a root account on the servers that you want to discover. This account can be used to pull configuration and performance metadata and perform software inventory (discovery of installed applications) and enbale agentless depenendency analysis using SSH connectivity.
+- You need a root account on the servers that you want to discover. This account can be used to pull configuration and performance metadata and perform software inventory (discovery of installed applications) and enable agentless dependency analysis using SSH connectivity.
 
 > [!Note]
-> If you want to perform software inventory (discovery of installed applications) and enbale agentless depenendency analysis on Windows servers, it recommended to use Option 1.
+> If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Windows servers, it recommended to use Option 1.
 
 ### Option 2
-- To discover the configuration and performance metedata from Linux servers, you can provide a user account with sudo permissions.
+- To discover the configuration and performance metadata from Linux servers, you can provide a user account with sudo permissions.
 - The support to add a user account with sudo access is provided by default with the new appliance installer script downloaded from portal after July 20,2021.
 - For older appliances, you can enable the capability by following these steps:
     1. On the server running the appliance, open the Registry Editor.
@@ -301,7 +301,7 @@ Now, connect from the appliance to the physical servers to be discovered, and st
     - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove a server, click on **Delete**.
 1. You can **revalidate** the connectivity to servers anytime before starting the discovery.
-1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers.You can change this option at any time.
+1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
 
     :::image type="content" source="./media/tutorial-discover-physical/disable-slider.png" alt-text="Screenshot that shows where to disable the slider.":::
 

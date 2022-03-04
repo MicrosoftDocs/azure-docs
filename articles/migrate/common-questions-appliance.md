@@ -64,7 +64,7 @@ See the following articles for information about data that the Azure Migrate app
 
 - **Servers in VMware environment**: [Review](discovered-metadata.md#collected-metadata-for-vmware-servers) collected data.
 - **Servers in Hyper-V environment**: [Review](discovered-metadata.md#collected-metadata-for-hyper-v-servers) collected data.
-- **Physical or virtual servers**:[Review](discovered-metadata.md#collected-data-for-physical-servers) collected data.
+- **Physical or virtual servers**: [Review](discovered-metadata.md#collected-data-for-physical-servers) collected data.
 
 ## How is data stored?
 

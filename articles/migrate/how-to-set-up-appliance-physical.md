@@ -44,7 +44,7 @@ To set up the appliance you:
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
-   ![Screenshots of selections for Generate Key.](./media/tutorial-assess-physical/generate-key-physical-1.png)
+    :::image type="content" source="./media/tutorial-assess-physical/generate-key-physical-1-inline.png" alt-text="Screenshots of selections for Generate Key." lightbox="./media/tutorial-assess-physical/generate-key-physical-1-expanded.png":::
 
 ### Download the installer script
 

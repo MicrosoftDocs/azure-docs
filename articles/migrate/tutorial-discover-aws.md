@@ -45,7 +45,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 To create a project and register the Azure Migrate appliance, you need an account with:
 
 * Contributor or Owner permissions on an Azure subscription.
-* Permissions to register Azure Active Directory (AAD) apps.
+* Permissions to register Azure Active Directory apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -64,13 +64,13 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Screenshot of the Add Role assignment page to assign a role to the account.](./media/tutorial-discover-aws/assign-role.png)
 
-1. To register the appliance, your Azure account needs **permissions to register AAD apps.**
+1. To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps.**
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
 1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     ![Image to Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-aws/register-apps.png)
 
-1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare AWS instances
 
