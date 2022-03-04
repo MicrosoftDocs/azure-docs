@@ -88,9 +88,9 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 ## NSX-T Manager access and identity
 
-When a private cloud is provisioned using Azure portal, Software Defined Data Center (SDDC) management components like vCenter and NSX-T Manager, are provisioned for customers. 
+When a private cloud is provisioned using Azure portal, Software Defined Data Center (SDDC) management components like vCenter and NSX-T Manager are provisioned for customers. 
 
-Microsoft is responsible for the lifecycle management of NSX-T appliances like, NSX-T Managers and NSX-T Edges. They're responsible for bootstrapping network configuration, like creating the Tier-0 gateway. 
+Microsoft is responsible for the lifecycle management of NSX-T appliances like NSX-T Managers and NSX-T Edges. They're responsible for bootstrapping network configuration, like creating the Tier-0 gateway. 
 
 You're responsible for NSX-T SDN configuration, for example:
 
@@ -100,7 +100,7 @@ You're responsible for NSX-T SDN configuration, for example:
 - Stateful services like gateway firewall 
 - Load balancer on Tier-1 gateways 
 
-You can access NSX-T Manager using the built-in local user "admin" assigned to **Enterprise admin** role that gives full privileges to a user to manage NSX-T. While Microsoft manages the lifecycle of NSX-T, certain operations aren't allowed by a user. Operations not allowed include, editing the configuration of host and edge transport nodes or start an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
+You can access NSX-T Manager using the built-in local user "admin" assigned to **Enterprise admin** role that gives full privileges to a user to manage NSX-T. While Microsoft manages the lifecycle of NSX-T, certain operations aren't allowed by a user. Operations not allowed include editing the configuration of host and edge transport nodes or start an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
 
 For new private cloud deployments starting **January 2022**, NSX-T access will be provided with a built-in local user cloud admin assigned to the **CloudAdmin** role with a specific set of permissions to use NSX-T functionality for workloads. You can add an identity source, like on-premises LDAP server, and assign AD users and groups to the **CloudAdmin** role in NSX-T. 
 
