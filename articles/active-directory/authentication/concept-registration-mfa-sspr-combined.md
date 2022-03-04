@@ -21,7 +21,8 @@ Before combined registration, users registered authentication methods for Azure 
 
 > [!NOTE]
 > Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. 
-> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration. After this date tenants will be unable to utilize the sepperate legacy registration workflows for MFA and SSPR.
+> 
+> After Sept. 30th, 2022, all users will register security information through the combined registration experience. 
 
 This article outlines what combined security registration is. To get started with combined security registration, see the following article:
 

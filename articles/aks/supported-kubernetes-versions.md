@@ -156,9 +156,9 @@ For new **minor** versions of Kubernetes:
   * Users have **30 days** from version removal to upgrade to a supported minor version release  to continue receiving support.
 
 For new **patch** versions of Kubernetes:
-  * Because of the urgent nature of patch versions, they can be introduced into the service as they become available.
+  * Because of the urgent nature of patch versions, they can be introduced into the service as they become available. Once available, patches will have a two month minimum lifecycle.
   * In general, AKS does not broadly communicate the release of new patch versions. However, AKS constantly monitors and validates available CVE patches to support them in AKS in a timely manner. If a critical patch is found or user action is required, AKS will notify users to upgrade to the newly available patch.
-  * Users have **30 days** from a patch release's removal from AKS to upgrade into a supported patch and continue receiving support.
+  * Users have **30 days** from a patch release's removal from AKS to upgrade into a supported patch and continue receiving support. However, you will **no longer be able to create clusters or node pools once the version is deprecated/removed.**
 
 ### Supported versions policy exceptions
 
@@ -264,6 +264,10 @@ No. Once a version is deprecated/removed, you cannot create a cluster with that 
 **I am on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?**
 
 No. You will not be allowed to add node pools of the deprecated version to your cluster. You can add node pools of a new version. However, this may require you to update the control plane first.
+
+**How often do you update patches?**
+
+Patches have a two month minimum lifecycle. To keep up to date when new patches are released, follow the [AKS Release Notes](https://github.com/Azure/AKS/releases).
 
 ## Next steps
 

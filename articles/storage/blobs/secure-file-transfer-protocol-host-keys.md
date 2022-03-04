@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: reference
-ms.date: 01/14/2022
+ms.date: 03/04/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -20,7 +20,7 @@ Blob storage now supports the SSH File Transfer Protocol (SFTP). This support pr
 When you connect to Blob Storage by using an SFTP client, you might be prompted to trust a host key. During the public preview, you can verify the host key by finding that key in the list presented in this article. 
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available in [these regions](secure-file-transfer-protocol-support.md#regional-availability).
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
@@ -226,3 +226,5 @@ When you connect to Blob Storage by using an SFTP client, you might be prompted 
 ## See also
 
 - [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md)
+- [Known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)

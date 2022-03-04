@@ -2,7 +2,7 @@
 title: Configure data collection for the Azure Monitor agent
 description: Describes how to create a data collection rule to collect data from virtual machines using the Azure Monitor agent.
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 03/1/2022
 
 ---
 
@@ -79,7 +79,9 @@ To specify additional filters, you must use Custom configuration and specify an 
 See [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitations) for a list of limitations in the XPath supported by Windows event log.
 
 > [!TIP]
-> Use the PowerShell cmdlet `Get-WinEvent` with the `FilterXPath` parameter to test the validity of an XPathQuery. The following script shows an example.
+> Use this **shortcut** to create syntactically correct XPath queries: [Extract XPath queries from Windows Event Viewer](https://azurecloudai.blog/2021/08/10/shortcut-way-to-create-your-xpath-queries-for-azure-sentinel-dcrs/)  
+> 
+> Alternatively you can use the PowerShell cmdlet `Get-WinEvent` with the `FilterXPath` parameter to test the validity of an XPathQuery. The following script shows an example.
 > 
 > ```powershell
 > $XPath = '*[System[EventID=1035]]'
