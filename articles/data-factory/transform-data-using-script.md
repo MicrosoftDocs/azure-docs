@@ -163,10 +163,10 @@ Sample output:
 
 |Property name  |Description  |Condition  |
 |---------|---------|---------|
-|resultSetCount     |The count of result sets returned by the script.           |If firstRowOnly is false.          |
-|resultSets     |The array which contains all the result sets.           |If firstRowOnly is false.          |
-|resultSets.rowCount      |Total rows in the result set.         |If firstRowOnly is false.          |
-|resultSets.rows      |The array of rows in the result set.           |If firstRowOnly is false.          |
+|resultSetCount     |The count of result sets returned by the script.           |Always         |
+|resultSets     |The array which contains all the result sets.           |Always          |
+|resultSets.rowCount      |Total rows in the result set.         |Always          |
+|resultSets.rows      |The array of rows in the result set.           |Always         |
 |recordsAffected      |The row count of affected rows by the script.         |If scriptType is NonQuery.          |
 |outputParameters     |The output parameters of the script.         |If parameter type is Output or InputOutput.          |
 |outputLogs     |The logs written by the script, for example, print statement.         |If connector supports log statement and enableScriptLogs is true and logLocationSettings is not provided.          |
@@ -176,8 +176,9 @@ Sample output:
 > [!NOTE]
 > - The output is collected every time a script block is executed. The final output is the merged result of all script block outputs. The output parameter with same name in different script block will get overwritten. 
 > - Since the output has size / rows limitation, the output will be truncated in following order: logs -> parameters -> rows. Note, this applies to a single script block, which means the output rows of next script block won’t evict previous logs. 
-> - Any error caused by log won’t fail activity. 
-> - For consuming activity output in down stream activity please refer to the [Lookup activity result documentation](control-flow-lookup-activity.md#use-the-lookup-activity-result).
+> - Any error caused by log won’t fail the activity. 
+> - For consuming activity output resultSets in down stream activity please refer to the [Lookup activity result documentation](control-flow-lookup-activity.md#use-the-lookup-activity-result).
+> - Use outputLogs when you are using 'PRINT' statements for logging purpose. If query returns resultSets, it will be available in the activity output and will be limited to 5000 rows/ 2MB size limit. 
 
 ## Configure the Script activity using UI
 
@@ -204,7 +205,7 @@ Logging options:
 - _External storage_ – Persists output to storage.  Use this option if the output size is greater than 2MB or you would like to explicitly persist the output on your storage account.
  
 > [!NOTE]
-> **Billing** - The Script activity will be billed as **Pipeline activities**.
+> **Billing** - The Script activity will be [billed](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) as **Pipeline activities**.
 
 ## Next steps
 See the following articles that explain how to transform data in other ways:

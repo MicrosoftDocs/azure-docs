@@ -7,7 +7,7 @@ ms.date: 02/14/2022
 ms.author: helohr
 manager: femila
 ---
-# Use Microsoft Teams on Azure Virtual desktop
+# Use Microsoft Teams on Azure Virtual Desktop
 
 >[!IMPORTANT]
 >Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams is not supported for Microsoft 365 DoD.

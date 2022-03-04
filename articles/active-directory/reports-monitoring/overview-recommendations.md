@@ -15,7 +15,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/28/2022
+ms.date: 03/01/2022
 ms.author: markvi
 ms.reviewer: hafowler  
 
@@ -154,10 +154,52 @@ To manage your Azure AD recommendations:
 
 
 
-
 ### Update the status of a resource 
 
 To update the status of a resource, you have to right click a resource to bring up the edit menu. 
+
+
+## Who can access it?
+
+The Azure AD recommendations feature supports all editions of Azure AD. In other words, there is no specific subscription or license required to use this feature. 
+
+To (re-) view your recommendations, you need to be:
+
+- Global reader
+
+- Security reader
+
+- Reports reader
+
+
+To manage your recommendations, you need to be:
+
+- Global admin
+
+- Security admin
+
+- Security operator
+
+- Cloud app admin
+
+- App admin
+
+
+
+
+## What you should know
+
+- On the recommendations page, you might not see all supported recommendations. This is because Azure AD only displays the recommendations that apply to your tenant.
+
+- Some recommendations have a list of impacted resources associated. This list of resources gives you more context on how the recommendation applies to you and/or which resources you need to address.
+
+**Right now:** 
+
+- You can update the status of a recommendation with a read only roles (global reader, security reader, reports reader). This is a known issue that will be fixed.
+
+- The only action recorded in the audit log is completing recommendations.
+
+- Audit logs do not capture actions taken by reader roles. 
 
 
 

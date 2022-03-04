@@ -121,8 +121,6 @@
           href: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
         - name: High availability
           href: database/high-availability-sla.md
-        - name: Auto-failover groups
-          href: database/auto-failover-group-overview.md
         - name: Backup and recovery 
           items:
           - name: Automated backups
@@ -183,8 +181,6 @@
 
     - name: Business continuity  
       items: 
-      - name: Configure failover group
-        href: database/auto-failover-group-configure.md
       - name: Configure temporal retention policy
         href: database/temporal-tables-retention-policy.md
       - name: Configure backup retention using Azure Blob storage
@@ -298,7 +294,7 @@
       href: database/single-database-overview.md
     - name: Elastic pools
       href: database/elastic-pool-overview.md
-    - name: Logical SQL servers
+    - name: Logical servers
       href: database/logical-servers.md
     - name: Purchasing models
       items: 
@@ -459,6 +455,8 @@
       items: 
       - name: Active geo-replication
         href: database/active-geo-replication-overview.md
+      - name: Auto-failover groups
+        href: database/auto-failover-group-sql-db.md
       - name: Outage recovery guidance
         href: database/disaster-recovery-guidance.md
       - name: Recovery drills
@@ -627,6 +625,8 @@
       items: 
       - name: Configure backup retention using Azure Blob storage
         href: database/long-term-backup-retention-configure.md
+      - name: Create auto-failover group
+        href: database/auto-failover-group-configure-sql-db.md
       - name: Configure geo-replication - Portal
         href: database/active-geo-replication-configure-portal.md
       - name: Configure security for geo-replicas
@@ -942,6 +942,8 @@
     items:
     - name: Connectivity architecture
       href: managed-instance/connectivity-architecture-overview.md
+    - name: Auto-failover groups
+      href: managed-instance/auto-failover-group-sql-mi.md
     - name: T-SQL differences
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
     - name: Transactional replication
@@ -950,6 +952,8 @@
       href: managed-instance/link-feature.md
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
+    - name: Data virtualization 
+      href: managed-instance/data-virtualization-overview.md
     - name: Management operations
       items:
       - name: Overview
@@ -1146,7 +1150,32 @@
         href: managed-instance/public-endpoint-overview.md
       - name: Server trust groups
         href: managed-instance/server-trust-group-overview.md
-
+      - name: Windows Auth for Azure AD Principals
+        items:
+        - name: Overview
+          displayName: Windows Authentication for Azure AD Principals with Kerberos Overview
+          href: managed-instance/winauth-azuread-overview.md
+        - name: Implementation with Kerberos
+          displayName: Windows Authentication for Azure AD Principals Implementation with Kerberos
+          href: managed-instance\winauth-implementation-aad-kerberos.md
+        - name: Setup summary
+          displayName: Windows Authentication for Azure AD Principals with Kerberos Setup
+          href: managed-instance\winauth-azuread-setup.md
+        - name: Set up the modern interactive flow
+          displayName: Windows authentication for Azure AD with the modern interactive flow
+          href: managed-instance\winauth-azuread-setup-modern-interactive-flow.md
+        - name: Set up the incoming trust-based flow
+          displayName: Windows authentication for Azure AD with the incoming trust-based flow
+          href: managed-instance\winauth-azuread-setup-incoming-trust-based-flow.md
+        - name: Set up managed instances
+          displayName: Set up managed instances for Windows authentication for Azure AD using Kerberos
+          href: managed-instance\winauth-azuread-kerberos-managed-instance.md
+        - name: Run a trace using Windows Auth
+          displayName: Run a trace using Windows authentication for Azure AD with Kerberos
+          href: managed-instance\winauth-azuread-run-trace-managed-instance.md
+        - name: Troubleshoot
+          displayName: Troubleshoot Windows authentication for Azure AD with Kerberos
+          href: managed-instance\winauth-azuread-troubleshoot.md
   - name: How to
     items:
     - name: How-to documentation
@@ -1204,8 +1233,12 @@
         href: managed-instance/point-in-time-restore.md
       - name: Monitor back up
         href: managed-instance/backup-activity-monitor.md
-      - name: Manually initiate a failover on managed instance
-        href: managed-instance/user-initiated-failover.md
+      - name: Auto-failover groups
+        items: 
+        - name: Create failover group
+          href: managed-instance/auto-failover-group-configure-sql-mi.md
+        - name: Manually initiate a failover
+          href: managed-instance/user-initiated-failover.md
   - name: Samples
     items:
     - name: Azure CLI
@@ -1316,7 +1349,7 @@
           href: virtual-machines/windows/storage-configuration.md
         - name: Automated Patching
           href: virtual-machines/windows/automated-patching.md
-        - name: SQL Assessment
+        - name: SQL best practices assessment
           href: virtual-machines/windows/sql-assessment-for-sql-vm.md
         - name: Azure Key Vault Integration
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
