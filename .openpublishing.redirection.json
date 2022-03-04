@@ -43932,6 +43932,11 @@
           "source_path_from_root": "/articles/azure/marketplace/co-sell-overview.md",
           "redirect_url": "/partner-center/co-sell-overview",
           "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/azure/private-5g-core/activate-sims.md",
+        "redirect_url": "/azure/private-5g-core/provision-sims-azure-portal",
+        "redirect_document_id": false
       }
   ]
 }
