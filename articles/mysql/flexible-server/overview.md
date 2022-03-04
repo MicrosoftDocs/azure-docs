@@ -1,17 +1,19 @@
 ---
 title: Overview - Azure Database for MySQL - Flexible Server
 description: Learn about the Azure Database for MySQL Flexible server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
+ms.service: mysql
+ms.topic: overview
 author: savjani
 ms.author: pariks
-ms.service: mysql
 ms.custom: mvc, references_regions
-ms.topic: overview
 ms.date: 08/10/2021
 ---
+
 # Azure Database for MySQL - Flexible Server
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
+> [!VIDEO https://docs.microsoft.com/shows/data-exposed/top-3-reasons-to-consider-azure-database-for-mysql-flexible-server]
 
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 
