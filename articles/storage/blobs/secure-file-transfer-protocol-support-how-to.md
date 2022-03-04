@@ -28,11 +28,9 @@ To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer 
 
 - A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
-- The account redundancy option of the storage account is set to either locally-redundant storage (LRS) or zone-redundant storage (ZRS).
-
 - The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
-- If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22. The SFTP uses that port.
+- If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22 used by SFTP.
 
 ## Register the feature
 

@@ -69,7 +69,7 @@ az appservice plan create `
 Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
 
 * The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of Python your app is running. This example uses Python 3.9. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
+* The runtime specifies what version of Python your app is running. This example uses Python 3.9. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table`.
 
 #### [bash](#tab/terminal-bash)
 
