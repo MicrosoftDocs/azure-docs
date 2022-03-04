@@ -16,8 +16,8 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
 ## Prerequisites
 
-- Ensure you can sign in to the Azure portal...
-- You'll need access to the distributed tracing web GUI.
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
+- Ensure you can sign in to the distributed tracing web GUI.
 
 ## Create a storage account and blob container in Azure
 
@@ -30,7 +30,7 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 1. Sign in to the distributed tracing web GUI. <!-- at [link]? -->
 1. In the **Search** tab, specify the SUPI and time for the event you are interested in and select **Search**.
     
-    :::image type="content" source="media\distributed-tracing-share-traces\distributed-tracing-search.png" alt-text="Screenshot of the Search display in the distributed tracing web G U I, showing the S U P I and Errors tabs.":::
+    :::image type="content" source="media\distributed-tracing-share-traces\distributed-tracing-search.png" alt-text="Screenshot of the Search display in the distributed tracing web G U I, showing the S U P I search field and date and time range options.":::
 
 1. Find the relevant trace in the **Diagnostics Search Results** tab.
 
@@ -38,7 +38,7 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
 1. Select **Export**.
 
-    :::image type="content" source="media\distributed-tracing-share-traces\distributed-tracing-summary-view-export.png" alt-text="Screenshot of the Summary view of a specific trace in the distributed tracing web G U I, providing information on a Successful P D U Session Establishment record. You can find the Export option in the top ribbon." lightbox="media\distributed-tracing-share-traces\distributed-tracing-summary-view-export.png":::
+    :::image type="content" source="media\distributed-tracing-share-traces\distributed-tracing-summary-view-export.png" alt-text="Screenshot of the Summary view of a specific trace in the distributed tracing web G U I, providing information on a Successful P D U Session Establishment record. The Export button in the top ribbon is highlighted." lightbox="media\distributed-tracing-share-traces\distributed-tracing-summary-view-export.png":::
 
     You'll be prompted to save the file locally.
 
@@ -48,25 +48,25 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 1. Navigate to your Storage account resource.
 1. In the **Resource** menu, select **Containers**.
 
-    :::image type="content" source="media\distributed-tracing-share-traces\containers-resource-menu.png" alt-text="Screenshot of ...":::
+    :::image type="content" source="media\distributed-tracing-share-traces\containers-resource-menu.png" alt-text="Screenshot of the Azure portal showing the Containers option in the resource menu of a Storage account resource." lightbox="media\distributed-tracing-share-traces\containers-resource-menu.png":::
 
 1. Select the container you created for your traces.
 1. Select **Upload**. In the **Upload blob** window, search for the trace file you exported in the previous step and select **Upload**.
 
-    :::image type="content" source="media\distributed-tracing-share-traces\upload-blob-tab.png" alt-text="Screenshot of ..." lightbox="media\distributed-tracing-share-traces\upload-blob-tab.png":::
+    :::image type="content" source="media\distributed-tracing-share-traces\upload-blob-tab.png" alt-text="Screenshot of the Azure portal showing the Overview display of a Container resource. The Upload button is highlighted." lightbox="media\distributed-tracing-share-traces\upload-blob-tab.png":::
 
 ## Share trace for help with diagnostics
 
 1. Navigate to your Container resource.
     
-    :::image type="content" source="media\distributed-tracing-share-traces\container-overview-tab.png" alt-text="Screenshot of ..." lightbox="media\distributed-tracing-share-traces\container-overview-tab.png":::
+    :::image type="content" source="media\distributed-tracing-share-traces\container-overview-tab.png" alt-text="Screenshot of the Azure portal showing the Overview display of a Container resource." lightbox="media\distributed-tracing-share-traces\container-overview-tab.png":::
 
 1. Select the trace you'd like to share.
 1. Select **Generate SAS tab**. <!-- Need screenshot -->
 1. Fill out the fields. <!-- Need screenshot -->
 1. Select **Generate SAS token and URL**.
 
-    :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-token-and-url.png" alt-text="Screenshot of ..." lightbox="media\distributed-tracing-share-traces\generate-sas-token-and-url.png":::
+    :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-token-and-url.png" alt-text="Screenshot of the Azure portal showing the trace blob information window. The Generate S A S tab and Generate S A S token and U R L button are highlighted." lightbox="media\distributed-tracing-share-traces\generate-sas-token-and-url.png":::
 
 1. Copy the contents of the **Blob SAS URL** field. Anyone with access can download your trace by pasting this URL into a browser. <!-- Access to what? -->
 
@@ -78,7 +78,7 @@ You should free up space in your blob storage by deleting the traces you'll no l
 1. Choose the file you want to delete.
 1. Select **Delete**.
 
-:::image type="content" source="media\distributed-tracing-share-traces\container-delete-trace.png" alt-text="Screenshot of ..." lightbox="media\distributed-tracing-share-traces\container-delete-trace.png":::
+:::image type="content" source="media\distributed-tracing-share-traces\container-delete-trace.png" alt-text="Screenshot of the Azure portal showing the Overview display of a Container resource. The Delete button is highlighted." lightbox="media\distributed-tracing-share-traces\container-delete-trace.png":::
 
 ## Next steps
 
