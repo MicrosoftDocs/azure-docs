@@ -4,6 +4,7 @@ description:  Deploy Django app with App Serice and Azure Database for PostgreSQ
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/30/2021

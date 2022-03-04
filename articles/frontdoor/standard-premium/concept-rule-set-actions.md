@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 03/03/2022
 ms.author: yuajia
 ---
 
@@ -54,7 +54,7 @@ In this example, we override the cache expiration to 6 hours, for matched reques
     "cacheBehavior": "SetIfMissing",
     "cacheType": "All",
     "cacheDuration": "0.06:00:00",
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters"
+    "typeName": "DeliveryRuleCacheExpirationActionParameters"
   }
 }
 ```
@@ -68,7 +68,7 @@ In this example, we override the cache expiration to 6 hours, for matched reques
     cacheBehavior: 'SetIfMissing'
     cacheType: All
     cacheDuration: '0.06:00:00'
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters'
+    typeName: 'DeliveryRuleCacheExpirationActionParameters'
   }
 }
 ```
@@ -102,7 +102,7 @@ In this example, we modify the cache key to include a query string parameter nam
   "parameters": {
     "queryStringBehavior": "Include",
     "queryParameters": "customerId",
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheKeyQueryStringBehaviorActionParameters"
+    "typeName": "DeliveryRuleCacheKeyQueryStringBehaviorActionParameters"
   }
 }
 ```
@@ -115,7 +115,7 @@ In this example, we modify the cache key to include a query string parameter nam
   parameters: {
     queryStringBehavior: 'Include'
     queryParameters: 'customerId'
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'
+    typeName: 'DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'
   }
 }
 ```
@@ -151,7 +151,7 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
     "headerAction": "Append",
     "headerName": "MyRequestHeader",
     "value": "AdditionalValue",
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters"
+    "typeName": "DeliveryRuleHeaderActionParameters"
   }
 }
 ```
@@ -165,7 +165,7 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
     headerAction: 'Append'
     headerName: 'MyRequestHeader'
     value: 'AdditionalValue'
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters'
+    typeName: 'DeliveryRuleHeaderActionParameters'
   }
 }
 ```
@@ -200,7 +200,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
   "parameters": {
     "headerAction": "Delete",
     "headerName": "X-Powered-By",
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters"
+    "typeName": "DeliveryRuleHeaderActionParameters"
   }
 }
 ```
@@ -213,7 +213,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
   parameters: {
     headerAction: 'Delete'
     headerName: 'X-Powered-By'
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters'
+    typeName: 'DeliveryRuleHeaderActionParameters'
   }
 }
 ```
@@ -254,7 +254,7 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
     "customHostname": "contoso.com",
     "customPath": "/exampleredirection",
     "customQueryString": "clientIp={client_ip}",
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters"
+    "typeName": "DeliveryRuleUrlRedirectActionParameters"
   }
 }
 ```
@@ -270,7 +270,7 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
     customHostname: 'contoso.com'
     customPath: '/exampleredirection'
     customQueryString: 'clientIp={client_ip}'
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters'
+    typeName: 'DeliveryRuleUrlRedirectActionParameters'
   }
 }
 ```
@@ -306,7 +306,7 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
     "sourcePattern": "/",
     "destination": "/redirection",
     "preserveUnmatchedPath": false,
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters"
+    "typeName": "DeliveryRuleUrlRewriteActionParameters"
   }
 }
 ```
@@ -320,7 +320,7 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
     sourcePattern: '/'
     destination: '/redirection'
     preserveUnmatchedPath: false
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters'
+    typeName: 'DeliveryRuleUrlRewriteActionParameters'
   }
 }
 ```
@@ -354,7 +354,7 @@ In this example, we route all matched requests to an origin group named `SecondO
     "originGroup": {
       "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup"
     },
-    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleOriginGroupOverrideActionParameters"
+    "typeName": "DeliveryRuleOriginGroupOverrideActionParameters"
   }
 }
 ```
@@ -368,7 +368,7 @@ In this example, we route all matched requests to an origin group named `SecondO
     originGroup: {
       id: '/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup'
     }
-    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleOriginGroupOverrideActionParameters'
+    typeName: 'DeliveryRuleOriginGroupOverrideActionParameters'
   }
 }
 ```

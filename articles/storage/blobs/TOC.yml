@@ -328,6 +328,8 @@ items:
         href: storage-blob-container-properties-metadata.md
     - name: Create and manage blobs
       items:
+      - name: Manage blobs (CLI)
+        href: blob-cli.md
       - name: Manage blobs (PowerShell)
         href: blob-powershell.md
       - name: List blobs (SDK)
