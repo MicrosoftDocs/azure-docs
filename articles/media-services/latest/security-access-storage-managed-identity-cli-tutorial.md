@@ -59,11 +59,11 @@ If you're not sure of the actual region name to use, use this command to get a l
 
 Each of the steps below is done in a particular order because one or more values from the JSON responses are used in the next step in the sequence.
 
+<!--Create a resource group -->
+
 [!INCLUDE [Create a resource group with the CLI](./includes/task-create-resource-group-cli.md)]
 
-## Create a Storage account
-
-The Media Services account you'll create must have a storage account associated with it. Create the storage account for the Media Services account first. You'll use `your-storage-account-name` for subsequent steps.
+<!-- Create a storage account -->
 
 [!INCLUDE [Create a Storage account with the CLI](./includes/task-create-storage-account-cli.md)]
 
