@@ -142,6 +142,7 @@ The policy template consists of a trigger (which decides what triggers the backu
             "R/2020-04-05T13:00:00+00:00/PT4H"
           ]
         }
+}
 ```
 
 **Default retention lifecycle:**
