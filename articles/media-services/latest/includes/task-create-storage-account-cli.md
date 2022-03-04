@@ -4,7 +4,6 @@ ms.service: media-services
 ms.topic: include
 ms.date: 03/03/2022
 ms.author: inhenkel
-ms.custom: CLI, devx-track-azurecli
 ---
 
 <!-- ### Create a storage account -->
@@ -19,7 +18,7 @@ To list available regions, use the followng command:
 To create a resource group, use the following command:
 :::code language="azurecli" source="./includes/cli-code-snippets.sh" id="CreateRG" interactive="azurecli-interactive":::
 
-Change `mystorageaccount` to a unique name with a length of less than 24 characters. The command assumes that you have already created a resource group.  Use that resource group name for `myRG`.
+Change `mystorageaccount` to a unique name with a length of less than 24 characters.
 
 Change `chooseRegion` to the region you want to work within. Change `chooseSKU` to your preferred SKU.
 

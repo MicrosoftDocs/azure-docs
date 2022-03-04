@@ -1,4 +1,5 @@
 
+# AZURE
 # Azure storage
 # <CreateStorage>
 az storage account create --name mystorageaccount -g myRG --location chooseLocation --sku chooseSKU
@@ -14,6 +15,7 @@ az account list-locations
 az group create --name myRG --location chooseLocation
 # </CreateRG>
 
+#AMS
 #type: command
 #short-summary: Create an Azure Media Services account.
 # <AmsAccountCreate>
