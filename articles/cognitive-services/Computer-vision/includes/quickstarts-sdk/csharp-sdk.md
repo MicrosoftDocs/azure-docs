@@ -137,7 +137,7 @@ As an optional step, see [How to specify the model version](../../Vision-API-How
 
 ```csharp
   // Read text from URL with a specific model version
-  var textHeaders = await client.ReadAsync(urlFile,null,null,"2021-09-30-preview");
+  var textHeaders = await client.ReadAsync(urlFile,null,null,"2022-01-30-preview");
 ```
 
 ### Get Read results

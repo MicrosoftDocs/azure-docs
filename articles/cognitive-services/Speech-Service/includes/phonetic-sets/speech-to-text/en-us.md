@@ -1,24 +1,13 @@
 ---
-title: "Universal Phone Sets"
-titleSuffix: Azure Cognitive Services
-description: Phone Sets used to customize pronunciation of words in Speech-to-Text.
-author: ut-karsh
-ms.author: umaheshwari
+author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 10/19/2021
-ms.custom: ignite-fall-2021
+ms.date: 02/24/2022
+ms.topic: include
+ms.author: eur
 ---
 
-# Universal Phone Set
-
-This page provides the Universal Phone Set used to customize the pronunciation of words in Custom Speech. See [Customize pronunciation](customize-pronunciation.md) to learn more about customizing pronunciation using phone sets.
-
-
-## English (United States)
-
-### Consonants
+#### Consonants
 
 | UPS Phones | IPA     | Example  |
 |------------|---------|----------|
@@ -75,8 +64,3 @@ This page provides the Universal Phone Set used to customize the pronunciation o
 | UH        | ʊ   | book      |
 | U         | u   | too, blue |
 | UWX       | u.ə | lure      |
-
-## Next steps
-
-* [Customizing Pronunciation](customize-pronunciation.md)
-* [Prepare data for Custom Speech](how-to-custom-speech-test-and-train.md)
