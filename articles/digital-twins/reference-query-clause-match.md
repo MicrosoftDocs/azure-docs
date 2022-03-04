@@ -60,7 +60,7 @@ For more detail about each type of relationship condition and how to combine the
 
 Here is an example query using `MATCH`.
 
-The query specifies a [relationship direction](#specify-relationship-direction), and searches for Building and Sensor Twins where...
+The query specifies a [relationship direction](#specify-relationship-direction), and searches for Building and Sensor twins where...
 * the Sensor is targeted by any relationship from a Building twin with a `$dtId` of Building21, and 
 * the Sensor has a temperature above 50.
 The Building and Sensor are both included in the query result.

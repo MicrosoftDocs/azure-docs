@@ -61,8 +61,8 @@ Leave the browser window open to the Azure portal, as you'll use it again in the
 ## Publish and configure the Azure Functions app
 
 In this section, you'll set up two Azure functions:
-* negotiate - A HTTP trigger function. It uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
-* broadcast - An [Event Grid](../event-grid/overview.md) trigger function. It receives Azure Digital Twins telemetry data through the event grid, and uses the output binding of the SignalR instance you created in the previous step to broadcast the message to all connected client applications.
+* *negotiate* - A HTTP trigger function. It uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
+* *broadcast* - An [Event Grid](../event-grid/overview.md) trigger function. It receives Azure Digital Twins telemetry data through the event grid, and uses the output binding of the SignalR instance you created in the previous step to broadcast the message to all connected client applications.
 
 Start Visual Studio (or another code editor of your choice), and open the code solution in the *digital-twins-samples-master > ADTSampleApp* folder. Then do the following steps to create the functions:
 
@@ -103,9 +103,9 @@ Next, configure the function to communicate with your Azure SignalR instance. Yo
 
 ## Connect the function to Event Grid
 
-Next, subscribe the "broadcast" Azure function to the Event Grid topic you created during the [tutorial prerequisite](how-to-integrate-azure-signalr.md#prerequisites). This action will allow telemetry data to flow from the thermostat67 twin through the Event Grid topic and to the function. From here, the function can broadcast the data to all the clients.
+Next, subscribe the *broadcast* Azure function to the Event Grid topic you created during the [tutorial prerequisite](how-to-integrate-azure-signalr.md#prerequisites). This action will allow telemetry data to flow from the thermostat67 twin through the Event Grid topic and to the function. From here, the function can broadcast the data to all the clients.
 
-To broadcast the data, you'll create an Event subscription from your Event Grid topic to your "broadcast" Azure function as an endpoint.
+To broadcast the data, you'll create an Event subscription from your Event Grid topic to your *broadcast* Azure function as an endpoint.
 
 In the [Azure portal](https://portal.azure.com/), navigate to your Event Grid topic by searching for its name in the top search bar. Select **+ Event Subscription**.
 
@@ -115,7 +115,7 @@ On the **Create Event Subscription** page, fill in the fields as follows (fields
 * **EVENT SUBSCRIPTION DETAILS** > **Name**: Give a name to your event subscription.
 * **ENDPOINT DETAILS** > **Endpoint Type**: Select **Azure Function** from the menu options.
 * **ENDPOINT DETAILS** > **Endpoint**: Select the **Select an endpoint** link, which will open a **Select Azure Function** window:
-    - Fill in your **Subscription**, **Resource group**, **Function app**, and **Function** (*broadcast*). Some of these fields may autopopulate after selecting the subscription.
+    - Fill in your **Subscription**, **Resource group**, **Function app**, and **Function** (**broadcast**). Some of these fields may autopopulate after selecting the subscription.
     - Select **Confirm Selection**.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Screenshot of the form for creating an event subscription in the Azure portal.":::
@@ -132,7 +132,7 @@ In this section, you'll see the result in action. First, configure the sample cl
 
 ### Configure the sample client web app
 
-Next, you'll configure the sample client web app. Start by gathering the HTTP endpoint URL of the "negotiate" function, and then use it to configure the app code on your machine.
+Next, you'll configure the sample client web app. Start by gathering the HTTP endpoint URL of the *negotiate* function, and then use it to configure the app code on your machine.
 
 1. Go to the Azure portal's [Function apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) page and select your function app from the list. In the app menu, select **Functions** and choose the **negotiate** function.
 
@@ -144,7 +144,7 @@ Next, you'll configure the sample client web app. Start by gathering the HTTP en
 
 1. Using Visual Studio or any code editor of your choice, open the unzipped _**digitaltwins-signalr-webapp-sample-main**_ folder that you downloaded in the [Download the sample applications](#download-the-sample-applications) section.
 
-1. Open the *src/App.js* file, and replace the function URL in `HubConnectionBuilder` with the HTTP endpoint URL of the "negotiate" function that you saved in the previous step:
+1. Open the *src/App.js* file, and replace the function URL in `HubConnectionBuilder` with the HTTP endpoint URL of the **negotiate** function that you saved in the previous step:
 
     ```javascript
         const hubConnection = new HubConnectionBuilder()
