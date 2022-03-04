@@ -48,14 +48,14 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 
 - You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
+- If delegated auth is used, make sure proper [Power BI license](/power-bi/admin/service-admin-licensing-organization.md#subscription-license-types) is assigned to Power BI admin user that is used for the scan.
+
 - If self-hosted integration runtime is used:
 
   - Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). The minimum required version is 5.14.8055.1. For more information, see[the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
   
   - Ensure [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html), is installed on the virtual machine where the self-hosted integration runtime is installed.
   
-  - If delegated auth is used, make sure [proper Power BI license](../power-bi/admin/service-admin-licensing-organization.md#subscription-license-types) is assigned to Power BI admin user that is used for the scan.
-
 ## Same Power BI tenant registration and scan
 
 ### Authentication options 
@@ -383,7 +383,7 @@ To create and run a new scan using Azure runtime, perform the following steps:
 
 If delegated auth is used:
 - Check your key vault. Make sure there are no typos in the password.
-- Assign [proper Power BI license](../power-bi/admin/service-admin-licensing-organization.md#subscription-license-types) to Power BI administrator user.
+- Assign proper [Power BI license](/power-bi/admin/service-admin-licensing-organization.md#subscription-license-types) to Power BI administrator user.
 - Validate if user is assigned to Power BI Administrator role.
 - If user is recently created, make sure password is reset successfully and user can successfully initiate the session.
 
