@@ -11,7 +11,6 @@ ms.subservice: B2C
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/15/2021
-ms.reviewer: v-nisba
 ---
 
 # Tutorial: Secure Hybrid Access to applications with Azure AD B2C and F5 BIG-IP
