@@ -42,7 +42,8 @@ CPU consumption is the key indicator of the resource consumption of your dedicat
 
 To monitor the CPU usage of the dedicated cluster you need to follow these steps. 
 - In the metrics blade of your Event Hubs Dedicated cluster, add a new metric in the Event Hubs as shown below. 
-![Event Hubs](./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png)
+:::image type="content" source="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png" alt-text="Dedicated cluster CPU consumption metric" lightbox="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png":::
+
 
 - Select `CPU` as the metrics and use the `Max` as the aggregation. 
 - Then add a filter for the property type `Role`, use the equal operator and select all three values(`SBSAdmin`, `SBSFE`, `SBSEH`) from the dropdown.  
