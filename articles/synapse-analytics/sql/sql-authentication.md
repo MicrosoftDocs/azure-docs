@@ -134,7 +134,7 @@ To create users, connect to the database, and execute statements similar to the 
 
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
-CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
+CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER WITH DEFAULT_SCHEMA =[dbo];
 ```
 
 Initially, only one of the administrators or the owner of the database can create users. To authorize additional users to create new users, grant that selected user the `ALTER ANY USER` permission, by using a statement such as:
