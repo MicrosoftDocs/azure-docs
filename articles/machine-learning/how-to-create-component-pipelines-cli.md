@@ -17,6 +17,7 @@ ms.devlang: azurecli
 # Create and run machine learning pipelines using components with the Azure Machine Learning CLI (Preview)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
 In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure CLI and Components (for more, see [What is an Azure Machine Learning component?](concept-component.md)). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer the greatest amount of flexibility and reuse. AzureML Pipelines may be defined in YAML and run from the CLI, authored in Python, or composed in AzureML Studio Designer with a drag-and-drop UI. This document focuses on the CLI.
 
@@ -171,11 +172,11 @@ Each of these phases may have multiple components. For instance, the data prepar
 
 The `job.yml` begins with the mandatory `type: pipeline` key-value pair. Then, it defines inputs and outputs as follows:
 
-:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="5-22":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="5-22":::
 
 As described previously, these entries specify the input data to the pipeline, in this case the dataset in `./data`, and the intermediate and final outputs of the pipeline, which are stored in separate paths. The names within these input and output entries become values in the `inputs` and `outputs` entries of the individual jobs: 
 
-:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="26-72":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="26-72":::
 
 Notice how `jobs.train_job.outputs.model_output` is used as an input to both the prediction job and the scoring job, as shown in the following diagram: 
 
