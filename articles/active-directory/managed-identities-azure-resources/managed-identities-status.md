@@ -35,6 +35,8 @@ The following Azure services support managed identities for Azure resources:
 | Azure Batch                     | [Configure customer-managed keys for your Azure Batch account with Azure Key Vault and Managed Identity](../../batch/batch-customer-managed-key.md)  </BR> [Configure managed identities in Batch pools](../../batch/managed-identity-pools.md)          |
 | Azure Blueprints                | [Stages of a blueprint deployment](../../governance/blueprints/concepts/deployment-stages.md)                              |
 | Azure Container Instance        | [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)                                                                                          |
+| Azure Cache for Redis           | [Managed identity with Azure Cache for Redis](../../azure/azure-cache-for-redis/cache-managed-identity.md) |
+
 | Azure Container Registry        | [Use an Azure-managed identity in ACR Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)                                                                       |
 | Azure Cognitive Services        | [Configure customer-managed keys with Azure Key Vault for Cognitive Services](../../cognitive-services/encryption/cognitive-services-encryption-keys-portal.md)                                                                          |
 | Azure Data Box                  | [Use customer-managed keys in Azure Key Vault for Azure Data Box](../../databox/data-box-customer-managed-encryption-key-portal.md)                                                                                             |
