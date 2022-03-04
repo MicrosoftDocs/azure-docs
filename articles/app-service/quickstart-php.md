@@ -3,10 +3,10 @@ title: 'Quickstart: Create a PHP web app'
 description: Deploy your first PHP Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
-ms.date: 05/02/2021
+ms.date: 02/03/2022
 ms.devlang: php
 zone_pivot_groups: app-service-platform-windows-linux
-ms.custom: mode-other
+ms.custom: mode-other, devdivchpfy22
 ---
 
 # Create a PHP web app in Azure App Service
@@ -36,7 +36,7 @@ To complete this quickstart:
 
 ## Download the sample locally
 
-1. In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code. 
+1. In a terminal window, run the following commands. It will clone the sample application to your local machine, and navigate to the directory containing the sample code. 
 
     ```bash
     git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -121,7 +121,7 @@ To complete this quickstart:
     http://<app-name>.azurewebsites.net
     ```
 
-    Here is what your new web app should look like:
+    Here's what your new web app should look like:
 
     ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
