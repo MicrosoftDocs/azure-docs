@@ -26,7 +26,7 @@ This quickstart describes how to create an Analysis Services server resource in 
 
 The Bicep file used in this quickstart is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/analysis-services-create/).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.analysisservices/analysis-services-create/main.bicep":::
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.analysisservices/analysis-services-create/main.bicep":::
 
 A single [Microsoft.AnalysisServices/servers](/azure/templates/microsoft.analysisservices/servers) resource with a firewall rule is defined in the Bicep file.
 
@@ -54,15 +54,13 @@ A single [Microsoft.AnalysisServices/servers](/azure/templates/microsoft.analysi
     ---
 
     > [!NOTE]
-    > Replace **<analysis-service-name>** with a unique analysis service name.
+    > Replace **\<analysis-service-name\>** with a unique analysis service name.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Validate the deployment
 
 Use the Azure portal or Azure PowerShell to verify the resource group and server resource was created.
-
-### PowerShell
 
 ```azurepowershell-interactive
 Get-AzAnalysisServicesServer -Name <analysis-service-name>
