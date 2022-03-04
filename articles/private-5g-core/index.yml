@@ -93,3 +93,7 @@ landingContent:
             url: distributed-tracing.md
           - text: Local monitoring with packet core dashboards
             url: packet-core-dashboards.md
+      - linkListType: how-to-guide
+        links:
+          - text: Share distributed tracing data for diagnostics
+            url: distributed-tracing-share-traces.md

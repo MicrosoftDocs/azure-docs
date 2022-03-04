@@ -60,6 +60,10 @@ items:
       href: provision-sims-azure-portal.md
     - name: Activate SIMs
       href: activate-sims.md
+  - name: Distributed tracing
+    items:
+    - name: Share distributed tracing data
+      href: distributed-tracing-share-traces.md
 - name: Reference
   items:
    - name: REST API
