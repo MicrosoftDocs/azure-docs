@@ -359,10 +359,10 @@ metadata:
   name: hello-world-ingress
   namespace: ingress-basic
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - demo.azure.com
