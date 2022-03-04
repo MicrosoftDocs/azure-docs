@@ -8,6 +8,12 @@
 ### DO NOT DELETE THIS FILE.  SNIPPETS ARE USED IN MANY PAGES.
 
 # AZURE
+############################
+#Subscription
+# <SetSubscription>
+az account set --subscription <subscriptionName>
+# </SetSubscription>
+
 # Azure storage
 # <CreateStorage>
 az storage account create -n <myStorageAccount> -g <resourceGroup>  --location <chooseLocation> --sku <chooseSKU>
@@ -23,7 +29,8 @@ az account list-locations
 az group create -n <resourceGroupName> --location chooseLocation
 # </CreateRG>
 
-#AMS COMMANDS
+#AMS
+############################
 #type: command
 #short-summary: Create an Azure Media Services account.
 # <AmsAccountCreate>
@@ -57,7 +64,7 @@ az ams account delete -n <amsAccountName> -g <resourceGroupName>
 #type: command
 #short-summary: Checks whether the Media Service resource name is available.
 # <AmsAccountCheckName>
-az ams account check-name --location chooseLocation -n myAccountName
+az ams account check-name --location <chooseLocation> -n <myAccountName>
 # </AmsAccountCheckName>
 
 #type: command
@@ -70,12 +77,12 @@ az ams account encryption show -a <amsAccountName> -g <resourceGroupName>
 #short-summary: Set the encryption settings for an Azure Media Services account.
 #- name: Set the media account's encryption to a customer managed key
 # <AmsAccountEncryptionSetCustomerManagedKey>
-az ams account encryption set -a <amsAccountName> -g <resourceGroupName> --key-type CustomerKey --key-identifier keyVaultId
+az ams account encryption set -a <amsAccountName> -g <resourceGroupName> --key-type <CustomerKey> --key-identifier <keyVaultId>
 # </AmsAccountEncryptionSetCustomerManagedKey>
 
 #- name: Set the media account's encryption to a system managed key
 # <AmsAccountEncryptionSetSystemManagedKey>
-az ams account encryption set -a <amsAccountName> -g <resourceGroupName> --key-type SystemKey
+az ams account encryption set -a <amsAccountName> -g <resourceGroupName> --key-type <SystemKey>
 # </AmsAccountEncryptionSetSystemManagedKey>
 
 #type: command
@@ -135,12 +142,12 @@ az ams transform show -a <amsAccountName> -g <resourceGroupName> -n <transformNa
 #short-summary: Create a transform.
 #- name: Create a transform with AdaptiveStreaming built-in preset and High relative priority.
 # <AmsTransformCreate>
-az ams transform create -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset <presetName> --relative-priority priority
+az ams transform create -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset <presetName> --relative-priority <priority>
 # </AmsTransformCreate>
 
 #- name: Create a transform with a custom Standard Encoder preset from a JSON file and Low relative priority.
 # <AmsTransformCreateCustom>
-az ams transform create -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset \"C:\\path\\to\\local\\preset\\CustomPreset.json\" --relative-priority priority
+az ams transform create -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset \"C:\\path\\to\\local\\preset\\CustomPreset.json\" --relative-priority <priority>
 # </AmsTransformCreateCustom>
 
 #type: command
@@ -152,24 +159,20 @@ az ams transform delete -g <resourceGroupName> -a <amsAccountName> -n <transform
 #type: command
 #short-summary: Update the details of a transform.
 # <AmsTransformUpdate>
-az ams transform update -a <amsAccountName> -n <transformName> -g <resourceGroupName> --set outputs[0].relativePriority=High
+az ams transform update -a <amsAccountName> -n <transformName> -g <resourceGroupName> --set <outputs[0].relativePriority=High>
 # </AmsTransformUpdate>
 
 #type: command
 #short-summary: Add an output to an existing transform.
 #- name: Add an output with a custom Standard Encoder preset from a JSON file.
 # <AmsTransformOutputAddCustom>
-az ams transform output add -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset \"C:\\path\\to\\local\\preset\\CustomPreset.json\"
+az ams transform output add -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset <\"C:\\path\\to\\local\\preset\\CustomPreset.json\">
 # </AmsTransformOutputAddCustom>
 
 ### ONE OFF
 #- name: Add an output with a VideoAnalyzer preset with es-ES as audio language and only with audio insights.
 # <AmsTransformOutputAddAudio>
-az ams transform output add -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset <presetName> --audio-language es-ES --insights-to-extract AudioInsightsOnly
-# </AmsTransformOutputAddAudio>
-
-#type: command
-#short-summary: Remove an output from an existing transform.
+az ams transform output add -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset <presetName> --audio-language <es-ES> --insights-to-extract <AudioInsightsOnly>
 # NOTE TO SELF what is the output index number?
 # <AmsTransformOutputRemove>
 az ams transform output remove -a <amsAccountName> -n <transformName> -g <resourceGroupName> --output-index <1>

@@ -49,13 +49,11 @@ You can use either the Azure portal or the CLI to create a Media Services accoun
 
 [!INCLUDE [the media services account and storage account must be in the same subscription](./includes/note-account-storage-same-subscription.md)]
 
-## Set the Azure subscription
+<!-- Set the subscription -->
 
 [!INCLUDE [Set the Azure subscription with CLI](./includes/task-set-azure-subscription-cli.md)]
 
-## Create a storage account
-
-When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. For more information about how storage accounts are used in Media Services, see [Storage accounts](storage-account-concept.md).
+<!-- Create a storage account -->
 
 [!INCLUDE [Create a storage account with CLI](./includes/task-create-storage-account-cli.md)]
 

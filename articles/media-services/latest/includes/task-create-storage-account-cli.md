@@ -8,7 +8,7 @@ ms.author: inhenkel
 
 <!-- ### Create a storage account -->
 
-## Create an Azure Storage account with the CLI
+## Create an Azure Storage account
 
 Use the following commands to create an Azure Storage account.
 
