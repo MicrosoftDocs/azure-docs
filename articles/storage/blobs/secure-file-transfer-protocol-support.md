@@ -117,6 +117,10 @@ SFTP support for Azure Blob Storage currently limits its cryptographic algorithm
 
 SFTP clients commonly found to not support algorithms listed above include Apache SFTP server, Axway, Moveit, Five9, Workday, Mule, Kemp, Salesforce, XFB. 
 
+## Connecting with SFTP
+
+To get started, enable SFTP support, create a local user, and assign permissions for that local user. Then, you can use any SFTP client to securely connect and then transfer files. For step-by-step guidance, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
+
 ## Known issues and limitations
 
 See the [Known issues](secure-file-transfer-protocol-known-issues.md) article for a complete list of issues and limitations with the current release of SFTP support.
@@ -130,5 +134,6 @@ Transaction and storage costs are based on factors such as storage account type 
 
 ## See also
 
-- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md)
-- [Known issues with SSH File Transfer Protocol (SFTP) in Azure Blob Storage (preview)](secure-file-transfer-protocol-known-issues.md)
+- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md)
+- [Known issues with SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)
+- [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
