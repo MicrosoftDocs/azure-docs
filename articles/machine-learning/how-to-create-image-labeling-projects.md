@@ -232,5 +232,5 @@ Once you have exported your labeled data to an Azure Machine Learning dataset, y
 
 ## Next steps
 
-* [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
+<!-- * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md). -->
 * [How to tag images](how-to-label-data.md)

@@ -86,7 +86,7 @@ With specific business events, you can chart your users' progress through your s
 Events can be logged from the client side of the app:
 
 ```JavaScript
-    appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
+      appInsights.trackEvent({name: "incrementCount"});
 ```
 
 Or from the server side:

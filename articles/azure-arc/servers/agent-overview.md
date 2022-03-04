@@ -97,7 +97,7 @@ The following versions of the Windows and Linux operating system are officially 
 * SUSE Linux Enterprise Server (SLES) 12 and 15 (x64)
 * Red Hat Enterprise Linux (RHEL) 7 and 8 (x64)
 * Amazon Linux 2 (x64)
-* Oracle Linux 7 (x64)
+* Oracle Linux 7 and 8 (x64)
 
 > [!WARNING]
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
