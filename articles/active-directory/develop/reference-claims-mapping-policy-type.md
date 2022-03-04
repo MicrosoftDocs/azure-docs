@@ -182,7 +182,7 @@ This section lists:
 The following table lists the SAML claims that are by default in the restricted claim set. Some claims are not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest and/or have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).  See the Notes column for more information.
 
 | Claim type (URI) | Notes |
-| ----- | ----_ |
+| ----- | ----- |
 |`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`| |
 |`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`| |
 |`http://schemas.microsoft.com/2014/03/psso`| |
