@@ -62,7 +62,7 @@ az deployment group create --name HDInsightAmbariDBDeployment \
 
 
 > [!WARNING]
-> Please note that you may be able to change the database password on the Azure SQL Database hosting ambari database; however, it is not supported to change Azure SQL database password when it is attached as ambari metastore to a running HDInsight cluster.
+> It is not supported to change the Azure SQL database password when it is attached as an Ambari metastore to a running HDInsight cluster. 
 >
 
 ## Database and Headnode sizing
