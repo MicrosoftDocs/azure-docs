@@ -388,7 +388,7 @@ sections:
       - question: |
           What roles do I need to create a DCR that collects events from my servers?
         answer: |
-          See [Permissions required to create data collection rules and associations](agents/data-collection-rule-azure-monitor-agent.md#permissions-required-to-create-data-collection-rules-and-associations)
+          See [Permissions required to create data collection rules and associations](essentials/data-collection-rule-overview.md#permissions)
 
       - question: |
           If I create DCRs that contain the same event ID and associate it to the same VM, will the events be duplicated?

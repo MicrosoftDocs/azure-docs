@@ -24,22 +24,27 @@ The following predefined reports are available. These queries are generated in r
 - **Programming commands**: Devices that send industrial programming.
 - **Remote access**: Devices that communicate through remote session protocols.
 - **Internet activity**: Devices that are connected to the internet.
-- - **CVEs**: A list of devices detected with known vulnerabilities within the last 24 hours.
+- **CVEs**: A list of devices detected with known vulnerabilities within the last 24 hours.
 - **Excluded CVEs**: A list of all the CVEs that were manually excluded. To achieve more accurate results in VA reports and attack vectors, you can customize the CVE list manually by including and excluding CVEs.
 - **Nonactive devices**: Devices that have not communicated for the past seven days.
 - **Active devices**: Active network devices within the last 24 hours.
 
-Find these reports in Analyze** > **Data Mining*. Reports are available for users with Administrator and Security Analyst permissions. Read only users can't access these reports.
+Find these reports in **Analyze** > **Data Mining**. Reports are available for users with Administrator and Security Analyst permissions. Read only users can't access these reports.
 
 ## Create a report
+To create a data-mining report:
 
-1. In Defender for IoT, **Data mining**.
-1. Select **Create report**.
-1. In the **Create new report** dialog, specify a report name and optional description.
-1. In **Choose category**, select the type of report you want to create. You can choose all, standard categories (generic) or specific settings.
-1. In **Order by**, order the report by category or activity.
-1. If you want to filter report results, you can specify a time range (minutes, days, and  hours), and IP or MAC address, port, or device group (as defined in the device map).
-4. Select **Save**. Report results open on the **Data Mining** page.
+1. Select **Data Mining** from the side menu. Predefined suggested reports appear automatically.
+
+1. Select **Create report** and then enter the following values:
+
+    - **Name** / **Description**. Enter a meaningful name for your report and an optional description.
+    - **Send to CM**. Toggle this option on to send your report to your on-premises management console.
+    - **Choose category**. Select the categories to include in your report.
+    - **Order by**. Select to sort your data by category or by activity.
+    - **Filter by**. Define a filter for your report, using dates, IP address, MAC address, port, or device group.
+
+1. Select **Save** to save your report and display results on the **Data Mining** page.
 
 Reports are dynamically updated each time you open them. For example:
 - If you create a report for firmware versions on devices on June 1 and open the report again on June 10, this report will be updated with information that's accurate for June 10.
@@ -58,8 +63,6 @@ The on-premises management console lets you generate reports for each sensor tha
 - **Non-Active Devices (Last 7 Days)**: Presents a list of devices that show no network activity in the last seven days.
 - **Programming Commands**: Presents a list of devices that sent programming commands within the last 24 hours.
 - **Remote Access**: Presents a list of devices that remote sources accessed within the last 24 hours.
-
-:::image type="content" source="media/how-to-generate-reports/reports-view.png" alt-text="Screenshot of the reports view.":::
 
 When you choose the sensor from the on-premises management console, all the custom reports configured on that sensor appear in the list of reports. For each sensor, you can generate a default report or a custom report configured on that sensor.
 

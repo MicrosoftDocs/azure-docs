@@ -288,29 +288,29 @@ The console will display restore failures.
 
 ## Update a standalone sensor version
 
-The following procedure describes how to update a standalone sensor by using the sensor console. The update process takes about 30 minutes.
+The following procedure describes how to update a standalone sensor by using the sensor console.
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **Updates**.
 
-2. Go to Defender for IoT.
-
-3. Go to the **Updates** page.
+1. From the **Sensors** section, select **Download** for the sensor update, and save your `<legacy/upstream>-sensor-secured-patcher-<version number>.tar` file locally. For example:
 
    :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of the Updates page of Defender for IoT.":::
 
-4. Select **Download** from the **Sensors** section and save the file.
+1. On your sensor console, select **System Settings** > **Sensor management** > **Software Update**.
 
-5. In the sensor console's sidebar, select **System Settings**.
-
-6. On the **Version Update** pane, select **Update**.
+1. On the **Software Update** pane on the right, select **Upload file**, and then navigate to and select your downloaded `legacy-sensor-secured-patcher-<Version number>.tar` file.
 
     :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the update pane.":::
 
-7. Select the file that you downloaded from the Defender for IoT **Updates** page.
+    The update process starts, and may take about 30 minutes. During your upgrade, the system is rebooted twice.
 
-8. The update process starts, during which time the system is rebooted twice. After the first reboot (before the completion of the update process), the system opens with the sign-in window. After you sign in, the upgrade version appears at the lower left of the sidebar.
+    Sign in when prompted, and then return to the **System Settings** > **Sensor management** > **Software Update** pane to confirm that the new version is listed.
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after you sign in.":::
+
+If you're upgrading from version 10.5.x to version 22.x, make sure to reactivate your sensor. For more information, see [Reactivate a sensor for upgrades to version 22.x from a legacy version](how-to-manage-sensors-on-the-cloud.md#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version).
+
+After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 
 ## Forward sensor failure alerts
 

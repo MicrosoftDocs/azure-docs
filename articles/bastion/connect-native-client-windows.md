@@ -17,6 +17,7 @@ This article helps you configure Bastion, and then connect to a VM in the VNet u
 
 > [!NOTE]
 > * This configuration requires the Standard SKU tier for Azure Bastion.
+> * You can now upload and download files using the native client. To learn more, refer to [Upload and download files using the native client](vm-upload-download-native.md).
 > * The user's capabilities on the VM using a native client are dependent on what is enabled on the native client. Controlling access to features such as file transfer via the Bastion is not supported.
 
 Currently, this feature has the following limitation:
@@ -154,7 +155,7 @@ This section helps you connect to your virtual machine using the *az network bas
 * Use native clients on *non*-Windows local workstations (ex: a Linux PC).
 * Use a native client of your choice.
 * Set up concurrent VM sessions with Bastion.
-* Access file transfer for SSH sessions.
+* Upload files to your target VM from your local workstation.
 
 1. Sign in to your Azure account, and select your subscription containing your Bastion resource.
 
@@ -169,7 +170,12 @@ This section helps you connect to your virtual machine using the *az network bas
    ```azurecli-interactive
    az network bastion tunnel --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --resource-port "<TargetVMPort>" --port "<LocalMachinePort>"
    ```
-3. Connect and sign in to your target VM using SSH or RDP, the native client of your choice, and the local machine port you specified in Step 2.
+3. 1. Connect to your target VM using SSH or RDP, the native client of your choice, and the local machine port you specified in Step 2. For example, you can use the following command if you have the OpenSSH client installed on your local computer:
+
+    ```azurecli-interactive
+    ssh <username>@127.0.0.1 -p <LocalMachinePort>
+    ```
+
 
 ## Next steps
 

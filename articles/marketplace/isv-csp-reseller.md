@@ -96,6 +96,13 @@ The offer setup page lets you define private offer terms, notification contact, 
     > - Once your private offer ends, the CSP partners you authorize can continue to sell your marketplace offer at the list price.
     > - Private offers can be extended to a maximum of 400 CSP partners tenants.
 
+5. Optional: To extend a private offer to individual customers of a CSP partner, choose **All customers selected** for that CSP partner.
+
+    1. Choose **Select customers**.
+    2. Under **Provide customer tenant ID**, select **+Add**.
+    3. Enter the customer’s tenant ID. You can add up to 25 customers for the CSP partner, who will need to provide the customer tenant IDs.
+    4. Click **Add**.
+
 ### Review and Submit
 
 This page is where you can review all the information you've provided.

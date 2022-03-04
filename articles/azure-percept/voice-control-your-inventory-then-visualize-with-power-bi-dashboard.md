@@ -1,7 +1,7 @@
 ---
 title: Voice control your inventory with Azure Percept Audio 
 description: This article will give detailed instructions for building the main components of the solution and deploying the edge speech AI.
-author: leannhuang
+author: nkhuyent
 ms.author: leannhuang
 ms.service: azure-percept 
 ms.topic: tutorial 
@@ -353,8 +353,7 @@ customer can do.
 
 ## Next steps
 
-Check out the other tutorial under Advanced prototyping with Azure Percept section for your Azure Percept DK.
-
+Check out the tutorial [Create a people counting solution with Azure Percept Vision](./create-people-counting-solution-with-azure-percept-devkit-vision.md).
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 

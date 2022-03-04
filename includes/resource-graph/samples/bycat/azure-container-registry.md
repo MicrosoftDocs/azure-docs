@@ -2,7 +2,7 @@
 author: georgewallace
 ms.service: resource-graph
 ms.topic: include
-ms.date: 01/20/2022
+ms.date: 02/16/2022
 ms.author: gwallace
 ms.custom: generated
 ---
@@ -14,7 +14,7 @@ Returns all the all the vulnerabilities found on container images. Azure Defende
 ```kusto
 SecurityResources
 | where type == 'microsoft.security/assessments'
-| where properties.displayName contains 'Vulnerabilities in Azure Container Registry images should be remediated'
+| where properties.displayName contains 'Container registry images should have vulnerability findings resolved'
 | summarize by assessmentKey=name //the ID of the assessment
 | join kind=inner (
 	securityresources
