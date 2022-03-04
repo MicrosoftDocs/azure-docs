@@ -204,7 +204,7 @@ Next, you'll configure the **Export** and **Full import** run profiles.  The **E
      |Export|Run profile that will export data to SQL. This run profile is required.|
      |Full import|Run profile that will import all data from SQL sources specified earlier.|
      |Delta import|Run profile that will import only changes from SQL since the last full or delta import.|
- 12.  Once you clicked **Next**, an additional page will automatically appear, for you to configure the method for the **Export** run profile. On the **Export** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.
+ 12. Once you clicked **Next**, an additional page will automatically appear, for you to configure the method for the **Export** run profile. On the **Export** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes. 
      ![Screenshot that shows the Export page.](.\media\active-directory-app-provisioning-sql\conn-10.png)</br>
      
      |Property|Description|
