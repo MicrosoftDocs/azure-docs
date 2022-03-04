@@ -12,7 +12,7 @@ ms.author: madsd
 > This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
 >
 
-The App Service Environment (ASE) is a deployment of the Azure App Service that runs within your Azure virtual network. It can be deployed with an internet accessible application endpoint or an application endpoint that is in your virtual network. If you deploy the App Service Environment with an internet accessible endpoint, that deployment is called an External App Service Environment. If you deploy the App Service Environment with an endpoint in your virtual network, that deployment is called an ILB App Service Environment. You can learn more about the ILB App Service Environment from the [Create and use an ILB App Service Environment](./creation.md) document.
+The App Service Environment is a deployment of the Azure App Service that runs within your Azure virtual network. It can be deployed with an internet accessible application endpoint or an application endpoint that is in your virtual network. If you deploy the App Service Environment with an internet accessible endpoint, that deployment is called an External App Service Environment. If you deploy the App Service Environment with an endpoint in your virtual network, that deployment is called an ILB App Service Environment. You can learn more about the ILB App Service Environment from the [Create and use an ILB App Service Environment](./creation.md) document.
 
 ## Application certificates
 
@@ -25,7 +25,7 @@ Once you add the certificate to your App Service app or function app, you can [s
 
 ### Limitations
 
-[App Service managed certificates](../configure-ssl-certificate.md#create-a-free-managed-certificate) aren't supported on apps that are hosted in an App Service Environment at this time.
+[App Service managed certificates](../configure-ssl-certificate.md#create-a-free-managed-certificate) aren't supported on apps that are hosted in an App Service Environment.
 
 ## TLS settings
 
