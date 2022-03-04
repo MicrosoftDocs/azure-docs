@@ -1,9 +1,11 @@
 ---
-title: Quickstart - Create an Azure Analysis Services server resource by using Azure Resource Manager template
-description: Quickstart showing how to an Azure Analysis Services server resource by using an Azure Resource Manager template.
+title: Quickstart - Create an Azure Analysis Services server resource by using Bicep
+description: Quickstart showing how to an Azure Analysis Services server resource by using a Bicep file.
 ms.date: 03/04/2022
 ms.topic: quickstart
 ms.service: azure-analysis-services
+ms.author: jgao
+author: mumian
 tags: azure-resource-manager, bicep
 
 #Customer intent: As a BI developer who is new to Azure, I want to use Azure Analysis Services to store and manage my organizations data models.
@@ -13,22 +15,22 @@ tags: azure-resource-manager, bicep
 
 This quickstart describes how to create an Analysis Services server resource in your Azure subscription by using [Bicep](../azure-resource-manager/bicep/overview.md).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
 * **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
-## Review the template
+## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure templates](https://azure.microsoft.com/resources/templates/analysis-services-create/).
+The Bicep file used in this quickstart is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/analysis-services-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.analysisservices/analysis-services-create/main.bicep":::
 
-A single [Microsoft.AnalysisServices/servers](/azure/templates/microsoft.analysisservices/servers) resource with a firewall rule is defined in the template.
+A single [Microsoft.AnalysisServices/servers](/azure/templates/microsoft.analysisservices/servers) resource with a firewall rule is defined in the Bicep file.
 
-## Deploy the template
+## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
