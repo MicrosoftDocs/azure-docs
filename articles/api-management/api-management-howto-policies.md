@@ -64,55 +64,26 @@ By placing policy statements in the `on-error` section, you can:
 
 For more information, see [Error handling in API Management policies](./api-management-error-handling-policies.md) 
 
-## Policy scopes
+## Scopes
 
-You decide at what scope or scopes you want to apply policies. From most broad to most narrow:
+API Management allows you to define policies at the following *scopes*, from most broad to most narrow:
 
-* Globally (all APIs)
+* Global (all APIs)
 * Product (APIs associated with a selected product)
 * API (all operations in an API)
 * Operation (single operation in an API) 
 
-When configuring a policy, you must first select the scope at which the policy applies. Not all policies can be applied at each scope.
+When configuring a policy, you must first select the scope at which the policy applies. 
 
-* You can include multiple policy statements in the policy definition at a given scope
-* For fine-grained control, you can create policy definitions at more than one scope
+:::image type="content" source="media/api-management-howto-policies/policy-scopes.png" alt-text="Policy scopes":::
 
-## Policy evaluation order
+### Things to know
 
-If you configure policies at several scopes, multiple policies - perhaps overlapping - could apply to a given API request and response. You control the effective policies and order of policy evaluation as part of the XML configuration at each scope. 
+* For fine-grained control for different API consumers, you can configure policy definitions at more than one scope
+* Not all policies can be applied at each scope and policy section
+* When configuring policy definitions at more than one scope, you control the policy evaluation order in each policy section by placement of the `base` element 
 
-Set the policy evaluation order by placing the `base` element in each `inbound`, `backend`, or `outbound` section in the policy definition at each scope you need: 
-
-1. Begin with the definition at the most *narrow* scope you configured, which API Management will apply first.
-
-    For example, when using policy definitions configured at the global scope and the API scope, begin with the configuration at the API scope.
-1. Place the `base` element within a section to inherit all policies from the corresponding section at the parent (broader) scope. 
- 
-    For example, in an `inbound`  section configured at the API scope, place a `base` element to control where to inherit policies configured in the `inbound` section at the global scope.
-
-    ```xml
-    <policies>
-      <inbound>
-          <base />
-            <ip-filter action="allow">
-                <address>1.2.3.4</address>
-            </ip-filter>
-      </inbound>
-      [...]
-    </policies>
-    ```
-  
-    > [!TIP]
-    > * You can place the `base` element before or after any policy element in a section.
-    > * To prevent inheriting policies from the corresponding section in the parent scope, remove the `base` element.
-3. Continue by configuring the policy definitions at successively broader scopes.
-
-    A globally scoped policy has no parent scope, and using the `base` element in it has no effect.
-
-To view the effective policies in the current scope in the policy editor, select **Recalculate effective policy**.
- 
-For more information, see [Set or edit policies](set-edit-policies.md).
+For more information, see [Set or edit policies](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order).
 
 ## Examples
 
@@ -139,37 +110,31 @@ In the example policy definition above:
 >[!NOTE]
 > If you remove the `base` element at the API scope, only policies configured at the API scope will be applied. Neither product nor global scope policies would be applied.
 
-### Restrict incoming requests
+### Use policy expressions to modify requests
 
-To add a new statement to restrict incoming requests to specified IP addresses, place the cursor just inside the content of the `inbound` XML element and click the **Restrict caller IPs** statement.
-
-![Restriction policies][policies-restrict]
-
-This will add an XML snippet to the `inbound` element that provides guidance on how to configure the statement.
+The following example uses [policy expressions][Policy expressions] and the [`set-header`](api-management-transformation-policies.md#SetHTTPheader) policy to add user data to the incoming request. The added header includes the user ID associated with the subscription key in the request, and the region where the gateway processing the request is hosted.
 
 ```xml
-<ip-filter action="allow | forbid">
-    <address>address</address>
-    <address-range from="address" to="address"/>
-</ip-filter>
-```
+<policies>
+    <inbound>
+        <base />
+        <set-header name="x-request-context-data" exists-action="override">
+            <value>@(context.User.Id)</value>
+            <value>@(context.Deployment.Region)</value>
+      </set-header>
+    </inbound>
+</policies> 
 
-To limit inbound requests and accept only those from an IP address of 1.2.3.4 modify the XML as follows:
-
-```xml
-<ip-filter action="allow">
-    <address>1.2.3.4</address>
-</ip-filter>
 ```
 
 
 
 ## Next steps
 
-For more information working with policies, see:
+For more information about working with policies, see:
 
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
++ [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
 + [Policy samples](./policy-reference.md)	
 
 [Policy Reference]: ./api-management-policies.md
@@ -182,4 +147,3 @@ For more information working with policies, see:
 [Set variable]: ./api-management-advanced-policies.md#set-variable
 [Policy expressions]: ./api-management-policy-expressions.md
 
-[policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
