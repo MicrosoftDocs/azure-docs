@@ -1,12 +1,10 @@
 ---
 title: Azure Functions SendGrid bindings
 description: Azure Functions SendGrid bindings reference.
-author: craigshoemaker
 ms.topic: reference
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
-ms.date: 11/29/2017
-ms.author: cshoe
+ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

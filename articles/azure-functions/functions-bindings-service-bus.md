@@ -1,11 +1,9 @@
 ---
 title: Azure Service Bus bindings for Azure Functions
 description: Learn to send Azure Service Bus triggers and bindings in Azure Functions.
-author: ggailey777
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 12/03/2021
-ms.author: cshoe
+ms.date: 03/04/2022
 ms.custom: fasttrack-edit
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---

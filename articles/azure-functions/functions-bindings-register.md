@@ -1,11 +1,8 @@
 ---
 title: Register Azure Functions binding extensions
 description: Learn to register an Azure Functions binding extension based on your environment.
-author: craigshoemaker
-
 ms.topic: reference
 ms.date: 09/14/2020
-ms.author: cshoe
 ---
 
 # Register Azure Functions binding extensions
