@@ -102,7 +102,7 @@ In the terminal window, `cd` to a working directory.
     ```
     
     > [!TIP]
-    > The branch name change isn't required by App Service. But, since many repositories are changing their default branch to `main`, this tutorial also shows you how to deploy a repository from `main`. For more about this, see [Change deployment branch](deploy-local-git.md#change-deployment-branch).
+    > The branch name change isn't required by App Service. But, since many repositories are changing their default branch to `main`, this tutorial also shows you how to deploy a repository from `main`. For more information, see [Change deployment branch](deploy-local-git.md#change-deployment-branch).
 
 1. Install the required packages.
 
@@ -435,7 +435,7 @@ By default, Azure App Service points the root virtual application path (_/_) to 
 
 [Laravel application lifecycle](https://laravel.com/docs/5.4/lifecycle) begins in the _public_ directory instead of the application's root directory. The default PHP Docker image for App Service uses Apache, and it doesn't let you customize the `DocumentRoot` for Laravel. But you can use `.htaccess` to rewrite all requests to point to _/public_ instead of the root directory. In the repository root, an `.htaccess` is added already for this purpose. With it, your Laravel application is ready to be deployed.
 
-For more about this, see [Change site root](configure-language-php.md#change-site-root).
+For more information, see [Change site root](configure-language-php.md#change-site-root).
 
 ::: zone-end
 
@@ -641,7 +641,7 @@ For the tasks scenario, you change the application so that you can mark a task a
 
     ![Model and database changes published to Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-If you added any tasks, they're retained in the database. Updates to the data schema leave existing data intact.
+If you add any task, they're retained in the database. Updates to the data schema leave existing data intact.
 
 ## Stream diagnostic logs
 
@@ -682,7 +682,7 @@ To stop log streaming at any time, enter `Ctrl`+`C`.
 
     ![Portal navigation to Azure app](./media/tutorial-php-mysql-app/access-portal.png)
 
-    You see your app's Overview page. Here, you can do basic management tasks like  stop, start, restart, browse, and delete.
+    You see your app's Overview page. In this page, you can do basic management tasks like  stop, start, restart, browse, and delete.
 
     The left menu provides pages for configuring your app.
 
