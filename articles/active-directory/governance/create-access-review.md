@@ -158,7 +158,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 A multi-stage review allows the administrator to define two or three sets of reviewers to complete a review one after another. In a single-stage review, all reviewers make a decision within the same period and the last reviewer to make a decision "wins". In a multi-stage review, two or three independent sets of reviewers make a decision within their own stage, and the next stage doesn't happen until a decision is made in the previous stage. Multi-stage reviews can be used to reduce the burden on later-stage reviewers, allow for escalation of reviewers, or have independent groups of reviewers agree on decisions.
 > [!WARNING]
-> Data of users included in the access review are a part of the audit record at the start of the review. Administrators may delete the data at any time by deleting the multi-stage access review series.
+> Data of users included in multi-stage access reviews are a part of the audit record at the start of the review. Administrators may delete the data at any time by deleting the multi-stage access review series.
 
 1. After you have selected the resource and scope of your review, move on to the **Reviews** tab. 
 
