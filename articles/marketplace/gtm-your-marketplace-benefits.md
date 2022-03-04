@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/14/2021
-author: keferna
-ms.author: keferna
+author: vivekmohanms
+ms.author: vivekmo
 ---
 
 # Your commercial marketplace benefits

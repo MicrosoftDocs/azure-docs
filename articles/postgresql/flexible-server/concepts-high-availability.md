@@ -4,6 +4,7 @@ description: Learn about the concepts of zone redundant high availability with A
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---

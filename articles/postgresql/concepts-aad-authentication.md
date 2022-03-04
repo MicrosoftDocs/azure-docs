@@ -4,6 +4,7 @@ description: Learn about the concepts of Azure Active Directory for authenticati
 author: sunilagarwal 
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 07/23/2020
 ---

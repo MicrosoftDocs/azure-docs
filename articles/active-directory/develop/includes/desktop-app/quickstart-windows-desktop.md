@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 01/14/2022
+ms.date: 03/04/2022
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, mode-api
 #Customer intent: As an application developer, I want to learn how my Windows Presentation Foundation (WPF) application can get an access token and call an API that's protected by the Microsoft identity platform.
@@ -22,7 +22,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
 
 ## Register and download your quickstart app
 You have two options to start your quickstart application:
@@ -52,13 +52,13 @@ To register your application and add the app's registration information to your 
 1. In the **Redirect URIs** section, select `https://login.microsoftonline.com/common/oauth2/nativeclient` and in **Custom redirect URIs** add `ms-appx-web://microsoft.aad.brokerplugin/{client_id}` where `{client_id}` is the application (client) ID of your application (the same GUID that appears in the `msal{client_id}://auth` checkbox).
 1. Select **Configure**.
 
-#### Step 2: Download your Visual Studio project
+#### Step 2: Download the project
 
-[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+[Download the WPF sample application](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
-#### Step 3: Configure your Visual Studio project
+#### Step 3: Configure the project
 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
 1. Open the project in Visual Studio.
 1. Edit **App.Xaml.cs** and replace the values of the fields `ClientId` and `Tenant` with the following code:
