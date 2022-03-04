@@ -13,7 +13,7 @@ ms.date: 08/10/2021
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!VIDEO <iframe src="https://aka.ms/docs/player?id=492c7a41-5f0a-4482-828b-72be1b38e691" width="1920" height="1080" style="border: 0; max-width: 100%; min-width: 100%;"></iframe>]
+<iframe src="https://aka.ms/docs/player?id=492c7a41-5f0a-4482-828b-72be1b38e691" frameborder="0" allowfullscreen="true" data-linktype="external"></iframe>
 
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 
@@ -21,6 +21,9 @@ Azure Database for MySQL powered by the MySQL community edition is available in 
 - Single Server
 
 In this article, we'll provide an overview and introduction to core concepts of flexible server deployment model. For information on how to decide what deployment option is appropriate for your workload, see [choosing the right MySQL server option in Azure](./../select-right-deployment-type.md).
+
+
+> [!VIDEO <iframe src="https://aka.ms/docs/player?id=492c7a41-5f0a-4482-828b-72be1b38e691" width="1920" height="1080" style="border: 0; max-width: 100%; min-width: 100%;"></iframe>]
 
 ## Overview
 
