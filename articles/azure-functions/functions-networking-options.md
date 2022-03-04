@@ -3,7 +3,7 @@ title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions.
 author: cachai2
 ms.topic: conceptual
-ms.date: 1/21/2021
+ms.date: 03/04/2022
 ms.author: cachai
 ---
 
@@ -68,7 +68,7 @@ Virtual network integration in Azure Functions uses shared infrastructure with A
 * [Regional virtual network integration](../app-service/overview-vnet-integration.md#regional-virtual-network-integration)
 * [Gateway-required virtual network integration](../app-service/overview-vnet-integration.md#gateway-required-virtual-network-integration)
 
-To learn how to set up virtual network integration, see [Enable virtual network integration](#enable-vnet-integration).
+To learn how to set up virtual network integration, see [Enable virtual network integration](#enable-virtual-network-integration).
 
 ## Enable virtual network integration
 
