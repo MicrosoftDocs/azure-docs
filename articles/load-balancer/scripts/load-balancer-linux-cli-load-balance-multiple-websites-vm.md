@@ -26,14 +26,14 @@ This Azure CLI script sample creates a virtual network with two virtual machines
 
 ### Run the script
 
-:::code language="azurecli" source="load-balance-multiple-web-sites-vm.sh" id="FullScript" interactive="azurecli":::
+:::code language="azurecli" source="~/azure_cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh" id="FullScript":::
 
 old version
 [!code-azurecli-interactive[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Load balance multiple web sites")]
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup
