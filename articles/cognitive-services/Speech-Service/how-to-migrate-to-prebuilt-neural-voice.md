@@ -166,7 +166,7 @@ Use this table to determine **availability of standard voices** by region/endpoi
 Read the following sections for details on standard Text-to-Speech container.
 
 > [!IMPORTANT]
-> We retired the standard speech synthesis voices and Text-to-Speech container on August 31st 2021. Consider migrating your applications to use the neural Text-to-Speech container instead. [Follow these steps](./how-to-migrate-to-prebuilt-neural-voice.md) for more information on updating your application.
+> We retired the standard speech synthesis voices and Text-to-Speech container on August 31st 2021. Consider migrating your applications to use the neural Text-to-Speech container instead. [Follow these steps](#action-required) for more information on updating your application.
 
  ### Install and run standard Text-to-Speech container
 
@@ -934,5 +934,3 @@ Release note for `1.7.0-amd64-<locale-and-voice>`:
 
 > [!div class="nextstepaction"]
 > [Try out prebuilt neural voice](text-to-speech.md)
-> [Prebuilt neural voice containers](../containers/container-image-tags.md)
-> [How to install and run Docker containers](speech-container-howto.md)
