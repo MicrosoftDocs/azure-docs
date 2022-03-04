@@ -57,8 +57,8 @@ A hot partition arises when one or a few logical partition keys consume a dispro
 
 Here are some examples of partitioning strategies that lead to hot partitions:
 - You have a container storing IoT device data for a write-heavy workload that is partitioned by `date`. All data for a single date will reside on the same logical and physical partition. Because all the data written each day has the same date, this would result in a hot partition every day.
-    - Instead, for this scenario, a partition key like `id` (either a GUID or device id), or a [synthetic partition key](./synthetic-partition-keys.md) combining `id` and `date` would yield a higher cardinality of values and better distribution of request volume.
-- You have a multi-tenant scenario with a container partitioned by `tenantId`. If one tenant is significantly more active than the others, it results in a hot partition. For example, if the largest tenant has 100,000 users, but most tenants have fewer than 10 users, you will have a hot partition when partitioned by `tenantID`.
+    - Instead, for this scenario, a partition key like `id` (either a GUID or device ID), or a [synthetic partition key](./synthetic-partition-keys.md) combining `id` and `date` would yield a higher cardinality of values and better distribution of request volume.
+- You have a multi-tenant scenario with a container partitioned by `tenantId`. If one tenant is much more active than the others, it results in a hot partition. For example, if the largest tenant has 100,000 users, but most tenants have fewer than 10 users, you will have a hot partition when partitioned by `tenantID`.
     - For this previous scenario, consider having a dedicated container for the largest tenant, partitioned by a more granular property such as `UserId`.
 
 #### How to identify the hot partition
@@ -156,7 +156,7 @@ For example, this sample output shows that each minute, 30% of Create Document r
 
 #### Recommended solution
 ##### Use the Azure Cosmos DB capacity planner
-You can leverage the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to understand what is the best provisioned throughput based on your workload (volume and type of operations and size of documents). You can customize further the calculations by providing sample data to get a more accurate estimation.
+You can use the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to understand what is the best provisioned throughput based on your workload (volume and type of operations and size of documents). You can customize further the calculations by providing sample data to get a more accurate estimation.
 
 ##### 429s on create, replace, or upsert document requests
 - By default, in the SQL API, all properties are indexed by default. Tune the [indexing policy](../index-policy.md) to only index the properties needed.
@@ -177,9 +177,9 @@ Yes. There are two main scenarios where this can occur.
 
 **Scenario 1**: When the overall consumed RU/s exceeds the max RU/s of the database or container, the service will throttle requests accordingly. This is analogous to exceeding the overall manual provisioned throughput of a database or container. 
 
-**Scenario 2**: If there is a hot partition, i.e. a logical partition key value that has a disproportionately higher amount of requests compared to other partition key values, it is possible for the underlying physical partition to exceed its RU/s budget. As a best practice, to avoid hot partitions, choose a good partition key that results in an even distribution of both storage and throughput. This is similar to when there is a hot partition when using manual throughput.
+**Scenario 2**: If there is a hot partition, that is, a logical partition key value that has a disproportionately higher amount of requests compared to other partition key values, it is possible for the underlying physical partition to exceed its RU/s budget. As a best practice, to avoid hot partitions, choose a good partition key that results in an even distribution of both storage and throughput. This is similar to when there is a hot partition when using manual throughput.
 
-For example, if you select the 20,000 RU/s max throughput option and have 200 GB of storage, with four physical partitions, each physical partition can be autoscaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you will see 429s when the underlying physical partition it resides in exceeds 5000 RU/s, i.e. exceeds 100% normalized utilization.
+For example, if you select the 20,000 RU/s max throughput option and have 200 GB of storage, with four physical partitions, each physical partition can be autoscaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you will see 429s when the underlying physical partition it resides in exceeds 5000 RU/s, that is, exceeds 100% normalized utilization.
 
 Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determineif-there-is-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429s) to debug these scenarios.
 
