@@ -56,8 +56,6 @@ You can create a new administrative unit by using either the Azure portal, Power
 
 1. On the **Review + create** tab, review the administrative unit and any role assignments.
 
-    ![Screenshot showing the Review + create tab to create the administrative unit and any role assignments.](./media/admin-units-manage/create-admin-unit.png)
-
 1. Select the **Create** button.
 
 ### PowerShell
