@@ -237,7 +237,8 @@ To finish preparing the Run As account:
 
 When you start a runbook in the Azure portal, you're presented with the **Run on** option for which you can select **Azure** or **Hybrid Worker**. Select **Hybrid Worker**, to choose the Hybrid Runbook Worker group from a dropdown.
 
-:::image type="content" source="./media/automation-hrw-run-runbooks/start-runbook-hrw.png" alt-text="Screenshot showing how to select the Hybrid Runbook Worker group .":::
+:::image type="content" source="./media/automation-hrw-run-runbooks/start-runbook-hrw-inline.png" alt-text="Screenshot showing how to select the Hybrid Runbook Worker group." lightbox="./media/automation-hrw-run-runbooks/start-runbook-hrw-expanded.png":::
+
 
 When starting a runbook using PowerShell, use the `RunOn` parameter with the [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet. The following example uses Windows PowerShell to start a runbook named **Test-Runbook** on a Hybrid Runbook Worker group named MyHybridGroup.
 
