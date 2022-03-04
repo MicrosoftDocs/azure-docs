@@ -99,13 +99,13 @@ az sql midb-arc restore --managed-instance sqlmi1 --name Testdb1 --dest-name myn
 
 1.  Edit the properties as follows:
 
-  1. `name:` Unique string for each custom resource (CR). Required by Kubernetes.
-  1. `namespace:` Kubernetes namespace where the Azure Arc-enabled SQL managed instance is.
-  1. `source: ... name:` Name of the source instance.
-  1. `source: ... database:` Name of source database where the restore would be applied from.
-  1. `restorePoint:` Point-in-time for the restore operation in UTC datetime.
-  1. `destination: ... name:` Name of the destination Arc-enabled SQL managed instance. Currently, point-in-time restore is only supported within the Arc SQL managed instance. This should be same as the source SQL managed instance.
-  1. `destination: ... database:` Name of the new database where the restore would be applied to. 
+    1. `name:` Unique string for each custom resource (CR). Required by Kubernetes.
+    1. `namespace:` Kubernetes namespace where the Azure Arc-enabled SQL managed instance is.
+    1. `source: ... name:` Name of the source instance.
+    1. `source: ... database:` Name of source database where the restore would be applied from.
+    1. `restorePoint:` Point-in-time for the restore operation in UTC datetime.
+    1. `destination: ... name:` Name of the destination Arc-enabled SQL managed instance. Currently, point-in-time restore is only supported within the Arc SQL managed instance. This should be same as the source SQL managed instance.
+    1. `destination: ... database:` Name of the new database where the restore would be applied to. 
 
 1. Create a task to start the point-in-time restore. The following example initiates the task defined in `myrestoretask20220304.yaml`.
 
