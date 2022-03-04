@@ -31,37 +31,72 @@ The following diagram shows the relationship between these resources.
 
 ![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
 
-## Service client
+To interact with a resource, you'll instantiate a client object for that resource. 
 
-Use the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class to interact with the Blob Storage service instance of your account. Use this class to do things like:
+## Service client object
 
-- Thing 1
-- Thing 2
-- Thing 3
+Create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) to interact with your Blob Storage service instance. Use this object to do things such as:
 
-You'll create one of these by blah. Here's a quick example
+- Create and delete containers
+- Get existing containers
+- Create a shared access signature (SAS)
+- Get and set properties of the service instance
+
+
+Create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using one of it's constructors. Pass in Azure Active Directory (Azure AD) token, a SAS token, an account key credential, or connection string.
+
+This example creates a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance, and then uses that object to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient).
+
 
 ```csharp
-Example goes here
+public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient, string accountName)
+{
+    TokenCredential credential = new DefaultAzureCredential();
+
+    string blobUri = "https://" + accountName + ".blob.core.windows.net";
+
+        blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);          
+}
 ```
 
 For more examples of creating a service object instance, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
 
-## Container client
+## Container client object
 
-To operate on a container, use the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class. Use this object to do things like:
+Create a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) to interact with a container. Use this object to do things such as:
 
-- Thing 1
-- Thing 2
-- Thing 3
+- Create a blob client object to upload or download blobs
+- List the blobs in a container
+- Set and get container properties and metadata
 
-You can get this object by blah. Here's a quick example.
+Create a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) by using one of it's constructors or by using any of the following methods of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) instance:
+
+- [CreateBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainer)
+- [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync)
+- [GetBlobContainerClient](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainerclient)
+
+The following example creates a container by using the [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) of a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) instance. 
 
 ```csharp
-Example goes here
+private static async Task<BlobContainerClient> CreateSampleContainerAsync(BlobServiceClient blobServiceClient)
+{
+    string containerName = "container-" + Guid.NewGuid();
+
+    BlobContainerClient container = await blobServiceClient.CreateBlobContainerAsync(containerName);
+
+    if (await container.ExistsAsync())
+    {
+        Console.WriteLine("Created container {0}", container.Name);
+        return container;
+    }
+
+    return null;
+}
 ```
 
-## Blob client
+For more information, see [Create a container](storage-blob-container-create.md).
+
+## Blob client object
 
 To operate on a blob, use the [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) class. You can use this object to do these types of tasks:
 
