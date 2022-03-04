@@ -35,6 +35,7 @@ In this tutorial, you learn how to:
 A development machine:
 
 * Install [IoT Edge for Linux on Windows (EFLOW)](./how-to-provision-single-device-linux-on-windows-x509.md)
+* Install [Azure CLI for Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 * Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
@@ -72,9 +73,9 @@ IoT Edge modules are packaged as containers, so you need a container engine on y
 
 The first step is to configure docker-cli on the Windows development machine to be able to connect to the remote docker engine. 
 
-1. Download the precompiled **docker.exe** version of the docker-cli from [docker-cli-builder GitHub](https://github.com/StefanScherer/docker-cli-builder). You can also download the official **cli** project from [docker/cli GitHub](https://github.com/docker/cli) and compile it following the repo instructions.
-2. Copy the **docker.exe** to a directory in your development machine. For example, _C:\Docker\bin_
-3. Open **System Properties**
+1. Download the precompiled **docker.exe** version of the docker-cli from [docker-cli Chocolatey](https://download.docker.com/win/static/stable/x86_64/docker-20.10.12.zip). You can also download the official **cli** project from [docker/cli GitHub](https://github.com/docker/cli) and compile it following the repo instructions.
+2. Extract the **docker.exe** to a directory in your development machine. For example, _C:\Docker\bin_
+3. Open **About your PC** -> **System Info** -> **Advanced system settings**
 4. Select **Advanced** -> **Environment variables** -> **Path**
 5. Edit the **Path** variable and add the location of the **docker.exe**
 6. Open an elevated PowerShell session
@@ -82,7 +83,7 @@ The first step is to configure docker-cli on the Windows development machine to 
    ```powerhsell
    docker --version
    ```
-If everything was successfully configurated, the previous command should output the docker version, something like _Docker version 20.10.9, build c2ea9bc90_. 
+If everything was successfully configurated, the previous command should output the docker version, something like _Docker version 20.10.12, build e91ed57_. 
 
 The second step is to configure the EFLOW virtual machine Docker engine to accept external connections, and add the appropriate firewall rules. 
 
