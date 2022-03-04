@@ -217,3 +217,9 @@ Use [az network lb inbound-nat-rule delete](/cli/azure/network/lb/inbound-nat-ru
 ---
 
 ## Next steps
+
+In this article, you learned how to manage inbound NAT rules for an Azure Load Balancer.
+
+For more information about Azure Load Balancer, see:
+- [What is Azure Load Balancer?](load-balancer-overview.md)
+- [Frequently asked questions - Azure Load Balancer](load-balancer-faqs.yml)
