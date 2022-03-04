@@ -97,7 +97,6 @@ In this example, we match all requests that have been detected as coming from a 
   }
 }
 ```
-<!-- TODO make this change to the rest of the match conditions -->
 
 ::: zone-end
 
@@ -286,6 +285,8 @@ In this example, we match all POST requests where a `customerName` argument is p
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "PostArgs",
@@ -304,7 +305,33 @@ In this example, we match all POST requests where a `customerName` argument is p
 }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "PostArgs",
+  "parameters": {
+    "selector": "customerName",
+    "operator": "BeginsWith",
+    "negateCondition": false,
+    "matchValues": [
+        "J",
+        "K"
+    ],
+    "transforms": [
+        "Uppercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters"
+}
+```
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -324,6 +351,31 @@ In this example, we match all POST requests where a `customerName` argument is p
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'PostArgs'
+  parameters: {
+    selector: 'customerName'
+    operator: 'BeginsWith'
+    negateCondition: false
+    matchValues: [
+      'J'
+      'K'
+    ]
+    transforms: [
+      'Uppercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters'
+  }
+}
+```
+
+::: zone-end
 
 ---
 
@@ -352,6 +404,8 @@ In this example, we match all requests where the query string contains the strin
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "QueryString",
@@ -366,7 +420,29 @@ In this example, we match all requests where the query string contains the strin
 }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "QueryString",
+  "parameters": {
+    "operator": "Contains",
+    "negateCondition": false,
+    "matchValues": [
+      "language=en-US"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters"
+  }
+}
+```
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -381,6 +457,26 @@ In this example, we match all requests where the query string contains the strin
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'QueryString'
+  parameters: {
+    operator: 'Contains'
+    negateCondition: false
+    matchValues: [
+      'language=en-US'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters'
+  }
+}
+```
+
+::: zone-end
 
 ---
 
@@ -413,6 +509,8 @@ In this example, we match all requests where the request has not originated from
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "RemoteAddress",
@@ -427,7 +525,29 @@ In this example, we match all requests where the request has not originated from
 }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "RemoteAddress",
+  "parameters": {
+    "operator": "GeoMatch",
+    "negateCondition": true,
+    "matchValues": [
+      "US"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters"
+  }
+}
+```
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -442,6 +562,26 @@ In this example, we match all requests where the request has not originated from
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'RemoteAddress'
+  parameters: {
+    operator: 'GeoMatch'
+    negateCondition: true
+    matchValues: [
+      'US'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters'
+  }
+}
+```
+
+::: zone-end
 
 ---
 
@@ -470,6 +610,8 @@ In this example, we match all requests where the request body contains the strin
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "RequestBody",
@@ -487,7 +629,32 @@ In this example, we match all requests where the request body contains the strin
 }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "RequestBody",
+  "parameters": {
+    "operator": "Contains",
+    "negateCondition": false,
+    "matchValues": [
+      "ERROR"
+    ],
+    "transforms": [
+      "Uppercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters"
+  }
+}
+```
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -505,6 +672,29 @@ In this example, we match all requests where the request body contains the strin
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'RequestBody'
+  parameters: {
+    operator: 'Contains'
+    negateCondition: false
+    matchValues: [
+      'ERROR'
+    ]
+    transforms: [
+      'Uppercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters'
+  }
+}
+```
+
+::: zone-end
 
 ---
 
@@ -530,6 +720,8 @@ In this example, we match all requests where the request file name is `media.mp4
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "UrlFileName",
@@ -547,7 +739,32 @@ In this example, we match all requests where the request file name is `media.mp4
 }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "UrlFileName",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "media.mp4"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters"
+  }
+}
+```
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -565,6 +782,29 @@ In this example, we match all requests where the request file name is `media.mp4
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'UrlFileName'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'media.mp4'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters'
+  }
+}
+```
+
+::: zone-end
 
 ---
 
@@ -593,6 +833,8 @@ In this example, we match all requests where the request file extension is `pdf`
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "UrlFileExtension",
@@ -610,7 +852,32 @@ In this example, we match all requests where the request file extension is `pdf`
   }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "UrlFileExtension",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "pdf",
+      "docx"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters"
+  }
+```
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -629,6 +896,31 @@ In this example, we match all requests where the request file extension is `pdf`
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'UrlFileExtension'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'pdf'
+      'docx'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters'
+  }
+}
+```
+
+::: zone-end
+
 
 ---
 
@@ -655,6 +947,8 @@ In this example, we match all requests where the request contains a header named
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "RequestHeader",
@@ -667,7 +961,27 @@ In this example, we match all requests where the request contains a header named
 }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "RequestHeader",
+  "parameters": {
+    "selector": "MyCustomHeader",
+    "operator": "Any",
+    "negateCondition": false,
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters"
+  }
+}
+```
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -680,6 +994,24 @@ In this example, we match all requests where the request contains a header named
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'RequestHeader'
+  parameters: {
+    selector: 'MyCustomHeader',
+    operator: 'Any'
+    negateCondition: false
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters'
+  }
+}
+```
+
+::: zone-end
 
 ---
 
@@ -704,6 +1036,8 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "RequestMethod",
@@ -718,7 +1052,29 @@ In this example, we match all requests where the request uses the `DELETE` metho
 }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "RequestMethod",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "DELETE"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters"
+  }
+}
+```
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -727,12 +1083,32 @@ In this example, we match all requests where the request uses the `DELETE` metho
     operator: 'Equal'
     negateCondition: false
     matchValues: [
-      'DELETE
+      'DELETE'
     ]
     typeName: 'DeliveryRuleRequestMethodConditionParameters'
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'RequestMethod'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'DELETE'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters'
+  }
+}
+```
+
+::: zone-end
 
 ---
 
@@ -761,6 +1137,8 @@ In this example, we match all requests where the request file path begins with `
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "UrlPath",
@@ -778,7 +1156,32 @@ In this example, we match all requests where the request file path begins with `
 }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "UrlPath",
+  "parameters": {
+    "operator": "BeginsWith",
+    "negateCondition": false,
+    "matchValues": [
+      "files/secure/"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters"
+  }
+}
+```
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -796,6 +1199,29 @@ In this example, we match all requests where the request file path begins with `
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'UrlPath'
+  parameters: {
+    operator: 'BeginsWith'
+    negateCondition: false
+    matchValues: [
+      'files/secure/'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters'
+  }
+}
+```
+
+::: zone-end
 
 ---
 
@@ -823,6 +1249,8 @@ In this example, we match all requests where the request uses the `HTTP` protoco
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "RequestScheme",
@@ -837,7 +1265,29 @@ In this example, we match all requests where the request uses the `HTTP` protoco
 }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "RequestScheme",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "HTTP"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters"
+  }
+}
+```
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -846,12 +1296,32 @@ In this example, we match all requests where the request uses the `HTTP` protoco
     operator: 'Equal'
     negateCondition: false
     matchValues: [
-      'HTTP
+      'HTTP'
     ]
     typeName: 'DeliveryRuleRequestSchemeConditionParameters'
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'RequestScheme'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'HTTP'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters'
+  }
+}
+```
+
+::: zone-end
 
 ---
 
@@ -880,6 +1350,8 @@ In this example, we match all requests where the request URL begins with `https:
 
 # [JSON](#tab/json)
 
+::: zone pivot="front-door-standard-premium"
+
 ```json
 {
   "name": "RequestUri",
@@ -897,7 +1369,32 @@ In this example, we match all requests where the request URL begins with `https:
 }
 ```
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```json
+{
+  "name": "RequestUri",
+  "parameters": {
+    "operator": "BeginsWith",
+    "negateCondition": false,
+    "matchValues": [
+      "https://api.contoso.com/customers/123"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters"
+  }
+}
+```
+
+::: zone-end
+
 # [Bicep](#tab/bicep)
+
+::: zone pivot="front-door-standard-premium"
 
 ```bicep
 {
@@ -915,6 +1412,29 @@ In this example, we match all requests where the request URL begins with `https:
   }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```bicep
+{
+  name: 'RequestUri'
+  parameters: {
+    operator: 'BeginsWith'
+    negateCondition: false
+    matchValues: [
+      'https://api.contoso.com/customers/123'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters'
+  }
+}
+```
+
+::: zone-end
 
 ---
 
