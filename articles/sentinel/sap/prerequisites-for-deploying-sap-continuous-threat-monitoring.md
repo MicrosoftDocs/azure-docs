@@ -79,8 +79,8 @@ To successfully deploy the SAP continuous threat monitoring, a number of prerequ
 
 | SAP BASIS versions | Required CR |
 | --- | --- |
-| - 750 and later | *NPLK900180* [K900180.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900180.NPL), [R900180.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900180.NPL) |
-| - 740  | *NPLK900179* [K900179.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900179.NPL), [R900179.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900179.NPL) |
+| - 750 and later | *NPLK900180*: [K900180.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900180.NPL), [R900180.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900180.NPL) |
+| - 740  | *NPLK900179*: [K900179.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900179.NPL), [R900179.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900179.NPL) |
 | | |
 
 3. (Optional) Download and install the following SAP change request from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR) to create a role required for SAP continuous threat monitoring data collector to connect to SAP system

@@ -42,11 +42,10 @@ Data connector agent can store configuration in Azure Key vault, in a configurat
 
 Depending on the scenario, different configuration instructions have to be followed.
 
-- When configuration is stored in Azure Key Vault, depending on the host VM placement, configuration will differ:<br>
-A container running on the host in Azure can leverage Managed identity to seamlessly access Azure Key vault
+When configuration is stored in Azure Key Vault, depending on the host VM placement, configuration will differ:<br>
+   - A container running on the host in Azure can leverage Managed identity to seamlessly access Azure Key vault
 More information on managed identity can be found here: [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md)
-
-- A container running on-premise, in a 3rd party cloud environment, or in Azure (but does utilize Managed Identity) can authenticate to Azure KeyVault using a service principal. More information on service principals can be found here: [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
+   - A container running on-premise, in a 3rd party cloud environment, or in Azure (but does not utilize Managed Identity) can authenticate to Azure KeyVault using a service principal. More information on service principals can be found here: [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
 
 ### Prerequisites
 To deploy Data connector agent, a host running Linux must be deployed.
@@ -210,23 +209,41 @@ Run the script, specifying application ID, secret, tenant ID, keyvault name
 Kickstart script simplifies the process of deploying the data connector container by performing the following actions:
 - Updating the OS components
 - Install prerequisite software
+   - curl
+   - jq
+   - netcat
    - azure-cli
    - docker
 - Prompt for configuration parameter values
 - Configure the container
 
-Note the docker container name in the script output
-
-2. Configure the docker container to automatically startup
-Below sample assumes the name of the created container is `sapcon-a4h`.
-To view list of available container use `docker ps -a` command
-
-```bash
-docker update --restart unless-stopped sapcon-a4h
-```
-
 ## Manual SAP data connector deployment
+1. Prepare a machine running a [supported](#prerequisites) version of the Operating System
+1. Transfer [SDK](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#table-of-prerequisites) to the target machine
+1. Install [docker](https://www.docker.com/)
+1. Create a folder to store container configuration and metadata, retreive sample systemconfig.ini file.
+   ````bash
+   sid=<SID>
+   mkdir -p /opt/sapcon/$sid
+   cd /opt/sapcon/$sid
+   wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.ini 
 
+   ````
+   Replace <*SID*> with the name of the SAP instance
+1. Edit the systemconfig.ini file, configure relevant settings. For more information on the available settings see [Continuous Threat Monitoring for SAP container configuration file reference](reference_systemconfig.md)
+1. Retreive latest container image image and create a new container
+   ````bash
+   sid=<SID>
+   docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest
+   docker create -d --restart unless-stopped -v /opt/sapcon/$sid/:/sapcon-app/sapcon/config/system --name sapcon-$sid sapcon   
+   ````
+   Replace <*SID*> with the name of the SAP instance
+1. Copy SDK into the container
+   ````bash
+   sdkfile=<sdkfilename> 
+   sid=<SID>
+   docker cp $sdkfile sapcon-$sid:/sapcon-app/inst/
+   ````
 
 ## Next steps
 

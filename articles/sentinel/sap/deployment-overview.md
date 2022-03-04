@@ -34,8 +34,8 @@ In this series of articles, you'll learn how to:
 - Prepare your SAP system for the SAP data connector deployment.
 - Deploy the SAP data connector.
 - Deploy the SAP solution security content in Microsoft Sentinel.
-- Configure auditing
-- Configure data connector to connect to SAP using SNC and X.509 certificate authentication
+- Configure auditing.
+- Configure data connector to connect to SAP using SNC and X.509 certificate authentication.
 
 > [!NOTE]
 > Extra steps are required to configure communications between SAP data connector and SAP over a Secure Network Communications (SNC) connection. This is covered in [Deploy the Microsoft Sentinel SAP data connector with SNC](configure_snc.md) section of the guide.
