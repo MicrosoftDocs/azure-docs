@@ -1,10 +1,8 @@
 ---
 title: Azure Functions SignalR Service bindings
 description: Understand how to use SignalR Service bindings with Azure Functions.
-author: ggailey777
 ms.topic: reference
-ms.date: 02/28/2019
-ms.author: cshoe
+ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

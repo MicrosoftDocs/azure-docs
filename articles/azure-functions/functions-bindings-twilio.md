@@ -1,10 +1,8 @@
 ---
 title: Azure Functions Twilio binding
 description: Understand how to use Twilio bindings with Azure Functions.
-author: ggailey777
 ms.topic: reference
-ms.date: 07/09/2018
-ms.author: cshoe
+ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, python
 ms.custom: "devx-track-csharp, H1Hack27Feb2017"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
