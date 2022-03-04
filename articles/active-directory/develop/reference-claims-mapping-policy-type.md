@@ -179,40 +179,53 @@ This section lists:
 
 ### Table 2: SAML restricted claim set
 
-The following table lists the SAML claims that are by default in the restricted claim set. Some claims are not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest and/or have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).  See the Notes column for more information.
+The following table lists the SAML claims that are by default in the restricted claim set.
 
-| Claim type (URI) | Notes |
-| ----- | ----- |
-|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`| |
-|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`| |
-|`http://schemas.microsoft.com/2014/03/psso`| |
-|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`| |
-|`http://schemas.microsoft.com/claims/authnmethodsreferences`| |
-|`http://schemas.microsoft.com/claims/groups.link`| |
-|`http://schemas.microsoft.com/identity/claims/accesstoken`| |
-|`http://schemas.microsoft.com/identity/claims/acct`| |
-|`http://schemas.microsoft.com/identity/claims/agegroup`| |
-|`http://schemas.microsoft.com/identity/claims/aio`| |
-|`http://schemas.microsoft.com/identity/claims/identityprovider`| |
-|`http://schemas.microsoft.com/identity/claims/objectidentifier`| |
-|`http://schemas.microsoft.com/identity/claims/openid2_id`| |
-|`http://schemas.microsoft.com/identity/claims/puid`| |
-|`http://schemas.microsoft.com/identity/claims/tenantid`| |
-|`http://schemas.microsoft.com/identity/claims/xms_et`| |
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`| |
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`| |
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`| |
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`| |
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`| |
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`| |
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`| |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname` | This claim is restricted by default, but is not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *OR* you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key). |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` | This claim is restricted by default, but is not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *OR* you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).|
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid` | This claim is restricted by default, but is not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *OR* you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).|
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid` | This claim is restricted by default, but is not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *OR* you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).|
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname` | This claim is restricted by default, but is not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *OR* you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).|
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` | This claim is restricted by default, but is not restricted if you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key). |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` | This claim is restricted by default, but is not restricted if you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key). |
+These claims are restricted by default, but are not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *or* have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key):
+
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`
+
+These claims are restricted by default, but are not restricted if you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key):
+
+ - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
+ - `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`
+
+| Claim type (URI) |
+| ----- |
+|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
+|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
+|`http://schemas.microsoft.com/2014/03/psso`|
+|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
+|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
+|`http://schemas.microsoft.com/claims/groups.link`|
+|`http://schemas.microsoft.com/identity/claims/accesstoken`|
+|`http://schemas.microsoft.com/identity/claims/acct`|
+|`http://schemas.microsoft.com/identity/claims/agegroup`|
+|`http://schemas.microsoft.com/identity/claims/aio`|
+|`http://schemas.microsoft.com/identity/claims/identityprovider`|
+|`http://schemas.microsoft.com/identity/claims/objectidentifier`|
+|`http://schemas.microsoft.com/identity/claims/openid2_id`|
+|`http://schemas.microsoft.com/identity/claims/puid`|
+|`http://schemas.microsoft.com/identity/claims/tenantid`|
+|`http://schemas.microsoft.com/identity/claims/xms_et`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`  |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` |
 
 ## Claims mapping policy properties
 
