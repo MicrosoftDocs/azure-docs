@@ -15,14 +15,18 @@ https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-opti
 
 https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-virtual-network-integration/ba-p/3096932
 
+<!-- prerequsite -->
+https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm
+
+Plan networking before you create an environment
+
+
+
 ## Environments
 
 deploy to a virtual network, 
 
 by default .....
-
-
-
 
 we create VNET for you, but you are not able to access it
 inaccessible Azure-based VNET in the MS tenant
@@ -35,13 +39,29 @@ https://docs.microsoft.com/en-us/azure/app-service/environment/intro#virtual-net
 
 ## Use cases
 
+What do you want to achieve?
 
+ensure you have private connections to databases and all Azure resources
 
-## Default networking behavior
+Lock down application
 
-Outbound
+API management or App Gateway which talks to a BYO VNET configured as internal only
+
+<!-- 👆🏼 tomer to provide samples  -->
+
+## Networking behavior
+
+generated VNET - get Azure-assigned IPs, address spaces
+
+- BYO VNET
+  - you can control IPs
+  - control over network security groups
 
 ## Access restrictions
+
+if you want to lock down your environment to your vent and restrict outside access, then to byo vnet configured as internal only. Then its not reachable from the outside
+
+
 
 <!-- Verify with Ahmed -->
 ### Envoy behavior
@@ -50,7 +70,7 @@ Outbound
 
 ## Scenarios
 
-
+different for internal vs external configuration
 
 ## Ports
 
