@@ -21,7 +21,7 @@ Running Import or Export via Azure PowerShell or Azure portal requires you to se
 
 Import Export Private Link is a Service Managed Private Endpoint created by Microsoft and that is exclusively used by the Import-Export, database and Azure Storage services for all communications. The private end point has to be manually approved by user in the Azure portal for both server and storage. 
 
-:::image type="content" source="./media/database-import-export-private-link/import-export-private-link.png" alt-text="Screenshot that shows how to enable Import Private link":::
+:::image type="content" source="./media/database-import-export-private-link/import-export-private-link.png" alt-text="Screenshot of Import Export Private link architecture":::
 
 To use Private Link with Import-Export, user database and Azure Storage blob container must be hosted on the same type of Azure Cloud. For example, either both in Azure Commercial or both on Azure Gov. Hosting across cloud types isn't supported.
 
