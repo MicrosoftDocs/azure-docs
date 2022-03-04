@@ -60,7 +60,7 @@ To create and publish Java functions to Azure using IntelliJ, install the follow
 
 In this section, you use Azure Toolkit for IntelliJ to create a local Azure Functions project. Later in this article, you'll publish your function code to Azure. 
 
-1. Open IntelliJ Welcome dialog, select *Create New Project* to open a new Project wizard, select *Azure Functions*.
+1. Open IntelliJ Welcome dialog, select *New Project* to open a new Project wizard, select *Azure Functions*.
 
     ![Create function project](media/functions-create-first-java-intellij/create-functions-project.png)
 
@@ -70,13 +70,13 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
 ## Run the project locally
 
-1. Navigate to `src/main/java/org/example/functions/HttpTriggerFunction.java` to see the code generated. Beside the line *17*, you will notice that there is a green *Run* button, click it and select *Run 'azure-function-exam...'*, you will see that your function app is running locally with a few logs.
+1. Navigate to `src/main/java/org/example/functions/HttpTriggerFunction.java` to see the code generated. Beside the line *24*, you will notice that there is a green *Run* button, click it and select *Run 'azure-function-exam...'*, you will see that your function app is running locally with a few logs.
 
     ![Local run project](media/functions-create-first-java-intellij/local-run-functions-project.png)
 
     ![Local run project output](media/functions-create-first-java-intellij/local-run-functions-output.png)
 
-1. You can try the function by accessing the printed endpoint from browser, like `http://localhost:7071/api/HttpTrigger-Java?name=Azure`.
+1. You can try the function by accessing the printed endpoint from browser, like `http://localhost:7071/api/HttpExample?name=Azure`.create-functions-project-finish
 
     ![Local run function test result](media/functions-create-first-java-intellij/local-run-functions-test.png)
 
@@ -90,7 +90,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
     ![Local debug function app button](media/functions-create-first-java-intellij/local-debug-functions-button.png)
 
-1. Click on line *20* of the file `src/main/java/org/example/functions/HttpTriggerFunction.java` to add a breakpoint, access the endpoint `http://localhost:7071/api/HttpTrigger-Java?name=Azure` again , you will find the breakpoint is hit, you can try more debug features like *step*, *watch*, *evaluation*. Stop the debug session by click the stop button.
+1. Click on line *31* of the file `src/main/java/org/example/functions/HttpTriggerFunction.java` to add a breakpoint, access the endpoint `http://localhost:7071/api/HttpTrigger-Java?name=Azure` again , you will find the breakpoint is hit, you can try more debug features like *step*, *watch*, *evaluation*. Stop the debug session by click the stop button.
 
     ![Local debug function app break](media/functions-create-first-java-intellij/local-debug-functions-break.png)
 
@@ -100,7 +100,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
     ![Deploy project to Azure](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
-1. If you don't have any Function App yet, click *+* in the *Function* line. Type in the function app name and choose proper platform, here we can simply accept default. Click *OK* and the new function app you just created will be automatically selected. Click *Run* to deploy your functions.
+1. If you don't have any Function App yet, click `+` in the *Function* line. Type in the function app name and choose proper platform, here we can simply accept default. Click *OK* and the new function app you just created will be automatically selected. Click *Run* to deploy your functions.
 
     ![Create function app in Azure](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
 
@@ -134,9 +134,10 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
 ## Cleaning up functions
 
-1. Deleting functions in Azure Explorer
+1. Click to select on one of your function apps with *Azure Explorer* in your IDEA, and right click, select *Delete* to finish this step. This command might take several minutes to run. When it's done, the status will refresh in *Azure Explorer*.
       
       ![Screenshot shows Delete selected from a context menu.](media/functions-create-first-java-intellij/delete-function.png)
+
       
 
 ## Next steps
