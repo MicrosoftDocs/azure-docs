@@ -14,7 +14,9 @@ ms.custom: deploy, devplatv2, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# High-performance serving with Triton Inference Server (Preview) 
+# High-performance serving with Triton Inference Server (Preview)
+
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
 Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) in Azure Machine Learning with [Managed online endpoints](concept-endpoints.md#managed-online-endpoints).
 

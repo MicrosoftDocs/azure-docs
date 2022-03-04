@@ -18,6 +18,7 @@ ms.custom: how-to, devplatv2
 # Use batch endpoints (preview) for batch scoring
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
 Learn how to use batch endpoints (preview) to do batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
