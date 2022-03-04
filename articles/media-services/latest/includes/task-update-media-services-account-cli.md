@@ -8,7 +8,7 @@ ms.author: inhenkel
 
 <!--Update a media services account -->
 
-The following Azure CLI command updates a new Media Services account. For more information about additional parameters see the [CLI reference](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest#az-ams-account-update). 
+The following Azure CLI command updates a new Media Services account. For more information about additional parameters see the [CLI reference](/cli/azure/ams/account?view=azure-cli-latest#az-ams-account-update). 
 
 [!INCLUDE [directive-change-my-resource-group](directive-change-resource-group.md)]
 
