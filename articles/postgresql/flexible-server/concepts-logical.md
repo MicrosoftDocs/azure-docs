@@ -4,6 +4,7 @@ description: Learn about using logical replication and logical decoding in Azure
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---
