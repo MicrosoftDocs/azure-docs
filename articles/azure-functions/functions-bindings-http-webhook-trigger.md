@@ -1,10 +1,8 @@
 ---
 title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
-author: ggailey777
 ms.topic: reference
-ms.date: 02/21/2020
-ms.author: cshoe
+ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
