@@ -66,8 +66,6 @@ Use the Azure portal or Azure PowerShell to verify the resource group and server
 Get-AzAnalysisServicesServer -Name <analysis-service-name>
 ```
 
----
-
 ## Clean up resources
 
 When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and the server resource.
