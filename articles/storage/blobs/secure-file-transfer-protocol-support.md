@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 03/04/2022
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
@@ -17,7 +17,7 @@ ms.reviewer: ylunagaria
 Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage accounts via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management.  
 
 > [!IMPORTANT]
-> SFTP support currently is in PREVIEW and is available in only [these regions](secure-file-transfer-protocol-support.md#regional-availability).
+> SFTP support currently is in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
@@ -120,22 +120,6 @@ SFTP clients commonly found to not support algorithms listed above include Apach
 ## Known issues and limitations
 
 See the [Known issues](secure-file-transfer-protocol-known-issues.md) article for a complete list of issues and limitations with the current release of SFTP support.
-
-## Regional availability
-
-SFTP support is available in the following regions: 
-
-- North Central US
-- East US 2
-- Canada East
-- Canada Central
-- North Europe
-- Australia East
-- Switzerland North
-- Germany West Central
-- East Asia
-- France Central
-- West Europe
 
 ## Pricing and billing
 

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 03/04/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -16,7 +16,7 @@ ms.reviewer: ylunagaria
 This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available in [these regions](secure-file-transfer-protocol-support.md#regional-availability).
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
