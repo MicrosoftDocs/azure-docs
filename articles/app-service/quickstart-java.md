@@ -18,7 +18,7 @@ adobe-target-content: ./quickstart-java-uiex
 
 # Quickstart: Create a Java app on Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
 
 # [Java SE](#tab/javase)
 
@@ -288,7 +288,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
 ::: zone-end
 
-You can modify the configurations for App Service directly in your `pom.xml` if needed. Some common ones are listed below:
+You can modify the configurations for App Service directly in your `pom.xml`. Some common modifications are listed below:
 
 Property | Required | Description | Version
 ---|---|---|---
