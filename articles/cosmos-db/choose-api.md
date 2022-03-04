@@ -47,7 +47,7 @@ If you are migrating from other databases such as Oracle, DynamoDB, HBase etc. a
 
 ## API for MongoDB
 
-This API stores data in a document structure, via BSON format. It is compatible with MongoDB wire protocol; however, it does not use any native MongoDB related code. This API is a great choice if you want to use the broader MongoDB ecosystem and skills, without compromising on using Azure Cosmos DB's features such as scaling, high availability, geo-replication, multiple write locations, automatic and transparent shard management, transparent replication between operational and analytical stores, and more.
+This API stores data in a document structure, via BSON format. It is compatible with MongoDB wire protocol; however, it does not use any native MongoDB related code. This API is a great choice if you want to use the broader MongoDB ecosystem and skills, without compromising on using Azure Cosmos DB features such as scaling, high availability, geo-replication, multiple write locations, automatic and transparent shard management, transparent replication between operational and analytical stores, and more.
 
 You can use your existing MongoDB apps with API for MongoDB by just changing the connection string. You can move any existing data using native MongoDB tools such as mongodump & mongorestore or using our Azure Database Migration tool. Tools, such as the MongoDB shell, [MongoDB Compass](mongodb/connect-using-compass.md), and [Robo3T](mongodb/connect-using-robomongo.md), can run queries and work with data as they do with native MongoDB.
 
@@ -61,9 +61,9 @@ You can use Apache Cassandra client drivers to connect to the Cassandra API. The
 
 ## Gremlin API
 
-This API allows users to make graph queries and stores data as edges and vertices. Use this API for scenarios involving dynamic data, data with complex relations, data that is too complex to be modeled with relational databases, and if you want to use the existing Gremlin ecosystem and skills. Azure Cosmos DB's Gremlin API combines the power of graph database algorithms with highly scalable, managed infrastructure. It provides a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches. Gremlin API currently only supports OLTP scenarios.
+This API allows users to make graph queries and stores data as edges and vertices. Use this API for scenarios involving dynamic data, data with complex relations, data that is too complex to be modeled with relational databases, and if you want to use the existing Gremlin ecosystem and skills. The Azure Cosmos DB Gremlin API combines the power of graph database algorithms with highly scalable, managed infrastructure. It provides a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches. Gremlin API currently only supports OLTP scenarios.
 
-Azure Cosmos DB's Gremlin API is based on the [Apache TinkerPop](https://tinkerpop.apache.org/) graph computing framework. Gremlin API uses the same Graph query language to ingest and query data. It uses the Azure Cosmos DB's partition strategy to do the read/write operations from the Graph database engine. Gremlin API has a wire protocol support with the open-source Gremlin, so you can use the open-source Gremlin SDKs to build your application. Azure Cosmos DB Gremlin API also works with Apache Spark and [GraphFrames](https://github.com/graphframes/graphframes) for complex analytical graph scenarios. To learn more, see [Gremlin API](graph-introduction.md) article.
+The Azure Cosmos DB Gremlin API is based on the [Apache TinkerPop](https://tinkerpop.apache.org/) graph computing framework. Gremlin API uses the same Graph query language to ingest and query data. It uses the Azure Cosmos DB partition strategy to do the read/write operations from the Graph database engine. Gremlin API has a wire protocol support with the open-source Gremlin, so you can use the open-source Gremlin SDKs to build your application. Azure Cosmos DB Gremlin API also works with Apache Spark and [GraphFrames](https://github.com/graphframes/graphframes) for complex analytical graph scenarios. To learn more, see [Gremlin API](graph-introduction.md) article.
 
 ## Table API
 
@@ -82,7 +82,7 @@ Trying to do capacity planning for a migration to Azure Cosmos DB API for SQL or
 ## Next steps
 
 * [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
-* [Get started with Azure Cosmos DB's API for MongoDB](mongodb/create-mongodb-nodejs.md)
+* [Get started with Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-nodejs.md)
 * [Get started with Azure Cosmos DB Cassandra API](cassandra/manage-data-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)

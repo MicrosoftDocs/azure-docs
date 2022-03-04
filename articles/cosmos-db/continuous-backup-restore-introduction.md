@@ -56,7 +56,7 @@ You can add these configurations to the restored account after the restore is co
 
 ## Restorable timestamp for live accounts
 
-To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to it's latest version.
+To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to its latest version.
 
 ## Restore scenarios
 
@@ -106,7 +106,7 @@ For example, if you have 1-TB of data in two regions then:
 See [How do customer-managed keys affect continuous backups?](./how-to-setup-cmk.md#how-do-customer-managed-keys-affect-continuous-backups) to learn:
 
 - How to configure your Azure Cosmos DB account when using customer-managed keys in conjunction with continuous backups.
-- How do customer-managed keys affect restores.
+- How do customer-managed keys affect restores?
 
 ## Current limitations
 
