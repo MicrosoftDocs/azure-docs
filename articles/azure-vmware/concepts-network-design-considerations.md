@@ -13,7 +13,7 @@ Azure VMware Solution offers a VMware private cloud environment accessible for u
 
 Azure VMware Solution is incompatible with AS-Path Prepend for redundant ExpressRoute configurations and doesn't honor the outbound path selection from Azure towards on-premises.  If you're running 2 or more ExpressRoute paths between on-prem and Azure plus the following listed conditions are true, you may experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution.  The connectivity issue is caused when Azure VMware Solution doesn't see the AS-Path Prepend and uses ECMP to send traffic towards your environment over both ExR circuits, resulting in issues with stateful firewall inspection.
 
-**Check list of conditions that are true:**
+**Checklist of conditions that are true:**
 - Both or all circuits are connected to Azure VMware Solution with global reach.
 - The same netblocks are being advertised from two or more circuits.
 - Stateful firewalls are in the network path.
@@ -23,7 +23,7 @@ Azure VMware Solution is incompatible with AS-Path Prepend for redundant Express
 
 If you’re using BGP AS-Path Prepend to dedicate a circuit from Azure towards on-prem, open a [Customer Support Request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with Azure VMware Solution to designate a primary circuit from Azure. You’ll need to identify which circuit you’d like to be primary for a given network advertisement. Azure support staff will implement the AS-Path Prepend manually within the Azure VMware Solution environment to match your on-prem configuration for route selection.  That action doesn't affect redundancy as the other path(s) is still available if the primary one fails. 
 
-## Management VMs and default routes from On-Premises 
+## Management VMs and default routes from on-premises 
 
 > [!IMPORTANT]
 > Azure Vmware Solution Management VMs don't honor a default route from On-Premises.
