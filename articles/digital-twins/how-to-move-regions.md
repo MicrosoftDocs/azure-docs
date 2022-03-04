@@ -60,7 +60,7 @@ First, open **Azure Digital Twins Explorer** for your Azure Digital Twins instan
 
 Selecting this button will open an Azure Digital Twins Explorer window connected to this instance.
 
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Screenshot of the Azure portal in an internet browser. The portal is showing the Azure Digital Twins Explorer, which contains no data." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Screenshot of the Azure portal in an internet browser. The portal is showing the Azure Digital Twins Explorer, which contains no data." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
 Follow the Azure Digital Twins Explorer instructions to [Export graph and models](how-to-use-azure-digital-twins-explorer.md#export-graph-and-models). Following these instructions will let you download a JSON file to your machine that contains the code for your models, twins, and relationships (including models that aren't currently being used in the graph).
 
@@ -89,7 +89,7 @@ Import the [JSON file that you downloaded](#download-models-twins-and-graph-with
 
 To verify everything was uploaded successfully, switch back to the **Twin Graph** tab and select the **Run Query** button in the **Query Explorer** panel to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **Models** panel.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Screenshot of the Azure Digital Twins Explorer, highlighting the 'Run Query' button in the upper-right corner of the window." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/run-query.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the 'Run Query' button in the upper-right corner of the window." lightbox="media/quickstart-azure-digital-twins-explorer/run-query.png":::
 
 You should see your graph with all its twins and relationships displayed in the **Twin Graph** panel. You should also see your models listed in the **Models** panel.
 
