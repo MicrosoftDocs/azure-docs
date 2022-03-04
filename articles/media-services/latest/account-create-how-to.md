@@ -4,15 +4,10 @@ description: This tutorial walks you through the steps of creating an Azure Medi
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/29/2021
+ms.date: 03/04/2022
 ms.author: inhenkel
-ms.custom: devx-track-azurecli
-
 ---
 # Create a Media Services account
 
