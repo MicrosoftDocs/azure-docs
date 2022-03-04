@@ -28,7 +28,7 @@ For now, within a single copy activity you can only **copy data from Office 365 
 >- Service Principal authentication is the only authentication mechanism supported for Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2 as destination stores.
 
 > [!Note]
-> The self-hosted integration runtime and the integration runtime within managed Virtual Network are not supported.
+> Please use Azure integration runtime in both source and sink linked services. The self-hosted integration runtime and the managed virtual network integration runtime are not supported. 
 
 ## Prerequisites
 

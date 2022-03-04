@@ -48,6 +48,9 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 
 3. In the Activities tool box > Move & Transform category > drag and drop the **Copy activity** from the tool box to the pipeline designer surface. Specify "CopyFromOffice365ToBlob" as activity name.
 
+> [!Note]
+> Please use Azure integration runtime in both source and sink linked services. The self-hosted integration runtime and the managed virtual network integration runtime are not supported. 
+
 ### Configure source
 
 1. Go to the pipeline > **Source tab**, click **+ New** to create a source dataset. 
@@ -78,8 +81,6 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 
     :::image type="content" source="./media/load-office-365-data/edit-source-properties.png" alt-text="Config Office 365 dataset schema":::
 
-> [!Note]
-> The self-hosted integration runtime and the integration runtime within managed Virtual Network are not supported.
 
 ### Configure sink
 
