@@ -97,7 +97,7 @@ Within the same Host Group as the existing Dedicated Host, [create a Dedicated H
 
 #### [PowerShell](#tab/PS)
 
-Refer to the PowerShell documentation to [stop a VM through PowerShell](/powershell/module/servicemanagement/azure.service/stop-azurevm) or [stop a virtual machine scale set through PowerShell](/powershell/module/servicemanagement/azure.service/stop-azvmss).
+Refer to the PowerShell documentation to [stop a VM through PowerShell](/powershell/module/servicemanagement/azure.service/stop-azurevm) or [stop a virtual machine scale set through PowerShell](/powershell/module/servicemanagement/az.compute/stop-azvmss).
 
 #### [CLI](#tab/CLI)
 
@@ -125,7 +125,7 @@ Once the target Dedicated Host has been created and the VM has been stopped, [re
 >**Automatically placed VM(s) and virtual machine scale set require that you delete the old host _before_ starting the autoplaced VM(s) or virtual machine scale set.**
 
 #### [PowerShell](#tab/PS)
-Refer to the PowerShell documentation to [start a VM through PowerShell](/powershell/module/servicemanagement/azure.service/start-azurevm) or [start a virtual machine scale set through PowerShell](/powershell/module/servicemanagement/azure.service/start-azvmss).
+Refer to the PowerShell documentation to [start a VM through PowerShell](/powershell/module/servicemanagement/azure.service/start-azurevm) or [start a virtual machine scale set through PowerShell](/powershell/module/servicemanagement/az.compute/start-azvmss).
 
 #### [CLI](#tab/CLI)
 
