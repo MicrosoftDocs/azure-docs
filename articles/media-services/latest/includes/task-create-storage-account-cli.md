@@ -8,7 +8,7 @@ ms.author: inhenkel
 
 <!-- ### Create a storage account -->
 
-## Create a an Azure Storage account with the CLI
+## Create an Azure Storage account with the CLI
 
 Use the following commands to create an Azure Storage account.
 
@@ -28,7 +28,7 @@ You also need to choose a SKU for your storage account.
 
 [!INCLUDE [sku-list](sku-list.md)]
 
-- Change `myStorageAccount` to a unique name with a length of less than 24 characters.
+- Change `myStorageAccount` to a unique name with a length of fewer than 24 characters.
 - Change `chooseLocation` to the region you want to work within. 
 - Change `chooseSKU` to your preferred SKU.
 
