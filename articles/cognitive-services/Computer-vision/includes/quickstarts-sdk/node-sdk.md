@@ -133,7 +133,7 @@ Define the `readTextFromURL` function. This calls the **read** method  on the cl
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 
-As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model version `2022-01-30-preview`, edit the `read` statement as shown:
+As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model version `2022-01-30-preview`, edit the `read` statement as shown:
 
 ```JS
   let result = await client.read(url,{modelVersion:"2022-01-30-preview"});
