@@ -206,7 +206,7 @@ Update the relying party (RP) file that initiates the user journey that you crea
     </UserJourneyBehaviors>
     ```
 
-We set both KeepAliveInDays and SessionExpiryInSeconds so that during a sign-in if a user selects the KMSI checkbox, the KeepAliveInDays is used otherwise the value specified in the SessionExpiryInSeconds parameter is used to set the cookies.  We recommend that you set the value of SessionExpiryInSeconds to be a short period (1200 seconds), while the value of KeepAliveInDays can be set to a relatively long period (30 days), as shown in the following example:
+You set both KeepAliveInDays and SessionExpiryInSeconds so that during a sign-in, if a user enables KMSI, the KeepAliveInDays is used to set the cookies, otherwise the value specified in the SessionExpiryInSeconds parameter is used.  We recommend that you set the value of SessionExpiryInSeconds to be a short period (1200 seconds), while the value of KeepAliveInDays can be set to a relatively long period (30 days), as shown in the following example:
 
 ```xml
 <RelyingParty>
