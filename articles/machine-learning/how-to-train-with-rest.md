@@ -151,7 +151,7 @@ Azure Machine Learning also lets you efficiently tune training hyperparameters. 
 - **trial**: The command job configuration for each trial to be run. 
 - **objective**: The `primaryMetric` is the optimization metric, which must match the name of a metric logged from the training code. The `goal` specifies the direction (minimize or maximize). See the [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json) for the full enumeration of options. 
 - **searchSpace**: A generic object of hyperparameters to sweep over. The key is a name for the hyperparameter, for example, `learning_rate`. The value is the hyperparameter distribution. See the [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json) for the enumeration of options.
-- **Limits**: `JobLimitsType` of type `sweep` is an object definition of the sweep job limits parameters. `maxTotalTrials` is the maximum number of individual trials to run. `maxConcurrentTrials` [Optional] is the maximum number of trials to run concurrently on your compute cluster.
+- **Limits**: `JobLimitsType` of type `sweep` is an object definition of the sweep job limits parameters. `maxTotalTrials` [Optional] is the maximum number of individual trials to run. `maxConcurrentTrials` is the maximum number of trials to run concurrently on your compute cluster.
 
 To create a sweep job with the same LightGBM example, use the following commands: 
 
