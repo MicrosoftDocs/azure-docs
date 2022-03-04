@@ -2,7 +2,7 @@
 title: What is agentless solution architecture
 description: Learn about Microsoft Defender for IoT agentless architecture and information flow.
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 02/06/2022
 ---
 
 # Microsoft Defender for IoT architecture
@@ -87,7 +87,7 @@ Tightly integrated with your SOC workflows and run books, it enables easy priori
 
 - Control all sensors – configure and monitor all sensors from a single location.
 
-   :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Manage all of your alerts and information.":::
+   :::image type="content" source="media/architecture/initial-dashboard.png" alt-text="Screen shot of dashboard." lightbox="media/architecture/initial-dashboard.png":::
 
 ### Azure portal
 

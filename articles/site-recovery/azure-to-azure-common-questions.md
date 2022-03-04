@@ -23,7 +23,7 @@ Every instance that's protected with Site Recovery is free for the first 31 days
 
 ### Do I incur other Azure charges in the first 31 days?
 
-Yes. Even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions, and data transfers. A recovered VM might also incur Azure compute charges. G
+Yes. Even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions, and data transfers. A recovered VM might also incur Azure compute charges.
 
 ### How do I get started with Azure VM disaster recovery?
 

@@ -846,6 +846,9 @@
   - name: Private Link
     tocHref: /azure/private-link/
     topicHref: /azure/private-link/
+  - name: Private 5G Core
+    tocHref: /azure/private-5g-core/
+    topicHref: /azure/private-5g-core/
   - name: Azure Cache for Redis
     tocHref: /azure/azure-cache-for-redis/
     topicHref: /azure/azure-cache-for-redis/
@@ -1082,4 +1085,4 @@
     items:
     - name: Enterprise tier
       tocHref: /azure/spring-cloud/enterprise
-      topicHref: /azure/spring-cloud/enterprise/index
+      topicHref: /azure/spring-cloud/overview#enterprise-tier-overview

@@ -22,6 +22,8 @@ This article outlines how to register on-premises SQL server instances, and how 
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
+The supported SQL Server versions are 2005 and above. SQL Server Express LocalDB is not supported.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -44,11 +46,19 @@ There is only one way to set up authentication for SQL server on-premises:
 
 #### SQL Authentication to register
 
-The SQL account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Azure Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
+Ensure the SQL Server deployment is configured to allow SQL Server and Windows Authentication.
+
+To enable this, within SQL Server Management Studio (SSMS), navigate to "Server Properties" and change from "Windows Authentication Mode" to "SQL Server and Windows Authentication mode".
+
+:::image type="content" source="media/register-scan-on-premises-sql-server/enable-sql-server-authentication.png" alt-text="The Server Properties window is open with the security page selected. Under Server authentication, S Q L Server and Windows Authentication mode is selected.":::
+
+A change to the Server Authentication will require a restart of the SQL Server Instance and SQL Server Agent, this can be triggered within SSMS by navigating to the SQL Server instance and selecting "Restart" within the right-click options pane.
 
 ##### Creating a new login and user
 
 If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
+
+The SQL account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Azure Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
 
 > [!Note]
 > All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/14/2022
+ms.date: 02/28/2022
 ms.author: alkohli
 ---
 
@@ -24,6 +24,8 @@ This article applies to the **Azure Stack Edge 2202** release, which maps to sof
 ## What's new
 
 The 2202 release has the following features and enhancements:
+
+- **Introduction of Azure Stack Edge Pro 2** - This release introduces Azure Stack Edge Pro 2, a new generation of an AI-enabled edge computing device offered as a service from Microsoft. For more information, see [What is Azure Stack Edge Pro 2?](azure-stack-edge-pro-2-overview.md)
 
 - **Clustering support** - This release introduces clustering support for Azure Stack Edge. You can now deploy a two-node device cluster in addition to a single node device. The clustering feature is in preview and is available only for the Azure Stack Edge Pro GPU devices.
 
@@ -56,6 +58,8 @@ The following table provides a summary of known issues in this release.
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features are available in preview: <ul><li>Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only. </li><li>VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only.</li><li>Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R.</li></ul>  |These features will be generally available in later releases. |
 |**2.**|Update |For a two-node cluster, in rare instances the update may fail. | If the update fails and you see a message indicating that updates are available, retry updating your device. If the update fails and no updates are available, and your device continues to be in maintenance mode, contact Microsoft Support to determine next steps.  |
+|**3.**|Wi-Fi |Wi-Fi does not work on Azure Stack Edge Pro 2 in this release. | This functionality will be available in a future release.   |
+|**4.**|VPN |VPN feature shows up in the local web UI but this feature is not supported for this device. | This issue will be addressed in a future release. |
 
 ## Known issues from previous releases
 

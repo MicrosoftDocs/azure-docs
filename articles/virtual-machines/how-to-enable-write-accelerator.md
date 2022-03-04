@@ -9,7 +9,7 @@ ms.workload: infrastructure
 ms.date: 12/10/2021
 ms.author: raiye
 ms.subservice: disks 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Enable Write Accelerator

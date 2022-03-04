@@ -3,7 +3,6 @@ title: Usage analysis with Application Insights | Azure Monitor
 description: Understand your users and what they do with your app.
 ms.topic: conceptual
 ms.date: 07/30/2021
-
 ---
 
 # Usage analysis with Application Insights
@@ -87,7 +86,7 @@ With specific business events, you can chart your users' progress through your s
 Events can be logged from the client side of the app:
 
 ```JavaScript
-    appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
+      appInsights.trackEvent({name: "incrementCount"});
 ```
 
 Or from the server side:
