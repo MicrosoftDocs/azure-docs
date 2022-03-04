@@ -38,10 +38,12 @@ To interact with a resource, you'll instantiate a client object for that resourc
 Create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) to interact with your Blob Storage service instance. Use this object to do things such as:
 
 - Create and delete containers
-- Get existing containers
-- Create a shared access signature (SAS)
-- Get and set properties of the service instance
 
+- Get existing containers
+
+- Create a shared access signature (SAS)
+
+- Get and set properties of the service instance
 
 Create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using one of it's constructors. Pass in Azure Active Directory (Azure AD) token, a SAS token, an account key credential, or connection string.
 
@@ -66,13 +68,17 @@ For more examples of creating a service object instance, see [Get started with A
 Create a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) to interact with a container. Use this object to do things such as:
 
 - Create a blob client object to upload or download blobs
+
 - List the blobs in a container
+
 - Set and get container properties and metadata
 
 Create a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) by using one of it's constructors or by using any of the following methods of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) instance:
 
 - [CreateBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainer)
+
 - [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync)
+
 - [GetBlobContainerClient](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainerclient)
 
 The following example creates a container by using the [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) of a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) instance. 
@@ -98,32 +104,53 @@ For more information, see [Create a container](storage-blob-container-create.md)
 
 ## Blob client object
 
-To operate on a blob, use the [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) class. You can use this object to do these types of tasks:
+Create a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) to interact with a blob. Use this object to do things such as:
 
-- Thing 1
-- Thing 2
-- Thing 3
+- Upload and download a blob
+- Mark a blob for deletion or restore a deleted blob
+- Set and get the properties, metadata and tags associated with a blob
 
-Get this object by blah. Here's a quick example.
+Create a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) by using one of it's constructors or by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method of a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) instance.
+
+The following example creates a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method of a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) instance.
 
 ```csharp
-Example goes here
+public static async Task UploadFile
+    (BlobContainerClient containerClient, string localFilePath)
+{
+    string fileName = Path.GetFileName(localFilePath);
+    BlobClient blobClient = containerClient.GetBlobClient(fileName);
+
+    await blobClient.UploadAsync(localFilePath, true);
+}
 ```
 
 ### Specialized blob clients
 
-If you want to stuff specific to a type of blob, you have to create a client for it. Here's a list:
+A blob can be an append blob, a block blob, or a page blob. To learn more, see [Understanding block blobs, append blobs, and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). 
 
-- [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient): Use this class to create an append blob, append data to it, blah and blah.
-- [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient): Use this class to blah, blah, blah, and blah.
-- [PageBlobClient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient): Use this class to blah, blah, blah, and blah.
-- [BlobLeaseClient](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient): Use this class to blah.
-- [BlobBatchClient](/dotnet/api/azure.storage.blobs.specialized.blobbatchclient): Use this class to blah.
+The [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) provides methods and properties that apply to all of these blob types. To perform operations specific to a blob type, create one of these specialized blob client classes.
 
-You can get each of these objects off of the container. Here's an example.
+- [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient)
+
+- [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)
+
+- [PageBlobClient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient)
+
+For example, if you want to periodically append data to a log in Blob Storage, you would need to create an [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient) because you won't find the methods that you need in the [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) class.
+
+You can create an instance of any specialized client classes by using one of their constructors or by calling the [GetAppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getappendblobclient), [GetBlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getblockblobclient), or [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) extension methods available off of a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) instance. 
+
+The following example creates an [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient) by calling the [GetAppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getappendblobclient) extension method of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) instance.
 
 ```csharp
-Example goes here
+public static async void CreateAppendBlob
+    (BlobContainerClient containerClient, string logBlobName)
+{
+   AppendBlobClient appendBlobClient = containerClient.GetAppendBlobClient(logBlobName);
+   appendBlobClient.CreateIfNotExists();
+}
+
 ```
 
 ### Blob client options
