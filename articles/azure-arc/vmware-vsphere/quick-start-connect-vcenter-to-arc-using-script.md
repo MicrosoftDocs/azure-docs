@@ -15,7 +15,7 @@ To start using the Azure Arc-enabled VMware vSphere (preview) features, you need
 First, the script deploys a virtual appliance called [Azure Arc resource bridge (preview)](../resource-bridge/overview.md) in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between vCenter Server and Azure Arc.
 
 > [!IMPORTANT]
-> In the interest of ensuring that new features are documented no later than their release, this page might include documentation for features that aren't yet publicly available.
+> In the interest of ensuring that new features are documented no later than their release, this article might include documentation for features that aren't yet publicly available.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 
 ### vCenter Server
 
-- vCenter Server running version 6.7.
+- vCenter Server version 6.7.
 
 - Inbound connections allowed on TCP port (usually 443) so that the Azure Arc resource bridge and VMware cluster extension can communicate with the vCenter Server instance.  
 
@@ -38,7 +38,7 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 - An external virtual network/switch and internet access, directly or through a proxy.
 
 > [!NOTE]
-> Azure Arc-enabled VMware vSphere (preview) supports vCenter Server instances with a maximum of 2,500 virtual machines (VMs). If your vCenter Server instance has more than 2,500 VMs, we don't recommend that you use Arc-enabled VMware vSphere with it at this point.
+> Azure Arc-enabled VMware vSphere (preview) supports vCenter Server instances with a maximum of 2,500 virtual machines (VMs). If your vCenter Server instance has more than 2,500 VMs, we don't recommend that you use Azure Arc-enabled VMware vSphere with it at this point.
 
 ### vSphere account
 
@@ -128,7 +128,7 @@ Use the following instructions to run the script, depending on which operating s
 
 A typical onboarding that uses the script takes 30 to 60 minutes. During the process, you're prompted for the following details:
 
-| **Requirements** | **Details** |
+| **Requirement** | **Details** |
 | --- | --- |
 | **Azure login** | [Sign in to Azure](https://www.microsoft.com/devicelogin) and enter the code when you're prompted. |
 | **vCenter FQDN/Address** | Enter the fully qualified domain name for the vCenter Server instance (or an IP address). For example: **10.160.0.1** or **nyc-vcenter.contoso.com**. |
@@ -142,7 +142,7 @@ A typical onboarding that uses the script takes 30 to 60 minutes. During the pro
 | **Folder** | Select the name of the vSphere VM and the template folder where the Azure Arc resource bridge's VM will be deployed. |
 | **VM template Name** | Provide a name for the VM template that will be created in your vCenter Server instance based on the downloaded OVA file. For example: **arc-appliance-template**. |
 | **Control Pane IP** | Provide a reserved IP address in your DHCP range, or provide a static IP address that's outside the DHCP range but still available on the network. Ensure that this IP address isn't assigned to any other machine on the network. |
-| **Appliance proxy settings** | Enter **y** if there's a proxy in your appliance network. Otherwise, enter **n**. </br> You need to populate the following boxes when you have proxy set up: </br> 1. **Http**: Address of the HTTP proxy server. </br> 2. **Https**: Address of the HTTPS proxy server. </br> 3. **NoProxy**: Addresses to be excluded from the proxy. </br> 4. **CertificateFilePath**: For SSL-based proxies, the path to the certificate to be used.
+| **Appliance proxy settings** | Enter **y** if there's a proxy in your appliance network. Otherwise, enter **n**. </br> You need to populate the following boxes when you have a proxy set up: </br> 1. **Http**: Address of the HTTP proxy server. </br> 2. **Https**: Address of the HTTPS proxy server. </br> 3. **NoProxy**: Addresses to be excluded from the proxy. </br> 4. **CertificateFilePath**: For SSL-based proxies, the path to the certificate to be used.
 
 After the command finishes running, your setup is complete. You can now try out the capabilities of Azure Arc-enabled VMware vSphere.
 
