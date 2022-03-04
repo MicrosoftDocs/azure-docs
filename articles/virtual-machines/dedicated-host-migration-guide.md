@@ -7,7 +7,7 @@ ms.reviewer: mimckitt
 ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: how-to
-ms.date: 3/015/2021
+ms.date: 3/15/2021
 ---
 
 # Azure Dedicated Host SKU Retirement Migration Guide
