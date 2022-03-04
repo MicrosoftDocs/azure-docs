@@ -18,7 +18,7 @@ This article describes how to set up [Azure Site Recovery](./site-recovery-overv
 
 Site Recovery helps you keep your applications up and running in the event of planned or unplanned zonal/regional outages. Enabling Site Recovery on your machines at scale through the Azure portal can be challenging. Azure Policy can help you enable replication at scale without resorting to any scripting.
 
-With Azure Policy, you have a way to enable Site Recovery en masse on specific subscriptions or resource groups through the portal. After you create a disaster recovery (DR) policy for subscriptions or resource groups, all the new virtual machines (VMs) that are added to those subscriptions or resource groups will get Site Recovery enabled for them automatically. For all the virtual machines already present in the resource group, you can enable Site Recovery through a process called _remediation_ (details later in this article).
+With built-in Azure Policy capabilities, you have a way to enable Site Recovery en masse on specific subscriptions or resource groups through the portal. After you create a disaster recovery (DR) policy for subscriptions or resource groups, all the new virtual machines (VMs) that are added to those subscriptions or resource groups will get Site Recovery enabled for them automatically. For all the virtual machines already present in the resource group, you can enable Site Recovery through a process called _remediation_ (details later in this article).
 
 >[!NOTE]
 >A *scope* determines the resources or the grouping of resources where the policy assignment is enforced. The scope of this policy can be at a subscription level or a resource group level.
