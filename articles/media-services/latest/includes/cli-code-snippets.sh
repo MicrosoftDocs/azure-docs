@@ -1,4 +1,11 @@
 
+### DO NOT CHANGE VARIABLE (switch) VALUES AS THEY ARE REFERENCED IN THE DIRECTIVES ON THE AGGREGATED PAGE ###
+### cONVENTIONS:
+### For object creation the name value is given a prefix "my" such as myAmsAccount or myLiveEvent.
+### For any other command, the name value is simply expressed as amsAccountName or liveEventName.
+### This is to differentiate between giving something a name and referencing an object name.
+### Where possible the shorthand command switch has been used instead of the verbose form.
+
 # AZURE
 # Azure storage
 # <CreateStorage>
