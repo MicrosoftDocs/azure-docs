@@ -282,13 +282,17 @@ Follow these steps to reconfigure Port 1:
 1. Select **Apply**.
 1. You'll see a **Confirm network setting** dialog. This dialog reminds you to make sure that your node is cabled as per the network topology you selected. Once you choose the network cluster topology, you can't change this topology without a device reset. Select **Yes** to confirm the network topology. 
 
-    ![Local web UI "Confirm network setting" dialog](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/confirm-network-setting-1.png)
+    ![Screenshot of local web UI "Confirm network setting" dialog.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/confirm-network-setting-1.png)
 
     The network topology setting takes a few minutes to apply and you see a notification when the settings are successfully applied.
 
+    If for any reason, you need to reset or update the network topology, you can use the Update topology option.
+
+    ![Screenshot of local web UI "Update network topology" selected.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/confirm-network-setting-1.png)
+
 1. Once the network topology is applied, the **Network** page updates. For example, if you selected network topology that uses external switches and separate virtual switches, you'll see that on the device node, a virtual switch **vSwitch1** is created at Port 1 and another virtual switch, **vSwitch2** is created on Port 2. Port 3 and Port 4 don't have any virtual switches.
 
-    ![Local web UI "Network" page updated](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-settings-updated-1.png)
+    ![Screenshot of local web UI "Network" page updated.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-settings-updated-1.png)
 
 You'll now configure the network and the network topology of the second node. 
 
@@ -298,7 +302,7 @@ You'll now prepare the second node for clustering. You'll first need to configur
 
 1. On the **Prepare a node for clustering** page, in the **Network** tile, select **Needs setup**.
 
-    ![Local web UI "Network" tile on second node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-2.png)
+    ![Screenshot of local web UI "Network" tile on second node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-2.png)
 
 1. Configure the network on the second node in a similar way that you configured the first node.
 
@@ -315,7 +319,7 @@ Follow the steps to reconfigure Port 1 on second node as you did on the first no
 
 1. Make sure that the second node is cabled as per the topology you selected for the first node. In the **Advanced networking** page, choose and **Apply** the same topology that you selected for the first node.
 
-    ![Local web UI "Advanced networking" page with "Use external switches and Port 1 and Port 2 not teamed" option selected on second node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-topology-3.png)
+    ![Screenshot of local web UI "Advanced networking" page with "Use external switches and Port 1 and Port 2 not teamed" option selected on second node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-topology-3.png)
 
 1. Select **Back to get started**.
 
@@ -326,12 +330,12 @@ You'll now get the authentication token that will be needed when adding this nod
 
 1. On the **Prepare a node for clustering** page, in the **Get authentication token** tile, select **Prepare node**.
 
-    ![Local web UI "Get authentication token" tile with "Prepare node" option selected on second node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-get-authentication-token-1.png)
+    ![Screenshot of local web UI "Get authentication token" tile with "Prepare node" option selected on second node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-get-authentication-token-1.png)
 
 1. Select **Get token**.
 1. Copy the node serial number and the authentication token. You'll use this information when you add this node to the cluster on the first node.
 
-    ![Local web UI "Get authentication token" on second node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/get-authentication-token-1.png)
+    ![Screenshot of local web UI "Get authentication token" on second node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/get-authentication-token-1.png)
 
 
 ## Configure cluster 
@@ -361,7 +365,7 @@ Follow these steps to configure the cluster witness.
 
 1. In the local UI of the first node, go to the **Cluster (Preview)** page. Under **Cluster witness type**, select **Modify**.
 
-    ![Local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-cluster-witness-1.png)
+    ![Screenshot of local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-cluster-witness-1.png)
 
 1. In the **Modify cluster witness** blade, enter the following inputs.
     1. Choose the **Witness type** as **Cloud.**
@@ -370,20 +374,20 @@ Follow these steps to configure the cluster witness.
     1. If you chose Access key as the authentication mechanism, enter the Access key of the Storage account, Azure Storage container where the witness lives, and the service endpoint. 
     1. Select **Apply**.
 
-    ![Local web UI "Cluster" page with cloud witness type selected in "Modify cluster witness" blade on first node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-cluster-witness-cloud-1.png)
+    ![Screenshot of local web UI "Cluster" page with cloud witness type selected in "Modify cluster witness" blade on first node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-cluster-witness-cloud-1.png)
 
 #### Configure local witness
 
 1. In the local UI of the first node, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
 
-    ![Local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-cluster-witness-1.png)
+    ![Screenshot of local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-cluster-witness-1.png)
 
 1. In the **Modify cluster witness** blade, enter the following inputs.
     1. Choose the **Witness type** as **Local.**
     1. Enter the file share path as *//server/fileshare* format.
     1. Select **Apply**. 
 
-    ![Local web UI "Cluster" page with local witness type selected in "Modify cluster witness" blade on first node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-cluster-witness-local-1.png)
+    ![Screenshot of local web UI "Cluster" page with local witness type selected in "Modify cluster witness" blade on first node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-cluster-witness-local-1.png)
 
 
 ### Add prepared node to cluster
@@ -392,7 +396,7 @@ You'll now add the prepared node to the first node and form the cluster. Before 
 
 1. In the local UI of the first node, go to the **Cluster** page. Under **Existing nodes**, select **Add node**.
 
-    ![Local web UI "Cluster" page with "Add node" option selected for "Existing" on first node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-node-1.png)
+    ![Screenshot of local web UI "Cluster" page with "Add node" option selected for "Existing" on first node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-node-1.png)
 
 
 1. In the **Add node** blade, input the following information for the incoming node: 
@@ -408,7 +412,7 @@ You'll now add the prepared node to the first node and form the cluster. Before 
 
 1. The node is now ready to join the cluster. Select **Apply**. 
 
-    ![Local web UI "Add node" page with "Apply" option selected for second node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-node-3.png)
+    ![Screenshot of local web UI "Add node" page with "Apply" option selected for second node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-node-3.png)
 
 1. A dialog pops us indicating that the cluster creation could take several minutes. Press **OK** to continue. Once the cluster is created, the page updates to show both the nodes are added.
 
@@ -451,7 +455,7 @@ For clients connecting via NFS protocol to the two-node device, follow these ste
     1. If you chose IP settings as static, enter a virtual IP. This should be a free IP from within the NFS network that you specified. If you selected DHCP, a virtual IP is automatically picked from the NFS network that you selected.
 1. Select **Apply**.
 
-    ![Local web UI "Cluster" page with "Virtual IP Settings" blade configured for NFS on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-file-system-2m.png)
+    ![Screenshot of local web UI "Cluster" page with "Virtual IP Settings" blade configured for NFS on first node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-file-system-2m.png)
 
 > [!NOTE]
 > Virtual IP settings are required. If you do not configure this IP, you will be blocked when configuring the **Device settings** in the next step.
@@ -466,7 +470,7 @@ After the cluster is formed and configured, you'll now create new virtual switch
 1. In the  local UI, go to **Advanced networking** page. 
 1. In the **Virtual switch** section, you'll assign compute intent to a virtual switch. You can select an existing virtual switch or select **Add virtual switch** to create a new switch. 
 
-    ![Configure compute page in Advanced networking in local UI 1](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-1.png)
+    ![Screenshot of configuring compute in Advanced networking in local UI 1](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-1.png)
 
 1. In the **Network settings** blade, if using a new switch, provide the following: 
 
@@ -493,11 +497,11 @@ After the cluster is formed and configured, you'll now create new virtual switch
     
 1. Select **Apply**.
 
-    ![Configure compute page in Advanced networking in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-2.png)
+    ![Screenshot of configuring compute in Advanced networking in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-2.png)
 
 1. The configuration takes a couple minutes to apply and you may need to refresh the browser. You can see that the specified virtual switch is created and enabled for compute. 
  
-    ![Configure compute page in Advanced networking in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
+    ![Screenshot of configuring compute in Advanced networking in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 
 
 To delete a virtual switch, under the **Virtual switch** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks will also be deleted.
@@ -507,7 +511,7 @@ To delete a virtual switch, under the **Virtual switch** section, select **Delet
 
 ### Configure virtual network
 
-You can add or delete virtual networks associated with your virtual switches. To add a virtual switch, follow these steps:
+You can add or delete virtual networks associated with your virtual switches. To add a virtual network, follow these steps:
 
 1. In the local UI on the **Advanced networking** page, under the **Virtual network** section, select **Add virtual network**.
 1. In the **Add virtual network** blade, input the following information:
@@ -546,12 +550,29 @@ This is an optional configuration. However, if you use a web proxy, you can conf
 
 In this tutorial, you learned about:
 
+::: zone pivot="single-node"
+
 > [!div class="checklist"]
 > * Prerequisites
 > * Configure network
 > * Configure advanced networking
 > * Configure web proxy
 
+::: zone-end
+
+::: zone pivot="two-node"
+
+> [!div class="checklist"]
+> * Prerequisites
+> * Select device setup type
+> * Configure network and network topology on both nodes
+> * Get authentication token for prepared node
+> * Configure cluster witness and add prepared node
+> * Configure virtual IP settings for Azure Consistent Services and NFS
+> * Configure advanced networking
+> * Configure web proxy
+
+::: zone-end
 
 To learn how to set up your Azure Stack Edge Pro 2 device, see:
 
