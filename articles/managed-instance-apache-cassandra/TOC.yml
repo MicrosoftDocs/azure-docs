@@ -53,7 +53,7 @@
       href: visualize-prometheus-grafana.md
     - name: Enable materialized views
       href: materialized-views.md
-    - name: Nodetool and sstable commands
+    - name: Nodetool commands
       href: dba-commands.md               
 - name: Reference
   items:
