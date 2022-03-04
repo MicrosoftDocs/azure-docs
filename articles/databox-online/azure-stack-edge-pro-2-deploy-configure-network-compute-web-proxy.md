@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/01/2022
+ms.date: 03/04/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -77,7 +77,7 @@ Follow these steps to configure the network for your device.
     
     ![Screenshot of the Get started page in the local web UI of an Azure Stack Edge device. The Needs setup is highlighted on the Network tile.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-1.png)
 
-    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces. Port 1 is automatically configured as a management-only port, and Port 2 to Port 4 are all data ports. For a new device, the **Network** page is as shown below.
+    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces. Port 1 is used for the intial configuration of the device. For a new device, the **Network** page is as shown below.
     
     ![Screenshot of the Network page in the local web UI of an Azure Stack Edge device whose network isn't configured.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-2.png)
 
@@ -96,9 +96,6 @@ Follow these steps to configure the network for your device.
     * Port 3 and Port 4 are reserved for Network Function Manager workload deployments. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge](../network-function-manager/deploy-functions.md).
     * If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
     * If DHCP isn't enabled, you can assign static IPs if needed.
-    * You can configure your network interface as IPv4.
-    * <!--ENGG TO VERIFY --> Network Interface Card (NIC) Teaming or link aggregation isn’t supported with Azure Stack Edge. 
-    * <!--ENGG TO VERIFY --> In this release, the 100-GbE interfaces aren't configured for RDMA mode.
     * Serial number for any port corresponds to the node serial number.
 
     Once the device network is configured, the page updates as shown below.
