@@ -181,19 +181,6 @@ This section lists:
 
 The following table lists the SAML claims that are by default in the restricted claim set.
 
-These claims are restricted by default, but are not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *or* have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key):
-
-- `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`
-- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`
-- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`
-
-These claims are restricted by default, but are not restricted if you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key):
-
- - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
- - `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`
-
 | Claim type (URI) |
 | ----- |
 |`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
@@ -227,6 +214,19 @@ These claims are restricted by default, but are not restricted if you have a [cu
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`  |
 | `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` |
 
+These claims are restricted by default, but are not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *or* have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key):
+
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`
+
+These claims are restricted by default, but are not restricted if you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key):
+
+ - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
+ - `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`
+ 
 ## Claims mapping policy properties
 
 To control what claims are emitted and where the data comes from, use the properties of a claims mapping policy. If a policy is not set, the system issues tokens that include the core claim set, the basic claim set, and any [optional claims](active-directory-optional-claims.md) that the application has chosen to receive.
