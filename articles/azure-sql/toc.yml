@@ -660,6 +660,8 @@
         href: database/manage-data-after-migrating-to-database.md
       - name: Import/export (allow Azure services disabled)
         href: database/database-import-export-azure-services-off.md
+      - name: Import/export using Private endpoints
+        href: database/database-import-export-private-link.md  
       - name: Import a database from a BACPAC file
         href: database/database-import.md
       - name: Copy a database within Azure
@@ -1349,7 +1351,7 @@
           href: virtual-machines/windows/storage-configuration.md
         - name: Automated Patching
           href: virtual-machines/windows/automated-patching.md
-        - name: SQL Assessment
+        - name: SQL best practices assessment
           href: virtual-machines/windows/sql-assessment-for-sql-vm.md
         - name: Azure Key Vault Integration
           href: virtual-machines/windows/azure-key-vault-integration-configure.md

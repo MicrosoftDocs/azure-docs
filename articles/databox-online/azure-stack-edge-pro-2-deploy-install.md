@@ -207,7 +207,6 @@ Route the cables and then cable your device. The following procedures explain ho
 Before you start cabling your device, you need the following things:
 
 - Your Azure Stack Edge Pro 2 physical device, unpacked, and rack mounted.
-- 
 - One power cable (included in the device package).
 - At least one 1-GbE RJ-45 network cable to connect to the Port 1. There are two 1-GbE network interfaces, one used for initial configuration and one for data, on the device. These network interfaces can also act as 10-GbE interfaces.
 - One 100-GbE QSFP28 passive direct attached cable (tested in-house) for each data network interface Port 3 and Port 4 to be configured. At least one data network interface from among Port 2, Port 3, and Port 4 needs to be connected to the Internet (with connectivity to Azure). Here is an example QSFP28 DAC connector: 

@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 02/28/2022
+ms.date: 03/03/2022
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending to Azure.
+#Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro 2 is and how it works so I can use it to process and transform data before sending to Azure.
 ---
 # What is Azure Stack Edge Pro 2?
 
-Azure Stack Edge Pro 2 is a new generation of a AI-enabled edge computing device offered as a service from Microsoft. This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.
+Azure Stack Edge Pro 2 is a new generation of an AI-enabled edge computing device offered as a service from Microsoft. This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.
 
 The Azure Stack Edge Pro 2 offers the following benefits over its precursor, the Azure Stack Edge Pro series:
 
@@ -73,15 +73,15 @@ The Azure Stack Edge Pro 2 solution consists of Azure Stack Edge resource, Azure
 
 ## Region availability
 
-The Azure Stack Edge Pro GPU physical device, Azure resource, and target storage account to which you transfer data don’t all have to be in the same region.
+The Azure Stack Edge Pro 2 physical device, Azure resource, and target storage account to which you transfer data don’t all have to be in the same region.
 
 - **Resource availability** - For this release, the resource is available in East US, West EU, and South East Asia regions.
 
 - **Device availability** - You should be able to see Azure Stack Edge Pro 2 as one of the available SKUs when placing the order. 
 
-    For a list of all the countries/regions where the Azure Stack Edge Pro GPU device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro GPU pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
+    For a list of all the countries/regions where the Azure Stack Edge Pro 2 device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro 2 pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
-- **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro GPU data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
+- **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro 2 data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 
 Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service doesn’t have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
@@ -89,12 +89,12 @@ To understand how to choose a region for the Azure Stack Edge service, device, a
 
 ## Billing and pricing 
 
-These devices can be ordered via the Azure Edge Hardware center. These devices are billed as a monthly service through the Azure portal. For more information, see [Azure Stack Edge Pro 2 pricing](azure-stack-edge-placeholder.md).
+These devices can be ordered via the Azure Edge Hardware center. These devices are billed as a monthly service through the Azure portal. For more information, see [Azure Stack Edge Pro 2 pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
 
 ## Next steps
 
-- Review the [Azure Stack Edge Pro 2 system requirements](azure-stack-edge-placeholder.md).
+- Review the [Azure Stack Edge Pro 2 system requirements](azure-stack-edge-pro-2-system-requirements.md).
 
-- Understand the [Azure Stack Edge Pro 2 limits](azure-stack-edge-placeholder.md).
+- Understand the [Azure Stack Edge Pro 2 limits](azure-stack-edge-pro-2-limits.md).
 
-- Deploy [Azure Stack Edge Pro 2](azure-stack-edge-placeholder.md) in Azure portal.
+- Deploy [Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-prep.md) in Azure portal.

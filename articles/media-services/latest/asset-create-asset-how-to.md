@@ -32,9 +32,6 @@ Creating assets in the portal is as simple as uploading a file.
 
 [!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
 
-## Example script
-
-[!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]
 
 ## [REST](#tab/rest/)
 
