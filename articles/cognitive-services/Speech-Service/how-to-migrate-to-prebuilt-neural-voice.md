@@ -226,7 +226,7 @@ The following tag is an example of the format:
 1.8.0-amd64-en-us-ariarus
 ```
 
-For all of the supported locales and corresponding voices of the Text-to-Speech container, see [Text-to-speech image tags](../containers/container-image-tags.md#text-to-speech).
+For all of the supported locales and corresponding voices of the Text-to-Speech container, see [Text-to-speech image tags](#text-to-speech-container-image-tags).
 
 > [!IMPORTANT]
 > When constructing a *Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](how-to-migrate-to-prebuilt-neural-voice.md). For example, the `latest` tag would have a voice name of `en-US-AriaRUS`.
@@ -275,7 +275,7 @@ The container provides [REST-based endpoint APIs](rest-text-to-speech.md). Many 
 
 To learn more concepts and workflow for downloading, installing, and running the Speech container,  refer to [Install and run Docker containers for the Speech service APIs](speech-container-howto.md).
 
-### Standard Text-to-Speech container image tags 
+### Text-to-Speech container image tags 
 
 Azure Cognitive Services offers many container images. The container registries and corresponding repositories vary between container images. Each container image name offers multiple tags. A container image tag is a mechanism of versioning the container image. This section is intended to be used as a comprehensive reference for listing all the Standard Text-to-Speech container images and their available tags.
 
