@@ -1,10 +1,8 @@
 ---
 title: Azure Cosmos DB input binding for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB input binding in Azure Functions.
-author: ggailey777
 ms.topic: reference
-ms.date: 09/01/2021
-ms.author: cshoe
+ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers

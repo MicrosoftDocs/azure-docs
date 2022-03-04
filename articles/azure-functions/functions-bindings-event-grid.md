@@ -1,11 +1,9 @@
 ---
 title: Azure Event Grid bindings for Azure Functions
 description: Understand how to handle Event Grid events in Azure Functions.
-author: ggailey777
 
 ms.topic: reference
-ms.date: 10/21/2021
-ms.author: cshoe
+ms.date: 03/04/2022
 ms.custom: fasttrack-edit
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
