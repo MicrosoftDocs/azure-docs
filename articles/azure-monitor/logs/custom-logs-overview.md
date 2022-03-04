@@ -12,15 +12,14 @@ With the DCR based custom logs API in Azure Monitor, you can send data to a Log 
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
 > [!NOTE]
-> See [Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs](custom-logs-migrate.md) to migrate solutions from the [Data Collector API](data-collector-api.md).
-
-> [!NOTE]
 > The custom logs API should not be confused with [custom logs](../agents/data-sources-custom-logs.md) data source with the legacy Log Analytics agent.
 
 
 ## Basic operation
 Your application sends data to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) which is a unique connection point for your subscription. The payload of your API call includes the source data formatted in JSON. The call specifies a [data collection rule](../essentials/data-collection-rule-overview.md) that understands the format of the source data, potentially filters and transforms it for the target table, and then directs it to a specific table in a specific workspace. You can modify the target table and workspace by modifying the data collection rule without any change to the REST API call or source data.
 
+> [!NOTE]
+> See [Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs](custom-logs-migrate.md) to migrate solutions from the [Data Collector API](data-collector-api.md).
 
 ## Authentication
 Authentication for the custom logs API is performed at the data collection endpoint which uses standard Azure Resource Manager authentication. A common strategy is to use an Application ID and Application Key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-custom-logs.md).
