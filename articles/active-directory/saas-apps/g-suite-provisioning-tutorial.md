@@ -83,7 +83,7 @@ Before configuring G Suite for automatic user provisioning with Azure AD, you wi
 
 1. For the **Admin role** of that account, edit the **Privileges** for that role. Make sure to enable all **Admin API Privileges** so that this account can be used for provisioning.
 
-    ![G Suite Admin Privileges](./media/g-suite-provisioning-tutorial/admin-previleges.png)
+    ![G Suite Admin Privileges](./media/g-suite-provisioning-tutorial/admin-privilege.png)
 
 ## Step 3. Add G Suite from the Azure AD application gallery
 
