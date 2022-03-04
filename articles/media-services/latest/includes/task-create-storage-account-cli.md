@@ -8,20 +8,28 @@ ms.author: inhenkel
 
 <!-- ### Create a storage account -->
 
-The following command creates a Storage account. 
+## Create a an Azure Storage account with the CLI
 
-This command assumes that you have already created a resource group within a location.
+Use the following commands to create an Azure Storage account.
 
-To list available regions, use the followng command:
+To create a storage account, you must first create a resource group within a location.
+
+## List available locations
+
+To list available locations, use the following command:
+
 :::code language="azurecli" source="cli-code-snippets.sh" id="ListLocations" interactive="azurecli-interactive":::
 
-To create a resource group, use the following command:
-:::code language="azurecli" source="cli-code-snippets.sh" id="CreateRG" interactive="azurecli-interactive":::
+[!INCLUDE [task-create-resource-group-cli](task-create-resource-group-cli.md)]
 
-Change `mystorageaccount` to a unique name with a length of less than 24 characters.
+## Choose a SKU
 
-Change `chooseRegion` to the region you want to work within. Change `chooseSKU` to your preferred SKU.
+You also need to choose a SKU for your storage account.
 
 [!INCLUDE [sku-list](sku-list.md)]
+
+- Change `myStorageAccount` to a unique name with a length of less than 24 characters.
+- Change `chooseLocation` to the region you want to work within. 
+- Change `chooseSKU` to your preferred SKU.
 
 :::code language="azurecli" source="cli-code-snippets.sh" id="CreateStorage" interactive="azurecli-interactive":::
