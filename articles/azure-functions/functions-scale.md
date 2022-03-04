@@ -44,12 +44,12 @@ The remaining tables in this article compare the plans on various features and b
 
 ## Operating system/runtime
 
-The following table shows operating system and language support for the hosting plans.
+The following table shows operating system and [language support](supported-languages.md) for the hosting plans.
 
 | | Linux<sup>1,2</sup><br/>code-only | Windows code-only | Linux<sup>1,2,3</sup><br/>Docker container |
 | --- | --- | --- | --- |
 | **[Consumption plan]** | C#<br/>JavaScript<br/>Java<br/>Python<br/>PowerShell Core<br/>TypeScript | C#<br/>JavaScript<br/>Java<br/>PowerShell Core<br/>TypeScript | No support  |
-| **[Premium plan]** | C#<br/>JavaScript<br/>Java<br/>Python<br/>PowerShell Core<br/>TypeScript |C#<br/>JavaScript<br/>Java<br/>PowerShell Core<br/>TypeScript |C#<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python<br/>TypeScript  | 
+| **[Premium plan]** | C#<br/>JavaScript<br/>Java<br/>Python<br/>PowerShell Core<br/>TypeScript |C#<br/>JavaScript<br/>Java<br/>PowerShell Core<br/>TypeScript |C#<br/>JavaScript<br/>Java<br/>PowerShell Core<br/>Python<br/>TypeScript  | 
 | **[Dedicated plan]** | C#<br/>JavaScript<br/>Java<br/>Python<br/>TypeScript |C#<br/>JavaScript<br/>Java<br/>PowerShell Core<br/>TypeScript |C#<br/>JavaScript<br/>Java<br/>PowerShell Core<br/>Python<br/>TypeScript |
 | **[ASE][Dedicated plan]** | C#<br/>JavaScript<br/>Java<br/>Python<br/>TypeScript |C#<br/>JavaScript<br/>Java<br/>PowerShell Core<br/>TypeScript |C#<br/>JavaScript<br/>Java<br/>PowerShell Core<br/>Python<br/>TypeScript | 
 | **[Kubernetes (direct)][Kubernetes]** | n/a | n/a |C#<br/>JavaScript<br/>Java<br/>PowerShell Core<br/>Python<br/>TypeScript |
