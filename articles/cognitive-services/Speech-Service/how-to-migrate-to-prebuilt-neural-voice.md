@@ -240,7 +240,7 @@ After the container is on the host computer, use the following process to work w
 
 #### Run the Text-to-Speech container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. For details on how to get the `{Endpoint_URI}` and `{API_Key}` values, refer to [gathering required parameters](speech-container-howto.md#gathering-required-parameters). More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. For details on how to get the `{Endpoint_URI}` and `{API_Key}` values, refer to [gathering required parameters](speech-container-howto.md#gather-required-parameters). More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
 
 To run the standard text-to-speech container, execute the following `docker run` command.
 
