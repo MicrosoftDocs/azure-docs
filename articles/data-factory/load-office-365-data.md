@@ -5,7 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 07/05/2021
+ms.date: 03/04/2022
 ms.author: jianleishen
 ---
 
@@ -77,6 +77,9 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 10. Click on the **Import Schema** tab to import the schema for Message dataset.
 
     :::image type="content" source="./media/load-office-365-data/edit-source-properties.png" alt-text="Config Office 365 dataset schema":::
+
+> [!Note]
+> The self-hosted integration runtime and the integration runtime within managed Virtual Network are not supported.
 
 ### Configure sink
 
