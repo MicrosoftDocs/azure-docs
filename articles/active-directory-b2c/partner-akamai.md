@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Tutorial to configure Akamai Web application firewall with Azure AD B2C
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
