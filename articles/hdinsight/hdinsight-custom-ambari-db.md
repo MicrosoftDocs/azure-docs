@@ -62,7 +62,7 @@ az deployment group create --name HDInsightAmbariDBDeployment \
 >
 
 
-## Database and Headnode sizing
+## Database and Headnode sizing 
 
 The following table provides guidelines on which Azure SQL DB tier to select based on the size of your HDInsight cluster.
 
