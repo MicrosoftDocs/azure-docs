@@ -20,7 +20,7 @@ Learn more about [change feed design patterns](change-feed-design-patterns.md).
 
 This feature is currently supported by the following Azure Cosmos DB APIs and client SDKs.
 
-| **Client drivers** | **SQL API** | **Azure Cosmos DB's API for Cassandra** | **Azure Cosmos DB's API for MongoDB** | **Gremlin API**|**Table API** |
+| **Client drivers** | **SQL API** | **Azure Cosmos DB API for Cassandra** | **Azure Cosmos DB API for MongoDB** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | Yes | Yes | Yes | Yes | No |
 |Java|Yes|Yes|Yes|Yes|No|
