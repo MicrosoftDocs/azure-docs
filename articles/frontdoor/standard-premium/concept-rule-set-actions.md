@@ -426,11 +426,11 @@ Server variables can be specified using the following formats:
 
 Server variables are supported on the following actions:
 
-* Query string caching behavior in [Route configuration override](#routeconfigurationoverride)
-* [Modify request header](#modifyrequestheader)
-* [Modify response header](#modifyresponseheader)
-* [URL redirect](#urlredirect)
-* [URL rewrite](#urlrewrite)
+* Query string caching behavior in [Route configuration override](#RouteConfigurationOverride)
+* [Modify request header](#ModifyRequestHeader)
+* [Modify response header](#ModifyResponseHeader)
+* [URL redirect](#UrlRedirect)
+* [URL rewrite](#UrlRewrite)
 
 ## Next steps
 
