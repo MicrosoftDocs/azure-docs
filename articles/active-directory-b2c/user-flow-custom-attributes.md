@@ -177,7 +177,7 @@ The following example demonstrates the use of a custom attribute in Azure AD B2C
 
 ::: zone-end
 
-## Using extension attributes with the Microsoft Graph API
+## Manage extension attributes through Microsoft Graph
 
 You can use the Microsoft Graph API to create and manage extension attributes then set the values for a user.
 
