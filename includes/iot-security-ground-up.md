@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-fundamentals
- author: robinsh
+ author: kgremban
  ms.service: iot-fundamentals
  ms.topic: include
  ms.date: 04/24/2018
- ms.author: robinsh
+ ms.author: kgremban
  ms.custom: include file
 ---
 
