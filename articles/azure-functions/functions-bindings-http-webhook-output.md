@@ -1,10 +1,8 @@
 ---
 title: Azure Functions HTTP output bindings
 description: Learn how to return HTTP responses in Azure Functions.
-author: ggailey777
 ms.topic: reference
-ms.date: 02/21/2020
-ms.author: cshoe
+ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

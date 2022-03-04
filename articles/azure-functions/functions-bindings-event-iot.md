@@ -1,10 +1,8 @@
 ---
 title: Azure IoT Hub bindings for Azure Functions
 description: Learn to use IoT Hub trigger and binding in Azure Functions.
-author: ggailey777
 ms.topic: reference
-ms.date: 02/21/2020
-ms.author: cshoe
+ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
