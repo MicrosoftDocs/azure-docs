@@ -1,8 +1,8 @@
 ---
 title: What's new in Microsoft Sentinel
 description: This article describes new features in Microsoft Sentinel from the past few months.
-author: batamig
-ms.author: bagol
+author: yelevin
+ms.author: yelevin
 ms.topic: conceptual
 ms.date: 03/01/2022
 ms.custom: ignite-fall-2021
@@ -42,11 +42,31 @@ For more information, see:
 
 ## February 2022
 
+- [New custom log ingestion and data transformation at ingestion time (Public preview)](#new-custom-log-ingestion-and-data-transformation-at-ingestion-time-public-preview)
 - [View MITRE support coverage (Public preview)](#view-mitre-support-coverage-public-preview)
-- [View Azure Purview data in Microsoft Sentinel](#view-azure-purview-data-in-microsoft-sentinel-public-preview)
+- [View Azure Purview data in Microsoft Sentinel (Public preview)](#view-azure-purview-data-in-microsoft-sentinel-public-preview)
 - [Manually run playbooks based on the incident trigger (Public preview)](#manually-run-playbooks-based-on-the-incident-trigger-public-preview)
 - [Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
 - [Restore archived logs from search (public preview)](#restore-archived-logs-from-search-public-preview)
+
+### New custom log ingestion and data transformation at ingestion time (Public preview)
+
+Microsoft Sentinel supports two new features for data ingestion and transformation. These features, provided by Log Analytics, act on your data even before it's stored in your workspace.
+
+The first of these features is the [**custom logs API**](../azure-monitor/logs/custom-logs-overview.md). It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You use Log Analytics [**data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
+
+The second feature is [**ingestion-time data transformation**](../azure-monitor/logs/ingestion-time-transformations.md) for standard logs. It uses [**DCRs**](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
+
+- AMA-based data connectors (based on the new Azure Monitor Agent)
+- MMA-based data connectors (based on the legacy Log Analytics Agent)
+- Data connectors that use Diagnostic settings
+- Service-to-service data connectors
+
+For more information, see:
+
+- [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
+- [Data transformation in Microsoft Sentinel (preview)](data-transformation.md)
+- [Configure ingestion-time data transformation for Microsoft Sentinel (preview)](configure-data-transformation.md).
 
 ### View MITRE support coverage (Public preview)
 
@@ -59,8 +79,6 @@ For example:
 :::image type="content" source="media/whats-new/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
 
 For more information, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).
-- [Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
-- [Restore archived logs from search (public preview)](#restore-archived-logs-from-search-public-preview)
 
 ### View Azure Purview data in Microsoft Sentinel (Public Preview)
 
