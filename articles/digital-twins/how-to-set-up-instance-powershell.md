@@ -56,9 +56,6 @@ This version of this article goes through these steps manually, one by one, usin
     Install-Module -Name Az.DigitalTwins
     ```
 
-> [!IMPORTANT]
-> While the `Az.DigitalTwins` PowerShell module is in preview, you must install it separately using the `Install-Module` cmdlet as described above. After this PowerShell module becomes generally available, it will be part of future Az PowerShell module releases and available by default from within Azure Cloud Shell.
-
 ## Create the Azure Digital Twins instance
 
 In this section, you'll create a new instance of Azure Digital Twins using Azure PowerShell. You'll need to provide:
