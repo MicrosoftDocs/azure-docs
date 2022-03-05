@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 02/15/2022
 ---
 
 # Integration runtime in Azure Data Factory 
@@ -93,9 +93,6 @@ Install a Self-hosted IR on an on-premises machine or a virtual machine inside a
 For high availability and scalability, you can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.  For more information, see the article on [how to create and configure a self-hosted IR](create-self-hosted-integration-runtime.md) for details.
 
 ## Azure-SSIS integration runtime
-
-> [!NOTE]
-> Azure-SSIS integration runtimes are not currently supported in Synapse pipelines.
 
 To lift and shift existing SSIS workload, you can create an Azure-SSIS IR to natively execute SSIS packages.  
 

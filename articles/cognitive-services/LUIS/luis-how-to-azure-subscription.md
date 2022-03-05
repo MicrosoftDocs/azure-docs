@@ -10,7 +10,8 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.custom: contperf-fy21q4
+ms.custom: contperf-fy21q4, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # How to create and manage LUIS resources

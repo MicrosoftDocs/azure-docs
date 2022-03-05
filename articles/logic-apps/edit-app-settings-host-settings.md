@@ -51,6 +51,7 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating an Azure-hosted connection. |
 | `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
+| `ServiceProviders.Sql.QueryExecutionTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
 ||||
 
 <a name="manage-app-settings"></a>
@@ -285,15 +286,6 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.FunctionOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for Azure Functions actions. |
 | `Runtime.Backend.FunctionOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for Azure Functions actions. |
 | `Runtime.Backend.FunctionOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for Azure Functions actions. |
-||||
-
-<a name="built-in-sql"></a>
-
-### Built-in SQL operations
-
-| Setting | Default value | Description |
-|---------|---------------|-------------|
-| `Runtime.ServiceProviders.Sql.QueryExecutionTimeout` | `00:00:30` <br>(30 sec) | Sets the request timeout value for SQL service provider operations. |
 ||||
 
 <a name="built-in-service-bus"></a>

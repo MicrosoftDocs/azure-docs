@@ -10,6 +10,8 @@ In Azure DevTest Labs, you can configure a remote desktop gateway for your lab t
 
 This approach is more secure because the lab user authenticates directly to the gateway machine or can use company credentials on a domain-joined gateway machine to connect to their machines. The lab also supports using token authentication to the gateway machine that allows users to connect to their lab virtual machines without having the RDP port exposed to the internet. This article walks through an example on how to set up a lab that uses token authentication to connect to lab machines.
 
+Looking to connect through Bastion, read "[Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md)". 
+
 ## Architecture of the solution
 
 ![Architecture of the solution](./media/configure-lab-remote-desktop-gateway/architecture.png)

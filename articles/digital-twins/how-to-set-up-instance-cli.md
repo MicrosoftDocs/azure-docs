@@ -8,7 +8,8 @@ ms.author: baanders # Microsoft employees only
 ms.date: 10/13/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2 
+ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated

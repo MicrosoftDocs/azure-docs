@@ -7,10 +7,10 @@ author: rahulm23
 ms.author: rahulmehta
 ms.date: 02/01/2022
 keywords: azure, openshift, aro, red hat, service, definition
-#Customer intent: I need to understand Azure Red Hat OpenShift services to manage my subscription.
+#Customer intent: I need to understand Azure Red Hat OpenShift service definitions to manage my subscription.
 ---
 
-# Azure Red Hat OpenShift account management
+# Azure Red Hat OpenShift service definition
 
 The following sections provide service definitions to help you manage your Azure Red Hat OpenShift account.
 

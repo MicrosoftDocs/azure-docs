@@ -1,8 +1,6 @@
 ---
 title: Integrate Forescout with Microsoft Defender for IoT
 description: In this tutorial, you will learn how to integrate Microsoft Defender for IoT with Forescout.
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: tutorial
 ms.date: 02/08/2022
 ms.custom: template-tutorial

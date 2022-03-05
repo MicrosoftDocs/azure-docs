@@ -14,6 +14,8 @@ ms.custom: seodec18, devx-track-azurecli
 
 # Install & use the CLI extension for Azure Machine Learning
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 [!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 The Azure Machine Learning CLI is an extension to the [Azure CLI](/cli/azure/), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with Azure Machine Learning. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:

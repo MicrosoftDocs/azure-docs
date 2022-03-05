@@ -153,7 +153,7 @@ First, you'll install the Azure Load Testing extension from the Azure DevOps Mar
 For every update to the main branch, the Azure pipeline executes the following steps:
 
 - Deploy the sample Node.js application to an Azure App Service web app. The name of the web app is configured in the pipeline definition.
-- Create an Azure Load Testing resource using the Azure Resource Manager (ARM) template present in the GitHub repository. Learn more about ARM templates [here](/azure/azure-resource-manager/templates/overview).
+- Create an Azure Load Testing resource using the Azure Resource Manager (ARM) template present in the GitHub repository. Learn more about ARM templates [here](../azure-resource-manager/templates/overview.md).
 - Trigger Azure Load Testing to create and run the load test, based on the Apache JMeter script and the test configuration YAML file in the repository.
 
 To view the results of the load test in the pipeline log:

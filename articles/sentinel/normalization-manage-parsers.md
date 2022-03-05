@@ -88,16 +88,16 @@ To modify an existing, built-in source-specific parser:
 
 1. Add a record to the `ASim Disabled Parsers` watchlist.
 
-1. Define the `CallerContext` value with the names of any unifying parsers you want to exclude the parser from.
+1. Define the `CallerContext` value as `Exclude<parser name>`, where `<parser name>` is the name of the unifying parsers you want to exclude the parser from.
 
-1. Define the `SourceSpecificParser` value with the name of the parser you want to exclude, without a version specifier. 
+1. Define the `SourceSpecificParser` value `Exclude<parser name>`, where `<parser name>`is the name of the parser you want to exclude, without a version specifier. 
 
 For example, to exclude the Azure Firewall DNS parser, add the following records to the watchlist:
 
 | CallerContext | SourceSpecificParser | 
 | ------------- | ------------- |
-| `_Im_Dns` | `_Im_Dns_AzureFirewall` |
-| `_ASim_Dns` | `_ASim_Dns_AzureFirewall` | 
+| `Exclude_Im_Dns` | `Exclude_Im_Dns_AzureFirewall` |
+| `Exclude_ASim_Dns` | `Exclude_ASim_Dns_AzureFirewall` | 
 | | |
 
 ### Prevent an automated update of a built-in parser

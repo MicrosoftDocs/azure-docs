@@ -82,7 +82,7 @@ Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the web activity | String | Yes
 type | Must be set to **WebActivity**. | String | Yes
-method | Rest API method for the target endpoint. | String. <br/><br/>Supported Types: "GET", "POST", "PUT" | Yes
+method | REST API method for the target endpoint. | String. <br/><br/>Supported Types: "GET", "POST", "PUT" | Yes
 url | Target endpoint and path | String (or expression with resultType of string). The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint. | Yes
 headers | Headers that are sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | String (or expression with resultType of string) | Yes, Content-type header is required. `"headers":{ "Content-Type":"application/json"}`
 body | Represents the payload that is sent to the endpoint.  | String (or expression with resultType of string). <br/><br/>See the schema of the request payload in [Request payload schema](#request-payload-schema) section. | Required for POST/PUT methods.

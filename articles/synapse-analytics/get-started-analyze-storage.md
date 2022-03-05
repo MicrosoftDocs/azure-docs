@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Get started analyze data in Storage accounts' 
 description: In this tutorial, you'll learn how to analyze data located in a storage account.
-services: synapse-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: sngun

@@ -311,7 +311,7 @@ RAM | Site Recovery driver consumes 6% of RAM.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
 FC disk | Not supported. | Check fails if unsupported.
-BitLocker | Not supported. | BitLocker must be disabled before you enable replication for a machine. |
+BitLocker | Not supported. | BitLocker must be disabled before you enable replication for a machine and should stay disabled while the machine is replicating via Site Recovery. |
 VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number. |  Update the value in the machine properties in Site Recovery.
 
 ## Resource group limits

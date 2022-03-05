@@ -7,7 +7,7 @@ author: chschrae
 manager: travisw
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2021
 ms.author: chschrae
 ms.devlang: cpp, csharp
