@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 03/01/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -299,14 +299,14 @@ This Exit code translates to `DSREG_AUTOJOIN_DISC_FAILED` because the extension 
 
 1. Verify the required endpoints are accessible from the VM using PowerShell:
 
-   - `curl https://login.microsoftonline.com// -D`
-   - `curl https://login.microsoftonline.com/<TenantID>// -D`
-   - `curl https://enterpriseregistration.windows.net// -D`
-   - `curl https://device.login.microsoftonline.com// -D`
-   - `curl https://pas.windows.net// -D`
+   - `curl https://login.microsoftonline.com/ -D -`
+   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
+   - `curl https://enterpriseregistration.windows.net/ -D -`
+   - `curl https://device.login.microsoftonline.com/ -D -`
+   - `curl https://pas.windows.net/ -D -`
    
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.<br/>`enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
+   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.<br/> Attempt to connect to `enterpriseregistration.windows.net` may return 404 Not Found, which is expected behavior.<br/> Attempt to connect to `pas.windows.net` may prompt for pin credentials (you do not need to enter the pin) or may return 404 Not Found. Either one is sufficient to verify the URL is reachable.
 
 1. If any of the commands fails with "Could not resolve host `<URL>`", try running this command to determine the DNS server that is being used by the VM.
    

@@ -13,6 +13,8 @@
     href: quickstart-managed-cluster-portal.md
   - name: Managed cluster with ARM template
     href: quickstart-managed-cluster-template.md
+  - name: Service Fabric cluster with Azure portal
+    href: quickstart-classic-cluster-portal.md
   - name: Service Fabric cluster with ARM template
     displayName: Resource Manager
     href: quickstart-cluster-template.md

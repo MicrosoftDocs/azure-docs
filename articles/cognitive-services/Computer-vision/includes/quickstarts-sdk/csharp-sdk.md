@@ -116,7 +116,7 @@ In a new method in the **Program** class, instantiate a client with your endpoin
 
 ## Read printed and handwritten text
 
-The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../overview-ocr.md) overview. The code in this section uses the latest [Computer Vision SDK release for Read 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) and defines a method, `BatchReadFileUrl`, which uses the client object to detect and extract text in the image.
+The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../overview-ocr.md) overview. The code in this section uses the [Computer Vision SDK release](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) and defines a method, `ReadFileUrl`, which uses the client object to detect and extract text in the image.
 
 > [!TIP]
 > You can also extract text from a local image. See the [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) methods, such as **ReadInStreamAsync**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs#162) for scenarios involving local images.
@@ -132,6 +132,13 @@ In your **Program** class, save a reference to the URL of the image you want to 
 Define the new method for reading text. Add the code below, which calls the **ReadAsync** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readfileurl_1)]
+
+As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model-version=`2022-01-30-preview` parameter, edit the ReadAsync call as shown:
+
+```csharp
+  // Read text from URL with a specific model version
+  var textHeaders = await client.ReadAsync(urlFile,null,null,"2022-01-30-preview");
+```
 
 ### Get Read results
 
