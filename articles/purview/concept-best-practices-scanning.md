@@ -1,5 +1,5 @@
 ---
-title: Best practices for scanning of data sources in Azure Purview
+title: Best practices for scanning data sources in Azure Purview
 description: This article provides best practices for registering and scanning various data sources in Azure Purview.
 author: athenads
 ms.author: athenadsouza
@@ -12,11 +12,11 @@ ms.custom: ignite-fall-2021
 
 # Azure Purview scanning best practices
 
-Azure Purview supports automated scanning of on-premises, multi-cloud, and software as a service (SaaS) data sources.
+Azure Purview supports automated scanning of on-premises, multicloud, and software as a service (SaaS) data sources.
 
-Running a "scan" invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of the scan and curation process includes technical metadata. This metadata can include data asset names such as table names or file names, file size, columns, and data lineage. Schema details are also captured for structured data sources. A relational database management system is an example of this type of source.
+Running a *scan* invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of the scan and curation process includes technical metadata. This metadata can include data asset names such as table names or file names, file size, columns, and data lineage. Schema details are also captured for structured data sources. A relational database management system is an example of this type of source.
 
-The curation process applies automated classification labels on the schema attributes based on the scan rule set configured. Sensitivity labels are applied if your Azure Purview account is connected to a Microsoft 365 Security & Compliance Center.
+The curation process applies automated classification labels on the schema attributes based on the scan rule set configured. Sensitivity labels are applied if your Azure Purview account is connected to the Microsoft 365 Security and Compliance Center.
 
 ## Why do you need best practices to manage data sources?
 
@@ -27,9 +27,9 @@ Best practices enable you to:
 - Improve security compliance.
 - Gain performance efficiency.
 
-## Register source and establish connection
+## Register a source and establish a connection
 
-Design considerations and recommendations are organized based on the key steps involved in the scanning process.
+The following design considerations and recommendations help you register a source and establish a connection.
 
 ### Design considerations
 
@@ -54,7 +54,7 @@ For more information on how to define a hierarchy for registering data sources, 
 
 ## Scanning
 
-Design considerations and recommendations are organized based on the key steps involved in the scanning process.
+The following design considerations and recommendations are organized based on the key steps involved in the scanning process.
 
 ### Design considerations
 
@@ -64,11 +64,11 @@ Design considerations and recommendations are organized based on the key steps i
 
 ### Design recommendations
 
-After you register your source in the relevant [collection](./how-to-create-and-manage-collections.md), plan and follow the order shown here when you set up the scan. This process order helps you to avoid unexpected cost and rework.
+After you register your source in the relevant [collection](./how-to-create-and-manage-collections.md), plan and follow the order shown here when you set up the scan. This process order helps you to avoid unexpected costs and rework.
 
 :::image type="content" source="media/concept-best-practices/scanning-scan-order.png" alt-text="Screenshot that shows the order to be followed while preparing a scan.":::
 
-1. Identify your classification requirements from the system in-built classification rules. Or you can create specific custom classification rules as necessary. Base them on specific industry, business, or regional requirements, which aren't available out of the box:
+1. Identify your classification requirements from the system in-built classification rules. Or you can create specific custom classification rules, as necessary. Base them on specific industry, business, or regional requirements, which aren't available out of the box:
     - See the [classification best practices](./concept-best-practices-classification.md).
     - See how to [create a custom classification and classification rule](./create-a-custom-classification-and-classification-rule.md).
 
