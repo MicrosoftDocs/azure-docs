@@ -43935,7 +43935,7 @@
         "redirect_document_id": false
       },
       {
-        "source_path_from_root": "articles/virtual-desktop/compare-virtual-desktop-windows-365.md",
+        "source_path_from_root": "/articles/virtual-desktop/compare-virtual-desktop-windows-365.md",
         "redirect_url": "/azure/virtual-desktop/overview",
         "redirect_document_id": false
       }
