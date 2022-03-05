@@ -72,9 +72,9 @@ After the module is created, specify the following information:
 
 1. Go to the **Source code** tab. There are two ways to deploy code for the function:
 
-   a. On the main menu, upload the text file you downloaded from Azure Purview Studio as described in [Prerequisites](#prerequisites). To do so, select **Utilities** > **More Utilities** > **Upload/Download** > **Upload**.
+   1. On the main menu, upload the text file you downloaded from Azure Purview Studio as described in [Prerequisites](#prerequisites). To do so, select **Utilities** > **More Utilities** > **Upload/Download** > **Upload**.
 
-   b. Alternatively, open the file and copy and paste the contents in the **Source code** area.
+   1. Alternatively, open the file and copy and paste the contents in the **Source code** area.
 
 1. Go to the **Import** tab and create the following parameters:
 

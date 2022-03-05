@@ -41,17 +41,17 @@ The following sections walk you through the process of implementing labeling for
 
 - When you configure sensitivity labels for Azure Purview, you might define autolabeling rules for files, database columns, or both within the label properties. Azure Purview labels files within the Azure Purview data map. When the autolabeling rule is configured, Azure Purview automatically applies the label or recommends that the label is applied.
 
-> [!WARNING]
-> If you haven't configured autolabeling for files and emails on your sensitivity labels, users might be affected within your Office and Microsoft 365 environment. You can test autolabeling on database columns without affecting users.
+   > [!WARNING]
+   > If you haven't configured autolabeling for files and emails on your sensitivity labels, users might be affected within your Office and Microsoft 365 environment. You can test autolabeling on database columns without affecting users.
 
 - If you're defining new autolabeling rules for files when you configure labels for Azure Purview, make sure that you have the condition for applying the label set appropriately.
 - You can set the detection criteria to **All of these** or **Any of these** in the upper right of the autolabeling for files and emails page of the label properties.
 - The default setting for detection criteria is **All of these**. This setting means that the asset must contain all the specified sensitive information types for the label to be applied. While the default setting might be valid in some instances, many customers want to use **Any of these**. Then if at least one asset is found, the label is applied.
 
-:::image type="content" source="media/concept-best-practices/label-detection-criteria.png" alt-text="Screenshot that shows detection criteria for a label.":::
+   :::image type="content" source="media/concept-best-practices/label-detection-criteria.png" alt-text="Screenshot that shows detection criteria for a label.":::
 
-> [!NOTE]
-> Microsoft 365 trainable classifiers aren't used by Azure Purview.
+   > [!NOTE]
+   > Microsoft 365 trainable classifiers aren't used by Azure Purview.
 
 - Maintain consistency in labeling across your data estate. If you use autolabeling rules for files, use the same sensitive information types for autolabeling database columns.
 - [Define your sensitivity labels via Microsoft Information Protection to identify your personal data at a central place](/microsoft-365/compliance/information-protection).

@@ -85,10 +85,10 @@ After you register your source in the relevant [collection](./how-to-create-and-
     
        :::image type="content" source="media/concept-best-practices/scanning-create-custom-scan-rule-set.png" alt-text="Screenshot that shows the option to select relevant classification rules when you create the custom scan rule set.":::
 
-    > [!NOTE]
-    > When you scan a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets forms a resource set. You can use resource set pattern rules to customize or override how Azure Purview detects which assets are grouped as resource sets. The rules also determine how the assets are displayed within the catalog.
-    > For more information, see [Create resource set pattern rules](./how-to-resource-set-pattern-rules.md).
-    > This feature has cost considerations. See the [pricing page](https://azure.microsoft.com/pricing/details/azure-purview/) for information.
+        > [!NOTE]
+        > When you scan a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets forms a resource set. You can use resource set pattern rules to customize or override how Azure Purview detects which assets are grouped as resource sets. The rules also determine how the assets are displayed within the catalog.
+        > For more information, see [Create resource set pattern rules](./how-to-resource-set-pattern-rules.md).
+        > This feature has cost considerations. For information, see the [pricing page](https://azure.microsoft.com/pricing/details/azure-purview/).
 
 1. Set up a scan for the registered data sources.
     - **Scan name**: By default, Azure Purview uses the naming convention **SCAN-[A-Z][a-z][a-z]**, which isn't helpful when you're trying to identify a scan that you've run. Be sure to use a meaningful naming convention. For instance, you could name the scan _environment-source-frequency-time_ as DEVODS-Daily-0200. This name represents a daily scan at 0200 hours.
@@ -107,12 +107,12 @@ After you register your source in the relevant [collection](./how-to-create-and-
         > When you set up a new credential, the credential name can only contain _letters, numbers, underscores, and hyphens_.
 
     - **Integration runtime**
-        - See [Network architecture best practices](./concept-best-practices-network.md#integration-runtime-options).
+        - For more information, see [Network architecture best practices](./concept-best-practices-network.md#integration-runtime-options).
         - If self-hosted integration runtime (SHIR) is deleted, any ongoing scans that rely on it will fail.
         - When you use SHIR, make sure that the memory is sufficient for the data source being scanned. For example, when you use SHIR for scanning an SAP source, if you see "out of memory error":
             - Ensure the SHIR machine has enough memory. The recommended amount is 128 GB.
             - In the scan setting, set the maximum memory available as some appropriate value, for example, 100.
-            -  For more information, see the prerequisites in [Scan to and manage SAP ECC Azure Purview](./register-scan-sapecc-source.md#create-and-run-scan).
+            - For more information, see the prerequisites in [Scan to and manage SAP ECC Azure Purview](./register-scan-sapecc-source.md#create-and-run-scan).
 
     - **Scope scan**
         - When you set up the scope for the scan, select only the assets that are relevant at a granular level or parent level. This practice ensures that the scan cost is optimal and performance is efficient. All future assets under a certain parent will be automatically selected if the parent is fully or partially checked.

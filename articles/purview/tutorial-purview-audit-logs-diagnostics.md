@@ -17,7 +17,7 @@ An Azure Purview administrator or Azure Purview data-source admin needs the abil
 
 This tutorial takes you through the steps to enable audit logging on Azure Purview. It also shows you how to configure and capture streaming audit events from Azure Purview via Azure Diagnostics event hubs.
 
-## Azure Purview audit history: Categorization of events
+## Azure Purview audit events categories
 
 Some of the important categories of Azure Purview audit events that are currently available for capture and analysis are listed in the table.
 
