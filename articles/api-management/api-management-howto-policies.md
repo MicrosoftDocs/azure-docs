@@ -23,8 +23,6 @@ Many more policies are available out of the box. For a complete list, see [API M
 
 Policies are applied inside the gateway between the API consumer and the managed API. While the gateway receives requests and forwards them, unaltered, to the underlying API, a policy can apply changes to both the inbound request and outbound response.
 
-Unless the policy specifies otherwise, policy expressions can be used as attribute values or text values in any of the API Management policies. Some policies are based on policy expressions, such as the [Control flow][Control flow] and [Set variable][Set variable]. For more information, see the [Advanced policies][Advanced policies] and [Policy expressions][Policy expressions] articles.
-
 ## <a name="sections"> </a>Understanding policy configuration
 
 Policy definitions are simple XML documents that describe a sequence of inbound and outbound statements. The policy editor in the Azure portal provides a guided experience to design and manage policy definitions, and you can also edit the XML directly. 
@@ -63,6 +61,17 @@ By placing policy statements in the `on-error` section, you can:
 * Configure what happens if an error occurs. 
 
 For more information, see [Error handling in API Management policies](./api-management-error-handling-policies.md) 
+
+## Policy expressions
+
+Unless the policy specifies otherwise, [policy expressions](api-management-policy-expressions.md) can be used as attribute values or text values in any of the API Management policies. A policy expression is either:
+
+* a single C# statement enclosed in `@(expression)`, or 
+* a multi-statement C# code block, enclosed in `@{expression}`, that returns a value
+
+Each expression has access to the implicitly provided `context` variable and an allowed subset of .NET Framework types.
+
+Policy expressions provide a sophisticated means to control traffic and modify API behavior without requiring you to write specialized code or modify backend services. Some policies are based on policy expressions, such as the [Control flow][Control flow] and [Set variable][Set variable]. For more information, see [Advanced policies][Advanced policies].
 
 ## Scopes
 
@@ -127,15 +136,7 @@ The following example uses [policy expressions][Policy expressions] and the [`se
 
 ```
 
-
-
-## Next steps
-
-For more information about working with policies, see:
-
-+ [Transform APIs](transform-api.md)
-+ [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policy-reference.md)	
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
 
 [Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md

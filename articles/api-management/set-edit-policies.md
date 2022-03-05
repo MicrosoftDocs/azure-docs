@@ -13,15 +13,15 @@ ms.author: danlep
 
 # How to set or edit Azure API Management policies
 
-This article shows you how to configure and manage policies in your API Management instance using the Azure portal. Each policy definition is an XML document that describes a sequence of inbound and outbound statements. This series of policy statements is run in sequence for each API request and response.
+This article shows you how to configure policies in your API Management instance by editing policy definitions in the Azure portal. Each policy definition is an XML document that describes a sequence of inbound and outbound statements that run sequentially on an API request and response.
 
-The policy editor in the portal provides guided forms for API publishers to select and configure common policies. If you're more familiar with API Management policies and XML, you can also edit the XML directly in the policy code editor.
+The policy editor in the portal provides guided forms for API publishers to add and edit policies in policy definitions. You can also edit the XML directly in the policy code editor.
 
 More information about policies:
 
 * [Policy overview](api-management-howto-policies.md)
-* [Policy reference](api-management-policies.md)
-* [Policy XML samples](./policies/index.md)
+* [Policy reference](api-management-policies.md) for a full list of policy statements and their settings
+* [Policy samples](./policies/index.md)
 
 ## Prerequisites
 
@@ -34,7 +34,10 @@ If you don't already have an API Management instance and a backend API, see:
 
 ## Configure policy in the portal
 
-The following example shows how to add a policy using the policy editor in the portal. API Management provides a guided form-based editor to simplify configuring many policies, or you can add or edit XML directly in a code editor. 
+The following example shows how to configure a policy using two options in the policy editor in the portal:
+
+* A guided form-based editor to simplify configuring many policies
+* A code editor wehre you can add or edit XML directly 
 
 In this example, the policy filters requests from certain incoming IP addresses. It's scoped to a selected API.
 
@@ -211,20 +214,9 @@ To modify the policy evaluation order using the policy editor:
 
 ## Next steps
 
-See the following related topics:
+For more information about working with policies, see:
 
-+ [Transform APIs](transform-api.md)
++ [Tutorial: Transform and protect APIs](transform-api.md)
++ [Set or edit policies](set-edit-policies.md)
 + [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policy-reference.md)
-
-
-
-[ADD/INCORP FROM OVERVIEW]
-You can edit the XML directly in the definition window, which also provides:
-* A list of statements to the right.
-* Statements applicable to the current scope enabled and highlighted.
-
-Clicking an enabled statement will add the appropriate XML at the cursor in the definition view. 
-
-> [!NOTE]
-> If the policy that you want to add is not enabled, ensure that you are in the correct scope for that policy. Each policy statement is designed for use in certain scopes and policy sections. To review the policy sections and scopes for a policy, check the **Usage** section in the [Policy Reference][Policy Reference].
++ [Policy samples](./policies/index.md)	

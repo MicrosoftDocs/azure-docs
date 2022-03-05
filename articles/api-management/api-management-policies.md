@@ -1,21 +1,21 @@
 ---
-title: Azure API Management policies | Microsoft Docs
-description: Learn about the policies available for use in Azure API Management. Policies allow the publisher to change API behavior through configuration.
+title: Azure API Management policy reference | Microsoft Docs
+description: Reference for all Azure API Management policies and settings. Policies allow the API publisher to change API behavior through configuration.
 services: api-management
-documentationcenter: ''
 author: dlepow
 ms.service: api-management
-ms.topic: article
-ms.date: 07/19/2021
+ms.topic: reference
+ms.date: 03/04/2022
 ms.author: danlep
-ms.custom: ignite-fall-2021
 ---
-# API Management policies
-This section provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](api-management-howto-policies.md).
+# API Management policy reference
+This section provides links to reference articles for all API Management policies.
 
- Policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of Statements that are executed sequentially on the request or response of an API. Popular Statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer. Many more policies are available out of the box.
+More information about policies:
 
- Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](api-management-advanced-policies.md#choose) and [Set variable](api-management-advanced-policies.md#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](api-management-advanced-policies.md#AdvancedPolicies) and [Policy expressions](api-management-policy-expressions.md).
++ [Policy overview](api-management-howto-policies.md)
++ [Set or edit policies](../articles/api-management/set-edit-policies.md)
++ [Policy expressions](api-management-policy-expressions.md)
 
 ##  <a name="ProxyPolicies"></a> Policies
 
@@ -83,9 +83,9 @@ This section provides a reference for the following API Management policies. For
 - [Graph QL validation policy](graphql-validation-policies.md)
     - [Validate GraphQL request](graphql-validation-policies.md#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
 
-## Next steps
-For more information working with policies, see:
 
-+ [Policies in API Management](api-management-howto-policies.md)
-+ [Transform APIs](transform-api.md)
-+ [Policy samples](./policy-reference.md)
+For more information about working with policies, see:
+
++ [Tutorial: Transform and protect your API](../articles/api-management/transform-api.md)
++ [Set or edit policies](../articles/api-management/set-edit-policies.md)
++ [Policy samples](../articles/api-management/policies/index.md)	

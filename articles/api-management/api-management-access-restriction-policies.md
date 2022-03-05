@@ -1,19 +1,21 @@
 ---
 title: Azure API Management access restriction policies | Microsoft Docs
-description: Learn about the access restriction policies available for use in Azure API Management.
+description: Reference for the access restriction policies and setttings available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
-ms.topic: article
-ms.date: 02/02/2022
+ms.topic: reference
+ms.date: 03/04/2022
 ms.author: danlep
 ---
 
 # API Management access restriction policies
 
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for API Management access restriction policies. 
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ## <a name="AccessRestrictionPolicies"></a> Access restriction policies
 
@@ -673,11 +675,4 @@ This policy can be used in the following policy [sections](./api-management-howt
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
 
-## Next steps
-
-For more information working with policies, see:
-
--   [Policies in API Management](api-management-howto-policies.md)
--   [Transform APIs](transform-api.md)
--   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
