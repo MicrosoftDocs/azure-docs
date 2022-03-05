@@ -14,7 +14,7 @@ This section provides links to reference articles for all API Management policie
 More information about policies:
 
 + [Policy overview](api-management-howto-policies.md)
-+ [Set or edit policies](../articles/api-management/set-edit-policies.md)
++ [Set or edit policies](set-edit-policies.md)
 + [Policy expressions](api-management-policy-expressions.md)
 
 ##  <a name="ProxyPolicies"></a> Policies
@@ -86,6 +86,6 @@ More information about policies:
 
 For more information about working with policies, see:
 
-+ [Tutorial: Transform and protect your API](../articles/api-management/transform-api.md)
-+ [Set or edit policies](../articles/api-management/set-edit-policies.md)
-+ [Policy samples](../articles/api-management/policies/index.md)	
++ [Tutorial: Transform and protect your API](transform-api.md)
++ [Set or edit policies](set-edit-policies.md)
++ [Policy samples](./policies/index.md)	
