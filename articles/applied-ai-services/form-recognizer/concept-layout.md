@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 
 The Form Recognizer Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 
-***Sample form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature***
+***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout) layout feature***
 
 :::image type="content" source="media/layout-demo.gif" alt-text="Screenshot: Sample Labeling tool processing gif.":::
 
