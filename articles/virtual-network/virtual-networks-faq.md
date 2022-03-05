@@ -437,7 +437,7 @@ Azure Service Manager is the old deployment model of Azure responsible for creat
 
 ### What is Azure Resource Manager? 
 
-Azure Resource Manager is the latest deployment and management model in Azure responsible for creating, managing, deleting resources in your Azure subscription. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md).
+Azure Resource Manager is the latest deployment and management model in Azure responsible for creating, managing, deleting resources in your Azure subscription. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
 
 ### Can I revert the migration after resources have been committed to Resource Manager? 
 
@@ -499,4 +499,4 @@ For more information, see [FAQ about classic to Azure Resource Manager migration
 
 ### How can I report an issue? 
 
-You can post your questions about your migration issues to the [Azure Virtual Network Q&A](https://aka.ms/AAflal1) page. It's recommended that you post all your questions on this forum. If you have a support contract, you can also file a support request.
+You can post your questions about your migration issues to the [Microsoft Q&A](https://aka.ms/AAflal1) page. It's recommended that you post all your questions on this forum. If you have a support contract, you can also file a support request.
