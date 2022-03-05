@@ -155,7 +155,7 @@ This section guides you through the steps to configure the Azure AD provisioning
     |phonenumbers[type eq "work"].value|String||
 
 	> [!NOTE]
-	> phonenumbers[type eq "work"].value should be in E164 format.For example +16175551212
+	> phonenumbers value should be in E164 format. For example +16175551212
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Meta Networks Connector**.
 
