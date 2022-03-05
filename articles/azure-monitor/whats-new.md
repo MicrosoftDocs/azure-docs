@@ -9,6 +9,87 @@ ms.date: 02/09/2022
 
 This article lists significant changes to Azure Monitor documentation.
 
+## February, 2022
+
+### Agents
+
+**New articles**
+
+- [Sample data collection rule - agent](agents/data-collection-rule-sample-agent.md)
+- [Using data collection endpoints with Azure Monitor agent (preview)](agents/azure-monitor-agent-data-collection-endpoint.md)
+
+**Updated articles**
+
+- [Manage the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-manage.md)
+- [Azure Monitor agent overview](/azure/azure-monitor/agents/azure-monitor-agent-overview.md)
+
+### Alerts
+
+**Updated articles**
+
+- [How to trigger complex actions with Azure Monitor alerts](/azure/azure-monitor/alerts/action-groups-logic-app.md)
+
+### Application Insights
+
+**New articles**
+
+- [Migrate from Application Insights instrumentation keys to connection strings](app/migrate-from-instrumentation-keys-to-connection-strings.md)
+
+
+**Updated articles**
+
+- [Application Monitoring for Azure App Service and Java](/azure/azure-monitor/app/azure-web-apps-java.md)
+- [Application Monitoring for Azure App Service and Node.js](/azure/azure-monitor/app/azure-web-apps-nodejs.md)
+- [Profile live Azure App Service apps with Application Insights](/azure/azure-monitor/app/profiler.md)
+- [Enable Snapshot Debugger for .NET apps in Azure App Service](/azure/azure-monitor/app/snapshot-debugger-appservice.md)
+- [Visualizations for Application Change Analysis (preview)](/azure/azure-monitor/app/change-analysis-visualizations.md)
+
+## Autoscale
+
+**New articles**
+
+- [Use predictive autoscale to scale out before load demands in virtual machine scale sets (Preview)](autoscale/autoscale-predictive.md)
+
+### Data collection
+
+**New articles**
+
+- [Data collection endpoints in Azure Monitor (preview)](essentials/data-collection-endpoint-overview.md)
+- [Data Collection Rules in Azure Monitor](essentials/data-collection-rule-overview.md)
+- [Structure of a data collection rule in Azure Monitor (preview)](essentials/data-collection-rule-structure.md)
+- [Data collection rule transformations](essentials/data-collection-rule-transformations.md)
+## Essentials
+
+### Updated articles
+
+- [Azure Activity log](/azure/azure-monitor/essentials/activity-log.md)
+
+## General
+
+### Updated articles
+
+- [What is monitored by Azure Monitor?](monitor-reference.md)
+
+## Logs
+
+**New articles**
+
+- [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md)
+- [Query data from Basic Logs in Azure Monitor (Preview)](logs/basic-logs-query.md)
+- [Send custom logs to Azure Monitor Logs with REST API](logs/custom-logs-overview.md)
+- [Sample data collection rule - custom logs](logs/data-collection-rule-sample-custom-logs.md)
+- [Configure data retention and archive in Azure Monitor Logs (Preview)](logs/data-retention-archive.md)
+- [Log Analytics workspace overview](logs/log-analytics-workspace-overview.md)
+- [Overview of ingestion-time transformations in Azure Monitor Logs](logs/ingestion-time-transformations.md)
+- [Restore logs in Azure Monitor (Preview)](logs/restore.md)
+- [Search jobs in Azure Monitor (Preview)](logs/search-jobs.md)
+- [Tables that support ingestion-time transformations in Azure Monitor Logs (preview)](logs/tables-feature-support.md)
+- [Tutorial - Send custom logs to Azure Monitor Logs (preview)](logs/tutorial-custom-logs.md)
+- [Tutorial - Send custom logs to Azure Monitor Logs using resource manager templates](logs/tutorial-custom-logs-api.md)
+- [Tutorial - Add ingestion-time transformation to Azure Monitor Logs using Azure portal](logs/tutorial-ingestion-time-transformations.md)
+- [Tutorial - Add ingestion-time transformation to Azure Monitor Logs using resource manager templates](logs/tutorial-ingestion-time-transformations-api.md)
+
+
 ## January, 2022
 
 ### Agents
@@ -56,6 +137,11 @@ This article lists significant changes to Azure Monitor documentation.
 
 ### Agents
 
+**New articles**
+
+- [Sample data collection rule - agent](agents/data-collection-rule-sample-agent.md)
+
+
 **Updated articles**
 
 - [Install Log Analytics agent on Windows computers](agents/agent-windows.md)
@@ -80,7 +166,9 @@ This article lists significant changes to Azure Monitor documentation.
 
 **New articles**
 
-- [Analyzing product usage with HEART](app/usage-heart.md)
+- [Analyzing product usage with HEART](app/usage-heart.md.md)
+- [Migrate from Application Insights instrumentation keys to connection strings](app/migrate-from-instrumentation-keys-to-connection-strings.md)
+
 
 **Updated articles**
 
@@ -88,6 +176,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Troubleshooting guide: Azure Monitor Application Insights for Java](app/java-standalone-troubleshoot.md)
 - [Set up Azure Monitor for your Python application](app/opencensus-python.md)
 - [Click Analytics Auto-collection plugin for Application Insights JavaScript SDK](app/javascript-click-analytics-plugin.md)
+
 
 ### Logs
 
