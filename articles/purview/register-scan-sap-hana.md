@@ -40,7 +40,7 @@ When setting up scan, you can choose to scan an entire SAP HANA database, or sco
 
 * You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* You must have an active [Azure Purview resource](create-catalog-portal.md).
+* You must have an active [Azure Purview account](create-catalog-portal.md).
 
 * You need Data Source Administrator and Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
 
