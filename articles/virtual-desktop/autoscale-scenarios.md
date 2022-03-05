@@ -101,39 +101,15 @@ Once the autoscale feature turns off the two session hosts, the host pool capaci
 
 Now, let's say that the two users who were forcibly signed out realize they forgot to do something important and sign back in. Since the host pool capacity for the remaining two session hosts is 10, the used host pool capacity is now 40%, which is below the capacity threshold of 75%. However, the autoscale feature can't turn off additional session hosts, because the remaining session host would have a host pool capacity of five. With four users, that would make its used host pool capacity 80%, which is above the capacity threshold.
 
-If at this point another user signs out, that leaves only three user sessions on two active session hosts. Because the maximum session limit is still 5 and the host pool capacity is 10, the used host pool capacity is now 30%. The autoscale feature can now turn off one session host without exceeding the capacity threshold, which results in one session host with a maximum session limit and host pool capacity of five. Usually, the autoscale feature chooses the session host with the fewest active user sessions to turn off. The feature puts the chosen session host in drain mode, then after a set amount of time, forcibly signs the users out and shuts the session host down.
+If at this point another user signs out, that leaves only three user sessions on two active session hosts. Because the maximum session limit is still 5 and the host pool capacity is 10, the used host pool capacity is now 30%. The autoscale feature can now turn off one session host without exceeding the capacity threshold, which results in one session host with a maximum session limit and host pool capacity of five. Usually, the autoscale feature chooses the session host with the fewest active user sessions to turn off. The feature puts the chosen session host in drain mode, sends users a notification letting them know the session host will be turned off, then after a set amount of time, forcibly signs any remaining users out and shuts the session host down.
 
+Since autoscale forced two users to sign out when turning off the chosen session host, there are now only two users left, and the remaining host pool has a host pool capacity of five. The used host pool capacity is now 40%.
 
+After that, let's say one of the users who was signed out signs back in. Now there are three user sessions in the host pool. However, the host pool capacity is still five, which means the used host pool capacity is 60% and below the capacity threshold. Because the used host pool capacity hasn't gone below the capacity threshold and turning off the remaining session host would make the minimum percentage of hosts go below the 10% limit, the autoscale feature won't be able to turn off any other session hosts.
 
+## Scenario 4: how do exclusion tags work?
 
-
-1.  Autoscale sees that it can turn 1 session host off without exceeding the
-    capacity threshold. If it does, there would be 1 session host on with a max
-    session limit of 5, which would result in a host pool capacity of 5. Since
-    there are 3 user sessions, the used host pool capacity would be 60% which is
-    less than the capacity threshold of 75%. Given this, Autoscale will select
-    the session host with the least number of total user sessions (VM-2), put it
-    in drain mode, send the notification message and wait the designated delay
-    time, force logoff user 2 (if they haven’t logged off themself), and then
-    turn off that session host.
-
-2.  Autoscale has now force logged off user 2 and has turned off 1 session host
-    (VM-2), so the host pool capacity is now 5. Since user 2 was force logged
-    off, there are only 2 user sessions left so the used host pool capacity is
-    40%.
-
-3.  User 2 logs back in so there are 3 user sessions in the host pool. Since the
-    host pool capacity is still 5, the used host pool capacity is 60%, which is
-    below the capacity threshold of 75%. Note that at this point, Autoscale
-    cannot turn off another session host because the minimum % of hosts for ramp
-    down is 10% which means that there must always be at least 1 session host
-    during the ramp down phase.
-
-4.  **How do exclusion tags work?**
-
-Scenario 4; in any phase of the schedule, when a session host has a tag name
-that matches the scaling plan exclusion tag, Autoscale will not turn it on, turn
-it off, or change its drain mode setting.
+When a session host has a tag name that matches the scaling plan exclusion tag, the autoscale feature won't turn it on, off, or change its drain mode setting. You can use exclusion tags in any phase of a scaling plan schedule.
 
 |Parameter | Value|
 |---|---|
@@ -144,12 +120,15 @@ it off, or change its drain mode setting.
 |Force logoff setting| Enabled |
 |Total session hosts | 6 |
 |Maximum session hosts | 5 |
+|Maximum session limit | 5 |
+|Active session hosts | 1 |
+|Host pool capacity | 5 |
+|Active user sessions | 3 |
+|Current used host pool capacity | 60% |
 
-In this example, the schedule is currently in the off peak phase of the day, and
-for the off peak phase the capacity threshold is 75%, the minimum percentage of
-hosts is 10%, the load balancing algorithm is depth first, and force logoff is
-enabled. This host pool has a total of 6 session hosts in it and the max session
-limit is 5 user sessions per session host.
+Let's say
+
+
 
 1.  Picking up from scenario 3, the max session limit is 5 and there is 1
     session host on, so the host pool capacity is 5. There are currently 3 user
