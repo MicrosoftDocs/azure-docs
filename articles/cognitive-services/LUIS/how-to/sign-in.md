@@ -6,7 +6,7 @@ ms.author: aahi
 author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2021
 ---
 # Sign in to the LUIS portal and create an app
@@ -34,8 +34,8 @@ Use this article to get started with the LUIS portal, and create an authoring re
 * **Tenant Name**  - the tenant your Azure subscription is associated with. You will not be able to switch tenants from the existing window. You can switch tenants by closing this window and selecting the avatar at the top-right corner of the screen, containing your initials. Select  **Choose a different authoring resource**  from the top to reopen the window.
 * **Azure Resource group name**  - a custom resource group name you choose in your subscription. Resource groups allow you to group Azure resources for access and management. If you currently do not have a resource group in your subscription, you will not be allowed to create one in the LUIS portal. Go to [Azure portal](https://portal.azure.com/#create/Microsoft.ResourceGroup) to create one then go to LUIS to continue the sign-in process.
 * **Azure Resource name**  - a custom name you choose, used as part of the URL for your authoring transactions. Your resource name can only include alphanumeric characters, `-`, and can't start or end with `-`. If any other symbols are included in the name, creating a resource will fail.
-* **Location**  - Choose to author your applications in one of the [three authoring locations](/azure/cognitive-services/luis/luis-reference-regions) that are currently supported by LUIS including: West US, West Europe and East Australia
-* **Pricing tier**  - By default, F0 authoring pricing tier is selected as it is the recommended. Create a [customer managed key](/azure/cognitive-services/luis/encrypt-data-at-rest#customer-managed-keys-for-language-understanding) from the Azure portal if you are looking for an extra layer of security.
+* **Location**  - Choose to author your applications in one of the [three authoring locations](../luis-reference-regions.md) that are currently supported by LUIS including: West US, West Europe and East Australia
+* **Pricing tier**  - By default, F0 authoring pricing tier is selected as it is the recommended. Create a [customer managed key](../encrypt-data-at-rest.md#customer-managed-keys-for-language-understanding) from the Azure portal if you are looking for an extra layer of security.
 
 8. Now you have successfully signed in to LUIS. You can now start creating applications. 
 
@@ -48,7 +48,7 @@ There are a couple of ways to create a LUIS app. You can create a LUIS app in th
 
 **Using the LUIS portal** You can create a new app in the portal in several ways:
 * Start with an empty app and create intents, utterances, and entities.
-* Start with an empty app and add a [prebuilt domain](/azure/cognitive-services/luis/luis-concept-prebuilt-model?branch=pr-en-us-181263).
+* Start with an empty app and add a [prebuilt domain](../luis-concept-prebuilt-model.md?branch=pr-en-us-181263).
 * Import a LUIS app from a .lu or .json file that already contains intents, utterances, and entities.
 
 **Using the authoring APIs** You can create a new app with the authoring APIs in a couple of ways:

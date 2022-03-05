@@ -115,6 +115,8 @@ items:
     - name: Container limitations
       href: luis-container-limitations.md
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+    - name: Use containers in disconnected environments
+      href: ../containers/disconnected-containers.md?context=/azure/cognitive-services/luis/context/context
     - name: All Cognitive Services containers documentation
       href: ../containers/index.yml
       maintainContext: true
@@ -153,6 +155,8 @@ items:
     href: schema-change-prediction-runtime.md
   - name: Prediction score
     href: luis-concept-prediction-score.md
+  - name: Entity model
+    href: luis-concept-model.md
   - name: Data management
     items:
     - name: Data selection
@@ -161,6 +165,10 @@ items:
       href: luis-concept-data-alteration.md
     - name: Data retention
       href: luis-concept-data-storage.md
+    - name: Data conversion
+      href: luis-concept-data-conversion.md
+    - name: Data extraction
+      href: luis-concept-data-extraction.md
   - name: Security
     items:
     - name: Role-based access control

@@ -3,7 +3,7 @@ title: Manage QnA Maker App - QnA Maker
 description: QnA Maker allows multiple people to collaborate on a knowledge base. QnA Maker offers a capability to improve the quality of your knowledge base with active learning. One can review, accept or reject, and add without removing or changing existing questions.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2020
 ms.custom: ignite-fall-2021
 ---

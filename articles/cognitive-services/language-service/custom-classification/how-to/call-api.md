@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/07/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
@@ -29,19 +29,14 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 ## Deploy your model
 
-1. Go to your project in [Language Studio](https://aka.ms/custom-classification)
+After your model is [trained](train-model.md), you can deploy it. Deploying your model lets you start using it to classify text. You can deploy your model using the [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) or Language Studio. To use Language Studio, see the steps below:
 
-2. Select **Deploy model** from the left side menu.
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
 
-3. Select the model you want to deploy, then select **Deploy model**. If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
+If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
 
 > [!TIP]
-> You can test your model in Language Studio by sending samples of text for it to classify. 
-> 1. Select **Test model** from the menu on the left side of your project in Language Studio.
-> 2. Select the model you want to test.
-> 3. Add your text to the textbox, you can also upload a `.txt` file. 
-> 4. Click on **Run the test**.
-> 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab.
+> You can [test your model in Language Studio](../quickstart.md?pivots=language-studio#test-your-model) by sending samples of text for it to classify. 
 
 ## Send a text classification request to your model
 

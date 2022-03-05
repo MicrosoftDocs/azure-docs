@@ -2,7 +2,7 @@
 title: Template functions - numeric
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 02/11/2022
 ---
 
 # Numeric functions for ARM templates
@@ -19,6 +19,9 @@ Resource Manager provides the following functions for working with integers in y
 * [mod](#mod)
 * [mul](#mul)
 * [sub](#sub)
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more about using `int`, `min`, and `max` in Bicep, see [numeric](../bicep/bicep-functions-numeric.md) functions. For other numeric values, see [numeric](../bicep/operators-numeric.md) operators.
 
 ## add
 

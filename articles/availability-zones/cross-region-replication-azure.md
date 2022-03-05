@@ -4,7 +4,7 @@ description: Learn about Cross-region replication in Azure.
 author: awysza
 ms.service: azure
 ms.topic: conceptual
-ms.date: 12/10/2021
+ms.date: 3/01/2022
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
@@ -61,6 +61,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
 | China |China North 2 |China East 2|
+| China |China North 3 |China East 3\* |
 | Europe |North Europe (Ireland) |West Europe (Netherlands) |
 | France |France Central|France South\*|
 | Germany |Germany West Central |Germany North\* |

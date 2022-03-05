@@ -14,7 +14,7 @@ ms.devlang: golang
 
 In this quickstart, you'll learn to use the Azure SDK for Go to create, retrieve, list, and delete secrets from Azure Key Vault.
 
- Azure Key Vault can store [several objects types](/azure/key-vault/general/about-keys-secrets-certificates#object-types). But, this quickstart focuses on secrets. By using Azure Key Vault to store secrets, you avoid storing secrets in your code, which increases the security of your applications. 
+ Azure Key Vault can store [several objects types](../general/about-keys-secrets-certificates.md#object-types). But, this quickstart focuses on secrets. By using Azure Key Vault to store secrets, you avoid storing secrets in your code, which increases the security of your applications. 
 
 Get started with the [azsecrets](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets) package and learn how to manage Azure Key Vault secrets using Go.
 

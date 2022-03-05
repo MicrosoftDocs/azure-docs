@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: ssambare
 author: shivanissambare
-ms.custom: deploy, devplatv2
+ms.custom: deploy, devplatv2, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # High-performance serving with Triton Inference Server (Preview) 
@@ -44,6 +45,8 @@ NVIDIA Triton Inference Server requires a specific model repository structure, w
 The information in this document is based on using a model stored in ONNX format, so the directory structure of the model repository is `<model-repository>/<model-name>/1/model.onnx`. Specifically, this model performs image identification.
 
 ## Deploy using CLI (v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 This section shows how you can deploy Triton to managed online endpoint using the Azure CLI with the Machine Learning extension (v2).
 

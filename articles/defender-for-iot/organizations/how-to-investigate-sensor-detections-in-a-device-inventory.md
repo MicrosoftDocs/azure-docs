@@ -9,7 +9,7 @@ ms.topic: how-to
 
 The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility into the devices on your network. 
 
-:::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="screen capture shows the Device inventory main screen":::
+:::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="Screenshot that shows the Device inventory main screen.":::
 
 Options are available to:
 
@@ -60,7 +60,7 @@ This section describes device details available from the inventory and describes
 | Groups | The groups that this device participates in. |
 | Last Activity | The last activity that the device performed. |
 | Discovered | When this device was first seen in the network. |
-| PLC mode (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only oe state is presented. |
+| PLC mode (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. |
 
 **To hide and display columns:**
 
@@ -101,7 +101,7 @@ The filters that you save are also saved as Device map groups. This feature prov
 1. Select the double arrow >> on the left side of the page.
 The filters you create appear in the **Saved Views** pane.
 
-    :::image type="content" source="media/how-to-inventory-sensor/save-views.png" alt-text="Screen capture shows the saved Device inventory filter":::
+    :::image type="content" source="media/how-to-inventory-sensor/save-views.png" alt-text="Screenshot that shows the saved Device inventory filter.":::
 
 
 ### View filtered information as a map group
@@ -228,7 +228,7 @@ Don't update file names.
 
 **To import:**
 
-1. Select **System Settings** > **Import Settings**> **Windows Information**.
+1. Select **System Settings** > **Import Settings** > **Windows Information**.
 
 2. Select **Import File**, and then select all the files (Ctrl+A).
 
@@ -265,7 +265,7 @@ You can filter the inventory to display devices that are inactive:
 1. Select **Last Activity** in the column field.
 1. Choose the time period in the **Filter** field.
 
-    :::image type="content" source="media/how-to-inventory-sensor/save-filter.png" alt-text="Screen capture shows last activity filter in Inventory":::
+    :::image type="content" source="media/how-to-inventory-sensor/save-filter.png" alt-text="Screenshot that shows the last activity filter in Inventory.":::
 
 ### Delete inactive devices
 
@@ -279,11 +279,11 @@ You'll be prompted to record a reason for deleting devices. This information, as
 1. Select a filter option.
 1. Select **Apply**.
 1. Select **Delete Inactive Devices**.
-1. In the confirmation dialog box that opens, enter the reason for the deletion and select **Delete**. All devices detected within the range of the filter will be deleted. If you  delete a large number of devices, the delete process may take a few minutes.
+1. In the confirmation dialog box that opens, enter the reason for the deletion and select **Delete**. All devices detected within the range of the filter will be deleted. If you delete a large number of devices, the delete process may take a few minutes.
 
 ## Export device inventory information
 
-You can export device inventory information to .csv file.
+You can export device inventory information to a .csv file.
 
 **To export:**
 

@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -237,6 +237,8 @@ The Identity Experience Framework renders the email address claim with email for
 ### UserInputType
 
 Azure AD B2C supports a variety of user input types, such as a textbox, password, and dropdown list that can be used when manually entering claim data for the claim type. You must specify the **UserInputType** when you collect information from the user by using a [self-asserted technical profile](self-asserted-technical-profile.md) and [display controls](display-controls.md).
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims#user-input-types) of the user input type.
 
 The **UserInputType** element available user input types:
 

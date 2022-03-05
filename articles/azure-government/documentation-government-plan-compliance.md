@@ -61,7 +61,7 @@ You can access Azure and Azure Government audit reports and related documentatio
 - STP [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3), which has a subsection for FedRAMP Reports.
 - STP [Data Protection Resources](https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3), which is further divided into Compliance Guides, FAQ and White Papers, and Pen Test and Security Assessments subsections.
 
-You must sign in to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](https://aka.ms/stphelp).
+You must sign in to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](/microsoft-365/compliance/get-started-with-service-trust-portal).
 
 Alternatively, you can access certain audit reports and certificates in the Azure or Azure Government portal by navigating to *Home > Security Center > Regulatory compliance > Audit reports* or using direct links based on your subscription (sign in required):
 

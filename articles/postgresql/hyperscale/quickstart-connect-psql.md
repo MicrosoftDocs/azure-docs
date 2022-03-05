@@ -60,6 +60,23 @@ When you create your Hyperscale (Citus) server group, a default database named *
    citus=>
    ```
 
+4. Run a test query. Copy the following command and paste it into the psql
+   prompt, then press enter to run:
+
+   ```sql
+   SHOW server_version;
+   ```
+
+   You should see a result matching the PostgreSQL version you selected
+   during server group creation. For instance:
+
+   ```
+    server_version
+   ----------------
+    13.5
+   (1 row)
+   ```
+
 ## Next steps
 
 Now that you've connected to the server group, the next step is to create

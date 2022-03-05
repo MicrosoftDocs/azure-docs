@@ -5,10 +5,9 @@ metadata:
   author: caitlinv39
   ms.service: healthcare-apis
   ms.subservice: fhir
-  ms.topic: reference
+  ms.topic: faq
   ms.date: 12/27/2021
   ms.author: cavoeg
-    
 title: Frequently asked questions about Azure API for FHIR
 summary: |
 
@@ -115,7 +114,7 @@ sections:
       - question: |
           Are extensions supported on Azure API for FHIR?
         answer: |
-          We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you can save this as a structure definition resource. To search on extensions, you'll need to [define your own search parameters](/azure/healthcare-apis/fhir/how-to-do-custom-search). 
+          We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you can save this as a structure definition resource. To search on extensions, you'll need to [define your own search parameters](../fhir/how-to-do-custom-search.md). 
 
       - question: |
           What is the limit on the size of a resource I can upload?

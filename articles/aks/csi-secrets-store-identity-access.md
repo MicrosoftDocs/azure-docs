@@ -168,7 +168,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     kubectl apply -f secretproviderclass.yaml
     ```
 
-1. Create a pod by using the following YAML, using the name of your identity:
+1. Create a pod by using the following YAML:
 
     ```yml
     # This is a sample pod definition for using SecretProviderClass and the user-assigned identity to access your key vault
@@ -270,7 +270,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     kubectl apply -f secretproviderclass.yaml
     ```
 
-1. Create a pod by using the following YAML, using the name of your identity:
+1. Create a pod by using the following YAML:
 
     ```yml
     # This is a sample pod definition for using SecretProviderClass and system-assigned identity to access your key vault

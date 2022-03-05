@@ -73,7 +73,7 @@ This article shows how to enable and set up the system-assigned identity or user
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
 
 * To give a managed identity access to an Azure resource, you need to add a role to the target resource for that identity. To add roles, you need [Azure AD administrator permissions](../active-directory/roles/permissions-reference.md) that can assign roles to identities in the corresponding Azure AD tenant.
 
@@ -510,7 +510,7 @@ However, to access an Azure key vault with your managed identity, you have to cr
 
 | Tool | Documentation |
 |------|---------------|
-| Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/templates/microsoft.keyvault/vaults/) |
+| Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/azure/templates/microsoft.keyvault/vaults) |
 | Azure PowerShell | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-powershell) |
 | Azure CLI | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-cli) |
 |||
@@ -584,7 +584,7 @@ After you [enable the managed identity for your logic app resource](#azure-porta
 
 > [!IMPORTANT]
 > If you have an Azure function where you want to use the system-assigned identity, 
-> first [enable authentication for Azure Functions](logic-apps-azure-functions.md#enable-authentication-for-functions).
+> first [enable authentication for Azure Functions](logic-apps-azure-functions.md#enable-authentication-functions).
 
 These steps show how to use the managed identity with a trigger or action through the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, review [Managed identity authentication](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
@@ -1000,7 +1000,7 @@ In this scenario, check that the underlying connection resource definition inclu
 
 ### [Consumption](#tab/consumption)
 
-For example, here's the underlying connection resource definition for an Azure Automation action in a Consumption logic app resource that uses a managed identity where the definition includes the `parameterValueType` property, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Also note that the `apiVersion` property is set to `2018-07-01-preview`:
+For example, here's the underlying connection resource definition for an Azure Automation action in a Consumption logic app resource that uses a managed identity where the definition includes the `parameterValueSet` object, which has the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Also note that the `apiVersion` property is set to `2018-07-01-preview`:
 
 ```json
 {
@@ -1076,7 +1076,7 @@ Following this `Microsoft.Web/connections` resource definition, make sure that y
 }
 ```
 
-For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/templates/microsoft.web/connections?tabs=json) documentation.
+For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/azure/templates/microsoft.web/connections) documentation.
 
 ---
 
