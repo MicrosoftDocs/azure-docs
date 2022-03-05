@@ -31,6 +31,7 @@ The following steps describe how a connection is established to Azure SQL Databa
 - Clients connect to the gateway, that has a public IP address and listens on port 1433.
 - The gateway, depending on the effective connection policy, redirects or proxies the traffic to the right database cluster.
 - Inside the database cluster traffic is forwarded to the appropriate database.
+- TCP protocol is the only one that is accepted in Azure SQL Database.
 
 ## Connection policy
 
