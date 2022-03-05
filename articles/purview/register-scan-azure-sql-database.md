@@ -16,13 +16,20 @@ This article outlines the process to register an Azure SQL data source in Azure 
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No | No** |
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No | [Yes](#lineage)** |
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+\** Lineage is also supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+
+* Data lineage extraction is currently supported only for Stores procedure runs
 
 ### Known limitations
 
-* Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated".
+* Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 300 columns.
+* Column level lineage is currently not supported
+* Stored procedures with dynamic SQL, running from remote data integration tools like Azure Data Factory is currently not supported
+* Data lineage extraction is currently not supported for Functions, Triggers.
+* Lineage extraction scan is scheduled and defaulted to run every six hours. Frequency cant be changed
+* If sql views are referenced in stored procedures, they are captured as sql tables currently
 
 ## Prerequisites
 
@@ -255,6 +262,8 @@ The service principal needs permission to get metadata for the database, schemas
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
 
+Navigate to [lineage](#lineage) section to learn more about data lineage from Azure SQL DB
+
 Select your method of authentication from the tabs below for scanning steps.
 
 # [SQL authentication](#tab/sql-authentication)
@@ -319,8 +328,6 @@ Select your method of authentication from the tabs below for scanning steps.
 
 1. The scan details indicate the progress of the scan in the **Last run status** and the number of assets _scanned_ and _classified_
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-view-scan-details.png" alt-text="view scan details":::
-
 1. The **Last run status** will be updated to **In progress** and then **Completed** once the entire scan has run successfully
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scan-complete.png" alt-text="view scan completed":::
@@ -340,6 +347,63 @@ Scans can be managed or run again on completion
 1. You can _run an incremental scan_ or a _full scan_ again
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-full-inc.png" alt-text="full or incremental scan":::
+
+## Lineage
+
+Azure Purview supports lineage from Azure SQL Database. At the time of setting up a scan, enable lineage extraction toggle button to extract lineage.  
+
+### Prerequisites for setting up scan with Lineage extraction
+
+1. Follow steps under Azure SQL Database scan using [Managed Identity](#tab/managed-identity) section to authorize Azure Purview scan your Azure SQL DataBase
+
+2. Login to Azure SQL Database with AAD account and assign proper permission (for example: db_owner) to  Purview Managed identity. Use below example SQL syntax to create user and grant permission by replacing 'purview-account' with your Account name:
+
+    ```sql
+    Create user <purview-account> FROM EXTERNAL PROVIDER
+    GO
+    EXEC sp_addrolemember 'db_owner', <purview-account> 
+    GO
+    ```
+3. Run below command on your Azure SQL Database to create master Key
+
+    ```sql
+    Create master key
+    Go
+    ```
+
+### Creating scan with lineage extraction toggle turned on
+
+1. Enable lineage extraction toggle in the scan screen
+
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction.png" alt-text="Screenshot that shows the screen to create a new scan with lineage extraction":::
+
+2. Select your method of authentication by following steps in the [scan section](#creating-the-scan)
+3. Once the scan is successfully set up from previous step, a new scan type called **Lineage extraction** will run incremental scans every 6 hours to extract lineage from Azure SQL Database. Lineage is extracted based on the actual stored procedure runs in the Azure SQL Database
+
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs.png" alt-text="Screenshot that shows the screen that runs lineage extraction every 6 hours":::
+
+### Search Azure SQL Database assets and view runtime lineage
+
+You can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view asset details for Azure SQL Database. Below steps describes how-to view runtime lineage details
+
+1. Go to asset -> lineage tab, you can see the asset lineage when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Azure SQL Database lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md)
+
+
+:::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage.png" alt-text="Screenshot that shows the screen with lineage from stored procedures":::
+
+2. Go to stored procedure asset -> Properties -> Related assets to see the latest run details of stored procedures
+
+:::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-stored-procedure-properties.png" alt-text="Screenshot that shows the screen with stored procedure properties containing runs":::
+
+3. Select the stored procedure hyperlink next to Runs to see Azure SQL Stored Procedure Run Overview. Go to properties tab to see enhanced run time information from stored procedure e.g.:executedTime, rowcount, Client Connection and so on 
+
+:::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-stored-procedure-run-properties.png" alt-text="Screenshot that shows the screen with stored procedure run properties":::
+
+### Troubleshooting steps
+
+* If no lineage is captured after a successful **Lineage extraction** run, it is possible that no stored procedures have run at least once since the scan is set up.
+* Lineage is captured for stored procedure runs that happened after a successful scan is setup. Lineage from past Stored procedure runs are not captured.
+
 
 ## Next steps
 
