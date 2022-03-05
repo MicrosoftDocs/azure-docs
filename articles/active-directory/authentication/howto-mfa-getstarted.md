@@ -158,7 +158,7 @@ A major step in every multifactor authentication deployment is getting users reg
 
 > [!NOTE]
 > Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
-> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration. After this date tenants will be unable to disable the combined registration experience.
+> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration. 
 
 We recommend that organizations use the [combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD Multi-Factor Authentication. Combined registration is a single step for end users. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
