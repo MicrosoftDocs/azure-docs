@@ -213,6 +213,6 @@ Changes made to custom alert rules are tracked in the event timeline. For exampl
 1. Navigate to the Event timeline page.
 
 
-### See also
+### Next steps
 
-[Manage the alert event](how-to-manage-the-alert-event.md)
+For more information, see [Manage the alert event](how-to-manage-the-alert-event.md).
