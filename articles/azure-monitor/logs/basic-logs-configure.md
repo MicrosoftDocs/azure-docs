@@ -26,8 +26,9 @@ You can currently configure the following tables for Basic Logs:
 > Tables created with the [Data Collector API](data-collector-api.md) do not support Basic Logs.
 
 
-# [API](#tab/api-1)
 ## Set table configuration
+# [API](#tab/api-1)
+
 To configure a table for Basic Logs or Analytics Logs, call the **Tables - Update** API:
 
 ```http
