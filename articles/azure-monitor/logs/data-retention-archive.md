@@ -49,23 +49,7 @@ Each table is a sub-resource of the workspace it's in. For example, you can addr
 
 Note that the table name is case-sensitive. 
 
-### Get retention and archive policy by table
-
-To get the retention policy of a particular table (in this example, `SecurityEvent`), Call the **Tables - Get** API:
-
-```JSON
-GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2021-12-01-preview
-```
-
-To get all table-level retention policies in your workspace, don't set a table name; for example:
-
-```JSON
-GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
-```
-
-### Set the retention and archive policy for a table
-
-# [API](#tab/api-2)
+# [API](#tab/api-1)
 
 To set the retention and archive duration for a table, call the **Tables - Update** API: 
 
@@ -127,7 +111,7 @@ Status code: 200
 }
 ```
 
-# [CLI](#tab/cli-2)
+# [CLI](#tab/cli-1)
 
 To set the retention and archive duration for a table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and pass the `--retention-time` and `--total-retention-time` flags.
 
@@ -149,6 +133,35 @@ az monitor log-analytics workspace table update --subscription ContosoSID --reso
 
 ---
  
+## Get retention and archive policy by table
+
+# [API](#tab/api-2)
+
+To get the retention policy of a particular table (in this example, `SecurityEvent`), call the **Tables - Get** API:
+
+```JSON
+GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2021-12-01-preview
+```
+
+To get all table-level retention policies in your workspace, don't set a table name; for example:
+
+```JSON
+GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
+```
+
+# [CLI](#tab/cli-1)
+
+To get the retention policy of a particular table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name SecurityEvent
+``` 
+
+---
+
 ## Purge retained data
 When you shorten an existing retention policy, it takes several days for Azure Monitor to remove data that you no longer want to keep. 
 
