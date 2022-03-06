@@ -198,7 +198,7 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
  14. On the **Object Types** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.
       - **Target object**: This object is the target object in the LDAP directory.
       - **Anchor**: This attribute should be unique in the target directory. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle.
-      - **Query Attribute**: Used by the ECMA connector host to query the in-memory cache. The values of this attribute should be unique for each user.  You'll refer to this attribute again subsequently in the Azure Portal, when configuring attribute mappings, as an attribute to use for matching.
+      - **Query Attribute**: Used by the ECMA connector host to query the in-memory cache. The values of this attribute should be unique for each user.  You'll refer to this attribute again subsequently in the Azure portal, when configuring attribute mappings, as an attribute to use for matching.
       - **DN**: The distinguishedName of the target object.
      [![Screenshot that shows the Object Types page.](.\media\active-directory-app-provisioning-ldap\create-4.png)](.\media\active-directory-app-provisioning-ldap\create-4.png#lightbox)</br>
      
@@ -261,7 +261,7 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
  2. Select **Get started**.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.
  4. Select **Add New Mapping**.
- 5. Specify the source and target attributes, and add all the mappings in the following table. Change the distinguish named in the second row to match that of the organizational unit or other container in your target directory. If you are not using AD LDS, then omit provisioning the `msDS-UserAccountDisabled` attribute.
+ 5. Specify the source and target attributes, and add all the mappings in the following table. Change the distinguished names in the second row to match that of the organizational unit or other container in your target directory. If you are not using AD LDS, then omit provisioning the `msDS-UserAccountDisabled` attribute.
 
      |Mapping type|Source attribute|Target attribute|
      |-----|-----|-----|
@@ -308,7 +308,7 @@ After waiting, check your directory to ensure users are being provisioned.  The 
   [![Ldp binding for users](media/active-directory-app-provisioning-ldap/test-3.png)](media/active-directory-app-provisioning-ldap/test-3.png#lightbox)</br>
 
 ## Appendix A - Install AD LDS PowerShell script
-The following PowerShell script can be used to automate the installation of Active Directory Lightweight Directory Services. You will need to edit the script to match your environment, e.g., change `APP3` to the hostname of your computer.
+The following PowerShell script can be used to automate the installation of Active Directory Lightweight Directory Services. You'll need to edit the script to match your environment; in particular, change `APP3` to the hostname of your computer.
 
 
 
@@ -359,7 +359,7 @@ Get-WindowsFeature | Where installed >>$featureLogPath
  ```
 
 ## Appendix B - Answer file
-This file is used to automate and create an instance of AD LDS.  You will edit this file to match your environment, e.g., change `APP3` to the hostname of your server.
+This file is used to automate and create an instance of AD LDS.  You will edit this file to match your environment; in particular, change `APP3` to the hostname of your server.
 
 >[!IMPORTANT]
 > This script uses the local administrator for the AD LDS service account and has its password hard-coded in the answers.  This action is for **testing only** and should never be used in a production environment.
