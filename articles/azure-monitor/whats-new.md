@@ -11,6 +11,11 @@ This article lists significant changes to Azure Monitor documentation.
 
 ## February, 2022
 
+### General
+
+**Updated articles**
+
+- [What is monitored by Azure Monitor?](monitor-reference.md)
 ### Agents
 
 **New articles**
@@ -44,7 +49,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Enable Snapshot Debugger for .NET apps in Azure App Service](/azure/azure-monitor/app/snapshot-debugger-appservice.md)
 - [Visualizations for Application Change Analysis (preview)](/azure/azure-monitor/app/change-analysis-visualizations.md)
 
-## Autoscale
+### Autoscale
 
 **New articles**
 
@@ -58,17 +63,11 @@ This article lists significant changes to Azure Monitor documentation.
 - [Data Collection Rules in Azure Monitor](essentials/data-collection-rule-overview.md)
 - [Structure of a data collection rule in Azure Monitor (preview)](essentials/data-collection-rule-structure.md)
 - [Data collection rule transformations](essentials/data-collection-rule-transformations.md)
-## Essentials
+### Essentials
 
-### Updated articles
+**Updated articles**
 
 - [Azure Activity log](/azure/azure-monitor/essentials/activity-log.md)
-
-## General
-
-### Updated articles
-
-- [What is monitored by Azure Monitor?](monitor-reference.md)
 
 ## Logs
 
@@ -166,7 +165,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 **New articles**
 
-- [Analyzing product usage with HEART](app/usage-heart.md.md)
+- [Analyzing product usage with HEART](app/usage-heart.md)
 - [Migrate from Application Insights instrumentation keys to connection strings](app/migrate-from-instrumentation-keys-to-connection-strings.md)
 
 
