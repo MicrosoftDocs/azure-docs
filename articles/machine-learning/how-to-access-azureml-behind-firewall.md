@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/30/2021
+ms.date: 03/04/2022
 ms.custom: devx-track-python, ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -334,7 +334,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ----- |
-| Microsoft Container Registry | mcr.microsoft.com | TCP | 443 |
+| Microsoft Container Registry | mcr.microsoft.com</br>\*.data.mcr.microsoft.com | TCP | 443 |
 | Azure Machine Learning pre-built images | viennaglobal.azurecr.io | TCP | 443 |
 
 > [!TIP]

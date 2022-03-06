@@ -710,9 +710,9 @@ This release applies both for HDInsight 3.6 and 4.0.
 
 HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using multi-factor authentication (MFA) and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). Currently HIB is only available for clusters deployed through Azure Resource Management (ARM) template.
 
-#### Kafka Rest API Proxy (Preview)
+#### Kafka REST API Proxy (Preview)
 
-Kafka Rest API Proxy provides one-click deployment of highly available REST proxy with Kafka cluster via secured Azure AD authorization and OAuth protocol. 
+Kafka REST API Proxy provides one-click deployment of highly available REST proxy with Kafka cluster via secured Azure AD authorization and OAuth protocol. 
 
 #### Auto scale
 
@@ -2239,7 +2239,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
     
   **Workaround**
     
-  - **Option \#1: Create/Update policy via Ranger Rest API**
+  - **Option \#1: Create/Update policy via Ranger REST API**
         
       REST URL: http://&lt;host&gt;:6080/service/plugins/policies
         

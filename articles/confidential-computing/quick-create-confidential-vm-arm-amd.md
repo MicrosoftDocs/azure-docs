@@ -77,13 +77,13 @@ To create and deploy a confidential VM using an ARM template through the Azure C
 
 1. Sign in to your Azure account in the Azure CLI.
 
-    ```powershell-interactive
+    ```azurecli
     az login
     ```
 
 1. Set your Azure subscription. Replace `<subscription-id>` with your subscription identifier. Make sure to use a subscription that meets the [prerequisites](#prerequisites).
 
-    ```powershell-interactive
+    ```azurecli
     az account set --subscription <subscription-id>
     ```
 
@@ -101,14 +101,14 @@ To create and deploy a confidential VM using an ARM template through the Azure C
 
     If the resource group you specified doesn't exist, create a resource group with that name.
     
-    ```powershell-interactive
+    ```azurecli
     az group create -n $resourceGroup -l $region
     ```
 
 1. Deploy your VM to Azure using ARM template with custom parameter file
 
       
-    ```powershell-interactive
+    ```azurecli
     az deployment group create `
      -g $resourceGroup `
      -n $deployName `
