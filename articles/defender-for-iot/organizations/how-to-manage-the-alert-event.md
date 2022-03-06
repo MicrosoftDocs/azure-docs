@@ -212,7 +212,9 @@ Users working with alerts on the Defender for IoT portal on Azure should underst
 | **Managing alerts on your sensor**  | If you change the status of an alert, or learn or mute an alert on a sensor, the changes are not updated in the Defender for IoT Alerts page on the portal. This means that this alert will stay open on the portal. However another alert  won't be triggered from sensor for this activity.
 | **Managing alerts in the portal Alerts page** | Changing the status of an alert on the Azure portal, Alerts page or changing the alert severity on the portal, does not impact the alert status or severity in on-premises sensors.
 
-## See also
+## Next steps
+
+For more information, see:
 
 - [Detection engines and alerts](concept-key-concepts.md#detection-engines-and-alerts)
 

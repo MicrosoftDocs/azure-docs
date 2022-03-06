@@ -47,6 +47,6 @@ Respond as follows:
 1. You can accept all recommendations, dismiss all recommendations, or handled notifications one at a time. 
 1. For notifications that indicate manual changes are required, such as **New IPs** and **No Subnets**, make the manual modifications as needed. 
 
-## See also
+## Next steps
 
-[View alerts](how-to-view-alerts.md)
+For more information, see [View alerts](how-to-view-alerts.md).
