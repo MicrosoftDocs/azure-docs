@@ -33,7 +33,8 @@ Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integra
         ![Query editor](./media/process-data-azure-stream-analytics/query-editor.png)
         
         > [!NOTE]
-        >  When you use this feature for the first time, this page asks for your permission to create a consumer group and a policy for your event hub to preview incoming data.
+        >* When you use this feature for the first time, this page asks for your permission to create a consumer group and a policy for your event hub to preview incoming data.
+        >* Given user must have [Stream Analytics Query Tester role](https://www.azadvertizer.net/azrolesadvertizer/1ec5b3c1-b17e-4e25-8312-2acb3c3c5abf.html "Stream Analytics Query Tester Role definition") permissions at the subscription scope. This role allows user to perform query testing without creating a stream analytics job first.
 1. Select **Create** in the **Input preview** pane as shown in the preceding image. 
 1. You'll immediately see a snapshot of the latest incoming data in this tab.
     - The serialization type in your data is automatically detected (JSON/CSV). You can manually change it as well to JSON/CSV/AVRO.
