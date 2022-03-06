@@ -148,6 +148,17 @@ Status code: 200
 }
 ```
 
+# [CLI](#tab/cli-2)
+
+To check the configuration of a table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-show) command.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name Syslog  --output table \ 
+```
+
 ---
 
 ## Retention and archiving of Basic Logs
