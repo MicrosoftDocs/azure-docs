@@ -2,7 +2,7 @@
 title: Security posture for Microsoft Defender for Cloud
 description: Description of Microsoft Defender for Cloud's secure score and its security controls 
 ms.topic: article
-ms.date: 03/01/2022
+ms.date: 03/06/2022
 ---
 
 # Security posture for Microsoft Defender for Cloud
@@ -30,25 +30,22 @@ Recommendations are grouped into **security controls**. Each control is a logica
 
 For more information, see [How your secure score is calculated](secure-score-security-controls.md#how-your-secure-score-is-calculated) below. 
 
+> [!NOTE]
+> Currently there is no score available for GCP environments as GCP is in preview. Instead of seeing a score, you will see N/A.
+
 ## Manage your security posture
 
 On the Security posture page, you are able to see the secure score for your entire subscription, as well as each environment in your subscription. By default all environments are shown.
 
 :::image type="content" source="media/secure-score-security-controls/security-posture-page.png" alt-text="Screenshot of the security posture page.":::
 
-To see the details of a specific environment, you can select an environment by toggling the environment of your choice on or off.
+| Page section | Description |
+|--|--|
+| :::image type="content" source="media/secure-score-security-controls/select-environment.png" alt-text="Screenshot showing the different environment options."::: | Select your environment to see its secure score, and details. Multiple environments can be selected at once. The page will change based on your selection here.|
+| :::image type="content" source="media/secure-score-security-controls/environment.png" alt-text="Screenshot of the environment section of the security posture page."::: | Shows the total number of subscriptions, accounts and projects that affect your overall score. It also shows how many unhealthy resources and how many recommendations exist in your environments. |
+| :::image type="content" source="media/secure-score-security-controls/governance.png" alt-text="Screenshot of the governance section of your environment."::: | Shows you how many overdue and unassigned recommendations exist in your environment. |
 
-:::image type="content" source="media/secure-score-security-controls/select-environment.png" alt-text="Screenshot showing the different environment options.":::
-
-The Environment section shows the total number of subscriptions, accounts and projects that affect your overall score. It also shows how many unhealthy resources and how many recommendations exist in your environments.
-
-:::image type="content" source="media/secure-score-security-controls/environment.png" alt-text="Screenshot of the environment section of the security posture page.":::
-
-The Governance section shows you how many overdue and unassigned recommendations exist in your environment. 
-
-:::image type="content" source="media/secure-score-security-controls/governance.png" alt-text="Screenshot of the governance section of your environment.":::
-
-On the bottom half of the page you can view each manage all of your individual subscriptions, accounts, and projects, by viewing their individual secure scores, number of unhealthy resources and even view their recommendations.
+The bottom half of the page allows you to view, and manage all of your individual subscriptions, accounts, and projects, by viewing their individual secure scores, number of unhealthy resources and even view their recommendations.
 
 :::image type="content" source="media/secure-score-security-controls/bottom-half.png" alt-text="Screenshot of the bottom half of the security posture page.":::
 
@@ -68,41 +65,41 @@ To get all the possible points for a security control, all your resources must c
 
 :::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="Apply system updates security control." lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control.png":::
 
-
 In this example:
 
-| #  | Name                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|:-:|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1 | **Remediate vulnerabilities security control** | This control groups multiple recommendations related to discovering and resolving known vulnerabilities.                                                                                                                                                                                                                                                                                                                                   |
-| 2 | **Max score**                                  | The maximum number of points you can gain by completing all recommendations within a control. The maximum score for a control indicates the relative significance of that control and is fixed for every environment. Use the max score values to triage the issues to work on first.<br>For a list of all controls and their max scores, see [Security controls and their recommendations](#security-controls-and-their-recommendations). |
-| 3 | **Number of resources**                        | There are 35 resources affected by this control.<br>To understand the possible contribution of every resource, divide the max score by the number of resources.<br>For this example, 6/35=0.1714<br>**Every resource contributes 0.1714 points.**                                                                                                                                                                                          |
-| 4 | **Current score**                              | The current score for this control.<br>Current score=[Score per resource]*[Number of healthy resources]<br> 0.1714 x 5 healthy resources = 0.86<br>Each control contributes towards the total score. In this example, the control is contributing 0.86 points to current total secure score.                                                                                                                                               |
-| 5 | **Potential score increase**                   | The remaining points available to you within the control. If you remediate all the recommendations in this control, your score will increase by 9%.<br>Potential score increase=[Score per resource]*[Number of unhealthy resources]<br> 0.1714 x 30 unhealthy resources = 5.14<br>                                                                                                                                                        |
-|   |                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-
-
+| # | Name | Description |
+|:-:|--|--|
+| :::image type="icon" source="media/secure-score-security-controls/remediate-vulnerabilities.png" border="false"::: | **Remediate vulnerabilities security control** | This control groups multiple recommendations related to discovering and resolving known vulnerabilities. |
+| :::image type="icon" source="media/secure-score-security-controls/max-score.png" border="false"::: | **Max score** | The maximum number of points you can gain by completing all recommendations within a control. The maximum score for a control indicates the relative significance of that control and is fixed for every environment. Use the max score values to triage the issues to work on first.<br>For a list of all controls and their max scores, see [Security controls and their recommendations](#security-controls-and-their-recommendations). |
+| :::image type="icon" source="media/secure-score-security-controls/current-score.png" border="false":::| **Current score** | The current score for this control.<br>Current score=[Score per resource]*[Number of healthy resources]<br> Each control contributes towards the total score. In this example, the control is contributing 2.00 points to current total secure score. |
+| :::image type="icon" source="media/secure-score-security-controls/potential-increase.png" border="false"::: | **Potential score increase** | The remaining points available to you within the control. If you remediate all the recommendations in this control, your score will increase by 9%.<br>Potential score increase=[Score per resource]*[Number of unhealthy resources]<br> 0.1714 x 30 unhealthy resources = 5.14<br> |
+| :::image type="icon" source="media/secure-score-security-controls/status.png" border="false"::: | **Status** | The status of the recommendation. Can be, Unassigned, On time, Overdue, and Completed.
+| :::image type="icon" source="media/secure-score-security-controls/unhealthy-resources.png" border="false"::: | **Unhealthy resources** | There are 35 resources affected by this control.<br>To understand the possible contribution of every resource, divide the max score by the number of resources.<br>For this example, 6/35=0.1714<br>**Every resource contributes 0.1714 points.** |
+| :::image type="icon" source="media/secure-score-security-controls/insights.png" border="false"::: | **Insights** | Gives you additional details for each recommendation. Can be:<br> :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: Preview recommendation - This recommendation will not affect your secure score until it's GA. <br> :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: Fix - From within the recommendation details page, you can use 'Fix' to resolve this issue. <br> :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: Enforce - From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource.<br> :::image type="icon" source="media/secure-score-security-controls/grace-preiod-icon.png" border="false"::: Grace Period - This recommendation is within it's grace period and will not affect your score.<br> :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: Deny - From within the recommendation details page, you can prevent new resources from being created with this issue.|
 
 ### Calculations - understanding your score
 
 |Metric|Formula and example|
 |-|-|
 |**Security control's current score**|<br>![Equation for calculating a security control's score.](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Each individual security control contributes towards the Security Score. Each resource affected by a recommendation within the control, contributes towards the control's current score. The current score for each control is a measure of the status of the resources *within* the control.<br>![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In this example, the max score of 6 would be divided by 78 because that's the sum of the healthy and unhealthy resources.<br>6 / 78 = 0.0769<br>Multiplying that by the number of healthy resources (4) results in the current score:<br>0.0769 * 4 = **0.31**<br><br>|
-|**Secure score**<br>Single subscription|<br>![Equation for calculating a subscription's secure score](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**Secure score**<br>Multiple subscriptions|<br>![Equation for calculating the secure score for multiple subscriptions.](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>When calculating the combined score for multiple subscriptions, Defender for Cloud includes a *weight* for each subscription. The relative weights for your subscriptions are determined by Defender for Cloud based on factors such as the number of resources.<br>The current score for each subscription is calculated in the same way as for a single subscription, but then the weight is applied as shown in the equation.<br>When viewing multiple subscriptions, secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
-
-#### Grace period
-
-A grace period has been added. While a recommendation is within its grace period, it will have no impact on your Secure Score. You will know that a recommendation is in its grace period when you see the hour glass icon :::image type="icon" source="media/secure-score-security-controls/flag-icon.png" border="false":::.
+|**Secure score**<br>Single subscription, or connector|<br>![Equation for calculating a subscription's secure score](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription, or connector with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png) <br> This equation is the same equation for a connector with just the word subscription being replaced by the word connector. |
+|**Secure score**<br>Multiple subscriptions, and connectors|<br>![Equation for calculating the secure score for multiple subscriptions.](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>When calculating the combined score for multiple subscriptions, and connectors, Defender for Cloud includes a *weight* for each subscription, and connector. The relative weights for your subscriptions, and connectors are determined by Defender for Cloud based on factors such as the number of resources.<br>The current score for each subscription,a dn connector is calculated in the same way as for a single subscription, or connector, but then the weight is applied as shown in the equation.<br>When viewing multiple subscriptions, and connectors, the secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions, and connectors.<br><br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (22) and the maximum score available (58).|
  
 ### Which recommendations are included in the secure score calculations?
 
 Only built-in recommendations have an impact on the secure score.
 
-Recommendations flagged as **Preview** aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
+Recommendations flagged as **Preview**, or as **Grace period** aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
 
 An example of a preview recommendation:
 
 :::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag.":::
+
+You will know that a recommendation is in its grace period when you see the hour glass icon :::image type="icon" source="media/secure-score-security-controls/grace-period-icon.png" border="false":::.
+
+The grace period does not affect your overall score. However, if the recommendations are not resolved before the grace period is over, your score may drop.
+
+:::image type="content" source="media/secure-score-security-controls/grace-period-info-bubble.png" alt-text="Screenshot showing the information bubble with the warning that if grace period recommendations are not handled, your score may drop.":::
 
 ## Improve your secure score
 

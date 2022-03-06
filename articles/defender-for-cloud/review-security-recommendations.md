@@ -10,23 +10,31 @@ ms.date: 11/09/2021
 
 This topic explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your Azure resources.
 
-## Monitor recommendations <a name="monitor-recommendations"></a>
+## Manage your recommendations <a name="monitor-recommendations"></a>
 
 Defender for Cloud analyzes the security state of your resources to identify potential vulnerabilities. 
 
-1. From Defender for Cloud's menu, open the **Recommendations** page to see the recommendations applicable to your environment. Recommendations are grouped into security controls.
+**To view your Secure score recommendations**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
     :::image type="content" source="./media/review-security-recommendations/view-recommendations.png" alt-text="Recommendations grouped by security control." lightbox="./media/review-security-recommendations/view-recommendations.png":::
 
-1. To find recommendations specific to the resource type, severity, environment, or other criteria that are important to you, use the optional filters above the list of recommendations.
+    Here you will see the recommendations applicable to your environment(s). Recommendations are grouped into security controls.
 
-    :::image type="content" source="media/review-security-recommendations/recommendation-list-filters.png" alt-text="Filters for refining the list of Microsoft Defender for Cloud recommendations.":::
+1. Select **Secure score recommendations**.
 
-1. Expand a control and select a specific recommendation to view the recommendation details page.
+    :::image type="content" source="media/review-security-recommendations/secure-score-recommendations.png" alt-text="Screenshot showing the location of the secure score recommendations tab.":::
+
+1. Select the :::image type="icon" source="media/review-security-recommendations/drop-down-arrow.png" border="false"::: to expand the control, and view a list of recommendations.
+
+    :::image type="content" source="media/review-security-recommendations/list-recommendations.png" alt-text="Screenshot showing how to see the full list of recommendations by selecting the drop down menu icon.":::
+
+1. Select a specific recommendation to view the recommendation details page.
 
     :::image type="content" source="./media/review-security-recommendations/recommendation-details-page.png" alt-text="Recommendation details page." lightbox="./media/review-security-recommendations/recommendation-details-page.png":::
-
-    The page includes:
 
     1. For supported recommendations, the top toolbar shows any or all of the following buttons:
         - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
@@ -63,6 +71,32 @@ Defender for Cloud analyzes the security state of your resources to identify pot
             :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Not applicable resources with reasons.":::
     1. Action buttons to remediate the recommendation or trigger a logic app.
 
+You can also search for recommendations specific to a resource type, severity, environment, or other criteria that are important to you, use the optional searchbox, or filters above the list of recommendations. 
+
+Custom recommendations will appear under the All recommendations tab.
+
+**To search for recommendations**:
+
+1. On the recommendation page, select an environment from the environment filter.
+
+    :::image type="content" source="media/review-security-recommendations/environment-filter.png" alt-text="Screenshot of the environmental filter on the recommendation page.":::
+
+    You can select 1, 2, or all options at a time. The page's results will automatically reflect your choice.
+
+1. Enter a name in the searchbox, or select one of the available filters.
+
+    :::image type="content" source="media/review-security-recommendations/search-filters.png" alt-text="Screenshot of the searchbox and filter list.":::
+
+1. Select :::image type="icon" source="media/review-security-recommendations/add-filter.png" border="false"::: to add additional filter(s).
+
+1. Select a filter from the drop down menu.
+
+    :::image type="content" source="media/review-security-recommendations/filter-drop-down.png" alt-text="Screenshot of the available filters to select.":::
+
+1. Select a value from the drop down menu.
+
+1. Select **OK**.
+
 ## Review recommendation data in Azure Resource Graph Explorer (ARG)
 
 The toolbar on the recommendation details page includes an **Open query** button to explore the details in [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that provides the ability to query - across multiple subscriptions - Defender for Cloud's security posture data.
@@ -79,15 +113,18 @@ When you open the underlying query, and run it, Azure Resource Graph Explorer re
 
 :::image type="content" source="./media/review-security-recommendations/run-query.png" alt-text="Azure Resource Graph Explorer showing the results for the recommendation shown in the previous screenshot.":::
 
-## Preview recommendations
+## Recommendation insights
 
-Recommendations flagged as **Preview** aren't included in the calculations of your secure score.
+The Insights column of the page gives you additional details for each recommendation. The options available in this section include:
 
-They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
+- :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: **Preview recommendation** - This recommendation will not affect your secure score until it's GA.
+- :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: **Fix**- From within the recommendation details page, you can use 'Fix' to resolve this issue. 
+- :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: **Enforce** - From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource.
+- :::image type="icon" source="media/secure-score-security-controls/grace-preiod-icon.png" border="false"::: **Grace Period** - This recommendation is within it's grace period and will not affect your score.
+- :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: **Deny** - From within the recommendation details page, you can prevent new resources from being created with this issue.
 
-An example of a preview recommendation:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag.":::
+Recommendations that aren't included in the calculations of your secure score, should still be remediated wherever possible, so that when the period ends they'll contribute towards your score instead of against it.
  
 ## Next steps
 
