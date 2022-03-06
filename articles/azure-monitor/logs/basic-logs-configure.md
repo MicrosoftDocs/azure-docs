@@ -91,7 +91,7 @@ Status code: 200
 
 # [CLI](#tab/cli-1)
 
-To configure a table for Basic Logs or Analytics Logs, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-update) command and set the `--plan` flag to `Basic` or `Analytics`.
+To configure a table for Basic Logs or Analytics Logs, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and set the `--plan` flag to `Basic` or `Analytics`.
 
 For example:
 
@@ -173,7 +173,7 @@ Status code: 200
 
 # [CLI](#tab/cli-2)
 
-To check the configuration of a table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-show) command.
+To check the configuration of a table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
 
 For example:
 

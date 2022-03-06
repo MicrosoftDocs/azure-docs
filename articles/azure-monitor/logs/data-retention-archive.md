@@ -125,7 +125,7 @@ Status code: 200
 
 # [CLI](#tab/cli-2)
 
-To set the retention and archive duration for a table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-update) command and pass the `--retention-time` and `--total-retention-time` flags.
+To set the retention and archive duration for a table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and pass the `--retention-time` and `--total-retention-time` flags.
 
 This example sets table's interactive retention to the workspace default of 30 days, and the total retention to two years. This means the archive duration is 23 months:
 
@@ -134,7 +134,7 @@ az monitor log-analytics workspace table update --subscription ContosoSID --reso
 --name AzureMetrics --retention-time 30 --total-retention-time 730
 ```
 
-To reapply the workspace's default retention and archive values to the table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-update) command with the `--retention-time` and `--total-retention-time` flags set to `-1`.
+To reapply the workspace's default retention and archive values to the table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command with the `--retention-time` and `--total-retention-time` flags set to `-1`.
 
 For example:
 

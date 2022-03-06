@@ -86,7 +86,7 @@ Status code: 202 accepted.
 
 # [CLI](#tab/cli-1)
 
-To run a search job, run the [az monitor log-analytics workspace table search-job create](/cli/azure/monitor/log-analytics/workspace/table/search-job?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-search-job-create) command. The name of the results table, which you set using the `--name` flag, must end with *_SRCH*.
+To run a search job, run the [az monitor log-analytics workspace table search-job create](/cli/azure/monitor/log-analytics/workspace/table/search-job#az-monitor-log-analytics-workspace-table-search-job-create) command. The name of the results table, which you set using the `--name` flag, must end with *_SRCH*.
 
 For example:
 
@@ -160,7 +160,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 ## Delete search job table
 We recommend deleting the search job table when you're done querying the table. This reduces workspace clutter and additional charges for data retention. 
 
-# [API](#tab/cli-2)
+# [API](#tab/api-2)
 
 To delete a table, call the **Tables - Delete** API: 
 
@@ -170,7 +170,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroup
 
 # [CLI](#tab/cli-2)
 
-To delete a search table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-delete) command.
+To delete a search table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
 
 For example:
 

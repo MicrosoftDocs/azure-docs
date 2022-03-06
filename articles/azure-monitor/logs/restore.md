@@ -71,7 +71,7 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 ```
 # [CLI](#tab/cli-1)
 
-To restore data from a table, run the [az monitor log-analytics workspace table restore create](/cli/azure/monitor/log-analytics/workspace/table/restore?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-restore-create) command.
+To restore data from a table, run the [az monitor log-analytics workspace table restore create](/cli/azure/monitor/log-analytics/workspace/table/restore#az-monitor-log-analytics-workspace-table-restore-create) command.
 
 For example:
 
@@ -96,9 +96,9 @@ To delete a restore table, call the **Tables - Delete** API:
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-12-01-preview
 ```
-# [CLI](#tab/cli-1)
+# [CLI](#tab/cli-2)
 
-To delete a restore table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-delete) command.
+To delete a restore table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
 
 For example:
 
