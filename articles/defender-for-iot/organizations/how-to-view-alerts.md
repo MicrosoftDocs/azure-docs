@@ -188,6 +188,8 @@ You can manage an alert incident by:
 
 ## Next steps
 
-[Manage the alert event](how-to-manage-the-alert-event.md)
+For more information, see:
 
-[Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+- [Manage the alert event](how-to-manage-the-alert-event.md)
+
+- [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
