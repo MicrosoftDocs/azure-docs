@@ -62,6 +62,8 @@ To get all table-level retention policies in your workspace, don't set a table n
 ```JSON
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
 ```
+
+# [API](#tab/api-2)
 ### Set the retention and archive policy for a table
 
 To set the retention and archive duration for a table, call the **Tables - Update** API: 
@@ -79,7 +81,6 @@ You can use either PUT or PATCH, with the following difference:
 - The **PUT** API sets *retentionInDays* and *totalRetentionInDays* to the default value if you don't set non-null values.
 - The **PATCH** API doesn't change the *retentionInDays* or *totalRetentionInDays* values if you don't specify values. 
 
-
 #### Request body
 The request body includes the values in the following table.
 
@@ -89,7 +90,7 @@ The request body includes the values in the following table.
 |properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Set this property to null if you don't want to archive data.  | 
 
 #### Example
-The following table sets table retention to workspace default of 30 days, and total of 2 years. This means that the archive duration would be 23 months.
+This example sets table's interactive retention to the workspace default of 30 days, and the total retention to two years. This means the archive duration is 23 months.
 ###### Request
 
 ```http
@@ -121,6 +122,28 @@ Status code: 200
    ...
 }
 ```
+
+# [CLI](#tab/cli-2)
+
+To set the retention and archive duration for a table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-update) command and pass the `--retention-time` and `--total-retention-time` flags.
+
+This example sets table's interactive retention to the workspace default of 30 days, and the total retention to two years. This means the archive duration is 23 months:
+
+```azurecli
+az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+--name AzureMetrics --retention-time 30 --total-retention-time 730
+```
+
+To reapply the workspace's default retention and archive values to the table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-update) command with the `--retention-time` and `--total-retention-time` flags set to `-1`.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name Syslog --retention-time -1 --total-retention-time -1
+```
+
+---
  
 ## Purge retained data
 When you shorten an existing retention policy, it takes several days for Azure Monitor to remove data that you no longer want to keep. 

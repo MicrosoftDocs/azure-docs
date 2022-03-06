@@ -40,6 +40,8 @@ The search results table schema is based on the source table schema and the spec
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 
 ## Create a search job
+
+# [API](#tab/api-1)
 To run a search job, call the **Tables - Create or Update** API. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
  
 ```http
@@ -82,6 +84,19 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 **Response**<br>
 Status code: 202 accepted.
 
+# [CLI](#tab/cli-1)
+
+To run a search job, run the [az monitor log-analytics workspace table search-job create](/cli/azure/monitor/log-analytics/workspace/table/search-job?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-search-job-create) command. The name of the results table, which you set using the `--name` flag, must end with *_SRCH*.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table search-job create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name HeartbeatByIp_SRCH --search-query 'Heartbeat | where ComputerIP has "00.000.00.000"' --limit 1500 \ 
+   --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z" --no-wait
+```
+
+---
 
 ## Get search job status and details
 Call the **Tables - Get** API to get the status and details of a search job:
@@ -145,11 +160,26 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 ## Delete search job table
 We recommend deleting the search job table when you're done querying the table. This reduces workspace clutter and additional charges for data retention. 
 
+# [API](#tab/cli-2)
+
 To delete a table, call the **Tables - Delete** API: 
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
+
+# [CLI](#tab/cli-2)
+
+To delete a search table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-delete) command.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name HeartbeatByIp_SRCH
+```
+
+---
 
 ## Limitations
 Search jobs are subject to the following limitations:

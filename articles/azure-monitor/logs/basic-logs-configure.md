@@ -25,6 +25,8 @@ You can currently configure the following tables for Basic Logs:
 > [!NOTE]
 > Tables created with the [Data Collector API](data-collector-api.md) do not support Basic Logs.
 
+
+# [API](#tab/api-1)
 ## Set table configuration
 To configure a table for Basic Logs or Analytics Logs, call the **Tables - Update** API:
 
@@ -87,6 +89,27 @@ Status code: 200
 }
 ```
 
+# [CLI](#tab/cli-1)
+
+To configure a table for Basic Logs or Analytics Logs, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-update) command and set the `--plan` flag to `Basic` or `Analytics`.
+
+For example:
+
+- To set Basic Logs:
+
+    ```azurecli
+    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+       --name ContainerLog  --plan Basic
+    ```
+
+- To set Analytics Logs:
+
+    ```azurecli
+    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name ContainerLog  --plan Analytics
+    ```
+   
+---
 
 ## Check table configuration
 # [Portal](#tab/portal-1)
