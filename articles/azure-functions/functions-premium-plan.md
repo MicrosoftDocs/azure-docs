@@ -151,7 +151,7 @@ For example, a JavaScript function app is constrained by the default memory limi
 
 And for plans with more than 4GB memory, ensure the Bitness Platform Setting is set to `64 Bit` under [General Settings](../app-service/configure-common.md#configure-general-settings).
 
-## Region Max Scale Out
+## Region max scale out
 
 Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration.
 
