@@ -348,7 +348,9 @@ To access system properties:
 
 3. Select **System Properties** from the **General** section.
 
-## See also
+## Next steps
+
+For more information, see:
 
 [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
 
