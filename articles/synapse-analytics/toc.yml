@@ -1466,6 +1466,36 @@ items:
     href: how-to-access-container-with-access-control-lists.md
 - name: Guidance
   items:
+  - name: Azure Synapse Success by Design
+    items:
+    - name: Synapse implementation success method
+      items:
+      - name: Overview
+        href: ./guidance/implementation-success-overview.md
+      - name: Assess environment
+        href: ./guidance/implementation-success-assess-environment.md
+      - name: Evaluate workspace design
+        href: ./guidance/implementation-success-evaluate-workspace-design.md
+      - name: Evaluate data integration design
+        href: ./guidance/implementation-success-evaluate-data-integration-design.md
+      - name: Evaluate dedicated SQL pool design
+        href: ./guidance/implementation-success-evaluate-dedicated-sql-pool-design.md
+      - name: Evaluate serverless SQL pool design
+        href: ./guidance/implementation-success-evaluate-serverless-sql-pool-design.md
+      - name: Evaluate Spark pool design
+        href: ./guidance/implementation-success-evaluate-spark-pool-design.md
+      - name: Evaluate project plan
+        href: ./guidance/implementation-success-evaluate-project-plan.md
+      - name: Evaluate solution development environment design
+        href: ./guidance/implementation-success-evaluate-solution-development-environment-design.md
+      - name: Evaluate team skill set
+        href: ./guidance/implementation-success-evaluate-team-skill-set.md
+      - name: Perform operational readiness review
+        href: ./guidance/implementation-success-perform-operational-readiness-review.md
+      - name: Perform user readiness and onboarding plan review
+        href: ./guidance/implementation-success-perform-user-readiness-and-onboarding-plan-review.md
+      - name: Perform monitoring review
+        href: ./guidance/implementation-success-perform-monitoring-review.md
   - name: Migration guides
     items:
     - name: Migrate to a dedicated SQL pool
