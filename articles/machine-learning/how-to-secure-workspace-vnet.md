@@ -207,7 +207,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information.
+    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information. The v1 extension does not return this information.
 
     ```azurecli-interactive
     az ml workspace show -w yourworkspacename -g resourcegroupname --query 'container_registry'
@@ -254,15 +254,10 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Azure CLI](#tab/cli)
 
-    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace update` command to set a build compute. In the following command, replace `myworkspace` with your workspace name, `myresourcegroup` with the resource group that contains the workspace, and `mycomputecluster` with the compute cluster name:
+    You can use the `az ml workspace update` command to set a build compute. The command is the same for both the v1 and v2 Azure CLI extensions for machine learning. In the following command, replace `myworkspace` with your workspace name, `myresourcegroup` with the resource group that contains the workspace, and `mycomputecluster` with the compute cluster name:
 
     ```azurecli
-    az ml workspace update \
-      -n myworkspace \
-      -g myresourcegroup \
-      -i mycomputecluster
+    az ml workspace update --name myworkspace --resource-group myresourcegroup --image-build-compute mycomputecluster
     ```
 
     # [Python SDK](#tab/python)
