@@ -260,12 +260,14 @@ You can access console tools from the side menu.  Tools help you:
 1. Select the **System Messages** icon (Bell icon).
 
 
-## See also
+## Next steps
 
-[Threat intelligence research and packages ](how-to-work-with-threat-intelligence-packages.md)
+For more information, see:
 
-[Onboard a sensor](getting-started.md#onboard-a-sensor)
+- [Threat intelligence research and packages ](how-to-work-with-threat-intelligence-packages.md)
 
-[Manage sensor activation files](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
+- [Onboard a sensor](getting-started.md#onboard-a-sensor)
+
+- [Manage sensor activation files](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 
 [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
