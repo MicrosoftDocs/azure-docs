@@ -48,7 +48,8 @@ To run a search job, call the **Tables - Create or Update** API. The call includ
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
 
-### Request body
+**Request body**
+
 Include the following values in the body of the request:
 
 |Name | Type | Description |
@@ -59,15 +60,18 @@ Include the following values in the body of the request:
 |properties.searchResults.endSearchTime | string  | End of the time range to search. |
 
 
-### Sample request
+**Sample request**
+
 This example creates a table called *Syslog_suspected_SRCH* with the results of a query that searches for particular records in the *Syslog* table.
 
 **Request**
+
 ```http
 PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/Syslog_suspected_SRCH?api-version=2021-12-01-preview
 ```
 
 **Request body**
+
 ```json
 {
     "properties": { 
@@ -81,7 +85,8 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-**Response**<br>
+**Response**
+
 Status code: 202 accepted.
 
 # [CLI](#tab/cli-1)

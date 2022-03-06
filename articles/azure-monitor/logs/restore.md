@@ -30,7 +30,9 @@ To restore data from a table, call the **Tables - Create or Update** API. The na
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-12-01-preview
 ```
-### Request body
+
+**Request body**
+
 The body of the request must include the following values:
 
 |Name | Type | Description |
@@ -39,7 +41,8 @@ The body of the request must include the following values:
 |properties.restoredLogs.startRestoreTime | string  | Start of the time range to restore. |
 |properties.restoredLogs.endRestoreTime | string  | End of the time range to restore. |
 
-### Restore table status
+**Restore table status**
+
 The **provisioningState** property indicates the current state of the restore table operation. The API returns this property when you start the restore, and you can retrieve this property later using a GET operation on the table. The **provisioningState** property has one of the following values:
 
 | Value | Description 
@@ -48,7 +51,8 @@ The **provisioningState** property indicates the current state of the restore ta
 | Succeeded | Restore operation completed. |
 | Deleting | Deleting the restored table. |
 
-#### Sample request
+**Sample request**
+
 This sample restores data from the month of January 2020 from the *Usage* table to a table called *Usage_RST*. 
 
 **Request**

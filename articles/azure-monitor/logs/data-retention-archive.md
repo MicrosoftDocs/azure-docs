@@ -63,8 +63,9 @@ To get all table-level retention policies in your workspace, don't set a table n
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
 ```
 
-# [API](#tab/api-2)
 ### Set the retention and archive policy for a table
+
+# [API](#tab/api-2)
 
 To set the retention and archive duration for a table, call the **Tables - Update** API: 
 
@@ -81,7 +82,8 @@ You can use either PUT or PATCH, with the following difference:
 - The **PUT** API sets *retentionInDays* and *totalRetentionInDays* to the default value if you don't set non-null values.
 - The **PATCH** API doesn't change the *retentionInDays* or *totalRetentionInDays* values if you don't specify values. 
 
-#### Request body
+**Request body**
+
 The request body includes the values in the following table.
 
 |Name | Type | Description |
@@ -89,15 +91,17 @@ The request body includes the values in the following table.
 |properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value is always 8. | 
 |properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Set this property to null if you don't want to archive data.  | 
 
-#### Example
+**Example**
+
 This example sets table's interactive retention to the workspace default of 30 days, and the total retention to two years. This means the archive duration is 23 months.
-###### Request
+
+**Request**
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/CustomLog_CL?api-version=2021-12-01-preview
 ```
 
-#### Request body
+**Request body**
 ```http
 {
     "properties": {
@@ -107,7 +111,7 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 }
 ```
 
-###### Response
+**Response**
 
 Status code: 200
 
