@@ -352,6 +352,6 @@ To access system properties:
 
 For more information, see:
 
-[Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
 
-[Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
