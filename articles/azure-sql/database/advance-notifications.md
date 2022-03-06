@@ -80,7 +80,7 @@ The following table shows additional notifications that may be sent while mainte
 
 ## Permissions
 
-While Advance Notifications can be sent to any email address, Azure subscription RBAC (role-based access control) policy determines who can access the links in the email. Querying resource graph is covered by [Azure RBAC](../../role-based-access-control/overview.md) access management.  TODO Add memberships.
+While Advance Notifications can be sent to any email address, Azure subscription RBAC (role-based access control) policy determines who can access the links in the email. Querying resource graph is covered by [Azure RBAC](../../role-based-access-control/overview.md) access management.  To enable read access, each recipient should have resource group level read access. For more information, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
 
 ## Retrieve the list of impacted resources
 
