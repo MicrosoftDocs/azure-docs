@@ -450,6 +450,6 @@ Devices you mark as important on your sensor are also marked as important in the
 
 :::image type="content" source="media/how-to-work-with-maps/important-devices-on-cloud.png" alt-text="Screenshot of the Device inventory page in the Azure portal showing important devices." lightbox="media/how-to-work-with-maps/important-devices-on-cloud.png":::
 
-## See also
+## Next steps
 
-[Investigate sensor detections in a Device Inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+For more information, see [Investigate sensor detections in a Device Inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md).
