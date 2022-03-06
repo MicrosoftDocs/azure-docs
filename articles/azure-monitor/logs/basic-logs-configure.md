@@ -36,14 +36,16 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 > [!IMPORTANT]
 > Use the Bearer token for authentication. Read more about [using Bearer tokens](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx).
 
-### Request body
+**Request body**
 |Name | Type | Description |
 | --- | --- | --- |
 |properties.plan | string  | The table plan. Possible values are *Analytics* and *Basic*.|
 
-### Example
+**Example**
+
 This example configures the `ContainerLog` table for Basic Logs.
-#### Sample request
+
+**Sample request**
 
 ```http
 PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
@@ -69,7 +71,8 @@ Use this request body to change to Analytics Logs:
 }
 ```
 
-#### Sample response
+**Sample response**
+
 This is the response for a table changed to Basic Logs.
 
 Status code: 200
