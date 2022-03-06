@@ -151,7 +151,7 @@ Adding resources increases your monthly bill. The [pricing calculator](https://a
 > [!Note]
 > Per-partition storage and speed increases at higher tiers. For more information, see [capacity and limits](search-limits-quotas-capacity.md).
 
-## When to add a second service
+## [Increase more Quota - Documentation.docx](https://github.com/MicrosoftDocs/azure-docs-pr/files/8193103/Increase.more.Quota.-.Documentation.docx)
 
 Most customers use just one service provisioned at a tier providing the [right balance of resources](search-sku-tier.md). One service can host multiple indexes, subject to the [maximum limits of the tier you select](search-capacity-planning.md), with each index isolated from another. In Azure Cognitive Search, requests can only be directed to one index, minimizing the chance of accidental or intentional data retrieval from other indexes in the same service.
 
