@@ -522,7 +522,7 @@ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 The output should be similar to this example:
 
 ```
-ingress.extensions/hello-world-ingress created
+ingress.networking.k8s.io/hello-world-ingress created
 ```
 
 ## Verify certificate object
