@@ -80,8 +80,7 @@ adjusted independently. Adjust the **storage** slider under  **Configuration
 
 ## Next steps
 
-- Learn more about server group [performance
-  options](concepts-configuration-options.md).
+- Learn more about server group [performance options](resources-compute.md).
 - [Rebalance distributed table shards](howto-scale-rebalance.md)
   so that all worker nodes can participate in parallel queries
 - See the sizes of distributed tables, and other [useful diagnostic

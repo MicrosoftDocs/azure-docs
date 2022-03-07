@@ -653,10 +653,10 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 
 ## Next steps
 
-To learn about Azure VM extensions, see:
+- To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environments, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 
- - [Azure VM extensions and features for Windows](/azure/virtual-machines/extensions/features-windows).
- - [Azure VM extensions and features for Linux](/azure/virtual-machines/extensions/features-linux).
+- To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/extension-based-hybrid-runbook-worker.md).
 
-To learn about VM extensions for Arc-enabled servers, see:
--  [VM extension management with Azure Arc-enabled servers](/azure/azure-arc/servers/manage-vm-extensions). 
+- To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](/azure/virtual-machines/extensions/features-windows) and [Azure VM extensions and features for Linux](/azure/virtual-machines/extensions/features-linux).
+
+- To learn about VM extensions for Arc-enabled servers, see [VM extension management with Azure Arc-enabled servers](/azure/azure-arc/servers/manage-vm-extensions). 

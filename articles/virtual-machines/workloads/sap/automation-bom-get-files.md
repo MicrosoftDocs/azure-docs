@@ -23,7 +23,7 @@ This guide is for configurations that use either the SAP Application (DB) or HAN
 - An SAP account with permissions to download the SAP software and access the Maintenance Planner.
 - An installation of the [SAP download manager](https://support.sap.com/en/my-support/software-downloads.html) on your computer.
 - Information about your SAP system:
-    - SAP account username and password
+    - SAP account username and password.  The SAP account cannot be linked to a SAP Universal ID.
     - The SAP system product to deploy (such as **S/4HANA**)
     - The SAP System Identifier (SAP SID)
     - Any language pack requirements

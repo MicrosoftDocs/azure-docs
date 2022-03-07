@@ -3483,7 +3483,7 @@
         {
             "source_path_from_root": "/articles/active-directory/active-directory-windows-enterprise-state-roaming-enable.md",
             "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-enable",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-windows-enterprise-state-roaming-faqs.md",
@@ -3498,7 +3498,7 @@
         {
             "source_path_from_root": "/articles/active-directory/active-directory-windows-enterprise-state-roaming-overview.md",
             "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-windows-enterprise-state-roaming-troubleshooting.md",
@@ -3508,6 +3508,11 @@
         {
             "source_path_from_root": "/articles/active-directory/active-directory-windows-enterprise-state-roaming-windows-settings-reference.md",
             "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-windows-settings-reference",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/devices/enterprise-state-roaming-overview.md",
+            "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-enable",
             "redirect_document_id": true
         },
         {

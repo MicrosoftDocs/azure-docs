@@ -1,7 +1,6 @@
 ---
 title: Tutorial - Send custom logs to Azure Monitor Logs using resource manager templates
 description: Tutorial on how to send custom logs to a Log Analytics workspace in Azure Monitor using resource manager templates.
-ms.subservice: logs
 ms.topic: tutorial
 ms.date: 01/19/2022
 ---
@@ -341,6 +340,12 @@ Once the data collection rule has been created, the application needs to be give
 ## Send sample data
 The following PowerShell code sends data to the endpoint using HTTP REST fundamentals. 
 
+1. Run the following PowerShell command which adds a required assembly for the script.
+
+    ```powershell
+    Add-Type -AssemblyName System.Web
+    ```
+
 1. Replace the parameters in the *step 0* section with values from the resources that you just created. You may also want to replace the sample data in the *step 2* section with your own.  
 
     ```powershell
@@ -365,8 +370,6 @@ The following PowerShell code sends data to the endpoint using HTTP REST fundame
     $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
 
     $bearerToken = (Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers).access_token
-    ### If the above line throws an 'Unable to find type [System.Web.HttpUtility].' error, execute the line below separately from the rest of the code
-    # Add-Type -AssemblyName System.Web
 
     ##################
     ### Step 2: Load up some sample data. 
@@ -427,9 +430,6 @@ The message is too large. The maximum message size is currently 1MB per call.
 API limits have been exceeded. The limits are currently set to 500MB of data/minute for both compressed and uncompressed data, as well as 300,000 requests/minute. Retry after the duration listed in the `Retry-After` header in the response.
 ### Script returns error code 503
 Ensure that you have the correct permissions for your application to the DCR. You may also need to wait up to 30 minutes for permissions to propagate.
-
-### Script returns error `Unable to find type [System.Web.HttpUtility]`
-Run the last line in section 1 of the script for a fix and execute it directly. Executing it uncommented as part of the script will not resolve the issue. The command must be executed separately.
 
 ### You don't receive an error, but data doesn't appear in the workspace
 The data may take some time to be ingested, especially if this is the first time data is being sent to a particular table. It shouldn't take longer than 15 minutes.

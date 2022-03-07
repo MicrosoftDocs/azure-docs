@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.devlang: java
 ms.custom: devx-track-java
 ms.date: 11/01/2018
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # How to use Micrometer with Azure Application Insights Java SDK (not recommended)
