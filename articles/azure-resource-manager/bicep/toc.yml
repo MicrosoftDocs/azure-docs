@@ -37,6 +37,12 @@
   items:
   - name: Microsoft Learn - Bicep
     href: learn-bicep.md
+- name: Samples - Azure Services
+  items:
+  - name: Analytics
+    items:
+    - name: Analysis Services
+      href: ../../analysis-services/analysis-services-create-bicep-file.md?toc=/azure/azure-resource-manager/bicep/toc.json
 - name: Concepts
   expanded: true
   items:

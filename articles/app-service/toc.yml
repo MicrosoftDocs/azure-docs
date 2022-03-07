@@ -96,6 +96,8 @@
             items: 
               - name: .NET
                 href: tutorial-connect-msi-key-vault.md
+              - name: JavaScript
+                href: tutorial-connect-msi-key-vault-javascript.md    
               - name: PHP
                 href: tutorial-connect-msi-key-vault-php.md              
     - name: Securely connect to Azure resources on behalf of user

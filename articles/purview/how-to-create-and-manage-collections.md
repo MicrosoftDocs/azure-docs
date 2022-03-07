@@ -20,17 +20,17 @@ Collections in Azure Purview can be used to organize assets and sources by your 
 
 * Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 ### Check permissions
 
-In order to create and manage collections in Azure Purview, you will need to be a **Collection Admin** within Azure Purview. We can check these permissions in the [Azure Purview Studio](https://web.purview.azure.com/resource/). You can find Studio in the overview page of the Azure Purview resource in [Azure portal](https://portal.azure.com).
+In order to create and manage collections in Azure Purview, you will need to be a **Collection Admin** within Azure Purview. We can check these permissions in the [Azure Purview Studio](https://web.purview.azure.com/resource/). You can find Studio in the overview page of the Azure Purview account in [Azure portal](https://portal.azure.com).
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/find-collections.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
 
-1. Select your root collection. This is the top collection in your collection list and will have the same name as your Azure Purview resource. In the following example, it's called Contoso Azure Purview. Alternatively, if collections already exist you can select any collection where you want to create a subcollection.
+1. Select your root collection. This is the top collection in your collection list and will have the same name as your Azure Purview account. In the following example, it's called Contoso Azure Purview. Alternatively, if collections already exist you can select any collection where you want to create a subcollection.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/select-root-collection.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
 
@@ -38,7 +38,7 @@ In order to create and manage collections in Azure Purview, you will need to be 
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/role-assignments.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
 
-1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the Azure Purview resource, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant your permission.
+1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the Azure Purview account, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant your permission.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/collection-admins.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the collection admin section highlighted." border="true":::
 
@@ -151,7 +151,7 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
 ### Restrict inheritance
 
-Collection permissions are inherited automatically from the parent collection. For example, any permissions on the root collection (the collection at the top of the list that has the same name as your Azure Purview resource), will be inherited by all collections below it. You can restrict inheritance from a parent collection at any time, using the restrict inherited permissions option.
+Collection permissions are inherited automatically from the parent collection. For example, any permissions on the root collection (the collection at the top of the list that has the same name as your Azure Purview account), will be inherited by all collections below it. You can restrict inheritance from a parent collection at any time, using the restrict inherited permissions option.
 
 Once you restrict inheritance, you will need to add users directly to the restricted collection to grant them access.
 
