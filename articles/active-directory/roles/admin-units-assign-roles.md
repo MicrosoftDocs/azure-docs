@@ -18,7 +18,11 @@ ms.collection: M365-identity-device-management
 
 # Assign Azure AD roles with administrative unit scope
 
-In Azure Active Directory (Azure AD), for more granular administrative control, you can assign an Azure AD role with a scope that's limited to one or more administrative units.
+In Azure Active Directory (Azure AD), for more granular administrative control, you can assign an Azure AD role with a scope that's limited to one or more administrative units. When an Azure AD role is assigned at the scope of an administrative unit, role permissions apply only when managing members of the administrative unit itself, and do not apply to tenant-wide settings or configurations.
+
+For example, an administrator who is assigned the Groups Administrator role at the scope of an administrative unit can manage groups that are members of the administrative unit, but they cannot manage other groups in the tenant. They also cannot manage tenant-level settings related to groups, such as expiration or group naming policies.
+
+This article describes how to assign Azure AD roles with administrative unit scope.
 
 ## Prerequisites
 
