@@ -55,7 +55,7 @@ The following Python snippet shows how to configure the SSH endpoint on compute 
 from azure.batch import models as batchmodels
 
 class AzureBatch(object):
-    def SetPortsPool():
+    def set_ports_pool(self, **kwargs):
         pool.network_configuration = batchmodels.NetworkConfiguration(
             endpoint_configuration=batchmodels.PoolEndpointConfiguration(
                 inbound_nat_pools=[batchmodels.InboundNATPool(
@@ -112,7 +112,7 @@ The following Python snippet shows how to configure the SSH endpoint on compute 
 from azure.batch import models as batchmodels
 
 class AzureBatch(object):
-    def SetPortsPool():
+    def set_ports_pool(self, **kwargs):
         pool.network_configuration = batchmodels.NetworkConfiguration(
             endpoint_configuration=batchmodels.PoolEndpointConfiguration(
                 inbound_nat_pools=[batchmodels.InboundNATPool(
