@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix bad request exceptions such as input 
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 04/06/2021
+ms.date: 03/07/2022
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -38,7 +38,13 @@ The value of the partition key should be a string or a number, make sure the val
 ## <a name="wrong-partition-key-value"></a>Wrong partition key value
 On this scenario, it's common to see the error:
 
-*PartitionKey extracted from document doesn’t match the one specified in the header*
+```
+Response status code does not indicate success: BadRequest (400); Substatus: 1001
+```
+
+```
+PartitionKey extracted from document doesn’t match the one specified in the header
+```
 
 A response with this error means you are executing an operation and passing a partition key value that does not match the document's body value for the expected property. If the collection's partition key path is `/myPartitionKey`, the document has a property called `myPartitionKey` with a value that does not match what was provided as partition key value when calling the SDK method.
 
