@@ -262,3 +262,4 @@ This policy can be used in the following policy [sections](./api-management-howt
 - **Policy scopes:** all scopes
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
+

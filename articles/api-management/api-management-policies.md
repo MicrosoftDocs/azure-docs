@@ -52,7 +52,7 @@ More information about policies:
 -   [Authenticate with managed identity](api-management-authentication-policies.md#ManagedIdentity) - Authenticate with a backend service using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## [Caching policies](api-management-caching-policies.md#CachingPolicies)
--   [Get from cache](api-management-caching-policies.md#GetFromCache) - Perform cache look up and return a valid cached response when available.
+-   [Get from cache](api-management-caching-policies.md#GetFromCache) - Perform cache lookup and return a valid cached response when available.
 -   [Store to cache](api-management-caching-policies.md#StoreToCache) - Caches response according to the specified cache control configuration.
 -   [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) - Retrieve a cached item by key.
 -   [Store value in cache](api-management-caching-policies.md#StoreToCacheByKey) - Store an item in the cache by key.
@@ -85,7 +85,6 @@ More information about policies:
 
 ## [Validation policies](validation-policies.md)
 - [Validate content](validation-policies.md#validate-content) - Validates the size or JSON schema of a request or response body against the API schema.
-. 
 - [Validate parameters](validation-policies.md#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
 - [Validate headers](validation-policies.md#validate-headers) - Validates the response headers against the API schema.
 - [Validate status code](validation-policies.md#validate-status-code) - Validates the HTTP status codes in responses against the API schema.

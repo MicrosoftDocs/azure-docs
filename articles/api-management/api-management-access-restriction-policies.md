@@ -19,7 +19,7 @@ This article provides a reference for API Management access restriction policies
 
 ## <a name="AccessRestrictionPolicies"></a> Access restriction policies
 
--   [Check HTTP header](#CheckHTTPHeader) - Enforces existence and/or value of a HTTP header.
+-   [Check HTTP header](#CheckHTTPHeader) - Enforces existence and/or value of an HTTP header.
 -   [Limit call rate by subscription](#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
 -   [Limit call rate by key](#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.
 -   [Restrict caller IPs](#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.

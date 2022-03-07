@@ -23,7 +23,7 @@ This article provides a reference for API Management policies used for caching r
 ## <a name="CachingPolicies"></a> Caching policies
 
 - Response caching policies
-    - [Get from cache](#GetFromCache) - Perform cache look up and return a valid cached responses when available.
+    - [Get from cache](#GetFromCache) - Perform cache lookup and return a valid cached response when available.
     - [Store to cache](#StoreToCache) - Caches responses according to the specified cache control configuration.
 - Value caching policies
     - [Get value from cache](#GetFromCacheByKey) - Retrieve a cached item by key.
@@ -31,7 +31,7 @@ This article provides a reference for API Management policies used for caching r
     - [Remove value from cache](#RemoveCacheByKey) - Remove an item in the cache by key.
 
 ## <a name="GetFromCache"></a> Get from cache
-Use the `cache-lookup` policy to perform cache look up and return a valid cached response when available. This policy can be applied in cases where response content remains static over a period of time. Response caching reduces bandwidth and processing requirements imposed on the backend web server and lowers latency perceived by API consumers.
+Use the `cache-lookup` policy to perform cache lookup and return a valid cached response when available. This policy can be applied in cases where response content remains static over a period of time. Response caching reduces bandwidth and processing requirements imposed on the backend web server and lowers latency perceived by API consumers.
 
 > [!NOTE]
 > This policy must have a corresponding [Store to cache](#StoreToCache) policy.

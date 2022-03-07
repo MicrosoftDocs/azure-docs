@@ -182,10 +182,10 @@ You can create [SOAP pass-through](import-soap-api.md) and [SOAP-to-REST](restif
 - Only SOAP bindings of "document" and “literal” encoding style are supported.
 - No support for “rpc” style or SOAP-Encoding.
 
-### Unsupported directives
-`wsdl:import`, `xsd:import`, and `xsd:include` aren't supported. Instead, merge the dependencies into one document. 
+### Imports and includes
+* The `wsdl:import`, `xsd:import`, and `xsd:include` directives aren't supported. Instead, merge the dependencies into one document. 
 
-For an open-source tool to resolve and merge `wsdl:import`, `xsd:import`, and `xsd:include` dependencies in a WSDL file, see this [GitHub repo](https://github.com/Azure-Samples/api-management-schema-import).
+* For an open-source tool to resolve and merge `wsdl:import`, `xsd:import`, and `xsd:include` dependencies in a WSDL file, see this [GitHub repo](https://github.com/Azure-Samples/api-management-schema-import).
 
 ### Messages with multiple parts 
 This message type is not supported.

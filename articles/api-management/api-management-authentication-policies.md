@@ -115,7 +115,7 @@ In this example, the client certificate is set in the policy rather than retriev
 ##  <a name="ManagedIdentity"></a> Authenticate with managed identity  
  Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity. This policy essentially uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme.
 
-Both system-assigned identity and any of the multiple user-assigned identity can be used to request token. If `client-id` is not provided system-assigned identity is assumed. If the `client-id` variable is provided token is requested for that user-assigned identity from Azure Active Directory
+Both system-assigned identity and any of the multiple user-assigned identities can be used to request a token. If `client-id` is not provided, system-assigned identity is assumed. If the `client-id` variable is provided, token is requested for that user-assigned identity from Azure Active Directory
   
 ### Policy statement  
   

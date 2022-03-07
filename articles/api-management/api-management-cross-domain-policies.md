@@ -2,6 +2,7 @@
 title: Azure API Management cross domain policies | Microsoft Docs
 description: Reference for the cross domain policies available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
+author: dlepow
 
 ms.service: api-management
 ms.topic: reference
@@ -155,9 +156,9 @@ The `jsonp` policy adds JSON with padding (JSONP) support to an operation or an 
 <jsonp callback-parameter-name="cb" />
 ```
 
-If you call the method without the callback parameter ?cb=XXX it will return plain JSON (without a function call wrapper).
+If you call the method without the callback parameter `?cb=XXX`, it will return plain JSON (without a function call wrapper).
 
-If you add the callback parameter `?cb=XXX` it will return a JSONP result, wrapping the original JSON results around the callback function like `XYZ('<json result goes here>');`
+If you add the callback parameter `?cb=XXX`, it will return a JSONP result, wrapping the original JSON results around the callback function like `XYZ('<json result goes here>');`
 
 ### Elements
 

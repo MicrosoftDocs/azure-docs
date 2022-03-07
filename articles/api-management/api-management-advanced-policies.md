@@ -1,6 +1,6 @@
 ---
 title: Azure API Management advanced policies | Microsoft Docs
-desciption: Reference for the advanced policies available for use in Azure API Management. Provides policy usage, settings and examples.
+description: Reference for the advanced policies available for use in Azure API Management. Provides policy usage, settings and examples.
 author: dlepow
 ms.topic: reference
 ms.date: 03/07/2022
@@ -195,7 +195,7 @@ This operation level policy uses the `base` element to inherit the backend polic
 
 #### Example
 
-This operation level policy explicitly forwards all requests to the backend service with a timeout of 120 and does not inherit the parent API level backend policy. If the backend service responds with a error status code from 400 to 599 inclusive, [on-error](api-management-error-handling-policies.md) section will be triggered.
+This operation level policy explicitly forwards all requests to the backend service with a timeout of 120 and does not inherit the parent API level backend policy. If the backend service responds with an error status code from 400 to 599 inclusive, [on-error](api-management-error-handling-policies.md) section will be triggered.
 
 ```xml
 <!-- operation level -->
@@ -259,7 +259,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="LimitConcurrency"></a> Limit concurrency
 
-The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. Upon exceeding that number, new requests will fail immediately with 429 Too Many Requests status code.
+The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. Upon exceeding that number, new requests will fail immediately with the `429` Too Many Requests status code.
 
 ### <a name="LimitConcurrencyStatement"></a> Policy statement
 
@@ -747,7 +747,7 @@ This example shows one way to verify a reference token with an authorization ser
 | mode="string"                   | Determines whether this is a new request or a copy of the current request. In outbound mode, mode=copy does not initialize the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | New      |
 | response-variable-name="string" | The name of context variable that will receive a response object. If the variable doesn't exist, it will be created upon successful execution of the policy and will become accessible via [`context.Variable`](api-management-policy-expressions.md#ContextVariables) collection.                                                                                                                                                                                                                                                                                                                          | Yes      | N/A      |
 | timeout="integer"               | The timeout interval in seconds before the call to the URL fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
-| ignore-error                    | If true and the request results in an error:<br /><br /> - If response-variable-name was specified it will contain a null value.<br />- If response-variable-name was not specified, context.Request will not be updated.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
+| ignore-error                    | If true and the request results in an error:<br /><br /> - If response-variable-name was specified, it will contain a null value.<br />- If response-variable-name was not specified, context.Request will not be updated.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
 | name                            | Specifies the name of the header to be set.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Yes      | N/A      |
 | exists-action                   | Specifies what action to take when the header is already specified. This attribute must have one of the following values.<br /><br /> - override - replaces the value of the existing header.<br />- skip - does not replace the existing header value.<br />- append - appends the value to the existing header value.<br />- delete - removes the header from the request.<br /><br /> When set to `override` enlisting multiple entries with the same name results in the header being set according to all entries (which will be listed multiple times); only listed values will be set in the result. | No       | override |
 

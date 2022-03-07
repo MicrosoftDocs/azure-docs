@@ -12,7 +12,7 @@ ms.author: danlep
 
 # API Management policies to validate requests and responses
 
-This article provides a reference for API Management policies to to validate REST or SOAP API requests and responses against schemas defined in the API definition or supplementary JSON or XML schemas. Validation policies protect from vulnerabilities such as injection of headers or payload or leaking sensitive data.
+This article provides a reference for API Management policies to validate REST or SOAP API requests and responses against schemas defined in the API definition or supplementary JSON or XML schemas. Validation policies protect from vulnerabilities such as injection of headers or payload or leaking sensitive data.
 
 While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that aren’t covered by security products that rely on static, predefined rules.
 

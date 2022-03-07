@@ -37,7 +37,7 @@ If you don't already have an API Management instance and a backend API, see:
 The following example shows how to configure a policy using two options in the policy editor in the portal:
 
 * A guided form-based editor to simplify configuring many policies
-* A code editor wehre you can add or edit XML directly 
+* A code editor where     you can add or edit XML directly 
 
 In this example, the policy filters requests from certain incoming IP addresses. It's scoped to a selected API.
 
@@ -132,7 +132,7 @@ Global scope is configured for **All APIs** in your API Management instance.
 
 1. In a policy section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
 
-6. Select **Save** to propagate changes to the API Management gateway immediately.
+1. Select **Save** to propagate changes to the API Management gateway immediately.
 
 ### Product scope
 
@@ -142,9 +142,9 @@ Product scope is configured for a selected product.
 1. In the product window, select **Policies**.
 
     :::image type="content" source="media/set-edit-policies/product-scope-policy.png" alt-text="Configure policy at global scope":::
-1. In a policy section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
+1. In a policy section, select **+ Add policy** to usge a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
 
-6. Select **Save** to propagate changes to the API Management gateway immediately.
+1. Select **Save** to propagate changes to the API Management gateway immediately.
 
 ### API scope
 
@@ -172,13 +172,13 @@ Operation scope is configured for a selected API operation.
 
 1. In a policy section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
 
-6. Select **Save** to propagate changes to the API Management gateway immediately.
+1. Select **Save** to propagate changes to the API Management gateway immediately.
 
 ## Use `base` element to set policy evaluation order
 
-If you configure policy definitions at more than one scope, multiple policies could apply to an API request or response. Depending on the order that the policies from the different scopes are applied, the transformation of the request or reponse could differ.
+If you configure policy definitions at more than one scope, multiple policies could apply to an API request or response. Depending on the order that the policies from the different scopes are applied, the transformation of the request or response could differ.
 
-In API Management, you determine the policy evaluation order by placement of the `base` element in each section in the policy definition at each scope. The `base` element inherits the policies configured in that section at the next broader (parent) scope. The `base` element is included by default in each policy section.
+In API Management, determine the policy evaluation order by placement of the `base` element in each section in the policy definition at each scope. The `base` element inherits the policies configured in that section at the next broader (parent) scope. The `base` element is included by default in each policy section.
 
 > [!NOTE]
 > To view the effective policies at the current scope, select **Recalculate effective policy** in the policy editor.

@@ -86,10 +86,10 @@ By default, a developer can only access a product or API by using a subscription
 
 To disable the subscription requirement using the portal:
 
-* **Product** - Disable **Requires subscription** on the **Settings** page of the product.  
-* **API** - Disable **Subscription required** on the **Settings** page of the API. 
+* **Disable requirement for product** - Disable **Requires subscription** on the **Settings** page of the product.  
+* **Disable requirement for API** - Disable **Subscription required** on the **Settings** page of the API. 
 
-After disabling the subscription requirement, the selected API or APIs can be accessed without a subscription key.
+After the subscription requirement is disabled, the selected API or APIs can be accessed without a subscription key.
 
 When API Management receives an API request from a client without a subscription key, it handles the request according to these rules: 
 
