@@ -1,6 +1,6 @@
 ---
-title: Programmatically manage updates for Azure Arc-enabled servers in Update management center (Preview)
-description: This article tells how to use Update management center (Preview) using REST API with Azure Arc-enabled servers.
+title: Programmatically manage updates for Azure Arc-enabled servers in Update management center (preview)
+description: This article tells how to use Update management center (preview) using REST API with Azure Arc-enabled servers.
 ms.service: update-management-center
 author: mgoedtel
 ms.author: magoedte

@@ -26,7 +26,7 @@ Update management center (preview) **scheduled patching** feature is currently s
 
 ## Prerequisites for scheduled patching
 
-In addition to the [Prerequisites for Update management center (Private Preview)](./overview.md#prerequisites), scheduled patching as a feature has the below extra prerequisites:
+In addition to the [Prerequisites for Update management center (preview)](./overview.md#prerequisites), scheduled patching as a feature has the below extra prerequisites:
 - Patch orchestration of the Azure machines should be set to **Azure Orchestrated (Automatic By Platform)**. For Arc machines, it isn't a requirement.
 
 > [!Note]
