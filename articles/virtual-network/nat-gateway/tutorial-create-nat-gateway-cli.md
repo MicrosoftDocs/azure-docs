@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 Set the parameter values for use in creating the required resources. The $RANDOM function is used to create unique object names.
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" range="4-28":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="VariableBlock":::
 
 ## Create a resource group
 
