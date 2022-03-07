@@ -140,7 +140,7 @@ Successfully packaged chart and saved it to: /my/path/hello-world-0.1.0.tgz
 Run  `helm registry login` to authenticate with the registry. You may pass [registry credentials](container-registry-authentication.md) appropriate for your scenario, such as service principal credentials, user identity, or a repository-scoped token.
 
 - Authenticate with an Azure Active Directory [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry.
-  ```bash
+  ```azurecli
   SERVICE_PRINCIPAL_NAME=<acr-helm-sp>
   ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
   PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME \
@@ -150,12 +150,12 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
   USER_NAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
   ```
 - Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts using an AD token.
-  ```bash
+  ```azurecli
   USER_NAME="00000000-0000-0000-0000-000000000000"
   PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
   ```
 - Authenticate with a [repository scoped token](container-registry-repository-scoped-permissions.md) (Preview).
-  ```bash
+  ```azurecli
   USER_NAME="helm-token"
   PASSWORD=$(az acr token create -n $USER_NAME \
                     -r $ACR_NAME \

@@ -38,7 +38,7 @@ This article provides guidance on how to configure your NAT gateway to ensure ou
 Check the following configurations to ensure that NAT gateway can be used to direct traffic outbound:
 1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway cannot span beyond a single virtual network. 
-3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](#udr-supersedes-nat-gateway-for-going-outbound) are blocking NAT gateway from directing traffic outbound to the internet.
+3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](#virtual-appliance-and-virtual-network-gateway-udrs-supersede-nat-gateway-for-going-outbound) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 
@@ -156,15 +156,15 @@ Test and resolve issues with VMs holding on to old SNAT IP addresses by:
 
 If you are still having trouble, open a support case for further troubleshooting. 
 
-### UDR supersedes NAT gateway for going outbound
+### Virtual appliance and virtual network gateway UDRs supersede NAT gateway for going outbound
 
-When NAT gateway is attached to a subnet also associated with a user defined route (UDR) for routing traffic to the internet, the UDR will take precedence over the NAT gateway. The internet traffic will flow from the IP configured for the UDR rather than from the NAT gateway public IP address(es). 
+When NAT gateway is attached to a subnet also associated with a user defined route (UDR) for a virtual appliance or virtual network gateway, the UDR will take precedence over the NAT gateway for internet routed traffic. The internet traffic will flow from the IP configured for the UDR rather than from the NAT gateway public IP address(es). 
 
 The order of precedence for internet routing configurations is as follows: 
 
-UDR >> NAT gateway >> default system 
+Virtual appliance / Virtual network gateway UDR >> NAT gateway >> default system 
 
-Test and resolve issues with a UDR configured to your virtual network by: 
+Test and resolve issues with a virtual appliance or virtual network gateway UDR configured to your virtual network by: 
 1. [Testing that the NAT gateway public IP](./tutorial-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a UDR, follow the remaining steps on how to check for and remove UDRs.
 2. Check for UDRs in the virtual network’s route table, refer to [view route tables](../manage-route-table.md#view-route-tables).
 3. Remove the UDR from the route table by following [create, change, or delete an Azure route table](../manage-route-table.md#change-a-route-table).
