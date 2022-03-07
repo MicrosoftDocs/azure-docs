@@ -5,7 +5,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: tamram
 
 ms.author: tamram
-ms.date: 03/03/2022
+ms.date: 03/07/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -202,13 +202,6 @@ The change feed files contain a series of change event records. Each change even
 
 Change feed files are stored in the `$blobchangefeed/log/` virtual directory as [append blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). The first change feed file under each path will have `00000` in the file name (For example `00000.avro`). The name of each subsequent log file added to that path will increment by 1 (For example: `00001.avro`).
 
-The following event types are captured in the change feed records:
-
-- BlobCreated
-- BlobDeleted
-- BlobPropertiesUpdated
-- BlobSnapshotCreated
-
 ### Event record schemas
 
 For a description of each property, see [Azure Event Grid event schema for Blob Storage](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). The BlobPropertiesUpdated and BlobSnapshotCreated events are currently exclusive to change feed and not yet supported for Blob Storage Events.
@@ -218,7 +211,14 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 
 #### Schema version 1
 
-The following example shows a change event record in JSON format that uses event schema version 1.
+The following event types may be captured in the change feed records with schema version 1:
+
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
+
+The following example shows a change event record in JSON format that uses event schema version 1:
 
 ```json
 {
@@ -249,7 +249,14 @@ The following example shows a change event record in JSON format that uses event
 
 #### Schema version 3
 
-The following example shows a change event record in JSON format that uses event schema version 3.
+The following event types may be captured in the change feed records with schema version 3:
+
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
+
+The following example shows a change event record in JSON format that uses event schema version 3:
 
 ```json
 {
@@ -314,7 +321,16 @@ The following example shows a change event record in JSON format that uses event
 
 #### Schema version 4
 
-The following example shows a change event record in JSON format that uses event schema version 4.
+The following event types may be captured in the change feed records with schema version 4:
+
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
+- BlobTierChanged
+- BlobAsyncOperationInitiated
+
+The following example shows a change event record in JSON format that uses event schema version 4:
 
 ```json
 {
