@@ -172,7 +172,7 @@ A second service is not required for high availability. High availability for qu
 
 Cognitive Search restricts the [number of resources](search-limits-quotas-capacity.md#subscription-limits) you can initially create in a subscription. If you exhaust your maximum limit, file a new support request to add more search services.
 
-1. Sign in to the Azure portal, and find your search service.1
+1. Sign in to the Azure portal, and find your search service.
 1. On the left-navigation pane, scroll down and select **New Support Request.**
 1. For **issue type**, choose **Service and subscription limits (quotas).**
 1. Select the subscription that needs more quota.
