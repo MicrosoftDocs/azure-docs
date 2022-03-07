@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language reserved keywords
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/1/2021
+ms.date: 02/25/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: Reserved keywords
 
-This document contains the list of **reserved keywords** in the [Azure Digital Twins query language](concepts-query-language.md). These words cannot be used as identifiers in queries unless they are [escaped in double square brackets](#escaping-reserved-keywords-in-queries). 
+This document contains the list of *reserved keywords* in the [Azure Digital Twins query language](concepts-query-language.md). These words cannot be used as identifiers in queries unless they are [escaped in double square brackets](#escaping-reserved-keywords-in-queries). 
 
 ## List of reserved keywords
 
