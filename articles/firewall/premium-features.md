@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 03/07/2022
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -35,7 +35,7 @@ Encrypted traffic has a possible security risk and can hide illegal user activit
 
 The following three use cases are supported:
 - Outbound TLS Inspection: To protect against malicious traffic that is sent from an internal client hosted in Azure to the Internet.
-- East-West TLS Inspection: To protect your Azure workloads from potential malicious traffic sent from within Azure.
+- East-West TLS Inspection (includes traffic that goes from/to an on-premises network): To protect your Azure workloads from potential malicious traffic sent from within Azure.
 - Inbound TLS Inspection: To protect internal servers or applications hosted in Azure from malicious requests that arrive from the Internet or an external network. Inbound TLS inspection is supported with [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md), which provides end-to-end encryption.
 
 
@@ -48,7 +48,7 @@ To learn more about Azure Firewall Premium Intermediate CA certificate requireme
 
 A network intrusion detection and prevention system (IDPS) allows you to monitor your network for malicious activity, log information about this activity, report it, and optionally attempt to block it. 
 
-Azure Firewall Premium provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are applicable for both application and network level traffic (Layers 4-7), they're fully managed, and continuously updated. IDPS can be applied to inbound, spoke-to-spoke (East-West), and outbound traffic.
+Azure Firewall Premium provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are applicable for both application and network level traffic (Layers 4-7), they're fully managed, and continuously updated. IDPS can be applied to inbound, spoke-to-spoke (East-West), and outbound traffic. Spoke-to-spoke (East-West) includes traffic that goes from/to an on-premises network.
 
 The Azure Firewall signatures/rulesets include:
 - An emphasis on fingerprinting actual malware, Command and Control, exploit kits, and in the wild malicious activity missed by traditional prevention methods.
