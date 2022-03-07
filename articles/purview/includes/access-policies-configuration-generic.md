@@ -26,7 +26,7 @@ To enable the *Data use Governance* (DUG) toggle for a data source, resource gro
 - IAM *Owner*
 - Both IAM *Contributor* + IAM *User Access Administrator*
 
-Follow this [guide to configure Azure RBAC role permissions](../role-based-access-control/check-access.md).
+Follow this [guide to configure Azure RBAC role permissions](../../role-based-access-control/check-access.md).
 
 2) In addition, the same user needs to have Azure Purview Data source administrator role at the root collection level. See the guide on [managing Azure Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
 
