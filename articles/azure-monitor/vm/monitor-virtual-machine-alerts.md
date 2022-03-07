@@ -37,10 +37,10 @@ Metric rules for virtual machines can use the following data:
 > When VM insights supports the Azure Monitor agent, which is currently in public preview, it sends performance data from the guest operating system to Metrics so that you can use metric alerts.
 
 ### Log alerts
-[Log alerts](../alerts/alerts-metric.md) can perform two different measurements of the result of a log query, each of which supports distinct scenarios for monitoring virtual machines:
+[Log alerts](../alerts/alerts-unified-log.md) can measure two different things, each of which supports distinct scenarios for monitoring virtual machines:
 
-- [Metric measurements](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value): Creates a separate alert for each record in the query results that has a numeric value that exceeds a threshold defined in the alert rule. Metric measurements are ideal for non-numeric data such as Windows and Syslog events collected by the Log Analytics agent or for analyzing performance trends across multiple computers.
-- [Number of results](../alerts/alerts-unified-log.md#count-of-the-results-table-rows): Creates a single alert when a query returns at least a specified number of records. Number of results measurements are ideal for non-numeric data such as Windows and Syslog events collected by the [Log Analytics agent](../agents/log-analytics-agent.md) or for analyzing performance trends across multiple computers. You might also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple machines have the same error condition.
+- [Table rows](../alerts/alerts-unified-log.md#count-of-the-results-table-rows): This measure can be used to work with events such as Windows event logs, syslog, application exceptions.
+- [Calculation of a value](../alerts/alerts-unified-log#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value): This measure is based on a numeric column and  can be used to include any number of resources.
 
 ### Target resource and impacted resource
 
@@ -296,19 +296,17 @@ InsightsMetrics
 ```
 
 #### Alert rule
-On the Azure Monitor menu, select **Logs** to open Log Analytics. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the upper left and select the correct workspace. Paste in the query that has the logic you want, and select **Run** to verify that it returns the correct results.
+ 1. On the Azure Monitor menu, select **Logs** to open Log Analytics. 
+ 1. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the upper left and select the correct workspace. 
+ 1. Paste in your query and select **Run** to verify that it returns the correct results.
 
-:::image type="content" source="media/monitor-virtual-machines/log-alert-metric-query-results.png" alt-text="Screenshot that shows metric measurement alert query results." lightbox="media/monitor-virtual-machines/log-alert-metric-query-results.png":::
+    :::image type="content" source="media/monitor-virtual-machines/log-alert-metric-query-results.png" alt-text="Screenshot that shows metric measurement alert query results." lightbox="media/monitor-virtual-machines/log-alert-metric-query-results.png":::
 
-Select **New alert rule** to create a rule with the current query. The rule uses your workspace for the **Resource**.
-
-Select **Condition** to view the configuration. The query is already filled in with a graphical view of the value returned from the query for each computer. Select the computer from the **Pivoted on** dropdown list.
-
-Scroll down to **Alert logic**, and select **Metric measurement** for the **Based on** property. Because you want to alert when the utilization exceeds 80 percent, set **Aggregate value** to **Greater than** and **Threshold value** to **80**.
-
-Scroll down to **Alert logic**, and select **Metric measurement** for the **Based on** property. Provide a **Threshold** value to compare to the value returned from the query. In this example, use **80**. In **Trigger Alert Based On**, specify how many times the threshold must be exceeded before an alert is created. For example, you might not care if the processor exceeds a threshold once and then returns to normal, but you do care if it continues to exceed the threshold over multiple consecutive measurements. For this example, set **Consecutive breaches** to **3**.
-
-Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query only uses data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value makes the alert rule more responsive but also has a higher cost. Specify **15** to run the query every 15 minutes.
+1. Select **New alert rule** to create a rule with the current query. The rule uses your workspace for the **Resource**.
+1. Select **Condition** to view the configuration. The query is already filled in with a graphical view of the value returned from the query for each computer. Select the computer from the **Pivoted on** dropdown list. 
+1. Scroll down to **Alert logic**, and select **Metric measurement** for the **Based on** property. Because you want to alert when the utilization exceeds 80 percent, set **Aggregate value** to **Greater than** and **Threshold value** to **80**.
+1. Scroll down to **Alert logic**, and select **Metric measurement** for the **Based on** property. Provide a **Threshold** value to compare to the value returned from the query. In this example, use **80**. In **Trigger Alert Based On**, specify how many times the threshold must be exceeded before an alert is created. For example, you might not care if the processor exceeds a threshold once and then returns to normal, but you do care if it continues to exceed the threshold over multiple consecutive measurements. For this example, set **Consecutive breaches** to **3**.
+1. Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query only uses data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value makes the alert rule more responsive but also has a higher cost. Specify **15** to run the query every 15 minutes.
 
 :::image type="content" source="media/monitor-virtual-machines/log-alert-metric-rule.png" alt-text="Screenshot that shows metric measurement alert query rule." lightbox="media/monitor-virtual-machines/log-alert-metric-rule.png":::
 
@@ -327,19 +325,18 @@ InsightsMetrics
 ```
 
 #### Alert rule
-On the Azure Monitor menu, select **Logs** to open Log Analytics. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the upper left and select the correct workspace. Paste in the query that has the logic you want, and select **Run** to verify that it returns the correct results. You probably don't have a machine currently over threshold, so change to a lower threshold temporarily to verify results. Then set the appropriate threshold before you create the alert rule.
+1. On the Azure Monitor menu, select **Logs** to open Log Analytics.
+1. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the upper left and select the correct workspace.
+1. Paste in your query and select **Run** to verify that it returns the correct results. You probably don't have a machine currently over threshold, so change to a lower threshold temporarily to verify results. Then set the appropriate threshold before you create the alert rule.
 
-:::image type="content" source="media/monitor-virtual-machines/log-alert-number-query-results.png" alt-text="Screenshot that shows the number of results alert query results." lightbox="media/monitor-virtual-machines/log-alert-number-query-results.png":::
+    :::image type="content" source="media/monitor-virtual-machines/log-alert-number-query-results.png" alt-text="Screenshot that shows the number of results alert query results." lightbox="media/monitor-virtual-machines/log-alert-number-query-results.png":::
 
-Select **New alert rule** to create a rule with the current query. The rule uses your workspace for the **Resource**.
+1. Select **New alert rule** to create a rule with the current query. The rule uses your workspace for the **Resource**.
+1. Select the **Condition** to view the configuration. The query is already filled in with a graphical view of the number of records that have been returned from that query over the past several minutes.
+1. Scroll down to **Alert logic**, and select **Number of results** for the **Based on** property. For this example, you want an alert if any records are returned, which means that at least one virtual machine has a processor above 80 percent. Select **Greater than** for the **Operator** and **0** for the **Threshold value**.
+1. Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query only uses data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value makes the alert rule more responsive but also has a higher cost. Specify **15** to run the query every 15 minutes.
 
-Select the **Condition** to view the configuration. The query is already filled in with a graphical view of the number of records that have been returned from that query over the past several minutes. 
-
-Scroll down to **Alert logic**, and select **Number of results** for the **Based on** property. For this example, you want an alert if any records are returned, which means that at least one virtual machine has a processor above 80 percent. Select **Greater than** for the **Operator** and **0** for the **Threshold value**.
-
-Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query only uses data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value makes the alert rule more responsive but also has a higher cost. Specify **15** to run the query every 15 minutes.
-
-:::image type="content" source="media/monitor-virtual-machines/log-alert-number-rule.png" alt-text="Screenshot that shows the number of results alert query rule." lightbox="media/monitor-virtual-machines/log-alert-number-rule.png":::
+    :::image type="content" source="media/monitor-virtual-machines/log-alert-number-rule.png" alt-text="Screenshot that shows the number of results alert query rule." lightbox="media/monitor-virtual-machines/log-alert-number-rule.png":::
 
 ## Next steps
 
