@@ -9,7 +9,7 @@ ms.custom: CLI, devx-track-azurecli
 
 <!--Create a media services account -->
 
-The following Azure CLI command creates a new Media Services account. 
+The following Azure CLI command creates a new Media Services account for you. 
 
 [!INCLUDE [directive-change-my-resource-group](directive-change-resource-group.md)]
 
