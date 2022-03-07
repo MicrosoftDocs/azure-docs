@@ -223,3 +223,7 @@ If the conversion fails:
 - Use the conversion commands described in [Convert existing files to supported files](#convert-existing-files-to-supported-files).
 - Make sure the file parameters are accurate. See, [File type requirements](#file-type-requirements) and  [Certificate File Parameter Requirements](#certificate-file-parameter-requirements) for details.  
 - Consult your certificate lead.
+
+## Next steps
+
+For more information, see [Identify required appliances](how-to-identify-required-appliances.md).
