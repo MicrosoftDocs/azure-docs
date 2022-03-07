@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable Enterprise State Roaming in Azure Active Directory
 
-Enterprise State Roaming is available to any organization with an Azure AD Premium or Enterprise Mobility + Security (EMS) license. For more information on how to get an Azure AD subscription, see the [Azure AD product page](https://azure.microsoft.com/services/active-directory).
+Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device. Enterprise State Roaming operates similar to the standard [consumer settings sync](https://go.microsoft.com/fwlink/?linkid=2015135) that was first introduced in Windows 8. Enterprise State Roaming is available to any organization with an Azure AD Premium or Enterprise Mobility + Security (EMS) license. For more information on how to get an Azure AD subscription, see the [Azure AD product page](https://azure.microsoft.com/services/active-directory). 
 
 When you enable Enterprise State Roaming, your organization is automatically granted a free, limited-use license for Azure Rights Management protection from Azure Information Protection. This free subscription is limited to encrypting and decrypting enterprise settings and application data synced by Enterprise State Roaming. You must have [a paid subscription](https://azure.microsoft.com/services/information-protection/) to use the full capabilities of the Azure Rights Management service.
 

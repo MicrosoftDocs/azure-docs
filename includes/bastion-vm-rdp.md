@@ -5,12 +5,12 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 08/27/2021
+ ms.date: 03/02/2022
  ms.author: cherylmc
  ms.custom: include file
 ---
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the virtual machine that you want to connect to. On the **Overview** page, select **Connect**, then select **Bastion** from the dropdown.
+1. In the [Azure portal](https://portal.azure.com), go to the virtual machine that you want to connect to. On the **Overview** page, select **Connect**, then select **Bastion** from the dropdown.
 
    :::image type="content" source="./media/bastion-vm-rdp/connect.png" alt-text="Screenshot of Connect." lightbox="./media/bastion-vm-rdp/connect.png":::
 

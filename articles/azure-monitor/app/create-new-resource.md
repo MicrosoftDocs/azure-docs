@@ -151,7 +151,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create).
+For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az-monitor-app-insights-component-create).
 
 ## Next steps
 * [Diagnostic Search](./diagnostic-search.md)

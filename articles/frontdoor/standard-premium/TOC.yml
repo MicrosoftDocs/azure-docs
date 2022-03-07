@@ -41,6 +41,8 @@
       href: concept-route.md
     - name: Origin selection
       href: ../front-door-routing-methods.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+    - name: Routing limits
+      href: ../front-door-routing-limits.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Origin
     href: concept-origin.md
   - name: Health probes
@@ -54,9 +56,9 @@
     - name: Rules match conditions
       href: ../rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Rules actions
-      href: concept-rule-set-actions.md
+      href: ../front-door-rules-engine-actions.md
   - name: URL redirect and URL rewrite
-    href: concept-rule-set-url-redirect-and-rewrite.md
+    href: concept-rule-set-url-redirect-and-rewrite.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Security
     items:
     - name: Security baseline
