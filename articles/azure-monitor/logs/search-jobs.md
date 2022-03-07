@@ -112,7 +112,7 @@ Call the **Tables - Get** API to get the status and details of a search job:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
 
-**Table status**
+**Table status**<br>
 
 Each search job table has a property called *provisioningState*, which can have one of the following values:
 
