@@ -6,6 +6,8 @@
   items:
   - name: About Azure IoT Edge
     href: about-iot-edge.md
+  - name: About Azure IoT Edge for Linux on Windows
+    href: iot-edge-for-linux-on-windows.md
 - name: Quickstarts
   expanded: true
   items:
@@ -75,8 +77,6 @@
   items:
   - name: IoT Edge runtime
     href: iot-edge-runtime.md
-  - name: IoT Edge for Linux on Windows
-    href: iot-edge-for-linux-on-windows.md
   - name: IoT Edge modules
     items:
     - name: Understand Azure IoT Edge modules
