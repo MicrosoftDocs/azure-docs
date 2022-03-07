@@ -37,17 +37,17 @@ To set the default workspace retention policy:
 
 ## Set retention and archive policy by table
 
-You can set retention policies for individual tables, except for workspaces in the legacy Free Trial pricing tier, using Azure Resource Manager APIs. You cannot currently configure data retention for individual tables in the Azure portal.
+You can set retention policies for individual tables, except for workspaces in the legacy Free Trial pricing tier, using Azure Resource Manager APIs. You can’t currently configure data retention for individual tables in the Azure portal.
 
 You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,555 days (seven years). 
 
-Each table is a sub-resource of the workspace it's in. For example, you can address the `SecurityEvent` table in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
+Each table is a subresource of the workspace it's in. For example, you can address the `SecurityEvent` table in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-Note that the table name is case-sensitive. 
+The table name is case-sensitive. 
 
 # [API](#tab/api-1)
 
@@ -77,7 +77,7 @@ The request body includes the values in the following table.
 
 **Example**
 
-This example sets table's interactive retention to the workspace default of 30 days, and the total retention to two years. This means the archive duration is 23 months.
+This example sets the table's interactive retention to the workspace default of 30 days, and the total retention to two years. This means the archive duration is 23 months.
 
 **Request**
 
@@ -165,11 +165,11 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 ## Purge retained data
 When you shorten an existing retention policy, it takes several days for Azure Monitor to remove data that you no longer want to keep. 
 
-If you set the data retention policy to 30 days, you can purge older data immediately using the `immediatePurgeDataOn30Days` parameter in Azure Resource Manager. This can be useful when you need to remove personal data immediately. The immediate purge functionality is not available through the Azure portal. 
+If you set the data retention policy to 30 days, you can purge older data immediately using the `immediatePurgeDataOn30Days` parameter in Azure Resource Manager. The purge functionality is useful when you need to remove personal data immediately. The immediate purge functionality isn't available through the Azure portal. 
  
 Note that workspaces with a 30-day retention policy might actually keep data for 31 days if you don't set the `immediatePurgeDataOn30Days` parameter.
 
-You can also purge data from a workspace using the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data), which removes personal data. You cannot purge data from archived logs. 
+You can also purge data from a workspace using the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data), which removes personal data. You can’t purge data from archived logs. 
 
 The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing. **To lower retention costs, decrease the retention period for the workspace or for specific tables.** 
 
