@@ -104,9 +104,10 @@ Create an ASP.NET web app by following these steps:
 
    ![Configure your a Web App for Containers](media/quickstart-custom-container/configure-web-app-container.png)
 
-    If you have a custom image elsewhere for your web application, such as in [Azure Container Registry](../container-registry/index.yml) or in any other private repository, you can configure it here.
+    If you have a custom image elsewhere for your web application, such as in [Azure Container Registry](../container-registry/index.yml) or in any other private repository, you can configure it here. Select **Review + Create** to continue.
 
-1. Select **Review and Create** and then **Create** and wait for Azure to create the required resources.
+1. Verify all the details and then select **Create** and wait for Azure to create the required resources.
+![Create your a Web App for Containers](media/quickstart-custom-container/web-app-container-create-start.png)
 
 ## Browse to the custom container
 
