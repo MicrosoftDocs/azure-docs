@@ -79,14 +79,11 @@ The parameters for the retry policy are defined within the [reference.conf](http
 ```
 
 ### balancing policy and Preferred regions 
-The default load balancing policy in the v4 driver restricts application-level failover and specifying a single local datacenter for the `CqlSession`, object is required by the policy. This provides a good out-of-box experience for communicating with Cosmos Cassandra instances. When global-endpoint is specified, you may specify a read-datacenter, but must not specify a write-datacenter. Writes will go to the default write region when global-endpoint is specified. When global-endpoint is not specified, you must provide both a read-datacenter and a write-datacenter. In addition to setting the load balancing policy, you can configure failover to specified regions in a multi-region deployment, if there is regional outages using the `preferred-regions` parameter.
+The default load balancing policy in the v4 driver restricts application-level failover and specifying a single local datacenter for the `CqlSession`, object is required by the policy. This provides a good out-of-box experience for communicating with Cosmos Cassandra instances. In addition to setting the load balancing policy, you can configure failover to specified regions in a multi-region-writes deployment, if there is regional outages using the `preferred-regions` parameter.
 
 ```java
     load-balancing-policy {
         multi-region-writes=false 
-        global-endpoint="" 
-        read-datacenter="Australia East" 
-        write-datacenter="UK South" 
         preferred-regions=["Australia East","UK West"] 
 } 
 ```
