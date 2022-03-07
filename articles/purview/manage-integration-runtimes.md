@@ -136,7 +136,7 @@ Here are the domains and outbound ports that you need to allow at both **corpora
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.frontend.clouddatahub.net` | 443 | Required to connect to the Azure Purview service. Currently wildcard is required as there is no dedicated resource. |
-| `*.servicebus.windows.net` | 443            | Required for setting up scan on Azure Purview Studio. This endpoint is used for interactive authoring, for example, test connection, browse folder list and table list to scope scan. Currently wildcard is required as there is no dedicated resource. |
+| `*.servicebus.windows.net` | 443            | Required for setting up scan on Azure Purview Studio. This endpoint is used for interactive authoring from UI, for example, test connection, browse folder list and table list to scope scan. Currently wildcard is required as there is no dedicated resource. |
 | `<managed_storage_account>.blob.core.windows.net` | 443 | Required to connect to the Azure Purview managed Azure Blob storage account. |
 | `<managed_storage_account>.queue.core.windows.net` | 443 | Required to connect to the Azure Purview managed Azure Queue storage account. |
 | `<managed_Event_Hub_resource>.servicebus.windows.net` | 443            | Azure Purview uses this to connect with the associated service bus. It's covered by allowing the above domain. If you use private endpoint, you need to test access to this single domain.|
