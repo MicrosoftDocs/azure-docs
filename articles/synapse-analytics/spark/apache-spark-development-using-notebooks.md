@@ -370,7 +370,7 @@ Parameter session configuration allows you to replace the value in %%configure m
         "livy.rsc.sql.num-rows": 
         { 
             "activityParameterName": "rows", 
-            "defaultValue": “2000” 
+            "defaultValue": "2000" 
         } 
     } 
 } 
