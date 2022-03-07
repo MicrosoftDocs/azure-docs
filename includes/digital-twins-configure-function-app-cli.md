@@ -38,7 +38,7 @@ The Azure function requires a bearer token to be passed to it. To make sure the 
 
 #### Configure application settings
 
-Next, make the URL of your **Azure Digital Twins instance** accessible to your function by setting an [environment variable](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#use-application-settings) for it.
+Next, make the URL of your Azure Digital Twins instance accessible to your function by setting an [environment variable](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#use-application-settings) for it.
 
 > [!TIP]
 > The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your instance's host name. To see the host name, along with all the properties of your instance, run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
