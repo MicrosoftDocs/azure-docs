@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/07/2022
+ms.date: 07/09/2020
 ms.author: justinha
 
 ---
@@ -49,7 +49,7 @@ There are two ways in which you can use Azure AD DS with an Azure CSP subscripti
 
 In this deployment model, Azure AD DS is enabled within a virtual network that belongs to the Azure CSP subscription. The CSP partner's admin agents have the following privileges:
 
-* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
+* *Global administrator* privileges in the customer's Azure AD tenant.
 * *Subscription owner* privileges on the Azure CSP subscription.
 
 ![Direct deployment model](./media/csp/csp_direct_deployment_model.png)
