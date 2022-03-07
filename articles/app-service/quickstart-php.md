@@ -5,8 +5,9 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 02/03/2022
 ms.devlang: php
-zone_pivot_groups: app-service-platform-windows-linux
 ms.custom: mode-other, devdivchpfy22
+zone_pivot_groups: app-service-platform-windows-linux
+
 ---
 
 # Create a PHP web app in Azure App Service
