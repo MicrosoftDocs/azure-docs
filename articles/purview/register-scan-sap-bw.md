@@ -31,7 +31,7 @@ When scanning SAP BW source, Azure Purview supports extracting technical metadat
 - InfoSet
 - InfoSet query
 - Classic InfoSet
-- InfoObject including unit of measurement, time characteristic, navigation attribute, data packet characteristic, currency, characteristic, field, key figure
+- InfoObject including unit of measurement, time characteristic, navigation attribute, data packet characteristic, currency, characteristic, field, and key figure
 - Data store object (DSO)
 - Aggregation level
 - Open hub destination
@@ -52,7 +52,7 @@ When scanning SAP BW source, Azure Purview supports extracting technical metadat
 
 * You need Data Source Administrator and Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.15.8079.1.
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is installed.
 
