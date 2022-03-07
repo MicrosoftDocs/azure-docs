@@ -338,7 +338,7 @@ The following example output shows the ingress resource is created.
 ```
 $ kubectl apply -f hello-world-ingress.yaml
 
-ingress.extensions/hello-world-ingress created
+ingress.networking.k8s.io/hello-world-ingress created
 ```
 
 ## Test the ingress controller
