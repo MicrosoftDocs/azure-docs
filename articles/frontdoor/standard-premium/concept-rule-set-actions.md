@@ -21,28 +21,45 @@ An Azure Front Door Standard/Premium [Rule Set](concept-rule-set.md) consist of 
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Front Door Standard/Premium supports server variable on conditions. Please refer to more details in the server variables section of this document. <!-- TODO link -->
+Azure Front Door Standard/Premium supports server variables on actions. Please refer to more details in the server variables section of this document. <!-- TODO link -->
 
 The following actions are available to use in Azure Front Door rule set.
 
 ## <a name="RouteConfigurationOverride"></a> Route configuration override
 
-Use the **route configuration override** action to override the origin group or the caching configuration to use for the request.
+Use the **route configuration override** action to override the origin group or the caching configuration to use for the request. You can choose to override or honor the origin group configurations specified in the route. However, whenever you override the route configuration, you must configure caching. Otherwise, caching will be disabled for the request.
 
-You can choose to override or honor the origin group configurations specified in the route. However, whenever you configure a route configurations override, you must configure caching. Otherwise, the caching will be disabled.
+You can also override how files get cached for specific requests, including:
 
-### <a name="OriginGroupOverride"></a> Origin group override
+- Override the caching behavior specified by the origin.
+- How query string parameters are used to generate the request's cache key.
+- The time to live (TTL) value to control how long contents stay in cache.
 
-Use the **Origin group override** action to change the origin group that the request should be routed to.
+### Properties
 
-##### Properties
+| Property | Supported values |
+|----------|------------------|
+| Override origin group | <ul><li>**Yes:** Override the origin group used for the request.</li> <li>**No:** Use the origin group specified in the route.</li></ul> |
+| Caching | <ul><li>**Enabled:** Force caching to be enabled for the request.</li><li>**Disabled:** Force caching to be disabled for the request.</li></ul> |
+
+When **Override origin group** is set to **Yes**, set the following properties:
 
 | Property | Supported values |
 |----------|------------------|
 | Origin group | The origin group that the request should be routed to. This overrides the configuration specified in the Front Door endpoint route. |
 | Forwarding protocol | The protocol for Front Door to use when forwarding the request to the origin. Supported values are HTTP only, HTTPS only, Match incoming request. This overrides the configuration specified in the Front Door endpoint route. |
 
-##### Example
+When **Caching** is set to **Enabled**, set the following properties:
+
+| Property | Supported values |
+|-------|------------------|
+| Query string caching behavior | <ul><li>**Include specified query string:** Query strings specified in the parameters get included when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `Include`.</li><li>**Use query string:** Each unique URL has its own cache key. In ARM templates, use the `queryStringBehavior` of `IncludeAll`.</li><li>**Ignore query strings:** Query strings aren't considered when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `ExcludeAll`.</li><li>**Ignore specified query string:** Query strings specified in the parameters get excluded when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `Exclude`.</li> |
+| Query parameters | The list of query string parameter names, separated by commas. This property is only set when *Query string caching behavior* is set to *Ignore Specified Query Strings* or *Include Specified Query Strings*. |
+| Compression | <ul><li>**Enabled:** Front Door dynamically compresses content at the edge, resulting in a smaller and faster response. For more information, see [File compression](concept-caching.md#file-compression).</li><li>**Disabled.** Front Door does not perform compression.</li></ul> |
+| Cache behavior | <ul><li>**Honor origin:** Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days. In ARM templates, set the `cacheBehavior` property to `TODO`.</li><li>**Override always:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `Override`.</li><li>**Override if origin missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `SetIfMissing`.</li></ul> |
+| Cache duration | When _Cache behavior_ is set to `Override always` or `Override if origin missing`, these fields must specify the cache duration to use. The maximum duration is 366 days. This property is only set when *Cache behavior* is set to *Override always* or *Override if origin missing*.<ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: specify the duration in the format `d.hh:mm:ss`. |
+
+### Examples
 
 In this example, we route all matched requests to an origin group named `SecondOriginGroup`, regardless of the configuration in the Front Door endpoint route. <!-- TODO these examples probably need updating -->
 
@@ -80,27 +97,6 @@ In this example, we route all matched requests to an origin group named `SecondO
 
 ---
 
-### Caching
-
-Use these settings to control how files get cached for requests that contain query strings. Whether to cache your content based on all parameters or on selected parameters. You can use additional settings to overwrite the time to live (TTL) value to control how long contents stay in cache. To force caching as an action, set the caching field to "Enabled." When you force caching, the following options appear: 
-
-- Query string caching behavior 
-- Compression, Front Door can dynamically compress content on the edge, resulting in a smaller and faster response. read Azure Front Door - caching | Microsoft Docs for more details. 
-- Cache behavior
-
-#### <a name="CacheKeyQueryString"></a> Query string caching behavior
-
-Use the **query string caching behavior** action to modify the cache key based on query strings. The cache key is the way that Front Door identifies unique requests to cache. 
-
-##### Properties
-
-| Property | Supported values |
-|-------|------------------|
-| Behavior | <ul><li>**Include:** Query strings specified in the parameters get included when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `Include`.</li><li>**Cache every unique URL:** Each unique URL has its own cache key. In ARM templates, use the `queryStringBehavior` of `IncludeAll`.</li><li>**Exclude:** Query strings specified in the parameters get excluded when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `Exclude`.</li><li>**Ignore query strings:** Query strings aren't considered when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `ExcludeAll`.</li></ul>  |
-| Parameters | The list of query string parameter names, separated by commas. |
-
-##### Example
-
 In this example, we modify the cache key to include a query string parameter named `customerId`.
 
 # [Portal](#tab/portal)
@@ -134,22 +130,6 @@ In this example, we modify the cache key to include a query string parameter nam
 ```
 
 ---
-
-#### <a name="CacheBehavior"></a> Cache behavior
-
-Use the **cache behavior** action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
-
-> [!NOTE]
-> Origins may specify not to cache specific responses using the `Cache-Control` header with a value of `no-cache`, `private`, or `no-store`. In these circumstances, Front Door will never cache the content and this action will have no effect.
-
-##### Properties
-
-| Property | Supported values |
-|-------|------------------|
-| Cache behavior | <ul><li>**Honor origin:** Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days. In ARM templates, set the `cacheBehavior` property to `TODO`.</li><li>**Override always:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `Override`.</li><li>**Override if origin missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `SetIfMissing`.</li></ul> |
-| Cache duration | When _Cache behavior_ is set to `Override always` or `Override if origin missing`, these fields must specify the cache duration to use. The maximum duration is 366 days.<ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: specify the duration in the format `d.hh:mm:ss`. |
-
-##### Example
 
 In this example, this rule actions will override the origin group from the one configured in the route to origingroup2 and use Matching incoming request while going back to origin. Caching is enabled for the associated route with ignoring query string and compression enabled. The cache behavior is configured to honor the settings from the origin. <!-- TODO update example -->
 
@@ -186,6 +166,7 @@ In this example, this rule actions will override the origin group from the one c
 ```
 
 ---
+
 
 ## <a name="ModifyRequestHeader"></a> Modify request header
 
