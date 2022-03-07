@@ -24,7 +24,7 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 First, we'll create a storage account and a container resource to store the traces.
 
 1. [Create a storage account with enabled support for version-level immutability](../storage/blobs/immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability).
-1. Optionally, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account. <!-- is this step optional? Why is it done? -->
+1. [Configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account. <!-- Why is this needed? What retention interval should they set? -->
 1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your traces.
 
 ## Export trace from the distributed tracing web GUI
@@ -61,7 +61,7 @@ Let's upload the trace to the container you created in [Create a storage account
 
 ## Create URL for sharing the trace
 
-We'll now generate a URL that you can share with your support representative for assistance with troubleshooting.
+We'll now generate a URL for your trace that you can share with your support representative for assistance with troubleshooting.
 
 1. Navigate to your Container resource.
     
@@ -70,11 +70,11 @@ We'll now generate a URL that you can share with your support representative for
 1. Select the trace you'd like to share.
 1. Select the **Generate SAS** tab.
 
-    :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-tab.png" alt-text="Screenshot of the Azure portal showing the trace blob information window. The Generate S A S tab and Generate S A S token and U R L button are highlighted." lightbox="media\distributed-tracing-share-traces\generate-sas-tab.png":::
+    :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-tab.png" alt-text="Screenshot of the Azure portal showing the container overview and the trace blob information window. The Generate S A S tab is highlighted." lightbox="media\distributed-tracing-share-traces\generate-sas-tab.png":::
 
 1. Fill out the fields and select **Generate SAS token and URL**.
 
-    :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-token-and-url.png" alt-text="Screenshot of the Azure portal showing the trace blob information window. The Generate S A S tab and Generate S A S token and U R L button are highlighted." lightbox="media\distributed-tracing-share-traces\generate-sas-token-and-url.png":::
+    :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-token-and-url.png" alt-text="Screenshot of the Azure portal showing the Generate S A S tab in the trace blob information window. The Generate S A S token and U R L button is highlighted." lightbox="media\distributed-tracing-share-traces\generate-sas-token-and-url.png":::
 
 1. Copy the contents of the **Blob SAS URL** field. Anyone with access can download your trace by pasting this URL into a browser. <!-- Access to what? Do we need more instructions to provide permission? -->
 
