@@ -921,6 +921,9 @@
         href: managed-instance/replication-between-two-instances-configure-tutorial.md
       - name: MI pub, MI dist, SQL sub
         href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
+    - name: Managed Instance link feature
+      - name: Use SSMS to Replicate database
+        href: managed-instance/mi-link-use-ssms-to-replicate-database.md
 
   - name: Migration guides
     items: 
