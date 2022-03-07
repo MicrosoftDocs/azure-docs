@@ -15,6 +15,11 @@ The Microsoft commercial marketplace is a catalog of solutions from our independ
 
 The commercial marketplace is available in more than 100 countries and regions, and we manage tax payment in many of them. If you sell to established Microsoft customers, they have the added benefit of including commercial marketplace purchases in their existing Microsoft purchase agreements to receive a consolidated invoice from Microsoft.
 
+The following video provides more information about transacting in the commercial marketplace.
+
+<br />
+<iframe src=https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=ae2b72e2-6591-407f-8740-50cc4860e8ee width="1080" height="529"></iframe>
+
 ## Why sell with Microsoft?
 
 Our goal is to help you accelerate your business in partnership with Microsoft, and to connect Microsoft customers with the best solutions that our partner ecosystem offers. To do that, we support you throughout your journey, from onboarding to publishing and growth. Take advantage of the capabilities in the commercial marketplace to grow your business.
@@ -32,11 +37,6 @@ Partners who list with the commercial marketplace are eligible for a diverse set
 - Reach more customers and expand your sales opportunities with the [Cloud Solution Provider](/partner-center/csp-overview) (CSP) program, the [co-sell](/partner-center/co-sell-overview) program, and Microsoft Sales teams.
 
 To learn about these benefits in more detail, see [Your commercial marketplace benefits](gtm-your-marketplace-benefits.md).
-
-The following video provides more information about transacting in the commercial marketplace.
-
-<br />
-<iframe src=https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=ae2b72e2-6591-407f-8740-50cc4860e8ee width="1080" height="529"></iframe>
 
 ## Commercial marketplace online stores
 
