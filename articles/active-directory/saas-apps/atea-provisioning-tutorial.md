@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Atea to support provisioning with Azure AD
 
-Contact [Atea support](sso.support@atea.com) to configure Atea to support provisioning with Azure AD.
+Contact [Atea support](mailto:sso.support@atea.com) to configure Atea to support provisioning with Azure AD.
 
 ## Step 3. Add Atea from the Azure AD application gallery
 

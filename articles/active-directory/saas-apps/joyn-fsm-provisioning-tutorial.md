@@ -43,7 +43,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Joyn FSM to support provisioning with Azure AD
 
-Contact your SevenLakes customer success representative in order to obtain the Tenant URL and Secret Token which are required for configuring provisionoing..
+Contact your [SevenLakes Customer Success Representative](mailto:mailto:CustomerSuccessTeam@sevenlakes.com) in order to obtain the Tenant URL and Secret Token which are required for configuring provisionoing..
 
 ## Step 3. Add Joyn FSM from the Azure AD application gallery
 
@@ -72,13 +72,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![The Joyn FSM link in the Applications list](common/all-applications.png)
 
-1. elect the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 	![Provisioning tab](common/provisioning.png)
 
 1. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Provisioning mode](common/provisioning-automatic.png)
 
 1. In the **Admin Credentials** section, input your Joyn FSM Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Joyn FSM. If the connection fails, ensure your Joyn FSM account has Admin permissions and try again.
 
