@@ -39,11 +39,11 @@ There are several prebuilt models to choose from, each of which has its own set 
 * [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extract text and key information from driver licenses and international passports.
 * [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extract text and key information from business cards.
 
-After you have completed the prerequisites, navigate to the [Form Recognizer Studio General Documents preview](https://formrecognizer.appliedai.azure.com). In the following example, we use the General Documents feature. The steps to use other pre-trained features like [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument), and [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2) models are similar.
+After you've completed the prerequisites, navigate to the [Form Recognizer Studio General Documents preview](https://formrecognizer.appliedai.azure.com). In the following example, we use the General Documents feature. The steps to use other pre-trained features like [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument), and [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2) models are similar.
 
 1. Select a Form Recognizer service feature from the Studio home page.
 
-1. This is a one-time step unless you have already selected the service resource from prior use. Select your Azure subscription, resource group, and resource. (You can change the resources anytime in "Settings" in the top menu.) Review and confirm your selections.
+1. This is a one-time step unless you've already selected the service resource from prior use. Select your Azure subscription, resource group, and resource. (You can change the resources anytime in "Settings" in the top menu.) Review and confirm your selections.
 
 1. Select the Analyze command to run analysis on the sample document or try your document by using the Add command.
 
@@ -70,7 +70,7 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 ### Configure CORS
 
-[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
+[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you'll need access to the CORS blade of your storage account.
 
 :::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
 
@@ -80,7 +80,7 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 4. Select all the available 8 options for **Allowed methods**.
 5. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
 6. Set the **Max Age** to 120 seconds or any acceptable value.
-7. Click the save button at the top of the page to save the changes.
+7. Select the save button at the top of the page to save the changes.
 
 CORS should now be configured to use the storage account from Form Recognizer Studio.
 
@@ -117,7 +117,7 @@ To create custom models, you start with configuring your project:
 
 1. Review and submit your settings to create the project.
 
-1. From the labeling view, define the labels and their types that you are interested in extracting.
+1. From the labeling view, define the labels and their types that you're interested in extracting.
 
 1. Select the text in the document and select the label from the drop-down list or the labels pane.
 
@@ -134,7 +134,7 @@ To create custom models, you start with configuring your project:
 > [!NOTE]
 > Tables are currently only supported for custom template models. When training a custom neural model, labeled tables are ignored.
 
-1. Use the Delete command to delete models that are not required.
+1. Use the Delete command to delete models that aren't required.
 
 1. Download model details for offline viewing.
 
@@ -142,7 +142,7 @@ To create custom models, you start with configuring your project:
 
 Using tables as the visual pattern:
 
-For custom form models, while creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
+For custom form models, while creating your custom models, you may need to extract data collections from your documents. Data collections may appear in a couple of formats. Using tables as the visual pattern:
 
 * Dynamic or variable count of values (rows) for a given set of fields (columns)
 
