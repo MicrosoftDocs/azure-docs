@@ -36,6 +36,20 @@ The Defender for IoT sensor and on-premises management console update packages i
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.4 | 12/2021 | 09/2022 |
 
+## March 2022
+
+- [Use Azure Monitor workbooks with Microsoft Defender for IoT](#use-azure-monitor-workbooks-with-microsoft-defender-for-iot)
+
+### Use Azure Monitor workbooks with Microsoft Defender for IoT
+
+[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](/azure/governance/resource-graph/).
+
+In the Azure portal, use the new Defender for IoT **Workbooks** page to view workbooks created by Microsoft and provided out-of-the-box, or create custom workbooks of your own.
+
+:::image type="content" source="media/release-notes/workbooks.png" alt-text="Screenshot of the new Workbooks page.":::
+
+For more information, see [Use Azure Monitor workbooks in Microsoft Defender for IoT](workbooks.md).
+
 ## February 2022
 
 - [Sensor redesign and unified Microsoft product experience](#sensor-redesign-and-unified-microsoft-product-experience)
