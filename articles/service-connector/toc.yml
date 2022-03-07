@@ -75,7 +75,7 @@ items:
 - name: Reference
   expanded: true
   items:
-  - name: Rest API
+  - name: REST API
     href: /rest/api/serviceconnector
   - name: Python SDK
     href: /python/api/azure-mgmt-servicelinker/
