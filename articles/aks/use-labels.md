@@ -69,7 +69,7 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 ### Reserved system labels
 
-Since [Release 2021-08-19][aks-release-2021-gh], Azure Kubernetes Service (AKS) has stopped the ability to make changes to AKS reserved labels. Attempting to change these labels will result in an error message.
+Since the [2021-08-19 API release][aks-release-2021-gh], Azure Kubernetes Service (AKS) has stopped the ability to make changes to AKS reserved labels. Attempting to change these labels will result in an error message.
 
 The following lists of labels are reserved for use by AKS. *Virtual node usage* specifies if these labels could be a supported system feature on virtual nodes. 
 
@@ -107,7 +107,7 @@ Some properties that these system features change aren't available on the virtua
 
 ### Reserved prefixes
 
-The following lists of prefixes are reserved for usage by AKS and aren't to be used for any node. 
+The following list of prefixes are reserved for usage by AKS and can't be used for any node. 
 
 | Prefix |
 | --- |
