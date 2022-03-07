@@ -4,7 +4,7 @@ description: Provides a summary of supported regions and operating system settin
 ms.service: update-management-center
 author: SGSneha
 ms.author: v-ssudhir
-ms.date: 07/03/2022
+ms.date: 03/07/2022
 ms.topic: overview
 ms.custom: references_regions
 ---
