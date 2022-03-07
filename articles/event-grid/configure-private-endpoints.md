@@ -33,7 +33,7 @@ This section shows you how to enable private network access for an Event Grid to
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your topic or domain.
 2. Switch to the **Networking** tab of your topic page. In the **Public access** tab, select **Private endpoints only**.
 
-    :::image type="content" source="./media/configure-firewall/select-private-endpoints.png" alt-text="Screenshot that shows the "Public network access" page with "Private endpoints only" option selected.":::
+    :::image type="content" source="./media/configure-firewall/select-private-endpoints.png" alt-text="Screenshot that shows the Public network access page with Private endpoints only option selected.":::
 1. Switch to the **Private endpoint connections** tab, and then select **+ Private endpoint** on the toolbar.
 
     :::image type="content" source="./media/configure-private-endpoints/add-button.png" alt-text="Screenshot showing the selection of + Private endpoint link on the Private endpoint connection tab.":::

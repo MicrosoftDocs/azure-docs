@@ -33,12 +33,12 @@ This section shows you how to enable public or private network access for an Eve
 
     You can restrict the traffic using IP firewall rules. Specify a single IPv4 address or a range of IP addresses in Classless inter-domain routing (CIDR) notation. 
 
-    :::image type="content" source="./media/configure-firewall/public-networks-page.png" alt-text="Screenshot that shows the "Public network access" page with "Public networks" selected.":::
+    :::image type="content" source="./media/configure-firewall/public-networks-page.png" alt-text="Screenshot that shows the Public network access page with Public networks selected.":::
 3. Select **Private endpoints only** to allow only private endpoint connections to access this resource. Use the **Private endpoint connections** tab on this page to manage connections. 
  
     For step-by-step instructions to create a private endpoint connection, see [Add a private endpoint using Azure portal](configure-private-endpoints.md#use-azure-portal).
 
-    :::image type="content" source="./media/configure-firewall/select-private-endpoints.png" alt-text="Screenshot that shows the "Public network access" page with "Private endpoints only" option selected.":::
+    :::image type="content" source="./media/configure-firewall/select-private-endpoints.png" alt-text="Screenshot that shows the Public network access page with Private endpoints only option selected.":::
 4. Select **Save** on the toolbar. 
 
 ## Use Azure CLI
