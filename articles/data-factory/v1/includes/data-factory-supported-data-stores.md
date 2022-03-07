@@ -1,10 +1,10 @@
 ---
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: include
 ms.date: 10/22/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 | Category | Data store | Supported as a source | Supported as a sink |
 |:--- |:--- |:--- |:--- |
