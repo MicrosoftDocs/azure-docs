@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 01/25/2022
+ms.date: 03/07/2022
 ms.author: phjensen
 ---
 
@@ -24,11 +24,15 @@ ms.author: phjensen
 
 This article provides a guide on setup and usage of the new features in preview for **AzAcSnap v5.1**.  These new features can be used with Azure NetApp Files, Azure BareMetal, and now Azure Managed Disk.  This guide should be read along with the documentation for the generally available version of AzAcSnap at [aka.ms/azacsnap](./azacsnap-introduction.md).
 
-The four new preview features provided with AzAcSnap v5.1 are:
-- Oracle Database support
-- Backint coexistence
-- Azure Managed Disk
-- RunBefore and RunAfter capability
+The five new preview features provided with AzAcSnap v5.1 are:
+- Oracle Database support.
+- Backint coexistence.
+- Azure Managed Disk.
+- RunBefore and RunAfter capability.
+- Azure Key Vault support for storing Service Principal.
+
+Minor addition to `--volume` option:
+- All volumes snapshot.
 
 ## Providing feedback
 
@@ -1103,6 +1107,196 @@ cat blob-credentials.saskey
 # we need a generated SAS key, get this from the portal with read,add,create,write,list permissions
 PORTAL_GENERATED_SAS="https://<targetstorageaccount>.blob.core.windows.net/<blob-store>?sp=racwl&st=2021-06-10T21:10:38Z&se=2021-06-11T05:10:38Z&spr=https&sv=2020-02-10&sr=c&sig=<key-material>"
 ```
+
+## Azure Key Vault
+
+From AzAcSnap v5.1 it's possible to store the Service Principal securely as a Secret in Azure Key Vault.  This allows for centralization of Service Principal credentials
+where an alternate administrator can setup the Secret for AzAcSnap to use.
+
+The steps to follow to setup Azure Key Vault and store the Service Principal in a Secret are as follows:
+
+1. Within an Azure Cloud Shell session, make sure you're logged on at the subscription where you want to create the Azure Key Vault:
+
+    ```azurecli-interactive
+    az account show
+    ```
+
+1. If the subscription isn't correct, use the following command to set the Cloud Shell to the correct subscription:
+
+    ```azurecli-interactive
+    az account set -s <subscription name or id>
+    ```
+
+1. Create Azure Key Vault
+
+    ```azurecli-interactive
+    az keyvault create --name "<AzureKeyVaultName>" -g <ResourceGroupName>
+    ```
+
+1. Create the trust relationship and assign the policy for virtual machine to get the Secret
+
+   1. Show AzAcSnap virtual machine Identity
+      
+      If the virtual machine already has an identity created, retrieve it as follows:
+      
+      ```azurecli-interactive
+      az vm identity show --name "<VMName>" --resource-group "<ResourceGroup>"
+      ```
+      
+      The `"principalId"` in the output is used as the `--object-id` value when setting the Policy with `az keyvault set-policy`.
+      
+      ```output
+      {
+        "principalId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+        "tenantId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+        "type": "SystemAssigned, UserAssigned",
+        "userAssignedIdentities": { 
+          "/subscriptions/99z999zz-99z9-99zz-99zz-9z9zz999zz99/resourceGroups/AzSecPackAutoConfigRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzSecPackAutoConfigUA-eastus2": {
+            "clientId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+            "principalId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99"
+          }
+        }
+      }
+      ```
+
+   1. Set AzAcSnap virtual machine Identity (if required)
+   
+      If the VM does not have an identity, create it as follows:
+      
+      ```azurecli-interactive
+      az vm identity assign --name "<VMName>" --resource-group "<ResourceGroup>"
+      ```
+      
+      The `"systemAssignedIdentity"` in the output is used as the `--object-id` value when setting the Policy with `az keyvault set-policy`.
+      
+      ```output
+      {
+        "systemAssignedIdentity": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+        "userAssignedIdentities": {
+          "/subscriptions/99z999zz-99z9-99zz-99zz-  9z9zz999zz99/resourceGroups/AzSecPackAutoConfigRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzSecPackAutoConfigUA-eastus2": {
+            "clientId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+            "principalId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99"
+          }
+        }
+      }
+      ```
+
+   1. Assign a suitable policy for the virtual machine to be able to retrieve the Secret from the Key Vault.
+
+      ```azurecli-interactive
+      az keyvault set-policy --name "<AzureKeyVaultName>" --object-id "<VMIdentity>" --secret-permissions get
+      ```
+
+1. Create Azure Key Vault Secret
+
+   Create the secret which will store the Service Principal credential information.
+   
+   It's possible to simply paste the contents of the Service Principal. In the **Bash** Cloud Shell below a single apostotrophe character is put after value then 
+   press the `[Enter]` key, then paste the contents of the Service Principal, close the content by adding another single apostotrophe and press the `[Enter]` key.  
+   This should create the Secret and store it in Azure Key Vault.
+   
+   > [!TIP] 
+   > If you have a separate Service Principal per installation the `"<NameOfSecret>"` could be the SID, or some other suitable unique identifier.
+  
+   Following example is for using the **Bash** Cloud Shell:
+
+    ```azurecli-interactive
+    az keyvault secret set --name "<NameOfSecret>" --vault-name "<AzureKeyVaultName>" --value '
+    {
+      "clientId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+      "clientSecret": "<ClientSecret>",
+      "subscriptionId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+      "tenantId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+      "resourceManagerEndpointUrl": "https://management.azure.com/",
+      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+      "galleryEndpointUrl": "https://gallery.azure.com/",
+      "managementEndpointUrl": "https://management.core.windows.net/"
+    }'
+    ```
+
+    Following example is for using the **PowerShell** Cloud Shell:
+
+    > [!WARNING] 
+    > In PowerShell the double quotes have to be escaped with an additional double quote, so one double quote (") becomes two double quotes ("").
+
+    ```azurecli-interactive
+    az keyvault secret set --name "<NameOfSecret>" --vault-name "<AzureKeyVaultName>" --value '
+    {
+      ""clientId"": ""99z999zz-99z9-99zz-99zz-9z9zz999zz99"",
+      ""clientSecret"": ""<ClientSecret>"",
+      ""subscriptionId"": ""99z999zz-99z9-99zz-99zz-9z9zz999zz99"",
+      ""tenantId"": ""99z999zz-99z9-99zz-99zz-9z9zz999zz99"",
+      ""activeDirectoryEndpointUrl"": ""https://login.microsoftonline.com"",
+      ""resourceManagerEndpointUrl"": ""https://management.azure.com/"",
+      ""activeDirectoryGraphResourceId"": ""https://graph.windows.net/"",
+      ""sqlManagementEndpointUrl"": ""https://management.core.windows.net:8443/"",
+      ""galleryEndpointUrl"": ""https://gallery.azure.com/"",
+      ""managementEndpointUrl"": ""https://management.core.windows.net/""
+    }'
+    ```
+
+    The output of the command `az keyvault secret set` will have the URI value to use as `"authFile"` entry in the AzAcSnap JSON configuration file.  This is the `"id"` below.
+
+    ```output
+    {
+      "attributes": {
+        "created": "2022-02-23T20:21:01+00:00",
+        "enabled": true,
+        "expires": null,
+        "notBefore": null,
+        "recoveryLevel": "Recoverable+Purgeable",
+        "updated": "2022-02-23T20:21:01+00:00"
+      },
+      "contentType": null,
+      "id": "https://<AzureKeyVaultName>.vault.azure.net/secrets/<NameOfSecret>/z9999999z9999999z9999999",
+      "kid": null,
+      "managed": null,
+      "name": "AzureAuth",
+      "tags": {
+        "file-encoding": "utf-8"
+      },
+      "value": "\n{\n  \"clientId\": \"99z999zz-99z9-99zz-99zz-9z9zz999zz99\",\n  \"clientSecret\": \"<ClientSecret>\",\n  \"subscriptionId\": \"99z999zz-99z9-99zz-99zz-9z9zz999zz99\",\n  \"tenantId\": \"99z999zz-99z9-99zz-99zz-9z9zz999zz99\",\n  \"activeDirectoryEndpointUrl\": \"https://login.microsoftonline.com\",\n  \"resourceManagerEndpointUrl\": \"https://management.azure.com/\",\n  \"activeDirectoryGraphResourceId\": \"https://graph.windows.net/\",\n  \"sqlManagementEndpointUrl\": \"https://management.core.windows.net:8443/\",\n  \"galleryEndpointUrl\": \"https://gallery.azure.com/\",\n  \"managementEndpointUrl\": \"https://management.core.windows.net/\"\n}"
+    }
+    ```
+
+1. Update AzAcSnap JSON configuration file
+
+   Replace the value for the authFile entry with the Secret's ID value.  This can be done by editing the file using a tool like `vi`, or by using the 
+   `azacsnap -c configure --configuration edit` option.
+
+    1. Old Value
+  
+      ```output
+      "authFile": "azureauth.json"
+      ```
+  
+    1. New Value
+  
+      ```output
+      "authFile": "https://<AzureKeyVaultName>.vault.azure.net/secrets/<NameOfSecret>/z9999999z9999999z9999999"
+      ```
+
+## All Volumes Snapshot
+
+A new optional value for `--volume` allows for all the volumes to be snapshot as a group.  This allows for the snapshots to all have the same snapshot name which is useful
+if doing a `-c restore` to clone or recover a system.
+
+Running the AzAcSnap command `azacsnap -c backup --volume all --retention 5 --prefix all-volumes` will take snapshot backups, with all the snapshots having 
+the same name with a prefix of `all-volumes` and a maximum of 5 snapshots with that prefix per volume.
+
+The processing is handled in the order outlined as follows:
+
+1. `data` Volume Snapshot (same as the normal `--volume data` option)
+   1. put the database into *backup-mode*.
+   1. take snapshots of the Volume listed inthe configuration file's `"dataVolume"` stanza.
+   1. take the database out of *backup-mode*.
+   1. perform snapshot management.
+1. `other Volume Snapshot (same as the normal `--volume other` option)
+   1. take snapshots of the Volumes listed in the configuration file's `"otherVolume"` stanza.
+   1. perform snapshot management.
+
 
 ## Next steps
 
