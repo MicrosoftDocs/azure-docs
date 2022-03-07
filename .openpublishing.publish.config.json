@@ -166,6 +166,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-codesnippets",
+      "url": "https://github.com/Azure-Samples/media-services-code-snippets",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-app-service-multi-container",
       "url": "https://github.com/Azure-Samples/multicontainerwordpress",
       "branch": "master",
