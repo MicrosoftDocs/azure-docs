@@ -22,7 +22,7 @@ You must store customer-managed keys in [Azure Key Vault](/azure/key-vault/gener
 - Environment variables
 
 > [!NOTE]
-> Currently, customer-managed keys are available only for new Azure Load Testing resources. You should configure them during account creation.
+> Currently, customer-managed keys are available only for new Azure Load Testing resources. You should configure them during resource creation.
 
 ## Configure your Azure Key Vault
 
@@ -30,15 +30,11 @@ You can use a new or existing key vault to store customer-managed keys. Using cu
 
 To learn how to create a key vault with the Azure portal, see [Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). When you create the key vault, select Enable purge protection, as shown in the following image.
 
-*To add* Screenshot
-
 To enable purge protection on an existing key vault, follow these steps:
 
 1. Navigate to your key vault in the Azure portal.
 1. Under Settings, choose Properties.
 1. In the Purge protection section, choose Enable purge protection.
-
-*To add* Screenshot
 
 ## Add a key
 
@@ -52,13 +48,9 @@ When you enable customer-managed keys for a resource, you must specify a managed
 
 1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select **Access Policies** from the left menu:
 
-    *To add* Screenshot
-
 1. Select **+ Add Access Policy**.
 
 1. Under the **Key permissions** drop-down menu, select **Get**, **Unwrap Key**, and **Wrap Key** permissions:
-
-    *To add* Screenshot
 
 1. Under **Select principal**, select **None selected**.
 
@@ -74,6 +66,8 @@ When you enable customer-managed keys for a resource, you must specify a managed
 
 To configure customer-managed keys for a new Azure Load Testing resource, follow these steps:
 
+# [Azure portal](#tab/linux)
+
 1. In the Azure portal, navigate to the Azure Load Testing page, and select the Create button to create a new resource.
 
 1. Follow the steps outlined [here](/azure/load-testing/quickstart-create-and-run-load-test#create_resource) to fill out the fields on the **Basics** tab.
@@ -84,8 +78,57 @@ To configure customer-managed keys for a new Azure Load Testing resource, follow
 
 1. For the **User-assigned identity**field, select an existing user-assigned managed identity.
 
-1. Select **Review + create** to validate and create the new account.
+1. Select **Review + create** to validate and create the new resource.
 
-## Next steps
+# [ARM template](#tab/arm)
 
-To learn how to parameterize a load test by using secrets, see [Parameterize a load test](./how-to-parameterize-load-tests.md).
+You can use an ARM template to automate the deployment of your Azure resources. You can create any resource of type `Microsoft.LoadTestService/loadtests` with customer managed key enabled for encryption by adding the following properties:
+
+```json
+"encryption": {
+    "identity": {
+        "userAssignedIdentity": "[parameters('userAssignedIdentities_test_identity_externalid')]"
+    },
+    "keyUri": "[parameters('keyUri')]"
+}
+```
+
+By adding the system-assigned type, you're telling Azure to create and manage the identity for your resource. For example, an Azure Load Testing resource might look like the following:
+
+```json
+{
+    "type": "Microsoft.LoadTestService/loadtests",
+    "apiVersion": "2021-09-01-preview",
+    "name": "[parameters('name')]",
+    "location": "[parameters('location')]",
+    "tags": "[parameters('tags')]",
+    "encryption": {
+        "identity": {
+            "userAssignedIdentity": "[parameters('userAssignedIdentities_test_identity_externalid')]"
+        },
+        "keyUri": "[parameters('keyUri')]"
+    }
+}
+```
+
+## Frequently asked questions
+
+### Is there an additional charge to enable customer-managed keys?
+
+No, there's no charge to enable this feature.
+
+### Are customer-managed keys supported for existing Azure Load Testing resources?
+
+This feature is currently available only for new resources.
+
+### How can I tell if customer-managed keys are enabled on my Azure Cosmos account?
+
+From the Azure portal, go to your Azure Load Testing resource. Go to the **Encryption** section in the left menu. Check the **Encryption type** on your resource.
+
+### How do I revoke an encryption key?
+
+Key revocation is done by disabling the latest version of the key. Alternatively, to revoke all keys from an Azure Key Vault instance, you can delete the access policy granted to the Managed identity.
+
+### What operations are available after a customer-managed key is revoked?
+
+The only operation possible when the encryption key has been revoked is resource deletion.
