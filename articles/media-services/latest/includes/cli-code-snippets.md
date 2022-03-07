@@ -1,4 +1,5 @@
 
+<!--
 ### DO NOT CHANGE VARIABLE (switch) VALUES AS THEY ARE REFERENCED IN THE DIRECTIVES ON THE AGGREGATED PAGE ###
 ### cONVENTIONS:
 ### For object creation the name value is given a prefix "my" such as myAmsAccount or myLiveEvent.
@@ -6,11 +7,12 @@
 ### This is to differentiate between giving something a name and referencing an object name.
 ### Where possible the shorthand command switch has been used instead of the verbose form.
 ### DO NOT DELETE THIS FILE.  SNIPPETS ARE USED IN MANY PAGES.
+-->
 
+```azurecli
 # AZURE
 ############################
-#Subscription
-```azurecli
+# Subscription
 # <SetSubscription>
 az account set --subscription <subscriptionName>
 # </SetSubscription>

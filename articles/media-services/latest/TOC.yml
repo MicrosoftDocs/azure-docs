@@ -689,10 +689,6 @@
     - name: Output metadata
       href: output-metadata-schema.md      
       displayName: MES schema, MES, Standard encoder, schema, metadata, output metadata, output description
-  - name: Code snippets
-    items:
-      - name: CLI snippets
-        href: deleteme.md
 - name: Resources
   items:
   - name: Azure Media Services community
