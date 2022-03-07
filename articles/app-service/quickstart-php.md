@@ -36,7 +36,7 @@ To complete this quickstart:
 
 ## Download the sample locally
 
-1. In a terminal window, run the following commands. It will clone the sample application to your local machine, and navigate to the directory containing the sample code. 
+1. In a terminal window, run the following commands. It will clone the sample application to your local machine, and navigate to the directory containing the sample code.
 
     ```bash
     git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -84,7 +84,7 @@ To complete this quickstart:
 
 ## Create a web app
 
-1. In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az_webapp_create) command. 
+1. In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az_webapp_create) command.
 
     In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.4`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes). 
 
@@ -199,7 +199,7 @@ The PHP sample code is running in an Azure App Service web app.
 
     ![App Service page in Azure portal](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 
-    The web app menu provides different options for configuring your app. 
+    The web app menu provides different options for configuring your app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
