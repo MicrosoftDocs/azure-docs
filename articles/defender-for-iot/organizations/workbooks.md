@@ -133,7 +133,7 @@ iotsecurityresources
 
 ### Device queries
 
-***OT device inventory by vendor**
+**OT device inventory by vendor**
 
 ```kusto
 iotsecurityresources
@@ -190,15 +190,6 @@ iotsecurityresources
     | where deviceProperties.deviceDataSource == 'OtSensor'
     | summarize Alerts=count() by tostring(deviceProperties.purdueLevel)
 ```
-
-## Share workbooks with the community
-
-
-As a user I want to share my workbooks with the community and consume community workbooks 
-
-Users can share workbooks without worrying data from their subscription will leak. 
-
-Users can open workbooks created by the community and view their data in those workbooks. 
 
 ## Next steps
 
