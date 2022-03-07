@@ -312,13 +312,13 @@ The number of tasks per each job or stage help you to identify the parallel leve
 
 ![Screenshot of spark-progress-indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
 
-### Spark session config
+### Spark session configuration
 
 You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
 
 [![Screenshot of session-management](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png#lightbox)
 
-#### Spark session config magic command
+#### Spark session configuration magic command
 You can also specify spark session settings via a magic command **%%configure**. The spark session needs to restart to make the settings effect. We recommend you to run the **%%configure** at the beginning of your notebook. Here is a sample, refer to https://github.com/cloudera/livy#request-body for full list of valid parameters. 
 
 ```json
@@ -347,9 +347,9 @@ You can also specify spark session settings via a magic command **%%configure**.
 >
 
 
-#### Parameterized session config  
+#### Parameterized session configuration from notebook activity  
 
-Parameter session config allows you to replace the value in %%configure magic with Pipeline run (Notebook activity) parameters. When preparing %%configure code cell, you can override default values (also configurable, "4" and "2000" in the below example) with an object like this:
+Parameter session configuration allows you to replace the value in %%configure magic with Pipeline run (Notebook activity) parameters. When preparing %%configure code cell, you can override default values (also configurable, 4 and "2000" in the below example) with an object like this:
 
 {
       "activityParameterName": "paramterNameInPipelineNotebookActivity",
@@ -357,30 +357,31 @@ Parameter session config allows you to replace the value in %%configure magic wi
 } 
 
 ```python
-%%config -f
-{
-    "driverCores":
-    {
-        "activityParameterName": "driverCoresFromNotebookActivity",
-        "defaultValue": 4
-    },
-    "conf":
-    {
-        "livy.rsc.sql.num-rows":
-        {
-            "activityParameterName": "rows",
-            "defaultValue": 2000
-        }
-    }
-}
+%%configure  
+
+{ 
+    "driverCores": 
+    { 
+        "activityParameterName": "driverCoresFromNotebookActivity", 
+        "defaultValue": 4 
+    }, 
+    "conf": 
+    { 
+        "livy.rsc.sql.num-rows": 
+        { 
+            "activityParameterName": "rows", 
+            "defaultValue": “2000” 
+        } 
+    } 
+} 
 ```
 
 Notebook will use default value if run a notebook in interactive mode directly or no parameters match "activityParameterName" are given from Pipeline Notebook activity.
 
 During the pipeline run mode, you can configure pipeline Notebook activity settings as below:
-![Screenshot of parameterized session config](./media/apache-spark-development-using-notebooks/parameterized-session-config.png)
+![Screenshot of parameterized session configuration](./media/apache-spark-development-using-notebooks/parameterized-session-config.png)
 
-If you want to change the session config, pipeline Notebook activity parameters name should be same as activityParameterName in the notebook. When run this pipeline, in this example driverCores in %%configure will be replaced by 8 and livy.rsc.sql.num-rows will be replaced by 4000.
+If you want to change the session configuration, pipeline Notebook activity parameters name should be same as activityParameterName in the notebook. When run this pipeline, in this example driverCores in %%configure will be replaced by 8 and livy.rsc.sql.num-rows will be replaced by 4000.
 
 > [!NOTE]
 >  If run pipeline failed because of using this new %%configure magic, you can check more error information by running %%configure magic cell in the interactive mode of the notebook. 
