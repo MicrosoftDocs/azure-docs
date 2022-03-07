@@ -151,7 +151,7 @@ Adding resources increases your monthly bill. The [pricing calculator](https://a
 > [!Note]
 > Per-partition storage and speed increases at higher tiers. For more information, see [capacity and limits](search-limits-quotas-capacity.md).
 
-## [Increase more Quota - Documentation.docx](https://github.com/MicrosoftDocs/azure-docs-pr/files/8193103/Increase.more.Quota.-.Documentation.docx)
+## When to add a second service
 
 Most customers use just one service provisioned at a tier providing the [right balance of resources](search-sku-tier.md). One service can host multiple indexes, subject to the [maximum limits of the tier you select](search-capacity-planning.md), with each index isolated from another. In Azure Cognitive Search, requests can only be directed to one index, minimizing the chance of accidental or intentional data retrieval from other indexes in the same service.
 
@@ -167,6 +167,23 @@ Although most customers use just one service, service redundancy might be necess
 > In Azure Cognitive Search, you cannot segregate indexing and querying operations; thus, you would never create multiple services for segregated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
 
 A second service is not required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+
+## Add more services to a subscription
+
+Cognitive Search restricts the [number of resources](search-limits-quotas-capacity.md#subscription-limits) you can intially create in a subscription. If you exhaust your maximum limit, file a new support request to add more search services.
+
+1. Sign in to the Azure portal, and find your search service.
+2. On the left-navigation pane, scroll down and select **New Support Request.**
+3. For **issue type**, choose **Service and subscription limits (quotas).**
+4. Select the subscription that needs more quota.
+5. Under **Quota type**, select **Search**. Then select **Next**.
+6. In the **Problem details** section, select **Enter details**.
+7. Follow t he prompts to select location, Tier or SKU supported in the region selected
+8. Add the new limit you would like on the subscription.(The value must not be empty and must between 0 to 100).
+   For example: The maximum number of S2 services is 8 and you would like to have 12 services, then request to add 4 of S2 services."
+9. When you're finished, select **Save and continue to continue** creating your support request.
+10. Complete the rest of the additional information requested, and then select **Next**.
+11. On the **review + create** screen, review the details that you'll send to support, and then select **Create**. 
 
 ## Next steps
 
