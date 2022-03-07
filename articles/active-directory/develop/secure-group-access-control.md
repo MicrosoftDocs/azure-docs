@@ -39,6 +39,8 @@ This table presents several security best practices for security groups and the 
 
 ## Next steps
 
+For more information about groups in Azure AD, see the following:
+
 - [Manage app and resource access using Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
 - [Access with Azure Active Directory groups](/azure/devops/organizations/accounts/manage-azure-active-directory-groups)
 - [Restrict your Azure AD app to a set of users in an Azure AD tenant](./howto-restrict-your-app-to-a-set-of-users.md)
