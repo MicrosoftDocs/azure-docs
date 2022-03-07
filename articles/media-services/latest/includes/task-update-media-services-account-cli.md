@@ -14,4 +14,4 @@ The following Azure CLI command updates a new Media Services account. For more i
 
 [!INCLUDE [directive-change-my-account-name](directive-change-my-account-name.md)]
 
-:::code language="azurecli" source="~/../media-services-codesnippets/cli/code-snippets-cli.sh" id="AmsAccountUpdate" interactive="azurecli-interactive":::
+:::code language="azurecli" source="~/../media-services-v3-python" id="AmsAccountUpdate" interactive="azurecli-interactive":::

@@ -14,4 +14,4 @@ The following Azure CLI command deletes a Media Services account.
 
 [!INCLUDE [directive-change-my-account-name](directive-change-my-account-name.md)]
 
-:::code language="azurecli" source="~/../media-services-codesnippets/cli/code-snippets-cli.sh" id="AmsAccountDelete" interactive="azurecli-interactive":::
+:::code language="azurecli" source="~/../media-services-v3-python" id="AmsAccountDelete" interactive="azurecli-interactive":::
