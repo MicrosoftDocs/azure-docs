@@ -19,7 +19,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 ## February 2022
 
-- Model improvements for latest model-version for [text summarization](/azure/cognitive-services/language-service/text-summarization/overview)
+- Model improvements for latest model-version for [text summarization](text-summarization/overview.md)
 
 ## December 2021
 
