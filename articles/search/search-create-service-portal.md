@@ -170,7 +170,7 @@ A second service is not required for high availability. High availability for qu
 
 ## Add more services to a subscription
 
-Cognitive Search restricts the [number of resources](search-limits-quotas-capacity.md#subscription-limits) you can intially create in a subscription. If you exhaust your maximum limit, file a new support request to add more search services.
+Cognitive Search restricts the [number of resources](search-limits-quotas-capacity.md#subscription-limits) you can initially create in a subscription. If you exhaust your maximum limit, file a new support request to add more search services.
 
 1. Sign in to the Azure portal, and find your search service.
 2. On the left-navigation pane, scroll down and select **New Support Request.**
@@ -178,8 +178,8 @@ Cognitive Search restricts the [number of resources](search-limits-quotas-capaci
 4. Select the subscription that needs more quota.
 5. Under **Quota type**, select **Search**. Then select **Next**.
 6. In the **Problem details** section, select **Enter details**.
-7. Follow t he prompts to select location, Tier or SKU supported in the region selected
-8. Add the new limit you would like on the subscription.(The value must not be empty and must between 0 to 100).
+7. Follow the prompts to select location, Tier or SKU supported in the region selected
+8. Add the new limit you would like on the subscription. (The value must not be empty and must between 0 to 100).
    For example: The maximum number of S2 services is 8 and you would like to have 12 services, then request to add 4 of S2 services."
 9. When you're finished, select **Save and continue** to continue creating your support request.
 10. Complete the rest of the additional information requested, and then select **Next**.
