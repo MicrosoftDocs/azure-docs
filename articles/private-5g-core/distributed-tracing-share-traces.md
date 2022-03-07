@@ -21,11 +21,15 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
 ## Create a storage account and blob container in Azure
 
-1. [Create a storage account](../storage/common/storage-account-create.md).
-1. [Apply a time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability). <!-- is this step optional? -->
-1. Navigate to the storage account you just created and [create a container for your traces](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
+First, we'll create a storage account and a container resource to store the traces.
+
+1. [Create a storage account with enabled support for version-level immutability](../storage/blobs/immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability).
+1. Optionally, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account. <!-- is this step optional? Why is it done? -->
+1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your traces.
 
 ## Export trace from the distributed tracing web GUI
+
+In this step, we'll export the trace from the distributed tracing web GUI and save it locally.
 
 1. Sign in to the distributed tracing web GUI. <!-- at [link]? -->
 1. In the **Search** tab, specify the SUPI and time for the event you are interested in and select **Search**.
@@ -36,13 +40,13 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
     :::image type="content" source="media\distributed-tracing\distributed-tracing-search-results.png" alt-text="Screenshot of search results on a specific S U P I in the distributed tracing web G U I. It shows matching Successful P D U Session Establishment records.":::
 
-1. Select **Export**.
+1. Select **Export** and save the file locally.
 
     :::image type="content" source="media\distributed-tracing-share-traces\distributed-tracing-summary-view-export.png" alt-text="Screenshot of the Summary view of a specific trace in the distributed tracing web G U I, providing information on a Successful P D U Session Establishment record. The Export button in the top ribbon is highlighted." lightbox="media\distributed-tracing-share-traces\distributed-tracing-summary-view-export.png":::
 
-    You'll be prompted to save the file locally.
-
 ## Upload trace to your blob container
+
+Let's upload the trace to the container you created in [Create a storage account and blob container in Azure](#create-a-storage-account-and-blob-container-in-azure).
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. Navigate to your Storage account resource.
@@ -55,27 +59,31 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
     :::image type="content" source="media\distributed-tracing-share-traces\upload-blob-tab.png" alt-text="Screenshot of the Azure portal showing the Overview display of a Container resource. The Upload button is highlighted." lightbox="media\distributed-tracing-share-traces\upload-blob-tab.png":::
 
-## Share trace for help with diagnostics
+## Create URL for sharing the trace
+
+We'll now generate a URL that you can share with your support representative for assistance with troubleshooting.
 
 1. Navigate to your Container resource.
     
-    :::image type="content" source="media\distributed-tracing-share-traces\container-overview-tab.png" alt-text="Screenshot of the Azure portal showing the Overview display of a Container resource." lightbox="media\distributed-tracing-share-traces\container-overview-tab.png":::
+    :::image type="content" source="media\distributed-tracing-share-traces\container-overview-tab.png" alt-text="Screenshot of the Azure portal showing the Overview display of a Container resource.":::
 
 1. Select the trace you'd like to share.
-1. Select **Generate SAS tab**. <!-- Need screenshot -->
-1. Fill out the fields. <!-- Need screenshot -->
-1. Select **Generate SAS token and URL**.
+1. Select the **Generate SAS** tab.
+
+    :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-tab.png" alt-text="Screenshot of the Azure portal showing the trace blob information window. The Generate S A S tab and Generate S A S token and U R L button are highlighted." lightbox="media\distributed-tracing-share-traces\generate-sas-tab.png":::
+
+1. Fill out the fields and select **Generate SAS token and URL**.
 
     :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-token-and-url.png" alt-text="Screenshot of the Azure portal showing the trace blob information window. The Generate S A S tab and Generate S A S token and U R L button are highlighted." lightbox="media\distributed-tracing-share-traces\generate-sas-token-and-url.png":::
 
-1. Copy the contents of the **Blob SAS URL** field. Anyone with access can download your trace by pasting this URL into a browser. <!-- Access to what? -->
+1. Copy the contents of the **Blob SAS URL** field. Anyone with access can download your trace by pasting this URL into a browser. <!-- Access to what? Do we need more instructions to provide permission? -->
 
 ## Delete trace
 
 You should free up space in your blob storage by deleting the traces you'll no longer need. To delete a trace:
 
 1. Navigate to your Container resource.
-1. Choose the file you want to delete.
+1. Choose the trace you want to delete.
 1. Select **Delete**.
 
 :::image type="content" source="media\distributed-tracing-share-traces\container-delete-trace.png" alt-text="Screenshot of the Azure portal showing the Overview display of a Container resource. The Delete button is highlighted." lightbox="media\distributed-tracing-share-traces\container-delete-trace.png":::
