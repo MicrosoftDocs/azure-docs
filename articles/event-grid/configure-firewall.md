@@ -2,7 +2,7 @@
 title: Configure IP firewall for Azure Event Grid topics or domains 
 description: This article describes how to configure firewall settings for Event Grid topics or domains. 
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/07/2022
 ---
 
 # Configure IP firewall for Azure Event Grid topics or domains 
@@ -11,20 +11,35 @@ By default, topic and domain are accessible from internet as long as the request
 This article describes how to configure IP firewall settings for Azure Event Grid topics or domains.
 
 ## Use Azure portal
-This section shows you how to use the Azure portal to create inbound IP firewall rules. The steps shown in this section are for topics. You can use similar steps to create inbound IP rules for **domains**. 
+This section shows you how to use the Azure portal to enable public or private access while creating a topic or for an existing topic. The steps shown in this section are for topics. You can use similar steps to enable public or private access for **domains**. 
 
+### When creating a topic or domain
+This section shows you how to enable public or private network access for an Event Grid topic or a domain. For step-by-step instructions to create a new topic, see [Create a custom topic](custom-event-quickstart-portal.md#create-a-custom-topic).
+
+1. On the **Basics** page of the **Create topic** wizard, select **Next: Networking** at the bottom of the page after filling the required fields. 
+
+    :::image type="content" source="./media/configure-firewall/networking-link.png" alt-text="Image showing the selection of Networking link at the bottom of the page. ":::
+1. If you want to allow clients to connect to the topic endpoint via a public IP address, keep the **Public access** option selected. 
+
+    :::image type="content" source="./media/configure-firewall/networking-page-public-access.png" alt-text="Image showing the selection of Public access option on the Networking page of the Create topic wizard. ":::
+1. To allow access to the Event Grid topic via a private endpoint, select the **Private access** option. 
+
+    :::image type="content" source="./media/configure-firewall/networking-page-private-access.png" alt-text="Image showing the selection of Private access option on the Networking page of the Create topic wizard. ":::    
+1. Follow instructions in the [Add a private endpoint using Azure portal](configure-private-endpoints.md#use-azure-portal) section to create a private endpoint. 
+
+### For an existing topic or domain
 1. In the [Azure portal](https://portal.azure.com), Navigate to your event grid topic or domain, and switch to the **Networking** tab.
-2. Select **Public networks** to allow all network, including the internet, to access the resource. 
+2. Select **Public networks** to allow all networks, including the internet, to access the resource. 
 
-    You can restrict the traffic using IP-based firewall rules. Specify a single IPv4 address or a range of IP addresses in Classless inter-domain routing (CIDR) notation. 
+    You can restrict the traffic using IP firewall rules. Specify a single IPv4 address or a range of IP addresses in Classless inter-domain routing (CIDR) notation. 
 
-    ![Screenshot that shows the "Public network access" page with "Public networks" selected.](./media/configure-firewall/public-networks-page.png)
+    :::image type="content" source="./media/configure-firewall/public-networks-page.png" alt-text="Screenshot that shows the "Public network access" page with "Public networks" selected.":::
 3. Select **Private endpoints only** to allow only private endpoint connections to access this resource. Use the **Private endpoint connections** tab on this page to manage connections. 
+ 
+    For step-by-step instructions to create a private endpoint connection, see [Add a private endpoint using Azure portal](configure-private-endpoints.md#use-azure-portal).
 
-    ![Public networks page](./media/configure-firewall/private-endpoints-page.png)
+    :::image type="content" source="./media/configure-firewall/select-private-endpoints.png" alt-text="Screenshot that shows the "Public network access" page with "Private endpoints only" option selected.":::
 4. Select **Save** on the toolbar. 
-
-
 
 ## Use Azure CLI
 This section shows you how to use Azure CLI commands to create topics with inbound IP rules. The steps shown in this section are for topics. You can use similar steps to create inbound IP rules for **domains**. 

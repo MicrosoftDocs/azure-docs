@@ -2,7 +2,7 @@
 title: Configure private endpoints for Azure Event Grid topics or domains
 description: This article describes how to configure private endpoints for Azure Event Grid topics or domain. 
 ms.topic: how-to
-ms.date: 07/22/2021 
+ms.date: 03/07/2022 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -17,10 +17,26 @@ This section shows you how to use the Azure portal to create a private endpoint 
 > [!NOTE]
 > The steps shown in this section are mostly for topics. You can use similar steps to create private endpoints for **domains**. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your topic or domain.
-2. Switch to the **Networking** tab of your topic page. Select **+ Private endpoint** on the toolbar.
+### When creating a new topic
 
-    ![Add private endpoint](./media/configure-private-endpoints/add-button.png)
+This section shows you how to enable private network access for an Event Grid topic or a domain. For step-by-step instructions to create a new topic, see [Create a custom topic](custom-event-quickstart-portal.md#create-a-custom-topic).
+
+1. On the **Basics** page of the **Create topic** wizard, select **Next: Networking** at the bottom of the page after filling the required fields. 
+
+    :::image type="content" source="./media/configure-firewall/networking-link.png" alt-text="Image showing the selection of Networking link at the bottom of the page. ":::
+1. To allow access to the Event Grid topic via a private endpoint, select the **Private access** option. 
+
+    :::image type="content" source="./media/configure-firewall/networking-page-private-access.png" alt-text="Image showing the selection of Private access option on the Networking page of the Create topic wizard. ":::    
+1. See the next section for steps to add a private endpoint. 
+
+### For an existing topic
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your topic or domain.
+2. Switch to the **Networking** tab of your topic page. In the **Public access** tab, select **Private endpoints only**.
+
+    :::image type="content" source="./media/configure-firewall/select-private-endpoints.png" alt-text="Screenshot that shows the "Public network access" page with "Private endpoints only" option selected.":::
+1. Switch to the **Private endpoint connections** tab, and then select **+ Private endpoint** on the toolbar.
+
+    :::image type="content" source="./media/configure-private-endpoints/add-button.png" alt-text="Screenshot showing the selection of + Private endpoint link on the Private endpoint connection tab.":::
 2. On the **Basics** page, follow these steps: 
     1. Select an **Azure subscription** in which you want to create the private endpoint. 
     2. Select an **Azure resource group** for the private endpoint. 
