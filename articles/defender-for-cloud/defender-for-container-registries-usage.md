@@ -1,7 +1,7 @@
 ---
 title: How to use Defender for Containers
 description: Learn how to use  Defender for Containers to scan Linux images in your Linux-hosted registries
-ms.date: 03/03/2022
+ms.date: 03/07/2022
 ms.topic: how-to
 ---
 
@@ -83,22 +83,22 @@ To enable vulnerability scans of images stored in your Azure Resource Manager-ba
 
 1. Follow the steps in the remediation section of this pane.
 
-1. When you have taken the steps required to remediate the security issue, replace the image in your registry:
+1. When you've taken the steps required to remediate the security issue, replace the image in your registry:
 
-    1. Push the updated image. This will trigger a scan.
+    1. Push the updated image to trigger a scan.
 
     1. Check the recommendations page for the recommendation [Container registry images should have vulnerability findings resolved (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648).
 
         If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again.
 
-    1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
+    1. When you're sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
 ## Disable specific findings
 
 > [!NOTE]
 > [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
-If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
+If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't affect your secure score or generate unwanted noise.
 
 When a finding matches the criteria you've defined in your disable rules, it won't appear in the list of findings. Typical scenarios include:
 
