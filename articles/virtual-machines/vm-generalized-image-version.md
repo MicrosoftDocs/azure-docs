@@ -1,7 +1,7 @@
 ---
 title: Create a VM from a generalized image in a gallery
 description: Create a VM from a generalized image in a gallery.
-author: saraic
+author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to

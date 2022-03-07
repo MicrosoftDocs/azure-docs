@@ -1,7 +1,7 @@
 ---
 title: List, update, and delete image resources 
 description: List, update, and delete image resources in your Azure Compute Gallery.
-author: saraic
+author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services

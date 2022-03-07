@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Compute Gallery for sharing resources
 description: Learn how to create an Azure Compute Gallery.
-author: saraic
+author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to

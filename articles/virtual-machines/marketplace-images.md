@@ -1,7 +1,7 @@
 ---
 title: Specify Marketplace purchase plan information using Azure PowerShell 
 description: Learn how to specify Azure Marketplace purchase plan details when creating images in an Azure Compute Gallery (formerly known as Shared Image Gallery).
-author: saraic
+author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to

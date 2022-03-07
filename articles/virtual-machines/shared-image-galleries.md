@@ -1,7 +1,7 @@
 ---
 title: Share VM images in a compute gallery 
 description: Learn how to use an Azure Compute Gallery to share VM images.
-author: saraic
+author: sandeepraichura
 ms.author: saraic
 ms.service: virtual-machines
 ms.subservice: gallery
