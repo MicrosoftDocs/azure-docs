@@ -43,7 +43,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Joyn FSM to support provisioning with Azure AD
 
-Contact your [SevenLakes Customer Success Representative](mailto:mailto:CustomerSuccessTeam@sevenlakes.com) in order to obtain the Tenant URL and Secret Token which are required for configuring provisionoing..
+Contact your [SevenLakes Customer Success Representative](mailto:mailto:CustomerSuccessTeam@sevenlakes.com) in order to obtain the Tenant URL and Secret Token which are required for configuring provisioning.
 
 ## Step 3. Add Joyn FSM from the Azure AD application gallery
 
