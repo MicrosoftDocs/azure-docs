@@ -22,7 +22,7 @@ ms.author: phjensen
 > PREVIEWS ARE PROVIDED "AS-IS," "WITH ALL FAULTS," AND "AS AVAILABLE," AND ARE EXCLUDED FROM THE SERVICE LEVEL AGREEMENTS AND LIMITED WARRANTY
 > ref:  https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
-This article provides a guide on setup and usage of the new features in preview for **AzAcSnap v5.1**.  These new features can be used with Azure NetApp Files, Azure BareMetal, and now Azure Managed Disk.  This guide should be read along with the documentation for the generally available version of AzAcSnap at [aka.ms/azacsnap](./azacsnap-introduction.md).
+This article provides a guide on set up and usage of the new features in preview for **AzAcSnap v5.1**.  These new features can be used with Azure NetApp Files, Azure BareMetal, and now Azure Managed Disk.  This guide should be read along with the documentation for the generally available version of AzAcSnap at [aka.ms/azacsnap](./azacsnap-introduction.md).
 
 The five new preview features provided with AzAcSnap v5.1 are:
 - Oracle Database support.
@@ -78,7 +78,7 @@ The snapshot tools communicate with the Oracle database and need a user with app
 mode, `azacsnap` will query the Oracle database to get a list of files, which have backup-mode as active.  This file list is output into an external file, which is in 
 the same location and basename as the log file, but with a ".protected-tables" extension (output filename detailed in the AzAcSnap log file). 
 
-The following examples show the setup of the Oracle database user, the use of `mkstore` to create an Oracle Wallet, and the `sqlplus` configuration files required for 
+The following examples show the set up of the Oracle database user, the use of `mkstore` to create an Oracle Wallet, and the `sqlplus` configuration files required for 
 communication to the Oracle database. 
 
 The following example commands set up a user (AZACSNAP) in the Oracle database, change the IP address, usernames, and passwords as appropriate:
@@ -197,7 +197,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
    
    1. Run the following commands on the Oracle Database Server.
       
-    1. Get the Oracle environment variables to be used in setup.  Run the following commands as the `root` user on the Oracle Database Server.
+    1. Get the Oracle environment variables to be used in set up.  Run the following commands as the `root` user on the Oracle Database Server.
 
        ```bash
        su - oracle -c 'echo $ORACLE_SID'
@@ -342,7 +342,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
     1. Copy the ZIP file to the target system (for example, the centralized virtual machine running AzAcSnap).
     
        > [!NOTE]
-       > If deploying to a centralized virtual machine, then it will need to have the Oracle instant client installed and setup so the AzAcSnap user can 
+       > If deploying to a centralized virtual machine, then it will need to have the Oracle instant client installed and set up so the AzAcSnap user can 
        > run `sqlplus` commands.  The Oracle Instant Client can downloaded from https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html.
        > In order for SQL\*Plus to run correctly, download both the required package (for example, Basic Light Package) and the optional SQL\*Plus tools package.
 
@@ -415,7 +415,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
        > The `$TNS_ADMIN` shell variable determines where to locate the Oracle Wallet and `*.ora` files, so it must be set before running `azacsnap` to ensure
        > correct operation.
        
-    1. Test the setup with AzAcSnap
+    1. Test the set up with AzAcSnap
        
        After configuring AzAcSnap (for example, `azacsnap -c configure --configuration new`) with the Oracle connect string (for example, `/@AZACSNAP`), it should 
        be possible to connect to the Oracle database.
@@ -451,7 +451,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
        ```
        
        > [!IMPORTANT]
-       > The `$TNS_ADMIN` variable must be setup correctly for `azacsnap` to run correctly, either by adding to the user's `.bash_profile` file, 
+       > The `$TNS_ADMIN` variable must be set up correctly for `azacsnap` to run correctly, either by adding to the user's `.bash_profile` file, 
        > or by exporting it before each run (for example, `export TNS_ADMIN="/home/orasnap/ORACLE19c" ; cd /home/orasnap/bin ; ./azacsnap --configfile ORACLE19c.json 
        > -c backup --volume data --prefix hourly-ora19c --retention 12`)
 
@@ -566,7 +566,7 @@ Microsoft provides many storage options for deploying databases such as SAP HANA
 [Azure Storage types for SAP workload](/azure/virtual-machines/workloads/sap/planning-guide-storage) web page.  Additionally there's a 
 [Cost conscious solution with Azure premium storage](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage).  
 
-AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (that is, a VM with Managed Disks).  However, the setup 
+AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (that is, a VM with Managed Disks).  However, the set up 
 for this platform is slightly more complicated as in this scenario we need to block I/O to the mountpoint (using `xfs_freeze`) before taking a snapshot of the Managed 
 Disks in the mounted Logical Volume(s).  
 
@@ -763,7 +763,7 @@ The storage hierarchy looks like the following example for SAP HANA:
 
 Installing and setting up the Azure VM and Azure Managed Disks in this way follows Microsoft guidance to create LVM stripes of the Managed Disks on the VM.  
 
-With the Azure VM setup as prescribed, AzAcSnap can take snapshots of Azure Managed Disks.  The snapshot operations are similar to those for other storage back-ends supported by AzAcSnap (for example, Azure NetApp Files, Azure Large Instance (Bare Metal)).  Because AzAcSnap communicates with the Azure Resource Manager to take snapshots, it also needs a Service Principal with the correct permissions to take managed disk snapshots.
+With the Azure VM set up as prescribed, AzAcSnap can take snapshots of Azure Managed Disks.  The snapshot operations are similar to those for other storage back-ends supported by AzAcSnap (for example, Azure NetApp Files, Azure Large Instance (Bare Metal)).  Because AzAcSnap communicates with the Azure Resource Manager to take snapshots, it also needs a Service Principal with the correct permissions to take managed disk snapshots.
 
 This capability allows customers to test/trial AzAcSnap on a smaller system and scale-up to Azure NetApp Files and/or Azure Large Instance (Bare Metal).
 
@@ -1112,9 +1112,9 @@ PORTAL_GENERATED_SAS="https://<targetstorageaccount>.blob.core.windows.net/<blob
 ## Azure Key Vault
 
 From AzAcSnap v5.1, it's possible to store the Service Principal securely as a Secret in Azure Key Vault.  Using this feature allows for centralization of Service Principal credentials
-where an alternate administrator can setup the Secret for AzAcSnap to use.
+where an alternate administrator can set up the Secret for AzAcSnap to use.
 
-The steps to follow to setup Azure Key Vault and store the Service Principal in a Secret are as follows:
+The steps to follow to set up Azure Key Vault and store the Service Principal in a Secret are as follows:
 
 1. Within an Azure Cloud Shell session, make sure you're logged on at the subscription where you want to create the Azure Key Vault:
 
@@ -1192,8 +1192,8 @@ The steps to follow to setup Azure Key Vault and store the Service Principal in 
 
    Create the secret, which will store the Service Principal credential information.
    
-   It's possible to paste the contents of the Service Principal. In the **Bash** Cloud Shell below a single apostotrophe character is put after value then 
-   press the `[Enter]` key, then paste the contents of the Service Principal, close the content by adding another single apostotrophe and press the `[Enter]` key.  
+   It's possible to paste the contents of the Service Principal. In the **Bash** Cloud Shell below a single apostrophe character is put after value then 
+   press the `[Enter]` key, then paste the contents of the Service Principal, close the content by adding another single apostrophe and press the `[Enter]` key.  
    This command should create the Secret and store it in Azure Key Vault.
    
    > [!TIP] 
@@ -1292,7 +1292,7 @@ The processing is handled in the order outlined as follows:
 
 1. `data` Volume Snapshot (same as the normal `--volume data` option)
    1. put the database into *backup-mode*.
-   1. take snapshots of the Volume listed inthe configuration file's `"dataVolume"` stanza.
+   1. take snapshots of the Volume listed in the configuration file's `"dataVolume"` stanza.
    1. take the database out of *backup-mode*.
    1. perform snapshot management.
 1. `other Volume Snapshot (same as the normal `--volume other` option)
