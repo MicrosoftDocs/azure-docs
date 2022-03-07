@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 03/07/2022
 ms.custom: fasttrack-edit
 ---
 
@@ -245,7 +245,16 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.VariableOperation.MaximumStatelessVariableSize` | Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateless workflow. |
 ||||
 
-<a name="http-webhook"></a>
+<a name="recurrence-triggers"></a>
+
+### Recurrence-based triggers
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Microsoft.Azure.Workflows.ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `1` KB | Sets the trigger state's maximum allowed size for recurrence-based triggers such as the built-in SFTP trigger. The trigger state persists data across multiple service provider recurrence-based triggers. <br><br>**Important**: Based on your storage size, avoid setting this value too high, which can adversely affect storage and performance. |
+||||
+
+<a name="http-operations"></a>
 
 ### HTTP operations
 
