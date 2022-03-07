@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 03/06/2022
 ms.author: sipastak
 ---
 
@@ -73,7 +73,6 @@ The following table lists the storage capacity of the device.
 |-------------------------------------------|-----------------------|
 | Boot disk                 |    1  NVMe SSD         |
 |    Boot disk capacity     |    960 GB              |
-|                           |                        |
 |  Number of data disks     |    2 SATA SSDs         |
 | Single data disk capacity |    960 GB              |
 |    Total capacity         | Model 64G2T: 2 TB    |
