@@ -7,7 +7,7 @@ ms.service: api-management
 tags: azure-resource-manager, bicep
 ms.topic: quickstart
 ms.author: jgao
-ms.date: 03/06/2022
+ms.date: 03/07/2022
 ---
 
 # Quickstart: Create a new Azure API Management service instance using bicep
@@ -61,19 +61,19 @@ More Azure API Management Bicep samples can be found in [Azure Quickstart Templa
 
 Use the Azure portal, Azure CLI or Azure PowerShell to list the deployed resources.
 
-    # [CLI](#tab/CLI)
+# [CLI](#tab/CLI)
 
-    ```azurecli
-    az apim show --name <api-management-name> --resource-group exampleRG
-    ```
+```azurecli
+az apim show --name <api-management-name> --resource-group exampleRG
+```
 
-    # [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/PowerShell)
 
-    ```azurepowershell
-    Get-AzApiManagement -Name <api-management-name> -ResourceGroupName exampleRG
-    ```
+```azurepowershell
+Get-AzApiManagement -Name <api-management-name> -ResourceGroupName exampleRG
+```
 
-    ---
+---
 
 When your API Management service instance is online, you're ready to use it. Start with the tutorial to [import and publish](import-and-publish.md) your first API.
 
