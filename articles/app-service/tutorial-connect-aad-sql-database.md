@@ -253,7 +253,7 @@ The most common causes of this error are:
 
 Because App Service authentication is a feature in Azure, it's not possible for the same code to work in your local environment. Unlike the app running in Azure, your local code isn't connected to an Azure AD app registration. Neither is there any pre-built authentication logic that injects the access token like in App Service. You have a few alternatives:
 
-- Connect to SQL Database from your local environment with [`Active Directory Interactive`](../sql/connect/ado-net/sql/azure-active-directory-authentication.md#using-active-directory-interactive-authentication). The authentication flow doesn't sign in the user to the app itself, but it does connect to the back-end database with the signed-in user, and allows you to test user authorization locally.
+- Connect to SQL Database from your local environment with [`Active Directory Interactive`](https://docs.microsoft.com/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-interactive-authentication). The authentication flow doesn't sign in the user to the app itself, but it does connect to the back-end database with the signed-in user, and allows you to test user authorization locally.
 - Manually copy the access token from `https://<app-name>.azurewebsites.net/.auth/me` into your code, in place of the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header.
 - If you deploy from Visual Studio, use remote debugging of your App Service app.
 
