@@ -10,4 +10,4 @@ ms.author: inhenkel
 
 The following Azure CLI command lists Media Services accounts in a subscription.
 
-:::code language="azurecli" source="cli-code-snippets.sh" id="AmsAccountList" interactive="azurecli-interactive":::
+:::code language="azurecli" source="../cli-code-snippets.md" id="AmsAccountList" interactive="azurecli-interactive":::
