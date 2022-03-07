@@ -31,7 +31,7 @@ To complete this article, you need the following resources:
     * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Azure AD](/powershell/azure/active-directory/install-adv2).
     * Make sure that you sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
 * You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
-* You need [Domain Services Contributor](/azure/role-based-access-control/built-in-roles#contributor) Azure role to create the required Azure AD DS resources.
+* You need Domain Services Contributor Azure role to create the required Azure AD DS resources.
 
 ## DNS naming requirements
 
