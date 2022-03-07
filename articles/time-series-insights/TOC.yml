@@ -149,7 +149,7 @@
   items:
   - name: Time Series Insights
     items:
-    - name: Rest APIs Overview
+    - name: REST APIs Overview
       href: /rest/api/time-series-insights/
     - name: Data Access Gen2
       items:
