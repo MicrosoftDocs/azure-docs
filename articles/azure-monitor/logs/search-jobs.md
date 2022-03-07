@@ -113,6 +113,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 ```
 
 **Table status**
+
 Each search job table has a property called *provisioningState*, which can have one of the following values:
 
 | Status | Description |
@@ -128,11 +129,13 @@ Each search job table has a property called *provisioningState*, which can have 
 This example retrieves the table status for the search job in the previous example.
 
 **Request**
+
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/Syslog_SRCH?api-version=2021-12-01-preview
 ```
 
-**Response**<br>
+**Response**
+
 ```json
 {
         "properties": {
