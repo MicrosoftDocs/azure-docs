@@ -39,13 +39,13 @@ Currently, the bulk executor library is supported only by Azure Cosmos DB SQL AP
 
 ## Clone the sample application
 
-Now let's switch to working with code by downloading a generic samples repository for Java V4 SDK for Azure Cosmos DB from GitHub. These sample applications perform CRUD operations and other common operations on Azure Cosmos. To clone the repository, open a command prompt, navigate to the directory where you want to copy the application and run the following command:
+Now let's switch to working with code by downloading a generic samples repository for Java V4 SDK for Azure Cosmos DB from GitHub. These sample applications perform CRUD operations and other common operations on Azure Cosmos DB. To clone the repository, open a command prompt, navigate to the directory where you want to copy the application and run the following command:
 
 ```bash
  git clone https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples 
 ```
 
-The cloned repository contains a sample `SampleBulkQuickStartAsync.java` in the "/azure-cosmos-java-sql-api-samples/tree/main/src/main/java/com/azure/cosmos/examples/bulk/async" folder. The  application generates documents and executes operations to bulk create, upsert, replace and delete items in Azure Cosmos DB. In the next sections, we will review the code in the sample app. 
+The cloned repository contains a sample `SampleBulkQuickStartAsync.java` in the `/azure-cosmos-java-sql-api-samples/tree/main/src/main/java/com/azure/cosmos/examples/bulk/async` folder. The application generates documents and executes operations to bulk create, upsert, replace and delete items in Azure Cosmos DB. In the next sections, we will review the code in the sample app. 
 
 ## Bulk execution in Azure Cosmos DB
 
