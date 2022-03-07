@@ -66,3 +66,4 @@ Check blog, demo and related tutorials
 * [Blog: resource group-level governance can significantly reduce effort](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-resource-group-level-governance-can/ba-p/3096314)
 * [Demo of data owner access policies for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
 * [Fine-grain data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
+* [Registering a data source for Data use governance](./how-to-enable-data-use-governance.md)
