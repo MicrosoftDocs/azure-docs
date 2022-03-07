@@ -169,7 +169,7 @@ az ams transform update -a <amsAccountName> -n <transformName> -g <resourceGroup
 #short-summary: Add an output to an existing transform.
 #- name: Add an output with a custom Standard Encoder preset from a JSON file.
 # <AmsTransformOutputAddCustom>
-az ams transform output add -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset <\"C:\\path\\to\\local\\preset\\CustomPreset.json\">
+az ams transform output add -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset <\"C:\\path\\to\\local\\preset\\CustomPreset.json\\">
 # </AmsTransformOutputAddCustom>
 
 ### ONE OFF
