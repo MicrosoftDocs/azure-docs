@@ -80,6 +80,19 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
     1. Under **Disk options**, enable **Confidential compute encryption** if you want to encrypt your VM's OS disk during creation.
 
     1. For **Confidential compute encryption type**, select the type of encryption to use. 
+    
+    1. If **Confidential disk encryption with a customer-managed key** is selected,  **Confidential disk encryption set** needs to be created before creating confidential VM. 
+
+        * To create **Confidential disk encryption set**, follow below steps:
+        * Create Azure Key Vault [create key vault](../key-vault/general/quick-create-portal.md) with pricing tier selected to **Premium (includes support for HSM backed keys)**, Or create Azure Key Vault Managed HSM [create Azure Key Vault](../key-vault/managed-hsm/quick-create-cli.md).
+        * Search **Disk Encryption Sets**, then click create, select subscription, and choose or create new Resource group. 
+        * Provide Disk encryption set name and select Region, then choose **Confidential disk encryption with a customer-managed key** under **Encryption Type**.
+        * Select Key Vault, which has been setup previously. 
+        * Click **Create new** to create a new key. 
+        > [!Note] If Azure Managed-HSM is selected in previous step, use [Azure PS/CLI to create new key](../confidential-computing/quick-create-confidential-vm-arm-amd.md). 
+        * Provide Name of the key, and select **RSA-HSM**, select key size, and click **Create**.
+        * click **Review + create** to create new Disk encryption set.
+        * Once Disk encryption set is created successfully, go to this resource and click the pink banner to grant permissions to key vault. This step is important, otherwise confidential VM creation will fail.
 
 1. As needed, make changes to settings under the tabs **Networking**, **Management**, **Guest Config**, and **Tags**.
 
