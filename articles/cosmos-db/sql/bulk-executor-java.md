@@ -70,7 +70,7 @@ com.azure.cosmos.examples.bulk.async.SampleBulkQuickStartAsync
    ```
 
 
-3. The sample creates an async database and container. It then creates 4 documents on which bulk operations will be executed. It adds these documents to a `Flux<Family>` reactive stream object:
+3. The sample creates an async database and container. It then creates multiple documents on which bulk operations will be executed. It adds these documents to a `Flux<Family>` reactive stream object:
 
     ```java
         createDatabaseIfNotExists();
