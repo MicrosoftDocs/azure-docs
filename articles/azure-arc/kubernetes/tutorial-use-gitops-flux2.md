@@ -28,7 +28,7 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 * An Azure Arc-enabled Kubernetes connected cluster that's up and running.
   
-  [Learn how to Azure Arc-enable a Kubernetes cluster](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
+  [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 * Read and write permissions on the `Microsoft.Kubernetes/connectedClusters` resource type.
 
 ### For Azure Kubernetes Service clusters
@@ -654,7 +654,7 @@ Arguments
     --timeout                      : Maximum time to reconcile the source before timing out.
 
 Auth Arguments
-    --local-auth-ref --local-ref   : Local reference to a kubernetes secret in the configuration
+    --local-auth-ref --local-ref   : Local reference to a Kubernetes secret in the configuration
                                      namespace to use for communication to the source.
 
 Bucket Auth Arguments

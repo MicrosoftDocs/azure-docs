@@ -60,6 +60,10 @@ items:
       href: provision-sims-azure-portal.md
     - name: Activate SIMs
       href: activate-sims.md
+- name: Reference
+  items:
+   - name: REST API
+     href: /rest/api/mobilenetwork
 - name: Resources
   items:
   - name: Azure Private 5G Core product page

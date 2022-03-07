@@ -10,7 +10,7 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2, references_regions, ignite-fall-2021
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/15/2021
+ms.date: 03/02/2022
 ---
 # What's new in Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ The following table lists the features of Azure SQL Database that are currently 
 | [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-current&preserve-view=true) | Use query hints to optimize your query execution via the OPTION clause. |
 | [SQL Analytics](../../azure-monitor/insights/azure-sql.md)|Azure SQL Analytics is an advanced cloud monitoring solution for monitoring performance of all of your Azure SQL databases at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.|
 | [SQL insights](../../azure-monitor/insights/sql-insights-overview.md) |  SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance.|
-| [Zone redundant configuration for general purpose tier](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | The zone redundant configuration feature utilizes [Azure Availability Zones](../../availability-zones/az-overview.md#availability-zones) to replicate databases across multiple physical locations within an Azure region. By selecting [zone redundancy](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview), you can make your general purpose databases and elastic pools resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes to the application logic. The feature is currently only available in the general purpose tier. | 
+| [Zone redundant configuration](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | The zone redundant configuration feature utilizes [Azure Availability Zones](../../availability-zones/az-overview.md#availability-zones) to replicate databases across multiple physical locations within an Azure region. By selecting [zone redundancy](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview), you can make your databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes to the application logic. **The feature is currently in preview for the General Purpose and Hyperscale service tiers.** |
 |||
 
 ## General availability (GA)
@@ -47,6 +47,7 @@ The following table lists the features of Azure SQL Database that have transitio
 
 | Feature | GA Month | Details |
 | ---| --- |--- |
+| [Storage redundancy for Hyperscale databases](automated-backups-overview.md#configure-backup-storage-redundancy) | March 2022 |  When creating a Hyperscale database, you can choose your preferred storage type: read-access geo-redundant storage (RA-GRS), zone-redundant storage (ZRS), or locally redundant storage (LRS) Azure standard storage. The selected storage redundancy option will be used for the lifetime of the database for both data storage redundancy and backup storage redundancy. |
 | [Azure Active Directory-only authentication](authentication-azure-ad-only-authentication.md) | November 2021 | It's possible to configure your Azure SQL Database to allow authentication only from Azure Active Directory. | 
 | [Azure AD service principal](authentication-aad-service-principal.md) |  September 2021 | Azure Active Directory (Azure AD) supports user creation in Azure SQL Database on behalf of Azure AD applications (service principals).| 
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
@@ -56,6 +57,14 @@ The following table lists the features of Azure SQL Database that have transitio
 ## Documentation changes
 
 Learn about significant changes to the Azure SQL Database documentation.
+
+### March 2022
+
+| Changes | Details |
+| --- | --- |
+| **Hyperscale zone redundant configuration preview** | It's now possible to create new Hyperscale databases with zone redundancy to make your databases resilient to a much larger set of failures. This feature is currently in preview for the Hyperscale service tier. To learn more, see [Hyperscale zone redundancy](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview). | 
+| **Hyperscale storage redundancy GA** | Choosing your storage redundancy for your databases in the Hyperscale service tier is now generally available. See [Configure backup storage redundancy](automated-backups-overview.md#configure-backup-storage-redundancy) to learn more. 
+||| 
 
 ### February 2022
 

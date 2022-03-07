@@ -115,7 +115,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
      You can enter up to 10 account IDs. Click the plus icon next to the text box to add more account IDs.
 
     > [!NOTE]
-    > Perform the next 5 steps for each account ID you add.
+    > Perform the next 6 steps for each account ID you add.
 
 1. Open another browser window and sign in to the AWS console for the member account. 
 

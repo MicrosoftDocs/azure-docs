@@ -13,7 +13,7 @@ zone_pivot_groups: azure-stack-edge-device-deployment
 ---
 # Deployment checklist for your Azure Stack Edge Pro GPU device  
 
-This article describes the information that can be gathered ahead of the actual deployment of your Azure Stack Edge Pro device. 
+This article describes the information that can be gathered ahead of the actual deployment of your Azure Stack Edge Pro GPU device. 
 
 Use the following checklist to ensure you have this information after you’ve placed an order for an Azure Stack Edge Pro device and before you’ve received the device. 
 

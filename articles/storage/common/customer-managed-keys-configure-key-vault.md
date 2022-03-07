@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/28/2022
+ms.date: 03/03/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -25,7 +25,7 @@ This article shows how to configure encryption with customer-managed keys stored
 
 ## Configure a key vault
 
-You can use a new or existing key vault to store customer-managed keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../../key-vault/general/overview.md) and [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md).
+You can use a new or existing key vault to store customer-managed keys. The starage account and key vault may be in different regions or subscriptions in the same tenant. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../../key-vault/general/overview.md) and [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md).
 
 Using customer-managed keys with Azure Storage encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 
@@ -133,7 +133,7 @@ When you configure customer-managed keys with the Azure portal, you can select a
 To authorize access to the key vault with a user-assigned managed identity, you will need the resource ID and principal ID of the user-assigned managed identity. Call [Get-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity) to get the user-assigned managed identity, then save the resource ID and principal ID to variables. You will need these values in subsequent steps:
 
 ```azurepowershell
-$userIdentityId = (Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName <resource-group>).Id
+$userIdentityId = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName <resource-group>
 $principalId = $userIdentity.PrincipalId
 ```
 
