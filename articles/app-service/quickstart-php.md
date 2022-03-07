@@ -7,7 +7,6 @@ ms.date: 02/03/2022
 ms.devlang: php
 ms.custom: mode-other, devdivchpfy22
 zone_pivot_groups: app-service-platform-windows-linux
-
 ---
 
 # Create a PHP web app in Azure App Service

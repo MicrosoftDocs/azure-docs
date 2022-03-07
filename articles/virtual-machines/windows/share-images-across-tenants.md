@@ -19,7 +19,7 @@ Azure Compute Galleries let you share images using Azure RBAC. You can use Azure
 
 
 > [!IMPORTANT]
-> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the [Azure CLI](../linux/share-images-across-tenants.md) or Powershell.
+> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the [Azure CLI](../linux/share-images-across-tenants.md) or PowerShell.
 
 ## Create a VM using PowerShell
 

@@ -6,7 +6,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 02/24/2022
 ms.author: banders
 ---
 
@@ -131,7 +131,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     {
       "properties": {
-        "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
+        "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
         "principalId": "<userObjectId>"
       }
     }

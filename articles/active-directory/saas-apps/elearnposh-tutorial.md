@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/21/2022
+ms.date: 02/11/2022
 ms.author: jeedes
 
 ---
@@ -82,14 +82,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	| Name | Source Attribute |
 	| ---------| --------- |
-	| department | user.department |
-    | designation | user.jobtitle |
-    | email | user.userprincipalname |
-    | empid | user.employeeid |
+    | email | user.mail |
+    | username | user.mail |
     | firstname | user.givenname |
     | lastname | user.surname |
-    | primary-email | user.primaryauthoritativeemail |
-    | username | user.userprincipalname |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

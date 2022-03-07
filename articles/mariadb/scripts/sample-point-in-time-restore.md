@@ -7,7 +7,7 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 01/26/2022 
+ms.date: 02/11/2022 
 ---
 
 # Restore an Azure Database for MariaDB server using Azure CLI
@@ -24,7 +24,7 @@ This sample CLI script restores a single Azure Database for MariaDB server to a 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/backup-restore-pitr/backup-restore.sh" range="6-38":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/backup-restore-pitr/backup-restore.sh" range="6-39":::
 
 ## Clean up resources
 

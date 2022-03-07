@@ -63,6 +63,10 @@ Once service principal is created, you need to assign Data plane roles of your p
 1. Select the Data Map in the left menu.
 1. Select Collections.
 1. Select the root collection in the collections menu. This will be the top collection in the list, and will have the same name as your Azure Purview account.
+
+    >[!NOTE] 
+    >You can also assign your service principal permission to any sub-collections, instead of the root collection. However, all APIs will be scoped to that collection (and sub-collections that inherit permissions), and users trying to call the API for another collection will get errors.
+    
 1. Select the Role assignments tab.
 1. Assign the following roles to service principal created above to access various data planes in Azure Purview.
     1. 'Data Curator' role to access Catalog Data plane.

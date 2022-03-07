@@ -43,7 +43,7 @@ We have many open-source projects on GitHub that provide you the source code and
 
 ## Analytic Pipelines
 
-FHIR Analytics Pipelines help you build components and pipelines for rectangularizing and moving FHIR data from Azure FHIR servers namely [Azure Healthcare APIs FHIR Server](https://docs.microsoft.com/azure/healthcare-apis/), [Azure API for FHIR](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/), and [FHIR Server for Azure](https://github.com/microsoft/fhir-server) to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and thereby make it available for analytics with [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), [Power BI](https://powerbi.microsoft.com/), and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
+FHIR Analytics Pipelines help you build components and pipelines for rectangularizing and moving FHIR data from Azure FHIR servers namely [Azure Healthcare APIs FHIR Server](./index.yml), [Azure API for FHIR](./azure-api-for-fhir/index.yml), and [FHIR Server for Azure](https://github.com/microsoft/fhir-server) to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and thereby make it available for analytics with [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), [Power BI](https://powerbi.microsoft.com/), and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
 The descriptions and capabilities of these two solutions are summarized below:
 
@@ -55,7 +55,7 @@ This solution enables you to query against the entire FHIR data with tools such 
 
 ### FHIR to CDM Pipeline Generator
 
-The FHIR to CDM Pipeline Generator is a tool to generate an ADF pipeline for moving a snapshot of data from a FHIR server using $export API to a [CDM folder](https://docs.microsoft.com/common-data-model/data-lake) in Azure Data Lake Storage Gen 2 in `.csv` format. The tool requires a user-created configuration file containing instructions to project and flatten FHIR Resources and fields into tables. You can also follow the [instructions](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToCdm/docs/cdm-to-synapse.md) for creating a downstream pipeline in Synapse workspace to move data from CDM folder to Synapse dedicated SQL pool.
+The FHIR to CDM Pipeline Generator is a tool to generate an ADF pipeline for moving a snapshot of data from a FHIR server using $export API to a [CDM folder](/common-data-model/data-lake) in Azure Data Lake Storage Gen 2 in `.csv` format. The tool requires a user-created configuration file containing instructions to project and flatten FHIR Resources and fields into tables. You can also follow the [instructions](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToCdm/docs/cdm-to-synapse.md) for creating a downstream pipeline in Synapse workspace to move data from CDM folder to Synapse dedicated SQL pool.
 
 This solution enables you to transform the data into tabular format as it gets written to CDM folder. You should consider this solution if you want to transform FHIR data into a custom schema as it is extracted from the FHIR server.
 
@@ -81,4 +81,4 @@ In this article, you learned about some of the Healthcare APIs open-source GitHu
 >[!div class="nextstepaction"]
 >[Overview of Azure Healthcare APIs](healthcare-apis-overview.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 
+(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

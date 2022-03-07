@@ -37,13 +37,23 @@ Azure Arc-enabled servers depends on the following Azure resource providers in y
 
 * Microsoft.HybridCompute
 * Microsoft.GuestConfiguration
+* Microsoft.HybridConnectivity
 
 Register them using the following commands:
+
+```azurepowershell-interactive
+Login-AzAccount
+Set-AzContext -SubscriptionId [subscription you want to onboard]
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridConnectivity
+```
 
 ```azurecli-interactive
 az account set --subscription "{Your Subscription Name}"
 az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
+az provider register --namespace 'Microsoft.HybridConnectivity'
 ```
 
 ## Generate installation script

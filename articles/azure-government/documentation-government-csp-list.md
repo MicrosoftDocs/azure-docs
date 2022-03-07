@@ -383,7 +383,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[South River Technologies](https://southrivertech.com)|
 |[Stabilify](http://www.stabilify.net/)|
 |[Stafford Associates](https://www.staffordnet.com/)|
-|[Static Networks, LLC](https://staticnetworks.com)|
+|Static Networks, LLC|
 |[Steel Root](https://steelroot.us)|
 |[StoneFly, Inc.](https://stonefly.com)|
 |[Strategic Communications](https://stratcomminc.com)|
@@ -484,7 +484,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
 |Insight Public Sector|federal@insight.com|800-467-4448|
-|PC Connection|govtssms@connection.com|800-998-0009|
+|PC Connection|govtssms@connection.com|800-800-0019|
 |SHI, Inc.|msftgov@shi.com|888-764-8888|
 |Minburn Technology Group|microsoft@minburntech.com |571-699-0705 Opt. 1|
 

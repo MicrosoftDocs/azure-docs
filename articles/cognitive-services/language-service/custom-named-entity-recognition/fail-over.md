@@ -112,7 +112,7 @@ Use the following header to authenticate your request.
 
 ```json
 {
-  "resultUrl": "{YOUR-PRIMARY-ENDPOINT}/language/analyze-text/internal/projects/{PROJECT-NAME}/export/jobs/{JOB-ID}/result?api-version=2021-11-01-preview",
+  "resultUrl": "{RESULT-URL}",
   "jobId": "string",
       "createdDateTime": "2021-10-19T23:24:41.572Z",
       "lastUpdatedDateTime": "2021-10-19T23:24:41.572Z",
@@ -131,17 +131,7 @@ Use the url from the `resultUrl` key in the body to view the exported assets fro
 
 ### Get export results
 
-Use the following **GET** request to view the results of the export job. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
-
-```rest
-{YOUR-PRIMARY-ENDPOINT}/language/analyze-text/internal/projects/{PROJECT-NAME}/export/jobs/{JOB-ID}/result?api-version=2021-11-01-preview
-```
-
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-PRIMARY-ENDPOINT}`     | The endpoint for authenticating your API request. This is the endpoint for your primary resource.  | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-|`{JOB-ID}`     | The ID for downloading export job results. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
+Submit a **GET** request using the `{RESULT-URL}` you recieved from the previous step to view the results of the export job.
 
 #### Headers
 
@@ -359,7 +349,8 @@ Use the following JSON in your request. Use the name of the model you wan to dep
 
 ```json
 {
-  "trainedModelLabel": "{MODEL-NAME}"
+  "trainedModelLabel": "{MODEL-NAME}",
+  "deploymentName": "{DEPLOYMENT-NAME}"
 }
 ```
 

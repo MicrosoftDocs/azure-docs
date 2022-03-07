@@ -1,7 +1,6 @@
 ---
 title: Transparent Data Encryption (Portal) for dedicated SQL pool (formerly SQL DW)
 description: Transparent Data Encryption (TDE) for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
-services: synapse-analytics
 author: nanditavalsan
 manager: craigg
 ms.service: synapse-analytics

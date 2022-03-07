@@ -1,6 +1,6 @@
 ---
-title: Advanced SIEM Information Model (ASIM) security content | Microsoft Docs
-description: This article outlines the Microsoft Sentinel security content that uses the Advanced SIEM Information Model (ASIM).
+title: Advanced Security Information Model (ASIM) security content | Microsoft Docs
+description: This article outlines the Microsoft Sentinel security content that uses the Advanced Security Information Model (ASIM).
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
@@ -8,7 +8,7 @@ ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 ---
 
-# Advanced SIEM Information Model (ASIM) security content  (Public preview)
+# Advanced Security Information Model (ASIM) security content  (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -16,7 +16,7 @@ Normalized security content in Microsoft Sentinel includes analytics rules, hunt
 
 <a name="builtin"></a>You can find normalized, built-in content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing content to use normalized data.
 
-This article lists built-in Microsoft Sentinel content that has been configured to support the Advanced SIEM Information Model (ASIM).  While links to the Microsoft Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Microsoft Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries.
+This article lists built-in Microsoft Sentinel content that has been configured to support the Advanced Security Information Model (ASIM).  While links to the Microsoft Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Microsoft Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries.
 
 To understand how normalized content fits within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
@@ -151,12 +151,12 @@ The following built-in web session related content is supported for ASIM normali
 
 ## <a name="next-steps"></a>Next steps
 
-This article discusses the Advanced SIEM Information Model (ASIM) content.
+This article discusses the Advanced Security Information Model (ASIM) content.
 
 For more information, see:
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) parsers](normalization-about-parsers.md)
-- [Modifying Microsoft Sentinel content to use the Advanced SIEM Information Model (ASIM) parsers](normalization-modify-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-about-parsers.md)
+- [Modifying Microsoft Sentinel content to use the Advanced Security Information Model (ASIM) parsers](normalization-modify-content.md)

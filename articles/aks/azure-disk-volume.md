@@ -119,6 +119,10 @@ Events:
 [...]
 ```
 
+## Using Azure tags
+
+For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
+
 ## Next steps
 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
@@ -142,3 +146,4 @@ For more information about AKS clusters interact with Azure disks, see the [Kube
 [azure-files-volume]: azure-files-volume.md
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[use-tags]: use-tags.md

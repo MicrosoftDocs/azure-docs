@@ -138,4 +138,4 @@ WHERE shardid = 102027;
 
 ## Next steps
 
-- [Determine your application's type](concepts-app-type.md) to prepare for data modeling
+- [Determine your application's type](howto-app-type.md) to prepare for data modeling

@@ -5,7 +5,8 @@ ms.topic: article
 ms.date: 12/15/2021
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: github-actions-azure
+ms.custom: github-actions-azure, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 

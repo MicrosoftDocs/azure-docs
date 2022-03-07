@@ -6,7 +6,7 @@
     href: overview.md
 - name: Concepts
   items:
-  - name: Custom Locations
+  - name: Custom locations
     href: ./platform/conceptual-custom-locations.md
 - name: Samples
   items:

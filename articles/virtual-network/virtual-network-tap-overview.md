@@ -62,7 +62,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - [Netscout vSTREAM]( https://www.netscout.com/marketplace-azure)
 - [Noname Security](https://nonamesecurity.com/)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
-- [RSA NetWitness® Platform](https://www.rsa.com/content/dam/en/solution-brief/rsa-netwitness-platform-overview-for-federal-agencies.pdf)
+- [RSA NetWitness® Platform](https://www.netwitness.com)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
 

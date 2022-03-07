@@ -1,11 +1,11 @@
 ---
 title: Resource Logs for Azure SignalR Service
 description: Learn how to set up resource logs for Azure SignalR Service and how to utilize it to self-troubleshoot.
-author: wanlwanl
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.author: wanl
+ms.author: lianwei
 ---
 
 # Resource logs for Azure SignalR Service

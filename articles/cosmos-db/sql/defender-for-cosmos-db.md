@@ -50,7 +50,7 @@ You can configure Microsoft Defender protection in any of several ways, describe
 
 # [REST API](#tab/rest-api)
 
-Use Rest API commands to create, update, or get the Azure Defender setting for a specific Azure Cosmos DB account.
+Use REST API commands to create, update, or get the Azure Defender setting for a specific Azure Cosmos DB account.
 
 * [Advanced Threat Protection - Create](/rest/api/securitycenter/advancedthreatprotection/create)
 * [Advanced Threat Protection - Get](/rest/api/securitycenter/advancedthreatprotection/get)
@@ -92,7 +92,7 @@ Use an Azure Policy to enable Azure Defender for Cosmos DB.
 
 When Azure Cosmos DB activity anomalies occur, a security alert is triggered with information about the suspicious security event. 
 
- From Microsoft Defender for Cloud, you can review and manage your current [security alerts](../../security-center/security-center-alerts-overview.md).  Click on a specific alert in [Defender for Cloud](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) to view possible causes and recommended actions to investigate and mitigate the potential threat. The following image shows an example of alert details provided in Defender for Cloud.
+ From Microsoft Defender for Cloud, you can review and manage your current [security alerts](../../security-center/security-center-alerts-overview.md).  Click on a specific alert in [Defender for Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) to view possible causes and recommended actions to investigate and mitigate the potential threat. The following image shows an example of alert details provided in Defender for Cloud.
 
  :::image type="content" source="./media/defender-for-cosmos-db/cosmos-db-alert-details.png" alt-text="Threat details":::
 

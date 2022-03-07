@@ -63,7 +63,7 @@ The system receives the request, then compares that prediction with the user's k
 ## Prerequisites
 
 * An [Azure Notebook](https://notebooks.azure.com/) account.
-* An [Azure Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
+* An [Azure Personalizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
     * If you have already used the Personalizer resource, make sure to [clear the data](how-to-settings.md#clear-data-for-your-learning-loop) in the Azure portal for the resource.
 * Upload all the files for [this sample](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) into an Azure Notebook project.
 
@@ -76,12 +76,12 @@ File descriptions:
 
 ## Configure Personalizer resource
 
-In the Azure portal, configure your [Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) with the **update model frequency** set to 15 seconds and a **reward wait time** of 15 seconds. These values are found on the **[Configuration](how-to-settings.md#configure-service-settings-in-the-azure-portal)** page.
+In the Azure portal, configure your [Personalizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) with the **update model frequency** set to 15 seconds and a **reward wait time** of 10 minutes. These values are found on the **[Configuration](how-to-settings.md#configure-service-settings-in-the-azure-portal)** page.
 
 |Setting|Value|
 |--|--|
 |update model frequency|15 seconds|
-|reward wait time|15 seconds|
+|reward wait time|10 minutes|
 
 These values have a very short duration in order to show changes in this tutorial. These values shouldn't be used in a production scenario without validating they achieve your goal with your Personalizer loop.
 
@@ -240,7 +240,7 @@ print(f'User count {len(userpref)}')
 print(f'Coffee count {len(actionfeaturesobj)}')
 ```
 
-Verify that the output's `rewardWaitTime` and `modelExportFrequency` are both set to 15 seconds.
+Verify that the output's `rewardWaitTime` is set to 10 minutes and `modelExportFrequency` is set to 15 seconds.
 
 ```console
 -----checking model
@@ -251,7 +251,7 @@ Verify that the output's `rewardWaitTime` and `modelExportFrequency` are both se
 <Response [200]>
 {...learning policy...}
 <Response [200]>
-{'rewardWaitTime': '00:00:15', 'defaultReward': 0.0, 'rewardAggregation': 'earliest', 'explorationPercentage': 0.2, 'modelExportFrequency': '00:00:15', 'logRetentionDays': -1}
+{'rewardWaitTime': '00:10:00', 'defaultReward': 0.0, 'rewardAggregation': 'earliest', 'explorationPercentage': 0.2, 'modelExportFrequency': '00:00:15', 'logRetentionDays': -1}
 User count 4
 Coffee count 4
 ```

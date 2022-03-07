@@ -5,9 +5,8 @@ metadata:
   author: jimzim
   ms.author: jzim
   ms.service: azure-redhat-openshift
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 07/31/2020
-    
 title: Azure Red Hat OpenShift FAQ
 summary: This article answers frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
 

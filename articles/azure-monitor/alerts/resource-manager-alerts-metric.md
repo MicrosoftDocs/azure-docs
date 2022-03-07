@@ -5,7 +5,7 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
-ms.date: 05/18/2020
+ms.date: 2/23/2022
 ---
 # Resource Manager template samples for metric alert rules in Azure Monitor
 
@@ -88,7 +88,6 @@ The following sample creates a metric alert rule using a single criteria and a s
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -804,7 +803,7 @@ For example, a few of the potential time series that are monitored by this alert
         }
     },
     "variables": { 
-        "criteria": "[array(parameters('criterion'))]"
+		"criteria": "[array(parameters('criterion'))]"
      },
     "resources": [
         {
@@ -1161,7 +1160,6 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -1450,7 +1448,7 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -1465,7 +1463,6 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -1737,7 +1734,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2046,7 +2043,7 @@ This sample creates a static threshold metric alert rule that monitors Percentag
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2061,7 +2058,6 @@ This sample creates a static threshold metric alert rule that monitors Percentag
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -2222,6 +2218,7 @@ This sample creates a static threshold metric alert rule that monitors Percentag
 ### Dynamic Thresholds alert on all virtual machines in a subscription
 This sample creates a Dynamic Thresholds metric alert rule that monitors Percentage CPU for all virtual machines (in one Azure region) in a subscription.
 
+### Template file
 
 ```json
 {
@@ -2328,7 +2325,7 @@ This sample creates a Dynamic Thresholds metric alert rule that monitors Percent
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2527,7 +2524,8 @@ This sample creates a Dynamic Thresholds metric alert rule that monitors Percent
 ### Static threshold alert on a list of virtual machines
 This sample creates a static threshold metric alert rule that monitors Percentage CPU for a list of virtual machines in one Azure region in a subscription.
 
-### Parameter file
+### Template file
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -2633,7 +2631,7 @@ This sample creates a static threshold metric alert rule that monitors Percentag
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2648,7 +2646,6 @@ This sample creates a static threshold metric alert rule that monitors Percentag
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -2813,7 +2810,7 @@ This sample creates a static threshold metric alert rule that monitors Percentag
 ### Dynamic Thresholds alert on a list of virtual machines
 This sample creates a dynamic thresholds metric alert rule that monitors Percentage CPU for a list of virtual machines in one Azure region in a subscription.
 
-### Parameter file
+### Template file
 
 ```json
 {
@@ -2920,7 +2917,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -3209,7 +3206,6 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
         ],
         "evaluationFrequency": "PT1M",
         "windowSize": "PT5M",
-        "templateType": 0,
         "criteria": {
           "odata.type": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
           "webTestId": "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]",

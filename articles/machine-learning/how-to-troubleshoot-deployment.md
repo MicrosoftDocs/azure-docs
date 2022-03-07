@@ -53,6 +53,8 @@ The first step in debugging errors is to get your deployment logs. First, follow
 
 # [Azure CLI](#tab/azcli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 To get the logs from a deployed webservice, do:
 
 ```azurecli
