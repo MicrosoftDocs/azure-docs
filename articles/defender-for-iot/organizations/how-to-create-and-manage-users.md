@@ -285,6 +285,8 @@ You can recover the password for the on-premises management console, or the sens
 
 ## Next steps
 
-[Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
-[Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
-[Track sensor activity](how-to-track-sensor-activity.md)
+- [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
+
+- [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
+
+- [Track sensor activity](how-to-track-sensor-activity.md)
