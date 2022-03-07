@@ -2687,6 +2687,8 @@
         href: jive-provisioning-tutorial.md
       - name: Jostle
         href: jostle-provisioning-tutorial.md
+      - name: Joyn FSM
+        href: joyn-fsm-provisioning-tutorial.md
       - name: Juno Journey
         href: juno-journey-provisioning-tutorial.md
       - name: Klaxoon
