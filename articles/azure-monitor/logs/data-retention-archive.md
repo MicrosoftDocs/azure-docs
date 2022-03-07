@@ -149,7 +149,7 @@ To get all table-level retention policies in your workspace, don't set a table n
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
 ```
 
-# [CLI](#tab/cli-1)
+# [CLI](#tab/cli-2)
 
 To get the retention policy of a particular table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
 
