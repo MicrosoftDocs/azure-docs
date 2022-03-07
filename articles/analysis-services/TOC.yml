@@ -12,7 +12,7 @@
     href: analysis-services-create-powershell.md
   - name: Create a server - Bicep
     displayName: Resource Manager, ARM, Bicep
-    href: analysis-services-create-bicep.md
+    href: analysis-services-create-bicep-file.md
   - name: Create a server - ARM template
     displayName: Resource Manager
     href: analysis-services-create-template.md

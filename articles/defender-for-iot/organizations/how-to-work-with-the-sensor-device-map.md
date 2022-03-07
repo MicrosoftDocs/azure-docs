@@ -42,7 +42,7 @@ The following basic search tools are available:
 
 When you search by IP or MAC address, the map displays the device that you searched for with devices connected to it.
 
-:::image type="content" source="media/how-to-work-with-maps/search-ip-entered.png" alt-text="IP entered in Device map search and displayed in map":::
+:::image type="content" source="media/how-to-work-with-maps/search-ip-entered.png" alt-text="Screenshot of an I P address entered in the Device map search and displayed in the map.":::
 
 ### Group highlight and filters tools
 
@@ -74,7 +74,7 @@ The following predefined groups are available:
 | **Subnets** | Devices that belong to a specific subnet. |
 | **VLAN** | Devices associated with a specific VLAN ID. |
 | **Cross subnet connections** | Devices that communicate from one subnet to another subnet. |
-| **Attack vector simulations** | Vulnerable devices detected in attack vector reports. To view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector. :::image type="content" source="media/how-to-work-with-maps/add-attack-v3.png" alt-text="Add Attack Vector Simulations":::|
+| **Attack vector simulations** | Vulnerable devices detected in attack vector reports. To view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector. :::image type="content" source="media/how-to-work-with-maps/add-attack-v3.png" alt-text="Screenshot of the Add Attack Vector Simulations":::|
 | **Last seen** | Devices grouped by the time frame they were last seen, for example: One hour, six hours, one day, seven days. |
 | **Not In Active Directory** | All non-PLC devices that are not communicating with the Active Directory. |
 
@@ -88,7 +88,7 @@ For information about creating custom groups, see [Define custom groups](#define
 | :::image type="icon" source="media/how-to-work-with-maps/fit-to-selection-icon.png" border="false"::: | Fits a group of selected devices to the center of the screen. |
 | :::image type="icon" source="media/how-to-work-with-maps/collapse-view-icon.png" border="false"::: | IT/OT presentation. Collapse view to enable a focused view on OT devices, and group IT devices.  |
 |:::image type="icon" source="media/how-to-work-with-maps/layouts-icon-v2.png" border="false"::: | Layout options, including: <br />**Pin layout**. Drag devices in the map to a new location and use the Pin option to save those locations when you leave the map to use another option.  <br />**Layout by connection**. View connections between devices. <br />**Layout by Purdue**. View the devices in the map according to Enterprise, supervisory and process control layers. <br /> |
-| :::image type="icon" source="media/how-to-work-with-maps/zoom-in-icon-v2.png" alt-text="Zoom In" border="false"::: :::image type="icon" source="media/how-to-work-with-maps/zoom-out-icon-v2.png" alt-text="Zoom Out" border="false"::: | Zoom in or out of the map. |
+| :::image type="icon" source="media/how-to-work-with-maps/zoom-in-icon-v2.png" border="false"::: :::image type="icon" source="media/how-to-work-with-maps/zoom-out-icon-v2.png"  border="false"::: | Zoom in or out of the map. |
 
 
 ### Map zoom views
@@ -112,7 +112,7 @@ This view provides an at-a-glance view of devices represented as follows:
 
   - Black dots indicate devices with no alerts
 
-    :::image type="content" source="media/how-to-work-with-maps/colored-dots-v2.png" alt-text="Bird eye view" lightbox="media/how-to-work-with-maps/colored-dots-v2.png":::
+    :::image type="content" source="media/how-to-work-with-maps/colored-dots-v2.png" alt-text="Screenshot of a bird eye view of the map." lightbox="media/how-to-work-with-maps/colored-dots-v2.png":::
 
 ### Device type and connection view 
 
@@ -126,14 +126,14 @@ This view presents devices represented as icons on the map.
 
 Overall connections are displayed.
 
-:::image type="content" source="media/how-to-work-with-maps/colored-rings.png" alt-text="connection view" lightbox="media/how-to-work-with-maps/colored-rings.png" :::
+:::image type="content" source="media/how-to-work-with-maps/colored-rings.png" alt-text="Screenshot of the connection view." lightbox="media/how-to-work-with-maps/colored-rings.png" :::
 
 **To view specific connections:**
 
 1. Select a device in the map.
 1. Specific connections between devices are displayed in blue. In addition, you will see connections that cross various Purdue levels.
 
-    :::image type="content" source="media/how-to-work-with-maps/connections-purdue-level.png" alt-text="Detailed view" lightbox="media/how-to-work-with-maps/connections-purdue-level.png" :::
+    :::image type="content" source="media/how-to-work-with-maps/connections-purdue-level.png" alt-text="Screenshot of the detailed map view." lightbox="media/how-to-work-with-maps/connections-purdue-level.png" :::
 
 ### View IT subnets
 
@@ -210,13 +210,13 @@ The following labels and indicators may appear on devices on the map:
 
 | Device label | Description |
 |--|--|
-| :::image type="content" source="media/how-to-work-with-maps/host-v2.png" alt-text="IP host name"::: | IP address host name and IP address, or subnet addresses |
-| :::image type="content" source="media/how-to-work-with-maps/amount-alerts-v2.png" alt-text="Number of alerts"::: | Number of alerts associated with the device |
+| :::image type="content" source="media/how-to-work-with-maps/host-v2.png" alt-text="Screenshot of the I P host name."::: | IP address host name and IP address, or subnet addresses |
+| :::image type="content" source="media/how-to-work-with-maps/amount-alerts-v2.png" alt-text="Screenshot of the number of alerts"::: | Number of alerts associated with the device |
 | :::image type="icon" source="media/how-to-work-with-maps/type-v2.png" border="false"::: | Device type icon, for example storage, PLC or historian. |
-| :::image type="content" source="media/how-to-work-with-maps/grouped-v2.png" alt-text="devices grouped"::: | Number of devices grouped in a subnet in an IT network. In this example 8. |
-| :::image type="content" source="media/how-to-work-with-maps/not-authorized-v2.png" alt-text="device Learning period"::: | A device that was detected after the Learning period and was not authorized as a network device. |
+| :::image type="content" source="media/how-to-work-with-maps/grouped-v2.png" alt-text="Screenshot of devices grouped together."::: | Number of devices grouped in a subnet in an IT network. In this example 8. |
+| :::image type="content" source="media/how-to-work-with-maps/not-authorized-v2.png" alt-text="Screenshot of the device learning period"::: | A device that was detected after the Learning period and was not authorized as a network device. |
 | Solid line | Logical connection between devices |
-| :::image type="content" source="media/how-to-work-with-maps/new-v2.png" alt-text="New device"::: | New device discovered after Learning is complete. |
+| :::image type="content" source="media/how-to-work-with-maps/new-v2.png" alt-text="Screenshot of a new device discovered after learning is complete."::: | New device discovered after Learning is complete. |
 
 ### Device details and contextual information
 
@@ -230,7 +230,7 @@ You can access detailed and contextual information  about a device from the map,
 1. Select **View properties**. 
 1. Navigate to the information you need.
 
- :::image type="content" source="media/how-to-work-with-maps/device-details-from-map.png" alt-text="Device details shown for device selected in map":::
+ :::image type="content" source="media/how-to-work-with-maps/device-details-from-map.png" alt-text="Screenshot of the device details shown for the device selected in map.":::
 
 #### Device details
 
@@ -273,9 +273,9 @@ If a PLC contains multiple modules separated into racks and slots, the character
 
 You can use the Backplane option to review multiple controllers/cards and their nested devices as one entity with various  definitions. Each slot in the Backplane view represents the underlying devices – the devices that were discovered behind it.
 
-:::image type="content" source="media/how-to-work-with-maps/backplane-image-v2.png" alt-text="Backplane Properties":::
+:::image type="content" source="media/how-to-work-with-maps/backplane-image-v2.png" alt-text="Screenshot of the Backplane Properties pane.":::
 
-:::image type="content" source="media/how-to-work-with-maps/backplane-details-v2.png" alt-text="Backplane Device Properties":::
+:::image type="content" source="media/how-to-work-with-maps/backplane-details-v2.png" alt-text="Screenshot of the Backplane Device Properties pane.":::
 
 A Backplane can contain up to 30 controller cards and up to 30 rack units. The total number of devices included in the multiple levels can be up to 200 devices.
 
@@ -285,21 +285,21 @@ Each slot appears with the number of underlying devices and the icon that shows 
 
 | Icon | Module Type |
 |--|--|
-| :::image type="content" source="media/how-to-work-with-maps/power.png" alt-text="Power Supply"::: | Power Supply |
-| :::image type="content" source="media/how-to-work-with-maps/analog.png" alt-text="Analog I/O"::: | Analog I/O |
-| :::image type="content" source="media/how-to-work-with-maps/comms.png" alt-text="Communication Adapter"::: | Communication Adapter |
-| :::image type="content" source="media/how-to-work-with-maps/digital.png" alt-text="Digital I/O"::: | Digital I/O |
-| :::image type="content" source="media/how-to-work-with-maps/computer-processor.png" alt-text="CPU"::: | CPU |
-| :::image type="content" source="media/how-to-work-with-maps/HMI-icon.png" alt-text="HMI"::: | HMI |
-| :::image type="content" source="media/how-to-work-with-maps/average.png" alt-text="Generic"::: | Generic |
+| :::image type="content" source="media/how-to-work-with-maps/power.png" alt-text="Screenshot of the Power Supply icon."::: | Power Supply |
+| :::image type="content" source="media/how-to-work-with-maps/analog.png" alt-text="Screenshot the Analog I/O icon."::: | Analog I/O |
+| :::image type="content" source="media/how-to-work-with-maps/comms.png" alt-text="Screenshot of the Communication Adapter icon."::: | Communication Adapter |
+| :::image type="content" source="media/how-to-work-with-maps/digital.png" alt-text="Screenshot of the Digital I/O icon."::: | Digital I/O |
+| :::image type="content" source="media/how-to-work-with-maps/computer-processor.png" alt-text="Screenshot of the CPU icon."::: | CPU |
+| :::image type="content" source="media/how-to-work-with-maps/HMI-icon.png" alt-text="Screenshot of the HMI icon."::: | HMI |
+| :::image type="content" source="media/how-to-work-with-maps/average.png" alt-text="Screenshot of the Generic icon."::: | Generic |
 
 When you select a slot, the slot details appear:
 
-:::image type="content" source="media/how-to-work-with-maps/slot-selection-v2.png" alt-text="select a slot":::
+:::image type="content" source="media/how-to-work-with-maps/slot-selection-v2.png" alt-text="Screenshot of the slot selection options.":::
 
 To view the underlying devices behind the slot, select **VIEW ON MAP**. The slot is presented in the device map with all the underlying modules and devices connected to it.
 
-:::image type="content" source="media/how-to-work-with-maps/map-appearance-v2.png" alt-text="VIEW ON MAP":::
+:::image type="content" source="media/how-to-work-with-maps/map-appearance-v2.png" alt-text="Screenshot of the map view.":::
 
 
 ## Manage device information from the map
@@ -322,7 +322,7 @@ Certain device properties can be updated manually. Information manually entered 
 1. Select **View properties**.
 1. Select **Edit properties.**
 
-    :::image type="content" source="media/how-to-work-with-maps/edit-config.png" alt-text="Dialog that allows user to edit the device properties":::
+    :::image type="content" source="media/how-to-work-with-maps/edit-config.png" alt-text="Screenshot of the Edit device property pane.":::
 1. Update any of the following:
 
     - Authorized status
@@ -380,7 +380,7 @@ For example, if you merge two devices, each with an IP address, both IP addresse
 
 The event timeline presents the merge event.
 
-:::image type="content" source="media/how-to-work-with-maps/events-time.png" alt-text="The event timeline with merged events.":::
+:::image type="content" source="media/how-to-work-with-maps/events-time.png" alt-text="Screenshot of an event timeline with merged events.":::
 
 You cannot undo a device merge. If you mistakenly merged two devices, delete the device and wait for the sensor to rediscover both.
 
@@ -392,7 +392,7 @@ You cannot undo a device merge. If you mistakenly merged two devices, delete the
 
 3. In the set merge device attributes dialog box, choose a device name.
 
-   :::image type="content" source="media/how-to-work-with-maps/name-the-device-v2.png" alt-text="attributes dialog box":::
+   :::image type="content" source="media/how-to-work-with-maps/name-the-device-v2.png" alt-text="Screenshot of the attributes dialog box.":::
 
 4. Select **Save**.
 
@@ -402,7 +402,7 @@ During the Learning period, all the devices discovered in the network are identi
 
 When a device is discovered after the Learning period, it appears as an unauthorized device. In addition to seeing unauthorized devices in the map, you can also see them in the Device Inventory.
 
-:::image type="content" source="media/how-to-work-with-maps/inventory-icon.png" alt-text="Device Inventory":::
+:::image type="content" source="media/how-to-work-with-maps/inventory-icon.png" alt-text="Screenshot of the Device Inventory icon.":::
 
 **New device vs unauthorized**
 
@@ -416,11 +416,11 @@ Unauthorized devices are included in Risk Assessment reports and Attack Vectors 
 
 - **Attack Vector Reports:** Devices marked as unauthorized are resolved in the Attack Vector as suspected rogue devices that might be a threat to the network.
 
-   :::image type="content" source="media/how-to-work-with-maps/attack-vector-reports.png" alt-text="View your attack vector reports.":::
+   :::image type="content" source="media/how-to-work-with-maps/attack-vector-reports.png" alt-text="Screenshot of the attack vector reports.":::
 
 - **Risk Assessment Reports:** Devices marked as unauthorized are identified in Risk Assessment reports.
 
-    :::image type="content" source="media/how-to-work-with-maps/unauthorized-risk-assessment-report.png" alt-text="A Risk Assessment report showing an unauthorized device":::
+    :::image type="content" source="media/how-to-work-with-maps/unauthorized-risk-assessment-report.png" alt-text="Screenshot of a Risk Assessment report showing an unauthorized device.":::
 
 **To authorize or unauthorize devices manually:**
 
@@ -448,8 +448,8 @@ Important devices are calculated when generating Risk Assessment reports and Att
 
 Devices you mark as important on your sensor are also marked as important in the Device inventory on the Defender for IoT portal on Azure.
 
-:::image type="content" source="media/how-to-work-with-maps/important-devices-on-cloud.png" alt-text="Device inventory on cloud showing important devices" lightbox="media/how-to-work-with-maps/important-devices-on-cloud.png":::
+:::image type="content" source="media/how-to-work-with-maps/important-devices-on-cloud.png" alt-text="Screenshot of the Device inventory page in the Azure portal showing important devices." lightbox="media/how-to-work-with-maps/important-devices-on-cloud.png":::
 
-## See also
+## Next steps
 
-[Investigate sensor detections in a Device Inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+For more information, see [Investigate sensor detections in a Device Inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md).

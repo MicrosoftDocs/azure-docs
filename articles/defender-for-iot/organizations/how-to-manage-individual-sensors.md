@@ -348,8 +348,10 @@ To access system properties:
 
 3. Select **System Properties** from the **General** section.
 
-## See also
+## Next steps
 
-[Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+For more information, see:
 
-[Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)

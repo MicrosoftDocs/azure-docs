@@ -331,6 +331,6 @@ To restore by using the CLI:
 
 1. Set `Backup.shared_location` to `<backup_folder_name_on_cyberx_server>`.
 
-## See also
+## Next steps
 
-[Manage individual sensors](how-to-manage-individual-sensors.md)
+For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
