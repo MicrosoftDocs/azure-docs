@@ -34,7 +34,7 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize
 https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 ```
 
-If you need support for vanity domains this can be enabled as an additional feature while still complying with the protocol standards: [Enable custom domains for Azure Active Directory B2C](custom-domain)
+If you're using a [custom domain](custom-domain.md), replace `{tenant}.b2clogin.com` with the custom domain, such as `contoso.com`, in the endpoints.  
 
 In nearly all OAuth and OpenID Connect flows, four parties are involved in the exchange:
 
