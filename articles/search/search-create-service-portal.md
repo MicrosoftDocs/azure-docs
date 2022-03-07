@@ -178,8 +178,8 @@ Cognitive Search restricts the [number of resources](search-limits-quotas-capaci
 4. Select the subscription that needs more quota.
 5. Under **Quota type**, select **Search**. Then select **Next**.
 6. In the **Problem details** section, select **Enter details**.
-7. Follow the prompts to select location, Tier or SKU supported in the region selected
-8. Add the new limit you would like on the subscription. (The value must not be empty and must between 0 to 100).
+7. Follow the prompts to select location and Tier.
+8. Add the new limit you would like on the subscription. The value must not be empty and must between 0 to 100.
    For example: The maximum number of S2 services is 8 and you would like to have 12 services, then request to add 4 of S2 services."
 9. When you're finished, select **Save and continue** to continue creating your support request.
 10. Complete the rest of the additional information requested, and then select **Next**.
