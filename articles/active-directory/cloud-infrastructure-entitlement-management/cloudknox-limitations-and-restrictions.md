@@ -18,7 +18,6 @@ CloudKnox Permissions Management public preview is currently available in North 
  
 
 
-
 ## Next steps
 
 - For the full set of Microsoft Azure service limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
