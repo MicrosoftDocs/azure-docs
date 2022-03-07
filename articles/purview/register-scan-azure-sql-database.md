@@ -16,7 +16,7 @@ This article outlines the process to register an Azure SQL data source in Azure 
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No | [Yes](#lineage)** |
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No | [Yes](#lineage)(Preview)** |
 
 \** Lineage is also supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -25,7 +25,7 @@ This article outlines the process to register an Azure SQL data source in Azure 
 ### Known limitations
 
 * Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 300 columns.
-* Column level lineage is currently not supported
+* Column level lineage is currently not supported in the lineage tab. However, the columnMapping attribute in properties tab of Azure SQL Stored Procedure Run captures column lineage in plain text.
 * Stored procedures with dynamic SQL, running from remote data integration tools like Azure Data Factory is currently not supported
 * Data lineage extraction is currently not supported for Functions, Triggers.
 * Lineage extraction scan is scheduled and defaulted to run every six hours. Frequency cant be changed
@@ -403,6 +403,7 @@ You can [browse data catalog](how-to-browse-catalog.md) or [search data catalog]
 
 * If no lineage is captured after a successful **Lineage extraction** run, it is possible that no stored procedures have run at least once since the scan is set up.
 * Lineage is captured for stored procedure runs that happened after a successful scan is setup. Lineage from past Stored procedure runs are not captured.
+* If your database is processing heavy workloads with lots of stored procedure runs, lineage extraction will filter only the most recent runs. Stored procedure runs early in the 6 hour window or the run instances that creates heavy query load will not be extracted. Contact support if you are missing lineage from any stored procedure runs.
 
 
 ## Next steps
