@@ -84,6 +84,7 @@ Status code: 202 accepted.
 
 
 ## Get search job status and details
+
 Call the **Tables - Get** API to get the status and details of a search job:
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
@@ -105,7 +106,7 @@ This example retrieves the table status for the search job in the previous examp
 
 **Request**
 ```http
-GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/Syslog_SRCH?2021-07-01-privatepreview
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/Syslog_SRCH?api-version=2021-12-01-preview
 ```
 
 **Response**<br>
