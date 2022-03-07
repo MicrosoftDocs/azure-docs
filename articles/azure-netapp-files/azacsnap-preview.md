@@ -188,7 +188,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
    connection string. If the connection information changes, it's a matter of changing the `tnsnames.ora` file instead 
    of potentially many datasource definitions.
    
-   Set up the Oracle Wallet (change the password) This example uses the mkstore command from the Linux shell to set up the Oracle wallet. Theses commands 
+   Set up the Oracle Wallet (change the password) This example uses the mkstore command from the Linux shell to set up the Oracle wallet. These commands 
    are run on the Oracle database server using unique user credentials to avoid any impact on the running database. In this example a new user (azacsnap) 
    is created, and their environment variables configured appropriately.
    
