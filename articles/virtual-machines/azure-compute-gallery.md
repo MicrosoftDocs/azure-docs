@@ -26,18 +26,43 @@ An Azure Compute Gallery helps you build structure and organization around your 
 
 With a gallery, you can share your resources to everyone, or limit sharing to different users, service principals, or AD groups within your organization. Resources can be replicated to multiple regions, for quicker scaling of your deployments.
 
+## Community Galleries (preview)
+
+> [!IMPORTANT]
+> Community Galleries is currently in public preview.
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+Community Galleries is a new capability in Azure Compute Gallery to support making public galleries, which lets you make your images and artifacts available publicly to all Azure customers. Only an owner of a subscription can enable their gallery to go Public to the community. When an ACG is marked as community-enabled, all images and artifacts under the gallery become available to all Azure customers as a new resource type called Microsoft.Compute/communityGalleries. All Azure customers can see them and use them to create VMs, disks (coming soon), etc. Note that your original resources of type `Microsoft.Compute/galleries` is still under your subscription, and private. You can continue to use it as you did before.
+
+Be aware that Microsoft does not provide support for images in the Community Galleries.
+
 ## Images 
 
+For more information about storing images in an Azure Compute Gallery, see [Store and share images in an Azure Compute Gallery](shared-image-galleries.md).
 
 ## VM apps
 
-For more information about storing applications in an Azure Compute Gallery, see [VM Applications](vm-applications.md)
+While you can create an image of a VM with apps pre-installed, you would need to update your image each time you have application changes. Separating your application installation from your VM images means there’s no need to publish a new image for every line of code change.
+
+For more information about storing applications in an Azure Compute Gallery, see [VM Applications](vm-applications.md).
 
 
 ## Regional Support
 
 All public regions can be target regions, but certain regions require that customers go through a request process in order to gain access. To request that a subscription is added to the allowlist for a region such as Australia Central or Australia Central 2, submit [an access request](/troubleshoot/azure/general/region-access-request-process)
 
+## Limits 
+
+There are limits, per subscription, for deploying resources using Azure Compute Galleries:
+- 100 galleries, per subscription, per region
+- 1,000 image definitions, per subscription, per region
+- 10,000 image versions, per subscription, per region
+- 10 image version replicas, per subscription, per region
+- Any disk attached to the image must be less than or equal to 1TB in size
+
+For more information, see [Check resource usage against limits](../networking/check-usage-against-limits.md) for examples on how to check your current usage.
  
 ## Scaling
 Azure Compute Gallery allows you to specify the number of replicas you want to keep. This helps in multi-VM deployment scenarios as the VM deployments can be spread to different replicas reducing the chance of instance creation processing being throttled due to overloading of a single replica.

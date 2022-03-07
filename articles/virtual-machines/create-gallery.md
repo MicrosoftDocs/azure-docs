@@ -52,6 +52,10 @@ az group create --name myGalleryRG --location eastus
 az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
+**Create a Community Gallery**
+
+
+
 ### [PowerShell](#tab/powershell)
 
 Create a gallery using [New-AzGallery](/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
@@ -90,6 +94,31 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     "description": "Azure Compute Gallery for my organization"
   },
   "location": "eastus",
+}
+```
+
+**Create a community gallery**
+
+```rest
+PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName?api-version=2021-10-01
+```
+
+Request Body
+```json
+{
+  "location": "West US",
+  "properties": {
+    "description": "This is the gallery description.",
+    "sharingProfile": {
+      "permissions": "Community",
+      "communityGalleryInfo": {
+        "publisherUri": "uri",
+        "publisherContact": "pir@microsoft.com",
+        "eula": "eula",
+        "publicNamePrefix": "PirPublic"
+      }
+    }
+  }
 }
 ```
 ---

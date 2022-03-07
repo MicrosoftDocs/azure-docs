@@ -15,25 +15,9 @@ ms.reviewer: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-
-Azure Compute Gallery now includes the existing Shared Image Gallery service and the new [VM Applications](vm-applications.md) features and capabilities.  
-
-An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and [applications](vm-applications.md). An Azure Compute Gallery provides:
-- Global replication.
-- Versioning and grouping of resources for easier management.
-- Highly available resources with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
-- Premium storage support (Premium_LRS).
-- Sharing across subscriptions, and even between Active Directory (AD) tenants, using Azure RBAC.
-- Scaling your deployments with resource replicas in each region.
-
-With a gallery, you can share your resources to different users, service principals, or AD groups within your organization. Resources can be replicated to multiple regions, for quicker scaling of your deployments.
-
-For more information about storing applications in an Azure Compute Gallery, see [VM Applications](vm-applications.md)
-
-## Image management
 An image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how it is created. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The image remains in storage and can be used over and over again to create new VMs.
 
-If you have a large number of images that you need to maintain, and would like to make them available throughout your company, you can use an Azure Compute Gallery as a repository. 
+If you have a large number of images that you need to maintain, and would like to make them available throughout your company, you can use an [Azure Compute Gallery](azure-compute-gallery.md) as a repository. 
 
 When you use a gallery to store images, multiple resource types are created:
 
@@ -103,68 +87,6 @@ Specialized VMs have not been through a process to remove machine specific infor
 - Accounts that could be used to log into the VM can also be used on any VM created using the specialized image that is created from that VM.
 - VMs will have the **Computer name** of the VM the image was taken from. You should change the computer name to avoid collisions.
 - The `osProfile` is how some sensitive information is passed to the VM, using `secrets`. This may cause issues using KeyVault, WinRM and other functionality that uses `secrets` in the `osProfile`. In some cases, you can use managed service identities (MSI) to work around these limitations.
-
-## Regional Support
-
-All public regions can be target regions, but certain regions require that customers go through a request process in order to gain access. To request that a subscription is added to the allowlist for a region such as Australia Central or Australia Central 2, submit [an access request](/troubleshoot/azure/general/region-access-request-process)
-
-## Limits 
-
-There are limits, per subscription, for deploying resources using Azure Compute Galleries:
-- 100 galleries, per subscription, per region
-- 1,000 image definitions, per subscription, per region
-- 10,000 image versions, per subscription, per region
-- 10 image version replicas, per subscription, per region
-- Any disk attached to the image must be less than or equal to 1TB in size
-
-For more information, see [Check resource usage against limits](../networking/check-usage-against-limits.md) for examples on how to check your current usage.
- 
-## Scaling
-Azure Compute Gallery allows you to specify the number of replicas you want Azure to keep of the images. This helps in multi-VM deployment scenarios as the VM deployments can be spread to different replicas reducing the chance of instance creation processing being throttled due to overloading of a single replica.
-
-With Azure Compute Gallery, you can now deploy up to a 1,000 VM instances in a virtual machine scale set (up from 600 with managed images). Image replicas provide for better deployment performance, reliability and consistency.  You can set a different replica count in each target region, based on the scale needs for the region. Since each replica is a deep copy of your image, this helps scale your deployments linearly with each extra replica. While we understand no two images or regions are the same, here's our general guideline on how to use replicas in a region:
-
-- For non-Virtual Machine Scale Set deployments - For every 20 VMs that you create concurrently, we recommend you keep one replica. For example, if you are creating 120 VMs concurrently using the same image in a region, we suggest you keep at least 6 replicas of your image. 
-- For Virtual Machine Scale Set deployments - For each scale set you create concurrently, we recommend you keep one replica.
-
-We always recommend you to overprovision the number of replicas due to factors like image size, content and OS type.
-
-![Graphic showing how you can scale images](./media/shared-image-galleries/scaling.png)
-
-## Make your images highly available
-
-[Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) provides resilience against an Availability Zone failure in the region. With the general availability of Azure Compute Gallery, you can choose to store your images in ZRS accounts in regions with Availability Zones. 
-
-You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. For more information on regional availability of ZRS, see [Data redundancy](../storage/common/storage-redundancy.md).
-
-![Graphic showing ZRS](./media/shared-image-galleries/zrs.png)
-
-## Replication
-Azure Compute Gallery also allows you to replicate your images to other Azure regions automatically. Each image version can be replicated to different regions depending on what makes sense for your organization. One example is to always replicate the latest image in multi-regions while all older versions are only available in 1 region. This can help save on storage costs for image versions. 
-
-The regions an image version is replicated to can be updated after creation time. The time it takes to replicate to different regions depends on the amount of data being copied and the number of regions the version is replicated to. This can take a few hours in some cases. While the replication is happening, you can view the status of replication per region. Once the image replication is complete in a region, you can then deploy a VM or scale-set using that image version in the region.
-
-![Graphic showing how you can replicate images](./media/shared-image-galleries/replication.png)
-
-## Access
-
-As the Azure Compute Gallery, Image Definition, and Image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the image version, they can deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
-
-| Shared with User     | Azure Compute Gallery | Image Definition | Image version |
-|----------------------|----------------------|--------------|----------------------|
-| Azure Compute Gallery | Yes                  | Yes          | Yes                  |
-| Image Definition     | No                   | Yes          | Yes                  |
-
-We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
-
-Images can also be shared, at scale, even across tenants using a multi-tenant app registration. For more information about sharing images across tenants, see "Share gallery VM images across Azure tenants" using the [Azure CLI](./linux/share-images-across-tenants.md) or [PowerShell](./windows/share-images-across-tenants.md).
-
-## Billing
-There is no extra charge for using the Azure Compute Gallery service. You will be charged for the following resources:
-- Storage costs of storing each replica. The storage cost is charged as a snapshot and is based on the occupied size of the image version, the number of replicas of the image version and the number of regions the version is replicated to. 
-- Network egress charges for replication of the first image version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no additional charges. 
-
-For example, let's say you have an image of a 127 GB OS disk, that only occupies 10GB of storage, and one empty 32 GB data disk. The occupied size of each image would only be 10 GB. The image is replicated to 3 regions and each region has two replicas. There will be six total snapshots, each using 10GB. You will be charged the storage cost for each snapshot based on the occupied size of 10 GB. You will pay network egress charges for the first replica to be copied to the additional two regions. For more information on the pricing of snapshots in each region, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). For more information on network egress, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 
 ## Updating resources
