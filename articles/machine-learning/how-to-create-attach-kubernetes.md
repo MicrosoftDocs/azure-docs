@@ -499,7 +499,7 @@ kubectl delete cm azuremlfeconfig
 
 When trying to create or attach an AKS cluster, you may receive a message that the request has been denied because "Load Balancers should not have public IPs". This message is returned when an administrator has applied a policy that prevents using an AKS cluster with a public IP address.
 
-To resolve this problem, create/attach the cluster by using the `load_balancer_type` and `load_balancer_subnet` parameters. For more information, see  [Internal Load Balancer (private IP)](n#create-or-attach-an-aks-cluster-to-use-internal-load-balancer-with-private-ip).
+To resolve this problem, create/attach the cluster by using the `load_balancer_type` and `load_balancer_subnet` parameters. For more information, see  [Internal Load Balancer (private IP)](#create-or-attach-an-aks-cluster-to-use-internal-load-balancer-with-private-ip).
 
 ## Next steps
 
