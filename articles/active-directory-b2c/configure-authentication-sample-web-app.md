@@ -113,7 +113,7 @@ Under the project root folder, open the *appsettings.json* file. This file conta
 |---------|---------|---------|
 |AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
 |AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
-|AzureAdB2C|ClientId| The web API application ID from [step 2](#step-2-register-a-web-application).|
+|AzureAdB2C|ClientId| The Web App Application (client) ID from [step 2](#step-2-register-a-web-application).|
 |AzureAdB2C|SignUpSignInPolicyId|The user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
 
 Your final configuration file should look like the following JSON:

@@ -175,9 +175,9 @@ To attach a disk with Write Accelerator enabled use [az vm disk attach](/cli/azu
 
 To disable Write Accelerator, use [az vm update](/cli/azure/vm#az_vm_update), setting the properties to false: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
-## Enabling Write Accelerator using Rest APIs
+## Enabling Write Accelerator using REST APIs
 
-To deploy through Azure Rest API, you need to install the Azure armclient.
+To deploy through Azure REST API, you need to install the Azure armclient.
 
 ### Install armclient
 
