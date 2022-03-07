@@ -124,31 +124,31 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 
 1. Install the **root CA certificate** on this IoT Edge device.
 
-  * Debian/Ubuntu
-    ```bash
-    sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
-    ```
+    * Debian/Ubuntu
+      ```bash
+      sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
+      ```
 
-  * IoT Edge for Linux on Windows (EFLOW)
-     ```bash
-     sudo cp <path>/<root ca certificate>.pem /etc/pki/ca-trust/source/anchors/<root ca certificate>.pem.crt
-     ```
+    * IoT Edge for Linux on Windows (EFLOW)
+      ```bash
+      sudo cp <path>/<root ca certificate>.pem /etc/pki/ca-trust/source/anchors/<root ca certificate>.pem.crt
+      ```
 
 1. Update the certificate store.
 
-  * Debian/Ubuntu
-    ```bash
-    sudo update-ca-certificates
-    ```
+    * Debian/Ubuntu
+      ```bash
+      sudo update-ca-certificates
+      ```
 
 
-  * IoT Edge for Linux on Windows (EFLOW)
-    ```bash
-    sudo update-ca-trust
-    ```
-    For more information, check [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
+    * IoT Edge for Linux on Windows (EFLOW)
+      ```bash
+      sudo update-ca-trust
+      ```
+      For more information, check [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
   
-  This command should output that one certificate was added to /etc/ssl/certs.
+    This command should output that one certificate was added to /etc/ssl/certs.
 
 1. Open the IoT Edge configuration file.
 
