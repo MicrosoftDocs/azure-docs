@@ -48,7 +48,7 @@ Depending on the ExpressRoute connectivity model, network points 3 and 4 might b
 
 In the direct connectivity model, there are no network points 3 and 4. Instead, CEs (2) are directly connected to MSEEs via dark fiber.
 
-If the cloud exchange co-location, point-to-point Ethernet, or direct connectivity models are used, CEs (2) establish Border Gateway Protocol (BGP) peering with MSEEs (5). 
+If the cloud exchange co-location, point-to-point Ethernet, or direct connectivity model is used, CEs (2) establish Border Gateway Protocol (BGP) peering with MSEEs (5). 
 
 If the any-to-any (IPVPN) connectivity model is used, PE-MSEEs (4) establish BGP peering with MSEEs (5). PE-MSEEs propagate the routes received from Microsoft back to the customer network via the IPVPN service provider network.
 
@@ -59,14 +59,14 @@ The following sections represent the logical steps in troubleshooting an Express
 
 ## Verify circuit provisioning and state
 
-Provisioning an ExpressRoute circuit establishes a redundant Layer 2 connections between CEs/PE-MSEEs (2)/(4) and MSEEs (5). For more information on how to create, modify, provision, and verify an ExpressRoute circuit, see the article [Create and modify an ExpressRoute circuit][CreateCircuit].
+Provisioning an ExpressRoute circuit establishes a redundant Layer 2 connection between CEs/PE-MSEEs (2/4) and MSEEs (5). For more information on how to create, modify, provision, and verify an ExpressRoute circuit, see the article [Create and modify an ExpressRoute circuit][CreateCircuit].
 
 >[!TIP]
 >A service key uniquely identifies an ExpressRoute circuit. If you need assistance from Microsoft or from an ExpressRoute partner to troubleshoot an ExpressRoute issue, provide the service key to readily identify the circuit.
 
 ### Verification via the Azure portal
 
-In the Azure portal, open the page for the ExpressRoute circuit. In the ![3][3] section of the page, the ExpressRoute essentials are listed as shown in the following screenshot:
+In the Azure portal, open the page for the ExpressRoute circuit. The ![3][3] section of the page lists the ExpressRoute essentials, as shown in the following screenshot:
 
 ![4][4]    
 
@@ -121,7 +121,7 @@ Peerings                         : []
 Authorizations                   : []
 ```
 
-To confirm if an ExpressRoute circuit is operational, pay particular attention to the following fields:
+To confirm that an ExpressRoute circuit is operational, pay particular attention to the following fields:
 
 ```output
 CircuitProvisioningState         : Enabled
@@ -133,7 +133,7 @@ ServiceProviderProvisioningState : Provisioned
 
 ## Validate peering configuration
 
-After the service provider has completed provisioning the ExpressRoute circuit, multiple routing configurations based on external BGP (eBGP) can be created over the ExpressRoute circuit between CEs/MSEE-PEs (2)/(4) and MSEEs (5). Each ExpressRoute circuit can have one or both of the following: 
+After the service provider has completed provisioning the ExpressRoute circuit, multiple routing configurations based on external BGP (eBGP) can be created over the ExpressRoute circuit between CEs/MSEE-PEs (2/4) and MSEEs (5). Each ExpressRoute circuit can have one or both of the following: 
 
 - Azure private peering: traffic to private virtual networks in Azure
 - Microsoft peering: traffic to public endpoints of platform as a service (PaaS) and software as a service (SaaS) 
@@ -145,7 +145,7 @@ For more information on how to create and modify routing configuration, see the 
 > [!NOTE]
 > In an IPVPN connectivity model, service providers handle the responsibility of configuring the peerings (layer 3 services). In such a model, after the service provider has configured a peering and if the peering is blank in the portal, try refreshing the circuit configuration by using the refresh button on the portal. This operation will pull the current routing configuration from your circuit.
 
-In the Azure portal, you can check the status of an ExpressRoute circuit on the page for that circuit. In the ![3][3] section of the page, ExpressRoute peerings are listed as shown in the following screenshot:
+In the Azure portal, you can check the status of an ExpressRoute circuit on the page for that circuit. The ![3][3] section of the page lists the ExpressRoute peerings, as shown in the following screenshot:
 
 ![5][5]
 
@@ -154,7 +154,7 @@ In the preceding example, Azure private peering is provisioned, but Azure public
 > [!NOTE]
 > If enabling a peering fails, check if the assigned primary and secondary subnets match the configuration on the linked CE/PE-MSEE. Also check if the correct `VlanId`, `AzureASN`, and `PeerASN` values are used on MSEEs, and if these values map to the ones used on the linked CE/PE-MSEE. 
 >
-> If MD5 hashing is chosen, the shared key should be same on MSEE and PE-MSEE/CE pair. Previously configured shared keys would not be displayed for security reasons. 
+> If MD5 hashing is chosen, the shared key should be the same on MSEE and the PE-MSEE/CE pair. Previously configured shared keys would not be displayed for security reasons. 
 >
 > If you need to change any of these configurations on an MSEE router, see [Create and modify routing for an ExpressRoute circuit][CreatePeering].
 
@@ -219,7 +219,7 @@ At line:1 char:1
 > [!NOTE]
 > If enabling a peering fails, check if the assigned primary and secondary subnets match the configuration on the linked CE/PE-MSEE. Also check if the correct `VlanId`, `AzureASN`, and `PeerASN` values are used on MSEEs, and if these values map to the ones used on the linked CE/PE-MSEE. 
 > 
-> If MD5 hashing is chosen, the shared key should be same on MSEE and PE-MSEE/CE pair. Previously configured shared keys would not be displayed for security reasons. 
+> If MD5 hashing is chosen, the shared key should be the same on MSEE and the PE-MSEE/CE pair. Previously configured shared keys would not be displayed for security reasons. 
 >
 > If you need to change any of these configurations on an MSEE router, see [Create and modify routing for an ExpressRoute circuit][CreatePeering]. 
 
@@ -231,7 +231,7 @@ At line:1 char:1
 The Address Resolution Protocol (ARP) table provides a mapping of the IP address and MAC address for a particular peering. The ARP table for an ExpressRoute circuit peering provides the following information for each interface (primary and secondary):
 
 * Mapping of the IP address for the on-premises router interface to the MAC address
-* Mapping of IP address for the ExpressRoute router interface to the MAC address
+* Mapping of the IP address for the ExpressRoute router interface to the MAC address
 * Age of the mapping
 
 ARP tables can help validate Layer 2 configuration and troubleshoot basic Layer 2 connectivity issues.
@@ -269,7 +269,7 @@ Path    : 123##
 ```
 
 > [!NOTE]
-> If the state of a eBGP peering between an MSEE and a CE/PE-MSEE is **Active** or **Idle**, check if the assigned primary and secondary peer subnets match the configuration on the linked CE/PE-MSEE. Also check if the correct `VlanId`, `AzureASN`, and `PeerASN` values are used on MSEEs, and if these values map to the ones used on the linked PE-MSEE/CE. If MD5 hashing is chosen, the shared key should be same on MSEE and CE/PE-MSEE pair. If you need to change any of these configurations on an MSEE router, see [Create and modify routing for an ExpressRoute circuit][CreatePeering].
+> If the state of a eBGP peering between an MSEE and a CE/PE-MSEE is **Active** or **Idle**, check if the assigned primary and secondary peer subnets match the configuration on the linked CE/PE-MSEE. Also check if the correct `VlanId`, `AzureASN`, and `PeerASN` values are used on MSEEs, and if these values map to the ones used on the linked PE-MSEE/CE. If MD5 hashing is chosen, the shared key should be the same on MSEE and the CE/PE-MSEE pair. If you need to change any of these configurations on an MSEE router, see [Create and modify routing for an ExpressRoute circuit][CreatePeering].
 
 > [!NOTE]
 > If certain destinations are not reachable over a peering, check the route table of the MSEEs for the corresponding peering context. If a matching prefix (could be NATed IP) is present in the routing table, then check if any firewalls, network security groups, or access control lists (ACLs) on the path are blocking the traffic.
@@ -297,7 +297,7 @@ PrimaryBytesIn PrimaryBytesOut SecondaryBytesIn SecondaryBytesOut
      240780020       239863857        240565035         239628474
 ```
 
-Here's an example output of the command for a non-existent peering:
+Here's an example output of the command for a nonexistent peering:
 
 ```azurepowershell
 Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
@@ -306,7 +306,7 @@ StatusCode: 400
 
 ## Test private peering connectivity
 
-Test your private peering connectivity by counting packets arriving and leaving the Microsoft edge of your ExpressRoute circuit on the MSEE devices. This diagnostic tool works by applying an ACL to the MSEE to count the number of packets that hit specific ACL rules. Using this tool will allow you to confirm connectivity by answering questions such as:
+Test your private peering connectivity by counting packets arriving at and leaving the Microsoft edge of your ExpressRoute circuit on the MSEE devices. This diagnostic tool works by applying an ACL to the MSEE to count the number of packets that hit specific ACL rules. Using this tool will allow you to confirm connectivity by answering questions such as:
 
 * Are my packets getting to Azure?
 * Are they getting back to on-premises?
@@ -321,9 +321,9 @@ Test your private peering connectivity by counting packets arriving and leaving 
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/connectivity-issues.png" alt-text="Screenshot of the option for connectivity issues.":::
 
-1. In the **Tell us more about the problem you are experiencing** drop-down list, select **Connectivity to Azure Private, Azure Public or Dynamics 365 services**.
+1. In the **Tell us more about the problem you are experiencing** dropdown list, select **Connectivity to Azure Private, Azure Public or Dynamics 365 services**.
 
-    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/tell-us-more.png" alt-text="Screenshot of the drop-down option for the problem that the user is experiencing.":::
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/tell-us-more.png" alt-text="Screenshot of the dropdown option for the problem that the user is experiencing.":::
 
 1. Scroll down to the **Test your private peering connectivity** section and expand it.
 
@@ -333,16 +333,16 @@ Test your private peering connectivity by counting packets arriving and leaving 
 
 1. Fill out the fields of the form. Be sure to enter the same on-premises and Azure IP addresses that you used in step 5. Then select **Submit** and wait for your results to load. 
 
-    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/form.png" alt-text="Screenshot of form for debugging an A C L.":::
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/form.png" alt-text="Screenshot of the form for debugging an A C L.":::
 
 ### Interpret results
 
 When your results are ready, you'll have two sets of them for the primary and secondary MSEE devices. Review the number of matches in and out, and use the following scenarios to interpret the results:
 
 * **You see packet matches sent and received on both MSEEs**: This result indicates healthy traffic inbound to and outbound from the MSEE on your circuit. If loss is occurring either on-premises or in Azure, it's happening downstream from the MSEE.
-* **If you're testing PsPing from on-premises to Azure, *(received)* results show matches, but *sent* results show no matches**: This result indicates that traffic is coming in to Azure but isn't returning to on-premises. Check for return-path routing issues. For example, are you advertising the appropriate prefixes to Azure? Is a UDR overriding prefixes?
-* **If you're testing PsPing from Azure to on-premises, *(sent)* results show no matches, but *(received)* results show matches**: This result indicates that traffic is coming in to on-premises but isn't returning to Azure. Work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
-* **One MSEE shows no matches, buy the other shows good matches**: This result indicates that one MSEE isn't receiving or passing any traffic. It could be offline (for example, BGP/ARP is down).
+* **If you're testing PsPing from on-premises to Azure, received results show matches, but sent results show no matches**: This result indicates that traffic is coming in to Azure but isn't returning to on-premises. Check for return-path routing issues. For example, are you advertising the appropriate prefixes to Azure? Is a user-defined route (UDR) overriding prefixes?
+* **If you're testing PsPing from Azure to on-premises, sent results show no matches, but received results show matches**: This result indicates that traffic is coming in to on-premises but isn't returning to Azure. Work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
+* **One MSEE shows no matches, but the other shows good matches**: This result indicates that one MSEE isn't receiving or passing any traffic. It might be offline (for example, BGP/ARP is down).
 
 Your test results for each MSEE device will look like the following example:
 
@@ -357,7 +357,7 @@ This test result has the following properties:
 * On-premises IP address CIDR: 10.0.0.0
 * Azure IP address CIDR: 20.0.0.0
 
-## Verify virtual network gateway availability
+## Verify availability of the virtual network gateway
 
 The ExpressRoute virtual network gateway facilitates the management and control plane connectivity to private link services and private IPs deployed to an Azure virtual network. The virtual network gateway infrastructure is managed by Microsoft and sometimes undergoes maintenance. 
 
@@ -365,7 +365,7 @@ During a maintenance period, performance of the virtual network gateway might be
 
 1. Select **Diagnose and solve problems** from your ExpressRoute circuit in the Azure portal.
 
-    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/diagnose-problems.png" alt-text="Screenshot of the button for diagnosing and solving problem from ExpressRoute circuit.":::
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/diagnose-problems.png" alt-text="Screenshot of the button for diagnosing and solving problem from an ExpressRoute circuit.":::
 
 1. Select the **Performance Issues** option.
 
