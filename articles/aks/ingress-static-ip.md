@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller with a static public IP address that uses Let's Encrypt for automatic TLS certificate generation in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 03/07/2022
 
 
 #Customer intent: As a cluster operator or developer, I want to use an ingress controller with a static IP address to handle the flow of incoming traffic and secure my apps using automatically generated TLS certificates.
