@@ -11,14 +11,14 @@ manager: femila
 
 Azure Virtual Desktop helps users host client sessions on their session hosts running on Azure. When a user starts a session, they connect from their end-user device, also known as a "client," over a network to access the session host. It's important that the user experience feels as much like a local session on a physical device as possible. In this article, we'll talk about how you can measure and improve the connection quality of your end-users.
 
-There are three ways you can analyze connection quality in your Azure Virtual Desktop deployment: Azure Log Analytics, the Azure Virtual Desktop Experience Estimator tool, and Azure Front Door. This article will describe how to use each method to optimize latency and improve end-user experience.
+There are three ways you can analyze connection quality in your Azure Virtual Desktop deployment: Azure Log Analytics, the Azure Virtual Desktop Experience Estimator tool, and Azure Front Door. This article will describe how to use each method to optimize graphics quality and improve end-user experience.
 
-## Measure connection quality with Azure Log Analytics
+## Monitor connection quality with Azure Log Analytics
 
 >[!NOTE]
 > Azure Log Analytics currently only supports Azure Virtual Desktop connection network data in commercial clouds.
 
-If you're already using [Azure Log Analytics](diagnostics-log-analytics.md), you can monitor network data with the connection network data diagnostics. The data Log Analytics collects can help you discover areas that impact your end-user's graphical experience. The service collects data for reports about every two minutes. Log Analytics reports have the following advantages over RemoteFX network performance counters:
+If you're already using [Azure Log Analytics](diagnostics-log-analytics.md), you can monitor network data with the connection network data diagnostics. The data Log Analytics collects can help you discover areas that impact your end-user's graphical experience. The service collects data for reports regularly throughout the session. Log Analytics reports have the following advantages over RemoteFX network performance counters:
 
 - Each record is connection-specific and includes the correlation ID of the connection that can be tied back to the user.
 
@@ -54,17 +54,14 @@ The network data you collect for your data tables includes the following informa
 
 - The **Correlation ID**, which is the activity ID of a specific Azure Virtual Desktop connection that's assigned to every diagnostic within that connection.
 
-- The **source system**,which is the name of the compute or cloud provider. Source systems can be from Azure or elsewhere.
 
-- The **Tenant ID**, which is a unique ID assigned to the Azure tenant associated with the data the diagnostics service collects for this table.
 
 - The **time generated**, which is a timestamp in UTC time that marks when an event the data counter is tracking happened on the virtual machine (VM). All averages are measured by the time window that ends that the marked timestamp.
 
-- The **type**, which is the name of the data table. In this case, the table's name is “WVDConnectionNetworkData."
 
 - The **Resource ID**, which is a unique ID assigned to the Azure Virtual Desktop host pool associated with the data the diagnostics service collects for this table.
 
-- The **Subscription ID**, which is a unique identifier assigned to the Azure subscription associated with the data the diagnostics service collects for this table.
+- The **source system**, **Subscription ID**, **Tenant ID**, and **type**(table name).
 
 ## Sample queries for Azure Log Analytics
 

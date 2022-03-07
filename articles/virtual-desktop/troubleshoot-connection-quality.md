@@ -14,7 +14,11 @@ If you experience issues with graphical quality in your Azure Virtual Desktop co
 
 ## Addressing round trip time
 
-Round trip time is affected by the workloads the users are running, the users' sensitivity to latency, and the baseline round trip time for the environment. If the table shows that your users have a round trip time higher than 200 milliseconds, that information will narrow down what you need to do to shorten it.
+In Azure Virtual Desktop, latency up to 150 ms shouldn’t impact user experience that doesn't involve rendering or video. Latencies between 150 ms and 200 ms should be fine for text processing. Latency above 200 ms may impact user experience. 
+In addition, the Azure Virtual Desktop connection depends on the internet connection of the machine the user is using the service from. Users may lose connection or experience input delay in one of the following situations:
+ - The user doesn't have a stable local internet connection and the latency is over 200 ms.
+ - The network is saturated or rate-limited.
+ 
 
 To reduce round trip time:
 
@@ -24,7 +28,7 @@ To reduce round trip time:
 
 - Check if something is interfering with your network bandwidth. If your network's available bandwidth is too low, you may need to change your network settings to improve connection quality. Make sure your configured settings follow our [network guidelines](/windows-server/remote/remote-desktop-services/network-guidance).
 
-- Check if something is interfering with your compute resources by looking at CPU utilization and available memory on your VM. You can view your compute resources by following the instructions in [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters) to set up a performance counter to track certain information. For example, you can use the Processor Information(_Total)\\% Processor Time counter to track CPU utilization, or the Memory(\*)\\Available Mbytes counter for available memory. Both of these counters are enabled by default in Azure Virtual Desktop Insights. If both counters show that CPU usage is too high or available memory is too low, your VM size may be too small to support your users' workloads, and you'll need to upgrade your VM to a larger size.
+- Check your compute resources by looking at CPU utilization and available memory on your VM. You can view your compute resources by following the instructions in [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters) to set up a performance counter to track certain information. For example, you can use the Processor Information(_Total)\\% Processor Time counter to track CPU utilization, or the Memory(\*)\\Available Mbytes counter for available memory. Both of these counters are enabled by default in Azure Virtual Desktop Insights. If both counters show that CPU usage is too high or available memory is too low, your VM size or storage may be too small to support your users' workloads, and you'll need to upgrade to a larger size.
 
 ## Next steps
 
