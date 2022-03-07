@@ -129,7 +129,7 @@ This example retrieves the table status for the search job in the previous examp
 
 **Request**
 ```http
-GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/Syslog_SRCH?2021-07-01-privatepreview
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/Syslog_SRCH?api-version=2021-12-01-preview
 ```
 
 **Response**<br>
