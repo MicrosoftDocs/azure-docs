@@ -25,7 +25,6 @@ To register a data source, resource group, or subscription in Azure Purview with
 
 Follow this [guide to configure Azure RBAC role permissions](../role-based-access-control/check-access.md).
 
-
 ## Enable data use governance
 
 To enable data use governance for a resource, the resource will first need to be registered in Azure Purview.
@@ -45,19 +44,9 @@ Once you have your resource registered, follow the rest of the steps to enable a
 
 1. Enable the data source for data use governance in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the image below.
 
-    :::image type="content" source="./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Set Data use governance toggle to **Enabled** at the bottom of the menu.":::
-
-> [!WARNING]
-> **Known issues** related to source registration:
->
-> - Moving data sources to a different resource group or subscription is not yet supported. If want to do that, de-register the data source in Azure Purview before moving it and then register it again after that happens.
-> - Once a subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
-
+:::image type="content" source="./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Set Data use governance toggle to **Enabled** at the bottom of the menu.":::
 
 ## Disable data use governance
-
->[!Note]
->If your resource is currently a part of any active access policy, you will not be able to disable data use governance. First [remove the resource from the policy](how-to-data-owner-policy-authoring-generic.md#update-or-delete-a-policy), then disable data use governance.
 
 To disable data use governance for a source, resource group, or subscription, a user needs to either be a data source **Owner** or an Azure Purview **Data source admin**. Once you have those permissions follow these steps:
 
@@ -73,18 +62,7 @@ To disable data use governance for a source, resource group, or subscription, a 
 
 1. Set the **Data use governance** toggle to **Disabled**.
 
->[!NOTE]
-> Disabling **Data use governance** for a subscription source will disable it also for all assets registered in that subscription.
-
-## Data use governance best practices
-
-- We highly encourage registering data sources for *Data use governance* and managing all associated access policies in a single Azure Purview account.
-- Should you have multiple Azure Purview accounts, be aware that **all** data sources belonging to a subscription must be registered for *Data use governance* in a single Azure Purview account. That Azure Purview account can be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples of valid and invalid configurations follow in the diagram below:
-  - **Case 1** shows a valid configuration where a Storage account is registered in an Azure Purview account in the same subscription.
-  - **Case 2** shows a valid configuration where a Storage account is registered in an Azure Purview account in a different subscription.
-  - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Azure Purview accounts. In that case, the *Data use governance* toggle will only work in the Azure Purview account that wins and registers a data source in that subscription first. The toggle will then be greyed out for the other data source.
-
-    :::image type="content" source="./media/access-policies-common/valid-and-invalid-configurations.png" alt-text="Diagram shows valid and invalid configurations when using multiple Azure Purview accounts to manage policies.":::
+[!INCLUDE [Access policies generic registration](./includes/access-policies-registration-generic.md)]
 
 ## Next steps
 
