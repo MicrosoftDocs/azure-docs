@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure a basic NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 03/07/2022
 
 ---
 
@@ -367,8 +367,8 @@ Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml
 ```
 $ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
-ingress.extensions/hello-world-ingress created
-ingress.extensions/hello-world-ingress-static created
+ingress.networking.k8s.io/hello-world-ingress created
+ingress.networking.k8s.io/hello-world-ingress-static created
 ```
 
 ## Test the ingress controller
