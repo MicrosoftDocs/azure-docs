@@ -100,7 +100,7 @@ Using the [Azure portal](https://portal.azure.com):
    2. On the sidebar, select **Server Parameters**.
    3. Search for the `shared_preload_libraries` parameter.
    4. Select extensions you wish to add.
-     :::image type="content" source="./media/concepts-extensions/sharedlibraries.png" alt-text=" Screenshot showing Azure Database for PostgreSQL -setting shared preload libraries parameter setting  for extensions installation ":::
+     :::image type="content" source="./media/concepts-extensions/sharedlibraries.png" alt-text=" Screenshot showing Azure Database for PostgreSQL -setting shared preload libraries parameter setting  for extensions installation .":::
   
 
 Using [Azure CLI](https://docs.microsoft.com/cli/azure/):
