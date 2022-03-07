@@ -28,7 +28,7 @@ To enable the *Data use Governance* (DUG) toggle for a data source, resource gro
 
 Follow this [guide to configure Azure RBAC role permissions](../../role-based-access-control/check-access.md).
 
-2) In addition, the same user needs to have Azure Purview Data source administrator role at the root collection level. See the guide on [managing Azure Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
+2) In addition, the same user needs to have Azure Purview Data source administrator role at the root collection level. See the guide on [managing Azure Purview role assignments](../catalog-permissions.md#assign-permissions-to-your-users).
 
 #### Permissions for policy authoring and publishing
 - User needs Azure Purview *Data source admins* role at the root collection level to publish a policy.
