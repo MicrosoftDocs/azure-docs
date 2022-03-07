@@ -150,7 +150,7 @@ az ams transform create -a <amsAccountName> -n <transformName> -g <resourceGroup
 
 #- name: Create a transform with a custom Standard Encoder preset from a JSON file and Low relative priority.
 # <AmsTransformCreateCustom>
-az ams transform create -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset \"C:\\path\\to\\local\\preset\\CustomPreset.json\" --relative-priority <priority>
+az ams transform create -a <amsAccountName> -n <transformName> -g <resourceGroupName> --preset \"C:\\path\\to\\local\\preset\\CustomPreset.json\\" --relative-priority <priority>
 # </AmsTransformCreateCustom>
 
 #type: command
