@@ -117,8 +117,9 @@
   items:
     - name: Networking
       href: concepts-networking.md
-    - name: Overview of egress lockdown
-      href: concepts-egress-lockdown.md
+      items:
+      - name: Overview of egress lockdown
+        href: concepts-egress-lockdown.md
     - name: Migrate from ARO 3.11 to ARO 4
       href: migration.md
 - name: Reference
