@@ -136,3 +136,5 @@
   items:
     - name: Integrate your third party apps
       href: recommendation-integrate-third-party-apps.md
+    - name: Migrate to Microsoft authenticator
+      href: recommendation-migrate-to-authenticator.md

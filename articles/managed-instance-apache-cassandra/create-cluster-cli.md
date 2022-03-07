@@ -67,12 +67,17 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    > [!NOTE]
    > The value of the `delegatedManagementSubnetId` variable you will supply below is exactly the same as the value of `--scope` that you supplied in the command above:
 
+   > [!NOTE]
+   > Cassandra 4.0 is in public preview and not recommended for production use cases.
+
+
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
    clusterName='<Cluster_Name>'
    location='eastus2'
    delegatedManagementSubnetId='/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>'
    initialCassandraAdminPassword='myPassword'
+   cassandraVersion='3.11' # set to 4.0 for a Cassandra 4.0 cluster
     
    az managed-cassandra cluster create \
      --cluster-name $clusterName \
@@ -80,6 +85,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
      --location $location \
      --delegated-management-subnet-id $delegatedManagementSubnetId \
      --initial-cassandra-admin-password $initialCassandraAdminPassword \
+     ----cassandra-version $cassandraVersion \
      --debug
    ```
 
