@@ -1,0 +1,97 @@
+---
+title: #Required; page title is displayed in search results. Include the brand.
+description: #Required; article description that is displayed in search results. 
+author: #Required; your GitHub user alias, with correct capitalization.
+ms.author: #Required; microsoft alias of author; optional team alias.
+ms.service: #Required; service per approved list. slug assigned by ACOM.
+ms.topic: tutorial #Required; leave this attribute/value as-is.
+ms.date: #Required; mm/dd/yyyy format.
+ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+---
+
+# Tutorial: Upload and process a file with Azure Functions and Blob Storage
+
+<!-- 2. Introductory paragraph 
+Required. Lead with a light intro that describes, in customer-friendly language, 
+what the customer will learn, or do, or accomplish. Answer the fundamental “why 
+would I want to do this?” question. Keep it short.
+-->
+
+In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions and Cognitive Services. You will also learn how to implement Azure Function triggers and bindings as part of this process.
+
+Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page]("/azure/storage/blobs/storage-blobs-introduction).
+
+Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page]("/azure/azure-functions/functions-overview).
+
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Upload images and files to Blob Storage
+> * Use an Azure Function event trigger to process data uploaded to Blob Storage
+> * Use Cognitive Services to analyze an image
+> * Write data to Table Storage using Azure Function output bindings
+
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Visual Studio 2022](https://visualstudio.microsoft.com) or [Visual Studio Code](https://code.visualstudio.com) installed.
+
+
+## Create the Storage Account
+Let's begin by creating the Storage Account that will hold our blob data, which in this scenario will be uploaded images. A Storage Account offers several different services, but in this tutorial we will be utilizing Blob Storage and Table Storage.
+
+### [Azure portal](#tab/azure-portal)
+
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+1. <!-- Step 2 -->
+1. <!-- Step n -->
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az group create --location eastus --name msdocs-core-sql \
+
+az storage account create -n msdocsstorageaccount -g msdocs-core-sql -l eastus --sku Standard_LRS
+```
+
+## Create the Cognitive Services Account
+<!-- Introduction paragraph -->
+1. <!-- Step 1 -->
+1. <!-- Step 2 -->
+1. <!-- Step n -->
+
+## Setup and Explore the Code Project
+<!-- Introduction paragraph -->
+1. <!-- Step 1 -->
+1. <!-- Step 2 -->
+1. <!-- Step n -->
+
+## Deploy the code to Azure Functions
+<!-- Introduction paragraph -->
+1. <!-- Step 1 -->
+1. <!-- Step 2 -->
+1. <!-- Step n -->
+
+## Upload an image to Blob Storage
+<!-- Introduction paragraph -->
+1. <!-- Step 1 -->
+1. <!-- Step 2 -->
+1. <!-- Step n -->
+
+## Clean up resources
+
+If you're not going to continue to use this application, delete
+<resources> with the following steps:
+
+1. From the left-hand menu...
+1. ...click Delete, type...and then click Delete
+
+
+## Next steps
+
+Advance to the next article to learn how to create...
+> [!div class="nextstepaction"]
+> [Next steps button](contribute-how-to-mvc-tutorial.md)
+
