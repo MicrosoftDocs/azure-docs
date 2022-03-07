@@ -17,7 +17,7 @@ TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more 
 
 ## IoT Hub's server TLS certificate
 
-During a TLS handshake, IoT Hub presents RSA-keyed server certificates to connecting clients. Its root is the Baltimore Cybertrust Root CA. Since the Baltimore root is at end-of-life, we will be migrating to a new root called DigiCert Global G2 in 2023. This will impact all devices currently connecting to IoT hub. To prepare for this migration and for all other details, see [IoT TLS certificate update](https://aka.ms/iot-ca-updates).
+During a TLS handshake, IoT Hub presents RSA-keyed server certificates to connecting clients. Its' root is the Baltimore Cybertrust Root CA. Because the Baltimore root is at end-of-life, we'll be migrating to a new root called DigiCert Global G2. This change will impact all devices currently connecting to IoT Hub. To prepare for this migration and for all other details, see [IoT TLS certificate update](https://aka.ms/iot-ca-updates).
 
 ### Elliptic Curve Cryptography (ECC) server TLS certificate (preview)
 
