@@ -77,3 +77,14 @@ To generate a report:
 3. From the right drop-down list, select the report that you want to generate.
 
 4. To create a PDF of the report results, select :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false":::.
+
+
+## Next steps
+
+For more information, see:
+
+- [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+
+- [Attack vector reporting](how-to-create-attack-vector-reports.md)
+
+- [Create trends and statistics dashboards](how-to-create-trends-and-statistics-reports.md)
