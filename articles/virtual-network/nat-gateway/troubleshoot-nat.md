@@ -156,15 +156,15 @@ Test and resolve issues with VMs holding on to old SNAT IP addresses by:
 
 If you are still having trouble, open a support case for further troubleshooting. 
 
-### UDR supersedes NAT gateway for going outbound
+### Virtual appliance and virtual network gateway UDRs supersede NAT gateway for going outbound
 
-When NAT gateway is attached to a subnet also associated with a user defined route (UDR) for routing traffic to the internet, the UDR will take precedence over the NAT gateway. The internet traffic will flow from the IP configured for the UDR rather than from the NAT gateway public IP address(es). 
+When NAT gateway is attached to a subnet also associated with a user defined route (UDR) for a virtual appliance or virtual network gateway, the UDR will take precedence over the NAT gateway for internet routed traffic. The internet traffic will flow from the IP configured for the UDR rather than from the NAT gateway public IP address(es). 
 
 The order of precedence for internet routing configurations is as follows: 
 
-UDR >> NAT gateway >> default system 
+Virtual appliance / Virtual network gateway UDR >> NAT gateway >> default system 
 
-Test and resolve issues with a UDR configured to your virtual network by: 
+Test and resolve issues with a virtual appliance or virtual network gateway UDR configured to your virtual network by: 
 1. [Testing that the NAT gateway public IP](./tutorial-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a UDR, follow the remaining steps on how to check for and remove UDRs.
 2. Check for UDRs in the virtual network’s route table, refer to [view route tables](../manage-route-table.md#view-route-tables).
 3. Remove the UDR from the route table by following [create, change, or delete an Azure route table](../manage-route-table.md#change-a-route-table).
