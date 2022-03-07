@@ -21,7 +21,7 @@ An Azure Front Door Standard/Premium [Rule Set](concept-rule-set.md) consist of 
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Front Door Standard/Premium supports server variables on actions. Please refer to more details in the server variables section of this document. <!-- TODO link -->
+Azure Front Door Standard/Premium supports [server variables](concept-rule-set-server-variables.md) on Rule Set actions.
 
 The following actions are available to use in Azure Front Door rule set.
 
