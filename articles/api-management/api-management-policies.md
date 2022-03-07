@@ -1,6 +1,6 @@
 ---
 title: Azure API Management policy reference | Microsoft Docs
-description: Reference for all Azure API Management policies and settings. Policies allow the API publisher to change API behavior through configuration.
+description: Reference index for all Azure API Management policies and settings. Policies allow the API publisher to change API behavior through configuration.
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -63,6 +63,14 @@ More information about policies:
 -   [CORS](api-management-cross-domain-policies.md#CORS) - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) - Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.
 
+## [Dapr integration policies](api-management-dapr-policies.md)
+- [Send request to a service](api-management-dapr-policies.md#invoke) - uses Dapr runtime to locate and reliably communicate with a Dapr microservice.
+-  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic.
+-  [Trigger output binding](api-management-dapr-policies.md#bind) - uses Dapr runtime to invoke an external system via output binding.
+
+## [Graph QL validation policy](graphql-validation-policies.md)
+- [Validate GraphQL request](graphql-validation-policies.md#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
+
 ##  [Transformation policies](api-management-transformation-policies.md#TransformationPolicies)
 -   [Convert JSON to XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converts request or response body from JSON to XML.
 -   [Convert XML to JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) - Converts request or response body from XML to JSON.
@@ -75,20 +83,12 @@ More information about policies:
 -   [Rewrite URL](api-management-transformation-policies.md#RewriteURL) - Converts a request URL from its public form to the form expected by the web service.
 -   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) - Applies an XSL transformation to XML in the request or response body.
 
-## [Dapr integration policies](api-management-dapr-policies.md)
-- [Send request to a service](api-management-dapr-policies.md#invoke) - uses Dapr runtime to locate and reliably communicate with a Dapr microservice.
--  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic.
--  [Trigger output binding](api-management-dapr-policies.md#bind) - uses Dapr runtime to invoke an external system via output binding.
-
 ## [Validation policies](validation-policies.md)
 - [Validate content](validation-policies.md#validate-content) - Validates the size or JSON schema of a request or response body against the API schema.
 . 
 - [Validate parameters](validation-policies.md#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
 - [Validate headers](validation-policies.md#validate-headers) - Validates the response headers against the API schema.
 - [Validate status code](validation-policies.md#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
-
-## [Graph QL validation policy](graphql-validation-policies.md)
-- [Validate GraphQL request](graphql-validation-policies.md#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
 
 ## Next steps
 

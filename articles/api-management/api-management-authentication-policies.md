@@ -1,22 +1,20 @@
 ---
 title: Azure API Management authentication policies | Microsoft Docs
-description: Learn about the authentication policies available for use in Azure API Management.
+description: Reference for the authentication policies available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 documentationcenter: ''
 author: dlepow
-manager: erikre
-editor: ''
 
-ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/27/2021
+ms.topic: reference
+ms.date: 03/07/2022
 ms.author: danlep
 ---
 # API Management authentication policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+
+This article provides a reference for API Management policies used for authentication with API backends. 
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ##  <a name="AuthenticationPolicies"></a> Authentication policies
 
@@ -191,10 +189,4 @@ Both system-assigned identity and any of the multiple user-assigned identity can
   
 -   **Policy scopes:** all scopes
 
-## Next steps
-For more information working with policies, see:
-
-+ [Policies in API Management](api-management-howto-policies.md)
-+ [Transform APIs](transform-api.md)
-+ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

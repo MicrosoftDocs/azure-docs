@@ -141,7 +141,7 @@ Product scope is configured for a selected product.
 1. In the left menu, select **Products**, and then select a product to which you want to apply policies.
 1. In the product window, select **Policies**.
 
-    :::image type="content" source="media/set-edit-policies/global-scope-policy.png" alt-text="Configure policy at global scope":::
+    :::image type="content" source="media/set-edit-policies/product-scope-policy.png" alt-text="Configure policy at global scope":::
 1. In a policy section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
 
 6. Select **Save** to propagate changes to the API Management gateway immediately.

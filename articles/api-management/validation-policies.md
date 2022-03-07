@@ -1,22 +1,22 @@
 ---
 title: Azure API Management validation policies | Microsoft Docs
-description: Learn about policies you can use in Azure API Management to validate requests and responses.
+description: Reference for Azure API Management policies to validate API requests and responses. Provides policy usage, settings, and examples.
 services: api-management
 documentationcenter: ''
 author: dlepow
 ms.service: api-management
-ms.topic: article
-ms.date: 02/22/2022
+ms.topic: reference
+ms.date: 03/07/2022
 ms.author: danlep
 ---
 
 # API Management policies to validate requests and responses
 
-This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
-
-Use validation policies to validate REST or SOAP API requests and responses against schemas defined in the API definition or supplementary JSON or XML schemas. Validation policies protect from vulnerabilities such as injection of headers or payload or leaking sensitive data.
+This article provides a reference for API Management policies to to validate REST or SOAP API requests and responses against schemas defined in the API definition or supplementary JSON or XML schemas. Validation policies protect from vulnerabilities such as injection of headers or payload or leaking sensitive data.
 
 While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that aren’t covered by security products that rely on static, predefined rules.
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ## Validation policies
 
@@ -395,12 +395,4 @@ The following table lists all the possible Reason values of a validation error a
 
 
 
-## Next steps
-
-For more information about working with policies, see:
-
--   [Policies in API Management](api-management-howto-policies.md)
--   [Transform APIs](transform-api.md)
--   [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](./policy-reference.md)
--   [Error handling](./api-management-error-handling-policies.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

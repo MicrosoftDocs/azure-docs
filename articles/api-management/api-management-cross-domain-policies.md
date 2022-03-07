@@ -1,22 +1,17 @@
 ---
 title: Azure API Management cross domain policies | Microsoft Docs
-description: Learn about the cross domain policies available for use in Azure API Management.
+description: Reference for the cross domain policies available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-documentationcenter: ''
-author: dlepow
-manager: erikre
-editor: ''
 
-ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 03/01/2021
+ms.topic: reference
+ms.date: 03/07/2022
 ms.author: danlep
 ---
 # API Management cross domain policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for API Management policies used to enable cross domain calls from different clients. 
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ## <a name="CrossDomainPolicies"></a> Cross domain policies
 
@@ -182,11 +177,4 @@ This policy can be used in the following policy [sections](./api-management-howt
 - **Policy sections:** outbound
 - **Policy scopes:** all scopes
 
-## Next steps
-
-For more information working with policies, see:
-
-+ [Policies in API Management](api-management-howto-policies.md)
-+ [Transform APIs](transform-api.md)
-+ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

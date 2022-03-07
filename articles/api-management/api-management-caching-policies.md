@@ -1,18 +1,21 @@
 ---
 title: Azure API Management caching policies | Microsoft Docs
-description: Learn about the caching policies available for use in Azure API Management. See examples and view additional available resources.
+description: Reference for the caching policies available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
-ms.topic: article
-ms.date: 03/08/2021
+ms.topic: reference
+ms.date: 03/07/2022
 ms.author: danlep
 ---
+
 # API Management caching policies
 
-This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for API Management policies used for caching responses. 
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
+
 
 > [!IMPORTANT]
 > Built-in cache is volatile and is shared by all units in the same region in the same API Management service.
@@ -319,11 +322,4 @@ This policy can be used in the following policy [sections](./api-management-howt
 - **Policy sections:** inbound, outbound, backend, on-error
 - **Policy scopes:** all scopes
 
-## Next steps
-
-For more information working with policies, see:
-
-+ [Policies in API Management](api-management-howto-policies.md)
-+ [Transform APIs](transform-api.md)
-+ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
