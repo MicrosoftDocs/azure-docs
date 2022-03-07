@@ -9,13 +9,9 @@ ms.custom:
 ---
 # Log sources to use for basic logs ingestion and retention
 
-Log sources that don't have primary security data but provide additional context for threat hunting and investigations might be good candidates for basic log ingestion and retention. Basic logs provide access to data in a cost-effective way. 
+Log sources that don't have primary security data but provide additional context and clues for threat hunting and investigations might be good candidates for basic log ingestion and retention. This topic highlights log sources to consider configuring for basic logs.
 
-Log sources could be good candidates for Basic log ingestion and retention because they fundamental for threat hunting and investigations, b
-
-Second para - what are basic logs
-
-Tables configured as Basic Logs (preview) reduce the cost of storing high-volume verbose logs you use for debugging, troubleshooting and auditing.
+Basic logs provide access to data in high-volume verbose logs in a cost-effective way. Threat hunters can correlate and collate activity from different sources, while enriching their primary data sources, like security incidents and alerts, with these secondary sources. The data in these secondary logs is often very simple, so the conclusions drawn from that data need to be correlated to be valuable.
 
 ## Storage access logs for cloud providers
 
