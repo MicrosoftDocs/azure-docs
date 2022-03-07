@@ -36,7 +36,7 @@ In this article, you'll learn how to:
 
 ## Prepare to move
 
-To get started, export, and then modify a Resource Manager template.
+To get started, export and modify a Resource Manager template.
 
 ### Prepare your Virtual Network
 
@@ -48,19 +48,19 @@ To get started, export, and then modify a Resource Manager template.
 
    Alternately, you can create a new virtual network, if you don't have to keep the original one. 
  
-### Export an ARM template
+### Export an ARM template of your lab.
 
-This template contains settings that describe your lab.
+Next, you'll export a JSON template contains settings that describe your lab.
 
 To export a template by using Azure portal:
 
-2. Select **All resources**, and then select the resource group for the lab.
+1. Select **All resources**, and then select the resource group for the lab.
 
-3. Select **Export template**.
+1. Select **Export template**.
 
-4. Choose **Download** in the **Export template** blade.
+1. Choose **Download** in the **Export template** blade.
 
-5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
+1. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
    This zip file contains the .json files that comprise the template and scripts to deploy the template. It contains all the resources under your lab listed in ARM template format, except for the Shared Image Gallery resources. 
 
@@ -68,7 +68,7 @@ To export a template by using Azure portal:
 
 In order for the ARM template to deploy correctly in the new region, you must change a few parts of the template. 
 
-To deploy the template by using Azure portal:
+To update the template by using Azure portal:
 
 1. In the Azure portal, select **Create a resource**.
 
@@ -76,7 +76,7 @@ To deploy the template by using Azure portal:
 
 3. Select **Template deployment**.
 
-    ![Azure Resource Manager templates library](/storage/media/storage-account-move/azure-resource-manager-template-library.png)
+    ![Azure Resource Manager templates library](/storage/common/media/storage-account-move/azure-resource-manager-template-library.png)
 
 4. Select **Create**.
 
@@ -97,8 +97,8 @@ To deploy the template by using Azure portal:
       ```
 
    1. If you have "All virtual machines in one resource group" set in the "Lab settings", also update the following in the ARM template:
-      1. Update the `apiVersion` of the `microsoft.devtestlab/labs` resource to `2018-10-15-preview`.
-      1. Add `vmCreationResourceGroupId` to the `properties` section.
+      + Update the `apiVersion` of the `microsoft.devtestlab/labs` resource to `2018-10-15-preview`.
+      + Add `vmCreationResourceGroupId` to the `properties` section.
 
       ```json
       "variables": {},
@@ -159,6 +159,7 @@ To deploy the template by using Azure portal:
             ```
     
     1. Under the `microsoft.devtestlab/labs/users/secrets` resources, the following parameter the "properties". Replace `YOUR_STORED_PASSWORD` with your password.
+
        > [!IMPORTANT] 
        > Use secureString for password values.  
 
@@ -204,14 +205,17 @@ While most Lab resources have been replicated under the new region using the ARM
 
 1. Add the Compute Gallery back to the lab if there're any in the original one.
 2. Add the policies "Virtual machines per user", "Virtual machines per lab" and "Allowed Virtual machine sizes" back to the moved lab 
-3. Swap the OS disks of the Compute VMs under the new VMs. 
-   Note the VMs under the new Lab have the same specs as the ones under the old Lab. The only difference is their OS Disks.  
 
-   1. Create an empty disks under the new region.
-     - Get the target Compute VM OS disk name under the new Lab.  You can fnd the Compute VM and its disk under the Resource group on the lab's Virtual Machine page.
-     - Use [AzCopy](/storage/common/storage-use-azcopy-v10.md) to copy the old disk content into the new/empty disks in the new region. You can run the Powershell commands from your Dev Box or from the [Azure Cloud Shell](/cloud-shell/quickstart-powershell.md).
+### Swap the OS disks of the Compute VMs under the new VMs. 
+   
+Note the VMs under the new Lab have the same specs as the ones under the old Lab. The only difference is their OS Disks.  
 
-       AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+1. Create an empty disks under the new region.
+   - Get the target Compute VM OS disk name under the new Lab.  You can fnd the Compute VM and its disk under the Resource group on the lab's Virtual Machine page.
+
+   - Use [AzCopy](/storage/common/storage-use-azcopy-v10.md) to copy the old disk content into the new/empty disks in the new region. You can run the Powershell commands from your Dev Box or from the [Azure Cloud Shell](/cloud-shell/quickstart-powershell.md).
+
+     AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
         ```powershell
         # Fill in the source/target disk names and their resource group names 
