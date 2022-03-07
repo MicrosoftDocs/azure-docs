@@ -24,7 +24,7 @@ To list available locations, use the following command:
 
 ## Choose a SKU
 
-You also need to choose a SKU for your storage account.
+You also need to choose a SKU for your storage account. You can list storage accounts.
 
 [!INCLUDE [sku-list](sku-list.md)]
 
