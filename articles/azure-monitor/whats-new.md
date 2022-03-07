@@ -2,7 +2,7 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 02/09/2022
+ms.date: 03/07/2022
 ---
 
 # What's new in Azure Monitor documentation
@@ -25,8 +25,8 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Manage the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-manage.md)
 - [Azure Monitor agent overview](/azure/azure-monitor/agents/azure-monitor-agent-overview.md)
+- [Manage the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-manage.md)
 
 ### Alerts
 
@@ -45,8 +45,8 @@ This article lists significant changes to Azure Monitor documentation.
 
 - [Application Monitoring for Azure App Service and Java](/azure/azure-monitor/app/azure-web-apps-java.md)
 - [Application Monitoring for Azure App Service and Node.js](/azure/azure-monitor/app/azure-web-apps-nodejs.md)
-- [Profile live Azure App Service apps with Application Insights](/azure/azure-monitor/app/profiler.md)
 - [Enable Snapshot Debugger for .NET apps in Azure App Service](/azure/azure-monitor/app/snapshot-debugger-appservice.md)
+- [Profile live Azure App Service apps with Application Insights](/azure/azure-monitor/app/profiler.md)
 - [Visualizations for Application Change Analysis (preview)](/azure/azure-monitor/app/change-analysis-visualizations.md)
 
 ### Autoscale
@@ -60,28 +60,32 @@ This article lists significant changes to Azure Monitor documentation.
 **New articles**
 
 - [Data collection endpoints in Azure Monitor (preview)](essentials/data-collection-endpoint-overview.md)
-- [Data Collection Rules in Azure Monitor](essentials/data-collection-rule-overview.md)
-- [Structure of a data collection rule in Azure Monitor (preview)](essentials/data-collection-rule-structure.md)
+- [Data collection rules in Azure Monitor](essentials/data-collection-rule-overview.md)
 - [Data collection rule transformations](essentials/data-collection-rule-transformations.md)
+- [Structure of a data collection rule in Azure Monitor (preview)](essentials/data-collection-rule-structure.md)
 ### Essentials
 
 **Updated articles**
 
 - [Azure Activity log](/azure/azure-monitor/essentials/activity-log.md)
 
-## Logs
+### Logs
+
+**Updated articles**
+
+- [Azure Monitor Logs overview](logs/data-platform-logs.md)
 
 **New articles**
 
 - [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md)
-- [Query data from Basic Logs in Azure Monitor (Preview)](logs/basic-logs-query.md)
-- [Send custom logs to Azure Monitor Logs with REST API](logs/custom-logs-overview.md)
-- [Sample data collection rule - custom logs](logs/data-collection-rule-sample-custom-logs.md)
 - [Configure data retention and archive in Azure Monitor Logs (Preview)](logs/data-retention-archive.md)
 - [Log Analytics workspace overview](logs/log-analytics-workspace-overview.md)
 - [Overview of ingestion-time transformations in Azure Monitor Logs](logs/ingestion-time-transformations.md)
+- [Query data from Basic Logs in Azure Monitor (Preview)](logs/basic-logs-query.md)
 - [Restore logs in Azure Monitor (Preview)](logs/restore.md)
+- [Sample data collection rule - custom logs](logs/data-collection-rule-sample-custom-logs.md)
 - [Search jobs in Azure Monitor (Preview)](logs/search-jobs.md)
+- [Send custom logs to Azure Monitor Logs with REST API](logs/custom-logs-overview.md)
 - [Tables that support ingestion-time transformations in Azure Monitor Logs (preview)](logs/tables-feature-support.md)
 - [Tutorial - Send custom logs to Azure Monitor Logs (preview)](logs/tutorial-custom-logs.md)
 - [Tutorial - Send custom logs to Azure Monitor Logs using resource manager templates](logs/tutorial-custom-logs-api.md)
