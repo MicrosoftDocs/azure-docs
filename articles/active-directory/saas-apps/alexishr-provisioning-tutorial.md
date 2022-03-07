@@ -42,11 +42,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure AlexisHR to support provisioning with Azure AD
 
-1. Login to [AlexisHR Admin Console](https://app.alexishr.com/login/). Navigate to **Settings > Access tokens**.
+1. Log in to [AlexisHR Admin Console](https://app.alexishr.com/login/). Navigate to **Settings > Access tokens**.
 
 	![Access User Management](media/alexishr-provisioning-tutorial/login.png)
 
-1. Once on the Access token page , fill in the **Name** and **Description** textbox and click on **Save**.A pop-up window will appear with the token in it.Copy and save the token. This value will be entered in the **Secret Token** * field in the Provisioning tab of your AlexisHR application in the Azure portal.
+1. Once on the Access token page, fill in the **Name** and **Description** textbox and click on **Save**.A pop-up window will appear with the token in it.Copy and save the token. This value will be entered in the **Secret Token** * field in the Provisioning tab of your AlexisHR application in the Azure portal.
 
 	![Access tokens](media/alexishr-provisioning-tutorial/token.png)
 
@@ -111,7 +111,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |phoneNumbers[type eq "work"].value|String||&check;
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String||
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:divison|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String||
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String||
 
 	> [!NOTE]
