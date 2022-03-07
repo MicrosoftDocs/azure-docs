@@ -13,6 +13,6 @@ ms.custom: CLI
 
 In the following command, provide the Azure subscription ID that you want to use for the Media Services account.
 
-:::code language="azurecli" source="cli-code-snippets.sh" id="SetSubscription" interactive="azurecli-interactive":::
+:::code language="azurecli" source="../cli-code-snippets.md" id="SetSubscription" interactive="azurecli-interactive":::
 
 This command doesn't return anything.

@@ -32,4 +32,4 @@ You also need to choose a SKU for your storage account.
 - Change `chooseLocation` to the region you want to work within. 
 - Change `chooseSKU` to your preferred SKU.
 
-:::code language="azurecli" source="cli-code-snippets.sh" id="CreateStorage" interactive="azurecli-interactive":::
+:::code language="azurecli" source="../cli-code-snippets.md" id="CreateStorage" interactive="azurecli-interactive":::
