@@ -80,7 +80,7 @@ landingContent:
           - text: Rule Set Match Conditions
             url: concept-rule-set-match-conditions.md
           - text: Rule Set Actions
-            url: concept-rule-set-actions.md
+            url: ../front-door-rules-engine-actions.md
       - linkListType: how-to-guide
         links:
           - text: Configure a Rule Set
