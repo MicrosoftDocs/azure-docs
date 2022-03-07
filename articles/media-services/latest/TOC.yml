@@ -661,8 +661,6 @@
   - name: Azure CLI
     href: /cli/azure/ams
     displayName: CLI, command line, client, SDK, manage, management
-  - name: CLI snippets
-    href: cli-code-snippets.md
   - name: SDKs
     items:
     - name: .NET

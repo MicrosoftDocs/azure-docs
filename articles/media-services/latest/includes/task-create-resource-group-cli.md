@@ -12,4 +12,4 @@ ms.custom: CLI
 ## Create a resource group
 
 To create a resource group, use the following command:
-:::code language="azurecli" source="../cli-code-snippets.md" id="CreateRG" interactive="azurecli-interactive":::
+:::code language="azurecli" source="~/../media-services-codesnippets/cli/code-snippets-cli.sh" id="CreateRG" interactive="azurecli-interactive":::
