@@ -146,7 +146,7 @@ First, you'll need to create a user-assigned identity resource.
     ![Managed identity in App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
     
 > [!IMPORTANT]
-> Clicking **Add** after selecting a user assigned idenity to add will restart your application.
+> If you select **Add** after you select a user-assigned identity to add, your application will restart.
 
 # [Azure CLI](#tab/cli)
 
