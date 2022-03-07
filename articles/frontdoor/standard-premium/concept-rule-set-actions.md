@@ -308,7 +308,7 @@ Use the **URL redirect** action to redirect clients to a new URL. Clients are se
 
 ### Example
 
-In this example, we redirect the request to `https://contoso.com/exampleredirection?clientIp={client_ip}`, while preserving the fragment. An HTTP Temporary Redirect (307) is used. The IP address of the client is used in place of the `{client_ip}` token within the URL by using the `client_ip` [server variable](#server-variables).
+In this example, we redirect the request to `https://contoso.com/exampleredirection?clientIp={client_ip}`, while preserving the fragment. An HTTP Temporary Redirect (307) is used. The IP address of the client is used in place of the `{client_ip}` token within the URL by using the `client_ip` [server variable](concept-rule-set-server-variables.md).
 
 # [Portal](#tab/portal)
 
