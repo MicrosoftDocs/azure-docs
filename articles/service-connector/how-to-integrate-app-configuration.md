@@ -14,7 +14,8 @@ This page shows the supported authentication types and client types of Azure App
 
 ## Supported compute services
 
-Azure App Service is a supported compute service.
+- Azure App Service
+- Azure Spring Cloud
 
 ## Supported authentication types and client types
 
