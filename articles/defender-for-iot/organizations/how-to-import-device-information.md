@@ -52,6 +52,6 @@ When the information is imported, you receive alerts about unauthorized devices 
 
 For more information, see:
 
-[Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
+- [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 
-[Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
