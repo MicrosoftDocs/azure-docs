@@ -93,7 +93,7 @@ The following table shows the current support for the Azure Monitor agent with A
 
 | Azure Monitor feature | Current support | More information |
 |:---|:---|:---|
-| [Collect file based logs and Windows IIS logs] | Private preview | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
+| File based logs and Windows IIS logs | Private preview | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
 | [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
 | [Connect using private links](azure-monitor-agent-data-collection-endpoint.md) | Public preview | No sign-up needed |
 
