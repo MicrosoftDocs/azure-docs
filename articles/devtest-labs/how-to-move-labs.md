@@ -76,7 +76,7 @@ To deploy the template by using Azure portal:
 
 3. Select **Template deployment**.
 
-    ![Azure Resource Manager templates library](./media/storage-account-move/azure-resource-manager-template-library.png)
+    ![Azure Resource Manager templates library](/storage/media/storage-account-move/azure-resource-manager-template-library.png)
 
 4. Select **Create**.
 
@@ -210,7 +210,7 @@ While most Lab resources have been replicated under the new region using the ARM
 
    1. Create an empty disks under the new region.
      - Get the target Compute VM OS disk name under the new Lab.  You can fnd the Compute VM and its disk under the Resource group on the lab's Virtual Machine page.
-     - Use [AzCopy](../../storage/common/storage-use-azcopy-v10.md) to copy the old disk content into the new/empty disks in the new region. You can run the Powershell commands from your Dev Box or from the [Azure Cloud Shell](../../cloud-shell/quickstart-powershell.md).
+     - Use [AzCopy](/storage/common/storage-use-azcopy-v10.md) to copy the old disk content into the new/empty disks in the new region. You can run the Powershell commands from your Dev Box or from the [Azure Cloud Shell](/cloud-shell/quickstart-powershell.md).
 
        AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -237,7 +237,7 @@ While most Lab resources have been replicated under the new region using the ARM
 
         After that, you'll have a new disk under the new region.
 
-   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](../../virtual-machines/windows/os-disk-swap.md)". 
+   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](/virtual-machines/windows/os-disk-swap.md)". 
 
 
 ## Discard or clean up
@@ -258,5 +258,5 @@ To remove a lab by using the Azure portal:
 
 In this article, you moved a DevTest lab from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
-- [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Move Azure VMs to another region](../../site-recovery/azure-to-azure-tutorial-migrate.md)
+- [Move resources to a new resource group or subscription](/azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](/site-recovery/azure-to-azure-tutorial-migrate.md)
