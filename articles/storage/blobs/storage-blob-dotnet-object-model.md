@@ -154,7 +154,16 @@ You can create an instance of any specialized client classes by using one of the
 
 ## Client namespaces
 
-Take folks through the different namespaces and what sorts of objects they contain. For example, the models, specialized namespaces.
+The Azure Blob Storage client library v12 for .NET is organized into the following three namespaces:
+
+- [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs): Contains the primary classes that you can use to operate on the service, containers, and blobs.
+- [Azure.Storage.Blobs.Specialized](/dotnet/api/azure.storage.blobs.specialized): Contains classes that you can use to perform operations specific to a blob type (For example: append blobs).
+- [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models): All other utility classes, structures, and enumeration types used in method parameters or as objects returned by methods in the [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs) and [Azure.Storage.Blobs.Specialized](/dotnet/api/azure.storage.blobs.specialized) namespaces.
+
+The following image shows each namespace and some of the classes available in each namespace.
+
+> [!div class="mx-imgBorder"]
+> ![.NET object namespaces](./media/storage-blob-dotnet-object-model/dotnet-object-namespaces.png)
 
 ## See also
 
