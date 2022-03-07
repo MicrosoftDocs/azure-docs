@@ -11,14 +11,14 @@ ms.custom: references_regions
 
 # Update management center support matrix
 
- This article summarizes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Arc enabled servers. 
+ The article summarizes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Arc enabled servers. 
 
 ## Supported regions
-In update management center (preview) will scale to all regions in public preview stage. Listed below are the Azure public cloud where you can use update management center (preview).
+Update management center (preview) will scale to all regions in public preview stage. Listed below are the Azure public cloud where you can use update management center (preview).
 
 # [Azure compute virtual machine](#tab/azurevm)
 
-Update management center (preview) **on demand assessment, on demand patching** on **Azure Compute virtual machines** is available in all Azure public regions where Compute virtual machines is available.
+Update management center (preview) **on demand assessment, on demand patching** on **Azure Compute virtual machines** is available in all Azure public regions where Compute virtual machines are available.
 
 # [Azure arc-enabled servers](#tab/azurearc)
 Update management center (preview) **on demand assessment, on demand patching** on **Azure arc-enabled servers** is supported in the following regions currently. It implies that VMs must be in below regions:
@@ -26,7 +26,7 @@ Update management center (preview) **on demand assessment, on demand patching** 
 **Geography** | **Supported Regions**
 --- | ---
 Australia | Australia East
-United States | East US </br> South Central US </br> West Central US </br> West US 2
+United States | East US </br> South Central-US </br> West Central-US </br> West US 2
 Europe | North Europe </br> West Europe
 Asia | South East Asia
 United Kingdom | UK South
@@ -45,7 +45,7 @@ United Kingdom | UK South
 
 ## Supported operating systems
 
-Update management center (preview) supports specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Arc enabled servers. Before you enable update management center (preview), confirm that the target machines meet the operating system requirements.
+Update management center (preview) supports specific versions of the Windows Server and Linux operating systems that run on Azure VMs or machines managed by Arc enabled servers. Before you enable update management center (preview), confirm that the target machines meet the operating system requirements.
 
 # [Azure VMs](#tab/azurevm-os)
 
@@ -92,14 +92,14 @@ Update management center (preview) supports specific versions of the Windows Ser
    | Oracle | Oracle 7.x |       
 ---
 
-As the Update management center (preview) depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client are enabled and can connect with an update source or repository. If you are running a Windows Server OS on your machine, refer to the following article to [configure Windows Update settings](configure-wu-agent.md).
+As the Update management center (preview) depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, refer to the following article to [configure Windows Update settings](configure-wu-agent.md).
  
  > [!NOTE]
  > For patching, update management center (preview) relies on classification data available on the machine. Unlike other distributions, CentOS YUM package manager does not have this information available in the RTM version to classify updates and packages in different categories.
 
 ## Network planning
 
-To prepare your network to support update management center (preview), you may need to configure some infrastructure components.
+To prepare your network to support, update management center (preview), you may need to configure some infrastructure components.
 
 For Windows machines, you must also allow traffic to any endpoints required by Windows Update agent. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Server Update Services](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) (WSUS) deployment, you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 

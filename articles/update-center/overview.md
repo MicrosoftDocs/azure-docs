@@ -23,14 +23,14 @@ Before enabling your machines for update management center (preview), make sure 
 
 ## About Update management center (preview)
 
-Update management center (preview) has been redesigned and doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [Azure Automation Update Management feature](/azure/automation/update-management/overview). It offers all of the same functionality as the original version available with Azure Automation, but it is designed to:
+Update management center (preview) has been redesigned and doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [Azure Automation Update Management feature](/azure/automation/update-management/overview). It offers all of the same functionality as the original version available with Azure Automation, but it's designed to:
 
 - Take advantage of newer technology in Azure
 - Deliver a native update capability
 - No onboarding steps are required
 - Granular role based access 
 
-The following diagram illustrates how update management center (preview) assesses and applies updates to all Azure machines and Arc-enabled servers: both Windows and Linux.
+The following diagram illustrates how update management center (preview) assesses and applies updates to all Azure machines and Arc-enabled servers for both Windows and Linux.
 
 ![Update center workflow](./media/overview/update-management-center-overview.png)
 
@@ -39,14 +39,14 @@ To support management of your Azure VM or non-Azure machine, update management c
 - [Azure virtual machine Windows agent](/azure/virtual-machines/extensions/agent-windows) or [Azure virtual machine Linux agent](/azure/virtual-machines/extensions/agent-linux) for Azure VMs.
 - [Azure arc-enabled servers agent](/azure/azure-arc/servers/agent-overview) for non-Azure Linux and Windows machines or physical servers.
 
-When you initiate management of your Azure VM or non-Azure machine, update management center (preview) pushes an extension to the Azure VM agent or Arc enabled server agent. The agent installation and configuration is managed by update management center (preview) and there is no manual intervention required as long as the Azure VM agent or Azure Arc-enabled server agent is functional. The update management center (preview) extension runs code locally on the machine to interact with the operating system, and this includes:
+When you initiate management of your Azure VM or non-Azure machine, update management center (preview) pushes an extension to the Azure VM agent or Arc enabled server agent. The agent installation and configuration is managed by update management center (preview) and there's no manual intervention required as long as the Azure VM agent or Azure Arc-enabled server agent is functional. The update management center (preview) extension runs code locally on the machine to interact with the operating system, and it includes:
 
 - Retrieving assessment information about status of system updates for it specified by the Windows Update client or Linux package manager.
 - Initiate download and installation of approved updates with Windows Update client or Linux package manager. 
 
-All assessment information and update installation results is reported to update management center (preview) from the extension and is available for analysis with [Azure Resource Graph](/azure/governance/resource-graph/overview). You can view up to the last 7 days of assessment data, and up to the last 30 days of update installation results. 
+All assessment information and update installation results is reported to update management center (preview) from the extension and is available for analysis with [Azure Resource Graph](/azure/governance/resource-graph/overview). You can view up to the last seven days of assessment data, and up to the last 30 days of update installation results. 
 
-The machines assigned to update management center (preview) report how up to date they are based on what source they are configured to synchronize with. Windows Update Agent (WUA) on Windows machines can be configured to report to [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or Microsoft Update, and Linux machines can be configured to report to a local or public YUM or APT package repository. If the Windows Update Agent is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results in update management center (preview) might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository. 
+The machines assigned to update management center (preview) report how up to date they're based on what source they're configured to synchronize with. Windows Update Agent (WUA) on Windows machines can be configured to report to [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or Microsoft Update, and Linux machines can be configured to report to a local or public YUM or APT package repository. If the Windows Update Agent is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results in update management center (preview) might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository. 
 
 You can manage your Azure VMs or Arc-enabled servers directly, or at-scale with update management center (preview).
 
