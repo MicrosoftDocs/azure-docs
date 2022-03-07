@@ -70,7 +70,7 @@ Create an Azure Bastion host to access the virtual machine.
 
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a Azure Bastion subnet.
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id=subnet:::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="subnet":::
 
 ### Create public IP address for the bastion host
 
@@ -82,7 +82,7 @@ Create a public IP address for the bastion host with [az network public-ip creat
 
 Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the bastion host.
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id=bastionHost":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="bastionHost":::
 
 ### Configure NAT service for source subnet
 
@@ -98,7 +98,7 @@ Create a virtual machine to test the NAT gateway to verify the public IP address
 
 Create the virtual machine with [az vm create](/cli/azure/vm#az_vm_create).
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="vm"":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="vm":::
 
 Wait for the virtual machine creation to complete before moving on to the next section.
 
