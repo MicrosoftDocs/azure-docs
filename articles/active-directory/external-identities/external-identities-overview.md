@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/01/2022
+ms.date: 03/21/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -55,7 +55,7 @@ Microsoft Azure cloud services are available in separate national clouds, which 
 - Microsoft Azure Government
 - Microsoft Azure China 21Vianet
 
-To set up B2B collaboration between tenants in different clouds, both tenants need to configure their cross-cloud settings to enable collaboration with the other cloud. Then each tenant must configure inbound and outbound cross-tenant access with the tenant in the other cloud. See [cross-cloud access settings](link) for details.
+To set up B2B collaboration between tenants in different clouds, both tenants need to configure their cross-cloud settings to enable collaboration with the other cloud. Then each tenant must configure inbound and outbound cross-tenant access with the tenant in the other cloud. See [cross-cloud settings](cross-cloud-settings.md) for details.
 
 ## Azure AD B2C
 
