@@ -351,10 +351,12 @@ You can also specify spark session settings via a magic command **%%configure**.
 
 Parameter session configuration allows you to replace the value in %%configure magic with Pipeline run (Notebook activity) parameters. When preparing %%configure code cell, you can override default values (also configurable, 4 and "2000" in the below example) with an object like this:
 
+```
 {
       "activityParameterName": "paramterNameInPipelineNotebookActivity",
       "defaultValue": "defaultValueIfNoParamterFromPipelineNotebookActivity"
 } 
+```
 
 ```python
 %%configure  
@@ -376,7 +378,7 @@ Parameter session configuration allows you to replace the value in %%configure m
 } 
 ```
 
-Notebook will use default value if run a notebook in interactive mode directly or no parameters match "activityParameterName" are given from Pipeline Notebook activity.
+Notebook will use default value if run a notebook in interactive mode directly or no parameter that match "activityParameterName" is given from Pipeline Notebook activity.
 
 During the pipeline run mode, you can configure pipeline Notebook activity settings as below:
 ![Screenshot of parameterized session configuration](./media/apache-spark-development-using-notebooks/parameterized-session-config.png)
