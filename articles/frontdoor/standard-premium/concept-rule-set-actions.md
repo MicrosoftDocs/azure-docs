@@ -61,7 +61,7 @@ When **Caching** is set to **Enabled**, set the following properties:
 
 ### Examples
 
-In this example, we route all matched requests to an origin group named `SecondOriginGroup`, regardless of the configuration in the Front Door endpoint route. <!-- TODO these examples probably need updating -->
+In this example, we route all matched requests to an origin group named `MyOriginGroup`, regardless of the configuration in the Front Door endpoint route.
 
 # [Portal](#tab/portal)
 
@@ -71,12 +71,16 @@ In this example, we route all matched requests to an origin group named `SecondO
 
 ```json
 {
-  "name": "OriginGroupOverride",
+  "name": "RouteConfigurationOverride",
   "parameters": {
-    "originGroup": {
-      "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup"
+    "originGroupOverride": {
+      "originGroup": {
+        "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup"
+      },
+      "forwardingProtocol": "MatchRequest"
     },
-    "typeName": "DeliveryRuleOriginGroupOverrideActionParameters"
+    "cacheConfiguration": null,
+    "typeName": "DeliveryRuleRouteConfigurationOverrideActionParameters"
   }
 }
 ```
@@ -85,19 +89,23 @@ In this example, we route all matched requests to an origin group named `SecondO
 
 ```bicep
 {
-  name: 'OriginGroupOverride'
+  name: 'RouteConfigurationOverride'
   parameters: {
-    originGroup: {
-      id: '/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup'
+    originGroupOverride: {
+      originGroup: {
+        id: '/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup'
+      }
+      forwardingProtocol: 'MatchRequest'
     }
-    typeName: 'DeliveryRuleOriginGroupOverrideActionParameters'
+    cacheConfiguration: null
+    typeName: 'DeliveryRuleRouteConfigurationOverrideActionParameters'
   }
 }
 ```
 
 ---
 
-In this example, we modify the cache key to include a query string parameter named `customerId`.
+In this example, we set the cache key to include a query string parameter named `customerId`. Compression is enabled, and the origin's caching policies are honored.
 
 # [Portal](#tab/portal)
 
@@ -107,11 +115,17 @@ In this example, we modify the cache key to include a query string parameter nam
 
 ```json
 {
-  "name": "CacheKeyQueryString",
+  "name": "RouteConfigurationOverride",
   "parameters": {
-    "queryStringBehavior": "Include",
-    "queryParameters": "customerId",
-    "typeName": "DeliveryRuleCacheKeyQueryStringBehaviorActionParameters"
+    "cacheConfiguration": {
+      "queryStringCachingBehavior": "IncludeSpecifiedQueryStrings",
+      "queryParameters": "customerId",
+      "isCompressionEnabled": "Enabled",
+      "cacheBehavior": "HonorOrigin",
+      "cacheDuration": null
+    },
+    "originGroupOverride": null,
+    "typeName": "DeliveryRuleRouteConfigurationOverrideActionParameters"
   }
 }
 ```
@@ -120,18 +134,24 @@ In this example, we modify the cache key to include a query string parameter nam
 
 ```bicep
 {
-  name: 'CacheKeyQueryString'
+  name: 'RouteConfigurationOverride'
   parameters: {
-    queryStringBehavior: 'Include'
-    queryParameters: 'customerId'
-    typeName: 'DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'
+    cacheConfiguration: {
+      queryStringCachingBehavior: 'IncludeSpecifiedQueryStrings'
+      queryParameters: 'customerId'
+      isCompressionEnabled: 'Enabled'
+      cacheBehavior: 'HonorOrigin'
+      cacheDuration: null
+    }
+    originGroupOverride: null
+    typeName: 'DeliveryRuleRouteConfigurationOverrideActionParameters'
   }
 }
 ```
 
 ---
 
-In this example, this rule actions will override the origin group from the one configured in the route to origingroup2 and use Matching incoming request while going back to origin. Caching is enabled for the associated route with ignoring query string and compression enabled. The cache behavior is configured to honor the settings from the origin. <!-- TODO update example -->
+In this example, we override the cache expiration to 6 hours for matched requests that don't specify a cache duration already. Front Door ignores the query string when it determines the cache key, and compression is enabled.
 
 # [Portal](#tab/portal)
 
@@ -141,12 +161,15 @@ In this example, this rule actions will override the origin group from the one c
 
 ```json
 {
-  "name": "CacheExpiration",
+  "name": "RouteConfigurationOverride",
   "parameters": {
-    "cacheBehavior": "SetIfMissing",
-    "cacheType": "All",
-    "cacheDuration": "0.06:00:00",
-    "typeName": "DeliveryRuleCacheExpirationActionParameters"
+    "cacheConfiguration": {
+      "queryStringCachingBehavior": "IgnoreQueryString",
+      "cacheBehavior": "OverrideIfOriginMissing",
+      "cacheDuration": "0.06:00:00",
+    },
+    "originGroupOverride": null,
+    "typeName": "DeliveryRuleRouteConfigurationOverrideActionParameters"
   }
 }
 ```
@@ -155,18 +178,20 @@ In this example, this rule actions will override the origin group from the one c
 
 ```bicep
 {
-  name: 'CacheExpiration'
+  name: 'RouteConfigurationOverride'
   parameters: {
-    cacheBehavior: 'SetIfMissing'
-    cacheType: All
-    cacheDuration: '0.06:00:00'
-    typeName: 'DeliveryRuleCacheExpirationActionParameters'
+    cacheConfiguration: {
+      queryStringCachingBehavior: 'IgnoreQueryString'
+      cacheBehavior: 'OverrideIfOriginMissing'
+      cacheDuration: '0.06:00:00'
+    }
+    originGroupOverride: null
+    typeName: 'DeliveryRuleRouteConfigurationOverrideActionParameters'
   }
 }
 ```
 
 ---
-
 
 ## <a name="ModifyRequestHeader"></a> Modify request header
 
