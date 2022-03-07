@@ -3,7 +3,7 @@ title: Azure Virtual Desktop user connection latency - Azure
 description: Connection latency for Azure Virtual Desktop users.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 03/07/2022
 ms.author: helohr
 manager: femila
 ---
@@ -11,7 +11,7 @@ manager: femila
 
 Azure Virtual Desktop helps users host client sessions on their session hosts running on Azure. When a user starts a session, they connect from their end-user device, also known as a "client," over a network to access the session host. It's important that the user experience feels as much like a local session on a physical device as possible. In this article, we'll talk about how you can measure and improve the connection quality of your end-users.
 
-There are three ways you can analyze connection quality in your Azure Virtual Desktop deployment: Azure Log Analytics, the Azure Virtual Desktop Experience Estimator tool, and Azure Front Door. This article will describe how to use each method to optimize graphics quality and improve end-user experience.
+There are currently two ways you can analyze connection quality in your Azure Virtual Desktop deployment: Azure Log Analytics and Azure Front Door. This article will describe how to use each method to optimize graphics quality and improve end-user experience.
 
 ## Monitor connection quality with Azure Log Analytics
 
@@ -61,7 +61,7 @@ The network data you collect for your data tables includes the following informa
 
 - The **Resource ID**, which is a unique ID assigned to the Azure Virtual Desktop host pool associated with the data the diagnostics service collects for this table.
 
-- The **source system**, **Subscription ID**, **Tenant ID**, and **type**(table name).
+- The **source system**, **Subscription ID**, **Tenant ID**, and **type** (table name).
 
 ## Sample queries for Azure Log Analytics
 
@@ -138,21 +138,6 @@ WVDConnectionNetworkData
 | summarize AvgBW=avg(EstAvailableBandwidthKBps),BW_P95=percentile(EstAvailableBandwidthKBps,95) by UserName
 | top 10 by AvgBW asc
 ```
-
-## Optimize VM latency with the Azure Virtual Desktop Experience Estimator tool
-
-The [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/) can help you determine the best location to optimize the latency of your VMs. We recommend you use the tool every two to three months to make sure the optimal location hasn't changed as Azure Virtual Desktop rolls out to new areas.
-
-## Interpreting results from the Azure Virtual Desktop Experience Estimator tool
-
-In Azure Virtual Desktop, latency up to 150 ms shouldn’t impact user experience that doesn't involve rendering or video. Latencies between 150 ms and 200 ms should be fine for text processing. Latency above 200 ms may impact user experience. 
-
-In addition, the Azure Virtual Desktop connection depends on the internet connection of the machine the user is using the service from. Users may lose connection or experience input delay in one of the following situations:
-
- - The user doesn't have a stable local internet connection and the latency is over 200 ms.
- - The network is saturated or rate-limited.
-
-We recommend you choose VMs locations that are as close to your users as possible. For example, if the user is located in India but the VM is in the United States, there will be latency that will affect the overall user experience. 
 
 ## Azure Front Door
 
