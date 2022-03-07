@@ -354,7 +354,7 @@ Azure Purview supports lineage from Azure SQL Database. At the time of setting u
 
 ### Prerequisites for setting up scan with Lineage extraction
 
-1. Follow steps under Azure SQL Database scan using [Managed Identity](#tab/managed-identity) section to authorize Azure Purview scan your Azure SQL DataBase
+1. Follow steps under [authentication for a scan using Managed Identity](#authentication-for-a-scan) section to authorize Azure Purview scan your Azure SQL DataBase
 
 2. Login to Azure SQL Database with AAD account and assign proper permission (for example: db_owner) to  Purview Managed identity. Use below example SQL syntax to create user and grant permission by replacing 'purview-account' with your Account name:
 
