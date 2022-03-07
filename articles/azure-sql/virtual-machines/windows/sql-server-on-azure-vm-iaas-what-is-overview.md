@@ -11,7 +11,7 @@ ms.subservice: service-overview
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/27/2019
+ms.date: 03/10/2022
 ms.author: mathoma
 ---
 # What is SQL Server on Windows Azure Virtual Machines?
@@ -21,12 +21,17 @@ ms.author: mathoma
 > * [Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 > * [Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 
-[SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) enables you to use full versions of SQL Server in the cloud without having to manage any on-premises hardware. SQL Server virtual machines (VMs) also simplify licensing costs when you pay as you go.
-
-Azure virtual machines run in many different [geographic regions](https://azure.microsoft.com/regions/) around the world. They also offer a variety of [machine sizes](../../../virtual-machines/sizes.md). The virtual machine image gallery allows you to create a SQL Server VM with the right version, edition, and operating system. This makes virtual machines a good option for many different SQL Server workloads.
+This article provides an overview of SQL Server on Azure Virtual Machines (VMs) on the Windows platform. 
 
 If you're new to SQL Server on Azure VMs, check out the *SQL Server on Azure VM Overview* video from our in-depth [Azure SQL video series](/shows/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://docs.microsoft.com/shows/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
+
+
+## Overview
+
+[SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) enables you to use full versions of SQL Server in the cloud without having to manage any on-premises hardware. SQL Server virtual machines (VMs) also simplify licensing costs when you pay as you go.
+
+Azure virtual machines run in many different [geographic regions](https://azure.microsoft.com/regions/) around the world. They also offer a variety of [machine sizes](../../../virtual-machines/sizes.md). The virtual machine image gallery allows you to create a SQL Server VM with the right version, edition, and operating system. This makes virtual machines a good option for many different SQL Server workloads.
 
 
 ## Feature benefits
