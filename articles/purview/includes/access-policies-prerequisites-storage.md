@@ -24,7 +24,7 @@ Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderN
 ```
 
 If the output of the last command shows *RegistrationState* as *Registered*, then your subscription is enabled for access policies.
-If the output is *Registering*, wait at least 10 minutes before retrying the command.
+If the output is *Registering*, wait at least 10 minutes, and then retry the command. Do not continue unless the RegistrationState shows as *Registered*
 
 >[!IMPORTANT]
 > The access policy feature is only available on **new** Azure Storage accounts. Storage accounts must meet the following requirements to enforce access policies published from Azure Purview.
