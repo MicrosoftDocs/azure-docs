@@ -122,6 +122,8 @@ Use the following steps to configure IoT Edge on your device.
 
 Make sure that the user **iotedge** has read permissions for the directory holding the certificates and keys.
 
+# [Ubuntu/Debian](#tab/ubuntu-debian)
+
 1. Install the **root CA certificate** on this IoT Edge device.
 
    ```bash
@@ -135,6 +137,26 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
    ```
 
    This command should output that one certificate was added to /etc/ssl/certs.
+
+
+# [IoT Edge for Linux on Windows](#tab/eflow)
+
+
+1. Install the **root CA certificate** on this IoT Edge device.
+
+   ```bash
+   sudo cp <path>/<root ca certificate>.pem /etc/pki/ca-trust/source/anchors/<root ca certificate>.pem.crt
+   ```
+
+1. Update the certificate store.
+
+   ```bash
+   sudo update-ca-trust
+   ```
+
+   For more information, check [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
+
+   ----
 
 1. Open the IoT Edge configuration file.
 
