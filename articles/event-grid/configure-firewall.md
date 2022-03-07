@@ -159,6 +159,43 @@ az eventgrid topic update \
 ## Use PowerShell
 This section shows you how to use Azure PowerShell commands to create Azure Event Grid topics with inbound IP firewall rules. The steps shown in this section are for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
+By default, the public network access is enabled for topics and domains. You can also enable it explicitly or disable it. You can restrict traffic by configuring inbound IP firewall rules. 
+
+### Enable public network access while creating a topic
+
+```azurepowershell-interactive
+New-AzEventGridTopic -ResourceGroupName MyResourceGroupName -Name Topic1 -Location eastus -PublicNetworkAccess enabled
+```
+
+### Disable public network access while creating a topic
+
+```azurepowershell-interactive
+New-AzEventGridTopic -ResourceGroupName MyResourceGroupName -Name Topic1 -Location eastus -PublicNetworkAccess disabled
+```
+
+> [!NOTE]
+> When public network access is disabled for a topic or domain, traffic over public internet isn't allowed. Only private endpoint connections will be allowed to access these resources.
+
+### Create a topic with public network access and inbound ip rules
+The following sample CLI command creates an event grid topic with public network access and inbound IP rules. 
+
+```azurepowershell-interactive
+New-AzEventGridTopic -ResourceGroupName MyResourceGroupName -Name Topic1 -Location eastus -PublicNetworkAccess enabled -InboundIpRule @{ "10.0.0.0/8" = "Allow"; "10.2.0.0/8" = "Allow" }
+```
+### Update an existing a topic with public network access and inbound ip rules
+The following sample CLI command updates an existing event grid topic with inbound IP rules. 
+
+```azurepowershell-interactive
+Set-AzEventGridTopic -ResourceGroupName MyResourceGroupName -Name Topic1 -PublicNetworkAccess enabled -InboundIpRule @{ "10.0.0.0/8" = "Allow"; "10.2.0.0/8" = "Allow" } -Tag @{}
+```
+
+### Disable public network access for an existing topic 
+
+```azurepowershell-interactive
+Set-AzEventGridTopic -ResourceGroup MyResourceGroupName -Name Topic1 -PublicNetworkAccess disabled -Tag @{} -InboundIpRule @{}
+```
+
+
 ### Prerequisites
 Follow instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the following values:
 
