@@ -38,6 +38,7 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 > Use the Bearer token for authentication. Read more about [using Bearer tokens](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx).
 
 **Request body**
+
 |Name | Type | Description |
 | --- | --- | --- |
 |properties.plan | string  | The table plan. Possible values are *Analytics* and *Basic*.|
@@ -95,7 +96,7 @@ Status code: 200
 
 # [CLI](#tab/cli-1)
 
-To configure a table for Basic Logs or Analytics Logs, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and set the `--plan` flag to `Basic` or `Analytics`.
+To configure a table for Basic Logs or Analytics Logs, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and set the `--plan` parameter to `Basic` or `Analytics`.
 
 For example:
 

@@ -22,7 +22,7 @@ The restore operation creates the restore table and allocates additional compute
 
 The destination table provides a view of the underlying source data, but does not affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
 
-## Restore data using API
+## Restore data
 
 # [API](#tab/api-1)
 To restore data from a table, call the **Tables - Create or Update** API. The name of the destination table must end with *_RST*.
