@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Managed Instance
 description: This tutorial teaches you how to use Managed Instance link and SSMS to replicate database from SQL Server to Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: sql-managed-instance
+ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
@@ -76,7 +76,7 @@ We can also see a new database under target Managed Instance. Depending on the d
 
 :::image type="content" source="./media/mi-link-use-ssms-to-replicate-database/mi-link-ssms-sql-mi-database.png" alt-text="State of database in Managed Instance":::
 
-# Next steps
+## Next steps
 
 For more information about Managed Instance link feature, see the following resources:
 
