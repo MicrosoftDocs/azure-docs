@@ -6,7 +6,7 @@ ms.date: 03/07/2022
 ms.custom: references_regions
 ---
 
-# Feature coverage for machines
+# Feature coverage
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -16,8 +16,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 
 ### [**Azure (AKS)**](#tab/azure-aks)
 
-| Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/
-Agent-based | Pricing Tier | Azure clouds availability |
+| Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|--|
 | Compliance | Docker CIS | VMs | GA | X | Log Analytics agent | Defender for Servers |  |
 | VA | Registry scan | ACR, Private ACR | GA | V | Agentless | Defender for Containers  | Commercial clouds<br> National clouds: Azure Government, Azure China 21Vianet |
@@ -80,6 +79,8 @@ Agent-based | Pricing Tier | Azure clouds availability |
 | Discovery and Auto provisioning | Auto provisioning of Azure policy extension | Arc enabled K8s clusters | Preview | X | Agentless | Defender for Containers |
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+---
 
 ## Additional information
 
