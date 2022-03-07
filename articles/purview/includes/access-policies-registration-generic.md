@@ -4,17 +4,15 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 03/07/2022
 ms.custom:
 ---
 
->[!Important]
-> Make sure you write down the **Name** you use when registering in Azure Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
-
->[!Note]
-> - To disable a source for *Data use Governance*, remove it first from being bound (i.e. published) in any policy.
-> - While user needs to have both data source *Owner* and Azure Purview *Data source admin* to enable a source for *Data use governance*, any of those roles can independently disable it.
-> - Disabling *Data use governance* for a subscription will disable it also for all assets registered in that subscription.
+### Important considerations related to Data use governance
+1. Make sure you write down the **Name** you use when registering in Azure Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
+2. To disable a source for *Data use governance*, remove it first from being bound (i.e. published) in any policy.
+3. While user needs to have both data source *Owner* and Azure Purview *Data source admin* to enable a source for *Data use governance*, either of those roles can independently disable it.
+4. Disabling *Data use governance* for a subscription will disable it also for all assets registered in that subscription.
 
 > [!WARNING]
 > **Known issues** related to source registration
