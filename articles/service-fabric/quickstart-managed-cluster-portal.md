@@ -66,7 +66,7 @@ To generate and retrieve your client certificate:
 
 1. Under **Settings** in the pane on the left, select **Certificates**.
 
-   ![Select the Certificates tab under Settings in the left pane.](./media/quickstart-managed-cluster-portal/key-vault-settings-certificates.png)
+   ![Screenshot of Certificates tab under Settings in the left pane, PNG.](./media/quickstart-managed-cluster-portal/key-vault-settings-certificates.png)
 
 1. Choose **+ Generate/Import**.
 
@@ -79,11 +79,11 @@ To generate and retrieve your client certificate:
 
 1. Select **Create**.
 
-1. Your certificate will appear under **In progress, failed or cancelled**. You may need to refresh the list for it to appear under **Completed**. Once it's completed, select it and choose the version under **CURRENT VERSION**.
+1. Your certificate will appear under **In progress, failed or canceled**. You may need to refresh the list for it to appear under **Completed**. Once it's completed, select it and choose the version under **CURRENT VERSION**.
 
 1. Select **Download in PFX/PEM format** and select **Download**. The certificate's name will be formatted as `yourkeyvaultname-yourcertificatename-yyyymmdd.pfx`.
 
-   ![Select Download in PFX/PEM format to retrieve your certificate so you can import it into your computer's certificate store.](./media/quickstart-managed-cluster-portal/download-pfx.png)
+   ![Screenshot of Download in PFX/PEM format button used to retrieve your certificate so you can import it into your computer's certificate store, PNG.](./media/quickstart-managed-cluster-portal/download-pfx.png)
 
 1. Import the certificate to your computer's certificate store so that you may use it to access your Service Fabric managed cluster later.
 
@@ -96,7 +96,7 @@ Before you create your Service Fabric managed cluster, you need to make sure Azu
 
 1. Under **Settings** in the pane on the left, select **Access policies**.
 
-   ![Select the Access policies tab under Settings in the left pane.](./media/quickstart-managed-cluster-portal/key-vault-settings-access-policies.png)
+   ![Screenshot of Access policies tab under Settings in the left pane, PNG.](./media/quickstart-managed-cluster-portal/key-vault-settings-access-policies.png)
 
 1. Toggle **Azure Virtual Machines for deployment** under **Enable access to:**.
 
@@ -120,9 +120,9 @@ In this quickstart, we use a Service Fabric managed cluster named **quickstartsf
     - `Key vault and primary certificate`: Choose **Select a certificate**, pictured below. Select your Azure Key Vault from the **Key vault** dropdown menu and your certificate from the **Certificate** dropdown menu, pictured below.
     - Leave the other options as their defaults.
 
-   ![Choose Select a certificate in the Authentication method section of the settings.](./media/quickstart-managed-cluster-portal/create-a-service-fabric-managed-cluster-authentication-method.png)
+   ![Screenshot of Select a certificate button in the Authentication method section of the settings, PNG.](./media/quickstart-managed-cluster-portal/create-a-service-fabric-managed-cluster-authentication-method.png)
 
-   ![Select your Azure Key Vault and certificate from the dropdown menus.](./media/quickstart-managed-cluster-portal/select-a-certificate-from-azure-key-vault.png)
+   ![Screenshot of Azure Key Vault and certificate dropdown menus, PNG.](./media/quickstart-managed-cluster-portal/select-a-certificate-from-azure-key-vault.png)
 
    If you didn't already change your Azure Key Vault's access policies, you may get text prompting you to do so after you select your key vault and certificate. If so, choose **Edit access policies for yourkeyvaultname**, select **Click to show advanced access policies**, toggle **Azure Virtual Machines for deployment**, and save your changes. Click **Create a Service Fabric managed cluster** to return to the creation page.
 
@@ -138,7 +138,7 @@ Once the deployment completes, you're ready to view your new Service Fabric mana
 
 1. On your managed cluster's **Overview** page, find the **SF Explorer** link and select it.
 
-   ![Select the SF Explorer link on your managed cluster's Overview page.](./media/quickstart-managed-cluster-portal/service-fabric-explorer-address.png)
+   ![Screenshot of SF Explorer link on your managed cluster's Overview page, PNG.](./media/quickstart-managed-cluster-portal/service-fabric-explorer-address.png)
 
    >[!NOTE]
    >You may get a warning that your connection to your cluster isn't private. Select **Advanced** and choose **continue to yourmanagedclusterfqdn (unsafe)**.
@@ -147,7 +147,7 @@ Once the deployment completes, you're ready to view your new Service Fabric mana
 
 1. You'll arrive at the Service Fabric Explorer display for your cluster, pictured below.
 
-   ![View your managed cluster's page in the Service Fabric Explorer.](./media/quickstart-managed-cluster-portal/service-fabric-explorer.png)
+   ![Screenshot of your managed cluster's page in the Service Fabric Explorer, PNG.](./media/quickstart-managed-cluster-portal/service-fabric-explorer.png)
 
 Your Service Fabric managed cluster consists of three nodes. These nodes are WindowsServer 2019-Datacenter virtual machines with 2 vCPUs, 8 GiB of RAM, and four 256-GiB disks. These features are determined by the **Basic SKU** option and the default values in the **Primary node type** settings on the **Create a Service Fabric managed cluster** page.
 
