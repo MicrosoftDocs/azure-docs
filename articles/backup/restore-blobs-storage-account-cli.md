@@ -33,7 +33,9 @@ First, we need to fetch the relevant backup instance ID. List all backup instanc
 
 ```azurecli-interactive
 az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureBlob --datasource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA"
+```
 
+```output
 [
   {
     "datasourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA",
@@ -99,7 +101,9 @@ Once the instance is identified, fetch the relevant recovery range using the [az
 
 ```azurecli-interactive
 az dataprotection restorable-time-range find --start-time 2021-05-30T00:00:00 --end-time 2021-05-31T00:00:00 --source-data-store-type OperationalStore -g testBkpVaultRG --vault-name TestBkpVault --backup-instances CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036
+```
 
+```output
 {
   "id": "CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036",
   "name": null,
@@ -128,7 +132,9 @@ Using this option, you can restore all block blobs in the storage account by rol
 
 ```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --target-resource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" --point-in-time 2021-06-02T18:53:44.4465407Z
+```
 
+```output
 {
   "object_type": "AzureBackupRecoveryTimeBasedRestoreRequest",
   "recovery_point_time": "2021-06-02T18:53:44.4465407Z.0000000Z",
@@ -148,8 +154,9 @@ az dataprotection backup-instance restore initialize-for-data-recovery --datasou
   },
   "source_data_store_type": "OperationalStore"
 }
+```
 
-
+```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --target-resource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" --point-in-time 2021-06-02T18:53:44.4465407Z > restore.json
 ```
 
@@ -159,7 +166,9 @@ Using this option, you can browse and select up to 10 containers to restore. To 
 
 ```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --container-list container1 container2
+```
 
+```output
 {
   "object_type": "AzureBackupRecoveryTimeBasedRestoreRequest",
   "recovery_point_time": "2021-06-02T18:53:44.4465407Z.0000000Z",
@@ -191,8 +200,9 @@ az dataprotection backup-instance restore initialize-for-item-recovery --datasou
   },
   "source_data_store_type": "OperationalStore"
 }
+```
 
-
+```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --container-list container1 container2 > restore.json
 ```
 
@@ -209,7 +219,9 @@ To restore selected containers, use the [az dataprotection backup-instance resto
 
 ```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --from-prefix-pattern container1/text1 container2/text4 --to-prefix-pattern container1/text4 container2/text41
+```
 
+```output
 {
   "object_type": "AzureBackupRecoveryTimeBasedRestoreRequest",
   "recovery_point_time": "2021-06-02T18:53:44.4465407Z.0000000Z",
@@ -241,9 +253,9 @@ az dataprotection backup-instance restore initialize-for-item-recovery --datasou
   },
   "source_data_store_type": "OperationalStore"
 }
+```
 
-
-
+```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --from-prefix-pattern container1/text1 container2/text4 --to-prefix-pattern container1/text4 container2/text41 > restore.json
 ```
 
@@ -261,7 +273,7 @@ Track all the jobs using the [az dataprotection job list](/cli/azure/dataprotect
 
 You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job which can be across any Backup vault.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az dataprotection job list-from-resourcegraph --datasource-type AzureBlob --operation Restore
 ```
 

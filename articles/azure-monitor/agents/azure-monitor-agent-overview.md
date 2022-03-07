@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor agent, which collects monitoring data
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/21/2021
+ms.date: 3/3/2022
 ms.custom: references_regions
 ---
 
@@ -122,6 +122,15 @@ The Azure Monitor agent doesn't require any keys but instead requires a [system-
 ## Networking
 The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required). It supports connecting via **direct proxies, Log Analytics gateway, and private links** as described below.
 
+### Firewall requirements
+|Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
+|------|------|---------|--------|--------|
+|global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes |  
+|`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |  
+|`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes |  
+
+If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)
+
 ### Proxy configuration
 If the machine connects through a proxy server to communicate over the internet, review requirements below to understand the network configuration required.
 
@@ -188,8 +197,8 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
    `Stop-Service -Name <gateway-name>`  
    `Start-Service -Name <gateway-name>` 
 
-## Private link configuration
-To configure the agent to use private links for network communications with Azure Monitor, you can use [Azure Monitor Private Links Scopes (AMPLS)](../logs/private-link-security.md) and [data collection endpoints](azure-monitor-agent-data-collection-endpoint.md) to enable required network isolation. 
+### Private link configuration
+To configure the agent to use private links for network communications with Azure Monitor, follow instructions to [enable network isolation](./azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent) using [data collection endpoints](azure-monitor-agent-data-collection-endpoint.md). 
 
 ## Next steps
 
