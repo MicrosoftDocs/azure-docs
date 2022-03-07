@@ -110,7 +110,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Meta Networks Connector based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Meta Networks Connector, following the instructions provided in the [Meta Networks Connector Single sign-on tutorial](./metanetworksconnector-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Meta Networks Connector, following the instructions provided in the [Meta Networks Connector Single sign-on tutorial](./metanetworksconnector-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other
 
 ### To configure automatic user provisioning for Meta Networks Connector in Azure AD:
 
@@ -155,7 +155,7 @@ This section guides you through the steps to configure the Azure AD provisioning
     |phonenumbers[type eq "work"].value|String||
 
 	> [!NOTE]
-	> phonenumbers[type eq "work"].value should be in E164 format.For example +16175551212
+	> phonenumbers value should be in E164 format. For example +16175551212
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Meta Networks Connector**.
 
