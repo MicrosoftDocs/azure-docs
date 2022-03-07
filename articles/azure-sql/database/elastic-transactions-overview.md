@@ -219,9 +219,6 @@ using (TransactionScope s = new TransactionScope())
 
 ## Transactions for SQL Database
 
-> [!IMPORTANT]
-> Distributed transactions for Azure SQL Database
-
 Elastic database transactions are supported across different servers in Azure SQL Database. When transactions cross server boundaries, the participating servers first need to be entered into a mutual communication relationship. Once the communication relationship has been established, any database in any of the two servers can participate in elastic transactions with databases from the other server. With transactions spanning more than two servers, a communication relationship needs to be in place for any pair of servers.
 
 Use the following PowerShell cmdlets to manage cross-server communication relationships for elastic database transactions:
