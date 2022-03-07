@@ -40,7 +40,7 @@ Metric rules for virtual machines can use the following data:
 [Log alerts](../alerts/alerts-unified-log.md) can measure two different things, each of which supports distinct scenarios for monitoring virtual machines:
 
 - [Table rows](../alerts/alerts-unified-log.md#count-of-the-results-table-rows): This measure can be used to work with events such as Windows event logs, syslog, application exceptions.
-- [Calculation of a value](../alerts/alerts-unified-log#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value): This measure is based on a numeric column and  can be used to include any number of resources.
+- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value): This measure is based on a numeric column and  can be used to include any number of resources.
 
 ### Target resource and impacted resource
 
