@@ -16,7 +16,7 @@ This article teaches you how to identify deadlocks in Azure SQL Database, use de
 
 ## How deadlocks occur in Azure SQL Database
 
-New databases in Azure SQL Database use the read committed snapshot isolation level (RCSI) by default. [Blocking](understand-resolve-blocking.md) between sessions reading data and sessions writing data is minimized in this isolation level, which reduces blocking and deadlocks. However, blocking and deadlocks may still occur because:
+Databases in Azure SQL Database use the read committed snapshot isolation level (RCSI) by default. [Blocking](understand-resolve-blocking.md) between sessions reading data and sessions writing data is minimized in this isolation level, which reduces blocking and deadlocks. However, blocking and deadlocks may still occur because:
 
 - Queries that modify data may block one another
 - Queries may run under different isolation levels due to hints in Transact-SQL
@@ -26,21 +26,37 @@ New databases in Azure SQL Database use the read committed snapshot isolation le
 
 A deadlock occurs when two or more tasks permanently block each other by each task having a lock on a resource that the other tasks are trying to lock. For example:
 
-- Session A begins an explicit transaction and runs an update which acquires an exclusive lock on one row on table `SalesLT.Product`.
-- An update statement in Session B modifies the `SalesLt.ProductDescription` table with a query that joins to the `SalesLT.Product` table in order to find the correct rows to update.
-    - Session B takes out an exclusive lock on 72 rows on the `SalesLt.ProductDescription` table.
-    - Session B requires a shared lock on rows on the table `SalesLT.Product`, including the row which is locked by Session A. Session B is blocked for this read.
-- Session A continues its transaction, and now runs an update against the `SalesLt.ProductDescription` table. It is blocked by Session B.
+- **Session A** begins an explicit transaction and runs an update statement which acquires an exclusive lock on one row on table `SalesLT.Product`.
+- **Session B** runs an update statement modifies the `SalesLt.ProductDescription` table with a query that joins to the `SalesLT.Product` table in order to find the correct rows to update.
+    - **Session B** takes out an exclusive lock on 72 rows on the `SalesLt.ProductDescription` table.
+    - **Session B** needs a shared lock on rows on the table `SalesLT.Product`, including the row which is locked by **Session A**. **Session B** is blocked on `SalesLT.Product`.
+- **Session A** continues its transaction, and now runs an update against the `SalesLt.ProductDescription` table. **Session A** is blocked by Session B on `SalesLt.ProductDescription`.
 
-Both transactions in a deadlock will wait forever unless either session is terminated, or the deadlock is resolved by an external process. The deadlock monitor periodically checks for tasks that are in a deadlock. If the deadlock monitor detects a cyclic dependency, it chooses one of the tasks as a victim and terminates its transaction with error 1205. This allows the other task to complete its transaction. The application with the transaction was chosen as the deadlock victim can retry the transaction, which usually completes after the other deadlocked transaction has finished.
+<!-- TODO: Get image for this -->
+
+Both transactions in a deadlock will wait forever unless either session is terminated or the deadlock is resolved by an external process. The database engine deadlock monitor periodically checks for tasks that are in a deadlock. If the deadlock monitor detects a cyclic dependency, it chooses one of the tasks as a victim and terminates its transaction with error 1205. This allows the other task to complete its transaction. The application with the transaction was chosen as the deadlock victim can retry the transaction, which usually completes after the other deadlocked transaction has finished.
 
 Learn more about deadlocks in the [transaction locking and row versioning guide](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#deadlocks).
 
 ### Default isolation level in Azure SQL Database
 
-How to check it
-How to change it
+Databases in Azure SQL Database use the read committed snapshot isolation level (RCSI) by default. RCSI is a [row-versioning based isolation level](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#Row_versioning) that provides statement-level consistency and offers higher concurrency than the [read committed isolation level](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#database-engine-isolation-levels). 
 
+With RCSI enabled, the default isolation level of queries is modified. Queries use row versioning so that:
+
+- Statements reading data do not block statements modifying data
+- Statements modifying data do not block statements reading data. 
+
+Optionally, you may also choose to enable Snapshot isolation level for a database in Azure SQL Database. Snapshot isolation is an additional row-based isolation level which provides transaction-level consistency for data.
+
+You can identify if snapshot isolation and read committed snapshot isolation are enabled with Transact-SQL. Connect to your database in Azure SQL Database and run the following query:
+
+```sql
+SELECT name, snapshot_isolation_state_desc, is_read_committed_snapshot_on
+FROM sys.databases
+WHERE name = DB_NAME();
+GO
+```
 
 ### Interpreting deadlock events
 
@@ -103,8 +119,7 @@ ROLLBACK
 
 ## Collect deadlock graphs in Azure SQL Database
 
-How to save a deadlock graph as a file SSMS can open
-Query DMV
+Identify the most frequent deadlocks
 
 ```sql
 WITH deadlock_events AS (
@@ -132,9 +147,9 @@ ORDER BY [deadlock_timestamp] DESC;
 GO
 ```
 
-Identify the most frequent deadlocks
+How to save a deadlock graph as a file SSMS can open (Save as XDL file)
 
-Save as XDL file
+
 
 ## Analyze a deadlock for Azure SQL Database
 
@@ -154,6 +169,8 @@ Look for patterns:
 
 ### Tune indexes
 
+Why index tuning helps reduce deadlocks
+
 ```sql
 CREATE NONCLUSTERED INDEX ix_Product_Color on SalesLt.Product  (Color, ProductModelID);
 GO
@@ -161,13 +178,15 @@ GO
 
 ### Freeze a plan with Query Store
 
+Why freezing a plan can help reduce deadlocks
 
 ### Modify the Transact-SQL
+
+Why this is not the first recommendation
 
 #### Break apart transactions
 
 #### Query hints
-
 
 #### Adjust the deadlock priority
 
