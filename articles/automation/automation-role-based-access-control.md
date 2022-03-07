@@ -311,7 +311,6 @@ Update Management can be used to assess and schedule update deployments to machi
 
 |**Resource** |**Role** |**Scope** |
 |---------|---------|---------|
-|Automation account |[Custom Azure Automation Contributor role](#custom-azure-automation-contributor-role) |Automation account |
 |Automation account |Virtual Machine Contributor  |Resource Group for the account  |
 |Log Analytics workspace | Log Analytics Contributor|Log Analytics workspace |
 |Log Analytics workspace |Log Analytics Reader|Subscription|
