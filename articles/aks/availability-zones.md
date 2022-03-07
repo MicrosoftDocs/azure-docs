@@ -133,7 +133,7 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 As you add additional nodes to an agent pool, the Azure platform automatically distributes the underlying VMs across the specified availability zones.
 
-Note that in newer Kubernetes versions (1.17.0 and later), AKS is using the newer label `topology.kubernetes.io/zone` in addition to the deprecated `topology.kubernetes.io/zone`. You can get the same result as above with by running the following script:
+Note that in newer Kubernetes versions (1.17.0 and later), AKS is using the newer label `topology.kubernetes.io/zone` in addition to the deprecated `failure-domain.beta.kubernetes.io/zone`. You can get the same result as above with by running the following script:
 
 ```console
 kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
