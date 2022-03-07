@@ -159,14 +159,13 @@ To deploy the template by using Azure portal:
             ```
     
     1. Under the `microsoft.devtestlab/labs/users/secrets` resources, the following parameter the "properties". Replace `YOUR_STORED_PASSWORD` with your password.
-    > [!IMPORTANT] 
-    > Use secureString for password values.  
+       > [!IMPORTANT] 
+       > Use secureString for password values.  
 
        ```json
        "value": "YOUR_STORED_PASSWORD" 
        ```
-
-    
+      
     1. Under the `microsoft.devtestlab/labs/artifactsources` resources, the following parameter the "properties". Replace `YOUR_STORED_PASSWORD` with your password. Again, use secureString for password values.  
 
        ```json
