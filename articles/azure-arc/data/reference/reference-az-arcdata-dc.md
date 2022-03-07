@@ -27,16 +27,16 @@ ms.subservice: azure-arc-data
 [az arcdata dc upload](#az-arcdata-dc-upload) | Upload exported data file.
 ## az arcdata dc create
 Create data controller - kube config is required on your system along with credentials for the monitoring dashboards provided by the following environment variables - AZDATA_LOGSUI_USERNAME and AZDATA_LOGSUI_PASSWORD for Logs Dashboard, and AZDATA_METRICSUI_USERNAME and AZDATA_METRICSUI_PASSWORD for Metrics Dashboard. Alternatively AZDATA_USERNAME and AZDATA_PASSWORD will be used as a fallback if either sets of environment variables are missing.
-```bash
+```azurecli
 az arcdata dc create 
 ```
 ### Examples
 Deploy an indirectly connected data controller.
-```bash
+```azurecli
 az arcdata dc create --name name --k8s-namespace namespace --connectivity-mode indirect --resource-group group  --location location --subscription subscription --use-k8s
 ```
 Deploy a directly connected data controller.
-```bash
+```azurecli
 az arcdata dc create --name name  --connectivity-mode direct --resource-group group  --location location --subscription subscription  --custom-location custom-location         
 ```
 ### Global Arguments
@@ -52,12 +52,12 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc upgrade
 Upgrade data controller to the desired-version specified.  If desired-version is not specified, an attempt to upgrade to the latest version will be made. If you are unsure of the desired version, you may use the list-upgrades command to view available versions, or use the --dry-run argument to show which version would be used
-```bash
+```azurecli
 az arcdata dc upgrade 
 ```
 ### Examples
 Data controller upgrade.
-```bash
+```azurecli
 az arcdata dc upgrade --k8s-namespace namespace --use-k8s
 ```
 ### Global Arguments
@@ -73,12 +73,12 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc list-upgrades
 Attempts to list versions that are available in the docker image registry for upgrade. - kube config is required on your system along with the following environment variables ['AZDATA_USERNAME', 'AZDATA_PASSWORD'].
-```bash
+```azurecli
 az arcdata dc list-upgrades 
 ```
 ### Examples
 Data controller upgrade.
-```bash
+```azurecli
 az arcdata dc list-upgrades --k8s-namespace namespace --use-k8s            
 ```
 ### Global Arguments
@@ -94,16 +94,16 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc delete
 Delete data controller - kube config is required on your system.
-```bash
+```azurecli
 az arcdata dc delete 
 ```
 ### Examples
 Delete an indirect connected data controller.
-```bash
+```azurecli
 az arcdata dc delete --name name --k8s-namespace namespace --use-k8s
 ```
 Delete a directly connected data controller.
-```bash
+```azurecli
 az arcdata dc delete --name name --resource-group resource-group            
 ```
 ### Global Arguments
@@ -119,7 +119,7 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc export
 Export metrics, logs or usage to a file.
-```bash
+```azurecli
 az arcdata dc export 
 ```
 ### Global Arguments
@@ -135,7 +135,7 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc upload
 Upload data file exported from a data controller to Azure.
-```bash
+```azurecli
 az arcdata dc upload 
 ```
 ### Global Arguments

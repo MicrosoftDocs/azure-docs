@@ -10,7 +10,9 @@ ms.author: eur
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
+
+## Download and install
 
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 

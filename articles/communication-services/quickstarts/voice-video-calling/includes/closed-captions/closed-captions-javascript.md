@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 ## Prerequisites
 
-Refer to the [Voice Calling Quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?pivots=platform-web) to set up a sample app with voice calling.
+Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pivots=platform-web) to set up a sample app with voice calling.
 
 ## Models
 
@@ -80,4 +80,4 @@ await callCaptionsApi.selectLanguage(availableLanguages[0]);
 ## Clean up
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
-Learn more about [cleaning up resources here.](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources)
+Learn more about [cleaning up resources here.](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows#clean-up-resources)

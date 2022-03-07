@@ -2,8 +2,6 @@
 title: Troubleshooting SDK load failure for JavaScript web applications - Azure Application Insights 
 description: How to troubleshoot SDK load failure for JavaScript web applications
 ms.topic: conceptual
-author: MSNev
-ms.author: newylie
 ms.date: 06/05/2020
 ms.devlang: javascript
 ms.custom: devx-track-js

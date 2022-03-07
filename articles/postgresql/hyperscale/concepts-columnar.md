@@ -192,7 +192,7 @@ storage](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archivin
 ## Limitations
 
 This feature still has significant limitations. See [Hyperscale
-(Citus) limits and limitations](concepts-limits.md#columnar-storage).
+(Citus) limits and limitations](reference-limits.md#columnar-storage).
 
 ## Next steps
 

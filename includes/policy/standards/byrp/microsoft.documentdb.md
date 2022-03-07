@@ -2,7 +2,7 @@
 author: georgewallace
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/19/2022
+ms.date: 02/15/2022
 ms.author: gwallace
 ms.custom: generated
 ---
@@ -149,3 +149,4 @@ For more information about this compliance standard, see
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Network Resilience |RMiT 10.33 |Network Resilience - 10.33 |[Cosmos DB should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe0a2b1a3-f7f9-4569-807f-2a9edebdf4d9) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_CosmosDB_Audit.json) |
+

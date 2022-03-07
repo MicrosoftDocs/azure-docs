@@ -1,6 +1,6 @@
 ---
-title: Normalization and the Advanced SIEM Information Model (ASIM) | Microsoft Docs
-description: This article explains how Microsoft Sentinel normalizes data from many different sources using the Advanced SIEM Information Model (ASIM)
+title: Normalization and the Advanced Security Information Model (ASIM) | Microsoft Docs
+description: This article explains how Microsoft Sentinel normalizes data from many different sources using the Advanced Security Information Model (ASIM)
 author: batamig
 ms.topic: conceptual
 ms.date: 11/09/2021
@@ -8,7 +8,7 @@ ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
 
-# Normalization and the Advanced SIEM Information Model (ASIM) (Public preview)
+# Normalization and the Advanced Security Information Model (ASIM) (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -17,10 +17,12 @@ Microsoft Sentinel ingests data from many sources. Working with various data typ
 
 Sometimes, you'll need separate rules, workbooks, and queries, even when data types share common elements, such as firewall devices. Correlating between different types of data during an investigation and hunting can also be challenging.
 
-This article provides an overview of the Advanced Security Information and Event Management (SIEM) Information Model (ASIM), which provides a solution for the challenges of handling multiple types of data.
+The Advanced Security Information Model (ASIM) is a layer that is located between these diverse sources and the user. ASIM follows the [robustness principal](https://en.wikipedia.org/wiki/Robustness_principle): **"Be strict in what you send, be flexible in what you accept"**. Using the robustness principal as design pattern, ASIM transforms Microsoft Sentinel's inconsistent and hard to use source telemetry to  user friendly data. 
+
+This article provides an overview of the Advanced Security Information Model (ASIM), its use cases and major components. Refer to the [next steps](#next-steps) section for more details.
 
 > [!TIP]
-> Also watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [webinar slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG). For more information, see [Next steps](#next-steps).
+> Also watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [webinar slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG).
 >
 
 > [!IMPORTANT]
@@ -94,6 +96,6 @@ This article provides an overview of normalization in Microsoft Sentinel and ASI
 For more information, see:
 
 - Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

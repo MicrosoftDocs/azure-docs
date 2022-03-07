@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/07/2022
+ms.date: 02/23/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -53,9 +53,9 @@ Learn more about [B2B collaboration in Azure AD](what-is-b2b.md).
 
 Azure AD B2C is a Customer Identity and Access Management (CIAM) solution that lets you build user journeys for consumer- and customer-facing apps. If you're a business or individual developer creating customer-facing apps, you can scale to millions of consumers, customers, or citizens by using Azure AD B2C. Developers can use Azure AD B2C as the full-featured CIAM system for their applications.
 
-With Azure AD B2C, customers can sign in with an identity they've already established (like Facebook or Gmail). With Azure AD B2C, you can completely customize and control how customers sign up, sign in, and manage their profiles when using your applications. For more information, see the Azure AD B2C documentation.
+With Azure AD B2C, customers can sign in with an identity they've already established (like Facebook or Gmail). You can completely customize and control how customers sign up, sign in, and manage their profiles when using your applications. 
 
-Learn more about [Azure AD B2C](../../active-directory-b2c/index.yml).
+Although Azure AD B2C is built on the same technology as Azure AD, it's a separate service with some feature differences. For more information about how an Azure AD B2C tenant differs from an Azure AD tenant, see [Supported Azure AD features](../../active-directory-b2c/supported-azure-ad-features.md) in the [Azure AD B2C documentation](../../active-directory-b2c/index.yml).
 
 ## Comparing External Identities feature sets
 
@@ -114,7 +114,7 @@ When you're considering B2B collaboration with a specific external Azure AD orga
 
 Azure AD B2C is a separate consumer-based directory that you manage in the Azure portal through the Azure AD B2C service. Each Azure AD B2C tenant is separate and distinct from other Azure Active Directory and Azure AD B2C tenants. The Azure AD B2C portal experience is similar to Azure AD, but there are key differences, such as the ability to customize your user journeys using the Identity Experience Framework.
 
-For details about configuring and managing Azure AD B2C, see the [Azure AD B2B documentation](../../active-directory-b2c/index.yml).
+For details about configuring and managing Azure AD B2C, see the [Azure AD B2C documentation](../../active-directory-b2c/index.yml).
 
 ## Related Azure AD technologies
 

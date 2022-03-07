@@ -7,7 +7,8 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aawislan
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Tutorial: Deploy a Dapr application to Azure Container Apps using the Azure CLI
@@ -138,7 +139,7 @@ Get the storage account key with the following command:
 
 # [Bash](#tab/bash)
 
-```bash
+```azurecli
 STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
 ```
 

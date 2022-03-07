@@ -5,12 +5,13 @@ description: Learn how to specify a blob's access tier when you upload it, or ho
 author: tamram
 
 ms.author: tamram
-ms.date: 10/25/2021
+ms.date: 03/02/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: fryu
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Set a blob's access tier
@@ -298,7 +299,7 @@ $ctx = (Get-AzStorageAccount `
         -ResourceGroupName $rgName `
         -Name $accountName).Context
 
-# Copy the source blob to a new destination blob in Hot tier with Standard priority.
+# Copy the source blob to a new destination blob in Hot tier.
 Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
     -SrcBlob $srcBlobName `
     -DestContainer $destContainerName `

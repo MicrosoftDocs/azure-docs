@@ -7,10 +7,10 @@ author: rahulm23
 ms.author: rahulmehta
 ms.date: 02/01/2022
 keywords: azure, openshift, aro, red hat, service, definition
-#Customer intent: I need to understand Azure Red Hat OpenShift services to manage my subscription.
+#Customer intent: I need to understand Azure Red Hat OpenShift service definitions to manage my subscription.
 ---
 
-# Azure Red Hat OpenShift account management
+# Azure Red Hat OpenShift service definition
 
 The following sections provide service definitions to help you manage your Azure Red Hat OpenShift account.
 
@@ -57,8 +57,8 @@ Customers have the ability to increase the node count and the permission in each
 
 Azure Red Hat OpenShift clusters are provisioned with three control plane nodes. These nodes are responsible for etcd key-value store and API-related workloads. The control plane node can't be used for customer workloads. Control plane node deployment follows the same rules as worker nodes.
 
-- In regions that consist of multiple availability zones, a primary node machine set is created in each zone.  A primary node is provisioned from each machine set.
-- Where an Azure region doesn't support availability zones, the Azure Red Hat OpenShift cluster provisions the primary nodes from a single machine set.
+- In regions that consist of multiple availability zones, a control plane node machine set is created in each zone.  A control plane node is provisioned from each machine set.
+- Where an Azure region doesn't support availability zones, the Azure Red Hat OpenShift cluster provisions the control plane nodes from a single machine set.
 
 ## Azure compute types
 
@@ -78,7 +78,7 @@ Once deployed, an Azure Red Hat OpenShift cluster can't be moved to a different 
 
 ## Service level agreement
 
-For  SLA details, see [SLA for Azure Red Hat OpenShift](https://azure.microsoft.com/support/legal/sla/openshift/v1_0/).
+For SLA details, see [SLA for Azure Red Hat OpenShift](https://azure.microsoft.com/support/legal/sla/openshift/v1_0/).
 
 ## Support
 
@@ -99,7 +99,7 @@ The following sections provide information about Azure Red Hat OpenShift securit
 
 Azure Red Hat OpenShift deploys with services for maintaining the health and performance of the cluster and its components. These services include cluster operations and audit logs. Cluster operations and audit logs are forwarded automatically to an Azure aggregation system for support and troubleshooting. This data is only accessible to authorized support staff via approved mechanisms.
 
-Customer cluster administrators can deploy an optional logging stack to aggregate all logs from their Azure Red Hat OpenShift cluster. For example, node system audit logs and infrastructure logs can be aggregated. However,  these logs consume another cluster resources.
+Customer cluster administrators can deploy an optional logging stack to aggregate all logs from their Azure Red Hat OpenShift cluster. For example, node system audit logs and infrastructure logs can be aggregated. However, these logs consume another cluster resources.
 
 ### Application logging
 
@@ -111,7 +111,7 @@ If the cluster logging stack is installed, application logs sent to STDOUT are c
 
 ## Monitoring
 
-The following section provides information about Azure Red Hat OpenShift security.
+The following section provides information about Azure Red Hat OpenShift monitoring.
 ### Cluster metrics
 
 Azure Red Hat OpenShift deploys with services for maintaining the health and performance of the cluster and its components. These services include the streaming of important metrics to an Azure aggregation system for support and troubleshooting purposes. This data is only accessible to authorized support staff via approved mechanisms.
@@ -155,7 +155,7 @@ All cluster ingress traffic traverses the defined load balancer.
 ### Cluster egress
 
 Pod egress traffic control via EgressNetworkPolicy objects can be used to prevent or limit outbound traffic in Azure Red Hat OpenShift.
-Currently all virtual machines must have outbound internet access, at least to the endpoints listed here.
+Currently all virtual machines must have outbound internet access.
 
 ### Cloud network configuration
 

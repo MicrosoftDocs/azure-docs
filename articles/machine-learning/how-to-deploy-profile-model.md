@@ -104,6 +104,7 @@ details = profile.get_details()
 
 ::: zone pivot="cli"
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 The following command demonstrates how to profile a model by using the CLI:
 
