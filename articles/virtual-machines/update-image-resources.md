@@ -1,16 +1,18 @@
 ---
-title: List, update, and delete image resources 
-description: List, update, and delete image resources in your Azure Compute Gallery.
-author: cynthn
+title: List, update, and delete resources 
+description: List, update, and delete resources in your Azure Compute Gallery.
+author: sandeepraichura
+ms.author: saraic
+ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 03/03/2022
-ms.author: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
+
 ---
 
-# List, update, and delete image resources 
+# List, update, and delete gallery resources 
 
 You can manage your Azure Compute Gallery (formerly known as Shared Image Gallery) resources using the Azure CLI or Azure PowerShell.
 

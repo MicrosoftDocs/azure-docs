@@ -1483,6 +1483,6 @@ You can enhance system security by preventing direct user access to the sensor. 
 
 1. Enter `--port 10000`.
 
-### Next steps
+## Next steps
 
-[Set up your network](how-to-set-up-your-network.md)
+For more information, see [Set up your network](how-to-set-up-your-network.md).
