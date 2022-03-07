@@ -110,6 +110,7 @@ This section shows how to use the Microsoft Authentication Library to get a toke
     using Microsoft.Graph;
     using System.Diagnostics;
     using System.Threading.Tasks;
+    using System.Net.Http.Headers;
     ```
 
 1. Replace your `MainPage` class with the following code:

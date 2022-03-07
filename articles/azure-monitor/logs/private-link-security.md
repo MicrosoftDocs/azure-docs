@@ -78,7 +78,7 @@ Therefore, Private Links created starting September 2021 have new mandatory AMPL
 * Open mode - uses Private Link to communicate with resources in the AMPLS, but also allows traffic to continue to other resources as well. See [Control how Private Links apply to your networks](./private-link-design.md#control-how-private-links-apply-to-your-networks) to learn more.
 
 > [!NOTE]
-> Log Analytics ingestion uses resource-specific endpoints. As such, it doesn’t adhere to AMPLS access modes. **To assure Log Analytics ingestion requests can’t access workspaces out of the AMPLS, set the network firewall to block traffic to public endpoints, regardless of the AMPLS access modes**.
+> While Log Analytics query requests are affected by the AMPLS access mode setting, Log Analytics ingestion requests use resource-specific endpoints, and are therefore not controlled by the AMPLS access mode. **To assure Log Analytics ingestion requests can’t access workspaces out of the AMPLS, set the network firewall to block traffic to public endpoints, regardless of the AMPLS access modes**.
 
 > [!NOTE]
 >  If you have configured Log Analytics with Private Link by initially setting the NSG rules to allow outbound traffic by ServiceTag:AzureMonitor, then the connected VMs would send the logs through Public endpoint. Later, if you change the rules to deny outbound traffic by ServiceTag:AzureMonitor, still the connected VMs would keep sending logs until you reboot the VMs or cut the sessions. In order to make sure the desired configuration take immediate effect, the recommendation is to reboot the connected VMs.

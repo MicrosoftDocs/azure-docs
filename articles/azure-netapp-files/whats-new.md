@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 01/28/2022
+ms.date: 03/02/2022
 ms.author: anfdocs
 ---
 
@@ -55,7 +55,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     The following features are now GA. You no longer need to register the features before using them.
 
     * [Dual-protocol (NFSv4.1 and SMB) volume](create-volumes-dual-protocol.md)
-    * [ADDS LDAP over TLS](configure-ldap-over-tls.md)
+    * [Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
     * [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#smb3-encryption)
 
 ## November 2021
@@ -151,7 +151,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports billing tags to help you cross-reference cost with business units or other internal consumers. Billing tags are assigned at the capacity pool level and not volume level, and they appear on the customer invoice.
 
-* [ADDS LDAP over TLS](configure-ldap-over-tls.md) (Preview) 
+* [Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) (Preview) 
 
     By default, LDAP communications between client and server applications are not encrypted. This means that it is possible to use a network-monitoring device or software to view the communications between an LDAP client and server computers. This scenario might be problematic in non-isolated or shared VNets when an LDAP simple bind is used, because the credentials (username and password) used to bind the LDAP client to the LDAP server are passed over the network unencrypted. LDAP over TLS (also known as LDAPS) is a protocol that uses TLS to secure communication between LDAP clients and LDAP servers. Azure NetApp Files now supports the secure communication between an Active Directory Domain Server (ADDS) using LDAP over TLS. Azure NetApp Files can now use LDAP over TLS for setting up authenticated sessions between the Active Directory-integrated LDAP servers. You can enable the LDAP over TLS feature for NFS, SMB, and dual-protocol volumes. By default, LDAP over TLS is disabled on Azure NetApp Files.  
 

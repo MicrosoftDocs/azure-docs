@@ -182,6 +182,8 @@ items:
       href: register-scan-power-bi-tenant.md
     - name: Salesforce
       href: register-scan-salesforce.md
+    - name: SAP Business Warehouse
+      href: register-scan-sap-bw.md
     - name: SAP ECC
       href: register-scan-sapecc-source.md
     - name: SAP HANA 
@@ -287,9 +289,9 @@ items:
     - name: Conditional access
       href: catalog-conditional-access.md
   - name: Data owner policies
-    items:
-    - name: Authoring and publishing data owner access policies
-      href: how-to-data-owner-policy-authoring-generic.md
+    href: how-to-data-owner-policy-authoring-generic.md
+  - name: Data use governance
+    href: how-to-enable-data-use-governance.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery
