@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `<EXTERNAL_DNS_NAME>.portal`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
+    `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
