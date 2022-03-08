@@ -35,7 +35,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `description` | string | Description of the component. | | |
 | `tags` | object | Dictionary of tags for the component. | | |
 | `command` | string | **Required.** The command to execute. | | |
-| `code.local_path` | string | Local path to the source code directory to be uploaded and used for the component. | | |
+| `code` | string | Local path to the source code directory to be uploaded and used for the component. | | |
 | `environment` | string or object | **Required.** The environment to use for the component. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline environments. | | |
 | `distribution` | object | The distribution configuration for distributed training scenarios. One of [MpiConfiguration](#mpiconfiguration), [PyTorchConfiguration](#pytorchconfiguration), or [TensorFlowConfiguration](#tensorflowconfiguration). | | |
 | `resources.instance_count` | integer | The number of nodes to use for the job. | | `1` |
