@@ -42,7 +42,7 @@ landingContent:
           - text: Endpoint Manager
             url: concept-endpoint-manager.md
           - text: Route
-            url: concept-route.md
+            url: ../front-door-route-matching.md
       - linkListType: how-to-guide
         links:
           - text: Configure Endpoint Manager
