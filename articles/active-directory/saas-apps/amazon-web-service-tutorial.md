@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AWS Single-Account Access | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with AWS Single-Account Access'
 description: Learn how to configure single sign-on between Azure Active Directory and AWS Single-Account Access.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 02/28/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with AWS Single-Account Access
+# Tutorial: Azure AD SSO integration with AWS Single-Account Access
 
 In this tutorial, you'll learn how to integrate AWS Single-Account Access with Azure Active Directory (Azure AD). When you integrate AWS Single-Account Access with Azure AD, you can:
 
@@ -340,6 +340,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     b. Enter these credentials into the Azure AD user provisioning section to fetch the roles from the AWS console.
 
     c. Select **Close**.
+
+> [!NOTE]
+> AWS has a set of permissions/limts are required to configure AWS SSO. To know more information on AWS limits, please refer [this](https://docs.aws.amazon.com/singlesignon/latest/userguide/limits.html) page.
 
 ### How to configure role provisioning in AWS Single-Account Access
 

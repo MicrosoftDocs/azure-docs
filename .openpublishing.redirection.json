@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/storage/blobs/storage-ios-how-to-use-blob-storage.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/login-using-aad.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/login-using-aad",
       "redirect_document_id": false
@@ -681,6 +686,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/front-door-troubleshoot-routing.md",
       "redirect_url": "/azure/frontdoor/troubleshoot-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-rules-set-action.md",
+      "redirect_url": "/azure/frontdoor/front-door-rules-engine-actions",
       "redirect_document_id": false
     },
     {
@@ -32790,6 +32800,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/migrate/migrate-appliance-architecture.md",
+      "redirect_url": "discovered-metadata",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/common/storage-access-blobs-queues-portal.md",
       "redirect_url": "articles/storage/blobs/authorize-blob-access-portal",
       "redirect_document_id": false
@@ -38685,6 +38700,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/phone-sets.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/customize-pronunciation",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
       "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
@@ -43924,24 +43944,10 @@
         "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
         "redirect_document_id": false
       },
-      {   "source_path_from_root": "/articles/azure/marketplace/co-sell-requirements.md",
-          "redirect_url": "/partner-center/co-sell-requirements",
-          "redirect_document_id": false
-      },        
       {
-        "source_path_from_root": "/articles/azure/marketplace/co-sell-status.md",
-        "redirect_url": "/partner-center/co-sell-status",
+        "source_path_from_root": "/articles/virtual-desktop/compare-virtual-desktop-windows-365.md",
+        "redirect_url": "/azure/virtual-desktop/overview",
         "redirect_document_id": false
-      },
-      {
-          "source_path_from_root": "/articles/azure/marketplace/co-sell-configure.md",
-          "redirect_url": "/partner-center/co-sell-configure",
-          "redirect_document_id": false
-      },
-      {
-          "source_path_from_root": "/articles/azure/marketplace/co-sell-overview.md",
-          "redirect_url": "/partner-center/co-sell-overview",
-          "redirect_document_id": false
       }
   ]
 }

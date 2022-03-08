@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/03/2022
+ms.date: 03/04/2022
 ms.author: jeedes
 
 ---
@@ -79,14 +79,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Identifier** text box, type the value:
     `USBank:SAML2.0:Prepaid_SP`
 
-    b. In the **Reply URL** text box, type the URL:
-    `https://uat-federation.usbank.com/sp/ACS.saml2`
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<Environment>.usbank.com/sp/ACS.saml2`
 
     c. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<Environment>.usbank.com/sp/startSSO.ping?PartnerIdpId=<ID>`
 
 	> [!NOTE]
-	> The value is not real. Update this value with the actual Sign-on URL. Contact [U.S. Bank Prepaid Client support team](mailto:web.access.management@usbank.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [U.S. Bank Prepaid Client support team](mailto:web.access.management@usbank.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -138,7 +138,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the U.S. Bank Prepaid for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the U.S. Bank Prepaid tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the U.S. Bank Prepaid for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the U.S. Bank Prepaid tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the U.S. Bank Prepaid for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

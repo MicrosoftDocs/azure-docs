@@ -1,5 +1,5 @@
 ---
-title: Azure AD feature availability in Azure Government
+title: Azure Active Directory (Azure AD) feature availability in Azure Government
 description: Learn which Azure AD features are available in Azure Government. 
 
 services: multi-factor-authentication
@@ -15,12 +15,13 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
 
-# Cloud feature availability
+# Azure Active Directory feature availability
 
 <!---Jeremy said there are additional features that don't fit nicely in this list that we need to add later--->
 
-This following table lists Azure AD feature availability in Azure Government.
+This following tables list Azure AD feature availability in Azure Government.
 
+## Azure Active Directory
 
 |Service     | Feature | Availability |
 |:------|---------|:------------:|
@@ -106,7 +107,7 @@ This following table lists Azure AD feature availability in Azure Government.
 |Additional risk detected | &#x2705; |
 
 
-## HR-provisioning apps
+## HR provisioning apps
 
 | HR-provisioning app | Availability |
 |----------------|:--------------------:|
