@@ -120,7 +120,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 ```
 
 > [!TIP]
-> For help resolving any errors, see the Flux v2 suggestions in [Azure Arc-enabled Kubernetes and GitOps troubleshooting](#flux-v1---create-configurations).
+> For help resolving any errors, see the Flux v2 suggestions in [Azure Arc-enabled Kubernetes and GitOps troubleshooting](troubleshooting.md#flux-v2---general).
 
 ## Apply a Flux configuration by using the Azure CLI
 
