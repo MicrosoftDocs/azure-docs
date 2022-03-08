@@ -7,7 +7,7 @@ ms.date: 03/06/2022
 
 # Use Azure Monitor workbooks in Microsoft Defender for IoT
 
-Azure Monitor workbooks provide graphs, charts, and dashboards that visually reflect data stored in your Azure Data Graph subscriptions and are available directly in Microsoft Defender for IoT.
+Azure Monitor workbooks provide graphs, charts, and dashboards that visually reflect data stored in your Azure Resource Graph subscriptions and are available directly in Microsoft Defender for IoT.
 
 In the Azure portal, use the Defender for IoT **Workbooks** page to view workbooks created by Microsoft and provided out-of-the-box, or created by customers and shared across the community.
 
@@ -50,7 +50,7 @@ Use the Defender for IoT **Workbooks** page to create custom Azure Monitor workb
     |**Text**     |  Add text to describe the graphs shown on your workbook or any additional action required.       |
     |**Parameters**     |  Define parameters to use in your workbook text and queries.       |
     |**Links / tabs**     |  Add navigational elements to your workbook, including lists, links to other targets, extra tabs, or toolbars.       |
-    |**Query**     |  Add a KQL query to use when creating your workbook graphs and charts.   <br><br>- Make sure to select **Azure Data Graph** as your **Data source** and select all of your relevant subscriptions. <br>- Add a graphical representation for your data by selecting a type from the **Visualization** options.  |
+    |**Query**     |  Add an Azure Resource Graph query to use when creating your workbook graphs and charts.   <br><br>- Make sure to select **Azure Resource Graph** as your **Data source** and select all of your relevant subscriptions. <br>- Add a graphical representation for your data by selecting a type from the **Visualization** options.  |
     |**Metric**     | Add metrics to use when creating workbook graphs and charts.       |
     |**Group**     |  Add groups to organize your workbooks into sub-areas.       |
     |     |         |
@@ -77,20 +77,9 @@ iotsecurityresources
 | project Name,Status
 ```
 
-Use multiple parameters by separating them with a colon. For example:
-
-```kusto
-iotsecurityresources
-| where type == "microsoft.iotsecurity/sensors"
-| extend Name=name
-| extend Status= properties.sensorStatus
-| where Name in ({SensorName:query})
-| project Name,Status
-```
-
 ## Sample queries
 
-This section provides sample queries that are commonly in for Defender for IoT workbooks.
+This section provides sample queries that are commonly used in Defender for IoT workbooks.
 
 ### Alert queries
 
@@ -113,9 +102,8 @@ iotsecurityresources
 | where properties.status!='Closed'
 | extend AlertTime=properties.startTimeUtc
 | extend Type=properties.displayName
-| extend DeviceID= properties.extendedProperties.DeviceId
 | where AlertTime > ago(1d)
-| project AlertTime, Type, DeviceID
+| project AlertTime, Type
 ```
 
 **Alerts by source IP address**
@@ -124,11 +112,10 @@ iotsecurityresources
 iotsecurityresources
 | where type == "microsoft.iotsecurity/locations/devicegroups/alerts"
 | extend Type=properties.displayName
-| extend DeviceID= properties.extendedProperties.DeviceId
 | extend Source_IP=properties.extendedProperties.SourceDeviceAddress
 | extend Destination_IP=properties.extendedProperties.DestinationDeviceAddress
 | where Source_IP=='192.168.10.1'
-| project Source_IP, Destination_IP, DeviceID
+| project Source_IP, Destination_IP, Type
 ```
 
 ### Device queries
