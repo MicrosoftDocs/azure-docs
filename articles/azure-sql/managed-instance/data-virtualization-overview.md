@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma, MashaMSFT
-ms.date: 03/02/2022
+ms.date: 03/08/2022
 ---
 
 # Data virtualization with Azure SQL Managed Instance (Preview)
@@ -332,9 +332,13 @@ Just like `OPENROWSET`, external tables allow querying multiple files and folder
 
 There's no hard limit in terms of number of files or amount of data that can be queried, but query performance depends on the amount of data, data format, and complexity of queries and joins.
 
-Collecting statistics on your external data is one of the most important things you can do for query optimization. The more the instance knows about your data, the faster it can execute queries. Automatic creation of statistics isn't supported, but you can and should create statistics manually.
+Collecting statistics on your external data is one of the most important things you can do for query optimization. The more the instance knows about your data, the faster it can execute queries. The SQL engine query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest.
 
-### OPENROWSET statistics
+### Automatic creation of statistics
+
+Managed Instance analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer automatically creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan. Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the files targeted.
+
+### OPENROWSET manual statistics
 
 Single-column statistics for the `OPENROWSET` path can be created using the `sp_create_openrowset_statistics` stored procedure, by passing the select query with a single column as a parameter:
 
@@ -349,9 +353,7 @@ FROM OPENROWSET(
 
 By default, the  instance uses 100% of the data provided in the dataset to create statistics. You can optionally specify the sample size as a percentage using the `TABLESAMPLE` options. To create single-column statistics for multiple columns, execute the stored procedure for each of the columns. You can't create multi-column statistics for the `OPENROWSET` path.
 
-To update existing statistics, drop them first using the `sp_drop_openrowset_statistics` stored procedure, and then recreate them using the `sp_create_openrowset_statistics`. 
-
-To drop existing statistics, use the following example: 
+To update existing statistics, drop them first using the `sp_drop_openrowset_statistics` stored procedure, and then recreate them using the `sp_create_openrowset_statistics`: 
 
 ```sql
 EXEC sys.sp_drop_openrowset_statistics N'
@@ -362,7 +364,7 @@ FROM OPENROWSET(
 '
 ```
 
-### External table statistics
+### External table manual statistics
 
 The syntax for creating statistics on external tables resembles the one used for ordinary user tables. To create statistics on a column, provide a name for the statistics object and the name of the column:
 
