@@ -44,7 +44,8 @@ First, follow these steps to create an example scope named `Employees.Read.All`:
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your API's app registration.
-2. Select **Expose an API** and set **Application ID URI** if you haven't yet configured one.
+1. Select **Expose an API**
+1. Select **Set** next to **Application ID URI** if you haven't yet configured one.
 
    You can use the default value of `api://<application-client-id>` or another [supported App ID URI pattern](reference-app-manifest.md#identifieruris-attribute). The App ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique.
 1. Select **Add a scope**:
