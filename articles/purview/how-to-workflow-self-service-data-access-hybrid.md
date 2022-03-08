@@ -16,9 +16,9 @@ This guide will take you through the creation and management of Self-Service dat
 
 ## Create and enable self-service data access workflow
 
-1. Sign in to Azure Purview studio and select the Management center. You'll see two new icons in the table of contents. 
+1. Sign in to Azure Purview studio and select the **Management center**. You'll see two new icons in the table of contents. 
 
-1. To create new workflows, select Workflows. This will take you to the workflow authoring experiences.  
+1. To create new workflows, select **Authoring** in the workflow section. This will take you to the workflow authoring experiences.  
 
 1. To create a new self-service workflow, select ‘+New’ button and you'll be presented with different categories of workflows in Purview. To create ‘Approval workflows for business terms’ Select ‘Governance’ and select ‘Continue’.
 

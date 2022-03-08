@@ -307,6 +307,8 @@ items:
       href: how-to-workflow-business-terms-approval.md
     - name: Manage requests and approvals
       href: how-to-workflow-manage-requests-approvals.md
+    - name: Manage workflow runs
+      href: how-to-workflow-manage-runs.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery
