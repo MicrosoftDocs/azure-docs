@@ -28,7 +28,7 @@ Once Managed Instance link database failover is performed from SSMS, the Managed
 Follow the steps described in this section to perform Managed Instance link database failover.
 
 1. Managed Instance link database failover starts with connecting to SQL Server from SSMS.
-    To perform Managed Instance link database failover, and migrate database from SQL Server to Managed Instance, from the context menu of the database hosted on SQL Server select Azure SQL Managed Instance link and then Failover database option.
+    To perform Managed Instance link database failover and migrate database from SQL Server to Managed Instance, open the context menu of the SQL Server database. Then select Azure SQL Managed Instance link and then choose Failover database option.
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/managed-instance-link-ssms-database-context-failover-database.png" alt-text="Screenshot showing database's context menu option for database failover.":::
 
@@ -40,7 +40,7 @@ Follow the steps described in this section to perform Managed Instance link data
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/managed-instance-link-failover-database-login-to-azure.png" alt-text="Screenshot showing Log in to Azure window.":::
 
-4. On the Failover type window select the failover type, fill in the required details and click Next.
+4. On the Failover type window, select the failover type, fill in the required details and click Next.
 
     In regular situations you should choose planned manual failover option and confirm that the workload on SQL Server database is stopped.
 
@@ -49,11 +49,11 @@ Follow the steps described in this section to perform Managed Instance link data
 > [!NOTE]
 > If you are performing planned manual failover, you should stop the workload on the database hosted on the SQL Server to allow Managed Instance link to completely catch up with the replication, so that failover without data loss is possible.
 
-5. In case you do not use availability groups on the SQL Server side, and AG and DAG were created only for the purpose of Managed Instance link, you can choose to drop these objects on the Clean-up window. Dropping these objects is optional. Click Next.
+5. In case Availability Group and Distributed Availability Group were created only for the purpose of Managed Instance link, you can choose to drop these objects on the Clean-up window. Dropping these objects is optional. Click Next.
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/managed-instance-link-failover-database-cleanup-optional.png" alt-text="Screenshot showing Cleanup (optional) window.":::
 
-6. In the Summary window you will be able to review the upcoming process. Optionally you can create the script to save it, or to execute it manually. If everything is as expected and you want to proceed with the Managed Instance link database failover, click Finish.
+6. In the Summary window, you will be able to review the upcoming process. Optionally you can create the script to save it, or to execute it manually. If everything is as expected and you want to proceed with the Managed Instance link database failover, click Finish.
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/managed-instance-link-failover-database-summary.png" alt-text="Screenshot showing Summary window.":::
 
@@ -65,7 +65,7 @@ Follow the steps described in this section to perform Managed Instance link data
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/managed-instance-link-failover-database-results.png" alt-text="Screenshot showing Results window.":::
 
-9. After this, Managed Instance link no longer exists. Both databases on SQL Server and Managed Instance can execute read-write workload and are completely independent. 
+9. After this, Managed Instance link no longer exists. Both databases on SQL Server and Managed Instance can execute read-write workload and are independent. 
     With this step, the migration of the database from SQL Server to Managed Instance is completed.
 
     Database on SQL Server.
