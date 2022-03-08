@@ -23,6 +23,20 @@ Private link connections provide:
 
 For more information, see [Choose a private link connection method](private-link.md#choose-a-private-link-connection-method).
 
+## Supported versions
+
+The private link connections described in this article are supported only for [sensor versions 22.1.x](release-notes.md#february-2022) and higher. Previous to this version, private link connections are  configured using an IoT Hub.
+
+If you are a customer with an existing production deployment, you may still need to upgrade your sensors to version 22.1.x. While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versions-and-support-dates), you can currently deploy a hybrid network of sensors, including both legacy software versions with their IoT Hub connections, and sensors with software version 22.1.x or higher.
+
+After migrating, you can remove any relevant IoT Hubs from your subscription as they'll no longer be required for your sensor connections.
+
+For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Migrate to private link connections](private-link.md#migrate-to-private-link-connections).
+
+> [!IMPORTANT]
+> To ensure that your network is ready, we recommend that you first run the the migration in a lab or testing environment so that you can safely validate your Azure service configurations.
+>
+
 ## ExpressRoute connections with Microsoft Peering
 
 The following image shows how you can use ExpressRoute to connect your sensors directly to Microsoft cloud services and establish a private and secure connection to the Azure portal.
@@ -84,35 +98,6 @@ Depending on your environment configuration, you might connect using one of the 
 - A site-to-site VPN over the internet.
 
 For more information, see [Connect via multi-cloud vendors](private-link.md#connect-via-multi-cloud-vendors).
-
-## FAQs
-
-#	Question	Answer
-1	For existing customers with production deployments, what is the recommended upgrade process?	It is recommended that you follow the guide outlined above <link>
-
-If you want to ensure that your network is ready, we recommend performing your first deployment in a lab or testing environment to make sure the Azure service is properly configured
-2	How can I obtain the 22.1 update package?
-You can download the update file from the "updates" page. (link to update)
-
-After the software update, the sensor must be activated again after upgrading to 22.1
-
-3	May I continue to deploy sites with version 10.5.x?
-	It is safe to continue deploying sites with version 10.5.x in parallel.
-
-It will be necessary to migrate to the new connectivity model when the current architecture is deprecated (9 months from GA)
-
-4	How long will the 10.5.x architecture be supported?
-	10.5.x will be supported until July 2022, for more info refer to <link>
-5	Is my pricing going to change with the new model?
-	Pricing does not change with the new connectivity model.
-6	I would like to provide feedback on the new user interface in Sensor version 22.1
-	Welcome! Please reach out to the engineering team at <email>
-7	Are there implications for data residency?
-	
-8	Do I need to keep my IoT hubs if they were only used for MD4IoT?
-	You may remove all unused IoT hubs from your subscription once all sensors have been migrated.
-		
-
 
 ## Next steps
 
