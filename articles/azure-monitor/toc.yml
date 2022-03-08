@@ -1483,6 +1483,8 @@ items:
     href: terminology.md
   - name: Data reference
     href: /azure/azure-monitor/reference/
+  - name: Monitoring Azue Monitor data reference 
+    href: azure-monitor-monitoring-reference.md    
   - name: Supported metrics
     items:
     - name: Platform metrics
@@ -1503,10 +1505,8 @@ items:
       href: essentials/resource-logs-schema.md
     - name: Activity log schema
       href: essentials/activity-log-schema.md
-  - name: Diagnostic extension schemas
-    items:
-    - name: Windows diagnostics extension
-      href: agents/diagnostics-extension-schema-windows.md
+  - name: Windows diagnostics extension schema
+    href: agents/diagnostics-extension-schema-windows.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
