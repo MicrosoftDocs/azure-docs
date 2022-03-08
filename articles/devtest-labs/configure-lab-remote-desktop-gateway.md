@@ -7,17 +7,13 @@ ms.date: 03/07/2022
 
 # Configure and use a remote desktop gateway in Azure DevTest Labs
 
-This article describes how to set up and use a gateway for more secure remote desktop access to lab virtual machines (VMs) in Azure DevTest Labs. Using a gateway improves security because you don't expose the VMs' remote desktop protocol (RDP) ports to the internet.
+This article describes how to set up and use a gateway for more secure remote desktop access to lab virtual machines (VMs) in Azure DevTest Labs. Using a gateway improves security because you don't expose the VMs' remote desktop protocol (RDP) ports to the internet. This remote desktop gateway solution also supports token authentication.
 
-DevTest Labs provides a central place for lab users to view and connect to their VMs. You can select **Connect** > **RDP** on a lab VM's **Overview** page to create a machine-specific RDP file, and open the file to connect to the VM.
+DevTest Labs provides a central place for lab users to view and connect to their VMs. Selecting **Connect** > **RDP** on a lab VM's **Overview** page creates a machine-specific RDP file, and users can open the file to connect to the VM.
 
-With a remote desktop gateway, lab users connect to their VMs through a gateway machine. With a remote desktop gateway, users can:
+With a remote desktop gateway, lab users connect to their VMs through a gateway machine. Users can authenticate directly to the gateway machine, and use company credentials on domain-joined machines.
 
-- Authenticate directly to the gateway machine.
-- Use token authentication to the gateway machine.
-- Use company credentials on domain-joined machines.
-
-Another way to securely access lab VMs without exposing RDP ports is through a browser with Azure Bastion. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
+Another way to securely access lab VMs without exposing ports or IP addresses is through a browser with Azure Bastion. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
 
 ## Architecture
 
