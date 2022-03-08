@@ -26,20 +26,20 @@ When working with Azure Digital Twins, it's common to interact with your instanc
 The app registration isn't required for all authentication scenarios. However, if you're using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up and grant it permissions to the Azure Digital Twins APIs. It also covers how to collect important values that you'll need to use the app registration when authenticating.
 
 >[!TIP]
-> You may prefer to set up a new app registration every time you need one, *or* to do this only once, establishing a single app registration that will be shared among all scenarios that require it.
+> You may prefer to set up a new app registration every time you need one, or to do this only once, establishing a single app registration that will be shared among all scenarios that require it.
 
 ## Create the registration
 
-Start by navigating to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) in the Azure portal (you can use this link or find it with the portal search bar). Select *App registrations* from the service menu, and then *+ New registration*.
+Start by navigating to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) in the Azure portal (you can use this link or find it with the portal search bar). Select **App registrations** from the service menu, and then **+ New registration**.
 
 :::image type="content" source="media/how-to-create-app-registration/new-registration.png" alt-text="Screenshot of the Azure AD service page in the Azure portal, showing the steps to create a new registration in the 'App registrations' page.":::
 
-In the *Register an application* page that follows, fill in the requested values:
+In the **Register an application** page that follows, fill in the requested values:
 * **Name**: An Azure AD application display name to associate with the registration
-* **Supported account types**: Select *Accounts in this organizational directory only (Default Directory only - Single tenant)*
-* **Redirect URI**: An *Azure AD application reply URL* for the Azure AD application. Add a *Public client/native (mobile & desktop)* URI for `http://localhost`.
+* **Supported account types**: Select **Accounts in this organizational directory only (Default Directory only - Single tenant)**
+* **Redirect URI**: An **Azure AD application reply URL** for the Azure AD application. Add a **Public client/native (mobile & desktop)** URI for `http://localhost`.
 
-When you're finished, select the *Register* button.
+When you're finished, select the **Register** button.
 
 :::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="Screenshot of the 'Register an application' page in the Azure portal with the described values filled in.":::
 
@@ -48,28 +48,28 @@ When the registration is finished setting up, the portal will redirect you to it
 ## Collect important values
 
 Next, collect some important values about the app registration that you'll need to use the app registration to authenticate a client application. These values include:
-* **resource name**
-* **client ID**
-* **tenant ID**
-* **client secret**
+* resource name
+* client ID
+* tenant ID
+* client secret
 
-To work with Azure Digital Twins, the **resource name** is `http://digitaltwins.azure.net`.
+To work with Azure Digital Twins, the resource name is `http://digitaltwins.azure.net`.
 
 The following sections describe how to find the other values.
 
 ### Collect client ID and tenant ID
 
-The **client ID** and **tenant ID** values can be collected from the app registration's details page in the Azure portal:
+The client ID and tenant ID values can be collected from the app registration's details page in the Azure portal:
 
 :::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="Screenshot of the Azure portal showing the important values for the app registration."  lightbox="media/how-to-create-app-registration/client-id-tenant-id.png":::
 
-Take note of the **Application (client) ID** and **Directory (tenant) ID** shown on **your** page.
+Take note of the **Application (client) ID** and **Directory (tenant) ID** shown on your page.
 
 ### Collect client secret
 
-To set up a **client secret** for your app registration, start on your app registration page in the Azure portal. 
+To set up a client secret for your app registration, start on your app registration page in the Azure portal. 
 
-1. Select **Certificates and secrets** from the registration's menu, and then select **+ New client secret**.
+1. Select **Certificates & secrets** from the registration's menu, and then select **+ New client secret**.
 
     :::image type="content" source="media/how-to-create-app-registration/client-secret.png" alt-text="Screenshot of the Azure portal showing an Azure AD app registration and a highlight around 'New client secret'.":::
 
@@ -94,7 +94,7 @@ To set up a **client secret** for your app registration, start on your app regis
 
 ## Provide Azure Digital Twins permissions
 
-Next, configure the app registration you've created with permissions to access Azure Digital Twins. First, **create a role assignment** for the app registration within the Azure Digital Twins instance. Then, **provide API permissions** for the app to read and write to the Azure Digital Twins APIs.
+Next, configure the app registration you've created with permissions to access Azure Digital Twins. First, you'll create a role assignment for the app registration within the Azure Digital Twins instance. Then, you'll provide API permissions for the app to read and write to the Azure Digital Twins APIs.
 
 ### Create role assignment
 
@@ -118,7 +118,7 @@ In this section, you'll create a role assignment for the app registration on the
 
 #### Verify role assignment
 
-You can view the role assignment you've set up under *Access control (IAM) > Role assignments*.
+You can view the role assignment you've set up under **Access control (IAM) > Role assignments**.
 
 :::image type="content" source="media/how-to-create-app-registration/verify-role-assignment.png" alt-text="Screenshot of the Role Assignments page for an Azure Digital Twins instance in the Azure portal.":::
 
@@ -128,27 +128,27 @@ The app registration should show up in the list along with the role you assigned
 
 In this section, you'll grant your app baseline read/write permissions to the Azure Digital Twins APIs.
 
-From the portal page for your app registration, select *API permissions* from the menu. On the following permissions page, select the *+ Add a permission* button.
+From the portal page for your app registration, select **API permissions** from the menu. On the following permissions page, select the **+ Add a permission** button.
 
 :::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="Screenshot of the app registration in the Azure portal, highlighting the 'API permissions' menu option and 'Add a permission' button.":::
 
-In the *Request API permissions* page that follows, switch to the *APIs my organization uses* tab and search for *Azure digital twins*. Select _**Azure Digital Twins**_ from the search results to continue with assigning permissions for the Azure Digital Twins APIs.
+In the **Request API permissions** page that follows, switch to the **APIs my organization uses** tab and search for *Azure digital twins*. Select **Azure Digital Twins** from the search results to continue with assigning permissions for the Azure Digital Twins APIs.
 
 :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1.png" alt-text="Screenshot of the 'Request API Permissions' page search result in the Azure portal showing Azure Digital Twins.":::
 
 >[!NOTE]
-> If your subscription still has an existing Azure Digital Twins instance from the previous public preview of the service (before July 2020), you'll need to search for and select _**Azure Smart Spaces Service**_ instead. This is an older name for the same set of APIs (notice that the *Application (client) ID* is the same as in the screenshot above), and your experience won't be changed beyond this step.
+> If your subscription still has an existing Azure Digital Twins instance from the previous public preview of the service (before July 2020), you'll need to search for and select **Azure Smart Spaces Service** instead. This is an older name for the same set of APIs (notice that the **Application (client) ID** is the same as in the screenshot above), and your experience won't be changed beyond this step.
 > :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1-smart-spaces.png" alt-text="Screenshot of the 'Request API Permissions' page search result showing Azure Smart Spaces Service in the Azure portal.":::
 
-Next, you'll select which permissions to grant for these APIs. Expand the **Read (1)** permission and check the box that says *Read.Write* to grant this app registration reader and writer permissions.
+Next, you'll select which permissions to grant for these APIs. Expand the **Read (1)** permission and check the box that says **Read.Write** to grant this app registration reader and writer permissions.
 
 :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="Screenshot of the 'Request API Permissions' page and selecting 'Read.Write' permissions for the Azure Digital Twins APIs in the Azure portal.":::
 
-Select *Add permissions* when finished.
+Select **Add permissions** when finished.
 
 #### Verify API permissions
 
-On the *API permissions* page, verify that there's now an entry for Azure Digital Twins reflecting Read/Write permissions:
+On the **API permissions** page, verify that there's now an entry for Azure Digital Twins reflecting **Read.Write** permissions:
 
 :::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Screenshot of the API permissions for the Azure AD app registration in the Azure portal, showing 'Read/Write Access' for Azure Digital Twins.":::
 
@@ -169,10 +169,10 @@ If these values are missing, retry the steps in the [section for adding the API 
 It's possible that your organization requires more actions from subscription Owners/administrators to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
 
 Here are some common potential activities that an Owner/administrator on the subscription may need to do. These and other operations can be performed from the [Azure AD App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
-* Grant admin consent for the app registration. Your organization may have *Admin Consent Required* globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator will need to select this button for your company on the app registration's *API permissions* page for the app registration to be valid:
+* Grant admin consent for the app registration. Your organization may have **Admin Consent Required** globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator will need to select this button for your company on the app registration's **API permissions** page for the app registration to be valid:
 
     :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Screenshot of the Azure portal showing the 'Grant admin consent' button under API permissions.":::
-  - If consent was granted successfully, the entry for Azure Digital Twins should then show a *Status* value of _Granted for **(your company)**_
+  - If consent was granted successfully, the entry for Azure Digital Twins should then show a **Status** value of **Granted for (your company)**
    
     :::image type="content" source="media/how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Screenshot of the Azure portal showing the admin consent granted for the company under API permissions.":::
 * Activate public client access
