@@ -7,7 +7,7 @@ ms.service: attestation
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: jgao
-ms.date: 03/07/2022
+ms.date: 03/08/2022
 ---
 
 # Quickstart: Create an Azure Attestation provider with a Bicep file
@@ -59,9 +59,19 @@ Azure resources defined in the Bicep file:
 
 Use the Azure portal, Azure CLI, or Azure PowerShell to verify the resource group and server resource were created.
 
-```azurepowershell-interactive
-Get-AzAttestation -ResourceGroupName exampleRG
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az resource list --resource-group exampleRG
 ```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName exampleRG
+```
+
+---
 
 ## Clean up resources
 
