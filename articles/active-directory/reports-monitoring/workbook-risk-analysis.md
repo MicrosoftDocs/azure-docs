@@ -101,7 +101,7 @@ Risky Users:
 
 ## Next steps
 
-- To learn more about identity protection, see [What is identty protection](../identity-protection/overview-identity-protection.md). 
+- To learn more about identity protection, see [What is identity protection](../identity-protection/overview-identity-protection.md). 
 
 - For more information about Azure AD workbooks, see [How to use Azure AD workbooks](howto-use-azure-monitor-workbooks.md).
 
