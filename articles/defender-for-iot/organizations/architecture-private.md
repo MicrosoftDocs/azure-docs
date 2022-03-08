@@ -29,7 +29,7 @@ The following image shows how you can use ExpressRoute to connect your sensors d
 
 With this method, use Microsoft Peering to connect your sensors directly to Azure without having to cross through other networks.
 
-TBD
+:::image type="content" source="media/architecture-private/expressroute-peering.png" alt-text="Diagram of the ExpressRoute connection with Microsoft Peering." border="false":::
 
 For more information, see [Connect via ExpressRoute with Microsoft Peering](private-link.md#connect-via-expressroute-with-microsoft-peering).
 
@@ -37,41 +37,51 @@ For more information, see [Connect via ExpressRoute with Microsoft Peering](priv
 
 The following image shows how you can connect your sensors to Microsoft cloud services through a proxy in the Azure VNET, ensuring confidentiality for all communications between your sensor and Azure.
 
+:::image type="content" source="media/architecture-private/proxy.png" alt-text="Diagram of a proxy connection using an Azure proxy." border="false":::
+
 Depending on your network configuration, you can access the VNET via a VPN connection or an ExpressRoute connection.
 
-The solution offered is based on a squid server hosted within Azure. To handle load balancing and failover, the proxy is configured to scale automatically behind a load balancer.
+This method uses a proxy server hosted within Azure. To handle load balancing and failover, the proxy is configured to scale automatically behind a load balancer.
 
 For more information, see [Connect via an Azure proxy](private-link.md#connect-via-an-azure-proxy).
 
 ## Proxy connections with proxy chaining
 
-Sensors connect to Microsoft cloud services through multiple proxies between different layers of the perdue model and the hierarchy of the enterprise networks.
+The following image shows how you can connect your sensors to Microsoft cloud services through multiple proxies, using different levels of the Purdue model and the enterprise network hierarchy.
 
-Description
-In this article, we will demonstrate how to configure multiple forwarding proxies in Microsoft Defender for IoT to enable the connection of sensors without direct internet access. An SSL encrypted tunnel is used to transfer data from the sensor to the service endpoint via proxy servers. There is no data inspection, analysis, or caching conducted by the proxy server.
+:::image type="content" source="media/architecture-private/proxy-chaining.png" alt-text="Diagram of a proxy connection using proxy chaining." border="false":::
 
-Microsoft Defender for IoT does not offer support for Squid or any other proxy service. It is the customer's responsibility to set up and maintain the proxy service.
+This method supports connecting your sensors without direct internet access, using an SSL-encrypted tunnel to transfer data from the sensor to the service endpoint via proxy servers. The proxy server does not perform any data inspection, analysis, or caching.
+
+With a proxy chaining method, Defender for IoT does not support your proxy service. It's the customer's responsibility to set up and maintain the proxy service.
 
 For more information, see [Connect via proxy chaining](private-link.md#connect-via-proxy-chaining).
 
 ## Direct connections
 
-Sensors connect to Microsoft cloud services directly over the internet from the remote sites, without traversing the enterprise network.
+The following image shows how you can connect your sensors to Microsoft cloud services directly over the internet from remote sites, without transversing the enterprise network.
 
-Description
-The sensors connected to the Azure datacenters directly over the internet establish a secure and encrypted connection to the Azure datacenters. Transport Layer Security (TLS), an industry-standard security protocol, provides an always-on way of communicating between the sensor and Azure resources. 
+:::image type="content" source="media/architecture-private/direct.png" alt-text="Diagram of a direct connection to Azure.":::
 
-The sensor initiates all connections to the Azure Portal (on principle that sessions are initiated from the more secure network, to protect internal network devices from unsolicited inbound connections) - this means there is no need to configure inbound firewall rules.
+With direct connections:
+
+- Any sensors connected to Azure data centers directly over the internet have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS) provides constant communication between the sensor and Azure resources.
+
+- The sensor initiates all connections to the Azure portal. Initiating connections only from the sensor protects internal network devices from unsolicited inbound connections, but also means that you don't need to configure any inbound firewall rules.
 
 For more information, see [Connect directly](private-link.md#connect-directly).
 
 ## Multi-cloud connections
 
-Sensors connect to Microsoft cloud services from other public clouds for OT/IoT management process monitoring in Defender for IoT.
+You can connect your sensors to Microsoft cloud services from other public clouds for OT/IoT management process monitoring.
 
-Description
-Defender for IoT supports both sensors deployed on premises, and in the cloud. Sensors deployed in other cloud providers, can be securely connected to MD4IoT. 
-Choose your connectivity model according to the following schema.
+Depending on your environment configuration, you might connect using one of the following methods:
+
+- ExpressRoute with customer-managed routing
+
+- ExpressRoute with a cloud exchange provider
+
+- A site-to-site VPN over the internet.
 
 For more information, see [Connect via multi-cloud vendors](private-link.md#connect-via-multi-cloud-vendors).
 
