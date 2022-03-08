@@ -40,18 +40,18 @@ Metric rules for virtual machines can use the following data:
 [Log alerts](../alerts/alerts-unified-log.md) can measure two different things, each of which supports distinct scenarios for monitoring virtual machines:
 
 - [Table rows](../alerts/alerts-unified-log.md#count-of-the-results-table-rows): This measure can be used to work with events such as Windows event logs, syslog, application exceptions.
-- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value): This measure is based on a numeric column and  can be used to include any number of resources.
+- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value): This measure is based on a numeric column and  can be used to include any number of resources. For example, CPU percentage.
 
-### Target resource and impacted resource
+### Targeting resources and dimensions
 
-> [!NOTE]
-> Resource-centric log alert rules, currently in public preview, simplify log query alerts for virtual machines and replace the functionality currently provided by metric measurement queries. You can use the machine as a target for the rule, which better identifies it as the affected resource. You can also apply a single alert rule to all machines in a particular resource group or subscription. When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
-> 
-Each alert in Azure Monitor has an **Affected resource** property, which is defined by the target of the rule. For metric alert rules, the affected resource is the computer, which allows you to easily identify it in the standard alert view. Log query alerts are associated with the workspace resource instead of the machine, even when you use a metric measurement alert that creates an alert for each computer. You need to view the details of the alert to view the computer that was affected.
+By using dimensions, you can monitor multiple instances’ values with one rule. For example, if you want to monitor CPU usage on multiple instances running your web site or app for CPU usage over 80%. 
+In the **Split by dimensions** section of the condition, you can split alerts by number or string columns into separate alerts by grouping into unique combinations. 
 
-The computer name is stored in the **Impacted resource** property, which you can view in the details of the alert. It's also displayed as a dimension in emails that are sent from the alert.
+To create resource-centric alerts at scale (with a subscription or resource group scope), you can split by Azure resource ID column. When you want to monitor the same condition on multiple Azure resources, splitting on Azure resource ID column will change the target of the alert to the specified resource.
 
-:::image type="content" source="media/monitor-virtual-machines/alert-metric-measurement.png" alt-text="Screenshot that shows an alert with impacted resource." lightbox="media/monitor-virtual-machines/alert-metric-measurement.png":::
+You may also decide not to split when you want a condition on multiple resources in the scope, for example, if you want to alert if at least five machines in the resource group scope have CPU usage over 80%.
+
+:::image type="content" source="media/monitor-virtual-machines/split-by-dimensions.png" alt-text="Screenshot of new log alert rule with split by dimensions.":::
 
 You might want to have a view that lists the alerts with the affected computer. You can use a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Use the following query to display alerts, and use the data source **Azure Resource Graph** in the workbook.
 
@@ -279,14 +279,11 @@ InsightsMetrics
 | where Namespace == "Processor" and Name == "UtilizationPercentage" 
 ```
 
-### Metric measurement
-The **metric measurement** measure creates a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for virtual machine performance data because they create individual alerts for each computer. The log query for this measure needs to return a value for each machine. The threshold in the alert rule determines if the value should fire an alert.
+### Counter value
+The **counter value** measure creates a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for virtual machine performance data because they create individual alerts for each computer. The log query for this measure needs to return a value for each machine. The threshold in the alert rule determines if the value should fire an alert.
 
-> [!NOTE]
-> Resource-centric log alert rules, currently in public preview, simplify log query alerts for virtual machines and replace the functionality currently provided by metric measurement queries. You can use the machine as a target for the rule, which better identifies it as the affected resource. You can also apply a single alert rule to all machines in a particular resource group or description. When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
-
-#### Query
-The query for rules using metric measurement must include a record for each machine with a numeric property called **AggregatedValue**. This value is compared to the threshold in the alert rule. The query doesn't need to compare this value to a threshold because the threshold is defined in the alert rule.
+>#### Query
+The query for rules using the counter value measurement must include a record for each machine with a numeric property called **AggregatedValue**. This value is compared to the threshold in the alert rule. The query doesn't need to compare this value to a threshold because the threshold is defined in the alert rule.
 
 ```kusto
 InsightsMetrics
@@ -296,20 +293,31 @@ InsightsMetrics
 ```
 
 #### Alert rule
- 1. On the Azure Monitor menu, select **Logs** to open Log Analytics. 
- 1. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the upper left and select the correct workspace. 
- 1. Paste in your query and select **Run** to verify that it returns the correct results.
+ 1. In the portal, select the relevant resource. 
+ 1. In the Resource menu, select **Logs**.
+ 1. Write the query to find the log events for which you want to create an alert. Use  [alert query examples](../logs/queries.md) to understand what you can discover, [get started on writing your own query](../logs/log-analytics-tutorial.md) or learn how to [create optimized alert queries](../alerts/alerts-log-query.md).
+ 1. Run the query to make sure you get the results you were expecting.
+ 1. From the top command bar, Select **+ New alert rule** to create a rule using the current query using your workspace the alert Resource.
+ 1. The **Condition** tab opens, populated with your log query.
+      :::image type="content" source="media/monitor-virtual-machines/alert-rule-query.png" alt-text="Screenshot of new log alert rule query.":::
+ 1. In the **Measurement** section, select the values for these fields.
+      
+    |Field  |Description  |Value for this scenario |
+    |---------|---------|---------|
+    |Measure| Log alerts can measure the number of table rows or combine and numerical value of a specified column. |Counter value|
+    |Aggregation type|The calculation used on multiple records to combine them into one value.|Average|
+    |Aggregation granularity| The interval used for aggregation.|15 minutes|
+    
+    :::image type="content" source="media/monitor-virtual-machines/alert-rule-measurement.png" alt-text="Screenshot of new log alert rule measurement. ":::
+ 1. In the **Alert Logic** section, select the values for these fields.
+      
+    |Field  |Description  |Value for this scenario |
+    |---------|---------|---------|
+    |Operator |  The mathematical operator to use in the logic.|Greater than or equal to|
+    |Threshold value| The value that the result is measured against.|80|
+    |Frequency of evaluation|The interval used for the query.|15 minutes|
 
-    :::image type="content" source="media/monitor-virtual-machines/log-alert-metric-query-results.png" alt-text="Screenshot that shows metric measurement alert query results." lightbox="media/monitor-virtual-machines/log-alert-metric-query-results.png":::
-
-1. Select **New alert rule** to create a rule with the current query. The rule uses your workspace for the **Resource**.
-1. Select **Condition** to view the configuration. The query is already filled in with a graphical view of the value returned from the query for each computer. Select the computer from the **Pivoted on** dropdown list. 
-1. Scroll down to **Alert logic**, and select **Metric measurement** for the **Based on** property. Because you want to alert when the utilization exceeds 80 percent, set **Aggregate value** to **Greater than** and **Threshold value** to **80**.
-1. Scroll down to **Alert logic**, and select **Metric measurement** for the **Based on** property. Provide a **Threshold** value to compare to the value returned from the query. In this example, use **80**. In **Trigger Alert Based On**, specify how many times the threshold must be exceeded before an alert is created. For example, you might not care if the processor exceeds a threshold once and then returns to normal, but you do care if it continues to exceed the threshold over multiple consecutive measurements. For this example, set **Consecutive breaches** to **3**.
-1. Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query only uses data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value makes the alert rule more responsive but also has a higher cost. Specify **15** to run the query every 15 minutes.
-
-:::image type="content" source="media/monitor-virtual-machines/log-alert-metric-rule.png" alt-text="Screenshot that shows metric measurement alert query rule." lightbox="media/monitor-virtual-machines/log-alert-metric-rule.png":::
-
+    :::image type="content" source="media/monitor-virtual-machines/alert-rule-dimensions.png" alt-text="Screenshot of new log alert rule with dimensions.":::
 ### Number of results rule
 The **number of results** rule creates a single alert when a query returns at least a specified number of records. The log query in this type of alert rule typically identifies the alerting condition, while the threshold for the alert rule determines if a sufficient number of records are returned.
 
