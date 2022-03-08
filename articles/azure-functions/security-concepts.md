@@ -100,7 +100,7 @@ When using Key Vault for key storage, the app settings you need depend on the ma
 ---
 
 > [!NOTE]  
-> The Vault URI should be the full value displayed in the Key Vault overview tab, including `https://`.
+> The key vault URI should be the fully-qualified value displayed in the Key Vault overview tab (`https://...`).
 
 ### Authentication/authorization
 
