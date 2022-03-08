@@ -1502,7 +1502,7 @@ For rules that can transform strings, the following transforms are valid:
 
 * Learn more about Azure Front Door [Rules Engine](front-door-rules-engine.md)
 * Learn how to [configure your first Rules Engine](front-door-tutorial-rules-engine.md). 
-* Learn more about [Rules Engine actions](front-door-rules-engine-actions.md)
+* Learn more about [Rules actions](front-door-rules-engine-actions.md)
 
 ::: zone-end
 
@@ -1510,6 +1510,6 @@ For rules that can transform strings, the following transforms are valid:
 
 * Learn more about Azure Front Door Standard/Premium [Rule Set](standard-premium/concept-rule-set.md).
 * Learn how to [configure your first Rule Set](standard-premium/how-to-configure-rule-set.md).
-* Learn more about [Rule Set actions](standard-premium/concept-rule-set-actions.md).
+* Learn more about [Rule actions](front-door-rules-engine-actions.md).
 
 ::: zone-end
