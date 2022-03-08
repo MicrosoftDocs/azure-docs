@@ -38,7 +38,7 @@ To use availability zones, create your virtual machines in a [supported Azure re
 7. Once the information is verified, select **Create**.
 
 1. After the VM is created, you can see the availability zone listed in the **Essentials section** on the page for the VM.
----
+
 
 ### [Limited preview](#tab/preview)
 
