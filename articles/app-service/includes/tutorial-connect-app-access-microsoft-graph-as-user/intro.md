@@ -18,7 +18,7 @@ ms.custom: azureday1
 
 Learn how to access Microsoft Graph from a web app running on Azure App Service.
 
-:::image type="content" alt-text="Diagram that shows accessing Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
+:::image type="content" alt-text="Diagram that shows accessing Microsoft Graph." source="../../media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
 You want to add access to Microsoft Graph from your web app and perform some action as the signed-in user. This section describes how to grant delegated permissions to the web app and get the signed-in user's profile information from Azure Active Directory (Azure AD).
 
@@ -29,11 +29,11 @@ In this tutorial, you learn how to:
 > * Grant delegated permissions to a web app.
 > * Call Microsoft Graph from a web app for a signed-in user.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* A web application running on Azure App Service that has the [App Service authentication/authorization module enabled](../scenario-secure-app-authentication-app-service.md).
+* A web application running on Azure App Service that has the [App Service authentication/authorization module enabled](../../scenario-secure-app-authentication-app-service.md).
 
 ## Grant front-end access to call Microsoft Graph
 
