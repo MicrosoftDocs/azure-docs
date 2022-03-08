@@ -76,7 +76,7 @@ To update the template by using Azure portal:
 
 3. Select **Template deployment**.
 
-    ![Azure Resource Manager templates library](/storage/common/media/storage-account-move/azure-resource-manager-template-library.png)
+    ![Azure Resource Manager templates library](/azure/storage/common/media/storage-account-move/azure-resource-manager-template-library.png)
 
 4. Select **Create**.
 
