@@ -1,7 +1,7 @@
 
 ## Clean up resources
 
-[!INCLUDE [clean up resources](./scenario-secure-app-clean-up-resources.md)]
+[!INCLUDE [clean up resources](../scenario-secure-app-clean-up-resources.md)]
 
 ## Next steps
 
