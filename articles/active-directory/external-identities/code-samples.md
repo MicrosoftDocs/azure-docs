@@ -31,7 +31,7 @@ You can bulk-invite external users to an organization from email addresses that 
 
 
 2. Get the latest Azure AD PowerShell
-   To use the new cmdlets, you must install the updated Azure AD PowerShell module, which you can download from [the PowerShell module's release page](https://www.powershellgallery.com/packages/AzureADPreview)
+   To use the new cmdlets, you must install the updated Azure AD PowerShell module, which you can download from [the PowerShell module's release page](https://www.powershellgallery.com/packages/AzureAD)
 
 3. Sign in to your tenancy
 
@@ -61,27 +61,21 @@ Here we illustrate how to call the invitation API, in "app-only" mode, to get th
 namespace SampleInviteApp
 {
     using System;
-    using System.Linq;
     using System.Net.Http;
     using System.Net.Http.Headers;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Newtonsoft.Json;
+    using System.Text.Json;
+    using Microsoft.Identity.Client;
     class Program
     {
         /// <summary>
-        /// Microsoft Graph resource.
+        /// Microsoft Graph scope.
         /// </summary>
-        static readonly string GraphResource = "https://graph.microsoft.com";
+        static readonly string[] GraphScope = { "https://graph.microsoft.com/.default" };
 
         /// <summary>
         /// Microsoft Graph invite endpoint.
         /// </summary>
         static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
-
-        /// <summary>
-        ///  Authentication endpoint to get token.
-        /// </summary>
-        static readonly string EstsLoginEndpoint = "https://login.microsoftonline.com";
 
         /// <summary>
         /// This is the tenantid of the tenant you want to invite users to.
@@ -91,7 +85,7 @@ namespace SampleInviteApp
         /// <summary>
         /// This is the application id of the application that is registered in the above tenant.
         /// The required scopes are available in the below link.
-        /// https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/invitation_post
+        /// https://docs.microsoft.com/en-us/graph/api/invitation-post?view=graph-rest-1.0&tabs=http#permissions
         /// </summary>
         private static readonly string TestAppClientId = "";
 
@@ -114,10 +108,10 @@ namespace SampleInviteApp
         /// Main method.
         /// </summary>
         /// <param name="args">Optional arguments</param>
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Invitation invitation = CreateInvitation();
-            SendInvitation(invitation);
+            await SendInvitation(invitation);
         }
 
         /// <summary>
@@ -127,11 +121,13 @@ namespace SampleInviteApp
         private static Invitation CreateInvitation()
         {
             // Set the invitation object.
-            Invitation invitation = new Invitation();
-            invitation.InvitedUserDisplayName = InvitedUserDisplayName;
-            invitation.InvitedUserEmailAddress = InvitedUserEmailAddress;
-            invitation.InviteRedirectUrl = "https://www.microsoft.com";
-            invitation.SendInvitationMessage = true;
+            Invitation invitation = new Invitation
+            {
+                InvitedUserDisplayName = InvitedUserDisplayName,
+                InvitedUserEmailAddress = InvitedUserEmailAddress,
+                InviteRedirectUrl = "https://www.microsoft.com",
+                SendInvitationMessage = true
+            };
             return invitation;
         }
 
@@ -139,17 +135,18 @@ namespace SampleInviteApp
         /// Send the guest user invite request.
         /// </summary>
         /// <param name="invitation">Invitation object.</param>
-        private static void SendInvitation(Invitation invitation)
+        /// <returns>An awaitable task</returns>
+        private static async Task SendInvitation(Invitation invitation)
         {
-            string accessToken = GetAccessToken();
+            string accessToken = await GetAccessToken();
 
             HttpClient httpClient = GetHttpClient(accessToken);
 
             // Make the invite call.
-            HttpContent content = new StringContent(JsonConvert.SerializeObject(invitation));
+            HttpContent content = new StringContent(JsonSerializer.Serialize(invitation));
             content.Headers.Add("ContentType", "application/json");
-            var postResponse = httpClient.PostAsync(InviteEndPoint, content).Result;
-            string serverResponse = postResponse.Content.ReadAsStringAsync().Result;
+            var postResponse = await httpClient.PostAsync(InviteEndPoint, content);
+            string serverResponse = await postResponse.Content.ReadAsStringAsync();
             Console.WriteLine(serverResponse);
         }
 
@@ -166,8 +163,8 @@ namespace SampleInviteApp
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             httpClient.DefaultRequestHeaders.Add("client-request-id", Guid.NewGuid().ToString());
             Console.WriteLine(
-                "CorrelationID for the request: {0}",
-                httpClient.DefaultRequestHeaders.GetValues("client-request-id").Single());
+                $"CorrelationID for the request: {httpClient.DefaultRequestHeaders.GetValues("client-request-id").Single()}"
+                );
             return httpClient;
         }
 
@@ -175,27 +172,23 @@ namespace SampleInviteApp
         /// Get the access token for our application to talk to Microsoft Graph.
         /// </summary>
         /// <returns>Returns the access token for our application to talk to Microsoft Graph.</returns>
-        private static string GetAccessToken()
+        private static async Task<string> GetAccessToken()
         {
-            string accessToken = null;
-
             // Get the access token for our application to talk to Microsoft Graph.
             try
             {
-                AuthenticationContext testAuthContext =
-                    new AuthenticationContext(string.Format("{0}/{1}", EstsLoginEndpoint, TenantID));
-                AuthenticationResult testAuthResult = testAuthContext.AcquireTokenAsync(
-                    GraphResource,
-                    new ClientCredential(TestAppClientId, TestAppClientSecret)).Result;
-                accessToken = testAuthResult.AccessToken;
+                var testCCA = ConfidentialClientApplicationBuilder.Create(TestAppClientId)
+                    .WithClientSecret(TestAppClientSecret)
+                    .WithTenantId(TenantID)
+                    .Build();
+                AuthenticationResult testAuthResult = await testCCA.AcquireTokenForClient(GraphScope).ExecuteAsync();
+                return testAuthResult.AccessToken;
             }
-            catch (AdalException ex)
+            catch (MsalException ex)
             {
-                Console.WriteLine("An exception was thrown while fetching the token: {0}.", ex);
+                Console.WriteLine($"An exception was thrown while fetching the token: {ex}.");
                 throw;
             }
-
-            return accessToken;
         }
 
         /// <summary>
@@ -206,12 +199,12 @@ namespace SampleInviteApp
             /// <summary>
             /// Gets or sets display name.
             /// </summary>
-            public string InvitedUserDisplayName { get; set; }
+            public string? InvitedUserDisplayName { get; set; }
 
             /// <summary>
             /// Gets or sets display name.
             /// </summary>
-            public string InvitedUserEmailAddress { get; set; }
+            public string? InvitedUserEmailAddress { get; set; }
 
             /// <summary>
             /// Gets or sets a value indicating whether Invitation Manager should send the email to InvitedUser.
@@ -221,7 +214,7 @@ namespace SampleInviteApp
             /// <summary>
             /// Gets or sets invitation redirect URL
             /// </summary>
-            public string InviteRedirectUrl { get; set; }
+            public string? InviteRedirectUrl { get; set; }
         }
     }
 }
