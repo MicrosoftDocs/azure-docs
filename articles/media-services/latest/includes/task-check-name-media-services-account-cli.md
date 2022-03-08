@@ -14,4 +14,4 @@ The following Azure CLI command checks whether a name for a Media Services accou
 
 [!INCLUDE [directive-change-my-account-name](directive-change-my-account-name.md)]
 
-:::code language="azurecli" source="cli-code-snippets.sh" id="AmsAccountCheckName" interactive="azurecli-interactive":::
+:::code language="azurecli" source="~/media-services-v3-python/cli/cli-code-snippets.sh" id="AmsAccountCheckName" interactive="azurecli-interactive":::
