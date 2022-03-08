@@ -112,7 +112,7 @@ Azure Migrate completes these actions automatically for these versions
 - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
 - Debian 10, 9, 8, 7
-- Oracle Linux 6, 7.7, 7.7-CI, 8
+- Oracle Linux 8, 7.7-CI, 7.7, 6
 
 For other versions, prepare machines as summarized in the table.  
 
