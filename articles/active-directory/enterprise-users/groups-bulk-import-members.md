@@ -4,11 +4,11 @@ description: Add group members in bulk in the Azure Active Directory admin cente
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: daveba
-ms.date: 11/15/2020
+manager: karenhoran
+ms.date: 09/02/2021
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta

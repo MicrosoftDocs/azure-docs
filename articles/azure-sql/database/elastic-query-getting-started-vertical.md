@@ -7,9 +7,9 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/25/2019
 ---
 # Get started with cross-database queries (vertical partitioning) (preview)
@@ -71,7 +71,8 @@ INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]
     SECRET = '<password>';  
     ```
 
-    The "username" and "password" should be the username and password used to log in into the Customers database.
+    The "master_key_password" is a strong password of your choosing used to encrypt the connection credentials. 
+    The "username" and "password" should be the username and password used to log in into the Customers database (create a new user in Customers database if one does not already exists).
     Authentication using Azure Active Directory with elastic queries is not currently supported.
 
 ### External data sources

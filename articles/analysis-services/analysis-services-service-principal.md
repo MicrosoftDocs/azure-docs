@@ -4,15 +4,16 @@ description: Learn how to create a service principal for automating Azure Analys
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 02/02/2022
 ms.author: owend
-ms.reviewer: minewiskan
+ms.reviewer: minewiskan 
+ms.custom: devx-track-azurepowershell
 
 ---
 
 # Automation with service principals
 
-Service principals are an Azure Active Directory application resource you create within your tenant to perform unattended resource and service level operations. They're a unique type of *user identity* with an application ID and password or certificate. A service principal has only those permissions necessary to perform tasks defined by the roles and permissions for which it's assigned. 
+Service principals are an Azure Active Directory application resource you create within your tenant to perform unattended resource and service level operations. They're a unique type of *user identity* with an application ID and password or certificate. A service principal has only those permissions necessary to perform tasks defined by the roles and permissions for which it is assigned. 
 
 In Analysis Services, service principals are used with Azure Automation, PowerShell unattended mode, custom client applications, and web apps to automate common tasks. For example, provisioning servers, deploying models, data refresh, scale up/down, and pause/resume can all be automated by using service principals. Permissions are assigned to service principals through role membership, much like regular Azure AD UPN accounts.
 
@@ -88,7 +89,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### AMO and ADOMD 
 
-When connecting with client applications and web apps, [AMO and ADOMD client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current) version 15.0.2 and higher installable packages from NuGet support service principals in connection strings using the following syntax: `app:AppID` and password or `cert:thumbprint`. 
+When connecting with client applications and web apps, [AMO and ADOMD client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) version 15.0.2 and higher installable packages from NuGet support service principals in connection strings using the following syntax: `app:AppID` and password or `cert:thumbprint`. 
 
 In the following example, `appID` and a `password` are used to perform a model database refresh operation:
 

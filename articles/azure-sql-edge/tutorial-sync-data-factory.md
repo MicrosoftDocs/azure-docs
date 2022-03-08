@@ -5,9 +5,9 @@ keywords: SQL Edge,sync data from SQL Edge, SQL Edge data factory
 services: sql-edge
 ms.service: sql-edge
 ms.topic: tutorial
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
 ms.date: 05/19/2020
 ---
 
@@ -54,8 +54,11 @@ Run these commands on the SQL Edge instance:
     CREATE PROCEDURE usp_write_watermark @timestamp datetime, @TableName varchar(50)  
     AS  
     BEGIN
+    
     UPDATE [dbo].[watermarktable]
-    SET [WatermarkValue] = @timestamp WHERE [TableName] = @TableName
+    SET [WatermarkValue] = @timestamp
+    WHERE [TableName] = @TableName
+
     END
     Go
 ```

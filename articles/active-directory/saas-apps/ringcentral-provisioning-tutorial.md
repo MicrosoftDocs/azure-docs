@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure RingCentral for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to RingCentral.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure RingCentral for automatic user provisioning
@@ -30,9 +30,13 @@ This tutorial describes the steps you need to perform in both RingCentral and Az
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * [A RingCentral tenant](https://www.ringcentral.com/office/plansandpricing.html)
 * A user account in RingCentral with Admin permissions.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -41,15 +45,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure RingCentral to support provisioning with Azure AD
 
-1. Sign in to your [RingCentral Admin Console](https://login.ringcentral.com/sw.html). Navigate to **Tools > Directory Integration**.
+A [RingCentral](https://www.ringcentral.com/office/plansandpricing.html) admin account is required to Authorize in the Admin Credentials section in Step 5.
 
-	![RingCentral Admin Console](media/ringcentral-provisioning-tutorial/admin.png)
+In the RingCentral admin portal, under Account Settings -> Directory Integrations, set the *Directory Provider* setting to *SCIM*
+![image](https://user-images.githubusercontent.com/49566142/134523440-20320d8e-3c25-4358-9ace-d4888ce8e4ea.png)
 
-2.	Choose **SCIM** under **Select Directory Provider**. (In the future there will be an option called Azure Active Directory). Click **Enable SCIM service**.
-
-	![RingCentral Add SCIM](media/ringcentral-provisioning-tutorial/scim.png)
-
-3.	Contact RingCentral support team at matthew.hunt@ringcentral.com for a **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your RingCentral application in the Azure portal.
 
 > [!NOTE]
 > To assign licenses to users, refer to the video link [here](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language).
@@ -89,9 +89,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://platform.ringcentral.com/scim/v2` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to RingCentral. If the connection fails, ensure your RingCentral account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, click on **Authorize**. You will be redirected to RingCentral's Sign In page. Input your Email / Phone Number  and Password and click on the **Sign In** button. Click **Authorize** in the RingCentral **Access Request** page. Click **Test Connection** to ensure Azure AD can connect to RingCentral. If the connection fails, ensure your RingCentral account has Admin permissions and try again.
 
- 	![Screenshot of the Tenant URL and Secret Token text fields with the Test Connection option called out.](./media/ringcentral-provisioning-tutorial/provisioning.png)
+   ![AAD](./media/ringcentral-provisioning-tutorial/admincredentials.png)
+
+   ![Access](./media/ringcentral-provisioning-tutorial/authorize.png)
+
+   ![Authorize](./media/ringcentral-provisioning-tutorial/accessrequest.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
@@ -146,6 +150,9 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Change log
 
 * 09/10/2020 - Removed support for "displayName" and "manager" attributes.
+* 03/15/2021 - Updated authorization method from permanent bearer token to OAuth code grant flow.
+* 10/28/2021 - Updated default mapping to **mail-> emails[type eq “work”].value**.
+* 10/28/2021 - Rate limiting updated to 300/min for read, 1000/min for write.
 
 ## Additional resources
 

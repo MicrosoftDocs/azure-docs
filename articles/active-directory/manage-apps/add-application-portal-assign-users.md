@@ -1,68 +1,70 @@
 ---
-title: 'Quickstart: Assign users to an app that uses Azure Active Directory as an identity provider'
-description: This quickstart walks through the process of allowing users to use an app that you have setup to use Azure AD as an identity provider.
+title: 'Quickstart: Create and assign a user account'
+titleSuffix: Azure AD
+description: Create a user account in your Azure Active Directory tenant and assign it to an application.
 services: active-directory
-author: kenwith
-manager: celestedg
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/01/2020
-ms.author: kenwith
+ms.date: 09/22/2021
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.custom: mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to assign a user to an enterprise application.
 ---
 
-# Quickstart: Assign users to an app that is using Azure AD as an identity provider
+# Quickstart: Create and assign a user account
 
-In the previous quickstart, you configured the properties for an app. When you set the properties you configured the experience for both assigned and unassigned users. This quickstart walks through the process of assigning users to the app.
+In this quickstart, you use the Azure Active Directory Admin Center to create a user account in your Azure Active Directory (Azure AD) tenant. After you create the account, you can assign it to the enterprise application that you added to your tenant.
+
+It is recommended that you use a non-production environment to test the steps in this quickstart.
 
 ## Prerequisites
 
-To assign users to an app that you added to your Azure AD tenant, you need:
+To create a user account and assign it to an enterprise application, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- Optional: Completion of [View your apps](view-applications-portal.md).
-- Optional: Completion of [Add an app](add-application-portal.md).
-- Optional: Completion of [Configure an app](add-application-portal-configure.md).
+- Completion of the steps in [Quickstart: Add an enterprise application](add-application-portal.md).
 
->[!IMPORTANT]
->Use a non-production environment to test the steps in this quickstart.
+## Create a user account
 
-## Assign users to an app
-1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
-2. In the left navigation menu, select **Users and groups**.
-   > [!NOTE]
-   > Some of the Microsoft 365 apps require the use of PowerShell. 
-3. Select the **Add user** button.
-4. On the **Add Assignment** pane, select **Users and groups**.
-5. Select the user or group you want to assign to the application. You can also start typing the name of the user or group in the search box. You can choose multiple users and groups, and your selections will appear under **Selected items**.
-    > [!IMPORTANT]
-    > When you assign a group to an application, only users in the group will have access. The assignment does not cascade to nested groups.
+To create a user account in your Azure AD tenant:
 
-    > [!NOTE]
-    > Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Microsoft 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
-6. When finished, choose **Select**.
-   ![Assign a user or group to the app](./media/assign-user-or-group-access-portal/assign-users.png)
-7. On the **Users and groups** pane, select one or more users or groups from the list and then choose the **Select** button at the bottom of the pane.
-8. If the application supports it, you can assign a role to the user or group. On the **Add Assignment** pane, choose **Select Role**. Then, on the **Select Role** pane, choose a role to apply to the selected users or groups, then select **OK** at the bottom of the pane. 
-    > [!NOTE]
-    > If the application doesn't support role selection, the default access role is assigned. In this case, the application manages the level of access users have.
-9. On the **Add Assignment** pane, select the **Assign** button at the bottom of the pane.
+1. Go to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. In the left menu, select **Users**.
+1. Select **New user** at the top of the pane.
 
-You can unassign users or groups using the same procedure. Select the user or group you want to unassign and then select **Remove**. Some of the Microsoft 365 and Office 365 apps require the use of PowerShell. 
+    :::image type="content" source="media/add-application-portal-assign-users/new-user.png" alt-text="Add a new user account to your Azure AD tenant.":::
+    
+1. In the **User name** field, enter the username of the user account. For example, `contosouser1@contoso.com`. Be sure to change `contoso.com` to the name of your tenant domain.
+1. In the **Name** field, enter the name of the user of the account. For example, `contosouser1`.
+1. Leave **Auto-generate password** selected, and then select **Show password**. Write down the value that's displayed in the Password box.
+1. Select **Create**.
+
+## Assign a user account to an enterprise application
+
+To assign a user account to an enterprise application:
+
+1. In the [Azure Active Directory Admin Center](https://aad.portal.azure.com), select **Enterprise applications**, and then search for and select the application to which you want to assign the user account. For example, the application that you created in the previous quickstart named **Azure AD SAML Toolkit 1**.
+1. In the left pane, select **Users and groups**, and then select **Add user/group**.
+
+    :::image type="content" source="media/add-application-portal-assign-users/assign-user.png" alt-text="Assign user account to zn application in your Azure AD tenant.":::
+
+1. On the **Add Assignment** pane, select **None Selected** under **Users and groups**.
+1. Search for and select the user that you want to assign to the application. For example, `contosouser1@contoso.com`.
+1. Select **Select**.
+1. On the **Add Assignment** pane, select **Assign** at the bottom of the pane.
 
 ## Clean up resources
 
-After you're done with the quickstart, consider deleting the app. That way you can keep your test tenant clean. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+If you are planning to complete the next quickstart, keep the application that you created. Otherwise, you can consider deleting it to clean up your tenant.
 
 ## Next steps
 
-Advance to the next article to learn how to set up single sign-on for an app.
+Learn how to set up single sign-on for an enterprise application.
 > [!div class="nextstepaction"]
-> [Set up SAML-based single sign-on](add-application-portal-setup-sso.md)
-
-OR
-
-> [!div class="nextstepaction"]
-> [Set up OIDC-based single sign-on](add-application-portal-setup-oidc-sso.md)
+> [Enable single sign-on](add-application-portal-setup-sso.md)

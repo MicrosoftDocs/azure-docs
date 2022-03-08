@@ -2,7 +2,8 @@
 title: Move a Windows AWS EC2 instance to Azure
 description: Move an Amazon Web Services (AWS) EC2 Windows instance to an Azure virtual machine. 
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/01/2018
@@ -12,6 +13,9 @@ ms.author: cynthn
 
 
 # Move a Windows VM from Amazon Web Services (AWS) to an Azure virtual machine
+
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 
 If you are evaluating Azure virtual machines for hosting your workloads, you can export an existing Amazon Web Services (AWS) EC2 Windows VM instance then upload the virtual hard disk (VHD) to Azure. Once the VHD is uploaded, you can create a new VM in Azure from the VHD. 
 
@@ -56,5 +60,6 @@ Now you can upload the VHD to Azure and create a new VM.
 
 - If you ran Sysprep on your source to **generalize** it before exporting, see [Upload a generalized VHD and use it to create a new VMs in Azure](upload-generalized-managed.md)
 - If you did not run Sysprep before exporting, the VHD is considered **specialized**, see [Upload a specialized VHD to Azure and create a new VM](create-vm-specialized.md)
+- Secure the VM using the Defender for Servers plan, which is part of [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-servers-introduction.md).
 
  

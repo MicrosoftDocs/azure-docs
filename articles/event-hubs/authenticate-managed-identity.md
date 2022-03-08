@@ -2,8 +2,8 @@
 title: Authentication a managed identity with Azure Active Directory
 description: This article provides information about authenticating a managed identity with Azure Active Directory to access Azure Event Hubs resources
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.custom: devx-track-csharp
+ms.date: 06/14/2021
+ms.custom: subject-rbac-steps
 ---
 # Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources
 Azure Event Hubs supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Event Hubs resources using Azure AD credentials from applications running in Azure Virtual Machines (VMs), Function apps, Virtual Machine Scale Sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.
@@ -35,30 +35,18 @@ Once the application is created, follow these steps:
 1. Select the **Status** to be **On**. 
 1. Select **Save** to save the setting. 
 
-    ![Managed identity for a web app](./media/authenticate-managed-identity/identity-web-app.png)
+    :::image type="content" source="./media/authenticate-managed-identity/identity-web-app.png" alt-text="Managed identity for a web app":::
+4. Select **Yes** on the information message. 
 
-Once you've enabled this setting, a new service identity is created in your Azure Active Directory (Azure AD) and configured into the App Service host.
+    Once you've enabled this setting, a new service identity is created in your Azure Active Directory (Azure AD) and configured into the App Service host.
 
-Now, assign this service identity to a role in the required scope in your Event Hubs resources.
+    Now, assign this service identity to a role in the required scope in your Event Hubs resources.
 
 ### To Assign Azure roles using the Azure portal
-To assign a role to Event Hubs resources, navigate to that resource in the Azure portal. Display the Access Control (IAM) settings for the resource, and follow these instructions to manage role assignments:
+Assign one of the [Event Hubs roles](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) to the managed identity at the desired scope (Event Hubs namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 > [!NOTE]
-> The following steps assigns a service identity role to your Event Hubs namespaces. You can follow the same steps to assign a role scoped to any Event Hubs resource. 
-
-1. In the Azure portal, navigate to your Event Hubs namespace and display the **Overview** for the namespace. 
-1. Select **Access Control (IAM)** on the left menu to display access control settings for the event hub.
-1.  Select the **Role assignments** tab to see the list of role assignments.
-3.	Select **Add** to add a new role.
-4.	On the **Add role assignment** page, select the Event Hubs roles that you want to assign. Then search to locate the service identity you had registered to assign the role.
-    
-    ![Add role assignment page](./media/authenticate-managed-identity/add-role-assignment-page.png)
-5.	Select **Save**. The identity to whom you assigned the role appears listed under that role. For example, the following image shows that service identity has Event Hubs Data owner.
-    
-    ![Identity assigned to a role](./media/authenticate-managed-identity/role-assigned.png)
-
-Once you've assigned the role, the web application will have access to the Event Hubs resources under the defined scope. 
+> For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### Test the web application
 1. Create an Event Hubs namespace and an event hub. 

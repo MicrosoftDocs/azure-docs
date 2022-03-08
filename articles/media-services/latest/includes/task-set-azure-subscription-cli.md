@@ -9,8 +9,10 @@ ms.custom: CLI
 
 <!-- ### Set the Azure subscription -->
 
-In the following command, provide the Azure subscription ID that you want to use for the Media Services account. You can see a list of subscriptions that you have access to by navigating to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+## Set the Azure subscription
 
-```azurecli
-az account set --subscription mySubscriptionId
-```
+In the following command, provide the Azure subscription ID that you want to use for the Media Services account.
+
+:::code language="azurecli" source="~/media-services-v3-python/cli/code-snippets.sh" id="SetSubscription" interactive="azurecli-interactive":::
+
+This command doesn't return anything.

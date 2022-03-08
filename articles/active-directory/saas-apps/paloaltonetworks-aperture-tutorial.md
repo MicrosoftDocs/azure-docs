@@ -9,32 +9,31 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 03/22/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Palo Alto Networks - Aperture
 
-In this tutorial, you learn how to integrate Palo Alto Networks - Aperture with Azure Active Directory (Azure AD).
-Integrating Palo Alto Networks - Aperture with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Palo Alto Networks - Aperture with Azure Active Directory (Azure AD). When you integrate Palo Alto Networks - Aperture with Azure AD, you can:
 
-* You can control in Azure AD who has access to Palo Alto Networks - Aperture.
-* You can enable your users to be automatically signed-in to Palo Alto Networks - Aperture (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to Palo Alto Networks - Aperture.
+* Enable your users to be automatically signed-in to Palo Alto Networks - Aperture with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Palo Alto Networks - Aperture, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Palo Alto Networks - Aperture single sign-on enabled subscription
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Palo Alto Networks - Aperture single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Palo Alto Networks - Aperture supports **SP** and **IDP** initiated SSO
+* Palo Alto Networks - Aperture supports **SP** and **IDP** initiated SSO.
 
-## Adding Palo Alto Networks - Aperture from the gallery
+## Add Palo Alto Networks - Aperture from the gallery
 
 To configure the integration of Palo Alto Networks - Aperture into Azure AD, you need to add Palo Alto Networks - Aperture from the gallery to your list of managed SaaS apps.
 
@@ -53,10 +52,10 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 To configure and test Azure AD single sign-on with Palo Alto Networks - Aperture, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-	* **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-	* **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 2. **[Configure Palo Alto Networks - Aperture SSO](#configure-palo-alto-networks---aperture-sso)** - to configure the Single Sign-On settings on application side.
-	* **[Create Palo Alto Networks - Aperture test user](#create-palo-alto-networks---aperture-test-user)** - to have a counterpart of Britta Simon in Palo Alto Networks - Aperture that is linked to the Azure AD representation of user.
+	1. **[Create Palo Alto Networks - Aperture test user](#create-palo-alto-networks---aperture-test-user)** - to have a counterpart of Britta Simon in Palo Alto Networks - Aperture that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -65,13 +64,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Palo Alto Networks - Aperture** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
-
-    ![Screenshot that shows the "Basic S A M L Configuration" with the "Identifier" and "Reply U R L" text boxes highlighted, and the "Save" action selected.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
@@ -80,8 +77,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    ![Palo Alto Networks - Aperture Domain and URLs single sign-on information SP](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in`
@@ -127,15 +122,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. On the top menu bar, click **SETTINGS**.
 
-	![The settings tab](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_settings.png)
+	![The settings tab](./media/paloaltonetworks-aperture-tutorial/settings.png)
 
 3. Navigate to **APPLICATION** section click **Authentication** form the left side of menu.
 
-	![The Auth tab](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_auth.png)
+	![The Auth tab](./media/paloaltonetworks-aperture-tutorial/authentication.png)
 	
 4. On the **Authentication** page perform the following steps:
 	
-	![The authentication tab](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
+	![The authentication tab](./media/paloaltonetworks-aperture-tutorial/tab.png)
 
 	a. Check the **Enable Single Sign-On(Supported SSP Providers are Okta, One login)** from **Single Sign-On** field.
 
@@ -168,9 +163,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Palo Alto Networks - Aperture for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Palo Alto Networks - Aperture tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Palo Alto Networks - Aperture for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Palo Alto Networks - Aperture tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Palo Alto Networks - Aperture for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
-## Next Steps
+## Next steps
 
-Once you configure Palo Alto Networks - Aperture you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Palo Alto Networks - Aperture you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

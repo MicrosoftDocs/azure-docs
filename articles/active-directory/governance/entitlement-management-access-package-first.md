@@ -1,19 +1,18 @@
 ---
-title: Tutorial - Create access package - Azure AD entitlement management
-description: Step-by-step tutorial for how to create your first access package in Azure Active Directory entitlement management.
+title: Tutorial - Manage access to resources in Azure AD entitlement management
+description: Step-by-step tutorial for how to create your first access package using the Azure portal in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: barclayn
-manager: daveba
+author: ajburnle
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 09/30/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -21,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a IT admin, I want step-by-step instructions of the entire workflow for how to use entitlement management so that I can start to use in my organization.
 
 ---
-# Tutorial: Create your first access package in Azure AD entitlement management
+# Tutorial: Manage access to resources in Azure AD entitlement management
 
 Managing access to all the resources employees need, such as groups, applications, and sites, is an important function for organizations. You want to grant employees the right level of access they need to be productive and remove their access when it is no longer needed.
 
@@ -40,7 +39,7 @@ For a step-by-step demonstration of the process of deploying Azure Active Direct
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-You can also create an access package programmatically using Microsoft Graph. For a tutorial that shows how to create an access package programmatically, see [entitlement management API](/graph/tutorial-access-package-api?view=graph-rest-beta).
+This rest of this article uses the Azure portal to configure and demonstrate Azure AD entitlement management.  You can also follow a tutorial to [manage access to resources via Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json) or [via PowerShell](/powershell/microsoftgraph/tutorial-entitlement-management?view=graph-powershell-beta).
 
 ## Prerequisites
 
@@ -78,7 +77,7 @@ A resource directory has one or more resources to share. In this step, you creat
 
 An *access package* is a bundle of resources that a team or project needs and is governed with policies. Access packages are defined in containers called *catalogs*. In this step, you create a **Marketing Campaign** access package in the **General** catalog.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 ![Create an access package](./media/entitlement-management-access-package-first/elm-access-package.png)
 
@@ -115,8 +114,9 @@ An *access package* is a bundle of resources that a team or project needs and is
 11. In the **Role** drop-down list, select **Member**.
 
     ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles.png)
+
     >[!IMPORTANT]
-    >The role-assignable groups added to an access package will be indicated using the Sub Type **Assignable to roles**. Refer to [Create a role-assignable group](../roles/groups-create-eligible.md) in Azure Active Directory for more details on groups assignable to Azure AD roles. If you don't see a role-assignable group that you want to add or you are unable to add it, make sure you have the required Azure AD role and entitlement management role to perform this operation. You might need to ask someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    >The role-assignable groups added to an access package will be indicated using the Sub Type **Assignable to roles**. Refer to [Create a role-assignable group](../roles/groups-create-eligible.md) in Azure Active Directory for more details on groups assignable to Azure AD roles. Keep in mind that once a role-assignable group is present in an access package catalog, administrative users who are able to manage in entitlement management, including global administrators, user administrators and catalog owners of the catalog, will be able to control the access packages in the catalog, allowing them to choose who can be added to those groups. If you don't see a role-assignable group that you want to add or you are unable to add it, make sure you have the required Azure AD role and entitlement management role to perform this operation. You might need to ask someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
     > When using [dynamic groups](../enterprise-users/groups-create-rule.md) you will not see any other roles available besides owner. This is by design.

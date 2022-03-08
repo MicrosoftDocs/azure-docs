@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
@@ -71,7 +71,7 @@ Like application objects, service principals can also be created through multipl
   * When you subscribe to Microsoft 365 or begin a trial, one or more service principals are created in the directory representing the various services that are used to deliver all of the functionality associated with Microsoft 365.
   * Some Microsoft 365 services like SharePoint create service principals on an ongoing basis to allow secure communication between components including workflows.
 * When an admin adds an application from the app gallery (this will also create an underlying app object)
-* Add an application to use the [Azure AD Application Proxy](../manage-apps/application-proxy.md)
+* Add an application to use the [Azure AD Application Proxy](../app-proxy/application-proxy.md)
 * Connect an application for single sign on using SAML or password single sign-on (SSO)
 * Programmatically via the Microsoft Graph API or PowerShell
 
@@ -101,8 +101,8 @@ Applications that you add yourself (represented as **App (yours)** in the diagra
   * Claims transformation rules
   * Attribute mappings (User provisioning)
 * For more detailed information on the service principal and application objects, see the Microsoft Graph API reference documentation:
-  * [Application](/graph/api/resources/application?view=graph-rest-1.0)
-  * [Service Principal](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Application](/graph/api/resources/application)
+  * [Service Principal](/graph/api/resources/serviceprincipal)
 
 ## Why do applications integrate with Azure AD?
 
@@ -115,6 +115,7 @@ Applications are added to Azure AD to leverage one or more of the services it pr
 * Role-based access control - Use the directory to define application roles to perform role-based authorization checks in an application
 * OAuth authorization services - Used by Microsoft 365 and other Microsoft applications to authorize access to APIs/resources
 * Application publishing and proxy - Publish an application from a private network to the internet
+* Directory schema extension attributes - [Extend the schema of service principal and user objects](active-directory-schema-extensions.md) to store additional data in Azure AD 
 
 ## Who has permission to add applications to my Azure AD instance?
 
@@ -132,19 +133,14 @@ Allowing users to register and consent to applications might initially sound con
 
 If you still want to prevent users in your directory from registering applications and from signing in to applications without administrator approval, there are two settings that you can change to turn off those capabilities:
 
-* To prevent users from consenting to applications on their own behalf:
-  1. In the Azure portal, go to the [User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) section under Enterprise applications.
-  2. Change **Users can consent to apps accessing company data on their behalf** to **No**.
-     
-     > [!NOTE]
-     > If you decide to turn off user consent, an admin will be required to consent to any new application a user needs to use.
+* To change the user consent settings in your organization, see [Configure how users consent to applications](../manage-apps/configure-user-consent.md).
 
 * To prevent users from registering their own applications:
   1. In the Azure portal, go to the [User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) section under Azure Active Directory
   2. Change **Users can register applications** to **No**.
 
 > [!NOTE]
-> Microsoft itself uses the default configuration with users able to register applications and consent to applications on their own behalf.
+> Microsoft itself uses the default configuration allowing users to register applications and only allows user consent for a very limited set of permissions.
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg

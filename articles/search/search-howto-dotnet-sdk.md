@@ -6,10 +6,10 @@ description: Learn how to create and manage search objects in a .NET application
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 12/10/2021
 ms.custom: devx-track-csharp
 ---
 # How to use Azure.Search.Documents in a C# .NET Application
@@ -18,7 +18,7 @@ This article explains how to create and manage search objects using C# and the [
 
 ## About version 11
 
-Azure SDK for .NET adds a new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10) client libraries, but utilizes common approaches and conventions where applicable. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
+Azure SDK for .NET includes a [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to the previous client library, [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10), but utilizes common approaches and conventions where applicable. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
 
 As with previous versions, you can use this library to:
 
@@ -26,7 +26,7 @@ As with previous versions, you can use this library to:
 + Load and manage search documents in an index
 + Execute queries, all without having to deal with the details of HTTP and JSON
 
-The library is distributed as a single [Azure.Search.Document NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/), which includes all APIs used for programmatic access to a search service.
+The library is distributed as a single [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/), which includes all APIs used for programmatic access to a search service.
 
 The client library defines classes like `SearchIndex`, `SearchField`, and `SearchDocument`, as well as operations like `SearchIndexClient.CreateIndex` and `SearchClient.Search` on the `SearchIndexClient` and `SearchClient` classes. These classes are organized into the following namespaces:
 

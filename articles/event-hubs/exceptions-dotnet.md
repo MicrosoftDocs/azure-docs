@@ -3,17 +3,16 @@ title: Azure Event Hubs - .NET exceptions
 description: This article provides a list of Azure Event Hubs .NET messaging exceptions and suggested actions.
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 
 ms.service: event-hubs
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 09/23/2020
-ms.author: shvija
+ms.date: 09/23/2021
+ms.author: spelluru
 
 ---
 

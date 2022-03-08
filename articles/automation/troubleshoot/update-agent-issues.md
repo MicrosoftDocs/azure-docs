@@ -2,13 +2,9 @@
 title: Troubleshoot Windows update agent issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues with the Windows update agent during Update Management.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/16/2020
-ms.topic: conceptual
-ms.service: automation
+ms.date: 01/25/2020
+ms.topic: troubleshooting
 ms.subservice: update-management
-manager: carmonm
 ---
 
 # Troubleshoot Windows update agent issues
@@ -22,10 +18,10 @@ There can be many reasons why your machine isn't showing up as ready (healthy) d
 > [!NOTE]
 > There can be a slight delay between what the Azure portal shows and the current state of a machine.
 
-This article discusses how to run the troubleshooter for Azure machines from the Azure portal, and non-Azure machines in the [offline scenario](#troubleshoot-offline). 
+This article discusses how to run the troubleshooter for Azure machines from the Azure portal, and non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
 > [!NOTE]
-> The troubleshooter script now includes checks for Windows Server Update Services (WSUS) and for the autodownload and install keys. 
+> The troubleshooter script now includes checks for Windows Server Update Services (WSUS) and for the autodownload and install keys.
 
 ## Start the troubleshooter
 
@@ -56,7 +52,7 @@ The operating system check verifies whether the Hybrid Runbook Worker is running
 
 ### .NET 4.6.2
 
-The .NET Framework check verifies that the system has [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) or later installed.
+The .NET Framework check verifies that the system has [.NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462) or later installed.
 
 ### WMF 5.1
 
@@ -86,7 +82,7 @@ Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to 
 
 This check determines if the Log Analytics agent for Windows (`healthservice`) is running on the machine. To learn more about troubleshooting the service, see [The Log Analytics agent for Windows isn't running](hybrid-runbook-worker.md#mma-not-running).
 
-To reinstall the Log Analytics agent for Windows, see [Install the agent for Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+To reinstall the Log Analytics agent for Windows, see [Install the agent for Windows](../../azure-monitor/agents/agent-windows.md).
 
 ### Monitoring agent service events
 
@@ -105,7 +101,7 @@ The Crypto folder access check determines whether the local system account has a
 
 ## <a name="troubleshoot-offline"></a>Troubleshoot offline
 
-You can use the troubleshooter on a Hybrid Runbook Worker offline by running the script locally. Get the following script from the PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). To run the script, you must have WMF 4.0 or later installed. To download the latest version of PowerShell, see [Installing various versions of PowerShell](/powershell/scripting/install/installing-powershell).
+You can use the troubleshooter on a Hybrid Runbook Worker offline by running the script locally. Get the following script from GitHub: [UM_Windows_Troubleshooter_Offline.ps1](https://github.com/Azure/updatemanagement/blob/main/UM_Windows_Troubleshooter_Offline.ps1). To run the script, you must have WMF 4.0 or later installed. To download the latest version of PowerShell, see [Installing various versions of PowerShell](/powershell/scripting/install/installing-powershell).
 
 The output of this script looks like the following example:
 

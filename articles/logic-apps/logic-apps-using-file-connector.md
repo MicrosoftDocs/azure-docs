@@ -1,12 +1,12 @@
 ---
 title: Connect to file systems on premises
-description: Automate tasks and workflows that connect to on-premises file systems with the File System connector through the on-premises data gateway in Azure Logic Apps
+description: Connect to on-premises file systems with the File System connector through the on-premises data gateway in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 10/08/2020
 ---
 

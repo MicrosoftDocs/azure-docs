@@ -1,9 +1,9 @@
 ---
-author: ramonarguelles
-ms.service: spatial-anchors
+author: pamistel
+ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 8/27/2020
-ms.author: rgarcia
+ms.date: 11/20/2020
+ms.author: pamistel
 ---
 
 ## [Android](#tab/Android)

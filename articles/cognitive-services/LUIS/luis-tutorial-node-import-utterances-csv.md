@@ -5,11 +5,12 @@ description: Learn how to build a LUIS app programmatically from preexisting dat
 services: cognitive-services
 
 manager: nitinme
+ms.devlang: javascript
 ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: how-to
-ms.date: 09/05/2019
+ms.topic: tutorial
+ms.date: 05/17/2021
 
 ---
 
@@ -21,7 +22,7 @@ LUIS provides a programmatic API that does everything that the [LUIS](luis-refer
 
 ## Prerequisites
 
-* Sign in to the [LUIS](luis-reference-regions.md) website and find your [authoring key](luis-how-to-azure-subscription.md#authoring-key) in Account Settings. You use this key to call the Authoring APIs.
+* Sign in to the [LUIS](luis-reference-regions.md) website and find your [authoring key](luis-how-to-azure-subscription.md) in Account Settings. You use this key to call the Authoring APIs.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 * This article starts with a CSV for a hypothetical company's log files of user requests. Download it [here](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Install the latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
@@ -183,8 +184,7 @@ Once the script completes, you can sign in to [LUIS](luis-reference-regions.md) 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Test and train your app in LUIS website](luis-interactive-test.md)
+[Test and train your app in LUIS website](luis-interactive-test.md)
 
 ## Additional resources
 

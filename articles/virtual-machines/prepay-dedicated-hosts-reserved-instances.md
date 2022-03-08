@@ -4,6 +4,7 @@ description: Learn how to buy Azure Dedicated Hosts Reserved Instances to save o
 services: virtual-machines
 author: yashar
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
@@ -12,6 +13,8 @@ ms.author: banders
 
 
 # Save costs with Azure Dedicated Host reservations
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 When you commit to a reserved instance of Azure Dedicated Hosts, you can save money. The reservation discount is applied automatically to the number of running dedicated hosts that match the reservation scope and attributes. You don't need to assign a reservation to a dedicated host to get the discounts. A reserved instance purchase covers only the compute part of your usage and does
 include software licensing costs. See the [Overview of Azure Dedicated Hosts for virtual machines](./dedicated-hosts.md).
@@ -22,11 +25,11 @@ include software licensing costs. See the [Overview of Azure Dedicated Hosts for
 Before you buy a reservation, you should determine which dedicated host you need. A SKU is defined for a dedicated host representing the VM series and
 type. 
 
-Start by going over the supported sizes for [Windows virtual machine](./sizes.md) or [Linux](./sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to identify the VM series.
+Start by going over the supported sizes for [Windows virtual machine](./sizes.md) or [Linux](./sizes.md) to identify the VM series.
 
 Next, check whether it is supported on Azure Dedicated Hosts. [Azure Dedicated Hosts pricing](https://aka.ms/ADHPricing) page has the complete list of dedicated hosts SKUs, their CPU information, and various pricing options (including reserved instances).
 
-You may find several SKUs supporting you VM series (with different Types). Identify the best SKU by comparing the capacity of the host (number of vCPUs). Note that you will be able to apply you reservation to multiple dedicated hosts SKUs supporting the same VM series (for example DSv3_Type1 and DSv3_Type2) but not across different VM series (like DSv3 and ESv3).
+You may find several SKUs supporting your selected VM series (with different Types). Identify the best SKU by comparing the capacity of the host (number of vCPUs). Note that you will be able to apply your reservation to multiple dedicated hosts SKUs supporting the same VM series (for example DSv3_Type1 and DSv3_Type2) but not across different VM series (like DSv3 and ESv3).
 
 
 
@@ -38,7 +41,7 @@ Reservation discounts don't apply for the following:
 
 - **Clouds** - Reservations aren't available for purchase in Germany or China regions.
 
-- **Insufficient quota** - A reservation that is scoped to a single subscription must have vCPU quota available in the subscription for the new reserved instance. For example, if the target subscription has a quota limit of 10 vCPUs for DSv3-Series, then you can't buy a reservation dedicated hosts supporting this series. The quota check for reservations includes the VMs and dedicated hosts already deployed in the subscription. You can [create quota increase request](../azure-portal/supportability/resource-manager-core-quotas-request.md) to resolve this issue.
+- **Insufficient quota** - A reservation that is scoped to a single subscription must have vCPU quota available in the subscription for the new reserved instance. For example, if the target subscription has a quota limit of 10 vCPUs for DSv3-Series, then you can't buy a reservation dedicated hosts supporting this series. The quota check for reservations includes the VMs and dedicated hosts already deployed in the subscription. You can [create quota increase request](../azure-portal/supportability/regional-quota-requests.md) to resolve this issue.
 
 - **Capacity restrictions** - In rare circumstances, Azure limits the purchase of new reservations for subset of dedicated host SKUs, because of low capacity in a region.
 
@@ -68,7 +71,7 @@ If you have an EA agreement, you can use the **Add more option** to quickly ad
 
 | **Field**           | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Subscription        | The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P). The charges are deducted from the monetary commitment balance, if available, or charged as overage. For a subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription. |
+| Subscription        | The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P). The charges are deducted from the Azure Prepayment (previously called monetary commitment) balance, if available, or charged as overage. For a subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription. |
 | Scope               | The reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Region              | The Azure region that’s covered by the reservation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Dedicated Host Size | The size of the Dedicated Host instances.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -80,6 +83,8 @@ If you have an EA agreement, you can use the **Add more option** to quickly ad
 - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
 
 - **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
+
+- **Management group** — Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 
 ## Usage data and reservation utilization
 

@@ -314,7 +314,7 @@ The first backup copy is kept on storage attached to the Azure Backup Server mac
 
 Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` cmdlet in the Azure Backup Server PowerShell console. If the output of the cmdlet is TRUE, then connectivity exists, otherwise there's no connectivity.
 
-At the same time, the Azure subscription needs to be in a healthy state. To find out the state of your subscription and to manage it, sign in to the [subscription portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+At the same time, the Azure subscription needs to be in a healthy state. To find out the state of your subscription and to manage it, sign in to the [subscription portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 Once you know the state of the Azure connectivity and of the Azure subscription, you can use the table below to find out the impact on the backup/restore functionality offered.
 
@@ -329,13 +329,19 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 
 ### Recovering from loss of connectivity
 
-If a firewall or a proxy is preventing access to Azure, add the following domain addresses in the firewall/proxy profile allow list:
+If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP addresses
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Once connectivity to Azure is restored to the Azure Backup Server, the Azure subscription state determines the operations that can be performed. Once the server is **Connected**, use the table in [Network connectivity](backup-mabs-install-azure-stack.md#network-connectivity) to see the available operations.
 
@@ -349,7 +355,7 @@ It's possible to change an Azure subscription from *Expired* or *Deprovisioned* 
 ## Troubleshooting
 
 If Microsoft Azure Backup server fails with errors during the setup phase (or backup or restore), see the [error codes document](https://support.microsoft.com/kb/3041338).
-You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
+You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.yml)
 
 ## Next steps
 
@@ -358,5 +364,5 @@ The article, [Preparing your environment for DPM](/system-center/dpm/prepare-env
 You can use the following articles to gain a deeper understanding of workload protection using Microsoft Azure Backup Server.
 
 - [SQL Server backup](./backup-mabs-sql-azure-stack.md)
-- [SharePoint server backup](./backup-mabs-sharepoint-azure-stack.md)
+- [SharePoint Server backup](./backup-mabs-sharepoint-azure-stack.md)
 - [Alternate server backup](backup-azure-alternate-dpm-server.md)

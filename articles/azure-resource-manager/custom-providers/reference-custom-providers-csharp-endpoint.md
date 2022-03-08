@@ -5,21 +5,21 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.author: jobreen
 author: jjbfour
-ms.date: 06/20/2019
+ms.date: 01/14/2021
 ---
 
 # Custom provider C# RESTful endpoint reference
 
 This article is a basic reference for a custom provider C# RESTful endpoint. If you're unfamiliar with Azure Custom Providers, see [the overview on custom resource providers](overview.md).
 
-## Azure function app RESTful endpoint
+## Azure Functions RESTful endpoint
 
-The following code works with an Azure function app. To learn how to set up an Azure function app to work with Azure Custom Providers, see [the tutorial on setting up Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md).
+The following code works with a function app in Azure. To learn how to set up an function app to work with Azure Custom Providers, see [the tutorial on setting up Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md).
 
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.WindowsAzure.Storage"
-#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent.dll"
+#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent"
 
 using System;
 using System.Net;

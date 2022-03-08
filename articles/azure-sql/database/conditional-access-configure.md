@@ -8,7 +8,7 @@ ms.subservice: security
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
@@ -20,7 +20,7 @@ tag: azure-synpase
 
 [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Microsoft Conditional Access.
 
-The following steps show how to configure Azure SQL Database, SQL Managed Instance, or Azure Synapse to enforce a Conditional Access (CA) policy.  
+The following steps show how to configure Azure SQL Database, SQL Managed Instance, or Azure Synapse to enforce a Conditional Access policy.  
 
 ## Prerequisites
 

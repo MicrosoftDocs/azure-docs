@@ -1,7 +1,7 @@
 ﻿---
 
-title: 'Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Portal'
-description: Use this tutorial to learn how to create a Azure SQL server with a private endpoint using the Azure portal.
+title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - Portal'
+description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using the Azure portal.
 services: private-link
 author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -9,10 +9,11 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: allensu
+ms.custom: fasttrack-edit
 
 ---
 
-# Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Azure portal
+# Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - Azure portal
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
 
@@ -21,7 +22,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
 > * Create a virtual machine.
-> * Create a Azure SQL server and private endpoint.
+> * Create an Azure SQL server and private endpoint.
 > * Test connectivity to the SQL server private endpoint.
 
 ## Prerequisites
@@ -128,6 +129,8 @@ In this section, you'll create a virtual machine that will be used to test the p
   
 6. Review the settings, and then select **Create**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name ="create-a-private-endpoint"></a>Create an Azure SQL server and private endpoint
 
 In this section, you'll create a SQL server in Azure. 
@@ -189,6 +192,21 @@ In this section, you'll create a SQL server in Azure.
 
 14. Select **Create**.
 
+> [!IMPORTANT]
+> When adding a Private endpoint connection, public routing to your Azure SQL logical server is not blocked by default. The setting "Deny public network access" under the "Firewall and virtual networks" blade is left unchecked by default. To disable public network access ensure this is checked.
+ 
+## Disable public access to Azure SQL logical server
+For this scenario, assume you would like to disable all public access to your Azure SQL Logical server, and only allow connections from your virtual network.
+ 
+1. Ensure your Private endpoint connection(s) are enabled and configured.
+2. Disable public access:
+    1. Navigate to the "Firewalls and virtual network" blade of your Azure SQL Logical Server    
+    2. Click the box to check mark "Deny public network access"
+
+   :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/pec-deny-public-access.png" alt-text="Deny public network access option":::
+    
+    3. Click the Save icon to enable.
+
 ## Test connectivity to private endpoint
 
 In this section, you'll use the virtual machine you created in the previous step to connect to the SQL server across the private endpoint.
@@ -222,7 +240,7 @@ In this section, you'll use the virtual machine you created in the previous step
     A private IP address of **10.1.0.5** is returned for the SQL server name.  This address is in the subnet of the virtual network you created previously.
 
 
-9. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) on **myVM**.
+9. Install [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) on **myVM**.
 
 10. Open **SQL Server Management Studio**.
 
@@ -258,6 +276,6 @@ In this tutorial, you created a:
 
 You used the virtual machine to test connectivity securely to the SQL server across the private endpoint.
 
-Learn how to create a Private Link service:
+As a next step, you may also be interested in the **Web app with private connectivity to Azure SQL database** architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
 > [!div class="nextstepaction"]
-> [Create a Private Link service](create-private-link-service-portal.md)
+> [Web app with private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app)

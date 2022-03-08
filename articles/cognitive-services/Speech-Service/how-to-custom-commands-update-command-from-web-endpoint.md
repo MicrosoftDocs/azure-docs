@@ -3,13 +3,13 @@ title: 'Update a command from a web endpoint'
 titleSuffix: Azure Cognitive Services
 description: Learn how to update the state of a command by using a call to a web endpoint.
 services: cognitive-services
-author: encorona-ms
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2020
-ms.author: encorona
+ms.author: eur
 ---
 
 # Update a command from a web endpoint
@@ -24,7 +24,7 @@ In this article, you'll learn how to update an ongoing command from a web endpoi
 
 ## Create an Azure function 
 
-For this example, you'll need an HTTP-triggered [Azure function](https://docs.microsoft.com/azure/azure-functions/) that supports the following input (or a subset of this input):
+For this example, you'll need an HTTP-triggered [Azure function](../../azure-functions/index.yml) that supports the following input (or a subset of this input):
 
 ```JSON
 {
@@ -115,7 +115,7 @@ Let's hook up the Azure function with the existing Custom Commands app:
 1. Select **Test**.
 1. Send `increment` a few times (which is the example sentence for the `IncrementCounter` command).
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="Screenshot that shows an increment counter example.":::
+    > :::image type="content" source="./media/custom-commands/increment-counter-example-no-mic.png" alt-text="Screenshot that shows an increment counter example.":::
 
 Notice how the Azure function increments the value of the `Counter` parameter on each turn.
 

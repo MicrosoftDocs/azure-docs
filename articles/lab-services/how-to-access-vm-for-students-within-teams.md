@@ -1,7 +1,7 @@
 ---
 title:  Access a VM (student view) in Azure Lab from Teams
 description: Learn how to access a VM (student view) in Azure Lab from Teams. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/07/2020
 ---
 

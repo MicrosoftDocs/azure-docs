@@ -1,8 +1,6 @@
 ---
 title: 'Application upgrade: data serialization' 
 description: Best practices for data serialization and how it affects rolling application upgrades.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 11/02/2017
 ---
@@ -42,7 +40,7 @@ Data Contract is the recommended solution for ensuring that your data is compati
 ## Next steps
 [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+[Upgrading your Application Using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
 Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
 

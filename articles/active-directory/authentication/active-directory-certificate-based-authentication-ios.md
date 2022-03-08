@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 02/16/2022
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: karenhoran
 
 ms.collection: M365-identity-device-management
 ---
@@ -23,7 +23,6 @@ To improve security, iOS devices can use certificate-based authentication (CBA) 
 
 Using certificates eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.
 
-This article details the requirements and the supported scenarios for configuring CBA on an iOS device. CBA for iOS is available across Azure public clouds, Microsoft Government Cloud, Microsoft Cloud Germany, and Microsoft Azure China 21Vianet.
 
 ## Microsoft mobile applications support
 
@@ -72,7 +71,7 @@ For more information, see [Customizing the AD FS sign in page](/previous-version
 
 Some Office apps with modern authentication enabled send `prompt=login` to Azure AD in their request. By default, Azure AD translates `prompt=login` in the request to ADFS as `wauth=usernamepassworduri` (asks ADFS to do U/P Auth) and `wfresh=0` (asks ADFS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, modify the default Azure AD behavior.
 
-To update the default behavior, set the '*PromptLoginBehavior*' in your federated domain settings to *Disabled*. You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet to perform this task, as shown in the following example:
+To update the default behavior, set the '*PromptLoginBehavior*' in your federated domain settings to *Disabled*. You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) cmdlet to perform this task, as shown in the following example:
 
 ```powershell
 Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled

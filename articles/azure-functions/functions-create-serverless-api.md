@@ -34,7 +34,7 @@ By default, your HTTP trigger function is configured to accept any HTTP method. 
 
     | Field | Sample value | Description |
     |---|---|---|
-    | Route template | /hello | Determines what route is used to invoke this function |
+    | Route template | hello | Determines what route is used to invoke this function |
     | Authorization level | Anonymous | Optional: Makes your function accessible without an API key |
     | Selected HTTP methods | GET | Allows only selected HTTP methods to be used to invoke this function |
 
@@ -75,16 +75,19 @@ A proxy can point to any HTTP resource, such as:
 
 To learn more about proxies, see [Working with Azure Functions Proxies].
 
+> [!NOTE]
+> Proxies is available in Azure Functions versions 1.x to 3.x.
+
 ## Create your first proxy
 
 In this section, you create a new proxy, which serves as a frontend to your overall API. 
 
 ### Setting up the frontend environment
 
-Repeat the steps to [Create a function app](./functions-create-first-azure-function.md#create-a-function-app) to create a new function app in which you will create your proxy. This new app's URL serves as the frontend for our API, and the function app you were previously editing serves as a backend.
+Repeat the steps to [Create a function app](./functions-get-started.md) to create a new function app in which you will create your proxy. This new app's URL serves as the frontend for our API, and the function app you were previously editing serves as a backend.
 
 1. Navigate to your new frontend function app in the portal.
-1. Select **Platform Features** and choose **Application Settings**.
+1. Select **Configuration** and choose **Application Settings**.
 1. Scroll down to **Application settings**, where key/value pairs are stored, and create a new setting with the key `HELLO_HOST`. Set its value to the host of your backend function app, such as `<YourBackendApp>.azurewebsites.net`. This value is part of the URL that you copied earlier when testing your HTTP function. You'll reference this setting in the configuration later.
 
     > [!NOTE] 
@@ -192,5 +195,5 @@ The following references may be helpful as you develop your API further:
 - [Documenting an Azure Functions API (preview)](./functions-openapi-definition.md)
 
 
-[Create your first function]: ./functions-create-first-azure-function.md
+[Create your first function]: ./functions-get-started.md
 [Working with Azure Functions Proxies]: ./functions-proxies.md

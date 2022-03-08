@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 02/02/2022
 
-ms.author: baselden
-author: barbaraselden
-manager: daveba
-ms.reviewer: rhicock
+ms.author: justinha
+author: NishthaBabith-V
+manager: martinco
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
@@ -22,12 +22,12 @@ ms.collection: M365-identity-device-management
 >
 > **If you're an end user and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
-[Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) is an Azure Active Directory (AD) feature that enables users to reset their passwords without contacting IT staff for help. The users can quickly unblock themselves and continue working no matter where they are or time of day. By allowing the employees to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
+[Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=pS3XwfxJrMo) is an Azure Active Directory (AD) feature that enables users to reset their passwords without contacting IT staff for help. The users can quickly unblock themselves and continue working no matter where they are or time of day. By allowing the employees to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
 
 SSPR has the following key capabilities:
 
 * Self-service allows end users to reset their expired or non-expired passwords without contacting an administrator or helpdesk for support.
-* [Password Writeback](./concept-sspr-writeback.md) allows management of on-premises passwords and resolution of account lockout though the cloud.
+* [Password Writeback](./concept-sspr-writeback.md) allows management of on-premises passwords and resolution of account lockout through the cloud.
 * Password management activity reports give administrators insight into password reset and registration activity occurring in their organization.
 
 This deployment guide shows you how to plan and then test an SSPR roll-out.
@@ -59,7 +59,7 @@ Azure Active Directory is licensed per-user meaning each user requires an approp
 
 To compare editions and features and enable group or user-based licensing, see [Licensing requirements for Azure AD self-service password reset](./concept-sspr-licensing.md).
 
-For more information about pricing, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+For more information about pricing, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### Prerequisites
 
@@ -75,6 +75,7 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 | Videos| [Empower your users with better IT scalability](https://youtu.be/g9RpRnylxS8) 
 | |[What is self-service password reset?](https://youtu.be/hc97Yx5PJiM)|
 | |[Deploying self-service password reset](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
+| |[How to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
 | |[How to configure self-service password reset for users in Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[How to [prepare users to] register [their] security information for Azure Active Directory](https://youtu.be/gXuh0XS18wA) |
 | Online courses|[Managing Identities in Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Use SSPR to give your users a modern, protected experience. See especially the "[Managing Azure Active Directory Users and Groups](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)" module. |
@@ -83,8 +84,7 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 |Tutorials |[Complete an Azure AD self-service password reset pilot roll out](./tutorial-enable-sspr.md) |
 | |[Enabling password writeback](./tutorial-enable-sspr-writeback.md) |
 | |[Azure AD password reset from the login screen for Windows 10](./howto-sspr-windows.md) |
-| FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.md) |
-
+| FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.yml) |
 
 ### Solution architecture
 
@@ -108,11 +108,15 @@ You can help users register quickly by deploying SSPR alongside another popular 
 
 Before deploying SSPR, you may opt to determine the number and the average cost of each password reset call. You can use this data post deployment to show the value SSPR is bringing to the organization.
 
-#### Enable combined registration for SSPR and MFA
+### Combined registration for SSPR and Azure AD Multi-Factor Authentication
 
-Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
+> [!NOTE]
+> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
+> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration.
 
-The combined registration experience does not require organizations to enable both SSPR and Azure AD Multi-Factor Authentication. Combined registration provides organizations a better user experience. For more information, see [Combined security information registration](concept-registration-mfa-sspr-combined.md)
+We recommend that organizations use the [combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD Multi-Factor Authentication. Combined registration is a single step for end users. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
+
+It's critical to inform users about upcoming changes, registration requirements, and any necessary user actions. We provide [communication templates](https://aka.ms/mfatemplates) and [user documentation](https://support.microsoft.com/account-billing/set-up-security-info-from-a-sign-in-page-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout. Send users to https://myprofile.microsoft.com to register by selecting the **Security Info** link on that page.
 
 ## Plan the deployment project
 
@@ -120,7 +124,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 #### Required administrator roles
 
@@ -130,11 +134,6 @@ When technology projects fail, they typically do so due to mismatched expectatio
 | Level 1 helpdesk| Password administrator |
 | Level 2 helpdesk| User administrator |
 | SSPR administrator| Global administrator |
-
-
-### Plan communications
-
-Communication is critical to the success of any new service. You should proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues. Review the [Self-service password reset rollout materials on the Microsoft download center](https://www.microsoft.com/download/details.aspx?id=56768) for ideas on how to plan your end-user communication strategy.
 
 ### Plan a pilot
 
@@ -273,15 +272,13 @@ To roll back the deployment:
 
 Before deploying, ensure that you have done the following:
 
-1. Created and begun executing your [communication plan](#plan-communications).
-
 1. Determined the appropriate [configuration settings](#plan-configuration).
 
-1. Identified the users and groups for the [pilot](#plan-a-pilot) and production environments.
+2. Identified the users and groups for the [pilot](#plan-a-pilot) and production environments.
 
-1. [Determined configuration settings](#plan-configuration) for registration and self-service.
+3. [Determined configuration settings](#plan-configuration) for registration and self-service.
 
-1. [Configured password writeback](#password-writeback) if you have a hybrid environment.
+4. [Configured password writeback](#password-writeback) if you have a hybrid environment.
 
 
 **You're now ready to deploy SSPR!**
@@ -312,19 +309,19 @@ You can use pre-built reports on Azure portal to measure the SSPR performance. I
 > [!NOTE]
 >  You must be [a global administrator](../roles/permissions-reference.md), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Azure Portal at least once. Until then, the data doesn't collect for your organization.
 
-Audit logs for registration and password reset are available for 30 days. If security auditing within your corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or ArcSight.
+Audit logs for registration and password reset are available for 30 days. If security auditing within your corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or ArcSight.
 
 ![SSPR Reporting screenshot](./media/howto-sspr-deployment/sspr-reporting.png)
 
 ### Authentication methods- Usage and Insights
 
-[Usage and insights](./howto-authentication-methods-usage-insights.md) enable you to understand how authentication methods for features like Azure AD MFA and SSPR are working in your organization. This reporting capability provides your organization with the means to understand what methods register and how to use them.
+[Usage and insights](./howto-authentication-methods-activity.md) enable you to understand how authentication methods for features like Azure AD MFA and SSPR are working in your organization. This reporting capability provides your organization with the means to understand what methods register and how to use them.
 
 ### Troubleshoot
 
-* Refer to [Troubleshoot self-service password reset](./active-directory-passwords-troubleshoot.md) 
+* Refer to [Troubleshoot self-service password reset](./troubleshoot-sspr.md) 
 
-* Follow [Password management frequently asked questions](./active-directory-passwords-faq.md) 
+* Follow [Password management frequently asked questions](./active-directory-passwords-faq.yml) 
 
 ### Helpful documentation
 

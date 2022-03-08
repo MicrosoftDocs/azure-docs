@@ -5,6 +5,7 @@ description: Use Azure Functions to create a serverless function that is invoked
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: how-to
 ms.date: 04/24/2020
+ms.devlang: csharp, javascript
 ms.custom: "devx-track-csharp, mvc"
 
 ---
@@ -18,13 +19,13 @@ To complete this quickstart:
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Follow the directions in [Create your first function from the Azure portal](functions-create-first-azure-function.md) and don't do the **Clean up resources** step. That quickstart creates the function app and function that you use here.
+- Follow the directions in [Create your first function from the Azure portal](./functions-get-started.md) and don't do the **Clean up resources** step. That quickstart creates the function app and function that you use here.
 
 ## <a name="add-binding"></a>Add an output binding
 
 In this section, you use the portal UI to add a queue storage output binding to the function you created earlier. This binding makes it possible to write minimal code to create a message in a queue. You don't have to write code for tasks such as opening a storage connection, creating a queue, or getting a reference to a queue. The Azure Functions runtime and queue output binding take care of those tasks for you.
 
-1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](functions-create-first-azure-function.md). To do open the page, search for and select **Function App**. Then, select your function app.
+1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](./functions-get-started.md). To do open the page, search for and select **Function App**. Then, select your function app.
 
 1. Select your function app, and then select the function that you created in that earlier quickstart.
 
@@ -74,7 +75,7 @@ In this section, you add code that writes a message to the output queue. The mes
 
     # [JavaScript](#tab/nodejs)
 
-    Add code that uses the output binding on the `context.bindings` object to create a queue message. Add this code before the`context.done` statement.
+    Add code that uses the output binding on the `context.bindings` object to create a queue message.
 
     ```javascript
     context.bindings.outputQueueItem = "Name passed to the function: " + 
@@ -94,7 +95,7 @@ In this section, you add code that writes a message to the output queue. The mes
 
     Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message that is created when the function is invoked.
     
-    As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
+    As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](./functions-get-started.md).
 
 1. Check the logs to make sure that the function succeeded. 
 

@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
+ms.custom: devx-track-azurepowershell, mode-other
 ---
 
 # Quickstart: Convert a model for rendering
@@ -45,7 +46,7 @@ You need:
 
 If you do not have an account yet, go to [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/), click on the free account option, and follow the instructions.
 
-Once you have an Azure account, go to [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home).
+Once you have an Azure account, go to [https://portal.azure.com/#home](https://portal.azure.com/#home).
 
 ### Storage account creation
 
@@ -184,8 +185,8 @@ You should see something like this:
 ### 3. Conversion via API calls
 
 Both the C# and the C++ API provide an entry point to interact with the service:
-* [C# AzureFrontend.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
-* [C++ AzureFrontend::StartAssetConversionAsync()](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
+* [C# RemoteRenderingClient.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient.startassetconversionasync)
+* [C++ RemoteRenderingClient::StartAssetConversionAsync()](/cpp/api/remote-rendering/remoterenderingclient#startassetconversionasync)
 
 
 ## Insert new model into Quickstart Sample App

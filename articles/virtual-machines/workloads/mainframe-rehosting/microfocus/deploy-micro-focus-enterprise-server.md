@@ -1,7 +1,7 @@
 ---
 title: Deploy Micro Focus Enterprise Server 5.0 to AKS | Microsoft Docs
 description: Rehost your IBM z/OS mainframe workloads using the Micro Focus development and test environment on Azure virtual machines (VMs).
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter:
 author: maggsl
 ms.author: edprice
@@ -11,7 +11,8 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 tags:
 keywords:
-ms.service: multiple
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ---
 
 # Deploy Micro Focus Enterprise Server 5.0 to AKS

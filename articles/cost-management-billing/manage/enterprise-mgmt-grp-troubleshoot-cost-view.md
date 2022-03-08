@@ -6,9 +6,9 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: troubleshooting
-ms.date: 08/20/2019
+ms.date: 10/22/2021
 ms.author: banders
-ms.custom: seodec18
+ms.custom: sapnakeshari
 ---
 
 # Troubleshoot enterprise cost views
@@ -26,9 +26,12 @@ It might be for one of the following reasons:
 2. If you’re an EA Direct customer, there are a couple of possibilities:
     * You're an Account Owner and your Enrollment Administrator disabled the **AO view charges** setting.  
     * You're a Department Administrator and your Enrollment Administrator disabled the **DA view charges** setting.
-    * Contact your Enrollment Administrator to get access. The Enrollment Admin can update the settings in the [Enterprise portal](https://ea.azure.com/manage/enrollment).
+    * Contact your Enrollment Administrator to get access. The Enrollment Admin can now update the settings in [Azure portal](https://portal.azure.com/). Navigate to **Policies** menu to change settings. 
+    * The Enrollment Admin can update the settings in the [Enterprise portal](https://ea.azure.com/manage/enrollment).
 
       ![Screenshot that shows the Enterprise Portal Settings for view charges.](./media/enterprise-mgmt-grp-troubleshoot-cost-view/ea-portal-settings.png)
+    
+ 
 
 ## Asset is unavailable
 
@@ -36,7 +39,7 @@ If you get an error message stating **This asset is unavailable** when trying to
 
 ![Screenshot that shows "asset is unavailable" message.](./media/enterprise-mgmt-grp-troubleshoot-cost-view/asset-not-found.png)
 
-Ask your Azure subscription or management group administrator for access. For more information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Ask your Azure subscription or management group administrator for access. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 - If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

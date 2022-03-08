@@ -27,7 +27,7 @@ ms.author: alkohli
    3. Click the **Enable** button below each of the content databases that you want to configure for remote storage.
       
       > [!NOTE]
-      > The BLOB store must be shared and reachable by all web front-end (WFE) servers, and the user account that is configured for the SharePoint server farm must have access to the share.
+      > The BLOB store must be shared and reachable by all web front-end (WFE) servers, and the user account that is configured for the SharePoint Server farm must have access to the share.
       
       ![Enable the RBS provider](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
       
@@ -110,5 +110,5 @@ ms.author: alkohli
    
 9. Go to the next step: [Configure garbage collection](#configure-garbage-collection).
 
-[6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
-[7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
+[6]: /SharePoint/administration/migrate-content-into-or-out-of-rbs
+[7]: /previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)

@@ -3,7 +3,6 @@ title: Azure Service Fabric differences between Linux and Windows
 description: Differences between the Azure Service Fabric on Linux and Azure Service Fabric on Windows.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.custom: sfrev
 ---
 # Differences between Service Fabric on Linux and Windows
 
@@ -14,10 +13,10 @@ There are some features that are supported on Windows, but not yet on Linux. Eve
 * Console redirection (not supported in Linux or Windows production clusters)
 * The Fault Analysis Service (FAS) on Linux
 * DNS service for Service Fabric services (DNS service is supported for containers on Linux)
-* CLI command equivalents of certain Powershell commands (list below, most of which apply only to standalone clusters)
+* CLI command equivalents of certain PowerShell commands (list below, most of which apply only to standalone clusters)
 * [Differences in log implementation that may affect scalability](service-fabric-concepts-scalability.md#choosing-a-platform)
 
-## Powershell cmdlets that do not work against a Linux Service Fabric cluster
+## PowerShell cmdlets that do not work against a Linux Service Fabric cluster
 
 * Invoke-ServiceFabricChaosTestScenario
 * Invoke-ServiceFabricFailoverTestScenario

@@ -1,12 +1,11 @@
 ---
 title: Azure Functions bindings expressions and patterns
 description: Learn to create different Azure Functions binding expressions based on common patterns.
-author: craigshoemaker
 
 ms.topic: reference
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
-ms.author: cshoe
 ---
 
 # Azure Functions binding expression patterns
@@ -160,6 +159,7 @@ For example, an Azure Queue storage trigger supports the following properties:
 These metadata values are accessible in *function.json* file properties. For example, suppose you use a queue trigger and the queue message contains the name of a blob you want to read. In the *function.json* file, you can use `queueTrigger` metadata property in the blob `path` property, as shown in the following example:
 
 ```json
+{
   "bindings": [
     {
       "name": "myQueueItem",
@@ -175,6 +175,7 @@ These metadata values are accessible in *function.json* file properties. For exa
       "connection": "MyStorageConnection"
     }
   ]
+}
 ```
 
 Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue-trigger.md#message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
@@ -238,7 +239,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 In JavaScript, JSON deserialization is automatically performed.
 
 ```javascript
-module.exports = function (context, info) {
+module.exports = async function (context, info) {
     if ('BlobName' in info) {
         context.res = {
             body: { 'data': context.bindings.blobContents }
@@ -249,13 +250,14 @@ module.exports = function (context, info) {
             status: 404
         };
     }
-    context.done();
 }
 ```
 
 ### Dot notation
 
-If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. For example, suppose your JSON looks like this:
+If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. The dot notation does not work or [Cosmos DB](./functions-bindings-cosmosdb-v2.md) or [Table storage](./functions-bindings-storage-table-output.md) bindings. 
+
+For example, suppose your JSON looks like this:
 
 ```json
 {

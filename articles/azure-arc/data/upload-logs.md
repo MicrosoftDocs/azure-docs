@@ -1,25 +1,19 @@
 ---
 title: Upload logs to Azure Monitor
-description: Upload logs for Azure Arc enabled data services to Azure Monitor
+description: Upload logs for Azure Arc-enabled data services to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 11/03/2021
 ms.topic: how-to
-zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
 # Upload logs to Azure Monitor
 
 Periodically, you can export logs and then upload them to Azure. Exporting and uploading logs also creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
-
-> [!NOTE] 
-> During the preview period, there is no cost for using Azure Arc enabled data services.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Before you begin
 
@@ -27,6 +21,8 @@ Before you can upload logs, you need to:
 
 1. [Create a log analytics workspace](#create-a-log-analytics-workspace)
 1. [Assign ID and shared key to environment variables](#assign-id-and-shared-key-to-environment-variables)
+
+[!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
 
 ## Create a log analytics workspace
 
@@ -67,27 +63,24 @@ Example output:
 
 Save the log workspace analytics `customerId` as an environment variable to be used later:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET WORKSPACE_ID=<customerId>
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:WORKSPACE_ID='<customerId>'
 ```
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export WORKSPACE_ID='<customerId>'
 ```
-::: zone-end
+
+---
 
 This command returns the access keys required to connect to your log analytics workspace:
 
@@ -106,129 +99,97 @@ Example output:
 
 Save the primary key in an environment variable to be used later:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET WORKSPACE_SHARED_KEY=<primarySharedKey>
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```console
 $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
-```
-::: zone-end
 
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
 
-::: zone-end
-
-## Set final environment variables and confirm
-
-Set the SPN authority URL in an environment variable:
-
-::: zone pivot="client-operating-system-windows-command"
-
-```console
-SET SPN_AUTHORITY=https://login.microsoftonline.com
-```
-
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
-
-```console
-$Env:SPN_AUTHORITY='https://login.microsoftonline.com'
-```
-
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
-
-```console
-export SPN_AUTHORITY='https://login.microsoftonline.com'
-```
-
-::: zone-end
+---
 
 
 ## Verify environment variables
 
 Check to make sure that all environment variables required are set if you want:
 
-
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 echo %WORKSPACE_ID%
 echo %WORKSPACE_SHARED_KEY%
-echo %SPN_TENANT_ID%
-echo %SPN_CLIENT_ID%
-echo %SPN_CLIENT_SECRET%
-echo %SPN_AUTHORITY%
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:WORKSPACE_ID
 $Env:WORKSPACE_SHARED_KEY
-$Env:SPN_TENANT_ID
-$Env:SPN_CLIENT_ID
-$Env:SPN_CLIENT_SECRET
-$Env:SPN_AUTHORITY
 ```
 
-
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 echo $WORKSPACE_ID
 echo $WORKSPACE_SHARED_KEY
-echo $SPN_TENANT_ID
-echo $SPN_CLIENT_ID
-echo $SPN_CLIENT_SECRET
-echo $SPN_AUTHORITY
 ```
 
-::: zone-end
+---
 
 With the environment variables set, you can upload logs to the log workspace. 
 
-## Upload logs to Azure Monitor
+## Upload logs to Azure Log Analytics Workspace in direct mode
 
- To upload logs for your Azure Arc enabled SQL managed instances and AzureArc enabled PostgreSQL Hyperscale server groups run the following CLI commands-
+In the **direct** connected mode, Logs upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment or post deployment of Azure Arc data controller.
 
-1. Log in to to the Azure Arc data controller with [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].
+### Enable automatic upload of logs to Azure Log Analytics Workspace
 
-   ```console
-   azdata login
-   ```
+If the automatic upload of logs was disabled during Azure Arc data controller deployment, run the below command to enable automatic upload of logs.
 
-   Follow the prompts to set the namespace, the administrator username, and the password. 
+```azurecli
+az arcdata dc update --name <name of datacontroller> --resource-group <resource group> --auto-upload-logs true
+#Example
+az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs true
+```
+
+### Disable automatic upload of logs to Azure Log Analytics Workspace
+
+If the automatic upload of logs was enabled during Azure Arc data controller deployment, run the below command to disable automatic upload of logs.
+```
+az arcdata dc update --name <name of datacontroller> --resource-group <resource group> --auto-upload-logs false
+#Example
+az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs false
+```
+
+## Upload logs to Azure Monitor in indirect mode
+
+ To upload logs for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run the following CLI commands-
 
 1. Export all logs to the specified file:
 
-   ```console
-   azdata arc dc export --type logs --path logs.json
+   > [!NOTE]
+   > Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
+
+   ```azurecli
+   az arcdata dc export --type logs --path logs.json  --k8s-namespace arc
    ```
+
 
 2. Upload logs to an Azure monitor log analytics workspace:
 
-   ```console
-   azdata arc dc upload --path logs.json
+   ```azurecli
+   az arcdata dc upload --path logs.json
    ```
 
 ## View your logs in Azure portal
@@ -251,9 +212,9 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
-```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+```azurecli
+az arcdata dc export --type logs --path logs.json --force --k8s-namespace arc
+az arcdata dc upload --path logs.json
 ```
 
 Make the script file executable

@@ -3,7 +3,6 @@ title: Tutorial - Import a certificate in Key Vault using Azure portal | Microso
 description: Tutorial showing how to import a certificate in Azure Key Vault
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -11,7 +10,8 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
-ms.author: sebansal
+ms.author: sebansal 
+ms.devlang: azurecli
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
 ---
 # Tutorial: Import a certificate in Azure Key Vault
@@ -101,9 +101,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-Learn more about the [parameters](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
+Learn more about the [parameters](/cli/azure/keyvault/certificate#az_keyvault_certificate_import).
 
-After importing the certificate, you can view the certificate using [Certificate show](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+After importing the certificate, you can view the certificate using [Certificate show](/cli/azure/keyvault/certificate#az_keyvault_certificate_show)
 
 
 ```azurecli
@@ -132,7 +132,7 @@ Import-AzureKeyVaultCertificate
       [<CommonParameters>]
 ```
 
-Learn more about the [parameters](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Learn more about the [parameters](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?).
 
 
 ## Clean up resources
@@ -150,5 +150,5 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 In this tutorial, you created a Key Vault and imported a certificate in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read more about [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md)
-- See examples of [Importing Certificates Using REST APIs](/rest/api/keyvault/importcertificate/importcertificate)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- See examples of [Importing Certificates Using REST APIs](/rest/api/keyvault/certificates/import-certificate/import-certificate)
+- Review the [Key Vault security overview](../general/security-features.md)

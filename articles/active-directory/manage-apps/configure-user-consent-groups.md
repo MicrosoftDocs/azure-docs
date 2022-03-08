@@ -1,22 +1,33 @@
 ---
-title: Configure group owner consent to apps accessing group data using Azure AD
+title: Configure group owner consent to apps accessing group data
+titleSuffix: Azure AD
 description: Learn manage whether group and team owners can consent to applications that will have access to the group or team's data.
 services: active-directory
-author: kenwith
-manager: celestedg
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.author: kenwith
+ms.date: 08/31/2021
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
+
+#customer intent: As an admin, I want to configure group owner consent to apps accessing group data using Azure AD
 ---
 
-# Configure group owner consent to apps accessing group data
+# Configure group owner consent to applications
 
 Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. For example, a team owner in Microsoft Teams can allow an app to read all Teams messages in the team, or list the basic profile of a group's members. See [Resource-specific consent in Microsoft Teams](/microsoftteams/resource-specific-consent) to learn more.
+
+## Prerequisites
+
+To complete the tasks in this guide, you need the following:
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Global Administrator role.
+- Set up Azure AD PowerShell. See [Azure AD PowerShell](/powershell/azure/)
 
 ## Manage group owner consent to apps
 
@@ -26,7 +37,7 @@ You can configure which users are allowed to consent to apps accessing their gro
 
 Follow these steps to manage group owner consent to apps accessing group data:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 2. Select **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **User consent settings**.
 3. Under **Group owner consent for apps accessing data** select the option you'd like to enable.
 4. Select **Save** to save your settings.
@@ -39,7 +50,7 @@ In this example, all group owners are allowed to consent to apps accessing their
 
 You can use the Azure AD PowerShell Preview module, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), to enable or disable group owners' ability to consent to applications accessing your organization's data for the groups they own.
 
-1. Make sure you're using the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module. This step is important if you have installed both the [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module).
+1. Make sure you're using the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module. This step is important if you have installed both the [AzureAD](/powershell/module/azuread/) module and the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module).
 
     ```powershell
     Remove-Module AzureAD
@@ -108,6 +119,9 @@ You can use the Azure AD PowerShell Preview module, [AzureADPreview](/powershell
 
 ---
 
+> [!NOTE]
+> "User can consent to apps accessing company data on their behalf" setting, when turned off, does not disable the "Users can consent to apps accessing company data for groups they own" option
+
 ## Next steps
 
 To learn more:
@@ -119,4 +133,5 @@ To learn more:
 * [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
-* [Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+
+* [Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)

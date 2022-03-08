@@ -4,8 +4,8 @@ description: Add users in bulk in the Azure AD admin center in Azure Active Dire
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: daveba
-ms.date: 11/15/2020
+manager: karenhoran
+ms.date: 05/19/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -31,6 +31,8 @@ Download and fill in the bulk upload CSV template to help you successfully creat
 
 > [!WARNING]
 > If you are adding only one entry using the CSV template, you must preserve row 3 and add your new entry to row 4.
+>
+> Ensure that you add the ".csv" file extension and remove any leading spaces before userPrincipalName, passwordProfile, and accountEnabled.
 
 ### CSV template structure
 
@@ -47,6 +49,7 @@ The rows in a downloaded CSV template are as follows:
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
 - Make sure to check there is no unintended whitespace before/after any field. For **User principal name**, having such whitespace would cause import failure.
+- Ensure that values in **Initial password** comply with the currently active [password policy](../authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts).
 
 ## To create users in bulk
 

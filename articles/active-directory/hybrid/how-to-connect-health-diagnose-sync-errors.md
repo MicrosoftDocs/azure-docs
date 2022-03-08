@@ -3,16 +3,15 @@ title: Azure AD Connect Health - Diagnose duplicated attribute synchronization e
 description: This document describes the diagnosis process of duplicated attribute synchronization errors and a potential fix of the orphaned object scenarios directly from the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: maheshu
 editor: billmath
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/11/2018
+ms.date: 01/21/2022
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
@@ -105,8 +104,8 @@ For the **orphaned object scenario**, only the single user **Joe Johnson** is pr
 This question checks an incoming conflicting user and the existing user object in Azure AD to see if they belong to the same user.  
 1. The conflicting object is newly synced to Azure Active Directory. Compare the objects' attributes:  
    - Display Name
-   - User Principal Name
-   - Object ID
+   - UserPrincipalName or SignInName
+   - ObjectID
 2. If Azure AD fails to compare them, check whether Active Directory has objects with the provided **UserPrincipalNames**. Answer **No** if you find both.
 
 In the following example, the two objects belong to the same user **Joe Johnson**.
@@ -135,6 +134,9 @@ The user with conflicting attribute in Azure AD should be cleaned before you can
 
 **Updating source anchor to cloud-based user in your tenant is not supported.**  
 Cloud-based user in Azure AD should not have source anchor. Updating source anchor is not supported in this case. Manual fix is required from on premises. 
+
+**The fix process failed to update the values.**
+The specific settings such as [UserWriteback in Azure AD Connect](./how-to-connect-preview.md#user-writeback) is not supported. Please disable in the settings. 
 
 ## FAQ
 **Q.** What happens if execution of the **Apply Fix** fails?  

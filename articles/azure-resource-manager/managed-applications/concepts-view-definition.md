@@ -132,7 +132,7 @@ When you provide this view in **viewDefinition.json**, it overrides the default 
 
 `"kind": "Metrics"`
 
-The metrics view enables you to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](../../azure-monitor/platform/data-platform-metrics.md).
+The metrics view enables you to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ```json
 {
@@ -171,7 +171,7 @@ The metrics view enables you to collect and aggregate data from your managed app
 |---------|---------|---------|
 |displayName|Yes|The displayed title of the chart.|
 |chartType|No|The visualization to use for this chart. By default, it uses a line chart. Supported chart types: `Bar, Line, Area, Scatter`.|
-|metrics|Yes|The array of metrics to plot on this chart. To learn more about metrics supported in Azure portal, see [Supported metrics with Azure Monitor](../../azure-monitor/platform/metrics-supported.md)|
+|metrics|Yes|The array of metrics to plot on this chart. To learn more about metrics supported in Azure portal, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md)|
 
 ### Metric
 
@@ -284,7 +284,7 @@ In this view you can extend existing Azure resources based on the `targetResourc
 
 ## Looking for help
 
-If you have questions about Azure Managed Applications, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managedapps). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managedapps` to get a fast response!
+If you have questions about Azure Managed Applications, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managed-app` to get a fast response!
 
 ## Next steps
 

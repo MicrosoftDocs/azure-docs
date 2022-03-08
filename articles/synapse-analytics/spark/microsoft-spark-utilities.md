@@ -1,7 +1,7 @@
 ---
-title: Introduction of Microsoft Spark Utilities
-description: Tutorial of using MSSparkutils in Azure Synapse Analytics notebooks.
-author: ruxu 
+title: Introduction to Microsoft Spark utilities
+description: "Tutorial: MSSparkutils in Azure Synapse Analytics notebooks"
+author: ruixinxu 
 services: synapse-analytics 
 ms.service: synapse-analytics 
 ms.topic: reference
@@ -10,33 +10,47 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: 
 zone_pivot_groups: programming-languages-spark-all-minus-sql
+ms.custom: subject-rbac-steps
 ---
 
-# Introduction of Microsoft Spark Utilities
+# Introduction to Microsoft Spark Utilities
 
-Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily perform common tasks. You can use MSSparkUtils to work with file systems, to get environment variables, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala`, and `.NET Spark (C#)` notebooks and Synapse pipelines.
+Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily perform common tasks. You can use MSSparkUtils to work with file systems, to get environment variables, to chain notebooks together, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala`, and `.NET Spark (C#)` notebooks and Synapse pipelines.
 
 ## Pre-requisites
 
 ### Configure access to Azure Data Lake Storage Gen2 
 
-Synapse notebooks use Azure active directory (Azure AD) pass-through to access the ADLS Gen2 accounts. You need to be a **Blob Storage Contributor** to access the ADLS Gen2 account (or folder). 
+Synapse notebooks use Azure Active Directory (Azure AD) pass-through to access the ADLS Gen2 accounts. You need to be a **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder). 
 
-Synapse pipelines use workspace identity (MSI) to access the storage accounts. To use MSSparkUtils in your pipeline activities, your workspace identity needs to be **Blob Storage Contributor** to access the ADLS Gen2 account (or folder).
+Synapse pipelines use workspace's Managed Service Identity (MSI) to access the storage accounts. To use MSSparkUtils in your pipeline activities, your workspace identity needs to be **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
 
 Follow these steps to make sure your Azure AD and workspace MSI have access to the ADLS Gen2 account:
 1. Open the [Azure portal](https://portal.azure.com/) and the storage account you want to access. You can navigate to the specific container you want to access.
-2. Select the **Access control (IAM)** from the left panel.
-3. Assign **your Azure AD account** and **your workspace identity** (same as your workspace name) to the **Storage Blob Data Contributor** role on the storage account if it is not already assigned. 
-4. Select **Save**.
+1. Select the **Access control (IAM)** from the left panel.
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Contributor |
+    | Assign access to | USER and MANAGEDIDENTITY |
+    | Members | your Azure AD account and your workspace identity |
+
+    > [!NOTE]
+    > The managed identity name is also the workspace name.
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+ 
+1. Select **Save**.
 
 You can access data on ADLS Gen2 with Synapse Spark via the following URL:
 
-<code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
+`abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path>`
 
-### Configure access to Azure Blob Storage 
+### Configure access to Azure Blob Storage  
 
-Synapse leverage **Shared access signature (SAS)** to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in Synapse workspace to the Azure Blob Storage account you want to access.
+Synapse use [**Shared access signature (SAS)**](../../storage/common/storage-sas-overview.md) to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in Synapse workspace to the Azure Blob Storage account you want to access.
 
 Follow these steps to add a new linked service for an Azure Blob Storage account:
 
@@ -50,10 +64,9 @@ Follow these steps to add a new linked service for an Azure Blob Storage account
 
 You can access data on Azure Blob Storage with Synapse Spark via following URL:
 
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
+`wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path>`
 
 Here is a code example:
-
 
 :::zone pivot = "programming-language-python"
 
@@ -64,9 +77,9 @@ from pyspark.sql import SparkSession
 blob_account_name = 'Your account name' # replace with your blob name
 blob_container_name = 'Your container name' # replace with your container name
 blob_relative_path = 'Your path' # replace with your relative folder path
-linkedServiceName = 'Your linked service name' # replace with your linked service name
+linked_service_name = 'Your linked service name' # replace with your linked service name
 
-blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds(linkedServiceName)
+blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds(linked_service_name)
 
 # Allow SPARK to access from Blob remotely
 
@@ -81,6 +94,16 @@ print('Remote blob path: ' + wasb_path)
 :::zone pivot = "programming-language-scala"
 
 ```scala
+val blob_account_name = "" // replace with your blob name
+val blob_container_name = "" //replace with your container name
+val blob_relative_path = "/" //replace with your relative folder path
+val linked_service_name = "" //replace with your linked service name
+
+
+val blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds(linked_service_name)
+
+val wasbs_path = f"wasbs://$blob_container_name@$blob_account_name.blob.core.windows.net/$blob_relative_path"
+spark.conf.set(f"fs.azure.sas.$blob_container_name.$blob_account_name.blob.core.windows.net",blob_sas_token)
 
 ```
 
@@ -89,10 +112,21 @@ print('Remote blob path: ' + wasb_path)
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+var blob_account_name = "";  // replace with your blob name
+var blob_container_name = "";     // replace with your container name
+var blob_relative_path = "";  // replace with your relative folder path
+var linked_service_name = "";    // replace with your linked service name
+var blob_sas_token = Credentials.GetConnectionStringOrCreds(linked_service_name);
+
+spark.SparkContext.GetConf().Set($"fs.azure.sas.{blob_container_name}.{blob_account_name}.blob.core.windows.net", blob_sas_token);
+
+var wasbs_path = $"wasbs://{blob_container_name}@{blob_account_name}.blob.core.windows.net/{blob_relative_path}";
+
+Console.WriteLine(wasbs_path);
 
 ```
 
-::: zone-end
+::: zone-end 
  
 ###  Configure access to Azure Key Vault
 
@@ -182,7 +216,6 @@ mssparkutils.fs.ls('Your directory path')
 ```scala
 mssparkutils.fs.ls("Your directory path")
 ```
-
 ::: zone-end
 
 :::zone pivot = "programming-language-csharp"
@@ -271,7 +304,6 @@ mssparkutils.fs.cp('source file or directory', 'destination file or directory', 
 ```scala
 mssparkutils.fs.cp("source file or directory", "destination file or directory", true) // Set the third parameter as True to copy all files and directories recursively
 ```
-
 ::: zone-end
 
 :::zone pivot = "programming-language-csharp"
@@ -370,7 +402,7 @@ Appends the given string to a file, encoded in UTF-8.
 :::zone pivot = "programming-language-python"
 
 ```python
-mssparkutils.fs.append('file path','content to append',True) # Set the last parameter as True to create the file if it does not exist
+mssparkutils.fs.append("file path", "content to append", True) # Set the last parameter as True to create the file if it does not exist
 ```
 ::: zone-end
 
@@ -385,7 +417,7 @@ mssparkutils.fs.append("file path","content to append",true) // Set the last par
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-FS.Append("file path","content to append",true) // Set the last parameter as True to create the file if it does not exist
+FS.Append("file path", "content to append", true) // Set the last parameter as True to create the file if it does not exist
 ```
 
 ::: zone-end
@@ -418,6 +450,185 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 ::: zone-end
 
 
+
+## Notebook utilities 
+
+:::zone pivot = "programming-language-csharp"
+
+Not supported.
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
+Run the following command to get an overview of the available methods:
+
+```python
+mssparkutils.notebook.help()
+```
+
+Get results:
+```
+The notebook module.
+
+exit(value: String): void -> This method lets you exit a notebook with a value.
+run(path: String, timeoutSeconds: int, arguments: Map): String -> This method runs a notebook and returns its exit value.
+
+```
+
+### Reference a notebook
+Reference a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.  
+
+```python
+
+mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
+
+```
+
+For example:
+
+```python
+mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
+```
+
+### Exit a notebook
+Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline. 
+
+- When you call an `exit()` function a notebook interactively, Azure Synapse will throw an exception, skip running subsequence cells, and keep Spark session alive.
+
+- When you orchestrate a notebook that calls an `exit()` function in a Synapse pipeline, Azure Synapse will return an exit value, complete the pipeline run, and stop the Spark session.  
+
+- When you call an `exit()` function in a notebook being referenced, Azure Synapse will stop the further execution in the notebook being referenced, and continue to run next cells in the notebook that call the `run()` function. For example: Notebook1 has three cells and calls an `exit()` function in the second cell. Notebook2 has five cells and calls `run(notebook1)` in the third cell. When you run Notebook2, Notebook1 will be stopped at the second cell when hitting the `exit()` function. Notebook2 will continue to run its fourth cell and fifth cell. 
+
+
+```python
+mssparkutils.notebook.exit("value string")
+```
+
+For example:
+
+**Sample1** notebook locates under **folder/** with following two cells: 
+- cell 1 defines an **input** parameter with default value set to 10.
+- cell 2 exits the notebook with **input** as exit value. 
+
+![Screenshot of a sample notebook](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
+
+You can run the **Sample1** in another notebook with default values:
+
+```python
+
+exitVal = mssparkutils.notebook.run("folder/Sample1")
+print (exitVal)
+
+```
+Results in:
+
+```
+Sample1 run success with input is 10
+```
+
+You can run the **Sample1** in another notebook and set the **input** value as 20:
+
+```python
+exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+print (exitVal)
+```
+
+Results in:
+
+```
+Sample1 run success with input is 20
+```
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
+Run the following command to get an overview of the available methods:
+
+```scala
+mssparkutils.notebook.help()
+```
+
+Get results:
+```
+The notebook module.
+
+exit(value: String): void -> This method lets you exit a notebook with a value.
+run(path: String, timeoutSeconds: int, arguments: Map): String -> This method runs a notebook and returns its exit value.
+
+```
+
+### Reference a notebook
+Reference a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.  
+
+```scala
+
+mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
+
+```
+
+For example:
+
+```scala
+mssparkutils.notebook.run("folder/Sample1", 90, Map("input" -> 20))
+```
+
+### Exit a notebook
+Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline. 
+
+- When you call an `exit()` function a notebook interactively, Azure Synapse will throw an exception, skip running subsequence cells, and keep Spark session alive.
+
+- When you orchestrate a notebook that calls an `exit()` function in a Synapse pipeline, Azure Synapse will return an exit value, complete the pipeline run, and stop the Spark session.  
+
+- When you call an `exit()` function in a notebook being referenced, Azure Synapse will stop the further execution in the notebook being referenced, and continue to run next cells in the notebook that call the `run()` function. For example: Notebook1 has three cells and calls an `exit()` function in the second cell. Notebook2 has five cells and calls `run(notebook1)` in the third cell. When you run Notebook2, Notebook1 will be stopped at the second cell when hitting the `exit()` function. Notebook2 will continue to run its fourth cell and fifth cell. 
+
+
+```python
+mssparkutils.notebook.exit("value string")
+```
+
+For example:
+
+**Sample1** notebook locates under **mssparkutils/folder/** with following two cells: 
+- cell 1 defines an **input** parameter with default value set to 10.
+- cell 2 exits the notebook with **input** as exit value. 
+
+![Screenshot of a sample notebook](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
+
+You can run the **Sample1** in another notebook with default values:
+
+```scala
+
+val exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1")
+print(exitVal)
+
+```
+Results in:
+
+```
+exitVal: String = Sample1 run success with input is 10
+Sample1 run success with input is 10
+```
+
+
+You can run the **Sample1** in another notebook and set the **input** value as 20:
+
+```scala
+val exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+print(exitVal)
+```
+
+Results in:
+
+```
+exitVal: String = Sample1 run success with input is 20
+Sample1 run success with input is 20
+```
+::: zone-end
+
+
 ## Credentials utilities
 
 You can use the MSSparkUtils Credentials Utilities to get the access tokens of linked services and manage secrets in Azure Key Vault. 
@@ -442,7 +653,7 @@ mssparkutils.credentials.help()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.Help()
 ```
 
 ::: zone-end
@@ -467,7 +678,7 @@ Returns Azure AD token for a given audience, name (optional). The table below li
 |--|--|
 |Audience Resolve Type|'Audience'|
 |Storage Audience Resource|'Storage'|
-|Data Warehouse Audience Resource|'DW'|
+|Dedicated SQL pools (Data warehouse)|'DW'|
 |Data Lake Audience Resource|'AzureManagement'|
 |Vault Audience Resource|'DataLakeStore'|
 |Azure OSSDB Audience Resource|'AzureOSSDB'|
@@ -492,7 +703,7 @@ mssparkutils.credentials.getToken("audience Key")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.GetToken("audience Key")
 ```
 
 ::: zone-end
@@ -520,7 +731,7 @@ mssparkutils.credentials.isValidToken("your token")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.IsValidToken("your token")
 ```
 
 ::: zone-end
@@ -548,7 +759,7 @@ mssparkutils.credentials.getConnectionStringOrCreds("linked service name")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.GetConnectionStringOrCreds("linked service name")
 ```
 
 ::: zone-end
@@ -576,7 +787,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name","linked 
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.GetSecret("azure key vault name","secret name","linked service name")
 ```
 
 ::: zone-end
@@ -604,16 +815,20 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.GetSecret("azure key vault name","secret name")
 ```
 
 ::: zone-end
 
+<!-- ### Put secret using workspace identity
+
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#configure-access-to-azure-key-vault) appropriately. -->
+
+:::zone pivot = "programming-language-python"
+
 ### Put secret using workspace identity
 
 Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#configure-access-to-azure-key-vault) appropriately.
-
-:::zone pivot = "programming-language-python"
 
 ```python
 mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value','linked service name')
@@ -622,26 +837,34 @@ mssparkutils.credentials.putSecret('azure key vault name','secret name','secret 
 
 :::zone pivot = "programming-language-scala"
 
+### Put secret using workspace identity
+
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#configure-access-to-azure-key-vault) appropriately.
+
 ```scala
 mssparkutils.credentials.putSecret("azure key vault name","secret name","secret value","linked service name")
 ```
 
 ::: zone-end
 
-:::zone pivot = "programming-language-csharp"
+<!-- :::zone pivot = "programming-language-csharp"
 
 ```csharp
 
 ```
 
-::: zone-end
+::: zone-end -->
 
+
+<!-- ### Put secret using user credentials
+
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using user credentials.  -->
+
+:::zone pivot = "programming-language-python"
 
 ### Put secret using user credentials
 
 Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using user credentials. 
-
-:::zone pivot = "programming-language-python"
 
 ```python
 mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value')
@@ -650,19 +873,23 @@ mssparkutils.credentials.putSecret('azure key vault name','secret name','secret 
 
 :::zone pivot = "programming-language-scala"
 
+### Put secret using user credentials
+
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using user credentials. 
+
 ```scala
 mssparkutils.credentials.putSecret("azure key vault name","secret name","secret value")
 ```
 
 ::: zone-end
 
-:::zone pivot = "programming-language-csharp"
+<!-- :::zone pivot = "programming-language-csharp"
 
 ```csharp
 
 ```
 
-::: zone-end
+::: zone-end -->
 
 
 ## Environment utilities 
@@ -679,6 +906,7 @@ mssparkutils.env.help()
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.env.help()
 ```
 
 ::: zone-end
@@ -686,19 +914,19 @@ mssparkutils.env.help()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.Help()
 ```
 
 ::: zone-end
 
 Get result:
 ```
-getUserName(): returns user name
-getUserId(): returns unique user id
-getJobId(): returns job id
-getWorkspaceName(): returns workspace name
-getPoolName(): returns Spark pool name
-getClusterId(): returns cluster id
+GetUserName(): returns user name
+GetUserId(): returns unique user id
+GetJobId(): returns job id
+GetWorkspaceName(): returns workspace name
+GetPoolName(): returns Spark pool name
+GetClusterId(): returns cluster id
 ```
 
 ### Get user name
@@ -723,7 +951,7 @@ mssparkutils.env.getUserName()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetUserName()
 ```
 
 ::: zone-end
@@ -750,7 +978,7 @@ mssparkutils.env.getUserId()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetUserId()
 ```
 
 ::: zone-end
@@ -777,7 +1005,7 @@ mssparkutils.env.getJobId()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetJobId()
 ```
 
 ::: zone-end
@@ -804,7 +1032,7 @@ mssparkutils.env.getWorkspaceName()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetWorkspaceName()
 ```
 
 ::: zone-end
@@ -831,7 +1059,7 @@ mssparkutils.env.getPoolName()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetPoolName()
 ```
 
 ::: zone-end
@@ -858,14 +1086,41 @@ mssparkutils.env.getClusterId()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetClusterId()
 ```
 
+::: zone-end
+
+
+## Runtime Context
+
+Mssparkutils runtime utils exposed 3 runtime properties, you can use the mssparkutils runtime context to get the properties listed as below:
+- **Notebookname** - The name of current notebook, will always return value for both interactive mode and pipeline mode.
+- **Pipelinejobid** - The pipeline run ID, will return value in pipeline mode and return empty string in interactive mode.
+- **Activityrunid** - The notebook activity run ID, will return value in pipeline mode and return empty string in interactive mode.
+
+Currently runtime context support both Python and Scala.
+
+:::zone pivot = "programming-language-python"
+
+```python
+mssparkutils.runtime.context
+```
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+mssparkutils.runtime.context
+```
 ::: zone-end
 
 ## Next steps
 
 - [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
+- [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
+- [How to play with file mount/unmount API in Synapse](./synapse-file-mount-api.md)
+

@@ -125,6 +125,15 @@ The **AllowMultipleStatelessInstancesOnNode** placement policy allows placement 
 
 If you've ever seen a health message such as "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion`", then you've hit this condition or something like it. 
 
+To opt in to apply this placement policy on your service, enable the following configurations:
+
+```xml
+<Section Name="Common">
+  <Parameter Name="AllowCreateUpdateMultiInstancePerNodeServices" Value="True" />
+  <Parameter Name="HostReuseModeForExclusiveStateless" Value="1" />
+</Section>
+```
+
 By specifying the `AllowMultipleStatelessInstancesOnNode` policy on the service, InstanceCount can be set beyond the number of nodes in the cluster.
 
 Code:
@@ -141,11 +150,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 > [!NOTE]
-> The placement policy is currently in preview and behind the `EnableUnsupportedPreviewFeatures` cluster setting. Since this is a preview feature for now, setting the preview config prevents the cluster from getting upgraded to/from. In other words, you will need to create a new cluster to try out the feature.
->
-
-> [!NOTE]
-> Currently the policy is only supported for Stateless services with ExclusiveProcess [service package activation mode](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet).
+> Currently the policy is only supported for Stateless services with ExclusiveProcess [service package activation mode](/dotnet/api/system.fabric.description.servicepackageactivationmode).
 >
 
 > [!WARNING]
@@ -153,7 +158,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Using a high value of [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) with this placement policy can lead to stuck Application Upgrades. For example, if you have a five-node cluster and set InstanceCount=10, you will have two instances on each node. If you set MinInstanceCount=9, an attempted app upgrade can get stuck; with MinInstanceCount=8, this can be avoided.
+> Using a high value of [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount) with this placement policy can lead to stuck Application Upgrades. For example, if you have a five-node cluster and set InstanceCount=10, you will have two instances on each node. If you set MinInstanceCount=9, an attempted app upgrade can get stuck; with MinInstanceCount=8, this can be avoided.
 >
 
 ## Next steps

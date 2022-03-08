@@ -6,19 +6,19 @@ metadata:
   title: Conversation scenarios documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: trevorbye
+  author: eric-urban
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/16/2020
-  ms.author: trbye
+  ms.author: eur
 
 landingContent:
 - title: About Conversation Transcription (meeting scenario)
   linkLists:
     - linkListType: overview
       links:
-      - text: What is Conversation Transcription in meetings?
+      - text: What is Conversation Transcription?
         url: conversation-transcription.md
     - linkListType: quickstart
       links:

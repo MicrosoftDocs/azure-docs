@@ -3,13 +3,13 @@ title: Close a work or school account in an unmanaged Azure AD organization
 description: How to close your work or school account in an unmanaged Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/20/2020
+ms.date: 05/04/2021
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
@@ -29,7 +29,7 @@ Users in an unmanaged organization are often created during self-service sign-up
 
 Before you can close your account, you should confirm the following items:
 
-* Make sure you are a user of an unmanaged Azure AD organization. You can't close your account if you belong to a managed organization. If you belong to a managed organization and want to close your account, you must contact your administrator. For information about how to determine whether you belong to an unmanaged organization, see [Delete the user from Unmanaged Tenant](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
+* Make sure you are a user of an unmanaged Azure AD organization. You can't close your account if you belong to a managed organization. If you belong to a managed organization and want to close your account, you must contact your administrator. For information about how to determine whether you belong to an unmanaged organization, see [Delete the user from Unmanaged Tenant](/power-automate/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
 
 * Save any data you want to keep. For information about how to submit an export request, see [Accessing and exporting system-generated logs for Unmanaged Tenants](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants).
 
@@ -40,7 +40,7 @@ Before you can close your account, you should confirm the following items:
 
 To close an unmanaged work or school account, follow these steps:
 
-1. Sign in to [close your account](https://go.microsoft.com/fwlink/?linkid=873123), using the account that you want to close.
+1. Sign in to [close your account](https://portal.azure.com/#blade/Microsoft_AAD_IAM/PrivacyDataRequests), using the account that you want to close.
 
 1. On **My data requests**, select **Close account**.
 
@@ -53,5 +53,5 @@ To close an unmanaged work or school account, follow these steps:
 ## Next steps
 
 - [What is self-service sign-up for Azure Active Directory?](directory-self-service-signup.md)
-- [Delete the user from Unmanaged Tenant](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
+- [Delete the user from Unmanaged Tenant](/power-automate/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
 - [Accessing and exporting system-generated logs for Unmanaged Tenants](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)

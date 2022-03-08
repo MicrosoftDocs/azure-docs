@@ -1,15 +1,18 @@
 ---
 title: Azure regions
 description: Learn about the regions for running virtual machines in Azure.
-author: cynthn
-ms.author: cynthn
+author: mimckitt
+ms.author: mimckitt
+ms.reviewer: cynthnn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/28/2019
+ms.date: 3/8/2021
 ---
 
 # Regions for virtual machines in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 It is important to understand how and where your virtual machines (VMs) operate in Azure, along with your options to maximize performance, availability, and redundancy. This article provides you with an overview of the availability and redundancy features of Azure.
 
@@ -44,7 +47,7 @@ Examples of region pairs include:
 | North Europe |West Europe |
 | Southeast Asia |East Asia |
 
-You can see the full [list of regional pairs here](../best-practices-availability-paired-regions.md#what-are-paired-regions).
+You can see the full [list of regional pairs here](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies).
 
 ## Feature availability
 Some services or VM features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that do not require you to select a particular region, such as [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../traffic-manager/traffic-manager-overview.md), or [Azure DNS](../dns/dns-overview.md). To assist you in designing your application environment, you can check the [availability of Azure services across each region](https://azure.microsoft.com/regions/#services). You can also [programmatically query the supported VM sizes and restrictions in each region](../azure-resource-manager/templates/error-sku-not-available.md).

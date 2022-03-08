@@ -4,13 +4,12 @@ description: This tutorial explains how to use the Azure AD Reporting API with c
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.subservice: report-monitor
 ms.date: 11/13/2018
@@ -101,5 +100,5 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 ## Next steps
 
 * [Get a first impression of the reporting APIs](concept-reporting-api.md)
-* [Audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta)
+* [Audit API reference](/graph/api/resources/directoryaudit) 
+* [Sign-in activity report API reference](/graph/api/resources/signin)

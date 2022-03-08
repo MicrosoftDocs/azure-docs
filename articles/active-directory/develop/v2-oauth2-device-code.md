@@ -3,16 +3,16 @@ title: OAuth 2.0 device code flow | Azure
 titleSuffix: Microsoft identity platform
 description: Sign in users without a browser. Build embedded and browser-less authentication flows using the device authorization grant.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.author: hirsin
-ms.reviewer: hirsin
+ms.date: 06/25/2021
+ms.author: ludwignick
+ms.reviewer: marsma
 ms.custom: aaddev
 ---
 
@@ -21,6 +21,8 @@ ms.custom: aaddev
 The Microsoft identity platform supports the [device authorization grant](https://tools.ietf.org/html/rfc8628), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.
 
 This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## Protocol diagram
 
@@ -32,10 +34,6 @@ The entire device code flow looks similar to the next diagram. We describe each 
 
 The client must first check with the authentication server for a device and user code that's used to initiate authentication. The client collects this request from the `/devicecode` endpoint. In this request, the client should also include the permissions it needs to acquire from the user. From the moment this request is sent, the user has only 15 minutes to sign in (the usual value for `expires_in`), so only make this request when the user has indicated they're ready to sign in.
 
-> [!TIP]
-> Try executing this request in Postman!
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ```HTTP
 // Line breaks are for legibility only.
 
@@ -43,7 +41,7 @@ POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-scope=user.read%20openid%20profile
+&scope=user.read%20openid%20profile
 
 ```
 
@@ -81,9 +79,9 @@ While the user is authenticating at the `verification_uri`, the client should be
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
-grant_type: urn:ietf:params:oauth:grant-type:device_code
-client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
-device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
+grant_type=urn:ietf:params:oauth:grant-type:device_code
+&client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&device_code=GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
 | Parameter | Required | Description|
@@ -121,7 +119,7 @@ A successful token response will look like:
 
 | Parameter | Format | Description |
 | --------- | ------ | ----------- |
-| `token_type` | String| Always "Bearer. |
+| `token_type` | String| Always `Bearer`. |
 | `scope` | Space separated strings | If an access token was returned, this lists the scopes the access token is valid for. |
 | `expires_in`| int | Number of seconds before the included access token is valid for. |
 | `access_token`| Opaque string | Issued for the [scopes](v2-permissions-and-consent.md) that were requested.  |
@@ -129,3 +127,5 @@ A successful token response will look like:
 | `refresh_token` | Opaque string | Issued if the original `scope` parameter included `offline_access`.  |
 
 You can use the refresh token to acquire new access tokens and refresh tokens using the same flow documented in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]

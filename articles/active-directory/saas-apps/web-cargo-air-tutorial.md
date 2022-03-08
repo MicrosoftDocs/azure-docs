@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/24/2020
+ms.date: 07/29/2021
 ms.author: jeedes
 
 ---
@@ -33,10 +33,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Web Cargo Air supports **SP** initiated SSO
+* Web Cargo Air supports **SP** initiated SSO.
 
-
-## Adding Web Cargo Air from the gallery
+## Add Web Cargo Air from the gallery
 
 To configure the integration of Web Cargo Air into Azure AD, you need to add Web Cargo Air from the gallery to your list of managed SaaS apps.
 
@@ -46,7 +45,6 @@ To configure the integration of Web Cargo Air into Azure AD, you need to add Web
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Web Cargo Air** in the search box.
 1. Select **Web Cargo Air** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Web Cargo Air
 
@@ -67,25 +65,25 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Web Cargo Air** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.webcargonet.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.webcargonet.com`
-
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.webcargonet.com/saml-sso`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Web Cargo Air Client support team](mailto:support@webcargonet.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.webcargonet.com`
 
-1. . On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [Web Cargo Air Client support team](mailto:support@webcargonet.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -129,12 +127,12 @@ In this section, you create a user called Britta Simon in Web Cargo Air. Work wi
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to Web Cargo Air Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Web Cargo Air Sign-on URL where you can initiate the login flow. 
 
-2. Go to Web Cargo Air Sign-on URL directly and initiate the login flow from there.
+* Go to Web Cargo Air Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Web Cargo Air tile in the Access Panel, this will redirect to Web Cargo Air Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Web Cargo Air tile in the My Apps, this will redirect to Web Cargo Air Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Web Cargo Air you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Web Cargo Air you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

@@ -3,13 +3,12 @@ title: 'Azure AD Connect and Azure AD Connect Health installation roadmap. | Mic
 description: This document provides an overview of the installation options and paths available for installing Azure AD Connect and Connect Health.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/18/2018
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -150,7 +149,7 @@ To get started with Azure AD Connect Health, use the following steps:
 The Azure AD Connect Health portal shows views of alerts, performance monitoring, and usage analytics. The  https://aka.ms/aadconnecthealth URL takes you to the main blade of Azure AD Connect Health. You can think of a blade as a window. On The main blade, you see **Quick Start**, services within Azure AD Connect Health, and additional configuration options. See the following screenshot and brief explanations that follow the screenshot. After you deploy the agents, the health service automatically identifies the services that Azure AD Connect Health is monitoring.
 
 > [!NOTE]
-> For licensing information, see the [Azure AD Connect Health FAQ](reference-connect-health-faq.md) or the [Azure AD Pricing page](https://aka.ms/aadpricing).
+> For licensing information, see the [Azure AD Connect Health FAQ](reference-connect-health-faq.yml) or the [Azure AD Pricing page](https://aka.ms/aadpricing).
     
 ![Azure AD Connect Health Portal](./media/whatis-hybrid-identity-health/portalsidebar.png)
 

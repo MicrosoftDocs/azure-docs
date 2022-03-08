@@ -3,29 +3,36 @@ title: Configure an availability group (Azure portal)
 description: "Use the Azure portal to create the Windows failover cluster, the availability group listener, and the internal load balancer on a SQL Server VM in Azure."
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/20/2020
-ms.author: mathoma
-ms.reviewer: jroth
-ms.custom: "seo-lt-2019, devx-track-azurecli"
+ms.date: 11/10/2021
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.custom: "seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell"
 
 ---
 # Use Azure portal to configure an availability group (Preview) for SQL Server on Azure VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to use the [Azure portal](https://portal.azure.com) to configure an availability group for SQL Server on Azure VMs. 
+> [!TIP]
+> Eliminate the need for an Azure Load Balancer for your Always On availability (AG) group by creating your SQL Server VMs in [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same Azure virtual network.
+
+This article describes how to use the [Azure portal](https://portal.azure.com) to configure an availability group for SQL Server on Azure VMs within a single subnet. 
 
 Use the Azure portal to create a new cluster or onboard an existing cluster, and then create the availability group, listener, and internal load balancer. 
 
 This feature is currently in preview. 
 
-While this article uses the Azure portal to configure the availability group environment, it is also possible to do so using [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
+While this article uses the Azure portal to configure the availability group environment, it is also possible to do so using [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial-single-subnet.md) as well. 
+
+> [!NOTE]
+> It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
 
 
 ## Prerequisites
@@ -95,9 +102,6 @@ To do so, follow these steps:
 
 1. Review the settings for your cluster. 
 1. Select **Apply** to onboard your cluster and then select **Yes** at the prompt to proceed.
-
-
-
 
 ## Create availability group
 
@@ -171,6 +175,12 @@ To add more SQL Server VMs to the cluster, follow these steps:
 
 You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
 
+## Configure quorum
+
+Although the disk witness is the most resilient quorum option, it requires an Azure shared disk which imposes some limitations to the availability group. As such, the cloud witness is the recommended quorum solution for clusters hosting availability groups for SQL Server on Azure VMs. 
+
+If you have an even number of votes in the cluster, configure the [quorum solution](hadr-cluster-quorum-configure-how-to.md) that best suits your business needs. For more information, see [Quorum with SQL Server VMs](hadr-windows-server-failover-cluster-overview.md#quorum). 
+
 
 ## Modify availability group 
 
@@ -203,7 +213,7 @@ Next, remove the cluster metadata from the SQL IaaS Agent extension:
 # Remove the cluster from the SQL VM RP metadata
 # example: az sql vm group delete --name Cluster --resource-group SQLVM-RG
 
-az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
+az sql vm group delete --name <cluster name> --resource-group <resource group name>
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -231,7 +241,7 @@ Next, remove the cluster metadata from the SQL IaaS Agent extension:
 # Remove the cluster metadata
 # example: Remove-AzSqlVMGroup -ResourceGroupName "SQLVM-RG" -Name "Cluster"
 
-Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name> "
+Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name>"
 ```
 
 ---
@@ -267,17 +277,11 @@ This is an indication that the resource provider could not access the SQL Server
 
 ## Next steps
 
+Once the availability group is deployed, consider optimizing the [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md). 
 
-For more information about availability groups, see:
 
-- [Overview of availability groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-* [Administration of an availability group](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
-* [Monitoring of availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
-* [Availability group Transact-SQL statements ](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
-* [Availability groups PowerShell commands](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  
+To learn more, see:
 
-For more information about SQL Server VMs, see: 
-
-* [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
-* [FAQ for SQL Server VMs](frequently-asked-questions-faq.md)
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)

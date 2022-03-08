@@ -1,6 +1,6 @@
 ---
 title: Deploy GPU-enabled container instance 
-description: Learn how to deploy Azure container instances to run compute-intensive container apps using GPU resources.
+description: Learn how to deploy Azure container instances to run compute-intensive container applications using GPU resources.
 ms.topic: article
 ms.date: 07/22/2020
 ---
@@ -58,17 +58,23 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
 
 * **CUDA drivers** - Container instances with GPU resources are pre-provisioned with NVIDIA CUDA drivers and container runtimes, so you can use container images developed for CUDA workloads.
 
-  We support only CUDA 9.0 at this stage. For example, you can use the following base images for your Docker file:
-  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
-  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+  We support up through CUDA 11 at this stage. For example, you can use the following base images for your Dockerfile:
+  * [nvidia/cuda:11.4.2-base-ubuntu20.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow:devel-gpu](https://hub.docker.com/r/tensorflow/tensorflow)
+
+  > [!NOTE]
+  > To improve reliability when using a public container image from Docker Hub, import and manage the image in a private Azure container registry, and update your Dockerfile to use your privately managed base image. [Learn more about working with public images](../container-registry/buffer-gate-public-content.md).
     
 ## YAML example
 
 One way to add GPU resources is to deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md). Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainergroup* specifying a container instance with a K80 GPU. The instance runs a sample CUDA vector addition application. The resource requests are sufficient to run the workload.
 
-```YAML
+ > [!NOTE]
+  > The following example uses a public container image. To improve reliability, import and manage the image in a private Azure container registry, and update your YAML to use your privately managed base image. [Learn more about working with public images](../container-registry/buffer-gate-public-content.md).
+
+```yaml
 additional_properties: {}
-apiVersion: '2019-12-01'
+apiVersion: '2021-09-01'
 name: gpucontainergroup
 properties:
   containers:
@@ -134,7 +140,7 @@ Another way to deploy a container group with GPU resources is by using a [Resour
       {
         "name": "[parameters('containerGroupName')]",
         "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2019-12-01",
+        "apiVersion": "2021-09-01",
         "location": "[resourceGroup().location]",
         "properties": {
             "containers": [
@@ -228,11 +234,11 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

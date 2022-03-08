@@ -8,9 +8,9 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -106,12 +106,14 @@ Follow the steps in [Getting started with Azure AD Multi-Factor Authentication i
 
 Once an account has been enabled for MFA, you cannot sign in to resources governed by the MFA policy until you have successfully configured a trusted device to use for the second authentication factor and have authenticated using two-step verification.
 
-Follow the steps in [What does Azure AD Multi-Factor Authentication mean for me?](../user-help/multi-factor-authentication-end-user-first-time.md) to understand and properly configure your devices for MFA with your user account.
+Follow the steps in [What does Azure AD Multi-Factor Authentication mean for me?](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to understand and properly configure your devices for MFA with your user account.
 
 > [!IMPORTANT]
-> The sign in behavior for Remote Desktop Gateway doesn't provide the option to enter a verification code with Azure AD Multi-Factor Authentication. A user account must be configured for phone verification or the Microsoft Authenticator App with push notifications.
+> The sign-in behavior for Remote Desktop Gateway doesn't provide the option to enter a verification code with Azure AD Multi-Factor Authentication. A user account must be configured for phone verification or the Microsoft Authenticator App with push notifications.
 >
-> If one of these two authentication methods isn't configured for a user, they won't be able to complete the Azure AD Multi-Factor Authentication challenge and sign in to the Remote Desktop Gateway.
+> If neither phone verification or the Microsoft Authenticator App with push notifications is configured for a user, the user won't be able to complete the Azure AD Multi-Factor Authentication challenge and sign in to Remote Desktop Gateway.
+>
+> The SMS text method doesn't work with Remote Desktop Gateway because it doesn't provide the option to enter a verification code.
 
 ## Install and configure NPS extension
 

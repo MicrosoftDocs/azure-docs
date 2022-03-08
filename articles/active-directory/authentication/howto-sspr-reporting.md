@@ -1,19 +1,17 @@
 ---
 title: Self-service password reset reports - Azure Active Directory
 description: Reporting on Azure AD self-service password reset events
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/01/2019
-
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: rhicock
-
+ms.date: 10/25/2021
+ms.author: justinha
+author: justinha
+manager: karenhoran
+ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
+ms.custom: ignite-fall-2021
 ---
 # Reporting options for Azure AD password management
 
@@ -115,6 +113,10 @@ The following list explains this activity in detail:
 * **Activity statuses**:
   * _Success_: Indicates that an admin successfully reset a user's password.
   * _Failure_: Indicates that an admin failed to change a user's password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
+- **Activity additional details OnPremisesAgent**:
+  - _None_: Indicates cloud-only reset.
+  - _AAD Connect_: Indicates password was reset on-premises via Azure AD Connect writeback agent.
+  - _CloudSync_: Indicates password was reset on-premises via Azure AD CloudSync writeback agent.
 
 ### Activity type: Reset password (self-service)
 
@@ -169,17 +171,17 @@ The following list explains this activity in detail:
 
 ## Next steps
 
-* [SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
+* [SSPR and MFA usage and insights reporting](./howto-authentication-methods-activity.md)
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md).
-* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md).
+* [Reset or change your password](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
+* [Register for self-service password reset](https://support.microsoft.com/account-billing/register-the-password-reset-verification-method-for-a-work-or-school-account-47a55d4a-05b0-4f67-9a63-f39a43dbe20a).
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)
 * [What is password writeback and why do I care about it?](./tutorial-enable-sspr-writeback.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
-* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+* [I think something is broken. How do I troubleshoot SSPR?](./troubleshoot-sspr.md)
+* [I have a question that was not covered somewhere else](active-directory-passwords-faq.yml)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Example of SSPR activity audit logs in Azure AD"

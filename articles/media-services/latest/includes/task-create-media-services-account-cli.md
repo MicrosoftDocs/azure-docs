@@ -2,15 +2,17 @@
 author: IngridAtMicrosoft
 ms.service: media-services 
 ms.topic: include
-ms.date: 08/17/2020
+ms.date: 03/03/2022
 ms.author: inhenkel
-ms.custom: CLI
+ms.custom: CLI, devx-track-azurecli
 ---
 
 <!--Create a media services account -->
 
-The following Azure CLI command creates a new Media Services account. You can replace the following values: `amsaccount`  `storageaccountforams` (must match the value you gave for your storage account), and `amsResourceGroup` (must match the value you gave for the resource group).
+The following Azure CLI command creates a new Media Services account. 
 
-```azurecli
-az ams account create --name amsaccount -g amsResourceGroup --storage-account storageaccountforams -l westus2
-```
+[!INCLUDE [directive-change-my-resource-group](directive-change-resource-group.md)]
+
+[!INCLUDE [directive-change-my-account-name](directive-change-my-account-name.md)]
+
+:::code language="azurecli" source="~/media-services-v3-python/cli/code-snippets.sh" id="AmsAccountCreate" interactive="azurecli-interactive":::

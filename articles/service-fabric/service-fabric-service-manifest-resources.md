@@ -4,7 +4,7 @@ description: How to describe endpoint resources in a service manifest, including
 
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 # Specify resources in a service manifest
 ## Overview
@@ -140,7 +140,7 @@ Here is an example ApplicationManifest demonstrating the configuration required 
 
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Stateful1">
-      <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_ ]">
+      <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>

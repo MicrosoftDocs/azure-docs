@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 08/14/2020
+ms.date: 01/03/2022
 ---
 # How to configure a dataset mapping for a received share in Azure Data Share
 

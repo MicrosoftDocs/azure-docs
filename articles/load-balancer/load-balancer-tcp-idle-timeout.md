@@ -5,9 +5,8 @@ description: In this article, learn how to configure Azure Load Balancer TCP idl
 services: load-balancer
 documentationcenter: na
 author: asudbring
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

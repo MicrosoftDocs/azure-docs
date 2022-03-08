@@ -1,8 +1,10 @@
 ---
 title: Create a PowerShell function using Visual Studio Code - Azure Functions
-description: Learn how to create a PowerShell function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.   
+description: Learn how to create a PowerShell function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/04/2020
+ms.devlang: powershell
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a PowerShell function in Azure using Visual Studio Code
@@ -21,12 +23,11 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Node.js](https://nodejs.org/), required by Windows for npm. Only [Active LTS and Maintenance LTS versions](https://nodejs.org/about/releases/). Use the `node --version` command to check your version.
-    Not required for local development on macOS and Linux.
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ Both [.NET Core 3.1 runtime](https://www.microsoft.com/net/download) and [.NET Core 2.1 runtime](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
++ [.NET Core 3.1 runtime](https://dotnet.microsoft.com/download/dotnet)  
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
 
@@ -61,13 +62,13 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
 
-[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
+[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
 After you've verified that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure. 
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
+[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-powershell-project-vscode.md)]
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
@@ -75,7 +76,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Next steps
 
-You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. 
+You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=powershell) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=powershell).  
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-powershell)

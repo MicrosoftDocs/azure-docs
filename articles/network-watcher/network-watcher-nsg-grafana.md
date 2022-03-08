@@ -10,7 +10,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -101,19 +100,19 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
           "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
           "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
           "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
-	  "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
-	  "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
-	  "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
-	  "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
-	  "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
+    "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+    "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+    "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+    "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+    "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
         }
         add_field => {
           "time" => "%{[records][time]}"
           "systemId" => "%{[records][systemId]}"
           "category" => "%{[records][category]}"
           "resourceId" => "%{[records][resourceId]}"
-          "operationName" => "%{[records][operationName}}"
-          "Version" => "%{[records][properties][Version}}"
+          "operationName" => "%{[records][operationName]}"
+          "Version" => "%{[records][properties][Version]}"
           "rule" => "%{[records][properties][flows][rule]}"
           "mac" => "%{[records][properties][flows][flows][mac]}"
         }

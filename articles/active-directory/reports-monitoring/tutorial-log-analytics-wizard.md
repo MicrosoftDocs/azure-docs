@@ -1,23 +1,23 @@
 ---
-title: Configure the log analytics wizard in Azure AD | Microsoft Docs
+title: Configure a log analytics workspace in Azure AD | Microsoft Docs
 description: Learn how to configure log analytics.
 
 services: active-directory
 ms.service: active-directory
-ms.subservice: devices
+ms.subservice: report-monitor
 ms.topic: tutorial
 ms.date: 08/05/2020
 
 ms.author: markvi
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up log analytics so I can analyze the health of my environment.
 
 ms.collection: M365-identity-device-management
 ---
-# Tutorial: Configure the log analytics wizard
+# Tutorial: Configure a log analytics workspace
 
 
 In this tutorial, you learn how to:
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 Familiarize yourself with these articles:
 
-- [Tutorial: Collect and analyze resource logs from an Azure resource](../../azure-monitor/learn/tutorial-resource-logs.md)
+- [Tutorial: Collect and analyze resource logs from an Azure resource](../../azure-monitor/essentials/tutorial-resource-logs.md)
 
 - [How to integrate activity logs with Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -48,7 +48,7 @@ Familiarize yourself with these articles:
 
 - [KQL quick reference](/azure/data-explorer/kql-quick-reference)
 
-- [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md)
+- [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md)
 
 
 
@@ -171,7 +171,7 @@ Pivot the results on operation name
 
 Merge together Audit and Sign in Logs using an inner join:
 
-`AuditLogs |where OperationName contains "Add User" |extend UserPrincipalName = tostring(TargetResources[0].userPrincipalName) | |project TimeGenerated , UserPrincipalName |join kind = inner (SigninLogs) on UserPrincipalName |summarize arg_min(TimeGenerated, *) by UserPrincipalName |extend SigninDate = TimeGenerated` 
+`AuditLogs |where OperationName contains "Add User" |extend UserPrincipalName = tostring(TargetResources[0].userPrincipalName) | |project TimeGenerated, UserPrincipalName |join kind = inner (SigninLogs) on UserPrincipalName |summarize arg_min(TimeGenerated, *) by UserPrincipalName |extend SigninDate = TimeGenerated` 
 
 
 View number of signs ins by client app type:
@@ -225,7 +225,7 @@ This procedure shows how to send alerts when the breakglass account is used.
 
 8. On the **Create alert rule** page, verify that the scope is correct.
 
-9. Under **Condition**, click: **Whenever the average custom log search is greater than <logic undefined> count**
+9. Under **Condition**, click: **Whenever the average custom log search is greater than `logic undefined` count**
 
     ![Default condition](./media/tutorial-log-analytics-wizard/default-condition.png)
 

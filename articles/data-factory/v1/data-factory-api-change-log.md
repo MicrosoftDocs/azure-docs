@@ -1,17 +1,14 @@
 ---
 title: Data Factory - .NET API Change Log 
 description: Describes breaking changes, feature additions, bug fixes, and so on, in a specific version of .NET API for the Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jonburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: v1
 ms.topic: conceptual
 robots: noindex
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ---
 
 # Azure Data Factory - .NET API change log
@@ -70,7 +67,7 @@ Feature Additions:
 ### Feature Additions
 * Added new StorageFormat type [OrcFormat](/dotnet/api/microsoft.azure.management.datafactories.models.orcformat) type to copy files in optimized row columnar (ORC) format.
 * Add [AllowPolyBase](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) and PolyBaseSettings properties to SqlDWSink.
-  * Enables the use of PolyBase to copy data into Azure Synapse Analytics (formerly SQL Data Warehouse).
+  * Enables the use of PolyBase to copy data into Azure Synapse Analytics.
 
 ## Version 4.6.1
 ### Bug Fixes
@@ -143,7 +140,9 @@ The following classes have been renamed. The new names were the original names o
 | SqlServerDataset |[SqlServerTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.sqlservertabledataset) |
 
 ## Version 4.0.0
+
 ### Breaking changes
+
 * The Following classes/interfaces have been renamed.
 
 | Old name | New name |
@@ -160,7 +159,7 @@ The following classes have been renamed. The new names were the original names o
 
 * The **List** methods return paged results now. If the response contains a non-empty **NextLink** property, the client application needs to continue fetching the next page until all pages are returned.  Here is an example:
 
-	```csharp
+  ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
     var pipelines = new List<Pipeline>(response.Pipelines);
 
@@ -172,7 +171,8 @@ The following classes have been renamed. The new names were the original names o
 
         nextLink = nextResponse.NextLink;
     }
-	```
+  ```
+
 * **List** pipeline API returns only the summary of a pipeline instead of full details. For instance, activities in a pipeline summary only contain name and type.
 
 ### Feature additions

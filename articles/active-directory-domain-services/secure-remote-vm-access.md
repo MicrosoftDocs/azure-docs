@@ -2,15 +2,15 @@
 title: Secure remote VM access in Azure AD Domain Services | Microsoft Docs
 description: Learn how to secure remote access to VMs using Network Policy Server (NPS) and Azure AD Multi-Factor Authentication with a Remote Desktop Services deployment in an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
-manager: daveba
+author: justinha
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Secure remote access to virtual machines in Azure Active Directory Domain Services

@@ -52,4 +52,4 @@ You can get detailed descriptions of all the parameters by running the following
 Get-Help Get-AzPeering -detailed
 ```
 
-For frequently asked questions, see the [Peering Service FAQ](service-faqs.md).
+For frequently asked questions, see the [Peering Service FAQ](service-faqs.yml).

@@ -1,19 +1,18 @@
 ---
-title: Build and deploy a Node.js Express app to Azure Cloud Services
-titleSuffix: Azure Cloud Services
+title: Build and deploy a Node.js Express app to Azure Cloud Services (classic)
 description: Use this tutorial to create a new application using the Express module, which provides an MVC framework for creating Node.js web applications.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
-ms.service: cloud-services
-ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: tagore
-ms.custom: devx-track-js
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Build and deploy a Node.js web application using Express on an Azure Cloud Services
+# Build and deploy a Node.js web application using Express on an Azure Cloud Services (classic)
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional

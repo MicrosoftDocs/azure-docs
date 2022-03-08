@@ -13,7 +13,7 @@ A Language Understanding (LUIS) app needs data as part of app development.
 
 ## Data used in LUIS
 
-LUIS uses text as data to train and test your LUIS app for classification for [intents](luis-concept-intent.md) and for extraction of [entities](luis-concept-entity-types.md). You need a large enough data set that you have sufficient data to create separate data sets for both training and test that have the diversity and distribution called out specifically below.  The data in each of these sets should not overlap.
+LUIS uses text as data to train and test your LUIS app for classification for [intents](luis-concept-intent.md) and for extraction of [entities](concepts/entities.md). You need a large enough data set that you have sufficient data to create separate data sets for both training and test that have the diversity and distribution called out specifically below.  The data in each of these sets should not overlap.
 
 ## Training data selection for example utterances
 
@@ -66,7 +66,7 @@ The following preprocessing steps will help build a better LUIS app:
 
 ## Test data selection for batch testing
 
-All of the principles listed above for training utterances apply to utterances you should use for your [test set](luis-concept-batch-test.md). Ensure the distribution across intents and entities mirror the real distribution as closely as possible.
+All of the principles listed above for training utterances apply to utterances you should use for your [test set](./luis-how-to-batch-test.md). Ensure the distribution across intents and entities mirror the real distribution as closely as possible.
 
 Don’t reuse utterances from your training set in your test set. This improperly biases your results and won’t give you the right indication of how your LUIS app will perform in production.
 
@@ -74,5 +74,4 @@ Once the first version of your app is published, you should update your test set
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn how LUIS alters your data before prediction](luis-concept-data-alteration.md)
+[Learn how LUIS alters your data before prediction](luis-concept-data-alteration.md)

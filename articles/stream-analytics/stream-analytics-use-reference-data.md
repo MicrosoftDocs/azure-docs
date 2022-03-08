@@ -1,12 +1,9 @@
 ---
 title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to lookup or correlate data in an Azure Stream Analytics job's query design.
-author: jseb225
-ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
+ms.date: 06/25/2021
 ---
 # Using reference data for lookups in Stream Analytics
 
@@ -27,7 +24,7 @@ Stream Analytics supports Azure Blob storage and Azure SQL Database as the stora
 
 ## Azure Blob storage
 
-Reference data is modeled as a sequence of blobs (defined in the input configuration) in ascending order of the date/time specified in the blob name. It **only** supports adding to the end of the sequence by using a date/time **greater** than the one specified by the last blob in the sequence.
+Reference data is modeled as a sequence of blobs (defined in the input configuration) in ascending order of the date/time specified in the blob name. It **only** supports adding to the end of the sequence by using a date/time **greater** than the one specified by the last blob in the sequence. For more information, see [Use reference data from a Blob Storage for an Azure Stream Analytics job](data-protection.md).
 
 ### Configure blob reference data
 
@@ -63,6 +60,8 @@ Azure Stream Analytics automatically scans for refreshed reference data blobs at
 > Likewise if `sample/2015-04-16/17-30/products.csv` is only produced at 10:03 PM April 16th, 2015 but no blob with an earlier date is present in the container, the job will use this file starting at 10:03 PM April 16th, 2015 and use the previous reference data until then.
 > 
 > An exception to this is when the job needs to re-process data back in time or when the job is first started. At start time the job is looking for the most recent blob produced before the job start time specified. This is done to ensure that there is a **non-empty** reference data set when the job starts. If one cannot be found, the job displays the following diagnostic: `Initializing input without a valid reference data blob for UTC time <start time>`.
+
+When a reference data set is refreshed, a diagnostic log will be generated: `Loaded new reference data from <blob path>`. Multiple reasons may require a job to reload a previous (past) reference data set, most often to reprocess past data. That same diagnostic log will be generated then. This doesn't imply that current stream data will use past reference data.
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) can be used to orchestrate the task of creating the updated blobs required by Stream Analytics to update reference data definitions. Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Data Factory supports [connecting to a large number of cloud based and on-premises data stores](../data-factory/copy-activity-overview.md) and moving data easily on a regular schedule that you specify. For more information and step by step guidance on how to set up a Data Factory pipeline to generate reference data for Stream Analytics which refreshes on a pre-defined schedule, check out this [GitHub sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
 
@@ -105,15 +104,15 @@ You can use [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-manag
 
 ## Size limitation
 
-It is recommended to use reference datasets which are less than 300 MB for best performance. Usage of reference data greater than 300 MB is supported in jobs with 6 SUs or more. This functionality is in preview and must not be used in production. Using a very large reference data may impact performance of your job. As the complexity of query increases to include stateful processing, such as windowed aggregates, temporal joins and temporal analytic functions, it is expected that the maximum supported size of reference data decreases. If Azure Stream Analytics cannot load the reference data and perform complex operations, the job will run out of memory and fail. In such cases, SU % Utilization metric will reach 100%.    
+It is recommended to use reference datasets which are less than 300 MB for best performance. Reference datasets 5 GB or lower is supported in jobs with 6 SUs or more. Using a very large reference data may impact end-to-end latency of your job. As the complexity of query increases to include stateful processing, such as windowed aggregates, temporal joins and temporal analytic functions, it is expected that the maximum supported size of reference data decreases. If Azure Stream Analytics cannot load the reference data and perform complex operations, the job will run out of memory and fail. In such cases, SU % Utilization metric will reach 100%.    
 
 |**Number of Streaming Units**  |**Recommended Size**  |
 |---------|---------|
 |1   |50 MB or lower   |
 |3   |150 MB or lower   |
-|6 and beyond   |300 MB or lower. Using reference data greater than 300 MB is supported in preview and could impact performance of your job.    |
+|6 and beyond   |5 GB or lower.    |
 
-Support for compression is not available for reference data.
+Support for compression is not available for reference data. For reference datasets larger than 300 MB, it is recommended to use Azure SQL Database as the source with [delta query](./sql-reference-data.md#delta-query) option for optimal performance. If delta query is not used in such scenarios, you will see in spikes in watermark delay metric every time the reference dataset is refreshed. 
 
 ## Joining multiple reference datasets in a job
 You can join only one stream input with one reference data input in a single step of your query. However, you can join multiple reference datasets by breaking down your query into multiple steps. An example is shown below.
@@ -131,6 +130,18 @@ INTO    output
 FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
+
+## IoT Edge jobs
+
+Only local reference data is supported for Stream Analytics edge jobs. When a job is deployed to IoT Edge device, it loads reference data from the user defined file path. Have a reference data file ready on the device. For a Windows container, put the reference data file on the local drive and share the local drive with the Docker container. For a Linux container, create a Docker volume and populate the data file to the volume.
+
+Reference data on IoT Edge update is triggered by a deployment. Once triggered, the Stream Analytics module picks the updated data without stopping the running job.
+
+There are two ways to update the reference data:
+
+* Update reference data path in your Stream Analytics job from Azure portal.
+
+* Update the IoT Edge deployment.
 
 ## Next steps
 > [!div class="nextstepaction"]

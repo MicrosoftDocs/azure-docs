@@ -6,17 +6,19 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/01/2020
+ms.date: 06/04/2021
 ms.author: pafarley
 ---
 
-[Reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
+[Reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/src/main/java/com/azure/resourcemanager/cognitiveservices) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
-## Prerequisites
+## Java prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
+* [!INCLUDE [contributor-requirement](./contributor-requirement.md)]
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
@@ -89,7 +91,11 @@ Add the following code to your **Main** method to list available resources, crea
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_calls)]
 
-## Create a Cognitive Services resource
+## Create a Cognitive Services resource (Java)
+
+To create and subscribe to a new Cognitive Services resource, use the **create** method. This method adds a new billable resource to the resource group you pass in. When creating your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following method takes all of these as arguments and creates a resource.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_create)]
 
 ### Choose a service and pricing tier
 
@@ -100,12 +106,6 @@ When you create a new resource, you'll need to know the "kind" of service you wa
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## Create a Cognitive Services resource
-
-To create and subscribe to a new Cognitive Services resource, use the **create** method. This method adds a new billable resource to the resource group you pass in. When creating your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following method takes all of these as arguments and creates a resource.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_create)]
 
 ## View your resources
 
@@ -119,9 +119,13 @@ The following method deletes the specified resource from the given resource grou
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_delete)]
 
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](../../manage-resources.md).
+
 ## See also
 
-* [Azure Management SDK reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
-* [What are Azure Cognitive Services?](../../what-are-cognitive-services.md)
-* [Authenticate requests to Azure Cognitive Services](../../authentication.md)
-* [Create a new resource using the Azure portal](../../cognitive-services-apis-create-account.md)
+* See **[Authenticate requests to Azure Cognitive Services](../../authentication.md)** on how to securely work with Cognitive Services.
+* See **[What are Azure Cognitive Services?](../../what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
+* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Cognitive Services supports.
+* See **[Use Cognitive Services as containers](../../cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
+* See **[Plan and manage costs for Cognitive Services](../../plan-manage-costs.md)** to estimate cost of using Cognitive Services.
+* See **[Azure Management SDK reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices)** for more details on the management SDK.

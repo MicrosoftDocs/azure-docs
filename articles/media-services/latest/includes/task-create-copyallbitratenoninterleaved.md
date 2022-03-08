@@ -9,9 +9,11 @@ ms.custom: REST
 
 <!--Create a copyAllNonInterleave transform with REST-->
 
+Copy all video and audio streams from the input asset as non-interleaved video and audio output files. This preset can be used to clip an existing asset or convert a group of key frame (GOP) aligned MP4 files as an asset that can be streamed.
+
 The following Azure REST command creates a transform using `copyAllBitrateNonInterleaved` from the `#Microsoft.Media.BuiltInStandardEncoderPreset` preset. Replace the values `subscriptionID`, `resourceGroup`, and `accountName` with values you are currently working with. Give your transform a name by setting `transformName`. 
 
-To view all of the REST API transforms that are available, see [Transforms - Create Or Update](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#definitions).
+To view all of the REST API transforms that are available, see [Transforms - Create Or Update](/rest/api/media/transforms/createorupdate#definitions).
 
 ```REST
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaServices/{{accountName}}/transforms/{{transformName}}?api-version=2020-05-01

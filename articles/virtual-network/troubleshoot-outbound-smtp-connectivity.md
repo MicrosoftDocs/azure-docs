@@ -1,22 +1,21 @@
 ---
 title: Troubleshoot outbound SMTP connectivity in Azure | Microsoft Docs
-description: Learn the recommended method for sending email and how to troubleshoot issues of outbound SMTP connectivity in Azure.
+description: Learn the recommended method for sending email and how to troubleshoot problems with outbound SMTP connectivity in Azure.
 services: virtual-network
 author: genlin
 manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2018
+ms.date: 04/28/2021
 ms.author: genli
 ---
 
 
-# Troubleshoot outbound SMTP connectivity issues in Azure
+# Troubleshoot outbound SMTP connectivity problems in Azure
 
 Outbound email messages that are sent directly to external domains (such as outlook.com and gmail.com) from a virtual machine (VM) are made available only to certain subscription types in Microsoft Azure. 
 
@@ -46,6 +45,7 @@ If you're using these subscription types, we encourage you to use an authenticat
 
 If you change your subscription type from Enterprise Agreement to another type of subscription, changes to your deployments may result in outbound SMTP being blocked.  
 
+
 ## Need help? Contact support
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly by using the following issue type: **Subscription Management** Problem type: **Request to enable Port 25 email flow**.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly. Use this issue type: **Technical** > **Virtual Network** > **Cannot send email (SMTP/Port 25)**.

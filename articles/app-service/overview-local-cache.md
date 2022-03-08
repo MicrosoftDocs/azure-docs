@@ -12,7 +12,7 @@ ms.custom: seodec18
 # Azure App Service Local Cache overview
 
 > [!NOTE]
-> Local cache is not supported in Function apps or containerized App Service apps, such as in [Windows Containers](quickstart-custom-container.md?pivots=container-windows) or on [App Service on Linux](overview.md#app-service-on-linux).
+> Local cache is not supported in function apps or containerized App Service apps, such as in [Windows Containers](quickstart-custom-container.md?pivots=container-windows) or in [App Service on Linux](overview.md#app-service-on-linux). A version of local cache that is available for these app types is [App Cache](https://github.com/Azure-App-Service/KuduLite/wiki/App-Cache).
 
 
 Azure App Service content is stored on Azure Storage and is surfaced in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
@@ -117,3 +117,10 @@ Local Cache does help prevent storage-related app restarts. However, your app co
 
 ### Does Local Cache exclude any directories from being copied to the faster local drive?
 As part of the step that copies the storage content, any folder that is named repository is excluded. This helps with scenarios where your site content may contain a source control repository that may not be needed in day to day operation of the app. 
+
+### How to flush the local cache logs after a site management operation?
+To flush the local cache logs, stop and restart the app. This action clears the old cache. 
+
+## More resources
+
+[Environment variables and app settings reference](reference-app-settings.md)

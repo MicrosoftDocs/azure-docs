@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/17/2020
+ms.date: 07/22/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management 
@@ -24,7 +24,7 @@ For Azure AD free tenants without Conditional Access, you can [use security defa
 
 If needed, you can instead enable each account for per-user Azure AD Multi-Factor Authentication. When users are enabled individually, they perform multi-factor authentication each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remember MFA on trusted devices_ feature is turned on).
 
-Changing user states isn't recommended unless your Azure AD licenses don't include Conditional Access and you don't want to use security defaults. For more information on the different ways to enable MFA, see [Features and licenses for Azure AD Multi-Factor Authentication](concept-mfa-licensing.md).
+Changing [user states](#azure-ad-multi-factor-authentication-user-states) isn't recommended unless your Azure AD licenses don't include Conditional Access and you don't want to use security defaults. For more information on the different ways to enable MFA, see [Features and licenses for Azure AD Multi-Factor Authentication](concept-mfa-licensing.md).
 
 > [!IMPORTANT]
 >
@@ -53,9 +53,9 @@ All users start out *Disabled*. When you enroll users in per-user Azure AD Multi
 
 To view and manage user states, complete the following steps to access the Azure portal page:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator.
 1. Search for and select *Azure Active Directory*, then select **Users** > **All users**.
-1. Select **Multi-Factor Authentication**. You may need to scroll to the right to see this menu option. Select the example screenshot below to see the full Azure portal window and menu location:
+1. Select **Per-user MFA**. You may need to scroll to the right to see this menu option. Select the example screenshot below to see the full Azure portal window and menu location:
     [![Select Multi-Factor Authentication from the Users window in Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. A new page opens that displays the user state, as shown in the following example.
    ![Screenshot that shows example user state information for Azure AD Multi-Factor Authentication](./media/howto-mfa-userstates/userstate1.png)
@@ -76,78 +76,17 @@ To change the per-user Azure AD Multi-Factor Authentication state for a user, co
 
 1. Confirm your selection in the pop-up window that opens.
 
-After you enable users, notify them via email. Tell the users that a prompt is displayed to ask them to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they need to create app passwords. For more information, see the [Azure AD Multi-Factor Authentication end-user guide](../user-help/multi-factor-authentication-end-user-first-time.md) to help them get started.
+After you enable users, notify them via email. Tell the users that a prompt is displayed to ask them to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they need to create app passwords. For more information, see the [Azure AD Multi-Factor Authentication end-user guide](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to help them get started.
 
-## Change state using PowerShell
+### Convert users from per-user MFA to Conditional Access based MFA
 
-To change the user state by using [Azure AD PowerShell](/powershell/azure/), you change the `$st.State` parameter for a user account. There are three possible states for a user account:
+If your users were enabled using per-user enabled and enforced Azure AD Multi-Factor Authentication the following PowerShell can assist you in making the conversion to Conditional Access based Azure AD Multi-Factor Authentication.
 
-* *Enabled*
-* *Enforced*
-* *Disabled*  
-
-In general, don't move users directly to the *Enforced* state unless they are already registered for MFA. If you do so, legacy authentication apps stop working because the user hasn't gone through Azure AD Multi-Factor Authentication registration and obtained an [app password](howto-mfa-app-passwords.md). In some cases this behavior may be desired, but impacts user experience until the user registers.
-
-To get started, install the *MSOnline* module using [Install-Module](/powershell/module/powershellget/install-module) as follows:
-
-```PowerShell
-Install-Module MSOnline
-```
-
-Next, connect using [Connect-MsolService](/powershell/module/msonline/connect-msolservice):
-
-```PowerShell
-Connect-MsolService
-```
-
-The following example PowerShell script enables MFA for an individual user named *bsimon@contoso.com*:
-
-```PowerShell
-$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-$st.RelyingParty = "*"
-$st.State = "Enabled"
-$sta = @($st)
-
-# Change the following UserPrincipalName to the user you wish to change state
-Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
-```
-
-Using PowerShell is a good option when you need to bulk enable users. The following script loops through a list of users and enables MFA on their accounts. Define the user accounts set it in the first line for `$users` as follows:
-
-   ```PowerShell
-   # Define your list of users to update state in bulk
-   $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-
-   foreach ($user in $users)
-   {
-       $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-       $st.RelyingParty = "*"
-       $st.State = "Enabled"
-       $sta = @($st)
-       Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-   }
-   ```
-
-To disable MFA, the following example gets a user with [Get-MsolUser](/powershell/module/msonline/get-msoluser), then removes any *StrongAuthenticationRequirements* set for the defined user using [Set-MsolUser](/powershell/module/msonline/set-msoluser):
-
-```PowerShell
-Get-MsolUser -UserPrincipalName bsimon@contoso.com | Set-MsolUser -StrongAuthenticationRequirements @()
-```
-
-You could also directly disable MFA for a user using [Set-MsolUser](/powershell/module/msonline/set-msoluser) as follows:
-
-```PowerShell
-Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements @()
-```
-
-## Convert users from per-user MFA to Conditional Access
-
-The following PowerShell can assist you in making the conversion to Conditional Access based Azure AD Multi-Factor Authentication.
+Run this PowerShell in an ISE window or save as a `.PS1` file to run locally. The operation can only be done by using the [MSOnline module](/powershell/module/msonline#msonline). 
 
 ```PowerShell
 # Sets the MFA requirement state
 function Set-MfaState {
-
     [CmdletBinding()]
     param(
         [Parameter(ValueFromPipelineByPropertyName=$True)]
@@ -157,7 +96,6 @@ function Set-MfaState {
         [ValidateSet("Disabled","Enabled","Enforced")]
         $State
     )
-
     Process {
         Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
         $Requirements = @()
@@ -168,18 +106,13 @@ function Set-MfaState {
             $Requirement.State = $State
             $Requirements += $Requirement
         }
-
         Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
                      -StrongAuthenticationRequirements $Requirements
     }
 }
-
 # Disable MFA for all users
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
-
-> [!NOTE]
-> If MFA is re-enabled on a user and the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI. In this case, the administrator must move the user directly to *Enforced*.
 
 ## Next steps
 

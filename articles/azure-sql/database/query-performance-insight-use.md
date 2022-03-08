@@ -7,10 +7,10 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: jrasnik, sstein
-ms.date: 03/10/2020
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: kendralittle, mathoma, wiassaf
+ms.date: 12/14/2021
 ---
 # Query Performance Insight for Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,8 +118,8 @@ By default, Query Performance Insight shows the top five CPU-consuming queries w
    >
    > For example, a query might have consumed a substantial amount of DTU for a while, although its total consumption in the observed period is less than the other top-consuming queries. In such a case, resource utilization of this query would not appear on the chart.
    >
-   > If you need to understand top query executions beyond the limitations of Query Performance Insight, consider using [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) for advanced database performance monitoring and troubleshooting.
-   >
+   > If you need to understand top query executions beyond the limitations of Query Performance Insight, consider using [Azure SQL Insights](../../azure-monitor/insights/sql-insights-overview.md) for advanced database performance monitoring and troubleshooting.
+   > 
 
 ## View individual query details
 
@@ -143,13 +143,15 @@ To view query details:
 
    > [!IMPORTANT]
    > Query Performance Insight does not capture any DDL queries. In some cases, it might not capture all ad hoc queries.
+   > 
+   > In case your database is scope locked, query details blade will not be able to load.
    >
 
 ## Review top queries per duration
 
 Two metrics in Query Performance Insight can help you find potential bottlenecks: duration and execution count.
 
-Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They're also the best candidates for optimization.
+Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They're also the best candidates for optimization. For more information, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 
 To identify long-running queries:
 

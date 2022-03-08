@@ -1,15 +1,15 @@
 ---
-title: ClaimsProviders  - Azure Active Directory B2C | Microsoft Docs
+title: ClaimsProviders  - Azure Active Directory B2C  
 description: Specify the ClaimsProvider element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/29/2020
-ms.author: mimart
+ms.date: 03/08/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -17,7 +17,9 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A claims provider contains a set of [technical profiles](technicalprofiles.md). Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles. For example, multiple technical profiles may be defined because the claims provider supports multiple protocols, various endpoints with different capabilities, or releases different claims at different assurance levels. It may be acceptable to release sensitive claims in one user journey, but not in another.
+A claims provide is an interface to communicate with different types of parties via its [technical profiles](technicalprofiles.md). Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles. For example, multiple technical profiles may be defined because the claims provider supports multiple protocols, various endpoints with different capabilities, or releases different claims at different assurance levels. It may be acceptable to release sensitive claims in one user journey, but not in another.
+
+A user journey combines calling technical profiles via orchestration steps to define your business logic. 
 
 ```xml
 <ClaimsProviders>

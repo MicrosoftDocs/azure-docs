@@ -1,9 +1,6 @@
 ---
 title: Azure HDInsight clusters with disk encryption lose Key Vault access
 description: Troubleshooting steps and possible resolutions for Key Vault access issues when interacting with Azure HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
@@ -31,7 +28,7 @@ Look at [Azure Key Vault availability and redundancy](../../key-vault/general/di
 
 ### KV accidental deletion
 
-* Restore deleted key on KV to auto recover. For more information, see [Recover Deleted Key](/rest/api/keyvault/recoverdeletedkey).
+* Restore deleted key on KV to auto recover. For more information, see [Recover Deleted Key](/rest/api/keyvault/keys/recover-deleted-key).
 * Reach out to KV team to recover from accidental deletions.
 
 ### KV access policy changed

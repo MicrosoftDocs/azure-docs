@@ -10,7 +10,6 @@ editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -64,7 +63,7 @@ The following sections list best practices for identity and access security usin
 
 ## Centralize identity management
 
-In a [hybrid identity](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one location, regardless of where an account is created. Integration also helps your users be more productive by providing a common identity for accessing both cloud and on-premises resources.
+In a hybrid identity scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one location, regardless of where an account is created. Integration also helps your users be more productive by providing a common identity for accessing both cloud and on-premises resources.
 
 **Best practice**: Establish a single Azure AD instance. Consistency and a single authoritative sources will increase clarity and reduce security risks from human errors and configuration complexity.
 **Detail**: Designate a single Azure AD directory as the authoritative source for corporate and organizational accounts.
@@ -98,7 +97,7 @@ Organizations that don’t integrate their on-premises identity with their cloud
 > You need to choose which directories critical accounts will reside in and whether the admin workstation used is managed by new cloud services or existing processes. Using existing management and identity provisioning processes can decrease some risks but can also create the risk of an attacker compromising an on-premises account and pivoting to the cloud. You might want to use a different strategy for different roles (for example, IT admins vs. business unit admins). You have two options. First option is to create Azure AD Accounts that aren’t synchronized with your on-premises Active Directory instance. Join your admin workstation to Azure AD, which you can manage and patch by using Microsoft Intune. Second option is to use existing admin accounts by synchronizing to your on-premises Active Directory instance. Use existing workstations in your Active Directory domain for management and security.
 
 ## Manage connected tenants
-Your security organization needs visibility to assess risk and to determine whether the policies of your organization, and any regulatory requirements, are being followed. You should ensure that your security organization has visibility into all subscriptions connected to your production environment and network (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) or [site-to-site VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). A [Global Administrator/Company Administrator](../../active-directory/roles/permissions-reference.md#company-administrator-permissions) in Azure AD can elevate their access to the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role and see all subscriptions and managed groups connected to your environment.
+Your security organization needs visibility to assess risk and to determine whether the policies of your organization, and any regulatory requirements, are being followed. You should ensure that your security organization has visibility into all subscriptions connected to your production environment and network (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) or [site-to-site VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). A [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) in Azure AD can elevate their access to the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role and see all subscriptions and managed groups connected to your environment.
 
 See [elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md) to ensure that you and your security group can view all subscriptions or management groups connected to your environment. You should remove this elevated access after you’ve assessed risks.
 
@@ -109,7 +108,7 @@ In a mobile-first, cloud-first world, you want to enable single sign-on (SSO) to
 By using the same identity solution for all your apps and resources, you can achieve SSO. And your users can use the same set of credentials to sign in and access the resources that they need, whether the resources are located on-premises or in the cloud.
 
 **Best practice**: Enable SSO.  
-**Detail**: Azure AD [extends on-premises Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md) to the cloud. Users can use their primary work or school account for their domain-joined devices, company resources, and all of the web and SaaS applications that they need to get their jobs done. Users don’t have to remember multiple sets of usernames and passwords, and their application access can be automatically provisioned (or deprovisioned) based on their organization group memberships and their status as an employee. And you can control that access for gallery apps or for your own on-premises apps that you’ve developed and published through the [Azure AD Application Proxy](../../active-directory/manage-apps/application-proxy.md).
+**Detail**: Azure AD [extends on-premises Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md) to the cloud. Users can use their primary work or school account for their domain-joined devices, company resources, and all of the web and SaaS applications that they need to get their jobs done. Users don’t have to remember multiple sets of usernames and passwords, and their application access can be automatically provisioned (or deprovisioned) based on their organization group memberships and their status as an employee. And you can control that access for gallery apps or for your own on-premises apps that you’ve developed and published through the [Azure AD Application Proxy](../../active-directory/app-proxy/application-proxy.md).
 
 Use SSO to enable users to access their [SaaS applications](../../active-directory/manage-apps/what-is-single-sign-on.md) based on their work or school account in Azure AD. This is applicable not only for Microsoft SaaS apps, but also other apps, such as [Google Apps](../../active-directory/saas-apps/google-apps-tutorial.md) and [Salesforce](../../active-directory/saas-apps/salesforce-tutorial.md). You can configure your application to use Azure AD as a [SAML-based identity](../../active-directory/fundamentals/active-directory-whatis.md) provider. As a security control, Azure AD does not issue a token that allows users to sign in to the application unless they have been granted access through Azure AD. You can grant access directly, or through a group that users are a member of.
 
@@ -138,10 +137,10 @@ Identity Secure Score is a set of recommended security controls that Microsoft p
 
 ## Enable password management
 
-If you have multiple tenants or you want to enable users to [reset their own passwords](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md), it’s important that you use appropriate security policies to prevent abuse.
+If you have multiple tenants or you want to enable users to [reset their own passwords](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e), it’s important that you use appropriate security policies to prevent abuse.
 
 **Best practice**: Set up self-service password reset (SSPR) for your users.  
-**Detail**: Use the Azure AD [self-service password reset](../../active-directory-b2c/user-flow-self-service-password-reset.md) feature.
+**Detail**: Use the Azure AD [self-service password reset](../../active-directory/authentication/tutorial-enable-sspr.md) feature.  
 
 **Best practice**: Monitor how or if SSPR is really being used.  
 **Detail**: Monitor the users who are registering by using the Azure AD [Password Reset Registration Activity report](../../active-directory/authentication/howto-sspr-reporting.md). The reporting feature that Azure AD provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
@@ -215,7 +214,7 @@ You can use [Azure RBAC](../../role-based-access-control/overview.md) to assign 
 **Best practice**: Grant the appropriate permissions to security teams that have direct operational responsibilities.
 **Detail**: Review the Azure built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [Azure custom roles](../../role-based-access-control/custom-roles.md). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
 
-**Best practices**: Grant Azure Security Center access to security roles that need it. Security Center allows security teams to quickly identify and remediate risks.
+**Best practices**: Grant Microsoft Defender for Cloud access to security roles that need it. Defender for Cloud allows security teams to quickly identify and remediate risks.
 **Detail**: Add security teams with these needs to the Azure RBAC [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.
 
 Organizations that don’t enforce data access control by using capabilities like Azure RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing users to access types of data (for example, high business impact) that they shouldn’t have.
@@ -226,12 +225,12 @@ Securing privileged access is a critical first step to protecting business asset
 
 Privileged accounts are accounts that administer and manage IT systems. Cyber attackers target these accounts to gain access to an organization’s data and systems. To secure privileged access, you should isolate the accounts and systems from the risk of being exposed to a malicious user.
 
-We recommend that you develop and follow a roadmap to secure privileged access against cyber attackers. For information about creating a detailed roadmap to secure identities and access that are managed or reported in Azure AD, Microsoft Azure, Microsoft 365, and other cloud services, review [Securing privileged access for hybrid and cloud deployments in Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+We recommend that you develop and follow a roadmap to secure privileged access against cyber attackers. For information about creating a detailed roadmap to secure identities and access that are managed or reported in Azure AD, Microsoft Azure, Microsoft 365, and other cloud services, review [Securing privileged access for hybrid and cloud deployments in Azure AD](../../active-directory/roles/security-planning.md).
 
-The following summarizes the best practices found in [Securing privileged access for hybrid and cloud deployments in Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md):
+The following summarizes the best practices found in [Securing privileged access for hybrid and cloud deployments in Azure AD](../../active-directory/roles/security-planning.md):
 
 **Best practice**: Manage, control, and monitor access to privileged accounts.   
-**Detail**: Turn on [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md). After you turn on Privileged Identity Management, you’ll receive notification email messages for privileged access role changes. These notifications provide early warning when additional users are added to highly privileged roles in your directory.
+**Detail**: Turn on [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md). After you turn on Privileged Identity Management, you’ll receive notification email messages for privileged access role changes. These notifications provide early warning when additional users are added to highly privileged roles in your directory.
 
 **Best practice**: Ensure all critical admin accounts are managed Azure AD accounts.
 **Detail**: Remove any consumer accounts from critical admin roles (for example, Microsoft accounts like hotmail.com, live.com, and outlook.com).
@@ -258,10 +257,10 @@ The following summarizes the best practices found in [Securing privileged access
 **Best practice**: Define at least two emergency access accounts.   
 **Detail**: Emergency access accounts help organizations restrict privileged access in an existing Azure Active Directory environment. These accounts are highly privileged and are not assigned to specific individuals. Emergency access accounts are limited to scenarios where normal administrative accounts can’t be used. Organizations must limit the emergency account's usage to only the necessary amount of time.
 
-Evaluate the accounts that are assigned or eligible for the global admin role. If you don’t see any cloud-only accounts by using the `*.onmicrosoft.com` domain (intended for emergency access), create them. For more information, see [Managing emergency access administrative accounts in Azure AD](../../active-directory/users-groups-roles/directory-emergency-access.md).
+Evaluate the accounts that are assigned or eligible for the global admin role. If you don’t see any cloud-only accounts by using the `*.onmicrosoft.com` domain (intended for emergency access), create them. For more information, see [Managing emergency access administrative accounts in Azure AD](../../active-directory/roles/security-emergency-access.md).
 
 **Best practice**: Have a “break glass" process in place in case of an emergency.
-**Detail**: Follow the steps in [Securing privileged access for hybrid and cloud deployments in Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+**Detail**: Follow the steps in [Securing privileged access for hybrid and cloud deployments in Azure AD](../../active-directory/roles/security-planning.md).
 
 **Best practice**: Require all critical admin accounts to be password-less (preferred), or require Multi-Factor Authentication.
 **Detail**: Use the [Microsoft Authenticator app](../../active-directory/authentication/howto-authentication-passwordless-phone.md) to sign in to any Azure AD account without using a password. Like [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), the Microsoft Authenticator uses key-based authentication to enable a user credential that’s tied to a device and uses biometric authentication or a PIN.
@@ -272,7 +271,7 @@ Require Azure AD Multi-Factor Authentication at sign-in for all individual users
 **Detail**: Use an admin workstation. Choose a level of workstation security:
 
 - Highly secure productivity devices provide advanced security for browsing and other productivity tasks.
-- [Privileged Access Workstations (PAWs)](/windows-server/identity/securing-privileged-access/privileged-access-workstations) provide a dedicated operating system that’s protected from internet attacks and threat vectors for sensitive tasks.
+- [Privileged Access Workstations (PAWs)](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) provide a dedicated operating system that’s protected from internet attacks and threat vectors for sensitive tasks.
 
 **Best practice**: Deprovision admin accounts when employees leave your organization.
 **Detail**: Have a process in place that disables or deletes admin accounts when employees leave your organization.
@@ -282,25 +281,25 @@ Require Azure AD Multi-Factor Authentication at sign-in for all individual users
 
 **Best practice**: Take steps to mitigate the most frequently used attacked techniques.  
 **Detail**:
-[Identify Microsoft accounts in administrative roles that need to be switched to work or school accounts](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
+[Identify Microsoft accounts in administrative roles that need to be switched to work or school accounts](../../active-directory/roles/security-planning.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
 
-[Ensure separate user accounts and mail forwarding for global administrator accounts](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
+[Ensure separate user accounts and mail forwarding for global administrator accounts](../../active-directory/roles/security-planning.md)  
 
-[Ensure that the passwords of administrative accounts have recently changed](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+[Ensure that the passwords of administrative accounts have recently changed](../../active-directory/roles/security-planning.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
 
-[Turn on password hash synchronization](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
+[Turn on password hash synchronization](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)  
 
-[Require Multi-Factor Authentication for users in all privileged roles as well as exposed users](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[Require Multi-Factor Authentication for users in all privileged roles as well as exposed users](../../active-directory/roles/security-planning.md#require-multi-factor-authentication-for-users-in-privileged-roles-and-exposed-users)  
 
-[Obtain your Microsoft 365 Secure Score (if using Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#obtain-your-office-365-secure-score-if-using-office-365)  
+[Obtain your Microsoft 365 Secure Score (if using Microsoft 365)](../../active-directory/roles/security-planning.md#obtain-your-microsoft-365-secure-score-if-using-microsoft-365)  
 
-[Review the Microsoft 365 security guidance (if using Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Review the Microsoft 365 security guidance (if using Microsoft 365)](../../active-directory/roles/security-planning.md#review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365)  
 
-[Configure Microsoft 365 Activity Monitoring (if using Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#configure-office-365-activity-monitoring-if-using-office-365)  
+[Configure Microsoft 365 Activity Monitoring (if using Microsoft 365)](../../active-directory/roles/security-planning.md#configure-microsoft-365-activity-monitoring-if-using-microsoft-365)  
 
-[Establish incident/emergency response plan owners](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#establish-incidentemergency-response-plan-owners)  
+[Establish incident/emergency response plan owners](../../active-directory/roles/security-planning.md#establish-incidentemergency-response-plan-owners)  
 
-[Secure on-premises privileged administrative accounts](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
+[Secure on-premises privileged administrative accounts](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)
 
 If you don’t secure privileged access, you might find that you have too many users in highly privileged roles and are more vulnerable to attacks. Malicious actors, including cyber attackers, often target admin accounts and other elements of privileged access to gain access to sensitive data and systems by using credential theft.
 
@@ -337,7 +336,7 @@ An active identity monitoring system can quickly detect suspicious behavior and 
 Organizations that don’t actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place through these credentials, organizations can’t mitigate this type of threat.
 
 ## Use Azure AD for storage authentication
-[Azure Storage](../../storage/common/storage-auth-aad.md) supports authentication and authorization with Azure AD for Blob storage and Queue storage. With Azure AD authentication, you can use the Azure role-based access control to grant specific permissions to users, groups, and applications down to the scope of an individual blob container or queue.
+[Azure Storage](../../storage/blobs/authorize-access-azure-active-directory.md) supports authentication and authorization with Azure AD for Blob storage and Queue storage. With Azure AD authentication, you can use the Azure role-based access control to grant specific permissions to users, groups, and applications down to the scope of an individual blob container or queue.
 
 We recommend that you use [Azure AD for authenticating access to storage](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/).
 

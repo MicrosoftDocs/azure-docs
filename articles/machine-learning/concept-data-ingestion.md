@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn the pros and cons of the available data ingestion options for training your machine learning models.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 02/26/2020
+ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml
 
 ---
@@ -26,6 +26,10 @@ Choose from:
 + a combination of both
 
 Data ingestion is the process in which unstructured data is extracted from one or multiple sources and then prepared for training machine learning models. It's also time intensive, especially if done manually, and if you have large amounts of data from multiple sources. Automating this effort frees up resources and ensures your models use the most recent and applicable data.
+
+> [!Important]
+> Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
+>
 
 ## Azure Data Factory
 
@@ -56,7 +60,7 @@ Learn how to build a data ingestion pipeline for Machine Learning with [Azure Da
 
 ## Azure Machine Learning Python SDK 
 
-With the [Python SDK](/python/api/overview/azure/ml), you can incorporate data ingestion tasks into an [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) step.
+With the [Python SDK](/python/api/overview/azure/ml), you can incorporate data ingestion tasks into an [Azure Machine Learning pipeline](./how-to-create-machine-learning-pipelines.md) step.
 
 The following table summarizes the pros and con for using the SDK and an ML pipelines step for data ingestion tasks.
 

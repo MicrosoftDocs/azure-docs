@@ -5,11 +5,10 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: 
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: emlisa
+ms.author: emlisa
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/12/2019
 ---
 # Tutorial: Implement a geo-distributed database (Azure SQL Database)
@@ -202,11 +201,11 @@ Geo-replication settings can also be changed in the Azure portal, by selecting y
 
       private static final String READ_WRITE_URL = String.format("jdbc:" +
          "sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;" +
-         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", +
+         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
          FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
       private static final String READ_ONLY_URL = String.format("jdbc:" +
          "sqlserver://%s.secondary.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;" +
-         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", +
+         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
          FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
 
       public static void main(String[] args) {
@@ -221,10 +220,10 @@ Geo-replication settings can also be changed in the Azure portal, by selecting y
             for(int i = 1; i < 1000; i++) {
                 //  loop will run for about 1 hour
                 System.out.print(i + ": insert on primary " +
-                   (insertData((highWaterMark + i))?"successful":"failed"));
+                   (insertData((highWaterMark + i)) ? "successful" : "failed"));
                 TimeUnit.SECONDS.sleep(1);
                 System.out.print(", read from secondary " +
-                   (selectData((highWaterMark + i))?"successful":"failed") + "\n");
+                   (selectData((highWaterMark + i)) ? "successful" : "failed") + "\n");
                 TimeUnit.SECONDS.sleep(3);
             }
          } catch(Exception e) {

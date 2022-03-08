@@ -3,11 +3,11 @@ title: 'What is Azure AD Connect and Connect Health. | Microsoft Docs'
 description: Learn about the tools used to synchronize and monitor your on-premises environment with Azure AD.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/08/2020
+ms.date: 10/06/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -15,13 +15,15 @@ ms.collection: M365-identity-device-management
 
 # What is Azure AD Connect?
 
-Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals.  It provides the following features:
+Azure AD Connect is an on-premises Microsoft application that's designed to meet and accomplish your hybrid identity goals. If you're evaluating how to best meet your goals, you should also consider the cloud-managed solution [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
+
+Azure AD Connect provides the following features:
      
 - [Password hash synchronization](whatis-phs.md) - A sign-in method that synchronizes a hash of a users on-premises AD password with Azure AD.
 - [Pass-through authentication](how-to-connect-pta.md) - A sign-in method that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment.
 - [Federation integration](how-to-connect-fed-whatis.md) - Federation is an optional part of Azure AD Connect and can be used to configure a hybrid environment using an on-premises AD FS infrastructure. It also provides AD FS management capabilities such as certificate renewal and additional AD FS server deployments.
 - [Synchronization](how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects.  As well as, making sure identity information for your on-premises users and groups is matching the cloud.  This synchronization also includes password hashes.
-- [Health Monitoring]() - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
+- [Health Monitoring](whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
 
 
 ![What is Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
@@ -44,7 +46,7 @@ Integrating your on-premises directories with Azure AD makes your users more pro
 * Provides the newest capabilities for your scenarios. Azure AD Connect replaces older versions of identity integration tools such as DirSync and Azure AD Sync. For more information, see [Hybrid Identity directory integration tools comparison](plan-hybrid-identity-design-considerations-tools-comparison.md).
 
 ## Why use Azure AD Connect Health?
-When with Azure AD, your users are more productive because there's a common identity to access both cloud and on-premises resources. Ensuring the environment is reliable, so that users can access these resources, becomes a challenge.  Azure AD Connect Health helps monitor and gain insights into your on-premises identity infrastructure thus ensuring the reliability of this environment. It is as simple as installing an agent on each of your on-premises identity servers.
+When authenticating with Azure AD, your users are more productive because there's a common identity to access both cloud and on-premises resources. Ensuring the environment is reliable, so that users can access these resources, becomes a challenge.  Azure AD Connect Health helps monitor and gain insights into your on-premises identity infrastructure thus ensuring the reliability of this environment. It is as simple as installing an agent on each of your on-premises identity servers.
 
 Azure AD Connect Health for AD FS supports AD FS 2.0 on Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 and Windows Server 2016. It also supports monitoring the AD FS proxy or web application proxy servers that provide authentication support for extranet access. With an easy and quick installation of the Health Agent, Azure AD Connect Health for AD FS provides you a set of key capabilities.
 

@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 08/26/2021
 ---
 
 # Optimize request cost in Azure Cosmos DB
@@ -100,7 +100,7 @@ The RU cost of writing an item depends on:
 - The item size.
 - The number of properties covered by the [indexing policy](index-policy.md) and needed to be indexed.
 
-Inserting a 1 KB item with less than 5 properties to index costs around 5 RUs. Replacing an item costs two times the charge required to insert the same item.
+Inserting a 1 KB item without indexing costs around ~5.5 RUs. Replacing an item costs two times the charge required to insert the same item.
 
 ### Optimizing writes
 
@@ -121,3 +121,6 @@ Next you can proceed to learn more about cost optimization in Azure Cosmos DB wi
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)
 * Learn more about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

@@ -13,9 +13,9 @@ ms.subservice: blobs
 
 # Latency in Blob storage
 
-Latency, sometimes referenced as response time, is the amount of time that an application must wait for a request to complete. Latency can directly affect an application’s performance. Low latency is often important for scenarios with humans in the loop, such as conducting credit card transactions or loading web pages. Systems that need to process incoming events at high rates, such as telemetry logging or IoT events, also require low latency. This article describes how to understand and measure latency for operations on block blobs, and how to design your applications for low latency.
+Latency, sometimes referenced as response time, is the amount of time that an application must wait for a request to complete. Latency can directly affect an application's performance. Low latency is often important for scenarios with humans in the loop, such as conducting credit card transactions or loading web pages. Systems that need to process incoming events at high rates, such as telemetry logging or IoT events, also require low latency. This article describes how to understand and measure latency for operations on block blobs, and how to design your applications for low latency.
 
-Azure Storage offers two different performance options for block blobs: premium and standard. Premium block blobs offer significantly lower and more consistent latency than standard block blobs via high-performance SSD disks. For more information, see **Premium performance block blob storage** in [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
+Azure Storage offers two different performance options for block blobs: premium and standard. Premium block blobs offer significantly lower and more consistent latency than standard block blobs via high-performance SSD disks. For more information, see **Premium performance block blob storage** in [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ## About Azure Storage latency
 

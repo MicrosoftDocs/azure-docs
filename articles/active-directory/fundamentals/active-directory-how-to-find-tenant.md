@@ -3,7 +3,7 @@ title: How to find your tenant ID - Azure Active Directory
 description: Instructions about how to find and Azure Active Directory tenant ID to an existing Azure subscription.
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: "it-pro"
+ms.custom: "it-pro, devx-track-azurepowershell"
 ms.collection: M365-identity-device-management
 ---
 
@@ -55,7 +55,7 @@ az account list
 az account tenant list
 ```
 
-For more information, see [az login](/cli/azure/reference-index#az_login) command reference, [az account](/cli/azure/ext/account/account) command reference, or [az account tenant](/cli/azure/ext/account/account/tenant) command reference.
+For more information, see [az login](/cli/azure/reference-index#az_login) command reference, [az account](/cli/azure/account) command reference, or [az account tenant](/cli/azure/account/tenant) command reference.
 
 
 For Microsoft 365 CLI, use the cmdlet **tenant id** as shown in the following example:
@@ -73,4 +73,4 @@ For more information, see the Microsoft 365 [tenant id get](https://pnp.github.i
 
 - To learn how to associate or add a subscription to a tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](active-directory-how-subscriptions-associated-directory.md).
 
-- To learn how to find the object ID, see [Find the user object ID](https://docs.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id).
+- To learn how to find the object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).

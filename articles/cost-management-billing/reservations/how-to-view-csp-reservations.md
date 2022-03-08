@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/15/2021
 ms.author: banders
 ---
 

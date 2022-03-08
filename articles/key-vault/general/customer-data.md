@@ -3,7 +3,6 @@ title: Azure Key Vault customer data features - Azure Key Vault | Microsoft Docs
 description: Learn about customer data, which Azure Key Vault receives during creation or update of vaults, keys, secrets, certificates, and managed storage accounts.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -50,7 +49,7 @@ Azure Key Vault diagnostic logs that contain personal data can be retrieved by m
 
 - [Azure Key Vault Logging](logging.md)
 
-- [Azure Key Vault soft-delete overview](soft-delete-cli.md)
+- [Azure Key Vault soft-delete overview](./key-vault-recovery.md)
 
 - [Azure Key Vault key operations](/rest/api/keyvault/key-operations)
 

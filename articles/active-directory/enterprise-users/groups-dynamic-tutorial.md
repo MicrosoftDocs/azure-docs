@@ -4,16 +4,16 @@ description: In this tutorial, you use groups with user membership rules to add 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: enterprise-users
+ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/15/2020
+ms.date: 09/02/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
-#As a new Azure AD identity administrator, I want to automatically add or remove users, so I don't have to manually do it."
+#Customer intent: As a new Azure AD identity administrator, I want to automatically add or remove users, so I don't have to manually do it."
 ms.collection: M365-identity-device-management
 ---
 

@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: azure-cdn
-ms.devlang: multiple
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: integration
@@ -68,11 +67,11 @@ The following flowchart describes how Azure CDN validates a client request when 
 
       The OpenSSL tool has the following syntax:
 
-      ```rand -hex <key length>```
+      `rand -hex <key length>`
 
       For example:
 
-      ```OpenSSL> rand -hex 32``` 
+      `OpenSSL> rand -hex 32` 
 
       To avoid downtime, create both a primary and a backup key. A backup key provides uninterrupted access to your content when your primary key is being updated.
     

@@ -2,10 +2,7 @@
 title: Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger
 description: Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger
 ms.topic: conceptual
-author: renatosalas
-ms.author: regutier
-ms.date: 04/14/2020
-
+ms.date: 01/14/2021
 ms.reviewer: mbullwin
 ---
 
@@ -17,9 +14,9 @@ When you use Application Insights Profiler or Snapshot Debugger, artifacts gener
 With Bring Your Own Storage, these artifacts are uploaded into a storage account that you control. That means you control the encryption-at-rest policy, the lifetime management policy and network access. You will, however, be responsible for the costs associated with that storage account.
 
 > [!NOTE]
-> If you are enabling Private Link, Bring Your Own Storage is a requirement. For more information about Private Link for Application Insights, [see the documentation.](../platform/private-link-security.md)
+> If you are enabling Private Link, Bring Your Own Storage is a requirement. For more information about Private Link for Application Insights, [see the documentation.](../logs/private-link-security.md)
 >
-> If you are enabling Customer-Managed Keys, Bring Your Own Storage is a requirement. For more information about Customer-Managed Keys for Application Insights, [see the documentation.](../platform/customer-managed-keys.md).
+> If you are enabling Customer-Managed Keys, Bring Your Own Storage is a requirement. For more information about Customer-Managed Keys for Application Insights, [see the documentation.](../logs/customer-managed-keys.md).
 
 ## How will my storage account be accessed?
 1. Agents running in your Virtual Machines or App Service will upload artifacts (profiles, snapshots, and symbols) to blob containers in your account. This process involves contacting the Application Insights Profiler or Snapshot Debugger service to obtain a SAS (Shared Access Signature) token to a new blob in your storage account.
@@ -43,14 +40,20 @@ A BYOS storage account will be linked to an Application Insights resource. There
 First, the Application Insights Profiler, and Snapshot Debugger service needs to be granted access to the storage account. To grant access, add the role `Storage Blob Data Contributor` to the AAD application named `Diagnostic Services Trusted Storage Access` via the Access Control (IAM) page in your storage account as shown in Figure 1.0. 
 
 Steps: 
-1. Click on the "Add" button in the "Add a role assignment" section 
-1. Select "Storage Blob Data Contributor" role 
-1. Select "Azure AD user, group, or service principal" in the "Assign access to" section 
-1. Search & select "Diagnostic Services Trusted Storage Access" app 
-1. Save changes
 
-_![Figure 1.0](media/profiler-bring-your-own-storage/figure-10.png)_
-_Figure 1.0_ 
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Contributor |
+    | Assign access to | User, group, or service principal |
+    | Members | Diagnostic Services Trusted Storage Access |
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 After you added the role, it will appear under the "Role assignments" section, like the below Figure 1.1. 
 _![Figure 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
@@ -61,9 +64,9 @@ If you're also using Private Link, it's required one additional configuration to
 ### Link your Storage Account with your Application Insights resource
 To configure BYOS for code-level diagnostics (Profiler/Debugger), there are three options:
 
-* Using Azure PowerShell Cmdlets
-* Using Azure Command Line Interface (CLI)
-* Using Azure Resource Manager template
+* Using Azure PowerShell cmdlets
+* Using the Azure CLI
+* Using Azure Resource Manager templates
 
 #### Configure using Azure PowerShell Cmdlets
 
@@ -87,7 +90,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
 
     Pattern:
     ```powershell
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 
@@ -120,19 +123,19 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
     To install Azure CLI, refer to the [Official Azure CLI documentation](/cli/azure/install-azure-cli).
 
 1. Install the Application Insights CLI extension.
-    ```powershell
+    ```azurecli
     az extension add -n application-insights
     ```
 
 1. Connect your Storage Account with your Application Insights resource.
 
     Pattern:
-    ```powershell
+    ```azurecli
     az monitor app-insights component linked-storage link --resource-group "{resource_group_name}" --app "{application_insights_name}" --storage-account "{storage_account_name}"
     ```
     
     Example:
-    ```powershell
+    ```azurecli
     az monitor app-insights component linked-storage link --resource-group "byos-test" --app "byos-test-westus2-ai" --storage-account "byosteststoragewestus2"
     ```
     
@@ -148,7 +151,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
     ```
 
     > [!NOTE]
-    > For performing updates on the linked Storage Accounts to your Application Insights resource, refer to the [Application Insights CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+    > For performing updates on the linked Storage Accounts to your Application Insights resource, refer to the [Application Insights CLI documentation](/cli/azure/monitor/app-insights/component/linked-storage).
 
 #### Configure using Azure Resource Manager template
 

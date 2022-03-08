@@ -1,16 +1,17 @@
 ---
 title: "Quickstart: Get started with Translator"
 titleSuffix: Azure Cognitive Services
-description: Learn to translate text, transliterate text, detect language and more with the Translator service. Examples are provided in C#, Java, JavaScript and Python.
+description: "Learn to translate text, transliterate text, detect language and more with the Translator service. Examples are provided in C#, Java, JavaScript and Python."
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/14/2020
-ms.author: erhopf
-ms.custom: cog-serv-seo-aug-2020
+ms.date: 07/06/2021
+ms.author: lajanuar
+ms.devlang: csharp, golang, java, javascript, python
+ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: translator, translator service, translate text, transliterate text, language detection
 ---
 
@@ -27,9 +28,12 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have an Azure subscription, [create a Translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart.
-  * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+* Once you have an Azure subscription, [create a Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+  * You'll need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
+
+    :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
+
+* You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Platform setup
 
@@ -40,6 +44,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Set the subscription key and endpoint values in Program.cs.
 * [Add Newtonsoft.Json using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Run the program from the project directory: ``dotnet run``
+
 
 # [Go](#tab/go)
 
@@ -75,6 +80,8 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Create a Java file and copy in the code from the provided sample. Don't forget to add your subscription key.
 * Run the sample: `gradle run`.
 
+
+
 # [Node.js](#tab/nodejs)
 
 * Create a new project in your favorite IDE or editor.
@@ -82,12 +89,16 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Set your subscription key.
 * Run the program. For example: `node Translate.js`.
 
+
+
 # [Python](#tab/python)
 
 * Create a new project in your favorite IDE or editor.
 * Copy the code from one of the samples into your project.
 * Set your subscription key.
 * Run the program. For example: `python translate.py`.
+
+
 
 ---
 
@@ -170,6 +181,7 @@ class Program
 }
 ```
 
+
 # [Go](#tab/go)
 
 ```go
@@ -236,6 +248,7 @@ func main() {
 ```
 
 
+
 # [Java](#tab/java)
 
 ```java
@@ -272,7 +285,7 @@ public class Translate {
                 "[{\"Text\": \"Hello World!\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -298,6 +311,7 @@ public class Translate {
     }
 }
 ```
+
 
 # [Node.js](#tab/nodejs)
 
@@ -336,6 +350,9 @@ axios({
 })
 ```
 
+
+
+
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
@@ -356,7 +373,6 @@ params = {
     'from': 'en',
     'to': ['de', 'it']
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -375,6 +391,7 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
 
 ---
 
@@ -516,6 +533,9 @@ func main() {
 }
 ```
 
+
+
+
 # [Java](#tab/java)
 
 ```java
@@ -551,7 +571,7 @@ public class Translate {
                 "[{\"Text\": \"Hello World!\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -577,6 +597,8 @@ public class Translate {
     }
 }
 ```
+
+
 
 # [Node.js](#tab/nodejs)
 
@@ -615,6 +637,8 @@ axios({
 })
 ```
 
+
+
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
@@ -634,7 +658,6 @@ params = {
     'api-version': '3.0',
     'to': ['de', 'it']
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -653,6 +676,8 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+
 
 ---
 
@@ -729,6 +754,8 @@ class Program
 }
 ```
 
+
+
 # [Go](#tab/go)
 
 ```go
@@ -792,6 +819,7 @@ func main() {
 }
 ```
 
+
 # [Java](#tab/java)
 
 ```java
@@ -825,7 +853,7 @@ public class Detect {
                 "[{\"Text\": \"Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -851,6 +879,7 @@ public class Detect {
     }
 }
 ```
+
 
 # [Node.js](#tab/nodejs)
 
@@ -887,6 +916,7 @@ axios({
 })
 ```
 
+
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
@@ -905,7 +935,6 @@ constructed_url = endpoint + path
 params = {
     'api-version': '3.0'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -924,32 +953,27 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+
 ---
 
 When using the `/detect` endpoint, the response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response: 
 
 ```json
 [
+
     {
-        "alternatives": [
-            {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "nl",
-                "score": 0.92
-            },
-            {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "sk",
-                "score": 0.77
-            }
-        ],
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false,
+
         "language": "de",
-        "score": 1.0
+
+        "score": 1.0,
+
+        "isTranslationSupported": true,
+
+        "isTransliterationSupported": false
+
     }
+
 ]
 ```
 
@@ -963,7 +987,7 @@ If you're translating into a language that uses a different alphabet (or phoneme
 
 To get a transliteration from the `translate` endpoint, use the `toScript` parameter.
 
-> ![NOTE]
+> [!NOTE]
 > For a complete list of available languages and transliteration options, see [language support](language-support.md).
 
 # [C#](#tab/csharp)
@@ -1011,6 +1035,7 @@ class Program
     }
 }
 ```
+
 
 # [Go](#tab/go)
 
@@ -1076,6 +1101,7 @@ func main() {
 }
 ```
 
+
 # [Java](#tab/java)
 
 ```java
@@ -1111,7 +1137,7 @@ public class Translate {
                 "[{\"Text\": \"Hello\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -1137,6 +1163,7 @@ public class Translate {
     }
 }
 ```
+
 
 # [Node.js](#tab/nodejs)
 
@@ -1175,6 +1202,7 @@ axios({
 })
 ```
 
+
 # [Python](#tab/python)
 ```Python
 import requests, uuid, json
@@ -1195,7 +1223,6 @@ params = {
     'to': 'th',
     'toScript': 'latn'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -1213,6 +1240,7 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
 
 ---
 
@@ -1243,7 +1271,7 @@ After a successful call, you should see the following response. Keep in mind tha
 
 You can also use the `transliterate` endpoint to get a transliteration. When using the transliteration endpoint, you must provide the source language (`language`), the source script/alphabet (`fromScript`), and the output script/alphabet (`toScript`) as parameters. In this example, we're going to get the transliteration for สวัสดี. 
 
-> ![NOTE]
+> [!NOTE]
 > For a complete list of available languages and transliteration options, see [language support](language-support.md).
 
 # [C#](#tab/csharp)
@@ -1292,6 +1320,7 @@ class Program
     }
 }
 ```
+
 
 # [Go](#tab/go)
 
@@ -1358,6 +1387,8 @@ func main() {
 }
 ```
 
+
+
 # [Java](#tab/java)
 
 ```java
@@ -1394,7 +1425,7 @@ public class Transliterate {
                 "[{\"Text\": \"สวัสดี\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -1420,6 +1451,7 @@ public class Transliterate {
     }
 }
 ```
+
 
 # [Node.js](#tab/nodejs)
 
@@ -1459,6 +1491,7 @@ axios({
 })
 ```
 
+
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
@@ -1480,7 +1513,6 @@ params = {
     'fromScript': 'thai',
     'toScript': 'latn'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -1499,6 +1531,7 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
+
 
 ---
 
@@ -1568,6 +1601,7 @@ class Program
 }
 ```
 
+
 # [Go](#tab/go)
 
 ```go
@@ -1632,6 +1666,8 @@ func main() {
 }
 ```
 
+
+
 # [Java](#tab/java)
 
 ```java
@@ -1667,7 +1703,7 @@ public class Translate {
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -1731,6 +1767,7 @@ axios({
 })
 ```
 
+
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
@@ -1751,7 +1788,6 @@ params = {
     'to': 'es',
     'includeSentenceLength': True
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -1769,6 +1805,8 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+
 
 ---
 
@@ -1853,6 +1891,8 @@ class Program
     }
 }
 ```
+
+
 
 # [Go](#tab/go)
 
@@ -1949,7 +1989,7 @@ public class BreakSentence {
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -1975,6 +2015,8 @@ public class BreakSentence {
     }
 }
 ```
+
+
 
 # [Node.js](#tab/nodejs)
 
@@ -2011,6 +2053,8 @@ axios({
 })
 ```
 
+
+
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
@@ -2029,7 +2073,6 @@ constructed_url = endpoint + path
 params = {
     'api-version': '3.0'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -2048,6 +2091,7 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
+
 
 ---
 
@@ -2119,6 +2163,7 @@ class Program
 }
 ```
 
+
 # [Go](#tab/go)
 
 ```go
@@ -2183,6 +2228,7 @@ func main() {
 }
 ```
 
+
 # [Java](#tab/java)
 
 ```java
@@ -2218,7 +2264,7 @@ public class DictionaryLookup {
                 "[{\"Text\": \"Shark\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -2244,6 +2290,8 @@ public class DictionaryLookup {
     }
 }
 ```
+
+
 
 # [Node.js](#tab/nodejs)
 
@@ -2282,6 +2330,7 @@ axios({
 })
 ```
 
+
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
@@ -2302,7 +2351,6 @@ params = {
     'from': 'en',
     'to': 'es'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -2320,6 +2368,7 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
 
 ---
 
@@ -2415,6 +2464,8 @@ class Program
 }
 ```
 
+
+
 # [Go](#tab/go)
 
 ```go
@@ -2483,6 +2534,7 @@ func main() {
 }
 ```
 
+
 # [Java](#tab/java)
 
 ```java
@@ -2517,7 +2569,9 @@ public class DictionaryExamples {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Shark\", \"Translation\": \"tiburón\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -2542,6 +2596,7 @@ public class DictionaryExamples {
     }
 }
 ```
+
 
 # [Node.js](#tab/nodejs)
 
@@ -2581,6 +2636,7 @@ axios({
 })
 ```
 
+
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
@@ -2601,7 +2657,6 @@ params = {
     'from': 'en',
     'to': 'es'
 }
-constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
@@ -2621,6 +2676,8 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+
 
 ---
 
@@ -2663,16 +2720,21 @@ After a successful call, you should see the following response. For more informa
 
 ## Troubleshooting
 
+### Common HTTP status codes
+
+| HTTP status code | Description | Possible reason |
+|------------------|-------------|-----------------|
+| 200 | OK | The request was successful. |
+| 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
+| 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
+| 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
+
 ### Java users
 
-If you're encountering connection issues, it may be that your SSL certificate has expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store. 
+If you're encountering connection issues, it may be that your SSL certificate has expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store.
 
 ## Next steps
 
-* [Learn how the API counts characters](character-counts.md)
-* [Customize and improve translation](customization.md)
-
-## See also
-
-* [Translator v3 API reference](reference/v3-0-reference.md)
-* [Language support](language-support.md)
+> [!div class="nextstepaction"]
+> [Customize and improve translation](customization.md)

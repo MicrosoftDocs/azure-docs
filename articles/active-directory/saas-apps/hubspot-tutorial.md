@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with HubSpot | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with HubSpot'
 description: Learn how to configure single sign-on between Azure Active Directory and HubSpot.
 services: active-directory
 author: jeevansd
@@ -9,20 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/14/2019
+ms.date: 09/07/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with HubSpot
+# Tutorial: Azure AD SSO integration with HubSpot
 
-In this tutorial, you learn how to integrate HubSpot with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate HubSpot with Azure Active Directory (Azure AD). When you integrate HubSpot with Azure AD, you can:
 
-Integrating HubSpot with Azure AD gives you the following benefits:
-
-* You can use Azure AD to control who has access to HubSpot.
-* Users can be automatically signed in to HubSpot with their Azure AD accounts (single sign-on).
-* You can manage your accounts in one central location, the Azure portal.
-
-For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to HubSpot.
+* Enable your users to be automatically signed-in to HubSpot with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
@@ -37,69 +33,46 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 HubSpot supports the following features:
 
-* **SP-initiated single sign-on**
-* **IDP-initiated single sign-on**
+* **SP-initiated single sign-on**.
+* **IDP-initiated single sign-on**.
 
-## Add HubSpot in the Azure portal
+## Add HubSpot from the gallery
 
-To integrate HubSpot with Azure AD, you must add HubSpot to your list of managed SaaS apps.
+To configure the integration of HubSpot into Azure AD, you need to add HubSpot from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **HubSpot** in the search box.
+1. Select **HubSpot** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the left menu, select **Azure Active Directory**.
+## Configure and test Azure AD SSO for HubSpot
 
-	![The Azure Active Directory option](common/select-azuread.png)
+Configure and test Azure AD SSO with HubSpot using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in HubSpot.
 
-1. Select **Enterprise applications** > **All applications**.
+To configure and test Azure AD SSO with HubSpot, perform the following steps:
 
-	![The Enterprise applications pane](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure HubSpot SSO](#configure-hubspot-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create HubSpot test user](#create-hubspot-test-user)** - to have a counterpart of B.Simon in HubSpot that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-1. To add an application, select **New application**.
+## Configure Azure AD SSO
 
-	![The New application option](common/add-new-app.png)
+1. In the Azure portal, on the **HubSpot** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the search box, enter **HubSpot**. In the search results, select **HubSpot**, and then select **Add**.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![HubSpot in the results list](common/search-new-app.png)
-
-## Configure and test Azure AD single sign-on
-
-In this section, you configure and test Azure AD single sign-on with HubSpot based on a test user named **Britta Simon**. For single sign-on to work, you must establish a linked relationship between an Azure AD user and the related user in HubSpot.
-
-To configure and test Azure AD single sign-on with HubSpot, you must complete the following building blocks:
-
-| Task | Description |
-| --- | --- |
-| **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** | Enables your users to use this feature. |
-| **[Configure HubSpot single sign-on](#configure-hubspot-single-sign-on)** | Configures the single sign-on settings in the application. |
-| **[Create an Azure AD test user](#create-an-azure-ad-test-user)** | Tests Azure AD single sign-on for a user named Britta Simon. |
-| **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** | Enables Britta Simon to use Azure AD single sign-on. |
-| **[Create a HubSpot test user](#create-a-hubspot-test-user)** | Creates a counterpart of Britta Simon in HubSpot that is linked to the Azure AD representation of the user. |
-| **[Test single sign-on](#test-single-sign-on)** | Verifies that the configuration works. |
-
-### Configure Azure AD single sign-on
-
-In this section, you configure Azure AD single sign-on with HubSpot in the Azure portal.
-
-1. In the [Azure portal](https://portal.azure.com/), in the **HubSpot** application integration pane, select **Single sign-on**.
-
-    ![Configure single sign-on option](common/select-sso.png)
-
-1. In the **Select a single sign-on method** pane, select **SAML** or **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-1. In the **Set up Single Sign-On with SAML** pane, select **Edit** (the pencil icon) to open the **Basic SAML Configuration** pane.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-1. In the **Basic SAML Configuration** pane, to configure *IDP-initiated mode*, complete the following steps:
+1. In the **Basic SAML Configuration** pane, to configure **IDP-initiated mode**, perform the following steps:
 
     1. In the **Identifier** box, enter a URL that has the following pattern: https:\//api.hubspot.com/login-api/v1/saml/login?portalId=\<CUSTOMER ID\>.
 
     1. In the **Reply URL** box, enter a URL that has the following pattern: https:\//api.hubspot.com/login-api/v1/saml/acs?portalId=\<CUSTOMER ID\>.
-
-	![HubSpot domain and URLs single sign-on information](common/idp-intiated.png)
 
     > [!NOTE]
 	> To format the URLs, you can also refer to the patterns shown in the **Basic SAML Configuration** pane in the Azure portal.
@@ -110,103 +83,71 @@ In this section, you configure Azure AD single sign-on with HubSpot in the Azure
 
 	1. In the **Sign on URL** box, enter **https:\//app.hubspot.com/login**.
 
-    ![The Set additional URLs option](common/metadata-upload-additional-signon.png)
-
 1. In the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** next to **Certificate (Base64)**. Select a download option based on your requirements. Save the certificate on your computer.
 
 	![The Certificate (Base64) download option](common/certificatebase64.png)
 
 1. In the **Set up HubSpot** section, copy the following URLs based on your requirements:
 
-	* Login URL
-	* Azure AD Identifier
-	* Logout URL
-
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Configure HubSpot single sign-on
+### Create an Azure AD test user
+
+In this section, you'll create a test user in the Azure portal called B.Simon.
+
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+    1. In the **Name** field, enter `B.Simon`.  
+    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+    1. Click **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to HubSpot.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **HubSpot**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure HubSpot SSO
 
 1. Open a new tab in your browser and sign in to your HubSpot administrator account.
 
 1. Select the **Settings** icon in the upper-right corner of the page.
 
-	![The Settings icon in HubSpot](./media/hubspot-tutorial/config1.png)
+	![The Settings icon in HubSpot](./media/hubspot-tutorial/icon.png)
 
 1. Select **Account Defaults**.
 
-	![The Account Defaults option in HubSpot](./media/hubspot-tutorial/config2.png)
+	![The Account Defaults option in HubSpot](./media/hubspot-tutorial/account.png)
 
 1. Scroll down to the **Security** section, and then select **Set up**.
 
-	![The Set up option in HubSpot](./media/hubspot-tutorial/config3.png)
+	![The Set up option in HubSpot](./media/hubspot-tutorial/security.png)
 
-1. In the **Set up single sign-on** section, complete the following steps:
+1. In the **Set up single sign-on** section, perform the following steps:
 
 	1. In the **Audience URl (Service Provider Entity ID)** box, select **Copy** to copy the value. In the Azure portal, in the **Basic SAML Configuration** pane, paste the value in the **Identifier** box.
 
-	1. In the **Sign on URl, ACS, Recipient, or Redirect** box, select **Copy** to copy the value. In the Azure portal, in the **Basic SAML Configuration** pane, paste the value in the **Reply URL** box.
+	1. In the **Sign on URL, ACS, Recipient, or Redirect** box, select **Copy** to copy the value. In the Azure portal, in the **Basic SAML Configuration** pane, paste the value in the **Reply URL** box.
 
 	1. In HubSpot, in the **Identity Provider Identifier or Issuer URL** box, paste the value for **Azure AD Identifier** that you copied in the Azure portal.
 
 	1. In HubSpot, in the **Identity Provider Single Sign-On URL** box, paste the value for **Login URL** that you copied in the Azure portal.
 
-	1. In Windows Notepad, open the Certificate(Base64) file that you downloaded. Select and copy the contents of the file. Then, in HubSpot, paste it in the **X.509 Certificate** box.
+	1. In Windows Notepad, open the **Certificate(Base64)** file that you downloaded. Select and copy the contents of the file. Then, in HubSpot, paste it in the **X.509 Certificate** box.
 
 	1. Select **Verify**.
 
-		![The Set up single sign-on section in HubSpot](./media/hubspot-tutorial/config4.png)
+		![The Set up single sign-on section in HubSpot](./media/hubspot-tutorial/certificate.png)
 
-### Create an Azure AD test user
-
-In this section, you create a test user named Britta Simon in the Azure portal.
-
-1. In the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
-
-    ![The Users and All users options](common/users.png)
-
-1. Select **New user**.
-
-    ![The New user option](common/new-user.png)
-
-1. In the **User** pane, complete the following steps:
-
-    1. In the **Name** box, enter **BrittaSimon**.
-  
-    1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension\>**. For example, **brittasimon\@contoso.com**.
-
-    1. Select the **Show password** check box. Write down the value that's displayed in the **Password** box.
-
-    1. Select **Create**.
-
-	![The User pane](common/user-properties.png)
-
-### Assign the Azure AD test user
-
-In this section, you grant Britta Simon access to HubSpot so she can use Azure single sign-on.
-
-1. In the Azure portal, select **Enterprise applications** > **All applications** > **HubSpot**.
-
-	![The Enterprise applications pane](common/enterprise-applications.png)
-
-1. In the applications list, select **HubSpot**.
-
-	![HubSpot in the applications list](common/all-applications.png)
-
-1. In the menu, select **Users and groups**.
-
-    ![The Users and groups option](common/users-groups-blade.png)
-
-1. Select **Add user**. Then, in the **Add assignment** pane, select **Users and groups**.
-
-    ![The Add assignment pane](common/add-assign-user.png)
-
-1. In the **Users and groups** pane, select **Britta Simon** in the list of users. Choose **Select**.
-
-1. If you are expecting a role value in the SAML assertion, in the **Select role** pane, select the relevant role for the user from the list. Choose **Select**.
-
-1. In the **Add Assignment** pane, select **Assign**.
-
-### Create a HubSpot test user
+### Create HubSpot test user
 
 To enable Azure AD a user to sign in to HubSpot, the user must be provisioned in HubSpot. In HubSpot, provisioning is a manual task.
 
@@ -216,41 +157,47 @@ To provision a user account in HubSpot:
 
 1. Select the **Settings** icon in the upper-right corner of the page.
 
-	![The Settings icon in HubSpot](./media/hubspot-tutorial/config1.png)
+	![The Settings icon in HubSpot](./media/hubspot-tutorial/icon.png)
 
 1. Select **Users & Teams**.
 
-	![The Users & Teams option in HubSpot](./media/hubspot-tutorial/user1.png)
+	![The Users & Teams option in HubSpot](./media/hubspot-tutorial/users.png)
 
 1. Select **Create user**.
 
-	![The Create user option in HubSpot](./media/hubspot-tutorial/user2.png)
+	![The Create user option in HubSpot](./media/hubspot-tutorial/teams.png)
 
 1. In the **Add email addess(es)** box, enter the email address of the user in the format brittasimon\@contoso.com, and then select **Next**.
 
-	![The Add email address(es) box in the Create users section in HubSpot](./media/hubspot-tutorial/user3.png)
+	![The Add email address(es) box in the Create users section in HubSpot](./media/hubspot-tutorial/add-user.png)
 
 1. In the **Create users** section, select each tab. On each tab, set the relevant options and permissions for the user. Then, select **Next**.
 
-	![Tabs in the Create users section in HubSpot](./media/hubspot-tutorial/user4.png)
+	![Tabs in the Create users section in HubSpot](./media/hubspot-tutorial/create-user.png)
 
 1. To send the invitation to the user, select **Send**.
 
-	![The Send option in HubSpot](./media/hubspot-tutorial/user5.png)
+	![The Send option in HubSpot](./media/hubspot-tutorial/invitation.png)
 
 	> [!NOTE]
 	> The user is activated after the user accepts the invitation.
 
-### Test single sign-on
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-After you set up single sign-on, when you select **HubSpot** in the My Apps portal, you are automatically signed in to HubSpot. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+#### SP initiated:
+
+* Click on **Test this application** in Azure portal. This will redirect to HubSpot Sign on URL where you can initiate the login flow.  
+
+* Go to HubSpot Sign-on URL directly and initiate the login flow from there.
+
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the HubSpot for which you set up the SSO. 
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the HubSpot tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the HubSpot for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-To learn more, review these articles:
-
-- [List of tutorials for integrating SaaS apps with Azure Active Directory](./tutorial-list.md)
-- [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+Once you configure HubSpot you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

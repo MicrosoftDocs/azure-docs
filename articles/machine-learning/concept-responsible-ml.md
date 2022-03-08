@@ -1,24 +1,25 @@
 ---
-title: What is responsible machine learning (preview)
+title: What is responsible AI (preview)
 titleSuffix: Azure Machine Learning
-description: Learn what responsible machine learning is and how to use it with Azure Machine Learning to understand models, protect data and control the model lifecycle.
+description: Learn what responsible AI is and how to use it with Azure Machine Learning to understand models, protect data and control the model lifecycle.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: luquinta
-author: luisquintanilla
-ms.date: 11/16/2020
-#intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning
+ms.author: lagayhar
+author: lgayhardt
+ms.date: 10/21/2021
+ms.custom: responsible-ml
+#Customer intent: As a data scientist, I want to know learn what responsible AI is and how I can use it in Azure Machine Learning.
 ---
 
-# What is responsible machine learning? (preview)
+# What is responsible AI? (preview)
 
-In this article, you'll learn what responsible machine learning (ML) is and ways you can put it into practice with Azure Machine Learning.
+In this article, you'll learn what responsible AI is and ways you can put it into practice with Azure Machine Learning.
 
-## Responsible machine learning principles
+## Responsible AI principles
 
-Throughout the development and use of AI systems, trust must be at the core. Trust in the platform, process, and models. At Microsoft, responsible machine learning encompasses the following values and principles:
+Throughout the development and use of AI systems, trust must be at the core. Trust in the platform, process, and models. At Microsoft, responsible AI with regard to machine learning encompasses the following values and principles:
 
 - Understand machine learning models
   - Interpret and explain model behavior
@@ -29,7 +30,7 @@ Throughout the development and use of AI systems, trust must be at the core. Tru
 - Control the end-to-end machine learning process
   - Document the machine learning lifecycle with datasheets
 
-:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Responsible ML pillars - interpretability, differential privacy, homomorphic encryption, audit trail - Azure Machine Learning":::
+:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Responsible AI pillars - interpretability, differential privacy, homomorphic encryption, audit trail - Azure Machine Learning":::
 
 As artificial intelligence and autonomous systems integrate more into the fabric of society, it's important to proactively make an effort to anticipate and mitigate the unintended consequences of these technologies.
 
@@ -37,7 +38,7 @@ As artificial intelligence and autonomous systems integrate more into the fabric
 
 Hard to explain or opaque-box systems can be problematic because it makes it hard for stakeholders like system developers, regulators, users, and business decision makers to understand why systems make certain decisions. Some AI systems are more explainable than others and there's sometimes a tradeoff between a system with higher accuracy and one that is more explainable.
 
-To build interpretable AI systems, use [InterpretML](https://github.com/interpretml/interpret), an open-source package built by Microsoft. [InterpretML can be used inside of Azure Machine Learning](how-to-machine-learning-interpretability.md) to [interpret and explain your machine learning models](how-to-machine-learning-interpretability-aml.md), including [automated machine learning models](how-to-machine-learning-interpretability-automl.md).
+To build interpretable AI systems, use [InterpretML](https://github.com/interpretml/interpret), an open-source package built by Microsoft. The InterpretML package supports a wide variety of interpretability techniques such as SHapley Additive exPlanations (SHAP), mimic explainer and permutation feature importance (PFI).  [InterpretML can be used inside of Azure Machine Learning](how-to-machine-learning-interpretability.md) to [interpret and explain your machine learning models](how-to-machine-learning-interpretability-aml.md), including [automated machine learning models](how-to-machine-learning-interpretability-automl.md).
 
 ## Mitigate fairness in machine learning models
 
@@ -48,7 +49,7 @@ Unfairness in AI systems can result in the following unintended consequences:
 - Withholding opportunities, resources or information from individuals.
 - Reinforcing biases and stereotypes.
 
-Many aspects of fairness cannot be captured or represented by metrics. There are tools and practices that can improve fairness in the design and development of AI systems.
+Many aspects of fairness can’t be captured or represented by metrics. There are tools and practices that can improve fairness in the design and development of AI systems.
 
 Two key steps in reducing unfairness in AI systems are assessment and mitigation. We recommend [FairLearn](https://github.com/fairlearn/fairlearn), an open-source package that can assess and mitigate the potential unfairness of AI systems. To learn more about fairness and the FairLearn package, see the [Fairness in ML article](./concept-fairness-ml.md).
 
@@ -58,10 +59,7 @@ When data is used for analysis, it's important that the data remains private and
 
 In traditional scenarios, raw data is stored in files and databases. When users analyze data, they typically use the raw data. This is a concern because it might infringe on an individual's privacy. Differential privacy tries to deal with this problem by adding "noise" or randomness to the data so that users can't identify any individual data points.
 
-Implementing differentially private systems is difficult. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) is an open-source project that contains different components for building global differentially private systems. To learn more about differential privacy and the WhiteNoise project, see the [preserve data privacy by using differential privacy and WhiteNoise](./concept-differential-privacy.md) article.
-
-> [!NOTE]
-> Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks. 
+Implementing differentially private systems is difficult. [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core) is an open-source project that contains different components for building global differentially private systems. To learn more about differential privacy and the SmartNoise project, see the [preserve data privacy by using differential privacy and SmartNoise](./concept-differential-privacy.md) article.
 
 ## Work on encrypted data with homomorphic encryption
 
@@ -77,7 +75,7 @@ See the following sample to learn [how to deploy an encrypted inferencing web se
 
 Documenting the right information in the machine learning process is key to making responsible decisions at each stage. Datasheets are a way to document machine learning assets that are used and created as part of the machine learning lifecycle.
 
-Models tend to be thought of as "opaque boxes" and often there is little information about them. Because machine learning systems are becoming more pervasive and are used for decision making, using datasheets is a step towards developing more responsible machine learning systems.
+Models tend to be thought of as "opaque boxes" and often there’s little information about them. Because machine learning systems are becoming more pervasive and are used for decision making, using datasheets is a step towards developing more responsible machine learning systems.
 
 Some model information you might want to document as part of a datasheet:
 
@@ -86,7 +84,7 @@ Some model information you might want to document as part of a datasheet:
 - Training data used
 - Evaluation data used
 - Training model performance metrics
-- Fairness information.
+- Fairness information
 
 See the following sample to learn how to use the Azure Machine Learning SDK to implement [datasheets for models](https://github.com/microsoft/MLOps/blob/master/pytorch_with_datasheet/model_with_datasheet.ipynb).
 

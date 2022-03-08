@@ -17,8 +17,6 @@ This script publishes a managed application definition to a service catalog.
 
 ## Sample script
 
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
-
 [!code-powershell[main](../../../../powershell_scripts/managed-applications/create-definition/create-definition.ps1 "Create definition")]
 
 

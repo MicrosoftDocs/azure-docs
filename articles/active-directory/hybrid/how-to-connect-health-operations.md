@@ -3,16 +3,15 @@ title: Azure Active Directory Connect Health operations
 description: This article describes additional operations that can be performed after you have deployed Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
-manager: daveba
+author: billmath
+manager: karenhoran
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 07/18/2017
+ms.date: 01/21/2022
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
@@ -30,19 +29,18 @@ You can configure the Azure AD Connect Health service to send email notification
 >
 
 ### To enable Azure AD Connect Health email notifications
-1. Open the **Alerts** blade for the service for which you want to receive email notification.
-2. From the action bar, click **Notification Settings**.
-3. At the email notification switch, select **ON**.
-4. Select the check box if you want all global administrators to receive email notifications.
-5. If you want to receive email notifications at any other email addresses, specify them in the **Additional Email Recipients** box. To remove an email address from this list, right-click the entry and select **Delete**.
-6. To finalize the changes, click **Save**. Changes take effect only after you save.
+1. In the Azure Portal, search for Azure AD Connect Health
+2. Select **Sync errors**
+3. Select **Notification Settings**.
+5. At the email notification switch, select **ON**.
+6. Select the check box if you want all global administrators to receive email notifications.
+7. If you want to receive email notifications at any other email addresses, specify them in the **Additional Email Recipients** box. To remove an email address from this list, right-click the entry and select **Delete**.
+8. To finalize the changes, click **Save**. Changes take effect only after you save.
 
 >[!NOTE] 
 > When there are issues processing synchronization requests in our backend service, this service sends a notification email with the details of the error to the administrative contact email address(es) of your tenant. We heard feedback from customers that in certain cases the volume of these messages is prohibitively large so we are changing the way we send these messages. 
 >
 > Instead of sending a message for every sync error every time it occurs we will send out a daily digest of all errors the backend service has returned. This enables customers to process these errors in a more efficient manner and reduces the number of duplicate error messages.
->
-> We plan for this change to be implemented on January 15th, 2020.
 
 ## Delete a server or service instance
 
@@ -167,5 +165,5 @@ You can remove a user or a group added to Azure AD Connect Health and Azure RBAC
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](how-to-connect-health-sync.md)
 * [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)
 * [Azure AD Connect Health version history](reference-connect-health-version-history.md)

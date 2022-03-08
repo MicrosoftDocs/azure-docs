@@ -15,7 +15,7 @@ An [Azure App Service plan](overview-hosting-plans.md) provides the resources th
 ## Create an App Service plan
 
 > [!TIP]
-> If you have an App Service Environment, see [Create an App Service plan in an App Service Environment](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
+> If you want to create a plan in an App Service Environment, you can select it in the **Region** and follow the rest of the steps as described below.
 
 You can create an empty App Service plan, or you can create a plan as part of app creation.
 
@@ -58,7 +58,7 @@ You can move an app to another App Service plan, as long as the source plan and 
    > [!IMPORTANT]
    > If you're moving an app from a higher-tiered plan to a lower-tiered plan, such as from **D1** to **F1**, the app may lose certain capabilities in the target plan. For example, if your app uses TLS/SSL certificates, you might see this error message:
    >
-   > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
+   > `Cannot update the site with hostname '<app_name>' because its current TLS/SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed TLS/SSL configuration is 'Disabled'.`
 
 5. When finished, select **OK**.
    
@@ -77,7 +77,7 @@ You can find **Clone App** in the **Development Tools** section of the menu.
 
 To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](manage-scale-up.md).
 
-To scale out an app's instance count, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md).
+To scale out an app's instance count, see [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md).
 
 <a name="delete"></a>
 

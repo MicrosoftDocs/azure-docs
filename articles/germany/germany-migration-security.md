@@ -57,7 +57,7 @@ Make sure that you update your on-premises configuration. Also, delete any exist
 For more information:
 
 - Refresh your knowledge by completing the [VPN Gateway tutorials](../vpn-gateway/index.yml).
-- Learn how to [create a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+- Learn how to [create a site-to-site connection](../vpn-gateway/tutorial-site-to-site-portal.md).
 - Review the [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) PowerShell cmdlets.
 - Read the blog post [Create a site-to-site connection](/archive/blogs/ralfwi/connecting-clouds).
   

@@ -12,7 +12,7 @@ ms.date: 02/12/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-titleSuffix: Microsoft identity platform
+ROBOTS: NOINDEX
 ---
 
 # Azure Active Directory developer platform videos

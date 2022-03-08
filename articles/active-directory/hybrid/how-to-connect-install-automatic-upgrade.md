@@ -4,23 +4,23 @@ description: This topic describes the built-in automatic upgrade feature in Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/09/2020
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Automatic upgrade
-This feature was introduced with build [1.1.105.0 (released February 2016)](reference-connect-version-history.md).  This feature was updated in [build 1.1.561](reference-connect-version-history.md) and now supports additional scenarios that were previously not supported.
+Azure AD Connect automatic upgrade is a feature that regularly checks for newer versions of Azure AD Connect. If your server is enabled for automatic upgrade and a newer version is found for which your server is eligible, it will perform an automatic upgrade to that newer version.
+Note that for security reasons the agent that performs the automatic upgrade validates the new build of Azure AD Connect based on the digital signature of the downloaded version.
 
 ## Overview
 Making sure your Azure AD Connect installation is always up to date has never been easier with the **automatic upgrade** feature. This feature is enabled by default for express installations and DirSync upgrades. When a new version is released, your installation is automatically upgraded.
@@ -45,6 +45,22 @@ Automatic upgrade is using Azure AD Connect Health for the upgrade infrastructur
 
 
 If the **Synchronization Service Manager** UI is running on the server, then the upgrade is suspended until the UI is closed.
+
+>[!NOTE]
+> Not all releases of Azure AD Connect are made available for auto upgrade. The release status indicates if a release is available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect released for auto upgrade if **your configuration is [eligible](#auto-upgrade-eligibility)** for auto upgrade. For more information, see the article [Azure AD Connect: Version release history](reference-connect-version-history.md).
+
+## Auto-upgrade eligibility
+In order to eligible for an automatic upgrade, you must not meet any one of the following conditions:
+
+| Result Message | Description |
+| --- | --- |
+|UpgradeNotSupportedCustomizedSyncRules|You have added your own custom rules to the configuration.|
+|UpgradeNotSupportedInvalidPersistedState|The installation is not an Express settings or a DirSync upgrade.|
+|UpgradeNotSupportedNonLocalDbInstall|You are not using a SQL Server Express LocalDB database.|
+|UpgradeNotSupportedLocalDbSizeExceeded|Local DB size is greater than or equal to 8 GB|
+|UpgradeNotSupportedAADHealthUploadDisabled|Health data uploads have been disabled from the portal|
+
+
 
 ## Troubleshooting
 If your Connect installation does not upgrade itself as expected, then follow these steps to find out what could be wrong.

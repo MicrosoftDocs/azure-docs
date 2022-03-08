@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Azure Stream Analytics outputs
 description: This article describes techniques to troubleshoot your output connections in Azure Stream Analytics jobs.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
@@ -21,7 +21,7 @@ This article describes common issues with Azure Stream Analytics output connecti
 
    * If the **Input Events** value is greater than zero, the job can read the input data. If the **Input Events** value isn't greater than zero, there's an issue with the job's input. See [Troubleshoot input connections](stream-analytics-troubleshoot-input.md) for more information. If your job has reference data input, apply splitting by logical name when looking at **Input Events** metric. If there are no input events from your reference data alone, then it likely means that this input source has not be configured properly to fetch the right reference dataset.
    * If the **Data Conversion Errors** value is greater than zero and climbing, see [Azure Stream Analytics data errors](data-errors.md) for detailed information about data conversion errors.
-   * If the **Runtime Errors** value is greater than zero, your job receives data but generates errors while processing the query. To find the errors, go to the [audit logs](../azure-resource-manager/management/view-activity-logs.md), and then filter on the **Failed** status.
+   * If the **Runtime Errors** value is greater than zero, your job receives data but generates errors while processing the query. To find the errors, go to the [audit logs](../azure-monitor/essentials/activity-log.md), and then filter on the **Failed** status.
    * If the **Input Events** value is greater than zero and the **Output Events** value equals zero, one of the following statements is true:
       * The query processing resulted in zero output events.
       * Events or fields might be malformed, resulting in a zero output after the query processing.
@@ -70,7 +70,7 @@ When you configure an Azure SQL database as output to a Stream Analytics job, it
 
 When you set up unique key constraints on the SQL table, Azure Stream Analytics removes duplicate records. It splits the data into batches and recursively inserts the batches until a single duplicate record is found. The split and insert process ignores the duplicates one at a time. For a streaming job that has many duplicate rows, the process is inefficient and time-consuming. If you see multiple key violation warning messages in your Activity log for the previous hour, it's likely that your SQL output is slowing down the entire job.
 
-To resolve this issue, [configure the index]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) that's causing the key violation by enabling the IGNORE_DUP_KEY option. This option allows SQL to ignore duplicate values during bulk inserts. Azure SQL Database simply produces a warning message instead of an error. As a result, Azure Stream Analytics no longer produces primary key violation errors.
+To resolve this issue, [configure the index](/sql/t-sql/statements/create-index-transact-sql) that's causing the key violation by enabling the IGNORE_DUP_KEY option. This option allows SQL to ignore duplicate values during bulk inserts. Azure SQL Database simply produces a warning message instead of an error. As a result, Azure Stream Analytics no longer produces primary key violation errors.
 
 Note the following observations when configuring IGNORE_DUP_KEY for several types of indexes:
 

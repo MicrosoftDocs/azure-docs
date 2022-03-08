@@ -3,14 +3,14 @@ title: Access and review audit logs
 titleSuffix: Azure AD B2C
 description: How to access Azure AD B2C audit logs programmatically and in the Azure portal.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/20/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---
@@ -219,4 +219,4 @@ Here's the JSON representation of the example activity event shown earlier in th
 
 ## Next steps
 
-You can automate other administration tasks, for example, [manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
+You can automate other administration tasks, for example, [manage Azure AD B2C user accounts with Microsoft Graph](microsoft-graph-operations.md).

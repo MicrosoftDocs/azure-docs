@@ -1,14 +1,14 @@
 ---
 title: Troubleshooting Azure IoT Hub 500xxx Internal errors
 description: Understand how to fix 500xxx Internal errors 
-author: jlian
+author: kgremban
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.author: jlian
-# As a developer or operator for Azure IoT Hub, I want to resolve 500xxx Internal errors.
+ms.author: kgremban
+#Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 500xxx Internal errors.
 ---
 
 # 500xxx Internal errors

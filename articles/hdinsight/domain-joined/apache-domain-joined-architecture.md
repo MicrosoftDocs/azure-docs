@@ -1,8 +1,6 @@
 ---
 title: Azure HDInsight architecture with Enterprise Security Package
 description: Learn how to plan Azure HDInsight security with Enterprise Security Package.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: omidm
 ms.service: hdinsight
 ms.topic: conceptual
@@ -75,7 +73,7 @@ If federation is being used and password hashes are synced correctly, but you're
 3. Check if the Microsoft Azure PowerShell service principal has already been created.
 
    ```powershell
-   Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+   Get-AzureADServicePrincipal -SearchString "Microsoft Azure PowerShell"
    ```
 
 4. If it doesn't exist, then create the service principal.

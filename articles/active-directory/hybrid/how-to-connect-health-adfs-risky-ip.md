@@ -5,14 +5,13 @@ services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 02/26/2019
+ms.date: 01/21/2022
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
@@ -31,7 +30,7 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 > [!NOTE]
 > To use this report, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
 > To access preview, Global Admin or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permission is required.  
-> 
+>
 
 ## What is in the report?
 The failed sign in activity client IP addresses are aggregated through Web Application Proxy servers. Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities which exceed designated threshold. It provides the following information:

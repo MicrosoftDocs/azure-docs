@@ -1,11 +1,12 @@
 ---
 title: Develop & configure Azure Functions app - Azure SignalR
 description: Details on how to develop and configure serverless real-time applications using Azure Functions and Azure SignalR Service
-author: anthonychu
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: antchu
+ms.author: lianwei
+ms.devlang: csharp, javascript
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -44,11 +45,14 @@ To learn about how to create an authenticated token, refer to [Using App Service
 
 ### Handle messages sent from SignalR Service
 
-Use the *SignalR Trigger* binding to handle messages sent from SignalR Service. You can be triggered when clients send messages or clients get connected or disconnected.
+Use the *SignalR Trigger* binding to handle messages sent from SignalR Service. You can get notified when clients send messages or clients get connected or disconnected.
 
 For more information, see the [*SignalR trigger* binding reference](../azure-functions/functions-bindings-signalr-service-trigger.md).
 
-You also need to configure your function endpoint as an upstream so that service will trigger the function where there is message from client. For more information about how to configure upstream, please refer to this [doc](concept-upstream.md).
+You also need to configure your function endpoint as an upstream so that service will trigger the function when there is message from client. For more information about how to configure upstream, please refer to this [doc](concept-upstream.md).
+
+> [!NOTE]
+> StreamInvocation from client is not supported in Serverless Mode.
 
 ### Sending messages and managing group membership
 

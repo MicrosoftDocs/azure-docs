@@ -1,13 +1,13 @@
 ---
 title: Cloud-to-device messages with Azure IoT Hub (Python) | Microsoft Docs
 description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Python. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: mqtt, devx-track-python
 ---
 
@@ -15,11 +15,11 @@ ms.custom: mqtt, devx-track-python
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial builds on [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md). It shows you how to:
+This tutorial builds on [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python). It shows you how to:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
 
@@ -29,7 +29,7 @@ You can find more information on cloud-to-device messages in the [IoT Hub develo
 
 At the end of this tutorial, you run two Python console apps:
 
-* **SimulatedDevice.py**, a modified version of the app created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md), which connects to your IoT hub and receives cloud-to-device messages.
+* **SimulatedDevice.py**, a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python), which connects to your IoT hub and receives cloud-to-device messages.
 
 * **SendCloudToDeviceMessage.py**, which sends cloud-to-device messages to the simulated device app through IoT Hub.
 
@@ -56,76 +56,76 @@ In this section, you create a Python console app to simulate the device and rece
 1. Add the following `import` statements and variables at the start of the **SimulatedDevice.py** file:
 
     ```python
-    import threading
     import time
     from azure.iot.device import IoTHubDeviceClient
 
     RECEIVED_MESSAGES = 0
     ```
 
-1. Add the following code to **SimulatedDevice.py** file. Replace the `{deviceConnectionString}` placeholder value with the device connection string for the device you created in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) quickstart:
+1. Add the following code to **SimulatedDevice.py** file. Replace the `{deviceConnectionString}` placeholder value with the device connection string for the device you created in the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart:
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-1. Add the following function to print received messages to the console:
+1. Define the following function that will be used to print received messages to the console:
 
     ```python
-    def message_listener(client):
+    def message_handler(message):
         global RECEIVED_MESSAGES
-        while True:
-            message = client.receive_message()
-            RECEIVED_MESSAGES += 1
-            print("\nMessage received:")
+        RECEIVED_MESSAGES += 1
+        print("")
+        print("Message received:")
 
-            #print data and both system and application (custom) properties
-            for property in vars(message).items():
-                print ("    {0}".format(property))
+        # print data from both system and application (custom) properties
+        for property in vars(message).items():
+            print ("    {}".format(property))
 
-            print( "Total calls received: {}".format(RECEIVED_MESSAGES))
-            print()
+        print("Total calls received: {}".format(RECEIVED_MESSAGES))
     ```
 
 1. Add the following code to initialize the client and wait to receive the cloud-to-device message:
 
     ```python
-    def iothub_client_sample_run():
-        try:
-            client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+    def main():
+        print ("Starting the Python IoT Hub C2D Messaging device sample...")
 
-            message_listener_thread = threading.Thread(target=message_listener, args=(client,))
-            message_listener_thread.daemon = True
-            message_listener_thread.start()
+        # Instantiate the client
+        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+
+        print ("Waiting for C2D messages, press Ctrl-C to exit")
+        try:
+            # Attach the handler to the client
+            client.on_message_received = message_handler
 
             while True:
                 time.sleep(1000)
-
         except KeyboardInterrupt:
-            print ( "IoT Hub C2D Messaging device sample stopped" )
+            print("IoT Hub C2D Messaging device sample stopped")
+        finally:
+            # Graceful exit
+            print("Shutting down IoT Hub Client")
+            client.shutdown()
     ```
 
 1. Add the following main function:
 
     ```python
     if __name__ == '__main__':
-        print ( "Starting the Python IoT Hub C2D Messaging device sample..." )
-        print ( "Waiting for C2D messages, press Ctrl-C to exit" )
-
-        iothub_client_sample_run()
+        main()
     ```
 
 1. Save and close the **SimulatedDevice.py** file.
 
 ## Get the IoT hub connection string
 
-In this article, you create a backend service to send cloud-to-device messages through the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md). To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+In this article, you create a backend service to send cloud-to-device messages through the IoT hub you created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python). To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## Send a cloud-to-device message
 
-In this section, you create a Python console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) quickstart. You also need the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+In this section, you create a Python console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart. You also need the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
 1. In your working directory, open a command prompt and install the **Azure IoT Hub Service SDK for Python**.
 
@@ -231,7 +231,5 @@ You are now ready to run the applications.
 ## Next steps
 
 In this tutorial, you learned how to send and receive cloud-to-device messages.
-
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).

@@ -3,7 +3,7 @@ title: Azure PowerShell script sample - Subscribe to custom topic | Microsoft Do
 description: This article provides a sample Azure PowerShell script that shows how to subscribe to Event Grid events for a custom topic.
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 07/08/2020
+ms.date: 09/15/2021
 ---
 
 # Subscribe to events for a custom topic with PowerShell

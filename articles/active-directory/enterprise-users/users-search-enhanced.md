@@ -1,17 +1,17 @@
 ---
-title: User management enhancements (preview) - Azure Active Directory | Microsoft Docs
+title: User management enhancements - Azure Active Directory | Microsoft Docs
 description: Describes how Azure Active Directory enables user search, filtering, and more information about your users.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: enterprise-users
+ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 01/03/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -19,34 +19,22 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# User management enhancements (preview) in Azure Active Directory
+# User management enhancements in Azure Active Directory
 
-This article describes how to use the user management enhancements preview in the Azure Active Directory (Azure AD) portal. The **All users** and **Deleted users** pages have been updated to provide more information and make it easier to find users. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article describes how to use the user management enhancements in the Azure Active Directory (Azure AD) portal. The **All users** and **Deleted users** pages have been updated to provide more information and make it easier to find users.
 
-Changes in the preview include:
+Enhancements include:
 
 - More visible user properties including object ID, directory sync status, creation type, and identity issuer
-- Search now allows substring search and combined search of names, emails, and object IDs
+- Search allows substring search and combined search of names, emails, and object IDs
 - Enhanced filtering by user type (member, guest, none), directory sync status, creation type, company name, and domain name
-- New sorting capabilities on properties like name and user principal name
-- A new total users count that updates with searches or filters
+- Sorting capabilities on properties like name and user principal name
+- Total users count that updates with searches or filters
 
 > [!NOTE]
-> This preview is currently not available for Azure AD B2C tenants.
+> These enhancements are not currently available for Azure AD B2C tenants.
 
-## Find the preview
-
-The preview is turned on by default, so you can use it right away. You can check out the latest features and improvements by selecting **Preview features** on the **All users** page. All pages that have been updated as part of this preview will display a preview tag. If you are having any issues, you can switch back to the legacy experience:
-
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) and select **Users**.
-1. From the **Users – All users** page, select the banner at the top of the page.
-1. In the **Preview features** pane, turn **Enhanced user management** off.
-
-   ![How and where to turn Enhanced User Management on and off](./media/users-search-enhanced/enable-preview.png)
-
-We appreciate your feedback so that we can improve our experience.
-
-## More user properties
+## User properties enhanced
 
 We’ve made some changes to the columns available on the **All users** and **Deleted users** pages. In addition to the existing columns we provide for managing your list of users, we've added a few more columns.
 
@@ -57,6 +45,9 @@ The following are the displayed user properties on the **All users** page:
 - Name: The display name of the user.
 - User principal name: The user principal name (UPN) of the user.
 - User Type: Member, guest, none.
+- Creation time: The date and time the user was created.
+- Job title: The job title of the user.
+- Department: The department the user works in.
 - Directory synced: Indicates whether the user is synced from an on-premises directory.
 - Identity issuer: The issuers of the identity used to sign into a user account.
 - Object ID: The object ID of the user.
@@ -64,7 +55,6 @@ The following are the displayed user properties on the **All users** page:
 - Company name: The company name which the user is associated.
 - Invitation state: The status of the invitation for a guest user.
 - Mail: The email of the user.
-- Last sign-in: the date the user last signed in. This property is visible only to users with permission to read audit logs (Reporting_ApplicationAuditLogs_Read)
 
 ![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
 
@@ -73,7 +63,8 @@ The following are the displayed user properties on the **All users** page:
 The **Deleted users** page includes all the columns that are available on the **All users** page, and a few additional columns, namely:
 
 - Deletion date: The date the user was first deleted from the organization (the user is restorable).
-- Permanent deletion date: The date after which the process of permanently deleting the user from the organization automatically begins. 
+- Permanent deletion date: The date after which the process of permanently deleting the user from the organization automatically begins.
+- Original user principal name: The original UPN of the user before their object ID was added as a prefix to their deleted UPN.
 
 > [!NOTE]
 > Deletion dates are displayed in Coordinated Universal Time ‎(UTC)‎.
@@ -102,6 +93,10 @@ The following are the filterable properties on the **All users** page:
 - User type: Member, guest, none
 - Directory synced status: Yes, no
 - Creation type: Invitation, Email verified, Local account
+- Creation time: Last 7, 14, 30, 90, 360 or >360 days ago
+- Job title: Enter a job title
+- Department: Enter a department name
+- Group: Search for a group
 - Invitation state – Pending acceptance, Accepted
 - Domain name: Enter a domain name
 - Company name: Enter a company name
@@ -114,6 +109,9 @@ The **Deleted users** page has additional filters not in the **All users** page.
 - User type: Member, guest, none
 - Directory synced status: Yes, no
 - Creation type: Invitation, Email verified, Local account
+- Creation time: Last 7, 14, 30, 90, 360 or > 360 days ago
+- Job title: Enter a job title
+- Department: Enter a department name
 - Invitation state: Pending acceptance, Accepted
 - Deletion date: Last 7, 14, or 30 days
 - Domain name: Enter a domain name

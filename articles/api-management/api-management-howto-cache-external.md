@@ -3,7 +3,7 @@ title: Use an external cache in Azure API Management | Microsoft Docs
 description: Learn how to configure and use an external cache in Azure API Management. Using an external cache lets you overcome some limitations of the built-in cache.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: erikre
 editor: ''
 
@@ -11,7 +11,7 @@ ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.author: apimpm
+ms.author: danlep
 
 ---
 
@@ -47,7 +47,7 @@ To complete this tutorial, you need to:
 
 This section explains how to create an Azure Cache for Redis in Azure. If you already have an Azure Cache for Redis, within or outside of Azure, you can <a href="#add-external-cache">skip</a> to the next section.
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](../azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## <a name="create-cache"> </a> Deploy Redis cache to Kubernetes
 

@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 03/1/2022
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: rhicock
+ms.author: justinha
+author: justinha
+manager: karenhoran
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
@@ -20,7 +20,9 @@ ms.collection: M365-identity-device-management
 Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for Azure AD Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Azure AD Multi-Factor Authentication and SSPR.
 
 > [!NOTE]
-> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration.
+> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
+> 
+> After Sept. 30th, 2022, all users will register security information through the combined registration experience. 
 
 To make sure you understand the functionality and effects before you enable the new experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
@@ -31,7 +33,7 @@ To make sure you understand the functionality and effects before you enable the 
 To enable combined registration, complete these steps:
 
 1. Sign in to the Azure portal as a user administrator or global administrator.
-2. Go to **Azure Active Directory** > **User settings** > **Manage user feature preview settings**.
+2. Go to **Azure Active Directory** > **User settings** > **Manage user feature settings**.
 3. Under **Users can use the combined security information registration experience**, choose to enable for a **Selected** group of users or for **All** users.
 
    ![Enable the combined security info experience for users](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info.png)
@@ -44,6 +46,7 @@ To enable combined registration, complete these steps:
 If you have configured the *Site to Zone Assignment List* in Internet Explorer, the following sites have to be in the same zone:
 
 * *[https://login.microsoftonline.com](https://login.microsoftonline.com)*
+* *[https://Login.windows.net](https://login.windows.net)*
 * *[https://mysignins.microsoft.com](https://mysignins.microsoft.com)*
 * *[https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)*
 

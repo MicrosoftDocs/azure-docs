@@ -16,8 +16,9 @@ ms.date: 04/11/2018
 ms.author: msangapu
 ---
 # Create PHP web and worker roles
-
 ## Overview
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](cloud-services/includes/deprecation-announcement.md)]
 
 This guide will show you how to create PHP web or worker roles in a Windows development environment, choose a specific version of PHP from the "built-in" versions available, change the PHP configuration, enable extensions, and finally, deploy to Azure. It also describes how to configure a web or worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
 
@@ -184,9 +185,9 @@ To publish your application, you need to first import your publish settings by u
 For more information, see the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[service definition (.csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[service configuration (.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[service definition (.csdef)]: /previous-versions/azure/reference/ee758711(v=azure.100)
+[service configuration (.cscfg)]: /previous-versions/azure/reference/ee758710(v=azure.100)
 [iis.net]: https://www.iis.net/
-[sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
+[sql native client]: /sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv
 [sqlncli.msi x64 installer]: https://go.microsoft.com/fwlink/?LinkID=239648

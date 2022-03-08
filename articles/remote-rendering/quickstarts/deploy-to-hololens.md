@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
+ms.custom: mode-other
 ---
 
 # Quickstart: Deploy Unity sample to HoloLens
@@ -43,7 +44,7 @@ Make sure your credentials are saved properly with the scene and you can connect
 1. For the project 'Quickstart', go to *Properties > Debugging*
     1. Make sure the configuration *Release* is active
     1. Set *Debugger to Launch* to **Remote Machine**
-    1. Change *Machine Name* to the **IP of your HoleLens**
+    1. Change *Machine Name* to the **IP of your HoloLens**
 
 ## Launch the sample project
 

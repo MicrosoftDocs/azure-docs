@@ -1,10 +1,10 @@
 ---
 title: Common errors - Azure IoT Edge | Microsoft Docs 
 description: Use this article to resolve common issues encountered when deploying an IoT Edge solution
-author: kgremban
-manager: philmea
-ms.author: kgremban
-ms.date: 11/10/2020
+author: PatAltimore
+
+ms.author: patricka
+ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,6 +12,8 @@ ms.custom:  [amqp, mqtt]
 ---
 
 # Common issues and resolutions for Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Use this article to find steps to resolve common issues that you may experience when deploying IoT Edge solutions. If you need to learn how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
 
@@ -78,6 +80,8 @@ Specify the DNS server for your environment in the container engine settings, wh
 
 The above example sets the DNS server to a publicly accessible DNS service. If the edge device can't access this IP from its environment, replace it with DNS server address that is accessible.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Place `daemon.json` in the right location for your platform:
 
 | Platform | Location |
@@ -94,6 +98,24 @@ Restart the container engine for the updates to take effect.
 | Linux | `sudo systemctl restart docker` |
 | Windows (Admin PowerShell) | `Restart-Service iotedge-moby -Force` |
 
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Place `daemon.json` in the `/etc/docker` directory on your device.
+
+If the location already contains a `daemon.json` file, add the **dns** key to it and save the file.
+
+Restart the container engine for the updates to take effect.
+
+```bash
+sudo systemctl restart docker
+```
+
+:::moniker-end
+<!-- end 1.2 -->
+
 **Option 2: Set DNS server in IoT Edge deployment per module**
 
 You can set DNS server for each module's *createOptions* in the IoT Edge deployment. For example:
@@ -107,6 +129,9 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
   }
 }
 ```
+
+> [!WARNING]
+> If you use this method and specify the wrong DNS address, *edgeAgent* loses connection with IoT Hub and can't receive new deployments to fix the issue. To resolve this issue, you can reinstall the IoT Edge runtime. Before you install a new instance of IoT Edge, be sure to remove any *edgeAgent* containers from the previous installation.
 
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
@@ -167,7 +192,7 @@ In the deployment.json file:
    ```json
    "edgeHub": {
        "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+           "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
        },
        "type": "docker",
@@ -181,7 +206,7 @@ In the deployment.json file:
    ```json
    "edgeHub": {
        "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.0"
+           "image": "mcr.microsoft.com/azureiotedge-hub:1.1"
        },
        "type": "docker",
        "status": "running",
@@ -209,6 +234,9 @@ The IoT Edge runtime can only support hostnames that are shorter than 64 charact
 
 When you see this error, you can resolve it by configuring the DNS name of your virtual machine, and then setting the DNS name as the hostname in the setup command.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. In the Azure portal, navigate to the overview page of your virtual machine.
 2. Select **configure** under DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
 
@@ -229,6 +257,42 @@ When you see this error, you can resolve it by configuring the DNS name of your 
       ```cmd
       notepad C:\ProgramData\iotedge\config.yaml
       ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. In the Azure portal, navigate to the overview page of your virtual machine.
+
+2. Select **configure** under DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
+
+   ![Configure DNS name of virtual machine](./media/troubleshoot/configure-dns.png)
+
+3. Provide a value for **DNS name label** and select **Save**.
+
+4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
+
+5. On the IoT Edge device, open the config file.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+6. Replace the value of `hostname` with your DNS name.
+
+7. Save and close the file, then apply the changes to IoT Edge.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 ## Can't get the IoT Edge daemon logs on Windows
 
@@ -252,6 +316,9 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
 
 ## Stability issues on smaller devices
 
@@ -279,7 +346,7 @@ In the deployment manifest:
 "edgeHub": {
   "type": "docker",
   "settings": {
-    "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+    "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
     "createOptions": <snipped>
   },
   "env": {
@@ -325,7 +392,68 @@ Only use one type of deployment mechanism per device, either an automatic deploy
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
-<!-- <1.2> -->
+## IoT Edge module reports connectivity errors
+
+**Observed behavior:**
+
+IoT Edge modules that connect directly to cloud services, including the runtime modules, stop working as expected and return errors around connection or networking failures.
+
+**Root cause:**
+
+Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://apimirror.com/docker~1.12/engine/userguide/networking/default_network/container-communication/index) in the Docker documentation.
+
+**Resolution:**
+
+Use the following steps to enable IP packet forwarding.
+
+<!--1.1-->
+:::moniker range="iotedge-2018-06"
+
+On Windows:
+
+1. Open the **Run** application.
+
+1. Enter `regedit` in the text box and select **Ok**.
+
+1. In the **Registry Editor** window, browse to **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters**.
+
+1. Look for the **IPEnableRouter** parameter.
+
+   1. If the parameter exists, set the value of the parameter to **1**.
+
+   1. If the paramter doesn't exist, add it as a new parameter with the following settings:
+
+      | Setting | Value |
+      | ------- | ----- |
+      | Name    | IPEnableRouter |
+      | Type    | REG_DWORD |
+      | Value   | 1 |
+
+1. Close the registry editor window.
+
+1. Restart your system to apply the changes.
+
+On Linux:
+:::moniker-end
+<!-- end -->
+
+1. Open the **sysctl.conf** file.
+
+   ```bash
+   sudo nano /etc/sysctl.conf
+   ```
+
+1. Add the following line to the file.
+
+   ```input
+   net.ipv4.ip_forward=1
+   ```
+
+1. Save and close the file.
+
+1. Restart the network service and docker service to apply the changes.
+
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
 ## IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module
@@ -336,13 +464,35 @@ The IoT Edge daemon is active with a valid configuration file, but it cannot sta
 
 **Root cause:**
 
-IoT Edge devices behind a gateway get their module images from the parent IoT Edge device specified in the `parent_hostname` field of the config.yaml file. The `Could not perform HTTP request` error means that the child device isn't able to reach its parent device via HTTP.
+IoT Edge devices behind a gateway get their module images from the parent IoT Edge device specified in the `parent_hostname` field of the config file. The `Could not perform HTTP request` error means that the child device isn't able to reach its parent device via HTTP.
 
 **Resolution:**
 
 Make sure the parent IoT Edge device can receive incoming requests from the child IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the child device.
 
+## IoT Edge behind a gateway cannot connect when migrating from one IoT hub to another
+
+**Observed behavior:**
+
+When attempting to migrate a hierarchy of IoT Edge devices from one IoT hub to another, the top level parent IoT Edge device can connect to IoT Hub, but downstream IoT Edge devices cannot. The logs report `Unable to authenticate client downstream-device/$edgeAgent with module credentials`. 
+
+**Root cause:**
+
+The credentials for the downstream devices were not updated properly when the migration to the new IoT hub happened. Because of this, `edgeAgent` and `edgeHub` modules were set to have authentication type of `none` (default if not set explicitly). During connection, the modules on the downstream devices use old credentials, causing the authentication to fail.
+
+**Resolution:**
+
+When migrating to the new IoT hub (assuming not using DPS), follow these steps in order:
+1. Follow [this guide to export and then import device identities](../iot-hub/iot-hub-bulk-identity-mgmt.md) from the old IoT hub to the new one 
+1. Reconfigure all IoT Edge deployments and configurations in the new IoT hub
+1. Reconfigure all parent-child device relationships in the new IoT hub
+1. Update each device to point to the new IoT hub hostname (`iothub_hostname` under `[provisioning]` in `config.toml`)
+1. If you chose to exclude authentication keys during the device export, reconfigure each device with the new keys given by the new IoT hub (`device_id_pk` under `[provisioning.authentication]` in `config.toml`)
+1. Restart the top-level parent Edge device first, make sure it's up and running
+1. Restart each device in hierarchy level by level from top to the bottom
+
 :::moniker-end
+<!-- end 1.2 -->
 
 ## Next steps
 

@@ -1,6 +1,7 @@
 ---
-title: Build a web app that calls web APIs - Microsoft identity platform | Azure
-description: Learn how to build a web app that calls web APIs (overview)
+title: Build a web app that authenticates users and calls web APIs | Azure
+titleSuffix: Microsoft identity platform
+description: Learn how to build a web app that authenticates users and calls web APIs (overview)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,10 +13,10 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that authenticates users and calls web APIs by using the Microsoft identity platform.
 ---
 
-# Scenario: A web app that calls web APIs
+# Scenario: A web app that authenticates users and calls web APIs
 
 Learn how to build a web app that signs users in to the Microsoft identity platform, and then calls web APIs on behalf of the signed-in user.
 

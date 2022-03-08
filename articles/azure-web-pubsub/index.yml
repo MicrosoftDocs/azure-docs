@@ -1,0 +1,61 @@
+### YamlMime:Landing
+
+title: Azure Web PubSub service documentation
+summary: Azure Web PubSub service is an Azure-managed service that helps developers easily build web applications with real-time features and publish-subscribe pattern.
+
+metadata:
+  title: Azure Web PubSub service documentation
+  description: Build and scale real-time web app easily based on WebSocket supporting broad range of languages and frameworks.
+  ms.service: azure-web-pubsub
+  ms.topic: landing-page
+  author: yjin81
+  ms.author: yajin1
+  ms.date: 01/27/2021 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Web PubSub service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Web PubSub service?
+            url: overview.md
+          - text: Key concepts in Azure Web PubSub service
+            url: key-concepts.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Connect to the instance 
+            url: quickstart-cli-try.md
+          - text: Start with a simple chatroom serverless application 
+            url: quickstart-serverless.md
+          - text: Serverless Development with Azure Functions
+            url: tutorial-serverless-notification.md
+      - linkListType: how-to-guide
+        links:
+          - text: Build a chat app 
+            url: tutorial-build-chat.md
+          - text: Client streaming using service-supported subprotocol
+            url: tutorial-subprotocol.md
+          - text: Authentication and permissions
+            url: tutorial-permission.md
+     
+  # Card
+  - title: Live Demos
+    linkLists:       
+      - linkListType: quickstart
+        links:
+          - text: Whiteboard
+            url: https://azure.github.io/azure-webpubsub/demos/whiteboard
+          - text: Simple chat
+            url: https://azure.github.io/azure-webpubsub/demos/chat
+          - text: Code streaming
+            url: https://azure.github.io/azure-webpubsub/demos/code-streaming
+        

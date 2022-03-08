@@ -2,7 +2,9 @@
 title: 'Quickstart: Receive events using Apache Storm - Azure Event Hubs'
 description: 'Quickstart: This article provides information on how to receive events from Azure Event Hubs using Apache Storm.'
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/28/2021
+ms.devlang: java
+ms.custom: mode-other
 ---
 
 # Quickstart: Receive events from Event Hubs using Apache Storm
@@ -230,7 +232,7 @@ You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview][Event Hubs overview]
 * [Create an event hub](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+* [Event Hubs FAQ](event-hubs-faq.yml)
 
 <!-- Links -->
 [Event Hubs overview]: ./event-hubs-about.md

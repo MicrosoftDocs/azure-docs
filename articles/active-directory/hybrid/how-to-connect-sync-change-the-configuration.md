@@ -3,12 +3,12 @@ title: 'Azure AD Connect sync: Make a change to the default configuration'
 description: Walks you through how to make a change to the configuration in Azure AD Connect sync.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/30/2018
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -195,7 +195,7 @@ By default, the UserType attribute is not enabled for synchronization because th
 
 - Azure AD only accepts two values for the UserType attribute: **Member** and **Guest**.
 - If the UserType attribute is not enabled for synchronization in Azure AD Connect, Azure AD users created through directory synchronization would have the UserType attribute set to **Member**.
-- Prior to version 1.5.30.0, Azure AD did not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. In older versions, it could only be set during the creation of the Azure AD users and [changed via PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
+- Prior to version 1.5.30.0, Azure AD did not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. In older versions, it could only be set during the creation of the Azure AD users and [changed via PowerShell](/powershell/module/azuread/set-azureaduser).
 
 Before enabling synchronization of the UserType attribute, you must first decide how the attribute is derived from on-premises Active Directory. The following are the most common approaches:
 

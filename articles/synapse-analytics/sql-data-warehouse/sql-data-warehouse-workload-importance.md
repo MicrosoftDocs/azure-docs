@@ -1,7 +1,6 @@
 ---
 title: Workload importance 
 description: Guidance for setting importance for dedicated SQL pool queries in Azure Synapse Analytics.
-services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: azure-synapse
 ---
 
@@ -33,7 +32,7 @@ Beyond the basic importance scenario described above with sales and weather data
 
 ### Locking
 
-Access to locks for read and write activity is one area of natural contention. Activities such as [partition switching](sql-data-warehouse-tables-partition.md) or [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) require elevated locks.  Without workload importance, dedicated SQL pool in Azure Synapse optimizes for throughput. Optimizing for throughput means that when running and queued requests have the same locking needs and resources are available, the queued requests can bypass requests with higher locking needs that arrived in the request queue earlier. Once workload importance is applied to requests with higher locking needs. Request with higher importance will be run before request with lower importance.
+Access to locks for read and write activity is one area of natural contention. Activities such as [partition switching](sql-data-warehouse-tables-partition.md) or [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) require elevated locks.  Without workload importance, dedicated SQL pool in Azure Synapse optimizes for throughput. Optimizing for throughput means that when running and queued requests have the same locking needs and resources are available, the queued requests can bypass requests with higher locking needs that arrived in the request queue earlier. Once workload importance is applied to requests with higher locking needs. Request with higher importance will be run before request with lower importance.
 
 Consider the following example:
 
@@ -57,8 +56,8 @@ Because Q5 is mediumrc, it requires two concurrency slots. Q5 needs to wait for 
 
 ## Next steps
 
-- For more information on creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+- For more information on creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  
 - For more information about workload classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).  
 - See the Quickstart [Create workload classifier](quickstart-create-a-workload-classifier-tsql.md) for how to create a workload classifier.
 - See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [Manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
-- See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to view queries and the importance assigned.
+- See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to view queries and the importance assigned.

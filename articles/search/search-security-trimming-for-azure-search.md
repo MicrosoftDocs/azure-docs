@@ -1,14 +1,14 @@
 ---
 title: Security filters for trimming results
 titleSuffix: Azure Cognitive Search
-description: Security privileges at the document level for Azure Cognitive Search search results, using security filters and user identities.
+description: Learn how to implement security privileges at the document level for Azure Cognitive Search search results, using security filters and user identities.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 12/16/2020
 ---
 
 # Security filters for trimming results in Azure Cognitive Search
@@ -58,7 +58,7 @@ Let's assume that we have an index of secured files, and each file is accessible
   
 Issue an HTTP POST request to your index's URL endpoint. The body of the HTTP request is a JSON object containing the documents to be added:
 
-```
+```http
 POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2020-06-30  
 Content-Type: application/json
 api-key: [admin key]
@@ -106,17 +106,18 @@ If you need to update an existing document with the list of groups, you can use 
 ```
 
 For full details on adding or updating documents, you can read [Edit documents](/rest/api/searchservice/addupdate-or-delete-documents).
-   
+
 ## Apply the security filter
 
 In order to trim documents based on `group_ids` access, you should issue a search query with a `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, where 'group_id1, group_id2,...' are the groups to which the search request issuer belongs.
+
 This filter matches all documents for which the `group_ids` field contains one of the given identifiers.
 For full details on searching documents using Azure Cognitive Search, you can read [Search Documents](/rest/api/searchservice/search-documents).
 Note that this sample shows how to search documents using a POST request.
 
 Issue the HTTP POST request:
 
-```
+```http
 POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2020-06-30
 Content-Type: application/json  
 api-key: [admin or query key]
@@ -148,12 +149,12 @@ You should get the documents back where `group_ids` contains either "group_id1" 
  ]
 }
 ```
-## Conclusion
 
-This is how you can filter results based on user identity and Azure Cognitive Search `search.in()` function. You can use this function to pass in principle identifiers for the requesting user to match against principal identifiers associated with each target document. When a search request is handled, the `search.in` function filters out search results for which none of the user's principals have read access. The principal identifiers can represent things like security groups, roles, or even the user's own identity.
- 
-## See also
+## Next steps
 
-+ [Active Directory identity-based access control using Azure Cognitive Search filters](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filters in Azure Cognitive Search](search-filters.md)
-+ [Data security and access control in Azure Cognitive Search operations](search-security-overview.md)
+This article described a pattern for filtering results based on user identity and the `search.in()` function. You can use this function to pass in principle identifiers for the requesting user to match against principal identifiers associated with each target document. When a search request is handled, the `search.in` function filters out search results for which none of the user's principals have read access. The principal identifiers can represent things like security groups, roles, or even the user's own identity.
+
+For an alternative pattern based on Active Directory, or to revisit other security features, see the following links.
+
+* [Security filters for trimming results using Active Directory identities](search-security-trimming-for-azure-search-with-aad.md)
+* [Security in Azure Cognitive Search](search-security-overview.md)

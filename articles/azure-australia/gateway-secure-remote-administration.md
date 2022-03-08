@@ -123,7 +123,7 @@ The privileged workstation is a hardened machine that can be used to perform adm
 
 |Resources|Link|
 |---|---|
-|Privileged Access Workstations Architecture Overview|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)|
+|Privileged Access Workstations Architecture Overview|[https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/](/security/compass/privileged-access-deployment)|
 |Securing Privileged Access Reference Material|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)|
 
 ### Mobile device
@@ -162,7 +162,7 @@ The Jump Server / Bastion Host is a centralised point for administration. It has
 
 ### Just in Time (JIT) access
 
-JIT is an Azure Security Center capability that utilises Network Security Groups (NSGs) to block access to administrative protocols such as RDP and SSH on Virtual Machines. Applications hosted on Virtual Machines continue to function as normal, but for administrative access to be obtained it must be requested can only be granted for a set period of time. All requests are logged for auditing purposes.
+JIT is a Microsoft Defender for Cloud capability that utilises Network Security Groups (NSGs) to block access to administrative protocols such as RDP and SSH on Virtual Machines. Applications hosted on Virtual Machines continue to function as normal, but for administrative access to be obtained it must be requested can only be granted for a set period of time. All requests are logged for auditing purposes.
 
 |Resources |Link |
 |---|---|

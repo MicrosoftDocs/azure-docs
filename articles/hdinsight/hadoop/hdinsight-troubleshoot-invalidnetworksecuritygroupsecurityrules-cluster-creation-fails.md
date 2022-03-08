@@ -3,9 +3,6 @@ title: InvalidNetworkSecurityGroupSecurityRules error - Azure HDInsight
 description: Cluster Creation Fails with the ErrorCode InvalidNetworkSecurityGroupSecurityRules
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/31/2019
 ---
 
@@ -27,4 +24,4 @@ Go to the Azure portal and identify the NSG that is associated with the subnet w
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

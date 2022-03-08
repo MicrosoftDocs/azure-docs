@@ -1,17 +1,12 @@
 ---
 title: SSIS migration with Azure SQL Managed Instance as the database workload destination 
 description: SSIS migration with Azure SQL Managed Instance as the database workload destination.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: 
-manager: 
 ms.service: data-factory
-ms.workload: data-services
-
+ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 9/12/2019
+ms.date: 10/22/2021
 ---
 # SSIS migration with Azure SQL Managed Instance as the database workload destination
 
@@ -21,9 +16,9 @@ When migrating database workloads from a SQL Server instance to Azure SQL Manage
 
 This article focuses on the migration of SQL Server Integration Service (SSIS) packages stored in SSIS catalog (SSISDB) and SQL Server Agent jobs that schedule SSIS package executions.
 
-## Migrate SSIS catalog (SSISDB)
+## Migrate packages in SSIS catalog (SSISDB)
 
-SSISDB migration can be done using DMS, as described in the article:
+Database Migration Service can migrate SSIS packages stored in SSISDB, as described in the article:
 [Migrate SSIS packages to SQL Managed Instance](../dms/how-to-migrate-ssis-packages-managed-instance.md).
 
 ## SSIS jobs to SQL Managed Instance agent

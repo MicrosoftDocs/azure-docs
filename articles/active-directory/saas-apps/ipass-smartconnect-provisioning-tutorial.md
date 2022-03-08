@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure iPass SmartConnect for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to iPass SmartConnect.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure iPass SmartConnect for automatic user provisioning
@@ -27,8 +27,12 @@ The objective of this tutorial is to demonstrate the steps to be performed in iP
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A iPass SmartConnect tenant](https://www.ipass.com/buy-ipass/).
+* [An iPass SmartConnect tenant](https://www.ipass.com/buy-ipass/).
 * A user account in iPass SmartConnect with Admin permissions.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 
 ## Assigning users to iPass SmartConnect
 
@@ -77,7 +81,7 @@ To configure iPass SmartConnect for automatic user provisioning with Azure AD, y
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in iPass SmartConnect based on user and/or group assignments in Azure AD.
 
 > [!TIP]
->  You may also choose to enable SAML-based single sign-on for BitaBIZ , following the instructions provided in the [iPass SmartConnect Single sign-on tutorial](ipasssmartconnect-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+>  You may also choose to enable SAML-based single sign-on for iPass SmartConnect, following the instructions provided in the [iPass SmartConnect Single sign-on tutorial](ipasssmartconnect-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for iPass SmartConnect in Azure AD:
 

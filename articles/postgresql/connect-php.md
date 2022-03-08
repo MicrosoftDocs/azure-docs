@@ -4,7 +4,7 @@ description: This quickstart provides a PHP code sample you can use to connect a
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
@@ -83,7 +83,7 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 	// Insert some data into table.
 	$name = '\'banana\'';
 	$quantity = 150;
-	$query = "INSERT INTO inventory (name, quantity) VALUES ($1, $2);";
+	$query = "INSERT INTO inventory (name, quantity) VALUES ($name, $quantity);";
 	pg_query($connection, $query) 
 		or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 

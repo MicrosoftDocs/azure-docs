@@ -1,19 +1,13 @@
 ---
 title: 'Integrate NPS with VPN Gateway RADIUS authentication for MFA'
-description: Describes integrate Azure gateway RADIUS authentication with NPS server for Multi-Factor Authentication.
+titleSuffix: Azure VPN Gateway
+description: Learn about integrating Azure VPN Gateway RADIUS authentication with NPS server for Multi-Factor Authentication.
 services: vpn-gateway
-documentationcenter: na
 author: ahmadnyasin  
 manager: dcscontentpm
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
 
@@ -24,7 +18,7 @@ The article describes how to integrate Network Policy Server (NPS) with Azure VP
 
 ## Prerequisite
 
-To enable MFA, the users must be in Azure Active Directory (Azure AD), which must be synced from either the on-premises or cloud environment. Also, the user must have already completed the auto-enrollment process for MFA.  For more information, see [Set up my account for two-step verification](../active-directory/user-help/multi-factor-authentication-end-user-first-time.md)
+To enable MFA, the users must be in Azure Active Directory (Azure AD), which must be synced from either the on-premises or cloud environment. Also, the user must have already completed the auto-enrollment process for MFA.  For more information, see [Set up my account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
 
 ## Detailed steps
 

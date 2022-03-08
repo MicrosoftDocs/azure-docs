@@ -9,8 +9,7 @@ ms.date: 07/14/2020
 ---
 # Replicate on-premises machines by using private endpoints
 
-Azure Site Recovery allows you to use
-[Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
+Azure Site Recovery allows you to use [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
 your on-premises machines to a virtual network in Azure. Private endpoint access to
 a recovery vault is supported in all Azure Commercial & Government regions.
 
@@ -55,6 +54,9 @@ then create private endpoints in the bypass network. You can choose any form of 
   to a cache storage account. You can use any connectivity method between on-premises and your storage account endpoint. For example, you can use the internet or
   Azure [ExpressRoute](../expressroute/index.yml). Establishing a private link is optional. You can create private endpoints for storage only on General Purpose v2 accounts. See
   [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) for information about pricing for data transfer on General Purpose v2 accounts.
+
+> [!NOTE]
+> While setting up private endpoints to protect VMware and physical machines, you will need to install MySQL on the configuration server manually. Follow the steps [here](vmware-azure-deploy-configuration-server.md#configure-settings) to perform the manual installation. 
 
  ## Create and use private endpoints for site recovery
 
@@ -173,6 +175,9 @@ you continue:
 You can use a private endpoint to Azure Storage. Creating private endpoints for storage access is
 optional for Azure Site Recovery replication. If you create a private endpoint for storage, you
 need a private endpoint for the cache/log storage account in your bypass virtual network.
+
+> [!NOTE]
+> If private endpoints are not enabled on storage account, protection would still be successful. However, replication traffic would transit via internet to Azure Site Recovery public endpoints. To ensure replication traffic flows via private links, storage account must be enabled with private endpoints.
 
 > [!NOTE]
 > Private endpoints for storage can be created only on General Purpose v2 storage accounts. For

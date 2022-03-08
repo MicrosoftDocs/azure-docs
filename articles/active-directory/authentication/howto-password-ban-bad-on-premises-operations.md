@@ -8,9 +8,9 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: karenhoran
 ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management

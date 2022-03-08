@@ -1,117 +1,104 @@
 ---
-title: Managing consent to applications and evaluating consent requests in Azure Active Directory
+title: Manage consent to applications and evaluate consent requests
 description: Learn how to manage consent requests when user consent is disabled or restricted, and how to evaluate a request for tenant-wide admin consent to an application in Azure Active Directory.
+titleSuffix: Azure AD
 services: active-directory
-author: kenwith
-manager: celestedg
+author: psignoret
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: how-to
-ms.date: 12/27/2019
-ms.author: kenwith
-ms.reviewer: phsignor
+ms.topic: conceptual
+ms.date: 11/25/2021
+ms.author: phsignor
 ---
 
-# Managing consent to applications and evaluating consent requests
+# Manage consent to applications and evaluate consent requests
 
-Microsoft [recommends](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations) disabling end-user consent to applications. This will centralize the decision-making process with your organization's security and identity administrator team.
+Microsoft recommends that you [restrict user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent only for apps from verified publishers, and only for permissions that you select. For apps that don't meet these criteria, the decision-making process will be centralized with your organization's security and identity administrator team.
 
-After end-user consent is disabled or restricted, there are several important considerations to ensure your organization stays secure while still allowing business critical applications to be used. These steps are crucial to minimize impact on your organization's support team and IT administrators, while preventing the use of unmanaged accounts in third-party applications.
+After you've disabled or restricted user consent, you have several important steps to take to help keep your organization secure as you continue to allow business-critical applications to be used. These steps are crucial to minimize impact on your organization's support team and IT administrators, and to help prevent the use of unmanaged accounts in third-party applications.
 
 ## Process changes and education
 
- 1. Consider enabling the [admin consent workflow (preview)](configure-admin-consent-workflow.md) to allow users to request administrator approval directly from the consent screen.
+ 1. Consider enabling the [admin consent workflow](configure-admin-consent-workflow.md) to allow users to request administrator approval directly from the consent screen.
 
- 2. Ensure all administrators understand the [permissions and consent framework](../develop/consent-framework.md), how the [consent prompt](../develop/application-consent-experience.md) works, and how to [evaluate a request for tenant-wide admin consent](#evaluating-a-request-for-tenant-wide-admin-consent).
- 3. Review your organization's existing processes for users to request administrator approval for an application, and make updates if necessary. If processes are changed:
+ 1. Ensure that all administrators understand the [permissions and consent framework](../develop/consent-framework.md), how the [consent prompt](../develop/application-consent-experience.md) works, and how to [evaluate a request for tenant-wide admin consent](#evaluate-a-request-for-tenant-wide-admin-consent).
+
+ 1. Review your organization's existing processes for users to request administrator approval for an application, and update them if necessary. If processes are changed:
     * Update the relevant documentation, monitoring, automation, and so on.
     * Communicate process changes to all affected users, developers, support teams, and IT administrators.
 
 ## Auditing and monitoring
 
-1. [Audit apps and granted permissions](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) in your organization to ensure no unwarranted or suspicious applications have previously been granted access to data.
+1. [Audit apps and granted permissions](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) in your organization to ensure that no unwarranted or suspicious applications have previously been granted access to data.
 
-2. Review [Detect and Remediate Illicit Consent Grants in Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) for additional best practices and safeguards against suspicious applications requesting OAuth consent.
+2. Review the [Detect and Remediate Illicit Consent Grants in Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) article for more best practices and safeguards against suspicious applications that request OAuth consent.
 
-3. If your organization has the appropriate license:
+3. If your organization has the appropriate license, do the following:
 
-    * Use additional [OAuth application auditing features in Microsoft Cloud App Security](/cloud-app-security/investigate-risky-oauth).
-    * Use [Azure Monitor Workbooks to monitor permissions and consent](../reports-monitoring/howto-use-azure-monitor-workbooks.md) related activity. The *Consent Insights* workbook provides a view of apps by number of failed consent requests. This can be helpful to prioritize applications for administrators to review and decide whether to grant them admin consent.
+    * Use other [OAuth application auditing features in Microsoft Defender for Cloud Apps](/cloud-app-security/investigate-risky-oauth).
+    * Use [Azure Monitor Workbooks](../reports-monitoring/howto-use-azure-monitor-workbooks.md)  to monitor permissions and consent-related activity. The *Consent Insights* workbook provides a view of apps by number of failed consent requests. This information can help you prioritize applications for administrators to review and decide whether to grant them admin consent.
 
-### Additional considerations for reducing friction
+### Other considerations for reducing friction
 
-To minimize impact on trusted, business-critical applications which are already in use, consider proactively granting administrator consent to applications that have a high number of user consent grants:
+To minimize impact on trusted, business-critical applications that are already in use, consider proactively granting administrator consent to applications that have a high number of user consent grants:
 
-1. Take an inventory of the apps already added to your organization with high usage, based on sign-in logs or consent grant activity. A PowerShell [script](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) can be used to quickly and easily discover applications with a large number of user consent grants.
+1. Take an inventory of the apps already added to your organization with high usage, based on sign-in logs or consent grant activity. You can use a [PowerShell script](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) to quickly and easily discover applications with a large number of user consent grants.
 
-2. Evaluate the top applications that have not yet been granted admin consent.
+2. Evaluate the top applications to grant admin consent.
 
    > [!IMPORTANT]
    > Carefully evaluate an application before granting tenant-wide admin consent, even if many users in the organization have already consented for themselves.
+3. For each approved application, grant tenant-wide admin consent and consider restricting user access by [requiring user assignment](assign-user-or-group-access-portal.md).
 
-3. For each application that is approved, grant tenant-wide admin consent using one of the methods documented below.
+## Evaluate a request for tenant-wide admin consent
 
-4. For each approved application, consider [restricting user access](configure-user-consent.md).
+Granting tenant-wide admin consent is a sensitive operation.  Permissions will be granted on behalf of the entire organization, and they can include permissions to attempt highly privileged operations. Examples of such operations are role management, full access to all mailboxes or all sites, and full user impersonation.
 
-## Evaluating a request for tenant-wide admin consent
+Before you grant tenant-wide admin consent, it's important to ensure that you trust the application and the application publisher for the level of access you're granting. If you aren't confident that you understand who controls the application and why the application is requesting the permissions, do *not* grant consent.
 
-Granting tenant-wide admin consent is a sensitive operation.  Permissions will be granted on behalf of the entire organization, and can include permissions to attempt highly privileged operations. For example, role management,  full access to all mailboxes or all sites, and full user impersonation.
+When you're evaluating a request to grant admin consent, here are some recommendations to consider:
 
-Before granting tenant-wide admin consent, you must ensure you trust the application and the application publisher, for the level of access you're granting. If you aren't confident you understand who controls the application and why the application is requesting the permissions, *do not grant consent*.
+* Understand the [permissions and consent framework](../develop/consent-framework.md) in the Microsoft identity platform.
 
-The following list provides some recommendations to consider when evaluating a request to grant admin consent.
+* Understand the difference between [delegated permissions and application permissions](../develop/v2-permissions-and-consent.md#permission-types).
 
-* **Understand the [permissions and consent framework](../develop/consent-framework.md) in the Microsoft identity platform.**
+   Application permissions allow the application to access the data for the entire organization, without any user interaction. Delegated permissions allow the application to act on behalf of a user who was signed into the application at some point.
 
-* **Understand the difference between [delegated permissions and application permissions](../develop/v2-permissions-and-consent.md#permission-types).**
+* Understand the permissions that are being requested.
 
-   Application permissions allow the application to access the data for the entire organization, without any user interaction. Delegated permissions allow the application to act on behalf of a user who at some point was signed into the application.
+   The permissions requested by the application are listed in the [consent prompt](../develop/application-consent-experience.md). Expanding the permission title displays the permission’s description. The description for application permissions generally end in "without a signed-in user." The description for delegated permissions generally end with "on behalf of the signed-in user." Permissions for the Microsoft Graph API are described in [Microsoft Graph Permissions Reference](/graph/permissions-reference). Refer to the documentation for other APIs to understand the permissions they expose.
 
-* **Understand the permissions being requested.**
+   If you don't understand a permission that's being requested, do *not* grant consent.
 
-   The permissions requested by the application are listed in the [consent prompt](../develop/application-consent-experience.md). Expanding the permission title will display the permission’s description. The description for application permissions will generally end in "without a signed-in user". The description for delegated permissions will generally end with "on behalf of the signed-in user." Permissions for the Microsoft Graph API are described in [Microsoft Graph Permissions Reference](/graph/permissions-reference) - refer to the documentation for other APIs to understand the permissions they expose.
+* Understand which application is requesting permissions and who published the application.
 
-   If you do not understand a permission being requested, *do not grant consent*.
+   Be wary of malicious applications that try to look like other applications.
 
-* **Understand which application is requesting permissions and who published the application.**
+   If you doubt the legitimacy of an application or its publisher, do *not* grant consent. Instead, seek confirmation (for example, directly from the application publisher).
 
-   Be wary of malicious applications trying to look like other applications.
+* Ensure that the requested permissions are aligned with the features you expect from the application.
 
-   If you doubt the legitimacy of an application or its publisher, *do not grant consent*. Instead, seek additional confirmation (for example, directly from the application publisher).
+   For example, an application that offers SharePoint site management might require delegated access to read all site collections, but it wouldn't necessarily need full access to all mailboxes, or full impersonation privileges in the directory.
 
-* **Ensure the permissions requested are aligned with the features you expect from the application.**
+   If you suspect that the application is requesting more permissions than it needs, do *not* grant consent. Contact the application publisher to obtain more details.
 
-   For example, an application offering SharePoint site management may require delegated access to read all site collections, but wouldn't necessarily need full access to all mailboxes, or full impersonation privileges in the directory.
+## Grant tenant-wide admin consent
 
-   If you suspect the application is requesting more permissions than it needs, *do not grant consent*. Contact the application publisher to obtain more details.
+For step-by-step instructions for granting tenant-wide admin consent from the Azure portal, see [Grant tenant-wide admin consent to an application](grant-admin-consent.md).
 
-## Granting consent as an administrator
+### Grant consent on behalf of a specific user
 
-### Granting tenant-wide admin consent
-See [Grant tenant-wide admin consent to an application](grant-admin-consent.md) for step-by-step instructions for granting tenant-wide admin consent from the Azure portal, using Azure AD PowerShell, or from the consent prompt itself.
+Instead of granting consent for the entire organization, an administrator can also use the [Microsoft Graph API](/graph/use-the-api) to grant consent to delegated permissions on behalf of a single user. For a detailed example that uses Microsoft Graph PowerShell, see [Grant consent on behalf of a single user by using PowerShell](grant-consent-single-user.md).
 
-### Granting consent on behalf of a specific user
-Instead of granting consent for the entire organization, an administrator can also use the [Microsoft Graph API](/graph/use-the-api) to grant consent to delegated permissions on behalf of a single user. For more information, see [Get access on behalf of a user](/graph/auth-v2-user).
+## Limit user access to applications
 
-## Limiting user access to applications
-Users' access to applications can still be limited even when tenant-wide admin consent has been granted. For more information on how to require user assignment to an application, see [methods for assigning users and groups](./assign-user-or-group-access-portal.md).
+User access to applications can still be limited even when tenant-wide admin consent has been granted. For more information about how to require user assignment to an application, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md). Administrators can also limit user access to applications by disabling all future user consent operations to any application.
 
-For more a broader overview including how to handle additional complex scenarios, see [using Azure AD for application access management](what-is-access-management.md).
-
-## Disable all future user consent operations to any application
-Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalf. To learn more about application consent, and why you may or may not want to consent, read [Understanding user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md).
-
-To disable all future user consent operations in your entire directory, follow these steps:
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4.  Select **Users and groups** in the navigation menu.
-5.  Select **User settings**.
-6.  Disable all future user consent operations by setting the **Users can allow apps to access their data** toggle to **No** and click the **Save** button.
+For a broader overview, including how to handle more complex scenarios, see [Use Azure Active Directory (Azure AD) for application access management](what-is-access-management.md).
 
 ## Next steps
-* [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md#before-you-begin-protect-privileged-accounts-with-mfa)
-* [Configure the admin consent workflow](configure-admin-consent-workflow.md)
-* [Configure how end-users consent to applications](configure-user-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
+
+- [Configure the admin consent workflow](configure-admin-consent-workflow.md)
+- [Configure how users consent to applications](configure-user-consent.md)

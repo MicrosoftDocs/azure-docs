@@ -1,7 +1,6 @@
 ---
 title: Use query labels in Synapse SQL
 description: Included in this article are essential tips for using query labels in Synapse SQL.
-services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: 
 ---
 
@@ -18,7 +17,7 @@ ms.custom:
 Included in this article are essential tips for using query labels in Synapse SQL.
 
 > [!NOTE]
-> Serverless SQL pool (preview) doesn't support labelling queries.
+> Serverless SQL pool doesn't support labelling queries.
 
 ## What are query labels
 

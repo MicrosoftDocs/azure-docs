@@ -4,7 +4,7 @@ description: The glossary explains terms that you might encounter as you work wi
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/08/2020
+ms.date: 10/28/2021
 ---
 
 # Language understanding glossary of common vocabulary and concepts
@@ -39,18 +39,19 @@ The [authoring key](luis-how-to-azure-subscription.md) is used to author the app
 
 ### Authoring Resource
 
-Your LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-luis) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
+Your LUIS [authoring resource](luis-how-to-azure-subscription.md) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
 
 The authoring resource has an Azure "kind" of `LUIS-Authoring`.
 
 ## Batch test
 
-Batch testing is the ability to validate a current LUIS app's models with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](luis-concept-batch-test.md#batch-file-format).
+Batch testing is the ability to validate a current LUIS app's models with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](./luis-how-to-batch-test.md#batch-test-file).
+
 
 See also:
-* [Concepts](luis-concept-batch-test.md)
+* [Concepts](./luis-how-to-batch-test.md)
 * [How-to](luis-how-to-batch-test.md) run a batch test
-* [Tutorial](luis-tutorial-batch-testing.md) - create and run a batch test
+* [Tutorial](./luis-how-to-batch-test.md) - create and run a batch test
 
 ### F-measure
 
@@ -124,7 +125,7 @@ Your access to the prediction endpoint is authorized with the LUIS prediction ke
 
 ## Entity
 
-[Entities](luis-concept-entity-types.md) are words in utterances that describe information used to fulfill or identify an intent. If your entity is complex and you would like your model to identify specific parts, you can break your model into subentities. For example, you might want you model to predict an address, but also the subentities of street, city, state, and zipcode. Entities can also be used as features to models. Your response from the LUIS app will include both the predicted intents and all the entities.
+[Entities](concepts/entities.md) are words in utterances that describe information used to fulfill or identify an intent. If your entity is complex and you would like your model to identify specific parts, you can break your model into subentities. For example, you might want you model to predict an address, but also the subentities of street, city, state, and zipcode. Entities can also be used as features to models. Your response from the LUIS app will include both the predicted intents and all the entities.
 
 ### Entity extractor
 
@@ -161,7 +162,7 @@ See Prebuilt model's entry for [prebuilt entity](#prebuilt-entity)
 
 In machine learning, a feature is a characteristic that helps the model recognize a particular concept. It is a hint that LUIS can use, but not a hard rule.
 
-This term is also referred to as a **[machine-learning feature](luis-concept-feature.md)**.
+This term is also referred to as a **[machine-learning feature](concepts/patterns-features.md)**.
 
 These hints are used in conjunction with the labels to learn how to predict new data. LUIS supports both phrase lists and using other models as features.
 
@@ -207,7 +208,7 @@ Each app has one owner who is the person that created the app. The owner manages
 
 ## Phrase list
 
-A [phrase list](luis-concept-feature.md) is a specific type of machine learning feature that includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products).
+A [phrase list](concepts/patterns-features.md) is a specific type of machine learning feature that includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products).
 
 ## Prebuilt model
 
@@ -264,7 +265,7 @@ LUIS quota is the limitation of the Azure subscription tier. The LUIS quota can 
 Your schema includes your intents and entities along with the subentities. The schema is initially planned for then iterated over time. The schema doesn't include app settings, features, or example utterances.
 
 ## Sentiment Analysis
-Sentiment analysis provides positive or negative values of the utterances provided by [Text Analytics](../text-analytics/overview.md).
+Sentiment analysis provides positive or negative values of the utterances provided by the [Language service](../language-service/sentiment-opinion-mining/overview.md).
 
 ## Speech priming
 
@@ -289,7 +290,7 @@ The model will return the normalized value for the entity when any of synonyms a
 
 ## Test
 
-[Testing](luis-concept-test.md) a LUIS app means viewing model predictions.
+[Testing](./luis-interactive-test.md) a LUIS app means viewing model predictions.
 
 ## Timezone offset
 
@@ -323,7 +324,7 @@ Training errors are predictions on your training data that do not match their la
 
 ## Utterance
 
-An [utterance](luis-concept-utterance.md) is user input that is short text representative of a sentence in a conversation. It is a natural language phrase such as "book 2 tickets to Seattle next Tuesday". Example utterances are added to train the model and the model predicts on new utterance at runtime
+An [utterance](concepts/utterances.md) is user input that is short text representative of a sentence in a conversation. It is a natural language phrase such as "book 2 tickets to Seattle next Tuesday". Example utterances are added to train the model and the model predicts on new utterance at runtime
 
 ## Version
 

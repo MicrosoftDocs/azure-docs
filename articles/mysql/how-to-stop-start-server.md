@@ -10,8 +10,10 @@ ms.date: 09/21/2020
 
 # Stop/Start an Azure Database for MySQL
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 > [!IMPORTANT]
-> Stop/Start functionality for Azure Database for MySQL is currently in public preview.
+> When you **Stop** the server it remains in that state for the next 7 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 7 days. You can choose to **Stop** it again if you are not using the server.
 
 This article provides step-by-step procedure to perform Stop and Start of the single server.
 

@@ -1,26 +1,41 @@
 ---
-title: Redirect URI (reply URL) restrictions | Azure
+title: Redirect URI (reply URL) restrictions | Azure AD
 titleSuffix: Microsoft identity platform
 description: A description of the restrictions and limitations on redirect URI (reply URL) format enforced by the Microsoft identity platform.
-author: SureshJa
-ms.author: sureshja
+author: madansr7
+ms.author: saumadan
 manager: CelesteDG
-ms.date: 10/29/2020
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: contperf-fy21q4-portal, aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
 ---
+
 # Redirect URI (reply URL) restrictions and limitations
 
 A redirect URI, or reply URL, is the location where the authorization server sends the user once the app has been successfully authorized and granted an authorization code or access token. The authorization server sends the code or token to the redirect URI, so it's important you register the correct location as part of the app registration process.
 
- The following restrictions apply to redirect URIs:
+The Azure Active Directory (Azure AD) application model specifies these restrictions to redirect URIs:
 
-* The redirect URI must begin with the scheme `https`. There are some [exceptions for localhost](#localhost-exceptions) redirect URIs.
+* Redirect URIs must begin with the scheme `https`. There are some [exceptions for localhost](#localhost-exceptions) redirect URIs.
 
-* The redirect URI is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the redirect URI. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+* Redirect URIs are case-sensitive and must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the redirect URI. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+
+* Redirect URIs *not* configured with a path segment are returned with a trailing slash ('`/`') in the response. This applies only when the response mode is `query` or `fragment`.
+
+    Examples:
+
+    * `https://contoso.com` is returned as `https://contoso.com/`
+    * `http://localhost:7071` is returned as `http://localhost:7071/`
+
+* Redirect URIs that contain a path segment are *not* appended with a trailing slash in the response.
+
+    Examples:
+
+    * `https://contoso.com/abc` is returned as `https://contoso.com/abc`
+    * `https://contoso.com/abc/response-oidc` is returned as `https://contoso.com/abc/response-oidc`
 
 ## Maximum number of redirect URIs
 
@@ -35,35 +50,56 @@ This table shows the maximum number of redirect URIs you can add to an app regis
 
 You can use a maximum of 256 characters for each redirect URI you add to an app registration.
 
+## Redirect URIs in application vs. service principal objects
+
+* Always add redirect URIs to the application object only.
+* Do not add redirect URI values to a service principal because these values could be removed when the service principal object syncs with the application object. This could happen due to any update operation which triggers a sync between the two objects.
+
 ## Supported schemes
 
-The Azure Active Directory (Azure AD) application model currently supports both HTTP and HTTPS schemes for apps that sign in work or school accounts in any organization's Azure AD tenant. These account types are specified by the `AzureADMyOrg` and `AzureADMultipleOrgs` values in the `signInAudience` field of the application manifest. For apps that sign in personal Microsoft accounts (MSA) *and* work and school accounts (that is, the `signInAudience` is set to `AzureADandPersonalMicrosoftAccount`), only the HTTPS scheme is allowed.
+**HTTPS**: The HTTPS scheme (`https://`) is supported for all HTTP-based redirect URIs.
 
-To add redirect URIs with an HTTP scheme to app registrations that sign in work or school accounts, you need to use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. However, though it's possible to set an HTTP-based redirect URI by using the manifest editor, we *strongly* recommend that you use the HTTPS scheme for your redirect URIs.
+**HTTP**: The HTTP scheme (`http://`) is supported *only* for *localhost* URIs and should be used only during active local application development and testing.
 
-## Localhost exceptions
+| Example redirect URI                    | Validity |
+|-----------------------------------------|----------|
+| `https://contoso.com`                   | Valid    |
+| `https://contoso.com/abc/response-oidc` | Valid    |
+| `https://localhost`                     | Valid    |
+| `http://contoso.com/abc/response-oidc`  | Invalid  |
+| `http://localhost`                      | Valid    |
+| `http://localhost/abc`                  | Valid    |
+
+### Localhost exceptions
 
 Per [RFC 8252 sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) and [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), "loopback" or "localhost" redirect URIs come with two special considerations:
 
-1. `http` URI schemes are acceptable because the redirect never leaves the device. As such, both of these are acceptable:
-    - `http://127.0.0.1/myApp`
-    - `https://127.0.0.1/myApp`
-1. Due to ephemeral port ranges often required by native applications, the port component (for example, `:5001` or `:443`) is ignored for the purposes of matching a redirect URI. As a result, all of these are considered equivalent:
-    - `http://127.0.0.1/MyApp`
-    - `http://127.0.0.1:1234/MyApp`
-    - `http://127.0.0.1:5000/MyApp`
-    - `http://127.0.0.1:8080/MyApp`
+1. `http` URI schemes are acceptable because the redirect never leaves the device. As such, both of these URIs are acceptable:
+    - `http://localhost/myApp`
+    - `https://localhost/myApp`
+1. Due to ephemeral port ranges often required by native applications, the port component (for example, `:5001` or `:443`) is ignored for the purposes of matching a redirect URI. As a result, all of these URIs are considered equivalent:
+    - `http://localhost/MyApp`
+    - `http://localhost:1234/MyApp`
+    - `http://localhost:5000/MyApp`
+    - `http://localhost:8080/MyApp`
 
 From a development standpoint, this means a few things:
 
 * Do not register multiple redirect URIs where only the port differs. The login server will pick one arbitrarily and use the behavior associated with that redirect URI (for example, whether it's a `web`-, `native`-, or `spa`-type redirect).
 
     This is especially important when you want to use different authentication flows in the same application registration, for example both the authorization code grant and implicit flow. To associate the correct response behavior with each redirect URI, the login server must be able to distinguish between the redirect URIs and cannot do so when only the port differs.
-* If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://127.0.0.1/MyWebApp` doesn't match `http://127.0.0.1/MyNativeApp`.
+* To register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://localhost/MyWebApp` doesn't match `http://localhost/MyNativeApp`.
 * The IPv6 loopback address (`[::1]`) is not currently supported.
-* To prevent your app from being broken by misconfigured firewalls or renamed network interfaces, use the IP literal loopback address `127.0.0.1` in your redirect URI instead of `localhost`.
 
-    To use the `http` scheme with the IP literal loopback address `127.0.0.1`, you must currently modify the [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) attribute in the [application manifest](reference-app-manifest.md).
+#### Prefer 127.0.0.1 over localhost
+
+To prevent your app from being broken by misconfigured firewalls or renamed network interfaces, use the IP literal loopback address `127.0.0.1` in your redirect URI instead of `localhost`. For example, `https://127.0.0.1`.
+
+You cannot, however, use the **Redirect URIs** text box in the Azure portal to add a loopback-based redirect URI that uses the `http` scheme:
+
+:::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Error dialog in Azure portal showing disallowed http-based loopback redirect URI":::
+
+To add a redirect URI that uses the `http` scheme with the `127.0.0.1` loopback address, you must currently modify the [replyUrlsWithType attribute in the application manifest](reference-app-manifest.md#replyurlswithtype-attribute).
 
 ## Restrictions on wildcards in redirect URIs
 
@@ -71,9 +107,9 @@ Wildcard URIs like `https://*.contoso.com` may seem convenient, but should be av
 
 Wildcard URIs are currently unsupported in app registrations configured to sign in personal Microsoft accounts and work or school accounts. Wildcard URIs are allowed, however, for apps that are configured to sign in only work or school accounts in an organization's Azure AD tenant.
 
-To add redirect URIs with wildcards to app registrations that sign in work or school accounts, you need to use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. Though it's possible to set a redirect URI with a wildcard by using the manifest editor, we *strongly* recommend you adhere to [section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) and use only absolute URIs.
+To add redirect URIs with wildcards to app registrations that sign in work or school accounts, use the application manifest editor in **App registrations** in the Azure portal. Though it's possible to set a redirect URI with a wildcard by using the manifest editor, we *strongly* recommend you adhere to section 3.1.2 of RFC 6749. and use only absolute URIs.
 
-If your scenario requires more redirect URIs than the maximum limit allowed, consider the following [state parameter approach](#use-a-state-parameter) instead of adding a wildcard redirect URI.
+If your scenario requires more redirect URIs than the maximum limit allowed, consider the following state parameter approach instead of adding a wildcard redirect URI.
 
 #### Use a state parameter
 

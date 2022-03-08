@@ -6,15 +6,15 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 06/25/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: rhicock
+ms.author: justinha
+author: justinha
+manager: karenhoran
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ---
 # Password policies and account restrictions in Azure Active Directory
 
@@ -48,7 +48,7 @@ The following Azure AD password policy options are defined. Unless noted, you ca
 
 | Property | Requirements |
 | --- | --- |
-| Characters allowed |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ;</li> <li>blank space</li></ul> |
+| Characters allowed |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ; < ></li> <li>blank space</li></ul> |
 | Characters not allowed | Unicode characters. |
 | Password restrictions |<ul><li>A minimum of 8 characters and a maximum of 256 characters.</li><li>Requires three out of four of the following:<ul><li>Lowercase characters.</li><li>Uppercase characters.</li><li>Numbers (0-9).</li><li>Symbols (see the previous password restrictions).</li></ul></li></ul> |
 | Password expiry duration (Maximum password age) |<ul><li>Default value: **90** days.</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
@@ -66,33 +66,38 @@ With a two-gate policy, administrators don't have the ability to use security qu
 The two-gate policy requires two pieces of authentication data, such as an email address, authenticator app, or a phone number. A two-gate policy applies in the following circumstances:
 
 * All the following Azure administrator roles are affected:
-  * Helpdesk administrator
-  * Service support administrator
+  * Application administrator
+  * Application proxy service administrator
+  * Authentication administrator
+  * Azure AD Joined Device Local Administrator
   * Billing administrator
+  * Compliance administrator
+  * Device administrators
+  * Directory synchronization accounts
+  * Directory writers
+  * Dynamics 365 administrator
+  * Exchange administrator
+  * Global administrator or company administrator
+  * Helpdesk administrator
+  * Intune administrator
+  * Mailbox Administrator
   * Partner Tier1 Support
   * Partner Tier2 Support
-  * Exchange administrator
+  * Password administrator
+  * Power BI service administrator
+  * Privileged Authentication administrator
+  * Privileged role administrator
+  * SharePoint administrator
+  * Security administrator
+  * Service support administrator
   * Skype for Business administrator
   * User administrator
-  * Directory writers
-  * Global administrator or company administrator
-  * SharePoint administrator
-  * Compliance administrator
-  * Application administrator
-  * Security administrator
-  * Privileged role administrator
-  * Intune administrator
-  * Application proxy service administrator
-  * Dynamics 365 administrator
-  * Power BI service administrator
-  * Authentication administrator
-  * Privileged Authentication administrator
 
 * If 30 days have elapsed in a trial subscription; or
 * A custom domain has been configured for your Azure AD tenant, such as *contoso.com*; or
 * Azure AD Connect is synchronizing identities from your on-premises directory
 
-You can disable the use of SSPR for administrator accounts using the [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) PowerShell cmdlet. The `-SelfServePasswordResetEnabled $False` parameter disables SSPR for administrators.
+You can disable the use of SSPR for administrator accounts using the [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings) PowerShell cmdlet. The `-SelfServePasswordResetEnabled $False` parameter disables SSPR for administrators.
 
 ### Exceptions
 
@@ -104,24 +109,25 @@ A one-gate policy requires one piece of authentication data, such as an email ad
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Password expiration policies
 
-A *global administrator* or *user administrator* can use the [Microsoft Azure AD Module for Windows PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) to set user passwords not to expire.
+A *global administrator* or *user administrator* can use the [Microsoft Azure AD Module for Windows PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
 
 You can also use PowerShell cmdlets to remove the never-expires configuration or to see which user passwords are set to never expire.
 
 This guidance applies to other providers, such as Intune and Microsoft 365, which also rely on Azure AD for identity and directory services. Password expiration is the only part of the policy that can be changed.
 
 > [!NOTE]
-> Only passwords for user accounts that aren't synchronized through Azure AD Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](../hybrid/whatis-hybrid-identity.md).
+> By default only passwords for user accounts that aren't synchronized through Azure AD Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](../hybrid/how-to-connect-password-hash-synchronization.md#password-expiration-policy).
 
 ### Set or check the password policies by using PowerShell
 
-To get started, [download and install the Azure AD PowerShell module](/powershell/module/Azuread/?view=azureadps-2.0) and [connect it to your Azure AD tenant](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples).
+To get started, [download and install the Azure AD PowerShell module](/powershell/module/Azuread/) and [connect it to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples).
 
 After the module is installed, use the following steps to complete each task as needed.
 
 ### Check the expiration policy for a password
 
-1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) using a *global administrator* or *user administrator* account.
+1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *global administrator* or *user administrator* account.
+
 1. Run one of the following commands for either an individual user or for all users:
 
    * To see if a single user's password is set to never expire, run the following cmdlet. Replace `<user ID>` with the user ID of the user you want to check, such as *driley\@contoso.onmicrosoft.com*:
@@ -138,7 +144,8 @@ After the module is installed, use the following steps to complete each task as 
 
 ### Set a password to expire
 
-1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) using a *global administrator* or *user administrator* account.
+1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *global administrator* or *user administrator* account.
+
 1. Run one of the following commands for either an individual user or for all users:
 
    * To set the password of one user so that the password expires, run the following cmdlet. Replace `<user ID>` with the user ID of the user you want to check, such as *driley\@contoso.onmicrosoft.com*
@@ -155,7 +162,7 @@ After the module is installed, use the following steps to complete each task as 
 
 ### Set a password to never expire
 
-1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) using a *global administrator* or *user administrator* account.
+1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *global administrator* or *user administrator* account.
 1. Run one of the following commands for either an individual user or for all users:
 
    * To set the password of one user to never expire, run the following cmdlet. Replace `<user ID>` with the user ID of the user you want to check, such as *driley\@contoso.onmicrosoft.com*
@@ -177,4 +184,4 @@ After the module is installed, use the following steps to complete each task as 
 
 To get started with SSPR, see [Tutorial: Enable users to unlock their account or reset passwords using Azure Active Directory self-service password reset](tutorial-enable-sspr.md).
 
-If you or users have problems with SSPR, see [Troubleshoot self-service password reset](active-directory-passwords-troubleshoot.md)
+If you or users have problems with SSPR, see [Troubleshoot self-service password reset](./troubleshoot-sspr.md)

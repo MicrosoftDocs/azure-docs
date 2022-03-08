@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Log Analytics Nozzle for Cloud Foundry monitoring
 description: Step-by-step guidance on deploying the Cloud Foundry loggregator Nozzle for Azure Log Analytics. Use the Nozzle to monitor the Cloud Foundry system health and performance metrics.
-services: virtual-machines-linux
+services: virtual-machines
 author: ningk
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
@@ -186,7 +186,7 @@ The *"Cloud Foundry.omsview"* is a preview version of the Cloud Foundry OMS view
 
 ### 2. Create alert rules
 
-You can [create the alerts](../azure-monitor/platform/alerts-overview.md), and customize the queries and threshold values as needed. The following are recommended alerts:
+You can [create the alerts](../azure-monitor/alerts/alerts-overview.md), and customize the queries and threshold values as needed. The following are recommended alerts:
 
 | Search query                                                                  | Generate alert based on | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |

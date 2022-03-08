@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop MSIX app attach overview - Azure
+title: Azure Virtual Desktop MSIX app attach overview - Azure
 description: What is MSIX app attach? Find out in this article.
 services: virtual-desktop
 author: Heidilohr
@@ -8,26 +8,26 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # What is MSIX app attach?
 
 MSIX is a new packaging format that offers many features aimed to improve packaging experience for all Windows apps. To learn more about MSIX, see the [MSIX overview](/windows/msix/overview).
 
-MSIX app attach is a way to deliver MSIX applications to both physical and virtual machines. However, MSIX app attach is different from regular MSIX because it's made especially for Windows Virtual Desktop. This article will describe what MSIX app attach is and what it can do for you.
+MSIX app attach is a way to deliver MSIX applications to both physical and virtual machines. However, MSIX app attach is different from regular MSIX because it's made especially for Azure Virtual Desktop. This article will describe what MSIX app attach is and what it can do for you.
 
-## Application delivery options in Windows Virtual Desktop
+## Application delivery options in Azure Virtual Desktop
 
-You can deliver apps in Windows Virtual Desktop through one of the following methods:
+You can deliver apps in Azure Virtual Desktop through one of the following methods:
 
 - Put apps in a master image
 - Use tools like SCCM or Intune for central management
-- Dynamic app provisioning (AppV, VMWare AppVolumes, or Citrix AppLayering)
+- Dynamic app provisioning (AppV, VMware AppVolumes, or Citrix AppLayering)
 - Create custom tools or scripts using Microsoft and a third-party tool
 
 ## What does MSIX app attach do?
 
-In a Windows Virtual Desktop deployment, MSIX app attach can:
+In a Azure Virtual Desktop deployment, MSIX app attach can:
 
 - Create separation between user data, the OS, and apps by using [MSIX containers](/windows/msix/msix-container).
 - Remove the need for repackaging when delivering applications dynamically.
@@ -51,4 +51,4 @@ The following table compares key feature of MSIX app attach and app layering.
 
 ## Next steps
 
-If you want to learn more about MSIX app attach, check out our [glossary](app-attach-glossary.md) and [FAQ](app-attach-faq.md). Otherwise, get started with [Set up app attach](app-attach.md).
+If you want to learn more about MSIX app attach, check out our [glossary](app-attach-glossary.md) and [FAQ](app-attach-faq.yml). Otherwise, get started with [Set up app attach](app-attach.md).

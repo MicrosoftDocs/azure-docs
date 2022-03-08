@@ -1,9 +1,8 @@
 ---
 title: Clean up your Azure Stream Analytics job
 description: This article shows you different methods for deleting your Azure Stream Analytics jobs.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
@@ -56,4 +55,4 @@ To stop a job using Azure SDK for .NET, use the [StreamingJobsOperationsExtensio
 
 ## Stop or delete a job using REST API
 
-To stop a job using REST API, refer to the [Stop](/rest/api/streamanalytics/2016-03-01/streamingjobs/stop) method. To delete a job using REST API, refer to the [Delete](/rest/api/streamanalytics/2016-03-01/streamingjobs/delete) method.
+To stop a job using REST API, refer to the [Stop](/rest/api/streamanalytics/2020-03-01/streaming-jobs/stop) method. To delete a job using REST API, refer to the [Delete](/rest/api/streamanalytics/2020-03-01/streaming-jobs/delete) method.

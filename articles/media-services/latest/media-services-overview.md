@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 overview
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: A high-level overview of Azure Media Services v3 with links to quickstarts, tutorials, and code samples.
 services: media-services
 documentationcenter: na
@@ -11,11 +11,10 @@ tags: ''
 keywords: azure media services, stream, broadcast, live, offline
 
 ms.service: media-services
-ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 08/31/2020
+ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -29,19 +28,7 @@ Azure Media Services is a cloud-based platform that enables you to build solutio
 
 The Media Services v3 SDKs are based on [Media Services v3 OpenAPI Specification (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
-> [!NOTE]
-> Currently, you can use the [Azure portal](https://portal.azure.com/) to: manage Media Services v3 [Live Events](live-events-outputs-concept.md), view (not manage) v3 [Assets](assets-concept.md), [get info about accessing APIs](./access-api-howto.md). 
-> For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-## Compliance, Privacy and Security
-
-As an important reminder, you must comply with all applicable laws in your use of Azure Media Services, and you may not use Media Services or any Azure service in a manner that violates the rights of others, or that may be harmful to others.
-
-Before uploading any video/image to Media Services, You must have all the proper rights to use the video/image, including, where required by law, all the necessary consents from individuals (if any) in the video/image, for the use, processing, and storage of their data in Media Services and Azure. Some jurisdictions may impose special legal requirements for the collection, online processing and storage of certain categories of data, such as biometric data. Before using Media Services and Azure for the processing and storage of any data subject to special legal requirements, You must ensure compliance with any such legal requirements that may apply to You.
-
-To learn about compliance, privacy and security in Media Services please visit the Microsoft [Trust Center](https://www.microsoft.com/trust-center/?rtc=1). For Microsoft's privacy obligations, data handling and retention practices, including how to delete your data, please review Microsoft's [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). By using Media Services, you agree to be bound by the OST, DPA and the Privacy Statement.
  
 ## What can I do with Media Services?
 
@@ -83,8 +70,8 @@ The tutorials show scenario-based procedures for some of the top Media Services 
 * [Encode remote file and stream video – REST](stream-files-tutorial-with-rest.md)
 * [Encode uploaded file and stream video - .NET](stream-files-tutorial-with-api.md)
 * [Stream live - .NET](stream-live-tutorial-with-api.md)
-* [Analyze your video - .NET](analyze-videos-tutorial-with-api.md)
-* [AES-128 dynamic encryption - .NET](protect-with-aes128.md)
+* [Analyze your video - .NET](analyze-videos-tutorial.md)
+* [AES-128 dynamic encryption - .NET](drm-playready-license-template-concept.md)
 
 ### Samples
 
@@ -94,17 +81,17 @@ Use [this samples browser](/samples/browse/?products=azure-media-services) to br
 
 How-to guides contain code samples that demonstrate how to complete a task. In this section, you'll find many examples. Here are a few of them:
 
-* [Create an account - CLI](./create-account-howto.md)
+* [Create an account - CLI](./account-create-how-to.md)
 * [Access APIs - CLI](./access-api-howto.md)
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
-* [Monitor events - Portal](monitor-events-portal-how-to.md)
-* [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 
-* [How to encode with a custom transform - CLI](custom-preset-cli-howto.md)
+* [Monitor events - Portal](monitoring/monitor-events-portal-how-to.md)
+* [Encrypt dynamically with multi-DRM - .NET](drm-protect-with-drm-tutorial.md) 
+* [How to encode with a custom transform - CLI](transform-custom-preset-cli-how-to.md)
 
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
-## Next steps
+## Compliance, privacy and security
 
-[Learn about fundamental concepts](concepts-overview.md)
+[!IMPORTANT] Read the [Compliance, privacy and security document](media-services-compliance.md) before using Azure Media Services to deliver your media content.

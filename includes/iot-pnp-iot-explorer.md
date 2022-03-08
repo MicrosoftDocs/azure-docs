@@ -1,7 +1,7 @@
 ---
 author: ericmitt
 ms.author: ericmitt
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 07/13/2020
 ---

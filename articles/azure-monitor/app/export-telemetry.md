@@ -2,12 +2,15 @@
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
 ms.topic: conceptual
-ms.date: 05/26/2020
-
+ms.date: 02/19/2021
+ms.custom: references_regions
 ---
 
 # Export telemetry from Application Insights
-Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there, you can download your data and write whatever code you need to process it.  
+Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this purpose. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there, you can download your data and write whatever code you need to process it.  
+
+> [!IMPORTANT]
+> Continuous export has been deprecated. When [migrating to a workspace-based Application Insights resource](convert-classic-resource.md), you must use [diagnostic settings](#diagnostic-settings-based-export) for exporting telemetry.
 
 > [!NOTE]
 > Continuous export is only supported for classic Application Insights resources. [Workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
@@ -17,12 +20,50 @@ Before you set up continuous export, there are some alternatives you might want 
 
 * The Export button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.
 
-* [Analytics](../log-query/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
+* [Analytics](../logs/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](./export-power-bi.md), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup [continuous export via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
-After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](./data-retention-privacy.md).
+After continuous export copies your data to storage, where it may stay as long as you like, it's still available in Application Insights for the usual [retention period](./data-retention-privacy.md).
+
+## Supported Regions
+
+Continuous Export is supported in the following regions:
+
+* Southeast Asia
+* Canada Central
+* Central India
+* North Europe
+* UK South
+* Australia East
+* Japan East
+* Korea Central
+* France Central
+* East Asia
+* West US
+* Central US
+* East US 2
+* South Central US
+* West US 2
+* South Africa North
+* North Central US
+* Brazil South
+* Switzerland North
+* Australia Southeast
+* UK West
+* Germany West Central
+* Switzerland West
+* Australia Central 2
+* UAE Central
+* Brazil Southeast
+* Australia Central
+* UAE North
+* Norway East
+* Japan West
+
+> [!NOTE]
+> Continuous Export will continue to work for Applications in **East US** and **West Europe** if the export was configured before February 23, 2021. New Continuous Export rules cannot be configured on any application in **East US** or **West Europe**, regardless of when the application was created.
 
 ## Continuous Export advanced storage configuration
 
@@ -34,13 +75,16 @@ Continuous Export **does not support** the following Azure storage features/conf
 
 ## <a name="setup"></a> Create a Continuous Export
 
+> [!NOTE]
+> An application cannot export more than 3TB of data per day. If more than 3TB per day is exported, the export will be disabled. To export without a limit use [diagnostic settings based export](#diagnostic-settings-based-export).
+
 1. In the Application Insights resource for your app under configure on the left, open Continuous Export and choose **Add**:
 
 2. Choose the telemetry data types you want to export.
 
 3. Create or select an [Azure storage account](../../storage/common/storage-introduction.md) where you want to store the data. For more information on storage pricing options, visit the [official pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
-     Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store.
+     Select Add, Export Destination, Storage account, and then either create a new store or choose an existing store.
 
     > [!Warning]
     > By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.
@@ -52,7 +96,7 @@ Continuous Export **does not support** the following Azure storage features/conf
 
 There can be a delay of about an hour before data appears in the storage.
 
-Once the first export is complete you will find a structure similar to the following in your Azure Blob storage container: (This will vary depending on the data you are collecting.)
+Once the first export is complete, you'll find the following structure in your Azure Blob storage container: (This structure will vary depending on the data you're collecting.)
 
 |Name | Description |
 |:----|:------|
@@ -62,15 +106,15 @@ Once the first export is complete you will find a structure similar to the follo
 | [Messages](export-data-model.md#trace-messages) | Sent by [TrackTrace](./api-custom-events-metrics.md#tracktrace), and by the [logging adapters](./asp-net-trace-logs.md).
 | [Metrics](export-data-model.md#metrics) | Generated by metric API calls.
 | [PerformanceCounters](export-data-model.md) | Performance Counters collected by Application Insights.
-| [Requests](export-data-model.md#requests)| Sent by [TrackRequest](./api-custom-events-metrics.md#trackrequest). The standard modules use this to reports server response time, measured at the server.| 
+| [Requests](export-data-model.md#requests)| Sent by [TrackRequest](./api-custom-events-metrics.md#trackrequest). The standard modules use requests to report server response time, measured at the server.| 
 
 ### To edit continuous export
 
-Click on continuous export and select the storage account to edit.
+Select continuous export and select the storage account to edit.
 
 ### To stop continuous export
 
-To stop the export, click Disable. When you click Enable again, the export will restart with new data. You won't get the data that arrived in the portal while export was disabled.
+To stop the export, select Disable. When you select Enable again, the export will restart with new data. You won't get the data that arrived in the portal while export was disabled.
 
 To stop the export permanently, delete it. Doing so doesn't delete your data from storage.
 
@@ -78,11 +122,11 @@ To stop the export permanently, delete it. Doing so doesn't delete your data fro
 * To add or change exports, you need Owner, Contributor, or Application Insights Contributor access rights. [Learn about roles][roles].
 
 ## <a name="analyze"></a> What events do you get?
-The exported data is the raw telemetry we receive from your application, except that we add location data, which we calculate from the client IP address.
+The exported data is the raw telemetry we receive from your application with added location data from the client IP address.
 
-Data that has been discarded by [sampling](./sampling.md) is not included in the exported data.
+Data that has been discarded by [sampling](./sampling.md) isn't included in the exported data.
 
-Other calculated metrics are not included. For example, we don't export average CPU utilization, but we do export the raw telemetry from which the average is computed.
+Other calculated metrics aren't included. For example, we don't export average CPU utilization, but we do export the raw telemetry from which the average is computed.
 
 The data also includes the results of any [availability web tests](./monitor-web-app-availability.md) that you have set up.
 
@@ -92,7 +136,7 @@ The data also includes the results of any [availability web tests](./monitor-web
 >
 
 ## <a name="get"></a> Inspect the data
-You can inspect the storage directly in the portal. Click home in the leftmost menu, at the top where it says "Azure services" select **Storage accounts**, select the storage account name, on the overview page select **Blobs** under services, and finally select the container name.
+You can inspect the storage directly in the portal. Select home in the leftmost menu, at the top where it says "Azure services" select **Storage accounts**, select the storage account name, on the overview page select **Blobs** under services, and finally select the container name.
 
 To inspect Azure storage in Visual Studio, open **View**, **Cloud Explorer**. (If you don't have that menu command, you need to install the Azure SDK: Open the **New Project** dialog, expand Visual C#/Cloud and choose **Get Microsoft Azure SDK for .NET**.)
 
@@ -155,26 +199,26 @@ private IEnumerable<T> DeserializeMany<T>(string folderName)
 For a larger code sample, see [using a worker role][exportasa].
 
 ## <a name="delete"></a>Delete your old data
-You are responsible for managing your storage capacity and deleting the old data if necessary.
+You're responsible for managing your storage capacity and deleting the old data if necessary.
 
 ## If you regenerate your storage key...
 If you change the key to your storage, continuous export will stop working. You'll see a notification in your Azure account.
 
-Open the Continuous Export tab and edit your export. Edit the Export Destination, but just leave the same storage selected. Click OK to confirm.
+Open the Continuous Export tab and edit your export. Edit the Export Destination, but just leave the same storage selected. Select OK to confirm.
 
 The continuous export will restart.
 
 ## Export samples
 
 * [Export to SQL using Stream Analytics][exportasa]
-* [Stream Analytics sample 2](export-stream-analytics.md)
+* [Stream Analytics sample 2](../../stream-analytics/app-insights-export-stream-analytics.md)
 
-On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data, and you could use it to process data that has been exported from Application Insights.
+On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides various technologies for managing and analyzing big data. You can use it to process data that has been exported from Application Insights.
 
 ## Q & A
 * *But all I want is a one-time download of a chart.*  
 
-    Yes, you can do that. At the top of the tab, click **Export Data**.
+    Yes, you can do that. At the top of the tab, select **Export Data**.
 * *I set up an export, but there's no data in my store.*
 
     Did Application Insights receive any telemetry from your app since you set up the export? You'll only receive new data.
@@ -186,26 +230,38 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
     No, sorry. Our export engine currently only works with Azure storage at this time.  
 * *Is there any limit to the amount of data you put in my store?*
 
-    No. We'll keep pushing data in until you delete the export. We'll stop if we hit the outer limits for blob storage, but that's pretty huge. It's up to you to control how much storage you use.  
+    No. We'll keep pushing data in until you delete the export. We'll stop if we hit the outer limits for blob storage, but that's huge. It's up to you to control how much storage you use.  
 * *How many blobs should I see in the storage?*
 
   * For every data type you selected to export, a new blob is created every minute (if data is available).
-  * In addition, for applications with high traffic, additional partition units are allocated. In this case, each unit creates a blob every minute.
+  * In addition, for applications with high traffic, extra partition units are allocated. In this case, each unit creates a blob every minute.
 * *I regenerated the key to my storage or changed the name of the container, and now the export doesn't work.*
 
-    Edit the export and open the export destination tab. Leave the same storage selected as before, and click OK to confirm. Export will restart. If the change was within the past few days, you won't lose data.
+    Edit the export and open the export destination tab. Leave the same storage selected as before, and select OK to confirm. Export will restart. If the change was within the past few days, you won't lose data.
 * *Can I pause the export?*
 
-    Yes. Click Disable.
+    Yes. Select Disable.
 
 ## Code samples
 
-* [Stream Analytics sample](export-stream-analytics.md)
+* [Stream Analytics sample](../../stream-analytics/app-insights-export-stream-analytics.md)
 * [Export to SQL using Stream Analytics][exportasa]
 * [Detailed data model reference for the property types and values.](export-data-model.md)
 
+## Diagnostic settings based export
+
+Diagnostic settings based export uses a different schema than continuous export. It also supports features that continuous export doesn't like:
+
+* Azure storage accounts with virtual networks, firewalls, and private links.
+* Export to Event Hubs.
+
+To migrate to diagnostic settings-based export:
+
+1. Disable current continuous export.
+2. [Migrate application to workspace-based](convert-classic-resource.md).
+3. [Enable diagnostic settings export](create-workspace-resource.md#export-telemetry). Select **Diagnostic settings > add diagnostic setting** from within your Application Insights resource.
+
 <!--Link references-->
 
-[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[exportasa]: ../../stream-analytics/app-insights-export-sql-stream-analytics.md
 [roles]: ./resources-roles-access-control.md
-

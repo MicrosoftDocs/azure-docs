@@ -5,22 +5,25 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 08/31/2021
 ms.author: victorh
-ms.reviewer: tyao
+
 ---
 
 # What is geo-filtering on a domain for Azure Front Door Service?
 
-By default, Azure Front Door Service responds to user requests regardless of the location of the user making the request. However, in some cases, you may want to restrict access to your web applications by country/region. Web application firewall (WAF) service at Front Door enables you to define a policy using custom access rules for specific path on your endpoint to allow or block access from specified countries/regions. 
+By default, Azure Front Door will respond to all user requests regardless of the location where the request is coming from. In some scenarios, you may want to restrict the access to your web application by countries/regions. The Web application firewall (WAF) service in Front Door enables you to define a policy using custom access rules for a specific path on your endpoint to either allow or block access from specified countries/regions.
 
-A WAF policy usually includes a set of custom rules. A rule consists of match conditions, an action, and a priority. In match condition, you define a match variable, operator, and match value.  For geo filtering rule, match variable is REMOTE_ADDR, operator is GeoMatch, value is the two letter country/region code of interest. You may combine a GeoMatch condition and a REQUEST_URI string match condition to create a path-based geo-filtering rule.
+A WAF policy contains a set of custom rules. The rule consists of match conditions, an action, and a priority. In a match condition, you define a match variable, operator, and match value. For a geo filtering rule, a match variable is REMOTE_ADDR, the operator is GeoMatch, and the value is a two letter country/region code of interest. "ZZ" country code or "Unknown" country captures IP addresses that are not yet mapped to a country in our dataset. You may add ZZ to your match condition to avoid false positives. You can combine a GeoMatch condition and a REQUEST_URI string match condition to create a path-based geo-filtering rule.
 
-You can configure a geo-filtering policy for your Front Door by either using [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) or by using our [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+You can configure a geo-filtering policy for your Front Door by using [Azure PowerShell](../../frontdoor/front-door-tutorial-geo-filtering.md) or by using a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering).
+
+> [!IMPORTANT]
+> Include the country code **ZZ** whenever you use geo-filtering. The **ZZ** country code (or *Unknown* country) captures IP addresses that are not yet mapped to a country in our dataset. This avoids false positives.
 
 ## Country/Region code reference
 
-|Country/Region code | Country?Region name |
+|Country/Region code | Country/Region name |
 | ----- | ----- |
 | AD | Andorra |
 | AE | United Arab Emirates|
@@ -54,6 +57,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | BZ | Belize|
 | CA | Canada|
 | CD | Democratic Republic of the Congo|
+| CG | Republic of the Congo |
 | CF | Central African Republic|
 | CH | Switzerland|
 | CI | Cote d'Ivoire|

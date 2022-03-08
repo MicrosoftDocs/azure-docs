@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 08/26/2021
 ---
 
 # Optimize multi-region cost in Azure Cosmos DB
@@ -21,14 +21,14 @@ In a multi-region writes system, the net available RUs for write operations incr
 
 ### Example
 
-Consider you have a container in West US configured for single-region writes, provisioned with throughput 10K RU/s and stores 1 TB of data this month. Let’s assume you add a region, East US, with the same storage and throughput and you want the ability to write to the containers in both regions from your app. Your total monthly bill(assuming 31 days) in a month is as follows:
+Consider that you have a container in West US configured for single-region writes, provisioned with throughput of 10K RU/s, storing 0.5 TB of data this month. Let’s assume you add a region, East US, with the same storage and throughput and you want the ability to write to the containers in both the regions from your app. Your new total monthly bill (assuming 730 hours in a month) will be as follows:
 
 |**Item**|**Usage (monthly)**|**Rate**|**Monthly Cost**|
 |----|----|----|----|
-|Throughput bill for container in West US (single write regions) |10K RU/s * 24 hours * 31 days |$0.008 per 100 RU/s per hour |$584.06 |
-|Throughput bill for container in 2 regions - West US & East US (multiple write regions) |2 * 10K RU/s * 24 hours * 31 days|$0.016 per 100 RU/s per hour |$2,336.26 |
-|Storage bill for container in West US |1 TB (or 1,024 GB) |$0.25/GB |$256 |
-|Storage bill for 2 regions - West US & East US |2 * 1 TB (or 3,072 GB) |$0.25/GB |$768 |
+|Throughput bill for container in West US (single write region) |10K RU/s * 730 hours |$0.008 per 100 RU/s per hour |$584 |
+|Throughput bill for container in 2 regions - West US & East US (multiple write regions) |2 * 10K RU/s * 730 hours |$0.016 per 100 RU/s per hour |$2,336 |
+|Storage bill for container in West US |0.5 TB (or 512 GB) |$0.25/GB |$128 |
+|Storage bill for container in 2 regions - West US & East US |2 * 0.5 TB (or 1,024 GB) |$0.25/GB |$256 |
 
 ## Improve throughput utilization on a per region-basis
 
@@ -44,3 +44,6 @@ Next you can proceed to learn more about cost optimization in Azure Cosmos DB wi
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

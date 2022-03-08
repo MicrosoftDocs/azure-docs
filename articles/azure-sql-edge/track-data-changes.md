@@ -5,9 +5,9 @@ keywords:
 services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
 ms.date: 05/19/2020
 ---
 
@@ -30,6 +30,9 @@ To understand how to enable or disable this feature, see [Enable and disable cha
 To administer and monitor this feature, see [Administer and monitor change data capture](/sql/relational-databases/track-changes/administer-and-monitor-change-data-capture-sql-server).
 
 To understand how to query and work with the changed data, see [Work with change data](/sql/relational-databases/track-changes/work-with-change-data-sql-server).
+
+> [!NOTE]
+> Change Data Capture functions which are dependent on CLR are not supported on Azure SQL Edge.
 
 ## Change tracking
 

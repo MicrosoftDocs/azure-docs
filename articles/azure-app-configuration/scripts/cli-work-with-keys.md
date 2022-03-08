@@ -3,13 +3,13 @@ title: Azure CLI Script Sample - Work with key-values in App Configuration Store
 titleSuffix: Azure App Configuration
 description: Use Azure CLI script to create, view, update and delete key values from App Configuration store
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
-ms.author: lcozzens 
+ms.author: alkemper 
 ms.custom: devx-track-azurecli
 ---
 
@@ -50,13 +50,13 @@ az appconfig kv set --name $appConfigName --key $newKey --value "Value 2"
 az appconfig kv list --name $appConfigName
 
 # Create a new key-value referencing a value stored in Azure Key Vault
-az appconfig kv set --name $appConfigName --key $refKey --content-type "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8" --value "{\"uri\":\"$uri\"}"
+az appconfig kv set-keyvault  --name $appConfigName --key $refKey --secret-identifier $uri
 
 # List current key-values
 az appconfig kv list --name $appConfigName
 
 # Update Key Vault reference
-az appconfig kv set --name $appConfigName --key $refKey --value "{\"uri\":\"$uri2\"}"
+az appconfig kv set-keyvault --name $appConfigName --key $refKey --secret-identifier $uri2
 
 # List current key-values
 az appconfig kv list --name $appConfigName
@@ -79,9 +79,9 @@ This table lists the commands used in our sample script.
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Create or update a key-value pair. |
-| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | List key-value pairs in an App Configuration store. |
-| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Delete a key-value pair. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az_appconfig_kv_set) | Create or update a key-value pair. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az_appconfig_kv_list) | List key-value pairs in an App Configuration store. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az_appconfig_kv_delete) | Delete a key-value pair. |
 
 ## Next steps
 

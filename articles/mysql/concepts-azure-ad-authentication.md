@@ -1,14 +1,16 @@
 ---
 title: Active Directory authentication - Azure Database for MySQL
 description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for MySQL
-author: lfittl-msft
-ms.author: lufittl
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ---
 
 # Use Azure Active Directory for authenticating with MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for MySQL using identities defined in Azure AD.
 With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
@@ -47,7 +49,7 @@ When using Azure AD authentication, there are two Administrator accounts for the
 
 ## Permissions
 
-To create new users that can authenticate with Azure AD, you must be the designed Azure AD administrator. This user is assigned by configuring the Azure AD Administrator account for a specific Azure Database for MySQL server.
+To create new users that can authenticate with Azure AD, you must be the designated Azure AD administrator. This user is assigned by configuring the Azure AD Administrator account for a specific Azure Database for MySQL server.
 
 To create a new Azure AD database user, you must connect as the Azure AD administrator. This is demonstrated in [Configure and Login with Azure AD for Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 

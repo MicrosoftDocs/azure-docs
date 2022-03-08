@@ -3,12 +3,12 @@ title: Custom subdomains
 titleSuffix: Azure Cognitive Services
 description: Custom subdomain names for each Cognitive Service resource are created through the Azure portal, Azure Cloud Shell, or Azure CLI.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/24/2019
-ms.author: erhopf
+ms.date: 12/04/2020
+ms.author: pafarley
 ---
 
 # Custom subdomain names for Cognitive Services
@@ -34,7 +34,7 @@ No. The regional endpoint will continue to work for new and existing Cognitive S
 ## What if an SDK asks me for the region for a resource?
 
 > [!WARNING]
-> The Speech Services **do not** support custom subdomains at this time. Please use the regional endpoints when using the Speech Services and associated SDKs.
+> Speech Services use custom subdomains with [private endpoints](Speech-Service/speech-services-private-link.md) **only**. In all other cases use **regional endpoints** with Speech Services and associated SDKs.
 
 Regional endpoints and custom subdomain names are both supported and can be used interchangeably. However, the full endpoint is required.
 

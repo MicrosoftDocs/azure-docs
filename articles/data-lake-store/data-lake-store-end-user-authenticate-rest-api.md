@@ -2,11 +2,11 @@
 title: End-user authentication - REST with Data Lake Storage Gen1 - Azure
 description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Azure Active Directory using REST API
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # End-user authentication with Azure Data Lake Storage Gen1 using REST API

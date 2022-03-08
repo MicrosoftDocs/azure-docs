@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure TeamViewer for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to TeamViewer.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure TeamViewer for automatic user provisioning
@@ -30,7 +30,7 @@ This tutorial describes the steps you need to perform in both TeamViewer and Azu
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A valid [Tensor license](https://www.teamviewer.com/de/teamviewer-tensor/) for TeamViewer.
 * A valid custom identifier from the [Single Sign-On](https://community.teamviewer.com/t5/Knowledge-Base/Single-Sign-On-with-Azure-Active-Directory/ta-p/60209#toc-hId--473669723) configuration available.
 
@@ -92,7 +92,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, enter `ttps://webapi.teamviewer.com/scim/v2`  in the **Tentant URL** field and enter the script token created earlier in the **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to TeamViewer. If the connection fails, ensure your TeamViewer account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, enter `https://webapi.teamviewer.com/scim/v2`  in the **Tenant URL** field and enter the script token created earlier in the **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to TeamViewer. If the connection fails, ensure your TeamViewer account has Admin permissions and try again.
 
  	![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/teamViewer-provisioning-tutorial/provisioning.png)
 

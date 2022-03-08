@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Insight4GRC for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Insight4GRC.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Insight4GRC for automatic user provisioning
@@ -31,8 +31,11 @@ This tutorial describes the steps you need to perform in both Insight4GRC and Az
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A user account in Insight4GRC with Admin permissions.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -95,11 +98,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Insight4GRC in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Insight4GRC for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Insight4GRC API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|
-   |---|---|
-   |userName|String|
-   |externalId|String|
+   |Attribute|Type|Supported for filtering|
+   |---|---|--|
+   |userName|String|&check;
+   |externalId|String|&check;
    |active|Boolean|
+   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
    |title|String|
    |name.givenName|String|
    |name.familyName|String|
@@ -138,6 +142,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully.
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion.
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Change log
+
+* 08/19/2021 - Enterprise extension User attribute **manager** has been added.
 
 ## Additional resources
 

@@ -24,7 +24,7 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 1. Choose a *subscription* and then either use an existing resource group or create a new one. Select **Next** to enter the configuration tab.
 
     > [!NOTE]
-    > The location asked in the UI is for the resource group only. Your Front Door configuration will get deployed across all of [Azure Front Door's POP locations](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door).
+    > The location asked in the UI is for the resource group only. Your Front Door configuration will get deployed across all of [Azure Front Door's POP locations](front-door-faq.yml#where-are-the-edge-locations-for-azure-front-door-).
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-create-basics.png" alt-text="Configure basics for new Front Door":::
 
@@ -71,6 +71,9 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 1. Select **Add** to save the routing rule for request forwarding.
 
 1. Select **Review + create** and then **Create**, to create your Front Door profile. Go to the resource once created.
+
+    > [!NOTE]
+    > The creation of this redirect rule will incur a small charge.
 
 ## Next steps
 

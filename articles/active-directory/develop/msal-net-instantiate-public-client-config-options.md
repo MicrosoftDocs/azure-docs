@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 # Instantiate a public client application with configuration options using MSAL.NET
 
-This article describes how to instantiate a [public client application](msal-client-applications.md) using Microsoft Authentication Library for .NET (MSAL.NET).  The application is instantiated with configuration options defined in a settings file.
+This article describes how to instantiate a [public client application](msal-client-applications.md) using the Microsoft Authentication Library for .NET (MSAL.NET).  The application is instantiated with configuration options defined in a settings file.
 
 Before initializing an application, you first need to [register](quickstart-register-app.md) it so that your app can be integrated with the Microsoft identity platform. After registration, you may need the following information (which can be found in the Azure portal):
 
@@ -27,6 +27,25 @@ Before initializing an application, you first need to [register](quickstart-regi
 - The identity provider URL (named the instance) and the sign-in audience for your application. These two parameters are collectively known as the authority.
 - The tenant ID if you are writing a line of business application solely for your organization (also named single-tenant application).
 - For web apps, and sometimes for public client apps (in particular when your app needs to use a broker), you'll have also set the redirectUri where the identity provider will contact back your application with the security tokens.
+
+## Default Reply URI
+
+In MSAL.NET 4.1+ the default redirect URI (Reply URI) can now be set with the `public PublicClientApplicationBuilder WithDefaultRedirectUri()` method. This method will set the redirect URI property of public client application to the recommended default.
+
+This method's behavior is dependent upon the platform that you are using at the time. Here is a table that describes what redirect URI is set on certain platforms:
+
+Platform  | Redirect URI  
+---------  | --------------
+Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+UWP | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`
+.NET Core | `http://localhost`
+
+For the UWP platform, is enhanced the experience by enabling SSO with the browser by setting the value to the result of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. 
+
+For .NET Core, MSAL.Net is setting the value to the local host to enable the user to use the system browser for interactive authentication.
+
+> [!NOTE]
+> For embedded browsers in desktop scenarios the redirect URI used is intercepted by MSAL to detect that a response is returned from the identity provider that an auth code has been returned. This URI can therefore be used in any cloud without seeing an actual redirect to that URI. This means you can and should use `https://login.microsoftonline.com/common/oauth2/nativeclient` in any cloud. If you prefer you can also use any other URI as long as you configure the redirect URI correctly with MSAL and in the app registration. Specifying the default URI in the application registration means there is the least amount of setup in MSAL.
 
 
 A .NET Core console application could have the following *appsettings.json* configuration file:
@@ -94,4 +113,3 @@ SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.j
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
            .Build();
 ```
-

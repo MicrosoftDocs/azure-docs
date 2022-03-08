@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 05/05/2021
 ms.author: duau
 
 ---
@@ -18,7 +18,21 @@ ExpressRoute Direct lets you connect directly into Microsoft’s global network 
 
 ## <a name="before"></a>Before you begin
 
-Verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
+Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
+1.  Sign in to Azure and select the subscription you wish to enroll.
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Register your subscription for Public Preview using the following command:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Once enrolled, verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
 
 1. Access your subscription settings as described in [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 1. In your subscription, for **Resource Providers**, verify that the **Microsoft.Network** provider shows a **Registered** status. If the Microsoft.Network resource provider is not present in the list of registered providers, add it.
@@ -64,7 +78,13 @@ Verify that the **Microsoft.Network** resource provider is registered to your su
 
 ## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
 
-Generating the letter of authorization is unavailable from the portal at this time. Use **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** to obtain the letter of authorization.
+1. Go to the overview page of the ExpressRoute Direct resource and select **Generate Letter of Authorization**.
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/overview.png" alt-text="Screenshot of generate letter of authorization button on overview page.":::
+
+1. Enter your company name and select **Download** to generate the letter.
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/letter-of-authorization-page.png" alt-text="Screenshot of letter of authorization page.":::
 
 ## <a name="state"></a>Change Admin State of links
 
@@ -112,4 +132,4 @@ The following steps help you create an ExpressRoute circuit from the ExpressRout
 
 ## Next steps
 
-For more information about ExpressRoute Direct, see the [Overview](expressroute-erdirect-about.md).
+After you've created the ExpressRoute Circuit, you can [link virtual networks to your ExpressRoute Circuit](expressroute-howto-add-gateway-portal-resource-manager.md).

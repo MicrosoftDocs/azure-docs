@@ -9,12 +9,11 @@ editor: ''
 tags: azure-resource-manager
 keywords: 'SAP'
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/21/2020
+ms.date: 02/02/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -78,6 +77,12 @@ Operating system, Oracle DBMS releases and Oracle functionality supported on Azu
 
 Knowing the DBMS releases that are supported with the targeted Azure infrastructure you need to check the SAP Product Availability Matrix on whether the OS releases and DBMS required are supported with your SAP product releases you intended to run. 
 
+## Oracle Linux
+Most prominent asked question around Oracle Linux is whether SAP supports the Red Hat kernel that is integral part of Oracle Linux as well. For details read [SAP support note #1565179](https://launchpad.support.sap.com/#/notes/1565179).
+
+## Other database than SAP HANA
+Support of non-HANA databases for SAP workload is documented in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533).
+
 
 ## SAP HANA support
 In Azure there are two services, which can be used to run HANA database:
@@ -85,13 +90,13 @@ In Azure there are two services, which can be used to run HANA database:
 - Azure Virtual Machines
 - [HANA Large Instances](./hana-overview-architecture.md)
 
-For running SAP HANA, SAP has more and stronger conditions infrastructure needs to meet than for running NetWeaver or other SAP applications and DBMS. As a result a smaller number of Azure VMs qualify for running the SAP HANA DBMS. The list of supported Azure infrastructure supported for SAP HANA can be found in the so called [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 
+For running SAP HANA, SAP has more and stronger conditions infrastructure needs to meet than for running NetWeaver or other SAP applications and DBMS. As a result a smaller number of Azure VMs qualify for running the SAP HANA DBMS. The list of supported Azure infrastructure supported for SAP HANA can be found in the so called [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). 
 
 > [!NOTE]
 > The units starting with the letter 'S' are [HANA Large Instances](./hana-overview-architecture.md) units. 
 
 > [!NOTE]
-> SAP has no specific certification dependent on the SAP HANA major releases. Contrary to common opinion, the column **Certification scenario** in the [HANA  certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure), the column makes **no statement about the HANA major or minor release certified**. You need to assume that all the units listed that can be used for HANA 1.0 and HANA 2.0 as long as the certified operating system releases for the specific units are supported by HANA 1.0 releases as well. 
+> SAP has no specific certification dependent on the SAP HANA major releases. Contrary to common opinion, the column **Certification scenario** in the [HANA  certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120), the column makes **no statement about the HANA major or minor release certified**. You need to assume that all the units listed that can be used for HANA 1.0 and HANA 2.0 as long as the certified operating system releases for the specific units are supported by HANA 1.0 releases as well. 
 
 For the usage of SAP HANA, different minimum OS releases may apply than for the general NetWeaver cases. You need to check out the supported operating systems for each unit individually since those might vary. You do so by clicking on each unit. More details will appear. One of the details listed is the different operating systems supported for this specific unit.
 

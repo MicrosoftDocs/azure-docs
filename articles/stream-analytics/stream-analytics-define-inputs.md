@@ -1,9 +1,8 @@
 ---
 title: Stream data as input into Azure Stream Analytics
 description: Learn about setting up a data connection in Azure Stream Analytics. Inputs include a data stream from events, and also reference data.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
@@ -25,7 +24,7 @@ Stream Analytics supports compression across all data stream input sources. Supp
 
 ## Create, edit, or test inputs
 
-You can use the [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-visual-studio-code.md) to add and view or edit existing inputs on your streaming job. You can also test input connections and [test queries](stream-analytics-manage-job.md#test-your-query) from sample data from the Azure portal, [Visual Studio](stream-analytics-vs-tools-local-run.md), and [Visual Studio Code](visual-studio-code-local-run.md). When you write a query, you list the input in the FROM clause. You can get the list of available inputs from the **Query** page in the portal. If you wish to use multiple inputs, you can `JOIN` them or write multiple `SELECT` queries.
+You can use the [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-visual-studio-code.md) to add and view or edit existing inputs on your streaming job. You can also test input connections and test queries from sample data from the Azure portal, [Visual Studio](stream-analytics-vs-tools-local-run.md), and [Visual Studio Code](visual-studio-code-local-run.md). When you write a query, you list the input in the FROM clause. You can get the list of available inputs from the **Query** page in the portal. If you wish to use multiple inputs, you can `JOIN` them or write multiple `SELECT` queries.
 
 
 ## Stream data from Event Hubs

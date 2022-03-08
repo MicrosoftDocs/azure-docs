@@ -1,12 +1,12 @@
 ---
 title: Layered security v1
 description: Learn how to implement a layered security architecture in your App Service environment. This doc is provided only for customers who use the legacy v1 ASE.
-author: stefsch
+author: madsd
 
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.topic: article
 ms.date: 08/30/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
 
 ---
@@ -62,7 +62,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 ```
 
-Rinse and repeat for the second and third upstream App Service Environments ("fe2ase"and "fe3ase").
+Rinse and repeat for the second and third upstream App Service Environments ("fe2ase" and "fe3ase").
 
 ```azurepowershell-interactive
 #Grant access to requests from the second upstream web front-end

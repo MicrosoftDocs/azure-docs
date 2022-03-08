@@ -10,19 +10,21 @@ ms.date: 6/30/2020
 
 # Azure Database for MySQL Infrastructure double encryption
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Azure Database for MySQL uses storage [encryption of data at-rest](concepts-security.md#at-rest) for data using Microsoft's managed keys. Data, including backups, are encrypted on disk and this encryption is always on and can't be disabled. The encryption uses FIPS 140-2 validated cryptographic module and an AES 256-bit cipher for the Azure storage encryption.
 
 Infrastructure double encryption adds a second layer of encryption using service-managed keys. It uses FIPS 140-2 validated cryptographic module, but with a different encryption algorithm. This provides an additional layer of protection for your data at rest. The key used in Infrastructure double encryption is also managed by the Azure Database for MySQL service. Infrastructure double encryption is not enabled by default since the additional layer of encryption can have a performance impact.
 
 > [!NOTE]
-> This feature is only supported for "General Purpose" and "Memory Optimized" pricing tiers in Azure Database for PostgreSQL.
+> Like data encryption at rest, this feature is supported only on "General Purpose storage v2 (support up to 16TB)" storage available in General Purpose and Memory Optimized pricing tiers. Refer [Storage concepts](concepts-pricing-tiers.md#storage) for more details. For other limitations, refer to the [limitation](concepts-infrastructure-double-encryption.md#limitations) section.
 
 Infrastructure Layer encryption has the benefit of being implemented at the layer closest to the storage device or network wires. Azure Database for MySQL implements the two layers of encryption using service-managed keys. Although still technically in the service layer, it is very close to hardware that stores the data at rest. You can still optionally enable data encryption at rest using [customer managed key](concepts-data-encryption-mysql.md) for the provisioned MySQL server. 
 
 Implementation at the infrastructure layers also supports a diversity of keys. Infrastructure must be aware of different clusters of machine and networks. As such, different keys are used to minimize the blast radius of infrastructure attacks and a variety of hardware and network failures. 
 
 > [!NOTE]
-> Using Infrastructure double encryption will have performance impact on the Azure Database for MySQL server due to the additional encryption process.
+> Using Infrastructure double encryption will have 5-10% impact on the throughput of your Azure Database for MySQL server due to the additional encryption process.
 
 ## Benefits
 
@@ -51,20 +53,16 @@ The encryption capabilities that are provided by Azure Database for MySQL can be
 
 ## Limitations
 
-For Azure Database for MySQL, the support for infrastructure double encryption using service-managed key has the following limitations:
+For Azure Database for MySQL, the support for infrastruction double encryption has few limitations -
 
 * Support for this functionality is limited to **General Purpose** and **Memory Optimized** pricing tiers.
-* You can create a Azure Database for MySQL with infrastructure encryption enabled in the following regions:
-
-   * East US
-   * South Central US
-   * West US 2
-   
-* * This feature is only supported in regions and servers, which support storage up to 16 TB. For the list of Azure regions supporting storage up to 16 TB, refer to the [storage documentation](concepts-pricing-tiers.md#storage).
+* This feature is only supported in regions and servers, which support general purpose storage v2 (up to 16 TB). For the list of Azure regions supporting storage up to 16 TB, refer to the storage section in documentation [here](concepts-pricing-tiers.md#storage)
 
     > [!NOTE]
-    > - All **new** MySQL servers created in the regions listed above also support data encryption with customer manager keys. In this case, servers created through point-in-time restore (PITR) or read replicas do not qualify as "new".
-    > - To validate if your provisioned server supports up to 16 TB, you can go to the pricing tier blade in the portal and see if the storage slider can be moved up to 16 TB. If you can only move the slider up to 4 TB, your server may not support encryption with customer managed keys; however, the data is encrypted using service-managed keys at all times. Please reach out to AskAzureDBforMySQL@service.microsoft.com if you have any questions.
+    > - All new MySQL servers created in the [Azure regions](concepts-pricing-tiers.md#storage) supporting general purpose storage v2, support for encryption with customer manager keys is **available**. Point In Time Restored (PITR) server or read replica will not qualify though in theory they are ‘new’.
+    > - To validate if your provisioned server general purpose storage v2, you can go to the pricing tier blade in the portal and see the max storage size supported by your provisioned server. If you can move the slider up to 4TB, your server is on general purpose storage v1 and will not support encryption with customer managed keys. However, the data is encrypted using service managed keys at all times. Please reach out to AskAzureDBforMySQL@service.microsoft.com if you have any questions.
+
+
 
 ## Next steps
 

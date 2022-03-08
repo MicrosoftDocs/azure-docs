@@ -1,20 +1,20 @@
 ---
-author: trevorbye
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/18/2020
-ms.author: aahi
+ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
-The container provides websocket-based query endpoint APIs, that are accessed through the [Speech SDK](../index.yml). By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method.
+The container provides websocket-based query endpoint APIs that are accessed through the [Speech SDK](../index.yml). By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method.
 
 > [!TIP]
-> When using the Speech SDK with containers, you do not need to provide the Azure Speech resource [subscription key or an authentication bearer token](../rest-speech-to-text.md#authentication).
+> When you use the Speech SDK with containers, you don't need to provide the Azure Speech resource [subscription key or an authentication bearer token](../rest-speech-to-text.md#authentication).
 
-See the examples below.
+See the following examples.
 
 # [C#](#tab/csharp)
 
@@ -24,7 +24,7 @@ Change from using this Azure-cloud initialization call:
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-To using this call with the container [host](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?preserve-view=true&view=azure-dotnet):
+To using this call with the container [host](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost):
 
 ```csharp
 var config = SpeechConfig.FromHost(
@@ -40,11 +40,11 @@ speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
 ```
 
-To using this call with the container [endpoint](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-python):
+To using this call with the container [endpoint](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig):
 
 ```python
 speech_config = speechsdk.SpeechConfig(
-    endpoint="ws://localhost:5000/speech/recognition/conversation/cognitiveservices/v1"
+    host="ws://localhost:5000")
 ```
 
 ---

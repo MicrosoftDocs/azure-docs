@@ -2,8 +2,8 @@
 title: 'Tutorial: Configure Smartsheet for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Smartsheet.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -33,7 +33,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Sm
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * [A Smartsheet tenant](https://www.smartsheet.com/pricing).
 * A user account on a Smartsheet Enterprise or Enterprise Premier plan with System Administrator permissions.
 
@@ -118,7 +118,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the **SCIM 2.0 base URL and Access Token** values retrieved earlier from Smartsheet in **Tenant URL** and **Secret Token** respectively.. Click **Test Connection** to ensure Azure AD can connect to Smartsheet. If the connection fails, ensure your Smartsheet account has SysAdmin permissions and try again.
+5. Under the **Admin Credentials** section, input the **SCIM 2.0 base URL** of https://scim.smartsheet.com/v2 and **Access Token** value retrieved earlier from Smartsheet in **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Smartsheet. If the connection fails, ensure your Smartsheet account has SysAdmin permissions and try again.
 
 	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -132,22 +132,20 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Smartsheet in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Smartsheet for update operations. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|
-   |---|---|
+   |Attribute|Type|Supported for filtering|
+   |---|---|---|
+   |userName|String|&check;|
    |active|Boolean|
    |title|String|
-   |userName|String|
    |name.givenName|String|
    |name.familyName|String|
    |phoneNumbers[type eq "work"].value|String|
    |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "fax"].value|String|
+   |emails[type eq "work"].value|String|
    |externalId|String|
-   |roles[primary eq "True"].display|String|
-   |roles[primary eq "True"].type|String|
-   |roles[primary eq "True"].value|String|
    |roles|String|
-   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
@@ -183,6 +181,8 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Change log
 
 * 06/16/2020 - Added support for enterprise extension attributes "Cost Center", "Division", "Manager" and "Department" for users.
+* 02/10/2021 - Added support for core attributes "emails[type eq "work"]" for users.
+* 02/12/2022 - Added SCIM base/tenant URL of https://scim.smartsheet.com/v2 for SmartSheet integration under Admin Credentials section.
 
 ## Additional resources
 

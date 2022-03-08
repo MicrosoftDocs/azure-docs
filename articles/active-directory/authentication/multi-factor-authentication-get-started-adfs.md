@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 08/27/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -43,5 +43,5 @@ Caveats with app passwords for federated users:
 For information on setting up either Azure AD Multi-Factor Authentication or the Azure Multi-Factor Authentication Server with AD FS, see the following articles:
 
 * [Secure cloud resources using Azure AD Multi-Factor Authentication and AD FS](howto-mfa-adfs.md)
-* [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS](howto-mfaserver-adfs-2012.md)
+* [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server](howto-mfaserver-adfs-windows-server.md)
 * [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS 2.0](howto-mfaserver-adfs-2.md)

@@ -8,9 +8,9 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -39,7 +39,7 @@ When you use app passwords, the following considerations apply:
 * After Azure AD Multi-Factor Authentication is enabled on a user's account, app passwords can be used with most non-browser clients like Outlook and Microsoft Skype for Business. However, administrative actions can't be performed by using app passwords through non-browser applications, such as Windows PowerShell. The actions can't be performed even when the user has an administrative account.
     * To run PowerShell scripts, create a service account with a strong password and don't enable the account for two-step verification.
 * If you suspect that a user account is compromised and revoke / reset the account password, app passwords should also be updated. App passwords aren't automatically revoked when a user account password is revoked / reset. The user should delete existing app passwords and create new ones.
-   * For more information, see [Create and delete app passwords from the Additional security verification page](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
+   * For more information, see [Create and delete app passwords from the Additional security verification page](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
 >[!WARNING]
 > App passwords don't work in hybrid environments where clients communicate with both on-premises and cloud auto-discover endpoints. Domain passwords are required to authenticate on-premises. App passwords are required to authenticate with the cloud.
@@ -78,7 +78,7 @@ In this scenario, you use the following credentials:
 
 ## Allow users to create app passwords
 
-By default, users can't create app passwords. The app passwords feature must be enabled before users can use them. To give users the ability to create app passwords, complete the following steps:
+By default, users can't create app passwords. The app passwords feature must be enabled before users can use them. To give users the ability to create app passwords, **admin needs** to complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for and select **Azure Active Directory**, then choose **Users**.
@@ -98,7 +98,9 @@ By default, users can't create app passwords. The app passwords feature must be 
 
 When users complete their initial registration for Azure AD Multi-Factor Authentication, there's an option to create app passwords at the end of the registration process.
 
-Users can also create app passwords after registration. For more information and detailed steps for your users, see [What are app passwords in Azure AD Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Users can also create app passwords after registration. For more information and detailed steps for your users, see the following resources:
+* [What are app passwords in Azure AD Multi-Factor Authentication?](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9)
+* [Create app passwords from the Security info page](https://support.microsoft.com/account-billing/create-app-passwords-from-the-security-info-preview-page-d8bc744a-ce3f-4d4d-89c9-eb38ab9d4137)
 
 ## Next steps
 

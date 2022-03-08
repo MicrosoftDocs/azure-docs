@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Azure API management policy sample - Demonstrates how to filter on request IP address when using an Application Gateway.
 services: api-management
 documentationcenter: ''
-author: jftl6y
+author: dlepow
 
 ms.service: api-management
 ms.workload: mobile

@@ -10,12 +10,14 @@ ms.date: 6/24/2020
 
 # Audit Logs in Azure Database for MySQL
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 In Azure Database for MySQL, the audit log is available to users. The audit log can be used to track database-level activity and is commonly used for compliance.
 
 ## Configure audit logging
 
 >[!IMPORTANT]
-> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
+> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted and minimum amount of data is collected. 
 
 By default the audit log is disabled. To enable it, set `audit_log_enabled` to ON.
 
@@ -38,11 +40,14 @@ Other parameters you can adjust include:
 | `DCL` | Queries like "GRANT PERMISSION" |
 | `ADMIN` | Queries like "SHOW STATUS" |
 | `GENERAL` | All in DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and ADMIN |
-| `TABLE_ACCESS` | - Only available for MySQL 5.7 <br> - Table read statements, such as SELECT or INSERT INTO ... SELECT <br> - Table delete statements, such as DELETE or TRUNCATE TABLE <br> - Table insert statements, such as INSERT or REPLACE <br> - Table update statements, such as UPDATE |
+| `TABLE_ACCESS` | - Available for MySQL 5.7 and MySQL 8.0 <br> - Table read statements, such as SELECT or INSERT INTO ... SELECT <br> - Table delete statements, such as DELETE or TRUNCATE TABLE <br> - Table insert statements, such as INSERT or REPLACE <br> - Table update statements, such as UPDATE |
 
 ## Access audit logs
 
 Audit logs are integrated with Azure Monitor Diagnostic Logs. Once you've enabled audit logs on your MySQL server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs in the Azure portal, see the [audit log portal article](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+
+>[!Note]
+>Premium Storage accounts are not supported if you sending the logs to Azure storage via diagnostics and settings 
 
 ## Diagnostic Logs Schemas
 

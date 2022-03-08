@@ -9,8 +9,8 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 05/29/2019
+ms.topic: how-to
+ms.date: 10/27/2021
 ---
 
 # Moderate text from the API console
@@ -59,7 +59,7 @@ For **Content-Type**, select the type of content you want to screen. For this ex
 In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
 
 ```
-Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 
+Is this a grabage or <offensive word> email abcdef@abcd.com, phone: 4255550111, IP: 
 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
 ```
 
@@ -72,11 +72,11 @@ The following response shows the various insights from the API. It contains pote
 
 ```json
 {
-   "original_text":"Is this a grabage or crap email abcdef@abcd.com, phone: 
+   "original_text":"Is this a grabage or <offensive word> email abcdef@abcd.com, phone: 
    6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
-   "normalized_text":"   grabage  crap email abcdef@abcd.com, phone: 
+   "normalized_text":"   grabage  <offensive word> email abcdef@abcd.com, phone: 
    6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
-   "auto_corrected_text":"Is this a garbage or crap email abcdef@abcd.com, phone: 
+   "auto_corrected_text":"Is this a garbage or <offensive word> email abcdef@abcd.com, phone: 
    6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
    "status":{
       "code":3000,
@@ -121,7 +121,7 @@ The following response shows the various insights from the API. It contains pote
          "index":12,
          "original_index":21,
          "list_id":0,
-         "term":"crap"
+         "term":"<offensive word>"
       }
    ],
    "tracking_id":"WU_ibiza_65a1016d-0f67-45d2-b838-b8f373d6d52e_ContentModerator.

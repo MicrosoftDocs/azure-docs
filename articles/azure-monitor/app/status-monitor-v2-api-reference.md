@@ -2,10 +2,7 @@
 title: Azure Application Insights .Net Agent API reference
 description: Application Insights Agent API reference. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-author: TimothyMothra
-ms.author: tilee
 ms.date: 04/23/2019
-
 ---
 
 # Azure Monitor Application Insights Agent API Reference
@@ -96,6 +93,8 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 ```
 
+> [!NOTE]
+> The naming of AppFilter in this context can be confusing, `AppFilter` sets the application name regex filter (HostingEnvironment.SiteName in the case of .Net on IIS). `VirtualPathFilter` sets the virtual path regex filter (HostingEnvironment.ApplicationVirtualPath in the case of .Net on IIS). To instrument a single app you would use the VirtualPathFilter as follows: `Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap @(@{VirtualPathFilter="^/MyAppName$"; InstrumentationSettings=@{InstrumentationKey='<your ikey>'}})`
 
 ### Parameters
 
@@ -637,9 +636,9 @@ Timeout Reached. Stopping...
 ## Next steps
 
   View your telemetry:
- - [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage.
+ - [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage.
 - [Search events and logs](./diagnostic-search.md) to diagnose problems.
-- Use [analytics](../log-query/log-query-overview.md) for more advanced queries.
+- Use [analytics](../logs/log-query-overview.md) for more advanced queries.
 - [Create dashboards](./overview-dashboard.md).
  
  Add more telemetry:

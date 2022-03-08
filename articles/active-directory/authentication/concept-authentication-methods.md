@@ -6,28 +6,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 07/01/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: karenhoran
 
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 
 # Customer intent: As an identity administrator, I want to understand what authentication options are available in Azure AD and how or why I can use them to improve and secure user sign-in events.
 ---
 # What authentication and verification methods are available in Azure Active Directory?
 
-As part of the sign-in experience for accounts in Azure Active Directory (Azure AD), there are different ways that a user can authenticate themselves. A username and password is the most common way a user would historically provide credentials. With modern authentication and security features in Azure AD, that basic password should be supplemented or replaced with more secure authentication methods.
+Microsoft recommends passwordless authentication methods such as Windows Hello, FIDO2 security keys, and the Microsoft Authenticator app because they provide the most secure sign-in experience. Although a user can sign-in using other common methods such as a username and password, passwords should be replaced with more secure authentication methods.
 
 ![Table of the strengths and preferred authentication methods in Azure AD](media/concept-authentication-methods/authentication-methods.png)
 
-Passwordless authentication methods such as Windows Hello, FIDO2 security keys, and the Microsoft Authenticator app provide the most secure sign-in events.
+Azure AD Multi-Factor Authentication (MFA) adds additional security over only using a password when a user signs in. The user can be prompted for additional forms of authentication, such as to respond to a push notification, enter a code from a software or hardware token, or respond to an SMS or phone call.
 
-Azure AD Multi-Factor Authentication adds additional security over only using a password when a user signs in. The user can be prompted for additional forms of authentication, such as to respond to a push notification, enter a code from a software or hardware token, or respond to an SMS or phone call.
+To simplify the user on-boarding experience and register for both MFA and self-service password reset (SSPR), we recommend you [enable combined security information registration](howto-registration-mfa-sspr-combined.md). For resiliency, we recommend that you require users to register multiple authentication methods. When one method isn't available for a user during sign-in or SSPR, they can choose to authenticate with another method. For more information, see [Create a resilient access control management strategy in Azure AD](concept-resilient-controls.md).
 
-To simplify the user on-boarding experience and register for both MFA and SSPR, we recommend you [enable combined security information registration](howto-registration-mfa-sspr-combined.md). For resiliency, we recommend that you require users to register multiple authentication methods. When one method isn't available for a user during sign-in or SSPR, they can choose to authenticate with another method. For more information, see [Create a resilient access control management strategy in Azure AD](concept-resilient-controls.md).
+Here's a [video](https://www.youtube.com/watch?v=LB2yj4HSptc&feature=youtu.be) we created to help you choose the best authentication method to keep your organization safe.
 
 ## Authentication method strength and security
 
@@ -39,14 +39,17 @@ The following table outlines the security considerations for the available authe
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello for Business     | High     | High      | High         |
 | Microsoft Authenticator app    | High     | High      | High         |
-| FIDO2 security key (preview)   | High     | High      | High         |
+| FIDO2 security key             | High     | High      | High         |
 | OATH hardware tokens (preview) | Medium   | Medium    | High         |
 | OATH software tokens           | Medium   | Medium    | High         |
 | SMS                            | Medium   | High      | Medium       |
 | Voice                          | Medium   | Medium    | Medium       |
 | Password                       | Low      | High      | High         |
 
-For more information on security, see [authentication vulnerabilities and attack vectors](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124).
+For the latest information on security, check out our blog posts:
+
+- [It's time to hang up on phone transports for authentication](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)
+- [Authentication vulnerabilities and attack vectors](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)
 
 > [!TIP]
 > For flexibility and usability, we recommend that you use the Microsoft Authenticator app. This authentication method provides the best user experience and multiple modes, such as passwordless, MFA push notifications, and OATH codes.
@@ -60,24 +63,24 @@ The following table outlines when an authentication method can be used during a 
 | Method                         | Primary authentication | Secondary authentication  |
 |--------------------------------|:----------------------:|:-------------------------:|
 | Windows Hello for Business     | Yes                    | MFA                       |
-| Microsoft Authenticator app    | Yes (preview)          | MFA and SSPR              |
-| FIDO2 security key (preview)   | Yes                    | MFA                       |
-| OATH hardware tokens (preview) | No                     | MFA                       |
-| OATH software tokens           | No                     | MFA                       |
-| SMS                            | Yes (preview)          | MFA and SSPR              |
+| Microsoft Authenticator app    | Yes                    | MFA and SSPR              |
+| FIDO2 security key             | Yes                    | MFA                       |
+| OATH hardware tokens (preview) | No                     | MFA and SSPR              |
+| OATH software tokens           | No                     | MFA and SSPR              |
+| SMS                            | Yes                    | MFA and SSPR              |
 | Voice call                     | No                     | MFA and SSPR              |
 | Password                       | Yes                    |                           |
 
-All of these authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+All of these authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 
 To learn more about how each authentication method works, see the following separate conceptual articles:
 
 * [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Microsoft Authenticator app](concept-authentication-authenticator-app.md)
-* [FIDO2 security key (preview)](concept-authentication-passwordless.md#fido2-security-keys)
+* [FIDO2 security key](concept-authentication-passwordless.md#fido2-security-keys)
 * [OATH hardware tokens (preview)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [OATH software tokens](concept-authentication-oath-tokens.md#oath-software-tokens)
-* SMS [sign-in (preview)](howto-authentication-sms-signin.md) and [verification](concept-authentication-phone-options.md#mobile-phone-verification)
+* [SMS sign-in](howto-authentication-sms-signin.md) and [verification](concept-authentication-phone-options.md#mobile-phone-verification)
 * [Voice call verification](concept-authentication-phone-options.md)
 * Password
 
@@ -98,7 +101,7 @@ To learn more about SSPR concepts, see [How Azure AD self-service password reset
 
 To learn more about MFA concepts, see [How Azure AD Multi-Factor Authentication works][concept-mfa].
 
-Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 
 To review what authentication methods are in use, see [Azure AD Multi-Factor Authentication authentication method analysis with PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 

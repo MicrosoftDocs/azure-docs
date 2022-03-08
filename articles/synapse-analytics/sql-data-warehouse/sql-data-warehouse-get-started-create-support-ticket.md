@@ -1,13 +1,12 @@
 ---
 title: Request quota increases and get support
 description: How to create a support request in the Azure portal for Azure Synapse Analytics. Request quota increases or get problem resolution support.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/10/2020
-author: kevinvngo
-ms.author: kevin
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
@@ -112,7 +111,7 @@ To enable region access for a subscription, you'll need to complete the followin
 
 Select **Other quota request** from the quota type drop-down menu for other quota request types:
 
-![Other quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
+![Other quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details.png)
 
 ## Submit your request
 
@@ -132,5 +131,4 @@ After you've submitted the support request, the Azure support team will contact 
 
 ## Other resources
 
-You can also connect with the Azure Synapse Analytics community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) or through the [Microsoft Q&A question page for Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
-
+You can also connect with the Azure Synapse Analytics community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) or through the [Microsoft Q&A question page for Azure Synapse Analytics](/answers/topics/azure-synapse-analytics.html).

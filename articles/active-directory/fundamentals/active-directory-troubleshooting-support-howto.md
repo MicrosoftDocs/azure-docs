@@ -2,10 +2,8 @@
 title: Find help and open a support ticket - Azure Active Directory | Microsoft Docs
 description: Instructions about how to get help and open a support ticket for Azure Active Directory.
 services: active-directory
-documentationcenter: na
 author: ajburnle
-manager: daveba
-editor: ''
+manager: karenhoran
 ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
@@ -18,7 +16,8 @@ ms.collection: M365-identity-device-management
 ---
 
 # Find help and open a support ticket for Azure Active Directory
-Microsoft provides global technical, pre-sales, billing, and subscription support for Azure Active Directory (Azure AD). Support is available both online and by phone for Microsoft Azure paid and trial subscriptions. Phone support and online billing support are available in additional languages. 
+
+Microsoft provides global technical, pre-sales, billing, and subscription support for Azure Active Directory (Azure AD). Support is available both online and by phone for Microsoft Azure paid and trial subscriptions. Phone support and online billing support are available in additional languages.
 
 ## Find help without opening a support ticket
 
@@ -28,7 +27,6 @@ Before creating a support ticket, check out the following resources for answers 
 
 * The [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for our IT pro partners and customers to collaborate, share, and learn. The [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) is used for announcements, blog posts, ask-me-anything (AMA) interactions with experts, and more. You can also [join the community to submit your ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
-
 ## Open a support ticket
 
 If you are unable to find answers by using self-help resources, you can open an online support ticket. You should open each support ticket for only a single problem, so that we can connect you to the support engineers who are subject matter experts for your problem. Also, Azure Active Directory engineering teams prioritize their work based on incidents that are generated, so you're often contributing to service improvements.
@@ -36,8 +34,8 @@ If you are unable to find answers by using self-help resources, you can open an 
 ### How to open a support ticket for Azure AD in the Azure portal
 
 > [!NOTE]
-> For billing or subscription issues, you must use the [Microsoft 365 admin center](https://admin.microsoft.com).
-> 
+> * For billing or subscription issues, you must use the [Microsoft 365 admin center](https://admin.microsoft.com).  
+> * If you're using Azure AD B2C, open a support ticket by first switching to an Azure AD tenant that has an Azure subscription associated with it. Typically, this is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
    
@@ -69,7 +67,7 @@ If you are unable to find answers by using self-help resources, you can open an 
 ### How to open a support ticket for Azure AD in the Microsoft 365 admin center
 
 > [!NOTE]
-> Support for Azure AD in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators only. 
+> Support for Azure AD in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators only.
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with an account that has an Enterprise Mobility + Security (EMS) license.
 

@@ -5,10 +5,11 @@ keywords:
 services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
-ms.date: 05/19/2020
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
+ms.date: 05/19/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Back up and restore databases in Azure SQL Edge 

@@ -1,10 +1,10 @@
 ---
 title: Send correlated messages in-order by using a sequential convoy
-description: Send related messages in order by using the sequential convoy pattern in Azure Logic Apps with Azure Service Bus
+description: Send related messages in order by using the sequential convoy pattern in Azure Logic Apps with Azure Service Bus.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: apseth, divswa, logicappspm
-ms.topic: conceptual
+ms.reviewer: apseth, divswa, azla
+ms.topic: how-to
 ms.date: 05/29/2020
 ---
 
@@ -288,7 +288,7 @@ This [**Until** loop](../logic-apps/logic-apps-control-flow-loops.md#until-loop)
 
 * Check whether the `isDone` variable is set to `true`.
 
-  * If `isDone` is not set to `true`, the workflow is still processing messages, so the workflow renews the lock on the session in the queue, and checks the loop condition again.
+  * If `isDone` is set to `true`, the workflow is still processing messages, so the workflow renews the lock on the session in the queue, and checks the loop condition again.
 
     You need to provide the name for your Service Bus queue in the Service Bus action, [**Renew lock on the session in a queue**](#renew-lock-on-session).
 

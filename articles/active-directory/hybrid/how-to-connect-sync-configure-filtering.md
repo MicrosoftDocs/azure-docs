@@ -4,15 +4,14 @@ description: Explains how to configure filtering in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 03/26/2019
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -23,7 +22,6 @@ By using filtering, you can control which objects appear in Azure Active Directo
 
 In some cases however, you're required make some changes to the default configuration. Here are some examples:
 
-* You plan to use the [multi-Azure AD directory topology](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Then you need to apply a filter to control which objects are synchronized to a particular Azure AD directory.
 * You run a pilot for Azure or Microsoft 365 and you only want a subset of users in Azure AD. In the small pilot, it's not important to have a complete Global Address List to demonstrate the functionality.
 * You have many service accounts and other nonpersonal accounts that you don't want in Azure AD.
 * For compliance reasons, you don't delete any user accounts on-premises. You only disable them. But in Azure AD, you only want active accounts to be present.
@@ -208,6 +206,8 @@ You can apply [inbound](#inbound-filtering) filtering from Active Directory to t
 
 ### Inbound filtering
 Inbound filtering uses the default configuration, where objects going to Azure AD must have the metaverse attribute cloudFiltered not set to a value to be synchronized. If this attribute's value is set to **True**, then the object isn't synchronized. It shouldn't be set to **False**, by design. To make sure other rules have the ability to contribute a value, this attribute is only supposed to have the values **True** or **NULL** (absent).
+
+Note that Azure AD Connect is designed to clean up the objects it was responsible to provision in Azure AD. If the system hasn't provisioned the object in Azure AD in the past, but it gets the Azure AD object during an import step, it correctly assumes that this object was created in Azure AD by some other system. Azure AD Connect doesn't clean up these types of Azure AD objects, even when the metaverse attribute `cloudFiltered` is set to **True**.
 
 In inbound filtering, you use the power of **scope** to determine which objects to synchronize or not synchronize. This is where you make adjustments to fit your own organization's requirements. The scope module has a **group** and a **clause** to determine when a sync rule is in scope. A group contains one or many clauses. There is a logical "AND" between multiple clauses, and a logical "OR" between multiple groups.
 

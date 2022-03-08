@@ -1,25 +1,32 @@
 ---
 title: Flatten transformation in mapping data flow
-description: Denormalize hierarchical data using the flatten transformation
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Denormalize hierarchical data using the flatten transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 09/29/2021
 ---
 
 # Flatten transformation in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Use the flatten transformation to take array values inside hierarchical structures such as JSON and unroll them into individual rows. This process is known as denormalization.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWLX9j]
 
 ## Configuration
 
 The flatten transformation contains the following configuration settings
 
-![Flatten settings](media/data-flow/flatten1.png "Flatten settings")
+:::image type="content" source="media/data-flow/flatten1.png" alt-text="Flatten settings":::
 
 ### Unroll by
 
@@ -34,6 +41,28 @@ By default, the flatten transformation unrolls an array to the top of the hierar
 Similar to the select transformation, choose the projection of the new structure from incoming fields and the denormalized array. If a denormalized array is mapped, the output column will be the same data type as the array. If the unroll by array is an array of complex objects that contains subarrays, mapping an item of that subarry will output an array.
 
 Refer to the inspect tab and data preview to verify your mapping output.
+
+## Rule-based mapping
+
+The flatten transformation supports rule-based mapping allowing you to create dynamic and flexible transformations that will flatten arrays based on rules and flatten structures based on hierarchy levels.
+
+:::image type="content" source="media/data-flow/flatten-pattern.png" alt-text="Flatten pattern":::
+
+### Matching condition
+
+Enter a pattern matching condition for the column or columns that you wish to flatten using either exact matching or patterns. Example: ```like(name,'cust%')```
+
+### Deep column traversal
+
+Optional setting that tells the service to handle all subcolumns of a complex object individually instead of handling the complex object as a whole column.
+
+### Hierarchy level
+
+Choose the level of the hierarchy that you would like expand.
+
+### Name matches (regex)
+
+Optionally choose to express your name matching as a regular expression in this box, instead of using the matching condition above.
 
 ## Examples
 

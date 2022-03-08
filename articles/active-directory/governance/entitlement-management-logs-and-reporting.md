@@ -3,19 +3,19 @@ title: Archive & report with Azure Monitor - Azure AD entitlement management
 description: Learn how to archive logs and create reports with Azure Monitor in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: barclayn
-manager: daveba
+author: ajburnle
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
-ms.author: barclayn
+ms.date: 5/19/2021
+ms.author: ajburnle
 ms.reviewer: 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 
 
 #Customer intent: As an administrator, I want to extend data retention in entitlement management past the default period by using Azure Monitor.
@@ -27,21 +27,19 @@ Azure AD stores audit events for up to 30 days in the audit log. However, you ca
 
 
 ## Configure Azure AD to use Azure Monitor
-Before using the Azure Monitor workbooks, you must configure Azure AD to send a copy of its audit logs to Azure Monitor.
+Before you use the Azure Monitor workbooks, you must configure Azure AD to send a copy of its audit logs to Azure Monitor.
 
 Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure subscription. You can read more about the prerequisites and estimated costs of using Azure Monitor in [Azure AD activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
 
-**Prerequisite role**: Global Admin
+**Prerequisite role**: Global Administrator
 
 1. Sign in to the Azure portal as a user who is a Global Admin. Make sure you have access to the resource group containing the Azure Monitor workspace.
  
 1. Select **Azure Active Directory** then click **Diagnostic settings** under Monitoring in the left navigation menu. Check if there's already a setting to send the audit logs to that workspace.
 
-1. If there isn't already a setting, click **Add diagnostic setting**. Use the instructions in the article [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor)
-to send the Azure AD audit log to the Azure Monitor workspace.
+1. If there isn't already a setting, click **Add diagnostic setting**. Use the instructions in [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor) to send the Azure AD audit log to the Azure Monitor workspace.
 
     ![Diagnostics settings pane](./media/entitlement-management-logs-and-reporting/audit-log-diagnostics-settings.png)
-
 
 1. After the log is sent to Azure Monitor, select **Log Analytics workspaces**, and select the workspace that contains the Azure AD audit logs.
 
@@ -55,10 +53,9 @@ to send the Azure AD audit log to the Azure Monitor workspace.
     
     1. Expand the section **Azure Active Directory Troubleshooting**, and click on **Archived Log Date Range**. 
 
-
 ## View events for an access package  
 
-To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) for information) and in one of the following roles: 
+To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) for information) and in one of the following roles: 
 
 - Global administrator  
 - Security administrator  
@@ -74,12 +71,15 @@ Use the following procedure to view events:
 
 1. Select the workbook named *Access Package Activity*. 
 
-1. In that workbook, select a time range (change to **All** if not sure), and select an access package Id from the drop-down list of all access packages that had activity during that time range. The events related to the access package that occurred during the selected time range will be displayed.  
+1. In that workbook, select a time range (change to **All** if not sure), and select an access package ID from the drop-down list of all access packages that had activity during that time range. The events related to the access package that occurred during the selected time range will be displayed.
 
     ![View access package events](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
 
-    Each row includes the time, access package Id, the name of the operation, the object Id, UPN, and the display name of the user who started the operation.  Additional details are included in JSON.   
+    Each row includes the time, access package ID, the name of the operation, the object ID, UPN, and the display name of the user who started the operation.  Additional details are included in JSON.
 
+1. If you would like to see if there have been changes to application role assignments for an application that were not due to access package assignments, such as by a global administrator directly assigning a user to an application role, then you can select the workbook named *Application role assignment activity*.
+
+    ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
 
 ## Create custom Azure Monitor queries using the Azure portal
 You can create your own queries on Azure AD audit events, including entitlement management events.  
@@ -106,7 +106,7 @@ If you would like to know the oldest and newest audit events held in Azure Monit
 AuditLogs | where TimeGenerated > ago(3653d) | summarize OldestAuditEvent=min(TimeGenerated), NewestAuditEvent=max(TimeGenerated) by Type
 ```
 
-For more information on the columns that are stored for audit events in Azure Monitor, see [Interpret the Azure AD audit logs schema in Azure Monitor](../reports-monitoring/reference-azure-monitor-audit-log-schema.md).
+For more information on the columns that are stored for audit events in Azure Monitor, see [Interpret the Azure AD audit logs schema in Azure Monitor](../reports-monitoring/overview-reports.md).
 
 ## Create custom Azure Monitor queries using Azure PowerShell
 
@@ -129,7 +129,7 @@ To set the role assignment and create a query, do the following steps:
 
 ### Install Azure PowerShell module
 
-Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.3.0) (if you haven't already), by typing:
+Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps) (if you haven't already), by typing:
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser
@@ -157,10 +157,9 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-You can reauthenticate and associate your PowerShell session to that subscription using a command such as `Connect-AzAccount –Subscription $subs[0].id`. To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
-).
+You can reauthenticate and associate your PowerShell session to that subscription using a command such as `Connect-AzAccount –Subscription $subs[0].id`. To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace Id" displayed in the Azure portal in the Log Analytics workspace overview.
+If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace ID" displayed in the Azure portal in the Log Analytics workspace overview.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace
@@ -168,8 +167,7 @@ $wks | ft CustomerId, Name
 ```
 
 ### Send the query to the Log Analytics workspace
-Finally, once you have a workspace identified, you can use [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) to send a Kusto query to that workspace. These queries are written in [Kusto query language](/azure/kusto/query/).
+Finally, once you have a workspace identified, you can use [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) to send a Kusto query to that workspace. These queries are written in [Kusto query language](/azure/kusto/query/).
  
 For example, you can retrieve the date range of the audit event records from the Log Analytics workspace, with PowerShell cmdlets to send a query like:
  
@@ -187,5 +185,5 @@ $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -
 $bResponse.Results |ft 
 ```
 
-## Next steps:
-- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md)
+## Next steps
+- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md)

@@ -1,21 +1,21 @@
 ---
 title: FAQs for hybrid FIDO2 security key deployment - Azure Active Directory
-description: Learn about some frequently asked questions for passwordless hybrid FIDO2 security key sign-in using Azure Active Directory (preview)
+description: Learn about some frequently asked questions for passwordless hybrid FIDO2 security key sign-in using Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: karenhoran
 ms.reviewer: aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Deployment frequently asked questions (FAQs) for hybrid FIDO2 security keys in Azure AD (preview)
+# Deployment frequently asked questions (FAQs) for hybrid FIDO2 security keys in Azure AD
 
 This article covers deployment frequently asked questions (FAQs) for hybrid Azure AD joined devices and passwordless sign-in to on-prem resources. With this passwordless feature, you can enable Azure AD authentication on Windows 10 devices for hybrid Azure AD joined devices using FIDO2 security keys. Users can sign into Windows on their devices with modern credentials like FIDO2 keys and access traditional Active Directory Domain Services (AD DS) based resources with a seamless single sign-on (SSO) experience to their on-prem resources.
 
@@ -29,9 +29,6 @@ To get started with FIDO2 security keys and hybrid access to on-premises resourc
 * [Passwordless FIDO2 security keys](howto-authentication-passwordless-security-key.md)
 * [Passwordless Windows 10](howto-authentication-passwordless-security-key-windows.md)
 * [Passwordless on-premises](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Security keys
 
@@ -65,6 +62,10 @@ For more information how to register and use FIDO2 security keys, see [Enable pa
 ### Is there a way for admins to provision the keys for the users directly?
 
 No, not at this time.
+
+### Why I am getting "NotAllowedError" in the browser, when registering FIDO2 keys?
+
+You will receive "NotAllowedError" from fido2 key registration page. This typically happens when user is in private (Incognito) window or using remote desktop where FIDO2 Private key access is not possible.
 
 ## Prerequisites
 
@@ -174,14 +175,14 @@ To unblock the accounts, use **Active Directory Users and Computers** to modify 
 
 ### How is Azure AD Kerberos linked to my on-premises Active Directory Domain Services environment?
 
-There are two parts - the on-premises AD DS environment, and the Azure AD tenant.
+There are two parts: the on-premises AD DS environment and the Azure AD tenant.
 
 **Active Directory Domain Services (AD DS)**
 
 The Azure AD Kerberos server is represented in an on-premises AD DS environment as a domain controller (DC) object. This DC object is made up of multiple objects:
 
 * *CN=AzureADKerberos,OU=Domain Controllers,\<domain-DN>*
-    
+
     A *Computer* object that represents a Read-Only Domain Controller (RODC) in AD DS. There's no computer associated with this object. Instead, it's a logical representation of a DC.
 
 * *CN=krbtgt_AzureAD,CN=Users,\<domain-DN>*
@@ -204,7 +205,7 @@ If you have multiple AD DS forests, you have one *KerberosDomain* object for eac
 
 To view all objects, use the Azure AD Kerberos Server PowerShell cmdlets included with the latest version of Azure AD Connect.
 
-For more information, including instructions on how to view the objects, see [create Kerberos server Objects](howto-authentication-passwordless-security-key-on-premises.md#create-kerberos-server-object).
+For more information, including instructions on how to view the objects, see [create a Kerberos Server object](howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object).
 
 ### Why can't we have the public key registered to on-premises AD DS so there is no dependency on the internet?
 
@@ -215,7 +216,7 @@ We received feedback around the complexity of deployment model for Windows Hello
 Like any other DC, the Azure AD Kerberos Server encryption *krbtgt* keys should be rotated on a regular basis. It's recommended to follow the same schedule as you use to rotate all other AD DS *krbtgt* keys.
 
 > [!NOTE]
-> Although there are other tools to rotate the *krbtgt* keys, you must [use the PowerShell cmdlets to rotate the *krbtgt* keys](howto-authentication-passwordless-security-key-on-premises.md#rotating-the-azure-ad-kerberos-server-key) of your Azure AD Kerberos Server. This method makes sure that the keys are updated in both the on-premises AD DS environment and in Azure AD.
+> Although there are other tools to rotate the *krbtgt* keys, you must [use the PowerShell cmdlets to rotate the *krbtgt* keys](howto-authentication-passwordless-security-key-on-premises.md#rotate-the-azure-ad-kerberos-server-key) of your Azure AD Kerberos Server. This method makes sure that the keys are updated in both the on-premises AD DS environment and in Azure AD.
 
 ### Why do we need Azure AD Connect? Does it write any info back to AD DS from Azure AD?
 

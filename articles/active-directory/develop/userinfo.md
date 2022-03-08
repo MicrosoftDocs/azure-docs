@@ -3,7 +3,7 @@ title: Microsoft identity platform UserInfo endpoint | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about the UserInfo endpoint on the Microsoft identity platform.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.author: hirsin
-ms.reviewer: hirsin
+ms.author: ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 
@@ -24,7 +24,7 @@ The UserInfo endpoint is part of the [OpenID Connect standard](https://openid.ne
 
 You can programmatically discover the UserInfo endpoint using the OpenID Connect discovery document, at `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. It’s listed in the `userinfo_endpoint` field, and this pattern can be used across clouds to help point to the right endpoint.  We do not recommend hard-coding the UserInfo endpoint in your app – use the OIDC discovery document to find this endpoint at runtime instead.
 
-As part of the OpenID Connect specification, the UserInfo endpoint is often automatically called by [OIDC compliant libraries](https://openid.net/developers/certified/)  to get information about the user.  Without hosting such an endpoint, Microsoft identity platform would not be standards compliant and some libraries would fail.  From the [list of claims identified in the OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) we produce the name claims, subject claim, and email when available and consented for.  
+As part of the OpenID Connect specification, the UserInfo endpoint is often automatically called by [OIDC compliant libraries](https://openid.net/developers/certified/)  to get information about the user.  Without hosting such an endpoint, the Microsoft identity platform would not be standards compliant and some libraries would fail.  From the [list of claims identified in the OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) we produce the name claims, subject claim, and email when available and consented for.  
 
 ## Consider: Use an ID Token instead
 
@@ -73,6 +73,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
     "name": "Mikah Ollenburg", // names all require the “profile” scope.
     "family_name": " Ollenburg",
     "given_name": "Mikah",
+    "picture": "https://graph.microsoft.com/v1.0/me/photo/$value",
     "email": "mikoll@contoso.com" //requires the “email” scope.
 }
 ```

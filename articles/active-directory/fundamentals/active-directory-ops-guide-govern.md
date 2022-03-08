@@ -3,7 +3,7 @@ title: Azure Active Directory governance operations reference guide
 description: This operations reference guide describes the checks and actions you should take to secure governance management
 services: active-directory
 author: martincoetzer
-manager: daveba
+manager: karenhoran
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
@@ -54,7 +54,7 @@ There are changes that require special considerations when testing, from simple 
 | Scenario| Recommendation |
 |-|-|
 |Changing the authentication type from federated to PHS/PTA or vice-versa| Use [staged rollout](../hybrid/how-to-connect-staged-rollout.md) to test the impact of changing the authentication type.|
-|Rolling out a new conditional access (CA) policy or Identity Protection Policy|Create a new CA Policy and assign to test users.|
+|Rolling out a new conditional access (CA) policy or Identity Protection Policy|Create a new Conditional Access policy and assign to test users.|
 |Onboarding a test environment of an application|Add the application to a production environment, hide it from the MyApps panel, and assign it to test users during the quality assurance (QA) phase.|
 |Changing of sync rules|Perform the changes in a test Azure AD Connect with the same configuration that is currently in production, also known as staging mode, and analyze CSExport Results. If satisfied, swap to production when ready.|
 |Changing of branding|Test in a separate test tenant.|
@@ -91,7 +91,7 @@ Hackers often target admin accounts and other elements of privileged access to r
 
 If no process exists in your organization to manage privileged accounts, or you currently have admins who use their regular user accounts to manage services and resources, you should immediately begin using separate accounts, for example one for regular day-to-day activities; the other for privileged access and configured with MFA. Better yet, if your organization has an Azure AD Premium P2 subscription, then you should immediately deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). In the same token, you should also review those privileged accounts and [assign less privileged roles](../roles/security-planning.md) if applicable.
 
-Another aspect of privileged account management that should be implemented is in defining [access reviews](../governance/access-reviews-overview.md) for those accounts, either manually or [automated through PIM](../privileged-identity-management/pim-how-to-perform-security-review.md).
+Another aspect of privileged account management that should be implemented is in defining [access reviews](../governance/access-reviews-overview.md) for those accounts, either manually or [automated through PIM](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md).
 
 #### Privileged account management recommended reading
 

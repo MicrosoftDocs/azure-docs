@@ -3,7 +3,7 @@ title: Custom token cache serialization (MSAL4j)
 titleSuffix: Microsoft identity platform
 description: Learn how to serialize the token cache for MSAL for Java
 services: active-directory
-author: sangonzal
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/07/2019
-ms.author: sagonzal
+ms.author: marsma
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-java
 #Customer intent: As an application developer using the Microsoft Authentication Library for Java (MSAL4J), I want to learn how to persist the token cache so that it is available to a new instance of my application.

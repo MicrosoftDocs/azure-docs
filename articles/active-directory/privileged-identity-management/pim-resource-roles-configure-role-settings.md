@@ -4,15 +4,15 @@ description: Learn how to configure Azure resource role settings in Azure AD Pri
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/01/2020
+ms.date: 12/06/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -35,7 +35,7 @@ Follow these steps to open the settings for an Azure resource role.
 
     ![Azure resources page listing resources that can be managed](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-1. Select **Role settings**.
+1. Select **Settings**.
 
     ![Role settings page listing Azure resource roles](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -43,7 +43,7 @@ Follow these steps to open the settings for an Azure resource role.
 
     ![Role setting details page listing several assignment and activation settings](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Select **Edit** to open the **Role settings** pane. The first tab allows you to update the configuration for role activation in Privileged Identity Management.
+1. Select **Edit** to open the **Edit role setting** pane. The first tab allows you to update the configuration for role activation in Privileged Identity Management.
 
     ![Edit role settings page with Activation tab open](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
@@ -73,14 +73,14 @@ You can choose from two assignment duration options for each assignment type (el
 
 You can choose one of these **eligible** assignment duration options:
 
-| | |
+| | Description |
 | --- | --- |
 | **Allow permanent eligible assignment** | Resource administrators can assign permanent eligible assignment. |
 | **Expire eligible assignment after** | Resource administrators can require that all eligible assignments have a specified start and end date. |
 
 And, you can choose one of these **active** assignment duration options:
 
-| | |
+| | Description |
 | --- | --- |
 | **Allow permanent active assignment** | Resource administrators can assign permanent active assignment. |
 | **Expire active assignment after** | Resource administrators can require that all active assignments have a specified start and end date. |
@@ -88,27 +88,27 @@ And, you can choose one of these **active** assignment duration options:
 > [!NOTE]
 > All assignments that have a specified end date can be renewed by resource administrators. Also, users can initiate self-service requests to [extend or renew role assignments](pim-resource-roles-renew-extend.md).
 
-## Require multi-factor authentication
+## Require multifactor authentication
 
 Privileged Identity Management provides optional enforcement of Azure AD Multi-Factor Authentication for two distinct scenarios.
 
-### Require Multi-Factor Authentication on active assignment
+### On active assignment
 
-In some cases, you might want to assign a user or group to a role for a short duration (one day, for example). In this case, the assigned users don't need to request activation. In this scenario, Privileged Identity Management can't enforce multi-factor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
+This option requires admins must complete a multifactor authentication before creating an active (as opposed to eligible) role assignment. Privileged Identity Management can't enforce multifactor authentication when the user activates their role assignment because the user is already active in the role from the time that it is assigned.
 
-To ensure that the resource administrator fulfilling the assignment is who they say they are, you can enforce multi-factor authentication on active assignment by checking the **Require Multi-Factor Authentication on active assignment** box.
+To require multifactor authentication when creating an active role assignment, you can enforce multifactor authentication on active assignment by checking the **Require Multi-Factor Authentication on active assignment** box.
 
-### Require Multi-Factor Authentication on activation
+### On activation
 
-You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
+You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multifactor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
-To require multi-factor authentication before activation, check the **Require Multi-Factor Authentication on activation** box.
+To require multifactor authentication before activation, check the **Require Multi-Factor Authentication on activation** box.
 
-For more information, see [Multi-factor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
+For more information, see [Multifactor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
 
 ## Activation maximum duration
 
-Use the **Activation maximum duration** slider to set the maximum time, in hours, that a role stays active before it expires. This value can be from one to 24 hours.
+Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
 
 ## Require justification
 

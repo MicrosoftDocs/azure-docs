@@ -6,29 +6,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ---
 # What is a Primary Refresh Token?
 
-A Primary Refresh Token (PRT) is a key artifact of Azure AD authentication on Windows 10, Windows Server 2016 and later versions, iOS, and Android devices. It is a JSON Web Token (JWT) specially issued to Microsoft first party token brokers to enable single sign-on (SSO) across the applications used on those devices. In this article, we will provide details on how a PRT is issued, used, and protected on Windows 10 devices.
+A Primary Refresh Token (PRT) is a key artifact of Azure AD authentication on Windows 10 or newer, Windows Server 2016 and later versions, iOS, and Android devices. It is a JSON Web Token (JWT) specially issued to Microsoft first party token brokers to enable single sign-on (SSO) across the applications used on those devices. In this article, we will provide details on how a PRT is issued, used, and protected on Windows 10 or newer devices.
 
-This article assumes that you already understand the different device states available in Azure AD and how single sign-on works in Windows 10. For more information about devices in Azure AD, see the article [What is device management in Azure Active Directory?](overview.md)
+This article assumes that you already understand the different device states available in Azure AD and how single sign-on works in Windows 10 or newer. For more information about devices in Azure AD, see the article [What is device management in Azure Active Directory?](overview.md)
 
 ## Key terminology and components
 
 The following Windows components play a key role in requesting and using a PRT:
 
-* **Cloud Authentication Provider** (CloudAP): CloudAP is the modern authentication provider for Windows sign in, that verifies users logging to a Windows 10 device. CloudAP provides a plugin framework that identity providers can build on to enable authentication to Windows using that identity provider’s credentials.
-* **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 devices. WAM also provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider.
+* **Cloud Authentication Provider** (CloudAP): CloudAP is the modern authentication provider for Windows sign in, that verifies users logging to a Windows 10 or newer device. CloudAP provides a plugin framework that identity providers can build on to enable authentication to Windows using that identity provider’s credentials.
+* **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 or newer devices. WAM also provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider. (Not included in Windows Server 2016 LTSC builds)
 * **Azure AD CloudAP plugin**: An Azure AD specific plugin built on the CloudAP framework, that verifies user credentials with Azure AD during Windows sign in.
 * **Azure AD WAM plugin**: An Azure AD specific plugin built on the WAM framework, that enables SSO to applications that rely on Azure AD for authentication.
-* **Dsreg**: An Azure AD specific component on Windows 10, that handles the device registration process for all device states.
+* **Dsreg**: An Azure AD specific component on Windows 10 or newer, that handles the device registration process for all device states.
 * **Trusted Platform Module** (TPM): A TPM is a hardware component built into a device, that provides hardware-based security functions for user and device secrets. More details can be found in the article [Trusted Platform Module Technology Overview](/windows/security/information-protection/tpm/trusted-platform-module-overview).
 
 ## What does the PRT contain?
@@ -51,17 +51,20 @@ Device registration is a prerequisite for device based authentication in Azure A
 
 The private keys are bound to the device’s TPM if the device has a valid and functioning TPM, while the public keys are sent to Azure AD during the device registration process. These keys are used to validate the device state during PRT requests.
 
-The PRT is issued during user authentication on a Windows 10 device in two scenarios:
+The PRT is issued during user authentication on a Windows 10 or newer device in two scenarios:
 
-* **Azure AD joined** or **Hybrid Azure AD joined**: A PRT is issued during Windows logon when a user signs in with their organization credentials. A PRT is issued with all Windows 10 supported credentials, for example, password and Windows Hello for Business. In this scenario, Azure AD CloudAP plugin is the primary authority for the PRT.
-* **Azure AD registered device**: A PRT is issued when a user adds a secondary work account to their Windows 10 device. Users can add an account to Windows 10 in two different ways -  
-   * Adding an account via the **Use this account everywhere on this device** prompt after signing in to an app (for example, Outlook)
+* **Azure AD joined** or **Hybrid Azure AD joined**: A PRT is issued during Windows logon when a user signs in with their organization credentials. A PRT is issued with all Windows 10 or newer supported credentials, for example, password and Windows Hello for Business. In this scenario, Azure AD CloudAP plugin is the primary authority for the PRT.
+* **Azure AD registered device**: A PRT is issued when a user adds a secondary work account to their Windows 10 or newer device. Users can add an account to Windows 10 or newer in two different ways -  
+   * Adding an account via the **Allow my organization to manage my device** prompt after signing in to an app (for example, Outlook)
    * Adding an account from **Settings** > **Accounts** > **Access Work or School** > **Connect**
 
 In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary authority for the PRT since Windows logon is not happening with this  Azure AD account.
 
 > [!NOTE]
-> 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 devices. Without WS-Trust, PRT cannot be issued to users on Hybrid Azure AD joined or Azure AD joined devices. On ADFS only usernamemixed endpoints are required. Both adfs/services/trust/2005/windowstransport and adfs/services/trust/13/windowstransport should be enabled as intranet facing endpoints only and **must NOT be exposed** as extranet facing endpoints through the Web Application Proxy
+> 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 or newer devices. Without WS-Trust, PRT cannot be issued to users on Hybrid Azure AD joined or Azure AD joined devices. On ADFS only usernamemixed endpoints are required. Both adfs/services/trust/2005/windowstransport and adfs/services/trust/13/windowstransport should be enabled as intranet facing endpoints only and **must NOT be exposed** as extranet facing endpoints through the Web Application Proxy
+
+> [!NOTE]
+> Azure AD Conditional Access policies are not evaluated when PRTs are issued
 
 ## What is the lifetime of a PRT?
 
@@ -72,14 +75,16 @@ Once issued, a PRT is valid for 14 days and is continuously renewed as long as t
 A PRT is used by two key components in Windows:
 
 * **Azure AD CloudAP plugin**: During Windows sign in, the Azure AD CloudAP plugin requests a PRT from Azure AD using the credentials provided by the user. It also caches the PRT to enable cached sign in when the user does not have access to an internet connection.
-* **Azure AD WAM plugin**: When users try to access applications, the Azure AD WAM plugin uses the PRT to enable SSO on Windows 10. Azure AD WAM plugin uses the PRT to request refresh and access tokens for applications that rely on WAM for token requests. It also enables SSO on browsers by injecting the PRT into browser requests. Browser SSO in Windows 10 is supported on Microsoft Edge (natively) and Chrome (via the [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) or [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) extensions).
+* **Azure AD WAM plugin**: When users try to access applications, the Azure AD WAM plugin uses the PRT to enable SSO on Windows 10 or newer. Azure AD WAM plugin uses the PRT to request refresh and access tokens for applications that rely on WAM for token requests. It also enables SSO on browsers by injecting the PRT into browser requests. Browser SSO in Windows 10 or newer is supported on Microsoft Edge (natively), Chrome (via the [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) or [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) extensions) or Mozilla Firefox v91+ (Firefox [Windows SSO setting](https://support.mozilla.org/kb/windows-sso))
+  > [!NOTE]
+  >  In instances where a user has two accounts from the same Azure AD tenant signed in to a browser application, the device authentication provided by the PRT of the primary account is automatically applied to the second account as well. As a result, the second account also satisfies any device-based Conditional Access policy on the tenant.
 
 ## How is a PRT renewed?
 
 A PRT is renewed in two different methods:
 
 * **Azure AD CloudAP plugin every 4 hours**: The CloudAP plugin renews the PRT every 4 hours during Windows sign in. If the user does not have internet connection during that time, CloudAP plugin will renew the PRT after the device is connected to the internet.
-* **Azure AD WAM plugin during app token requests**: The WAM plugin enables SSO on Windows 10 devices by enabling silent token requests for applications. The WAM plugin can renew the PRT during these token requests in two different ways:
+* **Azure AD WAM plugin during app token requests**: The WAM plugin enables SSO on Windows 10 or newer devices by enabling silent token requests for applications. The WAM plugin can renew the PRT during these token requests in two different ways:
    * An app requests WAM for an access token silently but there’s no refresh token available for that app. In this case, WAM uses the PRT to request a token for the app and gets back a new PRT in the response.
    * An app requests WAM for an access token but the PRT is invalid or Azure AD requires additional authorization (for example, Azure AD Multi-Factor Authentication). In this scenario, WAM initiates an interactive logon requiring the user to reauthenticate or provide additional verification and a new PRT is issued on successful authentication.
 
@@ -88,6 +93,9 @@ In an ADFS environment, direct line of sight to the domain controller isn't requ
 
 Windows transport endpoints are required for password authentication only when a password is changed, not for PRT renewal.
 
+> [!NOTE]
+> Azure AD Conditional Access policies are not evaluated when PRTs are renewed.
+
 ### Key considerations
 
 * A PRT is only issued and renewed during native app authentication. A PRT is not renewed or issued during a browser session.
@@ -95,34 +103,32 @@ Windows transport endpoints are required for password authentication only when a
 
 ## How is the PRT protected?
 
-A PRT is protected by binding it to the device the user has signed in to. Azure AD and Windows 10 enable PRT protection through the following methods:
+A PRT is protected by binding it to the device the user has signed in to. Azure AD and Windows 10 or newer enable PRT protection through the following methods:
 
 * **During first sign in**: During first sign in, a PRT is issued by signing requests using the device key cryptographically generated during device registration. On a device with a valid and functioning TPM, the device key is secured by the TPM preventing any malicious access. A PRT is not issued if the corresponding device key signature cannot be validated.
 * **During token requests and renewal**: When a PRT is issued, Azure AD also issues an encrypted session key to the device. It is encrypted with the public transport key (tkpub) generated and sent to Azure AD as part of device registration. This session key can only be decrypted by the private transport key (tkpriv) secured by the TPM. The session key is the Proof-of-Possession (POP) key for any requests sent to Azure AD.  The session key is also protected by the TPM and no other OS component can access it. Token requests or PRT renewal requests are securely signed by this session key through the TPM and hence, cannot be tampered with. Azure AD will invalidate any requests from the device that are not signed by the corresponding session key.
 
-By securing these keys with the TPM, malicious actors cannot steal the keys nor replay the PRT elsewhere as the TPM is inaccessible even if an attacker has physical possession of the device.  Thus, using a TPM greatly enhances the security of Azure AD Joined, Hybrid Azure AD joined, and Azure AD registered devices against credential theft. For performance and reliability, TPM 2.0 is the recommended version for all Azure AD device registration scenarios on Windows 10.
+By securing these keys with the TPM, we enhance the security for PRT from  malicious actors trying to steal the keys or replay the PRT.  So, using a TPM greatly enhances the security of Azure AD Joined, Hybrid Azure AD joined, and Azure AD registered devices against credential theft. For performance and reliability, TPM 2.0 is the recommended version for all Azure AD device registration scenarios on Windows 10 or newer. Starting with the Windows 10, 1903 update, Azure AD does not use TPM 1.2 for any of the above keys due to reliability issues. 
 
 ### How are app tokens and browser cookies protected?
 
 **App tokens**: When an app requests token through WAM, Azure AD issues a refresh token and an access token. However, WAM only returns the access token to the app and secures the refresh token in its cache by encrypting it with the user’s data protection application programming interface (DPAPI) key. WAM securely uses the refresh token by signing requests with the session key to issue further access tokens. The DPAPI key is secured by an Azure AD based symmetric key in Azure AD itself. When the device needs to decrypt the user profile with the DPAPI key, Azure AD provides the DPAPI key encrypted by the session key, which CloudAP plugin requests TPM to decrypt. This functionality ensures consistency in securing refresh tokens and avoids applications implementing their own protection mechanisms.  
 
-**Browser cookies**: In Windows 10, Azure AD supports browser SSO in Internet Explorer and Microsoft Edge natively or in Google Chrome via the Windows 10 accounts extension. The security is built not only to protect the cookies but also the endpoints to which the cookies are sent. Browser cookies are protected the same way a PRT is, by utilizing the session key to sign and protect the cookies.
+**Browser cookies**: In Windows 10 or newer, Azure AD supports browser SSO in Internet Explorer and Microsoft Edge natively, in Google Chrome via the Windows 10 accounts extension and in Mozilla Firefox v91+ via a browser setting. The security is built not only to protect the cookies but also the endpoints to which the cookies are sent. Browser cookies are protected the same way a PRT is, by utilizing the session key to sign and protect the cookies.
 
-When a user initiates a browser interaction, the browser (or extension) invokes a COM native client host. The native client host ensures that the page is from one of the allowed domains. The browser could send other parameters to the native client host, including a nonce, however the native client host guarantees validation of the hostname. The native client host requests a PRT-cookie from CloudAP plugin, which creates and signs it with the TPM-protected session key. As the PRT-cookie is signed by the session key, it cannot be tampered with. This PRT-cookie is included in the request header for Azure AD to validate the device it is originating from. If using the Chrome browser, only the extension explicitly defined in the native client host’s manifest can invoke it preventing arbitrary extensions from making these requests. Once Azure AD validates the PRT cookie, it issues a session cookie to the browser. This session cookie also contains the same session key issued with a PRT. During subsequent requests, the session key is validated effectively binding the cookie to the device and preventing replays from elsewhere.
+When a user initiates a browser interaction, the browser (or extension) invokes a COM native client host. The native client host ensures that the page is from one of the allowed domains. The browser could send other parameters to the native client host, including a nonce, however the native client host guarantees validation of the hostname. The native client host requests a PRT-cookie from CloudAP plugin, which creates and signs it with the TPM-protected session key. As the PRT-cookie is signed by the session key, it is very difficult to tamper with. This PRT-cookie is included in the request header for Azure AD to validate the device it is originating from. If using the Chrome browser, only the extension explicitly defined in the native client host’s manifest can invoke it preventing arbitrary extensions from making these requests. Once Azure AD validates the PRT cookie, it issues a session cookie to the browser. This session cookie also contains the same session key issued with a PRT. During subsequent requests, the session key is validated effectively binding the cookie to the device and preventing replays from elsewhere.
 
 ## When does a PRT get an MFA claim?
 
 A PRT can get a multi-factor authentication (MFA) claim in specific scenarios. When an MFA-based PRT is used to request tokens for applications, the MFA claim is transferred to those app tokens. This functionality provides a seamless experience to users by preventing MFA challenge for every app that requires it. A PRT can get an MFA claim in the following ways:
 
 * **Sign in with Windows Hello for Business**: Windows Hello for Business replaces passwords and uses cryptographic keys to provide strong two-factor authentication. Windows Hello for Business is specific to a user on a device, and itself requires MFA to provision. When a user logs in with Windows Hello for Business, the user’s PRT gets an MFA claim. This scenario also applies to users logging in with smartcards if smartcard authentication produces an MFA claim from ADFS.
-   * As Windows Hello for Business is considered multi-factor authentication, the MFA claim is updated when the PRT itself is refreshed, so the MFA duration will continually extend when users sign in with WIndows Hello for Business
+   * As Windows Hello for Business is considered multi-factor authentication, the MFA claim is updated when the PRT itself is refreshed, so the MFA duration will continually extend when users sign in with Windows Hello for Business.
 * **MFA during WAM interactive sign in**: During a token request through WAM, if a user is required to do MFA to access the app, the PRT that is renewed during this interaction is imprinted with an MFA claim.
    * In this case, the MFA claim is not updated continuously, so the MFA duration is based on the lifetime set on the directory.
    * When a previous existing PRT and RT are used for access to an app, the PRT and RT will be regarded as the first proof of authentication. A new AT will be required with a second proof and an imprinted MFA claim. This will also issue a new PRT and RT.
-* **MFA during device registration**: If an admin has configured their device settings in Azure AD to [require MFA to register devices](device-management-azure-portal.md#configure-device-settings), the user needs to do MFA to complete the registration. During this process, the PRT that is issued to the user has the MFA claim obtained during the registration. This capability only applies to the user who did the join operation, not to other users who sign in to that device.
-   * Similar to the WAM interactive sign in, the MFA claim is not updated continuously, so the MFA duration is based on the lifetime set on the directory.
 
-Windows 10 maintains a partitioned list of PRTs for each credential. So, there’s a PRT for each of Windows Hello for Business, password, or smartcard. This partitioning ensures that MFA claims are isolated based on the credential used, and not mixed up during token requests.
+Windows 10 or newer maintain a partitioned list of PRTs for each credential. So, there’s a PRT for each of Windows Hello for Business, password, or smartcard. This partitioning ensures that MFA claims are isolated based on the credential used, and not mixed up during token requests.
 
 ## How is a PRT invalidated?
 
@@ -144,7 +150,7 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 ![PRT issuance during first sign in detailed flow](./media/concept-primary-refresh-token/prt-initial-sign-in.png)
 
 > [!NOTE]
-> In Azure AD joined devices, this exchange happens synchronously to issue a PRT before the user can logon to Windows. In hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. So, the user is only waiting until they can acquire a TGT to login, while the PRT issuance happens asynchronously. This scenario does not apply to Azure AD registered devices as logon does not use Azure AD credentials.
+> In Azure AD joined devices, Azure AD PRT issuance (steps A-F) happens synchronously before the user can logon to Windows. In hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. So, the user is able to login hybrid Azure AD joined Windows after they can acquire a TGT to login, while the PRT issuance happens asynchronously. This scenario does not apply to Azure AD registered devices as logon does not use Azure AD credentials.
 
 | Step | Description |
 | :---: | --- |
@@ -179,9 +185,9 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | Step | Description |
 | :---: | --- |
 | A | An application (for example, Outlook, OneNote etc.) initiates a token request to WAM. WAM, in turn, asks the Azure AD WAM plugin to service the token request. |
-| B | If a Refresh token for the application is already available, Azure AD WAM plugin uses it to request an access token. To provide proof of device binding, WAM plugin signs the request with the Session key. Azure AD validates the Session key and issues an access token and a new refresh token for the app, encrypted by the Session key. WAM plugin requests Cloud AP plugin to decrypt the tokens, which, in turn, requests the TPM to decrypt using the Session key, resulting in WAM plugin getting both the tokens. Next, WAM plugin provides only the access token to the application, while it re-encrypts the refresh token with DPAPI and stores it in its own cache  |
+| B | If a Refresh token for the application is already available, Azure AD WAM plugin uses it to request an access token. To provide proof of device binding, WAM plugin signs the request with the Session key. Azure AD validates the Session key and issues an access token and a new refresh token for the app, encrypted by the Session key. WAM plugin requests CloudAP plugin to decrypt the tokens, which, in turn, requests the TPM to decrypt using the Session key, resulting in WAM plugin getting both the tokens. Next, WAM plugin provides only the access token to the application, while it re-encrypts the refresh token with DPAPI and stores it in its own cache  |
 | C |  If a Refresh token for the application is not available, Azure AD WAM plugin uses the PRT to request an access token. To provide proof of possession, WAM plugin signs the request containing the PRT with the Session key. Azure AD validates the Session key signature by comparing it against the Session key embedded in the PRT, verifies that the device is valid and issues an access token and a refresh token for the application. in addition, Azure AD can issue a new PRT (based on refresh cycle), all of them encrypted by the Session key. |
-| D | WAM plugin requests Cloud AP plugin to decrypt the tokens, which, in turn, requests the TPM to decrypt using the Session key, resulting in WAM plugin getting both the tokens. Next, WAM plugin provides only the access token to the application, while it re-encrypts the refresh token with DPAPI and stores it in its own cache. WAM plugin will use the refresh token going forward for this application. WAM plugin also gives back the new PRT to Cloud AP plugin, which validates the PRT with Azure AD before updating it in its own cache. Cloud AP plugin will use the new PRT going forward. |
+| D | WAM plugin requests CloudAP plugin to decrypt the tokens, which, in turn, requests the TPM to decrypt using the Session key, resulting in WAM plugin getting both the tokens. Next, WAM plugin provides only the access token to the application, while it re-encrypts the refresh token with DPAPI and stores it in its own cache. WAM plugin will use the refresh token going forward for this application. WAM plugin also gives back the new PRT to CloudAP plugin, which validates the PRT with Azure AD before updating it in its own cache. CloudAP plugin will use the new PRT going forward. |
 | E | WAM provides the newly issued access token to WAM, which in turn, provides it back to the calling application|
 
 ### Browser SSO using PRT
@@ -193,13 +199,13 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | A | User logs in to Windows with their credentials to get a PRT. Once user opens the browser, browser (or extension) loads the URLs from the registry. |
 | B | When a user opens an Azure AD login URL, the browser or extension validates the URL with the ones obtained from the registry. If they match, the browser invokes the native client host for getting a token. |
 | C | The native client host validates that the URLs belong to the Microsoft identity providers (Microsoft account or Azure AD), extracts a nonce sent from the URL and makes a call to CloudAP plugin to get a PRT cookie. |
-| D | The CloudAP plugin will create the PRT cookie, sign in with the TPM-bound session key and send it back to the native client host. As the cookie is signed by the session key, it cannot be tampered with. |
+| D | The CloudAP plugin will create the PRT cookie, sign in with the TPM-bound session key and send it back to the native client host. |
 | E | The native client host will return this PRT cookie to the browser, which will include it as part of the request header called x-ms-RefreshTokenCredential and request tokens from Azure AD. |
 | F | Azure AD validates the Session key signature on the PRT cookie, validates the nonce, verifies that the device is valid in the tenant, and issues an ID token for the web page and an encrypted session cookie for the browser. |
 
 > [!NOTE]
-> The Browser SSO flow described in the steps above does not apply for sessions in private modes such as InPrivate in Microsoft Edge, or Incognito in Google Chrome (when using the Microsoft Accounts extension).
+> The Browser SSO flow described in the steps above does not apply for sessions in private modes such as InPrivate in Microsoft Edge, Incognito in Google Chrome (when using the Microsoft Accounts or Office Online extensions) or in private mode in Mozilla Firefox v91+
 
 ## Next steps
 
-For more information on troubleshooting PRT-related issues, see the article [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md).
+For more information on troubleshooting PRT-related issues, see the article [Troubleshooting hybrid Azure Active Directory joined Windows 10 or newer and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md#troubleshoot-post-join-authentication-issues).

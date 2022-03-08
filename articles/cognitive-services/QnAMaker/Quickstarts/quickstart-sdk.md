@@ -4,21 +4,30 @@ description: This quickstart shows you how to create and manage your knowledge b
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2020
-ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
-zone_pivot_groups: programming-languages-set-sixteen
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 01/26/2022
+ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-fall-2021, mode-api
+zone_pivot_groups: qnamaker-quickstart
 ---
 
 # Quickstart: QnA Maker client library
 
 Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
+::: zone pivot="rest"
+[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [QnA Maker C# client library quickstart](../includes/quickstart-sdk-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [QnA Maker Javascript client library quickstart](../includes/quickstart-sdk-nodejs.md)]
+[!INCLUDE [QnA Maker JavaScript client library quickstart](../includes/quickstart-sdk-nodejs.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -27,14 +36,6 @@ Get started with the QnA Maker client library. Follow these steps to install the
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [QnA Maker Java client library quickstart](../includes/quickstart-sdk-java.md)]
-::: zone-end
-
-::: zone pivot="programming-language-go"
-[!INCLUDE [QnA Maker Go client library quickstart](../includes/quickstart-sdk-go.md)]
-::: zone-end
-
-::: zone pivot="programming-language-ruby"
-[!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
 ::: zone-end
 
 ## Clean up resources
@@ -47,9 +48,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Tutorial: Test your knowledge base with a batch file](./batch-testing.md)
+>[Tutorial: Test your knowledge base with a batch file](../how-to/test-knowledge-base.md#batch-test-with-tool)
 
 * [What is the QnA Maker API?](../Overview/overview.md)
 * [Edit a knowledge base](../how-to/edit-knowledge-base.md)
 * [Get usage analytics](../how-to/get-analytics-knowledge-base.md)
-

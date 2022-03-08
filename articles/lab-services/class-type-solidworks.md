@@ -2,7 +2,7 @@
 title: Set up a SOLIDWORKS lab for engineering with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab for engineering courses using SOLIDWORKS. 
 author: nicolela
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: nicolela
 ---
@@ -52,7 +52,7 @@ Use the settings in the table below when setting up a classroom lab. For more in
 > The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience.  For more information about this virtual machine size, see the article on [how to set up a lab with GPUs](./how-to-setup-lab-gpu.md).
 
 > [!WARNING]
-> Don’t forget to [peer the virtual network](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) for the lab account to the virtual network for the license server **before** creating the lab.
+> Don’t forget to [peer the virtual network](./how-to-connect-peer-virtual-network.md) for the lab account to the virtual network for the license server **before** creating the lab.
 
 ## Template virtual machine configuration
 

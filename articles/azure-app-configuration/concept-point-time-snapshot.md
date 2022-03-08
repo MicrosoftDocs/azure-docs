@@ -3,11 +3,11 @@ title: Retrieve key-value pairs from a point-in-time
 titleSuffix: Azure App Configuration
 description: Retrieve old key-value pairs using point-in-time snapshots in Azure App Configuration, which maintains a record of changes to key-values.
 services: azure-app-configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 08/05/2020
 ---
 
 # Point-in-time snapshot

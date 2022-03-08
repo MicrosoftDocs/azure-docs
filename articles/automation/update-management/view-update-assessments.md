@@ -3,13 +3,13 @@ title: View Azure Automation update assessments
 description: This article tells how to view update assessments for Update Management deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 09/17/2020
+ms.date: 06/10/2021
 ms.topic: conceptual
 ---
 
 # View update assessments in Update Management
 
-In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments. You can view the assessment information scoped to the selected Azure virtual machine, from the selected Arc enabled server, or from the Automation account across all configured machines and servers.
+In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments. You can view the assessment information scoped to the selected Azure virtual machine, from the selected Azure Arc-enabled server, or from the Automation account across all configured machines and servers.
 
 ## Sign in to the Azure portal
 
@@ -23,13 +23,13 @@ In Update Management, you can view information about your machine, missing updat
 
 [ ![Update Management assessment view for Azure VM](./media/view-update-assessments/update-assessment-azure-vm.png)](./media/view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
 
-To view update assessment from an Arc enabled server, navigate to **Servers - Azure Arc** and select your server from the list. From the left menu, select **Guest and host updates**. On the **Guest + host updates** page, select **Go to Update Management**.
+To view update assessment from an Azure Arc-enabled server, navigate to **Servers - Azure Arc** and select your server from the list. From the left menu, select **Guest and host updates**. On the **Guest + host updates** page, select **Go to Update Management**.
 
-In Update Management, you can view information about your Arc enabled machine, missing updates, update deployments, and scheduled update deployments.
+In Update Management, you can view information about your Azure Arc-enabled machine, missing updates, update deployments, and scheduled update deployments.
 
-[ ![Update Management assessment view for Arc enabled servers](./media/view-update-assessments/update-assessment-arc-server.png)](./media/view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+[ ![Update Management assessment view for Arc-enabled servers](./media/view-update-assessments/update-assessment-arc-server.png)](./media/view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
 
-To view update assessment across all machines, including Arc enabled servers from your Automation account, navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list. In your Automation account, select **Update management** from the left menu.
+To view update assessment across all machines, including Azure Arc-enabled servers from your Automation account, navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list. In your Automation account, select **Update management** from the left menu.
 
 The updates for your environment are listed on the **Update management** page. If any updates are identified as missing, a list of them is shown on the **Missing updates** tab.
 
@@ -41,6 +41,9 @@ Under **Information link**, select the link for an update to open the support ar
 
 [ ![View update status](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
 
+> [!NOTE]
+> Information that is displayed about the Windows Defender definition update status is based on the last data that was summarized from the Log Analytics workspace and might not be current. Review [Windows Defender update always show as missing](../troubleshoot/update-management.md#windows-defender-update-missing-status) to learn more about this behavior.
+ 
 Click anywhere else on the update to open the Log Search pane. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
 
 [ ![View log query results](./media/view-update-assessments/logsearch-results.png)](./media/view-update-assessments/logsearch-results-expanded.png#lightbox)

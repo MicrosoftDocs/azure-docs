@@ -107,7 +107,7 @@ For Azure Database for MariaDB, the virtual network rules feature has the follow
 
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][resource-manager-deployment-model-568f] networks.
 
-- Turning ON virtual network service endpoints to Azure Database for MariaDB using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse).
+- Turning ON virtual network service endpoints to Azure Database for MariaDB using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure Synapse Analytics.
 
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
@@ -148,7 +148,7 @@ For articles on creating VNet rules, see:
 
 [vm-virtual-network-service-endpoints-overview-649d]: ../virtual-network/virtual-network-service-endpoints-overview.md
 
-[vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+[vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md
 
 [rbac-what-is-813s]: ../role-based-access-control/overview.md
 

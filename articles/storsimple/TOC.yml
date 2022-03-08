@@ -38,8 +38,7 @@
     - name: Manage via Azure portal
       href: storsimple-virtual-array-manager-service-administration.md
       items:
-      - name: Install latest update
-        href: storsimple-virtual-array-install-update-11.md
+      - name: Install updates
         items:
         - name: Install Update 1
           href: storsimple-virtual-array-install-update-1.md
@@ -87,10 +86,10 @@
       href: storsimple-ova-web-ui-admin.md
   - name: Release notes
     items:
-    - name: Update 1.2 - current
+    - name: Update 1.3 - current
+      href: storsimple-virtual-array-update-13-release-notes.md
+    - name: Update 1.2
       href: storsimple-virtual-array-update-12-release-notes.md
-    - name: Update 1.1 
-      href: storsimple-virtual-array-update-11-release-notes.md
     - name: Update 1
       href: storsimple-virtual-array-update-1-release-notes.md
     - name: Archive
@@ -130,7 +129,7 @@
       - name: Understand limits
         href: storsimple-8000-limits.md
       - name: Best practices
-        href: https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68
+        href: https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_BestPractices_V1.1.pdf
     - name: Install
       items:
       - name: Review safety
@@ -193,7 +192,7 @@
           href: storsimple-8000-manage-volumes-u2.md
           items:
           - name: "FAQ: Locally pinned volumes"
-            href: storsimple-8000-local-volume-faq.md
+            href: storsimple-8000-local-volume-faq.yml
         - name: Azure role-based access control
           href: storsimple-8000-role-based-access-control.md
         - name: Manage ACRs
@@ -263,13 +262,14 @@
       - name: Automate file server DR to Azure
         href: storsimple-disaster-recovery-using-azure-site-recovery.md
       - name: StorSimple with Express Route
-        href: https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content
+        href: https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_ExpressRoute.pdf
+      - name: StoSimple with Hyper-V
+        href: https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_HyperVDeployment_v1.0.pdf
       - name: StorSimple with VMware
-        href: https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463
-      - name: StorSimple with Hyper-V
-        href: https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6
+        href: https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_VMware_v10.pdf
       - name: Distributed global namespace
         href: https://www.microsoft.com/download/details.aspx?id=45507
+
     - name: Monitor
       items:
       - name: Using service summary
@@ -402,7 +402,7 @@
     - name: CSP release notes
       href: https://partner.microsoft.com/Support/whats-new
     - name: "StorSimple for CSP: FAQ"
-      href: storsimple-partner-csp-faq.md
+      href: storsimple-partner-csp-faq.yml
 - name: Related
   items:
   - name: StorSimple 5000-7000 Series

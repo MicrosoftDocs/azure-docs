@@ -2,15 +2,14 @@
 author: IngridAtMicrosoft
 ms.service: media-services 
 ms.topic: include
-ms.date: 08/17/2020
+ms.date: 03/03/2022
 ms.author: inhenkel
 ms.custom: CLI
 ---
 
 <!-- Create a resource group -->
 
-Use the following command to create a resource group. Select the geographic region that will be used to store the media and metadata records for your Media Services account. This region will be used to process and stream your media.
+## Create a resource group
 
-```azurecli
-az group create --name amsResourceGroup --location westus2
-```
+To create a resource group, use the following command:
+:::code language="azurecli" source="~/media-services-v3-python/cli/code-snippets.sh" id="CreateRG" interactive="azurecli-interactive":::

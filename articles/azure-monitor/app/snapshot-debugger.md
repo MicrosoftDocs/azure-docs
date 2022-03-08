@@ -3,8 +3,7 @@ title: Azure Application Insights Snapshot Debugger for .NET apps
 description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 10/23/2019
-
+ms.date: 10/12/2021
 ms.reviewer: cweining
 ---
 
@@ -18,11 +17,15 @@ Debug snapshots are stored for 15 days. This retention policy is set on a per-ap
 ## Enable Application Insights Snapshot Debugger for your application
 Snapshot collection is available for:
 * .NET Framework and ASP.NET applications running .NET Framework 4.5 or later.
-* .NET Core 2.0 and ASP.NET Core 2.0 applications running on Windows.
+* .NET Core and ASP.NET Core applications running .NET Core 2.1 (LTS) or 3.1 (LTS) on Windows.
+* .NET 5.0 applications on Windows.
+
+We don't recommend using .NET Core 2.0, 2.2 or 3.0 since they're out of support.
 
 The following environments are supported:
 
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running OS family 4 or later
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running on Windows Server 2012 R2 or later
 * [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running Windows Server 2012 R2 or later
@@ -35,23 +38,20 @@ If you've enabled Snapshot Debugger but aren't seeing snapshots, check our [Trou
 
 ## Grant permissions
 
-Access to snapshots is protected by role-based access control (RBAC). To inspect a snapshot, you must first be added to the necessary role by a subscription owner.
+Access to snapshots is protected by Azure role-based access control (Azure RBAC). To inspect a snapshot, you must first be added to the necessary role by a subscription owner.
 
 > [!NOTE]
 > Owners and contributors do not automatically have this role. If they want to view snapshots, they must add themselves to the role.
 
 Subscription owners should assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
 
-1. Navigate to the Application Insights resource in the Azure portal.
-1. Click **Access control (IAM)**.
-1. Click the **+Add role assignment** button.
-1. Select **Application Insights Snapshot Debugger** from the **Roles** drop-down list.
-1. Search for and enter a name for the user to add.
-1. Click the **Save** button to add the user to the role.
+1. Assign the Debugger role to the **Application Insights Snapshot**.
+
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).  
 
 
 > [!IMPORTANT]
-> Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
+> Please note that snapshots may contain personal data or other sensitive information in variable and parameter values. Snapshot data is stored in the same region as your App Insights resource.
 
 ## View Snapshots in the Portal
 
@@ -72,7 +72,7 @@ Snapshots might include sensitive information, and by default they aren't viewab
 ## View Snapshots in Visual Studio 2017 Enterprise or above
 1. Click the **Download Snapshot** button to download a `.diagsession` file, which can be opened by Visual Studio Enterprise.
 
-2. To open the `.diagsession` file, you need to have the Snapshot Debugger Visual Studio component installed. The Snapshot Debugger component is a required component of the ASP.net workload in Visual Studio and can be selected from the Individual Component list in the Visual Studio installer. If you are using a version of Visual Studio prior to Visual Studio 2017 version 15.5, you will need to install the extension from the [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
+2. To open the `.diagsession` file, you need to have the Snapshot Debugger Visual Studio component installed. The Snapshot Debugger component is a required component of the ASP.NET workload in Visual Studio and can be selected from the Individual Component list in the Visual Studio installer. If you're using a version of Visual Studio before Visual Studio 2017 version 15.5, you'll need to install the extension from the [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. After you open the snapshot file, the Minidump Debugging page in Visual Studio appears. Click **Debug Managed Code** to start debugging the snapshot. The snapshot opens to the line of code where the exception was thrown so that you can debug the current state of the process.
 
@@ -101,7 +101,7 @@ The main process continues to run and serve traffic to users with little interru
 
 ## Limitations
 
-The default data retention period is 15 days. For each Application Insights instance, a maximum number of 50 snapshots is allowed per day.
+The default data retention period is 15 days. For each Application Insights instance, a maximum number of 50 snapshots are allowed per day.
 
 ### Publish symbols
 The Snapshot Debugger requires symbol files on the production server to decode variables and to provide a debugging experience in Visual Studio.
@@ -114,8 +114,8 @@ Version 15.2 (or above) of Visual Studio 2017 publishes symbols for release buil
 For Azure Compute and other types, make sure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
 
 > [!NOTE]
-> For more information on the different symbol options that are available consult the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
-). For best results, we recommend using “Full”, “Portable” or “Embedded”.
+> For more information on the different symbol options that are available, see the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output
+). For best results, we recommend using "Full", "Portable" or "Embedded".
 
 ### Optimized builds
 In some cases, local variables can't be viewed in release builds because of optimizations that are applied by the JIT compiler.
@@ -128,6 +128,7 @@ However, in Azure App Services, the Snapshot Collector can deoptimize throwing m
 Enable Application Insights Snapshot Debugger for your application:
 
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure RFPIO for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to RFPIO.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure RFPIO for automatic user provisioning
@@ -94,7 +94,7 @@ To configure RFPIO for automatic user provisioning with Azure AD, you need to ad
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in RFPIO based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for RFPIO , following the instructions provided in the [RFPIO Single sign-on tutorial](rfpio-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for RFPIO, following the instructions provided in the [RFPIO Single sign-on tutorial](rfpio-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for RFPIO in Azure AD:
 

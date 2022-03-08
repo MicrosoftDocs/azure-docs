@@ -7,7 +7,8 @@ ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
 ms.date: 11/20/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create and use Web Application Firewall v2 custom rules on Application Gateway
@@ -16,7 +17,7 @@ The Web Application Firewall (WAF) v2 on Azure Application Gateway provides prot
 
 This article shows you some example custom rules that you can create and use with your v2 WAF. To learn how to deploy a WAF with a custom rule using Azure PowerShell, see [Configure Web Application Firewall custom rules using Azure PowerShell](configure-waf-custom-rules.md).
 
-The JSON snippets shown in this article are derived from a [ApplicationGatewayWebApplicationFirewallPolicies](/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) resource.
+The JSON snippets shown in this article are derived from a [ApplicationGatewayWebApplicationFirewallPolicies](/azure/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) resource.
 
 >[!NOTE]
 > If your application gateway is not using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane.
@@ -125,7 +126,7 @@ And the corresponding JSON:
 
 ## Example 2
 
-You want to allow traffic from the US using the GeoMatch operator:
+You want to allow traffic only from the US using the GeoMatch operator and still have the managed rules apply:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -136,14 +137,14 @@ $condition = New-AzApplicationGatewayFirewallCondition `
    -Operator GeoMatch `
    -MatchValue "US" `
    -Transform Lowercase `
-   -NegationCondition $False
+   -NegationCondition $True
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Name "allowUS" `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Allow
+   -Action Block
 ```
 
 And the corresponding JSON:
@@ -155,11 +156,12 @@ And the corresponding JSON:
         "name": "allowUS",
         "ruleType": "MatchRule",
         "priority": 2,
-        "action": "Allow",
+        "action": "Block",
         "matchConditions": [
           {
             "matchVariable": "RemoteAddr",
             "operator": "GeoMatch",
+            "NegationConditon": false,
             "matchValues": [
               "US"
             ]
@@ -533,6 +535,66 @@ Corresponding JSON:
             "operator": "Contains",
             "matchValues": [
               "'--"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+```
+
+## Example 7
+
+It is not uncommon to see Azure Front Door deployed in front of Application Gateway.  In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on this, please see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
+
+Logic: **not** p
+
+```azurepowershell
+$expectedFDID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$variable = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestHeaders `
+   -Selector X-Azure-FDID
+
+$condition = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable `
+   -Operator Equal `
+   -MatchValue $expectedFDID `
+   -Transform Lowercase `
+   -NegationCondition $True
+
+$rule = New-AzApplicationGatewayFirewallCustomRule `
+   -Name blockNonAFDTraffic `
+   -Priority 2 `
+   -RuleType MatchRule `
+   -MatchCondition $condition `
+   -Action Block
+```
+
+And here is the corresponding JSON:
+
+```json
+  {
+    "customRules": [
+      {
+        "name": "blockNonAFDTraffic",
+        "priority": 2,
+        "ruleType": "MatchRule",
+        "action": "Block",
+        "matchConditions": [
+          {
+            "matchVariables": [
+                {
+                    "variableName": "RequestHeaders",
+                    "selector": "X-Azure-FDID"
+                }
+            ],
+            "operator": "Equal",
+            "negationConditon": true,
+            "matchValues": [
+                "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            ],
+            "transforms": [
+                "Lowercase"
             ]
           }
         ]

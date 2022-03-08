@@ -1,7 +1,7 @@
 ---
-title: How to delete and export personal data from Azure DevTest Labs
+title: How to delete and export personal data
 description: Learn how to delete and export personal data from the Azure DevLast Labs service to support your obligations under the General Data Protection Regulation (GDPR). 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -202,4 +202,4 @@ The exported data can be manipulated and visualized using tools, like SQL Server
 See the following articles: 
 
 - [Set policies for a lab](devtest-lab-set-lab-policy.md)
-- [Frequently asked questions](devtest-lab-faq.md)
+- [Frequently asked questions](devtest-lab-faq.yml)

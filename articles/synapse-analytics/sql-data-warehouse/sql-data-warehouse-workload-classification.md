@@ -1,19 +1,18 @@
 ---
-title: Workload classification 
-description: Guidance for using classification to manage concurrency, importance, and compute resources for queries in Azure Synapse Analytics.
-services: synapse-analytics
+title: Workload classification for dedicated SQL pool
+description: Guidance for using classification to manage query concurrency, importance, and compute resources for dedicated SQL pool in Azure Synapse Analytics.
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 02/04/2020
+ms.date: 01/24/2022
 ms.author: rortloff
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: azure-synapse
 ---
 
-# Azure Synapse Analytics workload classification
+# Workload classification for dedicated SQL pool in Azure Synapse Analytics
 
 This article explains the workload classification process of assigning a workload group and importance to incoming requests with dedicated SQL pools in Azure Synapse.
 
@@ -31,10 +30,7 @@ Not all statements are classified as they do not require resources or need impor
 
 ## Classification process
 
-Classification for dedicated SQL pool in Azure Synapse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) syntax.  With this syntax, dedicated SQL pool users can assign importance and how much system resources are assigned to a request via the `workload_group` parameter.
-
-> [!NOTE]
-> Classification is evaluated on a per request basis. Multiple requests in a single session can be classified differently.
+Classification for dedicated SQL pool is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) syntax.  With this syntax, dedicated SQL pool users can assign importance and how much system resources are assigned to a request via the `workload_group` parameter.
 
 ## Classification weighting
 
@@ -51,6 +47,10 @@ As part of the classification process, weighting is in place to determine which 
 The `membername` parameter is mandatory.  However, if the membername specified is a database user instead of a database role, the weighting for user is higher and thus that classifier is chosen.
 
 If a user is a member of multiple roles with different resource classes assigned or matched in multiple classifiers, the user is given the highest resource class assignment.  This behavior is consistent with existing resource class assignment behavior.
+
+> [!NOTE]
+> Classifying managed identities (MI) behavior differs between the dedicated SQL pool in Azure Synapse workspaces and the standalone dedicated SQL pool (formerly SQL DW). While the standalone dedicated SQL pool MI maintains the assigned identity, Azure Synapse workspaces adds MI to the **dbo** role. This cannot be changed. The dbo role, by default, is classified to smallrc. Creating a classifier for the dbo role allows for assigning requests to a workload group other than smallrc. If dbo alone is too generic for classification and has broader impacts, consider using label, session or time-based classification in conjunction with the dbo role classification.
+
 
 ## System classifiers
 
@@ -71,7 +71,7 @@ Consider the following scenario:
 - To test the new classification syntax, the database role DBARole (which DBAUser is a member of), has a classifier created for them mapping them to mediumrc and high importance.
 - When DBAUser logs in and runs a query, the query will be assigned to largerc. Because a user takes precedence over a role membership.
 
-To simplify troubleshooting misclassification, we recommended you remove resource class role mappings as you create workload classifiers.  The code below returns existing resource class role memberships.  Run [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for each member name returned from the corresponding resource class.
+To simplify troubleshooting misclassification, we recommended you remove resource class role mappings as you create workload classifiers.  The code below returns existing resource class role memberships.  Run [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for each member name returned from the corresponding resource class.
 
 ```sql
 SELECT  r.name AS [Resource Class]
@@ -87,7 +87,7 @@ sp_droprolemember '[Resource Class]', membername
 
 ## Next steps
 
-- For more information on creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+- For more information on creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  
 - See the Quickstart on how to create a workload classifier [Create a workload classifier](quickstart-create-a-workload-classifier-tsql.md).
 - See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
-- See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to view queries and the importance assigned.
+- See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to view queries and the importance assigned.

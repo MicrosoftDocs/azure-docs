@@ -27,7 +27,7 @@ Alternatively, launch Cloud Shell from Azure portal using the following icon:
 Your [Azure Cloud Shell](https://shell.azure.com/) already has all necessary tools. Should you
 choose to use another environment, please ensure the following command-line tools are installed:
 
-* `az` - Azure CLI: [installation instructions](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `az` - Azure CLI: [installation instructions](/cli/azure/install-azure-cli)
 * `kubectl` - Kubernetes command-line tool: [installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl)
 * `helm` - Kubernetes package manager: [installation instructions](https://github.com/helm/helm/releases/latest)
 * `jq` - command-line JSON processor: [installation instructions](https://stedolan.github.io/jq/download/)
@@ -39,7 +39,7 @@ Follow the steps below to create an Azure Active Directory (AAD) [service princi
 
 1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
-    az ad sp create-for-rbac --skip-assignment -o json > auth.json
+    az ad sp create-for-rbac -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
     password=$(jq -r ".password" auth.json)
     ```
@@ -71,7 +71,7 @@ This step will add the following components to your subscription:
 - [Azure Kubernetes Service](../aks/intro-kubernetes.md)
 - [Application Gateway](./overview.md) v2
 - [Virtual Network](../virtual-network/virtual-networks-overview.md) with 2 [subnets](../virtual-network/virtual-networks-overview.md)
-- [Public IP Address](../virtual-network/virtual-network-public-ip-address.md)
+- [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
 - [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [AAD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
 
 1. Download the Azure Resource Manager template and modify the template as needed.
@@ -89,7 +89,7 @@ This step will add the following components to your subscription:
     az group create -n $resourceGroupName -l $location
 
     # modify the template as needed
-    az group deployment create \
+    az deployment group create \
             -g $resourceGroupName \
             -n $deploymentName \
             --template-file template.json \
@@ -98,7 +98,7 @@ This step will add the following components to your subscription:
 
 1. Once the deployment finished, download the deployment output into a file named `deployment-outputs.json`.
     ```azurecli
-    az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
+    az deployment group show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
 ## Set up Application Gateway Ingress Controller
@@ -227,7 +227,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --role Contributor --sdk-auth | base64 -w0" >>
     
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not

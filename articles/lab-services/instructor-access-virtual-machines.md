@@ -1,7 +1,7 @@
 ---
 title: Educator accessing VMs in Azure Lab Services
 description: This article shows how educators can access their student VMs from the educator view. For example, a teaching assistant can be an educator for one class but a student for other classes.  
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

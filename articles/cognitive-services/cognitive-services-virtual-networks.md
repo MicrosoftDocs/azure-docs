@@ -1,13 +1,13 @@
 ---
-title: Virtual Networks
+title: Configure Virtual Networks for Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Configure layered network security for your Cognitive Services resources.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: conceptual
-ms.date: 10/07/2020
+ms.topic: how-to
+ms.date: 10/28/2021
 ms.author: aahi
 ---
 
@@ -35,7 +35,7 @@ Network rules are enforced on all network protocols to Azure Cognitive Services,
 
 ## Supported regions and service offerings
 
-Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
+Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). Currently multi-service resource does not support VNET. Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
 
 > [!div class="checklist"]
 > * Anomaly Detector
@@ -43,20 +43,21 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 > * Content Moderator
 > * Custom Vision
 > * Face
-> * Form Recognizer
 > * Language Understanding (LUIS)
 > * Personalizer
-> * Text Analytics
+> * Speech service
+> * Language service
 > * QnA Maker
 > * Translator Text
-> * Immersive Reader
+
 
 > [!NOTE]
-> If you're using LUIS, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use the LUIS portal from a virtual network, you will need to use the following tags:  
-> * **AzureResourceManager** 
-> * **CognitiveServicesManagement**
+> If you're using LUIS or Speech Services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use LUIS portal and/or Speech Studio from a virtual network, you will need to use the following tags:  
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+
 
 
 ## Change the default network access rule
@@ -166,7 +167,7 @@ To apply a virtual network rule to a Cognitive Services resource, the user must 
 Cognitive Services resource and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
 > [!NOTE]
-> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through Powershell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
 ### Managing virtual network rules
 
@@ -199,7 +200,7 @@ You can manage virtual network rules for Cognitive Services resources through th
     > [!NOTE]
     > If a service endpoint for Azure Cognitive Services wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
     >
-    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use Powershell, CLI or REST APIs.
+    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use PowerShell, CLI or REST APIs.
 
 1. To remove a virtual network or subnet rule, select **...** to open the context menu for the virtual network or subnet, and select **Remove**.
 
@@ -332,9 +333,6 @@ Provide allowed internet address ranges using [CIDR notation](https://tools.ietf
    > Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules.
 
 IP network rules are only allowed for **public internet** IP addresses. IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) aren't allowed in IP rules. Private networks include addresses that start with `10.*`, `172.16.*` - `172.31.*`, and `192.168.*`.
-
-   > [!NOTE]
-   > IP network rules have no effect on requests originating from the same Azure region as the Cognitive Services resource. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
 
 Only IPV4 addresses are supported at this time. Each Cognitive Services resource supports up to 100 IP network rules, which may be combined with [Virtual network rules](#grant-access-from-a-virtual-network).
 
@@ -486,7 +484,7 @@ Private endpoints for Cognitive Services resources let you:
 
 A private endpoint is a special network interface for an Azure resource in your [VNet](../virtual-network/virtual-networks-overview.md). Creating a private endpoint for your Cognitive Services resource provides secure connectivity between clients in your VNet and your resource. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Cognitive Services service uses a secure private link.
 
-Applications in the VNet can connect to the service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. The exception is the Speech Service, which requires a separate endpoint. See the section on [Private endpoints with the Speech Service](#private-endpoints-with-the-speech-service). Private endpoints can be used with all protocols supported by the Cognitive Services resource, including REST.
+Applications in the VNet can connect to the service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. The exception is the Speech Services, which require a separate endpoint. See the section on [Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services). Private endpoints can be used with all protocols supported by the Cognitive Services resource, including REST.
 
 Private endpoints can be created in subnets that use [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can connect to one Cognitive Services resource using private endpoint, while using service endpoints to access others.
 
@@ -504,13 +502,13 @@ When creating the private endpoint, you must specify the Cognitive Services reso
 
 ### Connecting to private endpoints
 
-Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. The exception is the Speech Service, which requires a separate endpoint. See the section on [Private endpoints with the Speech Service](#private-endpoints-with-the-speech-service). We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link. The Speech Service 
+Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. The exception is the Speech Services, which require a separate endpoint. See the section on [Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services). We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link. 
 
 We create a [private DNS zone](../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
 
-### Private endpoints with the Speech Service
+### Private endpoints with the Speech Services
 
-When using private endpoints with the Speech Service, you must use a custom endpoint to call the Speech Service. You cannot use the global endpoint. The endpoint must follow this pattern: `{account}.{stt|tts|voice|dls}.speech.microsoft.com`.
+See [Using Speech Services with private endpoints provided by Azure Private Link](Speech-Service/speech-services-private-link.md).
 
 ### DNS changes for private endpoints
 

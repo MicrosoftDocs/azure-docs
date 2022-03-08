@@ -1,21 +1,21 @@
 ---
 title: Known issues and troubleshooting for hybrid FIDO2 security keys - Azure Active Directory
-description: Learn about some known issues and ways to troubleshoot passwordless hybrid FIDO2 security key sign-in using Azure Active Directory (preview)
+description: Learn about some known issues and ways to troubleshoot passwordless hybrid FIDO2 security key sign-in using Azure Active Directory 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: karenhoran
 ms.reviewer: aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshooting for hybrid deployments of FIDO2 security keys in Azure AD (preview)
+# Troubleshooting for hybrid deployments of FIDO2 security keys in Azure AD 
 
 This article covers frequently asked questions for hybrid Azure AD joined devices and passwordless sign-in to on-prem resources. With this passwordless feature, you can enable Azure AD authentication on Windows 10 devices for hybrid Azure AD joined devices using FIDO2 security keys. Users can sign into Windows on their devices with modern credentials like FIDO2 keys and access traditional Active Directory Domain Services (AD DS) based resources with a seamless single sign-on (SSO) experience to their on-prem resources.
 
@@ -26,12 +26,9 @@ The following scenarios for users in a hybrid environment are supported:
 
 To get started with FIDO2 security keys and hybrid access to on-premises resources, see the following articles:
 
-* [Passwordless Security keys](howto-authentication-passwordless-security-key.md)
+* [Passwordless security keys](howto-authentication-passwordless-security-key.md)
 * [Passwordless Windows 10](howto-authentication-passwordless-security-key-windows.md)
-* [Passwordless On -premises](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* [Passwordless on-premises](howto-authentication-passwordless-security-key-on-premises.md)
 
 ## Known issues
 
@@ -145,7 +142,7 @@ The first set of properties is from the objects in the on-premises AD DS environ
 | Id                 | The unique *Id* of the AD DS domain controller object. |
 | DomainDnsName      | The DNS domain name of the AD DS domain. |
 | ComputerAccount    | The computer account object of the Azure AD Kerberos Server object (the DC). |
-| UserAccount        | The disabled user account object that holds the Azure AD Kerberos Server TGT encryption key. The DN of this account is *CN=krbtgt_AzureAD,CN=Users,<Domain-DN>* |
+| UserAccount        | The disabled user account object that holds the Azure AD Kerberos Server TGT encryption key. The DN of this account is *CN=krbtgt_AzureAD,CN=Users,\<Domain-DN\>* |
 | KeyVersion         | The key version of the Azure AD Kerberos Server TGT encryption key. The version is assigned when the key is created. The version is then incremented every time the key is rotated. The increments are based on replication meta-data and will likely be greater than one.<br /><br /> For example, the initial *KeyVersion* could be *192272*. The first time the key is rotated, the version could advance to *212621*.<br /><br /> The important thing to verify is that the *KeyVersion* for the on-premises object and the *CloudKeyVersion* for the cloud object are the same. |
 | KeyUpdatedOn       | The date and time that the Azure AD Kerberos Server TGT encryption key was updated or created. |
 | KeyUpdatedFrom     | The DC where the Azure AD Kerberos Server TGT encryption key was last updated. |

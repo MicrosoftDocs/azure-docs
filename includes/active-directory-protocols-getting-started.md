@@ -27,7 +27,7 @@ First, register your application with your Azure Active Directory (Azure AD) ten
    
 1. In the **Azure Active Directory** left menu, select **App Registrations**, and then select **New registration**.
    
-1. Follow the prompts and create a new application. It doesn't matter if it is a web application or a public client (mobile & desktop) application for this tutorial, but if you'd like specific examples for web applications or public client applications, check out our [quickstarts](../articles/active-directory/develop/v1-overview.md).
+1. Follow the prompts and create a new application. It doesn't matter if it is a web application or a public client (mobile & desktop) application for this tutorial, but if you'd like specific examples for web applications or public client applications, check out our [quickstarts](../articles/active-directory/azuread-dev/v1-overview.md).
    
    - **Name** is the application name and describes your application to end users.
    - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.

@@ -1,9 +1,9 @@
 ---
-author: v-demjoh
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/13/2020
-ms.author: v-demjoh
+ms.author: eur
 ---
 
 ## Enable microphone

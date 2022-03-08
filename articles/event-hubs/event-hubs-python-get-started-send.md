@@ -1,12 +1,14 @@
 ---
 title: Send or receive events from Azure Event Hubs using Python (latest)
-description: This article provides a walkthrough for creating a Python application that sends/receives events to/from Azure Event Hubs using the latest azure-eventhub version 5 package.
+description: This article provides a walkthrough for creating a Python application that sends/receives events to/from Azure Event Hubs using the latest azure-eventhub package.
 ms.topic: quickstart
-ms.date: 02/11/2020
+ms.date: 09/01/2021
+ms.devlang: python
+ms.custom: mode-api
 ---
 
-# Send events to or receive events from event hubs by using Python (azure-eventhub version 5)
-This quickstart shows how to send events to and receive events from an event hub using the **azure-eventhub version 5** Python package.
+# Send events to or receive events from event hubs by using Python (azure-eventhub)
+This quickstart shows how to send events to and receive events from an event hub using the **azure-eventhub** Python package.
 
 ## Prerequisites
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
@@ -14,7 +16,7 @@ If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md
 To complete this quickstart, you need the following prerequisites:
 
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
-- Python 2.7 or 3.5 or later, with PIP installed and updated.
+- Python 2.7 or 3.6 or later, with PIP installed and updated.
 - The Python package for Event Hubs. 
 
     To install the package, run this command in a command prompt that has Python in its path:
@@ -28,7 +30,7 @@ To complete this quickstart, you need the following prerequisites:
     ```cmd
     pip install azure-eventhub-checkpointstoreblob-aio
     ```
-- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the **connection string for the Event Hubs namespace** by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the connection string later in this quickstart.
+- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the **connection string for the Event Hubs namespace** by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#azure-portal). You use the connection string later in this quickstart.
 
 ## Send events
 In this section, you create a Python script to send events to the event hub that you created earlier.
@@ -45,7 +47,7 @@ In this section, you create a Python script to send events to the event hub that
     async def run():
         # Create a producer client to send messages to the event hub.
         # Specify a connection string to your event hubs namespace and
-     	    # the event hub name.
+        # the event hub name.
         producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESPACE - CONNECTION STRING", eventhub_name="EVENT HUB NAME")
         async with producer:
             # Create a batch.

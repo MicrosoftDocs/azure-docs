@@ -1,27 +1,23 @@
 ---
 title: Use the Azure portal to create a data factory pipeline
 description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to Azure SQL Database.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/11/2020
-ms.author: jingwang
+ms.date: 07/05/2021
+ms.author: jianleishen
 ---
+
 # Copy data from Azure Blob storage to a database in Azure SQL Database by using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). The pipeline in this data factory copies data from Azure Blob storage to a database in Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 > [!NOTE]
-> - If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md).
+> If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
 In this tutorial, you perform the following steps:
 
@@ -77,24 +73,26 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**.
-3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
+3. On the **Create Data Factory** page, under **Basics** tab, select the Azure **Subscription** in which you want to create the data factory.
+4. For **Resource Group**, take one of the following steps:
+
+    a. Select an existing resource group from the drop-down list.
+
+    b. Select **Create new**, and enter the name of a new resource group.
+    
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
+5. Under **Region**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
+6. Under **Name**, enter **ADFTutorialDataFactory**.
 
    The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
-     ![New data factory](./media/doc-common-process/name-not-available-error.png)
-4. Select the Azure **subscription** in which you want to create the data factory.
-5. For **Resource Group**, take one of the following steps:
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
-    a. Select **Use existing**, and select an existing resource group from the drop-down list.
-
-    b. Select **Create new**, and enter the name of a resource group. 
-         
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
-6. Under **Version**, select **V2**.
-7. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
-8. Select **Create**.
-9. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
-10. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
+7. Under **Version**, select **V2**.
+8. Select **Git configuration** tab on the top, and select the **Configure Git later** check box.
+9. Select **Review + create**, and select **Create** after the validation is passed.
+10. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
+11. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory UI in a separate tab.
 
 
 ## Create a pipeline
@@ -106,15 +104,15 @@ In this step, you create a pipeline with a copy activity in the data factory. Th
 
 In this tutorial, you start with creating the pipeline. Then you create linked services and datasets when you need them to configure the pipeline.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page, select **Orchestrate**.
 
-   ![Create pipeline](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
 
-1. 1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
+1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
 
-    ![Copy activity](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/drag-drop-copy-activity.png" alt-text="Copy activity":::
 
 ### Configure source
 
@@ -138,7 +136,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
 1. Select **OK**. It automatically navigates to the pipeline page. In **Source** tab, confirm that **SourceBlobDataset** is selected. To preview data on this page, select **Preview data**.
 
-    ![Source dataset](./media/tutorial-copy-data-portal/source-dataset-selected.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/source-dataset-selected.png" alt-text="Source dataset":::
 
 ### Configure sink
 >[!TIP]
@@ -167,13 +165,13 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
     g. Select **Create** to deploy the linked service.
 
-    ![Save new linked service](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png" alt-text="Save new linked service":::
 
 1. It automatically navigates to the **Set Properties** dialog box. In **Table**, select **[dbo].[emp]**. Then select **OK**.
 
 1. Go to the tab with the pipeline, and in **Sink Dataset**, confirm that **OutputSqlDataset** is selected.
 
-    ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
+    :::image type="content" source="./media/tutorial-copy-data-portal/pipeline-tab-2.png" alt-text="Pipeline tab":::       
 
 You can optionally map the schema of the source to corresponding schema of destination by following [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md).
 
@@ -198,11 +196,11 @@ In this step, you manually trigger the pipeline you published in the previous st
 
 1. Go to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links under the **PIPELINE NAME** column to view activity details and to rerun the pipeline.
 
-    [![Monitor pipeline runs](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox" alt-text="Monitor pipeline runs](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)":::
 
 1. To see activity runs associated with the pipeline run, select the **CopyPipeline** link under the **PIPELINE NAME** column. In this example, there's only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
-    [![Monitor activity runs](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox" alt-text="Monitor activity runs](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)":::
 
 1. Verify that two more rows are added to the **emp** table in the database.
 
@@ -240,7 +238,7 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 
 1. Go to the **Monitor** tab on the left to see the triggered pipeline runs.
 
-    [![Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox" alt-text="Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)":::
 
 1. To switch from the **Pipeline Runs** view to the **Trigger Runs** view, select **Trigger Runs** on the left side of the window.
 

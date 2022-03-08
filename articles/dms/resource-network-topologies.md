@@ -2,10 +2,8 @@
 title: Network topologies for SQL Managed Instance migrations
 titleSuffix: Azure Database Migration Service
 description: Learn the source and target configurations for Azure SQL Managed Instance migrations using the Azure Database Migration Service.
-services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
@@ -41,7 +39,7 @@ Use this network topology if your environment requires one or more of the follow
 
 **Requirements**
 
-- The virtual network that Azure Database Migration Service uses for this scenario must also be connected to the on-premises network by using either (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- The virtual network that Azure Database Migration Service uses for this scenario must also be connected to the on-premises network by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - Set up [VNet network peering](../virtual-network/virtual-network-peering-overview.md) between the virtual network used for SQL Managed Instance and Azure Database Migration Service.
 
 ## Cloud-to-cloud migrations: Shared virtual network
@@ -78,11 +76,12 @@ Use this network topology if your environment requires one or more of the follow
 
 | **NAME**                  | **PORT**                                              | **PROTOCOL** | **SOURCE** | **DESTINATION**           | **ACTION** | **Reason for rule**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| management                | 443,9354                                              | TCP          | Any        | Any                       | Allow      | Management plane communication through Service Bus and Azure blob storage. <br/>(If Microsoft peering is enabled, you may not need this rule.)                                                             |
-| Diagnostics               | 12000                                                 | TCP          | Any        | Any                       | Allow      | DMS uses this rule to collect diagnostic information for troubleshooting purposes.                                                                                                                      |
+| ServiceBus                | 443, ServiceTag: ServiceBus                           | TCP          | Any        | Any                       | Allow      | Management plane communication through Service Bus. <br/>(If Microsoft peering is enabled, you may not need this rule.)                                                             |
+| Storage                   | 443, ServiceTag: Storage                              | TCP          | Any        | Any                       | Allow      | Management plane using Azure blob storage. <br/>(If Microsoft peering is enabled, you may not need this rule.)                                                             |
+| Diagnostics               | 443, ServiceTag: AzureMonitor                         | TCP          | Any        | Any                       | Allow      | DMS uses this rule to collect diagnostic information for troubleshooting purposes. <br/>(If Microsoft peering is enabled, you may not need this rule.)                                                  |
 | SQL Source server         | 1433 (or TCP IP port that SQL Server is listening to) | TCP          | Any        | On-premises address space | Allow      | SQL Server source connectivity from DMS <br/>(If you have site-to-site connectivity, you may not need this rule.)                                                                                       |
 | SQL Server named instance | 1434                                                  | UDP          | Any        | On-premises address space | Allow      | SQL Server named instance source connectivity from DMS <br/>(If you have site-to-site connectivity, you may not need this rule.)                                                                        |
-| SMB share                 | 445                                                   | TCP          | Any        | On-premises address space | Allow      | SMB network share for DMS to store database backup files for migrations to Azure SQL Database MI and SQL Servers on Azure VM <br/>(If you have site-to-site connectivity, you may not need this rule). |
+| SMB share                 | 445  (if scenario neeeds)                             | TCP          | Any        | On-premises address space | Allow      | SMB network share for DMS to store database backup files for migrations to Azure SQL Database MI and SQL Servers on Azure VM <br/>(If you have site-to-site connectivity, you may not need this rule). |
 | DMS_subnet                | Any                                                   | Any          | Any        | DMS_Subnet                | Allow      |                                                                                                                                                                                                  |
 
 ## See also

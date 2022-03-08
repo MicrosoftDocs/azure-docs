@@ -8,10 +8,10 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/05/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: rhicock
+ms.author: justinha
+author: justinha
+manager: karenhoran
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
@@ -122,7 +122,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### Use PowerShell version 2
 
-To get started, [download and install the Azure AD version 2 PowerShell module](/powershell/module/azuread/?view=azureadps-2.0).
+To get started, [download and install the Azure AD version 2 PowerShell module](/powershell/module/azuread/).
 
 To quickly install from recent versions of PowerShell that support `Install-Module`, run the following commands. The first line checks to see if the module is already installed:
 

@@ -8,10 +8,10 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: rhicock
+ms.author: justinha
+author: justinha
+manager: karenhoran
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
@@ -88,4 +88,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 To understand the usage of SSPR in your environment, see [Reporting options for Azure AD password management](howto-sspr-reporting.md).
 
-If you or users have problems with SSPR, see [Troubleshoot self-service password reset](active-directory-passwords-troubleshoot.md)
+If you or users have problems with SSPR, see [Troubleshoot self-service password reset](./troubleshoot-sspr.md)

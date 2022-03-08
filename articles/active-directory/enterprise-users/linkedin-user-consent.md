@@ -3,12 +3,12 @@ title: LinkedIn data sharing and consent - Azure Active Directory | Microsoft Do
 description: Explains how LinkedIn integration shares data via Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: enterprise-users
+ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: "it-pro;seo-update-azuread-jan"

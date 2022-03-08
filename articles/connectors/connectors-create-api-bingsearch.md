@@ -1,10 +1,10 @@
 ---
 title: Connect to Bing Search
-description: Automate tasks and workflows that find results in Bing Search by using Azure Logic Apps
+description: Automate tasks and workflows that find results in Bing Search by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 05/21/2018
 tags: connectors
 ---
@@ -53,7 +53,7 @@ and starts running your app's workflow.
 create a blank logic app, which opens Logic App Designer. 
 This example uses the Azure portal.
 
-2. In the search box, enter "Bing search" as your filter. 
+2. In the search box, enter "Bing search" as your filter. 
 From the triggers list, select the trigger you want.
 
    This example uses this trigger: 
@@ -116,7 +116,7 @@ This example uses the Azure portal.
    Select the plus sign (**+**) that appears, 
    and then select **Add an action**.
 
-3. In the search box, enter "Bing search" as your filter.
+3. In the search box, enter "Bing search" as your filter.
 From the actions list, select the action you want.
 
    This example uses this action:

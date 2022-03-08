@@ -10,17 +10,19 @@ ms.date: 06/22/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: nigu
+ms.collection: M365-identity-device-management
 
 #Customer intent: As an IT admin, I want to know how to use the What If tool for my existing Conditional Access policies, so that I can understand the impact they have on my environment. 
-ms.collection: M365-identity-device-management
 ---
 # Troubleshoot using the What If tool in Conditional Access
 
 [Conditional Access](./overview.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
 
 This article explains how you can use this tool to test your Conditional Access policies.
+
+> [!VIDEO https://www.youtube.com/embed/M_iQVM-3C3E]
 
 ## What it is
 
@@ -63,6 +65,9 @@ You can only select one user. This is the only required field.
 ### Cloud apps
 
 The default for this setting is **All cloud apps**. The default setting performs an evaluation of all available policies in your environment. You can narrow down the scope to policies affecting specific cloud apps.
+
+> [!NOTE]
+> When using the What If tool, it does not test for [Conditional Access service dependencies](service-dependencies.md). For example, if you are using What If to test a Conditional Access policy for Microsoft Teams, the result will not take into consideration any policy that would apply to Office 365 Exchange Online, a Conditional Access service dependency for Microsoft Teams.
 
 ### IP address
 

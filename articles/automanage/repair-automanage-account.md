@@ -1,24 +1,26 @@
 ---
 title: Repair a broken Azure Automanage Account
 description: If you've recently moved a subscription that contains an Automanage Account to a new tenant, you need to reconfigure it. In this article, you'll learn how. 
-author: asinn826
-ms.service: virtual-machines
-ms.subservice: automanage
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.author: alsin
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Repair an Automanage Account
-Your [Azure Automanage Account](./automanage-virtual-machines.md#automanage-account) is the security context or identity under which the automated operations occur. If you've recently moved a subscription that contains an Automanage Account to a new tenant, you need to reconfigure the account. To reconfigure it, you need to reset the identity type and assign the appropriate roles for the account.
+
+> [!IMPORTANT]
+> This article is only relevant for machines that were onboarded to the earlier version of Automanage (API version 2020-06-30-preview). The status for these machines will be **Needs upgrade**. 
+
+Your Azure Automanage Account is the security context or identity under which the automated operations occur. If you've recently moved a subscription that contains an Automanage Account to a new tenant, you need to reconfigure the account. To reconfigure it, you need to reset the identity type and assign the appropriate roles for the account.
 
 ## Step 1: Reset the Automanage Account identity type
 Reset the Automanage Account identity type by using the following Azure Resource Manager (ARM) template. Save the file locally as armdeploy.json or a similar name. Note your Automanage Account name and location because they're required parameters in the ARM template.
 
 1. Create a Resource Manager deployment by using the following template. Use `identityType = None`.
-    * You can create the deployment in the Azure CLI by using `az deployment sub create`. For more information, see [az deployment sub](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * You can create the deployment in PowerShell by using the `New-AzDeployment` module. For more information, see [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+    * You can create the deployment in the Azure CLI by using `az deployment sub create`. For more information, see [az deployment sub](/cli/azure/deployment/sub).
+    * You can create the deployment in PowerShell by using the `New-AzDeployment` module. For more information, see [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
 
 1. Run the same ARM template again with `identityType = SystemAssigned`.
 
@@ -58,7 +60,7 @@ The Automanage Account requires the Contributor and Resource Policy Contributor 
 
 If you're using an ARM template or the Azure CLI, you'll need the Principal ID (also known as the Object ID) of your Automanage Account. (You don't need the ID if you're using the Azure portal.) You can find this ID by using these methods:
 
-- [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp): Use the command `az ad sp list --display-name <name of your Automanage Account>`.
+- [Azure CLI](/cli/azure/ad/sp): Use the command `az ad sp list --display-name <name of your Automanage Account>`.
 
 - Azure portal: Go to **Azure Active Directory** and search for your Automanage Account by name. Under **Enterprise Applications**, select the Automanage Account name when it appears.
 

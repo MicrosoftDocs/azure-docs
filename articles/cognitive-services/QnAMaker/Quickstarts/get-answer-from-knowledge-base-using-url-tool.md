@@ -1,19 +1,23 @@
 ---
-title: "Quickstart: Use URL tool to get answer from knowledge base - QnA Maker"
+title: Use URL tool to get answer from knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: This quickstart walks you through getting an answer from your knowledge base using a URL test tool such as cURL or Postman.
+description: This article walks you through getting an answer from your knowledge base using a URL test tool such as cURL or Postman.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 07/16/2020
-#Customer intent: As an knowledge base manager new to the QnA Maker service, I want to get an answer from a published knowledge base using a URL tool such as Postman or cURL.
+ms.custom: ignite-fall-2021
 ---
 
-# Quickstart: Get an answer from knowledge base
+# Get an answer from a QNA Maker knowledge base
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the latest question answering APIs consult the [question answering authoring guide](../../language-service/question-answering/how-to/authoring.md).
 
 ::: zone pivot="url-test-tool-curl"
 
@@ -31,8 +35,8 @@ ms.date: 07/16/2020
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Test knowledge base with batch file](batch-testing.md)
+> [Test knowledge base with batch file](../how-to/test-knowledge-base.md#batch-test-with-tool)
 
 Learn more about metadata:
 * [Authoring - add metadata to QnA pair](../How-To/edit-knowledge-base.md#add-metadata)
-* [Query prediction - filter answers by metadata](../How-To/metadata-generateanswer-usage.md#use-metadata-to-filter-answers-by-custom-metadata-tags)
+* [Query prediction - filter answers by metadata](../How-To/query-knowledge-base-with-metadata.md)

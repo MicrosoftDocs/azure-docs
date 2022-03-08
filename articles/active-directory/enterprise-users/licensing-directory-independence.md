@@ -1,22 +1,22 @@
 ---
-title: Characteristics of multiple tenant interaction - Azure AD | Microsoft Docs
+title: Characteristics of multi-tenant interaction - Azure AD | Microsoft Docs
 description: Understanding the data independence of your Azure Active Directory organizations
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.subservice: enterprise-users
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ---
 
-# Understand how multiple Azure Active Directory organizations interact
+# Understand how multiple Azure Active Directory tenant organizations interact
 
 In Azure Active Directory (Azure AD), each Azure AD organization is fully independent: a peer that is logically independent from the other Azure AD organizations that you manage. This independence between organizations includes resource independence, administrative independence, and synchronization independence. There is no parent-child relationship between organizations.
 
@@ -30,15 +30,12 @@ In Azure Active Directory (Azure AD), each Azure AD organization is fully indepe
 If a non-administrative user of organization 'Contoso' creates a test organization 'Test,' then:
 
 * By default, the user who creates a organization is added as an external user in that new organization, and assigned the global administrator role in that organization.
-* The administrators of organization 'Contoso' have no direct administrative privileges to organization 'Test,' unless an administrator of 'Test' specifically grants them these privileges. However, administrators of 'Contoso' can control access to organization 'Test' if they control the user account that created 'Test.'
+* The administrators of organization 'Contoso' have no direct administrative privileges to organization 'Test,' unless an administrator of 'Test' specifically grants them these privileges. However, administrators of 'Contoso' can control access to organization 'Test' if they sign in to the user account that created 'Test.'
 * If you add or remove an Azure AD role for a user in one organization, the change does not affect the roles that the user is assigned in any other Azure AD organization.
 
 ## Synchronization independence
 
-You can configure each Azure AD organization independently to get data synchronized from a single instance of either:
-
-* The Azure AD Connect tool, to synchronize data with a single AD forest.
-* The Azure Active Directory Connector for Forefront Identity Manager, to synchronize data with one or more on-premises forests, and/or non-Azure AD data sources.
+You can configure each Azure AD organization independently to get data synchronized from different AD forests, using the Azure AD Connect tool.  See [topologies for Azure AD Connect](../hybrid/plan-connect-topologies.md) for more information on supported topologies when there are multiple Azure AD tenants.
 
 ## Add an Azure AD organization
 

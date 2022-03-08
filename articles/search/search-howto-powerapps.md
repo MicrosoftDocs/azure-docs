@@ -2,13 +2,12 @@
 title: 'Tutorial: Query from Power Apps'
 titleSuffix: Azure Cognitive Search
 description: Step-by-step guidance on how to build a Power App that connects to an Azure Cognitive Search index, sends queries, and renders results.
-author: luiscabrer
-manager: eladz
-ms.author: luisca
+
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 11/17/2020
+ms.date: 12/07/2021
 ---
 
 # Tutorial: Query a Cognitive Search index from Power Apps
@@ -38,7 +37,7 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
 1. [Sign in](https://make.powerapps.com) to Power Apps.
 
-1. On the left, expand **Data** > **Custom Connectors**.
+1. On the left, expand **Dataverse** > **Custom Connectors**.
  
     :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Custom connector menu" border="true":::
 
@@ -260,4 +259,4 @@ If you are using a free service, remember that you are limited to three indexes,
 Power Apps enables the rapid application development of custom apps. Now that you know how to connect to a search index, learn more about creating a rich visualize experience in a custom Power App.
 
 > [!div class="nextstepaction"]
-> [Power Apps Learning Catalog](/powerapps/learning-catalog/get-started)
+> [Power Apps Learning Catalog](/powerapps/learning-catalog/bdm#get-started)

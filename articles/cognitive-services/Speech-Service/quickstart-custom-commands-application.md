@@ -1,22 +1,21 @@
 ---
-title: 'Quickstart: Create a voice assistant using Custom Commands'
+title: 'Quickstart: Create a voice assistant using Custom Commands - Speech service'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you create and test a basic Custom Commands application using Speech Studio. 
+description: In this quickstart, you create and test a basic Custom Commands application in Speech Studio. 
 services: cognitive-services
-author: singhsaumya
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 06/18/2020
-ms.author: sausin
+ms.topic: quickstart
+ms.date: 02/19/2022
+ms.author: eur
+ms.custom: references_regions
 ---
 
+# Quickstart: Create a voice assistant with Custom Commands
 
-
-# Create a voice assistant using Custom Commands
-
-In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app. **Custom Commands** makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios.
+In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
 
 ## Region Availability
 At this time, Custom Commands supports speech subscriptions created in these regions:
@@ -24,17 +23,17 @@ At this time, Custom Commands supports speech subscriptions created in these reg
 * West US2
 * East US
 * East US2
+* West Central US
 * North Europe
 * West Europe
-* West Central US
-* Central India
 * East Asia
 * Southeast Asia
+* Central India
 
 ## Prerequisites
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource in a region that supports Custom Commands.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Refer to the **Region Availability** section above for list of supported regions.
+> * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource in a region that supports Custom Commands.</a> Refer to the **Region Availability** section above for list of supported regions.
 > * Download the sample
 [Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).
@@ -65,10 +64,6 @@ At this time, Custom Commands supports speech subscriptions created in these reg
     > ![Create a project](media/custom-commands/import-project.png)
 
 1.  In the **LUIS authoring resource** list, select an authoring resource. If there are no valid authoring resources,    create one by selecting  **Create new LUIS authoring resource**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Create a resource](media/custom-commands/create-new-luis-resource.png)
-    
     
     1. In the **Resource Name** box, enter the name of the resource.
     1. In the **Resource Group** list, select a resource group.
@@ -133,4 +128,4 @@ In the scope of this article, we will be using the Windows Voice Assistant clien
 
 ## Next steps
 
-In this article, you used an existing application. Next, in the [how-to sections](how-to-custom-commands-create-application-with-simple-commands.md), you learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.
+In this article, you used an existing application. Next, in the [how-to sections](./how-to-develop-custom-commands-application.md), you learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.

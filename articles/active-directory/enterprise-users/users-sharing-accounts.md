@@ -4,14 +4,14 @@ description: Describes how Azure Active Directory enables organizations to secur
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/03/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -57,7 +57,7 @@ Azure AD features that enable account sharing include:
 * Custom Password apps
 * [App usage dashboard/reports](../authentication/howto-sspr-reporting.md)
 * End-user access portals
-* [App proxy](../manage-apps/application-proxy.md)
+* [App proxy](../app-proxy/application-proxy.md)
 * [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
 
 ## Sharing an account

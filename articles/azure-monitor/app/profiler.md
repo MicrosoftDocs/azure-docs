@@ -2,11 +2,7 @@
 title: Profile live Azure App Service apps with Application Insights | Microsoft Docs
 description: Profile live apps on Azure App Service with Application Insights Profiler.
 ms.topic: conceptual
-author: cweining
-ms.author: cweining
 ms.date: 08/06/2018
-
-ms.reviewer: mbullwin
 ---
 
 # Profile live Azure App Service apps with Application Insights
@@ -21,8 +17,12 @@ To enable Profiler for an app, follow the instructions below. If you're running 
 
 Application Insights Profiler is pre-installed as part of the App Services runtime. The steps below will show you how to enable it for your App Service. Follow these steps even if you've included the App Insights SDK in your application at build time.
 
+> [!NOTE]
+> Codeless installation of Application Insights Profiler follows the .NET Core support policy.
+> For more information about supported runtimes, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
 1. Navigate to the Azure control panel for your App Service.
-1. Enable "Always On" setting for your app service. You can find this setting under **Settings**, **Configuration** page (see screenshot in the next step), and click the **General settings** tab.
+1. Enable "Always On" setting for your app service. You can find this setting under **Settings**, **Configuration** page (see screenshot in the next step), and select the **General settings** tab.
 1. Navigate to **Settings > Application Insights** page.
 
    ![Enable App Insights on App Services portal](./media/profiler/AppInsights-AppServices.png)
@@ -46,20 +46,48 @@ Here are the settings needed to enable the profiler:
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-You can set these values using [Azure Resource Manager Templates](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp),  [Azure CLI](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+You can set these values using [Azure Resource Manager Templates](./azure-web-apps-net-core.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp),  [Azure CLI](/cli/azure/webapp/config/appsettings).
 
-### Enabling Profiler for other clouds manually
+## Enable Profiler for other clouds
 
-If you want to enable the profiler for other clouds, you can use the below app settings.
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
 
-|App Setting    | US Government Values| China Cloud |   
+|App Setting    | US Government Cloud | China Cloud |   
 |---------------|---------------------|-------------|
-|ApplicationInsightsProfilerEndpoint         | `https://agent.serviceprofiler.azure.us`    | `https://profiler.applicationinsights.azure.cn` |
+|ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
+
+## Enable Azure Active Directory authentication for profile ingestion
+
+Application Insights Profiler supports Azure AD authentication for profiles ingestion. This means, for all profiles of your application to be ingested, your application must be authenticated and provide the required application settings to the Profiler agent.
+
+As of today, Profiler only supports Azure AD authentication when you reference and configure Azure AD using the Application Insights SDK in your application.
+
+Below you can find all the steps required to enable Azure AD for profiles ingestion:
+1. Create and add the managed identity you want to use to authenticate against your Application Insights resource to your App Service.
+
+   a.  For System-Assigned Managed identity, see the following [documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-system-assigned-identity)
+
+   b.  For User-Assigned Managed identity, see the following [documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-user-assigned-identity)
+
+2. Configure and enable Azure AD in your Application Insights resource. For more information, see the following [documentation](./azure-ad-authentication.md?tabs=net#configuring-and-enabling-azure-ad-based-authentication)
+3. Add the following application setting, used to let Profiler agent know which managed identity to use:
+
+For System-Assigned Identity:
+
+|App Setting    | Value    |
+|---------------|----------|
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AAD    |
+
+For User-Assigned Identity:
+
+|App Setting    | Value    |
+|---------------|----------|
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AAD;ClientId={Client id of the User-Assigned Identity}    |
 
 ## Disable Profiler
 
-To stop or restart Profiler for an individual app's instance, under **WebJobs** and stop the webjob named ApplicationInsightsProfiler3. Even if the profiler is disabled using the switch on the Application Insights page as described above, the profiler process will still run. The profiler will check to see if it's enabled. If it's disabled, it will go to sleep for a period of time before checking again. It doesn't do any profiling if it's disabled. If you disable this webjob, the profiler process won't run at all, even to check to see if it's enabled.
+To stop or restart Profiler for an individual app's instance, on the left sidebar, select **WebJobs** and stop the webjob named `ApplicationInsightsProfiler3`.
 
   ![Disable Profiler for a web job][disable-profiler-webjob]
 
@@ -75,4 +103,3 @@ Profiler's files can be deleted when using WebDeploy to deploy changes to your w
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png
 [disable-profiler-webjob]: ./media/profiler/disable-profiler-webjob.png
-

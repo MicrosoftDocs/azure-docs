@@ -1,6 +1,6 @@
 ---
-author: robinsh
-ms.author: robinsh
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
@@ -62,5 +62,5 @@ You have now finished creating the Azure AD application that enables you to auth
 * ApplicationId
 * Password
 
-[lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
+[lnk-authenticate-arm]: /rest/api/
 [lnk-powershell-install]: /powershell/azure/install-az-ps

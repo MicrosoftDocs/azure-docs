@@ -6,7 +6,8 @@ ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure a Web Application Firewall rate limit rule using Azure PowerShell

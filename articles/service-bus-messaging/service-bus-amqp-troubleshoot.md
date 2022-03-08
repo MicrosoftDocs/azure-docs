@@ -2,7 +2,7 @@
 title: Troubleshoot AMQP errors in Azure Service Bus | Microsoft Docs
 description: Provides a list of AMQP errors you may receive when using Azure Service Bus, and cause of those errors.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ---
 
 

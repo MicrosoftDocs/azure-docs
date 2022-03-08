@@ -3,8 +3,9 @@ title: Certificate rotation for Azure SQL Database & SQL Managed Instance
 description: Learn about the upcoming changes of root certificate changes that will affect Azure SQL Database and Azure SQL Managed Instance
 author: srdan-bozovic-msft
 ms.author: srbozovi
+ms.reviewer: kendralittle, mathoma, vanto
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 09/13/2020
 ---
@@ -67,7 +68,7 @@ For servers created after October 26, 2020, you can use the newly issued certifi
 ### How often does Microsoft update their certificates or what is the expiry policy?
 These certificates used by Azure SQL Database & SQL Managed Instance are provided by trusted Certificate Authorities (CA). So the support of these certificates on Azure SQL Database & SQL Managed Instance is tied to the support of these certificates by CA. However, as in this case, there can be unforeseen bugs in these predefined certificates, which need to be fixed at the earliest.
 
-### If I am using read replicas, do I need to perform this update only on master server or all the read replicas?
+### If I am using read replicas, do I need to perform this update only on primary server or all the read replicas?
 Since this update is a client-side change, if the client used to read data from the replica server, we will need to apply the changes for those clients as well. 
 
 ### Do we have server-side query to verify if SSL is being used?

@@ -37,11 +37,11 @@ Every app that uses Azure Active Directory (Azure AD) for authentication must be
 - For **Supported account types**, select **Accounts in this organizational directory only**.
 - Leave the **Redirect URI** drop down set to **Web** and enter `https://localhost:5001/signin-oidc`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
 
-In **Authentication** > **Implicit grant**, select the check boxes for **Access tokens** and **ID tokens**, and then select the **Save** button.
+Under **Manage**, select **Authentication** > **Implicit grant and hybrid flows**. Select **ID tokens**, and then select **Save**.
 
 Finally, because the app calls a protected API (in this case Microsoft Graph), it needs a client secret in order to verify its identity when it requests an access token to call that API.
 
-1. Within the same app registration, under **Manage**, select **Certificates & secrets**.
+1. Within the same app registration, under **Manage**, select **Certificates & secrets** and then **Client secrets**.
 2. Create a **New client secret** that never expires.
 3. Make note of the secret's **Value** as you will use it in the next step. You can’t access it again once you navigate away from this pane. However, you can recreate it as needed.
 
@@ -50,13 +50,13 @@ Finally, because the app calls a protected API (in this case Microsoft Graph), i
 Run the following command to download the templates for Microsoft.Identity.Web, which we will make use of in this tutorial.
 
 ```dotnetcli
-dotnet new --install Microsoft.Identity.Web.ProjectTemplates::0.4.0-preview
+dotnet new --install Microsoft.Identity.Web.ProjectTemplates
 ```
 
 Then, run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
 
 ```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}"
+dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}" --domain "{DOMAIN}"
 ```
 
 | Placeholder   | Azure portal name       | Example                                |
@@ -64,11 +64,12 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 | `{APP NAME}`  | &mdash;                 | `BlazorSample`                         |
 | `{CLIENT ID}` | Application (client) ID | `41451fa7-0000-0000-0000-69eff5a761fd` |
 | `{TENANT ID}` | Directory (tenant) ID   | `e86c78e2-0000-0000-0000-918e0565a45e` |
+| `{DOMAIN}`    | Primary domain          | `tenantname.onmicrosoft.com`           |
 
 Now, navigate to your new Blazor app in your editor and add the client secret to the *appsettings.json* file, replacing the text "secret-from-app-registration".
 
 ```json
-"ClientSecret": "xkAlNiG70000000_UI~d.OS4Dl.-Cy-1m3",
+"ClientSecret": "secret-from-app-registration",
 ```
 
 ## Test the app

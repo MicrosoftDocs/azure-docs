@@ -1,21 +1,20 @@
 ---
-title: Quickstart`:` Use a managed identity to access Azure Resource Manager - Azure AD
+title: "Quickstart`:` Use a managed identity to access Azure Resource Manager - Azure AD"
 description: A quickstart that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: bryanla
-
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
+ms.custom: mode-other
 ---
 
 # Use a Linux VM system-assigned managed identity to access Azure Resource Manager
@@ -33,7 +32,7 @@ You learn how to:
 
 - An understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- You also need a Linux Virtual machine that has system assigned managed identities enabled.
+- You also need a Linux Virtual machine that has system assigned managed identities enabled. If you have a VM but need to enable [system assigned managed identities](qs-configure-portal-windows-vm.md) you can do it in the identity section of the virtual machine's properties. 
   - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
 ## Grant access

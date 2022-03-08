@@ -4,19 +4,18 @@ description: Step-by-step instructions and examples for using an Azure VM-manage
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: 
-
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # How to use managed identities for Azure resources on an Azure VM for sign-in 
@@ -56,7 +55,7 @@ The following script demonstrates how to:
    ```azurecli
    az login --identity
    
-   spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
+   $spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The managed identity for Azure resources service principal ID is $spID
    ```
 
@@ -87,12 +86,7 @@ Responses such as the following may indicate that the VM's managed identity for 
 - PowerShell: *Invoke-WebRequest : Unable to connect to the remote server*
 - CLI: *MSI: Failed to retrieve a token from `http://localhost:50342/oauth2/token` with an error of 'HTTPConnectionPool(host='localhost', port=50342)* 
 
-If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and:
-
-- Go to the **Identity** page and ensure **System assigned** is set to "Yes."
-- Go to the **Extensions** page and ensure the managed identities for Azure resources extension **(planned for deprecation in January 2019)** deployed successfully.
-
-If either is incorrect, you may need to redeploy the managed identities for Azure resources on your resource again, or troubleshoot the deployment failure. See [Configure Managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.
+If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and go to the **Identity** page and ensure **System assigned** is set to "Yes."
 
 ## Next steps
 

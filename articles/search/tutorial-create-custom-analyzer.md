@@ -2,12 +2,12 @@
 title: 'Tutorial: create a custom analyzer'
 titleSuffix: Azure Cognitive Search
 description: Learn how to build a custom analyzer to improve the quality of search results in Azure Cognitive Search.
-manager: liamca
+
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 01/29/2021
 ---
 
 # Tutorial: Create a custom analyzer for phone numbers
@@ -29,7 +29,7 @@ This tutorial uses Postman and Azure Cognitive Search's [REST APIs](/rest/api/se
 The following services and tools are required for this tutorial.
 
 + [Postman desktop app](https://www.getpostman.com/)
-+ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
++ [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 
 ## Download files
 
@@ -265,8 +265,8 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
   api-key: <YOUR-ADMIN-API-KEY>
 
   {
-	  "text": "(425) 555-0100",
-	  "analyzer": "standard.lucene"
+    "text": "(425) 555-0100",
+    "analyzer": "standard.lucene"
   }
 ```
 

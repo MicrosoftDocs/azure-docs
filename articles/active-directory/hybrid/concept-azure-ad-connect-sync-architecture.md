@@ -4,16 +4,15 @@ description: This topic describes the architecture of Azure AD Connect sync and 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -189,7 +188,7 @@ Synchronization consists of two related processes:
 * Inbound synchronization, when the content of the metaverse is updated by using the data in the connector space.
 * Outbound synchronization, when the content of the connector space is updated by using data in the metaverse.
 
-By using the information staged in the connector space, the inbound synchronization process creates in the metaverse the integrated view of the data that is stored in the connected data sources. Either all staging objects or only those with a pending import information are aggregated, depending on how the rules are configured.
+By using the information staged in the connector space, the inbound synchronization process creates an integrated view of the data in the metaverse that is stored in the connected data sources. Either all staging objects or only those with a pending import information are aggregated, depending on how the rules are configured.
 
 The outbound synchronization process updates export objects when metaverse objects change.
 

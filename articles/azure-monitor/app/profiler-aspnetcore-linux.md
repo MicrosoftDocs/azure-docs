@@ -2,11 +2,9 @@
 title: Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler | Microsoft Docs
 description: A conceptual overview and step-by-step tutorial on how to use Application Insights Profiler.
 ms.topic: conceptual
+ms.devlang: csharp
 ms.custom: devx-track-csharp
-author: cweining
-ms.author: cweining
 ms.date: 02/23/2018
-
 ms.reviewer: mbullwin
 ---
 
@@ -23,7 +21,7 @@ After you complete this walkthrough, your app can collect Profiler traces like t
 ## Prerequisites
 The following instructions apply to all Windows, Linux, and Mac development environments:
 
-* Install the [.NET Core SDK 2.1.2 or later](https://dotnet.microsoft.com/download/archives).
+* Install the [.NET Core SDK 3.1 or later](https://dotnet.microsoft.com/download/dotnet).
 * Install Git by following the instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## Set up the project locally
@@ -44,22 +42,14 @@ The following instructions apply to all Windows, Linux, and Mac development envi
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. Enable Application Insights in Program.cs:
-
-    ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .UseApplicationInsights() // Add this line of code to Enable Application Insights
-            .UseStartup<Startup>();
-    ```
-
-1. Enable Profiler in Startup.cs:
+1. Enable Application Insights and Profiler in Startup.cs:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
         services.AddServiceProfiler(); // Add this line of code to Enable Profiler
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        services.AddControllersWithViews();
     }
     ```
 
@@ -90,7 +80,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
 1. Create the web app environment by using App Service on Linux:
 
-    ![Create the Linux web app](./media/profiler-aspnetcore-linux/create-linux-appservice.png)
+    :::image type="content" source="./media/profiler-aspnetcore-linux/create-linux-appservice.png" alt-text="Create the Linux web app":::
 
 2. Create the deployment credentials:
 
@@ -119,7 +109,7 @@ For more deployment options, see [App Service documentation](../../app-service/i
 2. Deploy the project by pushing the changes to Azure:
 
     ```console
-    git push azure master
+    git push azure main
     ```
 
     You should see output similar to the following example:
@@ -130,7 +120,7 @@ For more deployment options, see [App Service documentation](../../app-service/i
     Compressing objects: 100% (8/8), done.
     Writing objects: 100% (9/9), 1.78 KiB | 911.00 KiB/s, done.
     Total 9 (delta 3), reused 0 (delta 0)
-    remote: Updating branch 'master'.
+    remote: Updating branch 'main'.
     remote: Updating submodules.
     remote: Preparing deployment for commit id 'd7369a99d7'.
     remote: Generating deployment script.

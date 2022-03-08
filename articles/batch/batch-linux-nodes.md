@@ -2,7 +2,8 @@
 title: Run Linux on virtual machine compute nodes
 description: Learn how to process parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 12/13/2021
+ms.devlang: csharp, python
 ms.custom: "H1Hack27Feb2017, devx-track-python, devx-track-csharp"
 ---
 # Provision Linux compute nodes in Batch pools
@@ -11,13 +12,11 @@ You can use Azure Batch to run parallel compute workloads on both Linux and Wind
 
 ## Virtual Machine Configuration
 
-When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: Cloud Services Configuration and Virtual Machine Configuration. Most pools of Windows compute nodes use [Cloud Services Configuration](nodes-and-pools.md#cloud-services-configuration), which specifies that the pool is composed of Azure Cloud Services nodes.These pools provide only Windows compute nodes.
-
-In contrast, [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) specifies that the pool is composed of Azure VMs, which may be created from either Linux or Windows images. When you create a pool with Virtual Machine Configuration, you must specify an [available compute node size](../virtual-machines/sizes.md), the virtual machine image reference,and the Batch node agent SKU (a program that runs on each node and provides an interface between the node and the Batch service), and the virtual machine image reference that will be installed on the nodes.
+When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: Cloud Services Configuration and Virtual Machine Configuration. [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) pools are composed of Azure VMs, which may be created from either Linux or Windows images. When you create a pool with Virtual Machine Configuration, you specify an [available compute node size](../virtual-machines/sizes.md), the virtual machine image reference to be installed on the nodes,and the Batch node agent SKU (a program that runs on each node and provides an interface between the node and the Batch service).
 
 ### Virtual machine image reference
 
-The Batch service uses [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) to provide compute nodes in the Virtual Machine Configuration. You can specify an image from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or [use the Shared Image Gallery to prepare a custom image](batch-sig-images.md).
+The Batch service uses [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) to provide compute nodes in the Virtual Machine Configuration. You can specify an image from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or [use the Azure Compute Gallery to prepare a custom image](batch-sig-images.md).
 
 When you create a virtual machine image reference, you must specify the following properties:
 
@@ -29,7 +28,11 @@ When you create a virtual machine image reference, you must specify the followin
 | Version |latest |
 
 > [!TIP]
-> You can learn more about these properties and how to specify Marketplace images in [Find Linux VM images in the Azure Marketplace with the Azure CLI](../virtual-machines/linux/cli-ps-findimage.md). Note that not all Marketplace images are currently compatible with Batch.
+> You can learn more about these properties and how to specify Marketplace images in [Find Linux VM images in the Azure Marketplace with the Azure CLI](../virtual-machines/linux/cli-ps-findimage.md). Note that some Marketplace images are not currently compatible with Batch.
+
+### List of virtual machine images
+
+Not all Marketplace images are compatible with the currently available Batch node agents. To list all supported Marketplace virtual machine images for the Batch service and their corresponding node agent SKUs, use [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (Batch .NET), or the corresponding API in another language SDK.
 
 ### Node agent SKU
 
@@ -38,10 +41,6 @@ The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nod
 - batch.node.ubuntu 18.04
 - batch.node.centos 7
 - batch.node.windows amd64
-
-### List of virtual machine images
-
-Not all Marketplace images are compatible with the currently available Batch node agents. To list all supported Marketplace virtual machine images for the Batch service and their corresponding node agent SKUs, use [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (Batch .NET), or the corresponding API in another language SDK.
 
 ## Create a Linux pool: Batch Python
 
@@ -270,4 +269,4 @@ If you deploy applications to your Batch nodes using [application packages](batc
 ## Next steps
 
 - Explore the [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch) in the [azure-batch-samples GitHub repository](https://github.com/Azure/azure-batch-samples) to see how to perform common Batch operations, such as pool, job, and task creation. The [README](https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md) that accompanies the Python samples has details about how to install the required packages.
-- Learn about using [low-priority VMs](batch-low-pri-vms.md) with Batch.
+- Learn about using [Azure Spot VMs](batch-spot-vms.md) with Batch.

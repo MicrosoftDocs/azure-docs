@@ -3,14 +3,14 @@ title: Translator Dictionary Examples Method
 titleSuffix: Azure Cognitive Services
 description: The Translator Dictionary Examples method provides examples that show how terms in the dictionary are used in context.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator 3.0: Dictionary Examples

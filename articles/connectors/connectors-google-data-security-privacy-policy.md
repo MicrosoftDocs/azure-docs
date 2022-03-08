@@ -1,23 +1,23 @@
 ---
 title: Data security and privacy policies for Google connectors
-description: Learn about the impact that Google security and privacy policies have on Google connectors, such as Gmail, in Azure Logic Apps
+description: Learn about the impact that Google security and privacy policies have on Google connectors, such as Gmail, in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: divswa, logicappspm
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 12/05/2021
 ---
 
 # Data security and privacy policies for Google connectors in Azure Logic Apps
 
-Starting **May 1, 2020**, changes due to Google's [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) might affect your logic app workflows that use the [Gmail connector](/connectors/gmail/). If your logic apps use the Gmail connector with a Gmail consumer account (email address that ends with @gmail.com or @googlemail.com), your logic apps can use only specific [Google-approved triggers, actions, and connectors](#approved-connectors).
+Starting **May 1, 2020**, changes due to Google's [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) might affect your logic app workflows that use the Google connectors, such as the [Gmail connector](/connectors/gmail/). For example, if your workflows use the Gmail connector with a Gmail consumer account (email address that ends with @gmail.com or @googlemail.com), your workflows can use only specific [Google-approved triggers, actions, and connectors](#approved-connectors). However, if your workflows use the Gmail connector with a G-Suite business account (email address with a custom domain), your workflows aren't affected and have no restrictions on using the Gmail connector.
 
 > [!NOTE]
-> If your logic apps use the Gmail connector with a G-Suite business account (email address with a custom domain), your logic apps aren't affected and have no restrictions on using the Gmail connector.
+> Currently, the Gmail connector works only with the **Logic App (Consumption)** resource type, not the **Logic App (Standard)** resource type.
 
-## Affected logic apps
+## Affected workflows
 
-If you have logic apps that use the Gmail connector, you'll receive an email about potentially-affected logic apps. However, starting **June 15, 2020**, any non-compliant workflows will be disabled. You can take either of these actions:
+If you have logic app workflows that use the Gmail connector, you'll receive an email about potentially-affected logic apps. However, starting **June 15, 2020**, any non-compliant workflows will be disabled. You can take either of these actions:
 
 * Update the affected logic apps by [following the steps in this topic](#update-affected-workflows). You need to create a Google client app, which provides a client ID and client secret that you use for authentication in your Gmail trigger or action.
 
@@ -29,7 +29,7 @@ If you have logic apps that use the Gmail connector, you'll receive an email abo
 
 Under this policy, when you use a Gmail consumer account, you can use the Gmail connector with only specific Google-approved services, which are subject to change. Our engineering teams continue working with Google to add more services to this list. For now, here are the Google-approved triggers, actions, and connectors that you can use in the same logic app workflow with the Gmail connector when you use a Gmail consumer account:
 
-* Logic Apps built-in triggers and actions: Batch, Control, Data Operations, Date Time, Flat File, Liquid, Request, Schedule, Variables, and XML
+* Azure Logic Apps built-in triggers and actions: Batch, Control, Data Operations, Date Time, Flat File, Liquid, Request, Schedule, Variables, and XML
 
   Built-in triggers and actions that aren't approved by Google, such as HTTP, Azure Functions, Azure Logic Apps, and others, make a logic app non-compliant with the Gmail connector because the app can send or receive data from anywhere.
 
@@ -43,17 +43,17 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 
 Here are some examples that use the Gmail connector with built-in triggers and actions or managed connectors that aren't approved by Google:
 
-* This logic app uses the Gmail connector with the HTTP built-in trigger:
+* This logic app workflow uses the Gmail connector with the HTTP built-in trigger:
 
   ![Non-compliant logic app - Example 1](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-1.png)
   
-  The logic app also uses the Google Calendar connector, which is approved.
+  The workflow also uses the Google Calendar connector, which is approved.
 
-* This logic app uses the Gmail connector with the Azure Blob Storage connector:
+* This workflow uses the Gmail connector with the Azure Blob Storage connector:
 
   ![Non-compliant logic app - Example 2](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-2.png)
 
-* This logic app uses the Gmail connector with the Twitter connector:
+* This workflow uses the Gmail connector with the Twitter connector:
 
   ![Non-compliant logic app - Example 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
@@ -61,7 +61,7 @@ For the most recent information, see the [Gmail connector's technical reference 
 
 <a name="update-affected-workflows"></a>
 
-## Steps for affected logic apps
+## Steps for affected workflows
 
 If you have to use the Gmail connector with a Gmail consumer account and Google non-approved connectors in a logic app, you can create your own Google app for personal or internal use in your enterprise. For this scenario, here are the high-level steps that you need to take:
 
@@ -112,5 +112,5 @@ To use the client ID and client secret from your Google client app in your Gmail
 
 ## Next steps
 
-Learn more about the [Gmail connector](/connectors/gmail/)
+* Learn more about the [Gmail connector](/connectors/gmail/)
 

@@ -171,7 +171,7 @@ At this point in the process, install the DPS client along with the ID scope and
     > If you're using a software TPM, you can install it now.  Extract the EK_pub at the same time.
 
 #### Step 4: Device is packaged and sent to the warehouse
-A device can sit in a warehouse for 6-12 months before being deployed. 
+A device can sometimes sit in a warehouse for up to a year before being deployed and provisioned with DPS.  If a device sits in a warehouse for a long time before deployment, customers who deploy the device might need to update the firmware, software, or expired credentials.
 
 #### Step 5: Device is installed into the location
 After the device arrives at its final location, it goes through automated provisioning with DPS.
@@ -182,6 +182,6 @@ For more information, see [provisioning](about-iot-dps.md#provisioning-process) 
 
 In addition to the recommended security practices in this article, Azure IoT provides resources to help with selecting secure hardware and creating secure IoT deployments: 
 - Azure IoT [security recommendations](../iot-fundamentals/security-recommendations.md) to guide the deployment process. 
-- The [Azure Security Center](https://azure.microsoft.com/services/security-center/) offers a service to help create secure IoT deployments. 
+- The [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) offers a service to help create secure IoT deployments. 
 - For help with evaluating your hardware environment, see the whitepaper [Evaluating your IoT Security](https://download.microsoft.com/download/D/3/9/D3948E3C-D5DC-474E-B22F-81BA8ED7A446/Evaluating_Your_IOT_Security_whitepaper_EN_US.pdf). 
 - For help with selecting secure hardware, see [The Right Secure Hardware for your IoT Deployment](https://download.microsoft.com/download/C/0/5/C05276D6-E602-4BB1-98A4-C29C88E57566/The_right_secure_hardware_for_your_IoT_deployment_EN_US.pdf). 

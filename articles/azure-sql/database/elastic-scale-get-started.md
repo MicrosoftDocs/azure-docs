@@ -7,10 +7,10 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: anumjs
-ms.author: anjangsh
-ms.reviewer: sstein
-ms.date: 01/25/2019
+author: scoriani
+ms.author: scoriani
+ms.reviewer: kendralittle, mathoma
+ms.date: 10/18/2021
 ---
 # Get started with Elastic Database Tools
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -79,13 +79,15 @@ To download and run the sample, follow these steps:
 
 1. Download the [Elastic DB Tools for Azure SQL - Getting Started sample](https://github.com/Azure/elastic-db-tools). Unzip the sample to a location that you choose.
 
-2. To create a project, open the *ElasticScaleStarterKit.sln* solution from the *C#* directory.
+2. To create a project, open the *ElasticDatabaseTools.sln* solution from the *elastic-db-tools-master* directory. 
 
-3. In the solution for the sample project, open the *app.config* file. Then follow the instructions in the file to add your server name and your sign-in information (username and password).
+3. Set the *ElasticScaleStarterKit* project as the Startup Project.
 
-4. Build and run the application. When you are prompted, enable Visual Studio to restore the NuGet packages of the solution. This action downloads the latest version of the elastic database client library from NuGet.
+4. In the *ElasticScaleStarterKit* project, open the *App.config* file. Then follow the instructions in the file to add your server name and your sign in information (username and password).
 
-5. To learn more about the client library capabilities, experiment with the various options. Note the steps that the application takes in the console output, and feel free to explore the code behind the scenes.
+5. Build and run the application. When you are prompted, enable Visual Studio to restore the NuGet packages of the solution. This action downloads the latest version of the elastic database client library from NuGet.
+
+6. To learn more about the client library capabilities, experiment with the various options. Note the steps that the application takes in the console output, and feel free to explore the code behind the scenes.
 
    ![Progress][4]
 
@@ -127,7 +129,6 @@ For more information about Elastic Database Tools, see the following articles:
   * [Elastic Database Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
-* Channel 9: [Elastic Scale overview video](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Discussion forum: [Microsoft Q&A question page for Azure SQL Database](/answers/topics/azure-sql-database.html)
 * To measure performance: [Performance counters for shard map manager](elastic-database-client-library.md)
 

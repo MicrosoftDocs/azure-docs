@@ -1,28 +1,27 @@
 ---
 title: MLflow Tracking for Azure Databricks ML experiments
 titleSuffix: Azure Machine Learning
-description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks Ml experiments.
+description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks ML experiments.
 services: machine-learning
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 09/22/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.date: 10/21/2021
+ms.topic: how-to
+ms.custom: devx-track-python
 ---
 
-# Track Azure Databricks ML experiments with MLflow and Azure Machine Learning (preview)
+# Track Azure Databricks ML experiments with MLflow and Azure Machine Learning
 
 In this article, learn how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to connect your Azure Databricks (ADB) experiments, MLflow, and Azure Machine Learning.
 
 [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts. Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/). 
 
-See [Track experiment runs and create endpoints with MLflow and Azure Machine Learning](how-to-use-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
+See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
->[!NOTE]
-> As an open source library, MLflow changes frequently. As such, the functionality made available via the Azure Machine Learning and MLflow integration should be considered as a preview, and not fully supported by Microsoft.
+If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
 
 > [!TIP]
 > The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
@@ -30,9 +29,10 @@ See [Track experiment runs and create endpoints with MLflow and Azure Machine Le
 ## Prerequisites
 
 * Install the `azureml-mlflow` package. 
-    * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), which provides the connectivity for MLflow to access your workspace.
+    * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install), which provides the connectivity for MLflow to access your workspace.
 * An [Azure Databricks workspace and cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 * [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
+    * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
 ## Track Azure Databricks runs
 
@@ -75,16 +75,16 @@ Once your ADB cluster is set up,
 Linking your ADB workspace to your Azure Machine Learning workspace enables you to track your experiment data in the Azure Machine Learning workspace.
 
 To link your ADB workspace to a new or existing Azure Machine Learning workspace, 
-1. Sign in to [Azure portal](https://ms.portal.azure.com).
+1. Sign in to [Azure portal](https://portal.azure.com).
 1. Navigate to your ADB workspace's **Overview** page.
 1. Select the **Link Azure Machine Learning workspace** button on the bottom right. 
 
  ![Link Azure DB and Azure Machine Learning workspaces](./media/how-to-use-mlflow-azure-databricks/link-workspaces.png)
+ 
 
 ## MLflow Tracking in your workspaces
 
-After you instantiate your workspace, MLflow Tracking is automatically set to be tracked in
-all of the following places:
+After you instantiate your workspace, MLflow Tracking is automatically set to be tracked in all of the following places:
 
 * The linked Azure Machine Learning workspace.
 * Your original ADB workspace. 
@@ -127,6 +127,9 @@ experimentName = "/Users/{user_name}/{experiment_folder}/{experiment_name}"
 mlflow.set_experiment(experimentName) 
 
 ```
+
+> [!NOTE]
+> MLflow Tracking in a [private link enabled Azure Machine Learning workspace](how-to-configure-private-link.md) is not supported.
 
 ### Set MLflow Tracking to only track in your Azure Machine Learning workspace
 
@@ -176,8 +179,8 @@ When you are ready to create an endpoint for your ML models. You can deploy as,
 You can leverage the [mlflow.azureml.deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) API to deploy a model to your Azure Machine Learning workspace. If you only registered the model to the Azure Databricks workspace, as described in the [register models with MLflow](#register-models-with-mlflow) section, specify the `model_name` parameter to register the model into Azure Machine Learning workspace. 
 
 Azure Databricks runs can be deployed to the following endpoints, 
-* [Azure Container Instance](how-to-use-mlflow.md#deploy-to-aci)
-* [Azure Kubernetes Service](how-to-use-mlflow.md#deploy-to-aks)
+* [Azure Container Instance](how-to-deploy-mlflow-models.md#deploy-to-azure-container-instance-aci)
+* [Azure Kubernetes Service](how-to-deploy-mlflow-models.md#deploy-to-azure-kubernetes-service-aks)
 
 ### Deploy models to ADB endpoints for batch scoring 
 
@@ -210,7 +213,9 @@ display(preds)
 
 ## Clean up resources
 
-If you don't plan to use the logged metrics and artifacts in your workspace, the ability to delete them individually is currently unavailable. Instead, delete the resource group that contains the storage account and workspace, so you don't incur any charges:
+If you wish to keep your Azure Databricks workspace, but no longer need the Azure ML workspace, you can delete the Azure ML workspace. This action results in unlinking your Azure Databricks workspace and the Azure ML workspace. 
+
+If you don't plan to use the logged metrics and artifacts in your workspace, the ability to delete them individually is unavailable at this time. Instead, delete the resource group that contains the storage account and workspace, so you don't incur any charges:
 
 1. In the Azure portal, select **Resource groups** on the far left.
 
@@ -227,7 +232,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 The [MLflow with Azure Machine Learning notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) demonstrate and expand upon concepts presented in this article.
 
 ## Next steps
-
+* [Deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md). 
 * [Manage your models](concept-model-management-and-deployment.md).
-* [Track experiment runs and create endpoints with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
+* [Track experiment runs with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
 * Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/).
