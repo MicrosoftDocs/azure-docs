@@ -128,7 +128,7 @@ items:
       items:
       - name: Overview
         href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Premium performance 
+      - name: Premium performance
         href: storage-blob-block-blob-premium.md
     - name: Authorization
       items:
@@ -456,6 +456,7 @@ items:
             href: immutable-policy-configure-container-scope.md
       - name: Manage redundancy and failover
         items:
+<<<<<<< HEAD
         - name: Change redundancy configuration
           href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Design highly available applications
@@ -486,6 +487,34 @@ items:
           href: object-replication-prevent-cross-tenant-policies.md  
       - name: Manage concurrency
         href: concurrency-manage.md
+=======
+        - name: Archive a blob
+          href: archive-blob.md
+        - name: Rehydrate an archived blob
+          href: archive-rehydrate-to-online-tier.md
+        - name: Handle an event on blob rehydration
+          href: archive-rehydrate-handle-event.md
+      - name: Configure lifecycle management policies
+        href: lifecycle-management-policy-configure.md
+    - name: Manage object replication
+      items:
+      - name: Configure object replication policies
+        href: object-replication-configure.md
+      - name: Prevent object replication across tenants
+        href: object-replication-prevent-cross-tenant-policies.md
+    - name: Manage concurrency
+      href: concurrency-manage.md
+    - name: Use a storage emulator
+      items:
+      - name: Use the Azurite open-source emulator
+        href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Use Azurite to run automated tests
+        href: use-azurite-to-run-automated-tests.md
+      - name: Use the Azure Storage emulator (deprecated)
+        href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Host a static website
+      items:
+>>>>>>> 03ee93e6959c8eeca08c3353e07c0b479d41a343
       - name: Host a static website
         items:
         - name: Host a static website
@@ -543,7 +572,11 @@ items:
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Develop applications
       items:
+<<<<<<< HEAD
       - name: Set up Azure AD
+=======
+      - name: Java
+>>>>>>> 03ee93e6959c8eeca08c3353e07c0b479d41a343
         items:
         - name: Get an access token for authorization with Azure AD
           href: ../common/identity-library-acquire-token.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
