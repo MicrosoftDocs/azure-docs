@@ -21,9 +21,9 @@ Build automation in Azure is enabled by setting the `SCM_DO_BUILD_DURING_DEPLOYM
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Enable build automation from Azure portal 1](<./deploy-zip-azure-portal-1.md>)] | :::image type="content" source="../../media/python-postgresql-webapp/deploy-zip-azure-portal-build-1-240px.png" alt-text="A screenshot showing the app settings for a web app and how to add a new setting in the Azure portal." lightbox="../../media/python-postgresql-webapp/deploy-zip-azure-portal-build-1.png"::: |
-| [!INCLUDE [Enable build automation from Azure portal 2](<./deploy-zip-azure-portal-2.md>)] | :::image type="content" source="../../media/python-postgresql-webapp/deploy-zip-azure-portal-build-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app settings in the Azure portal." lightbox="../../media/python-postgresql-webapp/deploy-zip-azure-portal-build-2.png"::: |
-| [!INCLUDE [Enable build automation from Azure portal 3](<./deploy-zip-azure-portal-3.md>)] | :::image type="content" source="../../media/python-postgresql-webapp/deploy-zip-azure-portal-build-3-240px.png" alt-text="A screenshot showing the location of the save button in the Application settings page for an App Service in the Azure portal." lightbox="../../media/python-postgresql-webapp/deploy-zip-azure-portal-build-3.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 1](<./deploy-zip-azure-portal-1.md>)] | :::image type="content" source="../../media/tutorial-python-postgresql-app/deploy-zip-azure-portal-build-1-240px.png" alt-text="A screenshot showing the app settings for a web app and how to add a new setting in the Azure portal." lightbox="../../media/tutorial-python-postgresql-app/deploy-zip-azure-portal-build-1.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 2](<./deploy-zip-azure-portal-2.md>)] | :::image type="content" source="../../media/tutorial-python-postgresql-app/deploy-zip-azure-portal-build-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app settings in the Azure portal." lightbox="../../media/tutorial-python-postgresql-app/deploy-zip-azure-portal-build-2.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 3](<./deploy-zip-azure-portal-3.md>)] | :::image type="content" source="../../media/tutorial-python-postgresql-app/deploy-zip-azure-portal-build-3-240px.png" alt-text="A screenshot showing the location of the save button in the Application settings page for an App Service in the Azure portal." lightbox="../../media/tutorial-python-postgresql-app/deploy-zip-azure-portal-build-3.png"::: |
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 
@@ -67,7 +67,7 @@ To use an HTTP client such as cURL to upload your ZIP file to Azure, you need th
 1. Select the **FTPS credentials** tab.
 1. The **Username** and **Password** are shown under the **Application scope** heading.  For ZIP file deployments, only use the part of the username after the `\` character that starts with a `$`, for example `$msdocs-python-django-webapp-123`. These credentials will be needed in the cURL command below.
 
-:::image type="content" source="../../media/python-postgresql-webapp/deploy-zip-azure-portal-get-username-600px.png" alt-text="A screenshot showing the location of the deployment credentials in the Azure portal." lightbox="../../media/python-postgresql-webapp/deploy-zip-azure-portal-get-username.png":::
+:::image type="content" source="../../media/tutorial-python-postgresql-app/deploy-zip-azure-portal-get-username-600px.png" alt-text="A screenshot showing the location of the deployment credentials in the Azure portal." lightbox="../../media/tutorial-python-postgresql-app/deploy-zip-azure-portal-get-username.png":::
 
 Run the following `curl` command to upload your zip file to Azure and deploy your application.  The username is the deployment username obtained above.  When this command is run, you will be prompted for the deployment password.
 
