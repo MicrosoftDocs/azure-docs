@@ -1,13 +1,11 @@
 ---
 title: Azure Functions bindings expressions and patterns
 description: Learn to create different Azure Functions binding expressions based on common patterns.
-author: craigshoemaker
 
 ms.topic: reference
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
-ms.author: cshoe
 ---
 
 # Azure Functions binding expression patterns
