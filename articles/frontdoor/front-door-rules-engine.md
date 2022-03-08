@@ -48,7 +48,7 @@ If **Stop evaluating remaining rules** gets checked, then all of the remaining R
 
 In the following diagram, WAF policies get executed first. A Rule Set gets configured to append a response header. Then the header changes the max-age of the cache control if the match condition gets met.
 
-:::image type="content" source="./media/front-door-rules-engine/front-door-rule-set-architecture-1.png" alt-text="Diagram that shows architecture of Rule Set." lightbox="/media/front-door-rules-engine/front-door-rule-set-architecture-1-expanded.png":::
+:::image type="content" source="./media/front-door-rules-engine/front-door-rule-set-architecture-1.png" alt-text="Diagram that shows architecture of Rule Set." lightbox="./media/front-door-rules-engine/front-door-rule-set-architecture-1-expanded.png":::
 
 ## Terminology
 
