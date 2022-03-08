@@ -31,9 +31,7 @@ Text and audio that you use to test and train a custom model need to include sam
 A model that's trained on a subset of scenarios can perform well in only those scenarios. Carefully choose data that represents the full scope of scenarios that you need your custom model to recognize.
 
 > [!TIP]
-> Start with small sets of sample data that match the language, acoustics, and hardware where your model will be used. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training.
->
-> To quickly get started, consider using sample data. For sample Custom Speech data, see <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">this GitHub repository</a>.
+> Start with small sets of sample data that match the language, acoustics, and hardware where your model will be used. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training. For sample Custom Speech data, see <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">this GitHub repository</a>.
 
 ## Data types
 
@@ -51,18 +49,6 @@ Files should be grouped by type into a dataset and uploaded as a .zip file. Each
 
 > [!TIP]
 > When you train a new model, start with plain-text data or structured-text data. This data will improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes versus days).
-
-### Training with audio data
-
-Not all base models support [training with audio data](language-support.md#speech-to-text). If a base model doesn't support it, the Speech service will use only the text from the transcripts and ignore the audio. For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). 
-
-Even if a base model supports training with audio data, the service might use only part of the audio. But it will use all the transcripts.
-
-If you change the base model that's used for training, and you have audio in the training dataset, *always* check whether the new selected base model supports training with audio data. If the previously used base model did not support training with audio data, and the training dataset contains audio, training time with the new base model will drastically increase. It could easily go from several hours to several days and more. This is especially true if your Speech service subscription is *not* in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
-
-If you face the problem described in the previous paragraph, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. 
-
-In regions with dedicated hardware for training, the Speech service will use up to 20 hours of audio for training. In other regions, it will only use up to 8 hours of audio.
 
 ## Audio + human-labeled transcript data for training or testing
 
@@ -120,7 +106,7 @@ Not all base models support training with audio data. If the base model doesn't 
 
 You can use domain-related sentences to improve accuracy in recognizing product names or industry-specific jargon. Provide sentences in a single text file. To improve accuracy, use text data that's closer to the expected spoken utterances. Training with plain text usually finishes within a few minutes.
 
-To create a custom model by using sentences, you'll need to provide a list of sample utterances. Utterances _do not_ need to be complete or grammatically correct, but they must accurately reflect the spoken input that you expect in production. If you want certain terms to have increased weight, add several sentences that include these specific terms.
+To create a custom model by using sentences, you'll need to provide a list of sample utterances. Utterances don't need to be complete or grammatically correct, but they must accurately reflect the spoken input that you expect in production. If you want certain terms to have increased weight, add several sentences that include these specific terms.
 
 As general guidance, model adaptation is most effective when the training text is as close as possible to the real text expected in production. Domain-specific jargon and phrases that you're targeting to enhance should be included in training text. When possible, try to have one sentence or keyword controlled on a separate line. For keywords and phrases that are important to you (for example, product names), you can copy them a few times. But don't copy too much - it could affect the overall recognition rate.
 
@@ -269,6 +255,18 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 |---------|-------------|
 | Check the audio file format. | `sox --i <filename>` |
 | Convert the audio file to single channel, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
+
+### Audio data for training
+
+Not all base models support [training with audio data](language-support.md#speech-to-text). If a base model doesn't support it, the Speech service will use only the text from the transcripts and ignore the audio. For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). 
+
+Even if a base model supports training with audio data, the service might use only part of the audio. But it will use all the transcripts.
+
+If you change the base model that's used for training, and you have audio in the training dataset, *always* check whether the new selected base model supports training with audio data. If the previously used base model did not support training with audio data, and the training dataset contains audio, training time with the new base model will drastically increase. It could easily go from several hours to several days and more. This is especially true if your Speech service subscription is *not* in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+
+If you face the problem described in the previous paragraph, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. 
+
+In regions with dedicated hardware for training, the Speech service will use up to 20 hours of audio for training. In other regions, it will only use up to 8 hours of audio.
 
 ## Next steps
 
