@@ -23,9 +23,7 @@ In this tutorial, you learn how to:
 > * Register a data asset for Data use governance
 > * Create and publish a policy
 
-> [!Note]
-> These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
