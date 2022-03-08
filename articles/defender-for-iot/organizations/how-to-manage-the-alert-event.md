@@ -1,30 +1,69 @@
 ---
 title: Manage alert events
-description: Manage alert events detected in your network. 
-ms.date: 11/09/2021
+description: Manage alerts detected in your network. 
+ms.date: 02/06/2022
 ms.topic: how-to
 ---
 
-# Manage alert events
+# Manage alerts
 
-The following options are available for managing alert events:
+This article describes how to manage alerts.
+
+## About managing alerts
+
+The following options are available for managing alerts:
 
  | Action | Description |
  |--|--|
- | **Learn** | Authorize the detected event. For more information, see [About learning and unlearning events](#about-learning-and-unlearning-events). |
- | **Acknowledge** | Hide the alert once for the detected event. The alert will be triggered again if the event is detected again. For more information, see [About acknowledging and unacknowledging events](#about-acknowledging-and-unacknowledging-events). |
- | **Mute** | Continuously ignore activity with identical devices and comparable traffic. For more information, see [About muting and unmuting events](#about-muting-and-unmuting-events). |
- 
-You can also export alert information.
-## About learning and unlearning events
+| **Remediate** |Remediate a device or network process that caused Defender for IoT to trigger the alert. For more information, see [View remediation steps](#view-remediation-steps).|
+| **Learn** | Authorize the detected traffic. For more information, see [Learn and unlearn alert traffic](#learn-and-unlearn-alert-traffic). |
+| **Mute** | Continuously ignore activity with identical devices and comparable traffic. For more information, see [Mute and unmute alerts](#mute-and-unmute-alerts).
+| **Change status** |  Change the alert status to Closed or New. For more information, see [Close the alert](#close-the-alert). |
+| **Forward to partner solutions** | Create Forwarding rules that send alert details to integrated solutions, for example to Microsoft Sentinel, Splunk or Service Now. For more information, see [Forward alert information](how-to-forward-alert-information-to-partners.md#forward-alert-information)  |
 
-Events that indicate deviations of the learned network might reflect valid network changes. When you want to approve these changes, you can instruct Defender for IoT to *learn* the behavior. Examples might include:
+Alerts are managed from the Alerts page on the sensor.
+
+**To access the Alerts page:**
+
+1. Select **Alerts** from the sensor console, side pane.
+1. Review the alerts details and decide how to manage the alert.
+
+    :::image type="content" source="media/how-to-manage-the-alert-event/main-alerts-screen.png" alt-text="Screenshot of the main sensor alerts screen.":::
+
+See [View alerts on your sensor](how-to-view-alerts.md#view-alerts-on-your-sensor) for information on:
+- the kind of alert information available  
+- customizing the alert view
+- how long alerts are saved
+
+## View remediation steps
+
+Defender for IoT provides remediation steps you can carry out for the alert. Steps may include remediating a device or network process that caused Defender for IoT to trigger the alert.
+Remediation steps help SOC teams better understand Operational Technology (OT) issues and resolutions. Review remediation information before managing the alert event or taking action on the device or the network.
+
+**To view alert remediation steps:**
+
+1. Select an alert from the Alerts page.
+1. In the side pane, select **Take action.**
+1. Review remediation steps.
+
+    :::image type="content" source="media/how-to-manage-the-alert-event/remediation-steps.png" alt-text="Screenshot of a sample set of remediation steps for alert action.":::
+
+
+Your administrator may have added instructions or comments to help you complete remediation or alert handling. If created, comments appear in the Alert Details section.
+
+:::image type="content" source="media/how-to-view-alerts/alert-comments.png" alt-text="Screenshot of alert comments added to alert details section of Alert dialog box.":::
+
+After taking remediation steps, you may want to change the alert status to Close the alert.
+
+## Learn and unlearn alert traffic
+
+Some alerts indicate deviations of the learned network baseline. These alerts might reflect valid network changes, such as:
 
 - New activity was detected on existing device. For example, an authorized device attempted to access a new resource on another device.
 
-- A new device is added to the network.  
-
 - Firmware version changes following standard maintenance procedures.
+
+- A new device is added to the network.  
 
 - A new  device performed a read/write operation on a destination controller.
 
@@ -32,125 +71,109 @@ Events that indicate deviations of the learned network might reflect valid netwo
 
 - New legitimate scanning is carried out and the device should be defined as a scanning device.
 
-**To learn an event**: 
+When you want to approve these changes, you can instruct Defender for IoT to *learn* the traffic.
+
+**To learn the traffic**:
 
 1. Navigate to the **Alerts** tab.
 
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-tab.png" alt-text="Select the Alerts tab from the navigation bar on the left side of the screen.":::
-
 1. Select an alert from the list of alerts.
+1. Select **Take action**.
 
-1. Select **Learn**.
+1. Enable the **Alert Learn** toggle.
 
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/learn.png" alt-text="The Address Detected Scan window.":::
+    :::image type="content" source="media/how-to-manage-the-alert-event/learn-remediation.png" alt-text="Screenshot of the Learn option for Policy alerts.":::
 
-Activity reflected in alerts is calculated when you generate Data Mining, Risk Assessment, and Attack Vector reports. When you manage these events, the sensor updates the reports accordingly.
+After learning the traffic, configurations, or activity are considered valid. An alert will no longer be triggered for this activity.
 
-When you select **Learn**, the sensor considers traffic, configurations, or activity valid. The alert will no longer be triggered for the event. It also means the event won't be calculated when the sensor generates risk assessment, attack vector, and other reports.
+In addition,
 
-Learned events can be unlearned. When the sensor unlearns events, it will retrigger alerts related to this event.
+- The alert status is automatically updated to Closed.
 
-**To unlearn an event**
+- The learn action appears in the **Event Timeline**.
 
-1. Navigate to the **Alerts** tab.
+- For this traffic, the device won't be calculated when the sensor generates Risk Assessment, Attack Vector, and other reports.
 
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-tab.png" alt-text="Select the Alerts tab from the navigation bar on the left side of the screen.":::
+### Unlearn alert traffic
 
-1. From the view drop-down menu, select **Acknowledged**.
+Learned traffic can be unlearned. When the sensor unlearns traffic, alerts are retriggered for this traffic combination detected.
 
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/view-acknowledged.png" alt-text="Select acknowledged from the view section drop-down menu." lightbox="media/how-to-work-with-alerts-sensor/view-acknowledged-expanded.png":::
+**To unlearn an alert**
 
-1. Select an alert from the list of alerts.
-
-1. Select **Unlearn**.
-
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/unlearn.png" alt-text="Select Unlearn to unlearn an event.":::
-
-After an event is unlearned, it will move back to the Main View page.
-
-**To see if an alert was learned, or acknowledged**:
-
-1. Navigate to the Event Timeline tab :::image type="icon" source="media/how-to-work-with-alerts-sensor/event-timeline.png" border="false":::
-
-1. Locate the alert in the timeline.
-
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/event-timeline-acknowledged.png" alt-text="You can locate the acknowledged events in the event timeline.":::
-
-    You will see in the alert's window, if the alert was learned, or acknowledged.
+1. Navigate to the alert you learned.
  
-## About acknowledging and unacknowledging events
+1. Disable the **Alert learn** toggle.
 
-In certain situations, you might not want a sensor to learn a detected event, or the option might not be available. Instead, the incident might require mitigation. For example:
+The alert status is automatically updated to **New**.
 
-- **Mitigate a network configuration or device**: You receive an alert indicating that a new device was detected on the network. When investigating, you discover that the device is an unauthorized network device. You handle the incident by disconnecting the device from the network.
-- **Update a sensor configuration**: You receive an alert indicating that a server initiated an excessive number of remote connections. This alert was triggered because the sensor anomaly thresholds were defined to trigger alerts above a certain number of sessions within one minute. You handle the incident by updating the thresholds.
-
-After you carry out mitigation or investigation, you can instruct the sensor to hide the alert by selecting **Acknowledge**. If the event is detected again, the alert will be retriggered.
-
-To clear the alert:
-
-  - Select **Acknowledge**.
-
-To view the alert again:
-
-  - Access the alert and select **Unacknowledge**.
-
-Unacknowledge alerts if further investigation is required.
-
-## About muting and unmuting events
+## Mute and unmute alerts
 
 Under certain circumstances, you might want to instruct your sensor to ignore a specific scenario on your network. For example:
 
-  - The **Anomaly** engine triggers an alert on a spike in bandwidth between two devices, but the spike is valid for these devices.
+  - The Anomaly engine triggers an alert on a spike in bandwidth between two devices, but the spike is valid for these devices.
 
-  - The **Protocol Violation** engine triggers an alert on a protocol deviation detected between two devices, but the deviation is valid between the devices.
+  - The Protocol Violation engine triggers an alert on a protocol deviation detected between two devices, but the deviation is valid between the devices.
+  
+  - The Operational engine triggers an alert indicating that the PLC Mode was changed on a device. The new mode may indicate that the PLC isn't secure. After investigation, it's determined that the new mode is acceptable.
 
-In these situations, learning is not available. When learning can't be carried out and you want to suppress the alert and remove the device when calculating risks and attack vectors, you can mute the alert event instead.
+In these situations, learning isn't available. You can mute the alert event when learning can't be carried out and you want to suppress the alert and remove the device when calculating risks and attack vectors.
 
-> [!NOTE] 
-> You can't mute events in which an internet device is defined as the source or destination.
-
-### What alert activity is muted?
+:::image type="content" source="media/how-to-manage-the-alert-event/mute-alert.png" alt-text="Screenshot of an alert with the Mute action.":::
 
 A muted scenario includes the network devices and traffic detected for an event. The alert title describes the traffic that is being muted.
 
-The device or devices being muted will be displayed as an image in the alert. If two devices are shown, the specific alerted traffic between them will be muted.
+> [!NOTE]
+> You can't mute traffic if an internet device is defined as the source or destination.
 
-**Example 1**
+**To mute an alert:**
 
-When an event is muted, it's ignored anytime the primary (source) sends the secondary (destination) an illegal function code as defined by the vendor.
-
-:::image type="content" source="media/how-to-work-with-alerts-sensor/secondary-device-connected.png" alt-text="Secondary device received.":::
-
-**Example 2**
-
-When an event is muted, it's ignored anytime the source sends an HTTP header with illegal content, regardless of the destination.
-
-:::image type="content" source="media/how-to-work-with-alerts-sensor/illegal-http-header-content.png" alt-text="Screenshot of illegal HTTP header content.":::
+1. Select an alert from the Alerts page and then select **Take action**.
+1. Enable the **Alert mute** toggle.
 
 **After an event is muted:**
 
-- The alert will be accessible in the **Acknowledged** alert view until it is unmuted.
+- The alert status will automatically be changed to **Closed.**
 
 - The mute action will appear in the **Event Timeline**.
 
-  :::image type="content" source="media/how-to-work-with-alerts-sensor/muted-event-notification-screenshot.png" alt-text="Event detected and muted.":::
+- The sensor will recalculate devices when generating Risk Assessment, Attack Vector, and other reports. For example, if you muted an alert that detected malicious traffic on a device, that device won't be calculated in the Risk Assessment report.
 
-- The sensor will recalculate devices when generating risk assessment, attack vector, and other reports. For example, if you muted an alert that detected malicious traffic on a device, that device will not be calculated in the risk assessment report.
+## Close the alert
 
-**To mute and unmute an alert:**
+ Close an alert when you finish remediating, investigating, or otherwise handling the alert. For example:
 
-- Select the **Mute** icon on the alert.
+- **Mitigate a network configuration or device**: You receive an alert indicating that a new device was detected on the network. When investigating, you discover that the device is unauthorized. You handle the alert by disconnecting the device from the network.
 
-**To view muted alerts:**
+- **Update a sensor configuration**: You receive an alert indicating that a server initiated an excessive number of remote connections. This alert was triggered because the sensor anomaly thresholds were defined to trigger alerts above a certain number of sessions within one minute. You handle the alert by updating the thresholds. 
 
-1. Select the **Acknowledged** option form the **Alerts** main screen.
+After you carry out remediation or investigation, you can close  the alert.
 
-2. Hover over an alert to see if it's muted.  
+If the traffic is detected again, the alert will be retriggered.
+
+**To close a single alert:**
+
+1. Select an alert. The Alert Details section opens.
+1. Select the dropdown arrow in the Status field and select **Closed**.
+
+    :::image type="content" source="media/how-to-manage-the-alert-event/close-alert.png" alt-text="Screenshot of the option to close an alert from the Alerts page.":::
+
+**To close multiple alerts:**
+
+1. Select the alerts you want to close from the Alerts page. 
+1. Select **Change Status** from the action items on the top of the page.
+1. Select **Closed** and **Apply.**
+
+    :::image type="content" source="media/how-to-manage-the-alert-event/multiple-close.png" alt-text="Screenshot of selecting multiple alerts to close from the Alerts page.":::
+
+Change the alert status to **New** if further investigation is required.
+
+To view closed alerts on the Alerts page, verify that the **Status** filter is defined to show **Closed** alerts.
+
+:::image type="content" source="media/how-to-manage-the-alert-event/show-closed-status.png" alt-text="Screenshot of the Alerts page status filter with closed alerts selected.":::
 
 ## Export alert information
 
-Export alert information to a .csv file. You can export information of all alerts detected or export information based on the filtered view. The following information is exported:
+Export alert information to a .csv file. The following information is exported:
 
 - Source address
 - Destination address
@@ -161,16 +184,43 @@ Export alert information to a .csv file. You can export information of all alert
 - Acknowledged status
 - PCAP availability
 
-To export:
+**To export:**
 
-1. Select Alerts from the side menu.
+1. Select Export to CSV on the top of the Alerts page.
 
-1. Select Export.
 
-1. Select Export Extended Alerts to export alert information in separate rows for each alert that covers multiple devices. When Export Extended Alerts is selected, the .csv file will create a duplicate row of the alert event with the unique items in each row. Using this option makes it easier to investigate exported alert events.
+## Interaction with Azure Alerts page
 
-## See also
+Your deployment may have been set up to work with cloud-connected sensors on the Defender for IoT portal on Azure. In cloud-connected environments,  Alert detections shown on your sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal. 
 
-[Alert types and descriptions](alert-engine-messages.md)
+Viewing and managing alerts in the portal provides significant advantages. For example, you can:
 
-[Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
+- Display an aggregated  view of alert activity in all enterprise sensors
+- Learn about related MITRE ATT&CK techniques, tactics and stages
+- View alerts based on the sensor site
+- Integrate alert details with Microsoft Sentinel
+- Change the severity of an alert
+
+    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Screenshot of a sample alert shown in the Azure portal.":::
+
+Users working with alerts on the Defender for IoT portal on Azure should understand how alert management between the portal and the sensor operates.
+
+
+ Parameter | Description
+|--|--|
+| **Alert Exclusion rules**|  Alert *Exclusion rules* defined in the on-premises management console impact the alerts triggered by managed sensors. As a result, the alerts excluded by these rules also won't be displayed in the Alerts page on the portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
+| **Managing alerts on your sensor**  | If you change the status of an alert, or learn or mute an alert on a sensor, the changes are not updated in the Defender for IoT Alerts page on the portal. This means that this alert will stay open on the portal. However another alert  won't be triggered from sensor for this activity.
+| **Managing alerts in the portal Alerts page** | Changing the status of an alert on the Azure portal, Alerts page or changing the alert severity on the portal, does not impact the alert status or severity in on-premises sensors.
+
+## Next steps
+
+For more information, see:
+
+- [Detection engines and alerts](concept-key-concepts.md#detection-engines-and-alerts)
+
+- [View alerts on your sensor](how-to-view-alerts.md#view-alerts-on-your-sensor)
+
+- [Alert types and descriptions](alert-engine-messages.md)
+
+- [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
+

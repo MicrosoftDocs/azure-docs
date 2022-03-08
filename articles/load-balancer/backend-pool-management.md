@@ -8,8 +8,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 2/17/2022
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Backend pool management
 

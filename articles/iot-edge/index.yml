@@ -9,8 +9,8 @@ metadata:
   services: iot-edge
   ms.service: iot-edge
   ms.topic: landing-page
-  author: kgremban
-  ms.author: kgremban
+  author: PatAltimore
+  ms.author: patricka
   
   ms.date: 08/05/2019
   ms.custom: e2e-hybrid
@@ -30,19 +30,21 @@ landingContent:
         links: 
           - text: Use Visual Studio Code to develop and debug modules
             url: how-to-vs-code-develop-module.md
-  - title: Develop for Windows devices
+  - title: Develop and deploy using Windows devices
     linkLists: 
+      - linkListType: concept
+        links: 
+          - text: What is Azure IoT Edge for Linux on Windows (EFLOW)?
+            url: iot-edge-for-linux-on-windows.md
       - linkListType: quickstart
         links: 
           - text: Deploy your first IoT Edge module to a Windows device
             url: quickstart.md
-      - linkListType: tutorial
-        links: 
-          - text: Develop IoT Edge modules for Windows devices
-            url: tutorial-develop-for-windows.md
       - linkListType: how-to-guide
         links: 
-          - text: Use Visual Studio 2017 to develop and debug modules
+          - text: Create and provision IoT Edge for Linux on Windows
+            url: how-to-provision-single-device-linux-on-windows-symmetric.md
+          - text: Use Visual Studio 2019 to develop and debug modules using EFLOW
             url: how-to-visual-studio-develop-module.md
   - title: Create an IoT Edge device
     linkLists:
@@ -64,6 +66,10 @@ landingContent:
             url: https://github.com/Azure/iotedge/issues
           - text: Latest releases and changelogs
             url: https://github.com/Azure/azure-iotedge/releases
+          - text: IoT Edge for Linux on Windows repository
+            url: https://github.com/Azure/iotedge-eflow
+          - text: IoT Edge for Linux on Windows GitHub issues
+            url: https://github.com/Azure/iotedge-eflow/issues
   - title: Use IoT Edge devices as gateways
     linkLists: 
       - linkListType: concept

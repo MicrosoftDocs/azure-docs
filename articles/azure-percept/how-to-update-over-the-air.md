@@ -19,11 +19,11 @@ Follow this guide to learn how to update the OS and firmware of the carrier boar
 - [Azure subscription](https://azure.microsoft.com/free/)
 - [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md): you connected your dev kit to a Wi-Fi network, created an IoT Hub, and connected your dev kit to the IoT Hub
 - [Device Update for IoT Hub has been successfully configured](./how-to-set-up-over-the-air-updates.md)
-- Make sure you are using the Devic Update for IoT Hub with its **old version** (public preview) UX. When navigate to "device management - updates" in your IoT Hub, click the **"switch to the older version"** link in the banner.
+- Make sure you are using the **old version** of the Device Update for IoT Hub. To do that, navigate to **Device management** > **Updates** in your IoT Hub, select the **switch to the older version** link in the banner.
 
   :::image type="content" source="media/how-to-update-over-the-air/switch-banner.png" alt-text="Screenshot of banner." lightbox="media/how-to-update-over-the-air/switch-banner.png":::
     > [!CAUTION]
-    > As the Device Update for IoT Hub has launched the public preview refresh, the new UX is only compatible with edge device that is using the newer client agent. The devkit is current using an older version of client agent, therefore you need to use the old device update UX accordingly. **Otherwise you will encounter issues when import updates or group device for deploying updates.**
+    > The devkit is currently incompatible with latest changes in the Device Update for IoT Hub service. Therefore, it is important to switch to the **older version** of the Device Update of Iot Hub as instructed above before moving forward. 
 
 
 ## Import your update file and manifest file

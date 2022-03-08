@@ -7,7 +7,7 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using the Azure CLI.
 ---
 # Quickstart: Create a private endpoint by using the Azure CLI
