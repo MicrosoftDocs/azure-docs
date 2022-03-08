@@ -26,10 +26,11 @@ When a model is deployed, you will be able to test the model directly in the por
 
 Simply select a model and click on deploy model in the Deploy model page. 
 
-<!-- :::image type="content" source="../media/deploy-model.png" alt-text="A screenshot showing the model deployment page in Language Studio." lightbox="../media/deploy-model.png"::: -->
+<!-- :::image type="content" source="../media/deploy-model.png" alt-text="A screenshot showing the model deployment page in Language Studio." lightbox="../media/deploy-model.png"::: 
 
 > [!TIP]
 > If you're using the REST API, see the [quickstart](../quickstart.md?pivots=rest-api#deploy-your-model) and REST API [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) for examples and more information.
+-->
 
 When you're deploying an orchestration workflow project, A small window will show up for you to confirm your deployment, and configure parameters for connected services.
 
@@ -52,9 +53,10 @@ You can get the full URL for your endpoint by going to the **Deploy model** page
 :::image type="content" source="../media/prediction-url.png" alt-text="Screenshot showing the prediction request and URL" lightbox="../media/prediction-url.png":::
 
 Add your key to the `Ocp-Apim-Subscription-Key` header value, and replace the query and language parameters.
- 
+<!--
 > [!TIP]
 > As you construct your requests, see the [quickstart](../quickstart.md?pivots=rest-api#query-model) and REST API [reference documentation](https://aka.ms/clu-apis) for more information.
+-->
 
 ### Use the client libraries (Azure SDK)
 

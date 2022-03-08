@@ -16,18 +16,18 @@ ms.custom: ignite-fall-2021, mode-other
 # Frequently asked questions for orchestration workflows
 
 Use this article to quickly get the answers to common questions about orchestration workflows
-
+<!--
 ## How do I create a project?
 
 See the [quickstart](./quickstart.md) to quickly create your first project, or the [how-to article](./how-to/create-project.md) for more details. 
-
+-->
 ## How do I connect other service applications in orchestration workflow projects?
 
 See the [Build schema article](./how-to/build-schema.md#build-project-schema-for-orchestration-workflow-projects) for information on connecting another project as an intent.
 
 ## Which LUIS applications can I connect to in orchestration workflow projects?
 
-LUIS applications that use the Language resource as their authoring resource will be available for connection. You can only connect to LUIS applications that are owned by the same resource. This option will only be available for resources in West Europe, as it's the only common available region between LUIS and CLU. See [region limits](./service-limits.md#region-limits) for more information. 
+LUIS applications that use the Language resource as their authoring resource will be available for connection. You can only connect to LUIS applications that are owned by the same resource. This option will only be available for resources in West Europe, as it's the only common available region between LUIS and CLU. <!--See [region limits](./service-limits.md#region-limits) for more information. -->
 
 ## Training is taking a long time, is this expected?
 
@@ -37,18 +37,19 @@ For conversation projects, long training times are expected. Based on the number
 
 No. Orchestration projects are only enabled for intents that can be connected to other projects for routing. 
 
+<!--
 ## Which languages are supported in this feature?
 
 See the [language support](./language-support.md) article.
-
+-->
 ## How do I get more accurate results for my project?
 
 Take a look at the [recommended guidelines](./how-to/build-schema.md#guidelines-and-recommendations) for information on improving accuracy.
-
-## How many intents, entities, utterances can I add to a project?
+<!--
+## How many intents, and utterances can I add to a project?
 
 See the [service limits](./service-limits.md) article. 
-
+-->
 ## Can I label the same word as 2 different entities?
 
 Unlike LUIS, you cannot label the same text as 2 different entities. Learned components across different entities are mutually exclusive, and only one learned span is predicted for each set of characters.

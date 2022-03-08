@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-orchestration
 ---
 
-# How to build your project schema
+# How to build your project schema for an orchestration workflow
  
 In orchestration workflows, the *schema* is defined as the combination of intents and entities within your project. Schema design is a crucial part of your project's success. When creating a schema, you want think about which intents should be included in your project.
 
@@ -57,6 +57,7 @@ To build a project schema for orchestration workflow projects:
 > [!IMPORTANT]
 > * Connected intents cannot be selected because you cannot add training examples to a connected intent, as it already uses the target project's data to train its intent classification.
 > * You will only be able to connect to target services that are owned by the same resource.
-
+<!--
 ## Next Steps
 * [Tag utterances](tag-utterances.md)
+-->
