@@ -14,7 +14,6 @@ ms.date: 25/02/2022
 Follow the steps to onboard an Azure Arc-enabled server to Automanage Best Practices using an ARM template.
 
 ## Prerequisites
-* You must have an [Azure Automanage account](./automanage-account)
 * You must have an Azure Arc-enabled server already registered in your subscription
 * You must have necessary [Role-based access control permissions](./automanage-virtual-machines.md#required-rbac-permissions)
 * You must use one of the [supported operating systems](./automanage/automanage-arc#supported-operating-systems)
@@ -29,21 +28,17 @@ The following ARM template will onboard your specified Azure Arc-enabled server 
         "machineName": {
             "type": "String"
         },
-        "automanageAccountName": {
-            "type": "String"
-        },
-        "configurationProfileAssignment": {
+        "configurationProfile": {
             "type": "String"
         }
     },
     "resources": [
         {
             "type": "Microsoft.HybridCompute/machines/providers/configurationProfileAssignments",
-            "apiVersion": "2020-06-30-preview",
-            "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/', 'default')]",
+            "apiVersion": "2021-04-30-preview",
+            "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/default')]",
             "properties": {
-                "configurationProfile": "[parameters('configurationProfileAssignment')]",
-                "accountId": "[concat(resourceGroup().id, '/providers/Microsoft.Automanage/accounts/', parameters('automanageAccountName'))]"
+                "configurationProfile": "[parameters('configurationProfile')]"
             }
         }
     ]
