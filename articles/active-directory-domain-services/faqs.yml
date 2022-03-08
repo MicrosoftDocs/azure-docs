@@ -10,10 +10,9 @@ metadata:
   ms.service: active-directory
   ms.subservice: domain-services
   ms.workload: identity
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 02/16/2022
   ms.author: justinha
-    
 title: Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
 summary: This page answers frequently asked questions about Azure Active Directory Domain Services.
 
@@ -86,9 +85,9 @@ sections:
           No. A managed domain resource forest supports up to five one-way outbound forest trusts to on-premises forests. 
 
       - question: |
-          Why can't I see the **Trusts** menu?
+          Why can't I see the Trusts menu?
         answer: |
-          If you don't see the **Trusts** menu option, check under **Properties** for the *Forest type*. Only *Resource* forests can create trusts. If the forest type is *User*, you can't create trusts. There's currently no way to change the forest type of a managed domain. You need to delete and recreate the managed domain as a resource forest. 
+          If you don't see the **Trusts** menu option, check under **Properties** for the **Forest type**. Only **Resource** forests can create trusts. If the forest type is **User**, you can't create trusts. There's currently no way to change the forest type of a managed domain. You need to delete and recreate the managed domain as a resource forest. 
 
       - question: |
           Can I move a managed domain?

@@ -5,7 +5,7 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
-ms.date: 02/10/2022
+ms.date: 2/23/2022
 ---
 # Resource Manager template samples for metric alert rules in Azure Monitor
 

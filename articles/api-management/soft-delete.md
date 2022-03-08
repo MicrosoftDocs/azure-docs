@@ -23,7 +23,7 @@ Currently, depending on how you delete an API Management instance, the instance 
 Recovery and other operations on a soft-deleted instance are enabled through [REST API](/rest/api/apimanagement/current-ga/api-management-service/restore) version `2020-06-01-preview` or later, or the Azure SDK for .NET, Go, or Python.
 
 > [!TIP]
-> Refer to [Azure REST API Reference](/rest/api/azure/) for tips and tools for calling Azure REST APIs.
+> Refer to [Azure REST API Reference](/rest/api/azure/) for tips and tools for calling Azure REST APIs and [API Management REST](/rest/api/apimanagement/) for additional information specific to API Management.
 
 | Operation | Description | API Management namespace | Minimum API version |
 |--|--|--|--|

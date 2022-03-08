@@ -232,10 +232,13 @@ Select an exception to see the end-to-end transaction and stacktrace in context:
 
 ## Clean up resources
 
-In these quickstarts, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't expect to need these resources in the future, delete the resource group by using the portal or by running the following command in the Cloud Shell:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
 ```
 
 In an earlier quickstart, you also set the default resource group name. If you don't intend to continue to the next quickstart, clear out that default by running the following CLI command:
@@ -249,8 +252,5 @@ az config set defaults.group=
 To explore more monitoring capabilities of Azure Spring Cloud, see:
 
 > [!div class="nextstepaction"]
-> [Diagnostic services](diagnostic-services.md)
->
-> [Distributed tracing](./how-to-distributed-tracing.md)
->
-> [Stream logs in real time](./how-to-log-streaming.md)
+> [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)>
+> [Stream Azure Spring Cloud app logs in real-time](./how-to-log-streaming.md)

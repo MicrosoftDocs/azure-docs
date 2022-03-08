@@ -16,7 +16,7 @@ IoT Central is a ready-made environment for IoT solution development. It's an ap
 
 This article provides an overview of the key elements in an IoT Central solution architecture.
 
-:::image type="content" source="media/concepts-architecture/architecture.png" alt-text="High-level architecture of an IoT Central solution" border="false" lightbox="media/concepts-architecture/architecture.png":::
+:::image type="content" source="media/concepts-architecture/architecture.png" alt-text="Diagram that shows the high-level architecture of an I o T Central solution." border="false" lightbox="media/concepts-architecture/architecture.png":::
 
 Key capabilities in an IoT Central application include:
 
@@ -100,4 +100,4 @@ Build integrations that let other applications and services manage your applicat
 
 ## Next steps
 
-Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [scalability and high availability](concepts-scalability-availability.md) in Azure IoT Central.
+Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-developer.md) in Azure IoT Central.

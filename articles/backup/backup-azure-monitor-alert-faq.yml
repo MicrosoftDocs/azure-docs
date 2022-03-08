@@ -3,12 +3,11 @@ metadata:
   title: Monitoring Alert and Reports FAQ
   description: In this article, discover answers to common questions about the Azure Backup Monitoring Alert and Azure Backup reports.
   ms.reviewer: srinathv
-  ms.topic: article
+  ms.topic: faq
   ms.service: backup
   ms.date: 02/14/2022
   author: v-amallick
   ms.author: v-amallick
-    
 title: Azure Backup Monitoring Alert - FAQ
 summary: This article answers common questions about Azure Backup monitoring and reporting.
 

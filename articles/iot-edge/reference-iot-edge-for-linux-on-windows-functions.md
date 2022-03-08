@@ -1,7 +1,7 @@
 ---
 title: PowerShell functions for Azure IoT Edge for Linux on Windows | Microsoft Docs 
 description: Reference information for Azure IoT Edge for Linux on Windows PowerShell functions to deploy, provision, and status IoT Edge for Linux on Windows virtual machines.
-author: kgremban
+author: PatAltimore
 
 ms.author: fcabrera
 ms.date: 10/15/2021
@@ -329,6 +329,19 @@ The **Set-EflowVM** command updates the virtual machine configuration with the r
 | headless | None | If this flag is present, it determines whether the user needs to confirm in case a security warning is issued. |
 
 For more information, use the command `Get-Help Set-EflowVM -full`.
+
+
+## Set-EflowVmDNSServers
+
+The **Set-EflowVmDNSServers** command configures the DNS servers for EFLOW virtual machine.
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vendpointName | String value of the virtual endpoint name | Use the _Get-EflowVmEndpoint_ to obtain the virtual interfaces assigned to the EFLOW VM. E.g. **DESKTOP-CONTOSO-EflowInterface** |
+| dnsServers | List of DNS server IPAddress to use for name resolution | E.g. **@("10.0.10.1")** |
+
+For more information, use the command `Get-Help Set-EflowVmDNSServers -full`.
+
 
 ## Set-EflowVmFeature
 

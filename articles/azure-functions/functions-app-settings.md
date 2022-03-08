@@ -188,7 +188,7 @@ Requires that [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#function
 
 ## FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
-Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by FUNCTIONS\_WORKER\_PROCESS\_COUNT is reached. Using multiple language worker processes is not the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all non-.NET languages.
+Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by FUNCTIONS\_WORKER\_PROCESS\_COUNT is reached. Using multiple language worker processes is not the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all language runtimes, except for .NET running in process (`dotnet`).
 
 |Key|Sample value|
 |---|------------|
@@ -359,6 +359,16 @@ The file path to the function app code and configuration in an event-driven scal
 Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This slot setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
+
+## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
+
+The WEBSITE_CONTENTAZUREFILECONNECTIONSTRING and WEBSITE_CONTENTSHARE settings have additional validation checks to ensure that the app can be properly started. Creation of application settings will fail if the Function App cannot properly call out to the downstream Storage Account or Key Vault due to networking constraints or other limiting factors. When WEBSITE_SKIP_CONTENTSHARE_VALIDATION is set to `1`, the validation check is skipped; otherwise the value defaults to `0` and the validation will take place. 
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_SKIP_CONTENTSHARE_VALIDATION|`1`|
+
+If validation is skipped and either the connection string or content share are not valid, the app will be unable to start properly and will only serve HTTP 500 errors.
 
 ## WEBSITE\_DNS\_SERVER
 

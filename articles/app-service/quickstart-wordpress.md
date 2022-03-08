@@ -1,6 +1,7 @@
 ---
 title: 'Quickstart: Create a WordPress site'
 description: Create your first WordPress site on Azure App Service in minutes.
+keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 ms.topic: quickstart
 ms.date: 01/14/2021
 ms.devlang: wordpress
@@ -14,7 +15,7 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
 This quickstart configures WordPress in App Service on Linux.  It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription.
 
 > [!IMPORTANT]
-> WordPress in App Service on Linux is in preview.
+> WordPress in App Service on Linux is in preview. [View the announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/the-new-and-better-wordpress-on-app-service/ba-p/3202594).
 >
 > [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74)
 
@@ -40,15 +41,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
      :::image type="content" source="./media/quickstart-wordpress/04-wordpress-basics-project-details.png?text=Azure portal WordPress Project Details" alt-text="Screenshot of WordPress project details":::
 
-1. Under **Instance details**, type a globally unique name for your web app and choose **Linux (preview)** for **Operating System**. Select **Basic** for **Hosting plan**. See the table below for app and database SKUs for given hosting plans. For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) and [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). 
-
-    > [!div class="mx-tdCol2BreakAll mx-tdCol3BreakAll"]
-    > |Hosting Plan | App Service SKU | Database SKU |
-    > |-------------|-------------|-------------|
-    > | Basic | B1, 1.75 GB Memory, 10GB Storage A-Series Compute Equivalent | 	Flexi Server - Burstable (1-2 vCores) – Standard B1s(1v Core, 1GB Memory, 32 GB Storage & 400 IOPs)|
-    > |Development |	S1, 1.75 GB Memory, 50 GB Storage A-Series Compute Equivalent |	Flexi Server - Burstable (1-2 vCores) – Standard_B1ms(1v Core, 2 GB Memory, 64 GB Storage and 500 IOPs)|
-    > |Standard |	P1V2, 3.5 GB Memory, 250GB Storage Dv2 Series Compute Equivalent |	Flexi Server - Burstable (1-2 vCores) - Standard_B2s(  2v Core, 4 GB Memory,   128 GB Storage and 700 IOPs) |
-    > |Premium |P1V3, 8 GB Memory, 250GB Storage 2 v CPU	| Flexi Server - General Purpose (2-64 vCores) Standard_D2ds_v4(2v Core, 8 GB Memory, 128 GB Storage and 700 IOPs) |
+1. Under **Instance details**, type a globally unique name for your web app and choose **Linux (preview)** for **Operating System**. Select **Basic** for **Hosting plan**. See the table below for app and database SKUs for given hosting plans. You can view [hosting plans details in the announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/the-new-and-better-wordpress-on-app-service/ba-p/3202594). For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) and [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). 
 
      :::image type="content" source="./media/quickstart-wordpress/05-wordpress-basics-instance-details.png?text=WordPress basics instance details" alt-text="Screenshot of WordPress instance details":::
 

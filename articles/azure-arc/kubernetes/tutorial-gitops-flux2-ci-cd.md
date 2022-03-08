@@ -119,7 +119,7 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
 1. [Create a new GitOps connection](./tutorial-use-gitops-flux2.md) to your newly imported **arc-cicd-demo-gitops** repository in Azure Repos.
 
-   ```console
+   ```azurecli
    az k8s-configuration flux create \
       --name cluster-config \
       --cluster-name arc-cicd-cluster \
@@ -425,7 +425,7 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
 1. [Create a new GitOps connection](./tutorial-use-gitops-flux2.md) to your newly forked **arc-cicd-demo-gitops** repository in GitHub.
 
-   ```console
+   ```azurecli
    az k8s-configuration flux create \
       --name cluster-config \
       --cluster-name arc-cicd-cluster \
@@ -577,7 +577,7 @@ If you're not going to continue to use this application, delete any resources wi
 
 1. Delete the Azure Arc GitOps configuration connection:
 
-   ```console
+   ```azurecli
    az k8s-configuration flux delete \
          --name cluster-config \
          --cluster-name arc-cicd-cluster \

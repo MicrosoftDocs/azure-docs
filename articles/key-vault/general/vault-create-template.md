@@ -134,7 +134,8 @@ You can deploy access policies to an existing key vault without redeploying the 
       "metadata": {
         "description": "Specifies the permissions to certificates in the vault. Valid values are: all,  create, delete, update, deleteissuers, get, getissuers, import, list, listissuers, managecontacts, manageissuers,  recover, backup, restore, setissuers, and purge."
       }
-    },
+    }
+  },
   "resources": [
      {
       "type": "Microsoft.KeyVault/vaults/accessPolicies",

@@ -2,7 +2,7 @@
 title: Archive of what's new in Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud from six months ago and earlier.
 ms.topic: reference
-ms.date: 02/17/2022
+ms.date: 03/02/2022
 ---
 # Archive for what's new in Defender for Cloud?
 
@@ -15,6 +15,21 @@ This page provides you with information about:
 - New features
 - Bug fixes
 - Deprecated functionality
+
+## September 2021
+
+In September, the following update was released:
+
+### Two new recommendations to audit OS configurations for Azure security baseline compliance (in preview)
+
+The following two recommendations have been released to assess your machines' compliance with the [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md) and the [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md):
+
+- For Windows machines, [Vulnerabilities in security configuration on your Windows machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
+- For Linux machines, [Vulnerabilities in security configuration on your Linux machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
+
+These recommendations make use of the guest configuration feature of Azure Policy to compare the OS configuration of a machine with the baseline defined in the [Azure Security Benchmark](/security/benchmark/azure/overview).
+
+Learn more about using these recommendations in [Harden a machine's OS configuration using guest configuration](apply-security-baseline.md).
 
 ## August 2021
 
@@ -523,7 +538,7 @@ A new filter offers the option to refine the list according to the cloud account
 Learn more about the multi-cloud capabilities:
 
 - [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
-- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
+- [Connect your GCP projects to Azure Security Center](quickstart-onboard-gcp.md)
 
 
 ## April 2021
@@ -1066,7 +1081,7 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Connecting your AWS or GCP accounts integrates their native security tools like AWS Security Hub and GCP Security Command Center into Azure Security Center.
+Connecting your AWS or GCP projects integrates their native security tools like AWS Security Hub and GCP Security Command Center into Azure Security Center.
 
 This capability means that Security Center provides visibility and protection across all major cloud environments. Some of the benefits of this integration:
 
@@ -1085,7 +1100,7 @@ From Defender for Cloud's menu, select **Multi-cloud connectors** and you'll see
 
 Learn more in:
 - [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
-- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
+- [Connect your GCP projects to Azure Security Center](quickstart-onboard-gcp.md)
 
 
 ### Exempt entire recommendations from your secure score for subscriptions and management groups
@@ -1730,9 +1745,9 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Azure Security Center now protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Onboarding your AWS and GCP accounts into Security Center, integrates AWS Security Hub, GCP Security Command and Azure Security Center. 
+Onboarding your AWS and GCP projects into Security Center, integrates AWS Security Hub, GCP Security Command and Azure Security Center. 
 
-Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md) and [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md).
+Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md) and [Connect your GCP projects to Azure Security Center](quickstart-onboard-gcp.md).
 
 
 ### Kubernetes workload protection recommendation bundle

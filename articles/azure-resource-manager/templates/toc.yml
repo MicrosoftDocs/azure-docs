@@ -374,10 +374,10 @@
       - name: Deploy - REST API
         displayName: deployment
         href: deploy-rest.md
-      - name: Deploy - GitHub
-        href: deploy-to-azure-button.md
       - name: Deploy - Cloud Shell
         href: deploy-cloud-shell.md
+      - name: Deploy-to-Azure button
+        href: deploy-to-azure-button.md
     - name: Scopes
       items:
       - name: Resource group
