@@ -46,6 +46,8 @@ Enable the resource group or the subscription for access policies in Azure Purvi
 
 [!INCLUDE [Access policies generic registration](./includes/access-policies-registration-generic.md)]
 
+More here on [registering a data source for Data use governance](./how-to-enable-data-use-governance.md)
+
 ## Create and publish a data owner policy
 Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*:
 
