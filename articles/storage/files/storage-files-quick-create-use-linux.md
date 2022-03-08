@@ -1,21 +1,23 @@
 ---
-title: Tutorial - Create and use Azure NFS file shares on Linux VMs
-description: This tutorial covers how to create and use an Azure file share in the Azure portal using the NFS protocol. Connect it to a Linux VM, connect to the file share, and upload a file to the file share.
+title: Tutorial - Create an Azure NFS file share on a Linux VM
+description: This tutorial covers how to create an Azure file share in the Azure portal using the NFS protocol and connect it to a Linux VM.
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/07/2022
+ms.date: 03/08/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
 
-# Tutorial: Create and manage Azure file shares with Linux virtual machines via the Azure portal
+# Tutorial: Create an Azure NFS file share with a Linux virtual machine via the Azure portal
 
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure Linux virtual machines (VMs). In this tutorial, you'll learn how to create an Azure file share using the NFS protocol and connect it to a Linux VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+In this tutorial, you will:
 
 > [!div class="checklist"]
 > * Create a storage account
@@ -43,7 +45,7 @@ Before you can work with an NFS Azure file share, you have to create an Azure st
 1. On the Azure portal menu, select **All services**. In the list of resources, type **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
 1. On the **Storage Accounts** window that appears, choose **+ Create**.
 1. On the **Basics** tab, select the subscription in which to create the storage account.
-1. Under the **Resource group** field, select your desired resource group, or select **Create new** to create a new resource group.
+1. Under the **Resource group** field, select **Create new** to create a new resource group to use for this tutorial.
 1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and may include only numbers and lowercase letters.
 1. Select a region for your storage account, or use the default region. Azure NFS file shares is supported in all the same regions that support premium file storage.
 1. Select the *Premium* performance tier to store your data on solid-state drives (SSD). 
@@ -198,7 +200,8 @@ You have now mounted your NFS share, and it's ready to store files.
 
 When you're done, you can delete the resource group. Deleting the resource group deletes the storage account, the Azure file share, and any other resources that you deployed inside the resource group.
 
-1. Select **Home** and then **Resource groups**. 
+1. Select **Home** and then **Resource groups**.
+1. Select the resource group you created for this tutorial.
 1. Select **Delete resource group**. A window opens and displays a warning about the resources that will be deleted with the resource group.
 1. Enter the name of the resource group, and then select **Delete**.
 
