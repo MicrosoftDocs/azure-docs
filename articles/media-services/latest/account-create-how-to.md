@@ -33,9 +33,9 @@ You can use either the Azure portal or the CLI to create a Media Services accoun
 
 <!-- NOTE: The following are in the includes folder and are reused in other How To articles. All task based content should be in the includes folder with the task- prefix prepended to the file name. -->
 
-## [Portal](#tab/portal/)
-
 [!INCLUDE [the media services account and storage account must be in the same subscription](./includes/note-account-storage-same-subscription.md)]
+
+## [Portal](#tab/portal/)
 
 [!INCLUDE [create a media services account in the portal](./includes/task-create-media-services-account-portal.md)]
 
@@ -46,8 +46,6 @@ You can use either the Azure portal or the CLI to create a Media Services accoun
 [!INCLUDE [add encryption to media services account](./includes/task-security-encryption-managed-identity-portal.md)]
 
 ## [CLI](#tab/cli/)
-
-[!INCLUDE [the media services account and storage account must be in the same subscription](./includes/note-account-storage-same-subscription.md)]
 
 <!-- Set the subscription -->
 

@@ -18,7 +18,7 @@ To create a storage account, you must first create a resource group within a loc
 
 To list available locations, use the following command:
 
-[!INCLUDE [task-list-locations-cli](task-create-resource-group-cli.md)]
+[!INCLUDE [task-list-locations-cli](task-list-locations-cli.md)]
 
 <!-- Create a resource group -->
 
