@@ -97,7 +97,7 @@ The route specifies the [backend pool](front-door-backend-pool.md) that the requ
 
 ## Evaluate rule sets
 
-If you have defined [rule sets](standard-premium/concept-rule-set.md) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#origin-group-override) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
+If you have defined [rule sets](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#origin-group-override) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
 
 ::: zone-end
 
