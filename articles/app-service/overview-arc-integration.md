@@ -186,7 +186,7 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
 
 ```azurecli-interactive
-    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.12.0
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.12.1
 ```
 
 ## Next steps
