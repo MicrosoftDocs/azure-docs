@@ -74,7 +74,7 @@ To configure customer-managed keys for a new Azure Load Testing resource, follow
 
 1. Go to the **Encryption** tab. In the **Encryption type** field, select **Customer-managed keys (CMK)**.
 
-1. In the **Key URI** field, paste the URI/key identifier of the Azure Key Vault key.
+1. In the **Key URI** field, paste the URI/key identifier of the Azure Key Vault key. Omit the key version from the URI to enable automatic updating of the key version.
 
 1. For the **User-assigned identity**field, select an existing user-assigned managed identity.
 
@@ -87,7 +87,7 @@ You can use an ARM template to automate the deployment of your Azure resources. 
 ```json
 "encryption": {
     "identity": {
-        "userAssignedIdentity": "[parameters('userAssignedIdentities_test_identity_externalid')]"
+        "userAssignedIdentity": "[parameters('encryptionIdentity')]"
     },
     "keyUri": "[parameters('keyUri')]"
 }
@@ -104,12 +104,34 @@ By adding the system-assigned type, you're telling Azure to create and manage th
     "tags": "[parameters('tags')]",
     "encryption": {
         "identity": {
-            "userAssignedIdentity": "[parameters('userAssignedIdentities_test_identity_externalid')]"
+            "userAssignedIdentity": "[parameters('encryptionIdentity')]"
         },
         "keyUri": "[parameters('keyUri')]"
     }
 }
 ```
+
+## Change the encryption identity for an existing resource
+
+To change the managed identity for customer-managed keys on an existing resource follow these steps:
+
+1. Navigate to your Azure Load Testing resource.
+
+1. On the Settings blade for the resource, click Encryption. The **Encryption type** shows the encryption selected for the resource while creation.
+
+1. If the selected encryption type is *Customer-managed keys*, select the type of identity to use to authenticate access to the key vault. The options include System-assigned (the default) or User-assigned. To learn more about each type of managed identity, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
+
+    - If you select System-assigned, the system-assigned managed identity for the resource is created under the covers, if it does not already exist.
+    - If you select User-assigned, then you must select an existing user-assigned identity that has permissions to access the key vault. To learn how to create a user-assigned identity, see [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
+
+1. Save your changes.
+
+> [!NOTE]
+> The managed identity selected should have access granted on the Azure Key Vault.
+
+## Key rotation
+
+Azure Load Testing can automatically update the customer-managed key that is used for encryption to use the latest key version if the key version is omitted from the key URI. When the customer-managed key is rotated in Azure Key Vault, Azure Load Testing will automatically begin using the latest version of the key for encryption.
 
 ## Frequently asked questions
 
