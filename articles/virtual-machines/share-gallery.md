@@ -1,13 +1,14 @@
 ---
 title: Share a gallery using RBAC
 description: Learn how to share a gallery using role-based access control (RBAC).
-author: cynthn
+author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/31/2021
-ms.author: cynthn
+ms.author: saraic
+ms.reviewer: cynthn
 ms.custom: template-how-to , devx-track-azurecli 
 ms.devlang: azurecli
 

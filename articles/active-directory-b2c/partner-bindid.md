@@ -20,7 +20,7 @@ zone_pivot_groups: b2c-policy-type
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 
-In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [Transmit Security](https://www.transmitsecurity.com/bindid) passwordless authentication solution **BindID**. BindID is a passwordless authentication service that uses strong Fast Identity Online (FIDO2) biometric authentication for a reliable omni-channel authentication experience. The solution ensures a smooth login experience for all customers across every device and channel eliminating fraud, phishing, and credential reuse.
+In this sample tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security](https://www.transmitsecurity.com/bindid) passwordless authentication solution **BindID**. BindID is a passwordless authentication service that uses strong Fast Identity Online (FIDO2) biometric authentication for a reliable omni-channel authentication experience. The solution ensures a smooth login experience for all customers across every device and channel eliminating fraud, phishing, and credential reuse.
 
 ## Scenario description
 
@@ -30,8 +30,8 @@ The following architecture diagram shows the implementation.
 
 |Step | Description |
 |:-----| :-----------|
-| 1. | User arrives at a login page. Users select sign-in/sign-up and enter username into the page.
-| 2. | Azure AD B2C redirects the user to BindID using an OpenID Connect (OIDC) request.
+| 1. | User attempts to log in to an Azure AD B2C application and is forwarded to Azure AD B2C’s combined sign-in and sign-up policy.
+| 2. | Azure AD B2C redirects the user to BindID using the OpenID Connect (OIDC) authorization code flow.
 | 3. | BindID authenticates the user using appless FIDO2 biometrics, such as fingerprint.
 | 4. | A decentralized authentication response is returned to BindID.  
 | 5. | The OIDC response is passed on to Azure AD B2C.
@@ -62,7 +62,7 @@ To get started, you'll need:
 
 ### Step 1 - Create an application registration in BindID
 
-From [Applications](https://admin.bindid-sandbox.io/console/#/applications) to configure your tenant application in BindID, the following information is needed
+For [Applications](https://admin.bindid-sandbox.io/console/#/applications) to configure your tenant application in BindID, the following information is needed
 
 | Property | Description |
 |:---------|:---------------------|
@@ -318,7 +318,7 @@ The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azur
 
 1. Open the Azure AD B2C tenant and under Policies select **Identity Experience Framework**.
 
-2. Click on your previously created **CustomSignUpSignIn** and select the settings:
+2. Select your previously created **CustomSignUpSignIn** and select the settings:
 
    a. **Application**: select the registered app (sample is JWT)
 

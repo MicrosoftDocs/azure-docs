@@ -684,6 +684,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/concept-rules-set-action.md",
+      "redirect_url": "/azure/frontdoor/front-door-rules-engine-actions",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
@@ -43932,6 +43937,11 @@
       {
         "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-group-policy.md",
         "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/virtual-desktop/compare-virtual-desktop-windows-365.md",
+        "redirect_url": "/azure/virtual-desktop/overview",
         "redirect_document_id": false
       }
   ]
