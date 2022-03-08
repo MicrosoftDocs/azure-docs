@@ -33,8 +33,6 @@ The ExpressRoute partner can list all port pairs within the target provider subs
 
 ### To get a list of all port pairs for a provider
 
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts 
-
 #### Get Operation
 
 ```rest
@@ -98,10 +96,6 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ### List of all port for a provider for a particular peering location
 
-#### GET
-
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}
-
 #### GET Operation
 
 ```rest
@@ -146,10 +140,6 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 * 4XX (Bad Request) One of validations failed – for example: Provider subid isn't valid or location isn't valid.
 
 To get port details of a particular port using port pair descriptor ID.
-
-#### GET
-
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts/{portPairDescriptor}
 
 #### GET Operation
 
