@@ -12,10 +12,10 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: csharp
 ms.topic: tutorial
 ms.custom: "mvc, ms.custom: devx-track-csharp"
-ms.date: 02/24/2022
+ms.date: 03/08/2022
 ms.author: sethm
 ms.reviewer: thsomasu
-ms.lastreviewed: 12/04/2019
+ms.lastreviewed: 03/08/2022
 ---
 
 # Tutorial: Send notifications to Universal Windows Platform apps using Azure Notification Hubs
