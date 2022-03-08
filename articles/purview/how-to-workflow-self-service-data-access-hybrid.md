@@ -18,32 +18,32 @@ This guide will take you through the creation and management of Self-Service dat
 
 1. Sign in to Azure Purview studio and select the Management center. You'll see two new icons in the table of contents.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-section.png" alt-text="Management center left menu with the new workflow section highlighted.":::
+    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-section.png" alt-text="Screenshot showing the management center left menu with the new workflow section highlighted.":::
 
 1. To create new workflows, select Authoring. This will take you to the workflow authoring experiences.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-authoring-experience.png" alt-text="Authoring workflows page, showing a list of all workflows.":::
+    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-authoring-experience.png" alt-text="Screenshot showing the authoring workflows page, showing a list of all workflows.":::
 
     >[!NOTE]
     >If Authoring is greyed out, the account you are using does not have sufficient permissions.
 
 1. To create a new self-service workflow, select ‘+New’ button and you'll be presented with different categories of workflows in Purview. To create ‘Approval workflows for business terms’ Select ‘Governance’ and select ‘Continue’.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-authoring-select-new.png" alt-text="Authoring workflows page, with the + New button highlighted.":::
+    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-authoring-select-new.png" alt-text="Screenshot showing the authoring workflows page, with the + New button highlighted.":::
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-governance.png" alt-text="New workflow window, with the Governance option selected.":::
+    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-governance.png" alt-text="Screenshot showing the new workflow window, with the Governance option selected.":::
 
 1. In the next screen, you'll see all the templates provided by Azure Purview to create a self-service data access workflow. Select the template ‘Data access request’ and select ‘Continue’.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-data-access-request.png" alt-text="New workflow window, with the Data access request option selected.":::
+    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-data-access-request.png" alt-text="Screenshot showing the new workflow window, with the Data access request option selected.":::
 
 1. You'll now be presented with a window where you need to enter workflow name and optionally add a description. Once you've populated the same, select ‘Continue’.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/name-and-continue.png" alt-text="New workflow window, with a name entered in the textbox.":::
+    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/name-and-continue.png" alt-text="Screenshot showing the new workflow window, with a name entered in the textbox.":::
 
 1. You'll now be presented with a canvas where the selected template is loaded by default.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-canvas-inline.png" alt-text="Workflow canvas with the selected template workflow steps displayed." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/workflow-canvas-expanded.png":::
+    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-canvas-inline.png" alt-text="Screenshot showing the workflow canvas with the selected template workflow steps displayed." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/workflow-canvas-expanded.png":::
 
     The template has the following steps: 
     1. Trigger when a data access request is made. 
@@ -63,40 +63,40 @@ This guide will take you through the creation and management of Self-Service dat
     * The approver’s email address or Microsoft Azure Active Directory group in ‘Start and Wait for approval’ Connector 
     * User email address or Microsoft Azure Active Directory group in ‘Create task’ connector who is responsible for manually providing access if the source isn't registered with policy.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-inline.png" alt-text="Workflow canvas with the start and wait for an approval step, and the Create Task and wait for task completion steps highlighted, and the Assigned to textboxes highlighted within those steps." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-expanded.png":::
+    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-inline.png" alt-text="Screenshot showing the workflow canvas with the start and wait for an approval step, and the Create Task and wait for task completion steps highlighted, and the Assigned to textboxes highlighted within those steps." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-expanded.png":::
 
 1. You can also modify the template by adding more connectors to suit your organizational needs by adding available connectors. 
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/more-connectors-inline.png" alt-text="Workflow authoring canvas, with a + button highlighted on the arrow between the two top steps, and the Next Step button highlighted at the bottom of the workspace." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/more-connectors-expanded.png":::
+    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/more-connectors-inline.png" alt-text="Screenshot showing the workflow authoring canvas, with a + button highlighted on the arrow between the two top steps, and the Next Step button highlighted at the bottom of the workspace." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/more-connectors-expanded.png":::
 
 1. Once you're done with defining a workflow, you need to bind the workflow to collection hierarchy path. The binding implies that this workflow is triggered only for data access requests in that collection. To bind a workflow or to apply a scope to a workflow, you need to select ‘Apply workflow’. Select the scopes you want this workflow to be associated with and select ‘OK’.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/apply-workflow.png" alt-text="Workflow workspace with the Apply workflow button selected at the top of the space, and the Apply workflow menu open, showing a list of items. One item is selected, and the O K button is highlighted at the bottom.":::
+    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/apply-workflow.png" alt-text="Screenshot showing the workflow workspace with the Apply workflow button selected at the top of the space, and the Apply workflow menu open, showing a list of items. One item is selected, and the O K button is highlighted at the bottom.":::
 
     >[!NOTE]
     > Purview workflow engine will always resolve to the closest workflow to which the collection hierarchy path is associated with. In case a direct binding is not found, it will traverse up in the tree to find the workflow associated with the closest parent in the collection tree.
 
 1. By default, the workflow will be enabled. Finally select ‘Save and close’ to create and enable the workflow.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/completed-workflows.png" alt-text="Workflow authoring page with the newly created workflow listed among the other workflows.":::
+    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/completed-workflows.png" alt-text="Screenshot showing the workflow authoring page with the newly created workflow listed among the other workflows.":::
 
 ## Edit an existing workflow
 
 To modify an existing workflow by selecting the workflow and then select ‘Edit’ button. You'll now be presented with the canvas containing workflow definition. Modify the workflow and select ‘Save’ to commit changes.
 
-:::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-edit.png" alt-text="Workflow authoring page, with the Edit button highlighted in the top menu.":::
+:::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-edit.png" alt-text="Screenshot showing the workflow authoring page, with the Edit button highlighted in the top menu.":::
 
 ## Disable a workflow
 
 To disable a workflow, you can select the workflow and select ‘Disable’. You can also disable the workflow by clicking on ‘Edit’ and saving the workflow by changing the enable toggle in workflow canvas.
 
-:::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-disable.png" alt-text="Workflow authoring page, with the Disable button highlighted in the top menu.":::
+:::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-disable.png" alt-text="Screenshot showing the workflow authoring page, with the Disable button highlighted in the top menu.":::
 
 ## Delete a workflow
 
 To delete a workflow, select the workflow and select ‘Delete’.
 
-:::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-delete.png" alt-text="Workflow authoring page, with the Delete button highlighted in the top menu.":::
+:::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-delete.png" alt-text="Screenshot showing the workflow authoring page, with the Delete button highlighted in the top menu.":::
 
 ## Next steps
 
