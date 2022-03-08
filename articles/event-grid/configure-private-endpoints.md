@@ -44,7 +44,7 @@ This section shows you how to enable private network access for an Event Grid to
     4. Select the **region** for the endpoint. Your private endpoint must be in the same region as your virtual network, but can in a different region from the private link resource (in this example, an  event grid topic). 
     5. Then, select **Next: Resource >** button at the bottom of the page. 
 
-      ![Private endpoint - basics page](./media/configure-private-endpoints/basics-page.png)
+        :::image type="content" source="./media/configure-private-endpoints/basics-page.png" alt-text="Screenshot showing the Basics page of the Create a private endpoint wizard.":::
 3. On the **Resource** page, follow these steps: 
     1. For connection method, if you select **Connect to an Azure resource in my directory**, follow these steps. This example shows how to connect to an Azure resource in your directory. 
         1. Select the **Azure subscription** in which your **topic/domain** exists. 
@@ -53,20 +53,20 @@ This section shows you how to enable private network access for an Event Grid to
         3. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).    
         4. Select **Next: Virtual Network >** button at the bottom of the page. 
 
-            ![Screenshot that shows the "Create a private endpoint - Resource" page.](./media/configure-private-endpoints/resource-page.png)
+            :::image type="content" source="./media/configure-private-endpoints/resource-page.png" alt-text="Screenshot showing the Resource page of the Create a private endpoint wizard.":::
     2. If you select **Connect to a resource using a resource ID or an alias**, follow these steps:
         1. Enter the ID of the resource. For example: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. For **Resource**, enter **topic** or **domain**. 
         3. (optional) Add a request message. 
         4. Select **Next: Virtual Network >** button at the bottom of the page. 
 
-            ![Private endpoint - resource page](./media/configure-private-endpoints/connect-azure-resource-id.png)
+            :::image type="content" source="./media/configure-private-endpoints/connect-azure-resource-id.png" alt-text="Screenshot showing the Resource page with resource ID specified.":::
 4. On the **Virtual Network** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
     2. Select a **subnet** in the virtual network you selected. 
     3. Select **Next: Tags >** button at the bottom of the page. 
 
-    ![Private endpoint - configuration page](./media/configure-private-endpoints/configuration-page.png)
+        :::image type="content" source="./media/configure-private-endpoints/configuration-page.png" alt-text="Screenshot showing the Networking page of the Creating a private endpoint wizard":::
 5. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
 6. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint. 
 
