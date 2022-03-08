@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021, devx-track-azurecli
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa-dedicated-only](../includes/appliesto-sqldb-sqlmi-asa-dedicated-only.md)]
 
-Azure AD-only authentication is a feature within [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) that allows the service to only support Azure AD authentication, and is supported for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). Azure AD-only authentication is also available for dedicated SQL pools (formerly SQL DW) in standalone servers and [dedicated SQL pools in Azure Synapse workspaces](../synapse-analytics/sql/active-directory-authentication.md).
+Azure AD-only authentication is a feature within [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) that allows the service to only support Azure AD authentication, and is supported for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). Azure AD-only authentication is also available for dedicated SQL pools (formerly SQL DW) in standalone servers, and [Azure Synapse workspaces](../../synapse-analytics/sql/active-directory-authentication.md).
 
 SQL authentication is disabled when enabling Azure AD-only authentication in the Azure SQL environment, including connections from SQL server administrators, logins, and users. Only users using [Azure AD authentication](authentication-aad-overview.md) are authorized to connect to the server or database.
 
