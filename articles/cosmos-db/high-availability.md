@@ -4,7 +4,7 @@ description: This article describes how to build a highly available solution usi
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 02/24/2022
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -156,7 +156,7 @@ The following table summarizes the high availability capability of various accou
 
 * Review the expected [behavior of the Azure Cosmos SDKs](troubleshoot-sdk-availability.md) during these events and which are the configurations that affect it.
 
-* To ensure high write and read availability, configure your Azure Cosmos account to span at least two regions and three, if using strong consistency. Remember that the best configuration to achieve high availability for a region outage is single write region with service-managed failover. To learn more, see how to [configure your Azure Cosmos account with multiple write-regions](tutorial-global-distribution-sql-api.md).
+* To ensure high write and read availability, configure your Azure Cosmos account to span at least two regions and three, if using strong consistency. Remember that the best configuration to achieve high availability for a region outage is single write region with service-managed failover. To learn more, see [Tutorial: Set up Azure Cosmos DB global distribution using the SQL API](tutorial-global-distribution-sql-api.md).
 
 * For multi-region Azure Cosmos accounts that are configured with a single-write region, [enable service-managed failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#automatic-failover). After you enable automatic failover, whenever there's a regional disaster, Cosmos DB will fail over your account without any user inputs.
 

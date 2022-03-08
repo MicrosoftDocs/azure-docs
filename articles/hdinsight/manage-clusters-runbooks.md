@@ -66,7 +66,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. Select **Runbooks** under **Process Automation**.
 1. Select **Create a runbook**.
-1. On the **Create a runbook** panel, enter a name for the runbook, such as `hdinsight-cluster-create`. Select **Powershell** from the **Runbook type** dropdown.
+1. On the **Create a runbook** panel, enter a name for the runbook, such as `hdinsight-cluster-create`. Select **PowerShell** from the **Runbook type** dropdown.
 1. Select **Create**.
 
     :::image type="content" source="./media/manage-clusters-runbooks/create-runbook.png" alt-text="create runbook" border="true":::
@@ -122,7 +122,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. Select **Runbooks** under **Process Automation**.
 1. Select **Create a runbook**.
-1. On the **Create a runbook** panel, enter a name for the runbook, such as `hdinsight-cluster-delete`. Select **Powershell** from the **Runbook type** dropdown.
+1. On the **Create a runbook** panel, enter a name for the runbook, such as `hdinsight-cluster-delete`. Select **PowerShell** from the **Runbook type** dropdown.
 1. Select **Create**.
 1. Enter the following code on the **Edit PowerShell Runbook** screen and select **Publish**:
 

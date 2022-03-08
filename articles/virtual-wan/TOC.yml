@@ -91,6 +91,8 @@
       href: point-to-site-ipsec.md
     - name: About P2S client address pools
       href: about-client-address-pools.md
+    - name: About P2S global and hub-based profiles
+      href: global-hub-profile.md
   - name: Security
     items:
     - name: Security baseline
@@ -217,6 +219,8 @@
         href: packet-capture-site-to-site-portal.md
       - name: PowerShell
         href: packet-capture-site-to-site-powershell.md
+    - name: Advanced Monitoring for P2S VPN
+      href: monitor-point-to-site-connections.md
 - name: Reference
   items:
   - name: Azure PowerShell

@@ -47,6 +47,8 @@ The following versions of Windows are supported:
 - **Windows Server 2019 Standard/Datacenter**
 - **Windows Server 2016 Standard/Datacenter** 
 - **Windows Server 2012 R2 Standard/Datacenter**
+- **Windows 10, version 21H2 or later**
+- **Windows 11**
 
 The following distributions are supported out of the box from the Azure Gallery: 
 - **Ubuntu 14.04 with the linux-azure kernel**
@@ -90,4 +92,4 @@ Virtual machines (classic) can't be deployed with accelerated networking.
 * Learn how to [create a VM with Accelerated Networking in PowerShell](./create-vm-accelerated-networking-powershell.md)
 * Learn how to [create a VM with Accerelated Networking using Azure CLI](./create-vm-accelerated-networking-cli.md)
 * Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)
-* 
+

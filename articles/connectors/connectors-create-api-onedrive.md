@@ -1,10 +1,10 @@
 ---
 title: Access and manage files in Microsoft OneDrive
-description: Upload and manage files in OneDrive by creating automated workflows in Azure Logic Apps
+description: Upload and manage files in OneDrive by creating automated workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 10/18/2016
 tags: connectors
 ---

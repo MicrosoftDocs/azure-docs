@@ -4,7 +4,6 @@ description: Automate configuring Azure Diagnostics to pipe data to Application 
 ms.topic: conceptual
 ms.date: 08/06/2019 
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Using PowerShell to set up Application Insights for Azure Cloud Services

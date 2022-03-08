@@ -15,3 +15,9 @@
     href: manage.md
   - name: Troubleshoot
     href: troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/elastic
+  - name: Azure PowerShell
+    href: /powershell/module/az.elastic/#elastic

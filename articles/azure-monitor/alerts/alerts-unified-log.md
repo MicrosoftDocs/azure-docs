@@ -4,7 +4,7 @@ description: Trigger emails, notifications, call websites URLs (webhooks), or au
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 2/23/2022
 ---
 
 # Log alerts in Azure Monitor

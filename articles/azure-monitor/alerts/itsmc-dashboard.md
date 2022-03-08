@@ -4,7 +4,7 @@ description: Learn how to use the IT Service Management Connector dashboard to i
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
-ms.date: 01/15/2021
+ms.date: 2/23/2022
 
 ---
 

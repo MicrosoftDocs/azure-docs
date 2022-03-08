@@ -41,7 +41,7 @@ When you're using Blob storage as output, a new file is created in the blob in t
 * If the file exceeds the maximum number of allowed blocks (currently 50,000). You might reach the maximum allowed number of blocks without reaching the maximum allowed blob size. For example, if the output rate is high, you can see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size is smaller.
 * If there's a schema change in the output, and the output format requires fixed schema (CSV, Avro, Parquet).
 * If a job is restarted, either externally by a user stopping it and starting it, or internally for system maintenance or error recovery.
-* If the query is fully partitioned, and a new file is created for each output partition.
+* If the query is fully partitioned, and a new file is created for each output partition. This comes from using PARTITION BY, or the native parallelization introduced in [compatibility level 1.2](stream-analytics-compatibility-level.md#parallel-query-execution-for-input-sources-with-multiple-partitions)
 * If the user deletes a file or a container of the storage account.
 * If the output is time partitioned by using the path prefix pattern, and a new blob is used when the query moves to the next hour.
 * If the output is partitioned by a custom field, and a new blob is created per partition key if it does not exist.

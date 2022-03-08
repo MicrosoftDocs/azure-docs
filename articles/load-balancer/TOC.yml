@@ -83,8 +83,6 @@
     href: distribution-mode-concepts.md
   - name: SKUs
     href: skus.md
-  - name: Floating IP configuration
-    href: load-balancer-floating-ip.md
   - name: Health monitoring
     items:
     - name: Monitor load balancer
@@ -119,18 +117,22 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
-  - name: Backend Pool management
-    href: backend-pool-management.md
   - name: Standard Load Balancer and Virtual Machine Scale Sets
     href: load-balancer-standard-virtual-machine-scale-sets.md
   - name: Retrieve information using the Azure Instance Metadata Service
     href: instance-metadata-service-load-balancer.md
 - name: How-to
   items:
+  - name: Backend Pool management
+    href: backend-pool-management.md
   - name: Migrate outbound access
     href: ../virtual-network/nat-gateway/tutorial-migrate-outbound-nat.md?toc=%2fazure%2fload-balancer%2ftoc.json
+  - name: Manage health probes
+    href: manage-probes-how-to.md
   - name: Manage load balancer rules
     href: manage-rules-how-to.md
+  - name: Floating IP configuration
+    href: load-balancer-floating-ip.md
   - name: Virtual machine scale sets
     items:
     - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set

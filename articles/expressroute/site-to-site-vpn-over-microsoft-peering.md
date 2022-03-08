@@ -478,7 +478,7 @@ Configure your firewall and filtering according to your requirements.
 
 ## <a name="testipsec"></a>6. Test and validate the IPsec tunnel
 
-The status of IPsec tunnels can be verified on the Azure VPN gateway by Powershell commands:
+The status of IPsec tunnels can be verified on the Azure VPN gateway by PowerShell commands:
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl

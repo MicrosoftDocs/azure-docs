@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/14/2022
+ms.date: 02/18/2022
 
 ms.author: mimart
 author: msmimart
@@ -100,6 +100,13 @@ Bring your external partners on board in ways customized to your organization's 
 Azure AD supports external identity providers like Facebook, Microsoft accounts, Google, or enterprise identity providers. You can set up federation with identity providers so your external users can sign in with their existing social or enterprise accounts instead of creating a new account just for your application. Learn more about [identity providers for External Identities](identity-providers.md).
 
 ![Screenshot showing the Identity providers page](media/what-is-b2b/identity-providers.png)
+
+## Integrate with SharePoint and OneDrive
+
+You can [enable integration with SharePoint and OneDrive](/sharepoint/sharepoint-azureb2b-integration) to share files, folders, list items, document libraries, and sites with people outside your organization, while using Azure B2B for authentication and management. The users you share resources with are typically added to your directory as guests, and permissions and groups work the same for these guests as they do for internal users. When enabling integration with SharePoint and OneDrive, you'll also enable the [email one-time passcode](one-time-passcode.md) feature in Azure AD B2B to serve as a fallback authentication method. 
+
+![Screenshot of the email one-time-passcode setting.](media/what-is-b2b/enable-email-otp-options.png)
+
 
 ## Next steps
 
