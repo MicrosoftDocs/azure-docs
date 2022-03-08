@@ -84,19 +84,19 @@ This guide will take you through the creation and management of Self-Service dat
 
 To modify an existing workflow by selecting the workflow and then select ‘Edit’ button. You'll now be presented with the canvas containing workflow definition. Modify the workflow and select ‘Save’ to commit changes.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-edit.png" alt-text="Workflow authoring page, with the Edit button highlighted in the top menu.":::
+:::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-edit.png" alt-text="Workflow authoring page, with the Edit button highlighted in the top menu.":::
 
 ## Disable a workflow
 
 To disable a workflow, you can select the workflow and select ‘Disable’. You can also disable the workflow by clicking on ‘Edit’ and saving the workflow by changing the enable toggle in workflow canvas.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-disable.png" alt-text="Workflow authoring page, with the Disable button highlighted in the top menu.":::
+:::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-disable.png" alt-text="Workflow authoring page, with the Disable button highlighted in the top menu.":::
 
 ## Delete a workflow
 
 To delete a workflow, select the workflow and select ‘Delete’.
 
-    :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-delete.png" alt-text="Workflow authoring page, with the Delete button highlighted in the top menu.":::
+:::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-delete.png" alt-text="Workflow authoring page, with the Delete button highlighted in the top menu.":::
 
 ## Next steps
 
