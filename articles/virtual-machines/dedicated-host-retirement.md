@@ -27,11 +27,11 @@ The current retirement impacts the following Azure Dedicated Host SKUs:
 - Dsv3-Type2
 - Esv3-Type2
 
-Note: If you're running a Dsv3-Type3, Dsv3-Type4, an Esv3-Type3, or an Esv3-Type4, you won't be impacted.
+Note: If you're running a Dsv3-Type3, Dsv3-Type4, an Esv3-Type3, or an Esv3-Type4 Dedicated Host, you won't be impacted.
 
 ## What actions should you take?
 
-You'll need to create a Dedicated Host of a newer SKU, stop the VM(s) on your existing Dedicated Host, reassign them to the new host, start the VM(s). Refer to the [Azure Dedicated Host Migration Guide](dedicated-host-migration-guide.md) for more detailed instructions. We recommend moving to the latest generation of Dedicated Host for your VM family.
+For manually placed VMs, you'll need to create a Dedicated Host of a newer SKU, stop the VMs on your existing Dedicated Host, reassign them to the new host, start the VMs, and delete the old host. For automatically placed VMs or for virtual machine scale sets, you'll need to create a Dedicated Host of a newer SKU, stop the VMs or virtual machine scale set, delete the old host, and then start the VMs or virtual machine scale set. Refer to the [Azure Dedicated Host Migration Guide](dedicated-host-migration-guide.md) for more detailed instructions. We recommend moving to the latest generation of Dedicated Host for your VM family.
 
 If you have any questions, contact us through customer support.
 
@@ -39,7 +39,7 @@ If you have any questions, contact us through customer support.
 
 ### Q: Will migration result in downtime?
 
-A: Yes, you'll need to stop/deallocate your VM(s) or virtual machine scale sets before moving them to the target host.
+A: Yes, you'll need to stop/deallocate your VMs or virtual machine scale sets before moving them to the target host.
 
 ### Q: When will the other Dedicated Host SKUs retire?
 
