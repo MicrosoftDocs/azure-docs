@@ -319,70 +319,46 @@ az eventgrid topic update \
 
 
 ## Use PowerShell
-This section shows you how to create a private endpoint for a topic or domain using PowerShell. 
-
-### Prerequisite
-Follow instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the values for **Directory (tenant) ID**, **Application (Client) ID**, and **Application (client) secret**. 
-
-### Prepare token and headers for REST API calls 
-Run the following prerequisite commands to get an authentication token to use with REST API calls and authorization and other header information. 
+This section shows you how to create a private endpoint for a topic or domain using PowerShell. Here's a sample script with comments. 
 
 ```azurepowershell-interactive
-$body = "grant_type=client_credentials&client_id=<CLIENT ID>&client_secret=<CLIENT SECRET>&resource=https://management.core.windows.net"
 
-# get authentication token
-$Token = Invoke-RestMethod -Method Post `
-    -Uri https://login.microsoftonline.com/<TENANT ID>/oauth2/token  `
-    -Body $body  `
-    -ContentType 'application/x-www-form-urlencoded' 
+# name of an Azure resource group to be created
+$resourceGroupName = "contosorg"
 
-# set authorization and content-type headers
-$Headers = @{}
-$Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_token)")
-```
+# location where you want the resources to be created
+$location ="eastus"
 
-### Create a subnet with endpoint network policies disabled
+# name of the VNet to be created
+$vnetName = "contosovnet"
 
-```azurepowershell-interactive
+# name of the subnet to be created in the VNet
+$subnetName = "example-privatelinksubnet"
+
+# name of the Event Grid topic to be created
+$egridTopicName = "contosotopic"
+
+# name of the private link service connection to be created
+$privateLinkServiceConnectionName = "spegridplsconn"
+
+# name of the private endpoint connection to be created
+$privateEndpointConnectionName = "spegridpe11"
+
+#
 
 # create resource group
-New-AzResourceGroup -ResourceGroupName <RESOURCE GROUP NAME>  -Location <LOCATION>
+New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 # create virtual network
 $virtualNetwork = New-AzVirtualNetwork `
-                    -ResourceGroupName <RESOURCE GROUP NAME> `
-                    -Location <LOCATION> `
-                    -Name <VIRTUAL NETWORK NAME> `
+                    -ResourceGroupName $resourceGroupName `
+                    -Location $location `
+                    -Name $vnetName  `
                     -AddressPrefix 10.0.0.0/16
 
 # create subnet with endpoint network policy disabled
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-                    -Name example-privatelinksubnet `
-                    -AddressPrefix 10.0.0.0/24 `
-                    -PrivateEndpointNetworkPoliciesFlag "Disabled" `
-                    -VirtualNetwork $virtualNetwork
-
-# update virtual network
-$virtualNetwork | Set-AzVirtualNetwork
-```
-
-### Create an event grid topic with a private endpoint
-
-> [!NOTE]
-> The steps shown in this section are for topics. You can use similar steps to create private endpoints for **domains**. 
-
-
-```azurepowershell-interactive
-# create virtual network
-$virtualNetwork = New-AzVirtualNetwork `
-                    -ResourceGroupName <RESOURCE GROUP NAME> `
-                    -Location <LOCATION> `
-                    -Name <VNET NAME> `
-                    -AddressPrefix 10.0.0.0/16
-
-# create subnet with endpoint network policy disabled
-$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-                    -Name <SUBNET NAME> `
+                    -Name $subnetName `
                     -AddressPrefix 10.0.0.0/24 `
                     -PrivateEndpointNetworkPoliciesFlag "Disabled" `
                     -VirtualNetwork $virtualNetwork
@@ -390,39 +366,37 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 # update virtual network
 $virtualNetwork | Set-AzVirtualNetwork
 
-
+# get virtual network (optional)
 $virtualNetwork = Get-AzVirtualNetwork `
-                    -ResourceGroupName <VNET RESOURCE GROUP NAME> `
-                    -Name <VNET NAME>
+                    -ResourceGroupName $resourceGroupName `
+                    -Name $vnetName 
 
-# create an Event Grid topic with public network access disabled.
-$topic = New-AzEventGridTopic -ResourceGroupName <RESOURCE GROUP NAME> -Name <EVENT GRID TOPIC NAME> -Location <LOCATION> -PublicNetworkAccess disabled
+# create an Event Grid topic with public network access disabled. 
+$topic = New-AzEventGridTopic -ResourceGroupName $resourceGroupName -Name $egridTopicName -Location $location -PublicNetworkAccess disabled
 
-# create private link service connection
+# create a private link service connection to the Event Grid topic. 
+# For topics, set GroupId to 'topic'. For domains, it's 'domain'
 $privateEndpointConnection = New-AzPrivateLinkServiceConnection `
-                                -Name "<PRIVATE LINK SERVICE CONNECTION NAME>" `
+                                -Name "privateLinkServiceConnectionName" `
                                 -PrivateLinkServiceId $topic.id `
                                 -GroupId "topic"
 
 # get subnet info
 $subnet = $virtualNetwork | Select -ExpandProperty subnets `
-                             | Where-Object  {$_.Name -eq "<SUBNET NAME>" }  
+                             | Where-Object  {$_.Name -eq $subnetName }  
 
 # now, you are ready to create a private endpoint 
-$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName <RESOURCE GROUP NAME>  `
-                                        -Name <PRIVATE ENDPOINT NAME>   `
-                                        -Location <LOCATION> `
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $resourceGroupName  `
+                                        -Name privateEndpointConnectionName   `
+                                        -Location $location `
                                         -Subnet  $subnet   `
                                         -PrivateLinkServiceConnection $privateEndpointConnection
 
-# verify that the private endpoint was created
-Get-AzPrivateEndpoint -ResourceGroupName <RESOURCE GROUP NAME>  -Name <PRIVATE ENDPOINT NAME>  
-
-
-```
-
+# verify that the endpoint is created
+Get-AzPrivateEndpoint -ResourceGroupName $resourceGroupName  -Name privateEndpointConnectionName  
 
 ```
+
 
 ### Approve a private endpoint connection
 The following sample PowerShell snippet shows you how to approve a private endpoint. 
