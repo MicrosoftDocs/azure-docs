@@ -40,13 +40,13 @@ NAT won't affect the network bandwidth of your compute resources since it's a so
 
 ## Virtual Network NAT basics
 
-NAT can be created in a specific availability zone and has redundancy built in within the specified zone. NAT is non-zonal by default. When you create [availability zones](../../availability-zones/az-overview.md) scenarios, NAT can be isolated in a specific zone. This deployment is called a zonal deployment.
+NAT can be created in a specific availability zone and has redundancy built in within the specified zone. NAT is non-zonal by default. A non-zonal Virtual Network NAT is one that hasn't been associated to a specific zone and instead is assigned to a specific zone by Azure. NAT can be isolated in a specific zone when you create [availability zones](../../availability-zones/az-overview.md) scenarios. This deployment is called a zonal deployment.
 
 NAT is fully scaled out from the start. There's no ramp up or scale-out operation required. Azure manages the operation of NAT for you. NAT always has multiple fault domains and can sustain multiple failures without service outage.
 
 * Outbound connectivity can be defined for each subnet with NAT. Multiple subnets within the same virtual network can have different NATs. Or multiple subnets within the same virtual network can use the same NAT. A subnet is configured by specifying which NAT gateway resource to use.  All outbound traffic for the subnet is processed by NAT automatically without any customer configuration. NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
 
-* UDRs that have been set up to direct traffic outbound to the internet take precedence over NAT gateway. See [Troubleshooting NAT gateway](./troubleshoot-nat.md#udr-supersedes-nat-gateway-for-going-outbound) to learn more.
+* Presence of UDRs for virtual appliances and virtual network gateways override NAT gateway for directing internet bound traffic (route to the 0.0.0.0/0 address prefix). See [Troubleshooting NAT gateway](./troubleshoot-nat.md#virtual-appliance-and-virtual-network-gateway-udrs-supersede-nat-gateway-for-going-outbound) to learn more.
 
 * NAT supports TCP and UDP protocols only. ICMP isn't supported.
 
@@ -79,10 +79,6 @@ NAT is fully scaled out from the start. There's no ramp up or scale-out operatio
 * The private side of NAT (virtual machine instances or other compute resources) sends TCP reset packets for attempts to communicate on a TCP connection that doesn't exist. One example is connections that have reached idle timeout. The next packet received will return a TCP reset to the private IP address to signal and force connection closure. The public side of NAT doesn't generate TCP reset packets or any other traffic. Only traffic produced by the customer's virtual network is emitted.
 
 * A default TCP idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives.
-
-## Pricing and SLA
-
-For pricing details, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network). NAT data path is at least 99.9% available.
 
 ## Next steps
 

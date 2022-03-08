@@ -128,10 +128,10 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. Use the **At end of review, send notification to** option to send notifications to other users or groups with completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, choose **Select User(s) or Group(s)** and add another user or group for which you want to receive the status of completion.
 
-1. In the **Enable review decision helpers** section, choose whether you want your reviewer to receive recommendations during the review process. When enabled, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial.
+1. In the **Enable review decision helpers** section, choose whether you want your reviewer to receive recommendations during the review process. When enabled, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial. This 30-day interval is irrespective of whether the sign-ins were interactive or not. The last sign-in date for the specified user will also display along with the recommendation.
 
    > [!NOTE]
-   > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant.
+   > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant. 
 
    ![Screenshot that shows the Enable reviewer decision helpers option.](./media/create-access-review/helpers.png)
 
@@ -157,6 +157,9 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 ## Create a multi-stage access review (preview)
 
 A multi-stage review allows the administrator to define two or three sets of reviewers to complete a review one after another. In a single-stage review, all reviewers make a decision within the same period and the last reviewer to make a decision "wins". In a multi-stage review, two or three independent sets of reviewers make a decision within their own stage, and the next stage doesn't happen until a decision is made in the previous stage. Multi-stage reviews can be used to reduce the burden on later-stage reviewers, allow for escalation of reviewers, or have independent groups of reviewers agree on decisions.
+> [!WARNING]
+> Data of users included in multi-stage access reviews are a part of the audit record at the start of the review. Administrators may delete the data at any time by deleting the multi-stage access review series. 
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 1. After you have selected the resource and scope of your review, move on to the **Reviews** tab. 
 

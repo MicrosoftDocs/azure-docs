@@ -3,7 +3,7 @@ title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | M
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 02/18/2022
+ms.date: 03/01/2022
 ms.author: juliako
 ---
 
@@ -20,10 +20,15 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 
 ## February 2022
 
+### Public preview of Video Analyzer for Media account management based on ARM in Government cloud
+
+Video Analyzer for Media website is now supporting account management based on ARM in public preview (see, [November 2021 release note](#november-2021)).
+
 ### Leverage open-source code to create ARM based account
 
 Added new code samples including HTTP calls to use Video Analyzer for Media create, read, update and delete (CRUD) ARM API for solution developers. See [this sample](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account
 ).
+
 ## January 2022
 
 ### Improved audio effects detection

@@ -1,7 +1,6 @@
 ---
 title: Configure Basic Logs in Azure Monitor (Preview)
 description: Configure a table for Basic Logs in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 01/13/2022
 
