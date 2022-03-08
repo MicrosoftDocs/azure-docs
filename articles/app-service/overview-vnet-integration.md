@@ -76,7 +76,7 @@ If the virtual network is in a different subscription than the app, you must ens
 
 ### Routes
 
-There are two types of routing to consider when you configure regional virtual network integration. [Application routing](#application-routing) defines what traffic is routed from your app and into the virtual network. [Configuration routing](#configuration-routing) affects operations that happen before or during startup of you app. Examples are container image pull and app settings with Key Vault reference. [Network routing](#network-routing) is the ability to control how both app and configuration traffic is routed from your virtual network and out.
+There are three types of routing to consider when you configure regional virtual network integration. [Application routing](#application-routing) defines what traffic is routed from your app and into the virtual network. [Configuration routing](#configuration-routing) affects operations that happen before or during startup of you app. Examples are container image pull and app settings with Key Vault reference. [Network routing](#network-routing) is the ability to handle how both app and configuration traffic is routed from your virtual network and out.
 
 #### Application routing
 
@@ -92,12 +92,12 @@ We recommend that you use the **Route All** configuration setting to enable rout
 
 #### Configuration routing
 
-When you are using virtual network integration, you can configure how parts of the configuration traffic is managed. By default, the mentioned configurations will go directly to the internet unless you actively configure it to be routed through the virtual network integration.
+When you are using virtual network integration, you can configure how parts of the configuration traffic is managed. By default, configuration traffic will go directly over the public route, but individual components you actively configure it to be routed through the virtual network integration.
 
 > [!NOTE]
 > * Windows containers don't support routing App Service Key Vault references or pulling custom container images over virtual network integration.
 > * Backup/restore to private storage accounts is currently not supported.
-> * Get certificates from private Key Vaults is currently not supported.
+> * Configure SSL/TLS certificates from private Key Vaults is currently not supported.
 > * Diagnostics logs to private storage accounts is currently not supported.
 
 ##### Content storage
@@ -112,7 +112,7 @@ When using custom containers for Linux, you can pull the container over the virt
 
 ##### App settings using Key Vault references
 
-App settings using Key Vault references will attempt to get the secrets over public internet. If the Key Vualt is blocking public traffic and the app is using virtual network integration, an attempt will then be made to get the secrets through the virtual network integration.
+App settings using Key Vault references will attempt to get secrets over the public route. If the Key Vault is blocking public traffic and the app is using virtual network integration, an attempt will then be made to get the secrets through the virtual network integration.
 
 #### Network routing
 
