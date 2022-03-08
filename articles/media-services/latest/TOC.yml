@@ -499,7 +499,6 @@
     - name: Upload media
       href: asset-upload-media-how-to.md
       displayName: how to, how-to, tutorial, create asset, upload file, ingest file, upload, container, storage account, SAS, S3, URL, HTTP ingest, upload media
-  
   - name: Encode media
     items:
     - name: Create a transform
@@ -724,7 +723,7 @@
       displayName: MES schema, MES, Standard encoder, schema, metadata, input metadata, source metadata  
     - name: Output metadata
       href: output-metadata-schema.md      
-      displayName: MES schema, MES, Standard encoder, schema, metadata, output metadata, output description 
+      displayName: MES schema, MES, Standard encoder, schema, metadata, output metadata, output description
 - name: Resources
   items:
   - name: Azure Media Services community
