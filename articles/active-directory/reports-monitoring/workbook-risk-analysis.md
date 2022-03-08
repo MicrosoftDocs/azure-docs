@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Identity protection risk analysis workbook
 
-Azure AD Identity Protection detects, remediates, and prevents compromised identities. As an IT administrator, you want to understand risk trends in your organizations and opportunities for better policy configuration. With the Identity Protection Risky Analysis Workbook, you can answer common questions about your Identity Protection implementation 
+Azure AD Identity Protection detects, remediates, and prevents compromised identities. As an IT administrator, you want to understand risk trends in your organizations and opportunities for better policy configuration. With the Identity Protection Risky Analysis Workbook, you can answer common questions about your Identity Protection implementation.
 
 This article provides you with an overview of this workbook.
 
