@@ -22,4 +22,4 @@ You can use the following methods to list the transforms in a Media Services acc
 
 ## CLI
 
-[!INCLUDE [Create an asset with CLI](./includes/task-list-assets-cli.md)]
+[!INCLUDE [Create an asset with CLI](./includes/task-list-transforms-cli.md)]

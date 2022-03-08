@@ -1,5 +1,5 @@
 ---
-title: Set the Media Services account encryption with customer managed keys.
+title: Set the Media Services account encryption with customer managed keys
 description: This article shows you how to set the Media Services account encryption with customer managed keys.
 services: media-services
 author: IngridAtMicrosoft
@@ -10,7 +10,7 @@ ms.date: 03/08/2022
 ms.author: inhenkel
 ---
 
-# Remove a storage account from a Media Services account
+# Set the Media Services account encryption with customer managed keys
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 

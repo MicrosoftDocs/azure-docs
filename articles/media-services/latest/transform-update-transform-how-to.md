@@ -10,7 +10,7 @@ ms.date: 03/08/2022
 ms.author: inhenkel
 ---
 
-# Update an asset filter
+# Update a transform
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
