@@ -94,9 +94,9 @@ The scenario we use to explain how VCs work involves:
 
 
 
-Today, Alice provides a username and password to log onto Woodgrove’s networked environment. Woodgrove is deploying a VC solution to provide a more manageable way for Alice to prove she is an employee of Woodgrove. Proseware is using a VC solution compatible with Woodgrove's VC solution and they accept credentials issued by Woodgrove as proof of employment.
+Today, Alice provides a username and password to log onto Woodgrove’s networked environment. Woodgrove is deploying a VC solution to provide a more manageable way for Alice to prove she is an employee of Woodgrove. Proseware is using a VC solution compatible with Woodgrove's VC solution and they accept verifiable credentials issued by Woodgrove as proof of employment as part of their corporate discount program.
 
-The issuer of the credential, Woodgrove Inc., creates a public key and a private key. The public key is stored on ION. When the key is added to the infrastructure, the entry is recorded in a blockchain-based decentralized ledger. The issuer provides Alice the private key that is stored in a wallet application. Each time Alice successfully uses the private key the transaction is logged in the wallet application.
+When Woodgrove Inc can successfully validate Alice's identiy, it issues a signed verfiable creential that is stored in Alice's wallet application. Alice in this case, can go to the Proseware site and use her Woodgrove Inc verifiable credential to proof that she is a Woodgrove employee. Because the verifiable credential is criptographically signed by Woodgrove, Proseware can quickly validate Alice's credential. After a succesfull presentation of the credentials, the transaction is logged in Alice's wallet application so she can track where/wher/who has access her Woodgrove employee identity.
 
 ![microsoft-did-overview](media/decentralized-identifier-overview/did-overview.png)
 
