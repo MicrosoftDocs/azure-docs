@@ -32,4 +32,4 @@ You also need to choose a SKU for your storage account. You can list storage acc
 - Change `chooseLocation` to the region you want to work within. 
 - Change `chooseSKU` to your preferred SKU.
 
-:::code language="azurecli" source="../../media-services-v3-python/cli/code-snippets.sh" id="CreateStorage" interactive="azurecli-interactive":::
+:::code language="azurecli" source="~/Azure-Samples/media-services-v3-python/cli/code-snippets.sh" id="CreateStorage" interactive="azurecli-interactive":::
