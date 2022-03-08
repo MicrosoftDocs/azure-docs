@@ -28,7 +28,7 @@ For more information on how to set up an Application Gateway resource after VNet
 * [Deployment via Azure CLI](quick-create-cli.md)
 * [Deployment via ARM template](quick-create-template.md)
 
-## Common Questions
+## Common questions
 
 ### What is Azure Service Manager and what does it mean by classic?
 
@@ -40,7 +40,7 @@ Azure Resource Manager is the latest control plane of Azure responsible for crea
 
 ### Where can I find more information regarding classic to Azure Resource Manager migration?
 
-Please refer to [Frequently asked questions about classic to Azure Resource Manager migration]()../virtual-machines/migration-classic-resource-manager-faq.md)
+Please refer to [Frequently asked questions about classic to Azure Resource Manager migration](../virtual-machines/migration-classic-resource-manager-faq.md)
 
 ### How do I report an issue?
 
