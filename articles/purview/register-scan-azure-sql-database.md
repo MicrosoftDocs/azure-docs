@@ -18,9 +18,9 @@ This article outlines the process to register an Azure SQL data source in Azure 
 |---|---|---|---|---|---|---|
 | [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No | [Yes](#lineagepreview)(Preview)** |
 
-\** Lineage is also supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+\** Lineage is also supported if Azure SQL tables/views used as source/sink in [Data Factory Copy and Data Flow activities](how-to-link-azure-data-factory.md) 
 
-* Data lineage extraction is currently supported only for Stores procedure runs
+* Data lineage extraction is currently supported only for Stored procedure runs
 
 ### Known limitations
 
