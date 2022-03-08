@@ -42,12 +42,12 @@ Follow the steps described in this section to perform Managed Instance link data
 
 4. On the Failover type window select the failover type, fill in the required details and click Next.
 
-> [!NOTE]
-> If you are performing planned manual failover, you should stop the workload on the database hosted on the SQL Server to allow Managed Instance link to completely catch up with the replication, so that failover without data loss is possible.
-
     In regular situations you should choose planned manual failover option and confirm that the workload on SQL Server database is stopped.
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/managed-instance-link-failover-database-failover-type.png" alt-text="Screenshot showing Failover Type window.":::
+
+> [!NOTE]
+> If you are performing planned manual failover, you should stop the workload on the database hosted on the SQL Server to allow Managed Instance link to completely catch up with the replication, so that failover without data loss is possible.
 
 5. In case you do not use availability groups on the SQL Server side, and AG and DAG were created only for the purpose of Managed Instance link, you can choose to drop these objects on the Clean-up window. Dropping these objects is optional. Click Next.
 
