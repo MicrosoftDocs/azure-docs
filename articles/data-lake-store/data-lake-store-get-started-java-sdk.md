@@ -5,7 +5,7 @@ description: Use the Java SDK for Azure Data Lake Storage Gen1 to perform filesy
 author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
-ms.date: 05/29/2018
+ms.date: 02/23/2022
 ms.custom: devx-track-java
 ms.author: normesta
 
@@ -38,71 +38,58 @@ The code sample available [on GitHub](https://azure.microsoft.com/documentation/
    
     ```xml
     <dependencies>
-       <dependency>
-         <groupId>com.azure</groupId>
-         <artifactId>azure-identity</artifactId>
-         <version>1.4.1</version>
-       </dependency>
-       <dependency>
-         <groupId>com.azure</groupId>
-         <artifactId>azure-storage-file-datalake</artifactId>
-         <version>12.7.2</version>
-       </dependency>
-       <dependency>
-         <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-nop</artifactId>
-         <version>1.7.32</version>
-       </dependency>
+        <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-data-lake-store-sdk</artifactId>
+        <version>2.1.5</version>
+        </dependency>
+        <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-nop</artifactId>
+        <version>1.7.21</version>
+        </dependency>
     </dependencies>
     ```
    
-    The second dependency is to use the Data Lake Storage Gen2 SDK (`azure-storage-file-datalake`) from the Maven repository. The third dependency is to specify the logging framework (`slf4j-nop`) to use for this application. The Data Lake Storage Gen2 SDK uses [SLF4J](https://www.slf4j.org/) logging façade, which lets you choose from a number of popular logging frameworks, like Log4j, Java logging, Logback, etc., or no logging. For this example, we disable logging, hence we use the **slf4j-nop** binding. To use other logging options in your app, see [here](https://www.slf4j.org/manual.html#projectDep).
+    The first dependency is to use the Data Lake Storage Gen1 SDK (`azure-data-lake-store-sdk`) from the maven repository. The second dependency is to specify the logging framework (`slf4j-nop`) to use for this application. The Data Lake Storage Gen1 SDK uses [SLF4J](https://www.slf4j.org/) logging façade, which lets you choose from a number of popular logging frameworks, like Log4j, Java logging, Logback, etc., or no logging. For this example, we disable logging, hence we use the **slf4j-nop** binding. To use other logging options in your app, see [here](https://www.slf4j.org/manual.html#projectDep).
 
 3. Add the following import statements to your application.
 
     ```java
-    import com.azure.identity.ClientSecretCredential;
-    import com.azure.identity.ClientSecretCredentialBuilder;
-    import com.azure.storage.file.datalake.DataLakeDirectoryClient;
-    import com.azure.storage.file.datalake.DataLakeFileClient;
-    import com.azure.storage.file.datalake.DataLakeServiceClient;
-    import com.azure.storage.file.datalake.DataLakeServiceClientBuilder;
-    import com.azure.storage.file.datalake.DataLakeFileSystemClient;
-    import com.azure.storage.file.datalake.models.ListPathsOptions;
-    import com.azure.storage.file.datalake.models.PathAccessControl;
-    import com.azure.storage.file.datalake.models.PathPermissions;
+    import com.microsoft.azure.datalake.store.ADLException;
+    import com.microsoft.azure.datalake.store.ADLStoreClient;
+    import com.microsoft.azure.datalake.store.DirectoryEntry;
+    import com.microsoft.azure.datalake.store.IfExists;
+    import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
+    import com.microsoft.azure.datalake.store.oauth2.ClientCredsTokenProvider;
 
     import java.io.*;
-    import java.time.Duration;
     import java.util.Arrays;
     import java.util.List;
-    import java.util.Map;
     ```
 
 ## Authentication
 
-* For end-user authentication for your application, see [End-user-authentication with Data Lake Storage Gen2 using Java](data-lake-store-end-user-authenticate-java-sdk.md).
-* For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Storage Gen2 using Java](data-lake-store-service-to-service-authenticate-java.md).
+* For end-user authentication for your application, see [End-user-authentication with Data Lake Storage Gen1 using Java](data-lake-store-end-user-authenticate-java-sdk.md).
+* For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Storage Gen1 using Java](data-lake-store-service-to-service-authenticate-java.md).
 
-## Create a Data Lake Storage Gen2 client
-Creating a [DataLakeServiceClient](https://azure.github.io/azure-sdk-for-java/datalakestorage%28gen2%29.html) object requires you to specify the Data Lake Storage Gen2 account name and the token provider you generated when you authenticated with Data Lake Storage Gen2 (see [Authentication](#authentication) section). The Data Lake Storage Gen2 account name needs to be a fully qualified domain name. For example, replace **FILL-IN-HERE** with something like **mydatalakestoragegen1.azuredatalakestore.net**.
+## Create a Data Lake Storage Gen1 client
+Creating an [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) object requires you to specify the Data Lake Storage Gen1 account name and the token provider you generated when you authenticated with Data Lake Storage Gen1 (see [Authentication](#authentication) section). The Data Lake Storage Gen1 account name needs to be a fully qualified domain name. For example, replace **FILL-IN-HERE** with something like **mydatalakestoragegen1.azuredatalakestore.net**.
 
 ```java
-private static String endPoint = "FILL-IN-HERE";  // Data lake storage end point
-DataLakeServiceClient dataLakeServiceClient = new DataLakeServiceClientBuilder().endpoint(endPoint).credential(credential).buildClient();
+private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
+ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 ```
 
-The code snippets in the following sections contain examples of some common filesystem operations. You can look at the full [Data Lake Storage Gen2 Java SDK API docs](https://azure.github.io/azure-sdk-for-java/datalakestorage%28gen2%29.html) of the **DataLakeServiceClient** object to see other operations.
+The code snippets in the following sections contain examples of some common filesystem operations. You can look at the full [Data Lake Storage Gen1 Java SDK API docs](https://azure.github.io/azure-data-lake-store-java/javadoc/) of the **ADLStoreClient** object to see other operations.
 
 ## Create a directory
 
-The following snippet creates a directory structure in the root of the Data Lake Storage Gen2 account you specified.
+The following snippet creates a directory structure in the root of the Data Lake Storage Gen1 account you specified.
 
 ```java
 // create directory
-private String fileSystemName = "FILL-IN-HERE"
-DataLakeFileSystemClient dataLakeFileSystemClient = dataLakeServiceClient.createFileSystem(fileSystemName);
-dataLakeFileSystemClient.createDirectory("a/b/w");
+client.createDirectory("/a/b/w");
 System.out.println("Directory created.");
 ```
 
@@ -112,15 +99,14 @@ The following snippet creates a file (c.txt) in the directory structure and writ
 
 ```java
 // create file and write some content
-String filename = "c.txt";
-try (FileOutputStream stream = new FileOutputStream(filename);
-    PrintWriter out = new PrintWriter(stream)) {
-    for (int i = 1; i <= 10; i++) {
-        out.println("This is line #" + i);
-        out.format("This is the same line (%d), but using formatted output. %n", i);
-    }
+String filename = "/a/b/c.txt";
+OutputStream stream = client.createFile(filename, IfExists.OVERWRITE  );
+PrintStream out = new PrintStream(stream);
+for (int i = 1; i <= 10; i++) {
+    out.println("This is line #" + i);
+    out.format("This is the same line (%d), but using formatted output. %n", i);
 }
-dataLakeFileSystemClient.createFile("a/b/" + filename, true);
+out.close();
 System.out.println("File created.");
 ```
 
@@ -128,11 +114,10 @@ You can also create a file (d.txt) using byte arrays.
 
 ```java
 // create file using byte arrays
-DataLakeFileClient dataLakeFileClient = dataLakeFileSystemClient.createFile("a/b/d.txt", true);
+stream = client.createFile("/a/b/d.txt", IfExists.OVERWRITE);
 byte[] buf = getSampleContent();
-try (ByteArrayInputStream stream = new ByteArrayInputStream(buf)) {
-    dataLakeFileClient.upload(stream, buf.length);
-}
+stream.write(buf);
+stream.close();
 System.out.println("File created using byte array.");
 ```
 
@@ -144,12 +129,10 @@ The following snippet appends content to an existing file.
 
 ```java
 // append to file
-byte[] buf = getSampleContent();
-try (ByteArrayInputStream stream = new ByteArrayInputStream(buf)) {
-    DataLakeFileClient dataLakeFileClient = dataLakeDirectoryClient.getFileClient(filename);
-    dataLakeFileClient.append(stream, 0, buf.length);
-    System.out.println("File appended.");
-}
+stream = client.getAppendStream(filename);
+stream.write(getSampleContent());
+stream.close();
+System.out.println("File appended.");
 ```
 
 The definition for `getSampleContent` function used in the preceding snippet is available as part of the sample [on GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/).
@@ -160,10 +143,10 @@ The following snippet reads content from a file in a Data Lake Storage Gen1 acco
 
 ```java
 // Read File
-try (InputStream dataLakeIn = dataLakeFileSystemClient.getFileClient(filename).openInputStream().getInputStream();
-    BufferedReader reader = new BufferedReader(new InputStreamReader(dataLakeIn))) {
-    String line;
-    while ( (line = reader.readLine()) != null) {
+InputStream in = client.getReadStream(filename);
+BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+String line;
+while ( (line = reader.readLine()) != null) {
     System.out.println(line);
 }
 reader.close();
@@ -173,20 +156,12 @@ System.out.println("File contents read.");
 
 ## Concatenate files
 
-The following snippet concatenates two files in a Data Lake Storage Gen2 account. If successful, the concatenated file replaces the two existing files.
+The following snippet concatenates two files in a Data Lake Storage Gen1 account. If successful, the concatenated file replaces the two existing files.
 
 ```java
 // concatenate the two files into one
-dataLakeFileClient = dataLakeDirectoryClient.createFile("/a/b/f.txt", true);
 List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
-fileList.stream().forEach(filename -> {
-    File concatenateFile = new File(filename);
-    try (InputStream fileIn = new FileInputStream(concatenateFile)) {
-        dataLakeFileClient.append(fileIn, 0, concatenateFile.length());
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-});
+client.concatenateFiles("/a/b/f.txt", fileList);
 System.out.println("Two files concatenated into a new file.");
 ```
 
@@ -196,7 +171,7 @@ The following snippet renames a file in a Data Lake Storage Gen1 account.
 
 ```java
 //rename the file
-dataLakeFileSystemClient.getFileClient("a/b/f.txt").rename(dataLakeFileSystemClient.getFileSystemName(), "a/b/g.txt");
+client.rename("/a/b/f.txt", "/a/b/g.txt");
 System.out.println("New file renamed.");
 ```
 
@@ -206,8 +181,8 @@ The following snippet retrieves the metadata for a file in a Data Lake Storage G
 
 ```java
 // get file metadata
-Map<String, String> metaData = dataLakeFileSystemClient.getFileClient(filename).getProperties().getMetadata();
-printDirectoryInfo(metaData);
+DirectoryEntry ent = client.getDirectoryEntry(filename);
+printDirectoryInfo(ent);
 System.out.println("File metadata retrieved.");
 ```
 
@@ -217,8 +192,7 @@ The following snippet sets permissions on the file that you created in the previ
 
 ```java
 // set file permission
-PathAccessControl pathAccessControl = dataLakeFileSystemClient.getFileClient(filename).getAccessControl();
-dataLakeFileSystemClient.getFileClient(filename).setPermissions(PathPermissions.parseOctal("744"), pathAccessControl.getGroup(), pathAccessControl.getOwner());
+client.setPermission(filename, "744");
 System.out.println("File permission set.");
 ```
 
@@ -228,9 +202,11 @@ The following snippet lists the contents of a directory, recursively.
 
 ```java
 // list directory contents
-dataLakeFileSystemClient.listPaths(new ListPathsOptions().setPath("a/b"), Duration.ofSeconds(2000)).forEach(path -> {
-    printDirectoryInfo(dataLakeFileSystemClient.getDirectoryClient(path.getName()).getProperties().getMetadata());
-});
+List<DirectoryEntry> list = client.enumerateDirectory("/a/b", 2000);
+System.out.println("Directory listing for directory /a/b:");
+for (DirectoryEntry entry : list) {
+    printDirectoryInfo(entry);
+}
 System.out.println("Directory contents listed.");
 ```
 
@@ -242,7 +218,7 @@ The following snippet deletes the specified files and folders in a Data Lake Sto
 
 ```java
 // delete directory along with all the subdirectories and files in it
-dataLakeFileSystemClient.deleteDirectory("a");
+client.deleteRecursive("/a");
 System.out.println("All files and folders deleted recursively");
 promptEnterKey();
 ```
@@ -252,7 +228,6 @@ promptEnterKey();
 2. To produce a standalone jar that you can run from command-line build the jar with all dependencies included, using the [Maven assembly plugin](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). The pom.xml in the [example source code on GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) has an example.
 
 ## Next steps
-* [Explore JavaDoc for the Java SDK](https://azure.github.io/azure-sdk-for-java/datalakestorage%28gen2%29.html)
-* [Secure data in Data Lake Storage Gen2](data-lake-store-secure-data.md)
-
+* [Explore JavaDoc for the Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+* [Secure data in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

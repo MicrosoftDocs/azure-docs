@@ -3,7 +3,7 @@ title: 'Tutorial: PHP app with MySQL'
 description: Learn how to get a PHP app working in Azure, with connection to a MySQL database in Azure. Laravel is used in the tutorial.
 
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
-ms.devlang: php, azurecli
+ms.devlang: php
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli

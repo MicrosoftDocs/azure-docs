@@ -8,7 +8,7 @@ ms.author: amishu
 
 ## Upload the audio
 
-Before asynchronous transcription can be performed, you need to send the audio to Conversation Transcription Service using Microsoft Cognitive Speech client SDK (version 1.8.0 or above).
+Before asynchronous transcription can be performed, you need to send the audio to Conversation Transcription Service using the Speech SDK.
 
 This example code shows how to create conversation transcriber for asynchronous-only mode. In order to stream audio to the transcriber, you will need to add audio streaming code derived from [Transcribe conversations in real time with the Speech SDK](../../../../how-to-use-conversation-transcription.md). Refer to the **Limitations** section of that topic to see the supported platforms and languages APIs.
 

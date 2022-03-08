@@ -51,6 +51,9 @@ For more information, see the [*SignalR trigger* binding reference](../azure-fun
 
 You also need to configure your function endpoint as an upstream so that service will trigger the function when there is message from client. For more information about how to configure upstream, please refer to this [doc](concept-upstream.md).
 
+> [!NOTE]
+> StreamInvocation from client is not supported in Serverless Mode.
+
 ### Sending messages and managing group membership
 
 Use the *SignalR* output binding to send messages to clients connected to Azure SignalR Service. You can broadcast messages to all clients, or you can send them to a subset of clients that are authenticated with a specific user ID or have been added to a specific group.

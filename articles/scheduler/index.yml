@@ -19,13 +19,7 @@ landingContent:
   # Card
   - title: Migrate
     linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Scheduler?
-            url: scheduler-intro.md
-          - text: What is Azure Logic Apps?
-            url: ../logic-apps/logic-apps-overview.md
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
           - text: Migrate Azure Scheduler jobs to Azure Logic Apps
             url: migrate-from-scheduler-to-logic-apps.md

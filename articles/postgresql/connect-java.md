@@ -6,7 +6,7 @@ ms.author: judubois
 ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
 ms.topic: quickstart
-ms.devlang: java, azurecli
+ms.devlang: java
 ms.date: 08/17/2020
 ---
 

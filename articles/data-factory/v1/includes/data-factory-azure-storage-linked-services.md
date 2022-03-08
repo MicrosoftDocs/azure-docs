@@ -1,10 +1,10 @@
 ---
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: include
 ms.date: 10/22/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 ### Azure Storage Linked Service
 The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**, which provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.

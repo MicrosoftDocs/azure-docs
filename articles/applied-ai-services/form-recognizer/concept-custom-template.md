@@ -8,7 +8,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 02/15/2022
-ms.author: vikurpad
+ms.author: lajanuar
 recommendations: false
 ---
 
@@ -59,10 +59,10 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-pr
 
 ## Next steps
 
-* Train a custom template model:
+* * Train a custom model:
 
   > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md)
+  > [How to train a model](how-to-guides/build-custom-model-v3.md)
 
 * Learn more about custom neural models:
 

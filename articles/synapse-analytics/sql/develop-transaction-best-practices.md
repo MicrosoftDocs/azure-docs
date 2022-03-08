@@ -1,7 +1,6 @@
 ---
 title: Optimize transactions for dedicated SQL pool
 description: Learn how to optimize the performance of your transactional code in dedicated SQL pool.
-services: synapse-analytics
 author: mstehrani   
 manager: craigg
 ms.service: synapse-analytics

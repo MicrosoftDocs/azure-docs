@@ -5,10 +5,10 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 06/19/2021
+ms.date: 02/25/2022
 ms.author: yexu
 ---
-# Build large-scale data copy pipelines with metadata-driven approach in copy data tool (Preview)
+# Build large-scale data copy pipelines with metadata-driven approach in copy data tool
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 When you want to copy huge amounts of objects (for example, thousands of tables) or load data from large variety of sources, the appropriate approach is to input the name list of the objects with required copy behaviors in a control table, and then use parameterized pipelines to read the same from the control table and apply them to the jobs accordingly.  By doing so, you can maintain (for example, add/remove) the objects list to be copied easily by just updating the object names in control table instead of redeploying the pipelines. What’s more, you will have single place to easily check which objects copied by which pipelines/triggers with defined copy behaviors. 
@@ -32,7 +32,7 @@ Copy data tool in ADF eases the journey of building such metadata driven data co
    :::image type="content" source="./media/copy-data-tool-metadata-driven/select-table.png" alt-text="Select table":::
 
    > [!NOTE]
-   > If you select tabular data store, you will have chance to further select either full load or incremental load in the next page. If you select storage store, you can further select full load only in the next page. Incrementally loading new files only from storage store is currently not supported.  
+   > If you select tabular data store, you will have chance to further select either full load or delta load in the next page. If you select storage store, you can further select full load only in the next page. Incrementally loading new files only from storage store is currently not supported.  
 
 4. Choose **loading behavior**.
    >[!TIP]
@@ -160,7 +160,7 @@ This pipeline will copy one batch of objects. The objects belonging to this batc
 | Parameters name | Description | 
 |:--- |:--- |
 | MaxNumberOfObjectsReturnedFromLookupActivity | In order to avoid reaching the limit of output lookup activity, there is a way to define the max number of objects returned by lookup activity.  In most case, the default value is not required to be changed.  | 
-| TopLayerPipelineName | The name of top layer pipeline. | 
+| TopLevelPipelineName | The name of top layer pipeline. | 
 | TriggerName | The name of trigger. | 
 | CurrentSequentialNumberOfBatch | The ID of sequential batch. | 
 | SumOfObjectsToCopy | The total number of objects to copy. | 

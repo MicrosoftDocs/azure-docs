@@ -1,13 +1,15 @@
 ---
 title: Azure Blockchain Workbench troubleshooting
 description: How to troubleshoot an Azure Blockchain Workbench Preview application.
-ms.date: 10/14/2019
+ms.date: 02/18/2022
 ms.topic: troubleshooting
 ms.reviewer: brendal
 #Customer intent: As an developer, I want to know how I can troubleshoot a blockchain application in Azure Blockchain Workbench.
 ---
 
 # Azure Blockchain Workbench Preview troubleshooting
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 A PowerShell script is available to assist with developer debugging or support. The script generates a summary and collects detailed logs for troubleshooting. Collected logs include:
 

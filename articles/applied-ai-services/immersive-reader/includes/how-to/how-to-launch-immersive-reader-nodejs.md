@@ -43,7 +43,7 @@ You need some values from the Azure AD auth configuration prerequisite step abov
 TenantId     => Azure subscription TenantId
 ClientId     => Azure AD ApplicationId
 ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI PowerShell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
 Once you have these values, create a new file called _.env_, and paste the following code into it, supplying your custom property values from above. Do not include quotation marks or the "{" and "}" characters.

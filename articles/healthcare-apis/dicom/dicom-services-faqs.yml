@@ -6,10 +6,9 @@ metadata:
   author: stevewohl
   ms.service: healthcare-apis
   ms.subservice: fhir
-  ms.topic: reference
+  ms.topic: faq
   ms.date: 08/04/2021
   ms.author: aersoy
-    
 title: Frequently asked questions about the DICOM service
 summary: |
 
@@ -32,7 +31,7 @@ sections:
           
       - question: What data formats are compatible with the DICOM service?
         answer: |
-          The DICOM service exposes a REST API that is compatible with the [DICOMweb&trade; Standards](https://www.dicomstandard.org/dicomweb/)specified and maintained by NEMA.
+          The DICOM service exposes a REST API that is compatible with the [DICOMweb&trade; Standards](https://www.dicomstandard.org/using/dicomweb)specified and maintained by NEMA.
           
           The server does not support DICOM DIMSE, which works primarily over a local area network and is unsuited for modern internet-based APIs. DIMSE is an incredibly popular standard used by nearly all medical imaging devices to communicate with other components of a provider’s medical imaging solution, such as PACS (Picture Archiving and Communication Systems) and medical imaging viewers. However, many modern systems, especially PACS and  viewers, have begun to also support the related (and compatible) DICOMweb&trade; Standard. For those systems which only speak DICOM DIMSE, there are adapters available which allow for seamless communication between the local DIMSE-supporting systems and the DICOM service.
           
@@ -58,7 +57,7 @@ sections:
           
       - question: What is the difference between Retrieve, Query, and Store?
         answer: |
-          Query, Retrieve, and store are standard DICOMweb&trade; verbs. Query (QIDO) searches for DICOM objects. QIDO enables you to search for studies, series and instances by patient ID. Retrieve (WADO) enables you to retrieve specific studies, series, and instances by reference. Store (STOW-RS) enables you to store specific instances to a DICOM server. For more information about the specifics of QIDO, WADO, and STOW, see [DICOMweb&trade;](https://www.dicomstandard.org/dicomweb).
+          Query, Retrieve, and store are standard DICOMweb&trade; verbs. Query (QIDO) searches for DICOM objects. QIDO enables you to search for studies, series and instances by patient ID. Retrieve (WADO) enables you to retrieve specific studies, series, and instances by reference. Store (STOW-RS) enables you to store specific instances to a DICOM server. For more information about the specifics of QIDO, WADO, and STOW, see [DICOMweb&trade;](https://www.dicomstandard.org/using/dicomweb).
       
       - question: What is REST API versioning in the DICOM service?
         answer: |

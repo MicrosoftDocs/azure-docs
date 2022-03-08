@@ -568,6 +568,8 @@
       href: search-more-like-this.md
   - name: Skills reference
     items:
+    - name: Annotation reference language
+      href: cognitive-search-skill-annotation-language.md
     - name: Built-in skills
       items: 
       - name: Overview

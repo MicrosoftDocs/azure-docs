@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Deploy a Python Django app with Postgres'
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework and the app is hosted on Azure App Service on Linux.
-ms.devlang: python, azurecli
+ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/30/2021
 ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli]
@@ -332,6 +332,9 @@ Also replace `flexibleserverdb` with the database name if you changed it with th
 In your Python code, you access these settings as environment variables with statements like `os.environ.get('DBHOST')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
 
 Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
+
+> [!NOTE]
+> If you want to try an alternative approach to connect your app to the Postgres database in Azure, see the [Service Connector version](../service-connector/tutorial-django-webapp-postgres-cli.md) of this tutorial. Service Connector is a new Azure service that is currently in public preview. [Section 4.2](../service-connector/tutorial-django-webapp-postgres-cli.md#42-configure-environment-variables-to-connect-the-database) of that tutorial introduces a simplified process for creating the connection.
 
 ### 4.3 Run Django database migrations
 

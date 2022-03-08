@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix slow requests when using Azure Cosmos
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 02/02/2022
+ms.date: 02/17/2022
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -29,6 +29,9 @@ Consider the following when developing your application:
 * Use Direct + TCP connectivity mode
 * Avoid High CPU. Make sure to look at Max CPU and not average, which is the default for most logging systems. Anything above roughly 40% can increase the latency.
 
+## Metadata operations
+
+Do not verify a Database and/or Container exists by calling `Create...IfNotExistsAsync` and/or `Read...Async` in the hot path and/or before doing an item operation. The validation should only be done on application startup when it is necessary, if you expect them to be deleted (otherwise it's not needed). These metadata operations will generate extra end-to-end latency, have no SLA, and their own separate [limitations](https://aka.ms/CosmosDB/sql/errors/metadata-429) that do not scale like data operations.
 
 ## <a name="capture-diagnostics"></a>Capture the diagnostics
 

@@ -141,8 +141,9 @@ The **UserJourneyBehaviors** element contains the following elements:
 | SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. The default is 86,400 seconds (24 hours). The minimum is 900 seconds (15 minutes). The maximum is 86,400 seconds (24 hours). |
 | JourneyInsights | 0:1 | The Azure Application Insights instrumentation key to be used. |
 | ContentDefinitionParameters | 0:1 | The list of key value pairs to be appended to the content definition load URI. |
-|ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
 | JourneyFraming | 0:1| Allows the user interface of this policy to be loaded in an iframe. |
+| ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
+
 
 ### SingleSignOn
 

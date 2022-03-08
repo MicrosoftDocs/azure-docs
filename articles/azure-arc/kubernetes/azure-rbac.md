@@ -145,7 +145,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 
 Enable Azure role-based access control (RBAC) on your Azure Arc-enabled Kubernetes cluster by running the following command:
 
-```console
+```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
     
@@ -350,13 +350,13 @@ Copy the following JSON object into a file called *custom-role.json*. Replace th
 
 1. Create the role definition by running the following command from the folder where you saved *custom-role.json*:
 
-    ```bash
+    ```azurecli
     az role definition create --role-definition @custom-role.json
     ```
 
 1. Create a role assignment by using this custom role definition:
 
-    ```bash
+    ```azurecli
     az role assignment create --role "Arc Deployment Viewer" --assignee <AZURE-AD-ENTITY-ID> --scope $ARM_ID/namespaces/<namespace-name>
     ```
 
@@ -371,7 +371,7 @@ There are two ways to get the *kubeconfig* file that you need to access the clus
 
 Run the following command to start the proxy process:
 
-```console
+```azurecli
 az connectedk8s proxy -n <clusterName> -g <resourceGroupName>
 ```
 

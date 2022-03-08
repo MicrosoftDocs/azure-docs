@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/08/2021
+ms.date: 02/15/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -16,7 +16,7 @@ ms.author: alkohli
 
 <!--ALPA WILL VERIFY - [!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This tutorial describes how to configure a compute role and create a Kubernetes cluster on your Azure Stack Edge Pro device. 
+This tutorial describes how to configure a compute role and create a Kubernetes cluster on your Azure Stack Edge Pro GPU device. 
 
 This procedure can take around 20 to 30 minutes to complete.
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 Before you set up a compute role on your Azure Stack Edge Pro device, make sure that:
 
 - You've activated your Azure Stack Edge Pro device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
-- Make sure that you've followed the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network) and:
+- Make sure that you've followed the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches-and-compute-ips) and:
     - Enabled a network interface for compute.
     - Assigned Kubernetes node IPs and Kubernetes external service IPs.
 

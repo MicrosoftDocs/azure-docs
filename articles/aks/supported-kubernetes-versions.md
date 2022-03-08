@@ -156,9 +156,9 @@ For new **minor** versions of Kubernetes:
   * Users have **30 days** from version removal to upgrade to a supported minor version release  to continue receiving support.
 
 For new **patch** versions of Kubernetes:
-  * Because of the urgent nature of patch versions, they can be introduced into the service as they become available.
+  * Because of the urgent nature of patch versions, they can be introduced into the service as they become available. Once available, patches will have a two month minimum lifecycle.
   * In general, AKS does not broadly communicate the release of new patch versions. However, AKS constantly monitors and validates available CVE patches to support them in AKS in a timely manner. If a critical patch is found or user action is required, AKS will notify users to upgrade to the newly available patch.
-  * Users have **30 days** from a patch release's removal from AKS to upgrade into a supported patch and continue receiving support.
+  * Users have **30 days** from a patch release's removal from AKS to upgrade into a supported patch and continue receiving support. However, you will **no longer be able to create clusters or node pools once the version is deprecated/removed.**
 
 ### Supported versions policy exceptions
 
@@ -197,18 +197,12 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.19*  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA |
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA |
 | 1.21  | Apr-08-21 | May 2021   | Jul 2021  | 1.24 GA |
 | 1.22  | Aug-04-21 | Sept 2021   | Dec 2021  | 1.25 GA |
-| 1.23  | Dec 2021 | Jan 2022   | Feb 2022  | 1.26 GA |
-
-> [!NOTE]
->  AKS and the Holiday Season: To ease the burden of upgrade and change during the holiday season, AKS is extending a limited scope of support for all clusters and node pools on 1.19 as a courtesy. Customers with clusters and node pools on 1.19 after the [announced deprecation date of 2021-11-30](#aks-kubernetes-release-calendar) will be granted an extension of capabilities outside the [usual scope of support for deprecated versions](#kubernetes-version-support-policy).
- The scope of this limited extension is effective from '2021-12-01 to 2022-01-31' and is limited to the following:
->  * Creation of new clusters and node pools on 1.19.
->  * CRUD operations on 1.19 clusters.
->  * Azure Support of non-Kubernetes related, platform issues. Platform issues include trouble with networking, storage, or compute running on Azure. Any support requests for K8s patching and troubleshooting will be requested to upgrade into a supported version.
+| 1.23  | Dec 2021 | Jan 2022   | Apr 2022  | 1.26 GA |
+| 1.24 | Apr-22-22 | May 2022 | Jul 2022 | 1.27 GA
+| 1.25 | Aug 2022 | Sept 2022 | Nov 2022 | 1.28 GA
 
 ## FAQ
 
@@ -270,6 +264,10 @@ No. Once a version is deprecated/removed, you cannot create a cluster with that 
 **I am on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?**
 
 No. You will not be allowed to add node pools of the deprecated version to your cluster. You can add node pools of a new version. However, this may require you to update the control plane first.
+
+**How often do you update patches?**
+
+Patches have a two month minimum lifecycle. To keep up to date when new patches are released, follow the [AKS Release Notes](https://github.com/Azure/AKS/releases).
 
 ## Next steps
 
