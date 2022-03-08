@@ -19,8 +19,9 @@ ms.collection: M365-identity-device-management
 
 <!---Jeremy said there are additional features that don't fit nicely in this list that we need to add later--->
 
-This following table lists Azure AD feature availability in Azure Government.
+This following tables list Azure AD feature availability in Azure Government.
 
+## Azure Active Directory
 
 |Service     | Feature | Availability |
 |:------|---------|:------------:|
@@ -106,7 +107,7 @@ This following table lists Azure AD feature availability in Azure Government.
 |Additional risk detected | &#x2705; |
 
 
-## HR-provisioning apps
+## HR provisioning apps
 
 | HR-provisioning app | Availability |
 |----------------|:--------------------:|
