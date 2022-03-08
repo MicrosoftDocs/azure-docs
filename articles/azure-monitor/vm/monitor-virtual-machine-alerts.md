@@ -51,7 +51,7 @@ To create resource-centric alerts at scale (with a subscription or resource grou
 
 You may also decide not to split when you want a condition on multiple resources in the scope, for example, if you want to alert if at least five machines in the resource group scope have CPU usage over 80%.
 
-:::image type="content" source="media/monitor-virtual-machines/split-by-dimensions.png" alt-text="Screenshot of new log alert rule with split by dimensions.":::
+:::image type="content" source="media/monitor-virtual-machines/log-alert-split-by-dimensions.png" alt-text="Screenshot of new log alert rule with split by dimensions.":::
 
 You might want to have a view that lists the alerts with the affected computer. You can use a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Use the following query to display alerts, and use the data source **Azure Resource Graph** in the workbook.
 
@@ -299,7 +299,7 @@ InsightsMetrics
  1. Run the query to make sure you get the results you were expecting.
  1. From the top command bar, Select **+ New alert rule** to create a rule using the current query using your workspace the alert Resource.
  1. The **Condition** tab opens, populated with your log query.
-      :::image type="content" source="media/monitor-virtual-machines/alert-rule-query.png" alt-text="Screenshot of new log alert rule query.":::
+      :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-query.png" alt-text="Screenshot of new log alert rule query.":::
  1. In the **Measurement** section, select the values for these fields.
       
     |Field  |Description  |Value for this scenario |
@@ -308,7 +308,7 @@ InsightsMetrics
     |Aggregation type|The calculation used on multiple records to combine them into one value.|Average|
     |Aggregation granularity| The interval used for aggregation.|15 minutes|
     
-    :::image type="content" source="media/monitor-virtual-machines/alert-rule-measurement.png" alt-text="Screenshot of new log alert rule measurement. ":::
+    :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-measurement.png" alt-text="Screenshot of new log alert rule measurement. ":::
  1. In the **Alert Logic** section, select the values for these fields.
       
     |Field  |Description  |Value for this scenario |
@@ -317,7 +317,7 @@ InsightsMetrics
     |Threshold value| The value that the result is measured against.|80|
     |Frequency of evaluation|The interval used for the query.|15 minutes|
 
-    :::image type="content" source="media/monitor-virtual-machines/alert-rule-dimensions.png" alt-text="Screenshot of new log alert rule with dimensions.":::
+    :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-dimensions.png" alt-text="Screenshot of new log alert rule with dimensions.":::
 ### Number of results rule
 The **number of results** rule creates a single alert when a query returns at least a specified number of records. The log query in this type of alert rule typically identifies the alerting condition, while the threshold for the alert rule determines if a sufficient number of records are returned.
 
