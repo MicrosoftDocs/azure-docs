@@ -461,13 +461,13 @@
       - name: Remove storage from an account
         href: account-remove-account-storage-how-to.md
       - name: List assets in an account
-        href: account-add-account-stroage-how-to.md
+        href: account-add-account-storoage-how-to.md
       - name: List transforms in an account
         href: account-add-account-storage-how-to.md
       - name: Set account encryption with customer managed keys
         href: account-set-account-encryption-customer-managed-key-how-to.md
       - name: Show account encryption
-        href: account-show-account-encryption-how-to.md
+        href: account-show-encryption-how-to.md
       - name: Manage multiple storage accounts
         href: storage-managing-multiple-storage-accounts-how-to.md
         displayName: how to, how-to, tutorial, storage accounts, multiple storage accounts
@@ -658,7 +658,7 @@
         - name: Set account encryption with customer managed keys
           href: account-set-account-encryption-customer-managed-key-how-to.md
         - name: Show account encryption
-          href: account-show-account-encryption-how-to.md
+          href: account-show-encryption-how-to.md
       - name: Network security
         items:
         - name: Use a Private Link with a Streaming endpoint
