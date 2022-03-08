@@ -178,7 +178,7 @@ Now you have an IoT Edge project and an IoT Edge module in your Visual Studio so
 
 The module folder contains a file for your module code, named either `program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files provide the information needed to build your module as a Windows or Linux container.
 
-The project folder contains a list of all the modules included in that project. Right now it should show only one module, but you can add more. For more information about adding modules to a project, see the [Build and debug multiple modules](#build-and-debug-multiple-modules) section later in this article.
+The project folder contains a list of all the modules included in that project. Right now it should show only one module, but you can add more.
 
 The project folder also contains a file named `deployment.template.json`. This file is a template of an IoT Edge deployment manifest, which defines all the modules that will run on a device along with how they will communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). If you open this deployment template, you see that the two runtime modules, **edgeAgent** and **edgeHub** are included, along with the custom module that you created in this Visual Studio project. A fourth module named **SimulatedTemperatureSensor** is also included. This default module generates simulated data that you can use to test your modules, or delete if it's not necessary. To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
@@ -205,7 +205,7 @@ Use the Azure IoT Edge tools extensions for Visual Studio Code to IoT Edge modul
 
    ![IoT Edge Tools settings](./media/tutorial-develop-for-linux-on-windows/iot-edge-tools-settings.png)
 
-1. Select **Ok**
+1. Select **OK**
 
 ## Develop your module
 
@@ -216,9 +216,9 @@ The default solution is built so that the simulated data from the **SimulatedTem
 When you're ready to customize the module template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
 
 
-## BuilD and push a single module
+## Build and push a single module
 
-Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules.
+Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules. Because the solution will be build and debug using the Docker engine running insde the EFLOW VM, the first step will be building and publishing the module to enable remote debugging. 
 
 1. In **Solution Explorer**, right-click the module folder and select **Set as StartUp Project** from the menu.
 
@@ -244,6 +244,10 @@ Typically, you'll want to test and debug each module before running it within an
    ```cmd
    docker login -H tcp:\\<eflow-ip>:2375 -u <ACR username> -p <ACR password> <ACR login server>
    ```
+1. In **Solution Explorer**, right-click the project folder and select **Build and Push IoT Edge Modules** to build and push the Docker image for each module.
+
+
+## Deploy and debug the solution
 
 1. If you're using a private registry like Azure Container Registry, you need to add your registry login information to the runtime settings found in the file `deployment.template.json`. Replace the placeholders with your actual ACR admin username, password, and registry name.
 
@@ -264,17 +268,73 @@ Typically, you'll want to test and debug each module before running it within an
    >[!NOTE]
    >This article uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
-1. In **Solution Explorer**, right-click the project folder and select **Build and Push IoT Edge Modules** to build and push the Docker image for each module.
+1. It's necessary to expose port 22 to access the module SSH service. This tutorial uses 10022 as the host port, but you may specify a different port, which will be used as an SSH port to connect into the Linux C# module. You need to add the SSH port information to the "createOptions" of this Linux module settings found in the file `deployment.template.json`. 
+
+    ```json
+         "createOptions": {
+            "HostConfig": {
+               "Privileged": true,
+               "PortBindings": {
+                     "22/tcp": [
+                        {
+                           "HostPort": "10022"
+                        }
+                     ]
+               }
+            }
+         }
+    ```
+
+In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Cloud Explorer for Visual Studio. You already have a deployment manifest prepared for your scenario, the `deployment.json` file and all you need to do is select a device to receive the deployment.
+
+1. Open **Cloud Explorer** by clicking **View** > **Cloud Explorer**. Make sure you've logged in to Visual Studio 2019.
+
+1. In **Cloud Explorer**, expand your subscription, find your Azure IoT Hub and the Azure IoT Edge device you want to deploy.
+
+1. Right-click on the IoT Edge device to create a deployment for it. Navigate to the debug deployment manifest configured for your platform located in the **config** folder in your Visual Studio solution, such as `deployment.arm32v7.json`.
+
+1. Click the refresh button to see the new module running along wit **$edgeAgent** and **$edgeHub** modules.
+
+1. Using and elevated PowerShell session rung the following commands
+
+   1. Get the moduleId based on the name used for the Linux C# 
+   
+      ```powershell
+      $moduleId = Invoke-EflowVmCommand “sudo docker ps -aqf name=<iot-edge-module-name>”
+      ```
+
+   1. Check that the $moduleId is correct – If the variable is empty, make sure you’re using the correct module name
+
+   1. Start the SSH service inside the Linux container
+      
+      ```powershell
+      $moduleId = Invoke-EflowVmCommand “sudo docker ps -aqf name=<iot-edge-module-name>”
+      ```
+   1. Open the module SSH port on the EFLOW VM (this tutorial uses port 10022)
+
+      ```powershell
+      Invoke-EflowVmCommand “sudo iptables -A INPUT -p tcp --dport 10022 -j ACCEPT”
+      ```
+   >[!WARNING]
+   >For security reasons, every time the EFLOW VM reboots, the IP table rule will delete and go back to the original settings. Also, the module SSH service will have to be started again manually
+
+1. After successfully starting SSH service, click **Debug** -> **Attach to Process**, set Connection Type to SSH, and Connection target to the IP address of your EFLOW VM. If you don’t know the EFLOW VM IP, you can use the `Get-EflowVmAddr` PowerShell cmdlet. First, type the IP and then press enter. In the pop-up window, input the following configurations:
+
+   | Field               | Value                                                             |
+   |---------------------|-------------------------------------------------------------------|
+   | **Hostname**            | Use the EFLOW VM IP                                           |
+   | **Port**                | 10022 (Or the one you used in your deployment configuration)  |
+   | **Username**            | root                                                          |
+   | **Authentication type** | Private Key                                                   |
+   | **Private Key File**    | Full path to the id_rsa that was previously created in Step 5 |
+   | **Passphrase**          | The one used for the key created in Step 5                    |
 
 
+   ![Connect to Remote System](./media/tutorial-develop-for-linux-on-windows/connect-remote-system.png)
 
+1. After successfully connecting to the module using SSH, then you can choose the process and click Attach. For the C# module you need to choose process dotnet and “Attach to” to Managed (CoreCLR). It may take 10&ndash;20 seconds the first time you do so.
 
-
-1. Press **F5** or click the run button in the toolbar to run the module. It may take 10&ndash;20 seconds the first time you do so.
-
-   ![Run Module](./media/how-to-visual-studio-develop-csharp-module/run-module.png)
-
-1. You should see a .NET Core console app start if the module has been initialized successfully.
+   ![Attach process](./media/tutorial-develop-for-linux-on-windows/attach-process.png)
 
 1. Set a breakpoint to inspect the module.
 
@@ -297,30 +357,3 @@ Typically, you'll want to test and debug each module before running it within an
 1. Press **Ctrl + F5** or click the stop button to stop debugging.
 
 
-## Build and push images
-
-
-
-
-
-## Deploy the solution
-
-In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Cloud Explorer for Visual Studio. You already have a deployment manifest prepared for your scenario, the `deployment.json` file and all you need to do is select a device to receive the deployment.
-
-1. Open **Cloud Explorer** by clicking **View** > **Cloud Explorer**. Make sure you've logged in to Visual Studio 2019.
-
-1. In **Cloud Explorer**, expand your subscription, find your Azure IoT Hub and the Azure IoT Edge device you want to deploy.
-
-1. Right-click on the IoT Edge device to create a deployment for it. Navigate to the deployment manifest configured for your platform located in the **config** folder in your Visual Studio solution, such as `deployment.arm32v7.json`.
-
-1. Click the refresh button to see the new modules running along with the **SimulatedTemperatureSensor** module and **$edgeAgent** and **$edgeHub**.
-
-## View generated data
-
-1. To monitor the D2C message for a specific IoT Edge device, select it in your IoT hub in **Cloud Explorer** and then click **Start Monitoring Built-in Event Endpoint** in the **Action** window.
-
-1. To stop monitoring data, select **Stop Monitoring Built-in Event Endpoint** in the **Action** window.
-
-## Next steps
-
-To develop custom modules for your IoT Edge devices, [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
