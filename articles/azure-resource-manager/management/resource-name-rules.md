@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 03/08/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -130,6 +130,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
+> | blueprint| Management groups, Subscriptions, Resource groups | 90 | Alphanumerics, underscores, and hyphens. |
 > | blueprintAssignments | Management groups, Subscriptions, Resource groups | 90 | Alphanumerics, underscores, and hyphens. |
 
 ## Microsoft.BotService
