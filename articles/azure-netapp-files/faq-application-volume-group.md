@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 01/19/2022
+ms.date: 03/08/2022
 ---
 # Application volume group FAQs
 
@@ -42,6 +42,12 @@ General recommendations for snapshots in an SAP HANA environment are as follows:
 
 * Closely monitor the data volume snapshots. HANA tends to have a high change rate. Keeping snapshots for a long period might increase your capacity needs. Be sure to monitor the used capacity vs. allocated capacity.
 * If you automatically create snapshots for your (log and file) backups, be sure to monitor their retention to avoid unpredicted volume growth.
+
+## When looking at the mount instructions of a volume I see a list of IPs. Which IP should I use?
+
+Application volume group ensures that SAP HANA data and log volumes for one HANA host will always have different IPs to achieve best performance. For a single Azure NetApp Files hardware that hosts your data, log and shared volume, up to six different IPs may be created, which is the reason it is recommended to size the delegated subnet accordingly. See [Requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md).
+
+Although all listed IPs can be used for mounting, the first IP listed is the one that provides the lowest latency. It is recommended to always use the first IP.
 
 ## The deployment failed and not even a single volume was created. Why is that?
 
