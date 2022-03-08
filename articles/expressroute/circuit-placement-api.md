@@ -38,6 +38,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 #### Get Operation
 
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts
 {
     "parameters": {
       "api-version": "2020-03-01",
