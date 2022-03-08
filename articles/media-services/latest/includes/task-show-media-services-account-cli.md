@@ -14,4 +14,4 @@ The following Azure CLI command shows the details of a Media Services account.
 
 [!INCLUDE [directive-change-my-account-name](directive-change-my-account-name.md)]
 
-:::code language="azurecli" source="~/../media-services-codesnippets/cli/code-snippets-cli.sh" id="AmsAccountShow" interactive="azurecli-interactive":::
+:::code language="azurecli" source="~/media-services-codesnippets/cli/code-snippets-cli.sh" id="AmsAccountShow" interactive="azurecli-interactive":::
