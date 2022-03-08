@@ -11,6 +11,7 @@ ms.custom:
 ---
 
 # Tutorial: Resource group and subscription access provisioning by data owner (preview)
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This tutorial describes how a data owner can leverage Azure Purview to enable access to ALL data sources in a subscription or a resource group. This can be achieved through a single policy statement, and will cover all existing data sources, as well as data sources that are created afterwards. However, at this point, only the following data sources are supported:
 - Blob storage
@@ -22,10 +23,6 @@ In this tutorial, you learn how to:
 > * Configure permissions
 > * Register a data asset for Data use governance
 > * Create and publish a policy
-
-> [!Note]
-> These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
