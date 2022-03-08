@@ -105,6 +105,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 #### GET Operation
 
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}
 {
   "parameters": {
     "api-version": "2020-03-01",
@@ -153,6 +154,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 #### GET Operation
 
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts/{portPairDescriptor}
+
 {
   "parameters": {
     "api-version": "2020-03-01",
@@ -208,6 +211,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 #### PUT Operation
 
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}?api-version=2021-02-01
 {
 "parameters": {
     "api-version": "2020-03-01",
