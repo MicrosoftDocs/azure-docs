@@ -60,7 +60,7 @@ This release is published February 25, 2022.
 
 For complete release version information, see [Version log](version-log.md).
 
-> [!IMPORTANT] 
+> [!CAUTION] 
 > There is a known issue with this release where deployment of Arc SQL MI hangs, and sends the controldb pods of Arc Data Controller into a
 > `CrashLoopBackOff` state, when the SQL MI is deployed with `loadBalancer` service type. This issue is fixed in a release on March 08, 2022. 
 
