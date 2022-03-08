@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 03/08/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021, mode-api
@@ -108,7 +108,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
     mkdir -p src/main/java
     ```
 
-    You will create the following directory structure:
+    You'll create the following directory structure:
 
     :::image type="content" source="../media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure":::
 
@@ -335,12 +335,17 @@ Extract and analyze data from common document types using a pre-trained model.
 
 ##### Choose a prebuilt model ID
 
-You're not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
+You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs and links to supported fields for the prebuilt models currently supported by the Form Recognizer service:
 
-* [**prebuilt-invoice**](../concept-invoice.md): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
-* [**prebuilt-receipt**](../concept-receipt.md): extracts text and key information from receipts.
-* [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
-* [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
+|Model ID |Description| Field and data extraction |
+|---|---|---|
+|[prebuilt-tax.us.w2](../concept-w2.md) |Text and key information from US W2 tax forms.| [W-2 field extractions](../concept-w2.md#field-extraction)|
+|[prebuilt-read](../concept-read.md)|Printed and handwritten text lines, words, locations, and detected languages from documents and images.|[Read data extraction](../concept-read.md#data-extraction)|
+|[prebuilt-document](../concept-general-document.md)|Key-value pairs, selection marks, and entities from documents.|[General document field extractions](concept-general-document.md#general-document-model-data-extraction) |
+| [prebuilt-invoice](../concept-invoice.md) |Text, selection marks, tables, key-value pairs, and key information from invoices.|[Invoice field extractions](../concept-invoice.md#field-extraction)|
+| [prebuilt-receipt](../concept-receipt.md)| Text and key information from receipts.| [Receipt field extractions](../concept-receipt.md#field-extraction)|
+|[prebuilt-idDocument](../concept-id-document.md)| Text and key information from driver licenses and international passports.|[ID document field extractions](../concept-id-document.md#field-extraction)|
+|[prebuilt-businessCard](../concept-business-card.md)| Text and key information from business cards.|[Business card field extractions](../concept-business-card.md#field-extraction)|
 
 #### Try the prebuilt invoice model
 

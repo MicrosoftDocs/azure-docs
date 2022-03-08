@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 03/08/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021, mode-api
@@ -43,7 +43,7 @@ In this quickstart, you'll use following features to analyze and extract data an
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You will paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -378,12 +378,17 @@ Extract and analyze data from common document types using a pre-trained model.
 
 ##### Choose a prebuilt model ID
 
-You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
+You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs and links to supported fields for the prebuilt models currently supported by the Form Recognizer service:
 
-* [**prebuilt-invoice**](../concept-invoice.md): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
-* [**prebuilt-receipt**](../concept-receipt.md): extracts text and key information from receipts.
-* [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
-* [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
+|Model ID |Description| Field and data extraction |
+|---|---|---|
+|[prebuilt-tax.us.w2](../concept-w2.md) |Text and key information from US W2 tax forms.| [W-2 field extractions](../concept-w2.md#field-extraction)|
+|[prebuilt-read](../concept-read.md)|Printed and handwritten text lines, words, locations, and detected languages from documents and images.|[Read data extraction](../concept-read.md#data-extraction)|
+|[prebuilt-document](../concept-general-document.md)|Key-value pairs, selection marks, and entities from documents.|[General document field extractions](concept-general-document.md#general-document-model-data-extraction) |
+| [prebuilt-invoice](../concept-invoice.md) |Text, selection marks, tables, key-value pairs, and key information from invoices.|[Invoice field extractions](../concept-invoice.md#field-extraction)|
+| [prebuilt-receipt](../concept-receipt.md)| Text and key information from receipts.| [Receipt field extractions](../concept-receipt.md#field-extraction)|
+|[prebuilt-idDocument](../concept-id-document.md)| Text and key information from driver licenses and international passports.|[ID document field extractions](../concept-id-document.md#field-extraction)|
+|[prebuilt-businessCard](../concept-business-card.md)| Text and key information from business cards.|[Business card field extractions](../concept-business-card.md#field-extraction)|
 
 #### Try the prebuilt invoice model
 

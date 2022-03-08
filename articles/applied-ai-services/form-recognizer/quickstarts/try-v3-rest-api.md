@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 03/08/2022
 ms.author: lajanuar
 ---
 
@@ -95,7 +95,7 @@ In this quickstart you'll use following features to analyze and extract data and
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
-## **Try it**: General document model
+## General document model
 
 > [!div class="checklist"]
 >
@@ -134,7 +134,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-docume
 
 ### Examine the response
 
-You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is not complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
 The `"analyzeResults"` node contains all of the recognized text. Text is organized by page, lines, tables, key-value pairs, and entities.
 
@@ -350,7 +350,7 @@ The `"analyzeResults"` node contains all of the recognized text. Text is organiz
 
 ```
 
-## **Try it**: Layout model
+## Layout model
 
 > [!div class="checklist"]
 >
@@ -394,7 +394,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout
 
 You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
-## **Try it**: Prebuilt model
+## **Prebuilt model
 
 This sample demonstrates how to analyze data from certain common document types with a pre-trained model, using an invoice as an example.
 
@@ -402,14 +402,19 @@ This sample demonstrates how to analyze data from certain common document types 
 >
 > * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 
-##### Choose the invoice prebuilt model ID
+##### Choose a prebuilt model ID
 
-You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
+You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs and links to supported fields for the prebuilt models currently supported by the Form Recognizer service:
 
-* **prebuilt-invoice**: extracts text, selection marks, tables, key-value pairs, and key information from invoices.
-* **prebuilt-businessCard**: extracts text and key information from business cards.
-* **prebuilt-idDocument**: extracts text and key information from driver licenses and international passports.
-* **prebuilt-receipt**: extracts text and key information from receipts.
+|Model ID |Description| Field and data extraction |
+|---|---|---|
+|[prebuilt-tax.us.w2](../concept-w2.md) |Text and key information from US W2 tax forms.| [W-2 field extractions](../concept-w2.md#field-extraction)|
+|[prebuilt-read](../concept-read.md)|Printed and handwritten text lines, words, locations, and detected languages from documents and images.|[Read data extraction](../concept-read.md#data-extraction)|
+|[prebuilt-document](../concept-general-document.md)|Key-value pairs, selection marks, and entities from documents.|[General document field extractions](concept-general-document.md#general-document-model-data-extraction) |
+| [prebuilt-invoice](../concept-invoice.md) |Text, selection marks, tables, key-value pairs, and key information from invoices.|[Invoice field extractions](../concept-invoice.md#field-extraction)|
+| [prebuilt-receipt](../concept-receipt.md)| Text and key information from receipts.| [Receipt field extractions](../concept-receipt.md#field-extraction)|
+|[prebuilt-idDocument](../concept-id-document.md)| Text and key information from driver licenses and international passports.|[ID document field extractions](../concept-id-document.md#field-extraction)|
+|[prebuilt-businessCard](../concept-business-card.md)| Text and key information from business cards.|[Business card field extractions](../concept-business-card.md#field-extraction)|
 
 Before you run the command, make these changes:
 

@@ -17,11 +17,6 @@ ms.custom: ignite-fall-2021
 
 The Form Recognizer v3.0 preview includes the new Read API. Read extracts text lines, words, their locations, detected languages, and handwritten style if detected from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 
-**Data extraction features**
-
-| **Read model**   | **Text Extraction**   | **[Language detection](language-support.md#detected-languages-by-read)** |
-| --- | --- | --- | 
-| Read  | ✓  |✓  |
 
 ## Development options
 
@@ -30,6 +25,12 @@ The following resources are supported by Form Recognizer v3.0:
 | Feature | Resources | Model ID |
 |----------|------------|------------|
 |**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|**prebuilt-read**|
+
+## Data extraction
+
+| **Read model**   | **Text Extraction**   | **[Language detection](language-support.md#detected-languages-by-read)** |
+| --- | --- | --- | 
+prebuilt-read  | ✓  |✓  |
 
 ### Try Form Recognizer
 
