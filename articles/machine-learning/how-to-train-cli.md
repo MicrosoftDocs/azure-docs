@@ -366,7 +366,7 @@ Data assets can be referred to in a job using the `uri_folder` key of a data inp
 
 With the data asset in place, you can author a distributed PyTorch job to train our model:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
 
 And run it:
 
