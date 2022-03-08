@@ -42,7 +42,7 @@ To get started, export and modify a Resource Manager template.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. If you don't have [Resource Group](../azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups.md) under the target region, create one now.
+1. If you don't have [Resource Group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) under the target region, create one now.
 
 1. Move your current Virtual Network to the new region and resource group using the steps included in the article, "[Move an Azure virtual network to another region](../virtual-network/move-across-regions-vnet-portal.md)". 
 
