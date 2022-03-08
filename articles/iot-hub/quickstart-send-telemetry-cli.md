@@ -73,7 +73,7 @@ In this section, you use the Azure CLI to create a resource group and an IoT Hub
 
 1. Run the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command to create an IoT hub. It might take a few minutes to create an IoT hub. 
 
-    *YourIotHubName*. Replace this placeholder name below and the curly bracket characters with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this quickstart to represent your IoT hub name.
+    *YourIotHubName*. Replace this placeholder name the curly brackets with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this quickstart to represent your IoT hub name.
 
     ```azurecli
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
