@@ -28,7 +28,7 @@ This article provides you with an overview of this workbook.
 
 ## Description
 
-![Workbook category](./media/workbook-authentication-prompts-analysis/workbook-category.png)
+![Workbook category](./media/workbook-risk-analysis/workbook-category.png)
 
 
 As an IT administrator, you need to understand trends in identity risks and gaps in your policy implementations to ensure you are best protecting your organizations from identity compromise. The identity protection risk analysis workbook helps you analyze the state of risk in your organization.
@@ -73,7 +73,7 @@ This workbook supports setting a time range filter.
 
 ![Set time range filter](./media/workbook-risk-analysis/time-range-filter.png)
 
-There are additional filters in the risk detection trends and risky users sections. 
+There are more filters in the risk detection trends and risky users sections. 
 
 Risk Detection Trends:
 
