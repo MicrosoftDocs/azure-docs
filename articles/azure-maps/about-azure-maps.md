@@ -70,8 +70,6 @@ The [Render service V2](/rest/api/maps/renderv2) introduces a new version of the
 
 For more details, read the [Render service V2 documentation](/rest/api/maps/renderv2).
 
-To learn more about the Render service V1 that is in GA (General Availability), see the [Render service V1 documentation](/rest/api/maps/render).  
-
 ### Route service
 
 The route services can be used to calculate the estimated arrival times (ETAs) for each requested route. Route APIs consider factors, such as real-time traffic information and historic traffic data, like the typical road speeds on the requested day of the week and time of day. The APIs return the shortest or fastest routes available to multiple destinations at a time in sequence or in optimized order, based on time or distance. The service allows developers to calculate directions across several travel modes, such as car, truck, bicycle, or walking, and electric vehicle. The service also considers inputs, such as departure time, weight restrictions, or hazardous material transport.
