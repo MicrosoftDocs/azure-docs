@@ -35,7 +35,7 @@ A Rule Set is a customized rule engine that groups a combination of rules into a
 
 * Add, modify, or remove request/response header to hide sensitive information or capture important information through headers.
 
-* Support server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted. Server variable is currently supported on **[Rule Set actions](concept-rule-set-actions.md)** only.
+* Support server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted. Server variable is currently supported on **[Rule Set actions](../front-door-rules-engine-actions.md)** only.
 
 ## Architecture
 
@@ -61,11 +61,11 @@ For more quota limit, refer to [Azure subscription and service limits, quotas an
 
 * *Match condition*: There are many match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. Match conditions are evaluated with an **AND** operator. *Regular expression is supported in conditions*. A full list of match conditions can be found in [Rule Set match conditions](concept-rule-set-match-conditions.md).
 
-* *Action*: Actions dictate how AFD handles the incoming requests based on the matching conditions. You can modify caching behaviors, modify request headers/response headers, do URL rewrite and URL redirection. *Server variables are supported on Action*. A rule can contain up to 10 match conditions. A full list of actions can be found [Rule Set actions](concept-rule-set-actions.md).
+* *Action*: Actions dictate how AFD handles the incoming requests based on the matching conditions. You can modify caching behaviors, modify request headers/response headers, do URL rewrite and URL redirection. *Server variables are supported on Action*. A rule can contain up to 10 match conditions. A full list of actions can be found [Rule Set actions](../front-door-rules-engine-actions.md).
 
 ## ARM template support
 
-Rule Sets can be configured using Azure Resource Manager templates. [See an example template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-rule-set). You can customize the behavior by using the JSON or Bicep snippets included in the documentation examples for [match conditions](concept-rule-set-match-conditions.md) and [actions](concept-rule-set-actions.md).
+Rule Sets can be configured using Azure Resource Manager templates. [See an example template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-rule-set). You can customize the behavior by using the JSON or Bicep snippets included in the documentation examples for [match conditions](concept-rule-set-match-conditions.md) and [actions](../front-door-rules-engine-actions.md).
 
 ## Next steps
 

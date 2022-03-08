@@ -116,6 +116,12 @@ If your organization subscribes to the Azure Monitor service, you can use the [C
 
 If your organization exports sign-in logs to a Security Information and Event Management (SIEM) system, you can retrieve required information from your SIEM system.
 
+## Identify changes to cross-tenant access settings
+
+The Azure AD audit logs capture all activity around cross-tenant access setting changes and activity. To audit changes to your cross-tenant access settings, use the **category** of ***CrossTenantAccessSettings*** to filter all activity to show changes to cross-tenant access settings.
+
+![Audit logs for cross-tenant access settings](media/cross-tenant-access-overview/cross-tenant-access-settings-audit-logs.png)
+
 ## Next steps
 
 [Configure cross-tenant access settings for B2B collaboration](cross-tenant-access-settings-b2b-collaboration.md)
