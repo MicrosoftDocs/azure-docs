@@ -1,6 +1,6 @@
 ---
 title: Deploy a Node.js web app using MongoDB to Azure
-description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure.  Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Cosmos DB. 
+description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure. Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Cosmos DB. 
 ms.topic: tutorial
 ms.date: 03/07/2022
 ms.service: app-service
@@ -11,7 +11,7 @@ ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devx-
 
 # Deploy a Node.js + MongoDB web app to Azure
 
-In this tutorial, you'll deploy a sample **Express.js** app using a **MongoDB** database to Azure. The Express.js app will be hosted in Azure App Service which supports hosting Node.js apps in both Linux (Node versions 12, 14, and 16) and Windows (versions 12 and 14) server environments. The MongoDB database will be hosted in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](../cosmos-db/mongodb/mongodb-introduction.md).
+In this tutorial, you'll deploy a sample **Express.js** app using a **MongoDB** database to Azure. The Express.js app will be hosted in Azure App Service, which supports hosting Node.js apps in both Linux (Node versions 12, 14, and 16) and Windows (versions 12 and 14) server environments. The MongoDB database will be hosted in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](../cosmos-db/mongodb/mongodb-introduction.md).
 
 :::image type="content" source="./media/tutorial-nodejs-mongodb-app/app-diagram.png" alt-text="A diagram showing how the Express.js app will be deployed to Azure App Service and the MongoDB data will be hosted inside of Azure Cosmos DB." lightbox="./media/tutorial-nodejs-mongodb-app/app-diagram-large.png":::
 
@@ -36,12 +36,12 @@ Follow these steps to run the application locally:
 
 Azure App Service is used to host the Express.js web app. When setting up the App Service for the application, you'll specify:
 
-* The **Name** for the web app. This name is used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
-* The **Runtime** for the app. This is where you select the version of Node to use for your app.
+* The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
+* The **Runtime** for the app. It's where you select the version of Node to use for your app.
 * The **App Service plan** which defines the compute resources (CPU, memory) available for the application.
-* The **Resource Group** for the app. A resource group lets you group all of the Azure resources needed for the application together in a logical container.
+* The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.
 
-Azure resources can be created using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
+Create Azure resources using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -89,7 +89,7 @@ Azure Cosmos DB is a fully managed NoSQL database for modern app development. Am
 
 ### [Azure portal](#tab/azure-portal)
 
-You must be signed in to the [Azure portal](https://portal.azure.com/) to finish these steps to create a Cosmos DB.
+You must sign in to the [Azure portal](https://portal.azure.com/) to finish these steps to create a Cosmos DB.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -118,16 +118,16 @@ You must be signed in to the [Azure portal](https://portal.azure.com/) to finish
 
 ## 3 - Connect your App Service to your Cosmos DB
 
-To connect to your Cosmos DB database, you need to provide the connection string for the database to your application. This is done in the sample application by reading the `DATABASE_URL` environment variable. When running locally, the sample application uses the [dotenv package](https://www.npmjs.com/package/dotenv) to read the connection string value from the `.env` file.
+To connect to your Cosmos DB database, you need to provide the connection string for the database to your application. It's done in the sample application by reading the `DATABASE_URL` environment variable. When you locally run it, the sample application uses the [dotenv package](https://www.npmjs.com/package/dotenv) to read the connection string value from the `.env` file.
 
-When running in Azure, configuration values like connection strings can be stored in the *application settings* of the App Service hosting the web app. These values are then made available to your application as environment variables during runtime. In this way, the application uses the connection string from `process.env` the same way whether being run locally or in Azure. Further, this eliminates the need to manage and deploy environment specific config files with your application.
+When you run in Azure, configuration values like connection strings can be stored in the *application settings* of the App Service hosting the web app. These values are then made available to your application as environment variables during runtime. In this way, the application uses the connection string from `process.env` the same way whether being run locally or in Azure. Further, it eliminates the need to manage and deploy environment specific config files with your application.
 
 ### [Azure portal](#tab/azure-portal)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Connection string step 1](<./includes/tutorial-nodejs-mongodb-app/connection-string-azure-portal-1.md>)] | :::image type="content" source="./media/tutorial-nodejs-mongodb-app/connection-string-azure-portal-1-240px.png" alt-text="A screenshot showing the location of the Cosmos DB connection string on the Cosmos DB quick start page." lightbox="./media/tutorial-nodejs-mongodb-app/connection-string-azure-portal-1.png"::: |
-| [!INCLUDE [Connection string step 2](<./includes/tutorial-nodejs-mongodb-app/connection-string-azure-portal-2.md>)] | :::image type="content" source="./media/tutorial-nodejs-mongodb-app/connection-string-azure-portal-2-240px.png" alt-text="A screenshot showing how to search for and go to the App Service where the connection string needs to store the connection string." lightbox="./media/tutorial-nodejs-mongodb-app/connection-string-azure-portal-2.png"::: |
+| [!INCLUDE [Connection string step 2](<./includes/tutorial-nodejs-mongodb-app/connection-string-azure-portal-2.md>)] | :::image type="content" source="./media/tutorial-nodejs-mongodb-app/connection-string-azure-portal-2-240px.png" alt-text="A screenshot showing how to search for and go to the App Service, where the connection string needs to store the connection string." lightbox="./media/tutorial-nodejs-mongodb-app/connection-string-azure-portal-2.png"::: |
 | [!INCLUDE [Connection string step 3](<./includes/tutorial-nodejs-mongodb-app/connection-string-azure-portal-3.md>)] | :::image type="content" source="./media/tutorial-nodejs-mongodb-app/connection-string-azure-portal-3-240px.png" alt-text="A screenshot showing how to use the Application settings within an App Service." lightbox="./media/tutorial-nodejs-mongodb-app/connection-string-azure-portal-3.png"::: |
 | [!INCLUDE [Connection string step 4](<./includes/tutorial-nodejs-mongodb-app/connection-string-azure-portal-4.md>)] | :::image type="content" source="./media/tutorial-nodejs-mongodb-app/connection-string-azure-portal-4-240px.png" alt-text="A screenshot showing the dialog used to set an application setting in Azure App Service." lightbox="./media/tutorial-nodejs-mongodb-app/connection-string-azure-portal-4.png"::: |
 
@@ -239,7 +239,7 @@ When you're finished, you can delete all the resources from Azure by deleting th
 
 ### [Azure portal](#tab/azure-portal)
 
-Follow these steps while signed-in to the Azure portal to delete a resource group.
+Follow these steps while you're signed-in to the Azure portal to delete a resource group.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
