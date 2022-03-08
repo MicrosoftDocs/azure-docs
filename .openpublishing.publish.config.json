@@ -388,12 +388,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "media",
-      "url": "https://docs.microsoft.com/en-us/rest/api/media",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "samples-javascript",
       "url": "https://github.com/Microsoft/tsiclient",
       "branch": "tutorial",
