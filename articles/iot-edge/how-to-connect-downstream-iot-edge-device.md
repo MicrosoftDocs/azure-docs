@@ -124,17 +124,31 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 
 1. Install the **root CA certificate** on this IoT Edge device.
 
-   ```bash
-   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
-   ```
+    * **Debian/Ubuntu**
+      ```bash
+      sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
+      ```
+
+    * **IoT Edge for Linux on Windows (EFLOW)**
+      ```bash
+      sudo cp <path>/<root ca certificate>.pem /etc/pki/ca-trust/source/anchors/<root ca certificate>.pem.crt
+      ```
 
 1. Update the certificate store.
 
-   ```bash
-   sudo update-ca-certificates
-   ```
+    * **Debian/Ubuntu**
+      ```bash
+      sudo update-ca-certificates
+      ```
 
-   This command should output that one certificate was added to /etc/ssl/certs.
+    * **IoT Edge for Linux on Windows (EFLOW)**
+      ```bash
+      sudo update-ca-trust
+      ```
+      For more information, check [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
+  
+  
+    This command should output that one certificate was added to /etc/ssl/certs.
 
 1. Open the IoT Edge configuration file.
 
@@ -160,7 +174,7 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 1. *If this device is a child device*, find the **Parent hostname** section. Uncomment and update the `parent_hostname` parameter to be the FQDN or IP address of the parent device, matching whatever was provided as the hostname in the parent device's config file.
 
    ```toml
-  parent_hostname = "my-parent-device"
+   parent_hostname = "my-parent-device"
    ```
 
 1. Find the **Trust bundle cert** section. Uncomment and update the `trust_bundle_cert` parameter with the file URI to the root CA certificate on your device.
