@@ -44,7 +44,7 @@ Using `--depth 1` clones only the latest commit to the repository, which reduces
 
 You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-compute.sh" id="create_computes":::
+:::code language="azurecli" source="~/azureml-examples-march-cli-preview/setup-repo/create-compute.sh" id="create_computes":::
 
 You are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at zero nodes until a job is submitted. Learn more about how to [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
