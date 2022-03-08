@@ -42,9 +42,9 @@ To get started, export and modify a Resource Manager template.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. If you don't have [Resource Group](/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups.md) under the target region, create one now.
+1. If you don't have [Resource Group](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups.md) under the target region, create one now.
 
-1. Move your current Virtual Network to the new region and resource group using the steps included in the article, "[Move an Azure virtual network to another region](/virtual-network/move-across-regions-vnet-portal.md)". 
+1. Move your current Virtual Network to the new region and resource group using the steps included in the article, "[Move an Azure virtual network to another region](/azure/virtual-network/move-across-regions-vnet-portal.md)". 
 
    Alternately, you can create a new virtual network, if you don't have to keep the original one. 
  
@@ -213,7 +213,7 @@ Note the VMs under the new Lab have the same specs as the ones under the old Lab
 1. Create an empty disks under the new region.
    - Get the target Compute VM OS disk name under the new Lab.  You can fnd the Compute VM and its disk under the Resource group on the lab's Virtual Machine page.
 
-   - Use [AzCopy](/storage/common/storage-use-azcopy-v10.md) to copy the old disk content into the new/empty disks in the new region. You can run the Powershell commands from your Dev Box or from the [Azure Cloud Shell](/cloud-shell/quickstart-powershell.md).
+   - Use [AzCopy](/azure/storage/common/storage-use-azcopy-v10.md) to copy the old disk content into the new/empty disks in the new region. You can run the Powershell commands from your Dev Box or from the [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell.md).
 
      AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -240,7 +240,7 @@ Note the VMs under the new Lab have the same specs as the ones under the old Lab
 
         After that, you'll have a new disk under the new region.
 
-   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](/virtual-machines/windows/os-disk-swap.md)". 
+   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](/azure/virtual-machines/windows/os-disk-swap.md)". 
 
 
 ## Discard or clean up
@@ -261,5 +261,5 @@ To remove a lab by using the Azure portal:
 
 In this article, you moved a DevTest lab from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
-- [Move resources to a new resource group or subscription](/azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Move Azure VMs to another region](/site-recovery/azure-to-azure-tutorial-migrate.md)
+- [Move resources to a new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](/azure/site-recovery/azure-to-azure-tutorial-migrate.md)
