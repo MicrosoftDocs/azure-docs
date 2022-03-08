@@ -136,7 +136,7 @@ This article explains the required dependencies and how to add them to the POM f
 
 ## Java Runtime version
 
-See the [supported Java Version](./faq.md?pivots=programming-language-java#java-runtime-and-os-versions) for details.
+For details, see the [Java runtime and OS versions](./faq.md?pivots=programming-language-java#java-runtime-and-os-versions) section of the [Azure Spring Cloud FAQ](./faq.md).
 
 ## Spring Boot and Spring Cloud versions
 
