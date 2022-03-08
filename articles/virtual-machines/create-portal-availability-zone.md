@@ -12,7 +12,7 @@ ms.custom:
 
 # Create virtual machines in an availability zone using the Azure portal
 
-**Applies to:** :heavy_check_mark: Windows VMs 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 This article steps through using the Azure portal to create virtual machines in Azure availability zones. An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
@@ -23,7 +23,7 @@ To use availability zones, create your virtual machines in a [supported Azure re
 
 1. Click **Create a resource** > **Compute** > **Virtual machine**. 
 
-3. Enter the virtual machine information. The user name and password is used to sign in to the virtual machine. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-). 
+3. Enter the virtual machine information. The user name and password or SSH key is used to sign in to the virtual machine.  
 
 4. Choose a region such as East US 2 that supports availability zones. 
 
@@ -56,7 +56,7 @@ To use availability zones, create your virtual machines in a [supported Azure re
 
    :::image type="content" source="media/zones/3-vm-names.png" alt-text="Screenshot showing that there are now 3 virtual machines that will be created.":::
 
-1. Complete the rest of the page as usual. If you want to create a load balancer, go to the Networking tab > Load Balancing > Load balancing options. You can choose either an Azure load balancer or an Application gateway.
+1. Complete the rest of the page as usual. If you want to create a load balancer, go to the **Networking** tab > **Load Balancing** > **Load balancing options**. You can choose either an Azure load balancer or an Application gateway.
    
    For a **Azure load balancer**:
 
