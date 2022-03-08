@@ -93,7 +93,7 @@ Risky Users:
 
 - **[Enable risky sign-in policies](../identity-protection/concept-identity-protection-policies.md)** - To prompt for multi-factor authentication (MFA) on medium risk or above. Enabling the policy reduces the proportion of active real-time risk detections by allowing legitimate users to self-remediate the risk detections with MFA.
 
-- **[Enable a risky user policy](../identity-protection/howto-identity-protection-configure-risk-policies#user-risk-with-conditional-access.md)** - To enable users to securely remediate their accounts when they are high risk. Enabling the policy reduces the number of active at-risk users in your organization by returning the user’s credentials to a safe state.
+- **[Enable a risky user policy](../identity-protection/howto-identity-protection-configure-risk-policies.md#user-risk-with-conditional-access.md)** - To enable users to securely remediate their accounts when they are high risk. Enabling the policy reduces the number of active at-risk users in your organization by returning the user’s credentials to a safe state.
 
 
 
@@ -103,5 +103,5 @@ Risky Users:
 
 - To learn more about identity protection, see [What is identty protection](../identity-protection/overview-identity-protection.md). 
 
-- For more information about Azure AD workbooks, see [How to use Azure AD workbooks](howto-use-azure-monitor-workbooks).
+- For more information about Azure AD workbooks, see [How to use Azure AD workbooks](howto-use-azure-monitor-workbooks.md).
 
