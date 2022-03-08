@@ -1,6 +1,6 @@
 ---
-title: Microsoft Defender for Cloud's servers features according to OS, machine type, and cloud
-description: Learn about the availability of Microsoft Defender for Cloud servers features according to OS, machine type, and cloud deployment.
+title: Microsoft Defender for Cloud's containers features according to OS, machine type, and cloud
+description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
 ms.date: 03/08/2022
 ms.custom: references_regions
@@ -106,7 +106,6 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 <sup><a name="footnote1"></a>1</sup>The AKS Defender profile doesn't support AKS clusters that don't have RBAC role enabled.<br>
 <sup><a name="footnote2"></a>2</sup>Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.<br>
 <sup><a name="footnote3"></a>3</sup>To get [Microsoft Defender for Containers](../azure-arc/kubernetes/overview.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](https://mseng.visualstudio.com/TechnicalContent/_workitems/recentlyupdated/) and enable Defender for Containers as an Arc extension.
-https://docs.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes#limitations
 
 > [!NOTE]
 > For additional requirements for Kuberenets workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).

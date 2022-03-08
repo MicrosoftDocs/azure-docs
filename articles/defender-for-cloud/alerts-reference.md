@@ -373,7 +373,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 |  |  |  |  |
 
 <sup><a name="footnote1"></a>1</sup>: **Limitations on GKE clusters**: GKE uses a Kuberenetes audit policy that doesn't support all alert types. As a result, this security alert, which is based on Kubernetes audit events, are not supported for GKE clusters.
-<sup><a name="footnote1"></a>1</sup>: This alert is supported by Windows.
+<sup><a name="footnote2"></a>2</sup>: This alert is supported by Windows.
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and Azure Synapse Analytics
 
