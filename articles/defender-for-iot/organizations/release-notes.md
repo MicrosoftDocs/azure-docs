@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 03/03/2022
+ms.date: 03/08/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -57,21 +57,18 @@ The Defender for IoT sensor and on-premises management console update packages i
     - [Inventory noise reduction](#inventory-noise-reduction)
     - [Device retention extensions for profiled / un-profiled devices](#device-retention-extensions-for-profiled--un-profiled-devices)
 
-### Workbook enhancements
-
-Azure workbooks provide graphs and dashboards that visually reflect your data, are now available directly in Microsoft Defender for IoT.
-
-In the Azure portal, use the new Defender for IoT **Workbooks** page to view workbooks created by Microsoft and provided out-of-the-box, or created by customers and shared across the community.
-
-IMAGE
-
-For more information, see [Use Azure workbooks in Microsoft Defender for IoT](workbooks.md).
-
-
 
 ### Cloud device inventory enhancements
 
 ### Key state alert updates
+
+Defender for IoT now supports the Rockwell protocol for PLC operating mode detections.
+
+For the Rockwell protocol, the **Device inventory** page in the Azure portal now indicates the PLC operating mode key and run state, and whether the device is currently in a secure mode.
+
+If the device's PLC operating mode is ever switched to an insecure mode, such as *Program* or *Remote*, a **PLC Operating Mode Changed** alert is generated.
+
+For more information, see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md).
 
 ### Sensor inventory management enhancements
 
