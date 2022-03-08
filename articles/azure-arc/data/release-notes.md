@@ -29,8 +29,6 @@ For complete release version information, see [Version log](version-log.md).
 ### Data Controller
 - Fixed the issue "ConfigMap sql-config-[SQL MI] does not exist" from the February 2022 release. This issue occurs when deploying a SQL Managed Instance with service type of `loadBalancer` with certain load balancers. 
 
-
-
 ### SQL Managed Instance
 
 - Support for readable secondary replicas:
@@ -52,8 +50,6 @@ The following improvements are available in [Azure Data Studio](/sql/azure-data-
 - Data controller deployment wizard step for connectivity mode is now earlier in the process.
 - Removed an extra backups field in SQL MI deployment wizard.
 
-
-
 ## February 2022
 
 This release is published February 25, 2022.
@@ -64,8 +60,9 @@ This release is published February 25, 2022.
 
 For complete release version information, see [Version log](version-log.md).
 
- > [!NOTE] IMPORTANT: There is a known issue with this release where deployment of Arc SQL MI hangs, and sends the controldb pods of Arc Data Controller into a
-   > `CrashLoopBackOff` state, when the SQL MI is deployed with `loadBalancer` service type. This issue is fixed in a release on March 08, 2022. 
+> [!IMPORTANT] 
+> There is a known issue with this release where deployment of Arc SQL MI hangs, and sends the controldb pods of Arc Data Controller into a
+> `CrashLoopBackOff` state, when the SQL MI is deployed with `loadBalancer` service type. This issue is fixed in a release on March 08, 2022. 
 
 ### SQL Managed Instance
 
