@@ -20,7 +20,7 @@ Azure Load Testing supports two types of identities:
 
 - A **system-assigned identity** is associated with your Azure Load Testing resource and is removed when your resource is deleted. A resource can have only one system-assigned identity.
 
-- A user-assigned identity is a standalone Azure resource that can be assigned to your Azure Load Testing resource A resource can have multiple user-assigned identities.
+- A **user-assigned identity** is a standalone Azure resource that you can assign to your Azure Load Testing resource. When you delete the Load Testing resource, the identity is not removed. You can assign multiple user-assigned identities to the Load Testing resource.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

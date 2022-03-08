@@ -37,7 +37,7 @@ A test configuration uses the following keys:
 | `env` | object | List of environment variables that the Apache JMeter script references. |
 | `env.name` | string | Name of the environment variable. This name should match the secret name that you use in the Apache JMeter script. |
 | `env.value` | string | Value of the environment variable. |
-| `keyVaultReferenceIdentity` | string | *Required for user-assigned managed identity* Resource ID of the user-assigned managed identity which should be used to access the secrets from your Azure Key Vault.  |
+| `keyVaultReferenceIdentity` | string | *Required for user-assigned managed identity* Resource ID of the user-assigned managed identity for accessing the secrets from your Azure Key Vault. |
 
 The following example contains the configuration for a load test:
 

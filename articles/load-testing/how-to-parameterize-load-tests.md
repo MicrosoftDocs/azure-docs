@@ -100,7 +100,7 @@ When you create a load test in the Azure portal, or you use a [YAML test configu
 
 1. Grant your Azure Load Testing resource access to the key vault.
 
-    Your Azure Load Testing resource doesn't have permission to retrieve secrets from the key vault. You'll first enable a system-assigned managed identity for your Load Testing resource. Then, you'll grant read permissions to this managed identity. 
+    Your Azure Load Testing resource doesn't have permission to retrieve secrets from the key vault. You'll first enable a system-assigned identity for your Load Testing resource or add a user-assigned identity. Then, you'll grant read permissions to this managed identity.
     
     To provide Azure Load Testing access to your key vault, see [Use managed identities for Azure Load Testing](how-to-use-a-managed-identity.md).
 
@@ -108,13 +108,13 @@ When you create a load test in the Azure portal, or you use a [YAML test configu
     
     You define a load test secret parameter for each secret that you reference in the Apache JMeter script. The parameter name should match the name you used in the test script. The secret parameter value is the key vault security identifier.
 
-    You can specify secret parameters by doing either of the following: 
+    You can specify secret parameters by doing either of the following:
 
     * In the Azure portal, select your load test, select **Configure**, select the **Parameters** tab, and then enter the parameter details.
     
       :::image type="content" source="media/how-to-parameterize-load-tests/test-creation-secrets.png" alt-text="Screenshot that shows where to add secret details to a load test in the Azure portal.":::
 
-    * Select the **Key vault reference identity** that you would like to use to access your secrets. If you have selected User-assigned identity, select the identity from list of identities that are added to the resource.
+    * Select the **Key vault reference identity** that you would like to use to access your secrets. If you have selected User-assigned identity, select the identity from list of identities that are added to the resource. The selected identity was granted access in the previous step.
 
     * Alternatively, you can specify a secret in the YAML configuration file. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
 
