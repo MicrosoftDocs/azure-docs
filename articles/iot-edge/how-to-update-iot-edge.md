@@ -2,9 +2,9 @@
 title: Update IoT Edge version on devices - Azure IoT Edge | Microsoft Docs 
 description: How to update IoT Edge devices to run the latest versions of the security daemon and the IoT Edge runtime
 keywords: 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -122,7 +122,7 @@ If you want to update to the most recent version of IoT Edge, use the following 
 :::moniker range=">=iotedge-2020-11"
 
 >[!IMPORTANT]
->This is a Public Preview version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](https://aka.ms/AzEFLOW-Versions), not intended for production use. A clean install may be required for production use once the final General Availability (GA) release is available.
+>This is a Public Preview version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), not intended for production use. A clean install may be required for production use once the final General Availability (GA) release is available.
 >
 >To find out if you're currently using the continuous release version, navigate to **Settings** > **Apps** on your Windows device. Find **Azure IoT Edge** in the list of apps and features. If your listed version is 1.2.x.y, you are running the continuous release version.
 <!-- end 1.2 -->

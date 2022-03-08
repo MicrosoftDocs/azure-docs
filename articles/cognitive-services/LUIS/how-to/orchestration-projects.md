@@ -6,13 +6,13 @@ ms.author: aahi
 author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/06/2022
 ---
 
 # Combine LUIS and question answering capabilities
 
-Cognitive Services provides two natural language processing services, [Language Understanding](/azure/cognitive-services/luis/what-is-luis) (LUIS) and question answering, each with a different purpose. Understand when to use each service and how they compliment each other.
+Cognitive Services provides two natural language processing services, [Language Understanding](../what-is-luis.md) (LUIS) and question answering, each with a different purpose. Understand when to use each service and how they compliment each other.
 
 Natural language processing (NLP) allows your client application, such as a chat bot, to work with your users' natural language.
 

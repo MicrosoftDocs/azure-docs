@@ -1090,10 +1090,9 @@ Here's the JavaScript code:
 
 ```javascript
     // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
-    module.exports = function (context) {
-    context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
-    context.bindings.inputDocumentOut.text = "This was updated!";
-    context.done();
+    module.exports = async function (context) {
+        context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
+        context.bindings.inputDocumentOut.text = "This was updated!";
     };
 ```
 
@@ -1141,7 +1140,7 @@ Here's the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req, toDoItem) {
+module.exports = async function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
     {
@@ -1151,8 +1150,6 @@ module.exports = function (context, req, toDoItem) {
     {
         context.log("Found ToDo item, Description=" + toDoItem.Description);
     }
-
-    context.done();
 };
 ```
 
@@ -1201,7 +1198,7 @@ Here's the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req, toDoItem) {
+module.exports = async function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
     {
@@ -1211,8 +1208,6 @@ module.exports = function (context, req, toDoItem) {
     {
         context.log("Found ToDo item, Description=" + toDoItem.Description);
     }
-
-    context.done();
 };
 ```
 
@@ -1243,13 +1238,12 @@ The [configuration](#configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, input) {
+module.exports = async function (context, input) {
   var documents = context.bindings.documents;
   for (var i = 0; i < documents.length; i++) {
     var document = documents[i];
     // operate on each document
   }
-  context.done();
 };
 ```
 

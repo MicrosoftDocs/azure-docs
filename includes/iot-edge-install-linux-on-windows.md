@@ -126,7 +126,7 @@ Install Azure IoT Edge for Linux on Windows on your device.
    | Setting | Default value |
    | ------- | ------------- |
    | Virtual disk size in GB | 16 |
-   | Memory in MB | 1024 |
+   | Memory in MB **(even number)** | 1024 |
    | Number of cores | 2 |
    | Azure IoT Edge version | 1.1 (LTS) |
 

@@ -2,10 +2,11 @@
 metadata:
   title: Microsoft Azure Recovery Services (MARS) Agent – FAQ
   description: Addresses common questions about backing up files and folders with Azure Backup.
-  ms.topic: article
+  ms.topic: faq
   ms.service: backup
-  ms.date: 04/05/2021
-    
+  ms.date: 02/25/2022
+  author: v-amallick
+  ms.author: v-amallick
 title: Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
 summary: |
   This article answers common questions about backing up data with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
@@ -80,6 +81,11 @@ sections:
           Do I need administrator permissions to install and configure the MARS agent?
         answer: |
           Yes, the installation of the MARS Agent and configuration of backups using the MARS console need the user to be a local administrator on the protected server.
+
+      - question: |
+          In tenant restrictions scenario, which tenant should I allow access to for successful MARS backups?
+        answer: |
+          To know about tenant details, open the vault credential file downloaded from Recovery Services vault and refer to the value of the `<AadTenantId>` attribute.
 
       - question: |
           What is the impact on MARS Agent backups of transferring the vault subscription to a different Azure AD directory?

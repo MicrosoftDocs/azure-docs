@@ -285,14 +285,13 @@
       - name: Design SAP HA with WSFC and SOFS file share
         href: sap-high-availability-guide-wsfc-file-share.md     
       - name: Prepare Azure infrastructure for SAP HA (SOFS)
-        href: sap-high-availability-infrastructure-wsfc-file-share.md   
+        href: sap-high-availability-infrastructure-wsfc-file-share.md
       - name: Install HA SAP NetWeaver with WSFC and SOFS file share
-        href: sap-high-availability-installation-wsfc-file-share.md              
+        href: sap-high-availability-installation-wsfc-file-share.md
       - name: Multi-SID with WSFC and file share
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
       - name: Windows DFS-N - flexible SAPMNT for SMB based file share
         href: high-availability-guide-windows-dfs.md
-
 - name: Automation framework (Azure VMs)
   items:
   - name: About deployment automation framework
@@ -315,10 +314,14 @@
       href: automation-configure-workload-zone.md
     - name: Configure the SAP system
       href: automation-configure-system.md
+    - name: Configure SAP parameters
+      href: automation-configure-sap-parameters.md
     - name: Configure custom disk sizing
       href: automation-configure-extra-disks.md
     - name: Using a custom naming convention
       href: automation-naming-module.md
+    - name: Configure Azure DevOps
+      href: automation-configure-devops.md  
     - name: Configure external tools
       href: automation-tools-configuration.md
   - name: Script reference
@@ -381,6 +384,8 @@
       href: automation-run-ansible.md
     - name: Deployment hands-on lab
       href: automation-tutorial.md
+    - name: Deployment DevOps hands-on lab
+      href: automation-devops-tutorial.md
     - name: Manual infrastructure deployment
       href: automation-manual-deployment.md
     - name: Sample deployment configurations

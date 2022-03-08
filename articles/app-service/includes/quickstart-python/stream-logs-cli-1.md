@@ -8,7 +8,7 @@ ms.date: 01/29/2022
 
 ```azurecli
 az webapp log config \
-    --web-server-logging 'filesystem' \
+    --web-server-logging filesystem \
     --name $APP_SERVICE_NAME \
     --resource-group $RESOURCE_GROUP_NAME
 ```

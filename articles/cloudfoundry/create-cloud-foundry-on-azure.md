@@ -9,11 +9,11 @@ editor: ruyakubu
 ms.assetid:
 ms.author: ruyakubu
 ms.date: 09/13/2018
-ms.devlang: 
 ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
-ms.workload: web
+ms.workload: web 
+ms.custom: devx-track-azurecli
 ---
 
 # Create a Pivotal Cloud Foundry cluster on Azure

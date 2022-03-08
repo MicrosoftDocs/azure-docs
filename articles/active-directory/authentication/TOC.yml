@@ -72,8 +72,6 @@
       href: concept-password-ban-bad-on-premises.md
   - name: Security information registration
     href: concept-registration-mfa-sspr-combined.md
-  - name: Kerberos authentication (Preview)
-    href: how-to-authentication-kerberos.md
   - name: Resilient access controls
     href: concept-resilient-controls.md
 - name: How-to guides
@@ -186,21 +184,21 @@
     href: howto-password-smart-lockout.md
   - name: Certificate-based authentication
     items:
-    - name: Cloud-native CBA (Preview)
+    - name: Azure AD CBA (Preview)
       items:
       - name: Overview
-        href: concept-cloud-native-certificate-based-authentication.md
-      - name: How cloud-native CBA works
-        href: concept-cloud-native-certificate-based-authentication-technical-deep-dive.md
+        href: concept-certificate-based-authentication.md
+      - name: How Azure AD CBA works
+        href: concept-certificate-based-authentication-technical-deep-dive.md
       - name: Limitations
-        href: concept-cloud-native-certificate-based-authentication-limitations.md
-      - name: Configure cloud-native CBA
+        href: concept-certificate-based-authentication-limitations.md
+      - name: Configure Azure AD CBA
         href: how-to-certificate-based-authentication.md
       - name: FAQ
-        href: cloud-native-certificate-based-authentication-faq.yml
+        href: certificate-based-authentication-faq.yml
       - name: Troubleshoot
-        href: troubleshoot-cloud-native-certificate-based-authentication.md
-    - name: CBA with federation
+        href: troubleshoot-certificate-based-authentication.md
+    - name: Federated CBA with Azure AD
       items:
       - name: Configure CBA with federation
         href: active-directory-certificate-based-authentication-get-started.md
@@ -304,6 +302,8 @@
     href: /answers/topics/azure-active-directory.html
   - name: Pricing
     href: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing
+  - name: Feature availability
+    href: feature-availability.md
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow

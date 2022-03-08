@@ -1,7 +1,6 @@
 ---
 title: GPU-accelerated pools
 description: Introduction to GPUs inside Synapse Analytics.
-services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: overview

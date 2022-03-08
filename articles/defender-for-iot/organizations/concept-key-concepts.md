@@ -32,6 +32,30 @@ Engines identify security issues via continuous monitoring and five analytics en
 - **Anomaly detection**: Detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the engine uses a patented technique called Industrial Finite State Modeling (IFSM). The solution requires a shorter learning period than generic mathematical approaches or analytics, which were originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives.
 
 - **Operational incident detection**: Identifies operational issues such as intermittent connectivity that can indicate early signs of equipment failure.
+ 
+Tools are available to enable and disable sensor engines. Alerts are not triggered from engines that are disabled. See [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md).
+ 
+You can fine-tune detection instructions by working with Smart IT learning. See  [Learning and Smart IT Learning modes](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
+
+## Detection engines and alerts 
+
+Alerts are triggered when sensor engines detect changes in network traffic and behavior that need your attention. This section describes the kind of alerts that each engine triggers.
+
+| Alert type | Description |
+|-|-|
+| Policy violation alerts | Triggered when the Policy Violation engine detects a deviation from traffic previously learned. For example: <br /> - A new device is detected.  <br /> - A new configuration is detected on a device. <br /> - A device not defined as a programming device carries out a programming change. <br /> - A firmware version changed. |
+| Protocol violation alerts | Triggered when the Protocol Violation engine detects packet structures or field values that don't comply with the protocol specification. | 
+| Operational alerts | Triggered when the Operational engine detects network operational incidents or a device malfunctioning. For example, a network device was stopped through a Stop PLC command, or an interface on a sensor stopped monitoring traffic. |
+| Malware alerts | Triggered when the Malware engine detects malicious network activity. For example, the engine detects a known attack such as Conficker. |
+| Anomaly alerts | Triggered when the Anomaly engine detects a deviation. For example, a device is performing network scans but is not defined as a scanning device. |
+ 
+For more alert information, see:
+
+- [Manage the alert event](how-to-manage-the-alert-event.md)
+
+- [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+
+- [Alert types and descriptions](alert-engine-messages.md)
 
 ## Network Traffic Analysis for risk and vulnerability assessment
 
@@ -66,7 +90,7 @@ Defender for IoT enables the effective management of multiple deployments and a 
 
 The on-premises management console is a web-based administrative platform that lets you monitor and control the activities of global sensor installations. In addition to managing the data received from deployed sensors, the on-premises management console seamlessly integrates data from various business resources: CMDBs, DNS, firewalls, Web APIs, and more.
 
-:::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="On-premises management console display.":::
+:::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="On-premises management console display." lightbox="media/concept-air-gapped-networks/site-management-alert-screen.png":::
 
 We recommend that you familiarize yourself with the concepts, capabilities, and features available to sensors before working with the on-premises management console.
 
@@ -109,62 +133,6 @@ In addition, working with Horizon custom alerts lets you write your own alert ti
 Using custom, condition-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
 
 For a complete list of supported protocols see, [Supported Protocols](concept-supported-protocols.md#supported-protocols).
-
-
-### Secure development environment 
-
-The Horizon ODE enables development of custom or proprietary protocols that cannot be shared outside an organization. For example, because of legal regulations or corporate policies.
-
-Develop dissector plugins without: 
-
-- revealing any proprietary information about how your protocols are defined.
-
-- sharing any of your sensitive PCAPs.
-
-- violating compliance regulations.
-
-Contact <ms-horizon-support@microsoft.com> for information about developing protocol plugins.
-
-### Customization and localization  
-
-The SDK supports various customization options, including:
-
-  - Text for function codes. 
-
-  - Full localization text for alerts, events, and protocol parameters.
-
-  :::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="View fully localized alerts.":::
-
-## Horizon architecture
-
-The architectural model includes three product layers.
-
-:::image type="content" source="media/references-horizon-sdk/architecture.png" alt-text="https://lh6.googleusercontent.com/YFePqJv_6jbI_oy3lCQv-hHB1Qly9a3QQ05uMnI8UdTwhOuxpNAedj_55wseYEQQG2lue8egZS-mlnQZPWfFU1dF4wzGQSJIlUqeXEHg9CG4M7ASCZroKgbghv-OaNoxr3AIZtIh":::
-
-### Defender for IoT platform layer
-
-Enables immediate integration and real-time monitoring of custom dissector plugins in the Defender for IoT platform, without the need to upgrade the Defender for IoT platform version.
-
-### Defender for IoT services layer
-
-Each service is designed as a pipeline, decoupled from a specific protocol, enabling more efficient, independent development.
-
-Each service is designed as a pipeline, decoupled from a specific protocol. Services listens for traffic on the pipeline. They interact with the plugin data and the traffic captured by the sensors to index deployed protocols and analyze the traffic payload, and enable a more efficient and independent development.
-
-### Custom dissector layer 
-
-Enables creation of plugins using the Defender for IoT proprietary SDK (including C++ implementation and JSON configuration) to: 
-
-- Define how to identify the protocol
-
-- Define how to map the fields you want to extract from the traffic, and extract them 
-
-- Define how to integrate with the Defender for IoT services
-
-  :::image type="content" source="media/references-horizon-sdk/layers.png" alt-text="The built-in layers.":::
-
-Defender for IoT provides basic dissectors for common protocols. You can build your dissectors on top of these protocols.
-
 
 ## What is an Inventory Device
 

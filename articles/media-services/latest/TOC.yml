@@ -10,9 +10,14 @@
   - name: Release notes
     href: release-notes.md
     displayName: Release Notes, notes, updates, announcements, deprecations
-  - name: Compliance and regulatory
-    href: compliance-concept.md
-    displayName: compliance, regulatory, FedRamp, DOD CC SRG IL2, DOD CC SG IL 4, GDPR
+  - name: Compliance
+    items:
+    - name: Regulatory compliance
+      href: compliance-concept.md
+      displayName: compliance, regulatory, FedRamp, DOD CC SRG IL2, DOD CC SG IL 4, GDPR
+    - name: Privacy and security compliance
+      href: media-services-compliance.md
+      displayName: compliance, security, privacy
   - name: FAQs
     items:
       - name: Frequently asked questions
@@ -57,14 +62,14 @@
         displayName: samples, SDK, tutorial, GitHub, .NET, Python, Nodejs, Node, Node.JS Java, TypeScript, TS, JavaScript, JS
   - name: Try Media Services in the portal
     items:
+    - name: Basic Video On Demand (VOD) app
+      href: video-on-demand-simple-portal-quickstart.md
     - name: Live event with portal and Wirecast
       href: live-event-wirecast-quickstart.md
       displayName: Wirecast, live streaming, live, software, encoder
     - name: Live event with portal and OBS
       href: live-event-obs-quickstart.md
       displayName: OBS, Open Broadcast, OBS Studio, live streaming, live, software, encoder
-    - name: Use portal to upload, encode, and stream content 
-      href: asset-create-asset-upload-portal-quickstart.md
     - name: Use portal to encrypt content
       href: drm-encrypt-content-how-to.md
   - name: Deploy using an ARM template
@@ -191,9 +196,6 @@
     - name: Customer managed keys
       href: concept-use-customer-managed-keys-byok.md
       displayName: customer managed keys, byok, customer keys, keys, management
-    - name: Reset account credentials
-      href: account-reset-account-credentials.md   
-      displayName: reset, account credentials, remove credentials, security, restore, remove, credentials 
   - name: Assets
     items: 
     - name: Assets
@@ -204,7 +206,7 @@
     - name: Overview
       href: encode-concept.md   
       displayName: encode, transcode, encoding, presets, jobs, adaptive, bitrate, billing, h264, h265, aac, audio, video, MP4, HLS, DASH, Smooth
-    - name: Setting up transforms and jobs
+    - name: Transforms and jobs
       href: transform-jobs-concept.md 
       displayName: preset, schema, transform, job, template, encode, encoding, analyze, speech to text, captions, subtitles, transcode         
     - name: Supported file formats  
@@ -235,6 +237,9 @@
     - name: Overview
       href: stream-live-streaming-concept.md
       displayName: basic pass-through, standard pass-through, pass through, pass, pass-through, cloud encoding, cloud transcoding, cloud encoding, encoding channel, 4K, 1080P, 720P, streaming, live, live event, low latency, RTMP, Smooth, RTMPS, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP
+    - name: Live streaming best practices guide 
+      href: live-event-streaming-best-practices-guide.md 
+      displayName: ingest, static, hostname, rtmp, ingest, streaming, live, live event, low latency, RTMP,RTMPS, stream key, hostname, Smooth, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP, live output, outputs, DVR Window, time shift
     - name: Live events and live outputs 
       href: live-event-outputs-concept.md 
       displayName: ingest, static, hostname, rtmp, ingest, streaming, live, live event, low latency, RTMP,RTMPS, stream key, hostname, Smooth, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP, live output, outputs, DVR Window, time shift   
@@ -283,10 +288,7 @@
     items:
     - name: Dynamic encryption and key delivery
       displayName: content protection, access control, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, AES, AES-128,custom, DRM, CENC, CBCS, secure, encrypt, protect, authorization, keys, content keys, key delivery, license, license template, Playready license, SL3000
-      href: drm-content-protection-concept.md  
-    - name: Design of multi-DRM system 
-      displayName: drm, access control, content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, AES, AES-128,custom, DRM, CENC, CBCS, secure, encrypt, protect, authorization, keys, content keys, key delivery, license, license template, Playready license, SL3000
-      href: architecture-design-multi-drm-system.md  
+      href: drm-content-protection-concept.md
     - name: DRM licenses
       items:
       - name: PlayReady license template
@@ -449,6 +451,9 @@
     - name: Find your subscription ID
       href: setup-azure-subscription-how-to.md
       displayName: how to, how-to, tutorial, find subscription, subscription, subscription id
+    - name: Reset account credentials
+      href: account-reset-account-credentials.md   
+      displayName: reset, account credentials, remove credentials, security, restore, remove, credentials 
   - name: Create assets and upload media
     items:
     - name: Create an asset
@@ -523,10 +528,7 @@
       displayName: jobs, CLI, transform, multiple outputs, multi output
     - name: HTTPS as job input
       href: job-input-from-http-how-to.md
-      displayName: ingest, URL, remote URL, remote ingest, SAS, SAS URL, S3, S3 token, ingest from HTTP, JobInputHttp, blob, storage, storage account, blob file, ingest blob file, upload blob, copy blob, http, https
-  - name: Scale media reserved units CLI
-    href: media-reserved-units-cli-how-to.md   
-    displayName: CLI, MRU, media reserved units, scaling    
+      displayName: ingest, URL, remote URL, remote ingest, SAS, SAS URL, S3, S3 token, ingest from HTTP, JobInputHttp, blob, storage, storage account, blob file, ingest blob file, upload blob, copy blob, http, https    
   - name: Stream live
     items:
     - name: Live event with portal and Wirecast
@@ -537,7 +539,10 @@
       displayName: streaming, stream live, RTMP, RTMPS, ingest, live event, live streaming, live, partner, partners, on-premises, on premises, partner encoder, hardware encoder, hardware, verify, certification, certification, testing, partner testing, partner program 
     - name: Live event error codes
       href: live-event-error-codes-reference.md  
-      displayName: live event, error codes, error, codes, live streaming, debugging, troubleshooting live  
+      displayName: live event, error codes, error, codes, live streaming, debugging, troubleshooting live
+    - name: Scale media reserved units CLI
+      href: media-reserved-units-cli-how-to.md   
+      displayName: CLI, MRU, media reserved units, scaling
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
@@ -600,9 +605,6 @@
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
       displayName: descriptive audio, accessibility, access, accessible
-    - name: Publish
-      href: asset-publish-cli-how-to.md
-      displayName: publish, manifest, HLS, DASH, URL, Streaming URL, Streaming Locator, CLI, how-to, how to, sample
   - name: Security
     items:
       - name: Account security

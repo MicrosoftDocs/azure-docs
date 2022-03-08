@@ -1,12 +1,12 @@
 ---
 title: Create and provision an IoT Edge for Linux on Windows device using X.509 certificates - Azure IoT Edge | Microsoft Docs
 description: Create and provision a single IoT Edge for Linux on Windows device in IoT Hub using manual provisioning with X.509 certificates
-author: kgremban
+author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 02/09/2022
-ms.author: kgremban
+ms.author: patricka
 ---
 
 # Create and provision an IoT Edge for Linux on Windows device using X.509 certificates
@@ -18,7 +18,7 @@ This article provides end-to-end instructions for registering and provisioning a
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 >[!NOTE]
->The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](https://aka.ms/AzEFLOW-Versions), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
+>The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
 :::moniker-end
 <!-- end 1.2 -->
 
@@ -210,6 +210,9 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 <!-- end 1.2 -->
 
 When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+
+<!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
+[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]
 
 ## Next steps
 
