@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 03/03/2022
+ms.date: 03/08/2022
 ---
 # Use customer-managed keys with Azure Machine Learning
 
@@ -26,10 +26,8 @@ Customer-managed keys are used with the following services that Azure Machine Le
 | Azure Kubernetes Service | Hosting trained models as inference endpoints |
 
 > [!TIP]
-> While it may be possible to use the same key for everything, using a different key for each service or instance allows you to rotate or revoke the keys without impacting multiple services.
-
-> [!NOTE]
-> To use a customer-managed key with Azure Cosmos DB, Search or Storage Account, the key is provided when you create your workspace. The key(s) used with Azure Container Instance and Kubernetes Service are provided separately when configuring those resources.
+> * Azure Cosmos DB, Cognitive Search, and Storage Account are secured using the same key. You can use a different key for Azure Kubernetes Service and Container Instance.
+> * To use a customer-managed key with Azure Cosmos DB, Cognitive Search, and Storage Account, the key is provided when you create your workspace. The key(s) used with Azure Container Instance and Kubernetes Service are provided when configuring those resources.
 
 ## Prerequisites
 
@@ -97,6 +95,11 @@ Create an Azure Machine Learning workspace. When creating the workspace, you mus
     ```
 
     The key vault ID value will be similar to `/subscriptions/{GUID}/resourceGroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/mykv`. The URL for the key will be similar to `https://mykv.vault.azure.net/keys/mykey/{GUID}`.
+
+> [!TIP]
+> For examples of creating the workspace with a customer-managed key, see the following articles:
+> * [How to create and manage a workspace](how-to-manage-workspace.md#use-your-own-key).
+> * [How to create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace).
 
 Once the workspace has been created, you will notice that Azure resource group is created in your subscription. This is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`. It will contain an Azure Cosmos DB instance, Azure Storage Account, and Azure Cognitive Search.
 

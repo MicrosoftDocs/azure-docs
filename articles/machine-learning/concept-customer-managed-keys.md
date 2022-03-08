@@ -9,27 +9,13 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 03/03/2022
+ms.date: 03/08/2022
 ---
 # Customer-managed keys for Azure Machine Learning
 
 Azure Machine Learning is built on top of multiple Azure services. While the data is stored securely using encryption keys that Microsoft provides, you can enhance security by also providing your own (customer-managed) keys. The keys you provide are stored securely using Azure Key Vault.
 
-Customer-managed keys are used with the following services that Azure Machine Learning relies on:
-
-| Service | What it’s used for |
-| ----- | ----- |
-| Azure Cosmos DB | Stores metadata for Azure Machine Learning |
-| Azure Cognitive Search | Stores workspace metadata for Azure Machine Learning |
-| Azure Storage Account | Stores workspace metadata for Azure Machine Learning | 
-| Azure Container Instance | Hosting trained models as inference endpoints |
-| Azure Kubernetes Service | Hosting trained models as inference endpoints |
-
-> [!TIP]
-> While it may be possible to use the same key for everything, using a different key for each service or instance allows you to rotate or revoke the keys without impacting multiple services.
-
-> [!NOTE]
-> To use a customer-managed key with Azure Cosmos DB, Search or Storage Account, the key is provided when you create your workspace. The key(s) used with Azure Container Instance and Kubernetes Service are provided separately when configuring those resources.
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 In addition to customer-managed keys, Azure Machine Learning also provides a [hbi_workspace flag](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). Enabling this flag reduces the amount of data Microsoft collects for diagnostic purposes and enables [additional encryption in Microsoft-managed environments](../security/fundamentals/encryption-atrest.md). This flag also enables the following behaviors:
 
@@ -69,9 +55,6 @@ The following resources store metadata for your workspace:
 | Azure Cosmos DB | Stores run history data. |
 | Azure Cognitive Search | Stores indices that are used to help query your machine learning content. |
 | Azure Storage Account | Stores other metadata such as Azure Machine Learning pipelines data. |
-
-> [!IMPORTANT]
-> The Azure Storage Account for metadata is different than the default storage account for your workspace.
 
 Your Azure Machine Learning workspace reads and writes data using its managed identity. This identity is granted access to the resources using a role assignment (Azure role-based access control) on the data resources. The encryption key you provide is used to encrypt data that is stored on Microsoft-managed resources. It's also used to create indices for Azure Cognitive Search, which are created at runtime.
 

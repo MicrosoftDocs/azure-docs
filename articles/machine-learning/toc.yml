@@ -197,6 +197,8 @@
         - name: Plan and manage costs
           displayName: low priority VM
           href: concept-plan-manage-cost.md
+        - name: Customer-managed keys
+          href: concept-customer-managed-keys.md
 
     - name: Work with data
       items:
@@ -327,6 +329,8 @@
               - name: Use studio
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
                 href: how-to-create-attach-compute-studio.md
+          - Customer-managed keys
+            href: how-to-setup-customer-managed-keys.md
     - name: Set up an environment
       items: 
         - name: Set up dev environments
