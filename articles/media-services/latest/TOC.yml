@@ -461,7 +461,7 @@
       - name: Remove storage from an account
         href: account-remove-account-storage-how-to.md
       - name: List assets in an account
-        href: account-add-account-storoage-how-to.md
+        href: account-add-account-storage-how-to.md
       - name: List transforms in an account
         href: account-add-account-storage-how-to.md
       - name: Set account encryption with customer managed keys
