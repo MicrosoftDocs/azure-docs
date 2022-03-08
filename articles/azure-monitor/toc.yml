@@ -171,6 +171,8 @@ items:
       href: logs/cost-daily-cap.md
     - name: Analyze usage
       href: logs/cost-analyze-usage.md    
+    - name: Estimate costs
+      href: logs/cost-estimate.md    
   - name: Data security
     items:
     - name: Roles permissions and security

@@ -127,6 +127,11 @@ None of the legacy pricing tiers have regional-based pricing.
 > [!NOTE]
 > To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite, or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
 
+### Tracking pricing tier changes
+
+Changes to a workspace's pricing pier are recorded in the [Activity Log](../essentials/activity-log.md) with an event with the Operation named "Create Workspace". The event's **Change history** tab will show the old and new pricing tiers in the  `properties.sku.name` row.  Click the "Activity Log" option from your workspace to see events scoped to a particular workspace. To monitor changes the pricing tier, you can create an alert for the "Create Workspace" operation. 
+
+
 ## Evaluating the legacy Per Node pricing tier
 
 The decision of whether workspaces with access to the legacy **Per Node** pricing tier are better off in that tier or in a current **Pay-As-You-Go** or **Commitment Tier**  is often difficult for customers to assess.  This involves understanding the trade-off between the fixed cost per monitored node in the Per Node pricing tier and its included data allocation of 500 MB/node/day and the cost of just paying for ingested data in the Pay-As-You-Go (Per GB) tier. 
@@ -141,12 +146,11 @@ Here is the pricing tier recommendation query:
 
 ```kusto
 // Set these parameters before running query
-// Pricing details available at https://azure.microsoft.com/pricing/details/monitor/
-let daysToEvaluate = 7; // Enter number of previous days to analyze (reduce if the query is taking too long)
-let workspaceHasSecurityCenter = false;  // Specify if the workspace has Defender for Cloud (formerly known as Azure Security Center)
-let PerNodePrice = 15.; // Enter your monthly price per monitored nodes
-let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
-let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
+// For Pay-As-You-Go (per-GB) and commitment tier pricing details, see https://azure.microsoft.com/pricing/details/monitor/.
+// You can see your per-node costs in your Azure usage and charge data. For more information, see https://docs.microsoft.com/en-us/azure/cost-management-billing/understand/download-azure-daily-usage.  
+let PerNodePrice = 15.; // Monthly price per monitored node
+let PerNodeOveragePrice = 2.30; // Price per GB for data overage in the Per Node pricing tier
+let PerGBPrice = 2.30; // Enter the Pay-as-you-go price for your workspace's region (from https://azure.microsoft.com/pricing/details/monitor/)
 let CommitmentTier100Price = 196.; // Enter your price for the 100 GB/day commitment tier
 let CommitmentTier200Price = 368.; // Enter your price for the 200 GB/day commitment tier
 let CommitmentTier300Price = 540.; // Enter your price for the 300 GB/day commitment tier

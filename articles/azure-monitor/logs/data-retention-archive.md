@@ -134,7 +134,7 @@ You can also purge data from a workspace using the [purge feature](personal-data
 The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing. **To lower retention costs, decrease the retention period for the workspace or for specific tables.** 
 
 ## Tables with unique retention policies
-By default, the tables of two data types - `Usage` and `AzureActivity` - keep data for at least 90 days at no charge. Increasing the workspace retention policy to more than 90 days also increases the retention policy of these tables. These tables are also free from data ingestion charges. 
+By default, two data types - `Usage` and `AzureActivity` - keep data for at least 90 days at no charge. When you increase the workspace retention to more than 90 days, you also increase the retention of these data types, and you'll be charged for retaining this data beyond the 90-day period. These tables are also free from data ingestion charges. 
 
 Tables related to Application Insights resources also keep data for 90 days at no charge. You can adjust the retention policy of each of these tables individually. 
 
