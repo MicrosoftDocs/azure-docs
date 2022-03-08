@@ -124,7 +124,7 @@ speechTranslationConfig.speechRecognitionLanguage = "en-US";
 speechTranslationConfig.addTargetLanguage("de");
 ```
 
-### single-shot recognition
+### Single-shot recognition
 
 Here's an example of asynchronous single-shot translation via [`recognizeOnceAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognizeonceasync):
 
