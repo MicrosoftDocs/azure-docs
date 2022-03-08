@@ -2,7 +2,7 @@
 title: Microsoft Defender for IoT private link architectures
 description: Learn about the architecture models available for private link connections to Microsoft Defender for IoT.
 ms.topic: conceptual
-ms.date: 03/07/2022
+ms.date: 03/08/2022
 ---
 
 # Private link connection architectures
@@ -37,6 +37,7 @@ For more information, see [Update a standalone sensor version](how-to-manage-ind
 > To ensure that your network is ready, we recommend that you first run the the migration in a lab or testing environment so that you can safely validate your Azure service configurations.
 >
 
+<!-->
 ## ExpressRoute connections with Microsoft Peering
 
 The following image shows how you can use ExpressRoute to connect your sensors directly to Microsoft cloud services and establish a private and secure connection to the Azure portal.
@@ -46,7 +47,7 @@ With this method, use Microsoft Peering to connect your sensors directly to Azur
 :::image type="content" source="media/architecture-private/expressroute-peering.png" alt-text="Diagram of the ExpressRoute connection with Microsoft Peering." border="false":::
 
 For more information, see [Connect via ExpressRoute with Microsoft Peering](private-link.md#connect-via-expressroute-with-microsoft-peering).
-
+<-->
 ## Proxy connections with an Azure proxy
 
 The following image shows how you can connect your sensors to Microsoft cloud services through a proxy in the Azure VNET, ensuring confidentiality for all communications between your sensor and Azure.
