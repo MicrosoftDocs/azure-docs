@@ -44,7 +44,7 @@ If you're using these subscription types, we encourage you to use an authenticat
 
 ## Changing subscription type
 
-If you change your subscription type from Enterprise Agreement to another type of subscription, changes to your deployments may result in outbound SMTP being blocked. 
+If you change your subscription type from Enterprise Agreement to another type of subscription, changes to your deployments may result in outbound SMTP being blocked.  
 
 ## Need help? Contact support
 
