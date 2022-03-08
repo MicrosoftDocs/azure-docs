@@ -137,7 +137,7 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 
 * *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](./asp-net-exceptions.md).
 
-## Performance counters for applications running in Azure Web Apps or Web Apps on Azure App Service
+## Performance counters for applications running in Azure Web Apps and Windows Containers on Azure App Service
 
 Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a special sandbox environment. Applications deployed to Azure App Service can utilize a [Windows container](/azure/app-service/quickstart-custom-container?tabs=dotnet&pivots=container-windows) or be hosted in a sandbox environment. If the application is deployed in a Windows Container all standard performance counters are available in the container image. 
 
