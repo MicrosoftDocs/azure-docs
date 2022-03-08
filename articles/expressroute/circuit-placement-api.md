@@ -92,7 +92,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 * 200 (OK)  The request is success. It will fetch list of ports.
 * 4XX (Bad Request)  One of validations failed – for example: Provider subid isn't valid.
 
-### List of all port for a provider for a particular peering location
+### List get a list of all port pairs by location
 
 ```rest
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}
@@ -135,7 +135,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 * 200 (OK) The request is success. It will fetch list of ports.
 * 4XX (Bad Request) One of validations failed – for example: Provider subid isn't valid or location isn't valid.
 
-To get port details of a particular port using port pair descriptor ID.
+### To get a specific port pair using the port pair descriptor ID.
 
 ```rest
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts/{portPairDescriptor}
@@ -180,7 +180,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 * 204 The port pair with the mentioned descriptor ID isn't available.
 * 4XX (Bad Request) One of validations failed – For example: Provider subid isn't valid.
 
-### PUT expressRouteCrossConnection API to move a circuit to a specific port pair
+### Move a target expressRouteCircuit to a specific port pair
 
 Once the portPairDescriptor of the target port pair is identified, the ExpressRoute partner can use the [ExpressRouteCrossConnection API](/rest/api/expressroute/express-route-cross-connections/create-or-update) to move the ExpressRoute circuit to a specific port pair.
 
