@@ -43,6 +43,8 @@ The default cross-tenant access settings apply to all Azure AD organizations ext
 
 - No organizations are added to your Organizational settings by default. This means all external Azure AD organizations are enabled for B2B collaboration with your organization.
 
+The behaviors described above apply to B2B collaboration with other Azure AD tenants in your same Microsoft Azure cloud. In cross-cloud scenarios, default settings work a little differently. See [Cross-cloud settings](#cross-cloud-settings) later in this article.
+
 ## Organizational settings
 
 You can configure organization-specific settings by adding an organization and modifying the inbound and outbound settings for that organization. Organizational settings take precedence over default settings.
@@ -53,21 +55,23 @@ You can configure organization-specific settings by adding an organization and m
 
 ## Cross-cloud settings
 
-Cross-cloud settings let you collaborate with organizations from different Microsoft clouds. With cross-cloud access settings, you can establish mutual B2B collaboration between the following Microsoft Azure clouds:
+Cross-cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With cross-cloud access settings, you can establish mutual B2B collaboration between the following clouds:
 
 - Microsoft Azure global cloud
 - Microsoft Azure Government
 - Microsoft Azure China 21Vianet
 
-To set up B2B collaboration between tenants in different clouds, both tenants need to configure their cross-cloud settings to enable the external cloud. Then each tenant will need to configure their inbound and outbound cross-tenant access settings to allow B2B collaboration between their tenants. After you establish cross-cloud B2B collaboration, any user that can send invitations will be able to invite a user from another cloud once the Cross Tenant Access Policy is configured. You'll be able to:
+To set up B2B collaboration between tenants in different clouds, both tenants need to configure their cross-cloud settings to enable the partner's cloud. Then each tenant will need to configure their inbound and outbound cross-tenant access settings to allow B2B collaboration between their tenants. After you establish cross-cloud B2B collaboration, you'll be able to:
 
-- Use B2B collaboration to invite a user from an Azure AD tenant in the external cloud to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
-- Apply Conditional Access policies to the B2B collaboration user and trust device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
+- Use B2B collaboration to invite a user in the partner tenant to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
+- Apply Conditional Access policies to the B2B collaboration user and opt to trust device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
 - Add cross-cloud B2B collaboration users to your [Exchange Global Address List](/microsoft-365/solutions/per-group-guest-access).
 
-Note that once you enable an external cloud in your cross-cloud settings, your default cross-tenant access settings will apply to Azure AD tenants in that cloud just as they do to tenants in your cloud. This means that if B2B collaboration is allowed by default, once you enable an external cloud, B2B collaboration will be allowed by default for all Azure AD tenants in that external cloud. If you want to limit B2B collaboration to specific tenants, you'd update your default settings to block access to all tenants, and then selectively allow access to specific tenants in that cloud.
-
 For configuration steps, see [Configure cross-cloud settings for B2B collaboration (Preview)](cross-cloud-settings.md).
+
+### Default settings in cross-cloud scenarios
+
+To collaborate with a partner tenant in a different Microsoft Azure cloud, both organizations need to mutually enable B2B collaboration with each other. The first step is to enable the partner's cloud in your cross-tenant settings. When you first enable another cloud, B2B collaboration is blocked for all tenants in that cloud. You need to add the tenant you want to collaborate with to your Organizational settings, and at that point your default settings go into effect for that tenant only. You can allow the default settings to remain in effect, or you can modify the organizational settings for the tenant.
 
 ## Important considerations
 

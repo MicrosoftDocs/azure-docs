@@ -25,27 +25,25 @@ When Azure AD organizations in separate Microsoft Azure clouds need to collabora
 - Microsoft Azure Government
 - Microsoft Azure China 21Vianet
 
-you'll need to enable that cloud in your [cross-cloud settings](cross-tenant-access-overview.md#cross-cloud-settings), and then make sure your cross-tenant access default settings or organizational settings are configured to allow B2B collaboration with the tenant. Both tenants must mutually allow B2B collaboration, so an admin in the external tenant will need to do the same for your tenant.
-
 To set up B2B collaboration with a partner organization in an external Microsoft Azure cloud, each partner mutually agrees to configure B2B collaboration with each other. An admin in each organization needs to complete the following steps:
 
-- Configure cross-cloud settings to enable collaboration with the partner's cloud.
+1. Configure cross-cloud settings to enable collaboration with the partner's cloud.
 
-- Set the desired defaults that will generally apply to all Azure AD organizations in the partner's cloud.
+1. Set the desired defaults that will generally apply to all Azure AD organizations in the partner's cloud.
 
-- Create organizational settings specifically for the partner organization you want to collaborate with. You'll add the organization using their tenant ID and create organization-specific B2B collaboration settings.
+1. Create organizational settings specifically for the partner organization you want to collaborate with. You'll add the organization using their tenant ID and create organization-specific B2B collaboration settings.
 
 After each organization has completed these steps, their users can collaborate using Azure AD B2B collaboration.
 
 ## Before you begin
 
-- Be aware that once you enable a cloud, your default cross-tenant access settings will apply to all Azure AD tenants in that cloud. Decide on the default level of access you want to apply to any Azure AD organization for which you don't plan to create **Organizational settings**.
-- Obtain the tenant ID for your partner's Azure AD organization. You'll need the tenant ID to create customized **Organizational settings** for the partner's organization. In cross-cloud scenarios, lookup by organization name isn't available.
-- If you want to apply access settings to specific users, groups, or applications in the partner organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
+- **Obtain the partner's tenant ID.** You'll need the tenant ID for your partner's Azure AD organization to create customized organizational settings for the partner. In cross-cloud scenarios, lookup by the organization's domain isn't available.
+- **Obtain any required object IDs or app IDs.** If you want to apply access settings to specific users, groups, or applications in the partner organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
+- In cross-cloud scenarios, default settings only take effect for partner tenants that you add to your Organizational settings. When you first enable another cloud, B2B collaboration is blocked for all tenants in that cloud. You need to add the tenant you want to collaborate with to your Organizational settings, and at that point your default settings go into effect for that tenant only. You can allow the default settings to remain in effect, or you can modify the organizational settings for the tenant.
 
-## Enable the cloud
+## Enable the cloud in your cross-cloud settings
 
-In your cross-cloud settings, enable the Microsoft Azure cloud you want to collaborate with. 
+In your cross-cloud settings, enable the Microsoft Azure cloud you want to collaborate with.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
 1. Select **External Identities**, and then select **Cross-tenant access settings (preview)**.
@@ -54,29 +52,9 @@ In your cross-cloud settings, enable the Microsoft Azure cloud you want to colla
 
    ![Screenshot showing cross-cloud settings.](media/cross-cloud-settings/cross-cloud-settings.png)
 
-## Configure default settings
+## Add the tenant to your organizational settings
 
- Now that you've enabled an external cloud, your default settings apply to tenants in that cloud. If you want to modify the Azure AD-provided default settings, follow these steps.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings (Preview)**.
-1. Select the **Default settings** tab and review the summary page.
-
-   ![Screenshot showing the Cross-tenant access settings Default settings tab](media/cross-tenant-access-settings-b2b-collaboration/cross-tenant-defaults.png)
-
-1. To change the settings, select the **Edit inbound defaults** link or the **Edit outbound defaults** link.
-
-      ![Screenshot showing edit buttons for Default settings](media/cross-tenant-access-settings-b2b-collaboration/cross-tenant-defaults-edit.png)
-
-
-1. Modify the default settings by following the detailed steps in these sections:
-
-   - [Modify inbound access settings](cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings)
-   - [Modify outbound access settings](cross-tenant-access-settings-b2b-collaboration.md#modify-outbound-access-settings)
-
-## Add an organization
-
-Follow these steps to add the tenant in the external cloud with which you want to collaborate.
+Follow these steps to add the tenant you want to collaborate with to your Organizational settings.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
 1. Select **External Identities**, and then select **Cross-tenant access settings (preview)**.
@@ -92,7 +70,7 @@ Follow these steps to add the tenant in the external cloud with which you want t
    ![Screenshot showing an organization added with default settings](media/cross-tenant-access-settings-b2b-collaboration/org-specific-settings-inherited.png)
 
 
-1. Modify the organization's settings by following the detailed steps in these sections:
+1. Allow the default B2B collaboration settings to remain in effect for this tenant, or modify the organization's settings by following the detailed steps in these sections:
 
    - [Modify inbound access settings](cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings)
    - [Modify outbound access settings](cross-tenant-access-settings-b2b-collaboration.md#modify-outbound-access-settings)
