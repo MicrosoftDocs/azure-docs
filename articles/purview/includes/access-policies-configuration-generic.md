@@ -13,20 +13,20 @@ Execute this step only if the data sources and the Azure Purview account are in 
 
 ### Configure permissions for policy management actions in Azure Purview
 This section discusses the permissions needed to:
-1. Make a data resource available for *Data use governance*. This step is needed before a policy can be created in Azure Purview for that resource
-2. Authoring and publishing policies
+- Make a data resource available for *Data use governance*. This step is needed before a policy can be created in Azure Purview for that resource.
+- Author and publish policies
 
 >[!IMPORTANT]
-> - Currently, Azure Purview roles related to policy operations must be configured at **root collection level** and not child collection level.
+> Currently, Azure Purview roles related to policy operations must be configured at **root collection level** and not child collection level.
 
 #### Permissions to make a data resource available for *Data use governance*
 To enable the *Data use Governance* (DUG) toggle for a data source, resource group, or subscription, the same user needs to have both certain IAM privileges on the resource and certain Azure Purview privileges. 
 
 1) User needs to have **either one of the following** IAM role combinations on the resource:
-- IAM *Owner*
-- Both IAM *Contributor* + IAM *User Access Administrator*
+   - IAM *Owner*
+   - Both IAM *Contributor* + IAM *User Access Administrator*
 
-Follow this [guide to configure Azure RBAC role permissions](../../role-based-access-control/check-access.md).
+   Follow this [guide to configure Azure RBAC role permissions](../../role-based-access-control/check-access.md).
 
 2) In addition, the same user needs to have Azure Purview Data source administrator role at the root collection level. See the guide on [managing Azure Purview role assignments](../catalog-permissions.md#assign-permissions-to-your-users).
 
