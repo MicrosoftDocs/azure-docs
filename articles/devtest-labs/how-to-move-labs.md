@@ -42,9 +42,9 @@ To get started, export and modify a Resource Manager template.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. If you don't have [Resource Group](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups.md) under the target region, create one now.
+1. If you don't have [Resource Group](../azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups.md) under the target region, create one now.
 
-1. Move your current Virtual Network to the new region and resource group using the steps included in the article, "[Move an Azure virtual network to another region](/azure/virtual-network/move-across-regions-vnet-portal.md)". 
+1. Move your current Virtual Network to the new region and resource group using the steps included in the article, "[Move an Azure virtual network to another region](../virtual-network/move-across-regions-vnet-portal.md)". 
 
    Alternately, you can create a new virtual network, if you don't have to keep the original one. 
  
@@ -76,7 +76,7 @@ To update the template by using Azure portal:
 
 3. Select **Template deployment**.
 
-    ![Azure Resource Manager templates library](/azure/storage/common/media/storage-account-move/azure-resource-manager-template-library.png)
+    ![Azure Resource Manager templates library](../storage/common/media/storage-account-move/azure-resource-manager-template-library.png)
 
 4. Select **Create**.
 
@@ -213,9 +213,9 @@ Note the VMs under the new Lab have the same specs as the ones under the old Lab
 1. Create an empty disks under the new region.
    - Get the target Compute VM OS disk name under the new Lab.  You can fnd the Compute VM and its disk under the Resource group on the lab's Virtual Machine page.
 
-   - Use [AzCopy](/azure/storage/common/storage-use-azcopy-v10.md) to copy the old disk content into the new/empty disks in the new region. You can run the Powershell commands from your Dev Box or from the [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell.md).
+   - Use [AzCopy](../storage/common/storage-use-azcopy-v10.md) to copy the old disk content into the new/empty disks in the new region. You can run the Powershell commands from your Dev Box or from the [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md).
 
-     AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+     AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](../storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
         ```powershell
         # Fill in the source/target disk names and their resource group names 
