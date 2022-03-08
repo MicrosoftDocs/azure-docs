@@ -59,6 +59,10 @@ You can use either the Azure portal or the CLI to create a Media Services accoun
 
 ## Create a Media Services account
 
+Before you create a media services account, you may want to check to see if an account name is available.
+
+[!INCLUDE [Create a Media Services account with CLI](./includes/task-check-name-media-services-account-cli.md)]
+
 [!INCLUDE [Create a Media Services account with CLI](./includes/task-create-media-services-account-cli.md)]
 
 ---
