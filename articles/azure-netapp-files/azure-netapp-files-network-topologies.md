@@ -35,6 +35,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 Azure NetApp Files standard network features are supported for the following regions:
 
+*   Australia Central
 *	France Central
 *	North Central US
 *	South Central US
