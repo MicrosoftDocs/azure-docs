@@ -9,7 +9,6 @@ editor:
 
 ms.assetid:
 ms.service: media-services
-ms.devlang: multiple
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
@@ -22,6 +21,8 @@ ms.author: inhenkel
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article shows how to create a `CopyVideo/CopyAudio` transform.
+
+This transform allows you have input video / input audio streams copied from the input asset to the output asset without any changes. This can be of value with multi bitrate encoding output where the input video and/or audio would be part of the output. It simply writes the manifest and other files needed to stream content.
 
 ## Prerequisites
 

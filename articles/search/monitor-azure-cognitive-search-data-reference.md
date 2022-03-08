@@ -8,7 +8,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 11/24/2021
+ms.date: 12/01/2021
 ms.custom: subject-monitoring
 ---
 
@@ -104,9 +104,9 @@ For resource logs sent to blob storage, each blob has one root object called **r
 
 ### Resource log schema
 
-All resource logs available through Azure Monitor share a [common top-level schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Azure Cognitive Search supplements with [additional properties](#resource-log-search-props) and [operations](#resource-log-search-ops) that are specific to a search service.
+All resource logs available through Azure Monitor share a [common top-level schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Azure Cognitive Search supplements with [additional properties](#resource-log-search-props) and [operations](#resource-log-search-ops) that are unique to a search service.
 
-A resource log will include a combination of common and search-specific properties, as illustrated by the following example.
+The following example illustrates a resource log that includes common properties (TimeGenerated, Resource, Category, and so forth) and search-specific properties (OperationName and OperationVersion).
 
 | Name | Type | Description and example |
 | ---- | ---- | ----------------------- |
@@ -115,7 +115,7 @@ A resource log will include a combination of common and search-specific properti
 | Category | String | "OperationLogs". This value is a constant. OperationLogs is the only category used for resource logs. |
 | OperationName | String |  The name of the operation (see the [full list of operations](#resource-log-search-ops) below). An example is `Query.Search` |
 | OperationVersion | String | The api-version used on the request. For example: `2020-06-30` |
-| ResultType | String |"Success". Possible values: Success or Failure |
+| ResultType | String |"Success". Other possible values: Success or Failure |
 | ResultSignature | Int | An HTTP result code. For example: `200` |
 | DurationMS | Int | Duration of the operation in milliseconds. |
 | Properties |Object | Object containing operation-specific data. See the following properties schema table.|
@@ -137,22 +137,26 @@ The properties below are specific to Azure Cognitive Search.
 
 #### OperationName values (logged operations)
 
-For the OperationName, specify any of the following operations.
+The operations below can appear in a resource log.
 
 | OperationName | Description |
 |:------------- |:------------|
-| Indexing.Index  | This operation is a call to [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents). |
-| Indexers.Create | Create an indexer explicitly or implicitly through the Import Data wizard. |
-| Indexers.Get | Returns the name of an indexer whenever the indexer is run. |
-| Indexers.Status | Returns the status of an indexer whenever the indexer is run. |
-| DataSources.Get | Returns the name of the data source whenever an indexer is run.|
-| Indexes.Get | Returns the name of an index whenever an indexer is run. |
+| DataSources.*  | Applies to indexer data sources. Can be Create, Delete, Get, List.  |
+| DebugSessions.* | Applies to a debug session. Can be Create, Delete, Get, List, Start, and Status. |
+| DebugSessions.DocumentStructure | An enriched document is loaded into a debug session. |
+| DebugSessions.RetrieveIndexerExecutionHistoricalData | A request for indexer execution details. |
+| DebugSessions.RetrieveProjectedIndexerExecutionHistoricalData  | Execution history for enrichments projected to a knowledge store. |
+| Indexers.* | Applies to an indexer. Can be Create, Delete, Get, List, and Status. |
+| Indexes.* | Applies to a search index. Can be Create, Delete, Get, List.  |
 | indexes.Prototype | This is an index created by the Import Data wizard. |
-| Query.Autocomplete |  An autocomplete query against an index. See [Query types and composition](search-query-overview.md). |
+| Indexing.Index  | This operation is a call to [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents). |
+| Metadata.GetMetadata | A request for search service system data.  |
+| Query.Autocomplete | An autocomplete query against an index. See [Query types and composition](search-query-overview.md). |
 | Query.Lookup |  A lookup query against an index. See [Query types and composition](search-query-overview.md). |
 | Query.Search |  A full text search request against an index. See [Query types and composition](search-query-overview.md). |
 | Query.Suggest |  Type ahead query against an index. See [Query types and composition](search-query-overview.md). |
 | ServiceStats | This operation is a routine call to [Get Service Statistics](/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it is loaded or refreshed. |
+| Skillsets.* | Applies to a skillset. Can be Create, Delete, Get, List. |
 
 ## See also
 

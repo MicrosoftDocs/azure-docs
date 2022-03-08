@@ -8,12 +8,12 @@ ms.subservice: backup-restore
 ms.custom: mode-other
 ms.devlang: 
 ms.topic: quickstart
-author: Misliplavo
+author: MilanMSFT
 ms.author: mlazic
-ms.reviewer: mathoma
+ms.reviewer: mathoma, nvraparl 
 ms.date: 12/14/2018
 ---
-# Monitor backup activity for Azure SQL Managed Instance 
+# Monitor backup activity for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article teaches you to configure extended event (XEvent) sessions to monitor backup activity for [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). 

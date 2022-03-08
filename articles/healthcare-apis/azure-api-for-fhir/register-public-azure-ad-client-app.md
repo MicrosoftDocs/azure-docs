@@ -5,7 +5,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 01/06/2022
 ms.author: cavoeg
 ---
 
@@ -64,4 +64,4 @@ If you configure your client application in a different Azure AD tenant from you
 In this article, you've learned how to register a public client application in Azure Active Directory. Next, test access to your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
->[Access the FHIR service using Postman](./../use-postman.md)
+>[Access the FHIR service using Postman](./../fhir/use-postman.md)

@@ -26,7 +26,7 @@ The first layer of encryption for Azure services is enabled with platform-manage
 
 ## Azure Synapse encryption
 
-This section will help you better understand how customer-managed key encryption is enabled and enforced in Synapse workspaces. This encryption uses existing keys or new keys generated in Azure Key Vault. A single key is used to encrypt all the data in a workspace. Synapse workspaces support RSA 2048 and 3072 byte-sized keys, as well as RSA-HSM keys.
+This section will help you better understand how customer-managed key encryption is enabled and enforced in Synapse workspaces. This encryption uses existing keys or new keys generated in Azure Key Vault. A single key is used to encrypt all the data in a workspace. Synapse workspaces support RSA 2048 and 3072 byte-sized keys, and RSA-HSM keys.
 
 > [!NOTE]
 > Synapse workspaces do not support the use of EC, EC-HSM, and oct-HSM keys for encryption. 
@@ -49,12 +49,13 @@ Workspaces can be configured to enable double encryption with a customer-managed
 
 ### Key access and workspace activation
 
-The Azure Synapse encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or [Azure Key Vault RBAC access](../../key-vault/general/rbac-guide.md). When granting permissions via an Azure Key Vault access policy, choose the ["Application-only"](../../key-vault/general/security-features.md#key-vault-authentication-options) option during policy creation (select the workspaces managed identity and do not add it as an authorized application).
+The Azure Synapse encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or [Azure Key Vault RBAC](../../key-vault/general/rbac-guide.md). When granting permissions via an Azure Key Vault access policy, choose the ["Application-only"](../../key-vault/general/security-features.md#key-vault-authentication-options) option during policy creation (select the workspaces managed identity and do not add it as an authorized application).
 
  The workspace managed identity must be granted the permissions it needs on the key vault before the workspace can be activated. This phased approach to workspace activation ensures that data in the workspace is encrypted with the customer-managed key. Encryption can be enabled or disabled for individual dedicated SQL Pools. Each dedicated pool is not enabled for encryption by default.
 
 #### Using a User-assigned Managed identity
-Workspaces can be configured to use a [User-assigned Managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access your customer-managed key stored in Azure Key Vault. Configure a User-assigned Managed identity to avoid phased activation of your Azure Synapse workspace when using double encryption with customer managed keys. The Managed Identity Contributor built-in role is required to assign a user-assigned managed identity to an Azure Synapse workspace.
+Workspaces can be configured to use a [User-assigned Managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access your customer-managed key stored in Azure Key Vault. Configure a User-assigned Managed identity to avoid phased activation of your Azure Synapse workspace when using double encryption with customer-managed keys. The Managed Identity Contributor built-in role is required to assign a user-assigned managed identity to an Azure Synapse workspace.
+
 > [!NOTE]
 > A User-assigned Managed Identity cannot be configured to access customer-managed key when Azure Key Vault is behind a firewall.
 
@@ -63,7 +64,8 @@ Workspaces can be configured to use a [User-assigned Managed identity](../../act
 
 #### Permissions
 
-To encrypt or decrypt data at rest, the managed identity must have the following permissions:
+To encrypt or decrypt data at rest, the managed identity must have the following permissions. Similarly, if you are using a Resource Manager template to create a new key, the 'keyOps' parameter of the template must have the following permissions:
+
 * WrapKey (to insert a key into Key Vault when creating a new key).
 * UnwrapKey (to get the key for decryption).
 * Get (to read the public part of a key)
@@ -77,7 +79,7 @@ If you do not configure a user-assigned managed identity to access customer mana
 
 ### Manage the workspace customer-managed key 
 
-You can change the customer-managed key used to encrypt data from the **Encryption** page in the Azure portal. Here too, you can choose a new key using a key identifier or select from Key Vaults that you have access to in the same region as the workspace. If you choose a key in a different key vault from the ones previously used, grant the workspace managed identity "Get", "Wrap", and "Unwrap" permissions on the new key vault. The workspace will validate its access to the new key vault and all data in the workspace will be re-encrypted with the new key.
+You can change the customer-managed key used to encrypt data from the **Encryption** page in the Azure portal. Here too, you can choose a new key using a key identifier or select from Key Vaults that you have access to in the same region as the workspace. If you choose a key in a different key vault from the ones previously used, grant the workspace-managed identity "Get", "Wrap", and "Unwrap" permissions on the new key vault. The workspace will validate its access to the new key vault and all data in the workspace will be re-encrypted with the new key.
 
 :::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="This diagram shows the workspace Encryption section in the Azure portal." lightbox="./media/workspaces-encryption/workspace-encryption-management.png":::
 
@@ -97,4 +99,4 @@ SQL Transparent Data Encryption (TDE) is available for dedicated SQL Pools in wo
 
 [Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)
 
-[Create an Azure key vault and a key by using ARM template](../../key-vault/keys/quick-create-template.md)
+[Create an Azure key vault and a key by using Resource Manager template](../../key-vault/keys/quick-create-template.md)

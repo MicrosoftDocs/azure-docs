@@ -4,12 +4,11 @@ description: How to manage members and owners of privileged access groups in Pri
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: pim
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity

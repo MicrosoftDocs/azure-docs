@@ -8,7 +8,7 @@ editor: ''
 tags: ''
 keywords: azure media services, migration, stream, broadcast, live, SDK
 ms.service: media-services
-ms.devlang: multiple
+ms.devlang: csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
@@ -46,7 +46,7 @@ Follow the quickstart steps for [setting up your environment](setup-azure-subscr
 
 ## Download client SDK of your choice and set up your environment
 
-- SDKs available for [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media), and [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
+- SDKs available for [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/arm-mediaservices-readme), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media), and [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
 - [Azure CLI](/cli/azure/ams) integration for simple scripting support.
 
 > [!NOTE]

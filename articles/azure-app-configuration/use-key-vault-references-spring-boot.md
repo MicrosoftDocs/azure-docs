@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.workload: tbd
-ms.devlang: csharp
+ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: alkemper

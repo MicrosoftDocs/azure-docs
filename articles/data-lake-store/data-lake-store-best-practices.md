@@ -7,7 +7,6 @@ author: sachinsbigdata
 manager: mtillman
 
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins

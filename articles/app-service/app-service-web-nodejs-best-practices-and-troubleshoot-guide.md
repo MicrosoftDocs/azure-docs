@@ -4,7 +4,7 @@ description: Learn the best practices and troubleshooting steps for Node.js appl
 author: msangapu-msft
 
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
@@ -51,7 +51,7 @@ This setting controls the directory where iisnode logs stdout/stderr. The defaul
 
 ### debuggerExtensionDll
 
-This setting controls what version of node-inspector iisnode uses when debugging your node application. Currently, iisnode-inspector-0.7.3.dll and iisnode-inspector.dll are the only two valid values for this setting. The default value is iisnode-inspector-0.7.3.dll. The iisnode-inspector-0.7.3.dll version uses node-inspector-0.7.3 and uses web sockets. Enable web sockets on your Azure webapp to use this version. See <https://ranjithblogs.azurewebsites.net/?p=98> for more details on how to configure iisnode to use the new node-inspector.
+This setting controls what version of node-inspector iisnode uses when debugging your node application. Currently, iisnode-inspector-0.7.3.dll and iisnode-inspector.dll are the only two valid values for this setting. The default value is iisnode-inspector-0.7.3.dll. The iisnode-inspector-0.7.3.dll version uses node-inspector-0.7.3 and uses web sockets. Enable web sockets on your Azure webapp to use this version. 
 
 ### flushResponse
 

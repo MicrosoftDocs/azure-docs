@@ -166,7 +166,7 @@ When users request access, they're requesting access to the underlying group, an
 
 ## Plan reporting and auditing
 
-Azure AD provides [reports that offer technical and business insights]../reports-monitoring/overview-reports.md). Work with your business and technical application owners to assume ownership of these reports and to consume them regularly. The following table provides some examples of typical reporting scenarios.
+Azure AD provides [reports that offer technical and business insights](../reports-monitoring/overview-reports.md). Work with your business and technical application owners to assume ownership of these reports and to consume them regularly. The following table provides some examples of typical reporting scenarios.
 
 | Example| Manage risk| Increase productivity| Governance and compliance |
 | - | - | - | -|

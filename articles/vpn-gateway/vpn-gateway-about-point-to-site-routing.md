@@ -7,15 +7,15 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/07/2020
+ms.date: 12/03/2021
 ms.author: cherylmc
 
 ---
 # About Point-to-Site VPN routing
 
-This article helps you understand how Azure Point-to-Site VPN routing behaves. P2S VPN routing behavior is dependent on the client OS, the protocol used for the VPN connection, and how the virtual networks (VNets) are connected to each other.
+This article helps you understand how Azure Point-to-Site VPN routing behaves. P2S VPN routing behavior is dependent on the client OS, the protocol used for the VPN connection, and how the virtual networks (VNets) are connected to each other. For more information about Point-to-Site VPN, including supported protocols, see [About Point-to-Site VPN](point-to-site-about.md).
 
-Azure currently supports two protocols for remote access, IKEv2 and SSTP. IKEv2 is supported on many client operating systems including Windows, Linux, macOS, Android, and iOS. SSTP is only supported on Windows. If you make a change to the topology of your network and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
+If you make a change to the topology of your network and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
 
 > [!NOTE]
 > This article applies to IKEv2 only.
@@ -123,7 +123,7 @@ Clients using Windows, or another supported OS, can access all VNets that are co
 
 ### Routes added
 
-* Routes added to Windows clients: 10.1.0.0/16
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
 * Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 

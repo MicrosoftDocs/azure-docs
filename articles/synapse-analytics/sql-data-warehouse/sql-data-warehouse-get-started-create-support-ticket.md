@@ -1,7 +1,6 @@
 ---
 title: Request quota increases and get support
 description: How to create a support request in the Azure portal for Azure Synapse Analytics. Request quota increases or get problem resolution support.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 

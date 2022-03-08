@@ -93,7 +93,7 @@ You can also disable local authentication after a workspace is created through t
   - Imported members from other Azure ADs who are native or federated domain members.
   - Active Directory groups created as security groups.
 
-- Azure AD users that are part of a group that has `db_owner` server role can't use the **[CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)** syntax against Synapse SQL. You will see the following error:
+- Azure AD users that are part of a group that has `db_owner` server role can't use the **[CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)** syntax in Synapse SQL. You will see the following error:
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 

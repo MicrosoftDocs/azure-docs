@@ -99,7 +99,7 @@ Currently, the WASB driver, which was designed to work with the Blob API only, e
 
 Using the WASB driver as a client to a hierarchical namespace enabled storage account is not supported. Instead, we recommend that you use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.
 
-## Soft delete for blobs capability (currently in preview)
+## Soft delete for blobs capability
 
 If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items.
 

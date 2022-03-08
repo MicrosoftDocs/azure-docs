@@ -10,11 +10,13 @@ ms.author:  petrodeg
 ms.reviewer: laobri
 ms.date: 11/03/2021
 ms.topic: troubleshooting
-ms.custom: devplatv2
+ms.custom: devplatv2, devx-track-azurecli
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
 # Troubleshooting online endpoints deployment and scoring (preview)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints (preview).
 
@@ -105,6 +107,8 @@ Below is a list of common deployment errors that are reported as part of the dep
 Below is a list of common resources that might run out of quota when using Azure services:
 
 * [CPU](#cpu-quota)
+* [Disk](#disk-quota)
+* [Memory](#memory-quota)
 * [Role assignments](#role-assignment-quota)
 * [Endpoints](#endpoint-quota)
 * [Kubernetes](#kubernetes-quota)
@@ -115,6 +119,15 @@ Below is a list of common resources that might run out of quota when using Azure
 Before deploying a model, you need to have enough compute quota. This quota defines how much virtual cores are available per subscription, per workspace, per SKU, and per region. Each deployment subtracts from available quota and adds it back after deletion, based on type of the SKU.
 
 A possible mitigation is to check if there are unused deployments that can be deleted. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases).
+
+#### Disk quota
+
+This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try a SKU with more disk space.
+* Try a [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md) with more disk space
+* Try reducing image and model size
+
+#### Memory quota
+This issue happens when the memory footprint of the model is larger than the available memory. Try a [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md) with more memory.<br>
 
 #### Role assignment quota
 

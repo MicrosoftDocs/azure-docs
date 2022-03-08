@@ -123,8 +123,8 @@ For example – if we want to find all the cases of a user that failed to sign i
 ```Kusto
 BehaviorAnalytics
 | where ActivityType == "FailedLogOn"
-| where FirstTimeUserConnectedFromCountry == True
-| where CountryUncommonlyConnectedFromAmongPeers == True
+| where ActivityInsights.FirstTimeUserConnectedFromCountry == True
+| where ActivityInsights.CountryUncommonlyConnectedFromAmongPeers == True
 ```
 
 ### User peers metadata - table and notebook

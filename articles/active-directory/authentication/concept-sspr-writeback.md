@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/25/2021
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.custom: ignite-fall-2021
@@ -140,7 +140,7 @@ Passwords are written back in all the following situations:
    * Any administrator self-service force change password operation, for example, password expiration.
    * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com).
    * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com).
-   * Any administrator-initiated end-user password reset from the [Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http).
+   * Any administrator-initiated end-user password reset from the [Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword).
 
 ## Unsupported writeback operations
 

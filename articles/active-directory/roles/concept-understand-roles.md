@@ -3,7 +3,7 @@ title: Understand Azure Active Directory role concepts
 description: Learn how to understand Azure Active Directory built-in and custom roles with resource scope in Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -65,5 +65,5 @@ Service-specific roles | Azure DevOps Administrator<br>Azure Information Protect
 ## Next steps
 
 - [Overview of Azure AD role-based access control](custom-overview.md)
-- Create role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
+- Create role assignments using [the Azure portal, Azure AD PowerShell, and Microsoft Graph API](custom-create.md)
 - [List role assignments](view-assignments.md)

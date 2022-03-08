@@ -9,6 +9,9 @@ ms.date: 08/30/2021
 
 This article describes the security configuration and considerations you should evaluate before deploying Azure Arc-enabled servers in your enterprise.
 
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+
 ## Identity and access control
 
 Each Azure Arc-enabled server has a managed identity as part of a resource group inside an Azure subscription. That identity represents the server running on-premises or other cloud environment. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) page in the Azure portal, you can verify who has access to your Azure Arc-enabled server.
@@ -27,11 +30,11 @@ To manage the Azure Connected Machine agent (azcmagent) on Windows, your user ac
 
 The Azure Connected Machine agent is composed of three services, which run on your machine.
 
-* The Hybrid Instance Metadata Service (himds) service is responsible for all core functionality of Arc. This includes sending heartbeats to Azure, exposing a local instance metadata service for other apps to learn about the machine’s Azure resource ID, and retrieve Azure AD tokens to authenticate to other Azure services. This service runs as an unprivileged virtual service account on Windows, and as the **himds** user on Linux.
+* The Hybrid Instance Metadata Service (himds) service is responsible for all core functionality of Arc. This includes sending heartbeats to Azure, exposing a local instance metadata service for other apps to learn about the machine’s Azure resource ID, and retrieve Azure AD tokens to authenticate to other Azure services. This service runs as an unprivileged virtual service account (NT SERVICE\\himds) on Windows, and as the **himds** user on Linux. The virtual service account requires the Log on as a Service right on Windows.
 
 * The Guest Configuration service (GCService) is responsible for evaluating Azure Policy on the machine.
 
-* The Guest Configuration Extension service (ExtensionService) is responsible for installing, updating, and deleting extensions (agents, scripts, or other software) on the machine.
+* The Guest Configuration Extension service (ExtensionService) is responsible for installing, upgrading, and deleting extensions (agents, scripts, or other software) on the machine.
 
 The guest configuration and extension services run as Local System on Windows, and as root on Linux.
 

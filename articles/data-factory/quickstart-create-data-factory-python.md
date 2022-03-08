@@ -9,7 +9,7 @@ ms.subservice: tutorials
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/27/2021
-ms.custom: seo-python-october2019, devx-track-python, mode-other
+ms.custom: seo-python-october2019, devx-track-python, mode-api
 ---
 
 # Quickstart: Create a data factory and pipeline using Python

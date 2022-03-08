@@ -1,11 +1,11 @@
 ---
 title: Connect to SFTP account (Deprecated)
-description: Automate tasks and processes that monitor, create, manage, send, and receive files for an SFTP server by using Azure Logic Apps
+description: Automate tasks and processes that monitor, create, manage, send, and receive files for an SFTP server using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 
 > [!IMPORTANT]
 > Please use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) as the SFTP connector is deprecated. You can no longer select SFTP 
-> triggers and actions in the Logic App Designer.
+> triggers and actions in the workflow designer.
 
 To automate tasks that monitor, create, send, and receive files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server, you can build and automate integration workflows by using Azure Logic Apps and the SFTP connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream. Here are some example tasks you can automate:
 
@@ -32,7 +32,7 @@ The SFTP connector handles only files that are *50 MB or smaller* and doesn't su
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Your SFTP server address and account credentials, which let your logic app access your SFTP account. To use the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you also need access to an SSH private key and the SSH private key password.
 

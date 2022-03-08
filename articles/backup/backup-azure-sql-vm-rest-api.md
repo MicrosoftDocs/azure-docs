@@ -29,7 +29,7 @@ Use the following resources:
 
 ### Discover unprotected SQL Server databases
 
-The vault needs to discover all Azure VMs in the subscription with SQL databases that you can back up to the Recovery Services vault. To fetch the details, trigger the [refresh operation](/rest/api/backup/protectioncontainers/refresh). It's an asynchronous *POST* operation that ensures the vault receives the latest list of all unprotected SQL databases in the current subscription and *caches* them. Once the database is *cached*, recovery services can access the database and protect it.
+The vault needs to discover all Azure VMs in the subscription with SQL databases that you can back up to the Recovery Services vault. To fetch the details, trigger the [refresh operation](/rest/api/backup/protection-containers/refresh). It's an asynchronous *POST* operation that ensures the vault receives the latest list of all unprotected SQL databases in the current subscription and *caches* them. Once the database is *cached*, recovery services can access the database and protect it.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{vaultResourceGroupName}/providers/microsoft.recoveryservices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -100,7 +100,7 @@ X-Powered-By: ASP.NET
 
 ### List VMs with SQL databases to back up with Recovery Services vault
 
-To confirm that *caching* is done, list all VMs in the subscription with SQL databases that can be backed-up with the Recovery Services vault. Then locate the desired storage account in the response. This's done using the [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list) operation.
+To confirm that *caching* is done, list all VMs in the subscription with SQL databases that can be backed-up with the Recovery Services vault. Then locate the desired storage account in the response. This's done using the [GET ProtectableContainers](/rest/api/backup/protectable-containers/list) operation.
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/SQLServerSelfHost/providers/microsoft.recoveryservices/vaults/SQLServer2012/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureWorkload'
@@ -194,7 +194,7 @@ The create request body is as follows:
 }
 ```
 
-For the complete list of definitions of the request body and other details, see [ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
+For the complete list of definitions of the request body and other details, see [ProtectionContainers-Register](/rest/api/backup/protection-containers/register#azurestoragecontainer).
 
 This's an asynchronous operation and returns two responses: 202 (Accepted) when the operation is accepted, and 200 (OK) when the operation is complete.  To track the operation status, use the location header to get the latest status of the operation.
 
@@ -255,7 +255,7 @@ You can verify if the registration was successful from the value of the *registr
 
 ### Inquire all unprotected SQL databases under a VM
 
-To inquire about protectable items in a storage account, use the [Protection Containers-Inquire](/rest/api/backup/protectioncontainers/inquire) operation. It's an asynchronous operation and the results should be tracked using the location header.
+To inquire about protectable items in a storage account, use the [Protection Containers-Inquire](/rest/api/backup/protection-containers/inquire) operation. It's an asynchronous operation and the results should be tracked using the location header.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire?api-version=2016-12-01$filter={$filter}
@@ -293,7 +293,7 @@ X-Powered-By: ASP.NET
 
 ### Select the databases you want to back up
 
-To list all protectable items under the subscription and locate the desired database to be backed-up, use the [GET backupprotectableItems](/rest/api/backup/backupprotectableitems/list) operation.
+To list all protectable items under the subscription and locate the desired database to be backed-up, use the [GET backupprotectableItems](/rest/api/backup/backup-protectable-items/list) operation.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
@@ -344,8 +344,8 @@ The response contains the list of all unprotected databases and contains all inf
 After the relevant database is *identified* with the friendly name:
 
 1. Select the policy to protect.
-1. [List existing policies in the vault, see with list Policy API](/rest/api/backup/backuppolicies/list).
-1. Select the [relevant policy](/rest/api/backup/protectionpolicies/get) by referring to the policy name.
+1. [List existing policies in the vault, see with list Policy API](/rest/api/backup/backup-policies/list).
+1. Select the [relevant policy](/rest/api/backup/protection-policies/get) by referring to the policy name.
 1. [Create policy tutorial](./backup-azure-arm-userestapi-createorupdatepolicy.md).
 
 Enabling protection is an asynchronous *PUT* operation that creates a *protected item*.
@@ -535,7 +535,4 @@ As the backup job is a long running operation, it needs to be tracked as explain
 
 ## Next steps
 
-- Learn how to [restore SQL databases using Rest API](restore-azure-sql-vm-rest-api.md).
-
-
-
+- Learn how to [restore SQL databases using REST API](restore-azure-sql-vm-rest-api.md).

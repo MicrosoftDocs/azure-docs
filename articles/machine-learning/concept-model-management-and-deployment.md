@@ -204,7 +204,7 @@ Learn more by reading and exploring the following resources:
 
 + [How & where to deploy models](how-to-deploy-and-where.md) with Azure Machine Learning
 
-+ [Tutorial: Deploy an image classification model in ACI](tutorial-deploy-models-with-aml.md).
++ [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md).
 
 + [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
 

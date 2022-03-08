@@ -85,6 +85,9 @@ Many countries and states have laws and regulations that apply to the recording 
 
 Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the `participants` array. You can cross-reference the MRIs in the `participants` array with your internal user identities to identify participants in a call. An example of a recording metadata file is provided below for reference.
 
+## Availability
+Currently, ACS Call Recording APIs are available in C# and Java.
+
 ## Next steps
 Check out the [Call Recoding Quickstart](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn more.
 

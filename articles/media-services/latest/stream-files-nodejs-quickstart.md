@@ -49,9 +49,9 @@ Clone a GitHub repository that contains the streaming Node.js sample to your mac
  git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
  ```
 
-The sample is located in the [StreamFilesSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/AMSv3Samples/StreamFilesSample) folder.
+The sample is located in the [StreamFilesSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/StreamFilesSample) folder.
 
-Open [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.ts) in your downloaded project. Update the *sample.env* file in the root folder with the values and credentials that you got from [accessing APIs](./access-api-howto.md). Rename the *sample.env* file to *.env* (Yes, just the extension).
+Open [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/StreamFilesSample/index.ts) in your downloaded project. Update the *sample.env* file in the root folder with the values and credentials that you got from [accessing APIs](./access-api-howto.md). Rename the *sample.env* file to *.env* (Yes, just the extension).
 
 The sample performs the following actions:
 
@@ -68,30 +68,18 @@ The sample performs the following actions:
 
 ## Run the sample
 
-1. The application downloads encoded files. Create a folder where you want the output files to go and update the value of the **outputFolder** variable in the [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/StreamFilesSample/index.ts#L59) file. It is set to "Temp" by default.
+1. The application downloads encoded files. Create a folder where you want the output files to go and update the value of the **outputFolder** variable in the [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/StreamFilesSample/index.ts#L65) file. It is set to "./Temp" by default.
 1. Open a **command prompt**, browse to the sample's directory.
-1. Change directory into the AMSv3Samples folder.
-
-    ```bash
-    cd AMSv3Samples
-    ```
-
+1. Make a copy of the sample.env file and rename it to ".env"
+1. Update the contents of the .env file to match your account settings and subscription information for accessing the Media Services account. You can find this information in the API Access menu in the portal for the Media Services account. 
 1. Install the packages used in the *packages.json* file.
 
     ```bash
     npm install 
     ```
 
-1. Change directory to the *StreamFilesSample* folder.
-
+1. Launch Visual Studio Code from the root folder of the samples
     ```bash
-    cd StreamFilesSample
-    ```
-
-1. Launch Visual Studio Code from the *AMSv3Samples* Folder. (This is required to launch from the folder where the *.vscode* folder and *tsconfig.json* files are located.)
-
-    ```bash
-    cd ..
     code .
     ```
 

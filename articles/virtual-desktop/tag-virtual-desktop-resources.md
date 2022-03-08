@@ -32,7 +32,7 @@ If you delete a tag, Azure Virtual Desktop will no longer report data associated
 
 ### View all existing tags
 
-You can view all existing tags for your Azure services by going to the Azure portal, then opening [the **Tags** tab](https://ms.portal.azure.com/#blade/HubsExtension/TagsBlade). The Tags tab will show you all tags in objects you have access to. You can also sort tags by their keys or values whenever you need to quickly update a large number of tags at the same time.
+You can view all existing tags for your Azure services by going to the Azure portal, then opening [the **Tags** tab](https://portal.azure.com/#blade/HubsExtension/TagsBlade). The Tags tab will show you all tags in objects you have access to. You can also sort tags by their keys or values whenever you need to quickly update a large number of tags at the same time.
 
 ### What tags can and can't do
 
@@ -56,7 +56,7 @@ The following suggestions apply to all Azure Virtual Desktop deployments:
 
 - Become familiar with your purchased Azure services so you understand the extent of what you want to tag. As you learn how to use the Azure portal, keep a list of service groups and objects where you can apply tags. Some resources that you should keep track of include resource groups, virtual machines, disks, and network interface cards (NICs). For a more comprehensive list of cost generating service components you can tag, see [Understanding total Azure Virtual Desktop deployment costs](./remote-app-streaming/total-costs.md).
 
-- Create a cost reporting aggregation to organize your tags. You can either  [follow a common tagging pattern](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging.md) or create a new pattern that meets your organization’s needs.
+- Create a cost reporting aggregation to organize your tags. You can either  [follow a common tagging pattern](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) or create a new pattern that meets your organization’s needs.
 
 - Keep your tags consistent wherever you apply them. Even the smallest typo can impact data reporting, so make sure you're adding the exact key-value pair you want to look up later.
 

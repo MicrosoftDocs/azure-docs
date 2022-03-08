@@ -209,7 +209,7 @@ If you want to confirm that Azure Container Instances can listen on the port you
     --environment-variables 'PORT'='9000'
     ```
 1. Find the IP address of the container group in the command output of `az container create`. Look for the value of **ip**. 
-1. After the container is provisioned successfully, browse to the IP address and port of the container app in your browser, for example: `192.0.2.0:9000`. 
+1. After the container is provisioned successfully, browse to the IP address and port of the container application in your browser, for example: `192.0.2.0:9000`. 
 
     You should see the "Welcome to Azure Container Instances!" message displayed by the web app.
 1. When you're done with the container, remove it using the `az container delete` command:

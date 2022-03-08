@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/06/2021
+ms.date: 12/27/2021
 ms.topic: how-to
 ---
 
@@ -17,7 +17,7 @@ You can use the [Azure portal](https://portal.azure.com) to create, manage, and 
 
 [!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
-To create an application, navigate to the [IoT Central Application](https://ms.portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal:
+To create an application, navigate to the [IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal:
 
 ![Create IoT Central form](media/howto-manage-iot-central-from-portal/create-form.png)
 
@@ -27,18 +27,20 @@ To create an application, navigate to the [IoT Central Application](https://ms.p
 
 * **Template** is the type of IoT Central application you want to create. You can create a new application either from the list of industry-relevant templates to help you get started quickly, or start from scratch using the **Custom application** template.
 
-* **Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the following locations:
-    
-    * Australia
-    * East Central US
-    * East US
-    * East US 2
-    * Japan East
-    * North Europe
-    * Southeast Asia
-    * UK South
-    * West Europe
-    * West US
+* **Location** is the [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the following locations:
+
+  * Australia East
+  * Canada Central
+  * Central US
+  * East US
+  * East US 2
+  * Japan East
+  * North Europe
+  * South Central US
+  * Southeast Asia
+  * UK South
+  * West Europe
+  * West US
 
   Once you choose a location, you can't later move your application to a different location.
 
@@ -58,6 +60,9 @@ To get started, search for your application in the search bar at the top of the 
 When you select an application in the search results, the Azure portal shows you its overview. You can navigate to the application by selecting the **IoT Central Application URL**:
 
 ![Screenshot that shows the "Overview" page with the "IoT Central Application URL" highlighted.](media/howto-manage-iot-central-from-portal/highlight-application.png)
+
+> [!NOTE]
+> Use the **IoT Central Application URL** to access the application for the first time.
 
 To move the application to a different resource group, select **change** beside the resource group. On the **Move resources** page, choose the resource group you'd like to move this application to:
 

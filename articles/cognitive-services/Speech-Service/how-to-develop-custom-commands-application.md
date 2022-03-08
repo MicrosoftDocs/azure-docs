@@ -8,7 +8,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: eur
 ---
@@ -624,7 +624,7 @@ Another way to customize Custom Commands responses is to select an output voice.
 > ![Screenshot showing sample sentences and parameters.](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> For public voices, neural types are available only for specific regions. For more information, see [Speech service supported regions](./regions.md#neural-and-standard-voices).
+> For public voices, neural types are available only for specific regions. For more information, see [Speech service supported regions](./regions.md#prebuilt-neural-voices).
 >
 > You can create custom voices on the **Custom Voice** project page. For more information, see [Get started with Custom Voice](./how-to-custom-voice.md).
 

@@ -63,7 +63,7 @@ WITH (
 ```
 
 > [!IMPORTANT]
-> Do not specify the `ROWTERMINATOR` as '\r\n' which will be interpreted as '\r\r\n' and can result in parsing issues
+> Do not specify the `ROWTERMINATOR` as '\r\n' which will be interpreted as '\r\r\n' and can result in parsing issues. The COPY command automatically prefixes the \r character when \n (newline) is specified. This results in carriage return newline (\r\n) for Windows based systems.
 
 ## C. Managed Identity
 

@@ -9,9 +9,9 @@ ms.date: 03/25/2021
 # Preview - Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **The feature described in this document, pod security policy (preview), will begin [deprecation](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/) with Kubernetes version 1.21, with its removal in version 1.25.** As Kubernetes Upstream approaches that milestone, the Kubernetes community will be working to document viable alternatives. The previous deprecation announcement was made at the time as there was not a viable option for customers. Now that the Kubernetes community is working on an alternative, there no longer is a pressing need to deprecate ahead of Kubernetes. 
+> **The feature described in this document, pod security policy (preview), will begin [deprecation](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/) with Kubernetes version 1.21, with its removal in version 1.25.** You can now [Migrate Pod Security Policy to Pod Security Admission Controller](https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/) ahead of the deprecation.
 >
-> After pod security policy (preview) is deprecated, you must disable the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
+> After pod security policy (preview) is deprecated, you must have already migrated to Pod Security Admission controller or disabled the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
 
 To improve the security of your AKS cluster, you can limit what pods can be scheduled. Pods that request resources you don't allow can't run in the AKS cluster. You define this access using pod security policies. This article shows you how to use pod security policies to limit the deployment of pods in AKS.
 
@@ -36,8 +36,6 @@ az extension update --name aks-preview
 ```
 
 ### Register pod security policy feature provider
-
-**This document and feature are set for deprecation on October 15th, 2020.**
 
 To create or update an AKS cluster to use pod security policies, first enable a feature flag on your subscription. To register the *PodSecurityPolicyPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
 

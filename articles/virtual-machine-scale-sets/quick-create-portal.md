@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, mode-portal
+ms.custom: mimckitt, mode-ui
 ---
 
 # Quickstart: Create a virtual machine scale set in the Azure portal

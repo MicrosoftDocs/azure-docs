@@ -4,16 +4,15 @@ description: This document describes setting up and configuring multiple top lev
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: curtand
 
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/31/2017
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 

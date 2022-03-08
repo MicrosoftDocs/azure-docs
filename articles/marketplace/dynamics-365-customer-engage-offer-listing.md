@@ -1,15 +1,15 @@
 ---
-title: Configure Dynamics 365 for Customer Engagement & Power Apps offer listing details on Microsoft AppSource (Azure Marketplace)
-description: Configure Dynamics 365 for Customer Engagement & Power Apps offer listing details on Microsoft AppSource (Azure Marketplace).
+title: Configure Dynamics 365 apps on Dataverse and Power App offer listing details on Microsoft AppSource (Azure Marketplace)
+description: Configure Dynamics 365 apps on Dataverse and Power App offer listing details on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/20/2021
+ms.date: 12/03/2021
 ---
 
-# Configure Dynamics 365 for Customer Engagement & Power Apps offer listing details
+# Configure Dynamics 365 apps on Dataverse and Power App offer listing details
 
 This page lets you define the offer details such as offer name, description, links, contacts, logo, and screenshots.
 
@@ -36,7 +36,7 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 The **Name** you enter here is shown to customers as the title of the offer. This field is pre-populated with the name you entered for **Offer alias** when you created the offer, but you can change it. The name:
 
 - Can include trademark and copyright symbols.
-- Must be 50 characters or less.
+- Must be 200 characters or less.
 - Can't include emojis.
 
 Provide a short description of your offer for the **Search results summary** (up to 100 characters). This description may be used in marketplace search results.

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 02/04/2022
 ms.author: absinh
 ms.reviewer: rolyon
 ms.custom: it-pro
@@ -91,7 +91,7 @@ Follow these steps to list Azure AD roles assigned to a user using PowerShell.
     c. Use [checkMemberObjects](/graph/api/user-checkmemberobjects) API to figure out which of the role assignable groups the user is member of. 
     
       ```powershell
-      $uri = "https://graph.microsoft.com/beta/directoryObjects/$userId/microsoft.graph.checkMemberObjects"
+      $uri = "https://graph.microsoft.com/v1.0/directoryObjects/$userId/microsoft.graph.checkMemberObjects"
 
       $userRoleAssignableGroups = (Invoke-MgGraphRequest -Method POST -Uri $uri -Body @{"ids"= $roleAssignableGroups}).value
       ```
@@ -117,24 +117,24 @@ Follow these steps to list Azure AD roles assigned to a user using the Microsoft
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 
-1. Use [List roleAssignments](/graph/api/rbacapplication-list-roleassignments) API to get roles assigned directly to a user. Add following query to the URL and select **Run query**.
+1. Use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments) API to get roles assigned directly to a user. Add following query to the URL and select **Run query**.
 
-   ```HTTP
-   GET https://graph.microsoft.com/beta/rolemanagement/directory/roleAssignments?$filter=principalId eq '55c07278-7109-4a46-ae60-4b644bc83a31'
+   ```http
+   GET https://graph.microsoft.com/v1.0/rolemanagement/directory/roleAssignments?$filter=principalId eq '55c07278-7109-4a46-ae60-4b644bc83a31'
    ```
   
 3. To get transitive roles assigned to the user, follow these steps.
 
-    a. Use [List groups](/graph/api/group-list) to get the list of all role assignable groups.
+    a. Use the [List groups](/graph/api/group-list) API to get the list of all role assignable groups.
   
-      ```HTTP
-      GET https://graph.microsoft.com/beta/groups?$filter=isAssignableToRole eq true 
+      ```http
+      GET https://graph.microsoft.com/v1.0/groups?$filter=isAssignableToRole eq true 
       ```
   
-    b. Pass this list to [checkMemberObjects](/graph/api/user-checkmemberobjects) API to figure out which of the role assignable groups the user is member of. 
+    b. Pass this list to the [checkMemberObjects](/graph/api/user-checkmemberobjects) API to figure out which of the role assignable groups the user is member of. 
     
-      ```HTTP
-      POST https://graph.microsoft.com/beta/users/55c07278-7109-4a46-ae60-4b644bc83a31/checkMemberObjects
+      ```http
+      POST https://graph.microsoft.com/v1.0/users/55c07278-7109-4a46-ae60-4b644bc83a31/checkMemberObjects
       {
           "ids": [
               "936aec09-47d5-4a77-a708-db2ff1dae6f2",
@@ -146,10 +146,10 @@ Follow these steps to list Azure AD roles assigned to a user using the Microsoft
       }
       ```
   
-    c. Use [List roleAssignments](/graph/api/rbacapplication-list-roleassignments) API to loop through the groups and get the roles assigned to them.
+    c. Use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments) API to loop through the groups and get the roles assigned to them.
   
-      ```HTTP
-      GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId eq '5425a4a0-8998-45ca-b42c-4e00920a6382' 
+      ```http
+      GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments?$filter=principalId eq '5425a4a0-8998-45ca-b42c-4e00920a6382' 
       ```
 
 ## Next steps

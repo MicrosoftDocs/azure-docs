@@ -89,7 +89,7 @@ The schema for the config file looks like this:
 `httpProxy`: A proxy URL to use for creating HTTP connections outside the cluster. The URL scheme must be `http`.
 `httpsProxy`: A proxy URL to use for creating HTTPS connections outside the cluster. If this is not specified, then `httpProxy` is used for both HTTP and HTTPS connections.
 `noProxy`: A list of destination domain names, domains, IP addresses or other network CIDRs to exclude proxying.
-`trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. For now we only support `PEM` format. Another thing to note is that, for compatibility with Go-based components that are part of the k8s system, the certificate MUST support `Subject Alternative Names(SANs)` instead of the deprecated Common Name certs.
+`trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. For now we only support `PEM` format. Another thing to note is that, for compatibility with Go-based components that are part of the Kubernetes system, the certificate MUST support `Subject Alternative Names(SANs)` instead of the deprecated Common Name certs.
 
 Example input:
 Note the CA cert should be the base64 encoded string of the PEM format cert content.

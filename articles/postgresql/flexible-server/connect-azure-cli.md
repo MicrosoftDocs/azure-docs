@@ -4,7 +4,8 @@ description: This quickstart provides several ways to connect with Azure CLI wit
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc, devx-track-azurecli, mode-other
+ms.subservice: flexible-server
+ms.custom: mvc, devx-track-azurecli, mode-api
 ms.topic: quickstart
 ms.date: 11/30/2021
 ---
@@ -22,7 +23,7 @@ This quickstart demonstrates how to connect to an Azure Database for PostgreSQL 
 - Login using Azure CLI with ```az login``` command 
 - Turn on parameter persistence with ```az config param-persist on```. Parameter persistence will help you use local context without having to repeat a lot of arguments like resource group or location.
 
-## Create an PostgreSQL Flexible Server
+## Create a PostgreSQL Flexible Server
 
 The first thing we'll create is a managed PostgreSQL server. In [Azure Cloud Shell](https://shell.azure.com/), run the following script and make a note of the **server name**, **username** and  **password** generated from this command.
 
@@ -35,7 +36,7 @@ You can provide additional arguments for this command to customize it. See all a
 You can view all the arguments for this command with ```--help``` argument. 
 
 ```azurecli
-az postgresql flexible-server connect --help
+az postgres flexible-server connect --help
 ```
 
 ## Test database server connection
@@ -91,13 +92,6 @@ postgres> exit
 Goodbye!
 Local context is turned on. Its information is saved in working directory C:\sunitha. You can run `az local-context off` to turn it off.
 Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
-```
-
-## Run Single Query
-You can execute a single query with the command using ```--querytext``` argument, ```-q```.
-
-```azurecli
-az postgres flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> -q "<query-text>"
 ```
 
 **Example:** 

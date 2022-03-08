@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 08/10/2021
+ms.date: 12/03/2021
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
 
@@ -204,7 +204,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 ## Enroll in ExpressRoute FastPath features (preview)
 
-FastPath support for virtual network peering is now in Public preview.
+FastPath support for virtual network peering is now in Public preview, both IPv4 and IPv6 scenarios are supported. IPv4 FastPath and Vnet peering can be enabled on connections associated to both ExpressRoute Direct and ExpressRoute Partner circuits. IPv6 FastPath and Vnet peering support is limited to connections associated to ExpressRoute Direct.
 
 ### FastPath and virtual network peering
 
@@ -216,11 +216,23 @@ To enroll in this preview, run the follow Azure PowerShell command in the target
 Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -ProviderNamespace Microsoft.Network
 ```
 
-> [!NOTE] 
-> Any connections configured for FastPath in the target subscription will be enrolled in this preview. We do not advise enabling this preview in production subscriptions.
+### FastPath and Private Link
+
+With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypassess the ExpressRoute virtual network gateway in the data path.
+
+To enroll in this preview, run the following Azure PowerShell command in the target Azure subscription:
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass -ProviderNamespace Microsoft.Network
+```
+
+> [!NOTE]
+> Any connections configured for FastPath in the target subscription will be enrolled in the selected preview. We do not advise enabling these previews in production subscriptions.
 > If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
-> 1. Enroll in the FastPath preview feature with the Azure PowerShell command above.
-> 1. Disable and then re-enable FastPath on the target connection.
+>   1. Enroll in one of the FastPath preview features with the Azure PowerShell commands above.
+>   1. Disable and then re-enable FastPath on the target connection.
+>   1. To switch between preview features, register the subscription with the target preview PowerShell command, and then disable and re-enable FastPath on the connection.
+>
 
 ## Clean up resources
 

@@ -8,10 +8,9 @@ editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/20/2021
+ms.date: 02/18/2022
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -38,8 +37,9 @@ This article describes how to create one or more access reviews for group member
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
-## Create one or more access reviews
+## Create a single-stage access review
 
+### Scope
 1. Sign in to the Azure portal and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
 1. On the left menu, select **Access reviews**.
@@ -63,8 +63,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
    ![Screenshot that shows the interface that appears if you selected applications instead of groups.](./media/create-access-review/select-application-detailed.png)
 
-    > [!NOTE]
-    > Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
+   > [!NOTE]
+   > Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
 
 1. Now you can select a scope for the review. Your options are:
 
@@ -76,7 +76,11 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. Select **Next: Reviews**.
 
-1. In the **Specify reviewers** section, in the **Select reviewers** box, select either one or more people to do the access reviews. You can choose from:
+### Next: Reviews
+ 
+1. You can create a single-stage or multi-stage review (preview). For a single stage review continue here. To create a multi-stage access review (preview), follow the steps in [Create a multi-stage access review (preview)](#create-a-multi-stage-access-review-preview)
+
+1. In the **Specify reviewers** section, in the **Select reviewers** box, select either one or more people to make decisions in the access reviews. You can choose from:
 
     - **Group owner(s)**: This option is only available when you do a review on a team or group.
     - **Selected user(s) or groups(s)**
@@ -96,6 +100,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
      ![Screenshot that shows choosing how often the review should happen.](./media/create-access-review/frequency.png)
 
 1. Select **Next: Settings**.
+
+### Next: Settings
 
 1. In the **Upon completion settings** section, you can specify what happens after the review finishes.
 
@@ -122,10 +128,10 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. Use the **At end of review, send notification to** option to send notifications to other users or groups with completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, choose **Select User(s) or Group(s)** and add another user or group for which you want to receive the status of completion.
 
-1. In the **Enable review decision helpers** section, choose whether you want your reviewer to receive recommendations during the review process. When enabled, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial.
+1. In the **Enable review decision helpers** section, choose whether you want your reviewer to receive recommendations during the review process. When enabled, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial. This 30-day interval is irrespective of whether the sign-ins were interactive or not. The last sign-in date for the specified user will also display along with the recommendation.
 
    > [!NOTE]
-   > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant.
+   > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant. 
 
    ![Screenshot that shows the Enable reviewer decision helpers option.](./media/create-access-review/helpers.png)
 
@@ -142,9 +148,56 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
    ![Screenshot that shows the Review + Create tab.](./media/create-access-review/create-review.png)
 
+### Next: Review + Create
+
 1. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
 
 1. Review the information and select **Create**.
+
+## Create a multi-stage access review (preview)
+
+A multi-stage review allows the administrator to define two or three sets of reviewers to complete a review one after another. In a single-stage review, all reviewers make a decision within the same period and the last reviewer to make a decision "wins". In a multi-stage review, two or three independent sets of reviewers make a decision within their own stage, and the next stage doesn't happen until a decision is made in the previous stage. Multi-stage reviews can be used to reduce the burden on later-stage reviewers, allow for escalation of reviewers, or have independent groups of reviewers agree on decisions.
+> [!WARNING]
+> Data of users included in multi-stage access reviews are a part of the audit record at the start of the review. Administrators may delete the data at any time by deleting the multi-stage access review series.
+
+1. After you have selected the resource and scope of your review, move on to the **Reviews** tab. 
+
+1. Click the checkbox next to **(Preview) Multi-stage review**.
+
+1. Under **First stage review**, select the reviewers from the dropdown menu next to **Select reviewers**. 
+
+1. If you select **Group owner(s)** or **Managers of Users**, you have the option to add a fallback reviewer. To add a fallback, click **Select fallback reviewers** and add the users you want to be fallback reviewers.
+ 
+    ![Screenshot that shows multi-stage review enabled and multi-stage review settings.](./media/create-access-review/create-multi-stage-review.png)
+
+1. Add the duration for the first stage. To add the duration, enter a number in the field next to **Stage duration (in days)**. This is the number of days you wish for the first stage to be open to the first stage reviewers to make decisions.
+ 
+1. Under **Second stage review**, select the reviewers from the dropdown menu next to **Select reviewers**. These reviewers will be asked to review after the duration of the first stage review ends.
+
+1. Add any fallback reviewers if necessary.
+
+1. Add the duration for the second stage.
+ 
+1. By default, you will see two stages when you create a multi-stage review. However, you can add up to three stages. If you want to add a third stage, click **+ Add a stage** and complete the required fields.  
+
+1. You can decide to allow 2nd and 3rd stage reviewers to the see decisions made in the previous stage(s).If you want to allow them to see the decisions made prior, click the box next to **Show previous stage(s) decisions to later stage reviewers** under **Reveal review results**. Leave the box unchecked to disable this setting if you’d like your reviewers to review independently. 
+
+    ![Screenshot that shows duration and show previous stages setting enabled for multi-stage review.](./media/create-access-review/reveal-multi-stage-results-and-duration.png)
+
+1. The duration of each recurrence will be set to the sum of the duration day(s) you specified in each stage.
+
+1. Specify the **Review recurrence**, the **Start date**, and **End date** for the review. The recurrence type must be at least as long as the total duration of the recurrence (i.e., the max duration for a weekly review recurrence is 7 days).
+
+1. To specify which reviewees will continue from stage to stage, select one or multiple of the following options next to **Specify reviewees to go to next stage** :
+     ![Screenshot that shows specify reviewees setting and options for multi-stage review.](./media/create-access-review/next-stage-reviewees-setting.png)
+
+    1. **Approved reviewees** - Only reviewees that were approved move on to the next stage(s).
+    1. **Denied reviewees** - Only reviewees that were denied move on to the next stage(s).
+    1. **Not reviewed reviewees** - Only reviewees that haven't been reviewed will move on to the next stage(s).
+    1. **Reviewees marked as "Don't Know"** - Only reviewees marked as "Don't know" move on to the next stage(s).
+    1.  **All**: everyone moves on to the next stage if you’d like all stages of reviewers to make a decision.  
+
+1. Continue on to the **settings tab** and finish the rest of the settings and create the review. Follow the instructions in [Next: Settings](#next-settings).
 
 ## Allow group owners to create and manage access reviews of their groups (preview)
 

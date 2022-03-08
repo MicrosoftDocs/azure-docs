@@ -3,7 +3,7 @@ title: Create shared Azure Linux VM images using the portal
 description: Learn how to use Azure portal to create and share Linux virtual machine images.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure

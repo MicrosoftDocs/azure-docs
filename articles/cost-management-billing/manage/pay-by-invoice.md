@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/08/2021
+ms.date: 12/10/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -22,6 +22,8 @@ When you request to change your payment method to check/wire transfer, there are
 
 - You're automatically approved and you're prompted for information about your company.
 - You're not automatically approved, but you can submit a request to Azure support.
+
+Users with a Microsoft Customer Agreement must always submit a request to Azure support to enable pay by check or wire transfer.
 
 > [!IMPORTANT]
 > * Pay by check or wire transfer is only available for customers using Azure on behalf of a company.

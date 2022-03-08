@@ -204,4 +204,4 @@ The pipeline in this tutorial runs a data flow that aggregates the average ratin
 > * Test run the pipeline.
 > * Monitor a Data Flow activity
 
-Learn more about the [data flow expression language](data-flow-expression-functions.md).
+Learn more about the [data flow expression language](data-transformation-functions.md).

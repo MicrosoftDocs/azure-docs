@@ -1,9 +1,6 @@
 ---
 title: Use Machine Learning Studio (classic) endpoints in Azure Stream Analytics
 description: This article describes how to use Machine Language user defined functions in Azure Stream Analytics.
-author: jseb225
-ms.author: jeanb
-
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019

@@ -22,7 +22,7 @@ This article provides the schemas and properties for Media Services events.
 
 For a list of sample scripts and tutorials, see [Media Services event source](../../../event-grid/event-schema-subscriptions.md).
 
-## Job related event types
+## Job-related event types
 
 Media Services emits the **Job** related event types described below. There are two categories for the **Job** related events: "Monitoring Job State Changes" and "Monitoring Job Output State Changes". 
 
@@ -48,7 +48,7 @@ A job may contain multiple job outputs (if you configured the transform to have 
 
 Each **Job** is going to be at a higher level than **JobOutput**, thus job output events get fired inside of a corresponding job. 
 
-The error messages in `JobFinished`, `JobCanceled`, `JobError` output the aggregated results for each job output – when all of them are finished. Whereas, the job output events fire as each task finishes. For example, if you have an encoding output, followed by a Video Analytics output, you would get two events firing as job output events before the final JobFinished event fires with the aggregated data.
+The error messages in `JobFinished`, `JobCanceled`, `JobError` output the aggregated results for each job output – when all of them are finished. Whereas the job output events fire as each task finishes. For example, if you have an encoding output, followed by a Video Analytics output, you would get two events firing as job output events before the final JobFinished event fires with the aggregated data.
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -66,7 +66,7 @@ See [Schema examples](#event-schema-examples) that follow.
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.Media.JobOutputProgress| This event reflects the job processing progress, from 0% to 100%. The service attempts to send an event if there has been 5% or greater increase in the progress value or it has been more than 30 seconds since the last event (heartbeat). The progress value is not guaranteed to start at 0%, or to reach 100%, nor is it guaranteed to increase at a constant rate over time. This event should not be used to determine that the processing has been completed – you should instead use the state change events.|
+| Microsoft.Media.JobOutputProgress| This event reflects the job processing progress, from 0% to 100%. The service attempts to send an event if there has been 5% or greater increase in the progress value or it has been more than 30 seconds since the last event (heartbeat). The progress value is not guaranteed to start at 0%, or to reach 100%, nor is it guaranteed to increase at a constant rate over time. Don't use this event to determine that the processing has been completed – you should instead use the state change events.|
 
 See [Schema examples](#event-schema-examples) that follow.
 
@@ -135,7 +135,7 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `previousState` | string | The state of the job before the event. |
-| `state` | string | The new state of the job being notified in this event. For example, "Scheduled: The job is ready to start" or "Finished: The job is finished" .|
+| `state` | string | The new state of the job being notified in this event. For example, "Scheduled: The job is ready to start" or "Finished: The job is finished".|
 
 Where the Job state can be one of the values: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
@@ -614,14 +614,43 @@ The data object has the following properties:
 | `state` | string | State of the live event. |
 | `healthy` | bool | Indicates whether ingest is healthy based on the counts and flags. Healthy is true if overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 | `lastFragmentArrivalTime` | string |The last time stamp in UTC that a fragment arrived at the ingest endpoint. Example date format is "2020-11-11 12:12:12:888999" |
-| `ingestDriftValue` | string | Indicates the speed of delay, in seconds-per-minute, of the incoming audio or video data during the last minute. The value is greater than zero if data is arriving to the live event slower than expected in the last minute; zero if data arrived with no delay; and "n/a" if no audio or video data was received. For example, if you have a contribution encoder sending in live content, and it is slowing down due to processing issues, or network latency, it may be only able to deliver a total of 58 seconds of audio or video in a one minute period. This would be reported as 2 seconds-per-minute of drift. If the encoder is able to catch up and send all 60 seconds or more of data every minute you will see this value reported as 0. If there was a disconnection, or discontinuity from the encoder, this value may still display as 0, as it does not account for breaks in the data - only data that is delayed in timestamps.|
+| `ingestDriftValue` | string | Indicates the speed of delay, in seconds-per-minute, of the incoming audio or video data during the last minute. The value is greater than zero if data is arriving to the live event slower than expected in the last minute; zero if data arrived with no delay; and "n/a" if no audio or video data was received. For example, if you have a contribution encoder sending in live content, and it is slowing down due to processing issues, or network latency, it may be only able to deliver a total of 58 seconds of audio or video in a one-minute period. This would be reported as two seconds-per-minute of drift. If the encoder is able to catch up and send all 60 seconds or more of data every minute, you will see this value reported as 0. If there was a disconnection or discontinuity from the encoder, this value may still display as 0, as it does not account for breaks in the data - only data that is delayed in timestamps.|
 | `transcriptionState` | string | This value is "On" for audio track heartbeats if live transcription is turned on, otherwise you will see an empty string. This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value.|
-| `transcriptionLanguage` | string  | The language code (in BCP-47 format) of the transcription language. For example “de-de” indicates German (Germany). The value is empty for the video track heartbeats, or when live transcription is turned off. |
+| `transcriptionLanguage` | string  | The language code (in BCP-47 format) of the transcription language. For example, “de-de” indicates German (Germany). The value is empty for the video track heartbeats, or when live transcription is turned off. |
 
+
+### LiveEventChannelArchiveHeartbeatEvent
+
+The following example shows the schema of the **LiveEventChannelArchiveHeartbeatEvent** event:
+
+```json
+[
+  {
+    "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+    "subject": "liveEvent/mle1",
+    "eventType": "Microsoft.Media.LiveEventChannelArchiveHeartbeatEvent",
+    "eventTime": "2021-05-14T23:50:00.324",
+    "id": "7f450938-491f-41e1-b06f-c6cd3965d786",
+    "data": {
+      "channelLatencyMs": "10",
+      "latencyResultCode": "S_OK"
+    },
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
+  }
+]
+```
+
+The data object has the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `channelLatencyMs` | string | The time in milliseconds (ms) the ingested video spends in the live event pipeline before it is published to the HLS/DASH manifest for players to download.|
+| `latencyResultCode` | string | The result code for the channelLatencyMs calculation. `S_OK` indicates that the live event ingest was received without any problems. Other result codes indicate situations that would cause the channelLatencyMs to have an empty value.  `MPE_KEY_FRAME_INTERVAL_TOO_LARGE` error code indicates that the ingested video source has a large GOP (key frame distance) that would negatively impact the channel latency.  `MPE_INGEST_DISCONTINUITY` error code indicates that discontinuities were detected on the source stream, which can add long-latencies to the channel. |
 
 ### LiveEventTrackDiscontinuityDetected
 
-The following example shows the schema of the **LiveEventTrackDiscontinuityDetected** event: 
+The following example shows the schema of the **LiveEventTrackDiscontinuityDetected** event:
 
 ```json
 [
@@ -664,7 +693,7 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `topic` | string | The EventGrid topic. This property has the resource ID for the Media Services account. |
+| `topic` | string | The event grid topic. This property has the resource ID for the Media Services account. |
 | `subject` | string | The resource path for the Media Services channel under the Media Services account. Concatenating the topic and subject give you the resource ID for the job. |
 | `eventType` | string | One of the registered event types for this event source. For example, "Microsoft.Media.JobStateChange". |
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |
@@ -679,6 +708,6 @@ An event has the following top-level data:
 
 ## See also
 
-- [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [event grid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.eventgrid/)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
 - [Live Event error codes](../live-event-error-codes-reference.md)

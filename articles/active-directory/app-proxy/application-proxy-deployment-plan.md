@@ -3,7 +3,7 @@ title: Plan an Azure Active Directory Application Proxy Deployment
 description: An end-to-end guide for planning the deployment of Application proxy within your organization
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -88,7 +88,7 @@ Compile an inventory of all in-scope applications that are being published via A
 | Domain membership| Web server’s fully qualified domain name (FQDN) |
 | Application location | Where the web server or farm is located in your infrastructure |
 | Internal access | The exact URL used when accessing the application internally. <br> If a farm, what type of load balancing is in use? <br> Whether the application draws content from sources other than itself.<br> Determine if the application operates over WebSockets. |
-| External access | The vendor solution that the application is already exposed to externally. <br> The URL you want to use for external access. If SharePoint, ensure Alternate Access Mappings are configured per [this guidance](/SharePoint/administration/configure-alternate-access-mappings). If not, you will need to define external URLs. |
+| External access | The vendor solution that the application may already be exposed throught, externally. <br> The URL you want to use for external access. If SharePoint, ensure Alternate Access Mappings are configured per [this guidance](/SharePoint/administration/configure-alternate-access-mappings). If not, you will need to define external URLs. |
 | Public certificate | If using a custom domain, procure a certificate with a corresponding subject name. if a certificate exists note the serial number and location from where it can be obtained. |
 | Authentication type| The type of authentication supported by the application support such as Basic, Windows Integration Authentication, forms-based, header-based, and claims. <br>If the application is configured to run under a specific domain account, note the Fully Qualified Domain Name (FQDN) of the service account.<br> If SAML-based, the identifier and reply URLs. <br> If header-based, the vendor solution and specific requirement for handling authentication type. |
 | Connector group name | The logical name for the group of connectors that will be designated to provide the conduit and SSO to this backend application. |

@@ -3,7 +3,8 @@ title: Create a JavaScript function from the command line - Azure Functions
 description: Learn how to create a JavaScript function from the command line, then publish the local Node.js project to serverless hosting in Azure Functions.
 ms.date: 11/18/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-other
+ms.devlang: javascript
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create a JavaScript function in Azure from the command line

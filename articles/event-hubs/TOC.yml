@@ -50,9 +50,9 @@
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
     - name: Use Schema Registry
       items:
-        - name: Create a schema registry
+        - name: Create a schema registry - Azure portal
           href: create-schema-registry.md  
-        - name: Validate events using a schema (.NET and AMQP)
+        - name: Validate events using a schema (.NET + AMQP)
           href: schema-registry-dotnet-send-receive-quickstart.md
     - name: Create a dedicated cluster
       href: event-hubs-dedicated-cluster-create-portal.md

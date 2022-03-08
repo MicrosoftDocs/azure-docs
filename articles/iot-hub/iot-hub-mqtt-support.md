@@ -1,12 +1,12 @@
-﻿---
+---
 title: Understand Azure IoT Hub MQTT support | Microsoft Docs
 description: Support for devices connecting to an IoT Hub device-facing endpoint using the MQTT protocol. Includes information about built-in MQTT support in the Azure IoT device SDKs.
-author: eross-msft
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: lizross
+ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', contperf-fy21q1, fasttrack-edit, iot]
 ---
 
@@ -150,7 +150,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device).
 
-  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) to quickly generate a SAS token that you can copy and paste into your own code.
+  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code.
 
 ### For Azure IoT Tools
 
@@ -294,6 +294,9 @@ The following is a list of IoT Hub implementation-specific behaviors:
 
 * IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection and **400027 ConnectionForcefullyClosedOnNewConnection** will be logged into IoT Hub Logs
 
+* To route messages based on message body, you must first add property 'contentType' (`ct`) to the end of the MQTT topic and set its value to be `application/json;charset=utf-8`. An example is shown below. To learn more about routing messages either based on message properties or message body, please see the [IoT Hub message routing query syntax documentation](iot-hub-devguide-routing-query-syntax.md).
+
+    ```devices/{device_id}/messages/events/$.ct=application%2Fjson%3Bcharset%3Dutf-8```
 
 For more information, see [Messaging developer's guide](iot-hub-devguide-messaging.md).
 

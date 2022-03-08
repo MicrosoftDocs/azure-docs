@@ -1,5 +1,5 @@
 ---
-title: Getting started with iOS map control | Microsoft Azure Maps
+title: Get started with iOS map control | Microsoft Azure Maps
 description: Become familiar with the Azure Maps iOS SDK. See how to install the SDK and create an interactive map.
 author: stevemunk
 ms.author: v-munksteve
@@ -7,10 +7,9 @@ ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: eriklind
 ---
 
-# Getting started with Azure Maps iOS SDK (Preview)
+# Get started with Azure Maps iOS SDK (Preview)
 
 The Azure Maps iOS SDK is a vector map library for iOS. This article guides you through the processes of installing the Azure Maps iOS SDK and loading a map.
 

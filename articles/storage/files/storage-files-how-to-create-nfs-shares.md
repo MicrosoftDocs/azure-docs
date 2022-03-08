@@ -137,8 +137,8 @@ Now that you have created a FileStorage account and configured the networking, y
 1. For **Protocol** select **NFS**.
 1. For **Root Squash** make a selection.
 
-    - Root squash (default) - Access for the remote superuser (root) is mapped to UID (65534) and GID (65534).
-    - No root squash - Remote superuser (root) receives access as root.
+    - Root squash  - Access for the remote superuser (root) is mapped to UID (65534) and GID (65534).
+    - No root squash (default) - Remote superuser (root) receives access as root.
     - All squash - All user access is mapped to UID (65534) and GID (65534).
     
 1. Select **Create**.

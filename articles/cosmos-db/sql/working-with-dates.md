@@ -3,10 +3,11 @@ title: Working with dates in Azure Cosmos DB
 description: Learn how to store, index, and query DataTime objects in Azure Cosmos DB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-author: SnehaGunda
-ms.author: sngun
+author: timsander1
+ms.author: tisande
 ms.topic: conceptual
 ms.date: 04/03/2020
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 # Working with Dates in Azure Cosmos DB

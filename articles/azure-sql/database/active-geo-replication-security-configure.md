@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma, vanto
 ms.date: 12/18/2018
 ---
 # Configure and manage Azure SQL Database security for geo-restore or failover

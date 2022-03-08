@@ -36,7 +36,7 @@ For example, the final response of a [trigger backup REST API](backup-azure-sql-
 }
 ```
 
-You can identify the Backup job is identified by the **jobId** field and track as [mentioned here](/rest/api/backup/jobdetails/) using a GET request.
+You can identify the Backup job is identified by the **jobId** field and track as [mentioned here](/rest/api/backup/job-details) using a GET request.
 
 ### Track the job
 

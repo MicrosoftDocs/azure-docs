@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurepowershell, contperf-fy21q2, mode-other
+ms.custom: mvc, devx-track-azurepowershell, contperf-fy21q2, mode-api
 ms.date: 07/26/2021
 ---
 

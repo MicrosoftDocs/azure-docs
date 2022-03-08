@@ -16,15 +16,15 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services v3 lets you extract insights from your video and audio files with Azure Video Analyzer for Media (formerly Video Indexer). This article describes the Media Services v3 analyzer presets used to extract those insights. If you want more detailed insights, use Video Analyzer for Media directly. To understand when to use Video Analyzer for Media vs. Media Services analyzer presets, check out the [comparison document](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
+Media Services lets you extract insights from your video and audio files using the audio and video analyzer presets. This article describes the analyzer presets used to extract insights. If you want more detailed insights from your videos, use the [Azure Video Analyzer for Media service](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md). To understand when to use Video Analyzer for Media vs. Media Services analyzer presets, check out the [comparison document](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
 
 There are two modes for the Audio Analyzer preset, basic and standard. See the description of the differences in the table below.
 
 To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) or **AudioAnalyzerPreset**. For a tutorial demonstrating how to use **VideoAnalyzerPreset**, see [Analyze videos with Azure Media Services](analyze-videos-tutorial.md).
 
-## Compliance, Privacy and Security
+## Compliance, Privacy, and Security
 
-As an important reminder, you must comply with all applicable laws in your use of Video Analyzer for Media, and you may not use Video Analyzer for Media or any other Azure service in a manner that violates the rights of others or may be harmful to others. Before uploading any videos, including any biometric data, to the Video Analyzer for Media service for processing and storage, You must have all the proper rights, including all appropriate consents, from the individual(s) in the video. To learn about compliance, privacy and security in Video Analyzer for Media, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, please review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (“OST”) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). Additional privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.yml). By using Video Analyzer for Media, you agree to be bound by the Cognitive Services Terms, the OST, DPA and the Privacy Statement.
+You must comply with all applicable laws in your use of Video Analyzer for Media, and you may not use Video Analyzer for Media or any other Azure service in a manner that violates the rights of others or may be harmful to others. Before uploading any videos, including any biometric data, to the Video Analyzer for Media service for processing and storage, You must have all the proper rights, including all appropriate consents, from the individual(s) in the video. To learn about compliance, privacy and security in Video Analyzer for Media, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (“OST”) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). More privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.yml). By using Video Analyzer for Media, you agree to be bound by the Cognitive Services Terms, the OST, DPA, and the Privacy Statement.
 
 ## Built-in presets
 
@@ -32,10 +32,33 @@ Media Services currently supports the following built-in analyzer presets:
 
 |**Preset name**|**Scenario / Mode**|**Details**|
 |---|---|---|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio Standard mode|The preset applies a predefined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing content with a single audio track that contains speech in a single language. You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region'. Supported languages are English ('en-US', 'en-GB' and 'en-AU'), Spanish ('es-ES' and 'es-MX'), French ('fr-FR' and 'fr-CA'), Italian ('it-IT'), Japanese ('ja-JP'), Portuguese ('pt-BR'), Chinese ('zh-CN'), German ('de-DE'), Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-SA' and 'ar-SY'), Russian ('ru-RU'), Hindi ('hi-IN'), Korean ('ko-KR'), Danish('da-DK'), Norwegian('nb-NO'), Swedish('sv-SE'), Finnish ('fi-FI'), Thai('th-TH') and Turkish('tr-TR').<br/><br/> If the language isn't specified or set to null, automatic language detection chooses the first language detected and continues with the selected language for the duration of the file. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese. It doesn't support dynamically switching between languages after the first language is detected. The automatic language detection feature works best with audio recordings with clearly discernible speech. If automatic language detection fails to find the language, the transcription falls back to English.|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio Basic mode|This preset mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. The list of supported languages is identical to the Standard mode above.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio Standard mode|The preset applies a predefined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing content with a single audio track that contains speech in a single language. Specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region'. See supported languages list below for available language codes. The automatic language detection chooses the first language detected and continues with the selected language for the whole file if it not set, or set to null. The automatic language detection feature currently supports: English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Brazilian Portuguese. It doesn't support dynamically switching between languages after the first language is detected. The automatic language detection feature works best with audio recordings with clearly discernible speech. If automatic language detection fails to find the language, the transcription falls back to English.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio Basic mode|This preset mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription, and timing information. Automatic language detection and speaker diarization are not included in this mode. The list of supported languages is identical to the Standard mode above.|
 |[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial.md).|
 |[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detecting faces present in video|Describes the settings to be used when analyzing a video to detect all the faces present.|
+
+## Supported languages
+
+* Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-SA' and 'ar-SY')
+* Brazilian Portuguese ('pt-BR')
+* Chinese ('zh-CN')
+* Danish('da-DK')
+* English ('en-US', 'en-GB' and 'en-AU')
+* Finnish ('fi-FI')
+* French ('fr-FR' and 'fr-CA')
+* German ('de-DE')
+* Hebrew (he-IL)
+* Hindi ('hi-IN'), Korean ('ko-KR')
+* Italian ('it-IT')
+* Japanese ('ja-JP')
+* Norwegian ('nb-NO')
+* Persian ('fa-IR')
+* Portugal Portuguese ('pt-PT')
+* Russian ('ru-RU')
+* Spanish ('es-ES' and 'es-MX')
+* Swedish ('sv-SE')
+* Thai ('th-TH')
+* Turkish ('tr-TR')
 
 ### AudioAnalyzerPreset standard mode
 
@@ -59,7 +82,7 @@ The output includes a JSON file and VTT file for the audio transcript. This pres
 
 ### VideoAnalyzerPreset
 
-The preset enables you to extract multiple audio and video insights from a video file. The output includes a JSON file (with all the insights), a VTT file for the video transcript, and a collection of thumbnails. This preset also accepts a [BCP47](https://tools.ietf.org/html/bcp47) string (representing the language of the video) as a property. The video insights include all the audio insights mentioned above and the following additional items:
+The preset enables you to extract multiple audio and video insights from a video file. The output includes a JSON file (with all the insights), a VTT file for the video transcript, and a collection of thumbnails. This preset also accepts a [BCP47](https://tools.ietf.org/html/bcp47) string (representing the language of the video) as a property. The video insights include all the audio insights mentioned above and the following extra items:
 
 * **Face tracking**: The time during which faces are present in the video. Each face has a face ID and a corresponding collection of thumbnails.
 * **Visual text**: The text that's detected via optical character recognition. The text is time stamped and also used to extract keywords (in addition to the audio transcript).
@@ -78,7 +101,7 @@ The output includes a JSON file (insights.json) with all the insights found in t
 |id|The line ID.|
 |text|The transcript itself.|
 |language|The transcript language. Intended to support transcript where each line can have a different language.|
-|instances|A list of time ranges where this line appeared. If the instance is transcript, it will have only 1 instance.|
+|instances|A list of time ranges where this line appeared. If the instance is transcript, it will have only one instance.|
 
 Example:
 
@@ -203,7 +226,7 @@ Example:
 |---|---|
 |id|The shot ID.|
 |keyFrames|A list of key frames within the shot (each has an ID and a list of instances time ranges). Key frames instances have a thumbnailId field with the keyFrame’s thumbnail ID.|
-|instances|A list of time ranges of this shot (shots have only 1 instance).|
+|instances|A list of time ranges of this shot (shots have only one instance).|
 
 ```json
 "Shots": [

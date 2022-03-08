@@ -4,6 +4,7 @@ description: In this quickstart, create a .NET Core app with Azure App Configura
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
+ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
 ms.date: 09/28/2020

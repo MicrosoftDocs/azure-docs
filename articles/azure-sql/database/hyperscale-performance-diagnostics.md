@@ -8,7 +8,7 @@ ms.custom: seo-lt-2019 sqldbrb=1
 ms.topic: troubleshooting
 author: denzilribeiro
 ms.author: denzilr
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 10/18/2019
 ---
 

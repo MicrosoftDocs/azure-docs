@@ -36,14 +36,14 @@ Parameters are case-sensitive.
 
 | Parameter Name | Description |
 |----------------|----------------------|
-| `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md) |
+| `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See the [full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
 
 ## Skill inputs 
 
 | Input	Name | Description |
 |--------------------|-------------|
 | `text` | The text to be analyzed.|
-| `languageCode`	|  (Optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md).|
+| `languageCode`	|  (Optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>See the [full list of supported languages](../cognitive-services/text-analytics/language-support.md).|
 
 ## Skill outputs
 

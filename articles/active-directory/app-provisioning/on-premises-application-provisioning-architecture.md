@@ -3,7 +3,7 @@ title: 'Azure AD on-premises application provisioning architecture | Microsoft D
 description: Presents an overview of on-premises application provisioning architecture.
 services: active-directory
 author: billmath
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -13,7 +13,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD on-premises application provisioning architecture
+# Azure AD on-premises application provisioning architecture (preview)
 
 ## Overview
 

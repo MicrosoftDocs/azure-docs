@@ -20,7 +20,7 @@ But, if you want to share images outside of your Azure tenant, at scale, you sho
 ## Create the app registration
 
 Create an application registration that will be used by both tenants to share the image gallery resources.
-1. Open the [App registrations (preview) in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/).    
+1. Open the [App registrations (preview) in the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/).    
 1. Select **New registration** from the menu at the top of the page.
 1. In **Name**, type *myGalleryApp*.
 1. In **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.

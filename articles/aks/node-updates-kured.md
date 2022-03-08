@@ -19,7 +19,7 @@ The process to keep Windows Server nodes up to date is a little different. Windo
 This article shows you how to use the open-source [kured (KUbernetes REboot Daemon)][kured] to watch for Linux nodes that require a reboot, then automatically handle the rescheduling of running pods and node reboot process.
 
 > [!NOTE]
-> `Kured` is an open-source project by Weaveworks. Support for this project in AKS is provided on a best-effort basis. Additional support can be found in the #weave-community Slack channel.
+> `Kured` is an open-source project by Weaveworks. Please direct issues to the [kured GitHub][kured]. Additional support can be found in the #weave-community Slack channel.
 
 ## Before you begin
 

@@ -1,13 +1,12 @@
 ---
 title: Create custom Conda channel for package management
 description: Learn how to create a custom Conda channel for package management
-services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: midesa
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.subservice: spark
 ---
 

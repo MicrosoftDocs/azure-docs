@@ -8,7 +8,7 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create and encrypt a Windows virtual machine with the Azure portal

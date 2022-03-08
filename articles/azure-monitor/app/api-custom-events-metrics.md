@@ -3,6 +3,7 @@ title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
 ms.topic: conceptual
 ms.date: 05/11/2020
+ms.devlang: csharp, java, javascript, vb
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -182,7 +183,7 @@ appInsights.trackMetric({name: "queueLength", average: 42});
 ```csharp
 var sample = new MetricTelemetry();
 sample.Name = "queueLength";
-sample.Value = 42.3;
+sample.Sum = 42.3;
 telemetryClient.TrackMetric(sample);
 ```
 
@@ -629,7 +630,7 @@ dependencies
 
 Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever buffer is full (typically 500 items). However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
 
-*C#*
+*.NET*
 
 ```csharp
 telemetry.Flush();
@@ -653,7 +654,16 @@ telemetry.flush();
 
 The function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
-Ideally, flush() method should be used in the shutdown activity of the Application.
+We recommend using the flush() or flushAsync() methods in the shutdown activity of the Application when using the .NET or JS SDK. 
+
+For Example:
+
+*JS*
+
+```javascript
+// Immediately send all queued telemetry. By default, it is sent async.
+flush(async?: boolean = true)
+```
 
 ## Authenticated users
 

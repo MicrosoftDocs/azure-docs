@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 ---
 
@@ -150,18 +151,16 @@ The [configuration](#configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, input) {
+module.exports = async function (context, input) {
     context.bindings.myQueueItem = input.body;
-    context.done();
 };
 ```
 
 You can send multiple messages at once by defining a message array for the `myQueueItem` output binding. The following JavaScript code sends two queue messages with hard-coded values for each HTTP request received.
 
 ```javascript
-module.exports = function(context) {
+module.exports = async function(context) {
     context.bindings.myQueueItem = ["message 1","message 2"];
-    context.done();
 };
 ```
 

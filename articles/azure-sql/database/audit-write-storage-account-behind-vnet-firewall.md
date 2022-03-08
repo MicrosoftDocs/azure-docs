@@ -7,7 +7,7 @@ ms.subservice: security
 ms.topic: how-to
 author: DavidTrigano
 ms.author: datrigan
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 06/17/2020
 ms.custom: azure-synapse
 ---

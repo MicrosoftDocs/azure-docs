@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: troubleshooting
 author: AlainDormehlMSFT
 ms.author: aldorme
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 11/04/2021
 ---
 # Troubleshoot Azure SQL Database and Azure SQL Managed Instance performance issues with Intelligent Insights

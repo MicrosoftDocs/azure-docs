@@ -10,7 +10,7 @@ ms.devlang: PowerShell
 ms.topic: how-to
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma, amagarwa, maboja, jrasnick, vanto
+ms.reviewer: kendralittle, mathoma, amagarwa, maboja, vanto
 ms.date: 05/14/2019
 ---
 # PowerShell for DNS Alias to Azure SQL Database

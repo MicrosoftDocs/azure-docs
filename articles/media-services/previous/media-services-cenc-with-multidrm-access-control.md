@@ -9,7 +9,6 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: willzhan
@@ -357,7 +356,7 @@ Specifically, to do live streaming in Media Services, you need to create a chann
 ### What about license servers outside Media Services?
 Often, customers invested in a license server farm either in their own data center or one hosted by DRM service providers. With Media Services Content Protection, you can operate in hybrid mode. Contents can be hosted and dynamically protected in Media Services, while DRM licenses are delivered by servers outside Media Services. In this case, consider the following changes:
 
-* STS needs to issue tokens that are acceptable and can be verified by the license server farm. For example, the Widevine license servers provided by Axinom require a specific JWT that contains an entitlement message. Therefore, you need to have an STS to issue such a JWT. For information on this type of implementation, go to the [Azure Documentation Center](https://azure.microsoft.com/documentation/) and see [Use Axinom to deliver Widevine licenses to Azure Media Services](media-services-axinom-integration.md).
+* STS needs to issue tokens that are acceptable and can be verified by the license server farm. For example, the Widevine license servers provided by Axinom require a specific JWT that contains an entitlement message. Therefore, you need to have an STS to issue such a JWT.
 * You no longer need to configure license delivery service (ContentKeyAuthorizationPolicy) in Media Services. You need to provide the license acquisition URLs (for PlayReady, Widevine, and FairPlay) when you configure AssetDeliveryPolicy to set up CENC with multi-DRM.
 
 ### What if I want to use a custom STS?

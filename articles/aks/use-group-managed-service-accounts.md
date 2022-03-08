@@ -1,12 +1,12 @@
 ---
-title: Enable Group Managed Service Accounts (GMSA) for you Windows Server nodes on your Azure Kubernetes Service (AKS) cluster (Preview)
-description: Learn how to enable Group Managed Service Accounts (GMSA) for you Windows Server nodes on your Azure Kubernetes Service (AKS) cluster for securing your pods.
+title: Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster (Preview)
+description: Learn how to enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster for securing your pods.
 services: container-service
 ms.topic: article
 ms.date: 11/01/2021
 ---
 
-# Enable Group Managed Service Accounts (GMSA) for you Windows Server nodes on your Azure Kubernetes Service (AKS) cluster (Preview)
+# Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster (Preview)
 
 [Group Managed Service Accounts (GMSA)][gmsa-overview] is a managed domain account for multiple servers that provides automatic password management, simplified service principal name (SPN) management and the ability to delegate the management to other administrators. AKS provides the ability to enable GMSA on your Windows Server nodes, which allows containers running on Windows Server nodes to integrate with and be managed by GMSA.
 
@@ -76,6 +76,10 @@ Use `az keyvault secret set` to store the standard domain user credential as a s
 ```azurecli
 az keyvault secret set --vault-name MyAKSGMSAVault --name "GMSADomainUserCred" --value "$Domain\\$DomainUsername:$DomainUserPassword"
 ```
+
+> [!NOTE]
+> Use the Fully Qualified Domain Name for the Domain rather than the Partially Qualified Domain Name that may be used on internal networks.
+
 
 ## Optional: Use a custom VNET with custom DNS
 
@@ -200,6 +204,8 @@ credspec:
     NetBiosName: $NETBIOS_DOMAIN_NAME
     Sid: $GMSA_SID
 ```
+
+
 
 Create a *gmsa-role.yaml* with the following.
 

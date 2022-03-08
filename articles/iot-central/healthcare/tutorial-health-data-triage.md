@@ -3,7 +3,7 @@ title: Tutorial - Create a health data triage dashboard with Azure IoT Central |
 description: Tutorial - Learn to build a health data triage dashboard using Azure IoT Central application templates.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 09/01/2021
+ms.date: 12/21/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
 ## Set up a continuous data export to Azure Event Hubs
 
-You will first need to set up a continuous data export from your Azure IoT Central app template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](../core/howto-export-data.md). You will only need to export for the telemetry for the purposes of this tutorial.
+You will first need to set up a continuous data export from your Azure IoT Central application template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](../core/howto-export-data.md). You will only need to export for the telemetry for the purposes of this tutorial.
 
 
 ## Create a Power BI streaming dataset

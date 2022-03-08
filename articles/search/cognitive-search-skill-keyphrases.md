@@ -7,11 +7,11 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 12/09/2021
 ---
 #	Key Phrase Extraction cognitive skill
 
-The **Key Phrase Extraction** skill evaluates unstructured text, and for each record, returns a list of key phrases. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
+The **Key Phrase Extraction** skill evaluates unstructured text, and for each record, returns a list of key phrases. This skill uses the [Key Phrase](../cognitive-services/language-service/key-phrase-extraction/overview.md) machine learning models provided by [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md).
 
 This capability is useful if you need to quickly identify the main talking points in the record. For example, given input text "The food was delicious and there were wonderful staff", the service returns "food" and "wonderful staff".
 
@@ -31,16 +31,16 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
+| `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See the [full list of supported languages](../cognitive-services/language-service/key-phrase-extraction/language-support.md). |
 | `maxKeyPhraseCount`   | (Optional) The maximum number of key phrases to produce. |
-| `modelVersion`   | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details. |
+| `modelVersion`   | (Optional) Specifies the [version of the model](../cognitive-services/language-service/key-phrase-extraction/how-to/call-api.md#determine-how-to-process-the-data-optional) to use when calling the key phrase API. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary.  |
 
 ## Skill inputs
 
 | Input	 | Description |
 |--------------------|-------------|
 | `text` | The text to be analyzed.|
-| `languageCode`	|  A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md)|
+| `languageCode`	|  A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See the [full list of supported languages](../cognitive-services/language-service/key-phrase-extraction/language-support.md). |
 
 ## Skill outputs
 

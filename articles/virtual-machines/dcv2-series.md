@@ -19,7 +19,7 @@ The DCsv2-series virtual machines help protect the confidentiality and integrity
 These machines are backed by 3.7 GHz Intel® Xeon E-2288G (Coffee Lake) with SGX technology. With Intel® Turbo Boost Max Technology 3.0 these machines can go up to 5.0 GHz. 
 
 > [!NOTE]
-> Hyperthreading is disabled for added security posture. Pricing is based on the superior performance of physical vs virtual cores, as well as the unique security capabilities of DC-series.
+> Hyperthreading is disabled for added security posture. Pricing is the same as Dv5 and Dsv5-series per physical core.
 
 Example confidential use cases include: databases, blockchain, multiparty data analytics, fraud detection, anti-money laundering, usage analytics, intelligence analysis and machine learning.
 
@@ -34,15 +34,17 @@ Example confidential use cases include: databases, blockchain, multiparty data a
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
+<br>
 
 ## Technical specifications
 
-| Size             | Physical Cores | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (MBps) | EPC Memory MiB |
-|------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
-| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
-| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |
-| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64                                                                                               | 2  | 112                                          |
-| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
+| Size             | Physical Cores | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max NICs | EPC Memory MiB |
+|------------------|------|-------------|------------------------|----------------|----------------------------------------------|---------------------|
+| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 1   | 28                                      |
+| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 1  | 56                                          |
+| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 1  | 112                                          |
+| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 1   | 168                                         |
 
 
 ## Get started

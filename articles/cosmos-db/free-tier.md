@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB free tier 
 description: Use Azure Cosmos DB free tier to get started, develop, test your applications. With free tier, you'll get the first 1000 RU/s and 25 GB of storage in the account for free. 
-author: SnehaGunda
+author: ThomasWeiss
+ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.author: sngun
 ---
 
 # Azure Cosmos DB free tier 
@@ -88,6 +88,6 @@ New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
 After you create a free tier account, you can start building apps with Azure Cosmos DB with the following articles:
 
 * [Build a console app using the .NET V4 SDK](create-sql-api-dotnet-v4.md) to manage Azure Cosmos DB resources.
-* [Build a .NET web app using Azure Cosmos DB's API for MongoDB](mongodb/create-mongodb-dotnet.md)
+* [Build a .NET web app using Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-dotnet.md)
 * [Download a notebook from the gallery](publish-notebook-gallery.md#download-a-notebook-from-the-gallery) and analyze your data.
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)

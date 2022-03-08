@@ -4,8 +4,8 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 services: container-service
 ms.topic: quickstart
-ms.date: 07/01/2021
-ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-portal
+ms.date: 1/13/2022
+ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-ui
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
@@ -16,7 +16,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Run a multi-container application with a web front-end and a Redis instance in the cluster. 
 * Monitor the health of the cluster and pods that run your application.
 
-![Image of browsing to Azure Vote sample application](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+:::image type="content" source="media/container-service-kubernetes-walkthrough/azure-voting-application.png" alt-text="Image of browsing to Azure Vote sample application":::
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
@@ -43,11 +43,11 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
     - **Primary node pool**: 
         * Leave the default values selected.
     
-    ![Create AKS cluster - provide basic information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+    :::image type="content" source="media/kubernetes-walkthrough-portal/create-cluster-basics.png" alt-text="Create AKS cluster - provide basic information":::
 
     > [!NOTE]
     > You can change the preset configuration when creating your cluster by selecting *View all preset configurations* and choosing a different option.
-    > ![Create AKS cluster - portal preset options](media/kubernetes-walkthrough-portal/cluster-preset-options.png)
+    > :::image type="content" source="media/kubernetes-walkthrough-portal/cluster-preset-options.png" alt-text="Create AKS cluster - portal preset options":::
 
 4. Select **Next: Node pools** when complete.
 
@@ -57,7 +57,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 6. On the **Authentication** page, configure the following options:
     - Create a new cluster identity by either:
-        * Leaving the **Authentication** field with **System-assinged managed identity**, or
+        * Leaving the **Authentication** field with **System-assigned managed identity**, or
         * Choosing **Service Principal** to use a service principal. 
             * Select *(new) default service principal* to create a default service principal, or
             * Select *Configure service principal* to use an existing one. You will need to provide the existing principal's SPN client ID and secret.
@@ -73,7 +73,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
     * Browsing to the AKS cluster resource group and selecting the AKS resource. 
         * Per example cluster dashboard below: browsing for *myResourceGroup* and selecting *myAKSCluster* resource.
 
-        ![Example AKS dashboard in the Azure portal](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
+          :::image type="content" source="media/kubernetes-walkthrough-portal/aks-portal-dashboard.png" alt-text="Example AKS dashboard in the Azure portal":::
 
 ## Connect to the cluster
 
@@ -256,7 +256,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
-![Image of browsing to Azure Vote sample application](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+:::image type="content" source="media/container-service-kubernetes-walkthrough/azure-voting-application.png" alt-text="Image of browsing to Azure Vote sample application":::
 
 ## Monitor health and logs
 
@@ -272,18 +272,18 @@ Metric data takes a few minutes to populate in the Azure portal. To see current 
 
 The `azure-vote-back` and `azure-vote-front` containers will display, as shown in the following example:
 
-![View the health of running containers in AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
+:::image type="content" source="media/kubernetes-walkthrough-portal/monitor-containers.png" alt-text="View the health of running containers in AKS":::
 
 To view logs for the `azure-vote-front` pod, select **View in Log Analytics** from the top of the *azure-vote-front | Overview* area on the right side. These logs include the *stdout* and *stderr* streams from the container.
 
-![View the containers logs in AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
+:::image type="content" source="media/kubernetes-walkthrough-portal/monitor-container-logs.png" alt-text="View the containers logs in AKS":::
 
 ## Delete cluster
 
 To avoid Azure charges, clean up your unnecessary resources. Select the **Delete** button on the AKS cluster dashboard. You can also use the [az aks delete][az-aks-delete] command in the Cloud Shell:
 
 ```azurecli
-az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
+az aks delete --resource-group myResourceGroup --name myAKSCluster --yes --no-wait
 ```
 > [!NOTE]
 > When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
@@ -297,7 +297,6 @@ Pre-existing container images were used in this quickstart to create a Kubernete
 ## Next steps
 
 In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it. Access the Kubernetes web dashboard for your AKS cluster.
-
 
 To learn more about AKS by walking through a complete example, including building an application, deploying from Azure Container Registry, updating a running application, and scaling and upgrading your cluster, continue to the Kubernetes cluster tutorial.
 

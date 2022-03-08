@@ -10,6 +10,7 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

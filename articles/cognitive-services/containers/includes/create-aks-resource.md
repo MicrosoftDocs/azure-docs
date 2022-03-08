@@ -13,7 +13,7 @@ ms.author: aahi
 
 ## Create an Azure Kubernetes Service cluster resource
 
-1. Go to [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks), and select **Create**.
+1. Go to [Azure Kubernetes Service](https://portal.azure.com/#create/microsoft.aks), and select **Create**.
 
 1. On the **Basics** tab, enter the following information:
 

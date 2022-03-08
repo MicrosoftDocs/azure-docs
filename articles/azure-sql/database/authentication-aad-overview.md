@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 08/11/2021
 ---
 

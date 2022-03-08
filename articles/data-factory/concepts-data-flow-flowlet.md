@@ -1,6 +1,6 @@
 ---
-title: Flowlets in mapping data flows  | Microsoft Docs
-itleSuffix: Azure Data Factory & Azure Synapse
+title: Flowlets in mapping data flows
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn the concepts of Flowlets in mapping data flow
 author: joshuha-msft
 ms.author: joowen
@@ -21,6 +21,8 @@ ms.date: 11/11/2021
 
 > [!NOTE] 
 > The Flowlet feature in mapping data flow is currently in public preview
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWQK3m]
 
 ## Getting started
 To create a flowlet, click the new flowlet action from the mapping data flow menu options.

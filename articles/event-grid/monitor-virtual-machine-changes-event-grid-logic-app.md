@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: estfan, azla
 ms.topic: tutorial
-ms.date: 07/01/2021
+ms.date: 01/01/2022
 ---
 
 # Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps
@@ -25,7 +25,7 @@ For example, here are some events that publishers can send to subscribers throug
 
 * A new message appears in a queue.
 
-This tutorial creates a logic app resource that runs in [*multi-tenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through an event grid to the workflow. For more information about multi-tenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](../logic-apps/single-tenant-overview-compare.md).
+This tutorial creates a Consumption logic app resource that runs in [*multi-tenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through an event grid to the workflow. 
 
 ![Screenshot showing the workflow designer with a workflow that monitors a virtual machine using Azure Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
@@ -60,23 +60,36 @@ In this tutorial, you learn how to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
+1. From the Azure home page, select **Create a resource** > **Integration** > **Logic App**.
 
    ![Screenshot of Azure portal, showing button to create a logic app resource.](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
-1. Under **Logic App**, provide information about your logic app resource. When you're done, select **Create**.
+1. Under **Create Logic App**, provide information about your logic app resource:
 
    ![Screenshot of logic apps creation menu, showing details like name, subscription, resource group, and location.](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Name** | Yes | <*logic-app-name*> | Provide a unique name for your logic app. |
    | **Subscription** | Yes | <*Azure-subscription-name*> | Select the same Azure subscription for all the services in this tutorial. |
-   | **Resource group** | Yes | <*Azure-resource-group*> | The Azure resource group name for your logic app, which you can select for all the services in this tutorial. |
-   | **Location** | Yes | <*Azure-region*> | Select the same region for all services in this tutorial. |
-   |||
+   | **Resource Group** | Yes | <*Azure-resource-group*> | The Azure resource group name for your logic app, which you can select for all the services in this tutorial. |
+   | **Type** | Yes | Consumption | The resource type for your logic app. For this tutorial, make sure that you select **Consumption**. |
+   | **Logic App name** | Yes | <*logic-app-name*> | Provide a unique name for your logic app. |
+   | **Publish** | Yes | Workflow | Select the deployment destination for your logic app. For this tutorial, make sure that you select **Workflow**, which deploys to Azure. |
+   | **Region** | Yes | <*Azure-region*> | Select the same region for all services in this tutorial. |
+   |||||
 
-1. After Azure deploys your logic app, the workflow designer shows a page with an introduction video and commonly used triggers. Scroll past the video and triggers.
+   > [!NOTE]
+   > If you later want to use the Event Grid operations with a Standard logic app resource instead, make sure that you create a *stateful* workflow, not a stateless workflow. 
+   > To add the Event Grid operations to your workflow in the designer, on the operations picker pane, make sure that you select the **Azure** tab. 
+   > For more information about multi-tenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](../logic-apps/single-tenant-overview-compare.md).
+
+1. When you're done, select **Review + create**. On the next pane, confirm the provided information, and select **Create**.
+
+1. After Azure deploys your logic app, select **Go to resource**. 
+
+   The workflow designer shows a page with an introduction video and commonly used triggers.
+   
+1. Scroll past the video window and commonly used triggers section.
 
 1. Under **Templates**, select **Blank Logic App**.
 

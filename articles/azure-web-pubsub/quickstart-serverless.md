@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
-* [Azure command-line interface (Azure CLI)](/cli/azure) to manage Azure resources.
+* The [Azure CLI](/cli/azure) to manage Azure resources.
 
 * (Optional)[ngrok](https://ngrok.com/download) to expose local function as event handler for Web PubSub service. This is optional only for running the function app locally.
 
@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
-* [Azure command-line interface (Azure CLI)](/cli/azure) to manage Azure resources.
+* The [Azure CLI](/cli/azure) to manage Azure resources.
 
 * (Optional)[ngrok](https://ngrok.com/download) to expose local function as event handler for Web PubSub service. This is optional only for running the function app locally.
 
@@ -142,7 +142,7 @@ In this tutorial, you learn how to:
    - Update `index.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("index")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
+        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ILogger log)
         {
             string indexFile = "index.html";
             if (Environment.GetEnvironmentVariable("HOME") != null)
@@ -203,13 +203,17 @@ In this tutorial, you learn how to:
         ```c#
         [FunctionName("negotiate")]
         public static WebPubSubConnection Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             [WebPubSubConnection(Hub = "simplechat", UserId = "{headers.x-ms-client-principal-name}")] WebPubSubConnection connection,
             ILogger log)
         {
             log.LogInformation("Connecting...");
             return connection;
         }
+        ```
+   - Add below `using` statements in header to resolve required dependencies.
+        ```c#
+        using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         ```
 
 5. Create a `message` function to broadcast client messages through service.
@@ -264,21 +268,25 @@ In this tutorial, you learn how to:
         ```c#
         [FunctionName("message")]
         public static async Task<UserEventResponse> Run(
-            [WebPubSubTrigger(WebPubSubEventType.User, "message")] UserEventRequest request,
+            [WebPubSubTrigger("simplechat", WebPubSubEventType.User, "message")] UserEventRequest request,
             BinaryData data,
             WebPubSubDataType dataType,
             [WebPubSub(Hub = "simplechat")] IAsyncCollector<WebPubSubAction> actions)
         {
             await actions.AddAsync(WebPubSubAction.CreateSendToAllAction(
-                BinaryData.FromString($"[{request.ConnectionContext.UserId}] {message.ToString()}"),
-                dataType
-            );
+                BinaryData.FromString($"[{request.ConnectionContext.UserId}] {data.ToString()}"),
+                dataType));
             return new UserEventResponse
             {
                 Data = BinaryData.FromString("[SYSTEM] ack"),
                 DataType = WebPubSubDataType.Text
             };
         }
+        ```
+   - Add below `using` statements in header to resolve required dependencies.
+        ```c#
+        using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
+        using Microsoft.Azure.WebPubSub.Common;
         ```
 
 6. Add the client single page `index.html` in the project root folder and copy content as below.
@@ -352,19 +360,19 @@ Use the following commands to create these items.
 
 1. If you haven't done so already, sign in to Azure:
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. Create a resource group or you can skip by re-using the one of Azure Web PubSub service:
 
-    ```bash
+    ```azurecli
     az group create -n WebPubSubFunction -l <REGION>
     ```
 
 1. Create a general-purpose storage account in your resource group and region:
 
-    ```bash
+    ```azurecli
     az storage account create -n <STORAGE_NAME> -l <REGION> -g WebPubSubFunction
     ```
 
@@ -372,13 +380,15 @@ Use the following commands to create these items.
 
     # [JavaScript](#tab/javascript)
 
-    ```bash
-    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 12 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+    ```azurecli
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
+    > [!NOTE]
+    > If you're running the function version other than v3.0, please check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime-version` parameter to supported value.
 
     # [C#](#tab/csharp)
 
-    ```bash
+    ```azurecli
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
 

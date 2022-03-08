@@ -5,8 +5,8 @@ author: spelluru
 ms.author: spelluru
 ms.date: 09/15/2021
 ms.topic: quickstart
-ms.custom: mode-other
-# Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
+ms.custom: mode-ui
+#Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 ---
 
 # Use the Azure portal to create a Service Bus topic and subscriptions to the topic

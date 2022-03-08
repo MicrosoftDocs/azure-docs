@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/01/2021
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
@@ -487,7 +488,7 @@ The [configuration](#configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context) {
+    module.exports = async function (context) {
 
       context.bindings.employeeDocument = JSON.stringify({
         id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
@@ -495,15 +496,13 @@ Here's the JavaScript code:
         employeeId: context.bindings.myQueueItem.employeeId,
         address: context.bindings.myQueueItem.address
       });
-
-      context.done();
     };
 ```
 
 For bulk insert form the objects first and then run the stringify function. Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context) {
+    module.exports = async function (context) {
     
         context.bindings.employeeDocument = JSON.stringify([
         {
@@ -518,8 +517,6 @@ For bulk insert form the objects first and then run the stringify function. Here
             "employeeId": "123457",
             "address": "A town far away"
         }]);
-    
-      context.done();
     };
 ```
 

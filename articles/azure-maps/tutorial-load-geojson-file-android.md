@@ -1,13 +1,12 @@
 ---
 title: 'Tutorial: Load GeoJSON data into Azure Maps Android SDK | Microsoft Azure Maps'
 description: Tutorial on how to load GeoJSON data file into the Azure Maps Android map SDK.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 12/10/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 

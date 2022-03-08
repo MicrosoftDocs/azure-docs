@@ -6,7 +6,8 @@ ms.date: 08/17/2021
 ms.topic: quickstart
 ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.custom: mode-other
+ms.devlang: csharp, javascript
+ms.custom: mode-ui
 ---
 
 # Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
@@ -171,7 +172,7 @@ To create a binding, right-click (Ctrl+click on macOS) the `function.json` file 
 | **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
 | **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
 
-A binding is added to the `bindings` array in your function.json, which should look like the following:
+A binding is added to the `bindings` array in your function.json, which should look like the following after removing any `undefined` values present
 
 ```json
 {

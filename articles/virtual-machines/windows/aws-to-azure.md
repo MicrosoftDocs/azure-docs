@@ -60,5 +60,6 @@ Now you can upload the VHD to Azure and create a new VM.
 
 - If you ran Sysprep on your source to **generalize** it before exporting, see [Upload a generalized VHD and use it to create a new VMs in Azure](upload-generalized-managed.md)
 - If you did not run Sysprep before exporting, the VHD is considered **specialized**, see [Upload a specialized VHD to Azure and create a new VM](create-vm-specialized.md)
+- Secure the VM using the Defender for Servers plan, which is part of [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-servers-introduction.md).
 
  

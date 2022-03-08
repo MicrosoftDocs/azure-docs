@@ -1,26 +1,23 @@
 ---
 title: 'Quickstart: Create a Synapse workspace using Azure PowerShell'
 description: Create an Azure Synapse workspace using Azure PowerShell by following the steps in this guide.
-services: synapse-analytics
 author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
-ms.date: 10/19/2020
+ms.date: 02/04/2022
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create an Azure synapse workspace with Azure PowerShell
 
-Azure PowerShell is a set of cmdlets for managing Azure resources directly from PowerShell. You can
-use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows.
+Azure PowerShell is a set of cmdlets for managing Azure resources directly from PowerShell. You can use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows.
 
 In this quickstart, you learn to create a Synapse workspace using Azure PowerShell.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
-before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
 
@@ -32,27 +29,18 @@ before you begin.
     > **hierarchical namespace** at the creation of the storage account as described in
     > [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-powershell#create-a-storage-account).
 
-If you choose to use Cloud Shell, see
-[Overview of Azure Cloud Shell](../cloud-shell/overview.md) for more
-information.
+If you choose to use Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for more information.
 
 ### Install the Azure PowerShell module locally
 
-If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
-module and connect to your Azure account using the
-[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
-about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps).
+If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 For more information about authentication with Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ### Install the Azure Synapse PowerShell module
 
 > [!IMPORTANT]
-> While the **Az.Synapse** PowerShell module is in preview, you must install it separately using
-> the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it will be
-> part of future Az PowerShell module releases and available by default from within Azure Cloud
-> Shell.
+> While the **Az.Synapse** PowerShell module is in preview, you must install it separately using the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it will be part of future Az PowerShell module releases and available by default from within Azure Cloud Shell.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Synapse
@@ -126,6 +114,12 @@ Install-Module -Name Az.Synapse
 
    ![Azure Synapse workspace web](media/quickstart-create-synapse-workspace-powershell/create-workspace-powershell-1.png)
 
+
+1. Once deployed, additional permissions are required. 
+- In the Azure portal, assign other users of the workspace to the **Contributor** role in the workspace. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
+- Assign other users the appropriate **[Synapse RBAC roles](security/synapse-workspace-synapse-rbac-roles.md)** using Synapse Studio.
+- A member of the **Owner** role of the Azure Storage account must assign the **Storage Blob Data Contributor** role to the Azure Synapse workspace MSI and other users.
+
 ## Clean up resources
 
 Follow the steps below to delete the Azure Synapse workspace.
@@ -146,6 +140,4 @@ Remove-AzSynapseWorkspace -Name $SynapseWorkspaceNam -ResourceGroupName $Synapse
 
 ## Next steps
 
-Next, you can [create SQL pools](quickstart-create-sql-pool-studio.md) or
-[create Apache Spark pools](quickstart-create-apache-spark-pool-studio.md) to start analyzing and
-exploring your data.
+Next, you can [create SQL pools](quickstart-create-sql-pool-studio.md) or [create Apache Spark pools](quickstart-create-apache-spark-pool-studio.md) to start analyzing and exploring your data.

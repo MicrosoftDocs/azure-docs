@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/22/2021
+ ms.date: 12/16/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -27,7 +27,7 @@ NAT is applied to the connections with NAT rules. If a connection does not have 
 
 ### What types of NAT is supported on Azure VPN gateways?
 
-Only static 1:1 NAT. Dynamic NAT or NAT64 is NOT supported.
+Only static 1:1 NAT and Dynamic NAT are supported. NAT64 is NOT supported.
 
 ### Does NAT work on active-active VPN gateways?
 

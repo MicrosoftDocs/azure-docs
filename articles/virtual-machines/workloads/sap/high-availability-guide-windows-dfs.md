@@ -42,13 +42,11 @@ with **DIR_TRANS = \\\contoso.local\sapmnt\erp-trans in the DEFAULT.PFL profile*
 
 ## Microsoft DFS-N
 
-An introduction and the installation instructions for DFS-N can be found [here](/windows-server/storage/dfs-namespaces/dfs-overview)
-
-Adding resiliency to DFS-N is described at the end of this documentation.
+[DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview) provides an introduction and the installation instructions for DFS-N
 
 ## Setting up Folder Targets for Azure NetApp Files SMB
 
- Folder Targets for Azure NetApp Files SMB are volumes technically created the same way as described [here](./high-availability-guide-windows-netapp-files-smb.md) without using DFS-N. 
+ Folder Targets for Azure NetApp Files SMB are volumes technically created the same way as described in [High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications](./high-availability-guide-windows-netapp-files-smb.md) without using DFS-N. 
 ![anf-volumes-overview](media/virtual-machines-shared-sap-high-availability-guide/anf-volumes.png)Portal screenshot with existing ANF volumes.
 
 ## Configuring DFS-N for SAPMNT

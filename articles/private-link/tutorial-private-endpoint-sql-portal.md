@@ -1,7 +1,7 @@
 ﻿---
 
 title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - Portal'
-description: Use this tutorial to learn how to create a Azure SQL server with a private endpoint using the Azure portal.
+description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using the Azure portal.
 services: private-link
 author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
 > * Create a virtual machine.
-> * Create a Azure SQL server and private endpoint.
+> * Create an Azure SQL server and private endpoint.
 > * Test connectivity to the SQL server private endpoint.
 
 ## Prerequisites
@@ -191,6 +191,21 @@ In this section, you'll create a SQL server in Azure.
 13. Select **Review + create**.
 
 14. Select **Create**.
+
+> [!IMPORTANT]
+> When adding a Private endpoint connection, public routing to your Azure SQL logical server is not blocked by default. The setting "Deny public network access" under the "Firewall and virtual networks" blade is left unchecked by default. To disable public network access ensure this is checked.
+ 
+## Disable public access to Azure SQL logical server
+For this scenario, assume you would like to disable all public access to your Azure SQL Logical server, and only allow connections from your virtual network.
+ 
+1. Ensure your Private endpoint connection(s) are enabled and configured.
+2. Disable public access:
+    1. Navigate to the "Firewalls and virtual network" blade of your Azure SQL Logical Server    
+    2. Click the box to check mark "Deny public network access"
+
+   :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/pec-deny-public-access.png" alt-text="Deny public network access option":::
+    
+    3. Click the Save icon to enable.
 
 ## Test connectivity to private endpoint
 

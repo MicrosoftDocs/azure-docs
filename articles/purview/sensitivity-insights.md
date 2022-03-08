@@ -1,13 +1,13 @@
 ---
-title: Sensitivity label reporting on your data in Azure Purview using Purview Insights
-description: This how-to guide describes how to view and use Purview Sensitivity label reporting on your data.
+title: Sensitivity label reporting on your data in Azure Purview using Azure Purview Insights
+description: This how-to guide describes how to view and use Azure Purview Sensitivity label reporting on your data.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 09/27/2021
-# Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
+# Customer intent: As a security officer, I need to understand how to use Azure Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
 ms.custom: ignite-fall-2021
 ---
 
@@ -23,14 +23,14 @@ Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADL
 In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]
-> - Launch your Purview account from Azure.
+> - Launch your Azure Purview account from Azure.
 > - View sensitivity labeling insights on your data
 > - Drill down for more sensitivity labeling details on your data
 
  
 ## Prerequisites
 
-Before getting started with Purview insights, make sure that you've completed the following steps:
+Before getting started with Azure Purview insights, make sure that you've completed the following steps:
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
@@ -38,13 +38,13 @@ Before getting started with Purview insights, make sure that you've completed th
 
 - Set up and completed a scan on the test data in each data source. For more information, see [Manage data sources in Azure Purview](manage-data-sources.md) and [Create a scan rule set](create-a-scan-rule-set.md).
 
-- Signed in to Purview with account with a [Data Reader or Data Curator role](catalog-permissions.md#roles).
+- Signed in to Azure Purview with account with a [Data Reader or Data Curator role](catalog-permissions.md#roles).
 
 For more information, see [Manage data sources in Azure Purview](manage-data-sources.md) and [Automatically label your data in Azure Purview](create-sensitivity-label.md).
 
-## Use Purview Sensitivity labeling insights
+## Use Azure Purview Sensitivity labeling insights
 
-In Purview, classifications are similar to subject tags, and are used to mark and identify data of a specific type that's found within your data estate during scanning.
+In Azure Purview, classifications are similar to subject tags, and are used to mark and identify data of a specific type that's found within your data estate during scanning.
 
 Sensitivity labels enable you to state how sensitive certain data is in your organization. For example, a specific project name might be highly confidential within your organization, while that same term is not confidential to other organizations. 
 
@@ -52,7 +52,7 @@ Classifications are matched directly, such as a social security number, which ha
 
 In contrast, sensitivity labels are applied when one or more classifications and conditions are found together. In this context, [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) refer to all the parameters that you can define for unstructured data, such as **proximity to another classification**, and **% confidence**. 
 
-Purview uses the same classifications, also known as [sensitive information types](/microsoft-365/compliance/sensitive-information-type-entity-definitions), as Microsoft 365. This enables you to extend your existing sensitivity labels across your Azure Purview assets.
+Azure Purview uses the same classifications, also known as [sensitive information types](/microsoft-365/compliance/sensitive-information-type-entity-definitions), as Microsoft 365. This enables you to extend your existing sensitivity labels across your Azure Purview assets.
 
 > [!NOTE]
 > After you have scanned your source types, give **Sensitivity labeling** Insights a couple of hours to reflect the new assets.
@@ -61,11 +61,11 @@ Purview uses the same classifications, also known as [sensitive information type
 
 1. Go to the **Azure Purview** home page.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview account** tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Launch Azure Purview account** tile.
 
-1. In Purview, select the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Insights** area.
+1. In Azure Purview, select the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Insights** area.
 
-1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Sensitivity labels** to display the Purview **Sensitivity labeling insights** report.
+1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Sensitivity labels** to display the Azure Purview **Sensitivity labeling insights** report.
 
     > [!NOTE]
     > If this report is empty, you may not have extended your sensitivity labels to Azure Purview. For more information, see [Automatically label your data in Azure Purview](create-sensitivity-label.md).
@@ -78,7 +78,7 @@ Purview uses the same classifications, also known as [sensitive information type
    |---------|---------|
    |**Overview of sources with sensitivity labels**     |Displays tiles that provide: <br>- The number of subscriptions found in your data. <br>- The number of unique sensitivity labels applied on your data <br>- The number of sources with sensitivity labels applied <br>- The number of files and tables found with sensitivity labels applied|
    |**Top sources with labeled data (last 30 days)**     | Shows the trend, over the past 30 days, of the number of sources with sensitivity labels applied.       |
-   |**Top labels applied across sources**     |Shows the top labels applied across all of your Purview data resources. |
+   |**Top labels applied across sources**     |Shows the top labels applied across all of your Azure Purview data resources. |
    |**Top labels applied on files**     |Shows the top sensitivity labels applied to files in your data.          |
    |**Top labels applied on tables**     | Shows the top sensitivity labels applied to database tables in your data. |   
    |  **Labeling activity**  |  Displays separate graphs for files and tables, each showing the number of files or tables labeled over the selected time frame. <br>**Default**: 30 days<br>Select the **Time** filter above the graphs to select a different time frame to display.    |
@@ -110,7 +110,7 @@ Do any of the following to learn more:
 
 ## Sensitivity label integration with Microsoft 365 compliance
 
-Close integration with [Microsoft Information Protection](/microsoft-365/compliance/information-protection) offered in Microsoft 365 means that Purview enables direct ways to extend visibility into your data estate, and classify and label your data.
+Close integration with [Microsoft Information Protection](/microsoft-365/compliance/information-protection) offered in Microsoft 365 means that Azure Purview enables direct ways to extend visibility into your data estate, and classify and label your data.
 
 For your Microsoft 365 sensitivity labels to be extended to your assets in Azure Purview, you must actively turn on Information Protection for Azure Purview, in the Microsoft 365 compliance center.
 

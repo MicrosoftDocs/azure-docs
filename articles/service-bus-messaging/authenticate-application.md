@@ -2,12 +2,15 @@
 title: Authenticate an application to access Azure Service Bus entities
 description: This article provides information about authenticating an application with Azure Active Directory to access Azure Service Bus  entities (queues, topics, etc.)
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 01/06/2022
 ms.custom: subject-rbac-steps
 ---
 
 # Authenticate and authorize an application with Azure Active Directory to access Azure Service Bus entities
 Azure Service Bus supports using Azure Active Directory (Azure AD) to authorize requests to Service Bus entities (queues, topics, subscriptions, or filters). With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
+
+> [!IMPORTANT]
+> You can disable local or SAS key authentication for a Service Bus namespace and allow only Azure Active Directory authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
 
 ## Overview
 When a security principal (a user, group, or application) attempts to access a Service Bus entity, the request must be authorized. With Azure AD, access to a resource is a two-step process. 

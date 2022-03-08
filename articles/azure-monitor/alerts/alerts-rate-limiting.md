@@ -4,17 +4,25 @@ description: Understand how Azure limits the number of possible SMS, email, Azur
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
-ms.date: 3/12/2018
+ms.date: 2/23/2022
 ---
 
 # Rate limiting for Voice, SMS, emails, Azure App push notifications and webhook posts
 Rate limiting is a suspension of notifications that occurs when too many are sent to a particular phone number, email address or device. Rate limiting ensures that alerts are manageable and actionable.
 
-The rate limit thresholds are:
+The rate limit thresholds in **production** are:
 
 - **SMS**: No more than 1 SMS every 5 minutes.
 - **Voice**: No more than 1 Voice call every 5 minutes.
 - **Email**: No more than 100 emails in an hour.
+ 
+  Other actions are not rate limited.
+
+The rate limit thresholds for **test action group** are:
+
+- **SMS**: No more than 1 SMS every 1 minute.
+- **Voice**: No more than 1 Voice call every 1 minute.
+- **Email**: No more than 2 emails in every 1 minute.
  
   Other actions are not rate limited.
 

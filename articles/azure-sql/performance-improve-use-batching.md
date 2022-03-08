@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: mathoma
+ms.reviewer: mathoma, kendralittle
 ms.date: 06/22/2021
 ---
 # How to use batching to improve Azure SQL Database and Azure SQL Managed Instance application performance

@@ -17,7 +17,7 @@ The following table shows which languages supported by Functions can run on Linu
 | [JavaScript](../articles/azure-functions/functions-reference-node.md) | Node.js |✓ |✓ | ✓ |
 | [Python](../articles/azure-functions/functions-reference-python.md) | Python |✓ | | |
 | [Java](../articles/azure-functions/functions-reference-java.md) | Java |✓ |✓ | |
-| [PowerShell](../articles/azure-functions/functions-reference-powershell.md) |PowerShell Core | |✓ |✓ |
+| [PowerShell](../articles/azure-functions/functions-reference-powershell.md) |PowerShell Core |✓ |✓ |✓ |
 | [TypeScript](../articles/azure-functions/functions-reference-node.md) | Node.js |✓ |✓ |  |
 | [Go/Rust/other](../articles/azure-functions/functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
 

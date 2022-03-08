@@ -97,7 +97,7 @@ Identify the following information about your storage:
     | --- | --- |
     | Role | Storage Blob Data Contributor |
     | Assign access to |SERVICEPRINCIPAL |
-    | Members |workspace1_SynapseAdmins, workspace1_SynapseContributors, and workspace1_SynapseComputeOperators|
+    | Members |workspace1_SynapseAdministrators, workspace1_SynapseContributors, and workspace1_SynapseComputeOperators|
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 

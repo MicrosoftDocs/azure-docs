@@ -5,8 +5,9 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/24/2021
+ms.date: 01/06/2022
 ms.author: zxue
+ms.custom: mode-api
 ---
 
 # Get started with the FHIR service
@@ -56,9 +57,9 @@ You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CCI, o
 
 #### Access using existing tools
 
-- [Postman](../use-postman.md)
-- [Rest Client](../using-rest-client.md)
-- [cURL](../using-curl.md)
+- [Postman](../fhir/use-postman.md)
+- [Rest Client](../fhir/using-rest-client.md)
+- [cURL](../fhir/using-curl.md)
 
 #### Load data
 
@@ -86,7 +87,7 @@ Optionally, you can convert [HL7 v2](../data-transformation/convert-data.md) and
 
 Optionally, you can create Power BI dashboard reports with FHIR data.
 
-- [Power Query connector for FHIR](https://docs.microsoft.com/power-query/connectors/fhir/fhir)
+- [Power Query connector for FHIR](/power-query/connectors/fhir/fhir)
 - [IoT connector and Microsoft Power BI](../iot/iot-connector-power-bi.md)
 
 ## Next steps

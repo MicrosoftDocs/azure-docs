@@ -2,7 +2,8 @@
 title: Best practices for improving performance using Azure Service Bus
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 ms.topic: article
-ms.date: 08/30/2021
+ms.date: 02/16/2022
+ms.devlang: csharp
 ---
 
 # Best Practices for performance improvements using Service Bus Messaging
@@ -76,7 +77,7 @@ Service Bus enables clients to send and receive messages via one of three protoc
 AMQP is the most efficient, because it maintains the connection to Service Bus. It also implements [batching](#batching-store-access) and [prefetching](#prefetching). Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
 
 > [!IMPORTANT]
-> The SBMP is only available for .NET Framework. AMQP is the default for .NET Standard.
+> The SBMP protocol is only available for .NET Framework. AMQP is the default for .NET Standard.
 
 ## Choosing the appropriate Service Bus .NET SDK
 
@@ -86,7 +87,6 @@ The `Azure.Messaging.ServiceBus` package is the latest Azure Service Bus .NET SD
 |---------------|----------------------|---------------------|-------------|
 | [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) (**latest**) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
 | [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
-| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) (**legacy**) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
 For more information on minimum .NET Standard platform support, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).
 
@@ -101,12 +101,6 @@ We recommend that you don't close or dispose these objects after sending or rece
 > Please note, a newer package Azure.Messaging.ServiceBus is available as of November 2020. While the Microsoft.Azure.ServiceBus package will continue to receive critical bug fixes, we strongly encourage you to upgrade. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for more details.
 
 Service Bus client objects, such as implementations of [`IQueueClient`][QueueClient] or [`IMessageSender`][MessageSender], should be registered for dependency injection as singletons (or instantiated once and shared). We recommend that you don't close messaging factories, queue, topic, or subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service. A new connection is established when recreating the factory. 
-
-# [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
-
-> Please note, a newer package Azure.Messaging.ServiceBus is available as of November 2020. While the WindowsAzure.ServiceBus package will continue to receive critical bug fixes, we strongly encourage you to upgrade. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for more details.
-
-Service Bus client objects, such as `QueueClient` or `MessageSender`, are created through a [MessagingFactory][MessagingFactory] object, which also provides internal management of connections. We recommend that you don't close messaging factories, queue, topic, or subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service, and a new connection is established when recreating the factory. 
 
 ---
 
@@ -146,27 +140,6 @@ Console.WriteLine("All messages sent");
 ```csharp
 var messageOne = new Message(body);
 var messageTwo = new Message(body);
-
-var sendFirstMessageTask =
-    queueClient.SendAsync(messageOne).ContinueWith(_ =>
-    {
-        Console.WriteLine("Sent message #1");
-    });
-var sendSecondMessageTask =
-    queueClient.SendAsync(messageTwo).ContinueWith(_ =>
-    {
-        Console.WriteLine("Sent message #2");
-    });
-
-await Task.WhenAll(sendFirstMessageTask, sendSecondMessageTask);
-Console.WriteLine("All messages sent");
-```
-
-# [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
-
-```csharp
-var messageOne = new BrokeredMessage(body);
-var messageTwo = new BrokeredMessage(body);
 
 var sendFirstMessageTask =
     queueClient.SendAsync(messageOne).ContinueWith(_ =>
@@ -244,30 +217,6 @@ receiver.RegisterMessageHandler(
 
 The `MessageReceiver` object is instantiated with the connection string, queue name, and a peek-look receive mode. Next, the `receiver` instance is used to register the message handler.
 
-# [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
-
-See the [GitHub repository](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues) for full source code examples.
-
-```csharp
-var factory = MessagingFactory.CreateFromConnectionString(connectionString);
-var receiver = await factory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);
-
-// Register the handler to receive messages asynchronously
-receiver.OnMessageAsync(
-    async message =>
-    {
-        Console.WriteLine("Handle message");
-        await message.CompleteAsync();
-    },
-    new OnMessageOptions
-    {
-        AutoComplete = false,
-        MaxConcurrentCalls = 20
-    });
-```
-
-The `MessagingFactory` creates a `factory` object from the connection string. With the `factory` instance, a `MessageReceiver` is instantiated. Next, the `receiver` instance is used to register the on-message handler.
-
 ---
 
 ## Receive mode
@@ -277,47 +226,6 @@ When creating a queue or subscription client, you can specify a receive mode: *P
 When setting the receive mode to `ReceiveAndDelete`, both steps are combined in a single request. These steps reduce the overall number of operations, and can improve the overall message throughput. This performance gain comes at the risk of losing messages.
 
 Service Bus doesn't support transactions for receive-and-delete operations. Also, peek-lock semantics are required for any scenarios in which the client wants to defer or [dead-letter](service-bus-dead-letter-queues.md) a message.
-
-## Client-side batching
-
-Client-side batching enables a queue or topic client to delay the sending of a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. Client-side batching also causes a queue or subscription client to batch multiple **Complete** requests into a single request. Batching is only available for asynchronous **Send** and **Complete** operations. Synchronous operations are immediately sent to the Service Bus service. Batching doesn't occur for peek or receive operations, nor does batching occur across clients.
-
-# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
-Batching functionality for the .NET Standard SDK doesn't yet expose a property to manipulate.
-
-# [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
-
-Batching functionality for the .NET Standard SDK doesn't yet expose a property to manipulate.
-
-# [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
-
-By default, a client uses a batch interval of 20 ms. You can change the batch interval by setting the [BatchFlushInterval][BatchFlushInterval] property before creating the messaging factory. This setting affects all clients that are created by this factory.
-
-To disable batching, set the [BatchFlushInterval][BatchFlushInterval] property to **TimeSpan.Zero**. For example:
-
-```csharp
-var settings = new MessagingFactorySettings
-{
-    NetMessagingTransportSettings =
-    {
-        BatchFlushInterval = TimeSpan.Zero
-    }
-};
-var factory = MessagingFactory.Create(namespaceUri, settings);
-```
-
-Batching doesn't affect the number of billable messaging operations, and is available only for the Service Bus client protocol using the [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) library. The HTTP protocol doesn't support batching.
-
-> [!NOTE]
-> Setting `BatchFlushInterval` ensures that the batching is implicit from the application's perspective. i.e.; the application makes `SendAsync` and `CompleteAsync` calls and doesn't make specific Batch calls.
->
-> Explicit client side batching can be implemented by utilizing the below method call:
-> ```csharp
-> Task SendBatchAsync(IEnumerable<BrokeredMessage> messages);
-> ```
-> Here the combined size of the messages must be less than the maximum size supported by the pricing tier.
-
----
 
 ## Batching store access
 
@@ -365,23 +273,6 @@ For more information, see the following articles:
 - [SubscriptionDescription.EnabledBatchedOperations property](/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations)
 * [TopicDescription.EnableBatchedOperations](/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations)
 
-# [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
-
-To disable batched store access, you'll need an instance of a `NamespaceManager`. Create a queue from a queue description that sets the `EnableBatchedOperations` property to `false`.
-
-```csharp
-var queueDescription = new QueueDescription(path)
-{
-    EnableBatchedOperations = false
-};
-var queue = namespaceManager.CreateQueue(queueDescription);
-```
-
-For more information, see the following articles:
-* [`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations)
-* [`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations)
-* [`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations).
-
 ---
 
 Batched store access doesn't affect the number of billable messaging operations. It's a property of a queue, topic, or subscription. It's independent of the receive mode and the protocol that's used between a client and the Service Bus service.
@@ -415,13 +306,6 @@ For more information, see the following `PrefetchCount` properties:
 * [`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount`](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount)
 * [`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount`](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount)
 
-# [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
-
-For more information, see the following `PrefetchCount` properties:
-
-* [`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount`](/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount)
-* [`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount`](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount)
-
 ---
 
 ## Prefetching and ReceiveBatch
@@ -439,15 +323,6 @@ There are some challenges with having a greedy approach, that is, keeping the pr
 ## Multiple queues
 
 If a single queue or topic can't handle the expected, use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
-
-## Development and testing features
-
-> [!NOTE]
-> This section only applies to the WindowsAzure.ServiceBus SDK, as Microsoft.Azure.ServiceBus and Azure.Messaging.ServiceBus don't expose this functionality.
-
-Service Bus has one feature, used specifically for development, which **should never be used in production configurations**: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering].
-
-When new rules or filters are added to the topic, you can use [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] to verify that the new filter expression is working as expected.
 
 ## Scenarios
 

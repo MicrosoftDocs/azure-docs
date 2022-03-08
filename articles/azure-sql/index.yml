@@ -7,14 +7,14 @@ metadata:
   title: Azure SQL documentation
   description:  "Azure SQL is a family of SQL Server database engine products in the cloud, from a fully managed database in Azure SQL Database, a fully managed instance in Azure SQL Managed Instance, or SQL Server installed to virtual machine in Azure."
   services: sql-database
-  ms.service: sql-database
+  ms.service: sql-db-mi
   ms.subservice: service-overview
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer:
+  ms.reviewer: kendralittle
   ms.date: 10/30/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -30,8 +30,6 @@ landingContent:
         links:
           - text: What's new? 
             url: database/doc-changes-updates-release-notes-whats-new.md
-          - text: Survey to improve Azure SQL!
-            url: https://aka.ms/AzureSQLSurveyNov2021
       - linkListType: overview
         links:
           - text: What is SQL Database?
@@ -47,7 +45,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure SQL Database overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
+            url: /shows/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
       - linkListType: concept
         links:
           - text: Migrate from SQL Server
@@ -86,7 +84,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure SQL Managed Instance overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
+            url: /shows/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
       - linkListType: concept
         links:
           - text: Migrate from SQL Server
@@ -121,7 +119,7 @@ landingContent:
       - linkListType: video
         links:
           - text: SQL Server on Azure VM overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61
+            url: /shows/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61
       - linkListType: concept
         links:
           - text: Migrate from SQL Server

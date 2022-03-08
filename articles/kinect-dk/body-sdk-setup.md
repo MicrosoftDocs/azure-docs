@@ -7,8 +7,8 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: kinect, azure, sensor, access, depth, sdk, body, tracking, joint, setup, cuda, nvidia
-#Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect body tracking.
 ms.custom: mode-other
+#Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect body tracking.
 ---
 
 # Quickstart: Set up Azure Kinect body tracking

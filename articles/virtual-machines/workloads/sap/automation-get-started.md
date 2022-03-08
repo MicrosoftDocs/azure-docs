@@ -19,7 +19,7 @@ Get started quickly with the [SAP deployment automation framework on Azure](auto
 - An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A [download of the SAP software](automation-software.md) in your Azure environment.
 - A [Terraform](https://www.terraform.io/) installation. For more information, also see the [Terraform on Azure documentation](/azure/developer/terraform/).
-- An [Azure Command Line Interface (Azure CLI)](/cli/azure/install-azure-cli) installation on your local computer.
+- An [Azure CLI](/cli/azure/install-azure-cli) installation on your local computer.
 - Optionally, if you want to use PowerShell:
     - An [Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module) installation on your local computer.
     - The latest PowerShell modules. [Update the PowerShell module](/powershell/azure/install-az-ps#update-the-azure-powershell-module) if needed.
@@ -47,16 +47,6 @@ export ARM_SUBSCRIPTION_ID=<subscriptionID>
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your information.
 
-You can copy the sample configuration files to start testing the deployment automation framework.
-
-```bash
-cd ~/Azure_SAP_Automated_Deployment
-
-cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
-
-```
-
-
 # [Windows](#tab/windows)
 
 ```powershell
@@ -70,7 +60,7 @@ git clone https://github.com/Azure/sap-automation.git
 Import the PowerShell module
 
 ```powershell
-Import-Module             C:\Azure_SAP_Automated_Deployment\sap-automation\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilitiespsd1
+Import-Module C:\Azure_SAP_Automated_Deployment\sap-automation\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilities.psd1
 ```
 
 ---
@@ -80,14 +70,14 @@ Import-Module             C:\Azure_SAP_Automated_Deployment\sap-automation\deplo
 
 ## Copy the samples
 
-You can copy the sample configuration files to start testing the deployment automation framework.
+The repo contains a set of sample configuration files to start testing the deployment automation framework. You can copy them using the following steps.
 
 # [Linux](#tab/linux)
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+cp -Rp sap-automation/samples/WORKSPACES WORKSPACES
 ```
 # [Windows](#tab/windows)
 
@@ -95,7 +85,7 @@ cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
 cd C:\Azure_SAP_Automated_Deployment
 mkdir WORKSPACES
 
-xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+xcopy /E sap-automation\samples\WORKSPACES WORKSPACES
 ```
 
 ---

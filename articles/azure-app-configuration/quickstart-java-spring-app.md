@@ -6,9 +6,10 @@ documentationcenter: ''
 author: AlexandraKemperMS
 editor: ''
 ms.service: azure-app-configuration
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/18/2020
-ms.custom: devx-track-java, mode-other
+ms.custom: devx-track-java, mode-api
 ms.author: alkemper
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
 ---

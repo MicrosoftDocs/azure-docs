@@ -46,14 +46,14 @@ Make sure you take regular backups of your vault. Backups should be performed wh
 
 ### Azure CLI backup commands
 
-* [Backup certificate](/cli/azure/keyvault/certificate#az_keyvault_certificate_backup)
-* [Backup key](/cli/azure/keyvault/key#az_keyvault_key_backup)
-* [Backup secret](/cli/azure/keyvault/secret#az_keyvault_secret_backup)
+* [Backup certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
+* [Backup key](/cli/azure/keyvault/key#az-keyvault-key-backup)
+* [Backup secret](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
 
 
 ## Turn on logging
 
-[Turn on logging](logging.md) for your vault. Also, set up alerts.
+[Turn on logging](logging.md) for your vault. Also, [set up alerts](alert.md).
 
 ## Turn on recovery options
 

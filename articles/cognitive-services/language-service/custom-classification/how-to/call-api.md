@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 11/02/2021
+ms.topic: how-to
+ms.date: 01/07/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -29,19 +29,14 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 ## Deploy your model
 
-1. Go to your project in [Language Studio](https://aka.ms/custom-classification)
+After your model is [trained](train-model.md), you can deploy it. Deploying your model lets you start using it to classify text. You can deploy your model using the [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) or Language Studio. To use Language Studio, see the steps below:
 
-2. Select **Deploy model** from the left side menu.
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
 
-3. Select the model you want to deploy, then select **Deploy model**.
+If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
 
 > [!TIP]
-> You can test your model in Language Studio by sending samples of text for it to classify. 
-> 1. Select **Test model** from the menu on the left side of your project in Language Studio.
-> 2. Select the model you want to test.
-> 3. Add your text to the textbox, you can also upload a `.txt` file. 
-> 4. Click on **Run the test**.
-> 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab.
+> You can [test your model in Language Studio](../quickstart.md?pivots=language-studio#test-your-model) by sending samples of text for it to classify. 
 
 ## Send a text classification request to your model
 
@@ -76,7 +71,7 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 First you will need to get your resource key and endpoint
 
-1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
 2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
 
@@ -135,11 +130,11 @@ First you will need to get your resource key and endpoint
 
 [!INCLUDE [JSON result for classification](../includes/classification-result-json.md)]
 
-# [Using the client libraries](#tab/client)
+# [Using the client libraries (Azure SDK)](#tab/client)
 
 ## Use the client libraries
 
-1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
 2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
 
@@ -156,14 +151,14 @@ First you will need to get your resource key and endpoint
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
-    Single category:
-    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/tests/samples/Sample10_SingleCategoryClassify.cs)
+    Single label classification:
+    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample10_SingleCategoryClassify.md)
     * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/ClassifyDocumentSingleCategory.java)
     * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
     * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_single_category_classify.py)
     
-    Multiple category:
-    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/tests/samples/Sample11_MultiCategoryClassify.cs)
+    Multiple label classification:
+    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample11_MultiCategoryClassify.md)
     * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/ClassifyDocumentMultiCategory.java)
     * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
     * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_multi_category_classify.py)

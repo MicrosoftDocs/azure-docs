@@ -22,7 +22,22 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/quickstart-system-prerequisites.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/quickstart-system-prerequisites",
+            "redirect_url": "/azure/defender-for-iot/organizations/getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-view-information-provided-in-alerts.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-view-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-work-with-alerts-on-your-sensor.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/concept-key-concepts#analytics-and-self-learning-engines",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path_from_root": "/azure/defender-for-iot/organizations/quickstart-system-prerequisites.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/getting-started",
             "redirect_document_id": false
         },
         {
@@ -218,11 +233,6 @@
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-track-sensor-activity.md",
             "redirect_url": "/azure/defender-for-iot/organizations/how-to-track-sensor-activity",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/defender-for-iot/how-to-configure-with-sentinel.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-configure-with-sentinel",
             "redirect_document_id": false
         },
         {
@@ -534,6 +544,49 @@
             "source_path_from_root": "/articles/defender-for-iot/troubleshoot-defender-micro-agent.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/troubleshoot-defender-micro-agent",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/concept-security-posture.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/architecture-agent-based.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/references-horizon-api.md",
+            "redirect_url": "/azure/defender-for-iot/organizations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/references-horizon-sdk.md",
+            "redirect_url": "/azure/defender-for-iot/organizations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/device-builders/how-to-configure-with-sentinel.md",
+            "redirect_url": "/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-configure-with-sentinel.md",
+            "redirect_url": "/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-configure-with-sentinel.md",
+            "redirect_url": "/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/concept-security-agent-authentication.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/tutorial-standalone-agent-binary-installation",
+            "redirect_document_id": false
         }
     ]
 }
+
+
+

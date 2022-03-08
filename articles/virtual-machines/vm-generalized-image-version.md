@@ -3,7 +3,7 @@ title: Create a VM from a generalized image in a gallery
 description: Create a VM from a generalized image in a gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/31/2021
@@ -165,7 +165,7 @@ $nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
    -SourcePortRange * `
    -DestinationAddressPrefix * `
    -DestinationPortRange 3389 `
-   -Access Allow
+   -Access Deny
 $nsg = New-AzNetworkSecurityGroup `
    -ResourceGroupName $resourceGroup `
    -Location $location `
@@ -251,7 +251,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
           "protocol": "Tcp",
           "sourceAddressPrefix": "*",
           "destinationAddressPrefix": "*",
-          "access": "Allow",
+          "access": "Deny",
           "destinationPortRange": "3389",
           "sourcePortRange": "*",
           "priority": 1000,
@@ -312,7 +312,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "osDisk": {
                 "caching": "ReadWrite",
                 "managedDisk": {
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "createOption": "FromImage"
             }
@@ -363,7 +363,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "osDisk": {
                 "caching": "ReadWrite",
                 "managedDisk": {
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "createOption": "FromImage"
             }

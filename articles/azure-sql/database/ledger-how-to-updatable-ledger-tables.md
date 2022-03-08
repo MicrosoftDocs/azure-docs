@@ -4,7 +4,7 @@ description: Learn how to create and use updatable ledger tables in Azure SQL Da
 ms.date: "09/09/2021"
 ms.service: sql-database
 ms.subservice: security
-ms.reviewer: vanto
+ms.reviewer: kendralittle, mathoma
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto

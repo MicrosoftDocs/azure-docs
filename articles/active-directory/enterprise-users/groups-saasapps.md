@@ -4,7 +4,7 @@ description: How to use groups in Azure Active Directory to assign access to Saa
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity

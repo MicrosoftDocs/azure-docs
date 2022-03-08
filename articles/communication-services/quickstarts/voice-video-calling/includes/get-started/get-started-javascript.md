@@ -4,16 +4,15 @@ description: In this tutorial, you learn how to use the Azure Communication Serv
 author: ddematheu
 ms.author: nimag
 ms.date: 03/10/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
-ms.custom: mode-other
 ---
 
 In this quickstart, you'll learn how start a call using the Azure Communication Services Calling SDK for JavaScript.
 
 ## Sample code
 
-You can download the sample app from [Github](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
 
 ## Prerequisites
 

@@ -10,37 +10,42 @@ ms.custom: devx-track-java
 ---
 
 # How to use permissions in Azure Spring Cloud
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article shows you how to create custom roles that delegate permissions to Azure Spring Cloud resources. Custom roles extend [Azure built-in roles](../role-based-access-control/built-in-roles.md) with various stock permissions.
 
 We'll implement the following custom roles.
 
 * **Developer role**:
 
-    * Deploy
-    * Test
-    * Restart apps
-    * Apply and make changes to app configurations in the Git repository
-    * Get log streams
+  * Deploy
+  * Test
+  * Restart apps
+  * Apply and make changes to app configurations in the Git repository
+  * Get log streams
 
 * **DevOps Engineer role**:
 
-    * Create, read, update, and delete everything in Azure Spring Cloud
+  * Create, read, update, and delete everything in Azure Spring Cloud
+
 * **Ops - Site Reliability Engineering role**:
 
-    * Restart apps
-    * Get log streams
-    * Can't make changes to apps or configurations
+  * Restart apps
+  * Get log streams
+  * Can't make changes to apps or configurations
 
 * **Azure Pipelines / Jenkins / GitHub Actions role**:
 
-    * Perform create, read, update, and delete operations
-    * Use Terraform or ARM templates to create and configure everything in Azure Spring Cloud and apps within a service instance: Azure Pipelines, Jenkins, and GitHub Actions
+  * Perform create, read, update, and delete operations
+  * Use Terraform or ARM templates to create and configure everything in Azure Spring Cloud and apps within a service instance: Azure Pipelines, Jenkins, and GitHub Actions
 
 ## Define the Developer role
 
 The Developer role includes permissions to restart apps and see their log streams. This role can't make changes to apps or configurations.
 
 #### [Portal](#tab/Azure-portal)
+
 1. In the Azure portal, open the subscription where you want to assign the custom role.
 2. Open **Access control (IAM)**.
 3. Select **Add**.
@@ -52,7 +57,6 @@ The Developer role includes permissions to restart apps and see their log stream
 6. Select **Add permissions**:
 
    ![Screenshot that shows the Add permissions button.](media/spring-cloud-permissions/add-permissions.png)
-
 
 7. In the search box, search for **Microsoft.app**. Select **Microsoft Azure Spring Cloud**:
 
@@ -101,6 +105,7 @@ The Developer role includes permissions to restart apps and see their log stream
 11. Select **Review and create**.
 
 #### [JSON](#tab/JSON)
+
 1. In the Azure portal, open the subscription where you want to assign the custom role.
 2. Open **Access control (IAM)**.
 3. Select **Add**.
@@ -167,6 +172,7 @@ The Developer role includes permissions to restart apps and see their log stream
 This procedure defines a role that has permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 #### [Portal](#tab/Azure-portal)
+
 1. Repeat steps 1 through 4 in the procedure for adding the Developer role.
 
 2. Select the permissions for the DevOps Engineer role:
@@ -296,6 +302,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 This procedure defines a role that has permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 #### [Portal](#tab/Azure-portal)
+
 1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
 2. Select the permissions for the Ops - Site Reliability Engineering role:
 
@@ -327,6 +334,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 5. Select **Review and create**.
 
 #### [JSON](#tab/JSON)
+
 1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
 2. Select **Next**.
 
@@ -505,11 +513,12 @@ This role can create and configure everything in Azure Spring Cloud and apps wit
 
 ---
 
-## See also
+## Next steps
 
 * [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md)
 
 For more information about three methods that define custom permissions, see:
+
 * [Clone a role](../role-based-access-control/custom-roles-portal.md#clone-a-role)
 * [Start from scratch](../role-based-access-control/custom-roles-portal.md#start-from-scratch)
 * [Start from JSON](../role-based-access-control/custom-roles-portal.md#start-from-json)

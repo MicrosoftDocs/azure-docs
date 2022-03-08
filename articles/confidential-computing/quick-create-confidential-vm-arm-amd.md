@@ -8,6 +8,8 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/15/2021
 ms.author: RunCai
+ms.custom: mode-arm, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 
@@ -24,7 +26,7 @@ This tutorial covers deployment of a confidential VM with a custom configuration
 ## Prerequisites
 
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/). 
-- If you want to deploy from the Azure Command-Line Interface (Azure CLI), [install PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-6.6.0) and [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- If you want to deploy from the Azure CLI, [install PowerShell](/powershell/azure/install-az-ps) and [install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Deploy confidential VM template from Azure portal
 
@@ -32,7 +34,7 @@ To create and deploy a confidential VM using an ARM template in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. [Open the confidential VM ARM template](https://aka.ms/deploycvmazure). 
+1. [Open the confidential VM ARM template](./quick-create-confidential-vm-portal-amd.md). 
 
     1. For **Subscription**, select an Azure subscription that meets the [prerequisites](#prerequisites).
     
@@ -75,13 +77,13 @@ To create and deploy a confidential VM using an ARM template through the Azure C
 
 1. Sign in to your Azure account in the Azure CLI.
 
-    ```powershell-interactive
+    ```azurecli
     az login
     ```
 
 1. Set your Azure subscription. Replace `<subscription-id>` with your subscription identifier. Make sure to use a subscription that meets the [prerequisites](#prerequisites).
 
-    ```powershell-interactive
+    ```azurecli
     az account set --subscription <subscription-id>
     ```
 
@@ -99,14 +101,14 @@ To create and deploy a confidential VM using an ARM template through the Azure C
 
     If the resource group you specified doesn't exist, create a resource group with that name.
     
-    ```powershell-interactive
+    ```azurecli
     az group create -n $resourceGroup -l $region
     ```
 
 1. Deploy your VM to Azure using ARM template with custom parameter file
 
       
-    ```powershell-interactive
+    ```azurecli
     az deployment group create `
      -g $resourceGroup `
      -n $deployName `

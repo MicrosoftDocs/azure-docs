@@ -10,7 +10,7 @@ ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/30/2021
+ms.date: 12/21/2021
 ms.author: pamela
 ms.reviewer: mathoma
 ms.custom: ignite-fall-2021
@@ -69,7 +69,7 @@ Changing the license and edition metadata in the Azure portal is only supported 
 
 ## Storage 
 
-Use the **Configure**  page of the SQL virtual machines resource to extend your data, log, and tempdb drives. 
+Use the **Storage Configuration** page of the SQL virtual machines resource to extend your data, log, and tempdb drives. Review [storage configuration](storage-configuration.md) to learn more. 
 
 ![Extend storage in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-storage-configuration.png)
 
@@ -120,13 +120,11 @@ Use the **Defender for SQL** page of the SQL virtual machine's resource to view 
 
 ![Configure SQL Server Defender for Cloud settings in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-security-center.png)
 
-## SQL Assessment (Preview)
+## SQL best practices assessment
 
-Use the **SQL Assessment** page of the SQL virtual machines resource to assess the health of your SQL Server VM. Once the feature is enabled, your SQL Server instances and databases are scanned and recommendations are surfaced to improve performance (indexes, statistics, trace flags, and so on) and identify missing best practices configurations. SQL Assessment is currently in preview. 
+Use the **SQL best practices assessment** page of the SQL virtual machines resource to assess the health of your SQL Server VM. Once the feature is enabled, your SQL Server instances and databases are scanned and recommendations are surfaced to improve performance (indexes, statistics, trace flags, and so on) and identify missing best practices configurations.  
 
-:::image type="content" source="./media/manage-sql-vm-portal/sql-vm-assessment-workbook.png" alt-text="View SQL Assessments in the Azure portal on the SQL virtual machine resource page." lightbox="./media/manage-sql-vm-portal/sql-vm-assessment-workbook.png":::
-
-To learn more, see [SQL Assessment for SQL Server on Azure VMs](sql-assessment-for-sql-vm.md).
+To learn more, see [SQL best practices assessment for SQL Server on Azure VMs](sql-assessment-for-sql-vm.md).
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
 title: "Troubleshooting practice for Azure SignalR Service"
 description: Learn how to troubleshoot connectivity and message delivery issues
-author: yjin81
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.author: yajin1
+ms.author: lianwei
 ---
 
 # How to troubleshoot connectivity and message delivery issues

@@ -1,11 +1,8 @@
 ---
 title: Add connectors for Confluent Cloud - Azure partner solutions
 description: This article describes how to install connectors for Confluent Cloud that you use with Azure resources.
-ms.service: partner-services
 ms.topic: conceptual
 ms.date: 09/03/2021
-author: tfitzmac
-ms.author: tomfitz
 ---
 
 # Add connectors for Confluent Cloud

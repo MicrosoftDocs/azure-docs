@@ -8,6 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/15/2021
 ms.author: RunCai
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create confidential VM on AMD in the Azure portal (preview)
@@ -49,7 +50,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. For **Security Type**, select **Confidential virtual machines**.
 
-    1. For **Image**, select the OS image to use for your VM. For this tutorial, select **Ubuntu 20.04 LTS**, **Windows Server 2019 [Small disk] Data Center**, or **Windows Server 2022 [Small disk] Data Center**.
+    1. For **Image**, select the OS image to use for your VM. For this tutorial, select **Ubuntu Server 20.04 LTS (Confidential VM preview)**, **Windows Server 2019 [Small disk] Data Center**, or **Windows Server 2022 [Small disk] Data Center**.
 
         > [!TIP]
         > Optionally, select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.

@@ -1,5 +1,5 @@
 ---
-title: Connect devices to Azure Video Analyzer
+title: Connect devices to the service
 description: This article describes how to connect devices to Azure Video Analyzer
 ms.service: azure-video-analyzer
 ms.topic: how-to

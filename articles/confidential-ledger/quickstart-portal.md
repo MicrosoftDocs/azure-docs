@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.date: 10/18/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurepowershell, mode-portal
+ms.custom: devx-track-python, devx-track-azurepowershell, mode-ui
 ---
 
 # Quickstart: Create a confidential ledger using the Azure portal

@@ -4,16 +4,15 @@ description: A tutorial that walks you through the process of using a Windows VM
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: daveba
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 02/18/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 #Customer intent: As a developer or administrator I want to configure a Windows virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
@@ -23,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how a Windows virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without including authentication information in your code.
+This tutorial shows you how a Windows virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](../../key-vault/general/overview.md). Key Vault makes it possible for your client application to use a secret to access resources not secured by Azure Active Directory (Azure AD). Managed identities are automatically managed by Azure. They enable you to authenticate to services that support Azure AD authentication, without including authentication information in your code.
 
 You learn how to:
 
@@ -41,7 +40,7 @@ You learn how to:
 
 ## Create a Key Vault  
 
-This section shows how to grant your VM access to a secret stored in a Key Vault. Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials.
+This section shows how to grant your VM access to a secret stored in a Key Vault. When you use managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials.
 
 First, we need to create a Key Vault and grant our VM’s system-assigned managed identity access to the Key Vault.
 
@@ -54,27 +53,27 @@ First, we need to create a Key Vault and grant our VM’s system-assigned manage
 
     ![Create a Key vault screen](./media/msi-tutorial-windows-vm-access-nonaad/create-key-vault.png)
 
-1. Fill out all required information making sure that you choose the subscription and resource group where you created the virtual machine that you are using for this tutorial.
+1. Fill out all required information. Make sure that you choose the subscription and resource group that you're using for this tutorial.
 1. Select **Review+ create**
 1. Select **Create**
 
 ### Create a secret
 
-Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. For the purpose of this tutorial, we are using PowerShell but the same concepts apply to any code executing in this virtual machine.
+Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. In this tutorial, we're using PowerShell but the same concepts apply to any code executing in this virtual machine.
 
 1. Navigate to your newly created Key Vault.
-1. Select **Secrets**, and click **Add**.
+1. Select **Secrets**, and select **Add**.
 1. Select **Generate/Import**
-1. In the **Create a secret** screen from **Upload options** leave **Manual** selected.
+1. In the **Create a secret** screen, from **Upload options** leave **Manual** selected.
 1. Enter a name and value for the secret.  The value can be anything you want. 
 1. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
-1. Click **Create** to create the secret.
+1. Select **Create** to create the secret.
 
    ![Create a secret](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
 
 ## Grant access
 
-The managed identity used by the virtual machine needs to be granted access to read the secret that we will store in the Key Vault.
+The managed identity used by the virtual machine needs to be granted access to read the secret that we'll store in the Key Vault.
 
 1. Navigate to your newly created Key Vault
 1. Select **Access Policy** from the menu on the left side.
@@ -82,7 +81,7 @@ The managed identity used by the virtual machine needs to be granted access to r
 
    ![key vault create access policy screen](./media/msi-tutorial-windows-vm-access-nonaad/key-vault-access-policy.png)
 
-1. In the **Add access policy** section under **Configure from template (optional)** choose **Secret Management** from the pull-down menu.
+1. In the **Add access policy** section, under **Configure from template (optional)**, choose **Secret Management** from the pull-down menu.
 1. Choose **Select Principal**, and in the search field enter the name of the VM you created earlier.  Select the VM in the result list and choose **Select**.
 1. Select **Add**
 1. Select **Save**.
@@ -94,9 +93,9 @@ This section shows how to get an access token using the VM identity and use it t
 
 First, we use the VM’s system-assigned managed identity to get an access token to authenticate to Key Vault:
  
-1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**.
+1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, select **Connect**.
 2. Enter in your **Username** and **Password** for which you added when you created the **Windows VM**.  
-3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.  
+3. Now that you've created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.  
 4. In PowerShell, invoke the web request on the tenant to get the token for the local host in the specific port for the VM.  
 
 The PowerShell request:
@@ -135,11 +134,11 @@ Once you’ve retrieved the secret from the Key Vault, you can use it to authent
 
 When you want to clean up the resources, visit the [Azure portal](https://portal.azure.com), select **Resource groups**, locate, and select the resource group that was created in the process of this tutorial (such as `mi-test`), and then use the **Delete resource group** command.
 
-Alternatively you may also do this via [PowerShell or the CLI](../../azure-resource-manager/management/delete-resource-group.md)
+Alternatively you may also clean up resources via [PowerShell or the CLI](../../azure-resource-manager/management/delete-resource-group.md)
 
 ## Next steps
 
-In this tutorial, you learned how to use a Windows VM system-assigned managed identity to access Azure Key Vault.  To learn more about Azure Key Vault see:
+In this tutorial, you learned how to use a Windows VM system-assigned managed identity to access Azure Key Vault.  To learn more about Azure Key Vault, see:
 
 > [!div class="nextstepaction"]
 >[Azure Key Vault](../../key-vault/general/overview.md)

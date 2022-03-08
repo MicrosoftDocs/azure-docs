@@ -356,7 +356,7 @@ To learn more, see [Windows Container Version Compatibility](/virtualization/win
 Consider the compatibility of the host OS and your container OS when building and deploying containers to your Service Fabric cluster. For example:
 
 - Make sure you deploy containers with an OS compatible with the OS on your cluster nodes.
-- Make sure that the isolation mode specified for your container app is consistent with support for the container OS on the node where it is being deployed.
+- Make sure that the isolation mode specified for your container application is consistent with support for the container OS on the node where it is being deployed.
 - Consider how OS upgrades to your cluster nodes or containers may affect their compatibility. 
 
 We recommend the following practices to make sure that containers are deployed correctly on your Service Fabric cluster:
