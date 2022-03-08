@@ -229,6 +229,8 @@
         href: aws-single-sign-on-tutorial.md
       - name: Axiad Cloud
         href: axiad-cloud-tutorial.md
+      - name: Axway CSOS
+        href: axway-csos-tutorial.md  
     - name: B
       items:
       - name: BambooHR
