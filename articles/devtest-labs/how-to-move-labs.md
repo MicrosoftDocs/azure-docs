@@ -240,7 +240,7 @@ Note the VMs under the new Lab have the same specs as the ones under the old Lab
 
         After that, you'll have a new disk under the new region.
 
-   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](/azure/virtual-machines/windows/os-disk-swap.md)". 
+   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](../virtual-machines/windows/os-disk-swap.md)". 
 
 
 ## Discard or clean up
@@ -261,5 +261,5 @@ To remove a lab by using the Azure portal:
 
 In this article, you moved a DevTest lab from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
-- [Move resources to a new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Move Azure VMs to another region](/azure/site-recovery/azure-to-azure-tutorial-migrate.md)
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)
