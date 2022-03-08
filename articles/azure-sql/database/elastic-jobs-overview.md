@@ -79,9 +79,8 @@ These are the current limitations to the Elastic Jobs service.  We're actively w
 
 | Issue | Description |
 | :---- | :--------- |
-| The Elastic Job agent needs to be recreated and restarted in the new region after a failover/move to a new Azure region. | The Elastic Jobs service stores all its job agent and job metadata in the jobs database. Any failover or move of Azure resources to a new Azure region will also move the jobs database, job agent and jobs metadata to the new Azure region. However, the Elastic Job agent is a compute only resource and needs to be explicitly re-created and restarted in the new region before jobs will start executing again in the new region. Once restarted, the Elastic Job agent will resume executing jobs in the new region as per the previously defined job schedule. |
+| The Elastic Job agent needs to be recreated and started in the new region after a failover/move to a new Azure region. | The Elastic Jobs service stores all its job agent and job metadata in the jobs database. Any failover or move of Azure resources to a new Azure region will also move the jobs database, job agent and jobs metadata to the new Azure region. However, the Elastic Job agent is a compute only resource and needs to be explicitly re-created and started in the new region before jobs will start executing again in the new region. Once started, the Elastic Job agent will resume executing jobs in the new region as per the previously defined job schedule. |
 | Concurrent jobs limit. | Currently, the preview is limited to 100 concurrent jobs. |
-| | |
 
 ## Best practices for creating jobs
 
