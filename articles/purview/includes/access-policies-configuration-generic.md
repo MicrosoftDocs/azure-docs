@@ -11,10 +11,10 @@ ms.custom:
 ### Register Azure Purview as a resource provider in other subscriptions
 Execute this step only if the data sources and the Azure Purview account are in different subscriptions. Register Azure Purview as a resource provider in each subscription where data sources reside by following this guide: [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md)
 
-### Configure permissions for policy management actions in Azure Purview
+### Configure permissions for policy management actions
 This section discusses the permissions needed to:
 - Make a data resource available for *Data use governance*. This step is needed before a policy can be created in Azure Purview for that resource.
-- Author and publish policies
+- Author and publish policies in Azure Purview
 
 >[!IMPORTANT]
 > Currently, Azure Purview roles related to policy operations must be configured at **root collection level** and not child collection level.
@@ -31,6 +31,7 @@ To enable the *Data use Governance* (DUG) toggle for a data source, resource gro
 2) In addition, the same user needs to have Azure Purview Data source administrator role at the root collection level. See the guide on [managing Azure Purview role assignments](../catalog-permissions.md#assign-permissions-to-your-users).
 
 #### Permissions for policy authoring and publishing
+The following permissions are needed in Azure Purview
 - *Policy authors* role can create or edit policies.
 - *Data source administrator* role can publish a policy.
 
