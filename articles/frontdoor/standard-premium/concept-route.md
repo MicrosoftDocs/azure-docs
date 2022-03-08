@@ -25,7 +25,7 @@ A Front Door Standard/Premium routing configuration is composed of two major par
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> When you use the [Front Door rules engine](concept-rule-set.md), you can configure a rule to [override the origin group](../front-door-rules-engine-actions.md#origin-group-override) for a request. The origin group set by the rules engine overrides the routing process described in this article.
+> When you use the [Front Door rules engine](../front-door-rules-engine.md), you can configure a rule to [override the origin group](../front-door-rules-engine-actions.md#origin-group-override) for a request. The origin group set by the rules engine overrides the routing process described in this article.
 
 ### Incoming match (left-hand side)
 
@@ -133,7 +133,7 @@ Given that configuration, the following example matching table would result:
 
 Once Azure Front Door Standard/Premium has matched to a single routing rule, it then needs to choose how to process the request. If Azure Front Door Standard/Premium has a cached response available for the matched routing rule, then the request gets served back to the client.
 
-Finally, Azure Front Door Standard/Premium evaluates whether or not you have a [rule set](concept-rule-set.md) for the matched routing rule. If there's no rule set defined, then the request gets forwarded to the origin group as-is. Otherwise, the rule sets get executed in the order they're configured. [Rule sets can override the route](../front-door-rules-engine-actions.md#origin-group-override), forcing traffic to a specific origin group.
+Finally, Azure Front Door Standard/Premium evaluates whether or not you have a [rule set](../front-door-rules-engine.md) for the matched routing rule. If there's no rule set defined, then the request gets forwarded to the origin group as-is. Otherwise, the rule sets get executed in the order they're configured. [Rule sets can override the route](../front-door-rules-engine-actions.md#origin-group-override), forcing traffic to a specific origin group.
 
 ## Next steps
 
