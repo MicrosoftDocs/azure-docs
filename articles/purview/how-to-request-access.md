@@ -21,7 +21,7 @@ This article outlines how to request access for a data asset discovered in Azure
 1. Click on 'Send' to trigger the self-service data access workflow.
 
 > [!NOTE]
-A request access to resource set will actually submit the data access request for the folder on the resource set.
+A request access to resource set will actually submit the data access request for the folder one level up which contains all these resource set files. 
 
 ## Next steps
 

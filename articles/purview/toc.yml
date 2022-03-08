@@ -243,6 +243,8 @@ items:
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md  
+    - name: Bulk delete business terms
+      href: how-to-bulk-delete-terms.md  
   - name: Classify
     items: 
     - name: Create custom classifications
