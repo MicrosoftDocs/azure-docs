@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 03/04/2022
 ms.author: inhenkel
 ---
-# Delete a Media Services accounts
+# Delete a Media Services account
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
