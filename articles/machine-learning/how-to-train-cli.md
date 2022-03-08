@@ -42,7 +42,7 @@ Using `--depth 1` clones only the latest commit to the repository, which reduces
 
 ### Create compute
 
-You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.  (This code assumes you've first followed the steps in [the v2 installation prerequisite](how-to-configure-cli.md#set-up) to configure the default --workspace/-w and --resource-group/-g parameters.)
+You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
 
 :::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-compute.sh" id="create_computes":::
 
@@ -127,7 +127,7 @@ Production machine learning models need to be auditable (if not reproducible). I
 > [!TIP]
 > If you're following along and running from the examples repository, you can see the source repository and commit in the studio on any of the jobs run so far.
 
-You can specify the `code.local_path` key in a job with the value as the path to a source code directory. A snapshot of the directory is taken and uploaded with the job. The contents of the directory are directly available from the working directory of the job.
+You can specify the `code` key in a job with the value as the path to a source code directory. A snapshot of the directory is taken and uploaded with the job. The contents of the directory are directly available from the working directory of the job.
 
 > [!WARNING]
 > The source code should not include large data inputs for model training. Instead, [use data inputs](#data-inputs). You can use a `.gitignore` file in the source code directory to exclude files from the snapshot. The limits for snapshot size are 300 MB or 2000 files.
@@ -362,9 +362,9 @@ Optionally, remove the local file and directory:
 
 :::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="cleanup_cifar":::
 
-Datasets (File only) can be referred to in a job using the `dataset` key of a data input. The format is `azureml:<DATASET_NAME>:<DATASET_VERSION>`, so for the CIFAR-10 dataset just created, it is `azureml:cifar-10-example:1`.
+Data assets can be referred to in a job using the `uri_folder` key of a data input. The format is `azureml:<DATA_ASSET_NAME>:<DATA_ASSET_VERSION>`, so for the CIFAR-10 dataset just created, it is `azureml:cifar-10-example:1`.
 
-With the dataset in place, you can author a distributed PyTorch job to train our model:
+With the data asset in place, you can author a distributed PyTorch job to train our model:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
 
