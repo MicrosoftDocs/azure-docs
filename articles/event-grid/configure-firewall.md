@@ -13,7 +13,7 @@ This article describes how to configure IP firewall settings for Azure Event Gri
 ## Use Azure portal
 This section shows you how to use the Azure portal to enable public or private access while creating a topic or for an existing topic. The steps shown in this section are for topics. You can use similar steps to enable public or private access for **domains**. 
 
-### When creating a topic or domain
+### When creating a topic
 This section shows you how to enable public or private network access for an Event Grid topic or a domain. For step-by-step instructions to create a new topic, see [Create a custom topic](custom-event-quickstart-portal.md#create-a-custom-topic).
 
 1. On the **Basics** page of the **Create topic** wizard, select **Next: Networking** at the bottom of the page after filling the required fields. 
@@ -27,7 +27,7 @@ This section shows you how to enable public or private network access for an Eve
     :::image type="content" source="./media/configure-firewall/networking-page-private-access.png" alt-text="Image showing the selection of Private access option on the Networking page of the Create topic wizard. ":::    
 1. Follow instructions in the [Add a private endpoint using Azure portal](configure-private-endpoints.md#use-azure-portal) section to create a private endpoint. 
 
-### For an existing topic or domain
+### For an existing topic
 1. In the [Azure portal](https://portal.azure.com), Navigate to your event grid topic or domain, and switch to the **Networking** tab.
 2. Select **Public networks** to allow all networks, including the internet, to access the resource. 
 

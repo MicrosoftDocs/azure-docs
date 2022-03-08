@@ -373,33 +373,40 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 
 ```azurepowershell-interactive
-$body = @{"location"="<LOCATION>"; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
+# create virtual network
+$virtualNetwork = New-AzVirtualNetwork `
+                    -ResourceGroupName <RESOURCE GROUP NAME> `
+                    -Location <LOCATION> `
+                    -Name <VNET NAME> `
+                    -AddressPrefix 10.0.0.0/16
 
-# create topic
-Invoke-RestMethod -Method 'Put'  `
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-06-01"  `
-    -Headers $Headers  `
-    -Body $body
+# create subnet with endpoint network policy disabled
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
+                    -Name <SUBNET NAME> `
+                    -AddressPrefix 10.0.0.0/24 `
+                    -PrivateEndpointNetworkPoliciesFlag "Disabled" `
+                    -VirtualNetwork $virtualNetwork
 
-# verify that the topic was created
-$topic=Invoke-RestMethod -Method 'Get'  `
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-06-01"   `
-    -Headers $Headers  
+# update virtual network
+$virtualNetwork | Set-AzVirtualNetwork
+
+
+$virtualNetwork = Get-AzVirtualNetwork `
+                    -ResourceGroupName <VNET RESOURCE GROUP NAME> `
+                    -Name <VNET NAME>
+
+# create an Event Grid topic with public network access disabled.
+$topic = New-AzEventGridTopic -ResourceGroupName <RESOURCE GROUP NAME> -Name <EVENT GRID TOPIC NAME> -Location <LOCATION> -PublicNetworkAccess disabled
 
 # create private link service connection
 $privateEndpointConnection = New-AzPrivateLinkServiceConnection `
                                 -Name "<PRIVATE LINK SERVICE CONNECTION NAME>" `
-                                -PrivateLinkServiceId $topic.Id `
+                                -PrivateLinkServiceId $topic.id `
                                 -GroupId "topic"
-
-# get virtual network info 
-$virtualNetwork = Get-AzVirtualNetwork  `
-                    -ResourceGroupName  <RESOURCE GROUP NAME> `
-                    -Name <VIRTUAL NETWORK NAME>
 
 # get subnet info
 $subnet = $virtualNetwork | Select -ExpandProperty subnets `
-                             | Where-Object  {$_.Name -eq <SUBNET NAME>}  
+                             | Where-Object  {$_.Name -eq "<SUBNET NAME>" }  
 
 # now, you are ready to create a private endpoint 
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName <RESOURCE GROUP NAME>  `
@@ -408,41 +415,13 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName <RESOURCE GROUP NAME
                                         -Subnet  $subnet   `
                                         -PrivateLinkServiceConnection $privateEndpointConnection
 
-# verify that the endpoint was created
-Invoke-RestMethod -Method 'Get'  `
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections?api-version=2020-06-01"   `
-    -Headers $Headers   `
-    | ConvertTo-Json -Depth 5
+# verify that the private endpoint was created
+Get-AzPrivateEndpoint -ResourceGroupName <RESOURCE GROUP NAME>  -Name <PRIVATE ENDPOINT NAME>  
+
 
 ```
 
-When you verify that the endpoint was created, you should see the result similar to the following:
 
-```json
-
-{
-  "value": [
-    {
-      "properties": {
-        "privateEndpoint": {
-          "id": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Network/privateEndpoints/<PRIVATE ENDPOINT NAME>"
-        },
-        "groupIds": [
-          "topic"
-        ],
-        "privateLinkServiceConnectionState": {
-          "status": "Approved",
-          "description": "Auto-approved",
-          "actionsRequired": "None"
-        },
-        "provisioningState": "Succeeded"
-      },
-      "id": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>",
-      "name": "myConnection",
-      "type": "Microsoft.EventGrid/topics/privateEndpointConnections"
-    }
-  ]
-}
 ```
 
 ### Approve a private endpoint connection
@@ -452,18 +431,19 @@ The following sample PowerShell snippet shows you how to approve a private endpo
 > The steps shown in this section are for topics. You can use similar steps to approve private endpoints for **domains**. 
 
 ```azurepowershell-interactive
-$approvedBody = @{"properties"=@{"privateLinkServiceConnectionState"=@{"status"="approved";"description"="connection approved";"actionsRequired"="none"}}} | ConvertTo-Json
 
-# approve endpoint connection
-Invoke-RestMethod -Method 'Put'  `
-    -Uri "https://management.azure.com/subscriptions/<AzuRE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-06-01"  `
-    -Headers $Headers  `
-    -Body $approvedBody
+# list all private endpoints for the topic
+$topic = Get-AzEventGridTopic -ResourceGroup <RESOURCE GROUP NAME> - Name <TOPIC NAME>
+$endpointList = Get-AzPrivateEndpointConnection -PrivateLinkResourceId $topic.Id
 
-# confirm that the endpoint connection was approved
-Invoke-RestMethod -Method 'Get'  `
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-06-01"  `
-    -Headers $Headers
+# filter the private endpoints using a name
+ $pseEndpoint = $endpointList | Where-Object {     $_.Name.StartsWith('<MYENDPOINTNAME>') }
+
+# approve the endpoint connection
+Approve-AzPrivateEndpointConnection -ResourceId $pseEndpoint.Id
+
+# get the endpoint connection to verify that it's approved
+Get-AzPrivateEndpointConnection -ResourceId $pseEndpoint.Id
 
 ```
 
@@ -475,18 +455,20 @@ The following example shows you how to reject a private endpoint using PowerShel
 
 
 ```azurepowershell-interactive
-$rejectedBody = @{"properties"=@{"privateLinkServiceConnectionState"=@{"status"="rejected";"description"="connection rejected";"actionsRequired"="none"}}} | ConvertTo-Json
+# list all private endpoints for the topic
+$topic = Get-AzEventGridTopic -ResourceGroup <RESOURCE GROUP NAME> - Name <TOPIC NAME>
+$endpointList = Get-AzPrivateEndpointConnection -PrivateLinkResourceId $topic.Id
 
-# reject private endpoint
-Invoke-RestMethod -Method 'Put'  `
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-06-01"  `
-    -Headers $Headers  `
-    -Body $rejectedBody
 
-# confirm that endpoint was rejected
-Invoke-RestMethod -Method 'Get' 
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-06-01" ` 
-    -Headers $Headers
+# filter the private endpoints using a name
+ $pseEndpoint = $endpointList | Where-Object {     $_.Name.StartsWith('<MYENDPOINT>') }
+
+# deny or reject the private endpoint connection
+Deny-AzPrivateEndpointConnection -ResourceId $pseEndpoint.Id
+
+# get the endpoint connection to verify that it's rejected
+Get-AzPrivateEndpointConnection -ResourceId $pseEndpoint.Id
+
 ```
 
 You can approve the connection even after it's rejected via API. If you use Azure portal, you can't approve an endpoint that has been rejected. 
