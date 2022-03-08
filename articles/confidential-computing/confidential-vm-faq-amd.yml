@@ -56,10 +56,18 @@ sections:
              - [Deploy from the Azure Command-Line Interface (Azure CLI)](quick-create-confidential-vm-arm-amd.md)
 
       - question: |
+          As a customer, can I perform attestation for my confidential VMs?
+        answer: |
+          During the preview, confidential VMs undergo attestation during their boot phase. This process is opaque to the customer and takes place by the cloud operating system in conjunction with the Microsoft Azure Attestation and Azure Key Vault services.
+          When the product launches in General Availability, confidential VMs will extend to let customers perform independent attestation for their VMs. This will be done using tooling and documentation which is yet to be published. 
+          Until then, similar to [trusted launch VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/trusted-launch-portal?tabs=portal), customers can use the vTPM in their VMs to perform attestation of the VM firmware and OS as described [here](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation).
+
+      - question: |
           Do all OS images work with confidential VMs?
         answer: |
           To run on a confidential VM, OS images must meet certain security and compatibility requirements. 
-          VMs must be securely mounted, attested to, and isolated from the underlying cloud infrastructure. 
+          This way confidential VMs can be securely mounted, attested to, and isolated from the underlying cloud infrastructure. 
+          In the future we plan to provide guidance on how to take a custom Linux image and apply a set of open-source patches to qualify it as a confidential VM image.
           You can use [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) to modify a confidential VM image, such as by installing applications. 
           Then, you can deploy confidential VMs based on your modified image.
 
@@ -122,7 +130,7 @@ sections:
         answer: |
           Billing for confidential VMs depends on your usage and storage, and the size and region of the VM. Confidential VMs are available in dedicated sizes, so prices might differ from general-purpose VMs. 
           Confidential VMs use a small encrypted virtual machine guest state (VMGS) disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This disk might result in a monthly storage fee.
-          Starting in 2022, if you choose to enable the optional full-disk encryption, encrypted OS disks will incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible.
+          Also, if you choose to enable the optional full-disk encryption, encrypted OS disks will incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible.
           For more information on storage fees, see the [pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
           Lastly, for some high security and privacy settings, you might choose to create linked resources, such as a [Managed HSM Pool](../key-vault/managed-hsm/overview.md). 
           Azure bills such resources separately from the confidential VM costs.
