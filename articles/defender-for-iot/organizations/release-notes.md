@@ -64,7 +64,7 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 Defender for IoT now supports the Rockwell protocol for PLC operating mode detections.
 
-For the Rockwell protocol, the **Device inventory** page in the Azure portal now indicates the PLC operating mode key and run state, and whether the device is currently in a secure mode.
+For the Rockwell protocol, the **Device inventory** pages in both the Azure portal and the sensor console now indicate the PLC operating mode key and run state, and whether the device is currently in a secure mode.
 
 If the device's PLC operating mode is ever switched to an insecure mode, such as *Program* or *Remote*, a **PLC Operating Mode Changed** alert is generated.
 
