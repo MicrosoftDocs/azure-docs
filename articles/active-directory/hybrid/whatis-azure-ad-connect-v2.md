@@ -48,7 +48,7 @@ There is no action needed from your side.
 
 SQL Server 2019 requires Windows Server 2016 or newer as a server operating system. Since AAD Connect v2 contains SQL Server 2019 components, we no longer can support older Windows Server versions.  
 
-You cannot install this version on an older Windows Server version. We suggest you upgrade your Azure AD Connect server to Windows Server 2019, which is the most recent version of the Windows Server operating system. 
+You cannot install this version on an older Windows Server version. We suggest you upgrade your Azure AD Connect server to Windows Server 2022, which is the most recent version of the Windows Server operating system. 
 
 This [article](/windows-server/get-started-19/install-upgrade-migrate-19) describes the upgrade from older Windows Server versions to Windows Server 2019. 
 
@@ -65,7 +65,7 @@ More details about PowerShell prerequisites can be found [here](/powershell/scri
 
 
 **Why is this upgrade important for me?** </br>
-Next year several of the components in your current Azure AD Connect server installations will go out of support. If you are using unsupported products, it will be harder for our support team to provide you with the support experience your organization requires. So we recommend all customers to upgrade to this newer version as soon as they can. 
+In 2022 several of the components in your current Azure AD Connect server installations will go out of support. If you are using unsupported products, it will be harder for our support team to provide you with the support experience your organization requires. So we recommend all customers to upgrade to this newer version as soon as they can. 
 
 This upgrade is especially important since we have had to update our prerequisites for Azure AD Connect and you may need additional time to plan and update your servers to the newer versions of these prerequisites 
 
