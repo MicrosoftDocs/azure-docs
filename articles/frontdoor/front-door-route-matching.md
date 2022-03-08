@@ -23,7 +23,7 @@ In Azure Front Door Standard/Premium tier a route defines how the traffic is han
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> When you use the [Front Door rules engine](../front-door-rules-engine.md), you can configure a rule to [override the origin group](../front-door-rules-engine-actions.md#origin-group-override) for a request. The origin group set by the rules engine overrides the routing process described in this article.
+> When you use the [Front Door rules engine](front-door-rules-engine.md), you can configure a rule to [override the origin group](front-door-rules-engine-actions.md#origin-group-override) for a request. The origin group set by the rules engine overrides the routing process described in this article.
 
 ::: zone-end
 
