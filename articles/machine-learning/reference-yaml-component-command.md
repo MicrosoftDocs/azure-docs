@@ -72,7 +72,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | **Required.** The type of component input. <br><br> Use `type: path` if you want the runtime job input value to be a data URI or Azure ML dataset when the component is run. | `number`, `integer`, `boolean`, `string`, `path` | |
+| `type` | string | **Required.** The type of component input. <br><br> Use `type: path` if you want the runtime job input value to be a data URI or Azure ML data asset when the component is run. | `number`, `integer`, `boolean`, `string`, `path` | |
 | `description` | string | Description of the input. | | |
 | `default` | number, integer, boolean, or string | The default value for the input. | | |
 | `optional` | boolean | Whether the input is required. | | `false` |
