@@ -10,7 +10,7 @@ ms.date: 01/27/2022
 ms.custom: how-to 
 ---
 
-# Azure Cosmos DB Cassandra API Driver Extension
+# Azure Cosmos DB Cassandra API driver extension
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB offers a driver extension for DataStax Java Driver 3 and 4. These driver extensions provide developers with different features to help improve the performance and reliability of your application and optimize your workloads on Azure Cosmos DB.
@@ -18,8 +18,8 @@ Azure Cosmos DB offers a driver extension for DataStax Java Driver 3 and 4. Thes
 In this article, the focus will be on Java v4 of the DataStax Java Driver. The extension created can be implemented without any changes to your code but an update to the `pom.xml` and `application.conf` files. In this article, we share the default values for all configuration options set by the Cosmos Cassandra extensions and in what cases you might wish to override them.
 
 
-## Recommended Settings for Java SDK
-The following settings are specifically for Cassandra client driver java version 4. 
+## Recommended settings for Java SDK
+The following settings are specifically for Cassandra client driver Java version 4. 
 
 ### Authentication 
 PlainTextAuthProvider is used by default. This is because the Cosmos DB Cassandra API requires authentication and uses plain text authentication. 
@@ -55,7 +55,7 @@ The session token map is used internally by the driver to send requests to the o
     } 
 ```
 
-### Reconnection Policy 
+### Reconnection policy 
 We recommend using the `ConstantReconnectionPolicy` for Cassandra API, with a `base-delay` of 2 seconds. 
 
 ```java
@@ -65,7 +65,7 @@ We recommend using the `ConstantReconnectionPolicy` for Cassandra API, with a `b
     } 
 ```
 
-### Retry Policy 
+### Retry policy 
 The default retry policy in the Java Driver does not handle the `OverLoadedException`. We have created a custom policy for Cassandra API to help handle this exception.  
 The parameters for the retry policy are defined within the [reference.conf](https://github.com/Azure/azure-cosmos-cassandra-extensions/blob/release/java-driver-4/1.1.2/driver-4/src/main/resources/reference.conf) of the Azure Cosmos DB extension.  
 
@@ -78,8 +78,8 @@ The parameters for the retry policy are defined within the [reference.conf](http
     } 
 ```
 
-### balancing policy and Preferred regions 
-The default load balancing policy in the v4 driver restricts application-level failover and specifying a single local datacenter for the `CqlSession`, object is required by the policy. This provides a good out-of-box experience for communicating with Cosmos Cassandra instances. In addition to setting the load balancing policy, you can configure failover to specified regions in a multi-region-writes deployment, if there is regional outages using the `preferred-regions` parameter.
+### Balancing policy and preferred regions 
+The default load balancing policy in the v4 driver restricts application-level failover and specifying a single local datacenter for the `CqlSession`, object is required by the policy. This provides a good out-of-box experience for communicating with Cosmos Cassandra instances. In addition to setting the load balancing policy, you can configure failover to specified regions in a multi-region-writes deployment, if there are regional outages using the `preferred-regions` parameter.
 
 ```java
     load-balancing-policy {
@@ -88,7 +88,7 @@ The default load balancing policy in the v4 driver restricts application-level f
 } 
 ```
 
-### SSL Connection and Timeouts 
+### SSL connection and timeouts 
 The `DefaultsslEngineFactory` is used by default. This is because Cosmos Cassandra API requires SSL: 
 ```java
     ssl-engine-factory { 
