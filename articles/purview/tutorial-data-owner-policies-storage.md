@@ -12,6 +12,8 @@ ms.custom:
 
 # Tutorial: Access provisioning by data owner to Azure Storage datasets (preview)
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This tutorial describes how a data owner can leverage Azure Purview to enable access to datasets in Azure Storage. At this point, only the following data sources are supported:
 - Blob storage
 - Azure Data Lake Storage (ADLS) Gen2
@@ -22,8 +24,6 @@ In this tutorial, you learn how to:
 > * Configure permissions
 > * Register a data asset for Data use governance
 > * Create and publish a policy
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
