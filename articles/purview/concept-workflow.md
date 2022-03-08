@@ -16,11 +16,6 @@ Workflows enable Azure Purview customers to orchestrate the CUD operations, 
 
 Workflows empower our customers to achieve data quality with more control and less effort, because they won't need to use manual controls like emails or worksheets to review and approve the changes to entities in their catalog.
 
-## Types of workflows
-
-- **User defined**: Workflows defined by the customer based on their organizational needs for governance process in Purview. For example, approval workflow for CUD operation of glossary terms, approval flow for publishing a Purview policy.
-- **System defined**: Workflows built into the Purview platform for governance of Purview processes such as requesting access to Purview Studio.
-
 ## Who can manage workflows?
 Users with ‘Workflow Admin’ role assign to a collection can manage ‘Self-service data access for hybrid data estate’ workflows for that collection. 
 
