@@ -7,11 +7,17 @@ ms.date: 03/07/2022
 
 # Configure and use a remote desktop gateway in Azure DevTest Labs
 
-This article walks through how to use a remote desktop gateway for more secure access to lab virtual machines (VMs) in Azure DevTest Labs. Using the gateway improves security because the VMs' remote desktop protocol (RDP) ports aren't exposed to the internet.
+This article describes how to set up and use a gateway for more secure remote desktop access to lab virtual machines (VMs) in Azure DevTest Labs. Using a gateway improves security because you don't expose the VMs' remote desktop protocol (RDP) ports to the internet.
 
-DevTest Labs provides a central place for lab users to view and connect to their VMs. On a Windows VM, you can select **Connect** > **RDP** on a lab VM's **Overview** page to create a machine-specific RDP file, and open the file to connect to the VM. With a remote desktop gateway, lab users connect to their VMs through a gateway machine. Users can authenticate directly to the gateway machine, and can use company credentials on domain-joined machines. DevTest Labs also supports using token authentication to the gateway machine.
+DevTest Labs provides a central place for lab users to view and connect to their VMs. You can select **Connect** > **RDP** on a lab VM's **Overview** page to create a machine-specific RDP file, and open the file to connect to the VM.
 
-Another way to securely access lab VMs without exposing the RDP port is through a browser with Azure Bastion. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
+With a remote desktop gateway, lab users connect to their VMs through a gateway machine. With a remote desktop gateway, users can:
+
+- Authenticate directly to the gateway machine.
+- Use token authentication to the gateway machine.
+- Use company credentials on domain-joined machines.
+
+Another way to securely access lab VMs without exposing RDP ports is through a browser with Azure Bastion. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
 
 ## Architecture
 
@@ -26,9 +32,9 @@ The following diagram shows how a remote desktop gateway applies token authentic
    ```
 
 1. The `getRdpFileContents` action invokes `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` to request an authentication token.
-   - `{gateway-hostname}`, or `{lb-uri}` for a load balancer, is the gateway hostname you specify on the **Lab settings** page for your lab.
-   - `{lab-machine-name}` is the name of the VM you want to connect to.
-   - `{port-number}` is the port to use for the connection. Usually this port is 3389, but if the lab VM uses a [shared IP](devtest-lab-shared-ip.md), the port is different.
+   - `{gateway-hostname}`, or `{lb-uri}` for a load balancer, is the gateway hostname specified on the **Lab settings** page for the lab.
+   - `{lab-machine-name}` is the name of the VM to connect to.
+   - `{port-number}` is the port to use for the connection. Usually this port is 3389, but if the lab VM uses a [shared IP](devtest-lab-shared-ip.md), the port number is different.
 
 1. The remote desktop gateway uses `https://{function-app-uri}/api/host/{lab-machine-name}/port/{port-number}` to defer the call to an Azure Functions function app.
 
@@ -47,13 +53,13 @@ When an RDP connection program opens the RDP file, the remote desktop gateway au
 
 ## Configuration requirements
  
-There are a few configuration requirements for gateway machines, domain name services (DNS), and Azure Functions to work with DevTest Labs token authentication.
+For gateway machines, domain name services (DNS), and Azure Functions to work with DevTest Labs token authentication, there are some configuration requirements:
 
 ### Gateway machine requirements
 
 - The gateway machine must have a TLS/SSL certificate installed to handle HTTPS traffic. The certificate must match the fully qualified domain name (FQDN) of the gateway machine if there's only one machine, or the load balancer for a gateway farm. Wild-card TLS/SSL certificates don't work.
 
-- Gateway machine(s) must have a signing certificate installed. You can create a signing certificate by using the [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) PowerShell script.
+- The gateway machine(s) must have a signing certificate installed. You can create a signing certificate by using the [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) PowerShell script.
 
 - The gateway must have a [pluggable authentication module](https://en.wikipedia.org/wiki/Pluggable_authentication_module) that supports token authentication. One example is *RDGatewayFedAuth.msi*, which comes with [System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807&preserve-view=true) images.
 
