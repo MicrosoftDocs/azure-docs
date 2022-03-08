@@ -43,7 +43,7 @@ Before you can migrate to custom neural voice, your [application](https://aka.ms
 3. After the custom neural voice model is created, deploy the voice model to a new endpoint. To create a new custom voice endpoint with your neural voice model, go to **Text-to-Speech > Custom Voice > Deploy model**. Select **Deploy models** and enter a **Name** and **Description** for your custom endpoint. Then select the custom neural voice model you would like to associate with this endpoint and confirm the deployment.  
 4. Update your code in your apps if you have created a new endpoint with a new model. 
 
-## Custom voice details (retired)
+## Custom voice details (deprecated)
 
 Read the following sections for details on custom voice.
 
@@ -92,7 +92,7 @@ If you've created a custom voice font, use the endpoint that you've created. You
 | West US | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 
- ## Custom Text-to-Speech container image tags
+ ## Custom Text-to-Speech container image tags (deprecated)
 
 The [Custom Text-to-Speech][sp-ctts] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech`. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-text-to-speech/tags/list).
 
