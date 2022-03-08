@@ -33,10 +33,6 @@ Information on these newer features is included in this article.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
 
-## Activity Log only
-
-The Activity Log uses a diagnostic setting, but has it's own user interface because it applies to the whole subscription rather than individual resources. The destination information listed below still applies.  For more information, see the [Azure Acivity Log](activity-log.md). 
-
 ## Sources
 
 Here are the source options.
@@ -62,6 +58,9 @@ Currently, there are two category groups:
 - **All** - Every resource log offered by the resource.
 - **Audit** - All resource logs that record customer interactions with data or the settings of the service.
 
+### Activity Log
+See section below 
+
 ## Destinations
 Platform logs and metrics can be sent to the destinations in the following table. 
 
@@ -71,6 +70,10 @@ Platform logs and metrics can be sent to the destinations in the following table
 | [Azure storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  | 
 | [Event Hubs](../../event-hubs/index.yml) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs  and other Log Analytics solutions.  |
 | [Azure Monitor partner integrations](../../partner-solutions/overview.md)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you are already using one of the partners.  |
+
+## Activity Log settings
+
+The Activity Log uses a diagnostic setting, but has it's own user interface because it applies to the whole subscription rather than individual resources. The destination information listed below still applies.  For more information, see the [Azure Activity Log](activity-log.md). 
 
 ## Requirements and limitations
 
