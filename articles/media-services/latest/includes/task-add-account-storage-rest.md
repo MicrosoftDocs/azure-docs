@@ -11,4 +11,4 @@ ms.author: inhenkel
 ## Test cross-repo include
 
 
-[!INCLUDE [rest-api](/rest/api/media/account-filters/create-or-update)]
+[!INCLUDE [rest-api](~/rest/api/media/account-filters/create-or-update)]
