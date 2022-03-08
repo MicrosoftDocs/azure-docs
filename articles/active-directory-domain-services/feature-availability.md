@@ -15,7 +15,7 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
 
-# Cloud feature availability
+# Azure Active Directory Domain Services feature availability
 
 <!---Jeremy said there are additional features that don't fit nicely in this list that we need to add later--->
 
