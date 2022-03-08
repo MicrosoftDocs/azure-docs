@@ -60,4 +60,4 @@ You need to follow the following steps to change LUIS authoring resource to a La
 
 ## Next steps
 
-[Conversational language understanding documentation](../../language-service/conversational-language-understanding/how-to/create-project.md#create-an-orchestration-workflow-project).
+* [Conversational language understanding documentation](../../language-service/conversational-language-understanding/how-to/create-project.md)
