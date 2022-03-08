@@ -1,6 +1,6 @@
 ---
-title: Add a custom transform output for a Media Services job
-description: This article shows you how to add a custom transform output for a Media Services job.
+title: Create a Media Services asset filter
+description: This article shows you how to create a Media Services asset filter.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -9,20 +9,20 @@ ms.topic: how-to
 ms.date: 03/08/2022
 ms.author: inhenkel
 ---
-# Add a custom tranform output
+# Create an account filter
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This article shows you how to add a custom transform output for a Media Services job.
+This article shows you how to create a Media Services asset filter.
 
 <!-- NOTE: The following are in the includes folder and are reused in other How To articles. All task based content should be in the includes folder with the task- prefix prepended to the file name. -->
 
 ## Methods
 
-You can use the following methods to add a custom transform output for a Media Services job.
+You can use the following methods to create a Media Services asset filter.
 
 ## CLI
 
-[!INCLUDE [Show the media services account encryption](./includes/task-add-custom-transform-output-cli.md)]
+[!INCLUDE [Show the media services account encryption](./includes/task-create-asset-filter-cli.md)]
 
 ---

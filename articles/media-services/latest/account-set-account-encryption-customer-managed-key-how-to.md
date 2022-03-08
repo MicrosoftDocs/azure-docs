@@ -1,6 +1,6 @@
 ---
-title: Remove a storage account from a Media Services account
-description: This article shows you how to remove a storage account from a Media Services account,
+title: Set the Media Services account encryption with customer managed keys.
+description: This article shows you how to set the Media Services account encryption with customer managed keys.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila 
@@ -14,12 +14,12 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This article shows you how to remove a storage account from a Media Services account.
+This article shows you how to set the Media Services account encryption with customer managed keys.
 
 ## Methods
 
-You can use the following methods to remove a storage account from a Media Services account.
+You can use the following methods to set the Media Services account encryption with customer managed keys.
 
 ## CLI
 
-[!INCLUDE [Create an asset with CLI](./includes/task-remove-account-storage-cli.md)]
+[!INCLUDE [Create an asset with CLI](./includes/task-set-account-encryption-customer-managed-key-cli.md)]
