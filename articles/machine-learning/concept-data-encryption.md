@@ -23,23 +23,11 @@ Azure Machine Learning uses a variety of Azure data storage services and compute
 
 ## Encryption at rest
 
-> [!IMPORTANT]
-> If your workspace contains sensitive data we recommend setting the [hbi_workspace flag](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) while creating your workspace. The `hbi_workspace` flag can only be set when a workspace is created. It cannot be changed for an existing workspace.
-
-The `hbi_workspace` flag controls the amount of [data Microsoft collects for diagnostic purposes](#microsoft-collected-data) and enables [additional encryption in Microsoft-managed environments](../security/fundamentals/encryption-atrest.md). In addition, it enables the following actions:
-
-* Starts encrypting the local scratch disk in your Azure Machine Learning compute cluster provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters 
-* Cleans up your local scratch disk between runs
-* Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault
-
-When this flag is set to True, one possible impact is increased difficulty troubleshooting issues. This could happen because some telemetry isn't sent to Microsoft and there is less visibility into success rates or problem types, and therefore may not be able to react as proactively when this flag is True.
-
-> [!TIP]
-> The `hbi_workspace` flag does not impact encryption in transit, only encryption at rest.
+Azure Machine Learning relies on multiple Azure Services, each of which have their own encryption capabilities.
 
 ### Azure Blob storage
 
-Azure Machine Learning stores snapshots, output, and logs in the Azure Blob storage account that's tied to the Azure Machine Learning workspace and your subscription. All the data stored in Azure Blob storage is encrypted at rest with Microsoft-managed keys.
+Azure Machine Learning stores snapshots, output, and logs in the Azure Blob storage account (default storage account) that's tied to the Azure Machine Learning workspace and your subscription. All the data stored in Azure Blob storage is encrypted at rest with Microsoft-managed keys.
 
 For information on how to use your own keys for data stored in Azure Blob storage, see [Azure Storage encryption with customer-managed keys in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
@@ -109,6 +97,8 @@ Each virtual machine also has a local temporary disk for OS operations. If you w
 **Compute instance**
 The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the local temporary disk on compute instance is encrypted with Microsoft managed keys. Customer managed key encryption is not supported for OS and temp disk.
 
+For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
+
 ### Azure Databricks
 
 Azure Databricks can be used in Azure Machine Learning pipelines. By default, the Databricks File System (DBFS) used by Azure Databricks is encrypted using a Microsoft-managed key. To configure Azure Databricks to use customer-managed keys, see [Configure customer-managed keys on default (root) DBFS](/azure/databricks/security/customer-managed-keys-dbfs).
@@ -153,3 +143,4 @@ Each workspace has an associated system-assigned managed identity that has the s
 * [Get data from a datastore](how-to-create-register-datasets.md)
 * [Connect to data](how-to-connect-data-ui.md)
 * [Train with datasets](how-to-train-with-datasets.md)
+* [Customer-managed keys](concept-customer-managed-keys.md).

@@ -204,7 +204,7 @@ Use the following steps to provide your own key:
 > [!IMPORTANT]	
 > Before following these steps, you must first perform the following actions:	
 >
-> Follow the steps in [Configure customer-managed keys](how-to-customer-managed-keys) to:
+> Follow the steps in [Configure customer-managed keys](how-to-setup-customer-managed-keys.md) to:
 > * Register the Azure Cosmos DB provider
 > * Create and configure an Azure Key Vault
 > * Generate a key
