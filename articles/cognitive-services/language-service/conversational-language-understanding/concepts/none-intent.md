@@ -1,16 +1,17 @@
 ---
 title: Conversational Language Understanding None Intent
 titleSuffix: Azure Cognitive Services
-description: Learn about backwards compatibility between LUIS and Conversational Language Understanding
+description: Learn about the default None intent in conversational language understanding
 services: cognitive-services
-author: haelhamm
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
 ms.date: 02/28/2022
-ms.author: haelham
+ms.author: aahi
 ms.custom: language-service-clu
+ms.reviewer: haelhamm
 ---
 
 # None intent
@@ -27,7 +28,7 @@ For any query and utterance, the highest scoring intent ends up **lower** than t
 
 The score should be set according to your own observations of prediction scores, as they may vary by project. A higher threshold score forces the utterances to be more similar to the examples you have in your training data.
 
-When exporting a project's JSON file, the None score threshold is defined in the _**"settings"**_ parameter of the JSON as the _**"confidenceThreshold"**_, which accepts a decimal value between 0.0 and 1.0.
+When you export a project's JSON file, the None score threshold is defined in the _**"settings"**_ parameter of the JSON as the _**"confidenceThreshold"**_, which accepts a decimal value between 0.0 and 1.0.
 
 The default score for Orchestration Workflow projects is set at **0.5** and regular conversation projects at **0.0** when creating new projects in the language studio. If you are importing a project and the "confidenceThreshold" setting is absent, the threshold is set at **0.0**.
 
