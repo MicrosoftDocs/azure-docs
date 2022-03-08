@@ -360,7 +360,7 @@ Then create an Azure Machine Learning dataset from the local directory, which wi
 
 Optionally, remove the local file and directory:
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="cleanup_cifar":::
+:::code language="azurecli" source="~/azureml-examples-march-cli-preview/setup-repo/create-datasets.sh" id="cleanup_cifar":::
 
 Data assets can be referred to in a job using the `uri_folder` key of a data input. The format is `azureml:<DATA_ASSET_NAME>:<DATA_ASSET_VERSION>`, so for the CIFAR-10 dataset just created, it is `azureml:cifar-10-example:1`.
 
