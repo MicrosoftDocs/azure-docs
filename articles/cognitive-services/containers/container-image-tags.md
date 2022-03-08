@@ -322,7 +322,8 @@ Since Speech-to-text v2.5.0, images are supported in the *US Government Virginia
 # [Latest version](#tab/current)
 
 Release note for `3.0.1-amd64-<locale>`:
-**Feature**
+
+**Features**
 * Support new locale `uk-UA`.
 
 Release note for `3.0.0-amd64-<locale>`:
