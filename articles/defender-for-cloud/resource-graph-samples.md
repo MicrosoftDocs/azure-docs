@@ -16,7 +16,7 @@ and [Resource Graph samples by Table](../governance/resource-graph/samples/sampl
 
 ## Sample queries
 
-[!INCLUDE [azure-resource-graph-samples-cat-securitycenter](../../includes/resource-graph/samples/bycat/azure-security-center.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-securitycenter](../../includes/resource-graph/samples/bycat/microsoft-defender.md)]
 
 ## Next steps
 

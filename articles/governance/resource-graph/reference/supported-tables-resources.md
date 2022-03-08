@@ -939,7 +939,7 @@ For sample queries for this table, see [Resource Graph sample queries for securi
 - microsoft.authorization/roleassignments/providers/assessments/governanceassignments
 - microsoft.security/assessments
   - Sample query: [Count healthy, unhealthy, and not applicable resources per recommendation](../samples/samples-by-category.md#count-healthy-unhealthy-and-not-applicable-resources-per-recommendation)
-  - Sample query: [List Azure Security Center recommendations](../samples/samples-by-category.md#list-azure-security-center-recommendations)
+  - Sample query: [List Microsoft Defender recommendations](../samples/samples-by-category.md#list-microsoft-defender-recommendations)
   - Sample query: [List Container Registry vulnerability assessment results](../samples/samples-by-category.md#list-container-registry-vulnerability-assessment-results)
   - Sample query: [List Qualys vulnerability assessment results](../samples/samples-by-category.md#list-qualys-vulnerability-assessment-results)
 - microsoft.security/assessments/governanceassignments
