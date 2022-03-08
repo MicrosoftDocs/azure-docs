@@ -30,6 +30,7 @@ The following document specifies behaviors for Front Door with routing rules tha
 ::: zone-end
 
 ## Delivery of large files
+
 Azure Front Door delivers large files without a cap on file size. Front Door uses a technique called object chunking. When a large file is requested, Front Door retrieves smaller pieces of the file from the backend. After receiving a full or byte-range file request, the Front Door environment requests the file from the backend in chunks of 8 MB.
 
 After the chunk arrives at the Front Door environment, it's cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested) or the client closes the connection.
@@ -45,7 +46,7 @@ Refer to [improve performance by compressing files](standard-premium/how-to-comp
 
 ::: zone-end
 
-::: zone-pivot="front-door-classic"
+::: zone pivot="front-door-classic"
 
 Front Door can dynamically compress content on the edge, resulting in a smaller and faster response time to your clients. In order for a file to be eligible for compression, caching must be enabled and the file must be of a MIME type to be eligible for compression. Currently, Front Door doesn't allow this list to be changed. The current list is:
 - "application/eot"
@@ -111,7 +112,7 @@ With Front Door, you can control how files are cached for a web request that con
 
 * **Cache every unique URL**: In this mode, each request with a unique URL, including the query string, is treated as a unique asset with its own cache. For example, the response from the backend for a request for `www.example.ashx?q=test1` is cached at the Front Door environment and returned for ensuing caches with the same query string. A request for `www.example.ashx?q=test2` is cached as a separate asset with its own time-to-live setting.
 
-::: zone-pivot="front-door-standard-premium"
+::: zone pivot="front-door-standard-premium"
 
 * **Cache every unique URL**: In this mode, each request with a unique URL, including the query string, is treated as a unique asset with its own cache. For example, the response from the origin for a request for `www.example.ashx?q=test1` is cached at the Front Door environment and returned for ensuing caches with the same query string. A request for `www.example.ashx?q=test2` is cached as a separate asset with its own time-to-live setting.
 * You can also use Rule Set to specify **cache key query string** behavior, to include, or exclude specified parameters when cache key gets generated. For example, the default cache key is: /foo/image/asset.html, and the sample request is `https://contoso.com//foo/image/asset.html?language=EN&userid=100&sessionid=200`. There's a rule set rule to exclude query string 'userid'. Then the query string cache-key would be `/foo/image/asset.html?language=EN&sessionid=200`.
@@ -120,13 +121,13 @@ With Front Door, you can control how files are cached for a web request that con
 
 ## Cache purge
 
-::: zone-pivot="front-door-standard-premium"
+::: zone pivot="front-door-standard-premium"
 
 See [Cache purging in Azure Front Door Standard/Premium (Preview)](standard-premium/how-to-cache-purge.md) to learn how to configure cache purge.
 
 ::: zone-end
 
-::: zone-pivot="front-door-classic"
+::: zone pivot="front-door-classic"
 
 Front Door caches assets until the asset's time-to-live (TTL) expires. Whenever a client requests an asset with expired TTL, the Front Door environment retrieves a new updated copy of the asset to serve the request and then stores the refreshed cache.
 
@@ -186,14 +187,14 @@ Cache behavior and duration can be configured in both the Front Door designer ro
 
 ## Next steps
 
-::: zone-pivot="front-door-classic"
+::: zone pivot="front-door-classic"
 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
 - Learn [how Front Door works](front-door-routing-architecture.md).
 
 ::: zone-end
 
-::: zone-pivot="front-door-standard-premium"
+::: zone pivot="front-door-standard-premium"
 
 * Learn more about [Rule Set Match Conditions](standard-premium/concept-rule-set-match-conditions.md)
 * Learn more about [Rule Set Actions](front-door-rules-engine-actions.md)
