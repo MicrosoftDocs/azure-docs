@@ -51,17 +51,17 @@ This section shows you how to enable private network access for an Event Grid to
         1. For **Resource type**, Select **Microsoft.EventGrid/topics** or **Microsoft.EventGrid/domains** for the **Resource type**.
         2. For **Resource**, select an topic/domain from the drop-down list. 
         3. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).    
-        4. Select **Next: Configuration >** button at the bottom of the page. 
+        4. Select **Next: Virtual Network >** button at the bottom of the page. 
 
             ![Screenshot that shows the "Create a private endpoint - Resource" page.](./media/configure-private-endpoints/resource-page.png)
     2. If you select **Connect to a resource using a resource ID or an alias**, follow these steps:
         1. Enter the ID of the resource. For example: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. For **Resource**, enter **topic** or **domain**. 
         3. (optional) Add a request message. 
-        4. Select **Next: Configuration >** button at the bottom of the page. 
+        4. Select **Next: Virtual Network >** button at the bottom of the page. 
 
             ![Private endpoint - resource page](./media/configure-private-endpoints/connect-azure-resource-id.png)
-4. On the **Configuration** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
+4. On the **Virtual Network** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
     2. Select a **subnet** in the virtual network you selected. 
     3. Select **Next: Tags >** button at the bottom of the page. 
@@ -69,9 +69,6 @@ This section shows you how to enable private network access for an Event Grid to
     ![Private endpoint - configuration page](./media/configure-private-endpoints/configuration-page.png)
 5. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
 6. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint. 
-
-    ![Private endpoint - review & create page](./media/configure-private-endpoints/review-create-page.png)
-    
 
 ### Manage private link connection
 
