@@ -161,8 +161,6 @@ items:
       href: usage-estimated-costs.md
     - name: Application Insights usage and costs
       href: app/pricing.md
-    - name: Log data usage and costs
-      href: logs/manage-cost-storage.md
     - name: Pricing model
       href: logs/cost-pricing-model.md
     - name: View bill

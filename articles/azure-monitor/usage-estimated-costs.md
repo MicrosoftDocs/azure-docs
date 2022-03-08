@@ -32,21 +32,6 @@ The basic Azure Monitor billing model is a cloud-friendly, consumption-based pri
 
 There are two phases for understanding costs: estimating costs when you're considering Azure Monitor as your monitoring solution, and then tracking actual costs after deployment. 
 
-### Estimate the costs to manage your environment
-
-If you're not yet using Azure Monitor Logs, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate the cost of using Azure Monitor. Start by entering **Azure Monitor** in the **Search** box, and then selecting the **Azure Monitor** tile. Scroll down the page to **Azure Monitor**, and select one of the options from the **Type** dropdown list:
-
-- **Metrics queries and Alerts**  
-- **Log Analytics**
-- **Application Insights**
-
-In each of these types, the pricing calculator will help you estimate your likely costs based on your expected utilization.
-
-For example, with Log Analytics, you can enter the number of virtual machines (VMs) and the gigabytes of data that you expect to collect from each VM. Typically, 1 GB to 3 GB of data per month is ingested from an Azure VM. If you're already evaluating Azure Monitor Logs, you can use your data statistics from your own environment. You can determine the [number of monitored VMs](logs/manage-cost-storage.md#understanding-nodes-sending-data) and the [volume of data that your workspace is ingesting](logs/manage-cost-storage.md#understanding-ingested-data-volume).
-
-For Application Insights, if you enable the **Estimate data volume based on application activity** functionality, you can provide inputs about your application (requests per month and page views per month, if you'll collect client-side telemetry). Then the calculator will tell you the median and 90th percentile amount of data that similar applications collect. 
-
-These applications span the range of Application Insights configurations. For example, some have default sampling, some have no sampling, and some have custom sampling. So you still have the control to reduce the volume of data that you ingest to far below the median level by using sampling. But this is a starting point to understand what similar customers are seeing. [Learn more about estimating costs for Application Insights](app/pricing.md#estimating-the-costs-to-manage-your-application).
 
 ### Track usage and costs
 
