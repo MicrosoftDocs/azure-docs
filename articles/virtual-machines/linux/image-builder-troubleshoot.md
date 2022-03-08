@@ -592,7 +592,7 @@ PACKER ERR 2022/03/07 18:43:06 packer-plugin-azure plugin: 2022/03/07 18:43:06 R
 ```
 
 #### Cause
-These error lor messages are mostly harmless because resource deletions are retried several times and they, in general, eventually succeed. This can be verified by continuing to follow the deletion logs until a success message is observed. Alternatively, the staging resource group can be inspected to confirm if the resource has been deleted or not.
+These error log messages are mostly harmless because resource deletions are retried several times and they, in general, eventually succeed. This can be verified by continuing to follow the deletion logs until a success message is observed. Alternatively, the staging resource group can be inspected to confirm if the resource has been deleted or not.
 
 _[This is especially important in case of build failures where these error messages may cause the observer to conclude them to be the reason for failure while the actual error is elsewhere.]_
 
