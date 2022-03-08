@@ -30,7 +30,7 @@ Follow the steps described in this section to perform Managed Instance link data
 1. Managed Instance link database failover starts with connecting to SQL Server from SSMS.
     To perform Managed Instance link database failover and migrate database from SQL Server to Managed Instance, open the context menu of the SQL Server database. Then select Azure SQL Managed Instance link and then choose Failover database option.
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/managed-instance-link-ssms-database-context-failover-database.png" alt-text="Screenshot showing database's context menu option for database failover.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-failover-ssms-database-context-failover-database.png" alt-text="Screenshot showing database's context menu option for database failover.":::
 
 2. When the wizard starts, click Next. 
 
@@ -74,7 +74,7 @@ Follow the steps described in this section to perform Managed Instance link data
 
     Database on Managed Instance.
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-failover-managed-instance-database.png" alt-text="Screenshot showing database on Managed Instance in SSMS.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-failover-ssms-managed-instance-database.png" alt-text="Screenshot showing database on Managed Instance in SSMS.":::
 
 ## Next steps
 
