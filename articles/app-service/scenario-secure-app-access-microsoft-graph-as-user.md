@@ -18,7 +18,7 @@ ms.custom: azureday1
 
 # Tutorial: Access Microsoft Graph from a secured .NET app as the user
 
-[!INCLUDE [clean up resources](./includes/scenario-secure-app-clean-up-resources.md)]
+[!INCLUDE [clean up resources](./includes/tutorial-connect-app-access-microsoft-graph-as-user/intro.md)]
 
 ## Call Microsoft Graph with .NET
 

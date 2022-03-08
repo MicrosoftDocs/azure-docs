@@ -70,6 +70,8 @@
       items:
         - name: Overview
           href: tutorial-connect-overview.md
+        - name: Set up App Service authentication
+          href: scenario-secure-app-authentication-app-service.md          
         - name: With secrets in app settings
           href: configure-common.md?tabs=portal
         - name: With managed identity
