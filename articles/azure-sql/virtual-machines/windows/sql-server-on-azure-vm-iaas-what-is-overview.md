@@ -36,11 +36,14 @@ Azure virtual machines run in many different [geographic regions](https://azure.
 
 ## Feature benefits
 
-When your register your SQL Server on Azure VM with the [SQL IaaS agent extension](sql-server-iaas-agent-extension-automate-management.md) you unlock a number of feature benefits. 
+When your register your SQL Server on Azure VM with the [SQL IaaS agent extension](sql-server-iaas-agent-extension-automate-management.md) you unlock a number of feature benefits. You can register your SQL Server VM in lightweight management mode, which unlocks a few of the benefits, or in full management mode, which unlocks all available benefits. Registering with the extension is completely free. 
 
 The following table details the benefits unlocked by the extension: 
 
 [!INCLUDE [SQL VM feature benefits](../../includes/sql-vm-feature-benefits.md)]
+
+
+
 
 ## Getting started
 

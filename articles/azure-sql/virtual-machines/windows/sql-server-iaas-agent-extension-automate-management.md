@@ -62,7 +62,7 @@ The SQL Server IaaS Agent extension allows for integration with the Azure portal
 
 ## Feature benefits 
 
-The SQL Server IaaS Agent extension unlocks a number of feature benefits for managing your SQL Server VM. 
+The SQL Server IaaS Agent extension unlocks a number of feature benefits for managing your SQL Server VM. You can register your SQL Server VM in lightweight management mode, which unlocks a few of the benefits, or in full management mode, which unlocks all available benefits.
 
 The following table details these benefits: 
 
