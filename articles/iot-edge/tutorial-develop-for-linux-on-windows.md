@@ -15,9 +15,9 @@ ms.custom: mvc
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Use Visual Studio 2019 to develop and deploy code to devices running IoT Edge for Linux on Windows.
+Use Visual Studio 2019 to develop, debug and deploy code to devices running IoT Edge for Linux on Windows.
 
-In the quickstart, you created an IoT Edge device and deployed a module from the Azure Marketplace. This tutorial walks through developing and deploying your own code to an IoT Edge device using IoT Edge for Linux on Windows. This article is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
+In the quickstart, you created an IoT Edge device and deployed a module from the Azure Marketplace. This tutorial walks through developing, debugging and deploying your own code to an IoT Edge device using IoT Edge for Linux on Windows. This article is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
 
 This tutorial uses the example of deploying a **C# module to a Linux device**. This example was chosen because it's the most common developer scenario for IoT Edge solutions. Even if you plan on using a different language or deploying an Azure service, this tutorial is still useful to learn about the development tools and concepts. Complete this introduction to the development process, then choose your preferred language or Azure service to dive into the details.
 
@@ -35,9 +35,7 @@ In this tutorial, you learn how to:
 This article assumes that you use a machine running Windows as your development machine. On Windows computers, you can develop either Windows or Linux modules. This tutorial will guide you through the development of **Linux containers**, using [IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows.md) for building and deploying the modules. 
 
 * Install [IoT Edge for Linux on Windows (EFLOW)](./how-to-provision-single-device-linux-on-windows-x509.md)
-* Install [Azure CLI for Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
-* Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.
-* [.NET Core 3.1 SDK](hhttps://dotnet.microsoft.com/download/dotnet/3.1).
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/3.1).
 
 Install Visual Studio on your development machine. Make sure you include the **Azure development** and **Desktop development with C#** workloads in your Visual Studio 2019 installation. You can [Modify Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) to add the required workloads.
 
@@ -218,16 +216,59 @@ The default solution is built so that the simulated data from the **SimulatedTem
 When you're ready to customize the module template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
 
 
-## Build and debug a single module
+## BuilD and push a single module
 
 Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules.
-
->[!TIP]
->Make sure you have switched over to the correct Docker container mode, either Linux container mode or Windows container mode, depending on the type of IoT Edge module you are developing. From the Docker Desktop menu, you can toggle between the two types of modes. Select **Switch to Windows containers** to use Windows containers, or select **Switch to Linux containers** to use Linux containers. 
 
 1. In **Solution Explorer**, right-click the module folder and select **Set as StartUp Project** from the menu.
 
    ![Set Start-up Project](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)
+
+1. To debug the C# Linux module, we need to update Dockerfile.amd64.debug to enable SSH service. Update the Dockerfile.amd64.debug file to use the following template: [Dockerfile for Azure IoT Edge AMD64 C# Module with Remote Debug Support](https://github.com/fcabrera23/iotedge-eflow/blob/remote-debugging/debugging/Dockerfile.amd64.debug).
+
+   > [!NOTE]
+   > When choosing **Debug**, Visual Studio uses `Dockerfile.(amd64|windows-amd64).debug` to build Docker images. This includes the .NET Core command-line debugger VSDBG in your container image while building it. For production-ready IoT Edge modules, we recommend that you use the **Release** configuration, which uses `Dockerfile.(amd64|windows-amd64)` without VSDBG.
+
+   ![Set Dockerfile template](./media/tutorial-develop-for-linux-on-windows/vs-solution.png)
+
+1. To establish an SSH connection with the Linux module, we need to create an RSA key. Open an elevated PowerShell session and run the following commands to create a new RSA key.
+   
+   ```cmd
+   ssh-keygen -t RSA -b 4096 -m PEM`
+   ```
+
+   ![Create SSH key](./media/tutorial-develop-for-linux-on-windows/ssh-keygen.png)
+
+1. If you're using a private registry like Azure Container Registry (ACR), use the following Docker command to sign in to it.  You can get the username and password from the **Access keys** page of your registry in the Azure portal. If you're using local registry, you can [run a local registry](https://docs.docker.com/registry/deploying/#run-a-local-registry).
+
+   ```cmd
+   docker login -H tcp:\\<eflow-ip>:2375 -u <ACR username> -p <ACR password> <ACR login server>
+   ```
+
+1. If you're using a private registry like Azure Container Registry, you need to add your registry login information to the runtime settings found in the file `deployment.template.json`. Replace the placeholders with your actual ACR admin username, password, and registry name.
+
+    ```json
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {
+              "registry1": {
+                "username": "<username>",
+                "password": "<password>",
+                "address": "<registry name>.azurecr.io"
+              }
+            }
+          }
+    ```
+
+   >[!NOTE]
+   >This article uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
+
+1. In **Solution Explorer**, right-click the project folder and select **Build and Push IoT Edge Modules** to build and push the Docker image for each module.
+
+
+
+
 
 1. Press **F5** or click the run button in the toolbar to run the module. It may take 10&ndash;20 seconds the first time you do so.
 
@@ -255,61 +296,12 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. Press **Ctrl + F5** or click the stop button to stop debugging.
 
-## Build and debug multiple modules
-
-After you're done developing a single module, you might want to run and debug an entire solution with multiple modules.
-
-1. In **Solution Explorer**, add a second module to the solution by right-clicking the project folder. On the menu, select **Add** > **New IoT Edge Module**.
-
-   ![Add a new module to an existing IoT Edge project](./media/how-to-visual-studio-develop-csharp-module/add-new-module.png)
-
-1. Open the file `deployment.template.json` and you'll see that the new module has been added in the **modules** section. A new route was also added to the **routes** section to send messages from the new module to IoT Hub. If you want to send data from the simulated temperature sensor to the new module, add another route like the following example: 
-
-    ```json
-   "sensorTo<NewModuleName>": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/<NewModuleName>/inputs/input1\")"
-    ```
-
-1. Right-click the project folder and select **Set as StartUp Project** from the context menu.
-
-1. Create your breakpoints and then press **F5** to run and debug multiple modules simultaneously. You should see multiple .NET Core console app windows, which each window representing a different module.
-
-   ![Debug Multiple Modules](./media/how-to-visual-studio-develop-csharp-module/debug-multiple-modules.png)
-
-1. Press **Ctrl + F5** or select the stop button to stop debugging.
 
 ## Build and push images
 
-1. Make sure the IoT Edge project is the start-up project, not one of the individual modules. Select either **Debug** or **Release** as the configuration to build for your module images.
 
-    > [!NOTE]
-    > When choosing **Debug**, Visual Studio uses `Dockerfile.(amd64|windows-amd64).debug` to build Docker images. This includes the .NET Core command-line debugger VSDBG in your container image while building it. For production-ready IoT Edge modules, we recommend that you use the **Release** configuration, which uses `Dockerfile.(amd64|windows-amd64)` without VSDBG.
 
-1. If you're using a private registry like Azure Container Registry (ACR), use the following Docker command to sign in to it.  You can get the username and password from the **Access keys** page of your registry in the Azure portal. If you're using local registry, you can [run a local registry](https://docs.docker.com/registry/deploying/#run-a-local-registry).
 
-    ```cmd
-    docker login -u <ACR username> -p <ACR password> <ACR login server>
-    ```
-
-1. If you're using a private registry like Azure Container Registry, you need to add your registry login information to the runtime settings found in the file `deployment.template.json`. Replace the placeholders with your actual ACR admin username, password, and registry name.
-
-    ```json
-          "settings": {
-            "minDockerVersion": "v1.25",
-            "loggingOptions": "",
-            "registryCredentials": {
-              "registry1": {
-                "username": "<username>",
-                "password": "<password>",
-                "address": "<registry name>.azurecr.io"
-              }
-            }
-          }
-    ```
-
-   >[!NOTE]
-   >This article uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
-
-1. In **Solution Explorer**, right-click the project folder and select **Build and Push IoT Edge Modules** to build and push the Docker image for each module.
 
 ## Deploy the solution
 
