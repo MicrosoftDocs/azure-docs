@@ -924,7 +924,7 @@
     - name: Managed Instance link feature
       items:
       - name: Use SSMS to Replicate database
-        href: managed-instance/mi-link-use-ssms-to-replicate-database.md
+        href: managed-instance/managed-instance-link-use-ssms-to-replicate-database.md
 
   - name: Migration guides
     items: 
