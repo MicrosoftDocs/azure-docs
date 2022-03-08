@@ -26,7 +26,7 @@ In this article, you'll learn how to:
 
 - For preview features, ensure that your subscription is allowlisted for the target region.
 
-- DevTest Lbas doesn't store them nor expose passwords from the exported ARM template. You will need to know the passwords/secrets for:
+- DevTest Labs doesn't store them nor expose passwords from the exported ARM template. You will need to know the passwords/secrets for:
   - the VMs   
   - the Stored Secrets 
   - PAT tokens of the private Artifact Repos to move the private repos together with the lab.   
@@ -247,7 +247,7 @@ Note the VMs under the new Lab have the same specs as the ones under the old Lab
 
 After the deployment, if you want to start over, you can delete the target lab, and repeat the steps described in the [Prepare](#prepare) and [Move](#move) sections of this article.
 
-To commit the changes and complete the move, you must delete the lab.
+To commit the changes and complete the move, you must delete the original lab.
 
 To remove a lab by using the Azure portal:
 
