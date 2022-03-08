@@ -92,4 +92,4 @@ For example, if I set **Preserve unmatched path to No**.
 
 ## Next steps
 
-* Learn more about [Azure Front Door Standard/Premium Rule Set](concept-rule-set.md).
+* Learn more about [Azure Front Door Standard/Premium Rule Set](../front-door-rules-engine.md).
