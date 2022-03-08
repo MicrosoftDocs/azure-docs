@@ -12,8 +12,8 @@
 
 When you run the sample device application later in this tutorial, you need the following configuration values:
 
-* ID scope: In your IoT Central application, navigate to **Administration > Device Connection**. Make a note of the **ID scope** value.
-* Group primary key: In your IoT Central application, navigate to **Administration > Device Connection > SAS-IoT-Devices**. Make a note of the shared access signature **Primary key** value.
+* ID scope: In your IoT Central application, navigate to **Permissions > Device connection groups**. Make a note of the **ID scope** value.
+* Group primary key: In your IoT Central application, navigate to **Permissions > Device connection groups > SAS-IoT-Devices**. Make a note of the shared access signature **Primary key** value.
 
 Use the Cloud Shell to generate a device key from the group primary key you retrieved:
 
