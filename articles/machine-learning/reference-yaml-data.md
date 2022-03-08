@@ -32,7 +32,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `version` | string | Version of the dataset. If omitted, Azure ML will autogenerate a version. | | |
 | `description` | string | Description of the data asset. | | |
 | `tags` | object | Dictionary of tags for the data asset. | | |
-| `type` | string | The data asset type. Specify `uri_file` for data that points to a single file source, and `uri_folder` for data that points to a folder source. | `uri_file`, `uri_folder` | `uri_folder` |
+| `type` | string | The data asset type. Specify `uri_file` for data that points to a single file source, or `uri_folder` for data that points to a folder source. | `uri_file`, `uri_folder` | `uri_folder` |
 | `path` | string | Either a local path to the data source file or folder, or the URI of a cloud path to the data source file or folder. Please ensure that the source provided here is compatible with the `type` specified. <br><br> Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. | | |
 
 ## Remarks
