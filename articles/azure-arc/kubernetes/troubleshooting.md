@@ -141,7 +141,7 @@ az connectedk8s connect -n AzureArcTest -g AzureArcTest
 Ensure that you have the latest helm version installed before proceeding.
 This operation might take a while...
 
-Please check if the azure-arc namespace was deployed and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the kubernetes cluster to onboard to arc.
+Please check if the azure-arc namespace was deployed and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the Kubernetes cluster to onboard to arc.
 ValidationError: Unable to install helm release: Error: customresourcedefinitions.apiextensions.k8s.io "connectedclusters.arc.azure.com" not found
 ```
 
@@ -301,9 +301,9 @@ Some other aspects to consider:
 
 With these actions accomplished you can either [re-create a flux configuration](./tutorial-use-gitops-flux2.md) which will install the flux extension automatically or you can re-install the flux extension manually.
 
-### Flux v2 - Installing the `microsoft.flux` extension in a cluster with AAD Pod Identity enabled
+### Flux v2 - Installing the `microsoft.flux` extension in a cluster with Azure AD Pod Identity enabled
 
-If you attempt to install the Flux extension in a cluster that has AAD Pod Identity enabled, an error may occur in the extension-agent pod.
+If you attempt to install the Flux extension in a cluster that has Azure Active Directory (Azure AD) Pod Identity enabled, an error may occur in the extension-agent pod.
 
 ```console
 {"Message":"2021/12/02 10:24:56 Error: in getting auth header : error {adal: Refresh request failed. Status Code = '404'. Response body: no azure identity found for request clientID <REDACTED>\n}","LogType":"ConfigAgentTrace","LogLevel":"Information","Environment":"prod","Role":"ClusterConfigAgent","Location":"westeurope","ArmId":"/subscriptions/<REDACTED>/resourceGroups/<REDACTED>/providers/Microsoft.Kubernetes/managedclusters/<REDACTED>","CorrelationId":"","AgentName":"FluxConfigAgent","AgentVersion":"0.4.2","AgentTimestamp":"2021/12/02 10:24:56"}
@@ -317,7 +317,7 @@ The extension status also returns as "Failed".
 
 The issue is that the extension-agent pod is trying to get its token from IMDS on the cluster in order to talk to the extension service in Azure; however, this token request is being intercepted by pod identity ([details here](../../aks/use-azure-ad-pod-identity.md)). 
 
-The workaround is to create an `AzurePodIdentityException` that will tell AAD Pod Identity to ignore the token requests from flux-extension pods.
+The workaround is to create an `AzurePodIdentityException` that will tell Azure AD Pod Identity to ignore the token requests from flux-extension pods.
 
 ```console
 apiVersion: aadpodidentity.k8s.io/v1

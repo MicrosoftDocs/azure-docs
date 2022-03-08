@@ -1000,7 +1000,7 @@ In this scenario, check that the underlying connection resource definition inclu
 
 ### [Consumption](#tab/consumption)
 
-For example, here's the underlying connection resource definition for an Azure Automation action in a Consumption logic app resource that uses a managed identity where the definition includes the `parameterValueType` property, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Also note that the `apiVersion` property is set to `2018-07-01-preview`:
+For example, here's the underlying connection resource definition for an Azure Automation action in a Consumption logic app resource that uses a managed identity where the definition includes the `parameterValueSet` object, which has the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Also note that the `apiVersion` property is set to `2018-07-01-preview`:
 
 ```json
 {

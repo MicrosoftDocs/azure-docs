@@ -4,6 +4,7 @@ description: Learn how to manage an Azure Database for PostgreSQL - Flexible Ser
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/30/2021
 ---

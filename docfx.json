@@ -648,7 +648,7 @@
         "articles/cognitive-services/Translator/**/*.md": "lajanuar",
         "articles/connectors/*.md": "estfan",
         "articles/container-instances/**/*.md": "macolso",
-        "articles/container-registry/**/*.md": "danlep",
+        "articles/container-registry/**/*.md": "tejaswikolli",
         "articles/data-lake-analytics/*.md": "xujiang1",
         "articles/defender-for-cloud/*.md": "elkrieger",
         "articles/defender-for-iot/organizations/*.md": "shhazam",

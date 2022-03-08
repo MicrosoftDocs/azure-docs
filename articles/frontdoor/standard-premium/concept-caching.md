@@ -88,4 +88,4 @@ Cache behavior and duration can be configured in both the Front Door designer ro
 ## Next steps
 
 * Learn more about [Rule Set Match Conditions](concept-rule-set-match-conditions.md)
-* Learn more about [Rule Set Actions](concept-rule-set-actions.md)
+* Learn more about [Rule Set Actions](../front-door-rules-engine-actions.md)
