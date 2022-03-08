@@ -98,7 +98,7 @@ Check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor to de
 
 **Mitigation**
 
-Explore the impact of reducing TCP idle timeout to lower values including default idle timeout of 4 minutes to free up SNAT port inventory earlier. 
+Explore the impact of reducing TCP idle timeout to lower values to free up SNAT port inventory earlier. The TCP idle timeout timer cannot be set lower than 4 minutes. 
 
 Consider [asynchronous polling patterns](/azure/architecture/patterns/async-request-reply) for long-running operations to free up connection resources for other operations.
 
