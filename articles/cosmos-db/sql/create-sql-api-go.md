@@ -71,29 +71,13 @@ Use the `go get` command to install the [azcosmos](https://pkg.go.dev/github.com
 go get github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos
 ```
 
-Next, create a new file named `main.go` with the following contents:
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-
-	"github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos"
-)
-
-func main() {
-
-}
-```
+Next, create a new file named `main.go`.
 
 ## Write the sample code
 
 This section walk you through creating a sample Go application that uses the Azure Cosmos DB SQL API account and the Azure SDK for Go. You'll learn how to: authenticate to Azure with a client, create a Cosmos database and container, and insert, query, and delete items from the Cosmos database.
 
-Add the following sections of code to the `main` fucntion of the `main.go` file:
+Add the following code to the `main.go` file:
 
 ```go
 package main
