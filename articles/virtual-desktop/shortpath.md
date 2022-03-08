@@ -166,7 +166,7 @@ To make sure your session is using RDP Shortpath transport:
 If you're using [Azure Log Analytics](./diagnostics-log-analytics.md), you can monitor connections by querying the [WVDConnections table](/azure/azure-monitor/reference/tables/wvdconnections). A column named UdpUse indicates whether Azure Virtual Desktop RDP Stack is using UDP protocol on the current user connection.
 The possible values are:
 
-* **0** - user connection isn't using RDP Shortpath
+* **0** - user connection isn't using RDP Shortpath.
 - **1** - THe user connection is using RDP Shortpath for managed networks.
   
 The following query list lets you review connection information. You can run this query in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). For each query, replace `userupn` with the UPN of the user you want to look up.
@@ -194,7 +194,7 @@ To verify that UDP listener is enabled, use the following PowerShell command on 
 Get-NetUDPEndpoint -OwningProcess ((Get-WmiObject win32_service -Filter "name = 'TermService'").ProcessId)  -LocalPort 3390
 ```
 
-If enabled, you'll see the output like the following
+If enabled, you'll see the output like the following:
 
 ```dos
 LocalAddress                             LocalPort
@@ -225,11 +225,11 @@ To disable RDP Shortpath for a specific client, you can use the following Group 
 
 To disable RDP Shortpath for a specific session host, you can use the following Group Policy to disable the UDP support:
 
-1. On the Session Host Run **gpedit.msc**.
+1. On the session host, run **gpedit.msc**.
 2. Go to **Computer Configuration > Administration Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Connections**.
 3. Set the **"Select RDP Transport Protocols"** setting to **TCP Only**.
 
 ## Next steps
 
-* To learn about Azure Virtual Desktop network connectivity, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
-* To get started with Quality of Service (QoS) for Azure Virtual Desktop, see [Implement Quality of Service (QoS) for Azure Virtual Desktop](rdp-quality-of-service-qos.md).
+- To learn about Azure Virtual Desktop network connectivity, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
+- To get started with Quality of Service (QoS) for Azure Virtual Desktop, see [Implement Quality of Service (QoS) for Azure Virtual Desktop](rdp-quality-of-service-qos.md).
