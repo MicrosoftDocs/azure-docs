@@ -76,7 +76,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: What is Rule Set?
-            url: concept-rule-set.md
+            url: ../front-door-rules-engine.md
           - text: Rule Set Match Conditions
             url: concept-rule-set-match-conditions.md
           - text: Rule Set Actions

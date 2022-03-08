@@ -694,6 +694,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/concept-rules-set.md",
+      "redirect_url": "/azure/frontdoor/front-door-rules-engine",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/concept-caching.md",
       "redirect_url": "/azure/frontdoor/front-door-caching",
       "redirect_document_id": false
@@ -6856,6 +6861,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-runtime-install.md",
       "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-bindings-event-iot-output.md",
+      "redirect_url": "/azure/azure-functions/functions-bindings-event-hubs-output",
       "redirect_document_id": false
     },
     {

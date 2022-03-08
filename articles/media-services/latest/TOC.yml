@@ -454,6 +454,19 @@
     - name: Reset account credentials
       href: account-reset-account-credentials.md   
       displayName: reset, account credentials, remove credentials, security, restore, remove, credentials 
+  - name: Media Services accounts
+    items:
+    - name: Create a Media Services account
+      href: account-create-how-to.md
+      displayName: media services account create
+    - name: Update a Media Services account
+      href: account-update-how-to.md
+    - name: List Media Services accounts
+      href: account-list-how-to.md
+    - name: Show Media Services account details
+      href: account-show-how-to.md
+    - name: Delete a Media Services account
+      href: account-delete-how-to.md
   - name: Create assets and upload media
     items:
     - name: Create an asset
@@ -675,7 +688,7 @@
       displayName: MES schema, MES, Standard encoder, schema, metadata, input metadata, source metadata  
     - name: Output metadata
       href: output-metadata-schema.md      
-      displayName: MES schema, MES, Standard encoder, schema, metadata, output metadata, output description 
+      displayName: MES schema, MES, Standard encoder, schema, metadata, output metadata, output description
 - name: Resources
   items:
   - name: Azure Media Services community

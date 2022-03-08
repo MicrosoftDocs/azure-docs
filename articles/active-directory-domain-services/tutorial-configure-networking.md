@@ -40,7 +40,7 @@ To complete this tutorial, you need the following resources and privileges:
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
-* You need [Domain Services Contributor](/azure/role-based-access-control/built-in-roles#contributor) Azure role to create the required Azure AD DS resources.
+* You need Domain Services Contributor Azure role to create the required Azure AD DS resources.
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 
