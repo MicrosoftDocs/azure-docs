@@ -4,12 +4,12 @@ description: Use administrative units to restrict the scope of role assignments 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 12/11/2021
+ms.date: 01/28/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -38,15 +38,21 @@ The following Azure AD roles can be assigned with administrative unit scope:
 | -----| ----------- |
 | [Authentication Administrator](permissions-reference.md#authentication-administrator) | Has access to view, set, and reset authentication method information for any non-admin user in the assigned administrative unit only. |
 | [Groups Administrator](permissions-reference.md#groups-administrator) | Can manage all aspects of groups and groups settings, such as naming and expiration policies, in the assigned administrative unit only. |
-| [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator) | Can reset passwords for non-administrators and Helpdesk Administrators in the assigned administrative unit only. |
+| [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator) | Can reset passwords for non-administrators in the assigned administrative unit only. |
 | [License Administrator](permissions-reference.md#license-administrator) | Can assign, remove, and update license assignments within the administrative unit only. |
-| [Password Administrator](permissions-reference.md#password-administrator) | Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only. |
+| [Password Administrator](permissions-reference.md#password-administrator) | Can reset passwords for non-administrators within the assigned administrative unit only. |
 | [SharePoint Administrator](permissions-reference.md#sharepoint-administrator) * | Can manage all aspects of the SharePoint service. |
 | [Teams Administrator](permissions-reference.md#teams-administrator) * | Can manage the Microsoft Teams service. |
 | [Teams Devices Administrator](permissions-reference.md#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. |
 | [User Administrator](permissions-reference.md#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only. |
 
 (*) The SharePoint Administrator and Teams Administrator roles can only be used for managing properties in the Microsoft 365 admin center. Teams admin center and SharePoint admin center currently do not support administrative unit-scoped administration.
+
+Certain role permissions apply only to non-administrator users when assigned with the scope of an administrative unit. In other words, administrative unit scoped [Helpdesk Administrators](permissions-reference.md#helpdesk-administrator) can reset passwords for users in the administrative unit only if those users do not have administrator roles. The following list of permissions are restricted when the target of an action is another administrator:
+
+-	Read and modify user authentication methods, or reset user passwords
+-	Modify sensitive user properties such as telephone numbers, alternate email addresses, or OAuth secret keys
+- Delete or restore user accounts
 
 ## Security principals that can be assigned with administrative unit scope
 
@@ -117,7 +123,7 @@ You can view a list of Azure AD role assignments with administrative unit scope 
 
 ### Azure portal
 
-You can view all the role assignments created with an administrative unit scope in the [Administrative units section of Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
+You can view all the role assignments created with an administrative unit scope in the [Administrative units section of Azure AD](https://portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 

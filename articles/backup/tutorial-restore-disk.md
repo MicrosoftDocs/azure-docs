@@ -2,8 +2,11 @@
 title: Tutorial - Restore a VM with Azure CLI
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 01/05/2022
 ms.custom: mvc, devx-track-azurecli
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Restore a VM with Azure CLI
@@ -96,6 +99,50 @@ If the backed-up VM has managed disks and if the intent is to restore managed di
 
 This will restore managed disks as unmanaged disks to the given storage account and won't be leveraging the 'instant' restore functionality. In future versions of CLI, it will be mandatory to provide either the **target-resource-group** parameter or **restore-as-unmanaged-disk** parameter.
 
+### Restore disks to secondary region
+
+The backup data replicates to the secondary region when you enable cross-region restore on the vault you've protected your VMs. You can use the backup data to perform a restore operation.
+
+To restore disks to the secondary region, use the `--use-secondary-region` flag in the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command. Ensure that you specify a target storage account that's located in the secondary region.
+
+```azurecli-interactive
+az backup restore restore-disks \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --storage-account targetStorageAccountID \
+    --rp-name myRecoveryPointName \
+    --target-resource-group targetRG
+    --use-secondary-region
+```
+
+### Cross-zonal restore
+
+You can restore [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) in any [availability zones](../availability-zones/az-overview.md) of the same region.
+
+To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command.
+
+```azurecli-interactive
+az backup restore restore-disks \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --storage-account targetStorageAccountID \
+    --rp-name myRecoveryPointName \
+    --target-resource-group targetRG
+    --target-zone 3
+```
+
+Cross-zonal restore is supported only in scenarios where:
+
+- The source VM is zone pinned and is NOT encrypted.
+- The recovery point is present in vault tier only. Snapshots only or snapshot and vault tier are not supported.
+- The recovery option is to create a new VM or restore disks. Replace disks option replaces source data; therefore, the availability zone option is not applicable.
+- Creating VM/disks in the same region when vault's storage redundancy is ZRS. Note that it doesn't work if vault's storage redundancy is GRS, even though the source VM is zone pinned.
+- Creating VM/disks in the paired region when vault's storage redundancy is enabled for Cross-Region Restore and if the paired region supports zones.
+
 ### Unmanaged disks restore
 
 If the backed-up VM has unmanaged disks and if the intent is to restore disks from the recovery point, you first provide an Azure storage account. This storage account is used to store the VM configuration and the deployment template that can be later used to deploy the VM from the restored disks. By default, the unmanaged disks will be restored to their original storage accounts. If you wish to restore all unmanaged disks to one single place, then the given storage account can also be used as a staging location for those disks too.
@@ -163,7 +210,7 @@ When the *Status* of the restore job reports *Completed*, the necessary informat
 
 Azure Backup also allows you to use managed identity (MSI) during restore operation to access storage accounts where disks have to be restored to. This option is currently supported only for managed disk restore.
 
-If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***--mi-system-assigned*** to the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command. If you wish to use a user-assigned managed identity, pass a parameter ***--mi-user-assigned*** with the ARM id of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
+If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***--mi-system-assigned*** to the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command. If you wish to use a user-assigned managed identity, pass a parameter ***--mi-user-assigned*** with the Azure Resource Manager ID of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
 
 ## Create a VM from the restored disk
 

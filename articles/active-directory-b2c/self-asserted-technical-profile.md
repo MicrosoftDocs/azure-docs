@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/10/2021
+ms.date: 02/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -196,22 +196,23 @@ You can also call a REST API technical profile with your business logic, overwri
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| setting.operatingMode <sup>1</sup>| No | For a sign-in page, this property controls the behavior of the username field, such as input validation and error messages. Expected values: `Username` or `Email`.  |
+| setting.operatingMode <sup>1</sup>| No | For a sign-in page, this property controls the behavior of the username field, such as input validation and error messages. Expected values: `Username` or `Email`. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#operating-mode) of this metadata.  |
 | AllowGenerationOfClaimsWithNullValues| No| Allow to generate a claim with null value. For example, in a case user doesn't select a checkbox.|
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
 | EnforceEmailVerification | No | For sign-up or profile edit, enforces email verification. Possible values: `true` (default), or `false`. |
-| setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile. For example, a user tries to sign-up with an account that already exists and keeps trying until the limit reached.
+| setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile. For example, a user tries to sign-up with an account that already exists and keeps trying until the limit reached. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#retry-limit) of this metadata.|
 | SignUpTarget <sup>1</sup>| No | The sign-up target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
-| setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false` |
-| setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false` |
-| setting.showSignupLink <sup>2</sup>| No | Displays the sign-up button. Possible values: `true` (default), or `false` |
-| setting.forgotPasswordLinkLocation <sup>2</sup>| No| Displays the forgot password link. Possible values: `AfterLabel` (default) displays the link directly after the label or after the password input field when there is no label,  `AfterInput` displays the link after the password input field, `AfterButtons` displays the link on the bottom of the form after the buttons, or `None` removes the forgot password link.|
-| setting.enableRememberMe <sup>2</sup>| No| Displays the [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) checkbox. Possible values: `true` , or `false` (default). |
-| setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Improves user experience, by waiting for the user to stop typing, and then validate the value. Default value 2000 milliseconds. |
+| setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false`. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#show-the-cancel-button) of this metadata.|
+| setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false`. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#show-the-continue-button) of this metadata. |
+| setting.showSignupLink <sup>2</sup>| No | Displays the sign-up button. Possible values: `true` (default), or `false`. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#show-sign-up-link) of this metadata. |
+| setting.forgotPasswordLinkLocation <sup>2</sup>| No| Displays the forgot password link. Possible values: `AfterLabel` (default) displays the link directly after the label or after the password input field when there is no label,  `AfterInput` displays the link after the password input field, `AfterButtons` displays the link on the bottom of the form after the buttons, or `None` removes the forgot password link. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#forgot-password-link-location) of this metadata.|
+| setting.enableRememberMe <sup>2</sup>| No| Displays the [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) checkbox. Possible values: `true` , or `false` (default). [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#enable-remember-me-kmsi) of this metadata. |
+| setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Improves user experience, by waiting for the user to stop typing, and then validate the value. Default value 2000 milliseconds. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#input-verification-delay-time-in-milliseconds) of this metadata. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
-|forgotPasswordLinkOverride <sup>4</sup>| No | A password reset claims exchange to be executed. For more information, see [Self-service password reset](add-password-reset-policy.md). |
+|setting.forgotPasswordLinkOverride <sup>4</sup>| No | A password reset claims exchange to be executed. For more information, see [Self-service password reset](add-password-reset-policy.md). |
 
 Notes:
+
 1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`.
 1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`. [Page layout version](page-layout.md) 1.1.0 and above.
 1. Available for [page layout version](page-layout.md) 1.2.0 and above.

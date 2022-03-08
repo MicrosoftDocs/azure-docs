@@ -240,7 +240,7 @@ The architecture looks like:
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="All pods in namespace on various nodes":::
 
-As described above, the coordinator nodes (Pod 1) of the Azure Arc-enabled Postgres Hyperscale server group shares the same physical resources as the third worker node (Pod 4) of the server group. That is acceptable because the coordinator node typically uses very few resources in comparison to what a worker node may be using. For this reason, carefully chose:
+As described above, the coordinator nodes (Pod 1) of the Azure Arc-enabled PostgreSQL Hyperscale server group shares the same physical resources as the third worker node (Pod 4) of the server group. That is acceptable because the coordinator node typically uses very few resources in comparison to what a worker node may be using. For this reason, carefully chose:
 - the size of the Kubernetes cluster and the characteristics of each of its physical nodes (memory, vCore)
 - the number of physical nodes inside the Kubernetes cluster
 - the applications or workloads you host on the Kubernetes cluster.
@@ -374,8 +374,8 @@ To benefit the most from the scalability and the performance of scaling Azure Ar
 - between all the PostgreSQL instances that constitute the Azure Arc-enabled PostgreSQL Hyperscale server group
 
 You can achieve this in several ways:
-- Scale out both Kubernetes and Azure Arc-enabled Postgres Hyperscale: consider scaling horizontally the Kubernetes cluster the same way you are scaling the Azure Arc-enabled PostgreSQL Hyperscale server group. Add a physical node to the cluster for each worker you add to the server group.
-- Scale out Azure Arc-enabled Postgres Hyperscale without scaling out Kubernetes: by setting the right resource constraints (request and limits on memory and vCore) on the workloads hosted in Kubernetes (Azure Arc-enabled PostgreSQL Hyperscale included), you will enable the colocation of workloads on Kubernetes and reduce the risk of resource contention. You need to make sure that the physical characteristics of the physical nodes of the Kubernetes cluster can honor the resources constraints you define. You should also ensure that equilibrium remains as the workloads evolve over time or as more workloads are added in the Kubernetes cluster.
+- Scale out both Kubernetes and Azure Arc-enabled PostgreSQL Hyperscale: consider scaling horizontally the Kubernetes cluster the same way you are scaling the Azure Arc-enabled PostgreSQL Hyperscale server group. Add a physical node to the cluster for each worker you add to the server group.
+- Scale out Azure Arc-enabled PostgreSQL Hyperscale without scaling out Kubernetes: by setting the right resource constraints (request and limits on memory and vCore) on the workloads hosted in Kubernetes (Azure Arc-enabled PostgreSQL Hyperscale included), you will enable the colocation of workloads on Kubernetes and reduce the risk of resource contention. You need to make sure that the physical characteristics of the physical nodes of the Kubernetes cluster can honor the resources constraints you define. You should also ensure that equilibrium remains as the workloads evolve over time or as more workloads are added in the Kubernetes cluster.
 - Use the Kubernetes mechanisms (pod selector, affinity, anti-affinity) to influence the placement of the pods.
 
 ## Next steps

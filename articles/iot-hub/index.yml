@@ -7,8 +7,8 @@ metadata:
   services: iot-hub
   ms.service: iot-hub
   ms.topic: landing-page
-  author: eross-msft
-  ms.author: lizross
+  author: kgremban
+  ms.author: kgremban
   ms.date: 08/11/2021
 
 landingContent:

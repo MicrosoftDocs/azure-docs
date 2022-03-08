@@ -4,9 +4,8 @@ description: Learn how to use Azure custom roles in Azure AD Privileged Identity
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity

@@ -13,7 +13,7 @@ ms.author: rahulva
 ---
 
 > [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/access-tokens-quickstart)
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/get-relay-configuration-quickstart)
 
 ## Prerequisites for Python
 

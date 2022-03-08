@@ -12,7 +12,7 @@ ms.date: 10/25/2021
 
 # Azure Purview Data Lineage best practices
 
-Data Lineage is broadly understood as the lifecycle that spans the data’s origin, and where it moves over time across the data estate. Purview can capture lineage for data in different parts of your organization's data estate, and at different levels of preparation including: 
+Data Lineage is broadly understood as the lifecycle that spans the data’s origin, and where it moves over time across the data estate. Azure Purview can capture lineage for data in different parts of your organization's data estate, and at different levels of preparation including: 
 * Completely raw data staged from various platforms 
 * Transformed and prepared data 
 * Data used by visualization platforms
@@ -32,11 +32,11 @@ Data lineage is the process of describing what data exists, where it is 
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/data-factory-connection.png" alt-text="Screen shot showing a data factory connection list." lightbox="./media/how-to-link-azure-data-factory/data-factory-connection.png":::
 
-* Each Data Factory instance can connect to only one Purview account. You can establish new connection in another Purview account, but this will turn existing connection to disconnected.  
+* Each Data Factory instance can connect to only one Azure Purview account. You can establish new connection in another Azure Purview account, but this will turn existing connection to disconnected.  
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
 
-* Data factory's managed identity is used to authenticate lineage in Purview account, the data factory's managed identity Data Curator role on Purview root collection is required. 
+* Data factory's managed identity is used to authenticate lineage in Azure Purview account, the data factory's managed identity Data Curator role on Azure Purview root collection is required. 
 * Support no more than 10 data factories at once. If you want to add more than 10 data factories at once, please file a support ticket. 
 
 ### Azure Data Factory activities  
@@ -51,11 +51,11 @@ Data lineage is the process of describing what data exists, where it is 
     * Supported data sources in data flow activity is listed **Data Flow support** of [Connect to Azure Data Factory](how-to-link-azure-data-factory.md)
     * Supported data sources in SSIS is listed **SSIS execute package activity support** of [Lineage from SQL Server Integration Services](how-to-lineage-sql-server-integration-services.md)
 
-* Purview cannot capture lineage if Azure Data Factory copy activity use copy activity features listed in **Limitations on copy activity lineage** of [Connect to Azure Data Factory](how-to-link-azure-data-factory.md)  
+* Azure Purview cannot capture lineage if Azure Data Factory copy activity use copy activity features listed in **Limitations on copy activity lineage** of [Connect to Azure Data Factory](how-to-link-azure-data-factory.md)  
 
-* For the lineage of Dataflow activity, Purview only support source and sink. The lineage for Dataflow transformation is not supported yet. 
+* For the lineage of Dataflow activity, Azure Purview only support source and sink. The lineage for Dataflow transformation is not supported yet. 
 
-* Data flow lineage doesn't integrate with Purview resource set. 
+* Data flow lineage doesn't integrate with Azure Purview resource set. 
 
     **Resource set example 1**    
 
@@ -65,9 +65,9 @@ Data lineage is the process of describing what data exists, where it is 
 
 * For the lineage of Execute SSIS Package activity, we only support source and destination. The lineage for transformation is not supported yet. 
 
-    :::image type="content" source="./media/concept-best-practices-lineage/ssis-lineage.png" alt-text="Screenshot of the Execute SSIS lineage in Purview." lightbox="./media/concept-best-practices-lineage/ssis-lineage.png":::
+    :::image type="content" source="./media/concept-best-practices-lineage/ssis-lineage.png" alt-text="Screenshot of the Execute SSIS lineage in Azure Purview." lightbox="./media/concept-best-practices-lineage/ssis-lineage.png":::
 
-* Please refer the following step-by-step guide to [push Azure Data Factory lineage in Purview](../data-factory/tutorial-push-lineage-to-purview.md).  
+* Please refer the following step-by-step guide to [push Azure Data Factory lineage in Azure Purview](../data-factory/tutorial-push-lineage-to-purview.md).  
 
 ## Next steps
 -  [Manage data sources](./manage-data-sources.md)

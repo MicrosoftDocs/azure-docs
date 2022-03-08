@@ -19,7 +19,18 @@ Run your Azure Machine Learning pipelines as a step in your Azure Data Factory a
 
 The below video features a six-minute introduction and demonstration of this feature.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
+
+## Create a Machine Learning Execute Pipeline activity with UI
+
+To use a Machine Learning Execute Pipeline activity in a pipeline, complete the following steps:
+
+1. Search for _Machine Learning_ in the pipeline Activities pane, and drag a Machine Learning Execute Pipeline activity to the pipeline canvas.
+1. Select the new Machine Learning Execute Pipeline activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/transform-data-machine-learning-service/machine-learning-execute-pipeline-activity.png" alt-text="Shows the UI for a Machine Learning Execute Pipeline activity.":::
+
+1. Select an existing or create a new Azure Machine Learning linked service, and provide details of the pipeline and experiment, and any pipeline parameters or data path assignments required for the pipeline.
 
 ## Syntax
 

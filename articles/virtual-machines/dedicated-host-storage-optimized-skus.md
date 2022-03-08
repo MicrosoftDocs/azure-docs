@@ -22,7 +22,7 @@ The sizes and hardware types available for dedicated hosts vary by region. Refer
 ## Lsv2
 ### Lsv2-Type1
 
-The Lsv2-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Gold 6246R) processor. It offers 64 physical cores, 80 vCPUs, and 640 GiB of RAM. The Lsv2-Type1 runs [Lsv2-series](lsv2-series.md) VMs.
+The Lsv2-Type1 is a Dedicated Host SKU utilizing the AMD's 2.55 GHz EPYC™ 7551 processor. It offers 64 physical cores, 80 vCPUs, and 640 GiB of RAM. The Lsv2-Type1 runs [Lsv2-series](lsv2-series.md) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Lsv2-Type1 host.
 

@@ -4,7 +4,7 @@ description: Assign or remove custom security attributes for a user in Azure Act
 services: active-directory 
 author: rolyon
 ms.author: rolyon
-ms.date: 11/16/2021
+ms.date: 02/03/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -121,12 +121,16 @@ To manage custom security attribute assignments for users in your Azure AD organ
 
 #### Get the custom security attribute assignments for a user
 
+Use the [Get-AzureADMSUser](/powershell/module/azuread/get-azureadmsuser) command to get the custom security attribute assignments for a user.
+
 ```powershell
 $user1 = Get-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -Select CustomSecurityAttributes
 $user1.CustomSecurityAttributes
 ```
 
 #### Assign a custom security attribute with a multi-string value to a user
+
+Use the [Set-AzureADMSUser](/powershell/module/azuread/set-azureadmsuser) command to assign a custom security attribute with a multi-string value to a user.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
@@ -146,6 +150,8 @@ Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttrib
 
 #### Update a custom security attribute with a multi-string value for a user
 
+Use the [Set-AzureADMSUser](/powershell/module/azuread/set-azureadmsuser) command to update a custom security attribute with a multi-string value for a user.
+
 - Attribute set: `Engineering`
 - Attribute: `Project`
 - Attribute data type: Collection of Strings
@@ -164,9 +170,11 @@ Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttrib
 
 ## Microsoft Graph API
 
-To manage custom security attribute assignments for users in your Azure AD organization, you can use the Microsoft Graph API. The following API calls can be made to manage assignments.
+To manage custom security attribute assignments for users in your Azure AD organization, you can use the Microsoft Graph API. The following API calls can be made to manage assignments. For more information, see [Assign, update, or remove custom security attributes using the Microsoft Graph API](/graph/custom-security-attributes-examples).
 
 #### Get the custom security attribute assignments for a user
+
+Use the [Get a user](/graph/api/user-get?view=graph-rest-beta&preserve-view=true) API to get the custom security attribute assignments for a user.
 
 ```http
 GET https://graph.microsoft.com/beta/users/{id}?$select=customSecurityAttributes
@@ -181,6 +189,8 @@ If there are no custom security attributes assigned to the user or if the callin
 ```
 
 #### Assign a custom security attribute with a string value to a user
+
+Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a string value to a user.
 
 - Attribute set: `Engineering`
 - Attribute: `ProjectDate`
@@ -202,6 +212,8 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 ```
 
 #### Assign a custom security attribute with a multi-string value to a user
+
+Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a multi-string value to a user.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
@@ -225,6 +237,8 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 #### Assign a custom security attribute with an integer value to a user
 
+Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with an integer value to a user.
+
 - Attribute set: `Engineering`
 - Attribute: `NumVendors`
 - Attribute data type: Integer
@@ -246,6 +260,8 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 ```
 
 #### Assign a custom security attribute with a multi-integer value to a user
+
+Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a multi-integer value to a user.
 
 - Attribute set: `Engineering`
 - Attribute: `CostCenter`
@@ -269,6 +285,8 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 #### Assign a custom security attribute with a Boolean value to a user
 
+Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a Boolean value to a user.
+
 - Attribute set: `Engineering`
 - Attribute: `Certification`
 - Attribute data type: Boolean
@@ -289,6 +307,8 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 ```
 
 #### Update a custom security attribute with an integer value for a user
+
+Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to update a custom security attribute with an integer value for a user.
 
 - Attribute set: `Engineering`
 - Attribute: `NumVendors`
@@ -312,6 +332,8 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 #### Update a custom security attribute with a Boolean value for a user
 
+Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to update a custom security attribute with a Boolean value for a user.
+
 - Attribute set: `Engineering`
 - Attribute: `Certification`
 - Attribute data type: Boolean
@@ -333,7 +355,7 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 #### Remove a single-valued custom security attribute assignment from a user
 
-To remove a single-valued custom security attribute assignment, set the value to null.
+Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to remove a single-valued custom security attribute assignment from a user by setting the value to null.
 
 - Attribute set: `Engineering`
 - Attribute: `ProjectDate`
@@ -355,7 +377,7 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 #### Remove a multi-valued custom security attribute assignment from a user
 
-To remove a multi-valued custom security attribute assignment, set the value to an empty collection.
+Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to remove a multi-valued custom security attribute assignment from a user by setting the value to an empty collection.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
@@ -377,7 +399,7 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 #### Filter all users with an attribute that equals a value
 
-The following example, retrieves users with an `AppCountry` attribute that equals `Canada`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to filter all users with an attribute that equals a value. The following example, retrieves users with an `AppCountry` attribute that equals `Canada`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 - Attribute set: `Marketing`
 - Attribute: `AppCountry`
@@ -389,7 +411,7 @@ GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,cu
 
 #### Filter all users with an attribute that starts with a value
 
-The following example, retrieves users with an `EmployeeId` attribute that starts with `111`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to filter all users with an attribute that starts with a value. The following example, retrieves users with an `EmployeeId` attribute that starts with `111`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 - Attribute set: `Marketing`
 - Attribute: `EmployeeId`
@@ -401,7 +423,7 @@ GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,cu
 
 #### Filter all users with an attribute that does not equal a value
 
-The following example, retrieves users with a `AppCountry` attribute that does not equal `Canada`. This query will also retrieve users that do not have the `AppCountry` attribute assigned. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to filter all users with an attribute that does not equal a value. The following example, retrieves users with a `AppCountry` attribute that does not equal `Canada`. This query will also retrieve users that do not have the `AppCountry` attribute assigned. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 - Attribute set: `Marketing`
 - Attribute: `AppCountry`

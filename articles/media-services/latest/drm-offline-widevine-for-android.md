@@ -6,6 +6,7 @@ author: willzhan
 manager: femila
 ms.service: media-services
 ms.workload: media
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: inhenkel

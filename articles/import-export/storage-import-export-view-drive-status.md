@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 12/22/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
@@ -23,7 +23,9 @@ You can view the status of your import and export jobs in the Azure portal. The 
 
 If you created your import or export job in Azure Data Box (the Preview experience), you'll track the job's status along with your other **Data Box** resources.
 
-1. Log on to [https://portal.azure.com/](https://portal.azure.com/).
+[!INCLUDE [storage-import-export-view-jobs-and-drives.md](../../includes/storage-import-export-view-jobs-and-drives.md)]
+
+<!--1. Log on to [https://portal.azure.com/](https://portal.azure.com/).
 
 2. Search for **azure data box**.
 
@@ -45,8 +47,7 @@ If you created your import or export job in Azure Data Box (the Preview experien
 
    * Select a **Drive ID** to open a panel with full copy information, including the manifest file and hash.
 
-   [ ![Screenshot of the Overview for an Import Export job in the Azure portal. The Order Status, and the Data Copy Status and Log URLs for a drive, are highlighted.](./media/storage-import-export-view-drive-status/preview-job-details.png) ](./media/storage-import-export-view-drive-status/preview-job-details.png#lightbox)
-
+   [ ![Screenshot of the Overview for an Import Export job in the Azure portal. The Order Status, and the Data Copy Status and Log URLs for a drive, are highlighted.](./media/storage-import-export-view-drive-status/preview-job-details.png) ](./media/storage-import-export-view-drive-status/preview-job-details.png#lightbox)-->
 
 ### [Portal (Classic)](#tab/azure-portal-classic)
 

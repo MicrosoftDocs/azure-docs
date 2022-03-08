@@ -1,12 +1,11 @@
 ---
 title: Enable SQL TDE with Azure Key Vault
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics 
-description: "Learn how to configure an Azure SQL Database and Azure Synapse Analytics to start using Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell or the Azure CLI."
+description: "Learn how to configure an Azure SQL Database and Azure Synapse Analytics to start using Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell or Azure CLI."
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang:
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
@@ -14,13 +13,14 @@ ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 06/23/2021
 ---
 
-# PowerShell and the Azure CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
+# PowerShell and Azure CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
+
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on Azure SQL Database or Azure Synapse Analytics. To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md). 
+This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on Azure SQL Database or Azure Synapse Analytics. To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
 
 > [!NOTE] 
-> Azure SQL now supports using a RSA key stored in a Managed HSM as TDE Protector. This feature is in **public preview**. Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](../../key-vault/managed-hsm/index.yml).
+> Azure SQL now supports using a RSA key stored in a Managed HSM as TDE Protector. Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](../../key-vault/managed-hsm/index.yml).
 
 > [!NOTE]
 > This article applies to Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (dedicated SQL pools (formerly SQL DW)). For documentation on Transparent Data Encryption for dedicated SQL pools inside Synapse workspaces, see [Azure Synapse Analytics encryption](../../synapse-analytics/security/workspaces-encryption.md).
@@ -38,7 +38,7 @@ This article walks through how to use a key from Azure Key Vault for Transparent
   - No expiration date
   - Not disabled
   - Able to perform *get*, *wrap key*, *unwrap key* operations
-- **(In Preview)** To use a Managed HSM key, follow instructions to [create and activate a Managed HSM using Azure CLI](../../key-vault/managed-hsm/quick-create-cli.md)
+- To use a Managed HSM key, follow instructions to [create and activate a Managed HSM using Azure CLI](../../key-vault/managed-hsm/quick-create-cli.md)
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -72,6 +72,7 @@ Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvau
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
+
 For adding permissions to your server on a Managed HSM, add the 'Managed HSM Crypto Service Encryption User' local RBAC role to the server. This will enable the server to perform get, wrap key, unwrap key operations on the keys in the Managed HSM.
 [Instructions for provisioning server access on Managed HSM](../../key-vault/managed-hsm/role-management.md)
 
@@ -83,7 +84,7 @@ For adding permissions to your server on a Managed HSM, add the 'Managed HSM Cry
 - Use the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet to confirm that the TDE protector was configured as intended.
 
 > [!NOTE]
-> **(In Preview)** For Managed HSM keys, use Az.Sql 2.11.1 version of PowerShell.
+> For Managed HSM keys, use Az.Sql 2.11.1 version of PowerShell.
 
 > [!NOTE]
 > The combined length for the key vault name and key name cannot exceed 94 characters.
@@ -132,9 +133,9 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # [The Azure CLI](#tab/azure-cli)
 
-To install the required version of the Azure CLI (version 2.0 or later) and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](/cli/azure/install-azure-cli).
+To install the required version of Azure CLI (version 2.0 or later) and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](/cli/azure/install-azure-cli).
 
-For specifics on Key Vault, see [Manage Key Vault using the CLI 2.0](../../key-vault/general/manage-with-cli2.md) and [How to use Key Vault soft-delete with the CLI](../../key-vault/general/key-vault-recovery.md).
+For specifics on Key Vault, see [Manage Key Vault using Azure CLI 2.0](../../key-vault/general/manage-with-cli2.md) and [How to use Key Vault soft-delete with the CLI](../../key-vault/general/key-vault-recovery.md).
 
 ## Assign an Azure AD identity to your server
 
@@ -216,7 +217,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
    Remove-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 - For general database settings, see [az sql](/cli/azure/sql).
 
@@ -238,7 +239,7 @@ Check the following if an issue occurs:
    Get-AzSubscription -SubscriptionId <SubscriptionId>
    ```
 
-   # [The Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/azure-cli)
 
    ```azurecli
    az account show - s <SubscriptionId>
@@ -247,8 +248,8 @@ Check the following if an issue occurs:
    * * *
 
 - If the new key cannot be added to the server, or the new key cannot be updated as the TDE Protector, check the following:
-   - The key should not have an expiration date
-   - The key must have the *get*, *wrap key*, and *unwrap key* operations enabled.
+  - The key should not have an expiration date
+  - The key must have the *get*, *wrap key*, and *unwrap key* operations enabled.
 
 ## Next steps
 

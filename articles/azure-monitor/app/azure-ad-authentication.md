@@ -3,8 +3,11 @@ title: Azure AD authentication for Application Insights (Preview)
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
 ms.date: 08/02/2021
+ms.devlang: csharp, java, javascript, python
 ---
+
 # Azure AD authentication for Application Insights (Preview)
+
 Application Insights now supports Azure Active Directory (Azure AD) authentication. By using Azure AD, you can ensure that only authenticated telemetry is ingested in your Application Insights resources. 
 
 Typically, using various authentication systems can be cumbersome and pose risk since it's difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your Application Insights resource. This feature is a step to enhance the security and reliability of the telemetry used to make both critical operational (alerting/autoscale etc.) and business decisions.
@@ -104,7 +107,7 @@ import { DefaultAzureCredential } from "@azure/identity";
  
 const credential = new DefaultAzureCredential();
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
-appInsights.defaultClient.aadTokenCredential = credential;
+appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
 
@@ -120,7 +123,7 @@ const credential = new ClientSecretCredential(
     "<YOUR_CLIENT_SECRET>"
   );
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
-appInsights.defaultClient.aadTokenCredential = credential;
+appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
 

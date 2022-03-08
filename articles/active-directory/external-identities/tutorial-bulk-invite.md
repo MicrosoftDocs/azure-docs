@@ -1,18 +1,17 @@
 ---
 
 title: Tutorial for bulk inviting B2B collaboration users - Azure AD
-description: In this tutorial, you learn how to use PowerShell and a CSV file to send bulk invitations to external Azure AD B2B collaboration users.
+description: In this tutorial, you learn how to use PowerShell and a CSV file to send bulk invitations to external Azure AD B2B collaboration users. You'll use the Microsoft.Graph.Users PowerShell module.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 02/16/2022
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 
 # Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
 
@@ -21,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Bulk invite Azure AD B2B collaboration users
 
-If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you do the following:
+If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you'll follow these steps:
 
 > [!div class="checklist"]
 > * Use **Bulk invite users** to prepare a comma-separated value (.csv) file with the user information and invitation preferences
@@ -42,13 +41,13 @@ The rows in a downloaded CSV template are as follows:
 
 - **Version number**: The first row containing the version number must be included in the upload CSV.
 - **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Email address to invite [inviteeEmail] Required`. Some older versions of the template might have slight variations.
-- **Examples row**: We have included in the template a row of examples of values for each column. You must remove the examples row and replace it with your own entries.
+- **Examples row**: We've included in the template a row of examples of values for each column. You must remove the examples row and replace it with your own entries.
 
 ### Additional guidance
 
 - The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
 - The required columns are listed first.
-- We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
+- We don't recommend adding new columns to the template. Any columns you add are ignored and not processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
 
 ## Prerequisites
@@ -83,7 +82,7 @@ You need two or more test email accounts that you can send the invitations to. T
 7. On the **Bulk invite users** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts. 
 8. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
 9. When your file passes validation, select **Submit** to start the Azure bulk operation that adds the invitations. 
-10. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results** in the **Activity** section. For details about each line item within the the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
+10. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results** in the **Activity** section. For details about each line item within the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
 
     ![Example of bulk operation results](media/tutorial-bulk-invite/bulk-operation-results.png)
 
@@ -102,25 +101,30 @@ Check to see that the guest users you added exist in the directory either in the
 
 ### View guest users with PowerShell
 
+To view guest users with PowerShell, you'll need the [Microsoft.Graph.Users PowerShell Module](/powershell/module/microsoft.graph.users/?view=graph-powershell-beta). Then sign in using the `Connect-MgGraph` command with an admin account to consent to the required scopes:
+```powershell
+Connect-MgGraph -Scopes "User.Read.All"
+```
+
 Run the following command:
 
 ```powershell
- Get-AzureADUser -Filter "UserType eq 'Guest'"
+ Get-MgUser -Filter "UserType eq 'Guest'"
 ```
 
 You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
 ## Clean up resources
 
-When no longer needed, you can delete the test user accounts in the directory in the Azure portal on the Users page by selecting the checkbox next to the guest user and then selecting **Delete**. 
+When no longer needed, you can delete the test user accounts in the directory in the Azure portal on the Users page by selecting the checkbox next to the guest user and then selecting **Delete**.
 
 Or you can run the following PowerShell command to delete a user account:
 
 ```powershell
- Remove-AzureADUser -ObjectId "<UPN>"
+ Remove-MgUser -UserId "<UPN>"
 ```
 
-For example: `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
+For example: `Remove-MgUser -UserId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
 ## Next steps
 

@@ -100,7 +100,7 @@ If you have directories or files in on-premises file servers with Windows DACLs 
 Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
 
 ```
-icacls <mounted-drive-letter>: /grant <user-email>:(f)
+icacls <mounted-drive-letter>: /grant <user-upn>:(f)
 ```
 
 For more information on how to use icacls to set Windows ACLs and on the different types of supported permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).

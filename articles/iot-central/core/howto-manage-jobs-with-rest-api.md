@@ -3,7 +3,7 @@ title: Use the REST API to manage jobs in Azure IoT Central
 description: How to use the IoT Central REST API to create and manage jobs in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/30/2021
+ms.date: 01/05/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central

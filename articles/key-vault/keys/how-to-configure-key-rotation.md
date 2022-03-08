@@ -45,7 +45,7 @@ Key rotation policy settings:
 -   Rotation types:
     -   Automatically renew at a given time after creation (default)
     -   Automatically renew at a given time before expiry. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key.
--   Rotation time: key rotation interval, he minimum value is 7 days from creation and 7 days from expiration time
+-   Rotation time: key rotation interval, the minimum value is 7 days from creation and 7 days from expiration time
 -   Notification time: key near expiry event interval for event grid notification. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key. 
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-1.png" alt-text="Rotation policy configuration":::
@@ -117,7 +117,7 @@ Configuration of expiry notification for event grid key near expiry event. You c
 :::image type="content" source="../media/keys/key-rotation/key-rotation-5.png" alt-text="Configure Notification":::
 
 For more information about event grid notifications in Key Vault, see
-[Azure Key Vault as Event Grid source](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault?tabs=event-grid-event-schema)
+[Azure Key Vault as Event Grid source](../../event-grid/event-schema-key-vault.md?tabs=event-grid-event-schema)
 
 ## Configure key rotation with ARM template
 
@@ -143,7 +143,7 @@ Key rotation policy can also be configured using ARM templates.
                 "description": "The name of the key to be created."
             }
         },
-        "rotateTimeAfterCreation": {
+        "rotatationTimeAfterCreate": {
             "defaultValue": "P18M",
             "type": "String",
             "metadata": {
@@ -169,7 +169,7 @@ Key rotation policy can also be configured using ARM templates.
     "resources": [
         {
             "type": "Microsoft.KeyVault/vaults/keys",
-            "apiVersion": "2020-04-01-preview",
+            "apiVersion": "2021-06-01-preview",
             "name": "[concat(parameters('vaultName'), '/', parameters('keyName'))]",
             "location": "[resourceGroup().location]",
             "properties": {
@@ -179,7 +179,7 @@ Key rotation policy can also be configured using ARM templates.
                     "lifetimeActions": [
                         {
                             "trigger": {
-                                "timeAfterCreate": "[parameters('rotateTimeAfterCreation')]",
+                                "timeAfterCreate": "[parameters('rotatationTimeAfterCreate')]",
                                 "timeBeforeExpiry": ""
                             },
                             "action": {
@@ -188,7 +188,7 @@ Key rotation policy can also be configured using ARM templates.
                         },
                         {
                             "trigger": {
-                                "timeBeforeExpiry": "[parameters('notifyTime')]",
+                                "timeBeforeExpiry": "[parameters('notifyTime')]"
                             },
                             "action": {
                                 "type": "Notify"
@@ -211,6 +211,6 @@ Key rotation policy can also be configured using ARM templates.
 
 - [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
 - [Use an Azure RBAC to control access to keys, certificates and secrets](../general/rbac-guide.md)
-- [Azure Data Encryption At Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-- [Azure Storage Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
-- [Azure Disk Encryption](https://docs.microsoft.com/azure/virtual-machines/disk-encryption)
+- [Azure Data Encryption At Rest](../../security/fundamentals/encryption-atrest.md)
+- [Azure Storage Encryption](../../storage/common/storage-service-encryption.md)
+- [Azure Disk Encryption](../../virtual-machines/disk-encryption.md)

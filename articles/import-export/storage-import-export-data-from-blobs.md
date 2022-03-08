@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/29/2021
+ms.date: 12/27/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -441,6 +441,15 @@ Use the following command to unlock the drive:
 Here is an example of the sample input.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
+
+You can use the copy logs from the job to verify that all data transferred successfully:
+
+- Use the *verbose log* to verify each successfully transferred file.
+- Use the *copy log* to find the source of each failed data copy.
+
+To find the log locations, open the job in the [Azure portal/](https://portal.azure.com/). The **Data copy details** show the **Copy log path** and **Verbose log path** for each drive that was included in the order.
+
+[ ![Screenshot showing a completed export job in Azure Import Export. In Data Copy Details, the Copy Log Path and Verbose Log Path are highlighted.](./media/storage-import-export-data-from-blobs/import-export-status-export-order-completed.png) ](./media/storage-import-export-data-from-blobs/import-export-status-export-order-completed.png#lightbox)
 
 At this time, you can delete the job or leave it. Jobs automatically get deleted after 90 days.
 

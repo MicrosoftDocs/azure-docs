@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.subservice: troubleshooting
 ms.date: 04/15/2020 
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Synapse Studio troubleshooting

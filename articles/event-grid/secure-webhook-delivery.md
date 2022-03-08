@@ -2,7 +2,7 @@
 title: Secure WebHook delivery with Azure AD in Azure Event Grid
 description: Describes how to deliver events to HTTPS endpoints protected by Azure Active Directory using Azure Event Grid
 ms.topic: how-to
-ms.date: 12/08/2021
+ms.date: 01/20/2022
 ---
 
 # Deliver events to Azure Active Directory protected endpoints
@@ -42,7 +42,7 @@ Based on the diagram above, follow the next steps to configure the tenant.
         - **$eventSubscriptionWriterUserPrincipalName**: Azure User Principal Name of the user who will create event subscription
 
     > [!NOTE]
-    > You don't need to modify the value of **$eventGridAppId**, for this script we set **AzureEventGridSecureWebhookSubscriber** as the value for the **$eventGridRoleName**. Remember, you must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) to execute this script.
+    > You don't need to modify the value of **$eventGridAppId**, for this script we set **AzureEventGridSecureWebhookSubscriber** as the value for the **$eventGridRoleName**. Remember, you must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of Webhook app in Azure AD to execute this script.
 
     If you see the following error message, you need to elevate to the service principal. An additional access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     
@@ -94,7 +94,7 @@ Based on the diagram above, follow the next steps to configure the tenant.
         - **$eventSubscriptionWriterAppId**: Azure AD Application ID for Event Grid subscription writer
 
     > [!NOTE]
-    > You don't need to modify the value of **```$eventGridAppId```**, for this script we set **AzureEventGridSecureWebhookSubscriber** as the value for the **```$eventGridRoleName```**. Remember, you must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) to execute this script.
+    > You don't need to modify the value of **```$eventGridAppId```**, for this script we set **AzureEventGridSecureWebhookSubscriber** as the value for the **```$eventGridRoleName```**. Remember, you must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of Webhook app in Azure AD to execute this script.
 
 8. Login as the Event Grid subscription writer Azure AD Application by running the command.
 
@@ -155,7 +155,7 @@ Do the following steps in **Tenant B**:
         - **$eventSubscriptionWriterAppId**: Azure AD application ID for Event Grid subscription writer
 
             > [!NOTE]
-            > You don't need to modify the value of **```$eventGridAppId```**, for this script we set **AzureEventGridSecureWebhookSubscriber** as the value for the **```$eventGridRoleName```**. Remember, you must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) to execute this script.
+            > You don't need to modify the value of **```$eventGridAppId```**, for this script we set **AzureEventGridSecureWebhookSubscriber** as the value for the **```$eventGridRoleName```**. Remember, you must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of Webhook app in Azure AD to execute this script.
 
     If you see the following error message, you need to elevate to the service principal. An additional access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     
@@ -189,6 +189,7 @@ Back in **Tenant A**, do the following steps:
 
 ## Next steps
 
+* For conceptual information, see [WebHook event delivery](webhook-event-delivery.md).
 * For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
 * For more information about the authentication key, see [Event Grid security and authentication](security-authentication.md).
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).

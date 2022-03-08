@@ -1,13 +1,13 @@
 ---
 title: "Azure SignalR Service serverless quickstart - C#"
 description: "A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using C#."
-author: sffamily
+author: vicancy
 ms.service: signalr
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
 ms.date: 06/09/2021
-ms.author: zhshang
+ms.author: lianwei
 ---
 
 # Quickstart: Create an App showing GitHub star count with Azure Functions and SignalR Service via C#
@@ -44,16 +44,17 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     ```bash
     # Initialize a function project
     func init --worker-runtime dotnet
-    
+
     # Add SignalR Service package reference to the project
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService
     ```
 
 2. After you initialize a project. Create a new file with name *Function.cs*. Add the following code to *Function.cs*.
-   
+
     ```csharp
     using System;
     using System.IO;
+    using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
@@ -68,9 +69,11 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         public static class Function
         {
             private static HttpClient httpClient = new HttpClient();
+            private static string Etag = string.Empty;
+            private static string StarCount = "0";
     
             [FunctionName("index")]
-            public static IActionResult Index([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, ExecutionContext context)
+            public static IActionResult GetHomePage([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, ExecutionContext context)
             {
                 var path = Path.Combine(context.FunctionAppDirectory, "content", "index.html");
                 return new ContentResult
@@ -83,24 +86,34 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
             [FunctionName("negotiate")]
             public static SignalRConnectionInfo Negotiate( 
                 [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req,
-                [SignalRConnectionInfo(HubName = "serverlessSample")] SignalRConnectionInfo connectionInfo)
+                [SignalRConnectionInfo(HubName = "serverless")] SignalRConnectionInfo connectionInfo)
             {
                 return connectionInfo;
             }
     
             [FunctionName("broadcast")]
             public static async Task Broadcast([TimerTrigger("*/5 * * * * *")] TimerInfo myTimer,
-            [SignalR(HubName = "serverlessSample")] IAsyncCollector<SignalRMessage> signalRMessages)
+            [SignalR(HubName = "serverless")] IAsyncCollector<SignalRMessage> signalRMessages)
             {
                 var request = new HttpRequestMessage(HttpMethod.Get, "https://api.github.com/repos/azure/azure-signalr");
                 request.Headers.UserAgent.ParseAdd("Serverless");
+                request.Headers.Add("If-None-Match", Etag);
                 var response = await httpClient.SendAsync(request);
-                var result = JsonConvert.DeserializeObject<GitResult>(await response.Content.ReadAsStringAsync());
+                if (response.Headers.Contains("Etag"))
+                {
+                    Etag = response.Headers.GetValues("Etag").First();
+                }
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var result = JsonConvert.DeserializeObject<GitResult>(await response.Content.ReadAsStringAsync());
+                    StarCount = result.StarCount;
+                }
+                
                 await signalRMessages.AddAsync(
                     new SignalRMessage
                     {
                         Target = "newMessage",
-                        Arguments = new[] { $"Current star count of https://github.com/Azure/azure-signalr is: {result.StarCount}" }
+                        Arguments = new[] { $"Current star count of https://github.com/Azure/azure-signalr is: {StarCount}" }
                     });
             }
     
@@ -119,7 +132,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `GetHomePage` function, create a new file `index.html` in `content` directory under project root folder. And copy the following content.
     ```html
     <html>
-    
+
     <body>
       <h1>Azure SignalR Serverless Sample</h1>
       <div id="messages"></div>
@@ -134,12 +147,12 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
           connection.on('newMessage', (message) => {
             document.getElementById("messages").innerHTML = message;
           });
-    
+
           connection.start()
             .catch(console.error);
       </script>
     </body>
-    
+
     </html>
     ```
 
@@ -160,15 +173,15 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         ![Search for the SignalR Service instance](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
     2. Select **Keys** to view the connection strings for the SignalR Service instance.
-    
+
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
     3. Copy the primary connection string. And execute the command below.
-    
+
         ```bash
         func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
-    
+
 6. Run the Azure Function in local:
 
     ```bash
@@ -196,7 +209,10 @@ Next, learn more about how to bi-directional communicating between clients and A
 > [SignalR Service bindings for Azure Functions](../azure-functions/functions-bindings-signalr-service.md)
 
 > [!div class="nextstepaction"]
-> [Bi-directional communicating in Serverless](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
+> [Azure Functions Bi-directional communicating sample](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
+
+> [!div class="nextstepaction"]
+> [Azure Functions Bi-directional communicating sample for isolated process](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/DotnetIsolated-BidirectionChat)
 
 > [!div class="nextstepaction"]
 > [Deploy to Azure Function App using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure)

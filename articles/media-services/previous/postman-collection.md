@@ -9,7 +9,6 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
@@ -2917,7 +2916,7 @@ This article contains a definition of the **Postman** collection that contains g
         },
         {
             "name": "Functions",
-            "description": "Rest API Functions\nhttps://msdn.microsoft.com/library/azure/jj683097.aspx\n",
+            "description": "REST API Functions\nhttps://msdn.microsoft.com/library/azure/jj683097.aspx\n",
             "item": [
                 {
                     "name": "CreateFileInfos  Function",

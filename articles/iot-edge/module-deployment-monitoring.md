@@ -58,6 +58,8 @@ The target condition is continuously evaluated throughout the lifetime of the de
 
 For example, you have a deployment with a target condition tags.environment = 'prod'. When you kick off the deployment, there are 10 production devices. The modules are successfully installed in these 10 devices. The IoT Edge agent status shows 10 total devices, 10 successful responses, 0 failure responses, and 0 pending responses. Now you add five more devices with tags.environment = 'prod'. The service detects the change and the IoT Edge agent status becomes 15 total devices, 10 successful responses, 0 failure responses, and 5 pending responses while it deploys to the five new devices.
 
+If a deployment has no target condition, then it is applied to no devices.
+
 Use any Boolean condition on device twin tags, device twin reported properties, or deviceId to select the target devices. If you want to use condition with tags, you need to add "tags":{} section in the device twin under the same level as properties. [Learn more about tags in device twin](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Examples of target conditions:
@@ -68,13 +70,14 @@ Examples of target conditions:
 * tags.environment = 'prod' OR tags.location = 'westus'
 * tags.operator = 'John' AND tags.environment = 'prod' AND NOT deviceId = 'linuxprod1'
 * properties.reported.devicemodel = '4000x'
+* \[none]
 
 Consider these constraints when you construct a target condition:
 
 * In device twin, you can only build a target condition using tags, reported properties, or deviceId.
 * Double quotes aren't allowed in any portion of the target condition. Use single quotes.
 * Single quotes represent the values of the target condition. Therefore, you must escape the single quote with another single quote if it's part of the device name. For example, to target a device called `operator'sDevice`, write `deviceId='operator''sDevice'`.
-* Numbers, letters, and the following characters are allowed in target condition values: `“()<>@,;:\\"/?={} \t\n\r`.
+* Numbers, letters, and the following characters are allowed in target condition values: `"()<>@,;:\\"/?={} \t\n\r`.
 * The following characters are not allowed in target condition keys:`/;`.
 
 ### Priority

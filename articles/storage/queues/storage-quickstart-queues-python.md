@@ -7,6 +7,7 @@ ms.date: 07/23/2021
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
+ms.devlang: python
 ms.custom: devx-track-python, mode-api
 ---
 

@@ -256,14 +256,14 @@
     - name: Videos
       items:
         - name: Getting started with App Configuration
-          href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+          href: /Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
         - name: Feature management
-          href: https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
+          href: /Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
         - name: Making centralized configuration easy
-          href: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
+          href: /Events/dotnetConf/NET-Conf-2019/B210
         - name: Azure App Configuration on Cloud Native Show
           href: https://www.youtube.com/watch?v=DJqmA5PcfzE
         - name: Rolling out new features
-          href: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
+          href: /Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

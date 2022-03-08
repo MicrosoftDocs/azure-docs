@@ -3,7 +3,7 @@ title: Skip deletion of out of scope users in Azure Active Directory Application
 description: Learn how to override the default behavior of de-provisioning out of scope users in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to

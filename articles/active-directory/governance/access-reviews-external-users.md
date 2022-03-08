@@ -4,11 +4,10 @@ description: Use Access Reviews to extend of remove access from members of partn
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
@@ -72,5 +71,5 @@ This setting allows you to identify, block, and delete external identities from 
 
 ## Next steps
 
-- [Access reviews - Graph API](/graph/api/resources/accessreviewsv2-root)
-- [Entitlement management - Graph API](/graph/api/resources/entitlementmanagement-root)
+- [Access reviews - Graph API](/graph/api/resources/accessreviewsv2-overview)
+- [Entitlement management - Graph API](/graph/api/resources/entitlementmanagement-overview)

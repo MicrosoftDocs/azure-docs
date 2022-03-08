@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 02/15/2022
 ---
 
 # Integration runtime in Azure Data Factory 
@@ -93,9 +93,6 @@ Install a Self-hosted IR on an on-premises machine or a virtual machine inside a
 For high availability and scalability, you can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.  For more information, see the article on [how to create and configure a self-hosted IR](create-self-hosted-integration-runtime.md) for details.
 
 ## Azure-SSIS integration runtime
-
-> [!NOTE]
-> Azure-SSIS integration runtimes are not currently supported in Synapse pipelines.
 
 To lift and shift existing SSIS workload, you can create an Azure-SSIS IR to natively execute SSIS packages.  
 
@@ -199,6 +196,9 @@ Each external transformation activity that utilizes an external compute engine h
 ### Data Flow activity
 
 Data Flow activities are executed on their associated Azure integration runtime. The Spark compute utilized by Data Flows are determined by the data flow properties in your Azure IR, and are fully managed by the service.
+
+## Integration Runtime in CI/CD
+Integration runtimes don't change often and are similar across all stages in your CI/CD. Data Factory requires you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a dedicated factory just to contain the shared integration runtimes. You can then use this shared factory in all of your environments as a linked integration runtime type.
 
 ## Next steps
 

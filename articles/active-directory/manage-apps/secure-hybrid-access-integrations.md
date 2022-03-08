@@ -35,7 +35,7 @@ The rest of this guide explains the technical considerations and our recommendat
 
 ## Publishing your application to Azure Marketplace
 
-You can pre-integrate your application with Azure AD to support SSO and automated provisioning by following the process to [publish it in Azure Marketplace](../develop/v2-howto-app-gallery-listing.md). Azure Marketplace is a trusted source of applications for IT admins. Applications listed there have been validated to be compatible with Azure AD. They support SSO, automate user provisioning, and can easily integrate into customer tenants with automated app registration.
+You can pre-integrate your application with Azure AD to support SSO and automated provisioning by following the process to [publish it in Azure Marketplace](../manage-apps/v2-howto-app-gallery-listing.md). Azure Marketplace is a trusted source of applications for IT admins. Applications listed there have been validated to be compatible with Azure AD. They support SSO, automate user provisioning, and can easily integrate into customer tenants with automated app registration.
 
 In addition, we recommend that you become a [verified publisher](../develop/publisher-verification-overview.md) so that customers know you're the trusted publisher of the app.
 
@@ -580,8 +580,8 @@ The following providers of software-defined perimeter (SDP) solutions connect wi
 
 | **SDP vendor** | **Link** |
 | --- | --- |
-| Datawiza Access Broker | [https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/datawiza-with-azure-ad](./datawiza-with-azure-ad.md) |
+| Datawiza Access Broker | [https://docs.microsoft.com/azure/active-directory/manage-apps/datawiza-with-azure-ad](./datawiza-with-azure-ad.md) |
 | Perimeter 81 | [https://docs.microsoft.com/azure/active-directory/saas-apps/perimeter-81-tutorial](../saas-apps/perimeter-81-tutorial.md) |
-| Silverfort Authentication Platform | [https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/silverfort-azure-ad-integration](./silverfort-azure-ad-integration.md) |
+| Silverfort Authentication Platform | [https://docs.microsoft.com/azure/active-directory/manage-apps/silverfort-azure-ad-integration](./silverfort-azure-ad-integration.md) |
 | Strata Maverics Identity Orchestrator | [https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md) |
 | Zscaler Private Access | [https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial](../saas-apps/zscalerprivateaccess-tutorial.md) |

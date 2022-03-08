@@ -24,7 +24,7 @@ Text Translation is a cloud-based feature of the Azure Translator service and is
 |[**detect**](v3-0-detect.md) | **POST** | Identify the source language. |
 |[**breakSentence**](v3-0-break-sentence.md) | **POST** | Returns an array of integers representing the length of sentences in a source text. |
 | [**dictionary/lookup**](v3-0-dictionary-lookup.md) | **POST** | Returns alternatives for single word translations. |
-| [**dictionary/examples**](v3-0-dictionary-lookup.md) | **POST** | Returns how a term is used in context. |
+| [**dictionary/examples**](v3-0-dictionary-examples.md) | **POST** | Returns how a term is used in context. |
 
 > [!div class="nextstepaction"]
 > [Create a Translator resource in the Azure portal.](../translator-how-to-signup.md)

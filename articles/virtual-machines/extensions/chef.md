@@ -4,8 +4,8 @@ description: Deploy the Chef Client to a virtual machine using the Chef VM Exten
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: amjads
-author: amjads1
+ms.author: gabsta
+author: MsGabsta
 ms.collection: linux
 ms.date: 09/21/2018
 ---
@@ -26,7 +26,7 @@ The Chef VM Extension requires that the target virtual machine is connected to t
 
 ## Extension schema
 
-The following JSON shows the schema for the Chef VM Extension. The extension requires at a minimum the Chef Server URL, the Validation Client Name and the Validation Key for the Chef Server; these values can be found in the `knife.rb` file in the starter-kit.zip that is downloaded when you install [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) or a standalone [Chef Server](https://downloads.chef.io/chef-server). Because the validation key should be treated as sensitive data, it should be configured under the **protectedSettings** element, meaning that it will only be decrypted on the target virtual machine.
+The following JSON shows the schema for the Chef VM Extension. The extension requires at a minimum the Chef Server URL, the Validation Client Name and the Validation Key for the Chef Server; these values can be found in the `knife.rb` file in the starter-kit.zip that is downloaded when you install [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) or a standalone [Chef Server](https://www.chef.io/downloads). Because the validation key should be treated as sensitive data, it should be configured under the **protectedSettings** element, meaning that it will only be decrypted on the target virtual machine.
 
 ```json
 {

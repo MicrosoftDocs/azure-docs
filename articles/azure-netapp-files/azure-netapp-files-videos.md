@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2020
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Azure NetApp Files videos
 This article provides references to videos that contain in-depth discussions about using Azure NetApp Files. 

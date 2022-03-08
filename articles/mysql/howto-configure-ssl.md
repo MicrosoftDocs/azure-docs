@@ -5,6 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
+ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ms.custom: "devx-track-python, devx-track-csharp"
 ms.date: 07/08/2020
 ---

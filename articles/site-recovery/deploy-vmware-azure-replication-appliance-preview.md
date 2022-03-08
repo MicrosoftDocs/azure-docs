@@ -12,7 +12,7 @@ ms.date: 09/01/2021
 > The information in this article applies to Azure Site Recovery - Preview. For information about configuration server requirements in Classic releases, [see this article](vmware-azure-configuration-server-requirements.md).
 
 >[!NOTE]
-> Ensure you create a new Recovery Services vault for setting up the preview appliance. Don't use an existing vault.
+> Ensure you create a new and exclusive Recovery Services vault for setting up the preview appliance. Don't use an existing vault.
 
 >[!NOTE]
 > Enabling replication for physical machines is not supported with this preview. 

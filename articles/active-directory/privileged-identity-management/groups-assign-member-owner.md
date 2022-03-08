@@ -4,14 +4,13 @@ description: Learn how to assign eligible owners or members of a role-assignable
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/09/2021
+ms.date: 02/02/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -21,6 +20,10 @@ ms.collection: M365-identity-device-management
 # Assign eligibility for a privileged access group (preview) in Privileged Identity Management
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can help you manage the eligibility and activation of assignments to privileged access groups in Azure AD. You can assign eligibility to members or owners of the group.
+
+When a role is assigned, the assignment:
+- Can't be assigned for a duration of less than five minutes
+- Can't be removed within five minutes of it being assigned
 
 >[!NOTE]
 >Every user who is eligible for membership in or ownership of a privileged access group must have an Azure AD Premium P2 license. For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).

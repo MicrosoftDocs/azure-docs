@@ -3,13 +3,13 @@ title: Language support - Immersive Reader
 titleSuffix: Azure Applied AI Services
 description: Learn more about the human languages that are available with Immersive Reader.
 services: cognitive-services
-author: metanMSFT
+author: rwallerms
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: overview
-ms.date: 04/13/2020
-ms.author: metang
+ms.date: 11/15/2021
+ms.author: rwaller
 ---
 
 # Language support for Immersive Reader

@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
@@ -166,9 +167,8 @@ For more information about *function.json* file properties, see the [Configurati
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function(context) {
+module.exports = async function(context) {
     context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
-    context.done();
 };
 ```
 
@@ -425,9 +425,8 @@ Metadata is not available in Java.
 # [JavaScript](#tab/javascript)
 
 ```javascript
-module.exports = function (context, myBlob) {
+module.exports = async function (context, myBlob) {
     context.log("Full blob path:", context.bindingData.blobTrigger);
-    context.done();
 };
 ```
 

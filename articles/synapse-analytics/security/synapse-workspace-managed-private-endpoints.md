@@ -7,7 +7,7 @@ ms.topic: overview
 ms.subservice: security
 ms.date: 01/12/2020
 ms.author: seshin
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Synapse Managed private endpoints

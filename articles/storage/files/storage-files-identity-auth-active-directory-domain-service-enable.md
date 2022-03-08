@@ -5,7 +5,7 @@ author: roygara
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 01/14/2022
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
@@ -79,6 +79,35 @@ Next, do the following things to grant access to Azure Files resources with Azur
 The following diagram illustrates the end-to-end workflow for enabling Azure AD DS authentication over SMB for Azure Files.
 
 ![Diagram showing Azure AD over SMB for Azure Files workflow](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
+
+## (Optional) Use AES 256 encryption
+
+By default, Azure AD DS authentication uses Kerberos RC4 encryption. To use Kerberos AES256 instead, follow these steps:
+
+As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions, open the Azure cloud shell.
+
+Execute the following commands:
+
+```azurepowershell
+# 1. Find the service account in your managed domain that represents the storage account.
+
+$storageAccountName= “<InsertStorageAccountNameHere>”
+$searchFilter = "Name -like '*{0}*'" -f $storageAccountName
+$userObject = Get-ADUser -filter $searchFilter
+
+if ($userObject -eq $null)
+{
+   Write-Error "Cannot find AD object for storage account:$storageAccountName" -ErrorAction Stop
+}
+
+# 2. Set the KerberosEncryptionType of the object
+
+Set-ADUser $userObject -KerberosEncryptionType AES256
+
+# 3. Validate that the object now has the expected (AES256) encryption type.
+
+Get-ADUser $userObject -properties KerberosEncryptionType
+```
 
 ## Enable Azure AD DS authentication for your account
 

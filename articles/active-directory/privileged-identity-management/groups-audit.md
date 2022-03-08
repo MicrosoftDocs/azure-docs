@@ -4,7 +4,7 @@ description: View activity and audit history for privileged access group assignm
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory

@@ -8,9 +8,10 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: sample
+ms.topic: how-to
 ms.date: 04/10/2019
 ms.author: sbowles
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

@@ -4,7 +4,6 @@ description: DevOps Starter makes it easy to get started on Azure using GitHub A
 author: ninallam
 editor: ninallam
 ms.assetid: 
-ms.devlang: na
 ms.service: az-devops-project
 ms.topic: overview
 ms.tgt_pltfrm: na

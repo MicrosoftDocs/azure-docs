@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell, ignite-fall-2021
+ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create an incremental snapshot for managed disks
@@ -166,8 +167,8 @@ az feature show --namespace Microsoft.Compute --name CreateOptionClone
 
 ### Restrictions
 
-- Cross-region snapshot copy is currently only available in East US 2 and West Central US.
-- You must use version 2020-12-01 or newer of the Azure Compute Rest API.
+- Cross-region snapshot copy is currently only available in Central US, East US, East US 2, Germany West central, North Central US, North Europe, South Central US, West Central US, West US, West US 2, West Europe, South India, Central India
+- You must use version 2020-12-01 or newer of the Azure Compute REST API.
 
 ### Get started
 
@@ -180,7 +181,7 @@ targetRegion=<validRegion>
 
 az login
 az account set --subscription $subscriptionId
-az group deployment create -g $resourceGroupName \
+az deployment group create -g $resourceGroupName \
 --template-uri https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/CrossRegionCopyOfSnapshots/CopyStartIncrementalSnapshots.json \
 --parameters "name=$name" "sourceSnapshotResourceId=$sourceSnapshotResourceId" "targetRegion=$targetRegion"
 az resource show -n $name -g $resourceGroupName --namespace Microsoft.Compute --resource-type snapshots --api-version 2020-12-01 --query [properties.completionPercent] -o tsv

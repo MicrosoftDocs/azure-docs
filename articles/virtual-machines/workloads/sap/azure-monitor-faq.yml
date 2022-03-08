@@ -4,11 +4,9 @@ metadata:
   description: In this article, learn answers to frequently asked questions (FAQ) about Azure Monitor for SAP solutions.
   author: rdeltcheva
   ms.service: baremetal-sap
-  ms.topic: article
+  ms.topic: faq
   ms.date: 07/08/2020
   ms.author: radeltch
-  
-    
 title: Azure Monitor for SAP Solutions FAQ (preview)
 summary: |
   ## Frequently asked questions

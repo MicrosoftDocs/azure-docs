@@ -83,6 +83,8 @@ landingContent:
             url: quickstarts/sms/send.md
           - text: Handle SMS events
             url: quickstarts/sms/handle-sms-events.md
+          - text: Add PSTN calling
+            url: quickstarts/telephony/pstn-call.md
       - linkListType: concept
         links:
           - text: SMS concepts

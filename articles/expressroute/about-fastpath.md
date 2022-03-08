@@ -19,7 +19,7 @@ ExpressRoute virtual network gateway is designed to exchange network routes and 
 
 ### Circuits
 
-FastPath is available on all ExpressRoute circuits.
+FastPath is available on all ExpressRoute circuits. Public preview support for Private Link connectivity over FastPath is available for connections associated to ExpressRoute Direct circuits. Connections associated to ExpressRoute partner circuits are not eligible for the preview.
 
 ### Gateways
 
@@ -34,7 +34,7 @@ To configure FastPath, the virtual network gateway must be either:
 
 While FastPath supports most configurations, it doesn't support the following features:
 
-* UDR on the gateway subnet: This UDR has no impact on the network traffic that FastPath sends directly from your on-premises network to the virtual machines in Azure virtual network. 
+* UDR on the gateway subnet: FastPath doesn't honor UDRs configured on the gateway subnet. FastPath traffic bypasses any next-hops determined by UDRs configured on the gateway subnet.
 
 * Basic Load Balancer: If you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](../load-balancer/load-balancer-overview.md).
 
@@ -62,6 +62,14 @@ This preview is available in the following Azure Regions.
 - West US
 - West US 2
 - West US 3
+
+This preview supports connectivity to the following Azure Services:
+- Azure Cosmos DB
+- Azure Key Vault
+- Azure Storage
+- Third Party Private Link Services
+
+This preview is available for connections associated to ExpressRoute Direct circuits. Connections associated to ExpressRoute partner circuits are not eligible for this preview.
 
 > [!NOTE]
 > Private Link pricing will not apply to traffic sent over ExpressRoute FastPath during Public preview. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).

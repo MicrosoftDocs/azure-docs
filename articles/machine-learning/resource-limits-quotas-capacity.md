@@ -15,7 +15,12 @@ ms.date: 12/21/2020
 # Service limits in Azure Machine Learning
 
 This section lists basic quotas and throttling thresholds in Azure Machine Learning. 
+
 To learn how increase resource quotas, see ["Manage and increase quotas for resources"](how-to-manage-quotas.md)
+
+> [!Important]
+> Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
+>
 
 ## Workspaces
 | Limit | Value |
@@ -64,7 +69,8 @@ To learn how increase resource quotas, see ["Manage and increase quotas for reso
 | Max length of artifact path |5,000 characters |
 
 ## Limit increases
-Some limits can be increased for individual workspaces by [contacting support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). 
+
+Some limits can be increased for individual workspaces by [contacting support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). 
 
 ## Next steps
 

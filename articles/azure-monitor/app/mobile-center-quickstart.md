@@ -4,6 +4,7 @@ description: Provides instructions to quickly set up a mobile app for monitoring
 ms.topic: tutorial
 ms.date: 06/26/2019
 ms.custom: mvc
+ms.devlang: java, swift
 ---
 
 # Start analyzing your mobile app with App Center and Application Insights
@@ -45,7 +46,7 @@ To onboard your app, follow the App Center quickstart for each platform your app
 
 ## Track events in your app
 
-After your app is onboarded to App Center, it needs to be modified to send custom event telemetry using the App Center SDK. Custom events are the only type of App Center telemetry that is exported to Application Insights.
+After your app is onboarded to App Center, it needs to be modified to send custom event telemetry using the App Center SDK.
 
 To send custom events from iOS apps, use the `trackEvent` or `trackEvent:withProperties` methods in the App Center SDK. [Learn more about tracking events from iOS apps.](/mobile-center/sdk/analytics/ios)
 

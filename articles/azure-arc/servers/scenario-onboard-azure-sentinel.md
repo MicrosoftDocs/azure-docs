@@ -17,7 +17,7 @@ Before you start, make sure that you've met the following requirements:
 
 - Microsoft Sentinel [enabled in your subscription](../../sentinel/quickstart-onboard.md).
 
-- You're machine or server is connected to Azure Arc-enabled servers.
+- Your machine or server is connected to Azure Arc-enabled servers.
 
 ## Onboard Azure Arc-enabled servers to Microsoft Sentinel
 

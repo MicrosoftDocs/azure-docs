@@ -10,6 +10,8 @@ description: This reference architecture is a foundation using a typical enterpr
 
 # Azure Spring Cloud reference architecture
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke that's dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenets in the [Microsoft Azure Well-Architected Framework][16].
 
 For an implementation of this architecture, see the [Azure Spring Cloud Reference Architecture][10] repository on GitHub.

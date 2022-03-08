@@ -7,6 +7,7 @@ author: timsander1
 ms.author: tisande
 ms.topic: conceptual
 ms.date: 04/03/2020
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 # Working with Dates in Azure Cosmos DB

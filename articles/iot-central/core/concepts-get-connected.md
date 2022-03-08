@@ -3,7 +3,7 @@ title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/07/2021
+ms.date: 12/21/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -281,7 +281,7 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 Some suggested next steps are to:
 
-- Review [best practices](concepts-best-practices.md) for developing devices.
+- Review [best practices](overview-iot-central-developer.md#best-practices) for developing devices.
 - Review some sample code that shows how to use SAS tokens in [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)
 - Learn how to [How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application](how-to-connect-devices-x509.md)
 - Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)

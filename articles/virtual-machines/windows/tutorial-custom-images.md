@@ -130,7 +130,7 @@ New-AzGalleryImageVersion `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
    -Source $sourceVM.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-12-01'
+   -PublishingProfileEndOfLifeDate '2030-12-01'
 ```
 
 It can take a while to replicate the image to all of the target regions.
@@ -159,7 +159,7 @@ $pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $locati
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 $nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
+  -DestinationPortRange 3389 -Access Deny
 $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 $nic = New-AzNetworkInterface -Name $vmName -ResourceGroupName $resourceGroup -Location $location `

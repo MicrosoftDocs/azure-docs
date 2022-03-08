@@ -1,110 +1,175 @@
 ---
 title: Azure API Management overview and key concepts | Microsoft Docs
-description: Learn about APIs, products, roles, groups, and other API Management key concepts.
+description: Learn about key scenarios, capabilities, and concepts of the Azure API Management service.
 services: api-management
 documentationcenter: ''
 author: dlepow
-manager: erikre
 editor: ''
  
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 11/15/2017
+ms.date: 01/07/2022
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # About API Management
 
-API Management (APIM) is a way to create consistent and modern API gateways for existing back-end services.
+Azure API Management is a hybrid, multicloud management platform for APIs across all environments. This article provides an overview of common scenarios and key components of API Management.
 
-API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. You can use Azure API Management to take any backend and launch a full-fledged API program based on it.
+## Scenarios 
 
-This article provides an overview of common scenarios that involve APIM.  It also gives a brief overview of the APIM system's main components. The article, then, gives a more detailed overview of each component.
+APIs enable digital experiences, simplify application integration, underpin new digital products, and make data and services reusable and universally accessible. ​With the proliferation and increasing dependency on APIs, organizations need to manage them as first-class assets throughout their lifecycle.​
 
-## Overview
+Azure API Management helps customers meet these challenges:
 
-To use API Management, administrators create APIs. Each API consists of one or more operations, and each API can be added to one or more products. To use an API, developers subscribe to a product that contains that API, and then they can call the API's operation, subject to any usage policies that may be in effect. Common scenarios include:
+* Abstract backend architecture diversity and complexity from API consumers
+* Securely expose services hosted on and outside of Azure as APIs
+* Protect, accelerate, and observe APIs
+* Enable API discovery and consumption by internal and external users
 
-* **Securing mobile infrastructure** by gating access with API keys, preventing DOS attacks by using throttling, or using advanced security policies like JWT token validation.
-* **Enabling ISV partner ecosystems** by offering fast partner onboarding through the developer portal and building an API facade to decouple from internal implementations that are not ripe for partner consumption.
-* **Running an internal API program** by offering a centralized location for the organization to communicate about the availability and latest changes to APIs, gating access based on organizational accounts, all based on a secured channel between the API gateway and the backend.
+Common scenarios include:
 
-The system is made up of the following components:
+* **Unlocking legacy assets** - APIs are used to abstract and modernize legacy backends and make them accessible from new cloud services and modern applications. APIs allow innovation without the risk, cost, and delays of migration.
+* **API-centric app integration** - APIs are easily consumable, standards-based, and self-describing mechanisms for exposing and accessing data, applications, and processes. They simplify and reduce the cost of app integration.
+* **Multi-channel user experiences** - APIs are frequently used to enable user experiences such as web, mobile, wearable, or Internet of Things applications. Reuse APIs to accelerate development and ROI.
+* **B2B integration** - APIs exposed to partners and customers lower the barrier to integrate business processes and exchange data between business entities. APIs eliminate the overhead inherent in point-to-point integration. Especially with self-service discovery and onboarding enabled, APIs are the primary tools for scaling B2B integration.
 
-* The **API gateway** is the endpoint that:
+## API Management components
+
+Azure API Management is made up of an API *gateway*, a *management plane*, and a *developer portal*. These components are Azure-hosted and fully managed by default. API Management is available in various [tiers](api-management-features.md) differing in capacity and features.
+
+:::image type="content" source="media/api-management-key-concepts/api-management-components.png" alt-text="Key components of Azure API Management":::
+
+### API gateway
+
+All requests from client applications first reach the API gateway, which then forwards them to respective backend services. The API gateway acts as a façade to the backend services, allowing API providers to abstract API implementations and evolve backend architecture without impacting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
+
+The API gateway:
   
-  * Accepts API calls and routes them to your backends.
-  * Verifies API keys, JWT tokens, certificates, and other credentials.
-  * Enforces usage quotas and rate limits.
-  * Transforms your API on the fly without code modifications.
-  * Caches backend responses where set up.
-  * Logs call metadata for analytics purposes.
-* The **Azure portal** is the administrative interface where you set up your API program. Use it to:
-  
-  * Define or import API schema.
-  * Package APIs into products.
-  * Set up policies like quotas or transformations on the APIs.
-  * Get insights from analytics.
-  * Manage users.
-* The **Developer portal** serves as the main web presence for developers, where they can:
-  
-  * Read API documentation.
-  * Try out an API via the interactive console.
-  * Create an account and subscribe to get API keys.
-  * Access analytics on their own usage.
- 
-## <a name="apis"> </a>APIs and operations
-APIs are the foundation of an API Management service instance. Each API represents  a set of operations available to developers. Each API contains a reference to the back-end service that implements the API, and its operations map to the operations implemented by the back-end service. Operations in API Management are highly configurable, with control over URL mapping, query and path parameters, request and response content, and operation response caching. Rate limit, quotas, and IP restriction policies can also be implemented at the API or individual operation level.
+  * Accepts API calls and routes them to configured backends
+  * Verifies API keys, JWT tokens, certificates, and other credentials
+  * Enforces usage quotas and rate limits
+  * Optionally transforms requests and responses as specified in [policy statements](#policies)
+  * If configured, caches responses to improve response latency and minimize the load on backend services
+  * Emits logs, metrics, and traces for monitoring, reporting, and troubleshooting
 
-For more information, see [How to create APIs][How to create APIs] and [How to add operations to an API][How to add operations to an API].
+With the [self-hosted gateway](self-hosted-gateway-overview.md), customers can deploy the API gateway to the same environments where they host their APIs, to optimize API traffic and ensure compliance with local regulations and guidelines. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure.
 
-## <a name="products"> </a> Products
-Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and are configured with a title, description, and terms of use. Products can be **Open** or **Protected**. Protected products must be subscribed to before they can be used, while open products can be used without a subscription. When a product is ready for use by developers, it can be published. Once it is published, it can be viewed (and in the case of protected products subscribed to) by developers. Subscription approval is configured at the product level and can either require administrator approval, or be auto-approved.
+The self-hosted gateway is packaged as a Linux-based Docker container and is commonly deployed to Kubernetes, including to Azure Kubernetes Service and [Azure Arc-enabled  Kubernetes](how-to-deploy-self-hosted-gateway-azure-arc.md). 
 
-Groups are used to manage the visibility of products to developers. Products grant visibility to groups, and developers can view and subscribe to the products that are visible to the groups in which they belong. 
+### Management plane
 
-## <a name="groups"> </a> Groups
-Groups are used to manage the visibility of products to developers. API Management has the following immutable system groups:
+API providers interact with the service through the management plane, which provides full access to the API Management service capabilities. 
 
-* **Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.
-* **Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
-* **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
+Customers interact with the management plane through Azure tools including the Azure portal, Azure PowerShell, Azure CLI, a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview), or client SDKs in several popular programming languages.
 
-In addition to these system groups, administrators can create custom groups or [leverage external groups in associated Azure Active Directory tenants](api-management-howto-aad.md). Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
+Use the management plane to:
 
-For more information, see  [How to create and use groups][How to create and use groups].
-
-## <a name="developers"> </a> Developers
-Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the [Developer portal][Developer portal]. Each developer is a member of one or more groups, and can subscribe to the products that grant visibility to those groups.
-
-When developers subscribe to a product, they are granted the primary and secondary key for the product. This key is used when making calls into the product's APIs.
-
-For more information, see [How to create or invite developers][How to create or invite developers] and [How to associate groups with developers][How to associate groups with developers].
-
-## <a name="policies"> </a> Policies
-Policies are a powerful capability of API Management that allow the Azure portal to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the number of incoming calls from a developer, and many other policies are available.
-
-Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](./api-management-advanced-policies.md#choose) and [Set variable](./api-management-advanced-policies.md#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](./api-management-advanced-policies.md#AdvancedPolicies) and [Policy expressions](./api-management-policy-expressions.md).
+  * Provision and configure API Management service settings
+  * Define or import API schemas from a wide range of sources, including OpenAPI specifications, Azure compute services, or WebSocket or GraphQL backends
+  * Package APIs into products
+  * Set up [policies](#policies) like quotas or transformations on the APIs
+  * Get insights from analytics
+  * Manage users
 
 
-For a complete list of API Management policies, see [Policy reference][Policy reference]. For more information on using and configuring policies, see [API Management policies][API Management policies]. For a tutorial on creating a product with rate limit and quota policies, see [How to create and configure advanced product settings][How to create and configure advanced product settings].
+### Developer portal
 
+The open-source [developer portal][Developer portal] is an automatically generated, fully customizable website with the documentation of your APIs. 
 
-## <a name="developer-portal"> </a> Developer portal
-The developer portal is where developers can learn about your APIs, view and call operations, and subscribe to products. Prospective customers can visit the developer portal, view APIs and operations, and sign up. The URL for your developer portal is located on the dashboard in the Azure portal for your API Management service instance.
+API providers can customize the look and feel of the developer portal by adding custom content, customizing styles, and adding their branding. Extend the developer portal further by [self-hosting](developer-portal-self-host.md).
 
-You can customize the look and feel of your developer portal by adding custom content, customizing styles, and adding your branding.
+App developers use the open-source developer portal to discover the APIs, onboard to use them, and learn how to consume them in applications. (APIs can also be exported to the [Power Platform](export-api-power-platform.md) for discovery and use by citizen developers.)
 
+Using the developer portal, developers can:
+
+  * Read API documentation
+  * Call an API via the interactive console
+  * Create an account and subscribe to get API keys
+  * Access analytics on their own usage
+  * Download API definitions
+  * Manage API keys
+
+## Integration with Azure services
+
+API Management integrates with many complementary Azure services, including:
+
+* [Azure Key Vault](../key-vault/general/overview.md) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
+* [Azure Monitor](api-management-howto-use-azure-monitor.md) for logging, reporting, and alerting on management operations, systems events, and API requests​
+* [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
+* [Virtual networks](virtual-network-concepts.md) and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
+* Azure Active Directory for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
+* [Event Hub](api-management-howto-log-event-hubs.md) for streaming events​
+* Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.md), and others.​
+
+## Key concepts
+
+### APIs
+
+APIs are the foundation of an API Management service instance. Each API represents a set of *operations* available to app developers. Each API contains a reference to the backend service that implements the API, and its operations map to backend operations. 
+
+Operations in API Management are highly configurable, with control over URL mapping, query and path parameters, request and response content, and operation response caching. 
+
+More information:
+* [Import and publish your first API][How to create APIs]
+* [Mock API responses][How to add operations to an API]
+
+### Products
+
+Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely. 
+
+When a product is ready for use by developers, it can be published. Once published, it can be viewed or subscribed to by developers. Subscription approval is configured at the product level and can either require an administrator's approval or be automatic.
+
+More information:
+* [Create and publish a product][How to create and publish a product]
+* [Subscriptions in API Management](api-management-subscriptions.md)
+
+### Groups
+
+Groups are used to manage the visibility of products to developers. API Management has the following built-in groups:
+
+* **Administrators** -  Manage API Management service instances and create the APIs, operations, and products that are used by developers.
+
+    Azure subscription administrators are members of this group. 
+
+* **Developers** - Authenticated developer portal users that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API. 
+
+* **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal. They can be granted certain read-only access, such as the ability to view APIs but not call them.
+
+Administrators can also create custom groups or use external groups in an [associated Azure Active Directory tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
+
+More information: 
+* [How to create and use groups][How to create and use groups]
+
+### Developers
+
+Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the [developer portal][Developer portal]. Each developer is a member of one or more groups, and can subscribe to the products that grant visibility to those groups.
+
+When developers subscribe to a product, they are granted the primary and secondary key for the product for use when calling the product's APIs.
+
+More information:
+* [How to manage user accounts][How to create or invite developers]
+
+### Policies
+
+With [policies][API Management policies], an API publisher can change the behavior of an API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call-rate limiting to restrict the number of incoming calls from a developer. For a complete list, see [API Management policies][Policy reference].
+
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](./api-management-advanced-policies.md#choose) and [Set variable](./api-management-advanced-policies.md#set-variable) policies are based on policy expressions. 
+
+Policies can be applied at different scopes, depending on your needs: global (all APIs), a product, a specific API, or an API operation. 
+
+More information:
+
+* [Transform and protect your API][How to create and configure advanced product settings].
+* [Policy expressions](./api-management-policy-expressions.md)
 
 ## Next steps
 
 Complete the following quickstart and start using Azure API Management:
 
 > [!div class="nextstepaction"]
-> [Create an Azure API Management instance](get-started-create-service-instance.md)
+> [Create an Azure API Management instance by using the Azure portal](get-started-create-service-instance.md)
 
 [APIs and operations]: #apis
 [Products]: #products

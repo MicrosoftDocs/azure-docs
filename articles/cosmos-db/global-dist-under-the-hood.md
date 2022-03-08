@@ -1,11 +1,11 @@
 ---
 title: Global distribution with Azure Cosmos DB- under the hood 
 description: This article provides technical details relating to global distribution of Azure Cosmos DB
-author: elioda
+author: rothja
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/02/2020
-ms.author: elioda
+ms.author: jroth
 ms.reviewer: sngun
 
 ---
@@ -15,7 +15,7 @@ ms.reviewer: sngun
 
 Azure Cosmos DB is a foundational service in Azure, so it's deployed across all Azure regions worldwide including the public, sovereign, Department of Defense (DoD) and government clouds.
 
-At a high level, Azure Cosmos DB container data is [horizontally partitioned](partitioning-overview.md) into many replica-sets, which replicate writes, in each region. Replica-sets durably commit writes using a moajority quorum.
+At a high level, Azure Cosmos DB container data is [horizontally partitioned](partitioning-overview.md) into many replica-sets, which replicate writes, in each region. Replica-sets durably commit writes using a majority quorum.
 
 Each region contains all the data partitions of an Azure Cosmos container and can serve reads as well as serve writes when multi-region writes is enabled. If your Azure Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data.
 

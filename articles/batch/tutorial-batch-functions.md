@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Trigger a Batch job using Azure Functions
 description: Tutorial - Apply OCR to scanned documents as they're added to a storage blob
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 08/23/2021
 ms.custom: "mvc, devx-track-csharp"

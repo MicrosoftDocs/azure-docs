@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 11/08/2021
+ms.date: 02/24/2022
 ---
 
 # What's new in Language Understanding
@@ -13,6 +13,17 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ## Release notes
 
+### February 2022
+* LUIS containers can be used in [disconnected environments](../containers/disconnected-containers.md?context=/azure/cognitive-services/luis/context/context).
+
+### January 2022
+* [Updated text recognizer](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.8.2) to v1.8.2
+* Added [English (UK)](luis-language-support.md) to supported languages.
+
+### December 2021
+* [Updated text recognizer](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.8.1) to v1.8.1
+* Jio India west [publishing region](luis-reference-regions.md#other-publishing-regions)
+   
 ### November 2021
 * [Azure Role-based access control (RBAC) article](role-based-access-control.md)
 
@@ -63,7 +74,7 @@ Learn what's new in the service. These items include release notes, videos, blog
     * [Continuous integration tools](developer-reference-resource.md#continuous-integration-tools)
     * Workshop - learn best practices for [_Natural Language Understanding_ (NLU) using LUIS](developer-reference-resource.md#workshops)
 * [Customer managed keys](./encrypt-data-at-rest.md) - encrypt all the data you use in LUIS by using your own key
-* [AI show](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (video) - see the new features in LUIS
+* [AI show](/Shows/AI-Show/New-Features-in-Language-Understanding) (video) - see the new features in LUIS
 
 
 
@@ -87,7 +98,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 * Enhanced user experience in [preview.luis.ai portal](https://preview.luis.ai) - revamped labeling experience to enable building and debugging complex models. Try the preview portal tutorials:
     * [Intents only](tutorial-intents-only.md)
     * [Decomposable machine-learning entity](tutorial-machine-learned-entity.md)
-* Advance language understanding capabilities - [building sophisticated language models](luis-concept-entity-types.md) with less effort.
+* Advance language understanding capabilities - [building sophisticated language models](concepts/entities.md) with less effort.
 * Define machine learning features at the model level and enable models to be used as signals to other models, for example using entities as features to intents and to other entities.
 * New, expanded [limits](luis-limits.md) - higher maximum for phrase lists and total phrases, new model as a feature limits
 * Extract information from text in the format of deep hierarchy structure, making conversation applications more powerful.

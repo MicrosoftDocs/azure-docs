@@ -30,7 +30,7 @@ landingContent:
           - text: Create a runbook
             url: ./learn/powershell-runbook-managed-identity.md
       - linkListType: deploy
-        links: 
+        links:
           - text: Start/Stop VMs during off-hours
             url: automation-solution-vm-management.md
 
@@ -53,11 +53,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: PowerShell DSC
-            url: /powershell/scripting/dsc/overview/overview
+            url: /powershell/dsc/overview
       - linkListType: quickstart
         links:
           - text: Create a DSC Configuration from Group Policy
-            url: /powershell/scripting/dsc/quickstarts/gpo-quickstart
+            url: /powershell/dsc/quickstarts/gpo-quickstart
       - linkListType: tutorial
         links:
           - text: Configure Servers and manage drift with State Configuration

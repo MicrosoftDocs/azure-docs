@@ -32,7 +32,7 @@ Customers can choose from one or more Network Function Manager [partners](partne
 Each partner has networking requirements for deployment of their network function to an Azure Stack Edge device. Refer to the product documentation from the network function partners to complete the following configuration tasks:
 
 * [Configure network on different ports](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
-* [Enable compute network on your Azure Stack Edge device](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network).
+* [Enable compute network on your Azure Stack Edge device](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches-and-compute-ips).
 
 ## <a name="account"></a>Azure account
 

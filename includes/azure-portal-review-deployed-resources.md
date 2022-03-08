@@ -1,23 +1,23 @@
 ---
 title: "include file"
 description: "include file"
-author: mgblythe
+author: JnHs
 ms.service: azure-portal
 ms.topic: "include"
-ms.date: 03/12/2021
-ms.author: mblythe
+ms.date: 01/13/2022
+ms.author: jenhayes
 ---
 
-Verify that you can see data about the virtual machine from within the Azure portal dashboard.
+Verify that you can see data about your virtual machine in the Azure portal dashboard.
 
-1. In the Azure portal, select **Dashboard**.
+1. In the Azure portal menu, select **Dashboard**.
 
-    :::image type="content" source="media/azure-portal-review-deployed-resources/navigate-to-dashboards.png" alt-text="Azure portal navigation to dashboard":::
+    :::image type="content" source="media/azure-portal-review-deployed-resources/navigate-to-dashboards.png" alt-text="Screenshot of the Dashboard item on the Azure portal menu.":::
 
 1. On the dashboard page, select **Simple VM Dashboard**.
 
-    :::image type="content" source="media/azure-portal-review-deployed-resources/select-simple-vm-dashboard.png" alt-text="Navigate to Simple VM Dashboard":::
+    :::image type="content" source="media/azure-portal-review-deployed-resources/select-simple-vm-dashboard.png" alt-text="Screenshot of the dashboard selection option in the Azure portal.":::
 
-1. Review the dashboard that the Azure Resource Manager template (ARM template) created. You can see that some of the content is static, but there are also charts that show the performance of the VM you created at the beginning.
+1. Review the dashboard, which should look similar to the one shown here. While some of the content is static, there are also charts that show the performance of the VM you created at the beginning.
 
-    :::image type="content" source="media/azure-portal-review-deployed-resources/review-simple-vm-dashboard.png" alt-text="Review Simple VM Dashboard":::
+    :::image type="content" source="media/azure-portal-review-deployed-resources/review-simple-vm-dashboard.png" alt-text="Screenshot of an example dashboard in the Azure portal.":::

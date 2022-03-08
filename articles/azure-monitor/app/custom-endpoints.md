@@ -3,6 +3,7 @@ title: Azure Application Insights override default SDK endpoints
 description: Modify default Azure Monitor Application Insights SDK endpoints for regions like Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
+ms.devlang: csharp, java, javascript, python
 ms.custom: references_regions, devx-track-js
 ---
 

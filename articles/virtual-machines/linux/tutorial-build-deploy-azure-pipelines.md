@@ -236,7 +236,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
    - deployment: VMDeploy
      displayName: web
      pool:
-       vmImage: 'Ubuntu-16.04'
+       vmImage: 'Ubuntu-latest'
      environment:
        name: <environment name>
        resourceType: VirtualMachine

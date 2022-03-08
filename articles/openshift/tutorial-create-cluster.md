@@ -32,8 +32,6 @@ Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an Open
     -o table
     ```
 
-ARO pull secret does not change the cost of the RH OpenShift license for ARO.
-
 ### Verify your permissions
 
 During this tutorial, you will create a resource group, which will contain the virtual network for the cluster. You must have either Contributor and User Access Administrator permissions, or Owner permissions, either directly on the virtual network, or on the resource group or subscription containing it.
@@ -83,9 +81,12 @@ az feature register --namespace Microsoft.RedHatOpenShift --name preview
 
 ### Get a Red Hat pull secret (optional)
 
+   > [!NOTE] 
+   > ARO pull secret does not change the cost of the RH OpenShift license for ARO.
+
 A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended.
 
-1. [Navigate to your Red Hat OpenShift cluster manager portal](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and log in.
+1. [Navigate to your Red Hat OpenShift cluster manager portal](https://console.redhat.com/openshift/install/azure/aro-provisioned) and log in.
 
    You will need to log in to your Red Hat account or create a new Red Hat account with your business email and accept the terms and conditions.
 

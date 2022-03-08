@@ -3,6 +3,7 @@ title: Use a managed image to create a custom image pool
 description: Create a Batch custom image pool from a managed image to provision compute nodes with the software and data for your application.
 ms.topic: conceptual
 ms.date: 11/18/2020
+ms.devlang: csharp
 ---
 
 # Use a managed image to create a custom image pool

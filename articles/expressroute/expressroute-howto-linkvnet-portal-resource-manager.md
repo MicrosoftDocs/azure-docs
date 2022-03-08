@@ -25,8 +25,8 @@ This tutorial helps you create a connection to link a virtual network to an Azur
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> - Connect a virtual networking to a circuit in the same subscription.
-> - Connect a virtual networking to a circuit in a different subscription.
+> - Connect a virtual network to a circuit in the same subscription.
+> - Connect a virtual network to a circuit in a different subscription.
 > - Delete the link between the virtual network and ExpressRoute circuit.
 
 ## Prerequisites

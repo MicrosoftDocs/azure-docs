@@ -7,7 +7,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-azurecli
 ---
 
 # Provision database, container or autoscale throughput on Azure Cosmos DB Cassandra API resources

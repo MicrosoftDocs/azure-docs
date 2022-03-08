@@ -26,6 +26,8 @@ Currently, the following features are available to be used asynchronously:
 * Sentiment analysis and opinion mining
 * Text Analytics for health
 
+When you send asynchronous requests, you will incur charges based on number of text records you include in your request, for each feature use. For example, if you send a text record for sentiment analysis and NER, it will be counted as sending two text records, and you will be charged for both according to your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/). 
+
 ## Send asynchronous API requests using the REST API
 
 To create an asynchronous API request, review the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Analyze) for the JSON body you'll send in your request.

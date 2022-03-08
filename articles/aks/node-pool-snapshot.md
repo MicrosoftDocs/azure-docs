@@ -125,7 +125,7 @@ SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResource
 Now, we can use this command to create this cluster off of the snapshot configuration.
 
 ```azurecli-interactive
-az aks cluster create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
+az aks create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
 ```
 
 ## Next steps

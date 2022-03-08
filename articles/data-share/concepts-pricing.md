@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 01/03/2022
 ---
 
 # Understand Azure Data Share pricing

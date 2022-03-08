@@ -7,7 +7,6 @@ documentationcenter: na
 author: asudbring
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
 ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
@@ -20,7 +19,7 @@ ms.author: allensu
 
 >[!NOTE] 
 >This article describes an introductory IPv6 feature to allow Basic Load Balancers to provide both IPv4 and IPv6 connectivity. Comprehensive IPv6 connectivity is now available with [IPv6 for Azure VNETs](../virtual-network/ip-services/ipv6-overview.md) which integrates IPv6 connectivity with your Virtual Networks and includes key features such as IPv6 Network Security Group rules, IPv6 User-defined routing, IPv6 Basic and Standard load balancing, and more.  IPv6 for Azure VNETs is the recommended standard for IPv6 applications in Azure. 
-See [IPv6 for Azure VNET Powershell Deployment](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
+See [IPv6 for Azure VNET PowerShell Deployment](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. Load balancers provide high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Load balancers can also present these services on multiple ports or multiple IP addresses or both.
 

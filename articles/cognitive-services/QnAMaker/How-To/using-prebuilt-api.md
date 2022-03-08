@@ -6,9 +6,8 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2021
-ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Prebuilt question answering

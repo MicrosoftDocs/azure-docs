@@ -7,7 +7,6 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

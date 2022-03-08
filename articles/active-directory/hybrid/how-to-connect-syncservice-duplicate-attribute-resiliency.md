@@ -4,16 +4,15 @@ description: New behavior of how to handle objects with UPN or ProxyAddress conf
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 01/15/2018
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 

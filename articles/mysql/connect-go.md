@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.custom: mvc, mode-api
-ms.devlang: go
+ms.devlang: golang
 ms.topic: quickstart
 ms.date: 5/26/2020
 ---

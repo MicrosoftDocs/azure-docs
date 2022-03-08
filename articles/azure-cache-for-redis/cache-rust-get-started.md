@@ -1,8 +1,8 @@
 ---
 title: Use Azure Cache for Redis with Rust
 description: In this quickstart, you learn how to interact with Azure Cache for Redis using Rust.
-author: abhirockzz
-ms.author: abhishgu
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.devlang: rust
 ms.topic: quickstart

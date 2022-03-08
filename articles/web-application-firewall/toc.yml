@@ -151,8 +151,12 @@
           href: ./ag/log-analytics.md
 - name: Reference
   items:
-  - name: CRS rules
-    href: ./ag/application-gateway-crs-rulegroups-rules.md
+  - name: Managed rules
+    items:
+     - name: Front Door
+       href: ./afds/waf-front-door-drs.md
+     - name: Application Gateway
+       href: ./ag/application-gateway-crs-rulegroups-rules.md
   - name: Azure CLI
     items:
     - name: Front Door

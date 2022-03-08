@@ -2,7 +2,7 @@
 title: Azure AD on-premises app provisioning to SCIM-enabled apps
 description: This article describes how to use the Azure AD provisioning service to provision users into an on-premises app that's SCIM enabled.
 author: billmath
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual

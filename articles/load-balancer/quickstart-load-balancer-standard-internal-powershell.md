@@ -8,7 +8,6 @@ author: asudbring
 manager: KumudD
 ms.assetid: 
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -173,11 +172,10 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ## Create the health probe and place in variable. ##
 $probe = @{
     Name = 'myHealthProbe'
-    Protocol = 'http'
+    Protocol = 'tcp'
     Port = '80'
     IntervalInSeconds = '360'
     ProbeCount = '5'
-    RequestPath = '/'
 }
 $healthprobe = New-AzLoadBalancerProbeConfig @probe
 
@@ -427,20 +425,16 @@ $lbip = @{
 }
 $feip = New-AzLoadBalancerFrontendIpConfig @lbip
 
-## Create load balancer frontend configuration and place in variable. ##
-$feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $publicIp
-
 ## Create backend address pool configuration and place in variable. ##
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 
 ## Create the health probe and place in variable. ##
 $probe = @{
     Name = 'myHealthProbe'
-    Protocol = 'http'
+    Protocol = 'tcp'
     Port = '80'
     IntervalInSeconds = '360'
     ProbeCount = '5'
-    RequestPath = '/'
 }
 $healthprobe = New-AzLoadBalancerProbeConfig @probe
 

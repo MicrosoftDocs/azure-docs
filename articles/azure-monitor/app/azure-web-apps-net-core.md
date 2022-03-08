@@ -3,7 +3,8 @@ title: Monitor Azure app services performance .NET Core | Microsoft Docs
 description: Application performance monitoring for Azure app services using ASP.NET Core. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/05/2021
-ms.custom: "devx-track-js, devx-track-dotnet"
+ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Application Monitoring for Azure App Service and ASP.NET Core 
@@ -16,6 +17,9 @@ Enabling monitoring on your ASP.NET Core based web applications running on [Azur
 
 > [!IMPORTANT]
 > The following versions of ASP.NET Core are supported for auto-instrumentation on Windows: ASP.NET Core 3.1, 5.0 and 6.0. Versions 2.0, 2.1, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
+
+> [!NOTE] 
+> Auto-instrumentation used to be known as "codeless attach" before October 2021.
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is **not supported**. Use [manual instrumentation](./asp-net-core.md) via code instead.
 

@@ -1,11 +1,11 @@
 ---
 title: Upstream settings in Azure SignalR Service
 description: Get an introduction of upstream settings and protocols of upstream messages.
-author: chenyl
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.author: chenyl
+ms.author: lianwei
 ---
 
 # Upstream settings
@@ -82,6 +82,9 @@ When you select `ManagedIdentity`, you must enable a managed identity in Azure S
 
 ## Create upstream settings via the Azure portal
 
+> [!NOTE]
+> Integration with App Service Environment is currently not supported.
+
 1. Go to Azure SignalR Service.
 2. Select **Settings** and switch **Service Mode** to **Serverless**. The upstream settings will appear:
 
@@ -147,7 +150,7 @@ POST
 
 #### Connected
 
-Content-Type: application/json
+Content-Type: `application/json`
 
 #### Disconnected
 

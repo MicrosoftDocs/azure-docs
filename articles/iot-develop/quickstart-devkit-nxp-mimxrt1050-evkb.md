@@ -17,9 +17,9 @@ ms.custom: mode-other
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1050-EVKB/)
 
-In this quickstart, you use Azure RTOS to connect an NXP MIMXRT1050-EVKB Evaluation kit (hereafter, NXP EVK) to Azure IoT.
+In this quickstart, you use Azure RTOS to connect an NXP MIMXRT1050-EVKB Evaluation kit (from now on, NXP EVK) to Azure IoT.
 
-You will complete the following tasks:
+You'll complete the following tasks:
 
 * Install a set of embedded development tools for programming an NXP EVK in C
 * Build an image and flash it onto the NXP EVK

@@ -6,7 +6,6 @@ services: virtual-network
 documentationcenter: na
 author: asudbring
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/31/2020

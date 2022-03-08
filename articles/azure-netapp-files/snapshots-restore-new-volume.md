@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2021
-ms.author: b-hchen
+ms.date: 01/31/2022
+ms.author: anfdocs
 ---
 
 # Restore a snapshot to a new volume using Azure NetApp Files
@@ -23,14 +22,14 @@ ms.author: b-hchen
 
 ## Steps
 
-1. Select **Snapshots** from the Volume blade to display the snapshot list. 
+1. Select **Snapshots** from the Volume page to display the snapshot list. 
 2. Right-click the snapshot to restore and select **Restore to new volume** from the menu option.  
 
     ![Screenshot that shows the Restore New Volume menu.](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 3. In the Create a Volume window, provide information for the new volume:  
     * **Name**   
-        Specify the name for the volume that you are creating.  
+        Specify the name for the volume that you're creating.  
         
         The name must be unique within a resource group. It must be at least three characters long.  It can use any alphanumeric characters.
 
@@ -39,9 +38,10 @@ ms.author: b-hchen
 
     ![Screenshot that shows the Create a Volume window.](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Click **Review+create**.  Click **Create**.   
+4. Select **Review+create**. Select **Create**.   
     The new volume uses the same protocol that the snapshot uses.   
-    The new volume to which the snapshot is restored appears in the Volumes blade.
+    The new volume to which the snapshot is restored appears in the Volumes page.   
+    The snapshot used to create the new volume will also be present on the new volume. 
 
 ## Next steps
 

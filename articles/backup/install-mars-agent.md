@@ -122,7 +122,7 @@ If you've already installed the agent on any machines, ensure you're running the
 1. Select **Finish**. The agent is now installed, and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
    >[!Note]
-   >We strongly recommend you save your passphrase in an alternate secure location, such as the Azure key vault. Microsoft can't recover the data without the passphrase. [Learn](/azure/key-vault/secrets/quick-create-portal) how to store a secret in a key vault.
+   >We strongly recommend you save your passphrase in an alternate secure location, such as the Azure key vault. Microsoft can't recover the data without the passphrase. [Learn](../key-vault/secrets/quick-create-portal.md) how to store a secret in a key vault.
 
 ## Next steps
 

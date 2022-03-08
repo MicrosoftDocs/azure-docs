@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn the concept of Face recognition, its related operations, and the underlying data structures.
 services: cognitive-services
 author: PatrickFarley
-manager: nitime
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api

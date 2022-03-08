@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/10/2021
-ms.author: b-hchen
+ms.date: 02/07/2022
+ms.author: anfdocs
 ---
 # SMB performance best practices for Azure NetApp Files
 
@@ -136,8 +135,9 @@ Although SMB encryption has impact to both the client (CPU overhead for encrypti
 
 For maximum performance, it is recommended that you configure [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) on your virtual machines where possible. Keep the following considerations in mind:  
 
-* The Azure portal enables Accelerated Networking by default for virtual machines supporting this feature.  However, other deployment methods such as Ansible and similar configuration tools may not.  Failure to enable Accelerated Networking can hobble the performance of a machine.  
+* The Azure portal enables Accelerated Networking by default for virtual machines supporting this feature.  However, other deployment methods such as Ansible and similar configuration tools may not. Failure to enable Accelerated Networking can hobble the performance of a machine.  
 * If Accelerated Networking is not enabled on the network interface of a virtual machine due to its lack of support for an instance type or size, it will remain disabled with larger instance types. You will need manual intervention in those cases.
+* There is no need to set accelerated networking for the NICs in the dedicated subnet of Azure NetApp Files. Accelerated networking is a capability that only applies to Azure virtual machines. Azure NetApp Files NICs are optimized by design.
 
 ## RSS 
 

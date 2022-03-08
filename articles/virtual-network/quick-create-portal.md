@@ -9,7 +9,6 @@ ms.topic: quickstart
 ms.service: virtual-network
 ms.workload: infrastructure
 ms.tgt_pltfrm: virtual-network
-ms.devlang: na
 tags: azure-resource-manager
 ms.custom: mode-ui
 ---

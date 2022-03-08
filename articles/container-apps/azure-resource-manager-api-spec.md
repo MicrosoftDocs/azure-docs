@@ -27,6 +27,9 @@ Entries in the `resources` array of the ARM template have the following properti
 | `tags` | Collection of Azure tags associated with the container app. | array |
 | `type` | Always `Microsoft.Web/containerApps` ARM endpoint determines which API to forward to  | string |
 
+> [!NOTE]
+> Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
+
 In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets.
 
 ## properties
@@ -80,7 +83,7 @@ The following is an example ARM template used to deploy a container app.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "containerappName": {

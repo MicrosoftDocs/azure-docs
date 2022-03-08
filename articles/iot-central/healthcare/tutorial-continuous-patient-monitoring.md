@@ -3,34 +3,47 @@ title: Tutorial - Azure IoT continuous patient monitoring | Microsoft Docs
 description: This tutorial shows you how to deploy and use the continuous patient monitoring application template for IoT Central.
 author: philmea
 ms.author: philmea
-ms.date: 08/02/2021
+ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ---
 
-# Tutorial: Deploy and walkthrough the continuous patient monitoring app template
+# Tutorial: Deploy and walkthrough the continuous patient monitoring application template
+
+In the healthcare IoT space, continuous patient monitoring is one of the key enablers of reducing the risk of readmissions, managing chronic diseases more effectively, and improving patient outcomes. Continuous patient monitoring can be split into two major categories:
+
+1. **In-patient monitoring**: Using medical wearables and other devices in the hospital, care teams can monitor patient vital signs and medical conditions without having to send a nurse to check up on a patient multiple times a day. Care teams can understand the moment that a patient needs critical attention through notifications and prioritizes their time effectively.
+1. **Remote patient monitoring**: By using medical wearables and patient reported outcomes (PROs) to monitor patients outside of the hospital, the risk of readmission can be lowered. Data from chronic disease patients and rehabilitation patients can be collected to ensure that patients are adhering to care plans and that alerts of patient deterioration can be surfaced to care teams before they become critical.
+
+The application template enables you to:
+
+- Seamlessly connect different kinds of medical wearables to an IoT Central instance.
+- Monitor and manage the devices to ensure they remain healthy.
+- Create custom rules around device data to trigger appropriate alerts.
+- Export your patient health data to the Azure API for FHIR, a compliant data store.
+- Export the aggregated insights into existing or new business applications.
 
 :::image type="content" source="media/cpm-architecture.png" alt-text="Continuous patient monitoring architecture":::
 
-## Bluetooth Low Energy (BLE) medical devices
+### Bluetooth Low Energy (BLE) medical devices (1)
 
 Many medical wearables used in healthcare IoT solutions are BLE devices. These devices can't communicate directly to the cloud and need to use a gateway to exchange data with your cloud solution. This architecture uses a mobile phone application as the gateway.
 
-## Mobile phone gateway
+### Mobile phone gateway (2)
 
-The mobile phone application's primary function is to collect BLE data from medical devices and communicate it to IoT Central. The app also guides patients through device setup and lets them view their personal health data. Other solutions could use a tablet gateway or a static gateway in a hospital room. An open-source sample mobile application is available for Android and iOS to use as a starting point for your application development. To learn more, see the [Continuous Patient Monitoring sample mobile app on GitHub](https://github.com/iot-for-all/iotc-cpm-sample).
+The mobile phone application's primary function is to collect BLE data from medical devices and communicate it to IoT Central. The app also guides patients through device setup and lets them view their personal health data. Other solutions could use a tablet gateway or a static gateway in a hospital room. An open-source sample mobile application is available for Android and iOS to use as a starting point for your application development. To learn more, see the [Continuous patient monitoring sample mobile app on GitHub](https://github.com/iot-for-all/iotc-cpm-sample).
 
-## Export to Azure API for FHIR&reg;
+### Export to Azure API for FHIR&reg; (3)
 
 Azure IoT Central is HIPAA-compliant and HITRUST&reg; certified. You can also send patient health data to other services using the [Azure API for FHIR](../../healthcare-apis/fhir/overview.md). Azure API for FHIR is a standards-based API for clinical health data. The [Azure IoT connector for FHIR](../../healthcare-apis/fhir/iot-fhir-portal-quickstart.md) lets you use the Azure API for FHIR as a continuous data export destination from IoT Central.
 
-## Machine learning
+### Machine learning (4)
 
 Use machine learning models with your FHIR data to generate insights and support decision making by your care team. To learn more, see the [Azure machine learning documentation](../../machine-learning/index.yml).
 
-## Provider dashboard
+### Provider dashboard (5)
 
 Use the Azure API for FHIR data to build a patient insights dashboard or integrate it directly into an electronic medical record used by care teams. Care teams can use the dashboard to assist patients and identify early warning signs of deterioration. To learn more, see the [Build a Power BI provider dashboard](tutorial-health-data-triage.md) tutorial.
 
@@ -44,12 +57,12 @@ In this tutorial, you learn how to:
 - There are no specific prerequisites required to deploy this app.
 - You can use the free pricing plan or use an Azure subscription.
 
-## Create Continuous Patient Monitoring application
+## Create application
 
 1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Healthcare** tab:
     :::image type="content" source="media/app-manager-health.png" alt-text="Application template":::
 
-1. Select **Create app** under **Continuous Patient Monitoring**.
+1. Select **Create app** under **Continuous patient monitoring**.
 
 To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
 
@@ -59,7 +72,7 @@ The following sections walk you through the key features of the application:
 
 ### Dashboards
 
-After deploying the app template, you'll first land on the **Lamna in-patient monitoring dashboard**. Lamna Healthcare is a fictitious hospital system that contains two hospitals: Woodgrove Hospital and Burkville Hospital. On the Woodgrove Hospital operator dashboard, you can:
+After deploying the application template, you'll first land on the **Lamna in-patient monitoring dashboard**. Lamna Healthcare is a fictitious hospital system that contains two hospitals: Woodgrove Hospital and Burkville Hospital. On the Woodgrove Hospital operator dashboard, you can:
 
 * See device telemetry and properties such as the **battery level** of your device or its **connectivity** status.
 
@@ -128,7 +141,7 @@ The **Commands** tab lets you run commands on the device.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the application by visiting **Administration > Application settings** and click **Delete**.
+If you're not going to continue to use this application, delete the application by visiting **Application > Management** and click **Delete**.
 
 :::image type="content" source="media/admin-delete.png" alt-text="Tidy resources":::
 
