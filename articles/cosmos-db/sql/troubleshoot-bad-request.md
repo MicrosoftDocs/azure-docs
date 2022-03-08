@@ -36,15 +36,11 @@ A response with this error means the partition key value is of an invalid type.
 The value of the partition key should be a string or a number, make sure the value is of the expected types.
 
 ## <a name="wrong-partition-key-value"></a>Wrong partition key value
-On this scenario, it's common to see the error:
+On this scenario, it's common to see these errors:
 
-```
-Response status code does not indicate success: BadRequest (400); Substatus: 1001
-```
+*Response status code does not indicate success: BadRequest (400); Substatus: 1001*
 
-```
-PartitionKey extracted from document doesn’t match the one specified in the header
-```
+*PartitionKey extracted from document doesn’t match the one specified in the header*
 
 A response with this error means you are executing an operation and passing a partition key value that does not match the document's body value for the expected property. If the collection's partition key path is `/myPartitionKey`, the document has a property called `myPartitionKey` with a value that does not match what was provided as partition key value when calling the SDK method.
 
