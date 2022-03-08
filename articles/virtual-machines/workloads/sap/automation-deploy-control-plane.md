@@ -117,7 +117,7 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRAS
 
 ### Manually configure the deployer (deployments without public IP)
 
-If you deploy the deployer without a public IP Terraform is not able to configure the deployer Virtual Machine as it will not be able to connect to it. 
+If you deploy the deployer without a public IP Terraform isn't able to configure the deployer Virtual Machine as it will not be able to connect to it. 
 
 Connect to the deployer by following these steps:
 
@@ -147,17 +147,17 @@ Connect to the deployer by following these steps:
 Configure the deployer using the following script:
 
 
-    ```cloudshell-interactive
-    mkdir -p ~/Azure_SAP_Automated_Deployment
+```cloudshell-interactive
+mkdir -p ~/Azure_SAP_Automated_Deployment
 
-    cd ~/Azure_SAP_Automated_Deployment
+cd ~/Azure_SAP_Automated_Deployment
 
-    git clone https://github.com/Azure/sap-automation.git
+git clone https://github.com/Azure/sap-automation.git
 
-    cd sap-automation/deploy/scripts
+cd sap-automation/deploy/scripts
 
-    ./configure_deployer.sh
-    ```
+./configure_deployer.sh
+```
 
 The script will install Terraform and Ansible and configure the deployer.
 
