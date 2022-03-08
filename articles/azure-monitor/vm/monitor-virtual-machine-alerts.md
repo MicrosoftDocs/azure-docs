@@ -337,7 +337,7 @@ InsightsMetrics
 1. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the upper left and select the correct workspace.
 1. Paste in your query and select **Run** to verify that it returns the correct results. You probably don't have a machine currently over threshold, so change to a lower threshold temporarily to verify results. Then set the appropriate threshold before you create the alert rule.
 
-    :::image type="content" source="media/monitor-virtual-machines/log-alert-number-query-results.png" alt-text="Screenshot that shows the number of results alert query results." lightbox="media/monitor-virtual-machines/log-alert-number-query-results.png":::
+   :::image type="content" source="media/monitor-virtual-machines/log-alert-number-query-results.png" alt-text="Screenshot that shows the number of results alert query results." lightbox="media/monitor-virtual-machines/log-alert-number-query-results.png":::
 
 1. Select **New alert rule** to create a rule with the current query. The rule uses your workspace for the **Resource**.
 1. Select the **Condition** to view the configuration. The query is already filled in with a graphical view of the number of records that have been returned from that query over the past several minutes.
