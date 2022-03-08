@@ -47,7 +47,7 @@
   items:
   - name: Sample Applications
     href: https://github.com/Azure-Samples/active-directory-verifiable-credentials
-  - name: Sample Issuer
+#  - name: Sample Issuer
 #   href: 
   - name: End to End Demo
     href: https://woodgroveemployee.azurewebsites.net/
