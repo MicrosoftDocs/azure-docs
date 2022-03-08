@@ -20,10 +20,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!div class="checklist"]
 > * Create a storage account
 > * Deploy a Linux VM
-> * Create a file share
-> * Connect to the VM
-> * Mount an Azure file share to your VM
-> * Create and delete a share snapshot [In Azure, yes - but OS level snapshots are not available]
+> * Create an NFS file share
+> * Connect to your VM
+> * Mount the file share to your VM
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -82,7 +81,7 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
 
 1. Select the **Review + create** button at the bottom of the page.
 
-1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. Note the name of the virtual network. When you are ready, select **Create**.
 
 1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the .pem file was downloaded, because you'll need the path to it to connect to your VM.
 
@@ -94,7 +93,7 @@ Now you're ready to create an NFS file share.
 
 1. Select the storage account you created.
 
-1. Select **File shares** from the storage account pane.
+1. Select **Data storage > File shares** from the storage account pane.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/click-files.png" alt-text="Screenshot showing how to select file shares from the storage account pane.":::
 
@@ -102,7 +101,7 @@ Now you're ready to create an NFS file share.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-file-share.png" alt-text="Screenshot showing how to select + file share to create a new file share.":::
 
-1. Name the new file share *qsfileshare* and enter "100" for the minimum **Provisioned capacity**, or provision more capacity (up to 102,400 GiB) to get more performance. Select NFS protocol, leave **No Root Squash** selected, and select **Create**.
+1. Name the new file share *qsfileshare* and enter "100" for the minimum **Provisioned capacity**, or provision more capacity (up to 102,400 GiB) to get more performance. Select **NFS** protocol, leave **No Root Squash** selected, and select **Create**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-nfs-share.png" alt-text="Screenshot showing how to name the file share and provision capacity to create a new NFS file share." lightbox="media/storage-files-quick-create-use-linux/create-nfs-share.png" border="true":::
 
@@ -118,7 +117,7 @@ Now you're ready to create an NFS file share.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-private-endpoint.png" alt-text="Screenshot showing how to select + private endpoint to create a new private endpoint.":::
 
-1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network. When all the fields are complete, select **Next: Resource**.
+1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the VM. When all the fields are complete, select **Next: Resource**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" alt-text="Screenshot showing how to provide the project and instance details for a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" border="true":::
 
@@ -126,7 +125,7 @@ Now you're ready to create an NFS file share.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" alt-text="Screenshot showing how to select the resources that a new private endpoint should connect to." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" border="true":::
 
-1. Under **Networking**, select the virtual network that you created earlier and leave the default subnet. Select **Yes** for **Integrate with private DNS zone**. Your subscription and resource group should automatically populate. Select **Next: Tags**.
+1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Select **Yes** for **Integrate with private DNS zone**. Select the correct subscription and resource group, and then select **Next: Tags**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and DNS integration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
 
@@ -144,7 +143,7 @@ Now you're ready to create an NFS file share.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/click-files.png" alt-text="Screenshot showing how to select file shares from the storage account pane.":::
 
-1. Select the NFS file share that you created. Because the NFS protocol doesn't support encryption and relies instead on network-level security, you'll need to disable secure transfer. Under **Secure transfer setting**, select **Change setting**.
+1. Select the NFS file share that you created. Because the NFS protocol doesn't support encryption and relies instead on network-level security, you'll need to update your storage account to disable secure transfer. Under **Secure transfer setting**, select **Change setting**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" alt-text="Screenshot showing how to change the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" border="true":::
 
@@ -152,30 +151,56 @@ Now you're ready to create an NFS file share.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" alt-text="Screenshot showing how to disable the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" border="true":::
 
-
-
 ## Connect to your VM
 
 Create an SSH connection with the VM.
+
+1. Select **Home** and then **Virtual machines**.
+
+1. Select the Linux VM you created for this tutorial and ensure that its status is **Running**. Take note of the VM's public IP address and copy it to your clipboard.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/vm-essentials.png" alt-text="Screenshot showing how to confirm that the VM is running and find its public IP address." lightbox="media/storage-files-quick-create-use-linux/vm-essentials.png" border="true":::
 
 1. If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt.
 
 1. At your prompt, open an SSH connection to your VM. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
 
 ```console
-ssh -i .\Downloads\myVM_key.pem azureuser@10.111.12.123
+ssh -i .\Downloads\myVM_key.pem azureuser@20.25.14.85
 ```
+
+If you encounter a warning that the authenticity of the host can't be established, type **yes** to continue connecting to the VM. Leave the ssh connection open for the next step.
 
 > [!TIP]
 > The SSH key you created can be used the next time your create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
 
 ## Mount the NFS share
 
+Now that you've created an NFS share, to use it you have to mount it on your Linux client.
 
+1. Select **Home** and then **Storage accounts**. 
+
+1. Select the storage account you created.
+
+1. Select **File shares** from the storage account pane and select the NFS file share you created.
+
+1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a provided mounting script.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/mount-nfs-share.png" alt-text="Screenshot showing how to connect to an NFS file share from Linux using a provided mounting script." lightbox="media/storage-files-quick-create-use-linux/mount-nfs-share.png" border="true":::
+
+1. Select your Linux distribution (Ubuntu).
+
+1. Using the ssh connection you created to your VM, enter the sample commands to use NFS and mount the file share.
+
+You have now mounted your NFS share, and it's ready to store files.
 
 ## Clean up resources
 
-[!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
+When you're done, you can delete the resource group. Deleting the resource group deletes the storage account, the Azure file share, and any other resources that you deployed inside the resource group.
+
+1. Select **Home** and then **Resource groups**. 
+1. Select **Delete resource group**. A window opens and displays a warning about the resources that will be deleted with the resource group.
+1. Enter the name of the resource group, and then select **Delete**.
 
 ## Next steps
 
