@@ -247,7 +247,7 @@ armclient PATCH /subscriptions/<your-Azure-subscription-ID>/resourceGroups/<your
 
 ---
 
-## Deploy with ARM
+## Deploy with ARM templates
 
 You can also set up Private Link with Azure Digital Twins using an ARM template. 
 
@@ -269,11 +269,13 @@ Here are some common issues experienced with Private Link for Azure Digital Twin
 
     **Resolution:** This error occurs when `publicNetworkAccess` has been disabled for the Azure Digital Twins instance and API requests are expected to come through Private Link, but the call was routed through the public network (possibly over a load balancer configured for a virtual network). Make sure that your API client is resolving the private IP for the private endpoint when trying to access the API through the endpoint hostname. 
 
-    To facilitate hostname resolution to the private IP of the private endpoint in a subnet, you can configure a private DNS zone. Verify that the private DNS zone is correctly linked to the virtual network and uses the right zone name, such as `privatelink.digitaltwins.azure.net`.
+    To facilitate hostname resolution to the private IP of the private endpoint in a subnet, you can configure a [private DNS zone](../private-link/private-endpoint-dns.md). Verify that the private DNS zone is correctly linked to the virtual network and uses the right zone name, such as `privatelink.digitaltwins.azure.net`.
 
 * **Issue:** When trying to access Azure Digital Twins through a private endpoint, the connection times out.
 
     **Resolution:** Verify that there are no [network security group](../virtual-network/network-security-groups-overview.md) rules that prohibit the client from communicating to the private endpoint and its subnet. Communication on TCP port 443 must be permitted between the client's source IP address/subnet, and the private endpoint destination IP address/subnet.
+
+For more Private Link troubleshooting suggestions, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 
 ## Next steps
 
