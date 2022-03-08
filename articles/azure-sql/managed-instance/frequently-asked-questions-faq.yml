@@ -149,8 +149,9 @@ sections:
           
           To use another DNS zone instead of the default, for example, *.contoso.com*: 
           - Use SQL Server Client Network Utility (CliConfg) to define an alias. You can use either just the Managed Instance hostname, or the Managed Instance hostname followed by a custom domain name. The CliConfg tool just adds alias in the registry under "HKLM\SOFTWARE\Microsoft\MSSQLServer\Client\ConnectTo" or "HKLM\SOFTWARE\WOW6432Node\Microsoft\MSSQLServer\Client\ConnectTo" depending if you use the 64-bit version (C:\Windows\System32\cliconfg.exe) or the 32-bit version (C:\Windows\SysWOW64\cliconfg.exe), so it can be done using group policy or a script as well. Use both to ensure 32-bit and 64-bit programs can resolve the alias.
-          - Use *CNAME* record in DNS with Managed Instance hostname pointing to Managed Instance FQDN.
-          - Use *A* record in DNS with Managed Instance hostname pointing to Managed Instance IP address.
+          - Use *CNAME* record in DNS with Managed Instance hostname pointing to Managed Instance FQDN. In this case, TrustServerCertificate=TRUE is needed when using Azure AD authentication.
+          - Use *A* record in DNS with Managed Instance hostname pointing to Managed Instance IP address. **Using IP address is not recommended**, as it may change without notice. In this case, TrustServerCertificate=TRUE is needed when using Azure AD authentication.
+          
           
       - question: |
           Migration options
