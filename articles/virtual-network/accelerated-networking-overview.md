@@ -92,4 +92,4 @@ Virtual machines (classic) can't be deployed with accelerated networking.
 * Learn how to [create a VM with Accelerated Networking in PowerShell](./create-vm-accelerated-networking-powershell.md)
 * Learn how to [create a VM with Accerelated Networking using Azure CLI](./create-vm-accelerated-networking-cli.md)
 * Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)
-* 
+
