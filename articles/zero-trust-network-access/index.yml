@@ -13,12 +13,12 @@ metadata:
    ms.date: 03/08/2022
    author: kenwith
    ms.author: kenwith
-   manager: karenhoran
+   manager: 
 
 landingContent:
-  - title: About Application Proxy
+  - title: About Zero Trust Network Access
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Application Proxy?
+          - text: What is Zero Trust Network Access?
             url: ../active-directory/app-proxy/what-is-application-proxy.md
