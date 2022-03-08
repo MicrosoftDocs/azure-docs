@@ -28,7 +28,7 @@ In this quickstart, you will build a sample Go application that uses the Azure S
 
 Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
-To learn more about Azure Cosmos DB, go to [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction).
+To learn more about Azure Cosmos DB, go to [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ To learn more about Azure Cosmos DB, go to [Azure Cosmos DB](https://docs.micros
         * [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/), a tests environment that lasts for 30 days.
         * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
 - [Go 1.16 or higher](https://golang.org/dl/)
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI](/cli/azure/install-azure-cli)
 
 
 ## Create an Auzre Cosmos account
