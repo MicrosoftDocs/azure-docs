@@ -16,7 +16,7 @@ ms.custom: references_regions
 ## Supported regions
 Update management center (preview) will scale to all regions in public preview stage. Listed below are the Azure public cloud where you can use update management center (preview).
 
-# [Azure compute virtual machine](#tab/azurevm)
+# [Azure virtual machine](#tab/azurevm)
 
 Update management center (preview) **on demand assessment, on demand patching** on **Azure Compute virtual machines** is available in all Azure public regions where Compute virtual machines are available.
 
@@ -90,6 +90,7 @@ Update management center (preview) supports specific versions of the Windows Ser
    | Red Hat | Red Hat Enterprise Linux (RHEL) 7 and 8 (x64) |    
    | Amazon | Amazon Linux 2 (x64)   |
    | Oracle | Oracle 7.x |       
+
 ---
 
 As the Update management center (preview) depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, refer to the following article to [configure Windows Update settings](configure-wu-agent.md).
@@ -111,6 +112,7 @@ Update management center (preview) supports Azure VMs created using Azure Market
 
 - [Manual install of Azure Windows VM agent](/azure/virtual-machines/extensions/agent-windows#manual-installation)
 - [Manual install of Azure Linux VM agent](/azure/virtual-machines/extensions/agent-linux#installation)
+
 
 ## Next steps
 

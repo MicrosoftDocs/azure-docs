@@ -56,7 +56,7 @@ You can manage your Azure VMs or Arc-enabled servers directly, or at-scale with 
 
 **Resource** | **Role**
 --- | ---
-Azure VM | [Azure Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) or Azure [Owner](/azure/role-based-access-control/built-in-roles#owner).
+|Azure VM | [Azure Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) or Azure [Owner](/azure/role-based-access-control/built-in-roles#owner).
 Arc enabled server | [Azure Connected Machine Resource Administrator](/azure/azure-arc/servers/security-overview#identity-and-access-control).
 
 
