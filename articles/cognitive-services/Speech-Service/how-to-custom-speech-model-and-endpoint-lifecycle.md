@@ -45,22 +45,24 @@ You can change the model that is used by your custom speech endpoint without dow
 [Batch transcription](batch-transcription.md) requests for retired models will fail with a 4xx error. In the [`CreateTranscription`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) REST API request body, update the `model` parameter to use a base model or custom model that hasn't yet retired. Otherwise you can remove the `model` entry from the JSON to always use the latest base model.
 
 ## Find out when a model expires
-You can see the adaptation and transcription expiration dates for a model in the Speech Studio:
+You can get the adaptation and transcription expiration dates for a model via the Speech Studio and REST API.
 
-Here's an example adaptation expiration date shown on the train new model page:
+### Model expiration dates via Speech Studio
+Here's an example adaptation expiration date shown on the train new model dialog:
 
-![Endpoint deployment detail](media/custom-speech/custom-speech-adaptation-end-date.png)
+![Screenshot of train a new model dialog](media/custom-speech/custom-speech-adaptation-end-date.png)
 
 Here's an example transcription expiration date shown on the deployment detail page:
 
-![Endpoint deployment detail](media/custom-speech/custom-speech-deploy-details.png)
+![Screenshot of endpoint deployment detail](media/custom-speech/custom-speech-deploy-details.png)
 
+
+### Model expiration dates via REST API
 You can also check the expiration dates via the [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) and [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) REST API. The `deprecationDates` property in the JSON response includes the adaptation and transcription expiration dates for each model
 
 Here's an example base model retrieved via [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel): 
 
 ```json
-// Base model
 {
   "self": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/e065c68b-21d3-4b28-ae61-eb4c7e797789",
   "datasets": [],
