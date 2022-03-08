@@ -19,10 +19,10 @@
     - name: Supported platforms
       displayName: coverage
       href: os-coverage.md
-    - name: Containers coverage by OS, machine type, and cloud
-      href: supported-machines-endpoint-solutions-clouds.md
     - name: Servers coverage by OS, machine type, and cloud
       href: supported-machines-endpoint-solutions-clouds-servers.md
+    - name: Containers coverage by OS, machine type, and cloud
+      href: supported-machines-endpoint-solutions-clouds-containers.md
     - name: Feature coverage for Azure PaaS resources
       href: features-paas.md
     - name: User roles and permissions
