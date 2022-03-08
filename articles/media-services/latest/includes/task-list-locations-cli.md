@@ -12,6 +12,6 @@ ms.author: inhenkel
 
 To list available locations, use the following command:
 
-:::code language="azurecli" source="cli-code-snippets.sh" id="ListLocations" interactive="azurecli-interactive":::
+:::code language="azurecli" source="~/../media-services-v3-python/cli/code-snippets.sh" id="ListLocations" interactive="azurecli-interactive":::
 
 [!INCLUDE [task-create-resource-group-cli](task-create-resource-group-cli.md)]
