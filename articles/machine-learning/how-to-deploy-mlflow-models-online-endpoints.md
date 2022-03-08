@@ -56,7 +56,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
 1. Create a YAML configuration file for the deployment. The following example configures a deployment of the `sklearn-diabetes` model to the endpoint created in the previous step:
 
     > [!IMPORTANT]
-    > For MLflow no-code-deployment (NCD) to work, setting **`model_format`** to **`mlflow`** is mandatory. For more information, see the [CLI (v2) model YAML schema](reference-yaml-model.md).
+    > For MLflow no-code-deployment (NCD) to work, setting **`type`** to **`mlflow_model`** is required, `type: mlflow_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
 
     __sklearn-deployment.yaml__
 
@@ -104,7 +104,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
     name: sklearn-diabetes-mlflow
     version: 1
     path: sklearn-diabetes/model
-    model_format: mlflow
+    type: mlflow_model​
     description: Scikit-learn MLflow model.
     ```
 
