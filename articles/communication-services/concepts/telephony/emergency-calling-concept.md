@@ -27,12 +27,12 @@ Azure Communication Services direct routing is currently in public preview and n
 
 ## The call flow
 
-1. An Azure Communication Services user identity dials 911 using the Calling SDK from the USA or puerto rico
+1. An Azure Communication Services user identity dials 911 using the Calling SDK from the USA or Puerto Rico
 1. Microsoft validates the Azure resource has a Microsoft phone number enabled for outbound dialing
 1. Microsoft Azure Communication Services 911 service replaces the user’s phone number `alternateCallerId` with a temporary unique phone number. This number allocation remains in place for at least 60 minutes from the time that 911 is first dialed
 1. Microsoft maintains a temporary record (for approximately 60 minutes) of the user’s identity to the unique phone number
 1. The 911 call will be first routed to a call center where an agent will request the caller’s address
-1. The call center will then route the call to the appropriate PSAP in the USA or puerto rico
+1. The call center will then route the call to the appropriate PSAP in the USA or Puerto Rico
 1. If the 911 call is unexpectedly dropped, the PSAP then makes a call-back to the user
 1. On receiving the call-back within 60 minutes, Microsoft will route the inbound call directly to the user identity, which initiated the 911 call
 
