@@ -89,25 +89,33 @@ CDBCassandraRequests
 - RU consumption based on variations in payload sizes for read and write operations.
 ```kusto
 // This query is looking at read operations
-CDBDataPlaneRequests
-| where OperationName in ("Read", "Query")
-| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), OperationName;
+CDBCassandraRequests
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| project ResponseLength, TimeGenerated, RequestCharge, cassandraOperationName=split(split(PIICommandText,'"')[3], ' ')[0]
+| where cassandraOperationName =="SELECT"
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), tostring(cassandraOperationName)
 
 // This query is looking at write operations
-CDBDataPlaneRequests
-| where OperationName in ("Create", "Update", "Delete", "Execute")
-| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), OperationName;
+CDBCassandraRequests
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| project ResponseLength, TimeGenerated, RequestCharge, cassandraOperationName=split(split(PIICommandText,'"')[3], ' ')[0]
+| where cassandraOperationName in ("CREATE", "UPDATE", "INSERT", "DELETE", "DROP")
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), tostring(cassandraOperationName)
 
 // Write operations over a time period.
-CDBDataPlaneRequests
-| where OperationName in ("Create", "Update", "Delete", "Execute")
-| summarize maxResponseLength=max(ResponseLength) by bin(TimeGenerated, 1m), OperationName
+CDBCassandraRequests
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| project ResponseLength, TimeGenerated, RequestCharge, cassandraOperationName=split(split(PIICommandText,'"')[3], ' ')[0]
+| where cassandraOperationName in ("CREATE", "UPDATE", "INSERT", "DELETE", "DROP")
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), tostring(cassandraOperationName)
 | render timechart;
 
 // Read operations over a time period.
-CDBDataPlaneRequests
-| where OperationName in ("Read", "Query")
-| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), OperationName
+CDBCassandraRequests
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| project ResponseLength, TimeGenerated, RequestCharge, cassandraOperationName=split(split(PIICommandText,'"')[3], ' ')[0]
+| where cassandraOperationName =="SELECT"
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), tostring(cassandraOperationName)
 | render timechart;
 ```
 
@@ -189,7 +197,7 @@ CDBCassandraRequests
 ```kusto
 CDBCassandraRequests
 | where DatabaseName=="azure_cosmos" and CollectionName=="user"
-| where ErrorCode==4097
+| where ErrorCode==4097 // Corresponding error code in Cassandra
 | project DatabaseName , CollectionName , CassandraCommands=split(split(PIICommandText,'"')[3], ' ')[0] , OperationName, TimeGenerated;
 ```
 
