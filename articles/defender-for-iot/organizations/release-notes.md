@@ -77,9 +77,9 @@ You can also delete devices from Defender for IoT, if they've been inactive for 
 
 Defender for IoT now supports the Rockwell protocol for PLC operating mode detections.
 
-For the Rockwell protocol, the **Device inventory** page in the Azure portal now indicates the PLC operating mode key and run state, and whether the device is currently in a secure mode.
+For the Rockwell protocol, the **Device inventory** pages in both the Azure portal and the sensor console now indicate the PLC operating mode key and run state, and whether the device is currently in a secure mode.
 
-If the device's PLC operating mode is ever switched to an insecure mode, such as *Program* or *Remote*, a **PLC Operating Mode Changed** alert is generated.
+If the device's PLC operating mode is ever switched to an unsecured mode, such as *Program* or *Remote*, a **PLC Operating Mode Changed** alert is generated.
 
 For more information, see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md).
 
