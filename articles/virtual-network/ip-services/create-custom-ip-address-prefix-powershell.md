@@ -99,15 +99,6 @@ The following steps show the steps required to prepare sample customer range (1.
     openssl dgst -sha256 -sign byoipprivate.key -keyform PEM -out byoipauthsigned.txt byoipauth.txt
     $byoipauthsigned=(openssl enc -base64 -in byoipauthsigned.txt) -join ''
     ```
-### Subscription readiness
-
-Register the applicable subscription that the range will be provisioned for with **Microsoft.Network** and the specific feature flags using the following commands. It may take some time for the request to propagate.
-
- ```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBringYourOwnIpAddressForThirdParties
-```
-Allow at least an hour for the request to be enabled and propagate.  Verify you're registered correctly using the `Get-AzProviderFeature` command.
 
 ## Provisioning steps
 
@@ -139,7 +130,7 @@ $prefix =@{
     ResourceGroupName = 'myResourceGroup'
     Location = 'WestUS'
     CIDR = '1.2.3.0/24'
-    Message = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd'
+    AuthorizationMessage = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd'
     SignedMessage = $byoipauthsigned
 }
 $myCustomIpPrefix = New-AzCustomIPPrefix $prefix
@@ -164,10 +155,10 @@ CommissionedState : Provisioning
 The **CommissionedState** field should show the range as “Provisioning” initially, followed in the future by “Provisioned”.
 
 > [!NOTE]
-> The current estimated time to complete the provisioning process in preview is 4-6 weeks.  
+> The estimated time to complete the provisioning process is 30 minutes.
 
 > [!IMPORTANT]
-> After the custom IP prefix is in a "Provisioned" state, a child public IP prefix can be created. These public IP refixes and any public IP addresses can be attached to networking resources. For example, virtual machine network interfaces or load balancer front ends. The IPs won't be advertised and therefore won't be reachable. For more information on a migration of an active prefix, see [Manage a custom IP prefix](manage-custom-ip-address-prefix.md).
+> After the custom IP prefix is in a "Provisioned" state, a child public IP prefix can be created. These public IP prefixes and any public IP addresses can be attached to networking resources. For example, virtual machine network interfaces or load balancer front ends. The IPs won't be advertised and therefore won't be reachable. For more information on a migration of an active prefix, see [Manage a custom IP prefix](manage-custom-ip-address-prefix.md).
 
 ### Commission the custom IP address prefix
 
@@ -180,7 +171,7 @@ Update-AzCustomIpPrefix -ResourceId $myCustomIPPrefix.Id -Commission
 As before, the operation is asynchronous. Utilizing the [Get-AzCustomIpPrefix](/powershell/module/az.network/get-azcustomipprefix) command to get the status can be used again to retrieve the status. The **CommissionedState** field will initially show the prefix as “Commissioning”, followed in the future by “Commissioned”. The advertisement rollout isn't binary and the range will be partially advertised while still in "Commissioning".
 
 > [!NOTE]
-> The current estimated time to fully complete the commissioning process is 3-4 hours.
+> The estimated time to fully complete the commissioning process is 3-4 hours.
 
 > [!IMPORTANT]
 > As the custom IP prefix transitions to a "Commissioned" state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.

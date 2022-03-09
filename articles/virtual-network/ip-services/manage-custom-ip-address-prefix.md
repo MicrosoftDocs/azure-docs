@@ -24,7 +24,7 @@ This article explains how to:
 
 * Deprovision/delete a custom IP prefix
 
-For information on provisioning a IP address, [Create a custom IP address prefix (BYOIP) Preview - Azure PowerShell](create-custom-ip-address-prefix-powershell.md) or [Create a custom IP address prefix (BYOIP) Preview - Azure CLI](create-custom-ip-address-prefix-cli.md).
+For information on provisioning a IP address, [Create a custom IP address prefix - Azure PowerShell](create-custom-ip-address-prefix-powershell.md) or [Create a custom IP address prefix - Azure CLI](create-custom-ip-address-prefix-cli.md).
 
 ## Create a public IP prefix from a custom IP prefix
 
@@ -70,7 +70,6 @@ In order to turn off advertisements from a custom IP prefix, it must be decommis
 
 > [!NOTE]
 > All public IP prefixes created from an provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.
->
 > 
 > The current estimated time to fully complete the decommissioning process is 3-4 hours.
 
@@ -89,8 +88,10 @@ In order to fully remove a custom IP prefix, it must be deprovisioned and then d
 
 > [!NOTE]
 > If there is a requirement to migrate an provisioned range from one region to the other, the original custom IP prefix must be fully removed from the fist region before a new custom IP prefix with the same address range can be created in another region.
+>
+> The estimated time to complete the deprovisioning process is 30 minutes.
 
-The following commands can be used in Azure CLI and Azure PowerShell to deprovision and remove the range from Microsoft. The deprovisioning operation is asynchronous. You can use the view commands to retrieve the status. The **CommissionedState** field will initially show the prefx as **Deprovisioning**, followed by **Deprovisioned** as it transitions to the earlier state. When the range is in the **Deprovisioned** state, it can be deleted by using the commands to remove.
+The following commands can be used in Azure CLI and Azure PowerShell to deprovision and remove the range from Microsoft. The deprovisioning operation is asynchronous. You can use the view commands to retrieve the status. The **CommissionedState** field will initially show the prefix as **Deprovisioning**, followed by **Deprovisioned** as it transitions to the earlier state. When the range is in the **Deprovisioned** state, it can be deleted by using the commands to remove.
 
 **Commands**
 
