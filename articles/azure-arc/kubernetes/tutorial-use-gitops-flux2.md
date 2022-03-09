@@ -18,7 +18,7 @@ This tutorial describes how to use GitOps in a Kubernetes cluster. Before you di
 General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both AKS and Azure Arc-enabled Kubernetes. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
 
 >[!IMPORTANT]
->GitOps with Flux v2 is in public preview. In preparation for general availability, features are still being added to the preview. One important feature, multi-tenancy, could be a breaking change for some users.  To prepare yourself for the release of multi-tenancy, [please review these details](#multi-tenancy).
+>GitOps with Flux v2 is in public preview. In preparation for general availability, features are still being added to the preview. One important feature, multi-tenancy, could affect some users when it is released.  To prepare yourself for the release of multi-tenancy, [please review these details](#multi-tenancy).
 
 ## Prerequisites
 
@@ -86,7 +86,6 @@ The GitOps agents require TCP on port 443 (`https://:443`) to function. The agen
 | `https://<region>.dp.kubernetesconfiguration.azure.com` | Data plane endpoint for the agent to push status and fetch configuration information. Depends on `<region>` (the supported regions mentioned earlier). |
 | `https://login.microsoftonline.com` | Required to fetch and update Azure Resource Manager tokens. |
 | `https://mcr.microsoft.com` | Required to pull container images for Flux controllers. |
-| `https://azurearcfork8s.azurecr.io` | Required to pull container images for GitOps agents. |
 
 ## Enable CLI extensions
 
@@ -1000,7 +999,7 @@ By using this annotation, the HelmRelease that is deployed will be patched with 
 Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability will be integrated into Azure GitOps with Flux v2 prior to general availability.
 
 >[!NOTE]
->This will be a breaking change if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects.  It [may also be a breaking change](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default) if you use a Kubernetes version less than 1.20.6. To prepare for the release of this multi-tenancy feature, take these actions:
+>You need to prepare for the multi-tenancy feature release if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects, or [if you use a Kubernetes version less than 1.20.6](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). To prepare, take these actions:
 >
 >* Upgrade to Kubernetes version 1.20.6 or greater.
 >* In your Kubernetes manifests assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
