@@ -251,7 +251,7 @@ The service principal can also be used to authenticate to the Azure Machine Lear
 
 For information and samples on authenticating with MSAL, see the following articles:
 
-* JavaScript - [How to migrate a Javascript app from ADAL.js to MSAL.js](../active-directory/develop/msal-compare-msal-js-and-adal-js.md).
+* JavaScript - [How to migrate a JavaScript app from ADAL.js to MSAL.js](../active-directory/develop/msal-compare-msal-js-and-adal-js.md).
 * Node.js - [How to migrate a Node.js app from ADAL to MSAL](../active-directory/develop/msal-node-migration.md).
 * Python - [ADAL to MSAL migration guide for Python](../active-directory/develop/migrate-python-adal-msal.md).
 

@@ -7,7 +7,7 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.devlang: cpp, csharp, java, javascript, objective-c, python

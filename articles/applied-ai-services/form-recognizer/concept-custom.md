@@ -7,8 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
-ms.author: vikurpad
+ms.date: 02/23/2022
+ms.author: lajanuar
 recommendations: false
 ---
 # Form Recognizer custom models
@@ -33,7 +33,24 @@ Custom models can be one of two types, [**custom template**](concept-custom-temp
 
 ### Custom neural model
 
-The custom neural (custom document) model is a deep learning model type that relies on a base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When choosing between the two model types, start with a neural model if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
+The custom neural (custom document) model is a deep learning model type that relies on a base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
+
+### Build mode
+
+The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
+
+* Template models only accept documents that have the same basic page structure—a uniform visual appearance—or the same relative positioning of elements within the document.
+
+* Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but may vary in appearance by the company that created the document. Neural models currently only support English text.
+
+This table provides links to the build mode programming language SDK references and code samples on GitHub:
+
+|Programming language | SDK reference | Code sample |
+|---|---|---|
+| C#/.NET | [DocumentBuildMode Struct](/dotnet/api/azure.ai.formrecognizer.documentanalysis.documentbuildmode?view=azure-dotnet-preview&preserve-view=true#properties) | [Sample_BuildCustomModelAsync.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/tests/samples/Sample_BuildCustomModelAsync.cs)
+|Java| [DocumentBuildMode Class](/java/api/com.azure.ai.formrecognizer.administration.models.documentbuildmode?view=azure-java-preview&preserve-view=true#fields) | [BuildModel.java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/administration/BuildModel.java)|
+|JavaScript | [DocumentBuildMode type](/javascript/api/@azure/ai-form-recognizer/documentbuildmode?view=azure-node-preview&preserve-view=true)| [buildModel.js](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/buildModel.js)|
+|Python | [DocumentBuildMode Enum](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.documentbuildmode?view=azure-python-preview&preserve-view=true#fields)| [sample_build_model.py](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_build_model.py)|
 
 ## Model features
 
@@ -102,7 +119,7 @@ This table compares the supported data extraction areas:
 |Custom template| ✔ | ✔ | ✔ |&#10033; | ✔ |
 |Custom neural| ✔| ✔ |**n/a**| **n/a** | **n/a** |
 
-**Table symbols**: ✔ — supported; &#10033; — preview; **n/a** — currently unavailable
+**Table symbols**: ✔—supported; ✱—preview; **n/a—currently unavailable
 
 > [!TIP]
 > When choosing between the two model types, start with a custom neural model if it meets your functional needs. See [custom neural](concept-custom-neural.md ) to learn more about custom neural models.

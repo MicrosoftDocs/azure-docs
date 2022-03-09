@@ -207,4 +207,4 @@ The following example shows how to create a memory scaling rule.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure your container app](secure-app.md)
+> [Manage secrets](manage-secrets.md)

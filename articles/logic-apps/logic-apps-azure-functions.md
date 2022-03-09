@@ -106,7 +106,7 @@ You can create functions directly from your logic app's workflow by using the bu
 > Currently, you can only create a function directly from a Consumption logic app workflow, not a Standard logic app workflow. 
 > However, you can create the function in other ways using the [Azure portal](../azure-functions/functions-create-function-app-portal.md), 
 > [Visual Studio](../azure-functions/functions-create-your-first-function-visual-studio.md), [Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md), 
-> [Azure CLI](/cli/azure/functionapp/app), [Azure PowerShell](/powershell/module/az.functions), or [ARM template](/templates/microsoft.web/sites/functions). 
+> [Azure CLI](/cli/azure/functionapp/app), [Azure PowerShell](/powershell/module/az.functions), or [ARM template](/azure/templates/microsoft.web/sites/functions). 
 > You can then call that function from your Standard logic app workflow using the Azure Functions operation named **Call an Azure function**.
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.

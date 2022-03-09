@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Upgrading from Application Insights Java 2.x SDK

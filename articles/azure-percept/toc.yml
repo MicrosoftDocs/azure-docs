@@ -37,7 +37,7 @@
       items:  
         - name: Create a people counting solution with Azure Percept Vision
           href: create-people-counting-solution-with-azure-percept-devkit-vision.md
-        - name: Voice control your inventory and visualize with Power BI dashboard
+        - name: Voice control your inventory with Azure Percept Audio
           href: voice-control-your-inventory-then-visualize-with-power-bi-dashboard.md
 
 - name: Concepts
