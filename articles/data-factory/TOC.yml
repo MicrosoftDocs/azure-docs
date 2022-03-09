@@ -258,7 +258,7 @@ items:
             displayName: isBitSet, setBitSet, isBoolean, isByte, isDate, isShort, isInteger, isLong, isNan, isFloat, isDouble, isDecimal, isTimestamp, toBase64, toBinary, toBoolean, toByte, toDate, toDecimal, toDouble, toFloat, toInteger, toLong, toShort, toString, toTimestamp, toUTC
           - name: Date and time functions
             href: data-flow-date-time-functions.md
-            displayName: add, addDays, addMonths, between, currentDate, currentTimestamp, currentUTC, dayOfMonth, dayOfWeek, dayOfYear, days, fromUTC, hour, hours, isDate, isTimestamp, lastDayOfMonth, millisecond, milliseconds, minus, minute, minutes, month, monthsBetween, second, seconds, subDays, subMonths, toDate, toTimestamp, toUTC, weekOfYear, weeks, year 
+            displayName: add, addDays, addMonths, between, currentDate, currentTimestamp, currentUTC, dayOfMonth, dayOfWeek, dayOfYear, days, fromUTC, hour, hours, isDate, isTimestamp, lastDayOfMonth, millisecond, milliseconds, minus, minute, minutes, month, monthsBetween, second, seconds, subDays, subMonths, toDate, toTimestamp, toUTC, weekOfYear, weeks, year, convert, timezone
           - name: Expression functions
             href: data-flow-expression-functions.md
             displayName: abs, acos, add, and, asin, assertErrorMessages, atan, atan2, between, bitwiseAnd, bitwiseOr, bitwiseXor, blake2b, blake2bBinary, case, cbrt, ceil, coalesce, columnNames, columns, compare, concat, concatWS, cos, cosh, crc32, degrees, divide, dropLeft, dropRight, endsWith, equals, equalsIgnoreCase, escape, expr, factorial, false, floor, fromBase64, greater, greaterOrEqual, greatest, hasColumn, hasError, iif, iifNull, initCap, instr, isDelete, isError, isIgnore, isInsert, isMatch, isNull, isUpdate, isUpsert, jaroWinkler, least, left, length, lesser, lesserOrEqual, levenshtein, like, locate, log, log10, lower, lpad, ltrim, md5, minus, mod, multiply, negate, nextSequence, normalize, not, notEquals, notNull, null, or, pMod, partitionId, power, radians, random, regexExtract, regexMatch, regexReplace, regexSplit, replace, reverse, right, rlike, round, rpad, rtrim, sha1, sha2, sin, sinh, soundex, split, sqrt, startsWith, substring, tan, tanh, translate, trim, true, typeMatch, unescape, upper, uuid, xor   
@@ -277,8 +277,10 @@ items:
       items:
       - name: Data wrangling overview
         href: wrangling-overview.md
+        displayName: power
       - name: Supported functions
         href: wrangling-functions.md
+        displayName: power
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Naming rules
@@ -348,6 +350,7 @@ items:
       href: connector-azure-cosmos-db-mongodb-api.md
     - name: Azure Data Explorer
       href: connector-azure-data-explorer.md
+      displayName: kusto
     - name: Azure Data Lake Storage Gen1
       href: connector-azure-data-lake-store.md
     - name: Azure Data Lake Storage Gen2
@@ -361,6 +364,7 @@ items:
       href: connector-azure-database-for-postgresql.md
     - name: Azure Databricks Delta Lake
       href: connector-azure-databricks-delta-lake.md
+      displayName: data bricks
     - name: Azure File Storage
       href: connector-azure-file-storage.md
     - name: Azure SQL Database
@@ -404,6 +408,7 @@ items:
       href: connector-dynamics-crm-office-365.md
     - name: Excel format
       href: format-excel.md
+      displayName: excel
     - name: File System
       href: connector-file-system.md
     - name: FTP
@@ -557,7 +562,7 @@ items:
     items:
     - name: Copy data using copy activity
       href: copy-activity-overview.md
-      displayName: retry, zip
+      displayName: retry, zip, copy
     - name: Monitor copy activity
       href: copy-activity-monitoring.md
     - name: Delete files using Delete activity
@@ -601,6 +606,7 @@ items:
       displayName: polybase
     - name: Execute Power Query activity
       href: control-flow-power-query-activity.md
+      displayName: power
     - name: Azure Function activity
       href: control-flow-azure-function-activity.md
       displayName: timeout
@@ -608,10 +614,13 @@ items:
       href: transform-data-using-dotnet-custom-activity.md
     - name: Databricks Jar activity
       href: transform-data-databricks-jar.md
+      displayName: data bricks
     - name: Databricks Notebook activity
       href: transform-data-databricks-notebook.md
+      displayName: data bricks
     - name: Databricks Python activity
       href: transform-data-databricks-python.md
+      displayName: data bricks
     - name: Data Explorer Command activity
       href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
     - name: Data Lake U-SQL activity
@@ -645,6 +654,7 @@ items:
     items:
     - name: Append Variable activity
       href: control-flow-append-variable-activity.md
+      displayName: variables
     - name: Execute Pipeline activity
       href: control-flow-execute-pipeline-activity.md
     - name: Fail activity
@@ -653,6 +663,7 @@ items:
       href: control-flow-filter-activity.md
     - name: For Each activity
       href: control-flow-for-each-activity.md
+      displayName: foreach
     - name: Get Metadata activity
       href: control-flow-get-metadata-activity.md
     - name: If Condition activity
@@ -662,6 +673,7 @@ items:
       displayName: timeout
     - name: Set Variable activity
       href: control-flow-set-variable-activity.md
+      displayName: variables
     - name: Switch activity
       href: control-flow-switch-activity.md
     - name: Until activity
@@ -686,11 +698,12 @@ items:
       href: data-flow-aggregate.md
     - name: Alter row
       href: data-flow-alter-row.md
-      displayName: upsert
+      displayName: upsert, update, insert, delete
     - name: Assert
       href: data-flow-assert.md
     - name: Conditional split
       href: data-flow-conditional-split.md
+      displayName: split
     - name: Derived column
       href: data-flow-derived-column.md
     - name: Exists
@@ -707,7 +720,7 @@ items:
       displayName: flowlet
     - name: Join
       href: data-flow-join.md
-      displayName: merge, timeout
+      displayName: merge, timeout, join
     - name: Lookup
       href: data-flow-lookup.md
       displayName: timeout
@@ -728,6 +741,7 @@ items:
       href: data-flow-sort.md
     - name: Source
       href: data-flow-source.md
+      displayName: skip, skip line count, skiplinecount
     - name: Stringify
       href: data-flow-stringify.md
     - name: Surrogate key
@@ -746,7 +760,7 @@ items:
       href: author-global-parameters.md
     - name: Expression Language
       href: control-flow-expression-language-functions.md
-      displayName: formatdatetime, todate, replace, string, substring, utc, utcnow, dynamic content
+      displayName: formatdatetime, todate, replace, string, substring, utc, utcnow, dynamic content, add dynamic content, indexof, lastindexof, getpasttime, convertFromUtc
     - name: System variables
       href: control-flow-system-variables.md
     - name: Parameterizing mapping data flows
@@ -785,6 +799,7 @@ items:
     items:
     - name: Monitor visually
       href: monitor-visually.md
+      displayName: user properties
     - name: Monitor with Azure Monitor
       items:
       - name: Overview
@@ -807,6 +822,7 @@ items:
       href: tutorial-pipeline-failure-error-handling.md
     - name: Monitor pipelines with email notifications
       href: how-to-send-email.md
+      displayName: logic app
     - name: Monitor pipelines with Microsoft Teams notifications
       href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
@@ -933,17 +949,22 @@ items:
     items:
     - name: Create a schedule trigger
       href: how-to-create-schedule-trigger.md
+      displayName: trigger
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
-      displayName: retry
+      displayName: retry, trigger
     - name: Create a tumbling window trigger dependency
       href: tumbling-window-trigger-dependency.md
+      displayName: trigger
     - name: Create a storage event trigger
       href: how-to-create-event-trigger.md
+      displayName: trigger
     - name: Create a custom event trigger
       href: how-to-create-custom-event-trigger.md
+      displayName: trigger
     - name: Reference trigger metadata in pipeline
       href: how-to-use-trigger-parameterization.md
+      displayName: trigger
   - name: Data Catalog and Governance
     items:
     - name: Connect a Data Factory to Azure Purview
@@ -1011,6 +1032,7 @@ items:
       href: solution-template-move-files.md
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
+      displayName: data bricks
     - name: Call Synapse pipeline with a notebook activity
       href: solution-template-synapse-notebook.md
   - name: Understanding pricing
