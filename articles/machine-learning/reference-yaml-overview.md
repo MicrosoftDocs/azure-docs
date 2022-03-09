@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 10/21/2021
+ms.date: 03/14/2021
 ms.reviewer: laobri
 ---
 
@@ -33,11 +33,11 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | - | - |
 | [Environment](reference-yaml-environment.md) | https://azuremlschemas.azureedge.net/latest/environment.schema.json |
 
-## Dataset
+## Data
 
 | Reference | URI |
 | - | - |
-| [Dataset](reference-yaml-dataset.md) | https://azuremlschemas.azureedge.net/latest/dataset.schema.json |
+| [Dataset](reference-yaml-data.md) | https://azuremlschemas.azureedge.net/latest/data.schema.json |
 
 ## Model
 
