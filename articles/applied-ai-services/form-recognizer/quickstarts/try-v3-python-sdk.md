@@ -372,7 +372,7 @@ You aren't limited to invoices—there are several prebuilt models to choose fro
 |---|---|---|
 |[prebuilt-tax.us.w2](../concept-w2.md) |Text and key information from US W2 tax forms.| [W-2 field extractions](../concept-w2.md#field-extraction)|
 |[prebuilt-read](../concept-read.md)|Printed and handwritten text lines, words, locations, and detected languages from documents and images.|[Read data extraction](../concept-read.md#data-extraction)|
-|[prebuilt-document](../concept-general-document.md)|Key-value pairs, selection marks, and entities from documents.|[General document field extractions](concept-general-document.md#general-document-model-data-extraction) |
+|[prebuilt-document](../concept-general-document.md)|Key-value pairs, selection marks, and entities from documents.|[General document field extractions](../concept-general-document.md#general-document-model-data-extraction) |
 | [prebuilt-invoice](../concept-invoice.md) |Text, selection marks, tables, key-value pairs, and key information from invoices.|[Invoice field extractions](../concept-invoice.md#field-extraction)|
 | [prebuilt-receipt](../concept-receipt.md)| Text and key information from receipts.| [Receipt field extractions](../concept-receipt.md#field-extraction)|
 |[prebuilt-idDocument](../concept-id-document.md)| Text and key information from driver licenses and international passports.|[ID document field extractions](../concept-id-document.md#field-extraction)|
