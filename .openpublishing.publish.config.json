@@ -836,6 +836,12 @@
       "url": "https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-flask-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

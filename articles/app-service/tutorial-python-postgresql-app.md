@@ -371,7 +371,15 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample app includes `print()` statements to demonstrate this capability as shown below.
 
-:::code language="python" source="~/../msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
+### [Flask](#tab/flask)
+
+:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="39-43" highlight="3":::
+
+### [Django](#tab/django)
+
+:::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="12-16" highlight="2":::
+
+---
 
 You can access the console logs generated from inside the container that hosts the app on Azure.
 
