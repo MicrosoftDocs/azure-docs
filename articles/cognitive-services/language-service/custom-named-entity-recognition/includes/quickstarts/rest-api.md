@@ -162,7 +162,7 @@ For the documents key:
 |---------|---------|---------|
 | `location `    | Document name on the blob store. | doc2.txt |
 |`language`   | The language of the document.   | en-us |
-|`dataset`   |  Optional field to specify the dataset which this document will belong to. | Train or Test |
+|`dataset`   |  Optional field to specify the dataset which this document will belong to. | Train or Test | 
 
 
 This request will return an error if:
