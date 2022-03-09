@@ -84,7 +84,7 @@ There could exist up to 100 links from the same, or various SQL Server sources t
 > [!NOTE]
 > The link feature is released in limited public preview with support for currently only SQL Server 2019 Enterprise Edition CU13 (or above). [Sign-up now](https://aka.ms/mi-link-signup) to participate in the limited public preview. 
 
-## Managed Instance link limitations
+## Limitations
 
 This section describes the product’s functional limitations.
 
@@ -106,7 +106,7 @@ Managed Instance link has a set of general limitations, and those are listed in 
 
 ### Additional limitations
 
-Some Managed Instance link features and capabilities *are limited at this time*. Details can be found in the following list.
+Some Managed Instance link features and capabilities are limited **at this time**. Details can be found in the following list.
 - SQL Server 2019, Enterprise Edition or Developer Edition, CU15 (or higher) on Windows or Linux host OS is supported.
 - Private endpoint (VPN/VNET) is supported to connect Distributed Availability Groups to Managed Instance. Public endpoint can't be used to connect to Managed Instance.
 - Managed Instance Link authentication between SQL Server instance and Managed Instance is certificate-based, available only through exchange of certificates. Windows authentication between instances isn't supported.
