@@ -104,7 +104,7 @@ On macOS, the browser is opened by invoking `open <url>`.
 
 ### Customizing the experience
 
-MSAL.NET is able to respond with an HTTP message or with an HTTP redirect when a token is received or in case of error. 
+MSAL.NET can respond with an HTTP message or HTTP redirect when a token is received or an error occurs.
 
 ```csharp
 var options = new SystemWebViewOptions() 
