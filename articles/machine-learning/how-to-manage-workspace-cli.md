@@ -102,6 +102,9 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
 # [Bring existing resources (1.0 CLI)](#tab/bringexistingresources1)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 To create a workspace that uses existing resources, you must provide the resource ID for each resource. You can get this ID either via the 'properties' tab on each resource via the Azure portal, or by running the following commands using the Azure CLI.
 
   * **Azure Storage Account**: 
@@ -124,6 +127,8 @@ az ml workspace create -w <workspace-name>
 ```
 
 # [Bring existing resources (2.0 CLI - preview)](#tab/bringexistingresources2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 To create a new workspace while bringing existing associated resources using the CLI, you will first have to define how your workspace should be configured in a configuration file.
 
@@ -184,6 +189,8 @@ Dependent on your use case and organizational requirements, you can choose to co
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 If you want to restrict access to your workspace to a virtual network, you can use the following parameters as part of the `az ml workspace create` command or use the `az ml workspace private-endpoint` commands.
 
 ```azurecli-interactive
@@ -205,6 +212,8 @@ az ml workspace create -w <workspace-name>
 For more details on how to use these commands, see the [CLI reference pages](/cli/azure/ml(v1)/workspace).
 
 # [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 When using private link, your workspace cannot use Azure Container Registry tasks compute for image building. Hence, you must set the image_build_compute property to a CPU compute cluster name to use for Docker image environment building. You can also specify whether the private link workspace should be accessible over the internet using the public_network_access property.
 
@@ -280,6 +289,8 @@ Below CLI commands provide examples for creating a workspace that uses customer-
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the resource ID and uri of the key within the vault.
 
 To [limit the data that Microsoft collects](./concept-data-encryption.md#encryption-at-rest) on your workspace, you can additionally specify the `--hbi-workspace` parameter. 
@@ -293,6 +304,8 @@ az ml workspace create -w <workspace-name>
 ```
 
 # [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource ID and uri of the key within the vault.
 
@@ -326,11 +339,15 @@ To get information about a workspace, use the following command:
 
 # [1.0 CLI](#tab/workspaceupdatev1)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 ```azurecli-interactive
 az ml workspace show -w <workspace-name> -g <resource-group-name>
 ```
 
 # [2.0 CLI - preview](#tab/workspaceupdatev2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```azurecli-interactive
 az ml workspace show -n <workspace-name> -g <resource-group-name>
@@ -346,11 +363,15 @@ To update a workspace, use the following command:
 
 # [1.0 CLI](#tab/workspaceupdatev1)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 ```azurecli-interactive
 az ml workspace update -w <workspace-name> -g <resource-group-name>
 ```
 
 # [2.0 CLI - preview](#tab/workspaceupdatev2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```azurecli-interactive
 az ml workspace update -n <workspace-name> -g <resource-group-name>
@@ -367,11 +388,15 @@ If you change access keys for one of the resources used by your workspace, it ta
 
 # [1.0 CLI](#tab/workspacesynckeysv1)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 ```
 
 # [2.0 CLI - preview](#tab/workspacesynckeysv2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```azurecli-interactive
 az ml workspace sync-keys -n <workspace-name> -g <resource-group-name>
@@ -391,11 +416,16 @@ To delete a workspace after it is no longer needed, use the following command:
 
 # [1.0 CLI](#tab/workspacedeletev1)
 
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 ```azurecli-interactive
 az ml workspace delete -w <workspace-name> -g <resource-group-name>
 ```
 
 # [2.0 CLI - preview](#tab/workspacedeletev2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```azurecli-interactive
 az ml workspace delete -n <workspace-name> -g <resource-group-name>

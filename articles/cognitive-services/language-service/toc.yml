@@ -62,6 +62,8 @@ items:
       href: custom-classification/how-to/improve-model.md
     - name: Deploy a model and classify text
       href: custom-classification/how-to/call-api.md
+    - name: Back up and recover your models
+      href: custom-classification/fail-over.md
   - name: Concepts
     items:
     - name: Evaluation metrics
@@ -136,6 +138,8 @@ items:
       href: custom-named-entity-recognition/how-to/improve-model.md
     - name: Deploy a model and extract entities from text
       href: custom-named-entity-recognition/how-to/call-api.md
+    - name: Back up and recover your models
+      href: custom-named-entity-recognition/fail-over.md
   - name: Tutorials
     items:
       - name: Enrich a Cognitive Search index with custom entities
@@ -190,6 +194,8 @@ items:
         href: conversational-language-understanding/how-to/train-model.md
       - name: Deploy a model and get predictions
         href: conversational-language-understanding/how-to/deploy-query-model.md
+      - name: Back up and recover your models
+        href: conversational-language-understanding/fail-over.md
   - name: Concepts
     items:
       - name: Backwards compatibility
@@ -198,6 +204,8 @@ items:
         href: conversational-language-understanding/concepts/entity-components.md
       - name: Evaluation metrics
         href: conversational-language-understanding/concepts/evaluation-metrics.md
+      - name: None intent
+        href: conversational-language-understanding/concepts/none-intent.md
       - name: Using multiple languages
         href: conversational-language-understanding/concepts/multiple-languages.md
   - name: Reference
@@ -817,6 +825,9 @@ items:
     href: concepts/model-lifecycle.md
   - name: Send requests asynchronously
     href: concepts/use-asynchronously.md 
+  - name: Service limits
+    href: concepts/data-limits.md
+    displayName: Data limits, maximum, Service limits
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps

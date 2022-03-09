@@ -101,6 +101,8 @@ items:
       href: concepts/identity-model.md
     - name: Authenticating services
       href: concepts/authentication.md
+    - name: Credentials best practices
+      href: concepts/credentials-best-practices.md
   - name: Chat
     items:
       - name: Chat SDK overview
@@ -179,7 +181,7 @@ items:
         href: concepts/logging-and-diagnostics.md
       - name: Metrics
         href: concepts/metrics.md
-  - name: Service Events (EventGrid)
+  - name: Service Events (Event Grid)
     items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
@@ -260,10 +262,12 @@ items:
   items:
   - name: Overview
     href: samples/overview.md
-  - name: Group calling hero sample
+  - name: Calling hero sample
     href: samples/calling-hero-sample.md
-  - name: Group chat hero sample
+  - name: Chat hero sample
     href: samples/chat-hero-sample.md
+  - name: Authentication service hero sample
+    href: samples/trusted-auth-sample.md
   - name: Web calling sample
     href: samples/web-calling-sample.md
 - name: References

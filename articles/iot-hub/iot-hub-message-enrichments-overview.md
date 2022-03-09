@@ -1,13 +1,13 @@
 ---
 title: Overview of Azure IoT Hub message enrichments
 description: This article shows message enrichments, which give the IoT Hub the ability to stamp messages with additional information before the messages are sent to the designated endpoint. 
-author: eross-msft
+author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.author: lizross
+ms.author: kgremban
 #Customer intent: As a developer, I want to be able to add information to messages sent from a device to my IoT Hub, based on the destination endpoint.   
 ---
 # Message enrichments for device-to-cloud IoT Hub messages
@@ -82,6 +82,8 @@ To try out message enrichments, see the [message enrichments tutorial](tutorial-
 * The total message size, including the enrichments, can't exceed 256 KB. If a message size exceeds 256 KB, the IoT Hub will drop the message. You can use [IoT Hub metrics](monitor-iot-hub-reference.md#metrics) to identify and debug errors when messages are dropped. For example, you can monitor the *telemetry messages incompatible* (*d2c.telemetry.egress.invalid*) metric in the [routing metrics](monitor-iot-hub-reference.md#routing-metrics). To learn more, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 * Message enrichments don't apply to digital twin change events.
+
+* Modules do not inherit twin tags from their corresponding devices. Enrichments for messages originating from device modules (for example from IoT Edge modules) must use the twin tags that are set on the module twin.
 
 ## Pricing
 

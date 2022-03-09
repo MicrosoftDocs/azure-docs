@@ -23,7 +23,7 @@ Examples of tasks you can do with PowerShell:
 * [Run Apache Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Manage clusters with PowerShell](hdinsight-administer-use-powershell.md).
 
-Follow steps to [install and configure Azure Powershell](/powershell/azure/install-az-ps) to get the latest version.
+Follow steps to [install and configure Azure PowerShell](/powershell/azure/install-az-ps) to get the latest version.
 
 ## Utilities you can run in a browser
 

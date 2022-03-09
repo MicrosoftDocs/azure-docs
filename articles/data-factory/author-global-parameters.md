@@ -30,7 +30,6 @@ After a global parameter is created, you can edit it by clicking the parameter's
 
 :::image type="content" source="media/author-global-parameters/create-global-parameter-3.png" alt-text="Create global parameters":::
 
-Global parameters are stored as part of the /factory/{factory_name}-arm-template parameters.json.
 
 ## Using global parameters in a pipeline
 
@@ -95,8 +94,9 @@ $globalParametersJson = Get-Content $globalParametersFilePath
 Write-Host "Parsing JSON..."
 $globalParametersObject = [Newtonsoft.Json.Linq.JObject]::Parse($globalParametersJson)
 
-foreach ($gp in $factoryFileObject.properties.globalParameters.GetEnumerator()) {
- # foreach ($gp in $globalParametersObject.GetEnumerator()) {
+# $gp in $factoryFileObject.properties.globalParameters.GetEnumerator()) 
+# may  be used in case you use non-standard location for global parameters. It is not recommended. 
+foreach ($gp in $globalParametersObject.GetEnumerator()) {
     Write-Host "Adding global parameter:" $gp.Key
     $globalParameterValue = $gp.Value.ToObject([Microsoft.Azure.Management.DataFactory.Models.GlobalParameterSpecification])
     $newGlobalParameters.Add($gp.Key, $globalParameterValue)

@@ -5,10 +5,9 @@ metadata:
   services: load-balancer
   author: erichrt
   ms.service: load-balancer
-  ms.topic: article
+  ms.topic: faq
   ms.date: 04/22/2020
   ms.author: errobin
-    
 title: Load Balancer frequently asked questions
 summary: |
 
@@ -88,7 +87,7 @@ sections:
       - question: |
           Can I access the frontend of my Internal Load Balancer from the participating backend pool VM?
         answer: |
-          No, Azure Load Balancer does not support this scenario. To learn more about this topic, visit our [troubleshoot page](load-balancer-troubleshoot-backend-traffic.md#cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm).
+          No, Azure Load Balancer does not support this scenario. To learn more about this topic, visit our [troubleshoot page](load-balancer-troubleshoot-backend-traffic.md#cause-4-access-of-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm).
 
       - question: |
           What are best practices with respect to outbound connectivity?

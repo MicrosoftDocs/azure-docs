@@ -59,8 +59,10 @@ additionalContent:
           links:
             - text: What is Azure VPN Gateway?
               url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
-            - text: Site-to-site-connections
+            - text: Site-to-site connections
               url: ../vpn-gateway/tutorial-site-to-site-portal.md
+            - text: Point-to-site connections
+              url: ../vpn-gateway/point-to-site-about.md
             - text: See more
               url: ../vpn-gateway/index.yml   
         # Card

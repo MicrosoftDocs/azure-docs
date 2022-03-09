@@ -8,7 +8,8 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 01/25/2022
 ms.author: victorh 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Renew Application Gateway certificates

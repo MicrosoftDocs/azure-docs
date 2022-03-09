@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall reque
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/06/2021
+ms.date: 02/10/2022
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -18,7 +18,11 @@ The Azure Application Gateway Web Application Firewall (WAF) provides protection
 
 ![Request size limits](../media/application-gateway-waf-configuration/waf-policy.png)
 
-WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. Once an attribute is added to the WAF exclusion list, it isn't considered by any configured and active WAF rule. Exclusion lists are global in scope.
+Sometimes Web Application Firewall (WAF) might block a request that you want to allow for your application. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
+
+For example, Active Directory inserts tokens that are used for authentication. When used in a request header, these tokens can contain special characters that may trigger a false positive from the WAF rules. By adding the header to an exclusion list, you can configure WAF to ignore the header, but WAF still evaluates the rest of the request.
+
+Exclusion lists are global in scope.
 
 The following attributes can be added to exclusion lists by name. The values of the chosen field aren't evaluated against WAF rules, but their names still are (see Example 1 below, the value of the User-Agent header is excluded from WAF evaluation). The exclusion lists remove inspection of the field's value.
 

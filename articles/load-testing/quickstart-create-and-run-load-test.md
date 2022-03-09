@@ -6,7 +6,7 @@ ms.service: load-testing
 ms.topic: quickstart
 author: ntrogh
 ms.author: nicktrog
-ms.date: 01/11/2022
+ms.date: 02/15/2022
 ms.custom: template-quickstart, mode-other
 adobe-target: true
 ---
@@ -33,6 +33,10 @@ If you already have a Load Testing resource, skip this section and continue to [
 To create a Load Testing resource:
 
 [!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
+
+## <a name="role_assignment"></a> Configure role-based access
+
+[!INCLUDE [azure-load-testing-role-assignment](../../includes/azure-load-testing-role-assignment.md)]
 
 ## <a name="jmeter"></a> Create an Apache JMeter script
 

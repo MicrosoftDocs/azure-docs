@@ -67,7 +67,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 3. Add Evercate from the Azure AD application gallery
 
-Add Evercate from the Azure AD application gallery to start managing provisioning to Evercate. If you have previously setup Evercate for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Evercate from the Azure AD application gallery to start managing provisioning to Evercate. If you have previously setup Evercate for SSO, you can use the same application. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -100,7 +100,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Evercate Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Evercate. If the connection fails, ensure your Evercate account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your Evercate Tenant URL as `https://adscimprovisioning.evercate.com/scim` and corresponding Secret Token. Click **Test Connection** to ensure Azure AD can connect to Evercate. If the connection fails, ensure your Evercate account has Admin permissions and try again.
 
  	![Token](common/provisioning-testconnection-tenanturltoken.png)
 

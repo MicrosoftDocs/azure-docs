@@ -71,4 +71,4 @@ Use [application settings](luis-reference-application-settings.md) to control ho
 
 ## Next steps
 
-See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
+See [Add entities](how-to/entities.md) to learn more about how to add entities to your LUIS app.

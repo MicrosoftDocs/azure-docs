@@ -3,13 +3,13 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 01/26/2022
+ms.date: 03/04/2022
 ms.author: madsd
 
 ---
 # Integrate your app with an Azure virtual network
 
-This article describes the Azure App Service VNet integration feature and how to set it up with apps in [App Service](./overview.md). With [Azure virtual networks](../virtual-network/virtual-networks-overview.md) (VNets), you can place many of your Azure resources in a non-internet-routable network. The App Service VNet integration feature enables your apps to access resources in or through a virtual network. Virtual network integration doesn't enable your apps to be accessed privately.
+This article describes the Azure App Service virtual network integration feature and how to set it up with apps in [App Service](./overview.md). With [Azure virtual networks](../virtual-network/virtual-networks-overview.md), you can place many of your Azure resources in a non-internet-routable network. The App Service virtual network integration feature enables your apps to access resources in or through a virtual network. Virtual network integration doesn't enable your apps to be accessed privately.
 
 App Service has two variations:
 
@@ -91,6 +91,20 @@ Learn [how to configure application routing](./configure-vnet-integration-routin
 
 We recommend that you use the **Route All** configuration setting to enable routing of all traffic. Using the configuration setting allows you to audit the behavior with [a built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). The existing WEBSITE_VNET_ROUTE_ALL app setting can still be used, and you can enable all traffic routing with either setting.
 
+#### Configuration routing
+
+When you are using virtual network integration, you can configure how parts of the configuration traffic is managed. By default, the mentioned configurations will go directly to the internet unless you actively configure it to be routed through the virtual network integration.
+
+##### Content storage
+
+Bringing you own storage for content in often used in Functions where [content storage](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
+
+To route content storage traffic through the virtual network integration, you need to add an app setting named `WEBSITE_CONTENTOVERVNET` with the value `1`. In addition to adding the app setting, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
+
+##### Container image pull
+
+When using custom containers for Linux, you can pull the container over the virtual network integration. To route the container pull traffic through the virtual network integration, you must add an app setting named `WEBSITE_PULL_IMAGE_OVER_VNET` with the value `true`.
+
 #### Network routing
 
 You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. When **Route All** is disabled in [application routing](#application-routing), only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests.
@@ -130,7 +144,7 @@ After your app integrates with your virtual network, it uses the same DNS server
 
 There are some limitations with using regional virtual network integration:
 
-* The feature is available from all App Service scale units in Premium v2 and Premium v3. It's also available in Standard but only from newer App Service scale units. If you're on an older scale unit, you can only use the feature from a Premium v2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium v3 App Service plan. Those plans are only supported on our newest scale units. You can scale down if you want after the plan is created.
+* The feature is available from all App Service deployments in Premium v2 and Premium v3. It's also available in Standard but only from newer App Service deployments. If you're on an older deployment, you can only use the feature from a Premium v2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium v3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you want after the plan is created.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
 * You can't reach resources across peering connections with classic virtual networks.
 * The feature requires an unused subnet that's an IPv4 `/28` block or larger in an Azure Resource Manager virtual network.

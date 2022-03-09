@@ -32,7 +32,7 @@ ms.author: lajanuar
 | Amharic | `am` |✔|✔||||
 | Arabic | `ar` |✔|✔|✔|✔|✔|
 | Armenian | `hy` |✔|✔||✔||
-| Assamese | `as` |✔|✔||||
+| Assamese | `as` |✔|✔|✔|||
 | Azerbaijani | `az` |✔|✔||||
 | Bangla | `bn` |✔|✔|✔||✔|
 | Bashkir | `ba` |✔|||||
@@ -88,7 +88,7 @@ ms.author: lajanuar
 | Macedonian | `mk` |✔|||✔||
 | Malagasy | `mg` |✔|✔|✔|||
 | Malay | `ms` |✔|✔|✔|✔|✔|
-| Malayalam | `ml` |✔|✔||||
+| Malayalam | `ml` |✔|✔|✔|||
 | Maltese | `mt` |✔|✔|✔|✔|✔|
 | Maori | `mi` |✔|✔|✔|||
 | Marathi | `mr` |✔|✔|✔|||
@@ -97,7 +97,7 @@ ms.author: lajanuar
 | Myanmar | `my` |✔|✔||✔||
 | Nepali | `ne` |✔|✔||||
 | Norwegian | `nb` |✔|✔|✔|✔|✔|
-| Odia | `or` |✔|✔||||
+| Odia | `or` |✔|✔|✔|||
 | Pashto | `ps` |✔|✔||✔||
 | Persian | `fa` |✔|✔|✔|✔|✔|
 | Polish | `pl` |✔|✔|✔|✔|✔|
@@ -116,9 +116,9 @@ ms.author: lajanuar
 | Swahili | `sw` |✔|✔|✔|✔|✔|
 | Swedish | `sv` |✔|✔|✔|✔|✔|
 | Tahitian | `ty` |✔| |✔|✔||
-| Tamil | `ta` |✔|✔|||✔|
+| Tamil | `ta` |✔|✔|✔||✔|
 | Tatar | `tt` |✔|||||
-| Telugu | `te` |✔|✔||||
+| Telugu | `te` |✔|✔|✔|||
 | Thai | `th` |✔| |✔|✔|✔|
 | Tibetan | `bo` |✔||||
 | Tigrinya | `ti` |✔|✔||||
@@ -126,6 +126,7 @@ ms.author: lajanuar
 | Turkish | `tr` |✔|✔|✔|✔|✔|
 | Turkmen | `tk` |✔||||
 | Ukrainian | `uk` |✔|✔|✔|✔|✔|
+| 🆕 </br> Upper Sorbian | `hsb` |✔|||||
 | Urdu | `ur` |✔|✔|✔|✔|✔|
 | Uyghur | `ug` |✔||||
 | Uzbek (Latin | `uz` |✔|||✔||

@@ -154,6 +154,9 @@ You can also monitor restore progress from the Recovery Services vault:
  >[!NOTE]
  > Folders will be restored with original permissions if there is atleast one file present in them.
 
+ >[!NOTE]
+ > Trailing dots in any directory path can lead to failures in the restore.
+
 ## Next steps
 
 * Learn how to [Manage Azure file share backups](manage-afs-backup.md).

@@ -70,7 +70,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure DDoS Protection | [Logging for Azure DDoS Protection Standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Azure Digital Twins | [Set up Azure Digital Twins diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Azure Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
-| Azure ExpressRoute | Schema not available |
+| Azure ExpressRoute | [Monitoring Azure ExpressRoute](../../expressroute/monitor-expressroute.md#collection-and-routing) |
 | Azure Firewall | [Logging for Azure Firewall](../../firewall/logs-and-metrics.md#diagnostic-logs) |
 | Azure Front Door | [Logging for Azure Front Door](../../frontdoor/front-door-diagnostics.md) |
 | Azure IoT Hub | [IoT Hub operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
@@ -89,7 +89,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Azure Traffic Manager | [Traffic Manager log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Azure Virtual Network | Schema not available |
-| Virtual network gateways | Schema not available |
+| Virtual network gateways | [Logging for Virtual Network Gateways](../../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md)|
 
 
 

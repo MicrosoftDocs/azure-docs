@@ -86,7 +86,7 @@ az feature register --namespace Microsoft.RedHatOpenShift --name preview
 
 A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended.
 
-1. [Navigate to your Red Hat OpenShift cluster manager portal](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and log in.
+1. [Navigate to your Red Hat OpenShift cluster manager portal](https://console.redhat.com/openshift/install/azure/aro-provisioned) and log in.
 
    You will need to log in to your Red Hat account or create a new Red Hat account with your business email and accept the terms and conditions.
 
