@@ -329,7 +329,7 @@ If the underlying model does not support the `predict_proba()` function or the f
 
 For BERT, the model is fine-tuned and trained utilizing the user-provided labels. From here, document embeddings are output as features alongside others, like timestamp-based features, day of week. 
 
-Learn how to [set up natural language processing experiments that use BERT with automated ML](how-to-auto-train-nlp-models.md).
+Learn how to [set up natural language processing (NLP) experiments that also use BERT with automated ML](how-to-auto-train-nlp-models.md).
 
 ### Steps to invoke BERT
 
