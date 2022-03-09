@@ -11,3 +11,5 @@ ms.author: inhenkel
 ## List all transforms
 
 :::code language="azurecli" source="~/media-services-v3-python/cli/code-snippets.sh" id="AmsTransformList" interactive="azurecli-interactive":::
+
+For more information about this command, see the Media Services [CLI reference](/cli/azure/ams/transform?view=azure-cli-latest#az-ams-transform-list).

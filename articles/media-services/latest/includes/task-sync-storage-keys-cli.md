@@ -11,3 +11,5 @@ ms.author: inhenkel
 ## Synchronize storage account keys for a Media Services account storage account
 
 :::code language="azurecli" source="~/media-services-v3-python/cli/code-snippets.sh" id="AccountStorageSyncStorageKeys" interactive="azurecli-interactive":::
+
+For more information about this command, see the Media Services [CLI reference](/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-sync-storage-keys).

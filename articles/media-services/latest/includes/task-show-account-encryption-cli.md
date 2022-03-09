@@ -11,3 +11,5 @@ ms.author: inhenkel
 ## Show account encryption
 
 :::code language="azurecli" source="~/media-services-v3-python/cli/code-snippets.sh" id="AmsAccountEncryptionShow" interactive="azurecli-interactive":::
+
+For more information about this command, see the Media Services [CLI reference](/cli/azure/ams/account/encryption?view=azure-cli-latest#az-ams-account-encryption-show).
