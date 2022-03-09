@@ -921,12 +921,6 @@
         href: managed-instance/replication-between-two-instances-configure-tutorial.md
       - name: MI pub, MI dist, SQL sub
         href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
-    - name: Managed Instance link feature
-      items:
-      - name: Use SSMS to replicate database
-        href: managed-instance/managed-instance-link-use-ssms-to-replicate-database.md
-      - name: Use SSMS to failover database
-        href: managed-instance/managed-instance-link-use-ssms-to-failover-database.md
 
   - name: Migration guides
     items: 
@@ -1234,6 +1228,13 @@
         href: managed-instance/log-replay-service-migrate.md
       - name: Migrate TDE cert 
         href: managed-instance/tde-certificate-migrate.md
+
+    - name: Use Managed Instance link
+      items:
+      - name: to replicate databases in SSMS
+        href: managed-instance/managed-instance-link-use-ssms-to-replicate-database.md
+      - name: to failover databases in SSMS
+        href: managed-instance/managed-instance-link-use-ssms-to-failover-database.md
 
     - name: Configure business continuity 
       items: 
