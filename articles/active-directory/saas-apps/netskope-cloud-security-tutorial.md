@@ -178,30 +178,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    g. Click **SUBMIT**.
 
-### Create Netskope Administrator Console test user
-
-1. Open a new tab in your browser, and sign in to your Netskope Administrator Console company site as an administrator.
-
-1. Click on the **Settings** tab from the left navigation pane.
-
-   ![Screenshot shows Settings selected.](./media/netskope-cloud-security-tutorial/configure-settings.png)
-
-1. Click **Active Platform** tab.
-
-   ![Screenshot shows Active Platform selected from Settings.](./media/netskope-cloud-security-tutorial/user-1.png)
-
-1. Click **Users** tab.
-
-   ![Screenshot shows Users selected from Active Platform.](./media/netskope-cloud-security-tutorial/add-user.png)
-
-1. Click **ADD USERS**.
-
-   ![Screenshot shows the Users dialog box where you can select ADD USERS.](./media/netskope-cloud-security-tutorial/user-add.png)
-
-1. Enter the email address of the user you want to add and click **ADD**.
-
-   ![Screenshot shows Add Users where you can enter a list of users.](./media/netskope-cloud-security-tutorial/add-user-popup.png)
-
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options.
