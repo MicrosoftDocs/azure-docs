@@ -352,7 +352,7 @@
   - name: Python
     href: /python/api/overview/azure/event-grid
   - name: Node.js
-    href: /javascript/api/overview/azure/eventgrid  
+    href: /javascript/api/overview/azure/event-grid  
   - name: Quotas and limits
     href: quotas-limits.md
   - name: Subscription schema
