@@ -1,7 +1,7 @@
 ---
-title: Share distributed tracing data
+title: Export, upload and share traces
 titleSuffix: Azure Private 5G Core Preview 
-description: In this how-to guide, learn how to export, upload and share your detailed distributed tracing data for diagnostics.
+description: In this how-to guide, learn how to export, upload and share your detailed traces for diagnostics.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -10,26 +10,28 @@ ms.date: 03/03/2022
 ms.custom: template-how-to
 ---
 
-# Export, upload and share distributed tracing data
+# Export, upload and share traces
 
 Azure Private 5G Core Preview offers a distributed tracing web GUI, which you can use to collect detailed traces for signaling flows involving packet core instances. You can export these traces and upload them to a storage account to allow your support representative to access them and provide troubleshooting assistance.
 
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
-- Ensure you can sign in to the distributed tracing web GUI.
+- Ensure you can sign in to the distributed tracing web GUI as described in [Distributed tracing](distributed-tracing.md).
 
 ## Create a storage account and blob container in Azure
 
-First, we'll create a storage account and a container resource to store the traces.
+ When uploading and sharing a trace for the first time, you'll need create a storage account and a container resource to store your traces. You can skip this step if this has already been done.
 
-1. [Create a storage account with enabled support for version-level immutability](../storage/blobs/immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability).
-1. [Configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account. <!-- Why is this needed? What retention interval should they set? -->
+1. [Create a storage account](../storage/common/storage-account-create.md) with the following configuration: 
+    1. In the **Advanced** tab, select **Enable storage account access**. This will allow your support representative to download traces stored in this account using the URLs you share with them.
+    1. In the **Data protection** tab, under **Access control**, select **Enable version-level immutability support**. When you check this box, the box for **Enable versioning for blobs** is also automatically checked. This will allow you to specify a default version-level time-based retention policy for the account in the next step.
+1. If you would like the traces in your storage account to be deleted automatically after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
 1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your traces.
 
 ## Export trace from the distributed tracing web GUI
 
-In this step, we'll export the trace from the distributed tracing web GUI and save it locally.
+In this step, you'll export the trace from the distributed tracing web GUI and save it locally.
 
 1. Sign in to the distributed tracing web GUI. <!-- at [link]? -->
 1. In the **Search** tab, specify the SUPI and time for the event you are interested in and select **Search**.
@@ -46,7 +48,7 @@ In this step, we'll export the trace from the distributed tracing web GUI and sa
 
 ## Upload trace to your blob container
 
-Let's upload the trace to the container you created in [Create a storage account and blob container in Azure](#create-a-storage-account-and-blob-container-in-azure).
+You can now upload the trace to the container you created in [Create a storage account and blob container in Azure](#create-a-storage-account-and-blob-container-in-azure).
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. Navigate to your Storage account resource.
@@ -61,7 +63,7 @@ Let's upload the trace to the container you created in [Create a storage account
 
 ## Create URL for sharing the trace
 
-We'll now generate a URL for your trace that you can share with your support representative for assistance with troubleshooting.
+You'll now generate a URL for your trace that you can share with your support representative for assistance with troubleshooting.
 
 1. Navigate to your Container resource.
     
@@ -72,11 +74,14 @@ We'll now generate a URL for your trace that you can share with your support rep
 
     :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-tab.png" alt-text="Screenshot of the Azure portal showing the container overview and the trace blob information window. The Generate S A S tab is highlighted." lightbox="media\distributed-tracing-share-traces\generate-sas-tab.png":::
 
-1. Fill out the fields and select **Generate SAS token and URL**.
+1. Fill out the fields with the following configuration:
+    1. Under **Signing method**, select **Account key**. This will allow anyone with access to the URL you generate to download your trace by pasting the URL into a browser.
+
+1. Select **Generate SAS token and URL**.
 
     :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-token-and-url.png" alt-text="Screenshot of the Azure portal showing the Generate S A S tab in the trace blob information window. The Generate S A S token and U R L button is highlighted." lightbox="media\distributed-tracing-share-traces\generate-sas-token-and-url.png":::
 
-1. Copy the contents of the **Blob SAS URL** field. Anyone with access can download your trace by pasting this URL into a browser. <!-- Access to what? Do we need more instructions to provide permission? -->
+1. Copy the contents of the **Blob SAS URL** field and share the URL with your support representative
 
 ## Delete trace
 

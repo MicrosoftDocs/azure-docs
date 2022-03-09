@@ -62,7 +62,7 @@ items:
       href: activate-sims.md
   - name: Distributed tracing
     items:
-    - name: Share distributed tracing data
+    - name: Export, upload and share traces
       href: distributed-tracing-share-traces.md
 - name: Reference
   items:
