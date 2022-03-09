@@ -53,7 +53,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
     - **Microsoft Defender for IoT**: Turn this on to add an extra layer of threat protection to IoT and your devices. This option is not available for hubs in the free tier. Learn more about [security recommendations for IoT Hub in Defender for IoT](../articles/defender-for-iot/device-builders/concept-recommendations.md).
 
-    - **Role-based access control**: Choose how access to the IoT hub is managed, whether shared access policies are allowed or only role-based access control is supported. For more information, see [Control access to IoT Hub by using Azure Active Directory](iot-hub-dev-guide-azure-ad-rbac.md).
+    - **Role-based access control**: Choose how access to the IoT hub is managed, whether shared access policies are allowed or only role-based access control is supported. For more information, see [Control access to IoT Hub by using Azure Active Directory](../articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md).
 
     - **Device-to-cloud partitions**: This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most hubs need only four partitions.
 
