@@ -28,7 +28,7 @@ This article shows you how to deploy a dual stack (IPv4 + IPv6) application in A
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.sh" range="4-82":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.sh" id="FullScript":::
 
 > [!TIP]
 > You can view the IPv6 dual stack virtual network in Azure portal on the virtual network page.
