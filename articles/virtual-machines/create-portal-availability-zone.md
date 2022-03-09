@@ -79,7 +79,7 @@ Some people will see a new preview experience in the portal. If **Availabiity op
         -	Upload a certificate and add the password (application gateway will manage certificate storage).For certificate name, type a friendly name for the certificate.
         - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**.
         > [!NOTE]
-        > A separate subnet will be defined for Application Gateway upon creation. More details on subnet creation can be found here.
+        > A separate subnet will be defined for Application Gateway upon creation. For more information, see [Application Gateway infrastructure configuration](../application-gateway/configuration-infrastructure.md).
 
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
