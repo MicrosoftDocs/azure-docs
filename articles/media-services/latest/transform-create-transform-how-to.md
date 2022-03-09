@@ -28,16 +28,21 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 [Create a Media Services account](./account-create-how-to.md).
 
-## Code snippets
+## Methods
+
+You can use the following methods to create a transform.
 
 ## [Portal](#tab/portal/)
 
 [!INCLUDE [task-create-asset-portal](includes/task-create-transform-portal.md)]
 
+## [CLI](#tab/cli/)
+
+[!INCLUDE [task-create-asset-portal](includes/task-create-transform-cli.md)]
 
 ## [REST](#tab/rest/)
 
-[!INCLUDE [task general transform creation](./includes/task-create-basic-audio-rest.md)]
+See the Media Services [REST API](/rest/api/media/transforms/create-or-update).
 
 ---
 

@@ -4,7 +4,7 @@ description: "This tutorial shows how to use GitOps with Flux v2 to manage confi
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 2/22/2022
+ms.date: 03/09/2022
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli
 ---
@@ -118,6 +118,9 @@ False          whl             connectedk8s           C:\Users\somename\.azure\c
 False          whl             k8s-configuration      C:\Users\somename\.azure\cliextensions\k8s-configuration    False     1.4.1
 False          whl             k8s-extension          C:\Users\somename\.azure\cliextensions\k8s-extension        False     1.0.4
 ```
+
+> [!TIP]
+> For help resolving any errors, see the Flux v2 suggestions in [Azure Arc-enabled Kubernetes and GitOps troubleshooting](troubleshooting.md#flux-v2---general).
 
 ## Apply a Flux configuration by using the Azure CLI
 
@@ -1002,9 +1005,9 @@ Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) 
 >[!NOTE]
 >This will be a breaking change if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects.  It [may also be a breaking change](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default) if you use a Kubernetes version less than 1.20.6. To prepare for the release of this multi-tenancy feature, take these actions:
 >
->* Upgrade to Kubernetes version 1.20.6 or greater.
->* In your Kubernetes manifests assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
->    * If you need time to update your manifests, you can opt-out of multi-tenancy. However, you still need to upgrade your Kubernetes version.
+> * Upgrade to Kubernetes version 1.20.6 or greater.
+> * In your Kubernetes manifests assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
+>   * If you need time to update your manifests, you can opt-out of multi-tenancy. However, you still need to upgrade your Kubernetes version.
 
 ### Update manifests for multi-tenancy
 
