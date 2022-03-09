@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Configure a single instance inbound NAT rule using the Azure portal
 
-Port forwarding lets you connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
+Inbound NAT rules allow you connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
 
 For more information about Azure Load Balancer rules, see [Manage rules for Azure Load Balancer using the Azure portal](manage-rules-how-to.md).
 
