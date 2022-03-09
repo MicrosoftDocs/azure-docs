@@ -93,7 +93,7 @@ az vmss create \
     --zones 1
 ```
 
-For a complete example of a single-zone scale set and network resources, see [this sample CLI script](scripts/cli-sample-single-availability-zone-scale-set.md)
+For a complete example of a single-zone scale set and network resources, see [this sample CLI script](scripts/cli-sample-single-availability-zone-scale-set.md#run-the-script)
 
 ### Zone-redundant scale set
 
