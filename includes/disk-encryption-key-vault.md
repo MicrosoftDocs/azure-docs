@@ -111,9 +111,9 @@ Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) to enable disk 
 
 ### Azure portal
 
-1. Select your key vault, go to **Access Policies**, and **Click to show advanced access policies**.
-2. Select the box labeled **Enable access to Azure Disk Encryption for volume encryption**.
-3. Select **Enable access to Azure Virtual Machines for deployment** and/or **Enable Access to Azure Resource Manager for template deployment**, if needed. 
+1. Select your key vault and go to **Access Policies**.
+2. Under "Enable Access to", select the box labeled **Azure Disk Encryption for volume encryption**.
+3. Select **Azure Virtual Machines for deployment** and/or **Azure Resource Manager for template deployment**, if needed. 
 4. Click **Save**.
 
     ![Azure key vault advanced access policies](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)

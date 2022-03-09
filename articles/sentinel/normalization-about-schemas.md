@@ -62,8 +62,8 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |**FQDN**        |   String      |    A fully qualified domain name using a dot notation, for example, `docs.microsoft.com`. For more information, see [The Device entity](#the-device-entity). |
 |<a name="hostname"></a>**Hostname** | String | A hostname which is not an FQDN, includes up to 63 characters including letters, numbers and hyphens. For more information, see [The Device entity](#the-device-entity).|
 |<a name="domaintype"></a>**DomainType** | Enumerated | The type of domain stored in domain and FQDN fields. Supported values include `FQDN` and `Windows`. For more information, see [The Device entity](#the-device-entity). |
-|<a name="dvcidtype"></a>**DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. Supported values include `AzureResourceId`, `MDEid`, `MD4IoTid`, `VMConnectionId`, `AwsVpcId`, and `Other`. For more information, see [The Device entity](#the-device-entity). |
-|<a name="devicetype"></a>**DeviceType** | Enumerated | The type of the device stored in DeviceType fields. For a list of allowed values and further information refer to [DeviceType](#devicetype). |
+|<a name="dvcidtype"></a>**DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. Supported values include `AzureResourceId`, `MDEid`, `MD4IoTid`, `VMConnectionId`, `AwsVpcId`, `VectraId`, and `Other`. For more information, see [The Device entity](#the-device-entity). |
+|<a name="devicetype"></a>**DeviceType** | Enumerated | The type of the device stored in DeviceType fields. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other`. For more information, see [The Device entity](#the-device-entity). |
 |<a name="username"></a>**Username** | String | A valid username in one of the supported [types](#usernametype). For more information, see [The User entity](#the-user-entity). |
 |<a name="usernametype"></a>**UsernameType** | Enumerated | The type of username stored in username fields. Supported values include `UPN`, `Windows`, `DN`, `Simple`, and `Unknown`. For more information, see [The User entity](#the-user-entity). |
 |<a name="useridtype"></a>**UserIdType** | Enumerated | The type of the ID stored in user ID fields. <br><br>Supported values are `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. For more information, see [The User entity](#the-user-entity).  |
@@ -103,8 +103,8 @@ The following fields are defined by ASIM for all schemas:
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | Optional    | String     |     A general message or description, either included in or generated from the record.   |
 | **EventCount**          | Mandatory   | Integer    |     The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record might represent multiple events. <br><br>For other sources, set to `1`.   |
-| **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time that the first event was generated. <br><br>Otherwise, this field aliases the [TimeGenerated](#timegenerated) field. |
-| **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
+| **EventStartTime**      | Mandatory   | Date/time  |      The time in which the event started. If the source supports aggregation and the record represents multiple events, the time that the first event was generated. If not provided by the source record, this field aliases the [TimeGenerated](#timegenerated) field. |
+| **EventEndTime**        | Mandatory   | Date/time      | The time in which the event ended. If the source supports aggregation and the record represents multiple events, the time that the last event was generated. If not provided by the source record, this field aliases the [TimeGenerated](#timegenerated) field.    |
 |  <a name="eventtype"></a>**EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalType](#eventoriginaltype) field. |
 | <a name="eventsubtype"></a>**EventSubType** | Optional | Enumerated | Describes a subdivision of the operation reported in the [EventType](#eventtype) field. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalSubType](#eventoriginalsubtype) field. |
 | <a name="eventresult"></a>**EventResult** | Mandatory | Enumerated | One of the following values: **Success**, **Partial**, **Failure**, **NA** (Not Applicable).<br> <br>The value might be provided in the source record by using different terms, which should be normalized to these values. Alternatively, the source might provide only the [EventResultDetails](#eventresultdetails) field, which should be analyzed to derive the EventResult value.<br><br>Example: `Success`|
@@ -115,9 +115,9 @@ The following fields are defined by ASIM for all schemas:
 | <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails** | Optional | String | The original result details provided by the source. This value is used to derive [EventResultDetails](#eventresultdetails), which should have only one of the values documented for each schema. |
 | <a name="eventseverity"></a>**EventSeverity** | Enumerated | String | The severity of the event. Valid values are: `Informational`, `Low`, `Medium`, or `High`. | 
 | <a name="eventoriginalseverity"></a>**EventOriginalSeverity** | Optional | String | The original severity as provided by the source. This value is used to derive [EventSeverity](#eventseverity). | 
-| <a name="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field might not be available in the source record. In such cases, this field must be set by the parser.           |
+| <a name="eventproduct"></a>**EventProduct**        | Mandatory   | String     |  The product generating the event. The value should be one of the values listed in [Vendors and Products](#vendors-and-products).<br><br>Example: `Sysmon`  |
 | **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`      |
-| <a name="eventvendor"></a>**EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field might not be available in the source record. In such cases, this field must be set by the parser.  |
+| <a name="eventvendor"></a>**EventVendor**  | Mandatory   | String     |   The vendor of the product generating the event. The value should be one of the values listed in [Vendors and Products](#vendors-and-products).<br><br>Example: `Microsoft`  <br><br>  |
 | **EventSchema** | Mandatory | String | The schema the event is normalized to. Each schema documents its schema name. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. Each schema documents its current version.         |
 | **EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides more information about the event.|
@@ -274,6 +274,29 @@ Based on these entities, [Windows event 4624](/windows/security/threat-protectio
 |**TargetHostname**     |   Computer      |  WIN-GG82ULGC9GO	       |         |
 |**Hostname**     |     Computer    |     Alias    |         |
 | | | | |
+
+## Vendors and products
+
+To maintain consistency, the list of allowed vendors and products is set as part of ASIM, and may not directly correspond to the value sent by the source, when available.
+
+The currently supported list of vendors and products used in the [EventVendor](#eventvendor) and [EventProduct](#eventproduct) fields respectively is:
+
+| Vendor | Products |
+| ------ | -------- | 
+| Apache | Squid Proxy | 
+| AWS | - CloudTrail<br> - VPC | 
+| Cisco | - ASA<br> - Umbrella |
+| Corelight | Zeek | 
+| GCP | Cloud DNS | 
+| Infoblox | NIOS | 
+| Microsoft | - AAD<br> - Azure Firewall<br> - Azure File Storage<br>    - Azure NSG flows<br> -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
+| Okta | Okta | 
+| Palo Alto | - PanOS<br> - CDL<br> |
+| Vectra AI | Vectra Steam |
+| Zscaler |  - ZIA DNS<br> - ZIA Firewall<br> - ZIA Proxy |
+|||
+
+If you are developing a parser for a vendor or a product which are not listed here, contact the [Microsoft Sentinel](mailto:azuresentinel@microsoft.com) team to allocate a new allowed vendor and product designators. 
 
 ## Next steps
 

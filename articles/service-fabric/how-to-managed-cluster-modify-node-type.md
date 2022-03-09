@@ -2,7 +2,7 @@
 title: Configure or modify a Service Fabric managed cluster node type
 description: This article walks through how to modify a managed cluster node type
 ms.topic: how-to
-ms.date: 12/10/2021 
+ms.date: 2/14/2022 
 ---
 
 # Service Fabric managed cluster node types
@@ -192,7 +192,7 @@ You can choose to enable automatic OS image upgrades to the virtual machines run
 
 To enable automatic OS upgrades:
 
-* Use the `2021-05-01` (or later) version of *Microsoft.ServiceFabric/managedclusters* and *Microsoft.ServiceFabric/managedclusters/nodetypes* resources
+* Use apiVersion `2021-05-01` or later version of *Microsoft.ServiceFabric/managedclusters* and *Microsoft.ServiceFabric/managedclusters/nodetypes* resources
 * Set the cluster's property `enableAutoOSUpgrade` to *true*
 * Set the cluster nodeTypes' resource property `vmImageVersion` to *latest*
 
@@ -200,7 +200,7 @@ For example:
 
 ```json
     {
-      "apiVersion": "2021-05-01",
+      "apiVersion": "[variables('sfApiVersion')]",
       "type": "Microsoft.ServiceFabric/managedclusters",
       ...
       "properties": {
@@ -209,7 +209,7 @@ For example:
       },
     },
     {
-      "apiVersion": "2021-05-01",
+      "apiVersion": "[variables('sfApiVersion')]",
       "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
        ...
       "properties": {
@@ -339,7 +339,7 @@ Service Fabric managed cluster does not support in-place modification of the VM 
 * [Delete old node type via portal or PowerShell](how-to-managed-cluster-modify-node-type.md#remove-a-node-type). To remove a primary node type you will have to use PowerShell.
 
 
-## Configure multiple managed disks (preview)
+## Configure multiple managed disks
 Service Fabric managed clusters by default configure one managed disk. By configuring the following optional property and values, you can add more managed disks to node types within a cluster. You are able to specify the drive letter, disk type, and size per disk.
 
 Configure more managed disks by declaring `additionalDataDisks` property and required parameters in your Resource Manager template as follows:
@@ -348,7 +348,7 @@ Configure more managed disks by declaring `additionalDataDisks` property and req
 * Lun must be unique per disk and can not use reserved lun 0
 * Disk letter cannot use reserved letters C or D and cannot be modified once created. S will be used as default if not specified.
 * Must specify a [supported disk type](how-to-managed-cluster-managed-disk.md)
-* The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
 ```json
      {
@@ -369,12 +369,12 @@ Configure more managed disks by declaring `additionalDataDisks` property and req
 
 See [full list of parameters available](/azure/templates/microsoft.servicefabric/2021-11-01-preview/managedclusters)
 
-## Configure the Service Fabric data disk drive letter (preview)
+## Configure the Service Fabric data disk drive letter
 Service Fabric managed clusters by default configure a Service Fabric data disk and automatically configure the drive letter on all nodes of a node type. By configuring this optional property and value, you can specify and retrieve the Service Fabric data disk letter if you have specific requirements for drive letter mapping.
 
 **Feature Requirements**
 * Disk letter cannot use reserved letters C or D and cannot be modified once created. S will be used as default if not specified.
-* The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
 ```json
      {

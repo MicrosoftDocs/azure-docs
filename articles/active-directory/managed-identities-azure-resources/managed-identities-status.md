@@ -71,6 +71,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure VM image builder          | [Configure Azure Image Builder Service permissions using Azure CLI](../../virtual-machines/linux/image-builder-permissions-cli.md#using-managed-identity-for-azure-storage-access)|
 | Azure Virtual Machine Scale Sets      | [Configure managed identities on virtual machine scale set - Azure CLI](qs-configure-cli-windows-vmss.md)                                                                  |
 | Azure Virtual Machines                | [Secure and use policies on virtual machines in Azure](../../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources)                                                                  |
+| Azure Web PubSub Service           | [Managed identities for Azure Web PubSub Service](../../azure-web-pubsub/howto-use-managed-identity.md)     |
 
 ## Next steps
 

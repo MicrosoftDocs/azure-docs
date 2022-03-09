@@ -177,3 +177,124 @@ Language| Locale code |
 |:-----|:----:|
 |English (United States)|en-us|
 
+## Detected languages by Read
+
+The [Read API](concept-read.md) supports language detection for the following languages:
+
+| Language            | Code |
+|---------------------|---------------|
+| Afrikaans           | `af`          |    
+| Albanian            | `sq`          |    
+| Amharic             | `am`          | 
+| Arabic              | `ar`          |
+| Armenian            | `hy`          | 
+| Assamese            | `as`          | 
+| Azerbaijani         | `az`          | 
+| Basque              | `eu`          |  
+| Belarusian          | `be`          |  
+| Bengali             | `bn`          |   
+| Bosnian             | `bs`          | 
+| Bulgarian           | `bg`          | 
+| Burmese             | `my`          | 
+| Catalan             | `ca`          |  
+| Central Khmer       | `km`          |  
+| Chinese             | `zh`          | 
+| Chinese Simplified  | `zh_chs`      |  
+| Chinese Traditional | `zh_cht`      | 
+| Corsican            | `co`          |
+| Croatian            | `hr`          | 
+| Czech               | `cs`          |
+| Danish              | `da`          | 
+| Dari                | `prs`         |
+| Divehi              | `dv`          | 
+| Dutch               | `nl`          | 
+| English             | `en`          |
+| Esperanto           | `eo`          | 
+| Estonian            | `et`          | 
+| Fijian              | `fj`          | 
+| Finnish             | `fi`          | 
+| French              | `fr`          | 
+| Galician            | `gl`          |
+| Georgian            | `ka`          | 
+| German              | `de`          |
+| Greek               | `el`          | 
+| Gujarati            | `gu`          |  
+| Haitian             | `ht`          | 
+| Hausa               | `ha`          | 
+| Hebrew              | `he`          |  
+| Hindi               | `hi`          | 
+| Hmong Daw           | `mww`         | 
+| Hungarian           | `hu`          | 
+| Icelandic           | `is`          |
+| Igbo                | `ig`          | 
+| Indonesian          | `id`          |
+| Inuktitut           | `iu`          | 
+| Irish               | `ga`          |    
+| Italian             | `it`          |    
+| Japanese            | `ja`          |    
+| Javanese            | `jv`          | 
+| Kannada             | `kn`          |   
+| Kazakh              | `kk`          | 
+| Kinyarwanda         | `rw`          | 
+| Kirghiz             | `ky`          | 
+| Korean              | `ko`          |  
+| Kurdish             | `ku`          |  
+| Lao                 | `lo`          |   
+| Latin               | `la`          |     
+| Latvian             | `lv`          |   
+| Lithuanian          | `lt`          |   
+| Luxembourgish       | `lb`          | 
+| Macedonian          | `mk`          | 
+| Malagasy            | `mg`          | 
+| Malay               | `ms`          | 
+| Malayalam           | `ml`          | 
+| Maltese             | `mt`          |  
+| Maori               | `mi`          | 
+| Marathi             | `mr`          | 
+| Mongolian           | `mn`          | 
+| Nepali              | `ne`          | 
+| Norwegian           | `no`          | 
+| Norwegian Nynorsk   | `nn`          | 
+| Oriya               | `or`          | 
+| Pasht               | `ps`          |  
+| Persian             | `fa`          | 
+| Polish              | `pl`          |  
+| Portuguese          | `pt`          | 
+| Punjabi             | `pa`          |  
+| Queretaro Otomi     | `otq`         | 
+| Romanian            | `ro`          | 
+| Russian             | `ru`          |  
+| Samoan              | `sm`          | 
+| Serbian             | `sr`          |  
+| Shona               | `sn`          | 
+| Sindhi              | `sd`          | 
+| Sinhala             | `si`          | 
+| Slovak              | `sk`          | 
+| Slovenian           | `sl`          | 
+| Somali              | `so`          |  
+| Spanish             | `es`          | 
+| Sundanese           | `su`          | 
+| Swahili             | `sw`          |   
+| Swedish             | `sv`          |
+| Tagalog             | `tl`          |  
+| Tahitian            | `ty`          | 
+| Tajik               | `tg`          | 
+| Tamil               | `ta`          | 
+| Tatar               | `tt`          | 
+| Telugu              | `te`          | 
+| Thai                | `th`          | 
+| Tibetan             | `bo`          |
+| Tigrinya            | `ti`          | 
+| Tongan              | `to`          | 
+| Turkish             | `tr`          | 
+| Turkmen             | `tk`          | 
+| Ukrainian           | `uk`          | 
+| Urdu                | `ur`          | 
+| Uzbek               | `uz`          |  
+| Vietnamese          | `vi`          | 
+| Welsh               | `cy`          |  
+| Xhosa               | `xh`          | 
+| Yiddish             | `yi`          |  
+| Yoruba              | `yo`          | 
+| Yucatec Maya        | `yua`         |  
+| Zulu                | `zu`          | 

@@ -24,6 +24,8 @@ Learn how to migrate from Studio (classic) to Azure Machine Learning. Azure Mach
 
 This is a guide for a basic "lift and shift" migration. If you want to optimize an existing machine learning workflow, or modernize a machine learning platform, see the [Azure Machine Learning adoption framework](https://aka.ms/mlstudio-classic-migration-repo) for additional resources including digital survey tools, worksheets, and planning templates.
 
+Please work with your Cloud Solution Architect on the migration. 
+
 ![Azure ML adoption framework](./media/migrate-overview/aml-adoption-framework.png)
 
 ## Recommended approach
@@ -58,6 +60,8 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 1. Define business justifications and expected outcomes.
 1. Align an actionable Azure Machine Learning adoption plan to business outcomes.
 1. Prepare people, processes, and environments for change.
+
+Please work with your Cloud Solution Architect to define your strategy. 
 
 See the [Azure Machine Learning Adoption Framework](https://aka.ms/mlstudio-classic-migration-repo) for planning resources including a planning doc template. 
 

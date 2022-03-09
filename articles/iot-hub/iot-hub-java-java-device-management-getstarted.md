@@ -6,7 +6,7 @@ author: wesmc7777
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: java, azurecli
+ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-java, devx-track-azurecli

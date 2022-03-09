@@ -6,13 +6,15 @@ author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 02/17/2022
 ms.author: inhenkel
 ---
 
 # Managed identities
 
 A common challenge for developers is the management of secrets and credentials to secure communication between different services. On Azure, managed identities eliminate the need for developers having to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
+
+[!INCLUDE [note-managed-identities-v3](includes/note-managed-identities-v3.md)]
 
 ## Media Services Managed Identity scenarios
 

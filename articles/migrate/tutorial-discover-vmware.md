@@ -121,7 +121,7 @@ To set up a new project:
 1. In **Overview**,  select one of the following options, depending on your migration goals: **Servers, databases and web apps**, **SQL Server (only)**, or **Explore more scenarios**.
 1. Select **Create project**.
 1. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-1. In **Project Details**, specify the project name and the geography where you want to create the project. Review [supported geographies for public clouds](migrate-support-matrix.md#supported-geographies-public-cloud) and [supported geographies for government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+1. In **Project Details**, specify the project name and the geography where you want to create the project. Review [supported geographies for public clouds](migrate-support-matrix.md#public-cloud) and [supported geographies for government clouds](migrate-support-matrix.md#azure-government).
 
     :::image type="content" source="./media/tutorial-discover-vmware/new-project.png" alt-text="Screenshot that shows how to add project details for a new Azure Migrate project.":::
 
@@ -187,7 +187,7 @@ Before you deploy the OVA file, verify that the file is secure:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
 
 #### Create the appliance server
 
@@ -339,4 +339,4 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 - Learn how to [assess servers to migrate to Azure VMs](./tutorial-assess-vmware-azure-vm.md).
 - Learn how to [assess servers running SQL Server to migrate to Azure SQL](./tutorial-assess-sql.md).
 - Learn how to [assess web apps to migrate to Azure App Service](./tutorial-assess-webapps.md).
-- Review [data the Azure Migrate appliance collects](migrate-appliance.md#collected-data---vmware) during discovery.
+- Review [data the Azure Migrate appliance collects](discovered-metadata.md#collected-metadata-for-vmware-servers) during discovery.

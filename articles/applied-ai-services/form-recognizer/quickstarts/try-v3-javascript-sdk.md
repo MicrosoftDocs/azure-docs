@@ -82,8 +82,8 @@ In this quickstart you'll use following features to analyze and extract data and
 
     > [!TIP]
     >
-    > * You can create a new file using Powershell.
-    > * Open a Powershell window in your project directory by holding down the Shift key and right-clicking the folder.
+    > * You can create a new file using PowerShell.
+    > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item index.js**.
 
 1. Open the `index.js` file in Visual Studio Code or your favorite IDE. First, we'll add the necessary libraries. Copy the following and paste it at the top of the file:

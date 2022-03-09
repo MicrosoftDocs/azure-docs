@@ -138,8 +138,8 @@ The following example sets the DNS name for a stateful service to `statefulsvc.a
     </Service>
 ```
 
-### Setting the DNS name for a service using Powershell
-You can set the DNS name for a service when creating it using the `New-ServiceFabricService` Powershell command. The following example creates a new stateless service with the DNS name `service1.application1`
+### Setting the DNS name for a service using PowerShell
+You can set the DNS name for a service when creating it using the `New-ServiceFabricService` PowerShell command. The following example creates a new stateless service with the DNS name `service1.application1`
 
 ```powershell
     New-ServiceFabricService `

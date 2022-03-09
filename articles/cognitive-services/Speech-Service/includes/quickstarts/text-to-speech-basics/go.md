@@ -6,13 +6,13 @@ ms.date: 07/02/2021
 ms.author: yulili
 ---
 
-[!INCLUDE [Header](../common/go.md)]
+[!INCLUDE [Header](../../common/go.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK
 
@@ -171,9 +171,29 @@ import (
 	"github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
 )
 
-func main(subscription string, region string) {
-    subscription := "<paste-your-speech-key-here>"
-    region := "<paste-your-speech-location/region-here>"
+func synthesizeStartedHandler(event speech.SpeechSynthesisEventArgs) {
+	defer event.Close()
+	fmt.Println("Synthesis started.")
+}
+
+func synthesizingHandler(event speech.SpeechSynthesisEventArgs) {
+	defer event.Close()
+	fmt.Printf("Synthesizing, audio chunk size %d.\n", len(event.Result.AudioData))
+}
+
+func synthesizedHandler(event speech.SpeechSynthesisEventArgs) {
+	defer event.Close()
+	fmt.Printf("Synthesized, audio length %d.\n", len(event.Result.AudioData))
+}
+
+func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
+	defer event.Close()
+	fmt.Println("Received a cancellation.")
+}
+
+func main() {
+	subscription := "<paste-your-speech-key-here>"
+	region := "<paste-your-speech-location/region-here>"
 
 	config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
 	if err != nil {

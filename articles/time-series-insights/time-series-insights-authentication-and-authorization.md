@@ -6,7 +6,7 @@ author: shreyasharmamsft
 ms.author: shresha
 manager: cnovak
 ms.reviewer: orspodek
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021

@@ -30,7 +30,7 @@ In this quickstart, you'll use following features to analyze and extract data an
 
 * [**Layout model**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt model**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
+* [**Prebuilt model**](#prebuilt-model)—Analyze and extract common fields from specific document types using a prebuilt model.
 
 ## Prerequisites
 
@@ -111,16 +111,11 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
     :::image type="content" source="../media/quickstarts/select-nuget-package.png" alt-text="Screenshot: select-nuget-package.png":::
 
- 1. Select the Browse tab and type Azure.AI.FormRecognizer.
+ 1. Select the Browse tab and type Azure.AI.FormRecognizer. 
 
      :::image type="content" source="../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
- 1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.*** from the dropdown menu.
-
- 1. Select **Install**.
-
-     :::image type="content" source="../media/quickstarts/prerelease-nuget-package.png" alt-text="{alt-text}":::
-
+ 1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.3*** from the dropdown menu and install the package in your project.
 <!-- --- -->
 ## Build your application
 

@@ -20,7 +20,7 @@ The OSM project was originated by Microsoft and has since been donated and is go
 OSM can be added to your Azure Kubernetes Service (AKS) cluster by enabling the OSM add-on using the [Azure CLI][osm-azure-cli] or a [Bicep template][osm-bicep]. The OSM add-on provides a fully supported installation of OSM that is integrated with AKS.
 
 > [!IMPORTANT]
-> The OSM add-on installs version *0.11.1* of OSM on your cluster.
+> The OSM add-on installs version *1.0.0* of OSM on your cluster.
 
 ## Capabilities and features
 
