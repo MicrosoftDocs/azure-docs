@@ -1,25 +1,25 @@
 ---
-title: Onboard a machine to Azure Automanage with an ARM template
-description: Learn how to onboard a machine to Azure Automanage with an Azure Resource Manager template.
+title: Onboard an Azure Arc-enabled server to Azure Automanage with an ARM template
+description: Learn how to onboard an Azure Arc-enabled server to Azure Automanage with an Azure Resource Manager template.
 ms.service: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 25/02/2022
 ---
 
-# Onboard a machine to Automanage with an Azure Resource Manager (ARM) template
+# Onboard an Azure Arc-enabled server to Automanage with an Azure Resource Manager (ARM) template
 
 
 ## Overview
-Follow the steps to onboard a machine to Automanage Best Practices using an ARM template.
+Follow the steps to onboard an Azure Arc-enabled server to Automanage Best Practices using an ARM template.
 
 ## Prerequisites
+* You must have an Azure Arc-enabled server already registered in your subscription
 * You must have necessary [Role-based access control permissions](./automanage-virtual-machines.md#required-rbac-permissions)
-* You must be in a supported region and supported VM image highlighted in these [prerequisites](./automanage-virtual-machines.md#prerequisites)
-
+* You must use one of the [supported operating systems](./automanage/automanage-arc#supported-operating-systems)
 
 ## ARM template overview
-The following ARM template will onboard your specified machine onto Azure Automanage Best Practices. Details on the ARM template and steps on how to deploy are located in the ARM template deployment [section](#arm-template-deployment).
+The following ARM template will onboard your specified Azure Arc-enabled server onto Azure Automanage Best Practices. Details on the ARM template and steps on how to deploy are located in the ARM template deployment [section](#arm-template-deployment).
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -34,7 +34,7 @@ The following ARM template will onboard your specified machine onto Azure Automa
     },
     "resources": [
         {
-            "type": "Microsoft.Compute/virtualMachines/providers/configurationProfileAssignments",
+            "type": "Microsoft.HybridCompute/machines/providers/configurationProfileAssignments",
             "apiVersion": "2021-04-30-preview",
             "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/default')]",
             "properties": {
@@ -46,7 +46,7 @@ The following ARM template will onboard your specified machine onto Azure Automa
 ```
 
 ## ARM template deployment
-This ARM template will create a configuration profile assignment for your specified machine. 
+This ARM template will create a configuration profile assignment for your specified Azure Arc-enabled machine. 
 
 The `configurationProfile` value can be one of the following values:
 * "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction"
@@ -61,4 +61,4 @@ Follow these steps to deploy the ARM template:
 As with any ARM template, it's possible to factor out the parameters into a separate `azuredeploy.parameters.json` file and use that as an argument when deploying.
 
 ## Next steps
-Learn more about Automanage for [Linux](./automanage-linux.md) and [Windows](./automanage-windows-server.md)
+Learn more about Automanage for [Azure Arc](./automanage-arc)
