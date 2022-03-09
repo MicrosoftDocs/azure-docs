@@ -20,6 +20,12 @@ This article shows you how to list the transforms in a Media Services transform.
 
 You can use the following methods to list the transforms in a Media Services transform.
 
-## CLI
+## [CLI](#tab/cli/)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-list-transforms-cli.md)]
+
+## [REST](#tab/rest/)
+
+See the Media Services [REST API](/rest/api/media/transforms/list).
+
+---

@@ -20,6 +20,10 @@ This article shows you how to update a Media Services transform.
 
 You can use the following methods to update a Media Services transform.
 
-## CLI
+## [CLI](#tab/cli/)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-update-transform-cli.md)]
+
+## [REST](#tab/rest/)
+
+See the Media Services [REST API](/rest/api/media/transforms/update).
