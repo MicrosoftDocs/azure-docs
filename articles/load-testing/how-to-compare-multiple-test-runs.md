@@ -8,7 +8,7 @@ ms.author: nicktrog
 author: ntrogh
 ms.date: 02/16/2022
 ms.topic: how-to
-
+ms.custom: contperf-fy22q3
 ---
 
 # Identify performance regressions by comparing test runs in Azure Load Testing Preview
