@@ -94,15 +94,6 @@ You should be able to export terms from glossary as long as the selected terms b
    > [!Important]
    > If the terms in a hierarchy belong to different term templates then you need to split them into different .CSV files for import. Also, updating a parent of a term is currently not supported using import process.
 
-## Business terms with approval workflow enabled
-
-If workflows are enabled on a term, then any creates, updates, or deletes to the term will go through approval before they are saved in data catalog. 
-
-1. For new terms with create approval workflow enabled on parent, you will see **Submit for approval** instead of **Create** after you have entered all the details. Selecting submit for approval will trigger the workflow.
-1. For updates to the existing terms with update approval workflow enabled on parent, you will see **Submit for approval** instead of **Save**. Select submit for approval will trigger the workflow. The changes will not be saved in catalog until all the approvals are met.
-1.  For deletion to the terms with delete approval workflow enabled on parent, you will see **Submit for approval** instead of **Delete**. Select submit for approval will trigger the workflow. However, the term will not be deleted from catalog until all the approvals are met.
-1.   For importing terms via .CSV with Import approval workflow enabled for Azure Purview's glossary, you will see **Submit for approval** instead of **OK** after the file is uploaded in Import blade. Select submit for approval will trigger the workflow. However, the terms in the file will not be updated in catalog until all the approvals are met.
-
 ## Delete terms
 
 1. Select **Data catalog** in the left navigation on the home page, and then select the **Manage glossary** button in the center of the page.
@@ -143,6 +134,21 @@ If workflows are enabled on a term, then any creates, updates, or deletes to the
 1. If there are no terms that need to be approved you'll be presented with **Delete** and **Cancel** buttons. Selecting **Delete** will delete all the selected terms.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/no-approval-needed.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Approval needed' column highlighted. All items are listed as no approval needed, so at the bottom, buttons available are 'Delete' and 'Cancel'." border="true":::
+
+
+## Business terms with approval workflow enabled
+
+If workflows are enabled on a term, then any creates, updates, or deletes to the term will go through approval before they are saved in data catalog. 
+
+- **New terms** - when a create approval workflow is enabled on the parent term, during the creation process you will see **Submit for approval** instead of **Create** after you have entered all the details. Selecting **Submit for approval** will trigger the workflow.
+
+- **Updates to existing terms** - when an update approval workflow is enabled on parent, you will see **Submit for approval** instead of **Save** when updating the term. Selecting **Submit for approval** will trigger the workflow. The changes will not be saved in catalog until all the approvals are met.
+
+- **Deletion** - when a delete approval workflow is enabled on the parent term, you will see **Submit for approval** instead of **Delete** when deleting the term. Selecting **Submit for approval** will trigger the workflow. However, the term will not be deleted from catalog until all the approvals are met.
+
+- **Importing terms** - when an import approval workflow enabled for Azure Purview's glossary, you will see **Submit for approval** instead of **OK** in the Import blade when importing terms via csv. Selecting **Submit for approval** will trigger the workflow. However, the terms in the file will not be updated in catalog until all the approvals are met.
+
+:::image type="content" source="media/how-to-create-import-export-glossary/create-submit-for-approval.png" alt-text="Screenshot of the  create new term window. The parent term requires approval, so the available buttons at the bottom of the page are 'Submit for approval' and 'Cancel'." border="true":::
 
 ## Next steps
 
