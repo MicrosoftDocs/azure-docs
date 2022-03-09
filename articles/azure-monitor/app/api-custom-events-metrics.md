@@ -632,7 +632,7 @@ Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever 
 
 *.NET*
 
-When using Flush(), we recommend this [pattern](./console#full-example):
+When using Flush(), we recommend this [pattern](./console.md#full-example):
 
 ```csharp
 telemetry.Flush();
