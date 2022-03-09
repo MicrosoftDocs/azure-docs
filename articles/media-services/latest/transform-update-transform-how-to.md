@@ -22,7 +22,7 @@ You can use the following methods to update a Media Services transform.
 
 ## [CLI](#tab/cli/)
 
-[!INCLUDE [Create an asset with CLI](./includes/task-update-transform-cli.md)]
+[!INCLUDE [Update a transform](./includes/task-update-transform-cli.md)]
 
 ## [REST](#tab/rest/)
 
