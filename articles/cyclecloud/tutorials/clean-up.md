@@ -45,6 +45,7 @@ If you've gone through all three tutorials, you've covered the installation, set
 
 ## Further Reading
 
+* [Plan your Production Deployment](../how-to/plan-prod-deployment.md)
 * Learn more about [clusters and nodes](../concepts/clusters.md)
 * Explore [cluster templates](../how-to/cluster-templates.md)
 * [Install CycleCloud manually](../how-to/install-manual.md)

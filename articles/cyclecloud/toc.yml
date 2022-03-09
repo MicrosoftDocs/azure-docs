@@ -40,6 +40,8 @@
   items:
   - name: CycleCloud
     items:
+    - name: Plan Your Production Deployment
+      href: ./how-to/plan-prod-deployment.md
     - name: Manually Install Application
       href: ./how-to/install-manual.md
     - name: Install CycleCloud CLI
