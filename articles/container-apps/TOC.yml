@@ -70,8 +70,8 @@
       href: azure-resource-manager-api-spec.md
 - name: Resources
   items:
-    - name: Pricing
-      href: pricing.md
+    - name: Billing
+      href: billing.md
     - name: Quotas
       href: quotas.md
     - name: Frequently asked questions

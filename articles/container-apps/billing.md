@@ -1,11 +1,11 @@
 ---
-title: Pricing in Azure Container Apps preview
+title: Billing in Azure Container Apps preview
 description: Learn how billing is calculated in Azure Container Apps preview
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 02/25/2022
+ms.date: 03/90/2022
 ms.author: cshoe
 ---
 
