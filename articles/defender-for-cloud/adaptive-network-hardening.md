@@ -94,7 +94,7 @@ To modify an adaptive network hardening rule:
    > [!NOTE]
    > After selecting **Save**, you have successfully changed the rule. *However, you have not applied it to the NSG.* To apply it, you must select the rule in the list, and select **Enforce** (as explained in the next step).
 
-   ![Selecting Save.](./media/adaptive-network-hardening/edit-hard-rule3.png)
+   ![Selecting Save.](./media/adaptive-network-hardening/edit-hard-rule-3.png)
 
 3. To apply the updated rule, from the list, select the updated rule and select **Enforce**.
 
