@@ -11,7 +11,7 @@ This article describes how to set up and use a gateway for more secure remote de
 
 DevTest Labs provides a central place for lab users to view and connect to their VMs. Selecting **Connect** > **RDP** on a lab VM's **Overview** page creates a machine-specific RDP file, and users can open the file to connect to the VM.
 
-With a remote desktop gateway, lab users connect to their VMs through a gateway machine. Users can authenticate directly to the gateway machine, and use company credentials on domain-joined machines.
+With a remote desktop gateway, lab users connect to their VMs through a gateway machine. Users authenticate directly to the gateway machine, and can use company-supplied credentials on domain-joined machines. Token authentication provides an extra layer of security.
 
 Another way to securely access lab VMs without exposing ports or IP addresses is through a browser with Azure Bastion. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
 
@@ -44,8 +44,10 @@ The following diagram shows how a remote desktop gateway applies token authentic
 When an RDP connection program opens the RDP file, the remote desktop gateway authenticates the token, and the connection forwards to the lab VM.
 
 > [!NOTE]
-> - Not all RDP connection programs support token authentication.
-> - The Azure function sets an expiration date for the authentication token. Be sure to connect to the VM before the token expires.
+> Not all RDP connection programs support token authentication.
+
+> [!IMPORTANT]
+> The Azure function sets an expiration date for the authentication token. A user must connect to the VM before the token expires.
 
 ## Configuration requirements
  
@@ -53,19 +55,21 @@ For gateway machines, domain name services (DNS), and Azure Functions to work wi
 
 ### Gateway machine requirements
 
-- The gateway machine must have a TLS/SSL certificate installed to handle HTTPS traffic. The certificate must match the fully qualified domain name (FQDN) of the gateway machine if there's only one machine, or the load balancer for a gateway farm. Wild-card TLS/SSL certificates don't work.
+The gateway machine must have the following configuration:
 
-- The gateway machine(s) must have a signing certificate installed. You can create a signing certificate by using the [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) PowerShell script.
+- A TLS/SSL certificate to handle HTTPS traffic. The certificate must match the fully qualified domain name (FQDN) of the gateway machine if there's only one machine, or the load balancer of a gateway farm. Wild-card TLS/SSL certificates don't work.
 
-- The gateway must have a [pluggable authentication module](https://en.wikipedia.org/wiki/Pluggable_authentication_module) that supports token authentication. One example is *RDGatewayFedAuth.msi*, which comes with [System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807&preserve-view=true) images.
+- A signing certificate. You can create a signing certificate by using the [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) PowerShell script.
 
-- The gateway server must be able to handle requests to `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`.
+- A [pluggable authentication module](https://en.wikipedia.org/wiki/Pluggable_authentication_module) that supports token authentication. One example is *RDGatewayFedAuth.msi*, which comes with [System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807&preserve-view=true) images.
 
-- You can use the [Application Routing Request module for Internet Information Server (IIS)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) to redirect `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` requests to the function app.
+- The ability to handle requests to `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`.
 
-### Azure function requirements
+You can use the [Application Routing Request module for Internet Information Server (IIS)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) to redirect `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` requests to the function app.
 
-An Azure function handles requests with the `https://{function-app-uri}/app/host/{lab-machine-name}/port/{port-number}` format, and returns the authentication token based on the gateway machine's signing certificate. The `{function-app-uri}` is the URI used to access the function.
+### Azure Functions requirements
+
+An Azure Functions function app handles requests with the `https://{function-app-uri}/app/host/{lab-machine-name}/port/{port-number}` format, and creates and returns the authentication token based on the gateway machine's signing certificate. The `{function-app-uri}` is the URI used to access the function.
 
 The request header must pass the function key, which it gets from the lab's key vault.
 
@@ -79,7 +83,7 @@ For a sample function, see [CreateToken.cs](https://github.com/Azure/azure-devte
 
 ## Create a remote desktop gateway
 
-The [Azure DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab) has Azure Resource Manager (ARM) templates to help set up DevTest Labs token authentication and remote desktop gateway resources. There are templates for gateway machine creation, lab settings, and a function app.
+The [Azure DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab) has Azure Resource Manager (ARM) templates that help set up DevTest Labs token authentication and remote desktop gateway resources. There are templates for gateway machine creation, lab settings, and a function app.
 
 > [!NOTE] 
 > By using the sample templates, you agree to the [Remote Desktop Gateway license terms](https://www.microsoft.com/licensing/product-licensing/products).
