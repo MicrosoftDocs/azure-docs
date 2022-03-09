@@ -14,13 +14,17 @@ ms.custom: devx-track-azurepowershell
 
 The Azure Application Gateway Web Application Firewall (WAF) provides protection for web applications. This article describes WAF request size limits and exclusion lists configuration. These settings are located in the WAF Policy associated to your Application Gateway. To learn more about WAF Policies, see [Azure Web Application Firewall on Azure Application Gateway](ag-overview.md) and [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md)
 
-![Request size limits](../media/application-gateway-waf-configuration/waf-policy.png)
-
 Sometimes Web Application Firewall (WAF) might block a request that you want to allow for your application. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
 
 For example, Active Directory inserts tokens that are used for authentication. When used in a request header, these tokens can contain special characters that may trigger a false positive from the WAF rules. By adding the header to an exclusion list, you can configure WAF to ignore the header, but WAF still evaluates the rest of the request.
 
 Exclusion lists are global in scope.
+
+To set exclusion lists in the Azure portal, configure **Exclusions** in the WAF policy resource's **Policy settings** page:
+
+![Screenshot of the Azure portal that shows the exclusions configuration for the W A F policy.](../media/application-gateway-waf-configuration/waf-policy-exclusions.png)
+
+## Attributes
 
 The following attributes can be added to exclusion lists by name. The values of the chosen field aren't evaluated against WAF rules, but their names still are (see Example 1 below, the value of the User-Agent header is excluded from WAF evaluation). The exclusion lists remove inspection of the field's value.
 
