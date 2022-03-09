@@ -34,7 +34,7 @@ In this section, the following steps help you update your virtual network to spe
 
    :::image type="content" source="./media/kerberos-authentication-portal/dns-servers.png" alt-text="Screenshot of DNS servers page." lightbox="./media/kerberos-authentication-portal/dns-servers.png":::
 
-## <a name="bastion"></a>Deploy Bastion
+## <a name="deploy"></a>Deploy Bastion
 
 In this section, the following steps help you deploy Bastion to your virtual network.
 
