@@ -105,7 +105,7 @@ namespace SampleInviteApp
         /// <summary>
         /// Send the guest user invite request.
         /// </summary>
-        private static async Task<string> SendInvitation()
+        private static async string SendInvitation()
         {
             /// Get the access token for our application to talk to Microsoft Graph.
             var scopes = new[] { "https://graph.microsoft.com/.default" };
