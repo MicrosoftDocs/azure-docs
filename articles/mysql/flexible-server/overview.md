@@ -13,7 +13,7 @@ ms.date: 08/10/2021
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-<iframe src="https://aka.ms/docs/player?id=492c7a41-5f0a-4482-828b-72be1b38e691" frameborder="0" allowfullscreen="true" data-linktype="external"></iframe>
+<iframe src="https://aka.ms/docs/player?id=video-ID-goes-here" width="1080" height="530" style="border: 0; max-width: 100%; min-width: 100%;"></iframe>
 
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 
@@ -24,6 +24,15 @@ In this article, we'll provide an overview and introduction to core concepts of 
 
 
 > [!VIDEO <iframe src="https://aka.ms/docs/player?id=492c7a41-5f0a-4482-828b-72be1b38e691" width="100%" height="100%" frameborder="0"; allowfullscreen="true"></iframe>]
+
+< />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
 
 ## Overview
 
