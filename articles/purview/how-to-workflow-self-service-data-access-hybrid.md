@@ -12,6 +12,8 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Self-service data access workflows for hybrid data estates
 
+[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+
 This guide will take you through the creation and management of Self-Service data access workflow for hybrid data estate. 
 
 ## Create and enable self-service data access workflow

@@ -12,6 +12,8 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Manage workflow runs
 
+[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+
 This article outlines how to manage workflow runs.
 
 1. To view workflow runs you triggered, navigate to management center, workflows and select **Workflow runs**. 

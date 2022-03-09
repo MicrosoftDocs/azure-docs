@@ -12,6 +12,8 @@ ms.custom: template-concept
 
 # Workflows in Azure Purview
 
+[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+
 Workflows enable Azure Purview customers to orchestrate the CUD operations, validation, and approval of data entities using repeatable business processes that result in high quality data, policy compliance, user collaboration, and change awareness across their organization.  
 
 Workflows empower our customers to achieve data quality with more control and less effort, because they won't need to use manual controls like emails or worksheets to review and approve the changes to entities in their catalog.

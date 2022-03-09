@@ -12,6 +12,8 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # How to request access for a data asset
 
+[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+
 This article outlines how to request access for a data asset discovered in Azure Purview's data catalog.
 
 1. To request access to a data asset, use Azure Purview's [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) functionality to find the data asset.
