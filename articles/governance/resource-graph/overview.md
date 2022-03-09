@@ -14,7 +14,7 @@ provide the following features:
 - Ability to query resources with complex filtering, grouping, and sorting by resource properties.
 - Ability to iteratively explore resources based on governance requirements.
 - Ability to assess the impact of applying policies in a vast cloud environment.
-- Ability to [detail changes made to resource properties](./how-to/get-resource-changes.md)
+- Ability to [query changes made to resource properties](./how-to/get-resource-changes.md)
   (preview).
 
 In this documentation, you'll go over each feature in detail.
@@ -42,7 +42,7 @@ With Azure Resource Graph, you can:
 
 - Access the properties returned by resource providers without needing to make individual calls to
   each resource provider.
-- View the last 14 days of change history made to the resource to see what properties changed and
+- View the last seven days of resource configuration changes to see what properties changed and
   when. (preview)
 
 > [!NOTE]
