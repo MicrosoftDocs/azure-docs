@@ -45,7 +45,7 @@ List<PatchOperation> patchOperations = new List<PatchOperation>();
 patchOperations.Add(PatchOperation.Add("/nonExistentParent/Child", "bar"));
 patchOperations.Add(PatchOperation.Remove("/cost"));
 patchOperations.Add(PatchOperation.Increment("/taskNum", 6));
-patchOperations.Add(patchOperation.Set("/existingPath/newproperty",value));
+patchOperations.Add(PatchOperation.Set("/existingPath/newproperty",value));
 
 container.PatchItemAsync<item>(
                 id: 5,

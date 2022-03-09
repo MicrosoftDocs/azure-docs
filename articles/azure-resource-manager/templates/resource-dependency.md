@@ -2,7 +2,7 @@
 title: Set deployment order for resources
 description: Describes how to set one Azure resource as dependent on another resource during deployment. The dependencies ensure resources are deployed in the correct order.
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 03/02/2022
 ---
 
 # Define the order for deploying resources in ARM templates
@@ -32,7 +32,7 @@ The following example shows a network interface that depends on a virtual networ
 }
 ```
 
-While you may be inclined to use `dependsOn` to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, `dependsOn` isn't the right approach. You can't query which resources were defined in the `dependsOn` element after deployment. Setting unnecessary dependencies slows deployment time because Resource Manager can't deploy those resources in parallel.
+While you may be inclined to use `dependsOn` to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, `dependsOn` isn't the right approach. After deployment, the resource doesn't retain deployment dependencies in its properties, so there are no commands or operations that let you see dependencies. Setting unnecessary dependencies slows deployment time because Resource Manager can't deploy those resources in parallel.
 
 ## Child resources
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/05/2021
+ms.date: 03/02/2022
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
 
 ---
@@ -270,12 +270,17 @@ aks_target.wait_for_completion(show_output = True)
 
 Azure Container Instances are dynamically created when deploying a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable __subnet delegation__ for the subnet used by the deployment. To use ACI in a virtual network to your workspace, use the following steps:
 
-1. To enable subnet delegation on your virtual network, use the information in the [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md) article. You can enable delegation when creating a virtual network, or add it to an existing network.
+1. Your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
-    > [!IMPORTANT]
-    > When enabling delegation, use `Microsoft.ContainerInstance/containerGroups` as the __Delegate subnet to service__ value.
+    * `Microsoft.Network/virtualNetworks/*/read` on the virtual network resource. This permission isn't needed for Azure Resource Manager template deployments.
+    * `Microsoft.Network/virtualNetworks/subnet/join/action` on the subnet resource.
 
-2. Deploy the model using [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
+1. In the [Azure portal](https://portal.azure.com), search for the name of the virtual network. When it appears in the search results, select it.
+1. Select **Subnets**, under **SETTINGS**, and then select the subnet.
+1. On the subnet page, for the **Subnet delegation** list, select `Microsoft.ContainerInstance/containerGroups`.
+1. Deploy the model using [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
+
+For more information, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
 ## Limit outbound connectivity from the virtual network
 
