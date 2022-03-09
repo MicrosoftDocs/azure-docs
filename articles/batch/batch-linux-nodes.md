@@ -42,6 +42,12 @@ The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nod
 - batch.node.centos 7
 - batch.node.windows amd64
 
+
+## Sample Code
+* [Create a Linux pool: Batch Python](#create-a-linux-pool-batch-python)
+* [Create a Linux pool: Batch .NET](#create-a-linux-pool-batch-net)
+* [Connect to Linux nodes using SSH](#connect-to-linux-nodes-using-ssh)
+
 ## Create a Linux pool: Batch Python
 
 The following code snippet shows an example of how to use the [Microsoft Azure Batch Client Library for Python](https://pypi.python.org/pypi/azure-batch) to create a pool of Ubuntu Server compute nodes. For more details about the Batch Python module, view the [reference documentation](/python/api/overview/azure/batch).
