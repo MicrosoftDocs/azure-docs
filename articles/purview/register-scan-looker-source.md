@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 03/05/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -46,13 +46,15 @@ When setting up scan, you can choose to scan an entire Looker server, or scope t
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
+If your data store is publicly accessible, you can use the managed Azure integration runtime for scan without additional settings. Otherwise, if your data store limits access from on-premises network, private network or specific IPs, you need to configure a self-hosted integration runtime to connect to it:
+
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
-* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is installed.
 
 * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
@@ -107,7 +109,7 @@ To create and run a new scan, do the following:
 
     1. **Name**: The name of the scan
 
-    1. **Connect via integration runtime**: Select the configured self-hosted integration runtime.
+    1. **Connect via integration runtime**: Select the Azure auto-resolved integration runtime or your configured self-hosted integration runtime used to perform scan.
 
     1. **Server API URL** is auto populated based on the value entered during registration.
 
@@ -125,11 +127,11 @@ To create and run a new scan, do the following:
 
     1. **Project filter** -- Scope your scan by providing a semicolon separated list of Looker projects. This option is used to select looks and dashboards by their parent project.
 
-    1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of erwin Mart to be scanned.
+    1. **Maximum memory available** (applicable when using self-hosted integration runtime): Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of erwin Mart to be scanned.
 
         :::image type="content" source="media/register-scan-looker-source/setup-scan.png" alt-text="trigger scan" border="true":::
 
-1. Select **Test connection.**
+1. Select **Test connection** (available when using self-hosted integration runtime).
 
 1. Select **Continue**.
 

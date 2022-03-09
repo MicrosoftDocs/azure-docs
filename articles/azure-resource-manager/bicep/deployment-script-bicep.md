@@ -464,7 +464,7 @@ The list command output is similar to:
 ]
 ```
 
-### Use Rest API
+### Use REST API
 
 You can get the deployment script resource deployment information at the resource group level and the subscription level by using REST API:
 

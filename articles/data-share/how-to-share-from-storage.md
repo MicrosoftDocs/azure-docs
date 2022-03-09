@@ -15,10 +15,6 @@ ms.date: 02/02/2022
 [Azure Data Share](overview.md) allows you to securely share data snapshots from your Azure storage resources to other Azure subscriptions. Including Azure subscriptions outside your tenant.
 
 This article describes sharing data from **Azure Blob Storage**, **Azure Data Lake Storage Gen1**, and **Azure Data Lake Storage Gen2**.
-However, Azure Data Share also allows sharing from these other kinds of resources:
-
-- [Azure SQL Database and Azure Synapse Analytics](how-to-share-from-sql.md)
-- [Azure Data Explorer](/data-explorer/data-share)
 
 This article will guide you through:
 

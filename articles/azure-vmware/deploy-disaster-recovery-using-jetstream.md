@@ -19,7 +19,7 @@ To learn more about JetStream DR, see:
 
 - [JetStream Solution brief](https://www.jetstreamsoft.com/2020/09/28/solution-brief-disaster-recovery-for-avs/)
 
-- [JetStream DR on Azure Marketplace](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020)
+- [JetStream DR on Azure Marketplace](https://portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020)
 
 - [JetStream knowledge base articles](https://www.jetstreamsoft.com/resources/knowledge-base/)
 
@@ -69,7 +69,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 - Network connectivity configured between the primary site JetStream appliances and the Azure Storage blob instance. 
 
-- [Setup and Subscribe to JetStream DR](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) from the Azure Marketplace to download the JetStream DR software.
+- [Setup and Subscribe to JetStream DR](https://portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) from the Azure Marketplace to download the JetStream DR software.
 
 - [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/access-tiers-overview.md). 
 
@@ -88,7 +88,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
  
 - Network connectivity configured between the primary site JetStream appliances and the Azure Storage blob instance. 
 
-- [Setup and Subscribe to JetStream DR](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) from the Azure Marketplace to download the JetStream DR software.
+- [Setup and Subscribe to JetStream DR](https://portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) from the Azure Marketplace to download the JetStream DR software.
 
 - [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/access-tiers-overview.md). 
 

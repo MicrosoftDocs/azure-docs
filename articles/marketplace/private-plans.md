@@ -59,7 +59,7 @@ Once an offer has been certified and published, customers can be updated or remo
 
 Once signed into the Azure portal, customers can follow these steps to select your private plans.
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Under **Azure services**, select **Create a resource**.
 1. On the **New** page, next to **Azure Marketplace**, select **See all**. The Marketplace page appears.
 1. In the left navigation, select **Private products**.

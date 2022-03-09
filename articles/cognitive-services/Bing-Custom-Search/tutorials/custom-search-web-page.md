@@ -32,7 +32,7 @@ The tasks covered are:
 
 ## Prerequisites
 
-- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, [Create a Bing Custom Search resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) in the Azure portal.
+- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, [Create a Bing Custom Search resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) in the Azure portal.
 - If you don't already have Visual Studio 2017 or later installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## Create a custom search instance

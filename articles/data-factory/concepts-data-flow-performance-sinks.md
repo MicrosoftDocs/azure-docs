@@ -21,7 +21,7 @@ With Azure SQL Database, the default partitioning should work in most cases. The
 
 ### Best practice for deleting rows in sink based on missing rows in source
 
-Here is a video walk through of how to use data flows with exits, alter row, and sink transformations to achieve this common pattern: 
+Here is a video walk through of how to use data flows with exists, alter row, and sink transformations to achieve this common pattern: 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMLr5]
 
@@ -70,19 +70,23 @@ When writing files, you have a choice of naming options that each have a perform
 
 Selecting the **Default** option will write the fastest. Each partition will equate to a file with the Spark default name. This is useful if you are just reading from the folder of data.
 
-Setting a naming **Pattern** will rename each partition file to a more user-friendly name. This operation happens after write and is slightly slower than choosing the default. Per partition allows you to name each individual partition manually.
+Setting a naming **Pattern** will rename each partition file to a more user-friendly name. This operation happens after write and is slightly slower than choosing the default.
 
-If a column corresponds to how you wish to output the data, you can select **As data in column**. This reshuffles the data and can impact performance if the columns are not evenly distributed.
+**Per partition** allows you to name each individual partition manually.
+
+If a column corresponds to how you wish to output the data, you can select **Name file as column data**. This reshuffles the data and can impact performance if the columns are not evenly distributed.
+
+If a column corresponds to how you wish to generate folder names, select **Name folder as column data**.
 
 **Output to single file** combines all the data into a single partition. This leads to long write times, especially for large datasets. This option is strongly discouraged unless there is an explicit business reason to use it.
 
-## CosmosDB sinks
+## Azure Cosmos DB sinks
 
-When writing to CosmosDB, altering throughput and batch size during data flow execution can improve performance. These changes only take effect during the data flow activity run and will return to the original collection settings after conclusion. 
+When writing to Azure Cosmos DB, altering throughput and batch size during data flow execution can improve performance. These changes only take effect during the data flow activity run and will return to the original collection settings after conclusion. 
 
 **Batch size:** Usually, starting with the default batch size is sufficient. To further tune this value, calculate the rough object size of your data, and make sure that object size * batch size is less than 2MB. If it is, you can increase the batch size to get better throughput.
 
-**Throughput:** Set a higher throughput setting here to allow documents to write faster to CosmosDB. Keep in mind the higher RU costs based upon a high throughput setting.
+**Throughput:** Set a higher throughput setting here to allow documents to write faster to Azure Cosmos DB. Keep in mind the higher RU costs based upon a high throughput setting.
 
 **Write throughput budget:** Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a budget throughput will allow more balance across those partitions.
 

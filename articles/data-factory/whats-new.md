@@ -21,6 +21,50 @@ The Azure Data Factory service is improved on an ongoing basis. To stay up to da
 
 This page is updated monthly, so revisit it regularly. 
 
+## February 2022
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr><td rowspan=4><b>Data Flow</b></td><td>Parameterized linked services supported in mapping data flows</td><td>You can now use your parameterized linked services in mapping data flows to make your data flow pipelines generic and flexible.<br><a href="parameterize-linked-services.md?tabs=data-factory">Learn more</a></td></tr>
+
+<tr><td>Azure SQL DB incremental source extract available in data flow (Public Preview)</td><td>A new option has been added on mapping data flow Azure SQL DB sources called <i>Enable incremental extract (preview)</i>. Now you can automatically pull only the rows that have changed on your SQL DB sources using data flows.<br><a href="connector-azure-sql-database.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr> 
+ 
+<tr><td>Four new connectors available for mapping data flows (Public Preview)</td><td>Azure Data Factory now supports the four following new connectors (Public Preview) for mapping data flows: Quickbase Connector, Smartsheet Connector, TeamDesk Connector, and Zendesk Connector.<br><a href="connector-overview.md?tabs=data-factory">Learn more</a></td></tr> 
+ 
+<tr><td>Azure Cosmos DB (SQL API) for mapping data flow now supports inline mode</td><td>Azure Cosmos DB (SQL API) for mapping data flow can now use inline datasets.<br><a href="connector-azure-cosmos-db.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr> 
+ 
+<tr><td rowspan=2><b>Data Movement</b></td><td>Get metadata driven data ingestion pipelines on ADF Copy Data Tool within 10 minutes (GA)</td><td>You can build large-scale data copy pipelines with metadata-driven approach on copy data tool (GA) within 10 minutes.<br><a href="copy-data-tool-metadata-driven.md">Learn more</a></td></tr>
+
+<tr><td>Azure Data Factory Google AdWords Connector API Upgrade Available</td><td>The Azure Data Factory Google AdWords connector now supports the new AdWords API version. No action is required for the new connector user as it is enabled by default.<br><a href="connector-troubleshoot-google-adwords.md#migrate-to-the-new-version-of-google-ads-api">Learn more</a></td></tr>
+ 
+<tr><td><b>Region Expansion</b></td><td>Azure Data Factory is now available in West US3 and Jio India West</td><td>Azure Data Factory is now available in two new regions: West US3 and Jio India West. You can co-locate your ETL workflow in these new regions if you are utilizing these regions for storing and managing your modern data warehouse. You can also use these regions for BCDR purposes in case you need to failover from another region within the geo.<br><a href="https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all">Learn more</a></td></tr>
+ 
+<tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Azure Active Directory tenant</td><td>You can connect your Azure Data Factory to an Azure DevOps Account in a different Azure Active Directory tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr> 
+</table>
+
+
+## January 2022
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr><td rowspan=5><b>Data Flow</b></td><td>Quick re-use is now automatic in all Azure IRs that use a TTL</td><td>You will no longer need to manually specify “quick reuse”. ADF mapping data flows can now start-up subsequent data flow activities in under 5 seconds once you’ve set a TTL.<br><a href="concepts-integration-runtime-performance.md#time-to-live">Learn more</a></td></tr>
+ 
+<tr><td>Retrieve your custom Assert description</td><td>In the Assert transformation, you can define your own dynamic description message. We’ve added a new function called assertErrorMessage() that you can use to retrieve the row-by-row message and store it in your destination data.<br><a href="data-flow-expressions-usage.md#assertErrorMessages">Learn more</a></td></tr>
+  
+<tr><td>Automatic schema detection in Parse transformation</td><td>A new feature has been added to the Parse transformation to make it easy to automatically detect the schema of an embedded complex field inside a string column. Click on the <b>Detect schema</b> button to set your target schema automatically.<br><a href="data-flow-parse.md">Learn more</a></td></tr>
+  
+<tr><td>Support Dynamics 365 Connector as both sink and source</td><td>You can now connect directly to Dynamics 365 to transform your Dynamics data at scale using the new mapping data flow connector for Dynamics 365.<br><a href="connector-dynamics-crm-office-365.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr>
+
+<tr><td>Always Encrypted SQL connections now available in data flows</td><td>We’ve added support for Always Encrypted to source transformations in SQL Server, Azure SQL Database, Azure SQL Managed Instance and Azure Synapse Analytics when using data flows.<br><a href="connector-azure-sql-database.md?tabs=data-factory">Learn more</a></td></tr>
+  
+<tr><td rowspan=2><b>Data Movement</b></td><td>Azure Data Factory Databricks Delta Lake connector supports new authentication types</td><td>Azure Data Factory Databricks Delta Lake connector now supports two more authentication types: system-assigned managed identity authentication and user-assigned managed identity authentication.<br><a href="connector-azure-databricks-delta-lake.md">Learn more</a></td></tr>
+  
+<tr><td>Azure Data Factory Copy Activity Supports Upsert in several additional connectors</td><td>Azure Data Factory copy activity now supports upsert while sinks data to SQL Server, Azure SQL Database, Azure SQL Managed Instance and Azure Synapse Analytics.<br><a href="connector-overview.md">Learn more</a></td></tr>
+ 
+</table>
+
 ## December 2021
 <br>
 <table>

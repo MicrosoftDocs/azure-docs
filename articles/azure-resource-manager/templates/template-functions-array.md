@@ -2,7 +2,7 @@
 title: Template functions - arrays
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays.
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 02/11/2022
 ---
 
 # Array functions for ARM templates
@@ -26,6 +26,9 @@ Resource Manager provides several functions for working with arrays in your Azur
 * [union](#union)
 
 To get an array of string values delimited by a value, see [split](template-functions-string.md#split).
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [array](../bicep/bicep-functions-array.md) functions.
 
 ## array
 

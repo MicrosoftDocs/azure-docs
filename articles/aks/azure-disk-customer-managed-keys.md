@@ -137,6 +137,10 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 kubectl apply -f byok-azure-disk.yaml
 ```
 
+## Using Azure tags
+
+For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
+
 ## Next steps
 
 Review [best practices for AKS cluster security][best-practices-security]
@@ -152,3 +156,4 @@ Review [best practices for AKS cluster security][best-practices-security]
 [customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions
+[use-tags]: use-tags.md

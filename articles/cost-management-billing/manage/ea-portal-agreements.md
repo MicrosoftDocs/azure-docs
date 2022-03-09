@@ -140,12 +140,12 @@ Any quota described above is not a Service Prepayment. For purposes of determini
 
 ## Requesting a quota increase
 
-You can request a quota increase at any time by submitting an [online request](https://ms.portal.azure.com/). To process your request, provide the following information:
+You can request a quota increase at any time by submitting an [online request](https://portal.azure.com/). To process your request, provide the following information:
 
 - The Microsoft account or work or school account associated with the account owner of your subscription. This is the email address utilized to sign in to the Microsoft Azure portal to manage your subscription(s). Please also identify that this account is associated with an EA enrollment.
 - The resource(s) and amount for which you desire a quota increase.
 - The Azure Developer Portal Subscription ID associated with your service.
-  - For information on how to obtain your subscription ID, please [contact support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+  - For information on how to obtain your subscription ID, please [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## Plan SKUs
 

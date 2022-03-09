@@ -28,6 +28,7 @@ If you use [Microsoft Defender for Cloud](../../security-center/index.yml), you'
 > [!WARNING]
 > - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
 > - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
+> - Do not use BitLocker to manually decrypt a VM or disk that was encrypted through Azure Disk Encryption.
 
 You can learn the fundamentals of Azure Disk Encryption for Windows in just a few minutes with the [Create and encrypt a Windows VM with Azure CLI quickstart](disk-encryption-cli-quickstart.md) or the [Create and encrypt a Windows VM with Azure PowerShell quickstart](disk-encryption-powershell-quickstart.md).
 

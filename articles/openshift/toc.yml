@@ -1,4 +1,4 @@
-- name: Azure Red Hat OpenShift
+- name: Azure Red Hat OpenShift 
   href: index.yml
 - name: Overview
   expanded: true
@@ -26,7 +26,7 @@
           href: howto-upgrade.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
-    - name: Networking
+    - name: Networking 
       items:
         - name: Create a private ARO cluster
           href: howto-create-private-cluster-4x.md
@@ -117,6 +117,9 @@
   items:
     - name: Networking
       href: concepts-networking.md
+      items:
+      - name: Overview of egress lockdown
+        href: concepts-egress-lockdown.md
     - name: Migrate from ARO 3.11 to ARO 4
       href: migration.md
 - name: Reference
@@ -131,6 +134,8 @@
   items:
     - name: Frequently asked questions
       href: openshift-faq.yml
+    - name: Azure Red Hat OpenShift service definition
+      href: openshift-service-definitions.md
     - name: Troubleshooting
       href: troubleshoot.md
     - name: Support policies for ARO 4

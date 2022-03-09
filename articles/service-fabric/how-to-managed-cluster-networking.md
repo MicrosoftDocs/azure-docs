@@ -2,7 +2,7 @@
 title: Configure network settings for Service Fabric managed clusters
 description: Learn how to configure your Service Fabric managed cluster for NSG rules, RDP port access, load-balancing rules, and more.
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 2/14/2022
 ---
 # Configure network settings for Service Fabric managed clusters
 
@@ -298,21 +298,26 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 ```
 
 <a id="ipv6"></a>
-## Enable IPv6 (preview)
+## Enable IPv6
 Managed clusters do not enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancer config or NSG rules will affect both the IPv4 and IPv6 routing.
 
 > [!NOTE]
 > This setting is not available in portal and cannot be changed once the cluster is created
 
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
+
 1. Set the following property on a Service Fabric managed cluster resource.
    ```json
-            "apiVersion": "2021-07-01-preview",
+       "resources": [
+            {
+            "apiVersion": "[variables('sfApiVersion')]",
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
             "properties": {
                 "enableIpv6": true
                 },
             }
+       ]
    ```
 
 2. Deploy your IPv6 enabled managed cluster. Customize the [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-IPv6) as needed or build your own.
@@ -325,7 +330,7 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
 
 
 <a id="byovnet"></a>
-## Bring your own virtual network (preview)
+## Bring your own virtual network
 This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy its resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering. Additionally, you can [bring your own Azure Load balancer](#byolb) if needed also.
 
 > [!NOTE]
@@ -410,10 +415,12 @@ This feature allows customers to use an existing virtual network by specifying a
 
 3. Configure the `subnetId` property for the cluster deployment after the role is set up as shown below:
 
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
+
    ```JSON
     "resources": [
         {
-            "apiVersion": "2021-07-01-preview",
+            "apiVersion": "[variables('sfApiVersion')]",
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
             },
@@ -421,6 +428,7 @@ This feature allows customers to use an existing virtual network by specifying a
                 "subnetId": "subnetId",
             ...
             }
+    ]
    ```
    See the [bring your own VNet cluster sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOVNET) or customize your own.
 
@@ -435,7 +443,7 @@ This feature allows customers to use an existing virtual network by specifying a
    When you bring your own VNet subnet the public endpoint is still created and managed by the resource provider, but in the configured subnet. The feature does not allow you to specify the public ip/re-use static ip on the Azure Load Balancer. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
 
 <a id="byolb"></a>
-## Bring your own Azure Load Balancer (preview)
+## Bring your own Azure Load Balancer
 Managed clusters create an Azure public Standard Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. Bring your own load balancer allows you to use an existing Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer, you can:
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
@@ -502,7 +510,7 @@ To configure bring your own load balancer:
 
    In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group. 
 
-   Obtain the required `Id` property info from the existing Azure Load Balancer. We'll 
+   Obtain the required `Id` property info from the existing Azure Load Balancer. 
 
    ```powershell
    Login-AzAccount
@@ -552,18 +560,19 @@ To configure bring your own load balancer:
    
    To configure the node type to use the default load balancer set the following in your template: 
    
-   * The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+   * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
    ```json
+    "resources": [
       {
       "apiVersion": "[variables('sfApiVersion')]",
       "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-      ...
       "properties": {
           "isPrimary": false,
           "useDefaultPublicLoadBalancer": true
-          ...
+          }
       }
+    ]
    ```
 
 4. Optionally configure an inbound application port and related probe on your existing Azure Load Balancer.
@@ -586,14 +595,14 @@ To configure bring your own load balancer:
 
 
 <a id="accelnet"></a>
-## Enable Accelerated Networking (preview)
-Accelerated networking enables single root I/O virtualization (SR-IOV) to a virtual machine scale set VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference this [limitations and constraints](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) for additional considerations. 
+## Enable Accelerated Networking
+Accelerated networking enables single root I/O virtualization (SR-IOV) to a virtual machine scale set VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference this [limitations and constraints](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints) for additional considerations. 
 
 * Note that Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs.
 
 Enable accelerated networking by declaring `enableAcceleratedNetworking` property in your Resource Manager template as follows:
 
-* The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
 ```json
    {
@@ -616,29 +625,31 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 
 <a id="auxsubnet"></a>
-## Configure Auxiliary Subnets (preview)
+## Configure Auxiliary Subnets
 Auxiliary subnets provide the ability to create additional managed subnets without a node type for supporting scenarios such as [Private Link Service](../private-link/private-link-service-overview.md) and [Bastion Hosts](../bastion/bastion-overview.md).
 
 Configure auxiliary subnets by declaring `auxiliarySubnets` property and required parameters in your Resource Manager template as follows:
 
-* The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
 ```JSON
     "resources": [
         {
             "apiVersion": "[variables('sfApiVersion')]",
             "type": "Microsoft.ServiceFabric/managedclusters",
-            ...
-            "properties": {
+              "properties": {
                 "auxiliarySubnets": [
                   {
                   "name" : "mysubnet",
                   "enableIpv6" : "true"
                   }
-                ]              
+                ]
+              }
+        }
+    ]              
 ```
 
-See [full list of parameters available](/azure/templates/microsoft.servicefabric/2021-11-01-preview/managedclusters)
+See [full list of parameters available](/azure/templates/microsoft.servicefabric/2022-01-01/managedclusters)
 
 ## Next steps
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)

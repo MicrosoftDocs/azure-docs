@@ -35,9 +35,9 @@
           href: tutorial-no-code-speech.md         
     - name: Advanced prototyping with Azure Percept
       items:  
-        - name: Create a people counting solution with Azure Percept DK and Azure Percept Vision
+        - name: Create a people counting solution with Azure Percept Vision
           href: create-people-counting-solution-with-azure-percept-devkit-vision.md
-        - name: Voice control your inventory and visualize with Power BI dashboard
+        - name: Voice control your inventory with Azure Percept Audio
           href: voice-control-your-inventory-then-visualize-with-power-bi-dashboard.md
 
 - name: Concepts
@@ -124,7 +124,7 @@
           href: how-to-ssh-into-percept-dk.md
         - name: Connect to Azure Percept DK over serial
           href: how-to-connect-to-percept-dk-over-serial.md   
-        - name: Manually create and deploy an Azure Precept Devkit
+        - name: How to do a manual default container deployment to Azure Percept DK
           href: create-and-deploy-manually-azure-precept-devkit.md 
             
     - name: Tools

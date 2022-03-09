@@ -35,7 +35,7 @@ Review these steps to make sure all the usual configurations are as expected to 
 
 1. Review Private Endpoint configuration by browsing the resource.
 
-    a. Go to [Private Link Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
+    a. Go to [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
       ![Private Link Center](./media/private-endpoint-tsg/private-link-center.png)
 
@@ -128,7 +128,7 @@ Review these steps to make sure all the usual configurations are as expected to 
 
 ![DependencyView](https://user-images.githubusercontent.com/20302679/134994637-fb8b4a1a-81d5-4723-b1c3-d7bdc72162f3.png)
 
-9. Contact the [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) team if your problem is still unresolved and a connectivity problem still exists.
+9. Contact the [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) team if your problem is still unresolved and a connectivity problem still exists.
 
 ## Next steps
 

@@ -561,7 +561,7 @@ For more information, see [MSTICPy GeoIP Providers](https://msticpy.readthedocs.
 
 This section is relevant only when storing secrets in Azure Key Vault.
 
-When you store secrets in Azure Key Vault, you'll need to create the Key Vault first, in the [Azure global KeyVault management portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.KeyVault%2Fvaults).
+When you store secrets in Azure Key Vault, you'll need to create the Key Vault first, in the [Azure global KeyVault management portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.KeyVault%2Fvaults).
 
 Required settings are all values that you get from the Vault properties, although some may have different names. For example:
 
