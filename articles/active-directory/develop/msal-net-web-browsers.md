@@ -110,7 +110,7 @@ MSAL.NET is able to respond with an HTTP message when a token is received or in 
 ```csharp
 var options = new SystemWebViewOptions() 
 {
-    HtmlMessageError = "<p> An error occured: {0}. Details {1}</p>",
+    HtmlMessageError = "<p> An error occurred: {0}. Details {1}</p>",
     BrowserRedirectSuccess = new Uri("https://www.microsoft.com");
 }
 

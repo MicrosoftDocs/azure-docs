@@ -90,7 +90,7 @@ In some environments, administrators choose to limit who can manage user-assigne
    ![Screenshot that shows the user-assigned managed identity IAM.](media/how-manage-user-assigned-managed-identities/assign-role-screenshot-02.png)
 
 >[!NOTE]
->You can information on assigning roles to managed identities in [Assign a managed identity access to a resource by using the Azure portal](../../role-based-access-control/role-assignments-portal-managed-identity.md)
+>You can find information on assigning roles to managed identities in [Assign a managed identity access to a resource by using the Azure portal](../../role-based-access-control/role-assignments-portal-managed-identity.md)
 
 ::: zone-end
 
