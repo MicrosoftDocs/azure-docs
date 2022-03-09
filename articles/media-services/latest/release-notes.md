@@ -545,7 +545,7 @@ The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/
 - [az ams live-output](/cli/azure/ams/live-output)
 - [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint)
 - [az ams streaming-locator](/cli/azure/ams/streaming-locator)
-- [az ams account mru](/cli/azure/ams/account/mru) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
+- [az ams account mru](/cli/azure/ams/account/mru) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-how-to.md).
 
 ### New features and breaking changes
 

@@ -679,7 +679,12 @@
             "source_path_from_root": "/articles/media-services/latest/transform-generate-thumbnails-rest-how-to.md",
             "redirect_url": "/azure/media-services/latest/transform-generate-thumbnails-how-to",
             "redirect_document_id": false
-          },   
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/media-reserved-units-cli-how-to.md",
+            "redirect_url": "/azure/media-services/latest/media-reserved-units-how-to",
+            "redirect_document_id": false
+          },
         {
             "source_path_from_root": "/articles/media-services/latest/latest/asset-publish-cli-how-to.md",
             "redirect_url": "/azure/media-services/latest/video-on-demand-simple-portal-quickstart",
