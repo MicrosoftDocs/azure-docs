@@ -64,7 +64,7 @@ When you create a scale set in a single zone, you control which zone all those V
 To use Availability Zones, your scale set must be created in a [supported Azure region](../availability-zones/az-region.md). You can create a scale set that uses Availability Zones with one of the following methods:
 
 - [Azure portal](#use-the-azure-portal)
-- Azure CLI
+- [Azure CLI](#use-the-azure-cli)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager templates](#use-azure-resource-manager-templates)
 
@@ -112,7 +112,7 @@ az vmss create \
     --zones 1 2 3
 ```
 
-It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [this sample CLI script](scripts/cli-sample-zone-redundant-scale-set.md)
+It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [this sample CLI script](scripts/cli-sample-zone-redundant-scale-set.md#sample-script)
 
 ## Use Azure PowerShell
 
