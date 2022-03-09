@@ -153,13 +153,21 @@ To learn more, see [Secret repositories](security-concepts.md#secret-repositorie
 
 ## AzureWebJobsSecretStorageKeyVaultName
 
-The name of a key vault instance used to store keys. When possible, instead use `AzureWebJobsSecretStorageKeyVaultUri`. The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
+The name of a key vault instance used to store keys. This setting is only supported for version 3.x of the Functions runtime. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
 
 |Key|Sample value|
 |---|------------|
 |AzureWebJobsSecretStorageKeyVaultName|`<VAULT_NAME>`|
 
 To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+## AzureWebJobsSecretStorageKeyVaultTenantId
+
+The tenant ID of the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`. Supported in version 4.x and later versions of the Functions runtime. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsSecretStorageKeyVaultTenantId|`<TENANT_ID>`|
 
 ## AzureWebJobsSecretStorageKeyVaultUri
 
@@ -182,14 +190,6 @@ A Blob Storage SAS URL for a second storage account used for key storage. By def
 |Key|Sample value|
 |--|--|
 |AzureWebJobsSecretStorageSa| `<BLOB_SAS_URL>` | 
-
-## AzureWebJobsSecretStorageKeyVaultTenantId
-
-The tenant ID of the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` either not be set or be set to `keyvault`.  Supported in version 4.x and later versions of the Functions runtime. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
-
-|Key|Sample value|
-|---|------------|
-|AzureWebJobsSecretStorageKeyVaultTenantId|`<TENANT_ID>`|
 
 ## AzureWebJobsSecretStorageType
 
