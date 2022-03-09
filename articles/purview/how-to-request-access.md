@@ -15,10 +15,19 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 This article outlines how to request access for a data asset discovered in Azure Purview's data catalog.
 
 1. To request access to a data asset, use Azure Purview's [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) functionality to find the data asset.
-1. Click on the asset to go to asset details. 
-1. Click on 'Request access' to start data request workflow.
-1. Optionally, you can provide comments on why data access is requested in the below blade.
-1. Click on 'Send' to trigger the self-service data access workflow.
+
+    :::image type="content" source="./media/how-to-request-access/search-or-browse.png" alt-text="Screenshot of the Azure Purview studio, with the search bar and browse buttons highlighted." link="https://web.purview.azure.com/resource/":::
+
+1. Select the asset to go to asset details.
+
+1. Select **Request access**.
+    
+    :::image type="content" source="./media/how-to-request-access/request-access.png" alt-text="Screenshot of a data asset's overview page, with the Request button highlighted in the mid-page menu.":::
+
+1. The **Request access** window will open. You can provide comments on why data access is requested.
+1. Select **Send** to trigger the self-service data access workflow.
+
+    :::image type="content" source="./media/how-to-request-access/send.png" alt-text="Screenshot of a data asset's overview page, with the Request access window overlaid. The Send button is highlighted at the bottom of the Request access window.":::
 
 > [!NOTE]
 > A request access to resource set will actually submit the data access request for the folder one level up which contains all these resource set files. 
