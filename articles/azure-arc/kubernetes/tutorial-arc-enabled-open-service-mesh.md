@@ -37,7 +37,7 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 - Ensure you have met all the common prerequisites for cluster extensions listed [here](extensions.md#prerequisites).
 - Use az k8s-extension CLI version >= v0.4.0
 
-## Basic Installation of Azure Arc-enabled OSM on an Azure Arc-enabled Kubernetes Cluster
+## Basic installation of Azure Arc-enabled OSM
 
 The following steps assume that you already have a cluster with a supported Kubernetes distribution connected to Azure Arc.
 Ensure that your KUBECONFIG environment variable points to the kubeconfig of the Arc-enabled Kubernetes cluster.
@@ -89,7 +89,7 @@ You should see output similar to the output shown below. It may take 3-5 minutes
 }
 ```
 
-## Custom Installations of Azure Arc-enabled OSM
+## Custom installations of Azure Arc-enabled OSM
 The following sections describe certain custom installations of Azure Arc-enabled OSM. Custom installations require setting 
 values of OSM by in a JSON file and passing them into `k8s-extension create` CLI command as described below.
 
@@ -113,6 +113,43 @@ It may take 3-5 minutes for the actual OSM helm chart to get deployed to the clu
 
 To ensure that the privileged init container setting is not reverted to the default, pass in the "osm.osm.enablePrivilegedInitContainer" : "true" configuration setting to all subsequent az k8s-extension create commands.
 
+### Enable High Availability features on installation
+OSM's control plane components are built with High Availability and Fault Tolerance in mind. This section describes how to
+enable Horizontal Pod Autoscaling (HPA) and Pod Disruption Budget (PDB) during installation. Read more on the design
+considerations of High Availability on OSM [here](https://openservicemesh.io/docs/guides/ha_scale/high_availability/).
+
+#### Horizontal Pod Autoscaling (HPA)
+HPA automatically scales up or down control plane pods based on the average target CPU utilization (%) and average target 
+memory utilization (%) defined by the user. To enable HPA and set applicable values on OSM control plane pods during installation, create or
+append to your existing JSON settings file as below, repeating the key/value pairs for each control plane pod 
+(`osmController`, `injector`) that you want to enable HPA on. 
+
+```json
+{
+  "osm.osm.<control_plane_pod>.autoScale.enable" : "true",
+  "osm.osm.<control_plane_pod>.autoScale.minReplicas" : "<allowed values: 1-10>",
+  "osm.osm.<control_plane_pod>.autoScale.maxReplicas" : "<allowed values: 1-10>",
+  "osm.osm.<control_plane_pod>.autoScale.cpu.targetAverageUtilization" : "<allowed values 0-100>",
+  "osm.osm.<control_plane_pod>.autoScale.memory.targetAverageUtilization" : "<allowed values 0-100>"
+}
+```
+
+Now, [install OSM with custom values](#setting-values-during-osm-installation).
+
+#### Pod Disruption Budget (PDB)
+In order to prevent disruptions during planned outages, control plane pods `osm-controller` and `osm-injector` have a PDB 
+that ensures there is always at least 1 pod corresponding to each control plane application.
+
+To enable PDB, create or append to your existing JSON settings file as follows for each desired control plane pod 
+(`osmController`, `injector`):
+```json
+{
+  "osm.osm.<control_plane_pod>.enablePodDisruptionBudget" : "true"
+}
+```
+
+Now, [install OSM with custom values](#setting-values-during-osm-installation).
+
 ### Install OSM with cert-manager for Certificate Management
 [cert-manager](https://cert-manager.io/) is a provider that can be used for issuing signed certificates to OSM without
 the need for storing private keys in Kubernetes. Refer to OSM's [cert-manager documentation](https://release-v0-11.docs.openservicemesh.io/docs/guides/certificates/)
@@ -120,8 +157,8 @@ and [demo](https://docs.openservicemesh.io/docs/demos/cert-manager_integration/)
 > [!NOTE]
 > Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
 
-To install OSM with cert-manager as the certificate provider, create a JSON file with the `certificateProvider.kind` value set to
-cert-manager as shown below. If you would like to change from default cert-manager values specified in OSM documentation,
+To install OSM with cert-manager as the certificate provider, create or append to your existing JSON settings file the `certificateProvider.kind` 
+value set to cert-manager as shown below. If you would like to change from default cert-manager values specified in OSM documentation,
 also include and update the subsequent `certmanager.issuer` lines.
 
 ```json
@@ -144,7 +181,7 @@ and [demo](https://docs.openservicemesh.io/docs/demos/ingress_contour/) to learn
 > [!NOTE]
 > Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
 
-To set required values for configuring Contour during OSM installation, create the following JSON file:
+To set required values for configuring Contour during OSM installation, append the following to your JSON settings file:
 ```json
 {
   "osm.osm.osmNamespace" : "arc-osm-system",
@@ -157,7 +194,7 @@ To set required values for configuring Contour during OSM installation, create t
 Now, [install OSM with custom values](#setting-values-during-osm-installation).
 
 ### Setting values during OSM installation
-Values that need to be set during OSM installation need to be saved to a JSON file and passed in through the Azure CLI
+Any values that need to be set during OSM installation need to be saved to a single JSON file and passed in through the Azure CLI
 install command.
 
 Once you have created a JSON file with applicable values as described in above custom installation sections, set the 
@@ -174,7 +211,7 @@ Run the `az k8s-extension create` command to create the OSM extension, passing i
 
 ## Install Azure Arc-enabled OSM using ARM template
 
-After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the \<cluster-name\> and \<osm-arc-version\> values:
+After connecting your cluster to Azure Arc, create a JSON file with the following format, making sure to update the \<cluster-name\> and \<osm-arc-version\> values:
 
 ```json
 {

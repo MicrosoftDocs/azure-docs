@@ -4,6 +4,7 @@ description: This quickstart describes how to use the Azure CLI to create an Azu
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/30/2021

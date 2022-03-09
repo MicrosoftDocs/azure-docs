@@ -72,7 +72,7 @@ For "starts with" queries, add a suffix operator (`*`) as the placeholder for th
 |----------- |--------|-------|
 | `*` | `lingui*` will match on "linguistic" or "linguini" | The asterisk (`*`) represents one or more characters of arbitrary length, ignoring case.  |
 
-Similar to filters, a prefix query looks for an exact match. As such, there is no relevance scoring (all results receive a search score of 1.0). Be aware that prefix queries can be slow, especially if the index is large and the prefix consists of a small number of characters. An alternative methodology, such as edge n-gram tokenization, might perform faster.
+Similar to filters, a prefix query looks for an exact match. As such, there is no relevance scoring (all results receive a search score of 1.0). Be aware that prefix queries can be slow, especially if the index is large and the prefix consists of a small number of characters. An alternative methodology, such as edge n-gram tokenization, might perform faster. Terms using prefix search can't be longer than 1000 characters.
 
 Simple syntax supports prefix matching only. For suffix or infix matching against the end or middle of a term, use the [full Lucene syntax for wildcard search](query-lucene-syntax.md#bkmk_wildcard).
 
@@ -115,7 +115,13 @@ If your application generates search queries programmatically, we recommend desi
 
 + For GET, the length of the URL cannot exceed 8 KB.
 
-+ For POST (and any other request), where the body of the request includes `search` and other parameters such as `filter` and `orderby`, the maximum size is 16 MB, where the maximum number of clauses in `search` (expressions separated by AND, OR, and so on) is 1024. There is also a limit of approximately 32 KB on the size of any individual term in a query. For more information, see [API request limits](search-limits-quotas-capacity.md#api-request-limits).
++ For POST (and any other request), where the body of the request includes `search` and other parameters such as `filter` and `orderby`, the maximum size is 16 MB. Additional limits include:
+  + The maximum length of the search clause is 100,000 characters.
+  + The maximum number of clauses in `search` (expressions separated by AND or OR) is 1024. 
+  + The maximum search term size is 1000 characters for [prefix search](#prefix-queries).
+  + There is also a limit of approximately 32 KB on the size of any individual term in a query. 
+  
+For more information on query limits, see [API request limits](search-limits-quotas-capacity.md#api-request-limits).
 
 ## Next steps
 

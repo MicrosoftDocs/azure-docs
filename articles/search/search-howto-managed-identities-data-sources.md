@@ -270,5 +270,5 @@ A debug session targets a container. Be sure to include the name of an existing 
 + [Security overview](search-security-overview.md)
 + [AI enrichment overview](cognitive-search-concept-intro.md)
 + [Indexers overview](search-indexer-overview.md)
-+ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication.md)
++ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication)
 + [About managed identities (Azure Active Directory)](../active-directory/managed-identities-azure-resources/overview.md)

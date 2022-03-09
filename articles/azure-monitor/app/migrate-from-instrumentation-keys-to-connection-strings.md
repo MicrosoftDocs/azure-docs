@@ -1,11 +1,11 @@
 ---
-title: Migrate from instrumentation keys to connection strings
+title: Migrate from Application Insights instrumentation keys to connection strings
 description: Learn the steps required to upgrade from Azure Monitor Application Insights instrumentation keys to connection strings
 ms.topic: conceptual
 ms.date: 02/14/2022
 ---
 
-# Migrate from instrumentation keys to connection strings
+# Migrate from Application Insights instrumentation keys to connection strings
 
 This guide walks through migrating from [instrumentation keys](separate-resources.md#about-resources-and-instrumentation-keys) to [connection strings](sdk-connection-string.md#overview).
 
@@ -35,7 +35,7 @@ Use environment variables to pass a connection string to the Application Insight
 
 To set a connection string via environment variable, place the value of the connection string into an environment variable named “APPLICATIONINSIGHTS_CONNECTION_STRING”.
 
-This process can be automated in your Azure deployments. For example, the following ARM template shows how you can automatically include the correct connection string with an App Services deployment (be sure to include any other App Settings your app requires):
+This process can be [automated in your Azure deployments](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-with-arm-templates-and-azure-portal). For example, the following ARM template shows how you can automatically include the correct connection string with an App Services deployment (be sure to include any other App Settings your app requires):
 
 ```JSON
 {
@@ -106,11 +106,11 @@ Connection strings provide a single configuration setting and eliminate the need
 
 ### Missing data
 
-1. Confirm you're using a [supported SDK version](#supported-sdk-versions). If you use Application Insights integration in another Azure product offering, check its documentation on how to properly configure a connection string.
+- Confirm you're using a [supported SDK version](#supported-sdk-versions). If you use Application Insights integration in another Azure product offering, check its documentation on how to properly configure a connection string.
 
-1. Confirm you aren't setting both an instrumentation key and connection string at the same time. Instrumentation key settings should be removed from your configuration.
+- Confirm you aren't setting both an instrumentation key and connection string at the same time. Instrumentation key settings should be removed from your configuration.
 
-1. Confirm your connection string is exactly as provided in the Azure portal.
+- Confirm your connection string is exactly as provided in the Azure portal.
 
 ### Environment variables aren't working
 
@@ -130,7 +130,7 @@ You can't enable [Azure AD authentication](azure-ad-authentication.md) for [auto
 
 ### What is the difference between global and regional ingestion?
 
-Global ingestion sends all telemetry data to a single endpoint, no matter where this data will end up or be stored. Regional ingestion allows you to define specific endpoints per region for data ingestion, ensuring data stays within a specific region during processing and storage.
+Global ingestion sends all telemetry data to a single endpoint, no matter where this data will be stored. Regional ingestion allows you to define specific endpoints per region for data ingestion, ensuring data stays within a specific region during processing and storage.
 
 ### How do connection strings impact the billing?
 

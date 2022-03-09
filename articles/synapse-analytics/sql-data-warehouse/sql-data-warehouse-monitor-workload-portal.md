@@ -1,7 +1,6 @@
 ---
 title: Monitor workload - Azure portal 
 description: Monitor Synapse SQL using the Azure portal
-services: synapse-analytics
 author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics

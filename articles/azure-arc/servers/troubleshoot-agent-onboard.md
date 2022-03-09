@@ -35,7 +35,7 @@ If you receive an error when configuring the Azure Arc-enabled servers agent, th
 | AZCM0064 | The agent service is not responding | Check the status of the `himds` service to ensure it is running. Start the service if it is not running. If it is running, wait a minute then try again. |
 | AZCM0065 | An internal agent communication error occurred | Contact Microsoft Support for assistance |
 | AZCM0066 | The agent web service is not responding or unavailable | Contact Microsoft Support for assistance |
-| AZCM0067 | The agent is already connected to Azure | Follow the steps in [disconnect the agent](manage-agent.md#unregister-machine) first, then try again. |
+| AZCM0067 | The agent is already connected to Azure | Run `azcmagent disconnect` to remove the current connection, then try again. |
 | AZCM0068 | An internal error occurred while disconnecting the server from Azure | Contact Microsoft Support for assistance |
 | AZCM0081 | An error occurred while downloading the Azure Active Directory managed identity certificate | If this message is encountered while attempting to connect the server to Azure, the agent won't be able to communicate with the Azure Arc service. Delete the resource in Azure and try connecting again. |
 | AZCM0101 | The command was not parsed successfully | Run `azcmagent <command> --help` to review the correct command syntax |
@@ -108,7 +108,7 @@ The following table lists some of the known errors and suggestions on how to tro
 |Failed to AzcmagentConnect ARM resource |`The subscription is not registered to use namespace 'Microsoft.HybridCompute'` |Azure resource providers are not registered. |Register the [resource providers](./agent-overview.md#register-azure-resource-providers). |
 |Failed to AzcmagentConnect ARM resource |`Get https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01?api-version=2019-03-18-preview:  Forbidden` |Proxy server or firewall is blocking access to `management.azure.com` endpoint. |Verify connectivity to the endpoint and it is not blocked by a firewall or proxy server. |
 
-<a name="footnote1"></a><sup>1</sup>If this GPO is enabled and applies to machines with the Connected Machine agent, it deletes the user profile associated with the built-in account specified for the *himds* service. As a result, it also deletes the authentication certificate used to communicate with the service that is cached in the local certificate store for 30 days. Before the 30-day limit, an attempt is made to renew the certificate. To resolve this issue, follow the steps to [unregister the machine](manage-agent.md#unregister-machine) and then re-register it with the service running `azcmagent connect`.
+<a name="footnote1"></a><sup>1</sup>If this GPO is enabled and applies to machines with the Connected Machine agent, it deletes the user profile associated with the built-in account specified for the *himds* service. As a result, it also deletes the authentication certificate used to communicate with the service that is cached in the local certificate store for 30 days. Before the 30-day limit, an attempt is made to renew the certificate. To resolve this issue, follow the steps to [disconnect the agent](manage-agent.md#disconnect) and then re-register it with the service running `azcmagent connect`.
 
 ## Next steps
 

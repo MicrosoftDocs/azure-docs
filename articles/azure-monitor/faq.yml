@@ -3,12 +3,11 @@ metadata:
   title: Azure Monitor FAQ | Microsoft Docs
   description: Answers to frequently asked questions about Azure Monitor.
   services: azure-monitor
-  ms.topic: article
+  ms.topic: faq
   ms.service: azure-monitor
   author: bwren
   ms.author: bwren
   ms.date: 10/08/2020
-    
 title: Azure Monitor Frequently Asked Questions
 summary: |
   This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
@@ -389,7 +388,7 @@ sections:
       - question: |
           What roles do I need to create a DCR that collects events from my servers?
         answer: |
-          See [Permissions required to create data collection rules and associations](agents/data-collection-rule-azure-monitor-agent.md#permissions-required-to-create-data-collection-rules-and-associations)
+          See [Permissions required to create data collection rules and associations](essentials/data-collection-rule-overview.md#permissions)
 
       - question: |
           If I create DCRs that contain the same event ID and associate it to the same VM, will the events be duplicated?

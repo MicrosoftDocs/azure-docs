@@ -4,6 +4,7 @@ description: This quickstart provides several Python code samples you can use to
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.custom: mvc, mode-api
 ms.devlang: python
 ms.topic: quickstart
