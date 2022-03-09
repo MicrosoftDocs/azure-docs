@@ -17,12 +17,6 @@ az account set --subscription <subscriptionName>
 
 <!-- Azure storage-->
 <!-- <CreateStorage> -->
-
-# Create a storage account
-
-```rest
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
-```
 <!-- </CreateStorage>-->
 
 <!--  List locations
@@ -192,9 +186,14 @@ az ams asset show -a <amsAccountName> -g <resourceGroupName> -n <assetName>
 
 #type: command
 #short-summary: List all the assets of an Azure Media Services account.
-# <AmsAssetList>
-az ams asset list -g <resourceGroupName> -a <amsAccountName>
-# </AmsAssetList>
+# <AmsAssetList>-->
+
+```rest
+
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets?api-version=2021-06-01
+
+```
+<!-- </AmsAssetList>
 
 #type: command
 #short-summary: List streaming locators which are associated with this asset.

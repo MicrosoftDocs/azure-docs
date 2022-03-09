@@ -10,4 +10,4 @@ ms.author: inhenkel
 
 ## List assets
 
-:::code language="azurecli" source="~/media-services-v3-python/cli/code-snippets.sh" id="AmsAssetList" interactive="azurecli-interactive":::
+:::code language="rest-api" source="./includes/reference-rest.md" id="AmsAssetList":::
