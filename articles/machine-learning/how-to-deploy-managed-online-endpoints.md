@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 12/22/2021
+ms.date: 03/07/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021
 ---

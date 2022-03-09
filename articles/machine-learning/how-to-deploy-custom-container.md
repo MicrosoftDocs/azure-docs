@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: larryfr
-ms.date: 12/22/2021
+ms.date: 03/07/2022
 ms.topic: how-to
 ms.custom: deploy, devplatv2, devx-track-azurecli 
 ms.devlang: azurecli

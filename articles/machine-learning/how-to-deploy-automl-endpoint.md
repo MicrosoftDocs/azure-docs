@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: ssambare
 ms.reviewer: laobri
 author: shivanissambare
-ms.date: 12/22/2021
+ms.date: 03/07/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, devx-track-azurecli 
 ms.devlang: azurecli
