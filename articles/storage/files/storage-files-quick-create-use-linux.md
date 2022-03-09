@@ -4,7 +4,7 @@ description: This tutorial covers how to create an Azure file share in the Azure
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/09/2022
+ms.date: 03/10/2022
 ms.author: kendownie
 ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
@@ -24,7 +24,6 @@ In this tutorial, you will:
 > * Create an NFS file share
 > * Connect to your VM
 > * Mount the file share to your VM
-> * Create a file in the NFS share
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -197,22 +196,6 @@ Now that you've created an NFS share, to use it you have to mount it on your Lin
 1. Using the ssh connection you created to your VM, enter the sample commands to use NFS and mount the file share.
 
 You have now mounted your NFS share, and it's ready to store files.
-
-## Create a file in the NFS share
-
-Create a text file on your Linux VM in the Azure NFS file share you created.
-
-1. Using the ssh connection you created to your VM, change the current working directory to your newly mounted file share.
-
-```console
-cd /mount/examplestorageaccount000/qsfileshare
-```
-
-2. Create a text file in the file share.
-
-```console
-sudo touch qstestfile.txt
-```
 
 ## Clean up resources
 
