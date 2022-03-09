@@ -379,6 +379,32 @@ Save the following file as *serviceapp.json*:
                         }
                     ]
                 },
+                "dapr": {
+                    "enabled": true,
+                    "appPort": 3000,
+                    "appId": "nodeapp",
+                    "components": [
+                        {
+                            "name": "statestore",
+                            "type": "state.azure.blobstorage",
+                            "version": "v1",
+                            "metadata": [
+                                {
+                                    "name": "accountName",
+                                    "value": "[parameters('storage_account_name')]"
+                                },
+                                {
+                                    "name": "accountKey",
+                                    "secretRef": "storage-key"
+                                },
+                                {
+                                    "name": "containerName",
+                                    "value": "[parameters('storage_container_name')]"
+                                }
+                            ]
+                        }
+                    ]
+                },
                 "template": {
                     "containers": [
                         {
@@ -394,32 +420,6 @@ Save the following file as *serviceapp.json*:
                         "minReplicas": 1,
                         "maxReplicas": 1
                     },
-                    "dapr": {
-                        "enabled": true,
-                        "appPort": 3000,
-                        "appId": "nodeapp",
-                        "components": [
-                            {
-                                "name": "statestore",
-                                "type": "state.azure.blobstorage",
-                                "version": "v1",
-                                "metadata": [
-                                    {
-                                        "name": "accountName",
-                                        "value": "[parameters('storage_account_name')]"
-                                    },
-                                    {
-                                        "name": "accountKey",
-                                        "secretRef": "storage-key"
-                                    },
-                                    {
-                                        "name": "containerName",
-                                        "value": "[parameters('storage_container_name')]"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
                 }
             }
         }
@@ -548,6 +548,10 @@ Save the following file as *clientapp.json*:
             "properties": {
                 "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]",
                 "configuration": {},
+                "dapr": {
+                    "enabled": true,
+                    "appId": "pythonapp"
+                },
                 "template": {
                     "containers": [
                         {
@@ -562,10 +566,6 @@ Save the following file as *clientapp.json*:
                     "scale": {
                         "minReplicas": 1,
                         "maxReplicas": 1
-                    },
-                    "dapr": {
-                        "enabled": true,
-                        "appId": "pythonapp"
                     }
                 }
             }
