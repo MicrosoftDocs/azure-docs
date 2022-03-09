@@ -33,13 +33,7 @@ For more information, see [Update a standalone sensor version](how-to-manage-ind
 
 Use the following flow chart to determine which private link method is right for your organization.
 
-•	Flexible connectivity - The sensors monitoring remote sites can connect to the service by any of these methods:
-o	Connect your sensor through a proxy residing in Azure.
-o	Through proxy chaining from secure segments within composite enterprise networks.
-o	Directly via the internet (encrypted secure session) 
-o	Integration with other cloud vendors (Multi-cloud)
-
-<!-->
+<!--
 ## Connect via ExpressRoute with Microsoft Peering
 
 Prerequisites
@@ -66,7 +60,7 @@ Rest of World	East US
   
 
 
-<-->
+-->
 
 ## Connect via an Azure proxy
 
@@ -86,7 +80,7 @@ Before you start, make sure that you have:
 
 - Outbound HTTPS traffic on port 443 to the following hostnames:
 
-    - **IoT Hub*: `*.azure-devices.net`
+    - **IoT Hub**: `*.azure-devices.net`
     - **Threat Intelligence**: `*.blob.core.windows.net`
     - **EventHub**: `*.servicebus.windows.net`
 
@@ -136,7 +130,7 @@ Create the following VNET and contained Subnets:
 
 Create a VPN or ExpressRoute Gateway for virtual gateways, or create a local gateway, depending on how you connect your on-premises network to Azure.
 
-Attach the gateway to the `GatewaySubnet` subnet you created [earlier](#define-virtual-networks-and-subnets).
+Attach the gateway to the `GatewaySubnet` subnet you created [earlier](#step-2-define-virtual-networks-and-subnets).
 
 For more information, see:
 
@@ -156,7 +150,7 @@ For more information, see:
 
     - Optional. If you're using Bastion, create rule `4094` to allow Bastion SSH to the servers. Use the Bastion subnet as the source.
 
-1. Assign the NSG to the `ProxyserverSubnet` you created [earlier](#define-virtual-networks-and-subnets).
+1. Assign the NSG to the `ProxyserverSubnet` you created [earlier](#step-2-define-virtual-networks-and-subnets).
 
 1. Define your NSG logging:
 
@@ -171,7 +165,7 @@ For more information, see:
         **On the Basics tab**:
 
         - Enter a meaningful name
-        - Select the storage account you'd created [earlier](#define-a-storage-account-for-nsg-logs)
+        - Select the storage account you'd created [earlier](#step-1-define-a-storage-account-for-nsg-logs)
         - Define your required retention days
 
         **On the Configuration tab**:
@@ -196,7 +190,7 @@ Use the following procedure to create a scale set to use with your private link 
 
     Keep the default value for **Disks** settings.
 
-1. Create a network interface in the `Proxyserver` subnet you created [earlier](#define-virtual-networks-and-subnets), but do not yet define a load balancer.
+1. Create a network interface in the `Proxyserver` subnet you created [earlier](#step-2-define-virtual-networks-and-subnets), but do not yet define a load balancer.
 
 1. Define your scaling settings as follows:
 
@@ -277,9 +271,9 @@ To create an Azure load balancer for your private link connection:
 
 1.	Create a load balancer with a standard SKU and an **Internal** type to ensure that the load balancer is closed to the internet.
 
-1.	Define a dynamic frontend IP address in the `proxysrv` subnet you created [earlier](#define-virtual-networks-and-subnets), setting the availability to zone-redundant.
+1.	Define a dynamic frontend IP address in the `proxysrv` subnet you created [earlier](#step-2-define-virtual-networks-and-subnets), setting the availability to zone-redundant.
 
-1.	For a backend, chose the VM scale set you created in the [earlier](#define-an-azure-virtual-machine-scale-set).
+1.	For a backend, chose the VM scale set you created in the [earlier](#step-5-define-an-azure-virtual-machine-scale-set).
 
 1. On the port defined in the sensor, create a TCP load balancing rule connecting the frontend IP address with the backend pool. The default port is 3128.
 
@@ -303,7 +297,7 @@ To configure a NAT gateway for your private link:
 
 1.	In the **Outbound IP** tab, select **Create a new public IP address**.
 
-1.	In the **Subnet** tab, select the `ProxyserverSubnet` subnet you created [earlier](#define-virtual-networks-and-subnets).
+1.	In the **Subnet** tab, select the `ProxyserverSubnet` subnet you created [earlier](#step-2-define-virtual-networks-and-subnets).
 
 ## Connect via proxy chaining
 
