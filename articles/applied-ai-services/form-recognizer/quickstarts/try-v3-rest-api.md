@@ -60,11 +60,11 @@ The following table illustrates the updates to the REST API calls.
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [🆕 **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
-* [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Model**](#try-it-prebuilt-model)—Analyze and extract data from common document types, using a pre-trained model.
+* [**Prebuilt Model**](#prebuilt-model)—Analyze and extract data from common document types, using a pre-trained model.
 
 ## Prerequisites
 
@@ -85,11 +85,11 @@ In this quickstart you'll use following features to analyze and extract data and
 
 ### Select a code sample to copy and paste into your application:
 
-* [**General document**](#try-it-general-document-model)
+* [**General document**](#general-document-model)
 
-* [**Layout**](#try-it-layout-model)
+* [**Layout**](#layout-model)
 
-* [**Prebuilt Model**](#try-it-prebuilt-model)
+* [**Prebuilt Model**](#prebuilt-model)
 
 > [!IMPORTANT]
 >

@@ -151,7 +151,7 @@ landingContent:
           - text: JavaScript SDK
             url: "quickstarts/try-v3-javascript-sdk.md#general-document-model"
           - text: REST API (cURL)
-            url: "quickstarts/try-v3-rest-api.md#try-it-general-document-model"
+            url: "quickstarts/try-v3-rest-api.md#general-document-model"
           - text: Form Recognizer Studio
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 #Card 7
