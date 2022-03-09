@@ -146,7 +146,7 @@ With the recognizer created and the intents added, recognition can begin. The Sp
 
 | Recognition mode | Methods to call | Result |
 | ---------------- | --------------- | ------ |
-| single-shot | `RecognizeOnceAsync()` | Returns the recognized intent, if any, after one utterance. |
+| Single-shot | `RecognizeOnceAsync()` | Returns the recognized intent, if any, after one utterance. |
 | Continuous | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Recognizes multiple utterances; emits events (for example, `IntermediateResultReceived`) when results are available. |
 
 The application uses single-shot mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. You extract the LUIS JSON response by using the following expression:
