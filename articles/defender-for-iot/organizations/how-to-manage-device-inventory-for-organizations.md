@@ -86,39 +86,56 @@ To view a specific devices information, select the device and the device informa
 
 As you manage your devices, you may need to update their details, such as to modify security value as assets change, to personalize an inventory so that you can better identify specific devices, or if a device was classified incorrectly.
 
-**To edit a device's details**:
+You can edit device details for each device, one at a time, or select multiple devices to edit details together.
+
+**To edit details for a single device**:
 
 1. In the **Device inventory** page, select the device you want to edit, and then select **Edit** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/edit-device-details.png" border="false"::: in the toolbar at the top of the page.
 
-    The device details open in a pane at the right.
+    The **Edit** pane opens at the right.
 
-1. Modify any of the following fields:
-
-    **General information**:
-
-    |Name  |Description  |
-    |---------|---------|
-    |**Authorized Device**     |Toggle on or off as needed as device security changes.         |
-    |**Description**     |  Enter a meaningful description for the device.       |
-    |**Location**     |   Enter a meaningful location for the device.      |
-    |**Category**     | Use the **Class**, **Type**, and **Subtype** options to categorize the device.         |
-    |**Business Function**     | Enter a meaningful description of the device's business function.        |
-    |**Hardware Model**     |   Select the device's hardware model from the dropdown menu.      |
-    |**Hardware Vendor**     | Select the device's hardware vendor from the dropdown menu.        |
-    |**Firmware**      |   Device the device's firmware name and version. You can either select the delete :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: button to delete an existing firmware definition, or select **+ Add** to add a new one.  |
-    |**Tags**     | Enter meaningful tags for the device. Select the delete :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: button to delete an existing tag, or select **+ Add** to add a new one.         |
-    |     |         |
-
-    **Settings**
-
-    |Name  |Description  |
-    |---------|---------|
-    |**Importance**     | Select **Low**, **Normal**, or **High** to modify the device's importance.        |
-    |**Programming device**     | Toggle the **Programming Device** option on or off as needed for your device.        |
-    |     |         |
+1. Modify any of the field values as needed. For more information, see [Reference of editable fields](#reference-of-editable-fields).
 
 1. Select **Save** when you're finished editing the device details.
 
+**To edit details for multiple devices simultaneously**:
+
+1. In the **Device inventory** page, select the devices you want to edit, and then select **Edit** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/edit-device-details.png" border="false"::: in the toolbar at the top of the page.
+
+    The **Edit** pane opens at the right.
+
+1. Select **Add field type**, and then select one or more fields to edit.
+
+1. Update your field definitions as needed, and then select **Save**. For more information, see [Reference of editable fields](#reference-of-editable-fields).
+
+Your updates are saved for all selected devices.
+
+### Reference of editable fields
+
+The following device fields are supported for editing in the Device inventory page:
+
+**General information**:
+
+|Name  |Description  |
+|---------|---------|
+|**Name** | Mandatory. Supported for editing only when editing a single device. |
+|**Authorized Device**     |Toggle on or off as needed as device security changes.         |
+|**Description**     |  Enter a meaningful description for the device.       |
+|**Location**     |   Enter a meaningful location for the device.      |
+|**Category**     | Use the **Class**, **Type**, and **Subtype** options to categorize the device.         |
+|**Business Function**     | Enter a meaningful description of the device's business function.        |
+|**Hardware Model**     |   Select the device's hardware model from the dropdown menu.      |
+|**Hardware Vendor**     | Select the device's hardware vendor from the dropdown menu.        |
+|**Firmware**      |   Device the device's firmware name and version. You can either select the delete :::image type="icon"source="media/how-to-manage-device-inventory-on-the-clouddelete-device.png" border="false"::: button to delete an existing firmware definition, or select **+ Add** to add a new one.  |
+|**Tags**     | Enter meaningful tags for the device. Select the **delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png"border="false"::: button to delete an existing tag, or select **+ Add** to add a new one.         |
+|     |         |
+
+**Settings**
+|Name  |Description  |
+|---------|---------|
+|**Importance**     | Select **Low**, **Normal**, or **High** to modify the device's importance.        |
+|**Programming device**     | Toggle the **Programming Device** option on or off as needed for your device.        |
+|     |         |
 ## Export the device inventory to CSV
 
 You can export your device inventory to a CSV file. Any filters that you apply to the device inventory table will be exported, when you export the table.
