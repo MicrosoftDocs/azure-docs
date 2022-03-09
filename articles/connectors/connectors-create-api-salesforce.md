@@ -1,15 +1,15 @@
 ---
 title: Connect to Salesforce from Azure Logic Apps
-description: Automate tasks and workflows that monitor, create, and manage Salesforce records and jobs by using Azure Logic Apps
+description: Automate tasks and workflows that monitor, create, and manage Salesforce records and jobs using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 08/24/2018
 tags: connectors
 ---
 
-# Monitor, create, and manage Salesforce resources by using Azure Logic Apps
+# Connect to Salesforce from Azure Logic Apps
 
 With Azure Logic Apps and the Salesforce connector, 
 you can create automated tasks and workflows for your 
@@ -28,8 +28,8 @@ If you're new to logic apps, review
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure account and subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * A [Salesforce account](https://salesforce.com/)
 

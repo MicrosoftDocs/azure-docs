@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 02/24/2022
 ms.author: v-ydequadros
 ---
 
@@ -31,8 +31,15 @@ This article describes how to onboard a Microsoft Azure subscription or subscrip
 To add CloudKnox to your Azure AD tenant:
 - You must have an Azure AD user account and an Azure command-line interface (Azure CLI) on your system, or an Azure subscription. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
 - You must have **Microsoft.Authorization/roleAssignments/write** permission at the subscription or management group scope to perform these tasks. If you don't have this permission, you can ask someone who has this permission to perform these tasks for you.
+- To enable the CloudKnox **Feature highlights** tile in the Azure AD portal, [select this link to run the script in your browser](https://aka.ms/ciem-prod).
+- To use the CloudKnox public preview, we encourage you to fill out a consent form that provides other terms and conditions for the public preview product. To open the form, select [CloudKnox Permissions Management Public Preview: Terms and Conditions](https://aka.ms/ciem-terms).
 
-## Onboard an Azure subscription
+## View a training video on enabling CloudKnox
+
+To view a video on how to enable CloudKnox in your Azure AD tenant, select
+[Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
+
+## How to onboard an Azure subscription
 
 1. If the **Data Collectors** dashboard isn't displayed when CloudKnox launches: 
 

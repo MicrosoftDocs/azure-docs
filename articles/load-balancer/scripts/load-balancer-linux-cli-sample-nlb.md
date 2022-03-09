@@ -24,8 +24,6 @@ This Azure CLI script example creates everything needed to run several Ubuntu vi
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Quick Create VM")]
-
 ## Clean up deployment 
 
 Run the following command to remove the resource group, VM, and all related resources.

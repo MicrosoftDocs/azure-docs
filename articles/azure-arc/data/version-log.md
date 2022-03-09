@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/16/2021
+ms.date: 02/25/2022
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand what versions of components align with specific releases.
 ---
@@ -15,6 +15,17 @@ ms.topic: conceptual
 # Version log
 
 This article identifies the component versions with each release of Azure Arc-enabled data services.
+
+### February 25, 2022
+
+|Component  |Value  |
+|--------------------------------------------------------|---------|
+|Container images tag |`v1.4.0_2022-02-25`
+|CRD names and versions	|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1, v2, v3</br>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2</br>`kafkas.arcdata.microsoft.com`: v1beta1</br>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2</br>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1, v2, v3, v4</br>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2</br>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1</br>`dags.sql.arcdata.microsoft.com`: v1beta1, v2beta2</br>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1|
+|ARM API version|2021-11-01|
+|`arcdata` Azure CLI extension version|	1.2.1|
+|Arc enabled Kubernetes helm chart extension version|1.1.18791000|
+|Arc Data extension for Azure Data Studio|1.0|
 
 ### January 27, 2022
 

@@ -148,11 +148,11 @@
     items:
     - name: Troubleshoot issues
       href: cloudknox-troubleshoot.md
-  #- name: Training material
-    #expanded: false
-    #items:
-    #- name: Get started with CloudKnox training videos
-      #href: cloudknox-training-videos.md
+  - name: Training videos
+    expanded: false
+    items:
+    - name: Get started with CloudKnox training videos
+      href: cloudknox-training-videos.md
   - name: Reference
     expanded: false
     items:

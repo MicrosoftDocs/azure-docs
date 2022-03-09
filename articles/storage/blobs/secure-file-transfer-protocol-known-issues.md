@@ -1,22 +1,22 @@
 ---
 title: Known issues with SFTP in Azure Blob Storage (preview) | Microsoft Docs
-description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support in Azure Blob Storage.
+description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support for Azure Blob Storage.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 03/04/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---
 
-# Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)
+# Known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
 
-This article describes limitations and known issues of SFTP support in Azure Blob Storage.
+This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available in [these regions](secure-file-transfer-protocol-support.md#regional-availability).
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
@@ -36,8 +36,6 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 - Account level operations such as listing, putting/getting, creating/deleting containers are not supported.
  
 ## Networking
-
-- Partitioned DNS endpoints are not supported.
 
 - To access the storage account using SFTP, your network must allow traffic on port 22.
 
@@ -89,8 +87,6 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 - Symbolic links are not supported.
 
-- PowerShell and Azure CLI are not supported. You can leverage Portal and ARM templates for Public Preview.
-
 - `ssh-keyscan` is not supported.
 
 - SSH commands, that are not SFTP, are not supported.
@@ -99,15 +95,11 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 - To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.` error, ensure that the following pre-requisites are met at the storage account level:
 
-  - The account needs to be a GPv2 or Block Blob Storage account.
-  
-  - The account needs to have LRS or ZRS replication setup.
+  - The account needs to be a general-purpose v2 and premium block blob accounts.
   
   - The account needs to have hierarchical namespace enabled on it.
   
-  - The account needs to be in a [supported regions](secure-file-transfer-protocol-support.md#regional-availability).
-  
-  - Customer's subscription needs to be signed up for the preview. To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) *and* request to join via 'Preview features' in the Azure portal.
+  - Customer's subscription needs to be signed up for the preview. Request to join via 'Preview features' in the Azure portal. Requests are automatically approved.
 
 - To resolve the `Home Directory not accessible error.` error, check that:
   
@@ -117,5 +109,6 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 ## See also
 
-- [SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
-- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md)
+- [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md)
+- [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
