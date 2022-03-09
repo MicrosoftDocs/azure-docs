@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 03/08/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -155,3 +155,4 @@ In the topology illustrated above, the on-premises network is connected to a hub
 
 * [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 * [Configure network features for an Azure NetApp Files volume](configure-network-features.md) 
+* [Virtual network peering](../virtual-network/virtual-network-peering-overview.md)

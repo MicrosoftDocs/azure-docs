@@ -159,6 +159,10 @@ A connection from a branch or VPN device into Azure Virtual WAN is a VPN connect
 
 An Azure Virtual WAN connection is composed of 2 tunnels. A Virtual WAN VPN gateway is deployed in a virtual hub in active-active mode, which implies that there are separate tunnels from on-premises devices terminating on separate instances. This is the recommendation for all users. However, if the user chooses to only have 1 tunnel to one of the Virtual WAN VPN gateway instances, if for any reason (maintenance, patches etc.) the gateway instance is taken offline, the tunnel will be moved to the secondary active instance and the user may experience a reconnect. BGP sessions will not move across instances.
 
+### What happens during a Gateway Reset in a Virtual WAN VPN Gateway? 
+
+The Gateway Reset button should be used if your on-premises devices are all working as expected but Site to Site VPN connections in Azure are in a Disconnected state. Virtual WAN VPN Gateways are always deployed in an Active-Active state for high availability. This means there is always more than one instance deployed in a VPN Gateway at any point of time. When the Gateway Reset button is used, it reboots the instances in the VPN Gateway in a sequential manner, so your connections are not disrupted. There will be a brief gap as connections move from one instance to the other, but this gap should be less than a minute. Additionally, please note that resetting the gateways will not change your Public IPs.  
+
 ### Can the on-premises VPN device connect to multiple hubs?
 
 Yes. Traffic flow, when commencing, is from the on-premises device to the closest Microsoft network edge, and then to the virtual hub.
@@ -332,12 +336,6 @@ Both Azure Virtual WAN hub and Azure Route Server provide Border Gateway Protoco
 When you choose to deploy a security partner provider to protect Internet access for your users, the third-party security provider creates a VPN site on your behalf. Because the third-party security provider is created automatically by the provider and is not a user-created VPN site, this VPN site will not show up in the Azure portal.
 
 For more information regarding the available options third-party security providers and how to set this up, see [Deploy a security partner provider](../firewall-manager/deploy-trusted-security-partner.md).
-
-### Why am I seeing a message and button called "Update router to latest software version" in portal?
-
-The Virtual WAN team has been working on upgrading virtual routers from their current cloud service infrastructure to Virtual Machine Scale Sets (VMSS) based deployments. This will enable the virtual hub router to now be availability zone aware and have enhanced scaling out capabilities during high CPU usage. If you navigate to your Virtual WAN hub resource and see this message and button, then you can upgrade your router to the lastest version by clicking on the button. 
-
-Please note that you’ll only be able to update your virtual hub router if all the resources (gateways/route tables/VNET connections) in your hub are in a succeeded state. Additionally, as this operation requires deployment of new VMSS based virtual hub routers, you’ll face an expected downtime of 30 minutes per hub. Within a single Virtual WAN resource, hubs should be updated one at a time instead of updating multiple at the same time. When the Router Version says “Latest”, then the hub is done updating.   
 
 ## Next steps
 
