@@ -107,4 +107,4 @@ az webapp create `
 * *resource-group* &rarr; Use the same resource group name from **Step 1**. (`msdocs-python-postgres-webapp-rg`)
 
 > [!NOTE]
-> This tutorial shows step-by-step use of Azure CLI commands to reinforce the logical steps that go into creating and deploying an App Service. Once you get familiar with the steps, you can try the [`az webapp up`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-up) that creates a webapp and deploys its code from a local workspace to App Service.
+> This tutorial shows step-by-step use of Azure CLI commands to reinforce the logical steps that go into creating and deploying an App Service. Once you get familiar with the steps, you can try the [`az webapp up`](/cli/azure/webapp?az-webapp-up) that creates a webapp and deploys its code from a local workspace to App Service.
