@@ -56,7 +56,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `type` | const | **Required.** The type of sampling algorithm. | `random` | |
-| `seed` | integer | A random seed to use for initializing the random number generation. | | |
+| `seed` | integer | A random seed to use for initializing the random number generation. If omitted, the default seed value will be null. | | |
 | `rule` | string | The type of random sampling to use. The default, `random`, will use simple uniform random sampling, while `sobol` will use the Sobol quasirandom sequence. | `random`, `sobol` | `random` |
 
 #### GridSamplingAlgorithm
