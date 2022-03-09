@@ -59,7 +59,7 @@ If you use **ago** command in the query, the range is automatically set to two d
 
 Log alerts turn log into numeric values that can be evaluated. You can measure two different things:
 
-#### Count of the results table rows
+#### Result count
 
 Count of results is the default measure and is used when you set a **Measure** with a selection of **Table rows**. Ideal for working with events such as Windows event logs, syslog, application exceptions. Triggers when log records happen or doesn't happen in the evaluated time window.
 
@@ -85,7 +85,7 @@ requests
 
 Then alert rules monitors for any requests ending with 500 error code. The query runs every 15 minutes, over the last 15 minutes. If even one record is found, it fires the alert and triggers the actions configured.
 
-#### Calculation of measure based on a numeric column (such as CPU counter value)
+#### Calculation of a value (such as CPU counter value)
 
 Calculation of measure based on a numeric column is used when the **Measure** has a selection of any number column name.
 ### Aggregation type
