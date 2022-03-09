@@ -126,36 +126,12 @@ When a session host has a tag name that matches the scaling plan exclusion tag, 
 |Active user sessions | 3 |
 |Current used host pool capacity | 60% |
 
-Let's say
+In this example scenario, the host pool admin applies the scaling plan exclusion tag to 5 out of the 6 session hosts.
 
+When a new user signs in, that brings the total active user sessions up to four. Only one session host is turned on, and it has a maximum session limit of five, so the host pool capacity is five. The used host pool capacity is 80%. However, even though this amount is over the capacity threshold, the autoscale feature won't be able to turn on any other session hosts, because all of the session hosts except for the one currently running have been tagged with the exclusion tag.
 
+Next, let's say all four users have signed out, leaving no user sessions left in the active session host. Because there are no active users in the session host, the used host pool capacity is 0%, which is below the minimum percentage of session hosts (10%). However, the autoscale feature will keep this single session host on despite it having no users, because during the off-peak phase, autoscale's default setting is to keep at least one session host active no matter what.
 
-1.  Picking up from scenario 3, the max session limit is 5 and there is 1
-    session host on, so the host pool capacity is 5. There are currently 3 user
-    sessions, so the used host pool capacity is 60%.
+So, what do we do if we want autoscale to turn that session host off? The answer is simple: tag the active but empty session host with the same exclusion tag as the other session hosts. Adding this take makes autoscale turn this session host off. 
 
-2.  The host pool admin applies the scaling plan exclusion tag to VM-2, VM-3,
-    VM-4, VM-5, and VM-6.
-
-3.  At this point, another user has logged in, and there are now 4 user
-    sessions. There is currently 1 session host turned on, and the max session
-    limit is still 5, so the host pool capacity is 5. The used host pool
-    capacity is now 80%. This used host pool capacity is greater than the
-    capacity threshold, but Autoscale cannot turn on any other session hosts
-    because they all have the exclusion tag.
-
-4.  At this point, 4 users have logged out so there are now 0 user sessions.
-    There is currently 1 session host turned on, and the max session limit is 5,
-    so the host pool capacity is 5. The used host pool capacity is now 0%. Note
-    that because the minimum % of hosts is 10%, Autoscale will always keep at
-    least 1 session host (10%\*6 = 0.6 rounded to the nearest whole number) on
-    during the off peak phase.
-
-5.  The host pool admin applies the scaling plan exclusion tag to VM-1 and turns
-    it off.
-
-6.  The host pool admin removes the scaling plan exclusion tag from VM-5 and
-    VM-6.
-
-7.  Autoscale turns on VM-5 to ensure that at least 1 session host is on to meet
-    the minimum percentage of hosts requirement.
+What will happen if the admin removes the exclusion tags from two of the tagged session hosts after this? Because autoscale must keep at least one session host on during the off-peak phase to meet the minimum session host requirement of 10%, it will turn on one of the session hosts. However, because there aren't currently any active users, it will leave the other session host off because there's no need to increase the number of available session hosts or raise the maximum session limit.
