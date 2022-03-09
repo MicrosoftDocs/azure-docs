@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
-ms.date: 02/15/2022
+ms.date: 03/09/2022
 
 # Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---
@@ -30,14 +30,17 @@ Azure Machine Learning datasets with labels are referred to as labeled datasets.
 
 ## Export data labels 
 
-When you complete a data labeling project, you can export the label data from a labeling project. Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. Use the **Export** button on the **Project details** page of your labeling project.
+When you complete a data labeling project, you can export the label data from a labeling project. Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. 
+
+Use the [**Export** button on the **Project details** page of your labeling project](how-to-create-image-labeling-projects.md#export-the-labels).
+
 
 ### COCO 
 
  The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. 
  
 >[!NOTE]
->In Object detection projects, the exported "bbox": [x,y,width,height]" values in COCO file are normalized. They are scaled to 1. Example : a bounding box at (10, 10) location, with 30 pixels width , 60 pixels height, in a 640x480 pixel image will be annotated as (0.015625. 0.02083, 0.046875, 0.125). Since the coordintes are normalized, it will show as '0.0' as "width" and "height" for all images. The actual width and height can be obtained using Python library like OpenCV  or Pillow(PIL).
+>In object detection projects, the exported "bbox": [x,y,width,height]" values in COCO file are normalized. They are scaled to 1. Example : a bounding box at (10, 10) location, with 30 pixels width , 60 pixels height, in a 640x480 pixel image will be annotated as (0.015625. 0.02083, 0.046875, 0.125). Since the coordintes are normalized, it will show as '0.0' as "width" and "height" for all images. The actual width and height can be obtained using Python library like OpenCV  or Pillow(PIL).
 
 ### Azure Machine Learning dataset
 
@@ -45,7 +48,8 @@ You can access the exported Azure Machine Learning dataset in the **Datasets** s
 
 ![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md)
+> [!TIP]]
+> Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md)
 
 ## Explore labeled datasets via pandas dataframe
 
