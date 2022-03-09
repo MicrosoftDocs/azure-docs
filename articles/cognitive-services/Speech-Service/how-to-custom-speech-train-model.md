@@ -71,7 +71,9 @@ For more information, see the [how-to article](how-to-custom-speech-evaluate-dat
 
 After you upload and inspect data, evaluate accuracy, and train a custom model, you can deploy a custom endpoint to use with your apps, tools, and products. 
 
-1. To create a custom endpoint, sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech). 
+To create a custom endpoint:
+
+1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech). 
 
 1. On the **Custom Speech** menu at the top of the page, select **Deployment**. 
 
@@ -85,8 +87,6 @@ After you upload and inspect data, evaluate accuracy, and train a custom model, 
 
    ![Screenshot showing the selected `Log content from this endpoint` checkbox on the `New endpoint` page.](./media/custom-speech/custom-speech-deploy-model.png)
 
-    > [!NOTE]
-    > Remember to accept the terms of use and pricing details.
 
 1. Select **Create**. 
 
@@ -94,9 +94,12 @@ After you upload and inspect data, evaluate accuracy, and train a custom model, 
 
    After your endpoint is deployed, the endpoint name appears as a link. 
 
+    > [!NOTE]
+    > Endpoints used by `F0` Speech resources are deleted after seven days.
+
 1. Select the endpoint link to view information specific to it, such as the endpoint key, endpoint URL, and sample code. 
 
-   Note the expiration date, and update the endpoint's model before that date to ensure uninterrupted service.
+   Note the model expiration date, and update the endpoint's model before that date to ensure uninterrupted service.
 
 ## View logging data
 
