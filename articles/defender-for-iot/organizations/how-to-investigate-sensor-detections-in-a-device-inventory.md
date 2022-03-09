@@ -53,10 +53,11 @@ The following columns are available for each device. Starred items are fully sup
 | **FQDN lookup time*** | The device's FQDN lookup time |
 | **Groups*** | The groups that this device participates in. |
 | **IP Address** | The IP address of the device. |
-| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been | **MAC Address** | The MAC address of the device. |
+| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
 | **Is Known as Scanner*** | Defined as a network scanning device by the user. |
 | **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
 | **Last Activity*** | The last activity that the device performed. |
+| **MAC Address** | The MAC address of the device. |
 | **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
 | **Operating System** | The OS of the device, if detected. |
 | **PLC mode** (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. |
@@ -65,8 +66,7 @@ The following columns are available for each device. Starred items are fully sup
 | **Unacknowledged Alerts** | The number of unacknowledged alerts associated with this device. |
 | **Underlying devices*** | Any relevant underlying devices for the device |
 | **Vendor** | The name of the device's vendor, as defined in the MAC address. |
-| **VLAN** | The VLAN of the device. For details about instructing the sensor to discover VLANs, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names).(how-to-define-management-console-network-settings.md#define-vlan-names). |
-authorized. |
+| **VLAN** | The VLAN of the device. For more information, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names). |
 | | |
 
 **To hide and display columns:**
