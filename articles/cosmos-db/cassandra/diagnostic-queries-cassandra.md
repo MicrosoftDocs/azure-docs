@@ -51,7 +51,7 @@ For [resource-specific tables](../cosmosdb-monitor-resource-logs.md#create-setti
 :::image type="content" source="./media/cassandra-log-analytics/log-analytics-questions-bubble.png" alt-text="Image of a bubble word map with possible questions on how to leverage Log Analytics within Cosmos DB":::
 
 ### RU consumption
-- What application queries are causing high RU consumption.
+- Cassandra operations that are consuming high RU/s.
 ```kusto
 CDBCassandraRequests 
 | where DatabaseName=="azure_comos" and CollectionName=="user" 
@@ -88,8 +88,7 @@ CDBCassandraRequests
 | project ActivityId, DatabaseName, CollectionName, queryText=split(split(PIICommandText,'"')[3], ' ')[0]
 | join kind=inner topRequestsByRUcharge on ActivityId
 | project DatabaseName, CollectionName, tostring(queryText), RequestCharge, TimeGenerated
-| order by RequestCharge desc
-| take 10;
+| order by RequestCharge desc;
 ```
 - RU consumption based on variations in payload sizes for read and write operations.
 ```kusto
@@ -131,7 +130,7 @@ CDBPartitionKeyRUConsumption
 | summarize totalRequestCharge=sum(RequestCharge) by PartitionKey, PartitionKeyRangeId;
 ```
 
-- Is there a high RU consumption because of having hot partition?
+- Is a hot partition leading to high RU consumption?
 ```kusto
 CDBPartitionKeyStatistics
 | where DatabaseName=="azure_cosmos" and CollectionName=="user"
@@ -173,7 +172,7 @@ CDBDataPlaneRequests
 | render timechart;
 ```
 
-- Query operations that are getting throttled.
+- Operations that are getting throttled.
 ```kusto
 CDBCassandraRequests
 | where DatabaseName=="azure_cosmos" and CollectionName=="user"
