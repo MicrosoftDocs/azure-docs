@@ -188,7 +188,7 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
 
 ### 3. Create an appliance
 
