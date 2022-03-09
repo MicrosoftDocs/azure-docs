@@ -1,6 +1,6 @@
 ---
 title: CloudKnox Permissions Management - Service limits and restrictions
-description: CloudKnox Permissions Management - Service limits and restrictions.
+description: Service limits and restrictions for CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
