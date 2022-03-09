@@ -11,7 +11,7 @@ Azure Monitor workbooks provide graphs, charts, and dashboards that visually ref
 
 In the Azure portal, use the Defender for IoT **Workbooks** page to view workbooks created by Microsoft and provided out-of-the-box, or created by customers and shared across the community.
 
-Each workbook graph or chart is based on a Kusto Query Language (KQL) query running on your data. In Defender for IoT, you might use KQL queries to:
+Each workbook graph or chart is based on an Azure Resource Graph (ARG) query running on your data. In Defender for IoT, you might use ARG queries to:
 
 - Gather sensor statuses
 - Identify new devices in your network
@@ -50,7 +50,7 @@ Use the Defender for IoT **Workbooks** page to create custom Azure Monitor workb
     |**Text**     |  Add text to describe the graphs shown on your workbook or any additional action required.       |
     |**Parameters**     |  Define parameters to use in your workbook text and queries.       |
     |**Links / tabs**     |  Add navigational elements to your workbook, including lists, links to other targets, extra tabs, or toolbars.       |
-    |**Query**     |  Add an Azure Resource Graph query to use when creating your workbook graphs and charts.   <br><br>- Make sure to select **Azure Resource Graph** as your **Data source** and select all of your relevant subscriptions. <br>- Add a graphical representation for your data by selecting a type from the **Visualization** options.  |
+    |**Query**     |  Add a query to use when creating your workbook graphs and charts.   <br><br>- Make sure to select **Azure Resource Graph** as your **Data source** and select all of your relevant subscriptions. <br>- Add a graphical representation for your data by selecting a type from the **Visualization** options.  |
     |**Metric**     | Add metrics to use when creating workbook graphs and charts.       |
     |**Group**     |  Add groups to organize your workbooks into sub-areas.       |
     |     |         |
