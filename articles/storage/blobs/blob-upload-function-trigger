@@ -47,7 +47,7 @@ On the **Storage accounts** page, select **+ Create** in the top left.
 On the **Create a storage account** page, enter the following values:
 
  - **Subscription**: Choose your desired Subscription.
- - **Resource Group**: Select **Create new** and enter a name of msdocs-storage-function, and then choose **OK**.
+ - **Resource Group**: Select **Create new** and enter a name of , and then choose **OK**.
  - **Storage account name**: Enter a value of msdocsstoragefunction
  - **Region**: Select the region that is closest to you.
  - **Performance**: Choose **Standard**.
@@ -70,9 +70,9 @@ To create the Storage Account and Container, we can run the CLI commands seen be
 ```azurecli-interactive
 az group create --location eastus --name msdocs-core-sql \
 
-az storage account create --name msdocsstorageaccount -resource-group msdocs-core-sql -l eastus --sku Standard_LRS \
+az storage account create --name msdocsstorageaccount -resource-group msdocs-storage-function -l eastus --sku Standard_LRS \
 
-az storage container create --name imageanalysis --account-name msdocsstorageaccount --resource-group msdocs-core-sql
+az storage container create --name imageanalysis --account-name msdocsstorageaccount --resource-group msdocs-storage-function
 ```
 
 You may need to wait a few moments for Azure to provision these resources.
@@ -82,7 +82,7 @@ You may need to wait a few moments for Azure to provision these resources.
 ## Create the Computer Vision Account
 Next let's create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive services and offers a variety of features for extracting data out of images.  [You can learn more about Computer Vision here](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/#overview).
 
-The Computer Vision service currently can only be created via the Azure Portal, not the CLI.
+The Computer Vision service currently can only be created via the Azure Portal.
 
 In the search bar at the top of the portal, search for *Computer* and select the result labeled **Computer vision**.
 
@@ -91,7 +91,7 @@ On the **Computer vision** page, select **+ Create** in the top left.
 On the **Create Computer Vision** page, enter the following values:
 
  - **Subscription**: Choose your desired Subscription.
- - **Resource Group**: Select **Create new** and enter a name of msdocs-storage-function, and then choose **OK**.
+ - **Resource Group**: Use the **msdocs-core-sql** resource group you created earlier..
  - **Region**: Select the region that is closest to you.
  - **Name**: Enter in a name of **msdocscomputervision**.
  - **Pricing Tier**: Choose **Free** if it is available, otherwise choose **Standard S1**.
@@ -112,9 +112,13 @@ git clone https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore.g
 cd msdocs-app-service-sqldb-dotnetcore
 ```
 
-The first step to setup our Azure function is to configure the keys and URLs we saved from the previous steps.  
+Once you have downloaded and opened the project, there are a few essential concepts to understand in the main `Run` method shown below. The Azure function utilizes Trigger and Output bindings, which are applied using attributes on the `Run` method signature. 
 
-Inside of the ProcessImageFunction class, make sure to replace the `subscriptionKey` and `serviceEndpoint` variable values with your own. These are used to connect our code to Azure Computer Vision. You'll also want to update the **imgUrl** value to use the correct Storage Account name.
+The `Table` attribute uses two parameters.  The first parameter specifies the name of the table to write the parsed image text value returned by the function. The second Connection parameter pulls a Table Storage connection string from the environment variables so that our Azure function has access to it. 
+
+The Blob Trigger attribute also has two parameters and is used to trigger our function when a blob is uploaded.  It will pass in that blob as a parameter to our `Run` function.  The Blob Trigger has two parameters of its own - one for the name of the Blob Container to monitor for uploads, and one for the Connection String of our Storage Account again.
+
+This code also retrieves essential configuration values from environment variables, such as the Storage Account connection string and Computer Vision key. We'll add these Environment variables to our Azure Function environment after it's deployed.
 
 ```csharp
 // Azure Function name and output Binding to Table Storage
@@ -139,13 +143,27 @@ public async Task<ParsedText> Run([BlobTrigger("testblobs/{name}", Connection = 
 }
 ```
 
-Let's also explore the essential concepts of the code above that connects our services together. The Azure function utilizes Trigger and Output bindings, which are applied using attributes on our method signature. 
 
-The `Table` attribute uses two parameters.  The first parameter specifies the table name of where to write the parsed image text value returned by the function. The second Connection parameter pulls a Table Storage connection string from the environment variables so that our Azure function has access to it. 
 
-The Blob Trigger attribute also has two parameters and is used to trigger our function when a blob is uploaded.  It will pass in that blob as a parameter to our `Run` function.  The Blob Trigger has two parameters of its own - one for the name of the Blob Container to monitor for uploads, and one for the Connection String of our Storage Account again.
+The `ProcessImage` method also utilizes a second method called `AnalyzeImage`.  This code uses the URL Endpoint and Key of our Computer Vision account to make a request to that server to process our image.  The request will return all of the text discovered in the image, which will then be written to Table Storage using the output binding on the `Run` method.
 
-If you'd like to run the project locally, you'll also need to make a change to the local.settings.json file.  Inside of this file, add a json key-value pair called StorageConnection, and paste in the connection string value you copied from your Storage Account.
+```csharp
+static async Task<string> ReadFileUrl(ComputerVisionClient client, string urlFile)
+{
+// Analyze the file using Computer Vision Client
+var textHeaders = await client.ReadAsync(urlFile);
+string operationLocation = textHeaders.OperationLocation;
+Thread.Sleep(2000);
+
+// Complete code ommitted for brevity
+
+return text.ToString();
+}
+```
+
+### Running locally
+
+If you'd like to run the project locally, you can populate the environment variables using the local.settings.json file. Inside of this file, fill in the placeholder values with the values you saved earlier when creating the Azure resources.
 
 ```javascript
 {
@@ -172,12 +190,12 @@ On the **Functions instance** step, make sure to choose the subscription you'd l
 
 A new dialog will open.  Enter the following values for your new Function App.
 
-**Name**: Enter *msdocsprocessimage* or something similar.
-**Subscription Name**: Choose whatever subscription you'd like to use.
-**Resource Group**: Choose the **msdocs-storage-function** resource group you created earlier.
-**Plan Type**: Select **Consumption**.
-**Location**: Choose the region closest to you.
-**Azure Storage**: Select the Storage Account you created earlier.
+- **Name**: Enter *msdocsprocessimage* or something similar.
+- **Subscription Name**: Choose whatever subscription you'd like to use.
+- **Resource Group**: Choose the **** resource group you created earlier.
+- **Plan Type**: Select **Consumption**.
+- **Location**: Choose the region closest to you.
+- **Azure Storage**: Select the Storage Account you created earlier.
 
 Once you have filled in all of those values, click **Create**. Visual Studio and Azure will begin provisioning the requested resources, which may take a few moments to complete.
 
