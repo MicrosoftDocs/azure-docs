@@ -161,7 +161,7 @@ pool:
   vmImage: ubuntu-latest
 steps:
 - task: UsePythonVersion@0
-  displayName: "Setting python version to 3.7 as required by functions"
+  displayName: "Setting Python version to 3.7 as required by functions"
   inputs:
     versionSpec: '3.7'
     architecture: 'x64'
@@ -190,7 +190,7 @@ pool:
   vmImage: ubuntu-latest
 steps:
 - task: UsePythonVersion@0
-  displayName: "Setting python version to 3.6 as required by functions"
+  displayName: "Setting Python version to 3.6 as required by functions"
   inputs:
     versionSpec: '3.6'
     architecture: 'x64'

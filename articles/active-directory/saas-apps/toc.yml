@@ -2491,6 +2491,8 @@
         href: airstack-provisioning-tutorial.md
       - name: AlertMedia
         href: alertmedia-provisioning-tutorial.md
+      - name: AlexisHR
+        href: alexishr-provisioning-tutorial.md
       - name: Amazon Web Services (AWS) - Role Provisioning
         href: amazon-web-service-tutorial.md#configure-azure-ad-sso
       - name: Appaegis Isolation Access Cloud
@@ -2691,6 +2693,8 @@
         href: jive-provisioning-tutorial.md
       - name: Jostle
         href: jostle-provisioning-tutorial.md
+      - name: Joyn FSM
+        href: joyn-fsm-provisioning-tutorial.md
       - name: Juno Journey
         href: juno-journey-provisioning-tutorial.md
       - name: Klaxoon

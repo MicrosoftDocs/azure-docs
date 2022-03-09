@@ -159,6 +159,10 @@ A connection from a branch or VPN device into Azure Virtual WAN is a VPN connect
 
 An Azure Virtual WAN connection is composed of 2 tunnels. A Virtual WAN VPN gateway is deployed in a virtual hub in active-active mode, which implies that there are separate tunnels from on-premises devices terminating on separate instances. This is the recommendation for all users. However, if the user chooses to only have 1 tunnel to one of the Virtual WAN VPN gateway instances, if for any reason (maintenance, patches etc.) the gateway instance is taken offline, the tunnel will be moved to the secondary active instance and the user may experience a reconnect. BGP sessions will not move across instances.
 
+### What happens during a Gateway Reset in a Virtual WAN VPN Gateway? 
+
+The Gateway Reset button should be used if your on-premises devices are all working as expected but Site to Site VPN connections in Azure are in a Disconnected state. Virtual WAN VPN Gateways are always deployed in an Active-Active state for high availability. This means there is always more than one instance deployed in a VPN Gateway at any point of time. When the Gateway Reset button is used, it reboots the instances in the VPN Gateway in a sequential manner, so your connections are not disrupted. There will be a brief gap as connections move from one instance to the other, but this gap should be less than a minute. Additionally, please note that resetting the gateways will not change your Public IPs.    
+
 ### Can the on-premises VPN device connect to multiple hubs?
 
 Yes. Traffic flow, when commencing, is from the on-premises device to the closest Microsoft network edge, and then to the virtual hub.
