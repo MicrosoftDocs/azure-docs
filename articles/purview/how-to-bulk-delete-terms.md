@@ -24,14 +24,14 @@ This article describes how to bulk delete terms.
 
 1. You will be presented with a blade which shows all the terms selected for deletion.
 
- [!NOTE]
-If a parent is selected for deletion all the children for that parent are automatically selected for deletion.  
+> [!NOTE]
+> If a parent is selected for deletion all the children for that parent are automatically selected for deletion.  
 
 1. Review the list. You can remove the terms you don't want to delete after review by clicking on **Remove**
 1. You can also understand which deletion terms will go via approval process in the column **Approval Needed**. If Approval needed is **Yes** it implies that the term will go via approval workflow before deletion. If the value is **No** then the term will be deleted without any approvals.
 
- [!NOTE]
-The parent delete term workflow will be triggered in this case even if the child has a different delete workflow association. The reason for this being the selection is done on the parent and you are acknowledging to delete child terms along with parent.
+> [!NOTE]
+> The parent delete term workflow will be triggered in this case even if the child has a different delete workflow association. The reason for this being the selection is done on the parent and you are acknowledging to delete child terms along with parent.
 
 1. If there is a least one term which needs to be go via approval process you will be presented with **Submit for approval** and **Cancel** buttons. Clicking on **Submit for approval** will delete all the terms where approval is not needed and will trigger approval workflows for terms which are configured to go via approval process before deletion.
 
