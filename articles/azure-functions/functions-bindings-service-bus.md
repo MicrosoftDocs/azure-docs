@@ -140,7 +140,7 @@ The example host.json file below contains only the settings for version 5.0.0 an
             "maxAutoLockRenewalDuration": "00:05:00",
             "maxConcurrentCalls": 16,
             "maxConcurrentSessions": 8,
-            "maxMessages": 1000,
+            "maxMessageBatchSize": 1000,
             "sessionIdleTimeout": "00:01:00",
             "enableCrossEntityTransactions": false
         }
