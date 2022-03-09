@@ -27,8 +27,8 @@ Authentication for the custom logs API is performed at the data collection endpo
 ## Tables
 Custom logs can send data to any custom table that you create and to certain built-in tables in your Log Analytics workspace. The target table must exist before you can send data to it. The following built-in tables are currently supported:
 
-- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecurityevent)
-- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevents)
+- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)
+- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)
 - [Syslog](/azure/azure-monitor/reference/tables/syslog)
 - [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
 
