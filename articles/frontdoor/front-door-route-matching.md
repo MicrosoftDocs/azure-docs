@@ -88,11 +88,18 @@ After Azure Front Door determines the specific frontend host and filtering possi
 1. If no exact match Paths, look for routing rules with a wildcard Path that matches.
 1. If no routing rules are found with a matching Path, then reject the request and return a 400: Bad Request error HTTP response.
 
+::: zone pivot="front-door-standard-premium"
+
 >[!NOTE]
 > * Any Paths without a wildcard are considered to be exact-match Paths. Even if the Path ends in a slash, it's still considered exact match.
 
+::: zone-end
+
+
 ::: zone pivot="front-door-classic"
 
+>[!NOTE]
+> * Any Paths without a wildcard are considered to be exact-match Paths. Even if the Path ends in a slash, it's still considered exact match.
 > * Patterns to match paths are case insensitive, meaning paths with different casings are treated as duplicates. For example, you have the same host using the same protocol with paths `/FOO` and `/foo`. These paths are considered duplicates which is not allowed in the Patterns to match setting.
 > 
 
@@ -162,7 +169,7 @@ After you have matched to a single Front Door routing rule, choose how to proces
 
 ## Next steps
 
-::: zone-pivot="front-door-standard-premium"
+::: zone pivot="front-door-standard-premium"
 
 Learn how to [create a Front Door Standard/Premium](standard-premium/create-front-door-portal.md).
 
