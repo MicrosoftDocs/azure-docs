@@ -99,9 +99,6 @@ When using Key Vault for key storage, the app settings you need depend on the ma
 
 ---
 
-> [!NOTE]  
-> The key vault URI should be the fully-qualified value displayed in the Key Vault overview tab (`https://...`).
-
 ### Authentication/authorization
 
 While function keys can provide some mitigation for unwanted access, the only way to truly secure your function endpoints is by implementing positive authentication of clients accessing your functions. You can then make authorization decisions based on identity.  
