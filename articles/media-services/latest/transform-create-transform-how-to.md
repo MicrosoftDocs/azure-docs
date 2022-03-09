@@ -42,7 +42,7 @@ You can use the following methods to create a transform.
 
 ## [REST](#tab/rest/)
 
-[!INCLUDE [task general transform creation](./includes/task-create-basic-audio-rest.md)]
+See the Media Services [REST API](/rest/api/media/transforms/create-or-update).
 
 ---
 

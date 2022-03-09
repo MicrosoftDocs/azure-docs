@@ -34,7 +34,6 @@ Creating assets in the portal is as simple as uploading a file.
 
 [!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
 
-
 ## [REST](#tab/rest/)
 
 ### Using REST

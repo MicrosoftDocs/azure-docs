@@ -20,6 +20,12 @@ This article shows you how to get a Media Services asset encryption key.
 
 You can use the following methods to get a Media Services asset encryption key.
 
-## CLI
+## [CLI](#tab/cli/)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-get-asset-encryption-key-cli.md)]
+
+## [REST](#tab/rest/)
+
+See the Media Services [REST API](/rest/api/media/assets/get-encryption-key).
+
+---

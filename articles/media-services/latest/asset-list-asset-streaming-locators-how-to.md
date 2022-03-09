@@ -20,6 +20,12 @@ This article shows you how to list the streaming locators of a Media Services as
 
 You can use the following methods to list the streaming locators of a Media Services asset.
 
-## CLI
+## [CLI](#tab/cli/)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-list-asset-streaming-locators-cli.md)]
+
+## [REST](#tab/rest/)
+
+See the Media Services [REST API](/rest/api/media/assets/list-streaming-locators).
+
+---

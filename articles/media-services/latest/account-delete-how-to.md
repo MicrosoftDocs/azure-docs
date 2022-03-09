@@ -23,4 +23,8 @@ You can find the Media Services accounts in the portal by navigating to your sub
 
 [!INCLUDE [update a media services account CLI](./includes/task-delete-media-services-account-cli.md)]
 
+## [REST](#tab/rest/)
+
+You cannot delete an account with REST.
+
 ---

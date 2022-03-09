@@ -20,6 +20,12 @@ This article shows you how to update a Media Services asset filter.
 
 You can use the following methods to update a Media Services asset filter.
 
-## CLI
+## [CLI](#tab/cli/)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-update-asset-filter-cli.md)]
+
+## [REST](#tab/rest/)
+
+See the Media Services [REST API](/rest/api/media/asset-filters/update).
+
+---

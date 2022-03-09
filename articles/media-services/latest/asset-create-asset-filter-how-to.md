@@ -21,8 +21,12 @@ This article shows you how to create a Media Services asset filter.
 
 You can use the following methods to create a Media Services asset filter.
 
-## CLI
+## [CLI](#tab/cli/)
 
 [!INCLUDE [Show the media services account encryption](./includes/task-create-asset-filter-cli.md)]
+
+## [REST](#tab/rest/)
+
+See the Media Services [REST API](/rest/api/media/asset-filters/create-or-update).
 
 ---

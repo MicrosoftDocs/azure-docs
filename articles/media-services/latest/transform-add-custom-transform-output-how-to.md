@@ -21,8 +21,12 @@ This article shows you how to add a custom transform output for a Media Services
 
 You can use the following methods to add a custom transform output for a Media Services job.
 
-## CLI
+## [CLI](#tab/cli/)
 
 [!INCLUDE [Show the media services account encryption](./includes/task-add-custom-transform-output-cli.md)]
+
+## [REST](#tab/rest/)
+
+See the Media Services [REST API](/rest/api/media/transforms).
 
 ---
