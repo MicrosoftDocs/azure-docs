@@ -87,7 +87,7 @@ To complete this quickstart:
 
 1. In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az_webapp_create) command.
 
-    In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.4`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes). 
+    In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.4`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes).
 
     ```azurecli-interactive
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'PHP|7.4' --deployment-local-git
@@ -126,7 +126,7 @@ To complete this quickstart:
 
     ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)]
 
   <pre>
   Counting objects: 2, done.
