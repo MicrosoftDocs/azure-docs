@@ -149,7 +149,7 @@ For more references check [ADX Data Partitioning Policy](../data-explorer/kusto/
 
 1.	Click Next: Schema
     > [!NOTE]
-    > TSI applies some flattening and escaping when persisting columns in Parquet files. See these links for more details: https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules, https://docs.microsoft.com/en-us/azure/time-series-insights/ingestion-rules-update.
+    > TSI applies some flattening and escaping when persisting columns in Parquet files. See these links for more details: https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules, https://docs.microsoft.com/azure/time-series-insights/ingestion-rules-update.
 - If schema is unknown or varying.
     1. Remove all columns that are infrequently queried, leaving at least timestamp and TSID column(s).
 
