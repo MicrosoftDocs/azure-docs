@@ -513,32 +513,23 @@
     - name: Stitch two or more video files
       href: transform-stitch-how-to.md
       displayName: stitch, edit, edit decision list, edl, stitching, combine, merge, clips, highlight
-    - name: Subclip a video .NET
+    - name: Subclip a video
       href: transform-subclip-video-dotnet-how-to.md
       displayName: clip, highlight, clips, edit, edit decision list, edl, trim, head, tail, clipping, trimming, editing, subclipping, remove
-    - name: Subclip a video REST
-      href: transform-subclip-video-rest-how-to.md
-      displayName: clip, highlight, clips, edit, edit decision list, edl, trim, head, tail, clipping, trimming, editing, subclipping, remove
-    - name: Customize encoder presets .NET
-      href: transform-custom-presets-how-to.md
+    - name: Customize encoder tranforms
+      href: transform-custom-transforms-how-to.md
       displayName: custom, preset, custom preset, custom encoding, user defined, customize, presets, transcode, encode, encoding, encoder, MES, Standard encoder, .NET, transform, custom transform
     - name: Create an overlay transform .NET
       href: transform-create-overlay-how-to.md
       displayName: overlay, video overlay, audio overlay, audio silence, remove audio, redact video, logo, lower third, bug, brand, branding, text overlay, graphic overlay, graphics, image overlay, image
-    - name: Generate thumbnails .NET
-      href: transform-generate-thumbnails-dotnet-how-to.md
+    - name: Generate thumbnails
+      href: transform-generate-thumbnails-how-to.md
       displayName: thumbnail, generate thumbnail, thumbnail job, job, image, jpg, png, bmp, sprite, VTT, WebVTT, best frame, automatic thumbnail, poster, poster frame, step, percentage
-    - name: Crop videos with .NET
-      href: crop-howto.md
+    - name: Crop videos
+      href: transform-crop-howto.md
       displayName: encoder, transcoder, encode, custom preset, crop, resolution, aspect ratio, pixels, remove, 
-    - name: Customize encoder presets CLI
-      href: transform-custom-preset-cli-how-to.md
-      displayName: CLI, custom preset, encoder, transcoder, custom
-    - name: Customize encoder presets REST
-      displayName: encode, encoding, custom, transform, REST
-      href: transform-custom-preset-rest-how-to.md
-    - name: Generate thumbnails REST
-      href: transform-generate-thumbnails-rest-how-to.md
+    - name: Generate thumbnails
+      href: transform-generate-thumbnails-how-to.md
       displayName: thumbnail, generate thumbnail, thumbnail job, job, image, jpg, png, bmp, sprite, VTT, WebVTT, best frame, automatic thumbnail, poster, poster frame, step, percentage
     - name: Create a copyAllBitrateNonInterleaved transform with REST
       href: transform-create-copyallbitratenoninterleaved-how-to.md
