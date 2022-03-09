@@ -123,7 +123,7 @@
     displayName: api open datasets reference sdk
     href: /python/api/azureml-opendatasets/azureml.opendatasets
   - name: Jupyter notebooks
-    displayName: python notebooks
+    displayName: Python notebooks
     href: https://github.com/Azure/OpenDatasetsNotebooks
 - name: Resources
   items:
