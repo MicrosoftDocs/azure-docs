@@ -383,7 +383,7 @@ Issues with query execution are typically caused by managed instance not being a
 - Wrong or mistyped location path.
 - SAS key validity: it could be expired i.e. out of its validity period, containing a typo, starting with a question mark.
 - SAS key persmissions allowed: Read at minimum, and List if wildcards are used
-- Blocked inbound traffic on the storage account. Check [Managing virtual network rules for Azure Storage](../storage/common/storage-network-security.md?tabs=azure-portal#managing-virtual-network-rules) for more details and make sure that access from managed instance VNet is allowed.
+- Blocked inbound traffic on the storage account. Check [Managing virtual network rules for Azure Storage](../../storage/common/storage-network-security.md?tabs=azure-portal#managing-virtual-network-rules) for more details and make sure that access from managed instance VNet is allowed.
 - Outbound traffic blocked on the managed instance using [storage endpoint policy](service-endpoint-policies-configure.md#configure-policies). Allow outbound traffic to the storage account.
 
 ## Next steps
