@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: mx-iao
 ms.author: minxia
-ms.date: 10/21/2021
+ms.date: 03/14/2021
 ms.reviewer: laobri
 ---
 
@@ -25,23 +25,35 @@ This article provides an overview of core syntax concepts you will encounter whi
 
 ## Referencing an Azure ML entity
 
-Azure ML provides a reference syntax (consisting of a shorthand and longhand format) for referencing an existing Azure ML entity when configuring a YAML file. For example, you can reference an existing registered environment in your workspace to use at the environment for a job.
+Azure ML provides a reference syntax (consisting of a shorthand and longhand format) for referencing an existing Azure ML entity when configuring a YAML file. For example, you can reference an existing registered environment in your workspace to use as the environment for a job.
 
-### Shorthand
+### Referencing an Azure ML asset
 
-The shorthand syntax consists of the following:
+There are two options for referencing an Azure ML asset (environments, models, data, and components):
 
-* For assets: `azureml:<asset-name>:<asset-version>`
-* For resources: `azureml:<resource-name>`
+**1) Reference an explicit version of an asset**
 
-Azure ML will resolve this reference to the specified asset or resource in the workspace.
-
-### Longhand
-
-The longhand syntax consists of the `azureml:` prefix plus the ARM resource ID of the entity:
-
+* Shorthand syntax: `azureml:<asset_name>:<asset_version>`
+* Longhand syntax (includes the ARM resource ID of the asset):
 ```
 azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/environments/<environment-name>/versions/<environment-version>
+```
+
+**2) Reference the latest version of an asset**
+
+In some scenarios you may want to reference the latest version of an asset without having to explicitly look up and specify the actual version string itself. The latest version is defined as the latest (aka most recently) created version of an asset under a given name. 
+
+You can reference the latest version using the following syntax: `azureml:<asset_name>@latest`
+
+Azure ML will resolve the reference to an explicit asset version in the workspace.
+
+### Reference an Azure ML resource
+
+To reference an Azure ML resource (such as compute), you can use either of the following syntaxes:
+* Shorthand syntax: `azureml:<resource_name>`
+* Longhand syntax (includes the ARM resource ID of the resource):
+```
+azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/compute/<compute-name>
 ```
 
 ## Azure ML data reference URI
@@ -86,7 +98,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code:
   local_path: ./src
 command: python train.py --lr ${{inputs.learning_rate}} --training-data ${{inputs.iris}} --model-dir ${{outputs.model_dir}}
-environment: azureml:AzureML-Minimal:1
+environment: azureml:AzureML-Minimal@latest
 compute: azureml:cpu-cluster
 inputs:
   learning_rate: 0.01
@@ -126,7 +138,7 @@ trial:
     --training-data ${{inputs.iris}}
     --lr ${{search_space.learning_rate}}
     --boosting ${{search_space.boosting}}
-  environment: azureml:AzureML-Minimal:1
+  environment: azureml:AzureML-Minimal@latest
 inputs:
   iris:
     file: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
@@ -188,7 +200,7 @@ jobs:
       model_dir: $${{outputs.trained_model}}
     code: 
       local_path: src/train
-    environment: azureml:AzureML-Minimal:1
+    environment: azureml:AzureML-Minimal@latest
     compute: azureml:gpu-cluster
     command: >-
       python train.py 
@@ -206,7 +218,7 @@ type: command
 code:
   local_path: ./src
 command: python train.py --lr ${{inputs.learning_rate}} --training-data ${{inputs.iris}} --model-dir ${{outputs.model_dir}}
-environment: azureml:AzureML-Minimal:1
+environment: azureml:AzureML-Minimal@latest
 inputs:
   learning_rate:
     type: number
