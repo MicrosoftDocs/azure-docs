@@ -347,9 +347,7 @@ To create and run a new scan using Azure runtime, perform the following steps:
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-cross-tenant.png" alt-text="Image showing Power BI scan setup using Azure IR for cross tenant.":::
 
 17. For the **Credential**, select **Delegated authentication** and click **+ New** to create a new credential.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-shir.png" alt-text="Image showing Power BI scan setup using SHIR.":::
-
+ 
 18. Create a new credential and provide required parameters:
     
    - **Name**: Provide a unique name for credential.

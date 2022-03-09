@@ -44,6 +44,6 @@ In addition to viewing the events that the sensor has detected, you can manually
 
 
 
-## See also
+## Next steps
 
-[View alerts](how-to-view-alerts.md)
+For more information, see [View alerts](how-to-view-alerts.md).

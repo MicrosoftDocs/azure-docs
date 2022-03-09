@@ -48,7 +48,7 @@ Azure Purview uses a set of predefined roles to control who can access what with
 |I need to create and publish access policies | Data source administrator and policy author |
 |I need to share data from sources registered in Azure Purview | Data share contributor|
 
-:::image type="content" source="./media/catalog-permissions/collection-permission-roles.svg" alt-text="Chart showing Azure Purview roles" lightbox="./media/catalog-permissions/collection-permission-roles.svg":::
+:::image type="content" source="media/catalog-permissions/collection-permission-roles.svg" alt-text="Chart showing Azure Purview roles" lightbox="media/catalog-permissions/collection-permission-roles.svg":::
 >[!NOTE]
 > **\*Data source administrator permissions on Policies** - Data source administrators are also able to publish data policies.
 
