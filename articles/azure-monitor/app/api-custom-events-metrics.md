@@ -630,7 +630,7 @@ dependencies
 
 Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever buffer is full (typically 500 items). However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
 
-*.NET*
+*?.NET*
 
 ```csharp
 telemetry.Flush();
