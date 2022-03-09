@@ -54,11 +54,13 @@ Usage charges are calculated individually for each replica. A replica is conside
 - The replica is using less than 0.01 vCPU cores.
 - The replica is receiving less than 1,000 bytes per second of network traffic.
 
-When a replica is idle, resource consumption charges are calculated at the reduced idle rates. When a replica is not idle, the active rate applies.
+When a replica is idle, resource consumption charges are calculated at the reduced idle rates. When a replica is not idle, the active rates apply.
 
 ### More than the minimum number of replicas are running
 
-When your container app is scaled above the [minimum replica count](scale-app.md), all running replicas are charged for resource consumption at the active rate.
+When your container app<sup>1</sup> is scaled above the [minimum replica count](scale-app.md), all running replicas are charged for resource consumption at the active rate.
+
+<sup>1</sup> For container apps in multiple revision mode, charges are based on the current replica count in a revision relative to its configured minimum replica count.
 
 ## Request charges
 
@@ -66,6 +68,3 @@ In addition to resource consumption, Azure Container Apps also charges based on 
 
 The first 2 million requests in each subscription per calendar month are free.
 
-Only external HTTP requests are charged. Requests from internal calls between container apps in your Container Apps environment are not charged.
-
-Container apps without an external ingress do not incur request charges.
