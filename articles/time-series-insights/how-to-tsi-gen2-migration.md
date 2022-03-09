@@ -63,14 +63,14 @@ See [Select the correct compute SKU for your Azure Data Explorer cluster](../dat
 1.	Configure Diagnostic Settings: to best monitor your cluster and the data ingestion you should enable Diagnostic Settings and send the data to a Log Analytics Workspace.
     1.	In the Azure Data Explorer blade go to “Monitoring | Diagnostic settings” and clickon “Add diagnostic setting”
 
-:::image type="content" source="media/gen2-migration/adx-diagnostic.png" alt-text="Screenshot of the Azure Data Explorer blade Monitoring | Diagnostic settings" lightbox="media/gen2-migration/adx-diagnostic.png":::
+        :::image type="content" source="media/gen2-migration/adx-diagnostic.png" alt-text="Screenshot of the Azure Data Explorer blade Monitoring | Diagnostic settings" lightbox="media/gen2-migration/adx-diagnostic.png":::
 
     1.	Fill in the following
         1.	Diagnostic setting name: Display Name for this configuration
         1.	Logs: At minimum select SucceededIngestion, FailedIngestion, IngestionBatching
         1.	Select the Log Analytics Workspace to send the data to (if you don’t have one you’ll need to provision one before this step)
 
-:::image type="content" source="media/gen2-migration/adx-log-analytics.png" alt-text="Screenshot of the Azure Data Explorer Log Analytics Workspace" lightbox="media/gen2-migration/adx-log-analytics.png":::
+        :::image type="content" source="media/gen2-migration/adx-log-analytics.png" alt-text="Screenshot of the Azure Data Explorer Log Analytics Workspace" lightbox="media/gen2-migration/adx-log-analytics.png":::
 
 1.	Data partitioning.
     1.	For small size data, the default ADX partitioning is enough. For more complex scenario, with large datasets and right push rate custom ADX data partitioning is more appropriate. Data partitioning is beneficial for scenarios, as follows:
@@ -82,7 +82,8 @@ See [Select the correct compute SKU for your Azure Data Explorer cluster](../dat
         1.	A string-based column which corresponds to the Time Series ID with highest cardinality. 
     1.	An example of data partitioning containing a Time Series ID column and a timestamp column is: 
 
-```.alter table events policy partitioning
+```
+.alter table events policy partitioning
  {
    "PartitionKeys": [
      {
@@ -116,15 +117,15 @@ For more references check [ADX Data Partitioning Policy](../data-explorer/kusto/
 
 1.	Go to [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
-:::image type="content" source="media/gen2-migration/adx-landing-page.png" alt-text="Screenshot of the Azure Data Explorer landing page" lightbox="media/gen2-migration/adx-landing-page.png":::
+    :::image type="content" source="media/gen2-migration/adx-landing-page.png" alt-text="Screenshot of the Azure Data Explorer landing page" lightbox="media/gen2-migration/adx-landing-page.png":::
 
 1.	Go to Data tab and select ‘Ingest from blob container’
 
-:::image type="content" source="media/gen2-migration/adx-ingest-blob.png" alt-text="Screenshot of the Azure Data Explorer ingestion from blob container" lightbox="media/gen2-migration/adx-ingest-blob.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-blob.png" alt-text="Screenshot of the Azure Data Explorer ingestion from blob container" lightbox="media/gen2-migration/adx-ingest-blob.png":::
 
 1.	Select Cluster, Database, and create a new Table with the name you choose for the TSI data
 
-:::image type="content" source="media/gen2-migration/adx-ingest-table.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of cluster, database, and table" lightbox="media/gen2-migration/adx-ingest-table.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-table.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of cluster, database, and table" lightbox="media/gen2-migration/adx-ingest-table.png":::
 
 1.	Click Next: Source
 1.	In the Source tab select the following:
@@ -133,38 +134,39 @@ For more references check [ADX Data Partitioning Policy](../data-explorer/kusto/
     1.	Choose the Subscription and Storage account for your TSI data
     1.	Choose the container that correlates to your TSI Environment
 
-:::image type="content" source="media/gen2-migration/adx-ingest-container.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of container" lightbox="media/gen2-migration/adx-ingest-container.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-container.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of container" lightbox="media/gen2-migration/adx-ingest-container.png":::
 
 1.	Click on Advanced settings
     1.	Creation time pattern: '/'yyyyMMddHHmmssfff'_'
     1.	Blob name pattern: *.parquet
     1.	Click on “Don’t wait for ingestion to complete” 
 
-:::image type="content" source="media/gen2-migration/adx-ingest-advanced.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of advanced settings" lightbox="media/gen2-migration/adx-ingest-advanced.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-advanced.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of advanced settings" lightbox="media/gen2-migration/adx-ingest-advanced.png":::
 
 1.	Under File Filters add the Folder path `V=1/PT=Time`
 
-:::image type="content" source="media/gen2-migration/adx-ingest-folder-path.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of folder path" lightbox="media/gen2-migration/adx-ingest-folder-path.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-folder-path.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of folder path" lightbox="media/gen2-migration/adx-ingest-folder-path.png":::
 
 1.	Click Next: Schema
-> [!NOTE]
-> TSI applies some flattening and escaping when persisting columns in Parquet files. See these links for more details: https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-json-flattening-escaping-rules, https://docs.microsoft.com/en-us/azure/time-series-insights/ingestion-rules-update.
-1.	If schema is unknown or varying.
+    > [!NOTE]
+    > TSI applies some flattening and escaping when persisting columns in Parquet files. See these links for more details: https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-json-flattening-escaping-rules, https://docs.microsoft.com/en-us/azure/time-series-insights/ingestion-rules-update.
+- If schema is unknown or varying.
     1. Remove all columns that are infrequently queried, leaving at least timestamp and TSID column(s).
 
-:::image type="content" source="media/gen2-migration/adx-ingest-schema.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of schema" lightbox="media/gen2-migration/adx-ingest-schema.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-schema.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of schema" lightbox="media/gen2-migration/adx-ingest-schema.png":::
 
     1.	Add new column of dynamic type and map it to the whole record using $ path.
 
-:::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type" lightbox="media/gen2-migration/adx-ingest-dynamic-type.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type" lightbox="media/gen2-migration/adx-ingest-dynamic-type.png":::
 
-Example:
+    Example:
 
-:::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type-example.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type" lightbox="media/gen2-migration/adx-ingest-dynamic-type-example.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type-example.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type" lightbox="media/gen2-migration/adx-ingest-dynamic-type-example.png":::
 
-1. If schema is known or fixed
+- If schema is known or fixed
     1.	Confirm that the data looks correct. Correct any types if needed.
     1.	Click Next: Summary
+
 Copy the LightIngest command and store it somewhere so you can use it in the next step.
 
 :::image type="content" source="media/gen2-migration/adx-ingest-lightingest-command.png" alt-text="Screenshot of the Azure Data Explorer ingestion for Lightingest command" lightbox="media/gen2-migration/adx-ingest-lightingest-command.png":::
@@ -176,35 +178,38 @@ The command generated from One-Click tool includes a SAS token but it’s best t
 
 :::image type="content" source="media/gen2-migration/adx-ingest-sas-token.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS token" lightbox="media/gen2-migration/adx-ingest-sas-token.png":::
 
-*> [!NOTE]
+> [!NOTE]
 > It’s also recommended to scale up your cluster before kicking off a large ingestion. For instance, D14 or D32 with 8+ instances.
 1. Set the following
     1. Permissions: Read and List
     1. Expiry: Set to a period you’re comfortable that the migration of data will be complete
 
-:::image type="content" source="media/gen2-migration/adx-ingest-sas-expiry.png" alt-text="Screenshot of the Azure Data Explorer ingestion for permission expiry" lightbox="media/gen2-migration/adx-ingest-sas-expiry.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-sas-expiry.png" alt-text="Screenshot of the Azure Data Explorer ingestion for permission expiry" lightbox="media/gen2-migration/adx-ingest-sas-expiry.png":::
 
 1. Click on ‘Generate SAS token and URL’ and copy the ‘SAS Blob URL’
 
-:::image type="content" source="media/gen2-migration/adx-ingest-sas-blob.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS Blob URL" lightbox="media/gen2-migration/adx-ingest-sas-blob.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-sas-blob.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS Blob URL" lightbox="media/gen2-migration/adx-ingest-sas-blob.png":::
 
 1. Go to the LightIngest command that you copied previously. Replace the -source parameter in the command with this ‘SAS Blob URL’
 1. `Option 1: Ingest All Data`. For smaller environments you can ingest all of the data with a single command.
     1. Open a command prompt and change to the directory where the LightIngest tool was extracted to. Once there simply paste the LightIngest command and execute it.
 
-:::image type="content" source="media/gen2-migration/adx-ingest-lightingest-prompt.png" alt-text="Screenshot of the Azure Data Explorer ingestion for command prompt" lightbox="media/gen2-migration/adx-ingest-lightingest-prompt.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-lightingest-prompt.png" alt-text="Screenshot of the Azure Data Explorer ingestion for command prompt" lightbox="media/gen2-migration/adx-ingest-lightingest-prompt.png":::
 
 1. `Option 2: Ingest Data by Year or Month`. For larger environments or to test on a smaller data set you can filter the Lightingest command further.
     1. By Year
+    
     Change your -prefix parameter
 	    Before: -prefix:"V=1/PT=Time"
 	    After: -prefix:"V=1/PT=Time/Y=<Year>"
     	Example: -prefix:"V=1/PT=Time/Y=2021"
      1. By Month
+     
     Change your -prefix parameter
 	    Before: -prefix:"V=1/PT=Time"
     	After: -prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"
 	    Example: -prefix:"V=1/PT=Time/Y=2021/M=03"
+
 Once you’ve modified the command execute it like above. One the ingestion is complete (using monitoring option below) modify the command for the next year and month you want to ingest.
 
 ## Monitoring Ingestion
@@ -228,13 +233,15 @@ You’ll know that the ingestion is complete once you see the metrics go to 0 fo
 #### Useful Queries
 
 Understand Schema if Dynamic Schema is Used
-```| project p=treepath(fullrecord)
+```
+| project p=treepath(fullrecord)
 | mv-expand p 
 | summarize by tostring(p)
 ```
 
 Accessing values in array
-```| where id_string == "a"
+```
+| where id_string == "a"
 | summarize avg(todouble(fullrecord.['nestedArray_v_double'])) by bin(timestamp, 1s)  
 | render timechart 
 ```
@@ -247,15 +254,15 @@ Then the model can be imported to another system like Azure Data Explorer.
 1.	Download TSM from TSI UX.
 1.	Delete first 3 lines using VSCode or another editor.
 
-:::image type="content" source="media/gen2-migration/adx-tsm-1.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-1.png":::
+    :::image type="content" source="media/gen2-migration/adx-tsm-1.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-1.png":::
 
 1.	Using VSCode or another editor, search and replace as regex `\},\n    \{` with `}{`
 
-:::image type="content" source="media/gen2-migration/adx-tsm-2.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-2.png":::
+    :::image type="content" source="media/gen2-migration/adx-tsm-2.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-2.png":::
 
 1.	Ingest as JSON into ADX as a separate table using Upload from file functionality. 
 
-:::image type="content" source="media/gen2-migration/adx-tsm-3.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-3.png":::
+    :::image type="content" source="media/gen2-migration/adx-tsm-3.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-3.png":::
 
 ## Translate Time Series Queries (TSQ) to KQL
 
@@ -263,7 +270,9 @@ Then the model can be imported to another system like Azure Data Explorer.
 
 | TSQ | KQL |
 | ---| ---|
-| ```{
+| 
+```
+{
   "getEvents": {
     "timeSeriesId": [
       "assest1",
@@ -279,7 +288,8 @@ Then the model can be imported to another system like Azure Data Explorer.
 }
 ``` 
 |	
-```events
+```
+events
 | where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
 | where assetId_string == "assest1" and siteId_string == "siteId1" and dataid_string == "dataId1"
 | take 10000
