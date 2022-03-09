@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configure a single instance inbound NAT rule - Azure portal"
+title: "Tutorial: Create a single instance inbound NAT rule - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create a connection to a single virtual machine in an Azure virtual network.
 author: asudbring
@@ -10,9 +10,9 @@ ms.date: 03/08/2022
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Configure a single instance inbound NAT rule using the Azure portal
+# Tutorial: Create a single instance inbound NAT rule using the Azure portal
 
-Inbound NAT rules allow you connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
+Inbound NAT rules allow you to connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
 
 For more information about Azure Load Balancer rules, see [Manage rules for Azure Load Balancer using the Azure portal](manage-rules-how-to.md).
 
