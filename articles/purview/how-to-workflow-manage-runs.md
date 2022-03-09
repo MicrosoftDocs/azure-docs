@@ -14,11 +14,26 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article outlines how to manage workflow runs.
 
-To view workflow runs you triggered, navigate to management center, workflows and select on **Workflow runs**. 
+1. To view workflow runs you triggered, navigate to management center, workflows and select **Workflow runs**. 
+
+    :::image type="content" source="./media/how-to-workflow-manage-runs/select-workflow-runs.png" alt-text="Screenshot of the management menu in the Azure Purview studio. The Workflow runs tab is highlighted.":::
+
+    :::image type="content" source="./media/how-to-workflow-manage-runs/workflow-runs.png" alt-text="Screenshot of the workflow runs page, showing a list of all workflow runs, their status, and their run IDs.":::
 
 1. You can filter on the results by using workflow name, status or Time.
-1. Click on a workflow name to see the detail of workflow run.
+
+    :::image type="content" source="./media/how-to-workflow-manage-runs/filters.png" alt-text="Screenshot of the workflow runs page, with the keyword, name, status, and time filters highlighted above the list of workflows.":::
+
+1. Select a workflow name to see the details of the workflow run.
+
 1. This will present will a blade which shows all the actions which are completed, action which is in-progress and the next action for that workflow run.
+
+    :::image type="content" source="./media/how-to-workflow-manage-runs/workflow-details.png" alt-text="Screenshot of the workflow runs page, with an example workflow name selected, and the workflow details page overlaid, showing workflow run, submission time, run I D, status, and a list of all steps in the request timeline.":::
+
+1. You can select any of the actions in the request timeline to see the specific status and sub-step details.
+
+    :::image type="content" source="./media/how-to-workflow-manage-runs/select-stages.png" alt-text="Screenshot of the workflow runs page, with the workflow details page overlaid. Some workflow run actions in the request timeline have been expanded to show more information and sub steps.":::
+
 
 ## Next steps
 
