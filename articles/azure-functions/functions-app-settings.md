@@ -147,7 +147,7 @@ The secret for client ID of the user-assigned managed identity or the app regist
 
 |Key|Sample value|
 |---|------------|
-|## AzureWebJobsSecretStorageKeyVaultClientSecret|`<CLIENT_SECRET>`|
+|AzureWebJobsSecretStorageKeyVaultClientSecret|`<CLIENT_SECRET>`|
 
 To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
 
