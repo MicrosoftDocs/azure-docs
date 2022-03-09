@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 03/09/2022
+ms.date: 03/10/2022
 ms.custom: subject-armqs, mode-arm, devdivchpfy22
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
