@@ -73,7 +73,7 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 1. Install the CLI.
 
     ```console
-    npm install -g @azure/static-web-apps-cli
+    npm install -g @azure/static-web-apps-cli azure-functions-core-tools
     ```
 
 1. Build your app if required by your application.

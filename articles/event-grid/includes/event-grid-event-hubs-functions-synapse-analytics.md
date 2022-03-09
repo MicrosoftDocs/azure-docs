@@ -189,7 +189,7 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
     10. Specify a **name for the connection string**, and select **None** for the **Save connection string** option, and then select **Next**. 
     
         :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/dependency-storage-connection-string.png" alt-text="Specify connection string name":::      
-    1. Clear the **C# code file** and **Secrets store** option, and then select **Finish**.  
+    1. Clear the **Permissions for remote access** and **Secrets store** option, and then select **Finish**.  
     
         :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/dependency-storage-changes-summary.png" alt-text="Review summary of changes":::
 1. When Visual Studio has configured the profile, select **Publish**.

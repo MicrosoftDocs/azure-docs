@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/storage/blobs/storage-ios-how-to-use-blob-storage.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/login-using-aad.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/login-using-aad",
       "redirect_document_id": false
@@ -681,6 +686,26 @@
     {
       "source_path_from_root": "/articles/frontdoor/front-door-troubleshoot-routing.md",
       "redirect_url": "/azure/frontdoor/troubleshoot-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-rules-set-action.md",
+      "redirect_url": "/azure/frontdoor/front-door-rules-engine-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-rules-set.md",
+      "redirect_url": "/azure/frontdoor/front-door-rules-engine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-caching.md",
+      "redirect_url": "/azure/frontdoor/front-door-caching",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-route.md",
+      "redirect_url": "/azure/frontdoor/front-door-route-matching",
       "redirect_document_id": false
     },
     {
@@ -6841,6 +6866,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-runtime-install.md",
       "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-bindings-event-iot-output.md",
+      "redirect_url": "/azure/azure-functions/functions-bindings-event-hubs-output",
       "redirect_document_id": false
     },
     {
@@ -43932,6 +43962,11 @@
       {
         "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-group-policy.md",
         "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/virtual-desktop/compare-virtual-desktop-windows-365.md",
+        "redirect_url": "/azure/virtual-desktop/overview",
         "redirect_document_id": false
       }
   ]
