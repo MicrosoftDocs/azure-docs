@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Configure a multiple instance inbound NAT rule using the Azure portal
 
-Inbound NAT rules allow you connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
+Inbound NAT rules allow you to connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
 
 For more information about Azure Load Balancer rules, see [Manage rules for Azure Load Balancer using the Azure portal](manage-rules-how-to.md).
 
@@ -63,7 +63,7 @@ A virtual network and subnet is required for the resources in the tutorial. In t
     | **Inbound port rules** |    |
     | Public inbound ports | Select **None**. |
 
-    :::image type="content" source="./media/tutorial-load-balancer-port-forwarding-portal/create-vm-portal.png" alt-text="Screenshot of create virtual machine.":::
+    :::image type="content" source="./media/tutorial-nat-rule-multi-instance/create-vm-portal.png" alt-text="Screenshot of create virtual machine.":::
 
 5. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
 
@@ -288,7 +288,7 @@ In this section, you'll SSH to the virtual machines through the inbound NAT rule
 
 3. In the **Frontend IP configuration**, make note of the **IP address** for **myFrontend**. In this example, it's **20.99.165.176**.
 
-    :::image type="content" source="./media/tutorial-load-balancer-port-forwarding-portal/get-public-ip.png" alt-text="Screenshot of public IP in Azure portal.":::
+    :::image type="content" source="./media/tutorial-nat-rule-multi-instance/get-public-ip.png" alt-text="Screenshot of public IP in Azure portal.":::
 
 4. If you're using a Mac or Linux computer, open a Bash prompt. If you're  using a Windows computer, open a PowerShell prompt.
 
@@ -335,7 +335,7 @@ You'll open your web browser in this section and enter the IP address for the lo
 
 3. The default NGINX website is displayed.
 
-    :::image type="content" source="./media/tutorial-load-balancer-port-forwarding-portal/web-server-test.png" alt-text="Screenshot of testing the NGINX web server.":::
+    :::image type="content" source="./media/tutorial-nat-rule-multi-instance/web-server-test.png" alt-text="Screenshot of testing the NGINX web server.":::
 
 ## Clean up resources
 
