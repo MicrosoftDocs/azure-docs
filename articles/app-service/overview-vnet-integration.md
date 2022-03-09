@@ -76,24 +76,29 @@ If the virtual network is in a different subscription than the app, you must ens
 
 ### Routes
 
-There are two types of routing to consider when you configure regional virtual network integration. Application routing defines what traffic is routed from your application and into the virtual network. Network routing is the ability to control how traffic is routed from your virtual network and out.
+There are three types of routing to consider when you configure regional virtual network integration. [Application routing](#application-routing) defines what traffic is routed from your app and into the virtual network. [Configuration routing](#configuration-routing) affects operations that happen before or during startup of you app. Examples are container image pull and app settings with Key Vault reference. [Network routing](#network-routing) is the ability to handle how both app and configuration traffic is routed from your virtual network and out.
 
 #### Application routing
 
-When you configure application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your virtual network. You configure this behavior through the **Route All** setting. If **Route All** is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound traffic into your virtual network, make sure that **Route All** is enabled.
+Application routing affects all the traffic that is sent from your app after it has been started. See [configuration routing](#configuration-routing) for traffic during start up. When you configure application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your virtual network. You configure this behavior through the **Route All** setting. If **Route All** is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound app traffic into your virtual network, make sure that **Route All** is enabled.
 
 > [!NOTE]
-> * When **Route All** is enabled, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
-> * Windows containers don't support routing App Service Key Vault references or pulling custom container images over virtual network integration.
+> * When **Route All** is enabled, all app traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When **Route All** is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
 > * Regional virtual network integration can't use port 25.
 
 Learn [how to configure application routing](./configure-vnet-integration-routing.md).
 
-We recommend that you use the **Route All** configuration setting to enable routing of all traffic. Using the configuration setting allows you to audit the behavior with [a built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). The existing WEBSITE_VNET_ROUTE_ALL app setting can still be used, and you can enable all traffic routing with either setting.
+We recommend that you use the **Route All** configuration setting to enable routing of all traffic. Using the configuration setting allows you to audit the behavior with [a built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). The existing `WEBSITE_VNET_ROUTE_ALL` app setting can still be used, and you can enable all traffic routing with either setting.
 
 #### Configuration routing
 
-When you are using virtual network integration, you can configure how parts of the configuration traffic is managed. By default, the mentioned configurations will go directly to the internet unless you actively configure it to be routed through the virtual network integration.
+When you are using virtual network integration, you can configure how parts of the configuration traffic is managed. By default, configuration traffic will go directly over the public route, but individual components you actively configure it to be routed through the virtual network integration.
+
+> [!NOTE]
+> * Windows containers don't support routing App Service Key Vault references or pulling custom container images over virtual network integration.
+> * Backup/restore to private storage accounts is currently not supported.
+> * Configure SSL/TLS certificates from private Key Vaults is currently not supported.
+> * Diagnostics logs to private storage accounts is currently not supported.
 
 ##### Content storage
 
@@ -104,6 +109,10 @@ To route content storage traffic through the virtual network integration, you ne
 ##### Container image pull
 
 When using custom containers for Linux, you can pull the container over the virtual network integration. To route the container pull traffic through the virtual network integration, you must add an app setting named `WEBSITE_PULL_IMAGE_OVER_VNET` with the value `true`.
+
+##### App settings using Key Vault references
+
+App settings using Key Vault references will attempt to get secrets over the public route. If the Key Vault is blocking public traffic and the app is using virtual network integration, an attempt will then be made to get the secrets through the virtual network integration.
 
 #### Network routing
 

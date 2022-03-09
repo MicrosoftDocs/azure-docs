@@ -4,8 +4,8 @@ description: How to configure the Azure Linux diagnostic extension (LAD) 4.0 to 
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: linux
 ms.date: 02/05/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
