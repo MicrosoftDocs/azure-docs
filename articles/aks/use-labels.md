@@ -65,6 +65,20 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+## Updating labels on existing node pools
+
+To update a label on existing node pools, use [az aks nodepool update][az-aks-nodepool-update]
+
+```azurecli-interactive
+az aks nodepool update \ 
+    --resource-group myResourceGroup \ 
+    --cluster-name myAKSCluster \ 
+    --name labelnp \ 
+    --node-count 1 \ 
+    --labels dept=IT costcenter=9999 \ 
+    --no-wait 
+```
+
 ## Unavailable labels
 
 ### Reserved system labels
@@ -123,7 +137,7 @@ The following lists of labels are planned for deprecated. Customers should chang
 | failure-domain.beta.kubernetes.io/zone | topology.kubernetes.io/zone | [Kubernetes][kubernetes-labels]
 | beta.kubernetes.io/arch | kubernetes.io/arch | [Kubernetes][kubernetes-labels]
 | beta.kubernetes.io/instance-type | node.kubernetes.io/instance-type | [Kubernetes][kubernetes-labels]
-| beta.kubernetes.io/os  | kubernetes/io/os | [Kubernetes][kubernetes-labels]
+| beta.kubernetes.io/os  | kubernetes.io/os | [Kubernetes][kubernetes-labels]
 | node-role.kubernetes.io/agent* | kubernetes.azure.com/role=agent | Azure Kubernetes Service
 | kubernetes.io/role* | kubernetes.azure.com/role=agent | Azure Kubernetes Service
 | Agentpool* | kubernetes.azure.com/agentpool | Azure Kubernetes Service
@@ -144,5 +158,6 @@ The following lists of labels are planned for deprecated. Customers should chang
 <!-- LINKS - internal -->
 [az-aks-nodepool-add]: /cli/azure/aks#az-aks-nodepool-add
 [az-aks-nodepool-list]: /cli/azure/aks/nodepool#az-aks-nodepool-list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
 [create-or-update-os-sku]: /rest/api/aks/agent-pools/create-or-update#ossku
 [install-azure-cli]: /cli/azure/install-azure-cli
