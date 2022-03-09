@@ -117,15 +117,15 @@ These errors are related to data exceeding the size of data allowed in a contain
 **Error description:** Large file shares are not enabled on your storage account(s). 
 
 To disregard this error, follow these steps: 
-1. In the Data Box local UI, go to the Connect and Copy page and go to settings. 
+1. In the Data Box local UI, go to the **Connect and Copy** page and go to **Settings**. 
 
-    :::image type="content" source="media/data-box-troubleshoot/icon-connect-and-copy.PNG" alt-text="Connect and copy":::
+    :::image type="content" source="media/data-box-troubleshoot/icon-connect-copy.png" alt-text="Connect and copy":::
 
-1. Enable and apply the Disregard Large File Share Errors setting. 
+1. Enable and apply **Disregard Large File Share Errors**. 
      
-    :::image type="content" source="media/data-box-troubleshoot/icon-connect-copy-settings.PNG" alt-text="Connect and copy settings":::
+    :::image type="content" source="media/data-box-troubleshoot/icon-connect-copy-settings.png" alt-text="Connect and copy settings":::
 
-1. Enable large file shares on your storage account(s) in the Azure portal.
+1. **Enable large file shares** on your storage account(s) in the Azure portal.
 
     :::image type="content" source="media/data-box-troubleshoot/icon-resolve-error.png" alt-text="Resolve error on portal":::  
   
