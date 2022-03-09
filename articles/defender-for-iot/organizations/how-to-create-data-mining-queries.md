@@ -24,8 +24,8 @@ The following predefined reports are available. These queries are generated in r
 - **Programming commands**: Devices that send industrial programming.
 - **Remote access**: Devices that communicate through remote session protocols.
 - **Internet activity**: Devices that are connected to the internet.
-- **CVEs**: A list of devices detected with known vulnerabilities within the last 24 hours.
-- **Excluded CVEs**: A list of all the CVEs that were manually excluded. To achieve more accurate results in VA reports and attack vectors, you can customize the CVE list manually by including and excluding CVEs.
+- **CVEs**: A list of devices detected with known vulnerabilities, along with CVSSv2 risk scores.
+- **Excluded CVEs**: A list of all the CVEs that were manually excluded. It is possible to customize the CVE list manually so that the VA reports and attack vectors more accurately reflect your network by excluding or including particular CVEs and updating the CVSSv2 score accordingly.
 - **Nonactive devices**: Devices that have not communicated for the past seven days.
 - **Active devices**: Active network devices within the last 24 hours.
 
