@@ -226,7 +226,7 @@ The fields listed in this section are specific to DNS events, although many are 
 | **DnsFlagsCheckingDisabled** | Optional | Boolean | The DNS `CD` flag, which is related to DNSSEC, indicates in a query that non-verified data is acceptable to the system sending the query. see [RFC 3655 Section 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) for more information.   |
 | **DnsFlagsRecursionAvailable** | Optional | Boolean | The DNS `RA` flag indicates in a response that  that server supports recursive queries.   |
 | **DnsFlagsRecursionDesired** | Optional | Boolean | The DNS `RD` flag indicates in a request that that client would like the server to use recursive queries.   |
-| **DnsFlagsTruncates** | Optional | Boolean | The DNS `TC` flag indicates that a response was truncates as it exceeded the maximum response size.  |
+| **DnsFlagsTruncated** | Optional | Boolean | The DNS `TC` flag indicates that a response was truncated as it exceeded the maximum response size.  |
 | **DnsFlagsZ** | Optional | Boolean | The DNS `Z` flag is a deprecated DNS flag, which might be reported by older DNS systems.  |
 |<a name="dnssessionid"></a>**DnsSessionId** | Optional | string | The DNS session identifier as reported by the reporting device. Note that this value is different from [TransactionIdHex](#transactionidhex), the DNS query unique ID as assigned by the DNS client.<br><br>Example: `EB4BFA28-2EAD-4EF7-BC8A-51DF4FDF5B55` |
 | **SessionId** | Alias | String | Alias to [DnsSessionId](#dnssessionid) |
@@ -250,7 +250,7 @@ The following fields are aliases that are maintained for backwards compatibility
 
 The changes in version 0.1.2 of the schema are:
 - Added the field `EventSchema`.
-- Added dedicated flag field which augments the combined **[Flags](#flags)** field: `DnsFlagsAuthoritative`, `DnsFlagsCheckingDisabled`, `DnsFlagsRecursionAvailable`, `DnsFlagsRecursionDesired`, `DnsFlagsTruncates`, and `DnsFlagsZ`.
+- Added dedicated flag field which augments the combined **[Flags](#flags)** field: `DnsFlagsAuthoritative`, `DnsFlagsCheckingDisabled`, `DnsFlagsRecursionAvailable`, `DnsFlagsRecursionDesired`, `DnsFlagsTruncated`, and `DnsFlagsZ`.
 
 The changes in version 0.1.3 of the schema are:
 - The schema now explicitly documents `Src*`, `Dst*`, `Process*` and `User*` fields.
