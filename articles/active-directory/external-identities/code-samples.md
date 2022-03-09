@@ -85,7 +85,7 @@ namespace SampleInviteApp
         /// <summary>
         /// This is the application id of the application that is registered in the above tenant.
         /// The required scopes are available in the below link.
-        /// https://docs.microsoft.com/en-us/graph/api/invitation-post?view=graph-rest-1.0&tabs=http#permissions
+        /// https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0&tabs=http#permissions
         /// </summary>
         private static readonly string TestAppClientId = "";
 
