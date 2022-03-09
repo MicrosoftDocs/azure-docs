@@ -22,7 +22,6 @@ Authorization with Azure AD is available for all general-purpose and Blob storag
 
 Blob storage additionally supports creating shared access signatures (SAS) that are signed with Azure AD credentials. For more information, see [Grant limited access to data with shared access signatures](../common/storage-sas-overview.md).
 
-
 ## Overview of Azure AD for blobs
 
 When a security principal (a user, group, or application) attempts to access a blob resource, the request must be authorized, unless it is a blob available for anonymous access. With Azure AD, access to a resource is a two-step process. First, the security principal's identity is authenticated and an OAuth 2.0 token is returned. Next, the token is passed as part of a request to the Blob service and used by the service to authorize access to the specified resource.
