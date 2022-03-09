@@ -52,7 +52,7 @@
   - name: Rule Engine
     items:
     - name: Rules Engine architecture
-      href: concept-rule-set.md
+      href: ../front-door-rules-engine.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Rules match conditions
       href: ../rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Rules actions
