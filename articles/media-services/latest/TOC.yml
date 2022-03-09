@@ -454,30 +454,51 @@
     - name: Reset account credentials
       href: account-reset-account-credentials.md   
       displayName: reset, account credentials, remove credentials, security, restore, remove, credentials 
-  - name: Media Services accounts
+  - name: Manage accounts and storage
     items:
-    - name: Create a Media Services account
-      href: account-create-how-to.md
-      displayName: media services account create
-    - name: Update a Media Services account
-      href: account-update-how-to.md
-    - name: List Media Services accounts
-      href: account-list-how-to.md
-    - name: Show Media Services account details
-      href: account-show-how-to.md
-    - name: Delete a Media Services account
-      href: account-delete-how-to.md
-  - name: Create assets and upload media
+      - name: Add storage to an account
+        href: account-add-account-storage-how-to.md
+      - name: Remove storage from an account
+        href: account-remove-account-storage-how-to.md
+      - name: List assets in an account
+        href: account-add-account-storage-how-to.md
+      - name: List transforms in an account
+        href: account-add-account-storage-how-to.md
+      - name: Set account encryption with customer managed keys
+        href: account-set-account-encryption-customer-managed-key-how-to.md
+      - name: Show account encryption
+        href: account-show-encryption-how-to.md
+      - name: Manage multiple storage accounts
+        href: storage-managing-multiple-storage-accounts-how-to.md
+        displayName: how to, how-to, tutorial, storage accounts, multiple storage accounts
+      - name: Sync storage keys
+        href: storage-sync-storage-keys-how-to.md
+  - name: Manage assets
     items:
     - name: Create an asset
       href: asset-create-asset-how-to.md
       displayName: how to, how-to, tutorial, create asset, upload file, ingest file, upload, container, storage account, SAS, S3, URL, HTTP ingest
+    - name: Delete an asset
+      href: asset-delete-asset-how-to.md
+    - name: Get asset SAS URLs
+      href: asset-get-asset-sas-urls-how-to.md
+    - name: Get asset encryption key
+      href: asset-get-encryption-key-how-to.md
+    - name: Create an asset filter
+      href: asset-create-asset-filter-how-to.md
+    - name: Update an asset filter
+      href: asset-update-asset-filter-how-to.md
+    - name: List asset filters
+      href: asset-list-asset-filters-how-to.md
+    - name: Delete an asset filter
+      href: asset-delete-asset-filter-how-to.md
+    - name: List asset streaming locators
+      href: asset-list-asset-streaming-locators-how-to.md
+  - name: Upload media
+    items:
     - name: Upload media
       href: asset-upload-media-how-to.md
       displayName: how to, how-to, tutorial, create asset, upload file, ingest file, upload, container, storage account, SAS, S3, URL, HTTP ingest, upload media
-    - name: Manage multiple storage accounts
-      href: storage-managing-multiple-storage-accounts-how-to.md
-      displayName: how to, how-to, tutorial, storage accounts, multiple storage accounts, 
   - name: Encode media
     items:
     - name: Create a transform
@@ -528,6 +549,16 @@
     - name: Use the content aware encoding preset
       href: encode-content-aware-how-to.md
       displayName: encode, encoder, transcode, custom preset, content aware, transform, CAE, scene based, shot based, qvbr, quality defined
+    - name: Add a custom output transform
+      href: transform-add-custom-transform-output-how-to.md
+    - name: Create a custom transform
+      href: transform-create-transform-how-to.md
+    - name: List transforms
+      href: account-list-transforms-how-to.md
+    - name: Update a transform
+      href: transform-update-transform-how-to.md
+    - name: Delete a transform
+      href: transform-delete-transform-how-to.md
   - name: Create jobs
     items:
     - name: Create jobs with CLI
@@ -624,6 +655,10 @@
         items:
         - name: Create a Media Services account
           href: account-create-how-to.md
+        - name: Set account encryption with customer managed keys
+          href: account-set-account-encryption-customer-managed-key-how-to.md
+        - name: Show account encryption
+          href: account-show-encryption-how-to.md
       - name: Network security
         items:
         - name: Use a Private Link with a Streaming endpoint
