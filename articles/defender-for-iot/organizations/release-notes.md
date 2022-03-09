@@ -49,12 +49,18 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 The following fields now have extended data displayed in the **Device inventory** pages on the Azure portal and in the sensor console:
 
-- **Tags**
-- **Description**
-- **Protocols**
-- **Scanner**
-- **FQDN**
-- **FQDN lookup time**
+:::row:::
+   :::column span="":::
+      - **Tags**
+      - **Description**
+      - **Protocols**
+   :::column-end:::
+   :::column span="":::
+      - **Scanner**
+      - **FQDN**
+      - **FQDN lookup time**
+   :::column-end:::
+:::row-end:::
 
 For more information, see:
 
@@ -67,7 +73,7 @@ The extended data in these fields is only available for sensors with software ve
 
 The **Device inventory** page in the Azure portal now supports the ability to edit device details, such as security, classification, location, and more:
 
-:::image type="content" source="media/release-notes/edit-device-details.png" alt-text="Screenshot of the Device inventory page showing the Edit pane.":::
+:::image type="content" source="media/release-notes/edit-device-details.png" alt-text="Screenshot of the Device inventory page showing the Edit pane." lightbox="media/release-notes/edit-device-details.png":::
 
 For more information, see [Edit device details](how-to-manage-device-inventory-for-organizations.md#edit-device-details).
 

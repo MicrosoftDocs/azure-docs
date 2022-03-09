@@ -126,11 +126,12 @@ The following device fields are supported for editing in the Device inventory pa
 |**Business Function**     | Enter a meaningful description of the device's business function.        |
 |**Hardware Model**     |   Select the device's hardware model from the dropdown menu.      |
 |**Hardware Vendor**     | Select the device's hardware vendor from the dropdown menu.        |
-|**Firmware**      |   Device the device's firmware name and version. You can either select the delete :::image type="icon"source="media/how-to-manage-device-inventory-on-the-clouddelete-device.png" border="false"::: button to delete an existing firmware definition, or select **+ Add** to add a new one.  |
+|**Firmware**      |   Device the device's firmware name and version. You can either select the delete :::image type="icon"source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: button to delete an existing firmware definition, or select **+ Add** to add a new one.  |
 |**Tags**     | Enter meaningful tags for the device. Select the **delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png"border="false"::: button to delete an existing tag, or select **+ Add** to add a new one.         |
 |     |         |
 
-**Settings**
+**Settings**:
+
 |Name  |Description  |
 |---------|---------|
 |**Importance**     | Select **Low**, **Normal**, or **High** to modify the device's importance.        |
@@ -190,49 +191,50 @@ The following table describes the device properties shown in the device inventor
 
 Starred items are fully supported only for sensor [software versions 22.1.x and higher](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
 
-| Parameter | Description | Default value |
-|--|--|--|
-| **Application** | The application the exists on the device. | - |
-| **Class** | The class of the device. | IoT |
-| **Data source** | The source of the data, such as Micro Agent, OtSensor, and Mde. | MicroAgent |
-| **Description*** | The description of the device. | - |
-| **Firmware vendor** | The vendor of the device's firmware. | - |
-| **Firmware version** | The version of the firmware. | - |
-| **First seen** | The date, and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
-| **FQDN*** | The device's FQDN value | - |
-| **FQDN lookup time*** | The device's FQDN lookup time | - |
-| **Importance** | The level of importance of the device. | - |
-| **IPv4 Address** | The IPv4 address of the device. | - |
-| **IPv6 Address** | The IPv6 address of the device. | - |
-| **Last activity** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
-| **Last update time** | The date, and time the device last sent a system information event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
-| **Location** | The physical location of the device. | - |
-| **MAC Address** | The MAC address of the device. | - |
-| **Model** | The device's model. | - |
-| **Name** | The name of the device as the sensor discovered it, or as entered by the user. | - |
-| **OS architecture** | The architecture of the operating system. | - |
-| **OS distribution** | The distribution of the operating system, such as Android, Linux, and Haiku. | - |
-| **OS platform** | The OS of the device, if detected. | - |
-| **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. | - |
-| **PLC mode** | The PLC operating mode which includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. | - |
-| **PLC secured** | Determines if the PLC mode is in a secure state. A possible secure state is `Run`. A possible unsecured state cab be either `Program`, or `Remote`. | - |
-| **Programming time** | The last time the device was programmed.  | - |
-| **Protocols*** | The protocols that the device uses. | - |
-| **Purdue level** | The Purdue level in which the device exists. | - |
-| **Scanner*** | Whether the device performs scanning-like activities in the network. | - |
-| **Scanner IPv6*** | In case of a network scanning device the scanner IPv6 address. | - |
-| **Scanner location*** | In case of a network scanning device, the scanner location. | - |
-| **Sensor** | The sensor the device is connected to.  | - |
-| **Site** | The site that contains this device. | - |
-| **Slots** | The number of slots the device has.  | - |
-| **Subtype** | The subtype of the device, such as speaker and smart tv. | Managed Device |
-| **Tags*** | Tagging data for each device. | - |
-| **Type** | The type of device, such as communication, and industrial. | Miscellaneous |
-| **Underlying devices** | Any relevant underlying devices for the device | - |
-| **Underlying device region** | The region for an underlying device | - |
-| **Vendor** | The name of the device's vendor, as defined in the MAC address. | - |
-| **VLAN** | The VLAN of the device. | - |
-| **Zone** | The zone that contains this device. | - |
+| Parameter | Description |
+|--|--|
+| **Application** | The application the exists on the device. |
+| **Class** | The class of the device. <br>Default: `IoT`|
+| **Data source** | The source of the data, such as Micro Agent, OtSensor, and Mde. <br>Default: `MicroAgent`|
+| **Description*** | The description of the device. |
+| **Firmware vendor** | The vendor of the device's firmware. |
+| **Firmware version** | The version of the firmware. |
+| **First seen** | The date, and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
+| **FQDN*** | The device's FQDN value |
+| **FQDN lookup time*** | The device's FQDN lookup time |
+| **Importance** | The level of importance of the device. |
+| **IPv4 Address** | The IPv4 address of the device. |
+| **IPv6 Address** | The IPv6 address of the device. |
+| **Last activity** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
+| **Last update time** | The date, and time the device last sent a system information event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
+| **Location** | The physical location of the device. |
+| **MAC Address** | The MAC address of the device. |
+| **Model** | The device's model. |
+| **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
+| **OS architecture** | The architecture of the operating system. |
+| **OS distribution** | The distribution of the operating system, such as Android, Linux, and Haiku. |
+| **OS platform** | The OS of the device, if detected. |
+| **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. |
+| **PLC mode** | The PLC operating mode which includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. |
+| **PLC secured** | Determines if the PLC mode is in a secure state. A possible secure state is `Run`. A possible unsecured state cab be either `Program`, or `Remote`. |
+| **Programming time** | The last time the device was programmed.  |
+| **Protocols*** | The protocols that the device uses. |
+| **Purdue level** | The Purdue level in which the device exists. |
+| **Scanner*** | Whether the device performs scanning-like activities in the network. |
+| **Scanner IPv6*** | In case of a network scanning device the scanner IPv6 address. |
+| **Scanner location*** | In case of a network scanning device, the scanner location. |
+| **Sensor** | The sensor the device is connected to.  |
+| **Site** | The site that contains this device. |
+| **Slots** | The number of slots the device has.  |
+| **Subtype** | The subtype of the device, such as speaker and smart tv. <br>**Default**: `Managed Device` |
+| **Tags*** | Tagging data for each device. |
+| **Type** | The type of device, such as communication, and industrial. <br>**Default**: `Miscellaneous` |
+| **Underlying devices** | Any relevant underlying devices for the device |
+| **Underlying device region** | The region for an underlying device |
+| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
+| **VLAN** | The VLAN of the device. |
+| **Zone** | The zone that contains this device. |
+| | |
 
 
 ## Next steps
