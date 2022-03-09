@@ -10,7 +10,7 @@ ms.topic: reference
 author: lostmygithubaccount
 ms.author: copeters
 ms.date: 03/14/2022
-ms.reviewer: laobri
+ms.reviewer: nibaccam
 ---
 
 # CLI (v2) environment YAML schema
