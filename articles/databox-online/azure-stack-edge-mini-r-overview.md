@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 10/04/2021
+ms.date: 03/09/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Mini R is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -37,7 +37,7 @@ Azure Stack Edge Mini R has the following capabilities:
 |Data refresh     | Ability to refresh local files with the latest from cloud. <br> For more information, see [Refresh a share on your Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md#refresh-shares).|
 |Double encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* . <br> For more information, see [Configure VPN on your Azure Stack Edge Pro R device](azure-stack-edge-mini-r-configure-vpn-powershell.md).|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours. <br> For more information, see [Manage bandwidth schedules on your Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
-|Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center (Preview). <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).|
+|Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center. <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).|
 
 ## Use cases
 
