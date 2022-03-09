@@ -44,6 +44,8 @@ WAF also offers a configurable knob to turn the request body inspection on or of
 
 Turning off the request body inspection allows for messages larger than 128 KB to be sent to WAF, but the message body isn't inspected for vulnerabilities.
 
+When your WAF policy is in prevention mode, WAF blocks requests that are over the size limit. When your WAF policy is in detection mode, then the behavior depends on the version of the managed ruleset you use. If you use CRS 3.2 and above, WAF inspects the body up to the limit specified and ignores the rest. If you use CRS version 3.1 or earlier, WAF inspects the entire message.
+
 ## Next steps
 
 After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
