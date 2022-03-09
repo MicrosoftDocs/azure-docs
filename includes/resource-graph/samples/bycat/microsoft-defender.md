@@ -499,7 +499,7 @@ Search-AzGraph -Query "SecurityResources | where type == 'microsoft.security/sec
 
 ---
 
-### Show Microsoft Defender for Cloud plan pricing tier per subscription
+### Show Defender for Cloud plan pricing tier per subscription
 
 Returns Defender for Cloud plan pricing tier plan per subscription.
 
