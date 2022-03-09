@@ -107,6 +107,7 @@ Use the following JSON in your request. Replace the placeholder values below wit
             {
                 "location": "doc1.txt",
                 "language": "en-us",
+                "dataset": "Train",
                 "classifiers": [
                     {
                         "classifierName": "Class1"
@@ -123,6 +124,14 @@ For the metadata key:
 |---------|---------|---------|
 | `modelType  `    | Your Model type, for single classification use `singleClassification`.   | multiClassification |
 |`storageInputContainerName`   | The name of your Azure blob storage container.   | `myContainer` |
+
+For the documents key: 
+
+|Key  |Value  | Example |
+|---------|---------|---------|
+| `location `    | Document name on the blob store. | doc1.txt |
+|`language`   | The language of the document.   | en-us |
+|`dataset`   |  Optional field to specify the dataset which this document will belong to. | Train or Test |
 
 This request will return an error if:
 
