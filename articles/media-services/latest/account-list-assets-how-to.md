@@ -23,3 +23,7 @@ You can use the following methods to list the assets in a Media Services account
 ## CLI
 
 [!INCLUDE [Create an asset with CLI](./includes/task-list-assets-cli.md)]
+
+## REST
+
+[!INCLUDE [Create an asset with CLI](./includes/task-list-assets-rest.md)]
