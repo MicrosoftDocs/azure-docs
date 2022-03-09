@@ -239,12 +239,10 @@ items:
       href: how-to-lineage-sql-server-integration-services.md
   - name: Business glossary
     items:
-    - name: Create, import, & export glossary terms
+    - name: Create & manage terms
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
-      href: how-to-manage-term-templates.md  
-    - name: Bulk delete business terms
-      href: how-to-bulk-delete-terms.md  
+      href: how-to-manage-term-templates.md   
   - name: Classify
     items: 
     - name: Create custom classifications
