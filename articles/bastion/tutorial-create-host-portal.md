@@ -10,7 +10,7 @@ ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Deploy Bastion using manual settings: Azure portal
+# Tutorial: Deploy Bastion using the Azure portal
 
 This tutorial helps you deploy Azure Bastion from the Azure portal using manual settings. When you use manual settings, you can specify configuration values such as instance counts and the SKU at the time of deployment. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines in the virtual network via Bastion using the private IP address of the VM. When you connect to a VM, it doesn't need a public IP address, client software, agent, or a special configuration.
 
