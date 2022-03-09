@@ -8,7 +8,7 @@ ms.author: tvilutis
 manager: 
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 3/1/2022
+ms.date: 3/15/2022
 ms.custom: tvilutis
 ---
 
@@ -21,7 +21,7 @@ High-level migration recommendations.
 | Feature | Gen2 State | Migration Recommended |
 | ---| ---| ---|
 | Ingesting JSON from Hub with flattening and escaping | TSI Ingestion | ADX - OneClick Ingest / Wizard |
-| Open Cold store | Customer Storage Account |  [Continuous data export](../data-explorer/kusto/management/data-export/continuous-data-export.md) to customer specified external table in ADLS. |
+| Open Cold store | Customer Storage Account |  [Continuous data export](../data-explorer/kusto/management/data-export/continuous-data-export) to customer specified external table in ADLS. |
 | PBI Connector | Private Preview | Use ADX PBI Connector. Rewrite TSQ to KQL manually. |
 | Spark Connector | Private Preview. Query telemetry data. Query model data. | Migrate data to ADX. Use ADX Spark connector for telemetry data + export model to JSON and load in Spark. Rewrite queries in KQL. |
 | Bulk Upload | Private Preview | Use ADX OneClick Ingest and LightIngest. An optionally, set up partitioning within ADX. |
@@ -58,7 +58,7 @@ Data
         - Hydration and Partitioning: when defining the number of instances in ADX Cluster, consider additional nodes (by 2-3x) to speed up hydration and partitioning.
 
 
-See [Select the correct compute SKU for your Azure Data Explorer cluster](../data-explorer/manage-cluster-choose-sku.md) for more details.
+See [Select the correct compute SKU for your Azure Data Explorer cluster](../data-explorer/manage-cluster-choose-sku) for more details.
 
 1.	Configure Diagnostic Settings: to best monitor your cluster and the data ingestion you should enable Diagnostic Settings and send the data to a Log Analytics Workspace.
     1.	In the Azure Data Explorer blade go to “Monitoring | Diagnostic settings” and clickon “Add diagnostic setting”
@@ -111,7 +111,7 @@ See [Select the correct compute SKU for your Azure Data Explorer cluster](../dat
   "MaxOriginalSizePerOperation": 0
  }
 ```
-For more references check [ADX Data Partitioning Policy](../data-explorer/kusto/management/partitioningpolicy.md).
+For more references check [ADX Data Partitioning Policy](../data-explorer/kusto/management/partitioningpolicy).
 
 #### Prepare for Data Ingestion
 
@@ -149,7 +149,7 @@ For more references check [ADX Data Partitioning Policy](../data-explorer/kusto/
 
 1.	Click Next: Schema
     > [!NOTE]
-    > TSI applies some flattening and escaping when persisting columns in Parquet files. See these links for more details: https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-json-flattening-escaping-rules, https://docs.microsoft.com/en-us/azure/time-series-insights/ingestion-rules-update.
+    > TSI applies some flattening and escaping when persisting columns in Parquet files. See these links for more details: https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules, https://docs.microsoft.com/en-us/azure/time-series-insights/ingestion-rules-update.
 - If schema is unknown or varying.
     1. Remove all columns that are infrequently queried, leaving at least timestamp and TSID column(s).
 
@@ -161,7 +161,7 @@ For more references check [ADX Data Partitioning Policy](../data-explorer/kusto/
 
         Example:
 
-        :::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type-example.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type" lightbox="media/gen2-migration/adx-ingest-dynamic-type-example.png":::
+        :::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type-example.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type example" lightbox="media/gen2-migration/adx-ingest-dynamic-type-example.png":::
 
 - If schema is known or fixed
     1.	Confirm that the data looks correct. Correct any types if needed.
@@ -173,7 +173,7 @@ Copy the LightIngest command and store it somewhere so you can use it in the nex
 
 ## Data Ingestion
 
-Before ingesting data you need to install the [LightIngest tool](../data-explorer/lightingest.md#prerequisites).
+Before ingesting data you need to install the [LightIngest tool](../data-explorer/lightingest#prerequisites).
 The command generated from One-Click tool includes a SAS token but it’s best to generate a new one so that you have control over the expiration time. In the portal navigate to the Blob Container for the TSI Environment and click on ‘Shared access token’
 
 :::image type="content" source="media/gen2-migration/adx-ingest-sas-token.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS token" lightbox="media/gen2-migration/adx-ingest-sas-token.png":::
@@ -252,15 +252,15 @@ Then the model can be imported to another system like Azure Data Explorer.
 1.	Download TSM from TSI UX.
 1.	Delete first 3 lines using VSCode or another editor.
 
-    :::image type="content" source="media/gen2-migration/adx-tsm-1.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-1.png":::
+    :::image type="content" source="media/gen2-migration/adx-ingest-tsm-1.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer - Delete first 3 lines" lightbox="media/gen2-migration/adx-ingest-tsm-1.png":::
 
 1.	Using VSCode or another editor, search and replace as regex `\},\n    \{` with `}{`
 
-    :::image type="content" source="media/gen2-migration/adx-tsm-2.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-2.png":::
+    :::image type="content" source="media/gen2-migration/adx-tsm-2.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer - search and replace" lightbox="media/gen2-migration/adx-ingest-tsm-2.png":::
 
 1.	Ingest as JSON into ADX as a separate table using Upload from file functionality. 
 
-    :::image type="content" source="media/gen2-migration/adx-tsm-3.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-3.png":::
+    :::image type="content" source="media/gen2-migration/adx-tsm-3.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer - Ingest as JSON" lightbox="media/gen2-migration/adx-ingest-tsm-3.png":::
 
 ## Translate Time Series Queries (TSQ) to KQL
 
