@@ -463,8 +463,7 @@ This functionality works with any [Transform](/rest/api/media/transforms) that i
 
 See examples:
 
-* [Subclip a video with .NET](transform-subclip-video-dotnet-how-to.md)
-* [Subclip a video with REST](transform-subclip-video-rest-how-to.md)
+* [Subclip a video with REST](transform-subclip-video-how-to.md)
 
 ## May 2019
 

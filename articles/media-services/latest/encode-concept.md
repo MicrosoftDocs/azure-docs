@@ -43,7 +43,7 @@ To encode with Media Services v3, you need to create a [Transform](/rest/api/med
 
 When encoding with Media Services, you use presets to tell the encoder how the input media files should be processed. In Media Services v3, you use Standard Encoder to encode your files. For example, you can specify the video resolution and/or the number of audio channels you want in the encoded content.
 
-You can get started quickly with one of the recommended built-in presets based on industry best practices or you can choose to build a custom preset to target your specific scenario or device requirements. For more information, see [Encode with a custom Transform](transform-custom-tranform-how-to.md).
+You can get started quickly with one of the recommended built-in presets based on industry best practices or you can choose to build a custom preset to target your specific scenario or device requirements. For more information, see [Encode with a custom Transform](transform-custom-transform-how-to.md).
 
 Starting with January 2019, when encoding with the Standard  Encoder to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for [dynamic packaging](encode-dynamic-packaging-concept.md) and streaming scenarios.
 
