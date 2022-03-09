@@ -1,6 +1,6 @@
 ---
 title: User-assigned managed identity in Azure AD for Azure SQL
-description: This article provides information on user-assigned managed identities in Azure Active Directory (AD) with Azure SQL Database and Azure SQL Managed Instance and dedicated SQL pools. 
+description: User-assigned managed identities (UMI) in Azure AD (AD) for Azure SQL Database, SQL Managed Instance, and dedicated SQL pools in Azure Synapse Analytics. 
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 ms.service: sql-db-mi
 ms.subservice: security
@@ -20,9 +20,7 @@ ms.date: 03/09/2022
 
 Azure Active Directory (AD) supports two types of managed identities: System-assigned managed identity (SMI) and user-assigned managed identity (UMI). For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
-When using Azure AD authentication with Azure SQL Managed Instance, a managed identity must be assigned to the server identity. Previously, only a system-assigned managed identity could be assigned to the Managed Instance or SQL Database server identity. With support for user-assigned managed identity, the UMI can be assigned to Azure SQL Managed Instance or Azure SQL Database as the instance or server identity. This feature is now supported for SQL Database. 
-
-A system-assigned managed identity is automatically assigned to a managed instance when it is created.
+A system-assigned managed identity is automatically assigned to a managed instance when it is created. When using Azure AD authentication with Azure SQL Managed Instance, a managed identity must be assigned to the server identity. Previously, only a system-assigned managed identity could be assigned to the Managed Instance or SQL Database server identity. With support for user-assigned managed identity, the UMI can be assigned to Azure SQL Managed Instance or Azure SQL Database as the instance or server identity. This feature is now supported for SQL Database. 
 
 > [!NOTE]
 > This article applies only to dedicated SQL pools (formerly SQL DW) in standalone Azure SQL servers. For more information on user-assigned managed identities for dedicated pools in Azure Synapse workspaces, see [Using a user-assigned managed identity](../../synapse-analytics/security/workspaces-encryption.md#using-a-user-assigned-managed-identity).
