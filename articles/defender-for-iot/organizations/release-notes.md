@@ -63,7 +63,7 @@ For more information, see:
 
 The extended data in these fields is only available for sensors with software versions 22.1.x or higher. If you have earlier sensor versions installed, we recommend updating to the latest version. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
 
-## Edit and delete devices from the Azure portal
+### Edit and delete devices from the Azure portal
 
 The **Device inventory** page in the Azure portal now supports the ability to edit device details, such as security, classification, location, and more:
 
