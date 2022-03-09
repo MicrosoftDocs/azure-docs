@@ -88,7 +88,7 @@ The following filtering parameters are available:
 | **srcipaddr_has_any_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. Note that the list of values can include IP addresses as well as IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
 | **url_has_any** | dynamic | Filter only Web sessions for which the [URL field](#url) has any of the values listed. If specified, and the session is not a web session, no result will be returned. The length of the list is limited to 10,000 items.|  
 | **httpuseragent_has_any** | dynamic | Filter only web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. The length of the list is limited to 10,000 items. | 
-| **ventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
+| **eventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
 | **eventresult** | string | Filter only network sessions with a specific **EventResult** value. |
 | | | |
 
