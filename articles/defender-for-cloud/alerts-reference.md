@@ -2,7 +2,7 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 03/08/2022
+ms.date: 03/09/2022
 ---
 # Security alerts - a reference guide
 
@@ -335,7 +335,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **Exposed Redis service in AKS detected**<br>(K8S_ExposedRedis) | The Kubernetes audit log analysis detected exposure of a Redis service by a load balancer. If the service doesn't require authentication, exposing it to the internet poses a security risk. | Initial Access | Low |
 | **Indicators associated with DDOS toolkit detected (Preview)**<br>(K8S.NODE_KnownLinuxDDoSToolkit) | Analysis of processes running within a container detected file names that are part of a toolkit associated with malware capable of launching DDoS attacks, opening ports and services, and taking full control over the infected system. This could also possibly be legitimate activity. | Persistence, LateralMovement, Execution, Exploitation | Medium |
 | **K8S API requests from proxy IP address detected**<br>(K8S_TI_Proxy) <sup>[2](#footnote2)</sup>| Kubernetes audit log analysis detected API requests to your cluster from an IP address that is associated with proxy services, such as TOR. While this behavior can be legitimate, it's often seen in malicious activities, when attackers try to hide their source IP. | Execution | Low |
-| **Kubernetes events deleted**<br>(K8S_DeleteEvents) <sup>[1](#footnote1)</sup>  | Defender for Cloud detected that some Kubernetes events have been deleted. Kubernetes events are objects in Kubernetes which contain information about changes in the cluster. Attackers might delete those events for hiding their operations in the cluster. | Defense Evasion | Low |
+| **Kubernetes events deleted**<br>(K8S_DeleteEvents) <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup>  | Defender for Cloud detected that some Kubernetes events have been deleted. Kubernetes events are objects in Kubernetes which contain information about changes in the cluster. Attackers might delete those events for hiding their operations in the cluster. | Defense Evasion | Low |
 | **Kubernetes penetration testing tool detected**<br>(K8S_PenTestToolsKubeHunter) <sup>[2](#footnote2)</sup> | Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the AKS cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes. | Execution | Low |
 | **Local host reconnaissance detected (Preview)**<br>(K8S.NODE_LinuxReconnaissance) | Analysis of processes running within a container detected the execution of a command normally associated with common Linux bot reconnaissance. | Discovery | Medium |
 | **Manipulation of host firewall detected (Preview)**<br>(K8S.NODE_FirewallDisabled) | Analysis of processes running within a container detected possible manipulation of the on-host firewall. Attackers will often disable this to exfiltrate data. | DefenseEvasion, Exfiltration | Medium |

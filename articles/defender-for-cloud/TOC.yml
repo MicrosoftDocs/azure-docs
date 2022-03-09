@@ -16,12 +16,12 @@
     href: upcoming-changes.md
   - name: Availability
     items:
-    - name: Supported platforms
+    - name: Supported platforms for servers
       displayName: coverage
       href: os-coverage.md
     - name: Servers coverage by OS, machine type, and cloud
       href: supported-machines-endpoint-solutions-clouds-servers.md
-    - name: Containers coverage by OS, machine type, and cloud
+    - name: Defender for Containers feature availability
       href: supported-machines-endpoint-solutions-clouds-containers.md
     - name: Feature coverage for Azure PaaS resources
       href: features-paas.md
