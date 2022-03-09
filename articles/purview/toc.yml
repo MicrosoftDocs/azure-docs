@@ -121,7 +121,7 @@ items:
       href: manage-integration-runtimes.md
     - name: Create Service Principal
       href: create-service-principal-azure.md
-    - name: Request access to source
+    - name: Request access to data asset
       href: how-to-request-access.md
   - name: Sources
     items: 
@@ -243,6 +243,8 @@ items:
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md  
+    - name: Bulk delete business terms
+      href: how-to-bulk-delete-terms.md  
   - name: Classify
     items: 
     - name: Create custom classifications
@@ -305,6 +307,8 @@ items:
       href: how-to-workflow-business-terms-approval.md
     - name: Manage requests and approvals
       href: how-to-workflow-manage-requests-approvals.md
+    - name: Manage workflow runs
+      href: how-to-workflow-manage-runs.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery

@@ -22,7 +22,7 @@ This guide will take you through the creation and management of approval workflo
 
     :::image type="content" source="./media/how-to-workflow-business-terms-approval/workflow-section.png" alt-text="Management center left menu with the new workflow section highlighted.":::
 
-1. To create new workflows, select Authoring. This will take you to the workflow authoring experiences.
+1. To create new workflows, select **Authoring** in workflow section. This will take you to the workflow authoring experiences.
 
     :::image type="content" source="./media/how-to-workflow-business-terms-approval/workflow-authoring-experience.png" alt-text="Authoring workflows page, showing a list of all workflows.":::
 
