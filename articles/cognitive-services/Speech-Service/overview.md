@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/09/2022
 ms.author: eur
 ---
 
@@ -119,13 +119,7 @@ Other products offer speech models tuned for specific purposes, like healthcare 
 
 ## Deploy on-premises by using Docker containers
 
-[Use Speech service containers](speech-container-howto.md) to deploy API features on-premises. By using these Docker containers, you can bring the service closer to your data for compliance, security, or other operational reasons. The Speech service offers the following containers:
-
-* Standard Speech-to-Text
-* Custom Speech-to-Text
-* Prebuilt Neural Text-to-Speech
-* Custom Neural Text-to-Speech (preview)
-* Speech Language Identification (preview)
+[Use Speech service containers](speech-container-howto.md) to deploy API features on-premises. By using these Docker containers, you can bring the service closer to your data for compliance, security, or other operational reasons. 
 
 ## Reference docs
 
