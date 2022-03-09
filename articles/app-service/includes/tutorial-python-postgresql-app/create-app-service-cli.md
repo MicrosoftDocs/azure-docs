@@ -105,3 +105,6 @@ az webapp create `
 * *runtime* &rarr; The runtime specifies what version of Python your app is running. This example uses **Python 3.9**. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
 * *plan* &rarr; Use the same *app service plan* name from **Step 2**. (`msdocs-python-postgres-webapp-plan`)
 * *resource-group* &rarr; Use the same resource group name from **Step 1**. (`msdocs-python-postgres-webapp-rg`)
+
+> [!NOTE]
+> This tutorial shows step-by-step use of Azure CLI commands to reinforce the logical steps that go into creating and deploying an App Service. Once you get familiar with the steps, you can try the [`az webapp up`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-up) that creates a webapp and deploys its code from a local workspace to App Service.
