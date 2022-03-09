@@ -5,7 +5,7 @@ author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 03/09/2022
 ---
 
 # Access control in Azure Purview
@@ -28,6 +28,7 @@ Azure Purview uses a set of predefined roles to control who can access what with
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
 - **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
 - **Policy author (Preview)** - a role that allows a user to view, update, and delete Azure Purview policies through the policy management app within Azure Purview.
+- **Workflow administrator** - a role that allows a user to access the workflow authoring page in the Azure Purview studio, as well as publish workflows on collections where they have access permissions.
 
 > [!NOTE] 
 > At this time, Azure Purview Policy author role is not sufficient to create policies. The Azure Purview Data source admin role is also required.
@@ -45,8 +46,9 @@ Azure Purview uses a set of predefined roles to control who can access what with
 |I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data source administrator|
 |I need to put users into roles in Azure Purview | Collection administrator |
 |I need to create and publish access policies | Data source administrator and policy author |
+|I need to create workflows for my Azure Purview account | Workflow administrator |
 
-:::image type="content" source="media/catalog-permissions/collection-permission-roles.svg" alt-text="Chart showing Azure Purview roles" lightbox="media/catalog-permissions/collection-permission-roles.svg":::
+:::image type="content" source="media/catalog-permissions/catalog-permission-role.svg" alt-text="Chart showing Azure Purview roles" lightbox="media/catalog-permissions/catalog-permission-roles.svg":::
 >[!NOTE]
 > **\*Data source administrator permissions on Policies** - Data source administrators are also able to publish data policies.
 
