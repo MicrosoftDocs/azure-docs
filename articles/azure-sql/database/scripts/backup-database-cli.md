@@ -29,7 +29,7 @@ This Azure CLI example backs up a database in SQL Database to an Azure storage c
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/backup-database/backup-database.sh" range="4-40":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/backup-database/"FullScript":::
 
 ## Clean up resources
 

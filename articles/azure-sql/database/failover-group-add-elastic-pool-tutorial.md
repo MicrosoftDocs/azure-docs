@@ -16,12 +16,12 @@ ms.date: 01/26/2022
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure SQL Database (single database)](failover-group-add-single-database-tutorial.md)
-> * [Azure SQL Database (elastic pool)](failover-group-add-elastic-pool-tutorial.md)
-> * [Azure SQL Managed Instance](../managed-instance/failover-group-add-instance-tutorial.md)
+>
+> - [Azure SQL Database (single database)](failover-group-add-single-database-tutorial.md)
+> - [Azure SQL Database (elastic pool)](failover-group-add-elastic-pool-tutorial.md)
+> - [Azure SQL Managed Instance](../managed-instance/failover-group-add-instance-tutorial.md)
 
-
-Configure an [auto-failover group](auto-failover-group-sql-db.md) for an Azure SQL Database elastic pool and test failover using the Azure portal. 
+Configure an [auto-failover group](auto-failover-group-sql-db.md) for an Azure SQL Database elastic pool and test failover using the Azure portal.
 
 In this tutorial, you'll learn how to:
 
