@@ -5,7 +5,7 @@ description: Learn how to configure Bastion to use Kerberos authentication via t
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 03/08/2022
 ms.author: cherylmc
 
 ---
@@ -29,29 +29,29 @@ This article shows you how to configure Azure Bastion to use Kerberos authentica
 In this section, the following steps help you update your virtual network to specify custom DNS settings.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to the virtual network for which you want to deploy the Bastion resources.
-1. Navigate to the **DNS servers** page for your VNet and select **Custom**. Add the IP address of your Azure-hosted domain controller and **Save**.
+1. Go to the virtual network for which you want to deploy the Bastion resources.
+1. Go to the **DNS servers** page for your VNet and select **Custom**. Add the IP address of your Azure-hosted domain controller and **Save**.
 
    :::image type="content" source="./media/kerberos-authentication-portal/dns-servers.png" alt-text="Screenshot of DNS servers page." lightbox="./media/kerberos-authentication-portal/dns-servers.png":::
 
-## <a name="bastion"></a>Configure Bastion
+## <a name="bastion"></a>Deploy Bastion
 
-In this section, the following steps help you create a new bastion host for your virtual network.
+In this section, the following steps help you deploy Bastion to your virtual network.
 
-1. Create a bastion host using the steps in [Tutorial: Create a bastion host](tutorial-create-host-portal.md). Configure the settings on the **Basics** tab. Then select the **Advanced** tab.
+1. Deploy Bastion to your VNet using the steps in [Tutorial: Deploy Bastion using manual configuration settings](tutorial-create-host-portal.md). Configure the settings on the **Basics** tab. Then, select the **Advanced** tab.
 
-1. On the **Advanced** tab, select **Kerberos**. Then select the **Review + create** and **Create** to deploy the Bastion resource to your virtual network.
+1. On the **Advanced** tab, select **Kerberos**. Then select the **Review + create** and **Create** to deploy Bastion to your virtual network.
 
    :::image type="content" source="./media/kerberos-authentication-portal/select-kerberos.png" alt-text="Screenshot of Advanced tab." lightbox="./media/kerberos-authentication-portal/select-kerberos.png":::
 
-1. Once the Bastion resource finishes deploying, you can use it to sign in to any reachable Windows VMs joined to the custom DNS you specified in the earlier steps.
+1. Once the deployment completes, you can use it to sign in to any reachable Windows VMs joined to the custom DNS you specified in the earlier steps.
 
 ## <a name="modify"></a>To modify an existing Bastion deployment
 
 In this section, the following steps help you modify your virtual network and existing Bastion deployment for Kerberos authentication.
 
 1. [Update the DNS settings](#vnet) for your virtual network.
-1. Navigate to your existing bastion host and select **Configuration**.
+1. Go to the portal page for your Bastion deployment and select **Configuration**.
 1. On the Configuration page, select **Kerberos authentication**, then select **Apply**.
 1. Bastion will update with the new configuration settings.
 
