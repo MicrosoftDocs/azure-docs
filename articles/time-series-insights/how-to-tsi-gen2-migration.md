@@ -252,15 +252,15 @@ Then the model can be imported to another system like Azure Data Explorer.
 1.	Download TSM from TSI UX.
 1.	Delete first 3 lines using VSCode or another editor.
 
-    :::image type="content" source="media/gen2-migration/adx-ingest-tsm-1.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer - Delete first 3 lines" lightbox="media/gen2-migration/adx-ingest-tsm-1.png":::
+    :::image type="content" source="media/gen2-migration/adx-tsm-1.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer - Delete first 3 lines" lightbox="media/gen2-migration/adx-tsm-1.png":::
 
 1.	Using VSCode or another editor, search and replace as regex `\},\n    \{` with `}{`
 
-    :::image type="content" source="media/gen2-migration/adx-tsm-2.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer - search and replace" lightbox="media/gen2-migration/adx-ingest-tsm-2.png":::
+    :::image type="content" source="media/gen2-migration/adx-tsm-2.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer - search and replace" lightbox="media/gen2-migration/adx-tsm-2.png":::
 
 1.	Ingest as JSON into ADX as a separate table using Upload from file functionality. 
 
-    :::image type="content" source="media/gen2-migration/adx-tsm-3.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer - Ingest as JSON" lightbox="media/gen2-migration/adx-ingest-tsm-3.png":::
+    :::image type="content" source="media/gen2-migration/adx-tsm-3.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer - Ingest as JSON" lightbox="media/gen2-migration/adx-tsm-3.png":::
 
 ## Translate Time Series Queries (TSQ) to KQL
 
