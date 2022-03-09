@@ -10,7 +10,7 @@ ms.author: v-amallick
 ---
 # Security features to help protect hybrid backups that use Azure Backup
 
-Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect hybrid backups. This article covers how to enable and leverage these features to protect on-premises workloads using Microsoft Azure Backup Server (MABS), Data Protection Manager (DPM), and Microsoft Azure Recovery Services (MARS) agent. These features include:
+Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect hybrid backups. This article covers how to enable and leverage these features to protect on-premises workloads using **Microsoft Azure Backup Server (MABS)**, **Data Protection Manager (DPM)**, and **Microsoft Azure Recovery Services (MARS) agent**. These features include:
 
 - **Prevention**. An additional layer of authentication is added whenever a critical operation like changing a passphrase is performed. This validation is to ensure that such operations can be performed only by users who have valid Azure credentials.
 - **Alerting**. An email notification is sent to the subscription admin whenever a critical operation like deleting backup data is performed. This email ensures that the user is notified quickly about such actions.
