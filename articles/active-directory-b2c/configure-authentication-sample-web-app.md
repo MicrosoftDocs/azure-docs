@@ -44,14 +44,14 @@ A computer that's running either of the following:
 
 # [Visual Studio](#tab/visual-studio)
 
-* [Visual Studio 2019 16.8 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019), with the ASP.NET and web development workload
-* [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet)
+* [Visual Studio 2022 17.0 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019), with the ASP.NET and web development workload
+* [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [C# for Visual Studio Code (latest version)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet)
+* [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
 ---
 
@@ -76,7 +76,7 @@ To create the web app registration, do the following:
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *webapp1*).
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
-1. Under **Redirect URI**, select **Web** and then, in the URL box, enter `https://localhost:5001/signin-oidc`.
+1. Under **Redirect URI**, select **Web** and then, in the URL box, enter `https://localhost:44316/signin-oidc`.
 1. Under **Permissions**, select the **Grant admin consent to openid and offline access permissions** checkbox.
 1. Select **Register**.
 1. Select **Overview**.
@@ -131,7 +131,7 @@ Your final configuration file should look like the following JSON:
 ## Step 5: Run the sample web app
 
 1. Build and run the project.
-1. Go to `https://localhost:5001`. 
+1. Go to `https://localhost:44316`. 
 1. Select **Sign Up/In**.
 
     ![Screenshot of the "Sign Up/In" button on the project Welcome page.](./media/configure-authentication-sample-web-app/web-app-sign-in.png)
