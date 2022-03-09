@@ -4,13 +4,12 @@ description: Learn how to onboard an Azure Arc-enabled server to Azure Automanag
 ms.service: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 25/02/2022
+ms.date: 02/25/2022
 ---
 
-# Onboard an Azure Arc-enabled server to Automanage with an Azure Resource Manager (ARM) template
+# Onboard an Azure Arc-enabled server to Automanage with an Azure Resource Manager template (ARM template) 
 
 
-## Overview
 Follow the steps to onboard an Azure Arc-enabled server to Automanage Best Practices using an ARM template.
 
 ## Prerequisites
@@ -53,12 +52,12 @@ The `configurationProfile` value can be one of the following values:
 * "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesDevTest"
 
 Follow these steps to deploy the ARM template:
-1. Save this ARM template as `azuredeploy.json`
-1. Run this ARM template deployment with `az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json`
-1. Provide the values for machineName, and configurationProfileAssignment when prompted
-1. You're ready to deploy
+1. Save this ARM template as `azuredeploy.json`.
+1. Run this ARM template deployment with `az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json`.
+1. Provide the values for machineName, and configurationProfileAssignment when prompted.
+1. You're ready to deploy.
 
 As with any ARM template, it's possible to factor out the parameters into a separate `azuredeploy.parameters.json` file and use that as an argument when deploying.
 
 ## Next steps
-Learn more about Automanage for [Azure Arc](./automanage-arc)
+Learn more about Automanage for [Azure Arc](./automanage-arc).
