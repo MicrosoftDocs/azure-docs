@@ -217,7 +217,7 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 |`modelLabel  `    | Your Model name.   | MyModel |
 |`runValidation`     | Boolean value to run validation on the test set.   | True or False |
 |`evaluationOptions`     | Specifies evaluation options.   | -- |
-|`type`     | Specifies evaluation options.   | set or percentage |
+|`type`     | Specifies datasplit type.   | set or percentage |
 |`testingSplitPercentage`     | Required field if `type`  is *percentage*. Specifies testing split.   | "30" |
 |`trainingSplitPercentage`     | Required field if `type`  is *percentage*. Specifies training split.   | "70" |
 
