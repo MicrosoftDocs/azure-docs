@@ -18,6 +18,7 @@ This article steps through using the Azure portal to create virtual machines in 
 
 To use availability zones, create your virtual machines in a [supported Azure region](../availability-zones/az-region.md).
 
+Some people will see a new preview experience in the portal. If **Availabiity options** defaults to an **Availability zone**, select the *Limited preview* tab below.
 
 ### [Standard](#tab/standard)
 
