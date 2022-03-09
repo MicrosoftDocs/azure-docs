@@ -17,7 +17,6 @@ ms.author: v-ydequadros
 CloudKnox Permissions Management public preview is currently available in North and South America and Asia-Pacific (APAC) countries. It will become globally available at General Availability (GA) later in 2022.
  
 
-
 ## Next steps
 
 - For the full set of Microsoft Azure service limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
