@@ -30,7 +30,7 @@
   - name: Front Door Manager
     href: concept-endpoint-manager.md
   - name: Caching
-    href: concept-caching.md
+    href: ../front-door-caching.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
   - name: Traffic acceleration
     href: ../front-door-traffic-acceleration.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
   - name: Routing
