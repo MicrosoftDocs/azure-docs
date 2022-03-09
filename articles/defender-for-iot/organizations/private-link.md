@@ -64,7 +64,7 @@ Rest of World	East US
 
 ## Connect via an Azure proxy
 
-This section describes how to configure a sensor connection to Defender for IoT in Azure using an Azure proxy. For more information, see [Proxy connections with an Azure proxy](architecture-private.md#proxy-connections-with-an-azure-proxy).
+This section describes how to configure a private link sensor connection to Defender for IoT in Azure using an Azure proxy. For more information, see [Proxy connections with an Azure proxy](architecture-private.md#proxy-connections-with-an-azure-proxy).
 
 ### Prerequisites
 
@@ -301,75 +301,88 @@ To configure a NAT gateway for your private link:
 
 ## Connect via proxy chaining
 
-Microsoft Defender for IoT does not offer support for Squid or any other proxy service. It is the customer's responsibility to set up and maintain the proxy service.
+This section describes how to configure a private link sensor connection to Defender for IoT in Azure using proxy chaining. For more information, see [Proxy connections with proxy chaining](architecture-private.md#proxy-connections-with-proxy-chaining).
 
-Prerequisites
-•	A host server running a proxy process within the site network, accessible to both the sensor, and the next proxy in the chain.
-•	We have evaluated this setup using the open-source Squid proxy, the proxy has HTTP tunneling, and uses the HTTP CONNECT command for connectivity. 
-•	Any other proxy that supports CONNECT can be used. 
-Configuration
-In this recipe we will reference installation and configuration of the latest version of Squid on an Ubuntu server.
+### Prerequisites
 
+Before you start, make sure that you have a host server running a proxy process within the site network. The proxy process must be accessible to both the sensor and the next proxy in the chain.
 
- 
+We have validated this procedure using the open-source [Squid](http://www.squid-cache.org/) proxy. This proxy uses HTTP tunneling and the HTTP CONNECT command for connectivity. Any other proxy chaining connection that supports the CONNECT command can be used for this connection method.
 
-Sensor setup
-To use a proxy, enable the use of a proxy in the sensor settings. This can be found in system settings -> Sensor Network Settings 
+> [!IMPORTANT]
+> Microsoft Defender for IoT does not offer support for Squid or any other proxy services. It is the customer's responsibility to set up and maintain the proxy service.
+>
 
- 
+### Configuration
 
-Installing the Squid proxy
+This procedure describes how to install and configure a connection between your sensors and Defender for IoT using the latest version of Squid on an Ubuntu server.
 
-    - Sign into your designated proxy Ubuntu machine.
+1. Define your proxy settings on each sensor:
 
-    - Launch a terminal window.
- 
-    - Run the following commands to update your system and install the Squid package..
+    1. On your sensor console, go to **System settings > Sensor Network Settings**.
 
+    1. Toggle on the **Enable Proxy** option and define your proxy host, port, username, and password.
 
+1. Install the Squid proxy:
 
-    - Locate the squid configuration file that is located at `/etc/squid/squid.conf`, and `/etc/squid/conf.d/`.
+    1. Sign into your proxy Ubuntu machine and launch a terminal window.
 
+    1. Update your system and install Squid. For example:
 
+        ```bash
+        sudo apt-get update
+        sudu apt-get install squid
+        ```
 
-    - Open `/etc/squid/squid.conf` in a text editor.
+    1. Locate the Squid configuration file. For example, at `/etc/squid/squid.conf` or `/etc/squid/conf.d/`, and open the file in a text editor.
 
-    - Search for `# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS`.
+    1. In the Squid configuration file, search for the following text: ``# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS`.
 
-    - Add `acl <sensor-name> src <sensor-ip>`, and `http_access allow <sensor-name>` into the file.
- 
-    - (Optional) Add more sensors by adding an extra line for each sensor.
+    1. Add `acl <sensor-name> src <sensor-ip>`, and `http_access allow <sensor-name>` into the file. For example:
 
-    - Enable the Squid service to start at launch with the following command.
+        ```text
+        # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
+        acl sensor1 src 10.100.100.1
+        http_access allow sensor1
+        ```
 
+        Add more sensors as needed by adding extra lines for sensor.
 
-Connecting the proxy to Defender for IoT resources
+    1. Configure the Squid service to start at launch. Run:
 
-To enable the sensor's connection to the Azure Portal, Enable outbound HTTPS traffic on port 443 from the sensor to the following Azure hostnames: 
+        ```bash
+        sudo systemctl enable squid
+        ```
 
-IoT Hub: *.azure-devices.net  
-Threat Intelligence: *.blob.core.windows.net
-Eventhub: *.servicebus.windows.net
+1. Connect your proxy to Defender for IoT. Enable outbound HTTP traffic on port 443 from the sensor to the following Azure hostnames:
 
+    - **IoT Hub**: `*.azure-devices.net`
+    - **Threat Intelligence**: `*.blob.core.windows.net`
+    - **Eventhub**: `*.servicebus.windows.net`
 
-In case you need to define firewall rules by IP address, the Azure public IP ranges are updated weekly. You can download and add the Azure public IP ranges to your firewall. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure. You will also need the IP ranges for AzureIoTHub, Storage and EventHub.
-
+> [!IMPORTANT]
+> Some organizations must define firewall rules by IP addresses. If this is true for your organization, it's important to know that the Azure public IP ranges are updated weekly.
+>
+> Make sure to download the new JSON file each week and make the required changes on your site to correctly identify services running in Azure. You'll need the updated IP ranges for **AzureIoTHub**, **Storage**, and **EventHub**.
+>
 
 ## Connect directly
 
-Prerequisites
-The following network configuration is required for sensors to connect to the Azure portal:
-•	The sensor can reach the cloud using HTTPS on port 443 to the following Microsoft domains:
-o	IoT Hub: *.azure-devices.net 
-o	Threat Intelligence: *.blob.core.windows.net
-o	Eventhub: *.servicebus.windows.net
-•	Since Azure public IP addresses are updated weekly, if you want to define firewall rules based on IP addresses, download and add Azure public IP ranges to your firewall. Obtain the new JSON file every week and perform the necessary changes at your site firewall to correctly adapt for your services running in Azure resources. 
-•	You will also need the IP ranges for AzureIoTHub, Storage and EventHub.
+This section describes how to configure a direct, private link sensor connection to Defender for IoT in Azure. For more information, see [Direct connections](architecture-private.md#direct-connections).
 
-Configuration
+### Prerequisites
 
-  
+Before you start, make sure that you have a sensor that can access the cloud using HTTP on port 443 to the following Microsoft domains:
 
+- **IoT Hub**: `*.azure-devices.net`
+- **Threat Intelligence**: `*.blob.core.windows.net`
+- **Eventhub**: `*.servicebus.windows.net`
+
+Azure public IP addresses are updated weekly. If you must define firewall rules based on IP addresses, make sure to download the new JSON file each week and make the required changes on your site to correctly identify services running in Azure. You'll need the updated IP ranges for **AzureIoTHub**, **Storage**, and **EventHub**.
+
+### Configuration
+
+MISSING STEPS HERE, WE ONLY HAVE THE DIAGRAM
 
 ## Connect via multi-cloud vendors
 
