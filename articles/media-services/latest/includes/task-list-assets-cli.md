@@ -8,6 +8,6 @@ ms.author: inhenkel
 
 <!--List the assets of a Media Services account-->
 
-## List assets
+## List assets with the CLI
 
 :::code language="azurecli" source="~/media-services-v3-python/cli/code-snippets.sh" id="AmsAssetList" interactive="azurecli-interactive":::
