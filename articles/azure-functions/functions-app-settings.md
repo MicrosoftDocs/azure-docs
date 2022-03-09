@@ -121,13 +121,90 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 |---|------------|
 |AzureWebJobsFeatureFlags|`feature1,feature2`|
 
-## AzureWebJobsSecretStorageType
+## AzureWebJobsKubernetesSecretName 
 
-Specifies the repository or provider to use for key storage. Currently, the supported repositories are blob storage ("Blob") and the local file system ("Files"). The default is blob in version 2 and file system in version 1.
+Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. Requires that `AzureWebJobsSecretStorageType` be set to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsSecretStorageType|Files|
+|AzureWebJobsKubernetesSecretName|`<SECRETS_RESOURCE>`|
+
+To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+## AzureWebJobsSecretStorageKeyVaultClientId
+
+The client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.  Supported in version 4.x and later versions of the Functions runtime.
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsSecretStorageKeyVaultClientId|`<CLIENT_ID>`|
+
+To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+## AzureWebJobsSecretStorageKeyVaultClientSecret
+
+The secret for client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.  Supported in version 4.x and later versions of the Functions runtime.
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsSecretStorageKeyVaultClientSecret|`<CLIENT_SECRET>`|
+
+To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+## AzureWebJobsSecretStorageKeyVaultName
+
+The name of a key vault instance used to store keys. This setting is only supported for version 3.x of the Functions runtime. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`. 
+
+The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsSecretStorageKeyVaultName|`<VAULT_NAME>`|
+
+To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+## AzureWebJobsSecretStorageKeyVaultTenantId
+
+The tenant ID of the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`. Supported in version 4.x and later versions of the Functions runtime. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsSecretStorageKeyVaultTenantId|`<TENANT_ID>`|
+
+## AzureWebJobsSecretStorageKeyVaultUri
+
+The URI of a key vault instance used to store keys. Supported in version 4.x and later versions of the Functions runtime. This is the recommended setting for using a key vault instance for key storage. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.
+
+The `AzureWebJobsSecretStorageKeyVaultTenantId` value should be the full value of **Vault URI** displayed in the **Key Vault overview** tab, including `https://`.
+
+The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsSecretStorageKeyVaultUri|`https://<VAULT_NAME>.vault.azure.net`|
+
+To learn more, see [Use Key Vault references for Azure Functions](../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json).
+
+## AzureWebJobsSecretStorageSas
+
+A Blob Storage SAS URL for a second storage account used for key storage. By default, Functions uses the account set in `AzureWebJobsStorage`. When using this secret storage option, make sure that `AzureWebJobsSecretStorageType` isn't explicitly set or is set to `blob`. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+|Key|Sample value|
+|--|--|
+|AzureWebJobsSecretStorageSa| `<BLOB_SAS_URL>` | 
+
+## AzureWebJobsSecretStorageType
+
+Specifies the repository or provider to use for key storage. Keys are always encrypted before being stored using a secret unique to your function app.
+
+|Key| Value| Description|
+|---|------------|---|
+|AzureWebJobsSecretStorageType|`blob`|Keys are stored in a Blob storage container in the account provided by the `AzureWebJobsStorage` setting. This is the default behavior when `AzureWebJobsSecretStorageType` isn't set.<br/>To specify a different storage account, use the `AzureWebJobsSecretStorageSas` setting to indicate the SAS URL of a second storage account. |
+|AzureWebJobsSecretStorageType  | `files` | Keys are persisted on the file system. This is the default for Functions v1.x.|
+|AzureWebJobsSecretStorageType |`keyvault` | Keys are stored in a key vault instance set by `AzureWebJobsSecretStorageKeyVaultName`. | 
+|Kubernetes Secrets  | `kubernetes` | Supported only when running the Functions runtime in Kubernetes. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.|
+
+To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
 
 ## AzureWebJobsStorage
 

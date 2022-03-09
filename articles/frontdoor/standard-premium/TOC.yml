@@ -38,7 +38,7 @@
     - name: Routing architecture
       href: ../front-door-routing-architecture.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
     - name: Route matching
-      href: concept-route.md
+      href: ../front-door-route-matching.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
     - name: Origin selection
       href: ../front-door-routing-methods.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Routing limits
