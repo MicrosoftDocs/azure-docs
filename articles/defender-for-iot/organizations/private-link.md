@@ -11,23 +11,34 @@ This article describes how to configure private link connections between your se
 
 For more information about each connection method, see [Private link connection architectures](architecture-private.md).
 
-## Migration process for existing customers
+## Migration for existing customers
 
 If you're an existing customer with a production deployment, start with the following steps to ensure a full and safe migration to an upgraded private link connection:
 
-1. Review your existing production deployment and how sensors are currently connection to Azure.
+1. Review your existing production deployment and how sensors are currently connection to Azure. Confirm that the sensors in production networks can reach the Azure data center resource ranges.
 
 1. Determine which connection method is right for each production site. For more information, see [Choose a private link connection method](#choose-a-private-link-connection-method).
 
-1. For any connectivity resources outside of Defender for IoT, such as a VPN or proxy, consult with Microsoft solution architects to ensure correct configurations, security, and high availability.
+1. Configure any additional resources required as described in the procedure in this article for your chosen connectivity method. For example, additional resources might include a proxy, VPN, or ExpressRoute.
+
+    For any connectivity resources outside of Defender for IoT, such as a VPN or proxy, consult with Microsoft solution architects to ensure correct configurations, security, and high availability.
+
+1. If you have legacy sensor versions installed, you'll need to update your sensors to version 22.1.x and reactivate each updated sensor.
+
+    For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
+
+    Sign in to each sensor after the update to verify that the activation file was applied successfully. Also check the Defender for IoT **Sites and sensors** page in the Azure portal to make sure that the updated sensors show as **Connected**.
 
 1. Start migrating with a test lab or reference project where you can validate your connection and fix any issues found.
 
 1. Create a plan of action for your migration, including planning any maintenance windows needed.
 
-You may also still need to upgrade your sensors to version 22.1.x. While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versions-and-support-dates), you can currently deploy a hybrid network of sensors, including both legacy software versions with their IoT Hub connections, and sensors with software version 22.1.x or higher.
+1. After the migration in your production environment, you can delete any private IoT Hubs that you had used before the migration. Make sure that any IoT Hubs you delete are not used by any other services:
 
-For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
+    - All updated sensors should indicate software version 22.1.x or higher.
+    - Check the active resources in your account and make sure there are no other services connected to your IoT Hub.
+
+While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versions-and-support-dates), you can currently deploy a hybrid network of sensors, including both legacy software versions with their IoT Hub connections, and sensors with software version 22.1.x or higher.
 
 ## Choose a private link connection method
 
@@ -386,53 +397,40 @@ MISSING STEPS HERE, WE ONLY HAVE THE DIAGRAM
 
 ## Connect via multi-cloud vendors
 
-Prerequisites
-Sensor deployed in a public cloud, connected to monitoring SPAN traffic, for example:
-•	New – VPC Traffic Mirroring – Capture & Inspect Network Traffic | AWS News Blog (amazon.com) 
-•	Packet Mirroring overview  |  VPC  |  Google Cloud
+This section describes how to configure private link sensor connections to Defender for IoT from sensors deployed in one or more public clouds. For more information, see [Multi-cloud connections](architecture-private.md#multi-cloud-connections).
 
-Configuration
-Configure your sensor to be cloud connected to Defender for IoT using the following resources: Connectivity to other cloud providers - Cloud Adoption Framework | Microsoft Docs.
+### Prerequisites
 
+Before you start, make sure that you have a sensor deployed in a public cloud, such as AWS or Google Cloud, and configured to monitor SPAN traffic.
 
-Directly over the Internet to D4IoT
+### Choose your connectivity method
 
-You can configure your cloud-based sensor to connect to D4IoT endpoints as you would configure an on-prem sensor. For the necessary security configurations please see this section.
+Use the following flow chart to determine which connectivity method to use:
 
-By creating a VPN connection between your VPC and an Azure VNET
-To enable private connectivity between your VPCs and D4IoT, you should first connect your VPC to an Azure VNET over VPN connection.
+:::image type="content" source="media/architecture-private/multi-cloud-flow-chart.png" alt-text="Flow chart to determine which connectivity method to use.":::
 
-•	Instructions for connecting an AWS VPC to Azure can be found here.
+- If you do not need to exchange data using private IP addresses, use public IP addresses over the internet.
 
-•	Once your VPC and VNET are configured, connect to D4IoT as described here
+- Use site-to-site VPN over the internet only if you do not require any of the following:
 
+    - Predictable throughput
+    - SLA
+    - High data volume transfers
+    - Avoid connections over the public internet
 
-## Migrate to private link connections
+    If you do require any of the items in this list, use ExpressRoute:
 
+    - If you want to own and manage the routers making the connection, use ExpressRoute with customer-managed routing.
 
-| #	Step	Verification                                                                                                                                                                                                         |
-| 1	Plan                                                                                                                                                                                                                      |
-| •	Using one or more of the available connectivity recipes, review and prepare your network.                                                                                                                                 |
-| 	Confirm that sensors in production networks can reach the Azure data center resource ranges                                                                                                                               |
-| 	If necessary, set up additional resources as described in the recipe such as proxy, VPN or expressroute.                                                                                                                  |
-| 2	Prepare                                                                                                                                                                                                                   |
-| •	On the sites & sensors dashboard, perform the "ready for update" action for sensors that are ready to be updated.                                                                                                         |
-| •	Download the version 22.1 update                                                                                                                                                                                          |
-| •	Save the new activation files to be used once the sensor has completed the software update                                                                                                                                |
-| 	Sensors indicate "Ready for upgrade."                                                                                                                                                                                     |
-| 	The activation files were successfully downloaded                                                                                                                                                                         |
-| 	The update file for 22.1 has been successfully downloaded                                                                                                                                                                 |
-| 3	Update Sensors                                                                                                                                                                                                            |
-| •	Apply the software update to the sensor, then activate it with the new activation file (link to instructions)                                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 	Login successfully to the sensor after update                                                                                                                                                                             |
-| 	Activation file applied successfully                                                                                                                                                                                      |
-| 	Sensor shows “connected” in sites & sensors                                                                                                                                                                               |
-| 4	Clean up                                                                                                                                                                                                                  |
-| •	Review the IoT hub to ensure that it is not used by other services                                                                                                                                                        |
-| •	After completing the transition and sensors connect successfully, you can delete any private IoT hubs that you previously used (make sure they are not in use for another service!).		All sensors indicate version 22.1. |
-| 	There are no other services offered by the IoT hub                                                                                                                                                                        |
-| 	Examine the active resources in your account                                                                                                                                                                              |
+    - If you do not need to own and manage the routers making the connection, use ExpressRoute with a cloud exchange provider.
+
+### Configuration
+
+1. Configure your sensor to connect to the cloud using one of the Azure Cloud Adoption Framework recommended methods. For more information, see [Connectivity to other cloud providers](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers).
+
+1. To enable private connectivity between your VPCs and Defender for IoT., connect your VPC to an Azure VNET over a VPN connection. For example if you are connecting from an AWS VPC, see our TechCommunity blog: [How to create a VPN between Azure and AWS using only managed solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-to-create-a-vpn-between-azure-and-aws-using-only-managed/ba-p/2281900).
+
+1. After your VPC and VNET are configured, connect to Defender for IoT as you would when connecting via an Azure proxy. For more information, see [Connect via an Azure proxy](#connect-via-an-azure-proxy).
 
 ## Next steps
 
