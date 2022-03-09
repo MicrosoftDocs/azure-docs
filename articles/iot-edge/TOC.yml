@@ -189,6 +189,8 @@
       href: how-to-visual-studio-develop-module.md
     - name: Develop with Visual Studio Code
       href: how-to-vs-code-develop-module.md
+    - name: Configure module build options
+      href: how-to-configure-module-build-options.md
     - name: Configure module createOptions
       items:
         - name: Understand and use createOptions
