@@ -2,20 +2,35 @@
 title: Azure Front Door - caching | Microsoft Docs
 description: This article helps you understand behavior for Front Door with routing rules that have enabled caching.
 services: frontdoor
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2021
+ms.date: 03/08/2022
 ms.author: duau
+zone_pivot_groups: front-door-tiers
 ---
 
 # Caching with Azure Front Door
+
+::: zone pivot="front-door-standard-premium"
+
+In this article, you'll learn how Front Door Standard/Premium (Preview) Routes and Rule set behaves when you have caching enabled. Azure Front Door is a modern Content Delivery Network (CDN) with dynamic site acceleration and load balancing.
+
+## Request methods
+
+Only the GET request method can generate cached content in Azure Front Door. All other request methods are always proxied through the network.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
 The following document specifies behaviors for Front Door with routing rules that have enabled caching. Front Door is a modern Content Delivery Network (CDN) with dynamic site acceleration and load balancing, it also supports caching behaviors just like any other CDN.
 
+::: zone-end
+
 ## Delivery of large files
+
 Azure Front Door delivers large files without a cap on file size. Front Door uses a technique called object chunking. When a large file is requested, Front Door retrieves smaller pieces of the file from the backend. After receiving a full or byte-range file request, the Front Door environment requests the file from the backend in chunks of 8 MB.
 
 After the chunk arrives at the Front Door environment, it's cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested) or the client closes the connection.
@@ -24,6 +39,15 @@ For more information on the byte-range request, read [RFC 7233](https://www.rfc-
 Front Door caches any chunks as they're received so the entire file doesn't need to be cached on the Front Door cache. Ensuing requests for the file or byte ranges are served from the cache. If the chunks aren't all cached, pre-fetching is used to request chunks from the backend. This optimization relies on the backend's ability to support byte-range requests. If the backend doesn't support byte-range requests, this optimization isn't effective.
 
 ## File compression
+
+::: zone pivot="front-door-standard-premium"
+
+Refer to [improve performance by compressing files](standard-premium/how-to-compression.md) in Azure Front Door.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
 Front Door can dynamically compress content on the edge, resulting in a smaller and faster response time to your clients. In order for a file to be eligible for compression, caching must be enabled and the file must be of a MIME type to be eligible for compression. Currently, Front Door doesn't allow this list to be changed. The current list is:
 - "application/eot"
 - "application/font"
@@ -78,13 +102,31 @@ When a request for an asset specifies compression and the request results in a c
 > [!NOTE]
 > Range requests may be compressed into different sizes. Azure Front Door requires the content-length values to be the same for any GET HTTP request. If clients send byte range requests with the `accept-encoding` header that leads to the Origin responding with different content lengths, then Azure Front Door will return a 503 error. You can either disable compression on Origin/Azure Front Door or create a Rules Set rule to remove `accept-encoding` from the request for byte range requests.
 
-## Query string behavior
-With Front Door, you can control how files are cached for a web request that contains a query string. In a web request with a query string, the query string is that portion of the request that occurs after a question mark (?). A query string can contain one or more key-value pairs, in which the field name and its value are separated by an equals sign (=). Each key-value pair is separated by an ampersand (&). For example, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. If there's more than one key-value pair in a query string of a request then their order doesn't matter.
-- **Ignore query strings**: In this mode, Front Door passes the query strings from the requestor to the backend on the first request and caches the asset. All ensuing requests for the asset that are served from the Front Door environment ignore the query strings until the cached asset expires.
+::: zone-end
 
-- **Cache every unique URL**: In this mode, each request with a unique URL, including the query string, is treated as a unique asset with its own cache. For example, the response from the backend for a request for `www.example.ashx?q=test1` is cached at the Front Door environment and returned for ensuing caches with the same query string. A request for `www.example.ashx?q=test2` is cached as a separate asset with its own time-to-live setting.
+## Query string behavior
+
+With Front Door, you can control how files are cached for a web request that contains a query string. In a web request with a query string, the query string is that portion of the request that occurs after a question mark (?). A query string can contain one or more key-value pairs, in which the field name and its value are separated by an equals sign (=). Each key-value pair is separated by an ampersand (&). For example, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. If there's more than one key-value pair in a query string of a request then their order doesn't matter.
+
+* **Ignore query strings**: In this mode, Front Door passes the query strings from the requestor to the backend on the first request and caches the asset. All ensuing requests for the asset that are served from the Front Door environment ignore the query strings until the cached asset expires.
+
+* **Cache every unique URL**: In this mode, each request with a unique URL, including the query string, is treated as a unique asset with its own cache. For example, the response from the backend for a request for `www.example.ashx?q=test1` is cached at the Front Door environment and returned for ensuing caches with the same query string. A request for `www.example.ashx?q=test2` is cached as a separate asset with its own time-to-live setting.
+
+::: zone pivot="front-door-standard-premium"
+
+* You can also use Rule Set to specify **cache key query string** behavior, to include, or exclude specified parameters when cache key gets generated. For example, the default cache key is: /foo/image/asset.html, and the sample request is `https://contoso.com//foo/image/asset.html?language=EN&userid=100&sessionid=200`. There's a rule set rule to exclude query string 'userid'. Then the query string cache-key would be `/foo/image/asset.html?language=EN&sessionid=200`.
+
+::: zone-end
 
 ## Cache purge
+
+::: zone pivot="front-door-standard-premium"
+
+See [Cache purging in Azure Front Door Standard/Premium (Preview)](standard-premium/how-to-cache-purge.md) to learn how to configure cache purge.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
 
 Front Door caches assets until the asset's time-to-live (TTL) expires. Whenever a client requests an asset with expired TTL, the Front Door environment retrieves a new updated copy of the asset to serve the request and then stores the refreshed cache.
 
@@ -106,7 +148,10 @@ These formats are supported in the lists of paths to purge:
 
 Cache purges on the Front Door are case-insensitive. Additionally, they're query string agnostic, meaning purging a URL will purge all query-string variations of it. 
 
+::: zone-end
+
 ## Cache expiration
+
 The following order of headers is used to determine how long an item will be stored in our cache:</br>
 1. Cache-Control: s-maxage=\<seconds>
 2. Cache-Control: max-age=\<seconds>
@@ -141,5 +186,16 @@ Cache behavior and duration can be configured in both the Front Door designer ro
 
 ## Next steps
 
+::: zone pivot="front-door-classic"
+
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
 - Learn [how Front Door works](front-door-routing-architecture.md).
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
+* Learn more about [Rule Set Match Conditions](standard-premium/concept-rule-set-match-conditions.md)
+* Learn more about [Rule Set Actions](front-door-rules-engine-actions.md)
+
+::: zone-end
