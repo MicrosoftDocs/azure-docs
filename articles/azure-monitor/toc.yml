@@ -977,6 +977,8 @@ items:
         href: app/standard-metrics.md
     - name: Transaction search
       href: app/diagnostic-search.md
+    - name: Portal connectivity
+      href: app/troubleshoot-portal.md
     - name: Profiler
       items:
       - name: Overview
