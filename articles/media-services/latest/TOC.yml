@@ -504,13 +504,13 @@
     - name: Create a transform
       href: transform-create-transform-how-to.md
       displayName: Transform, encoding, encode, encoder, thumbnail, H264, HEVC, MP4, TS, MOV, MXF, Content aware encoding, ABR, adaptive bitrate, custom encoding, custom job, job, preset
-    - name: Create a basic audio transform with REST
+    - name: Create a basic audio transform
       href: transform-create-basic-audio-how-to.md
       displayName: Transform, speech to text, audio, transcription, captions, subtitles, translation, language, accessibility
     - name: Create thumbnail sprites
       href: transform-create-thumbnail-sprites-how-to.md
       displayName: thumbnail, thumbnails, encoder, encode, sprite, webVTT sprite, webVTT, web VTT, sprites, poster, VTT
-    - name: Stitch two or more video files with .NET
+    - name: Stitch two or more video files
       href: transform-stitch-how-to.md
       displayName: stitch, edit, edit decision list, edl, stitching, combine, merge, clips, highlight
     - name: Subclip a video .NET
