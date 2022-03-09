@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) sweep job YAML schema.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: core
 ms.topic: reference
 
 author: mx-iao
 ms.author: minxia
-ms.date: 10/21/2021
+ms.date: 03/14/2021
 ms.reviewer: laobri
 ---
 
@@ -34,7 +34,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
 | `description` | string | Description of the job. | | |
 | `tags` | object | Dictionary of tags for the job. | | |
-| `sampling_algorithm` | string | **Required.** The hyperparameter sampling algorithm to use over the `search_space`. | `random`, `grid`, `bayesian` | |
+| `sampling_algorithm` | object | **Required.** The hyperparameter sampling algorithm to use over the `search_space`. One of [RandomSamplingAlgorithm](#randomsamplingalgorithm), [GridSamplingAlgorithm](#gridsamplingalgorithm),or [BayesianSamplingAlgorithm](#bayesiansamplingalgorithm). | | |
 | `search_space` | object | **Required.** Dictionary of the hyperparameter search space. The key is the name of the hyperparameter and the value is the parameter expression. <br><br> Hyperparameters can be referenced in the `trial.command` using the `${{ search_space.<hyperparameter> }}` expression. | | |
 | `search_space.<hyperparameter>` | object | See [Parameter expressions](#parameter-expressions) for the set of possible expressions to use. | | |
 | `objective.primary_metric` | string | **Required.** The name of the primary metric reported by each trial job. The metric must be logged in the user's training script using `mlflow.log_metric()` with the same corresponding metric name. | | |
@@ -48,6 +48,28 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Outputs can be referenced in the `trial.command` using the `${{ outputs.<output_name> }}` expression. | |
 | `outputs.<output_name>` | object | You can either specify an optional `mode` or leave the object empty. For each named output specified in the `outputs` dictionary, Azure ML will autogenerate an output location based. | |
 | `outputs.<output_name>.mode` | string | Mode of how output file(s) will get delivered to the destination storage. For read-write mount mode the output directory will be a mounted directory. For upload mode the files written to the output directory will get uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
+
+### Sampling algorithms
+
+#### RandomSamplingAlgorithm
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `type` | const | **Required.** The type of sampling algorithm. | `random` | |
+| `seed` | integer | A random seed to use for initializing the random number generation. | | |
+| `rule` | string | The type of random sampling to use. The default, `random`, will use simple uniform random sampling, while `sobol` will use the Sobol quasirandom sequence. | `random`, `sobol` | `random` |
+
+#### GridSamplingAlgorithm
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+| `type` | const | **Required.** The type of sampling algorithm. | `grid` |
+
+#### BayesianSamplingAlgorithm
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+| `type` | const | **Required.** The type of sampling algorithm. | `bayesian` |
 
 ### Early termination policies
 
