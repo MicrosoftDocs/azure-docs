@@ -8,6 +8,6 @@ ms.author: inhenkel
 
 <!--List the assets of a Media Services account-->
 
-# List assets with REST
+## List assets with REST
 
-:::code language="rest-api" source="reference-rest.md" id="AmsAssetList":::
+See the Media Services [REST API](/rest/api/media/assets/list)

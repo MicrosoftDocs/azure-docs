@@ -20,10 +20,10 @@ This article shows you how to list the assets in a Media Services account.
 
 You can use the following methods to list the assets in a Media Services account.
 
-## CLI
+## [CLI](#tab/cli/)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-list-assets-cli.md)]
 
-## REST
+## [REST](#tab/rest/)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-list-assets-rest.md)]
