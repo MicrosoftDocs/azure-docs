@@ -321,6 +321,11 @@ Since Speech-to-text v2.5.0, images are supported in the *US Government Virginia
 
 # [Latest version](#tab/current)
 
+Release note for `3.0.1-amd64-<locale>`:
+
+**Features**
+* Support new locale `uk-UA`.
+
 Release note for `3.0.0-amd64-<locale>`:
 
 **Features**
@@ -331,9 +336,13 @@ Note that due to the phrase lists feature, the size of this container image has 
 | Image Tags                    | Notes                                                                                                |
 |-------------------------------|:-----------------------------------------------------------------------------------------------------|
 | `latest`                      | Container image with the `en-US` locale.                                                             |
-| `3.0.0-amd64-<locale>`       | Replace `<locale>` with one of the available locales, listed below. For example `3.0.0-amd64-en-us`.|
+| `3.0.0-amd64-<locale>`        | Replace `<locale>` with one of the available locales, listed below. For example `3.0.0-amd64-en-us`. |
 
 This container has the following locales available.
+
+| Locale for v3.0.1           | Notes                                    | Digest                                                                    |
+|-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
+| `uk-ua`                     | Container image with the `uk-UA` locale. | `sha256:af8c370a7ed3e231a611ea37053e809fa7e52ea514c70f4c85f133c7b28a4fba` |
 
 | Locale for v3.0.0           | Notes                                    | Digest                                                                    |
 |-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
