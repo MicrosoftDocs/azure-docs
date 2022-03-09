@@ -21,7 +21,7 @@ The following resources are free during each calendar month, per subscription:
 
 - The first 180,000 vCPU-seconds
 - The first 360,000 GiB-seconds
-- 2 million HTTP requests
+- The first 2 million HTTP requests
 
 This article describes how to calculate the cost of running your container app. For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
