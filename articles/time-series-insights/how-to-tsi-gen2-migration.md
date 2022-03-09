@@ -62,10 +62,16 @@ See [Select the correct compute SKU for your Azure Data Explorer cluster](../dat
 
 1.	Configure Diagnostic Settings: to best monitor your cluster and the data ingestion you should enable Diagnostic Settings and send the data to a Log Analytics Workspace.
     1.	In the Azure Data Explorer blade go to “Monitoring | Diagnostic settings” and clickon “Add diagnostic setting”
+
+:::image type="content" source="media/gen2-migration/adx-diagnostic.png" alt-text="Screenshot of the Azure Data Explorer blade Monitoring | Diagnostic settings" lightbox="media/gen2-migration/adx-diagnostic.png":::
+
     1.	Fill in the following
         1.	Diagnostic setting name: Display Name for this configuration
         1.	Logs: At minimum select SucceededIngestion, FailedIngestion, IngestionBatching
         1.	Select the Log Analytics Workspace to send the data to (if you don’t have one you’ll need to provision one before this step)
+
+:::image type="content" source="media/gen2-migration/adx-log-analytics.png" alt-text="Screenshot of the Azure Data Explorer Log Analytics Workspace" lightbox="media/gen2-migration/adx-log-analytics.png":::
+
 1.	Data partitioning.
     1.	For small size data, the default ADX partitioning is enough. For more complex scenario, with large datasets and right push rate custom ADX data partitioning is more appropriate. Data partitioning is beneficial for scenarios, as follows:
         1.	Improving query latency in big data sets.
@@ -109,43 +115,85 @@ For more references check [ADX Data Partitioning Policy](../data-explorer/kusto/
 #### Prepare for Data Ingestion
 
 1.	Go to [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
+
+:::image type="content" source="media/gen2-migration/adx-landing-page.png" alt-text="Screenshot of the Azure Data Explorer landing page" lightbox="media/gen2-migration/adx-landing-page.png":::
+
 1.	Go to Data tab and select ‘Ingest from blob container’
+
+:::image type="content" source="media/gen2-migration/adx-ingest-blob.png" alt-text="Screenshot of the Azure Data Explorer ingestion from blob container" lightbox="media/gen2-migration/adx-ingest-blob.png":::
+
 1.	Select Cluster, Database, and create a new Table with the name you choose for the TSI data
+
+:::image type="content" source="media/gen2-migration/adx-ingest-table.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of cluster, database, and table" lightbox="media/gen2-migration/adx-ingest-table.png":::
+
 1.	Click Next: Source
 1.	In the Source tab select the following:
     1.	Historical data
     1.	“Select Container”
     1.	Choose the Subscription and Storage account for your TSI data
     1.	Choose the container that correlates to your TSI Environment
+
+:::image type="content" source="media/gen2-migration/adx-ingest-container.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of container" lightbox="media/gen2-migration/adx-ingest-container.png":::
+
 1.	Click on Advanced settings
     1.	Creation time pattern: '/'yyyyMMddHHmmssfff'_'
     1.	Blob name pattern: *.parquet
     1.	Click on “Don’t wait for ingestion to complete” 
+
+:::image type="content" source="media/gen2-migration/adx-ingest-advanced.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of advanced settings" lightbox="media/gen2-migration/adx-ingest-advanced.png":::
+
 1.	Under File Filters add the Folder path `V=1/PT=Time`
+
+:::image type="content" source="media/gen2-migration/adx-ingest-folder-path.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of folder path" lightbox="media/gen2-migration/adx-ingest-folder-path.png":::
+
 1.	Click Next: Schema
 > [!NOTE]
 > TSI applies some flattening and escaping when persisting columns in Parquet files. See these links for more details: https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-json-flattening-escaping-rules, https://docs.microsoft.com/en-us/azure/time-series-insights/ingestion-rules-update.
 1.	If schema is unknown or varying.
     1. Remove all columns that are infrequently queried, leaving at least timestamp and TSID column(s).
+
+:::image type="content" source="media/gen2-migration/adx-ingest-schema.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of schema" lightbox="media/gen2-migration/adx-ingest-schema.png":::
+
     1.	Add new column of dynamic type and map it to the whole record using $ path.
+
+:::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type" lightbox="media/gen2-migration/adx-ingest-dynamic-type.png":::
+
+Example:
+
+:::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type-example.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type" lightbox="media/gen2-migration/adx-ingest-dynamic-type-example.png":::
+
 1. If schema is known or fixed
     1.	Confirm that the data looks correct. Correct any types if needed.
     1.	Click Next: Summary
 Copy the LightIngest command and store it somewhere so you can use it in the next step.
 
-#### Data Ingestion
+:::image type="content" source="media/gen2-migration/adx-ingest-lightingest-command.png" alt-text="Screenshot of the Azure Data Explorer ingestion for Lightingest command" lightbox="media/gen2-migration/adx-ingest-lightingest-command.png":::
+
+## Data Ingestion
 
 Before ingesting data you need to install the [LightIngest tool](../data-explorer/lightingest.md#prerequisites).
 The command generated from One-Click tool includes a SAS token but it’s best to generate a new one so that you have control over the expiration time. In the portal navigate to the Blob Container for the TSI Environment and click on ‘Shared access token’
+
+:::image type="content" source="media/gen2-migration/adx-ingest-sas-token.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS token" lightbox="media/gen2-migration/adx-ingest-sas-token.png":::
+
 *> [!NOTE]
 > It’s also recommended to scale up your cluster before kicking off a large ingestion. For instance, D14 or D32 with 8+ instances.
 1. Set the following
     1. Permissions: Read and List
     1. Expiry: Set to a period you’re comfortable that the migration of data will be complete
+
+:::image type="content" source="media/gen2-migration/adx-ingest-sas-expiry.png" alt-text="Screenshot of the Azure Data Explorer ingestion for permission expiry" lightbox="media/gen2-migration/adx-ingest-sas-expiry.png":::
+
 1. Click on ‘Generate SAS token and URL’ and copy the ‘SAS Blob URL’
+
+:::image type="content" source="media/gen2-migration/adx-ingest-sas-blob.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS Blob URL" lightbox="media/gen2-migration/adx-ingest-sas-blob.png":::
+
 1. Go to the LightIngest command that you copied previously. Replace the -source parameter in the command with this ‘SAS Blob URL’
 1. `Option 1: Ingest All Data`. For smaller environments you can ingest all of the data with a single command.
     1. Open a command prompt and change to the directory where the LightIngest tool was extracted to. Once there simply paste the LightIngest command and execute it.
+
+:::image type="content" source="media/gen2-migration/adx-ingest-lightingest-prompt.png" alt-text="Screenshot of the Azure Data Explorer ingestion for command prompt" lightbox="media/gen2-migration/adx-ingest-lightingest-prompt.png":::
+
 1. `Option 2: Ingest Data by Year or Month`. For larger environments or to test on a smaller data set you can filter the Lightingest command further.
     1. By Year
     Change your -prefix parameter
@@ -159,42 +207,331 @@ The command generated from One-Click tool includes a SAS token but it’s best t
 	    Example: -prefix:"V=1/PT=Time/Y=2021/M=03"
 Once you’ve modified the command execute it like above. One the ingestion is complete (using monitoring option below) modify the command for the next year and month you want to ingest.
 
-#### Monitoring Ingestion
+## Monitoring Ingestion
 
 The LightIngest command included the -dontWait flag so the command itself won’t wait for ingestion to complete. The best way to monitor the progress while it’s happening is to utilize the “Insights” tab withing the portal.
 Open the Azure Data Explorer cluster’s blade within the portal and go to ‘Monitoring | Insights’
+
+:::image type="content" source="media/gen2-migration/adx-ingest-monitoring-insights.png" alt-text="Screenshot of the Azure Data Explorer ingestion for Monitoring Insights" lightbox="media/gen2-migration/adx-ingest-monitoring-insights.png":::
+
 You can use the ‘Ingestion (preview)’ section with the below settings to monitor the ingestion as it’s happening
 -	Time range:Last 30 minutes
 -	Look at Successful and by Table
 -	If you have any failures look at Failed and by Table
+
+:::image type="content" source="media/gen2-migration/adx-ingest-monitoring-results.png" alt-text="Screenshot of the Azure Data Explorer ingestion for Monitoring results" lightbox="media/gen2-migration/adx-ingest-lightingest-command.png":::
+
 You’ll know that the ingestion is complete once you see the metrics go to 0 for your table. If you want to see more details you can utilize Log Analytics. On the Azure Data Explorer cluster blade click on the ‘Log’ tab:
+
+:::image type="content" source="media/gen2-migration/adx-ingest-monitoring-logs.png" alt-text="Screenshot of the Azure Data Explorer ingestion for Monitoring logs" lightbox="media/gen2-migration/adx-ingest-monitoring-logs.png":::
 
 #### Useful Queries
 
 Understand Schema if Dynamic Schema is Used
-| project p=treepath(fullrecord)
+```| project p=treepath(fullrecord)
 | mv-expand p 
 | summarize by tostring(p)
+```
 
 Accessing values in array
-TBD: Better table and column names, explain what “fullrecord” mean.
-dmdenarray4
-| where id_string == "a"
+```| where id_string == "a"
 | summarize avg(todouble(fullrecord.['nestedArray_v_double'])) by bin(timestamp, 1s)  
 | render timechart 
+```
 
-### Migrating Time Series Model (TSM)
+## Migrating Time Series Model (TSM) to Azure Data Explorer
 
 The model can be download in JSON format from TSI Environment using TSI Explorer UX or TSM Batch API.
 Then the model can be imported to another system like Azure Data Explorer.
 
-#### Migrate TSM to Azure Data Explorer
-
 1.	Download TSM from TSI UX.
 1.	Delete first 3 lines using VSCode or another editor.
+
+:::image type="content" source="media/gen2-migration/adx-tsm-1.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-1.png":::
+
 1.	Using VSCode or another editor, search and replace as regex `\},\n    \{` with `}{`
+
+:::image type="content" source="media/gen2-migration/adx-tsm-2.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-2.png":::
+
 1.	Ingest as JSON into ADX as a separate table using Upload from file functionality. 
 
-### Translate Time Series Queries (TSQ) to KQL
+:::image type="content" source="media/gen2-migration/adx-tsm-3.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer" lightbox="media/gen2-migration/adx-ingest-tsm-3.png":::
 
-### Migration from TSI PowerBI Connector to ADX PowerBI Connector
+## Translate Time Series Queries (TSQ) to KQL
+
+#### GetEvents
+
+| TSQ | KQL |
+| ---| ---|
+| ```{
+  "getEvents": {
+    "timeSeriesId": [
+      "assest1",
+      "siteId1",
+      "dataId1"
+    ],
+    "searchSpan": {
+      "from": "2021-11-01T00:00:0.0000000Z",
+      "to": "2021-11-05T00:00:00.000000Z"
+    },
+    "inlineVariables": {},
+  }
+}
+``` 
+|	
+```events
+| where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
+| where assetId_string == "assest1" and siteId_string == "siteId1" and dataid_string == "dataId1"
+| take 10000
+```
+|
+
+#### GetEvents with filter
+| TSQ | KQL |
+| ---| ---|
+| ```{
+  "getEvents": {
+    "timeSeriesId": [
+      "deviceId1",
+      "siteId1",
+      "dataId1"
+    ],
+    "searchSpan": {
+      "from": "2021-11-01T00:00:0.0000000Z",
+      "to": "2021-11-05T00:00:00.000000Z"
+    },
+    "filter": {
+      "tsx": "$event.sensors.sensor.String = 'status' AND $event.sensors.unit.String = 'ONLINE"
+    }
+  }
+} 
+```
+|	```events
+| where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
+| where deviceId_string== "deviceId1" and siteId_string == "siteId1" and dataId_string == "dataId1"
+| where ['sensors.sensor_string'] == "status" and ['sensors.unit_string'] == "ONLINE"
+| take 10000
+```
+|
+
+#### GetEvents with projected variable
+| TSQ | KQL |
+| ---| ---|
+|```{
+  "getEvents": {
+    "timeSeriesId": [
+      "deviceId1",
+      "siteId1",
+      "dataId1"
+    ],
+    "searchSpan": {
+      "from": "2021-11-01T00:00:0.0000000Z",
+      "to": "2021-11-05T00:00:00.000000Z"
+    },
+    "inlineVariables": {},
+    "projectedVariables": [],
+    "projectedProperties": [
+      {
+        "name": "sensors.value",
+        "type": "String"
+      },
+      {
+        "name": "sensors.value",
+        "type": "bool"
+      },
+      {
+        "name": "sensors.value",
+        "type": "Double"
+      }
+    ]
+  }
+}	 
+```
+|	```events
+| where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
+| where deviceId_string== "deviceId1" and siteId_string == "siteId1" and dataId_string == "dataId1"
+| take 10000
+| project timestamp, sensorStringValue= ['sensors.value_string'], sensorBoolValue= ['sensors.value_bool'], sensorDoublelValue= ['sensors.value_double']
+```
+|
+
+####	AggregateSeries  
+| TSQ | KQL |
+| ---| ---|
+|```{
+  "aggregateSeries": {
+    "timeSeriesId": [
+      "deviceId1"
+    ],
+    "searchSpan": {
+      "from": "2021-11-01T00:00:00.0000000Z",
+      "to": "2021-11-05T00:00:00.0000000Z"
+    },
+    "interval": "PT1M",
+    "inlineVariables": {
+      "sensor": {
+        "kind": "numeric",
+        "value": {
+          "tsx": "coalesce($event.sensors.value.Double, todouble($event.sensors.value.Long))"
+        },
+        "aggregation": {
+          "tsx": "avg($value)"
+        }
+      }
+    },
+    "projectedVariables": [
+      "sensor"
+    ]
+  }	
+```
+|	```events
+| where timestamp >= datetime(2021-11-01T00:00:00.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.0000000Z)
+| where  deviceId_string == "deviceId1"
+| summarize avgSensorValue= avg(coalesce(['sensors.value_double'], todouble(['sensors.value_long']))) by bin(IntervalTs = timestamp, 1m)
+| project IntervalTs, avgSensorValue
+```
+|
+
+####	AggregateSeries with filter
+| TSQ | KQL |
+| ---| ---|
+|```{
+  "aggregateSeries": {
+    "timeSeriesId": [
+      "deviceId1"
+    ],
+    "searchSpan": {
+      "from": "2021-11-01T00:00:00.0000000Z",
+      "to": "2021-11-05T00:00:00.0000000Z"
+    },
+    "filter": {
+      "tsx": "$event.sensors.sensor.String = 'heater' AND $event.sensors.location.String = 'floor1room12'"
+    },
+    "interval": "PT1M",
+    "inlineVariables": {
+      "sensor": {
+        "kind": "numeric",
+        "value": {
+          "tsx": "coalesce($event.sensors.value.Double, todouble($event.sensors.value.Long))"
+        },
+        "aggregation": {
+          "tsx": "avg($value)"
+        }
+      }
+    },
+    "projectedVariables": [
+      "sensor"
+    ]
+  }
+}	
+```
+|	```events
+| where timestamp >= datetime(2021-11-01T00:00:00.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.0000000Z)
+| where  deviceId_string == "deviceId1"
+| where ['sensors.sensor_string'] == "heater" and ['sensors.location_string'] == "floor1room12"
+| summarize avgSensorValue= avg(coalesce(['sensors.value_double'], todouble(['sensors.value_long']))) by bin(IntervalTs = timestamp, 1m)
+| project IntervalTs, avgSensorValue
+```
+|
+
+## Migration from TSI PowerBI Connector to ADX PowerBI Connector
+
+The manual steps involved in this migration are
+1.	Convert PowerBI query to TSQ
+1.	Convert TSQ to KQL
+PowerBI query to TSQ:
+The PowerBI query copied from TSI UX Explorer looks like as shown below
+####	For Raw Data(GetEvents API)
+```{"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"getEvents":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"take":250000}}]}
+```
+- To convert this to TSQ, build a JSON from the above payload. The GetEvents API documentation also has examples to understand it better. Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs
+- The converted TSQ looks like as shown below. It is the JSON payload inside “queries” 
+```{
+  "getEvents": {
+    "timeSeriesId": [
+      "Arctic Ocean",
+      "null"
+    ],
+    "searchSpan": {
+      "from": "2019-10-31T23:59:39.590Z",
+      "to": "2019-11-01T05:22:18.926Z"
+    },
+    "take": 250000
+  }
+}
+```
+
+#### For Aggradate Data(Aggregate Series API)
+
+- For single inline variable, PowerBI query from TSI UX Explorer looks like as shown bellow:
+```{"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", 		"inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}]}
+```
+- To convert this to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](../rest/api/time-series-insights/dataaccessgen2/query/execute.md#queryaggregateseriespage1)
+-	The converted TSQ looks like as shown below. It is the JSON payload inside “queries”
+```{
+  "aggregateSeries": {
+    "timeSeriesId": [
+      "Arctic Ocean",
+      "null"
+    ],
+    "searchSpan": {
+      "from": "2019-10-31T23:59:39.590Z",
+      "to": "2019-11-01T05:22:18.926Z"
+    },
+    "interval": "PT1M",
+    "inlineVariables": {
+      "EventCount": {
+        "kind": "aggregate",
+        "aggregation": {
+          "tsx": "count()"
+        }
+      }
+    },
+    "projectedVariables": [
+      "EventCount",
+    ]
+  }
+}
+```
+-	For more than one inline variable, append the json into “inlineVariables” as shown in the example below. The PowerBI query for more than one inline variable looks like:
+```{"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com","queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", "inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}, {"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", "inlineVariables":{"Magnitude":{"kind":"numeric","value":{"tsx":"$event['mag'].Double"},"aggregation":{"tsx":"max($value)"}}},"projectedVariables":["Magnitude"]}}]}
+
+{
+  "aggregateSeries": {
+    "timeSeriesId": [
+      "Arctic Ocean",
+      "null"
+    ],
+    "searchSpan": {
+      "from": "2019-10-31T23:59:39.590Z",
+      "to": "2019-11-01T05:22:18.926Z"
+    },
+    "interval": "PT1M",
+    "inlineVariables": {
+      "EventCount": {
+        "kind": "aggregate",
+        "aggregation": {
+          "tsx": "count()"
+        }
+      },
+      "Magnitude": {
+        "kind": "numeric",
+        "value": {
+          "tsx": "$event['mag'].Double"
+        },
+        "aggregation": {
+          "tsx": "max($value)"
+        }
+      }
+    },
+    "projectedVariables": [
+      "EventCount",
+      "Magnitude",
+    ]
+  }
+}
+```
+-	If you want to query the latest data("isSearchSpanRelative":true), manually calculate the searchSpan as mentioned below
+    - Find the difference between “from” and “to” from the PowerBI payload. Let’s call that difference as “D” where “D” = “from” - “to”
+    - Take the current timestamp(“T”) and subtract the difference obtained in first step. This will be new “from”(F) of searchSpan where “F” = “T” - “D”
+    - Now, the new “from” is “F” obtained in step 2 and new “to” is “T”(current timestamp)
