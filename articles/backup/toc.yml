@@ -548,7 +548,7 @@
       href: query-backups-using-azure-resource-graph.md
     - name: Resource Manager templates
       href: backup-rm-template-samples.md
-  - name: Security
+  - name: Security and Ransomware protection
     items:
     - name: Overview
       href: security-overview.md

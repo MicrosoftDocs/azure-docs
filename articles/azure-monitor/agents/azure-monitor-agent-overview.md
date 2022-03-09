@@ -28,12 +28,12 @@ In addition to consolidating this functionality into a single agent, the Azure M
 ### Current limitations
 When compared with the existing agents, this new agent doesn't yet have full parity.
 - **Comparison with Log Analytics agents (MMA/OMS):**
-	- Not all Log Analytics solutions are supported today. [View supported features and services](#supported-services-and-features).
-	- No support for collecting file based logs or IIS logs.
+	- Not all Log Analytics solutions are supported yet. [View supported features and services](#supported-services-and-features).
+	- The support for collecting file based logs or IIS logs is in [private preview](https://aka.ms/amadcr-privatepreviews).
 
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
-  - No support for Event Hubs and Storage accounts as destinations.
-  - No support for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
+  - No support yet for Event Hubs and Storage accounts as destinations.
+  - No support yet for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor agent.
@@ -82,7 +82,7 @@ The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log A
 <sup>2</sup> Azure Monitor Linux Agent v1.15.2 or higher supports syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee and CEF (Common Event Format).
 
 ## Supported services and features
-The following table shows the current support for the Azure Monitor agent with other Azure services.
+The following table shows the current support for the Azure Monitor agent with other Azure services. 
 
 | Azure service | Current support | More information |
 |:---|:---|:---|
@@ -93,10 +93,9 @@ The following table shows the current support for the Azure Monitor agent with A
 
 | Azure Monitor feature | Current support | More information |
 |:---|:---|:---|
+| File based logs and Windows IIS logs | Private preview | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
 | [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
 | [Connect using private links](azure-monitor-agent-data-collection-endpoint.md) | Public preview | No sign-up needed |
-| [VM insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
-| [SQL insights](../insights/sql-insights-overview.md) | Public preview | Available only on the new agent |
 
 The following table shows the current support for the Azure Monitor agent with Azure solutions.
 
