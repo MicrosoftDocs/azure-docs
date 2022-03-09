@@ -225,7 +225,7 @@ To learn more about metric dimensions, see [Multi-dimensional metrics](../azure-
 
 ## Resource logs
 
-This section lists all the resource log category types and schemas collected for Azure IoT Hub. The resource provider and type for all IoT Hub logs is [Microsoft.Devices/IotHubs](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesiothubs).
+This section lists all the resource log category types and schemas collected for Azure IoT Hub. The resource provider and type for all IoT Hub logs is [Microsoft.Devices/IotHubs](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesiothubs). Be aware that for some categories, events are only emitted on errors.
 
 **Topics in this section**
 
