@@ -21,19 +21,19 @@ This article gives you a tour of the Azure Blob Storage client library v12 for .
 
 ## Shape of the library
 
-The Azure Blob Storage client library v12 for .NET is organized into the following three namespaces:
+The Azure Blob Storage client library v12 for .NET is organized into the three namespaces:
 
 - [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs): Contains the primary classes that you can use to operate on the service, containers, and blobs.
 - [Azure.Storage.Blobs.Specialized](/dotnet/api/azure.storage.blobs.specialized): Contains classes that you can use to perform operations specific to a blob type (For example: append blobs).
-- [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models): All other utility classes, structures, and enumeration types used in method parameters or as objects returned by methods in the [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs) and [Azure.Storage.Blobs.Specialized](/dotnet/api/azure.storage.blobs.specialized) namespaces.
+- [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models): All other utility classes, structures, and enumeration types.
 
-The following image shows each namespace and some of the classes available in each namespace.
+The following image shows each namespace and some of the classes available in them.
 
 > [!div class="mx-imgBorder"]
 > ![.NET object namespaces](./media/storage-blob-dotnet-object-model/dotnet-object-namespaces.png)
 
 
-## Service, container, and client classes
+## Service, container, and blob clients
 
 Blob storage offers three types of resources:
 
@@ -51,18 +51,18 @@ Each resource has .NET class. These are the primary classes:
 - [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
 - [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
 
-To interact with a resource, create an instance of the appropriate class. There also some more specialized classes that are described later in this article. 
+There also some more specialized classes that are described later in this article. 
 
 ## Service client
 
-To interact with resources in the service instance, create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient). You can create one by using a constructor. You'll have to authorize access to the Blob Storage service. You can use any of the following credentials to do that:
+To interact with resources in the service instance, create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient). You can create one by using a constructor. You'll have to pass the constructor an authorization credential. You can use any of the following types of credentials.
 
 - Azure Active Directory (Azure AD) token credential
 - SAS token 
 - Account key credential
 - Connection string
 
-The following example creates a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using a constructor. This code authorizes access by using a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. For more examples of how to create a service object instance, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
+The following example authorizes access by using a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. For more examples of how to create a service object instance, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
 
 
 ```csharp
@@ -80,16 +80,18 @@ public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient,
 
 ## Container client
 
-To interact with a container, create a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient). To operate on an existing container, call the [GetBlobContainerClient](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainerclient) method of a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) instance. To create a container, call the [CreateBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainer) or [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) method of a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) instance.
+To interact with a container, create a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient). 
 
-You can also create a container by using the one of the constructors of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class. If you use a constructor, you'll have to authorize access to the Blob Storage service. You can use any of the following credentials to do that:
+To work with an existing container, call the [GetBlobContainerClient](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainerclient) method of a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) instance. To create a container, call the [CreateBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainer) or [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) method of a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) instance.
+
+You can also create a container by using the one of the constructors of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class. If you use a constructor, you'll have to authorize access to the Blob Storage service. You can use any of the following types of credentials.
 
 - Azure Active Directory (Azure AD) token credential
 - SAS token 
 - Account key credential
 - Connection string
 
-The following examples creates a container by calling the [GetBlobContainerClient](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainerclient) method of a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) instance.
+The following example creates a container by calling the [GetBlobContainerClient](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainerclient) method of a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) instance.
 
 ```csharp
 private static async Task<BlobContainerClient> 
@@ -121,7 +123,7 @@ The following articles provide examples of how to use a [BlobContainerClient](/d
 
 To interact with a blob, create a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient). 
 
-You can create a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method of a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) instance. You can also create one by using a constructor. If you use a constructor, you'll have to authorize access to the Blob Storage service. You can use any of the following credentials to do that:
+You can create a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method of a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) instance. You can also create one by using a constructor. If you use a constructor, you'll have to authorize access to the Blob Storage service. You can use any of the following types of credentials.
 
 - Azure Active Directory (Azure AD) token credential
 - SAS token 
