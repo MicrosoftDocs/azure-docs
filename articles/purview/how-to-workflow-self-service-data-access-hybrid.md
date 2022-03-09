@@ -69,6 +69,9 @@ This guide will take you through the creation and management of Self-Service dat
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-inline.png" alt-text="Workflow canvas with the start and wait for an approval step, and the Create Task and wait for task completion steps highlighted, and the Assigned to textboxes highlighted within those steps." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-expanded.png":::
 
+> [!NOTE]
+Please configure the workflow to create self-service policies ONLY for sources supported by Azure purview's policy feature. See here for what is supported by policy [Data owner policies](tutorial-data-owner-policies-storage.md)
+
 1. You can also modify the template by adding more connectors to suit your organizational needs by adding available connectors. 
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/more-connectors-inline.png" alt-text="Workflow authoring canvas, with a + button highlighted on the arrow between the two top steps, and the Next Step button highlighted at the bottom of the workspace." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/more-connectors-expanded.png":::
