@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: amibp
 ms.author: amipatel
-ms.date: 10/21/2021
+ms.date: 03/14/2022
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
 ---
@@ -83,7 +83,7 @@ YAML job specification values can be overridden using `--set` when creating or u
 
 ## Job names
 
-Most `az ml job` commands other than `create` and `list` require `--name/-n`, which is a job's name or "Run ID" in the studio. You should not directly set a job's `name` property during creation as it must be unique per workspace. Azure Machine Learning generates a random GUID for the job name if it is not set which can be obtained from the output of job creation in the CLI or by copying the "Run ID" property in the studio and MLflow APIs.
+Most `az ml job` commands other than `create` and `list` require `--name/-n`, which is a job's name or "Run ID" in the studio. You typically should not directly set a job's `name` property during creation as it must be unique per workspace. Azure Machine Learning generates a random GUID for the job name if it is not set that can be obtained from the output of job creation in the CLI or by copying the "Run ID" property in the studio and MLflow APIs.
 
 To automate jobs in scripts and CI/CD flows, you can capture a job's name when it is created by querying and stripping the output by adding `--query name -o tsv`. The specifics will vary by shell, but for Bash:
 
@@ -122,12 +122,12 @@ You can run this job:
 
 ## Track models and source code
 
-Production machine learning models need to be auditable (if not reproducible). It is crucial to keep track of the source code for a given model. Azure Machine Learning takes a snapshot of your source code and keeps it with the job. Additionally, the source repository and commit are kept if you are running jobs from a Git repository.
+Production machine learning models need to be auditable (if not reproducible). It is crucial to keep track of the source code for a given model. Azure Machine Learning takes a snapshot of your source code and keeps it with the job. Additionally, the source repository and commit are tracked if you are running jobs from a Git repository.
 
 > [!TIP]
 > If you're following along and running from the examples repository, you can see the source repository and commit in the studio on any of the jobs run so far.
 
-You can specify the `code` key in a job with the value as the path to a source code directory. A snapshot of the directory is taken and uploaded with the job. The contents of the directory are directly available from the working directory of the job.
+You can specify the `code` field in a job with the value as the path to a source code directory. A snapshot of the directory is taken and uploaded with the job. The contents of the directory are directly available from the working directory of the job.
 
 > [!WARNING]
 > The source code should not include large data inputs for model training. Instead, [use data inputs](#data-inputs). You can use a `.gitignore` file in the source code directory to exclude files from the snapshot. The limits for snapshot size are 300 MB or 2000 files.
@@ -193,9 +193,6 @@ Literal inputs to jobs can be [converted to search space inputs](#search-space-i
 
 For a sweep job, you can specify a search space for literal inputs to be chosen from. For the full range of options for search space inputs, see the [sweep job YAML syntax reference](reference-yaml-job-sweep.md).
 
-> [!WARNING]
-> Sweep jobs are not currently supported in pipeline jobs.
-
 Let's demonstrate the concept with a simple Python script that takes in arguments and logs a random metric:
 
 :::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-sweep.py":::
@@ -232,6 +229,8 @@ And run:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="iris_folder":::
 
+Make sure you accurately specify the input `type` field to either `type: uri_file` or `type: uri_folder` corresponding to whether the data points to a single file or a folder. The default if the `type` field is omitted is `uri_folder`.
+
 #### Private data
 
 For private data in Azure Blob Storage or Azure Data Lake Storage connected to Azure Machine Learning through a datastore, you can use Azure Machine Learning URIs of the format `azureml://datastores/<DATASTORE_NAME>/paths/<PATH_TO_DATA>` for input data. For instance, if you upload the Iris CSV to a directory named `/example-data/` in the Blob container corresponding to the datastore named `workspaceblobstore` you can modify a previous job to use the file in the datastore:
@@ -247,7 +246,9 @@ Or the entire directory:
 
 ### Default outputs
 
-The `./outputs` and `./logs` directories receive special treatment by Azure Machine Learning. If you write any files to these directories during your job, these files will get uploaded to the job so that you can still access them once it is complete. The `./outputs` folder is uploaded at the end of the job, while the files written to `./logs` are uploaded in real time. Use the latter if you want to stream logs during the job, such as TensorBoard logs.
+The `./outputs` and `./logs` directories receive special treatment by Azure Machine Learning. If you write any files to these directories during your job, these files will get uploaded to the job so that you can still access them once the job is complete. The `./outputs` folder is uploaded at the end of the job, while the files written to `./logs` are uploaded in real time. Use the latter if you want to stream logs during the job, such as TensorBoard logs.
+
+In addition, any files logged from MLflow via autologging or the artifact logging API (`mlflow.log_artifact()`, `mlflow.log_artifacts()`, `log_model()`) will be automatically persisted as well. Collectively with the aforementioned `./outputs` and `./logs` directories, this set of files and directories will be persisted to a directory that correponds to that job's default artifact location.
 
 You can modify the "hello world" job to output to a file in the default outputs directory instead of printing to `stdout`:
 
@@ -329,6 +330,8 @@ To register a model, you can download the outputs and create a model from the lo
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_download_register_model":::
 
+For the full set of configurable options for running command jobs, see the [command job YAML schema reference](reference-yaml-job-command.md).
+
 ## Sweep hyperparameters
 
 You can modify the previous job to sweep over hyperparameters:
@@ -342,7 +345,7 @@ And run it:
 > [!TIP]
 > Check the "Child runs" tab in the studio to monitor progress and view parameter charts..
 
-For more sweep options, see the [sweep job YAML syntax reference](reference-yaml-job-sweep.md).
+For the full set of configurable options for sweep jobs, see the [sweep job YAML schema reference](reference-yaml-job-sweep.md).
 
 ## Distributed training
 
@@ -354,7 +357,7 @@ The CIFAR-10 dataset in `torchvision` expects as input a directory that contains
 
 :::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="download_untar_cifar":::
 
-Then create an Azure Machine Learning dataset from the local directory, which will be uploaded to the default datastore:
+Then create an Azure Machine Learning data asset from the local directory, which will be uploaded to the default datastore:
 
 :::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="create_cifar":::
 
@@ -362,7 +365,7 @@ Optionally, remove the local file and directory:
 
 :::code language="azurecli" source="~/azureml-examples-march-cli-preview/setup-repo/create-datasets.sh" id="cleanup_cifar":::
 
-Data assets can be referred to in a job using the `uri_folder` key of a data input. The format is `azureml:<DATA_ASSET_NAME>:<DATA_ASSET_VERSION>`, so for the CIFAR-10 dataset just created, it is `azureml:cifar-10-example:1`.
+Registered data assets can be can be used as inputs to job using the `path` field for a job input. The format is `azureml:<data_name>:<data_version>`, so for the CIFAR-10 dataset just created, it is `azureml:cifar-10-example:1`. You can optionally use the `azureml:<data_name>@latest` syntax instead if you want to reference the latest version of the data asset. Azure ML will resolve that reference to the explicit version.
 
 With the data asset in place, you can author a distributed PyTorch job to train our model:
 
