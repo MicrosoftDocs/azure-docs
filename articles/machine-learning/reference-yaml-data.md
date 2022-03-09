@@ -10,7 +10,7 @@ ms.topic: reference
 author: ynpandey
 ms.author: yogipandey
 ms.date: 03/14/2021
-ms.reviewer: laobri
+ms.reviewer: nibaccam
 ---
 
 # CLI (v2) data YAML schema
