@@ -12,7 +12,7 @@ ms.author: banders
 
 # Prepay for Azure virtual machine software reservations
 
-When you prepay for your virtual machine software usage (available in the Azure Marketplace), you can save money over your pay-as-you-go costs. The discount is automatically applied to a deployed plan that matches the reservation, not on the virtual machine usage. You can buy reservations for virtual machines separately for additional savings.
+When you prepay for your virtual machine software usage (available in the Azure Marketplace), you can save money over your pay-as-you-go costs. The discount is automatically applied to a deployed plan that matches the reservation, not on the virtual machine usage. You can buy reservations for virtual machines separately for more savings.
 
 You can buy virtual machine software reservation in the Azure portal. To buy a reservation:
 
@@ -43,7 +43,7 @@ The reservation discount is automatically applied to the software meter that you
 
 ## Discount applies to different VM sizes
 
-Like Reserved VM Instances, Virtual machine software reservation purchases offer instance size flexibility. This means that your discount applies even when you deploy a VM with a different vCPU count. The discount applies to different VM sizes within the Virtual machine software reservation.
+Like Reserved VM Instances, Virtual machine software reservation purchases offer instance size flexibility. So, your discount applies even when you deploy a VM with a different vCPU count. The discount applies to different VM sizes within the Virtual machine software reservation.
 
 ## Self-service cancellation and exchanges
 
