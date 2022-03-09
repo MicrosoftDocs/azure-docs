@@ -10,7 +10,7 @@ ms.date: 03/08/2022
 ms.author: inhenkel
 ---
 
-# Set the Media Services account encryption with system managed keys
+# Set the Media Services storage authentication
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 

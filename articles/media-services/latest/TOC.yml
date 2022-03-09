@@ -554,7 +554,7 @@
     - name: Create a custom transform
       href: transform-create-transform-how-to.md
     - name: List transforms
-      href: transform-list-transforms-how-to.md
+      href: account-list-transforms-how-to.md
     - name: Update a transform
       href: transform-update-transform-how-to.md
     - name: Delete a transform
