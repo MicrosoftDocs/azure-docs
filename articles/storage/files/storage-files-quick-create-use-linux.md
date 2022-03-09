@@ -1,17 +1,16 @@
 ---
-title: Tutorial - Create an Azure NFS file share on a Linux VM
-description: This tutorial covers how to create an Azure file share in the Azure portal using the NFS protocol and connect it to a Linux VM.
+title: Tutorial - Create an Azure NFS file share and mount it on a Linux virtual machine using the Azure portal
+description: This tutorial covers how to create an Azure file share in the Azure portal using the NFS protocol and connect it to a Linux virtual machine.
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/08/2022
+ms.date: 03/09/2022
 ms.author: kendownie
 ms.subservice: files
-ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
 
-# Tutorial: Create an Azure NFS file share with a Linux virtual machine via the Azure portal
+# Tutorial: Create an Azure NFS file share and mount it on a Linux virtual machine using the Azure portal
 
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure Linux virtual machines (VMs). In this tutorial, you'll learn how to create an Azure file share using the NFS protocol and connect it to a Linux VM.
 
@@ -198,7 +197,7 @@ You have now mounted your NFS share, and it's ready to store files.
 
 ## Clean up resources
 
-When you're done, you can delete the resource group. Deleting the resource group deletes the storage account, the Azure file share, and any other resources that you deployed inside the resource group.
+When you're done, delete the resource group. Deleting the resource group deletes the storage account, the Azure file share, and any other resources that you deployed inside the resource group.
 
 1. Select **Home** and then **Resource groups**.
 1. Select the resource group you created for this tutorial.
