@@ -126,9 +126,9 @@ The following device fields are supported for editing in the Device inventory pa
 |**Business Function**     | Enter a meaningful description of the device's business function.        |
 |**Hardware Model**     |   Select the device's hardware model from the dropdown menu.      |
 |**Hardware Vendor**     | Select the device's hardware vendor from the dropdown menu.        |
-|**Firmware**      |   Device the device's firmware name and version. You can either select the delete :::image type="icon"source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: button to delete an existing firmware definition, or select **+ Add** to add a new one.  |
-|**Tags**     | Enter meaningful tags for the device. Select the **delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png"border="false"::: button to delete an existing tag, or select **+ Add** to add a new one.         |
-|     |         |
+|**Firmware**      |   Device the device's firmware name and version. You can either select the **delete** button to delete an existing firmware definition, or select **+ Add** to add a new one.  |
+|**Tags**     | Enter meaningful tags for the device. Select the **delete**  button to delete an existing tag, or select **+ Add** to add a new one.         |
+
 
 **Settings**:
 
@@ -136,7 +136,7 @@ The following device fields are supported for editing in the Device inventory pa
 |---------|---------|
 |**Importance**     | Select **Low**, **Normal**, or **High** to modify the device's importance.        |
 |**Programming device**     | Toggle the **Programming Device** option on or off as needed for your device.        |
-|     |         |
+
 ## Export the device inventory to CSV
 
 You can export your device inventory to a CSV file. Any filters that you apply to the device inventory table will be exported, when you export the table.
