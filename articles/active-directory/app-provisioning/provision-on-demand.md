@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 03/09/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -147,6 +147,7 @@ There are currently a few known limitations to on-demand provisioning. Post your
 * Amazon Web Services (AWS) application does not support on-demand provisioning. 
 * On-demand provisioning of groups and roles isn't supported.
 * On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users won't appear when you search for a user.
+* Provisioning multiple roles on a user. 
 
 ## Next steps
 
