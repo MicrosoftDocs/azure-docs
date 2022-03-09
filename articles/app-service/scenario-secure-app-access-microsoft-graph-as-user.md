@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 03/01/2022
+ms.date: 03/08/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp
@@ -125,11 +125,12 @@ public class Startup
 }
 ```
 
-### Index.cshtml.cs
+### Call Microsoft Graph on behalf of the user
 
 The following example shows how to call Microsoft Graph as the signed-in user and get some user information. The ```GraphServiceClient``` object is injected into the controller, and authentication has been configured for you by the Microsoft.Identity.Web library.
 
 ```csharp
+// Index.cshtml.cs
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Graph;
