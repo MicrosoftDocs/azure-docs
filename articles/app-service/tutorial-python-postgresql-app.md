@@ -373,11 +373,11 @@ Azure App Service captures all messages output to the console to help you diagno
 
 ### [Flask](#tab/flask)
 
-:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="39-43" highlight="3":::
+:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
 
 ### [Django](#tab/django)
 
-:::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="12-16" highlight="2":::
+:::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="39-43" highlight="3":::
 
 ---
 
