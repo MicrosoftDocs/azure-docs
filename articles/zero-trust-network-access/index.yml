@@ -1,0 +1,24 @@
+### YamlMime:Landing
+
+title: Azure Zero Trust Network Access documentation
+summary: Azure Zero Trust Network Access provides secure network access for both public Internet and private clouds.
+
+metadata: 
+   title: Zero Trust Network Access documentation
+   description: Azure Zero Trust Network Access provides secure network access for both public Internet and private clouds.
+   ms.service: zero-trust-network-access
+   ms.subservice: app-proxy
+   ms.workload: identity
+   ms.topic: landing-page
+   ms.date: 03/08/2022
+   author: kenwith
+   ms.author: kenwith
+   manager: 
+
+landingContent:
+  - title: About Zero Trust Network Access
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Zero Trust Network Access?
+            url: ../active-directory/app-proxy/what-is-application-proxy.md
