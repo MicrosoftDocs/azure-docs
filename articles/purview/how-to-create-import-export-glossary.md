@@ -98,51 +98,51 @@ You should be able to export terms from glossary as long as the selected terms b
 
 If workflows are enabled on a term, then any creates, updates, or deletes to the term will go through approval before they are saved in data catalog. 
 
-1. For new terms with create approval workflow enabled on parent, you will see **Submit for approval** instead of **Create** after you have entered all the details. Clicking on submit for approval will trigger the workflow.
-1. For updates to the existing terms with update approval workflow enabled on parent, you will see **Submit for approval** instead of **Save**. Click on submit for approval will trigger the workflow. The changes will not be saved in catalog until all the approvals are met.
-1.  For deletion to the terms with delete approval workflow enabled on parent, you will see **Submit for approval** instead of **Delete**. Click on submit for approval will trigger the workflow. However, the term will not be deleted from catalog until all the approvals are met.
-1.   For importing terms via .CSV with Import approval workflow enabled for Azure Purview's glossary, you will see **Submit for approval** instead of **OK** after the file is uploaded in Import blade. Click on submit for approval will trigger the workflow. However, the terms in the file will not be updated in catalog until all the approvals are met.
+1. For new terms with create approval workflow enabled on parent, you will see **Submit for approval** instead of **Create** after you have entered all the details. Selecting submit for approval will trigger the workflow.
+1. For updates to the existing terms with update approval workflow enabled on parent, you will see **Submit for approval** instead of **Save**. Select submit for approval will trigger the workflow. The changes will not be saved in catalog until all the approvals are met.
+1.  For deletion to the terms with delete approval workflow enabled on parent, you will see **Submit for approval** instead of **Delete**. Select submit for approval will trigger the workflow. However, the term will not be deleted from catalog until all the approvals are met.
+1.   For importing terms via .CSV with Import approval workflow enabled for Azure Purview's glossary, you will see **Submit for approval** instead of **OK** after the file is uploaded in Import blade. Select submit for approval will trigger the workflow. However, the terms in the file will not be updated in catalog until all the approvals are met.
 
 ## Delete terms
 
 1. Select **Data catalog** in the left navigation on the home page, and then select the **Manage glossary** button in the center of the page.
 
-    :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="Screenshot of the data catalog with the glossary highlighted." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="Screenshot of the data catalog with the glossary highlighted." border="true":::
 
 1. Using checkboxes select the terms you want to delete. You can select a single term, or multiple terms for deletion.
 
-    :::image type="content" source="media/how-to-create-import-export-glossary/select-terms.png" alt-text="Screenshot of the glossary, with a few terms selected." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-terms.png" alt-text="Screenshot of the glossary, with a few terms selected." border="true":::
 
 1. Select **Delete** button on the top.
 
-    :::image type="content" source="media/how-to-create-import-export-glossary/select-delete.png" alt-text="Screenshot of the glossary, with the Delete button highlighted in the top menu." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-delete.png" alt-text="Screenshot of the glossary, with the Delete button highlighted in the top menu." border="true":::
 
 
 1. You'll be presented with a window that shows all the terms selected for deletion.
 
-    > [!NOTE]
-    > If a parent is selected for deletion all the children for that parent are automatically selected for deletion.
+   > [!NOTE]
+   > If a parent is selected for deletion all the children for that parent are automatically selected for deletion.
 
-    :::image type="content" source="media/how-to-create-import-export-glossary/delete-window.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted. The Revenue term is a parent to two other terms, and because it was selected to be deleted, its child terms are also in the list to be deleted." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/delete-window.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted. The Revenue term is a parent to two other terms, and because it was selected to be deleted, its child terms are also in the list to be deleted." border="true":::
 
 1. Review the list. You can remove the terms you don't want to delete after review by selecting **Remove**.
 
-    :::image type="content" source="media/how-to-create-import-export-glossary/select-remove.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Remove' column highlighted on the right." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-remove.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Remove' column highlighted on the right." border="true":::
 
 1. You can also understand which deletion terms will go via approval process in the column **Approval Needed**. If Approval needed is **Yes** it implies that the term will go via approval workflow before deletion. If the value is **No** then the term will be deleted without any approvals.
 
-    > [!NOTE]
-    > The parent delete term workflow will be triggered in this case even if the child has a different delete workflow association. The reason for this being the selection is done on the parent and you are acknowledging to delete child terms along with parent.
+   > [!NOTE]
+   > The parent delete term workflow will be triggered in this case even if the child has a different delete workflow association. The reason for this being the selection is done on the parent and you are acknowledging to delete child terms along with parent.
 
-    :::image type="content" source="media/how-to-create-import-export-glossary/approval-needed.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Approval needed' column highlighted." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/approval-needed.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Approval needed' column highlighted." border="true":::
 
 1. If there's a least one term that needs to be approved you'll be presented with **Submit for approval** and **Cancel** buttons. Selecting **Submit for approval** will delete all the terms where approval isn't needed and will trigger approval workflows for terms that are configured to go via approval process before deletion.
 
-    :::image type="content" source="media/how-to-create-import-export-glossary/yes-approval-needed.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Approval needed' column highlighted. An item is listed as approval needed, so at the bottom, buttons available are 'Submit for approval' and 'Cancel'." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/yes-approval-needed.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Approval needed' column highlighted. An item is listed as approval needed, so at the bottom, buttons available are 'Submit for approval' and 'Cancel'." border="true":::
 
 1. If there are no terms that need to be approved you'll be presented with **Delete** and **Cancel** buttons. Selecting **Delete** will delete all the selected terms.
 
-    :::image type="content" source="media/how-to-create-import-export-glossary/no-approval-needed.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Approval needed' column highlighted. All items are listed as no approval needed, so at the bottom, buttons available are 'Delete' and 'Cancel'." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/no-approval-needed.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Approval needed' column highlighted. All items are listed as no approval needed, so at the bottom, buttons available are 'Delete' and 'Cancel'." border="true":::
 
 ## Next steps
 
