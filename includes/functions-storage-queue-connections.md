@@ -27,7 +27,7 @@ If the app setting name begins with "AzureWebJobs", you can specify only the rem
 
 If you are using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-storage-queue.md#storage-extension-5x-and-higher), instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connection` property in the trigger and binding configuration.
 
-In this mode, the extension requires the following properties:
+If you are setting `connection` to "AzureWebJobsStorage", see [Connecting to host storage with an identity](../articles/azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity-preview). For all other connections, the extension requires the following properties: 
 
 | Property                  | Environment variable template                       |Description                                | Example value |
 |---------------------------|-----------------------------------------------------|--------------------------------------------|---------|
