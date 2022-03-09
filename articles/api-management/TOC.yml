@@ -388,6 +388,12 @@
         href: https://aka.ms/apimupdates
       - name: Release notes
         href: https://aka.ms/apim/releases
+      - name: Breaking changes
+        items:
+            - name: Overview
+              href: breaking-changes/overview.md
+            - name: Virtual Network Changes (March 2023)
+              href: breaking-changes/rp-source-ip-address-change-mar2023.md
       - name: Regional availability
         href: https://azure.microsoft.com/global-infrastructure/services/
       - name: Videos
