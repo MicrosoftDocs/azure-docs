@@ -34,7 +34,7 @@
   ],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
-  "git_repository_branch_open_to_public_contributors": "master",
+  "git_repository_branch_open_to_public_contributors": "main",
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
   "contribution_branch_mappings": {},
@@ -382,6 +382,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-v3-python",
+      "url": "https://github.com/Azure-Samples/media-services-v3-python",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-javascript",
       "url": "https://github.com/Microsoft/tsiclient",
       "branch": "tutorial",
@@ -408,12 +414,6 @@
     {
       "path_to_root": "media-services-v3-node-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-node-tutorials",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "media-services-v3-python",
-      "url": "https://github.com/Azure-Samples/media-services-v3-python",
       "branch": "main",
       "branch_mapping": {}
     },

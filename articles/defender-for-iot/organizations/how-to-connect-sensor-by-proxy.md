@@ -84,6 +84,6 @@ This section describes how to set up a sensor to use Squid.
 
 1. Select **Save**.
 
-## See also
+## Next steps
 
-[Manage your subscriptions](how-to-manage-subscriptions.md).
+For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
