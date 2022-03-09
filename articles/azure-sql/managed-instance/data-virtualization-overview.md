@@ -376,6 +376,16 @@ WITH FULLSCAN, NORECOMPUTE
 
 The `WITH` options are mandatory, and for the sample size, the allowed options are `FULLSCAN` and `SAMPLE n` percent. To create single-column statistics for multiple columns, execute the stored procedure for each of the columns. Multi-column statistics are not supported.
 
+## Troubleshooting
+
+Issues with query execution are typically caused by managed instance not being able to access file location. The related error messages may report insufficient access rights, non-existing location or file path, file being used by another process, or that directory cannot be listed. In most cases this indicates that access to files is blocked by network traffic control policies or due to lack of access rights. This is what should be checked:
+
+- Wrong or mistyped location path.
+- SAS key validity: it could be expired i.e. out of its validity period, containing a typo, starting with a question mark.
+- SAS key persmissions allowed: Read at minimum, and List if wildcards are used
+- Blocked inbound traffic on the storage account. Check [Managing virtual network rules for Azure Storage](../../storage/common/storage-network-security.md?tabs=azure-portal#managing-virtual-network-rules) for more details and make sure that access from managed instance VNet is allowed.
+- Outbound traffic blocked on the managed instance using [storage endpoint policy](service-endpoint-policies-configure.md#configure-policies). Allow outbound traffic to the storage account.
+
 ## Next steps
 
 - To learn more about syntax options available with OPENROWSET, see [OPENROWSET T-SQL](/sql/t-sql/functions/openrowset-transact-sql).
