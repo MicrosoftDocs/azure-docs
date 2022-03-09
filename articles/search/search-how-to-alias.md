@@ -19,9 +19,7 @@ In Azure Cognitive Search, an alias is a secondary name that can be used to refe
 
 The main goal of index aliases is to make it easier to manage your production indexes. For example, if you need to make a change to your index definition, such as editing a field or adding a new analyzer, you'll have to create a new search index because all search indexes are immutable. This means you either need to [drop and rebuild your index](search-howto-reindex.md) or create a new index and then migrate your application over to that index.
 
-Index aliases make this easier because you can create a new index alongside your current index and then whenever you're ready to migrate over to the new index, all you need to do is update the mapping in your alias and requests will automatically start going to the new index.
-
-A typical workflow for using index aliases would be to: 
+Instead of dropping and rebuilding your index, you can use index aliases. A typical workflow would be to: 
 
 1. Create your search index
 1. Create an alias that maps to your search index
@@ -35,7 +33,7 @@ You can create an alias using the preview REST API, the preview SDKs, or through
 
 ### [**REST API**](#tab/rest)
 
-You can use the [Create or Update Alias (REST preview)](rest/api/searchservice/preview-api/create-or-update-alias) to create an index alias.
+You can use the [Create or Update Alias (REST preview)](/rest/api/searchservice/preview-api/create-or-update-alias) to create an index alias.
 
 ```http
 POST /aliases?api-version=2021-04-30-preview
