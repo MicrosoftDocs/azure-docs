@@ -7,7 +7,7 @@ ms.date: 03/07/2022
 
 # Configure and use a remote desktop gateway in Azure DevTest Labs
 
-This article describes how to set up and use a gateway for more secure remote desktop access to lab virtual machines (VMs) in Azure DevTest Labs. Using a gateway improves security because you don't expose the VMs' remote desktop protocol (RDP) ports to the internet. This remote desktop gateway solution also supports token authentication.
+This article describes how to set up and use a gateway for secure remote desktop access to lab virtual machines (VMs) in Azure DevTest Labs. Using a gateway improves security because you don't expose the VMs' remote desktop protocol (RDP) ports to the internet. This remote desktop gateway solution also supports token authentication.
 
 DevTest Labs provides a central place for lab users to view and connect to their VMs. Selecting **Connect** > **RDP** on a lab VM's **Overview** page creates a machine-specific RDP file, and users can open the file to connect to the VM.
 
@@ -27,7 +27,7 @@ The following diagram shows how a remote desktop gateway applies token authentic
    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/getRdpFileContents
    ```
 
-1. The `getRdpFileContents` action invokes `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` to request an authentication token.
+1. When the lab has a gateway configured, the `getRdpFileContents` action invokes `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` to request an authentication token.
    - `{gateway-hostname}`, or `{lb-uri}` for a load balancer, is the gateway hostname specified on the **Lab settings** page for the lab.
    - `{lab-machine-name}` is the name of the VM to connect to.
    - `{port-number}` is the port to use for the connection. Usually this port is 3389, but if the lab VM uses a [shared IP](devtest-lab-shared-ip.md), the port number is different.
@@ -51,7 +51,7 @@ When an RDP connection program opens the RDP file, the remote desktop gateway au
 
 ## Configuration requirements
  
-For gateway machines, domain name services (DNS), and Azure Functions to work with DevTest Labs token authentication, there are some configuration requirements:
+There are some configuration requirements for gateway machines, Azure Functions, and networks to work with DevTest Labs RDP access and token authentication:
 
 ### Gateway machine requirements
 
