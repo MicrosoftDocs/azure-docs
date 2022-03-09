@@ -30,7 +30,7 @@ This script creates a resource group, two app service plans, two web apps, a tra
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.sh" range="4-106":::
+:::code language="azurecli" source="~/azure_cli_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.sh" id="FullScript":::
 
 ## Clean up resources
 
