@@ -40,11 +40,15 @@ To set request size limits in the Azure portal, configure **Global parameters** 
 
 ## Request body inspection
 
-WAF also offers a configurable knob to turn the request body inspection on or off. By default, the request body inspection is enabled. If the request body inspection is turned off, WAF doesn't evaluate the contents of HTTP message body. In such cases, WAF continues to enforce WAF rules on headers, cookies, and URI. If the request body inspection is turned off, then maximum request body size field isn't applicable and can't be set.
+WAF offers a configuration setting to enable or disable the request body inspection. By default, the request body inspection is enabled. If the request body inspection is disabled, WAF doesn't evaluate the contents of an HTTP message's body. In such cases, WAF continues to enforce WAF rules on headers, cookies, and URI. If the request body inspection is turned off, then maximum request body size field isn't applicable and can't be set.
 
 Turning off the request body inspection allows for messages larger than 128 KB to be sent to WAF, but the message body isn't inspected for vulnerabilities.
 
-When your WAF policy is in prevention mode, WAF blocks requests that are over the size limit. When your WAF policy is in detection mode, then the behavior depends on the version of the managed ruleset you use. If you use CRS 3.2 and above, WAF inspects the body up to the limit specified and ignores the rest. If you use CRS version 3.1 or earlier, WAF inspects the entire message.
+When your WAF receives a request that's over the size limit, the behavior depends on the mode of your WAF and the version of the managed ruleset you use.
+- When your WAF policy is in prevention mode, WAF blocks requests that are over the size limit.
+- When your WAF policy is in detection mode:
+  - If you use CRS 3.2 or newer, WAF inspects the body up to the limit specified and ignores the rest.
+  - If you use CRS 3.1 or earlier, WAF inspects the entire message.
 
 ## Next steps
 
