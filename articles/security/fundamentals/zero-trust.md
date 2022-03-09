@@ -58,7 +58,7 @@ For more information on the Zero Trust transformation of access control, see the
 
 ## Conditional access with Zero Trust
 
-The Microsoft approach to Zero Trust includes [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) as the main policy engine. Conditional Access is used as the policy engine for a Zero Trust architecture that covers both policy definition and policy enforcement. Based on various signals or conditions, Conditional Access can block or give limited access to resources.
+The Microsoft approach to Zero Trust includes [Conditional Access](../../active-directory/conditional-access/overview.md) as the main policy engine. Conditional Access is used as the policy engine for a Zero Trust architecture that covers both policy definition and policy enforcement. Based on various signals or conditions, Conditional Access can block or give limited access to resources.
 
 To learn more about creating an access model based on Conditional Access that's aligned with the guiding principles of Zero Trust, see [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-design).
 
@@ -73,9 +73,9 @@ For more information on best practices key to keeping your apps secure, see:
 - [Build Zero Trust-ready apps using Microsoft identity platform features and tools](../../active-directory/develop/zero-trust-for-developers.md)
 
 ## Zero Trust and Microsoft 365
-Microsoft 365 is built with many security and information protection capabilities to help you build Zero Trust into your environment. Many of the capabilities can be extended to protect access to other SaaS apps your organization uses and the data within these apps. See [deploying Zero Trust for Microsoft 365](/microsoft-365/security/microsoft-365-zero-trust?view=o365-worldwide#deploying-zero-trust-for-microsoft-365) to learn more.
+Microsoft 365 is built with many security and information protection capabilities to help you build Zero Trust into your environment. Many of the capabilities can be extended to protect access to other SaaS apps your organization uses and the data within these apps. See [deploying Zero Trust for Microsoft 365](/microsoft-365/security/microsoft-365-zero-trust#deploying-zero-trust-for-microsoft-365) to learn more.
 
-To learn about recommendations and core concepts for deploying secure email, docs, and apps policies and configurations for Zero Trust access to Microsoft 365, see [Zero Trust identity and device access configurations](/microsoft-365/security/office-365-security/microsoft-365-policies-configurations?view=o365-worldwide).
+To learn about recommendations and core concepts for deploying secure email, docs, and apps policies and configurations for Zero Trust access to Microsoft 365, see [Zero Trust identity and device access configurations](/microsoft-365/security/office-365-security/microsoft-365-policies-configurations).
 
 ## Next steps
 
