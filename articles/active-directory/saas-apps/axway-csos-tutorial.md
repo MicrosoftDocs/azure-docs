@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/08/2022
+ms.date: 03/09/2022
 ms.author: jeedes
 
 ---
@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<host>:<port>/ui`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [Axway CSOS Client support team](mailto:ethicspoint@navexglobal.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [Axway CSOS Client support team](mailto:support@axway.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -120,11 +120,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Axway CSOS SSO
 
-To configure single sign-on on **Axway CSOS** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Axway CSOS support team](mailto:mchang@axway.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Axway CSOS** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Axway CSOS support team](mailto:support@axway.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Axway CSOS test user
 
-In this section, you create a user called Britta Simon in Axway CSOS. Work with [Axway CSOS support team](mailto:mchang@axway.com) to add the users in the Axway CSOS platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Axway CSOS. Work with [Axway CSOS support team](mailto:support@axway.com) to add the users in the Axway CSOS platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
