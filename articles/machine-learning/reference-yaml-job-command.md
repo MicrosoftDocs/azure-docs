@@ -10,7 +10,7 @@ ms.topic: reference
 author: mx-iao
 ms.author: minxia
 ms.date: 03/14/2022
-ms.reviewer: laobri
+ms.reviewer: nibaccam
 ---
 
 # CLI (v2) command job YAML schema
