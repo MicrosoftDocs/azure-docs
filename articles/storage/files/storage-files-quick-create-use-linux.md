@@ -130,7 +130,7 @@ Now you're ready to create an NFS file share.
 
 1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Select **Yes** for **Integrate with private DNS zone**. Select the correct subscription and resource group, and then select **Next: Tags**.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and DNS integration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
+    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-networking.png" alt-text="Screenshot showing how to add virtual networking and DNS integration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-networking.png" border="true":::
 
 1. You can optionally apply tags to categorize your resources, such as applying the name **Environment** and the value **Test** to all testing resources. Enter name/value pairs if desired, and then select **Next: Review + create**.
 
@@ -162,7 +162,7 @@ Create an SSH connection with the VM.
 
 1. Select the Linux VM you created for this tutorial and ensure that its status is **Running**. Take note of the VM's public IP address and copy it to your clipboard.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/vm-essentials.png" alt-text="Screenshot showing how to confirm that the VM is running and find its public IP address." lightbox="media/storage-files-quick-create-use-linux/vm-essentials.png" border="true":::
+    :::image type="content" source="media/storage-files-quick-create-use-linux/connect-to-vm.png" alt-text="Screenshot showing how to confirm that the VM is running and find its public IP address." lightbox="media/storage-files-quick-create-use-linux/connect-to-vm.png" border="true":::
 
 1. If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt.
 
@@ -199,7 +199,19 @@ You have now mounted your NFS share, and it's ready to store files.
 
 ## Create a file in the NFS share
 
+Create a text file on your Linux VM in the Azure NFS file share you created.
 
+1. Using the ssh connection you created to your VM, change the current working directory to your newly mounted file share.
+
+```console
+cd /mount/examplestorageaccount000/qsfileshare
+```
+
+1. Create a text file in the file share.
+
+```console
+sudo touch qstestfile.txt
+```
 
 ## Clean up resources
 
