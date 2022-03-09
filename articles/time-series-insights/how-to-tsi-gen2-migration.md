@@ -153,15 +153,15 @@ For more references check [ADX Data Partitioning Policy](../data-explorer/kusto/
 - If schema is unknown or varying.
     1. Remove all columns that are infrequently queried, leaving at least timestamp and TSID column(s).
 
-    :::image type="content" source="media/gen2-migration/adx-ingest-schema.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of schema" lightbox="media/gen2-migration/adx-ingest-schema.png":::
+        :::image type="content" source="media/gen2-migration/adx-ingest-schema.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of schema" lightbox="media/gen2-migration/adx-ingest-schema.png":::
 
     1.	Add new column of dynamic type and map it to the whole record using $ path.
 
-    :::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type" lightbox="media/gen2-migration/adx-ingest-dynamic-type.png":::
+        :::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type" lightbox="media/gen2-migration/adx-ingest-dynamic-type.png":::
 
-    Example:
+        Example:
 
-    :::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type-example.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type" lightbox="media/gen2-migration/adx-ingest-dynamic-type-example.png":::
+        :::image type="content" source="media/gen2-migration/adx-ingest-dynamic-type-example.png" alt-text="Screenshot of the Azure Data Explorer ingestion for dynamic type" lightbox="media/gen2-migration/adx-ingest-dynamic-type-example.png":::
 
 - If schema is known or fixed
     1.	Confirm that the data looks correct. Correct any types if needed.
@@ -198,17 +198,15 @@ The command generated from One-Click tool includes a SAS token but it’s best t
 
 1. `Option 2: Ingest Data by Year or Month`. For larger environments or to test on a smaller data set you can filter the Lightingest command further.
     1. By Year
-    
-    Change your -prefix parameter
-	    Before: -prefix:"V=1/PT=Time"
-	    After: -prefix:"V=1/PT=Time/Y=<Year>"
-    	Example: -prefix:"V=1/PT=Time/Y=2021"
+        Change your -prefix parameter
+	        Before: -prefix:"V=1/PT=Time"
+	        After: -prefix:"V=1/PT=Time/Y=<Year>"
+    	    Example: -prefix:"V=1/PT=Time/Y=2021"
      1. By Month
-     
-    Change your -prefix parameter
-	    Before: -prefix:"V=1/PT=Time"
-    	After: -prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"
-	    Example: -prefix:"V=1/PT=Time/Y=2021/M=03"
+        Change your -prefix parameter
+	        Before: -prefix:"V=1/PT=Time"
+    	    After: -prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"
+	        Example: -prefix:"V=1/PT=Time/Y=2021/M=03"
 
 Once you’ve modified the command execute it like above. One the ingestion is complete (using monitoring option below) modify the command for the next year and month you want to ingest.
 
@@ -268,9 +266,8 @@ Then the model can be imported to another system like Azure Data Explorer.
 
 #### GetEvents
 
-| TSQ | KQL |
-| ---| ---|
-| 
+##### TSQ
+
 ```
 {
   "getEvents": {
@@ -287,19 +284,19 @@ Then the model can be imported to another system like Azure Data Explorer.
   }
 }
 ``` 
-|	
+##### KQL	
 ```
 events
 | where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
 | where assetId_string == "assest1" and siteId_string == "siteId1" and dataid_string == "dataId1"
 | take 10000
 ```
-|
+
 
 #### GetEvents with filter
-| TSQ | KQL |
-| ---| ---|
-| ```{
+##### TSQ
+ ```
+{
   "getEvents": {
     "timeSeriesId": [
       "deviceId1",
@@ -316,18 +313,21 @@ events
   }
 } 
 ```
-|	```events
+##### KQL
+
+```
+events
 | where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
 | where deviceId_string== "deviceId1" and siteId_string == "siteId1" and dataId_string == "dataId1"
 | where ['sensors.sensor_string'] == "status" and ['sensors.unit_string'] == "ONLINE"
 | take 10000
 ```
-|
+
 
 #### GetEvents with projected variable
-| TSQ | KQL |
-| ---| ---|
-|```{
+##### TSQ
+```
+{
   "getEvents": {
     "timeSeriesId": [
       "deviceId1",
@@ -357,18 +357,19 @@ events
   }
 }	 
 ```
-|	```events
+##### KQL
+```
+events
 | where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
 | where deviceId_string== "deviceId1" and siteId_string == "siteId1" and dataId_string == "dataId1"
 | take 10000
 | project timestamp, sensorStringValue= ['sensors.value_string'], sensorBoolValue= ['sensors.value_bool'], sensorDoublelValue= ['sensors.value_double']
 ```
-|
 
 ####	AggregateSeries  
-| TSQ | KQL |
-| ---| ---|
-|```{
+##### TSQ
+```
+{
   "aggregateSeries": {
     "timeSeriesId": [
       "deviceId1"
@@ -394,18 +395,19 @@ events
     ]
   }	
 ```
-|	```events
+##### KQL
+```
+events
 | where timestamp >= datetime(2021-11-01T00:00:00.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.0000000Z)
 | where  deviceId_string == "deviceId1"
 | summarize avgSensorValue= avg(coalesce(['sensors.value_double'], todouble(['sensors.value_long']))) by bin(IntervalTs = timestamp, 1m)
 | project IntervalTs, avgSensorValue
 ```
-|
 
 ####	AggregateSeries with filter
-| TSQ | KQL |
-| ---| ---|
-|```{
+##### TSQ
+```
+{
   "aggregateSeries": {
     "timeSeriesId": [
       "deviceId1"
@@ -435,14 +437,15 @@ events
   }
 }	
 ```
-|	```events
+##### KQL
+```
+events
 | where timestamp >= datetime(2021-11-01T00:00:00.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.0000000Z)
 | where  deviceId_string == "deviceId1"
 | where ['sensors.sensor_string'] == "heater" and ['sensors.location_string'] == "floor1room12"
 | summarize avgSensorValue= avg(coalesce(['sensors.value_double'], todouble(['sensors.value_long']))) by bin(IntervalTs = timestamp, 1m)
 | project IntervalTs, avgSensorValue
 ```
-|
 
 ## Migration from TSI PowerBI Connector to ADX PowerBI Connector
 
@@ -452,11 +455,13 @@ The manual steps involved in this migration are
 PowerBI query to TSQ:
 The PowerBI query copied from TSI UX Explorer looks like as shown below
 ####	For Raw Data(GetEvents API)
-```{"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"getEvents":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"take":250000}}]}
+```
+{"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"getEvents":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"take":250000}}]}
 ```
 - To convert this to TSQ, build a JSON from the above payload. The GetEvents API documentation also has examples to understand it better. Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs
 - The converted TSQ looks like as shown below. It is the JSON payload inside “queries” 
-```{
+```
+{
   "getEvents": {
     "timeSeriesId": [
       "Arctic Ocean",
@@ -474,11 +479,13 @@ The PowerBI query copied from TSI UX Explorer looks like as shown below
 #### For Aggradate Data(Aggregate Series API)
 
 - For single inline variable, PowerBI query from TSI UX Explorer looks like as shown bellow:
-```{"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", 		"inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}]}
 ```
-- To convert this to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](../rest/api/time-series-insights/dataaccessgen2/query/execute.md#queryaggregateseriespage1)
+{"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", 		"inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}]}
+```
+- To convert this to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](../../rest/api/time-series-insights/dataaccessgen2/query/execute.md#queryaggregateseriespage1)
 -	The converted TSQ looks like as shown below. It is the JSON payload inside “queries”
-```{
+```
+{
   "aggregateSeries": {
     "timeSeriesId": [
       "Arctic Ocean",
@@ -504,7 +511,8 @@ The PowerBI query copied from TSI UX Explorer looks like as shown below
 }
 ```
 -	For more than one inline variable, append the json into “inlineVariables” as shown in the example below. The PowerBI query for more than one inline variable looks like:
-```{"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com","queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", "inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}, {"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", "inlineVariables":{"Magnitude":{"kind":"numeric","value":{"tsx":"$event['mag'].Double"},"aggregation":{"tsx":"max($value)"}}},"projectedVariables":["Magnitude"]}}]}
+```
+{"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com","queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", "inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}, {"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", "inlineVariables":{"Magnitude":{"kind":"numeric","value":{"tsx":"$event['mag'].Double"},"aggregation":{"tsx":"max($value)"}}},"projectedVariables":["Magnitude"]}}]}
 
 {
   "aggregateSeries": {
