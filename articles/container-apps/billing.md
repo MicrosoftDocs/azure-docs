@@ -27,13 +27,13 @@ This article describes how to calculate the cost of running your container app. 
 
 ## Resource consumption charges
 
-Azure Container Apps runs replicas of your application based on the [scaling rules and replica count limits](scale-app.md) you configure. You are charged for the amount of resources allocated to each replica while it is running.
+Azure Container Apps runs replicas of your application based on the [scaling rules and replica count limits](scale-app.md) you configure. You're charged for the amount of resources allocated to each replica while it's running.
 
 There are two meters for resource consumption:
 
-- **vCPU-seconds**: The amount of vCPU cores allocated to your container app on a per-second basis
+- **vCPU-seconds**: The amount of vCPU cores allocated to your container app on a per-second basis.
 
-- **GiB-seconds**: The amount of memory allocated to your container app on a per-second basis
+- **GiB-seconds**: The amount of memory allocated to your container app on a per-second basis.
 
 The first 180,000 vCPU-seconds and 360,000 GiB-seconds in each subscription per calendar month are free.
 
@@ -45,12 +45,15 @@ When your container app is scaled down to zero replicas, no resource consumption
 
 ### Minimum number of replicas are running
 
-When your container app is configured with a [minimum replica count](scale-app.md) of at least one and the app is scaled down to the minimum replica count, replicas running in your app are eligible for idle usage charges.
+Idle usage charges are applied when your replicas are running under a specific set of circumstances. The criteria for idle charges include:
+
+- When your container app is configured with a [minimum replica count](scale-app.md) of at least one.
+- The app is scaled down to the minimum replica count.
 
 Usage charges are calculated individually for each replica. A replica is considered idle when *all* of the following conditions are true:
 
 - None of the containers in the replicas are in the process of starting up.
-- The replica is not processing any HTTP requests.
+- The replica isn't processing any HTTP requests.
 - The replica is using less than 0.01 vCPU cores.
 - The replica is receiving less than 1,000 bytes per second of network traffic.
 
