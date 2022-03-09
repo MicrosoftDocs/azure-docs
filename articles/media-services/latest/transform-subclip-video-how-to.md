@@ -17,7 +17,7 @@ This functionality works with any Transform that is built using either the Built
 
 ## [REST](#tab/rest/)
 
-# Subclip a video when encoding with Media Services - REST
+## Subclip a video when encoding with Media Services - REST
 
 You can trim or subclip a video when encoding it using a [Job](/rest/api/media/jobs). This functionality works with any [Transform](/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. 
 

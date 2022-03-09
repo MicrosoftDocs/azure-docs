@@ -61,4 +61,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 * [Upload, encode, and stream using Media Services](stream-files-tutorial-with-api.md).
 * [Encode from an HTTPS URL using built-in presets](job-input-from-http-how-to.md).
 * [Encode a local file using built-in presets](job-input-from-local-file-how-to.md).
-* [Build a custom preset to target your specific scenario or device requirements](transform-custom-presets-how-to.md).
+* [Build a custom preset to target your specific scenario or device requirements](transform-custom-transform-how-to.md).

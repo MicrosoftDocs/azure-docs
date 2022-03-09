@@ -514,10 +514,10 @@
       href: transform-stitch-how-to.md
       displayName: stitch, edit, edit decision list, edl, stitching, combine, merge, clips, highlight
     - name: Subclip a video
-      href: transform-subclip-video-dotnet-how-to.md
+      href: transform-subclip-video-how-to.md
       displayName: clip, highlight, clips, edit, edit decision list, edl, trim, head, tail, clipping, trimming, editing, subclipping, remove
     - name: Customize encoder tranforms
-      href: transform-custom-transforms-how-to.md
+      href: transform-custom-transform-how-to.md
       displayName: custom, preset, custom preset, custom encoding, user defined, customize, presets, transcode, encode, encoding, encoder, MES, Standard encoder, .NET, transform, custom transform
     - name: Create an overlay transform .NET
       href: transform-create-overlay-how-to.md
@@ -526,7 +526,7 @@
       href: transform-generate-thumbnails-how-to.md
       displayName: thumbnail, generate thumbnail, thumbnail job, job, image, jpg, png, bmp, sprite, VTT, WebVTT, best frame, automatic thumbnail, poster, poster frame, step, percentage
     - name: Crop videos
-      href: transform-crop-howto.md
+      href: transform-crop-how-to.md
       displayName: encoder, transcoder, encode, custom preset, crop, resolution, aspect ratio, pixels, remove, 
     - name: Generate thumbnails
       href: transform-generate-thumbnails-how-to.md

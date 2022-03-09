@@ -135,7 +135,7 @@ The following articles show examples of [how to encode a video with Media Servic
 * [Use content aware encoding](encode-content-aware-concept.md).
 * [Encode from an HTTPS URL by using built-in presets](job-input-from-http-how-to.md).
 * [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md).
-* [Build a custom preset to target your specific scenario or device requirements](transform-custom-presets-how-to.md).
+* [Build a custom preset to target your specific scenario or device requirements](transform-custom-transform-how-to.md).
 * [Code samples for encoding with Standard Encoder using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding)
 
 See the list of supported Standard Encoder input [formats and codecs](encode-media-encoder-standard-formats-reference.md).

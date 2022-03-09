@@ -38,7 +38,7 @@ Media Services allows you to overlay an image, audio file, or another video on t
 If you aren't already familiar with the creation of Transforms, it is recommended that you complete the following activities:
 
 * Read [Encoding video and audio with Media Services](encode-concept.md)
-* Read [How to encode with a custom transform - .NET](transform-custom-presets-how-to.md). Follow the steps in that article to set up the .NET needed to work with transforms, then return here to try out an overlays preset sample.
+* Read [How to encode with a custom transform - .NET](transform-custom-transform-how-to.md). Follow the steps in that article to set up the .NET needed to work with transforms, then return here to try out an overlays preset sample.
 * See the [Transforms reference document](/rest/api/media/transforms).
 
 Once you are familiar with Transforms, download the overlays sample.
