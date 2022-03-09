@@ -234,7 +234,6 @@ Starred items are fully supported only for sensor [software versions 22.1.x and 
 | **Vendor** | The name of the device's vendor, as defined in the MAC address. |
 | **VLAN** | The VLAN of the device. |
 | **Zone** | The zone that contains this device. |
-| | |
 
 
 ## Next steps
