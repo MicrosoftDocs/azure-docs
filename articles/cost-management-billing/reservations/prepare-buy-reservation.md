@@ -87,6 +87,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Synapse Analytics - data warehouse](prepay-sql-data-warehouse-charges.md)
 - [Synapse Analytics - Pre-purchase](synapse-analytics-pre-purchase-plan.md)
 - [Virtual machines](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Virtual machine software](buy-vm-software-reservation.md)
 
 ## Buy reservations with monthly payments
 
