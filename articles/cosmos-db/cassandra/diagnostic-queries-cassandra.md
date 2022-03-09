@@ -80,14 +80,10 @@ CDBPartitionKeyRUConsumption
 
 - What are the top queries impacting RU consumption?
 ```kusto
-let topRequestsByRUcharge = CDBDataPlaneRequests 
-| where TimeGenerated > ago(24h)
-| project  RequestCharge , TimeGenerated, ActivityId;
 CDBCassandraRequests
 | where DatabaseName=="azure_cosmos" and CollectionName=="user"
-| project ActivityId, DatabaseName, CollectionName, queryText=split(split(PIICommandText,'"')[3], ' ')[0]
-| join kind=inner topRequestsByRUcharge on ActivityId
-| project DatabaseName, CollectionName, tostring(queryText), RequestCharge, TimeGenerated
+| where TimeGenerated > ago(24h)
+| project ActivityId, DatabaseName, CollectionName, queryText=split(split(PIICommandText,'"')[3], ' ')[0], RequestCharge, TimeGenerated
 | order by RequestCharge desc;
 ```
 - RU consumption based on variations in payload sizes for read and write operations.
@@ -155,19 +151,18 @@ CDBCassandraRequests
 ### Latency
 - Number of server-side timeouts (Status Code - 408) seen in the time window.
 ```kusto
-CDBDataPlaneRequests
-| where TimeGenerated >= now(-6h)
-| where AccountName=="azure_demo"
-| where StatusCode == 408
-| summarize count() by bin(TimeGenerated, 10m)
+CDBCassandraRequests
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| where ErrorCode in (4608, 4352) //Corresponding code in Cassandra
+| summarize max(DurationMs) by bin(TimeGenerated, 10m), ErrorCode
 | render timechart;
 ```
 
 - Do we observe spikes in server-side latencies in the specified time window?
 ```kusto
-CDBDataPlaneRequests
+CDBCassandraRequests
 | where TimeGenerated > now(-6h)
-| where AccountName=="azure_demo"
+| DatabaseName=="azure_cosmos" and CollectionName=="user"
 | summarize max(DurationMs) by bin(TimeGenerated, 10m)
 | render timechart;
 ```
@@ -192,12 +187,9 @@ CDBCassandraRequests
 ```
 - What queries are causing your application to throttle with a specified time period looking specifically at 429.
 ```kusto
-let throttledRequests = CDBDataPlaneRequests
-| where StatusCode==429
-| project  OperationName , TimeGenerated, ActivityId; 
 CDBCassandraRequests
 | where DatabaseName=="azure_cosmos" and CollectionName=="user"
-| join kind=inner throttledRequests on ActivityId
+| where ErrorCode==4097
 | project DatabaseName , CollectionName , CassandraCommands=split(split(PIICommandText,'"')[3], ' ')[0] , OperationName, TimeGenerated;
 ```
 
