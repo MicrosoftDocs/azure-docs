@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configure a single instance inbound NAT rule - Azure portal"
+title: "Tutorial: Create a single instance inbound NAT rule - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create a connection to a single virtual machine in an Azure virtual network.
 author: asudbring
@@ -10,19 +10,19 @@ ms.date: 03/08/2022
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Configure a single instance inbound NAT rule using the Azure portal
+# Tutorial: Create a single instance inbound NAT rule using the Azure portal
 
-Inbound NAT rules allow you connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
+Inbound NAT rules allow you to connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
 
 For more information about Azure Load Balancer rules, see [Manage rules for Azure Load Balancer using the Azure portal](manage-rules-how-to.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a virtual network and virtual machines.
-> * Create a NAT gateway for outbound internet access for the backend pool.
-> * Create a standard SKU public load balancer with frontend IP, health probe, backend configuration, load-balancing rule, and inbound NAT rules.
-> * Install and configure a web server on the VMs to demonstrate the port forwarding and load-balancing rules.
+> * Create a virtual network and virtual machines
+> * Create a standard SKU public load balancer with frontend IP, health probe, backend configuration, load-balancing rule, and inbound NAT rules
+> * Create a NAT gateway for outbound internet access for the backend pool
+> * Install and configure a web server on the VMs to demonstrate the port forwarding and load-balancing rules
 
 ## Prerequisites
 
@@ -102,47 +102,6 @@ A virtual network and subnet is required for the resources in the tutorial. In t
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**. |
     | Configure network security group | Select the existing **myNSG** |
-
-## Create NAT gateway
-
-In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
-
-For more information about outbound connections and Azure Virtual Network NAT, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
-
-1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
-
-2. In **NAT gateways**, select **+ Create**.
-
-3. In **Create network address translation (NAT) gateway**, enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialLBPF-rg**. |
-    | **Instance details** |    |
-    | NAT gateway name | Enter **myNATgateway**. |
-    | Region | Select **West US 2**. |
-    | Availability zone | Select **None**. |
-    | Idle timeout (minutes) | Enter **15**. |
-
-4. Select the **Outbound IP** tab or select the **Next: Outbound IP** button at the bottom of the page.
-
-5. In **Outbound IP**, select **Create a new public IP address** next to **Public IP addresses**.
-
-6. Enter **myNATGatewayIP** in **Name** in **Add a public IP address**.
-
-7. Select **OK**.
-
-8. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
-
-9. In **Virtual network** in the **Subnet** tab, select **myVNet**.
-
-10. Select **myBackendSubnet** under **Subnet name**.
-
-11. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
-
-12. Select **Create**.
 
 ## Create load balancer
 
@@ -287,6 +246,47 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
 32. Select the blue **Review + create** button at the bottom of the page.
 
 33. Select **Create**.
+
+## Create NAT gateway
+
+In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
+
+For more information about outbound connections and Azure Virtual Network NAT, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
+
+1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
+
+2. In **NAT gateways**, select **+ Create**.
+
+3. In **Create network address translation (NAT) gateway**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorialLBPF-rg**. |
+    | **Instance details** |    |
+    | NAT gateway name | Enter **myNATgateway**. |
+    | Region | Select **West US 2**. |
+    | Availability zone | Select **None**. |
+    | Idle timeout (minutes) | Enter **15**. |
+
+4. Select the **Outbound IP** tab or select the **Next: Outbound IP** button at the bottom of the page.
+
+5. In **Outbound IP**, select **Create a new public IP address** next to **Public IP addresses**.
+
+6. Enter **myNATGatewayIP** in **Name** in **Add a public IP address**.
+
+7. Select **OK**.
+
+8. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
+
+9. In **Virtual network** in the **Subnet** tab, select **myVNet**.
+
+10. Select **myBackendSubnet** under **Subnet name**.
+
+11. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
+
+12. Select **Create**.
 
 ## Install web server
 
