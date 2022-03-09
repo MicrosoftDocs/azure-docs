@@ -9,8 +9,9 @@ ms.date: 03/09/2022
 This is a troubleshooting guide for the Application Insights portal when encountering connectivity errors similar to `Error retrieving data.
 Try selecting another sample.` or `Missing localization resource`.
 
-(put the picture here)
-
+  <img src="./media/\troubleshoot-portal\troubleshoot-portal.png" style="width:10.64552in;height:2.39638in"
+    alt="Graphical user interface, text, application, email Description automatically generated" />
+    
 ## Troubleshooting
 
 The source of the issue is likely plugins that interfere with the portal's connectivity. 
