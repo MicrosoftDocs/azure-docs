@@ -98,7 +98,9 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
 
 ### Linux and macOS
 
-On Linux, MSAL.NET will open the default OS browser using the a tool such as `xdg-open`. Opening the browser as `sudo` does is not supported, and MSAL will throw an exception. On Mac, the browser is opened by invoking `open <url>`.
+On Linux, MSAL.NET opens the default OS browser with a tool like [xdg-open](http://manpages.ubuntu.com/manpages/focal/man1/xdg-open.1.html). Opening the browser with `sudo` is unsupported by MSAL and will cause MSAL to throw an exception.
+
+On macOS, the browser is opened by invoking `open <url>`.
 
 ### Customizing the experience
 
