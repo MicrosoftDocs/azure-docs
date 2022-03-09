@@ -5,7 +5,7 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 12/07/2020
+ms.date: 03/08/2022
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -67,6 +67,9 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/cloud-shell-initialized.png" alt-text="Cloud Shell initialized":::
 1. Create an Azure resource group by running the following CLI command: 
     1. Copy and paste the following command into the Cloud Shell window. Change the resource group name and location if you want.
+    
+        > [!IMPORTANT]
+        > Make sure that you have **Bash** option selected for the Cloud Shell. 
 
         ```azurecli
         az group create -l eastus -n rgDataMigration
