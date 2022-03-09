@@ -94,6 +94,16 @@ You should be able to export terms from glossary as long as the selected terms b
    > [!Important]
    > If the terms in a hierarchy belong to different term templates then you need to split them into different .CSV files for import. Also, updating a parent of a term is currently not supported using import process.
 
+## Business terms with approval workflow enabled
+
+If workflows are enabled on a term, then any creates, updates or deletes to the term will go through approval before they are saved in data catalog. 
+
+1. For new terms with create approval workflow enabled on parent, you will see **Submit for approval** instead of **Create** after you have entered all the details. Clicking on submit for approval will trigger the workflow.
+1. For updates to the existing terms with update approval workflow enabled on parent, you will see **Submit for approval** instead of **Save**. Click on submit for approval will trigger the workflow. The changes will not be saved in catalog until all the approvals are met.
+1.  For deletion to the terms with delete approval workflow enabled on parent, you will see **Submit for approval** instead of **Delete**. Click on submit for approval will trigger the workflow. However, the term will not be deleted from catalog until all the approvals are met.
+1.   For importing terms via .CSV with Import approval workflow enabled for Azure Purview's glossary, you will see **Submit for approval** instead of **OK** after the file is uploaded in Import blade. Click on submit for approval will trigger the workflow. However, the terms in the file will not be updated in catalog until all the approvals are met.
+
 ## Next steps
 
 * For more information about glossary terms, see the [glossary reference](reference-azure-purview-glossary.md)
+* For more information about approval workflows of business glossary, see the [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)

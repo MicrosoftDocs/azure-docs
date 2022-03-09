@@ -16,11 +16,6 @@ Workflows enable Azure Purview customers to orchestrate the CUD operations, 
 
 Workflows empower our customers to achieve data quality with more control and less effort, because they won't need to use manual controls like emails or worksheets to review and approve the changes to entities in their catalog.
 
-## Types of workflows
-
-- **User defined**: Workflows defined by the customer based on their organizational needs for governance process in Purview. For example, approval workflow for CUD operation of glossary terms, approval flow for publishing a Purview policy.
-- **System defined**: Workflows built into the Purview platform for governance of Purview processes such as requesting access to Purview Studio.
-
 ## Who can manage workflows?
 Users with ‘Workflow Admin’ role assign to a collection can manage ‘Self-service data access for hybrid data estate’ workflows for that collection. 
 
@@ -32,7 +27,7 @@ A new role ‘Workflow Admin’ is being introduced with workflow functionality.
 
 A ‘Workflow Admin’ defined for a collection can create self-service workflows and bind to the collection they have access to. 
 
-A ‘Workflow Admin’ defined for any collection can create approval workflow for business glossary and bind the same to glossary hierarchy path. 
+A ‘Workflow Admin’ defined for any collection can create approval workflow for business glossary. In order to bind the glossary term workflows to a term you need to be at least a 'Data Reader'.
 
 ## Workflow templates
 For all the different types of user defined workflows enabled and available for your use, Azure Purview will provide templates to assist workflow admin to create and enable workflows easily instead of building it from scratch. The goal of templates is to bootstrap the workflow authoring experiences. However, a workflow admin can customize the template to meet the requirements in their organization. 
@@ -40,7 +35,7 @@ For all the different types of user defined workflows enabled and available for 
 ## Workflow binding (scope)
 Once a workflow is created and enabled, it can be bound to a scope. This gives you the flexibility to have different workflows for different areas/departments in your organization.   
 
-If there's no workflow directly associated with a scope, the workflow engine will traverse upward in the hierarchy to determine closest workflow.  For example, AdatumCorp’ Purview account has the following collection hierarchy: 
+If there's no workflow directly associated with a scope, the workflow engine will traverse upward in the hierarchy to determine closest workflow.  For example, 'AdatumCorp’ Purview account has the following collection hierarchy: 
 
 Root Collection > Sales | Finance | Marketing
 

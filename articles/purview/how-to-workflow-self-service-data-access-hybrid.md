@@ -16,6 +16,10 @@ This guide will take you through the creation and management of Self-Service dat
 
 ## Create and enable self-service data access workflow
 
+1. Sign in to Azure Purview studio and select the **Management center**. You'll see two new icons in the table of contents. 
+
+1. To create new workflows, select **Authoring** in the workflow section. This will take you to the workflow authoring experiences.  
+
 1. Sign in to Azure Purview studio and select the Management center. You'll see two new icons in the table of contents.
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-section.png" alt-text="Screenshot showing the management center left menu with the new workflow section highlighted.":::
@@ -65,6 +69,9 @@ This guide will take you through the creation and management of Self-Service dat
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-inline.png" alt-text="Screenshot showing the workflow canvas with the start and wait for an approval step, and the Create Task and wait for task completion steps highlighted, and the Assigned to textboxes highlighted within those steps." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-expanded.png":::
 
+> [!NOTE]
+> Please configure the workflow to create self-service policies ONLY for sources supported by Azure purview's policy feature. See here for what is supported by policy [Data owner policies](tutorial-data-owner-policies-storage.md)
+
 1. You can also modify the template by adding more connectors to suit your organizational needs by adding available connectors. 
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/more-connectors-inline.png" alt-text="Screenshot showing the workflow authoring canvas, with a + button highlighted on the arrow between the two top steps, and the Next Step button highlighted at the bottom of the workspace." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/more-connectors-expanded.png":::
@@ -105,3 +112,4 @@ For more information about workflows, see these articles:
 - [What are Azure Purview workflows](concept-workflow.md)
 - [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)
 - [Manage workflow requests and approvals](how-to-workflow-manage-requests-approvals.md)
+

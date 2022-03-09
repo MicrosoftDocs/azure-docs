@@ -654,16 +654,7 @@ telemetry.flush();
 
 The function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
-We recommend using the flush() or flushAsync() methods in the shutdown activity of the Application when using the .NET or JS SDK. 
-
-For Example:
-
-*JS*
-
-```javascript
-// Immediately send all queued telemetry. By default, it is sent async.
-flush(async?: boolean = true)
-```
+We recommend using the flush() or flushAsync() methods in the shutdown activity of the Application when using the .NET SDK. 
 
 ## Authenticated users
 
