@@ -164,7 +164,7 @@
       href: howto-convert-to-the-new-spring-boot.md
     - name: Move a resource between Azure regions 
       href: howto-move-resource-between-regions.md
-    - name: Recover and manage deleted configuration stores
+    - name: Recover App Configuration stores (Preview)
       href: howto-recover-deleted-stores-in-Azure-App-Configuration.md
 - name: Reference
   items:

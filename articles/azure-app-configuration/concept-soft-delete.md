@@ -11,9 +11,9 @@ ms.date: 03/01/2022
 
 # Soft delete
 
-App Configuration's soft delete feature allows recovery of your data such as key-values, feature flags and history of a deleted store. It's automatically enabled for all stores in the standard tier. In this article, learn more about the soft delete feature and its functionality.
+App Configuration's soft delete feature allows recovery of your data such as key-values, feature flags, and revision history of a deleted store. It's automatically enabled for all stores in the standard tier. In this article, learn more about the soft delete feature and its functionality.
 
-To learn how to recover deleted stores using the soft delete feature, access this [doc](./howto-recover-deleted-stores-in-Azure-App-Configuration.md)
+Learn how to [recover App Configuration stores](./howto-recover-deleted-stores-in-Azure-App-Configuration.md) using the soft delete feature.
 
 > [!NOTE]
 > When an App Configuration store is soft-deleted, services that are integrated with the App Configuration will be deleted. For example Azure RBAC roles assignments, managed identity, Event Grid subscriptions, and private endpoints. Recovering a soft-deleted App Configuration store will not restore these services. They will need to be recreated.
@@ -30,7 +30,7 @@ The soft delete feature addresses the recovery of the deleted stores, whether th
 Recover is the operation to get the stores in a soft deleted state back to an active state where one can request the store for configuration and feature management.
 
 ## Retention period
-A variable to specify the time period, in days, for which a soft deleted store will be retained. Once set, this value can't be changed. Once the retention period elapses, the store will be permanently deleted automatically.
+A variable to specify the time period, in days, for which a soft deleted store will be retained. This value can only be set at the creation of store and once set, it can't be changed. Once the retention period elapses, the store will be permanently deleted automatically.
 
 ## Purge
 Purge is the operation to permanently delete the stores in a soft deleted state, provided the store doesn't have purge-protection enabled. To recreate the App Configuration store with the same name as a deleted store, you need to purge the store first if it's not already past the retention period.
@@ -53,4 +53,4 @@ There won't be any charges for the soft deleted stores. Once you recover a soft 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to recover the deleted App Configuration stores?](./howto-recover-deleted-stores-in-Azure-App-Configuration.md)  
+> [Recover App Configuration stores](./howto-recover-deleted-stores-in-Azure-App-Configuration.md)  
