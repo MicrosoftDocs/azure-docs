@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 
 author: Abeomor
-ms.author: osarumwense.omorogbe
+ms.author: osomorog
 ms.date: 03/14/2021
 ms.reviewer: laobri
 ---
