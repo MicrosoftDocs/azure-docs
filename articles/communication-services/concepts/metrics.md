@@ -28,7 +28,7 @@ Both Chat and SMS API request metrics contain three dimensions that you can use 
 
 More information on supported aggregation types and time series aggregations can be found [Advanced features of Azure Metrics Explorer](../../azure-monitor/essentials/metrics-charts.md#aggregation)
 
-- **Operation** - All operations or routes that can be called on the ACS Chat gateway.
+- **Operation** - All operations or routes that can be called on the Azure Communication Services Chat gateway.
 - **Status Code** - The status code response sent after the request.
 - **StatusSubClass** - The status code series sent after the response. 
 

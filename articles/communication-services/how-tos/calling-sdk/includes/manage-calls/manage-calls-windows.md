@@ -150,7 +150,7 @@ async (IAsyncOperation<CallAgent> asyncInfo, AsyncStatus asyncStatus) =>
 };
 ```
 
-Replace `<CALLEE>` with any other identity from your tenant. Alternatively, feel free to use `8:echo123` to talk to the ACS echo bot.
+Replace `<CALLEE>` with any other identity from your tenant. Alternatively, feel free to use `8:echo123` to talk to the Azure Communication Services echo bot.
 
 ## End a call
 

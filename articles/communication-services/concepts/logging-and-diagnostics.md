@@ -25,7 +25,7 @@ Next, select the archive target you want. Currently, we support storage accounts
  
 New settings take effect in about ten minutes. Logs will begin appearing in the configured archival target within the Logs pane of your Communication Services resource.
 
-:::image type="content" source="./media/diagnostic-settings.png" alt-text="ACS Diagnostic Settings Options.":::
+:::image type="content" source="./media/diagnostic-settings.png" alt-text="Azure Communication Services Diagnostic Settings Options.":::
 
 For more information about configuring diagnostics, see the overview of [Azure resource logs](../../azure-monitor/essentials/platform-logs-overview.md).
 

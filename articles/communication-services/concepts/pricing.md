@@ -199,7 +199,7 @@ Please refer to the following links for details on SMS and Telephony pricing
 
 
 ## Next Steps
-Get started with ACS
+Get started with Azure Communication Services:
 
 - [Send an SMS](../quickstarts/sms/send.md)
 - [Add Voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)

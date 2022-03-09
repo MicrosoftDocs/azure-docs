@@ -19,13 +19,13 @@
       "azureCommunicationServicesResourceName": {
         "type": "String",
         "metadata": {
-          "description": "Name of your ACS resource."
+          "description": "Name of your Azure Communication Services resource."
         }
       },
       "systemTopicName": {
         "type": "String",
         "metadata": {
-          "description": "Name of the system topic.  If you have an existing topic, find it under 'Events' in your ACS resource, otherwise specify a unique name"
+          "description": "Name of the system topic.  If you have an existing topic, find it under 'Events' in your Azure Communication Services resource, otherwise specify a unique name"
         }
       },
       "queueName": {
