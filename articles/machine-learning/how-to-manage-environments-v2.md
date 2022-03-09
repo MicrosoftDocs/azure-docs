@@ -9,7 +9,7 @@ ms.topic: how-to
 author: mx-iao
 ms.author: minxia
 ms.date: 03/14/2021
-ms.reviewer: laobri
+ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2
 ---
 
