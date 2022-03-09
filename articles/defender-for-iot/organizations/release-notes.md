@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 03/08/2022
+ms.date: 03/09/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -41,24 +41,29 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 ## March 2022
 
-- **Enhancements on the Azure portal**
+- [Key state alert updates](#key-state-alert-updates)
+- [More device properties shown in the Azure portal](#more-device-properties-shown-in-the-azure-portal)
+- [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal)
 
-    - [Workbook enhancements](#workbook-enhancements)
-    - [Cloud device inventory enhancements](#cloud-device-inventory-enhancements)
-    - [Key state alert updates](#key-state-alert-updates)
+### More device properties in the Device inventory
 
-- **Sensor enhancements**
+The following fields now have extended data displayed in the **Device inventory** pages on the Azure portal and in the sensor console:
 
-    - [Sensor inventory management enhancements](#sensor-inventory-management-enhancements)
-    - [Detection improvements](#detection-improvements)
+- **Tags**
+- **Description**
+- **Protocols**
+- **Scanner**
+- **FQDN**
+- **FQDN lookup time**
 
-- **Enterprise IoT enhancements**
+For more information, see:
 
-    - [Inventory noise reduction](#inventory-noise-reduction)
-    - [Device retention extensions for profiled / un-profiled devices](#device-retention-extensions-for-profiled--un-profiled-devices)
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Manage your device inventory from the sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 
+The extended data in these fields is only available for sensors with software versions 22.1.x or higher. If you have earlier sensor versions installed, we recommend updating to the latest version. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
 
-### Cloud device inventory enhancements
+## Edit and delete devices from the Azure portal
 
 ### Key state alert updates
 
@@ -69,14 +74,6 @@ For the Rockwell protocol, the **Device inventory** page in the Azure portal now
 If the device's PLC operating mode is ever switched to an insecure mode, such as *Program* or *Remote*, a **PLC Operating Mode Changed** alert is generated.
 
 For more information, see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md).
-
-### Sensor inventory management enhancements
-
-### Detection improvements
-
-### Inventory noise reduction
-
-### Device retention extensions for profiled / un-profiled devices
 
 ## February 2022
 
