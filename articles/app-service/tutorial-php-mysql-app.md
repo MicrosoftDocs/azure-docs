@@ -509,7 +509,7 @@ For the tasks scenario, you change the application so that you can mark a task a
 
 ### Add a column
 
-1. In the local terminal window, *go* to the root of the Git repository.
+1. In the local terminal window, go to the root of the Git repository.
 
 1. Generate a new database migration for the `tasks` table:
 
