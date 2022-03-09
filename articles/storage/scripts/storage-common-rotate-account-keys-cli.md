@@ -7,7 +7,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 03/01/2022
+ms.date: 03/02/2022
 ms.author: tamram 
 ms.custom: devx-track-azurecli
 ---
