@@ -123,7 +123,7 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 
 ## AzureWebJobsKubernetesSecretName 
 
-Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
+Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. Requires that `AzureWebJobsSecretStorageType` be set to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
 
 |Key|Sample value|
 |---|------------|
@@ -133,7 +133,7 @@ To learn more, see [Secret repositories](security-concepts.md#secret-repositorie
 
 ## AzureWebJobsSecretStorageKeyVaultClientId
 
-The client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` either not be set or be set to `keyvault`.  Supported in version 4.x and later versions of the Functions runtime.
+The client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.  Supported in version 4.x and later versions of the Functions runtime.
 
 |Key|Sample value|
 |---|------------|
@@ -143,7 +143,7 @@ To learn more, see [Secret repositories](security-concepts.md#secret-repositorie
 
 ## AzureWebJobsSecretStorageKeyVaultClientSecret
 
-The secret for client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` either not be set or be set to `keyvault`.  Supported in version 4.x and later versions of the Functions runtime.
+The secret for client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.  Supported in version 4.x and later versions of the Functions runtime.
 
 |Key|Sample value|
 |---|------------|
@@ -153,7 +153,9 @@ To learn more, see [Secret repositories](security-concepts.md#secret-repositorie
 
 ## AzureWebJobsSecretStorageKeyVaultName
 
-The name of a key vault instance used to store keys. This setting is only supported for version 3.x of the Functions runtime. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
+The name of a key vault instance used to store keys. This setting is only supported for version 3.x of the Functions runtime. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`. 
+
+The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
 
 |Key|Sample value|
 |---|------------|
@@ -171,7 +173,7 @@ The tenant ID of the app registration used to access the vault where keys are st
 
 ## AzureWebJobsSecretStorageKeyVaultUri
 
-The URI of a key vault instance used to store keys. Supported in version 4.x and later versions of the Functions runtime. This is the recommended setting for using a key vault instance for key storage. 
+The URI of a key vault instance used to store keys. Supported in version 4.x and later versions of the Functions runtime. This is the recommended setting for using a key vault instance for key storage. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.
 
 The `AzureWebJobsSecretStorageKeyVaultTenantId` value should be the full value of **Vault URI** displayed in the **Key Vault overview** tab, including `https://`.
 
