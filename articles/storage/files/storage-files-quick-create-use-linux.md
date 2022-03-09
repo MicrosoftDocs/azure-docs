@@ -86,6 +86,8 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
 
 1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the .pem file was downloaded, because you'll need the path to it to connect to your VM.
 
+You'll see a message that deployment is in progress. Wait a few minutes for deployment to complete.
+
 ## Create an NFS Azure file share
 
 Now you're ready to create an NFS file share.
@@ -194,6 +196,10 @@ Now that you've created an NFS share, to use it you have to mount it on your Lin
 1. Using the ssh connection you created to your VM, enter the sample commands to use NFS and mount the file share.
 
 You have now mounted your NFS share, and it's ready to store files.
+
+## Create a file in the NFS share
+
+
 
 ## Clean up resources
 
