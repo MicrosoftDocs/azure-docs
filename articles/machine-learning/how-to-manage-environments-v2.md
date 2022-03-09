@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: mx-iao
 ms.author: minxia
-ms.date: 03/14/2021
+ms.date: 03/14/2022
 ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2
 ---
