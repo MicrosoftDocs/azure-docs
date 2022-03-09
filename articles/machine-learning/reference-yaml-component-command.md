@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 10/21/2021
+ms.date: 03/14/2022
 ms.reviewer: laobri
 ---
 
@@ -72,7 +72,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | **Required.** The type of component input. <br><br> Use `type: path` if you want the runtime job input value to be a data URI or Azure ML data asset when the component is run. | `number`, `integer`, `boolean`, `string`, `path` | |
+| `type` | string | **Required.** The type of component input. <br><br> Use `type: uri_file/uri_folder` if you want the runtime job input value to be a data URI or registered Azure ML data asset when the component is run. | `number`, `integer`, `boolean`, `string`, `uri_file`, `uri_folder` | |
 | `description` | string | Description of the input. | | |
 | `default` | number, integer, boolean, or string | The default value for the input. | | |
 | `optional` | boolean | Whether the input is required. | | `false` |
@@ -84,7 +84,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | **Required.** The type of component output. | `path` | |
+| `type` | string | **Required.** The type of component output. | `uri_folder` | |
 | `description` | string | Description of the output. | | |
 
 ## Remarks
