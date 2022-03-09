@@ -141,12 +141,12 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
 - Microsoft Defender for servers enabled on your subscription. Learn how to enable plans in the [Enable enhanced security features](enable-enhanced-security.md) article.
 
 - Azure Arc for servers installed on your VM instances.
-    - **(Recommended) Auto-provisioning** - Auto-provisioning is enabled by default in the onboarding process and requires owner permissions on the subscription. Arc auto-provisioning process is using the OS config agent on GCP end. Additional information on Arc auto-provisioning can be found in the [OS config agent on the GCP machines](https://cloud.google.com/compute/docs/images/os-details#vm-manager) article.
+    - **(Recommended) Auto-provisioning** - Auto-provisioning is enabled by default in the onboarding process and requires owner permissions on the subscription. Arc auto-provisioning process is using the OS config agent on GCP end. Learn more about the [OS config agent availability on GCP machines](https://cloud.google.com/compute/docs/images/os-details#vm-manager).
     
     > [!NOTE]
     > The Arc auto-provisioning process leverages the VM manager on your Google Cloud Platform, to enforce policies on the your VMs through the OS config agent. A VM with an [Active OS agent](https://cloud.google.com/compute/docs/manage-os#agent-state), will incur a cost according to GCP. Refer to [GCP's technical documentation](https://cloud.google.com/compute/docs/vm-manager#pricing) to see how this may affect your account.
     > <br><br> Microsoft Defender for Servers does not install the OS config agent to a VM that does not have it installed. However, Microsoft Defender for Servers will enable communication between the OS config agent and the OS config service if the agent is already installed but not communicating with the service. 
-    > <br><br> This can change the OS config agent from `inactive` to `active`, and may lead to additional costs.   
+    > <br><br> This can change the OS config agent from `inactive` to `active`, and will lead to additional costs.   
 
     - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that are not connected to Arc will be surfaced by the recommendation “GCP VM instances should be connected to Azure Arc”. Use the “Fix” option offered in this recommendation to install Azure Arc on the selected machines.
 
