@@ -266,9 +266,7 @@ Then the model can be imported to another system like Azure Data Explorer.
 
 #### GetEvents
 
-##### TSQ
-
-```
+```TSQ
 {
   "getEvents": {
     "timeSeriesId": [
@@ -284,8 +282,8 @@ Then the model can be imported to another system like Azure Data Explorer.
   }
 }
 ``` 
-##### KQL	
-```
+	
+```KQL
 events
 | where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
 | where assetId_string == "assest1" and siteId_string == "siteId1" and dataid_string == "dataId1"
@@ -294,8 +292,8 @@ events
 
 
 #### GetEvents with filter
-##### TSQ
- ```
+
+ ```TSQ
 {
   "getEvents": {
     "timeSeriesId": [
@@ -313,9 +311,8 @@ events
   }
 } 
 ```
-##### KQL
 
-```
+```KQL
 events
 | where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
 | where deviceId_string== "deviceId1" and siteId_string == "siteId1" and dataId_string == "dataId1"
@@ -325,8 +322,8 @@ events
 
 
 #### GetEvents with projected variable
-##### TSQ
-```
+
+```TSQ
 {
   "getEvents": {
     "timeSeriesId": [
@@ -357,8 +354,8 @@ events
   }
 }	 
 ```
-##### KQL
-```
+
+```KQL
 events
 | where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
 | where deviceId_string== "deviceId1" and siteId_string == "siteId1" and dataId_string == "dataId1"
@@ -367,8 +364,8 @@ events
 ```
 
 ####	AggregateSeries  
-##### TSQ
-```
+
+```TSQ
 {
   "aggregateSeries": {
     "timeSeriesId": [
@@ -395,8 +392,8 @@ events
     ]
   }	
 ```
-##### KQL
-```
+
+```KQL
 events
 | where timestamp >= datetime(2021-11-01T00:00:00.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.0000000Z)
 | where  deviceId_string == "deviceId1"
@@ -405,8 +402,8 @@ events
 ```
 
 ####	AggregateSeries with filter
-##### TSQ
-```
+
+```TSQ
 {
   "aggregateSeries": {
     "timeSeriesId": [
@@ -437,8 +434,8 @@ events
   }
 }	
 ```
-##### KQL
-```
+
+```KQL
 events
 | where timestamp >= datetime(2021-11-01T00:00:00.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.0000000Z)
 | where  deviceId_string == "deviceId1"
@@ -482,7 +479,7 @@ The PowerBI query copied from TSI UX Explorer looks like as shown below
 ```
 {"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", 		"inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}]}
 ```
-- To convert this to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](../../rest/api/time-series-insights/dataaccessgen2/query/execute.md#queryaggregateseriespage1)
+- To convert this to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](../../rest/api/time-series-insights/dataaccessgen2/query/execute#queryaggregateseriespage1)
 -	The converted TSQ looks like as shown below. It is the JSON payload inside “queries”
 ```
 {
