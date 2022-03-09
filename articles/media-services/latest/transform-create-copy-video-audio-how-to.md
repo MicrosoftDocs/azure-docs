@@ -2,17 +2,11 @@
 title: Create a CopyVideo CopyAudio transform
 description: Create a CopyVideo CopyAudio transform using Media Services API.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: 
-
-ms.assetid:
 ms.service: media-services
 ms.topic: how-to
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 11/19/2020
+ms.date: 03/09/2022
 ms.author: inhenkel
 ---
 
@@ -30,10 +24,10 @@ Follow the steps in [Create a Media Services account](./account-create-how-to.md
 
 ## Methods
 
+## [REST](#tab/rest/)
+
 ### Using the REST API
 
 [!INCLUDE [task-create-copy-video-audio-rest.md](./includes/task-create-copy-video-audio-rest.md)]
 
-## Next steps
-
-[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]
+---

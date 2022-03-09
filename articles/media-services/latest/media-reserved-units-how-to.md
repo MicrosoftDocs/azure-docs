@@ -1,6 +1,6 @@
 ---
-title: Scale Media Reserved Units (MRUs) CLI
-description: This topic shows how to use CLI to scale media processing with Azure Media Services.
+title: Scale Media Reserved Units (MRUs)
+description: This topic shows how to use to scale media processing with Azure Media Services.
 services: media-services
 author: jiayali-ms
 manager: femila
@@ -25,6 +25,8 @@ This article shows you how to scale Media Reserved Units (MRUs) for faster encod
 
 Understand [Media Reserved Units](concept-media-reserved-units.md).
 
+## [CLI](#tab/cli/)
+
 ## Scale Media Reserved Units with CLI
 
 Run the `mru` command.
@@ -42,3 +44,5 @@ az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 ## See also
 
 * [Migrate from Media Services v2 to v3](migrate-v-2-v-3-migration-introduction.md)
+
+---

@@ -519,7 +519,7 @@
     - name: Customize encoder tranforms
       href: transform-custom-transform-how-to.md
       displayName: custom, preset, custom preset, custom encoding, user defined, customize, presets, transcode, encode, encoding, encoder, MES, Standard encoder, .NET, transform, custom transform
-    - name: Create an overlay transform .NET
+    - name: Create an overlay transform
       href: transform-create-overlay-how-to.md
       displayName: overlay, video overlay, audio overlay, audio silence, remove audio, redact video, logo, lower third, bug, brand, branding, text overlay, graphic overlay, graphics, image overlay, image
     - name: Generate thumbnails
@@ -531,10 +531,10 @@
     - name: Generate thumbnails
       href: transform-generate-thumbnails-how-to.md
       displayName: thumbnail, generate thumbnail, thumbnail job, job, image, jpg, png, bmp, sprite, VTT, WebVTT, best frame, automatic thumbnail, poster, poster frame, step, percentage
-    - name: Create a copyAllBitrateNonInterleaved transform with REST
+    - name: Create a copyAllBitrateNonInterleaved transform
       href: transform-create-copyallbitratenoninterleaved-how-to.md
       displayName: Copy, copy bitrates, copyAllBitrateNonInterleaved
-    - name: Copy videos without re-encoding with REST
+    - name: Copy videos without re-encoding
       href: transform-create-copy-video-audio-how-to.md
       displayName: copy videos, copy, copy codec, copy video codec, copy audio codec, fast encoding, fast remux, remuxing, re-package, packaging, re-encoding
     - name: Use the content aware encoding preset
@@ -552,10 +552,10 @@
       href: transform-delete-transform-how-to.md
   - name: Create jobs
     items:
-    - name: Create jobs with CLI
+    - name: Create jobs
       href: job-create-cli-how-to.md
       displayName: CLI, create job, jobs, submit job, encode with CLI, encode
-    - name: Create job input with a local file and .NET
+    - name: Create job input with a local file
       displayName: upload, upload file, ingest file, local file, uploading, CLI
       href: job-input-from-local-file-how-to.md
     - name: Jobs with multiple transform outputs
@@ -575,8 +575,8 @@
     - name: Live event error codes
       href: live-event-error-codes-reference.md  
       displayName: live event, error codes, error, codes, live streaming, debugging, troubleshooting live
-    - name: Scale media reserved units CLI
-      href: media-reserved-units-cli-how-to.md   
+    - name: Scale media reserved units
+      href: media-reserved-units-how-to.md   
       displayName: CLI, MRU, media reserved units, scaling
   - name: Use Event Grid
     items:
@@ -659,7 +659,7 @@
           displayName: security, private link, links, firewall, storage account, storage, private, links, secure
       - name: Secure streaming
         items:
-        - name: How to pass authentication tokens to the key delivery service
+        - name: Pass authentication tokens to key delivery service
           href: security-pass-authentication-tokens-how-to.md
           displayName: AMP, player, Azure Media Player, authentication, tokens, auth tokens, token auth, authentication tokens
   - name: Use media players
