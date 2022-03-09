@@ -923,8 +923,10 @@
         href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
     - name: Managed Instance link feature
       items:
-      - name: Use SSMS to Replicate database
+      - name: Use SSMS to replicate database
         href: managed-instance/managed-instance-link-use-ssms-to-replicate-database.md
+      - name: Use SSMS to failover database
+        href: managed-instance/managed-instance-link-use-ssms-to-failover-database.md
 
   - name: Migration guides
     items: 
