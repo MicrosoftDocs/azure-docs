@@ -47,7 +47,7 @@ Like Reserved VM Instances, Virtual machine software reservation purchases offer
 
 ## Self-service cancellation and exchanges
 
-You can't refund or exchange a Virtual machine software reservation that you bought yourself. You can however, cancel the reservation within 72 hours of purchase. The [cancellation limit](exchange-and-refund-azure-reservations.md#cancel-exchange-and-refund-policies) applies. Since you can't refund or exchange yourself, you can open a [Support request](https://go.microsoft.com/fwlink/?linkid=2083458) to ask Azure support to do it on your behalf.
+You can't exchange a Virtual machine software reservation that you bought yourself. You can however, cancel the reservation within 72 hours of purchase. The [cancellation limit](exchange-and-refund-azure-reservations.md#cancel-exchange-and-refund-policies) applies. Since you can't refund, you can open a [Support request](https://go.microsoft.com/fwlink/?linkid=2083458) to ask Azure support to do it on your behalf.
 
 Check your usage before purchasing to make sure you buy the right software reservation.
 
