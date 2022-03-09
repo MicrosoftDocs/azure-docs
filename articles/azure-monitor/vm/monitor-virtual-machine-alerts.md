@@ -39,8 +39,8 @@ Metric rules for virtual machines can use the following data:
 ### Log alerts
 [Log alerts](../alerts/alerts-unified-log.md) can measure two different things, each of which supports distinct scenarios for monitoring virtual machines:
 
-- [Result count](../alerts/alerts-unified-log.md#count-of-the-results-table-rows): This measure can be used to work with events such as Windows event logs, syslog, application exceptions.
-- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value): This measure is based on a numeric column and  can be used to include any number of resources. For example, CPU percentage.
+- [Result count](../alerts/alerts-unified-log.md#result-count): This measure can be used to work with events such as Windows event logs, syslog, application exceptions.
+- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-a-value): This measure is based on a numeric column and  can be used to include any number of resources. For example, CPU percentage.
 
 ### Targeting resources and dimensions
 
@@ -269,7 +269,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface 
 ```
 
-## Example of log query alert
+## Example log query alert
 Here's a walk-through of creating an alert for when the CPU of a virtual machine exceeds 80 percent. The data you need is in the [InsightsMetrics table](/azure/azure-monitor/reference/tables/insightsmetrics). The following query returns the records that need to be evaluated for the alert. Each type of alert rule uses a variant of this query.
 
 >### Query
@@ -300,14 +300,14 @@ IPerf
     |Aggregation granularity| The interval used for aggregation.|15 minutes|
     
     :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-measurement.png" alt-text="Screenshot of new log alert rule measurement. ":::
-   1. In the **Split by dimensions** section, select the values for these fields.
+ 1. In the **Split by dimensions** section, select the values for these fields.
      
-    |Field  |Description  |Value for this scenario |
-    |---------|---------|---------|
-    |Resource ID column| Name of the Resource ID column to use for the dimension|_Resourceid|
-    |Dimension name| Name of the column to use to split the dimension |Computer|
-    |Operator| Operator to use for the calculation of the dimension |=|
-    |Dimension value| Which of the list of the values of the dimension to be used. |All current and future values| 
+      |Field|Description  |Value for this scenario |
+      |---------|---------|---------|
+      |Resource ID column| Name of the Resource ID column to use for the dimension|_Resourceid|
+      |Dimension name| Name of the column to use to split the dimension |Computer|
+      |Operator| Operator to use for the calculation of the dimension |=|
+      |Dimension value| Which of the list of the values of the dimension to be used. |All current and future values| 
     
     :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-dimensions.png" alt-text="Screenshot of new log alert rule with dimensions. ":::
  1. In the **Alert Logic** section, select the values for these fields.
