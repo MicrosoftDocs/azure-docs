@@ -36,17 +36,17 @@ An origin refers to the application deployment that Azure Front Door will retrie
 
 ::: zone pivot="front-door-standard-premium"
 
-* **Private Link:** Azure Front Door Premium supports sending traffic to an origin by using Private Link. For more information, see [Secure your Origin with Private Link](standard-premium/concept-private-link.md).
+* **Private Link:** Azure Front Door Premium tier supports sending traffic to an origin by using Private Link. For more information, see [Secure your Origin with Private Link](private-link.md).
 
-* **Certificate subject name validation:** during Azure Front Door to origin TLS connection, Azure Front Door will validate if the request host name matches the host name in the certificate provided by the origin. From a security standpoint, Microsoft doesn't recommend disabling certificate subject name check. For more information, see [End-to-end TLS encryption](concept-end-to-end-tls.md), especially if you want to disable this feature. 
+* **Certificate subject name validation:** during Azure Front Door to origin TLS connection, Azure Front Door will validate if the request host name matches the host name in the certificate provided by the origin. From a security standpoint, Microsoft doesn't recommend disabling certificate subject name check. For more information, see [End-to-end TLS encryption](end-to-end-tls.md), especially if you want to disable this feature. 
 
 ::: zone-end
 
 * **Origin host header:** The host header value sent to the backend for each request. For more information, see [Origin host header](#origin-host-header).
 
-* **Priority**. Assign priorities to your different backends when you want to use a primary service backend for all traffic. Also, provide backups if the primary or the backup backends are unavailable. For more information, see [Priority](front-door-routing-methods.md#priority).
+* **Priority**. Assign priorities to your different backends when you want to use a primary service backend for all traffic. Also, provide backups if the primary or the backup backends are unavailable. For more information, see [Priority](routing-methods.md#priority).
 
-* **Weight**. Assign weights to your different backends to distribute traffic across a set of backends, either evenly or according to weight coefficients. For more information, see [Weights](front-door-routing-methods.md#weighted).
+* **Weight**. Assign weights to your different backends to distribute traffic across a set of backends, either evenly or according to weight coefficients. For more information, see [Weights](routing-methods.md#weighted).
 
 ### Origin host header
 
@@ -83,6 +83,7 @@ Azure Front Door sends periodic HTTP/HTTPS probe requests to each of your config
 * **Protocol**: Defines whether to send the health probe requests from Front Door to your origins with HTTP or HTTPS protocol.
 
 * **Method**: The HTTP method to be used for sending health probes. Options include GET or HEAD (default).
+
     > [!NOTE]
     > For lower load and cost on your backends, Front Door recommends using HEAD requests for health probes.
 
@@ -91,7 +92,7 @@ Azure Front Door sends periodic HTTP/HTTPS probe requests to each of your config
     >[!NOTE]
     >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with say, 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
 
-For more information, see [Health probes](front-door-health-probes.md).
+For more information, see [Health probes](health-probes.md).
 
 ### Load-balancing settings
 
@@ -101,20 +102,22 @@ Load-balancing settings for the origin group define how we evaluate health probe
 
 * **Successful sample size:** Defines the sample size as previously mentioned, the number of successful samples needed to call the origin healthy. For example, assume a Front Door health probe interval is 30 seconds, sample size is 5, and successful sample size is 3. Each time we evaluate the health probes for your origin, we look at the last five samples over 150 seconds (5 x 30). At least three successful probes are required to declare the origin as healthy.
 
-* **Latency sensitivity (extra latency):** Defines whether you want Azure Front Door Standard/Premium to send the request to the origin within the latency measurement sensitivity range or forward the request to the closest backend.
+* **Latency sensitivity (extra latency):** Defines whether you want Azure Front Door to send the request to the origin within the latency measurement sensitivity range or forward the request to the closest backend.
 
-For more information, see [Least latency based routing method](front-door-routing-methods.md#latency).
+For more information, see [Least latency based routing method](routing-methods.md#latency).
 
 ## Next steps
 
 ::: zone pivot="front-door-standard-premium"
 
-- Learn how to [create an Azure Front Door profile](create-front-door.md).
+- Learn how to [create an Azure Front Door profile](create-front-door-portal.md).
 - Learn about [Azure Front Door routing architecture](front-door-routing-architecture.md?pivots=front-door-standard-premium).
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
+- Learn how to [create an Azure Front Door (classic) profile](quickstart-create-front-door.md).
+- Learn about [Azure Front Door (classic) routing architecture](front-door-routing-architecture.md?pivots=front-door-classic).
 
 ::: zone-end
