@@ -37,10 +37,10 @@ If you need to create Azure SQL Managed Instance, instructions for that are avai
 ## Prepare your SQL Server instance
 
 The following needs to be configured on your SQL Server. A restart will be required during the process.
-- Install CU15 or higher on SQL Server 2019.
-- Enable AlwaysOn Availability Groups feature on SQL Server.
-- Enable feature Trace Flags at startup on SQL Server.
-- Restart the SQL Server and validate SQL Server configuration.
+1. Install CU15 or higher on SQL Server 2019.
+2. Enable AlwaysOn Availability Groups feature on SQL Server.
+3. Enable feature Trace Flags at startup on SQL Server.
+4. Restart the SQL Server and validate SQL Server configuration.
 
 ### Install CU15 (or higher) on SQL Server
 
@@ -51,7 +51,7 @@ Run the script to check your SQL Server version.
     SELECT @@VERSION
 ```
 
-If it is not SQL Server 2019 CU15 or higher, upgrade your server. SQL Server 2019 CU15 can be downloaded from [here](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6). Install the CU15 upgrade and restart the SQL Server.
+If it'sn't SQL Server 2019 CU15 or higher, upgrade your server. SQL Server 2019 CU15 can be downloaded from [here](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6). Install the CU15 upgrade and restart the SQL Server.
 
 ### Enable AlwaysOn Availability Groups feature on SQL Server
 
@@ -69,51 +69,51 @@ Run the following T-SQL on SQL Server to understand if AlwaysOn is enabled.
         end as 'HadrStatus'
 ```
 
-If AlwaysOn is not enabled, then you will need to enable it. You can find official detailed instructions for this by following this link. In the following paragraphs, we will explain how Always On can be enabled.
-To enable AlwaysOn on a SQL Server, you need to start the SQL Server Configuration Manager, go to the SQL Server Services properties, and enable AlwaysOn High Availability:
-- Start SQL Server Configuration Manager
-- Click on the SQL Server Services
-- Right-click on the SQL Server, then go Properties.
+If AlwaysOn isn't enabled, then you'll need to enable it. You can find official detailed instructions for this process [here](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server). In the following paragraphs, we'll explain how Always On can be enabled.
+
+To enable AlwaysOn on a SQL Server, you need to start the **SQL Server Configuration Manager**, go to the **SQL Server Services** properties, and enable **AlwaysOn High Availability**:
+1. Start SQL Server Configuration Manager.
+2. Select on the SQL Server Services.
+3. Right-select on the SQL Server, then go Properties.
 
     :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-properties.png" alt-text="Screenshot showing SQL Server configuration manager.":::
 
-Enable AlwaysOn Availability Groups inside the SQL Server Configuration Manager, follow these steps:
-- Click on the AlwaysOn High Availability tab
-- Use the Checkbox to enable AlwaysOn Availability Groups.
-- Click OK.
+4. On SQL Server Configuration Manager properties window, select the AlwaysOn High Availability tab.
+5. Use the Checkbox to enable AlwaysOn Availability Groups.
+6. Select OK.
 
-:::image type="content" source="./media/managed-instance-link-preparation/always-on-availability-groups-properties.png" alt-text="Screenshot showing always on availability groups properties.":::
+    :::image type="content" source="./media/managed-instance-link-preparation/always-on-availability-groups-properties.png" alt-text="Screenshot showing always on availability groups properties.":::
 
-- A dialog notification will say SQL Server service needs to be restarted for changes to take place.
-- Close the dialog (click OK)
-- Restart the SQL Service now, or you can do this as a final step.
+7. A dialog notification will say SQL Server service needs to be restarted for changes to take place.
+8. Close the dialog (select OK)
+9. Restart the SQL Service now. Alternatively, you can postpone server restart to be the final step.
 
 ### Enable feature Trace Flags at startup on SQL Server
 
-For optimal performance of Manage Instance link feature it is highly recommended to enable 1800 and 9567. Here are details on these trace flags and their functionality:
-- 1800 – Highly recommended. This trace flag enables SQL Server optimization when disks of different sector sizes are used for primary and secondary replica log files, in SQL Server AlwaysOn environments. This trace flag is only required to be enabled on SQL Server instances with transaction log file residing on disk with sector size of 512 bytes. It is not required to be enabled on disk with 4k sector sizes. For more information, see [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c).
+For optimal performance of Manage Instance link feature, it's highly recommended to enable 1800 and 9567. Here are details on these trace flags and their functionality:
+- 1800 – Highly recommended. This trace flag enables SQL Server optimization when disks of different sector sizes are used for primary and secondary replica log files, in SQL Server AlwaysOn environments. This trace flag improves preformance on SQL Server instances with transaction log file residing on disk with sector size of 512 bytes. It isn't required to be enabled on disk with 4k sector sizes. For more information, see [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c).
 - 9567 – Highly recommended for large databases. This trace flag enables compression of the data stream for AlwaysOn Availability Groups during automatic seeding. Compression can significantly reduce the transfer time during automatic seeding and will increase the load on the processor.
 
-Detailed official instructions for enabling SQL Server trace flags can be found [here](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql). In the following paragraphs we will describe how this can be done.
-Recommended way to enable trace flags which will persist through the SQL Server restart is through the SQL Server Configuration Manager.
+Detailed official instructions for enabling SQL Server trace flags can be found [here](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql). In the following paragraphs, we'll describe how traceflags can be set.
+Recommended way to enable trace flags, which will persist through the SQL Server restart, is through the SQL Server Configuration Manager.
 To enable the trace flags on a SQL Server, follow the steps:
 - Start SQL Server Configuration Manager.
-- Click on the SQL Server Services.
-- Right-click on the SQL Server, then go Properties.
+- select on the SQL Server Services.
+- Right-select on the SQL Server, then go Properties.
     :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-properties.png" alt-text="Screenshot showing SQL Server configuration manager.":::
-- Go to Startup Parameters tab.
-- Enter trace flag -T1800 and click Add button.
-- Enter trace flag -T9567 and click Add button.
-- Click OK.
+- Go to **Startup Parameters** tab.
+- Enter trace flag -T1800 and select Add button.
+- Enter trace flag -T9567 and select Add button.
+- select OK.
 
-:::image type="content" source="./media/managed-instance-link-preparation/startup-parameters-properties.png" alt-text="Screenshot showing Startup parameter properties.":::
+    :::image type="content" source="./media/managed-instance-link-preparation/startup-parameters-properties.png" alt-text="Screenshot showing Startup parameter properties.":::
 
 ### Restart the SQL Server and validate SQL Server configuration.
 
-After performing the above configuration steps, restart your SQL Server. To do this, go to SQL Server Configuration Manager, right click on the SQL Server, and then go Restart.
+After performing the above configuration steps, restart your SQL Server. To do this, go to SQL Server Configuration Manager, right select on the SQL Server, and then go Restart.
     :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-restart.png" alt-text="Screenshot showing SQL Server restart command call.":::
 
-After the restart use these steps to validate that SQL Server configuration has been successfully completed. With the following T-SQL you will verify that you are running:
+After the restart use these steps to validate that SQL Server configuration has been successfully completed. With the following T-SQL you'll verify that you're running:
 - Supported version of SQL Server
 - Hadron AlwaysOn is enabled
 - Recommended trace flags are turned on
@@ -138,30 +138,30 @@ For Managed Instance link to work, network connectivity between the SQL Server a
 
 ### SQL Server in Azure (VNet)
 
-If you can deploy SQL Server in Azure VM in the same Azure VNet that is hosting Managed Instance, this will provide automatic connectivity between the two. See detailed tutorial how to [Deploy and configure an Azure VM to connect to Azure SQL Managed Instance](./connect-vm-instance-configure.md).
+If you can deploy SQL Server in Azure VM in the same Azure VNet that is hosting SQL Managed Instance, there will be network connectivity between the two servers. See detailed tutorial how to [Deploy and configure an Azure VM to connect to Azure SQL Managed Instance](./connect-vm-instance-configure.md).
 
 > [!TIP]
 > The easiest way to use the Managed Instance Link is through provisioning a new SQL Server 2019 VM into the same VNET where your Managed Instance is deployed. The VM will be placed in the same virtual network as Managed Instance. 
 
-In case our SQL Server in Azure VM is deployed on another Azure VNet use [Global VNet peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913) to connect the two Azure VNETs. Please note that Global VNET peering is available to Managed Instances provisioned since November 2020 and onwards out of the box. In case you are using an older Managed Instance, please let us know via email to enable this for your older instance.
+In case our SQL Server in Azure VM is deployed on another Azure VNet use [Global VNet peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913) to connect the two Azure VNETs. Note that Global VNET peering is available to Managed Instances provisioned since November 2020 and onwards out of the box. In case you're using an older Managed Instance, raise a support ticket to have Global VNET peering enableed.
 
 ### SQL Server outside of Azure (VNet)
 
-In case that you are using SQL Server that is not hosted on Azure and is not within Azure VNet there has to be a VPN connection established using one of the following:
+In case that you're using SQL Server isn't within Azure VNet, a VPN connection needs to be established. Here are available options:
 - [Site-to-site virtual private network (VPN) connection](https://docs.microsoft.com/office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network)
 - [Azure Express Route connection](https://azure.microsoft.com/services/expressroute/)
 
 > [!TIP]
-> For the best networking performance in replicating data, we recommend Azure Express Route connection. Please ensure that you provision a gateway of a sufficiently large bandwidth for your use case.
+> For the best networking performance in replicating data, we recommend Azure Express Route connection. Please ensure to provision a gateway of a sufficiently large bandwidth for your use case.
 
 ### Open network ports between the environments
 
-Networking ports, both inbound and outbound, need to be opened with the SQL Server and SQL Managed Instance environments to enable communication for the SQL Managed Instance Link.
-To open the following network ports on both SQL Server and SQL Managed do the following:
+Inbound and outbound network ports need to be allowed on SQL Server and SQL Managed Instance environments to enable bidirectional communication.
+Here are instructions on how to open the following network ports on both environments.
 
 |Environment                      |What to do                                                                                                                                                                                             |
 |:--------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|SQL Server environment           |Open the inbound port 5022 on the network firewall guarding the SQL Server to the entire subnet of Managed Instance in Azure. If required, to the same on the Windows firewall hosting the SQL Server. |
+|SQL Server environment           |Open the inbound port 5022 on the network firewall guarding the SQL Server to the entire subnet of SQL Managed Instance. If necessary, to the same on the Windows firewall hosting the SQL Server. |
 |SQL Managed Instance environment |Open NSG in Azure portal for inbound port 5022 to the IP address of the SQL Server.                                                                                                                    |
 
 On SQL Server host machine, ports can be allowed in Windows firewall with following PowerShell script.
@@ -171,16 +171,16 @@ On SQL Server host machine, ports can be allowed in Windows firewall with follow
     New-NetFirewallRule -DisplayName "Allow TCP port 5022 outbound" -Direction outbound -Profile Any -Action Allow -LocalPort 5022 -Protocol TCP
 ```
 
-After this, on Azure Portal open Network Security Group for the Subnet of the VNet that is hosting the Managed Instance, and there allow inbound and outbound traffic on port 5022.
-The port 5022 is a standard port used for AlwaysOn High Availability data replication for the SQL Server. The same port is used for Availability group and Distributed Availability Group connectivity. This port cannot be changed or customized.
+On Azure portal open Network Security Group for the Subnet of the VNet that is hosting the Managed Instance, and there allow inbound and outbound traffic on port 5022.
+The port 5022 is a standard port used for AlwaysOn High Availability data replication for the SQL Server. The same port is used for Availability group and Distributed Availability Group connectivity. This port can't be changed or customized.
 
 ### Test bidirectional network connectivity on the port 5022
 
-Network connectivity through the port 5022 needs to work from SQL Server to Managed Instance, and vice versa. In case of troubleshooting, ensure that firewall ports are opened on the SQL Server side, and Network Security Groups (NSGs) are configured for the Azure SQL Managed Instance or SQL Server in Azure SQL VM.
+Network connectivity through the port 5022 needs to work from SQL Server to Managed Instance, and vice versa. The following process will test connectivity and verify that firewall ports are opened on the SQL Server side, and Network Security Groups (NSGs) are configured for the Azure SQL Managed Instance or SQL Server in Azure SQL VM.
 
 #### Verify the network connectivity from SQL Server to SQL Managed Instance
 
-To check if SQL Server can reach Managed Instance use tnc command in PowerShell from SQL Server host machine. Replace <ManagedInstanceFQDN> with the fully qualified domain name of Azure SQL Managed Instance.
+To check if SQL Server can reach Managed Instance use `tnc` command in PowerShell from SQL Server host machine. Replace <ManagedInstanceFQDN> with the fully qualified domain name of Azure SQL Managed Instance.
 
 ```powershell
     tnc <ManagedInstanceFQDN> -port 5022
@@ -190,12 +190,12 @@ Successful test will show TcpTestSucceeded True.
 
 :::image type="content" source="./media/managed-instance-link-preparation/powershell-output-tnc-command.png" alt-text="Screenshot showing output of tnc command in PowerShell.":::
 
-In case of unsuccessful response, troubleshoot the following:
+If there is unsuccessful response, here is what you can check:
 - Are NSG rules allowing communication on port 5022?
 
 #### Verify the network connectivity from SQL Managed Instance to SQL Server
 
-To check if Managed Instance can reach SQL Server create a test endpoint and use the SQL Agent PowerShell script with tnc command pinging SQL Server on the port 5022.
+To check if Managed Instance can reach SQL Server create a test endpoint and use the SQL Agent PowerShell script with `tnc` command pinging SQL Server on the port 5022.
 
 Connect to the Managed Instance and execute following T-SQL to create test endpoint.
 
@@ -247,7 +247,7 @@ Connect to Managed Instance and execute following T-SQL to create new SQL Agent 
     EXEC msdb.dbo.sp_start_job @job_name = N'NetHelper'
 ```
 
-Execute the agent job either using SSMS (right lick on the job and Start as job step), or through the following T-SQL command.
+Execute the agent job by running the following T-SQL command.
 ```sql
     EXEC msdb.dbo.sp_start_job @job_name = N'NetHelper'
 ```
@@ -267,7 +267,7 @@ Execute the following query to show the log of the Agent job.
         sj.name = 'NetHelper'
 ```
 
-The result from executing the TNC (Test Network Connection) will be False if no connection from Managed Instance to the destination IP could made on the port 5022. In case of a successful connection, the log will show True, otherwise False.
+The result from executing the `tnc` (test network connection) will be False if no connection from Managed Instance to the destination IP could made on the port 5022. If the connection is successful, the log will show True, otherwise False.
 
 :::image type="content" source="./media/managed-instance-link-preparation/ssms-output-tnchelper.png" alt-text="Screenshot showing expected output of NetHelper SQL Agent job.":::
 
@@ -280,12 +280,13 @@ Finally, drop the test endpoint and certificate.
     GO
 ```
 
-If the log does not show True, troubleshoot the following:
+If the log doesn't show True, here is what you can check:
 - Is firewall on SQL Server host allowing inbound and outbound communication on port 5022?
-- Are Managed Instance NSGs allowing communication on port 5022? If is SQL Server is hosted on Azure SQL VM, are Azure SQL VM NSGs allowing communication on port 5022.
+- Are Managed Instance NSGs allowing communication on port 5022?
+- If SQL Server is hosted on Azure SQL VM, are Azure SQL VM NSGs allowing communication on port 5022?
 - Is SQL Server running?
 
-With this we have ensured that network connectivity on the port 5022 exists both from SQL Server to Managed Instance and from Managed Instance to SQL Server.
+With this, we've verified that there is bidirectional network connectivity on the port 5022 between SQL Server and SQL Managed Instance.
 
 > [!IMPORTANT]
 > Only if the network connectivity check has passed, proceed with the next steps. Otherwise, please troubleshoot networking connectivity issues first before proceeding any further.
@@ -293,7 +294,7 @@ With this we have ensured that network connectivity on the port 5022 exists both
 ## Install SSMS with Managed Instance link functionality
 
 SSMS with Managed Instance link wizard is the easiest and the most recommended way to use Managed Instance link. Download SSMS version 18.11.1 (or newer) from this [link](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and install it on your client machine.
-Once the installation is complete, start SSMS and connect to you SQL Server that is prepared for Managed Instance link. In the context menu of a user database, you will find “Azure SQL Managed Instance link” option.
+Once the installation is complete, start SSMS and connect to SQL Server that is prepared for Managed Instance link. In the context menu of a user database, you'll find “Azure SQL Managed Instance link” option.
 
 :::image type="content" source="./media/managed-instance-link-preparation/ssms-database-context-menu-managed-instance-link.png" alt-text="Screenshot showing Azure SQL Managed Instance link option in the context menu.":::
 
