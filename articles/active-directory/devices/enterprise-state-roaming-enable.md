@@ -83,7 +83,6 @@ The data retention policy isn't configurable. Once the data is permanently delet
 
 ## Next steps
 
-* [Enterprise State Roaming overview](enterprise-state-roaming-overview.md)
 * [Settings and data roaming FAQ](enterprise-state-roaming-faqs.yml)
 * [Group Policy and MDM settings for settings sync](enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 roaming settings reference](enterprise-state-roaming-windows-settings-reference.md)

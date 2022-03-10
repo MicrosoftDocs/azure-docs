@@ -4,7 +4,7 @@ description: Options for managing the Azure Monitor agent (AMA) on Azure virtual
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/27/2022
+ms.date: 03/09/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -32,6 +32,7 @@ We strongly recommended to update to generally available versions listed as foll
 | September 2021 | <ul><li>Fixed issue causing data loss on restarting the agent</li><li>Fixed issue for Arc Windows servers</li></ul> | 1.1.3.2<sup>Hotfix</sup> | 1.12.2.0 <sup>1</sup> |   
 | December 2021 | <ul><li>Fixed issues impacting Linux Arc-enabled servers</li><li>'Heartbeat' table > 'Category' column reports "Azure Monitor Agent" in Log Analytics for Windows</li></ul>  | 1.1.4.0 | 1.14.7.0<sup>2</sup> |  
 | January 2022 | <ul><li>Syslog RFC compliance for Linux</li><li>Fixed issue for Linux perf counters not flowing on restart</li><li>Fixed installation failure on Windows Server 2008 R2 SP1</li></ul> | 1.1.5.1<sup>Hotfix</sup> | 1.15.2.0<sup>Hotfix</sup> |  
+| Feburary 2022 | <ul><li>Bugfixes for the AMA Client installer (private preview)</li><li>Versioning fix to reflect appropriate Windows major/minor/hotfix versions</li></ul> | 1.2.0.0 | Not yet available |  
 
 <sup>Hotfix</sup> Do not use AMA Linux versions v1.10.7, v1.15.1 and AMA Windows v1.1.3.1, v1.1.5.0. Please use hotfixed versions listed above.   
 <sup>1</sup> Known issue: No data collected from Linux Arc-enabled servers  
