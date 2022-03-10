@@ -92,7 +92,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Private Link
-            url: concept-private-link.md
+            url: ../private-link.md
           - text: WAF on Azure Front Door Standard/Premium
             url: ../../web-application-firewall/afds/afds-overview.md
           - text: DDoS protection

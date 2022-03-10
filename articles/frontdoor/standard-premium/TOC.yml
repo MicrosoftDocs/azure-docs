@@ -68,7 +68,7 @@
     - name: End-to-end TLS encryption
       href: ../concept-end-to-end-tls.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Private Link
-      href: concept-private-link.md
+      href: ../private-link.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Web Application Firewall
       items:
       - name: Tuning
