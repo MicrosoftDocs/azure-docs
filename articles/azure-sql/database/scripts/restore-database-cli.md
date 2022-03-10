@@ -13,7 +13,7 @@ ms.reviewer: carlrab, kendralittle, mathoma
 ms.date: 02/11/2022 
 ---
 
-# Use CLI to restore a single database in Azure SQL Database to an earlier point in time
+# Restore a single database in Azure SQL Database to an earlier point in time using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
@@ -29,7 +29,7 @@ This Azure CLI example restores a single database in Azure SQL Database to a spe
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/restore-database/restore-database.sh" range="4-42":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/restore-database/restore-database.sh" id="FullScript":::
 
 ## Clean up resources
 
