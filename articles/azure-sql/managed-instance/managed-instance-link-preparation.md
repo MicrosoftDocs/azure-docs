@@ -58,15 +58,15 @@ If it'sn't SQL Server 2019 CU15 or higher, upgrade your server. SQL Server 2019 
 Run the following T-SQL on SQL Server to understand if AlwaysOn is enabled.
 
 ```sql
-    -- Is HADR enabled on this SQL Server?
-    declare @IsHadrEnabled sql_variant = (select SERVERPROPERTY('IsHadrEnabled'))
-    select
-        @IsHadrEnabled as IsHadrEnabled,
-        case @IsHadrEnabled
-            when 0 then 'The Always On availability groups is disabled.'
-            when 1 then 'The Always On availability groups is enabled.'
-            else 'Unknown status.'
-        end as 'HadrStatus'
+-- Is HADR enabled on this SQL Server?
+declare @IsHadrEnabled sql_variant = (select SERVERPROPERTY('IsHadrEnabled'))
+select
+    @IsHadrEnabled as IsHadrEnabled,
+    case @IsHadrEnabled
+        when 0 then 'The Always On availability groups is disabled.'
+        when 1 then 'The Always On availability groups is enabled.'
+        else 'Unknown status.'
+    end as 'HadrStatus'
 ```
 
 If AlwaysOn isn't enabled, then you'll need to enable it. You can find official detailed instructions for this process [here](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server). In the following paragraphs, we'll explain how Always On can be enabled.
@@ -76,7 +76,7 @@ To enable AlwaysOn on a SQL Server, you need to start the **SQL Server Configura
 2. Select on the SQL Server Services.
 3. Right-select on the SQL Server, then go Properties.
 
-    :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-properties.png" alt-text="Screenshot showing SQL Server configuration manager.":::
+    :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-properties.png" alt-text="Screenshot showing S Q L Server configuration manager.":::
 
 4. On SQL Server Configuration Manager properties window, select the AlwaysOn High Availability tab.
 5. Use the Checkbox to enable AlwaysOn Availability Groups.
@@ -97,21 +97,21 @@ For optimal performance of Manage Instance link feature, it's highly recommended
 Detailed official instructions for enabling SQL Server trace flags can be found [here](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql). In the following paragraphs, we'll describe how traceflags can be set.
 Recommended way to enable trace flags, which will persist through the SQL Server restart, is through the SQL Server Configuration Manager.
 To enable the trace flags on a SQL Server, follow the steps:
-- Start SQL Server Configuration Manager.
-- select on the SQL Server Services.
-- Right-select on the SQL Server, then go Properties.
-    :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-properties.png" alt-text="Screenshot showing SQL Server configuration manager.":::
-- Go to **Startup Parameters** tab.
-- Enter trace flag -T1800 and select Add button.
-- Enter trace flag -T9567 and select Add button.
-- select OK.
+1. Start SQL Server Configuration Manager.
+2. Select SQL Server Services.
+3. Open the SQL Server context menu, then select Properties.
+    :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-properties.png" alt-text="Screenshot showing S Q L Server configuration manager.":::
+4. Go to **Startup Parameters** tab.
+5. Enter trace flag -T1800 and select Add button.
+6. Enter trace flag -T9567 and select Add button.
+7. Select OK.
 
     :::image type="content" source="./media/managed-instance-link-preparation/startup-parameters-properties.png" alt-text="Screenshot showing Startup parameter properties.":::
 
 ### Restart the SQL Server and validate SQL Server configuration.
 
 After performing the above configuration steps, restart your SQL Server. To do this, go to SQL Server Configuration Manager, right select on the SQL Server, and then go Restart.
-    :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-restart.png" alt-text="Screenshot showing SQL Server restart command call.":::
+    :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-restart.png" alt-text="Screenshot showing S Q L Server restart command call.":::
 
 After the restart use these steps to validate that SQL Server configuration has been successfully completed. With the following T-SQL you'll verify that you're running:
 - Supported version of SQL Server
@@ -120,17 +120,17 @@ After the restart use these steps to validate that SQL Server configuration has 
 
 Execute the following T-SQL query:
 ```sql
-    -- Shows the version and CU of the SQL Server
-    SELECT @@VERSION
-    
-    -- Shows if AlwaysOn feature is enabled on SQL Server
-    SELECT SERVERPROPERTY ('IsHadrEnabled')
-    
-    -- Lists all trace flags enabled on the SQL Server
-    DBCC TRACESTATUS
+-- Shows the version and CU of the SQL Server
+SELECT @@VERSION
+
+-- Shows if AlwaysOn feature is enabled on SQL Server
+SELECT SERVERPROPERTY ('IsHadrEnabled')
+
+-- Lists all trace flags enabled on the SQL Server
+DBCC TRACESTATUS
 ```
 Below is an example of expected output for SQL Server 2019 with CU15.
-    :::image type="content" source="./media/managed-instance-link-preparation/ssms-results-expected-outcome.png" alt-text="Screenshot showing expected outcome in SSMS.":::
+    :::image type="content" source="./media/managed-instance-link-preparation/ssms-results-expected-outcome.png" alt-text="Screenshot showing expected outcome in S S M S.":::
 
 ## Enabling network connectivity between SQL Server and Managed Instance 
 
@@ -166,9 +166,8 @@ Here are instructions on how to open the following network ports on both environ
 
 On SQL Server host machine, ports can be allowed in Windows firewall with following PowerShell script.
 ```powershell
-    New-NetFirewallRule -DisplayName "Allow TCP port 5022 inbound" -Direction inbound -Profile Any -Action Allow -LocalPort 5022 -Protocol TCP
-
-    New-NetFirewallRule -DisplayName "Allow TCP port 5022 outbound" -Direction outbound -Profile Any -Action Allow -LocalPort 5022 -Protocol TCP
+New-NetFirewallRule -DisplayName "Allow TCP port 5022 inbound" -Direction inbound -Profile Any -Action Allow -LocalPort 5022 -Protocol TCP
+New-NetFirewallRule -DisplayName "Allow TCP port 5022 outbound" -Direction outbound -Profile Any -Action Allow -LocalPort 5022 -Protocol TCP
 ```
 
 On Azure portal open Network Security Group for the Subnet of the VNet that is hosting the Managed Instance, and there allow inbound and outbound traffic on port 5022.
@@ -183,7 +182,7 @@ Network connectivity through the port 5022 needs to work from SQL Server to Mana
 To check if SQL Server can reach Managed Instance use `tnc` command in PowerShell from SQL Server host machine. Replace <ManagedInstanceFQDN> with the fully qualified domain name of Azure SQL Managed Instance.
 
 ```powershell
-    tnc <ManagedInstanceFQDN> -port 5022
+tnc <ManagedInstanceFQDN> -port 5022
 ```
 
 Successful test will show TcpTestSucceeded True.
@@ -200,84 +199,84 @@ To check if Managed Instance can reach SQL Server create a test endpoint and use
 Connect to the Managed Instance and execute following T-SQL to create test endpoint.
 
 ```sql
-    -- Create certificate needed for the test endpoint
-    USE MASTER
-    CREATE CERTIFICATE TEST_CERT
-    WITH SUBJECT = N'Certificate for SQL Server',
-    EXPIRY_DATE = N'3/30/2051'
-    GO
-    
-    -- Create test endpoint
-    USE MASTER
-    CREATE ENDPOINT TEST_ENDPOINT
-        STATE=STARTED   
-        AS TCP (LISTENER_PORT=5022, LISTENER_IP = ALL)
-        FOR DATABASE_MIRRORING (
-            ROLE=ALL,
-            AUTHENTICATION = CERTIFICATE TEST_CERT, 
-            ENCRYPTION = REQUIRED ALGORITHM AES
-        )
+-- Create certificate needed for the test endpoint
+USE MASTER
+CREATE CERTIFICATE TEST_CERT
+WITH SUBJECT = N'Certificate for SQL Server',
+EXPIRY_DATE = N'3/30/2051'
+GO
+
+-- Create test endpoint
+USE MASTER
+CREATE ENDPOINT TEST_ENDPOINT
+    STATE=STARTED   
+    AS TCP (LISTENER_PORT=5022, LISTENER_IP = ALL)
+    FOR DATABASE_MIRRORING (
+        ROLE=ALL,
+        AUTHENTICATION = CERTIFICATE TEST_CERT, 
+        ENCRYPTION = REQUIRED ALGORITHM AES
+    )
 ```
 
 Connect to Managed Instance and execute following T-SQL to create new SQL Agent job called “NetHelper”.
 
 ```sql
-    -- SQL_SERVER_ADDRESS should be public IP address, or DNS name that can be resolved from the Managed Instance host machine.
-    DECLARE @SQLServerIpAddress NVARCHAR(MAX) = '<SQL_SERVER_ADDRESS>'
-    DECLARE @tncCommand NVARCHAR(MAX) = 'tnc ' + @SQLServerIpAddress + ' -port 5022 -InformationLevel Quiet'
-    DECLARE @jobId BINARY(16)
-    
-    EXEC msdb.dbo.sp_add_job @job_name=N'NetHelper', 
-        @enabled=1, 
-        @description=N'Test Managed Instance to SQL Server network connectivity on port 5022.', 
-        @category_name=N'[Uncategorized (Local)]', 
-        @owner_login_name=N'cloudSA', @job_id = @jobId OUTPUT
-    
-    EXEC msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'tnc step', 
-        @step_id=1, 
-        @os_run_priority=0, @subsystem=N'PowerShell', 
-        @command = @tncCommand, 
-        @database_name=N'master', 
-        @flags=40
-    
-    EXEC msdb.dbo.sp_update_job @job_id = @jobId, @start_step_id = 1
-    
-    EXEC msdb.dbo.sp_add_jobserver @job_id = @jobId, @server_name = N'(local)'
-    
-    EXEC msdb.dbo.sp_start_job @job_name = N'NetHelper'
+-- SQL_SERVER_ADDRESS should be public IP address, or DNS name that can be resolved from the Managed Instance host machine.
+DECLARE @SQLServerIpAddress NVARCHAR(MAX) = '<SQL_SERVER_ADDRESS>'
+DECLARE @tncCommand NVARCHAR(MAX) = 'tnc ' + @SQLServerIpAddress + ' -port 5022 -InformationLevel Quiet'
+DECLARE @jobId BINARY(16)
+
+EXEC msdb.dbo.sp_add_job @job_name=N'NetHelper', 
+    @enabled=1, 
+    @description=N'Test Managed Instance to SQL Server network connectivity on port 5022.', 
+    @category_name=N'[Uncategorized (Local)]', 
+    @owner_login_name=N'cloudSA', @job_id = @jobId OUTPUT
+
+EXEC msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'tnc step', 
+    @step_id=1, 
+    @os_run_priority=0, @subsystem=N'PowerShell', 
+    @command = @tncCommand, 
+    @database_name=N'master', 
+    @flags=40
+
+EXEC msdb.dbo.sp_update_job @job_id = @jobId, @start_step_id = 1
+
+EXEC msdb.dbo.sp_add_jobserver @job_id = @jobId, @server_name = N'(local)'
+
+EXEC msdb.dbo.sp_start_job @job_name = N'NetHelper'
 ```
 
 Execute the agent job by running the following T-SQL command.
 ```sql
-    EXEC msdb.dbo.sp_start_job @job_name = N'NetHelper'
+EXEC msdb.dbo.sp_start_job @job_name = N'NetHelper'
 ```
 
 Execute the following query to show the log of the Agent job.
 
 ```sql
-    SELECT 
-        sj.name JobName, sjs.step_id, sjs.step_name, sjsl.log, sjsl.date_modified
-    FROM
-        msdb.dbo.sysjobs sj
-        LEFT OUTER JOIN msdb.dbo.sysjobsteps sjs
-        ON sj.job_id = sjs.job_id
-        LEFT OUTER JOIN msdb.dbo.sysjobstepslogs sjsl
-        ON sjs.step_uid = sjsl.step_uid
-    WHERE
-        sj.name = 'NetHelper'
+SELECT 
+    sj.name JobName, sjs.step_id, sjs.step_name, sjsl.log, sjsl.date_modified
+FROM
+    msdb.dbo.sysjobs sj
+    LEFT OUTER JOIN msdb.dbo.sysjobsteps sjs
+    ON sj.job_id = sjs.job_id
+    LEFT OUTER JOIN msdb.dbo.sysjobstepslogs sjsl
+    ON sjs.step_uid = sjsl.step_uid
+WHERE
+    sj.name = 'NetHelper'
 ```
 
 The result from executing the `tnc` (test network connection) will be False if no connection from Managed Instance to the destination IP could made on the port 5022. If the connection is successful, the log will show True, otherwise False.
 
-:::image type="content" source="./media/managed-instance-link-preparation/ssms-output-tnchelper.png" alt-text="Screenshot showing expected output of NetHelper SQL Agent job.":::
+:::image type="content" source="./media/managed-instance-link-preparation/ssms-output-tnchelper.png" alt-text="Screenshot showing expected output of NetHelper S Q L Agent job.":::
 
 Finally, drop the test endpoint and certificate.
 
 ```sql
-    DROP ENDPOINT TEST_ENDPOINT
-    GO
-    DROP CERTIFICATE TEST_CERT
-    GO
+DROP ENDPOINT TEST_ENDPOINT
+GO
+DROP CERTIFICATE TEST_CERT
+GO
 ```
 
 If the log doesn't show True, here is what you can check:
@@ -296,7 +295,7 @@ With this, we've verified that there is bidirectional network connectivity on th
 SSMS with Managed Instance link wizard is the easiest and the most recommended way to use Managed Instance link. Download SSMS version 18.11.1 (or newer) from this [link](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and install it on your client machine.
 Once the installation is complete, start SSMS and connect to SQL Server that is prepared for Managed Instance link. In the context menu of a user database, you'll find “Azure SQL Managed Instance link” option.
 
-:::image type="content" source="./media/managed-instance-link-preparation/ssms-database-context-menu-managed-instance-link.png" alt-text="Screenshot showing Azure SQL Managed Instance link option in the context menu.":::
+:::image type="content" source="./media/managed-instance-link-preparation/ssms-database-context-menu-managed-instance-link.png" alt-text="Screenshot showing Azure S Q L Managed Instance link option in the context menu.":::
 
 ## Next steps
 
