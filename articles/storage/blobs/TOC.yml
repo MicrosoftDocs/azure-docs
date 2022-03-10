@@ -119,7 +119,15 @@ items:
     - name: Azure PowerShell
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
-      href: storage-samples-blobs-cli.md
+      items:
+      - name: Overview
+        href: storage-samples-blobs-cli.md
+      - name: Retrieve/rotate the access keys
+        href: ../scripts/storage-common-rotate-account-keys-cli.md
+      - name: Calculate size of Blob storage container
+        href: ../scripts/storage-blobs-container-calculate-size-cli.md
+      - name: Delete containers with a specific prefix
+        href: ../scripts/storage-blobs-container-delete-by-prefix-cli.md
     - name: Azure Resource Graph queries
       href: ../common/resource-graph-samples.md
   - name: Concepts
