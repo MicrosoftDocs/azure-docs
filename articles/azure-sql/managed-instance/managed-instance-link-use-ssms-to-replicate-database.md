@@ -21,7 +21,8 @@ This article teaches you to use the [Managed Instance link feature](link-feature
 
 Before configuring replication for your database through the link feature, make sure you've [prepared your environment](managed-instance-link-preparation.md). 
 
-Managed Instance link is currently in public preview.
+> [!NOTE]
+> The link feature for Azure SQL Managed Instance is currently in preview. 
 
 ## Prerequisites 
 
