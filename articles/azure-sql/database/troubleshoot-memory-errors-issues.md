@@ -167,10 +167,6 @@ Refer to the document that explains how to use the [Extended Events New Session 
 
 The capture of memory grant blocks, memory grant spills, or excessive memory grants could be potential clue to a query suddenly taking on more memory than it had in the past, and a potential explanation for an emergent out of memory error in an existing workload.
 
-#### The summarized_oom_snapshot extended event
-
-The `summarized_oom_snapshot` extended event is a part of the existing `system_health` event session to simplify detection. This event appears when out of memory (OOM) events are detected. Refer to the event descriptions or [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events) for cause and factor definitions.
-
 ### In-memory OLTP out of memory 
 
 You may encounter `Error code 41805: There is insufficient memory in the resource pool '%ls' to run this operation` if using In-Memory OLTP. Reduce the amount of data in memory-optimized tables and memory-optimized table-valued parameters, or scale up the database to a higher service objective to have more memory. For more information on out of memory issues with SQL Server In-Memory OLTP, see [Resolve Out Of Memory issues](/sql/relational-databases/in-memory-oltp/resolve-out-of-memory-issues).
