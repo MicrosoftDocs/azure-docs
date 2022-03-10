@@ -772,8 +772,6 @@
               href: reference-yaml-job-sweep.md
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
-            - name: Component
-              href: reference-yaml-job-component.md
         - name: Datastore
           items:
             - name: Azure Blob
