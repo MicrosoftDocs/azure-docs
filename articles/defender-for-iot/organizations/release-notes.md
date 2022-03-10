@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 02/15/2022
+ms.date: 03/10/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -35,6 +35,14 @@ The Defender for IoT sensor and on-premises management console update packages i
 | 10.5.2 | 10/2021 | 07/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.4 | 12/2021 | 09/2022 |
+
+## March 2022
+
+### IoT OT Threat Monitoring with Defender for IoT solution GA
+
+The IoT OT Threat Monitoring with Defender for IoT solution in Microsoft Sentinel is now GA. Use this solution to help secure your entire OT environment, whether you need to protect existing OT devices or build security into new OT innovations.
+
+For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md) and [Tutorial: Integrate Defender for IoT and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended).
 
 ## February 2022
 
