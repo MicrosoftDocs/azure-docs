@@ -4,8 +4,8 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/18/2022
-ms.author: thweiss 
+ms.date: 02/25/2022
+ms.author: thweiss
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -314,7 +314,59 @@ Because a system-assigned managed identity can only be retrieved after the creat
         --assign-identity <identity-resource-id>
         --default-identity "UserAssignedIdentity=<identity-resource-id>"  
     ```
+    
+## Use CMK with continuous backup
 
+You can create a continuous backup account by using the Azure CLI or an Azure Resource Manager template.
+
+Currently, only user-assigned managed identity is supported for creating continuous backup accounts. 
+
+### To create a continuous backup account by using the Azure CLI
+
+```azurecli
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --key-uri $keyVaultKeyUri \
+    --locations regionName=<Location> \
+    --assign-identity <identity-resource-id> \
+    --default-identity "UserAssignedIdentity=<identity-resource-id>" \
+    --backup-policy-type Continuous 
+```
+
+### To create a continuous backup account by using an Azure Resource Manager template
+
+When you create a new Azure Cosmos account through an Azure Resource Manager template:
+
+- Pass the URI of the Azure Key Vault key that you copied earlier under the **keyVaultKeyUri** property in the **properties** object.
+- Use **2021-11-15** or later as the API version.
+
+> [!IMPORTANT]
+> You must set the `locations` property explicitly for the account to be successfully created with customer-managed keys as shown in the preceding example.
+
+```json
+ {
+    "type": "Microsoft.DocumentDB/databaseAccounts",
+    "identity": {
+        "type": "UserAssigned",
+        "backupPolicy": {"type": "Continuous"},
+        "userAssignedIdentities": {
+            "<identity-resource-id>": {}
+        }
+    },
+    // ...
+    "properties": {
+        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
+        "keyVaultKeyUri": "<key-vault-key-uri>"
+        // ...
+    }
+}
+```
+    
 ## Key rotation
 
 Rotating the customer-managed key used by your Azure Cosmos account can be done in two ways.
@@ -406,7 +458,18 @@ Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restor
 
 The following conditions are necessary to successfully restore a periodic backup:
 - The encryption key that you used at the time of the backup is required and must be available in Azure Key Vault. This means that no revocation was made and the version of the key that was used at the time of the backup is still enabled.
-- If you [used a system-assigned managed identity in the Azure Key Vault access policy](#to-use-a-system-assigned-managed-identity) of the source account, you must temporarily grant access to the Azure Cosmos DB first-party identity in that access policy as described [here](#add-access-policy) before restoring your data. Once the data is fully restored to the target account, you can remove the first-party identity from the Key Vault access policy and set your desired identity configuration.
+- If you [used a system-assigned managed identity in the Azure Key Vault access policy](#to-use-a-system-assigned-managed-identity) of the source account, you must temporarily grant access to the Azure Cosmos DB first-party identity in that access policy as described [here](#add-access-policy) before restoring your data. This is because a system-assigned managed identity is specific to an account and cannot be re-used in the target account. Once the data is fully restored to the target account, you can set your desired identity configuration and remove the first-party identity from the Key Vault access policy.
+
+### How do customer-managed keys affect continuous backups?
+
+Azure Cosmos DB gives you the option to configure [continuous backups](./continuous-backup-restore-introduction.md) on your account. With continuous backups, you can restore your data to any point in time within the past 30 days. To use continuous backups on an account where customer-managed keys are enabled, you must [use a user-assigned managed identity](#to-use-a-user-assigned-managed-identity) in the Key Vault access policy; the Azure Cosmos DB first-party identity or a system-assigned managed identity aren't currently supported on accounts using continuous backups.
+
+The following conditions are necessary to successfully perform a point-in-time restore:
+- The encryption key that you used at the time of the backup is required and must be available in Azure Key Vault. This means that no revocation was made and the version of the key that was used at the time of the backup is still enabled.
+- You must ensure that the user-assigned managed identity originally used on the source account is still declared in the Key Vault access policy.
+
+> [!IMPORTANT]
+> If you revoke the encryption key before deleting your account, your account's backup may miss the data written up to 1 hour before the revocation was made.
 
 ### How do I revoke an encryption key?
 

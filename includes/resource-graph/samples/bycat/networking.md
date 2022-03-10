@@ -2,7 +2,7 @@
 author: georgewallace
 ms.service: resource-graph
 ms.topic: include
-ms.date: 01/20/2022
+ms.date: 02/16/2022
 ms.author: gwallace
 ms.custom: generated
 ---

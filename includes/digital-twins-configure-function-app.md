@@ -29,26 +29,26 @@ The lifecycle of this type of managed identity is tied to the lifecycle of this 
 
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal. The function app's name is in the portal search bar, and the search result is highlighted.":::
 
-1. On the function app page, in the menu on the left, select __Identity__ to work with a managed identity for the function. On the __System assigned__ page, verify that the __Status__ is set to **On**. If it's not, set it now and then **Save** the change.
+1. On the function app page, in the menu on the left, select **Identity** to work with a managed identity for the function. On the **System assigned** page, verify that the **Status** is set to **On**. If it's not, set it now and then **Save** the change.
 
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/verify-system-managed-identity.png" alt-text="Screenshot of the Azure portal. On the Identity page for the function app, the Status option is set to On." lightbox="../articles/digital-twins/media/includes/azure-functions/verify-system-managed-identity.png":::
 
-1. Select __Azure role assignments__.
+1. Select **Azure role assignments**.
 
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal. On the Azure Function's Identity page, under Permissions, the button Azure role assignments is highlighted." lightbox="../articles/digital-twins/media/includes/azure-functions/add-role-assignment-1.png":::
 
-    Select __+ Add role assignment (Preview)__.
+    Select **+ Add role assignment (Preview)**.
 
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/add-role-assignment-2.png" alt-text="Screenshot of the Azure portal. On the Azure role assignments page, the button Add role assignment (Preview) is highlighted." lightbox="../articles/digital-twins/media/includes/azure-functions/add-role-assignment-2.png":::
 
-1. On the __Add role assignment (Preview)__ page, select the following values:
+1. On the **Add role assignment (Preview)** page, select the following values:
 
-    * **Scope**: _Resource group_
+    * **Scope**: **Resource group**
     * **Subscription**: Select your Azure subscription.
     * **Resource group**: Select your resource group.
-    * **Role**: _Azure Digital Twins Data Owner_
+    * **Role**: **Azure Digital Twins Data Owner**
 
-    Save the details by selecting __Save__.
+    Save the details by selecting **Save**.
 
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/add-role-assignment-3.png" alt-text="Screenshot of the Azure portal, showing how to add a new role assignment. The dialog shows fields for Scope, Subscription, Resource group, and Role.":::
 
@@ -59,8 +59,8 @@ To make the URL of your Azure Digital Twins instance accessible to your function
 To set an environment variable with the URL of your instance, first find your instance's host name: 
 
 1. Search for your instance in the [Azure portal](https://portal.azure.com). 
-1. In the menu on the left, select __Overview__. 
-1. Copy the __Host name__ value.
+1. In the menu on the left, select **Overview**. 
+1. Copy the **Host name** value.
 
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/instance-host-name.png" alt-text="Screenshot of the Azure portal. On the instance's Overview page, the host name value is highlighted.":::
 
@@ -70,7 +70,7 @@ You can now create an application setting:
 
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal. The function app's name is being searched in the portal search bar. The search result is highlighted.":::
 
-1. On the left, select __Configuration__. Then on the __Application settings__ tab, select __+ New application setting__.
+1. On the left, select **Configuration**. Then on the **Application settings** tab, select **+ New application setting**.
 
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/application-setting.png" alt-text="Screenshot of the Azure portal. On the Configuration tab for the function app, the button to create a New application setting is highlighted.":::
 
@@ -78,15 +78,15 @@ You can now create an application setting:
     * **Name**: `ADT_SERVICE_URL`
     * **Value**: `https://<your-Azure-Digital-Twins-host-name>`
     
-    Select __OK__ to create an application setting.
+    Select **OK** to create an application setting.
     
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/add-application-setting.png" alt-text="Screenshot of the Azure portal. On the Add/Edit application setting page, the Name and Value fields are filled out. The O K button is highlighted.":::
 
-1. After you create the setting, it should appear on the __Application settings__ tab. Verify that **ADT_SERVICE_URL** appears on the list. Then save the new application setting by selecting __Save__.
+1. After you create the setting, it should appear on the **Application settings** tab. Verify that **ADT_SERVICE_URL** appears on the list. Then save the new application setting by selecting **Save**.
 
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/application-setting-save-details.png" alt-text="Screenshot of the Azure portal. On the application settings tab, the new A D T SERVICE URL setting and the Save button are both highlighted.":::
 
-1. Any changes to the application settings require an application restart, so select __Continue__ to restart your application when prompted.
+1. Any changes to the application settings require an application restart, so select **Continue** to restart your application when prompted.
 
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/save-application-setting.png" alt-text="Screenshot of the Azure portal. A note states that any changes to application settings will restart your application.":::
 

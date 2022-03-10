@@ -84,8 +84,9 @@ To use the `Test-NetConnection` cmdlet, the Azure PowerShell module must be inst
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
-# This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
+# This command requires you to be logged into your Azure account and set the subscription your storage account is under, run:
+# Connect-AzAccount -SubscriptionId ‘xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx’
+# if you haven't already logged in.
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
 # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
@@ -121,7 +122,7 @@ By Setting up a VPN to your specific Storage Account, the traffic will go throug
 #### Solution 3 — Unblock port 445 with help of your ISP/IT Admin
 Work with your IT department or ISP to open port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
-#### Solution 4 — Use REST API-based tools like Storage Explorer/Powershell
+#### Solution 4 — Use REST API-based tools like Storage Explorer/PowerShell
 Azure Files also supports REST in addition to SMB. REST access works over port 443 (standard tcp). There are various tools that are written using REST API that enable rich UI experience. [Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) is one of them. [Download and Install Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and connect to your file share backed by Azure Files. You can also use [PowerShell](./storage-how-to-use-files-portal.md) which also user REST API.
 
 ### Cause 2: NTLMv1 is enabled

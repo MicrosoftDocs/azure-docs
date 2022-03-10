@@ -4,7 +4,7 @@ description: Tutorial on creating near-real time metric alerts on popular log an
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 06/15/2021 
+ms.date: 2/23/2022
 ms.custom: devx-track-azurepowershell
 ---
 

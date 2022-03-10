@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 02/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,7 +15,7 @@ ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Resilience defaults (Preview)
+# Conditional Access: Resilience defaults
 
 If there was an outage of the primary authentication service, the Azure Active Directory (Azure AD) Backup Authentication Service may automatically issue access tokens to applications for existing sessions. This functionality may significantly increase Azure AD resilience, because reauthentications for existing sessions account for more than 90% of authentications to Azure AD. The Backup Authentication Service doesn't support new sessions or authentications by guest users.
 
@@ -24,7 +24,10 @@ For authentications protected by Conditional Access, policies are reevaluated be
 1.	Which Conditional Access policies apply?
 1.	For policies that do apply, were the required controls are satisfied?
 
-During an outage, not all conditions can be evaluated in real time by the Backup Authentication Service to determine whether a Conditional Access policy should apply. Conditional Access resilience defaults are a new session control that lets admins decide whether to block authentications during an outage whenever a policy condition cannot be evaluated in real-time or allow policies to be evaluated using data collected at the beginning of the user’s session. 
+During an outage, not all conditions can be evaluated in real time by the Backup Authentication Service to determine whether a Conditional Access policy should apply. Conditional Access resilience defaults are a new session control that lets admins decide between:
+
+- Whether to block authentications during an outage whenever a policy condition can’t be evaluated in real-time.
+- Allow policies to be evaluated using data collected at the beginning of the user’s session. 
 
 > [!IMPORTANT]
 > Resilience defaults are automatically enabled for all new and existing policies, and Microsoft highly recommends leaving the resilience defaults enabled to mitigate the impact of an outage. Admins may disable resilience defaults for individual Conditional Access policies. 
@@ -58,7 +61,7 @@ When resilience defaults are enabled, the Backup Authentication Service may use 
 
 ## Resilience defaults disabled
 
-When resilience defaults are disabled, the Backup Authentication Service won't use data collected at the beginning of the session to evaluate conditions. During an outage, if a policy condition cannot be evaluated in real-time, access will be denied.
+When resilience defaults are disabled, the Backup Authentication Service won't use data collected at the beginning of the session to evaluate conditions. During an outage, if a policy condition can’t be evaluated in real-time, access will be denied.
 
 **Example**: A policy with resilience defaults disabled requires all global admins accessing the Azure portal to do MFA. Before an outage, if a user who isn't a global admin accesses the Azure portal, the policy wouldn't apply, and the user would be granted access without being prompted for MFA. During an outage, the Backup Authentication Service would reevaluate the policy to determine whether the user should be prompted for MFA. **Since the Backup Authentication Service cannot evaluate role membership in real-time, it would block the user from accessing the Azure Portal.**
 
@@ -67,7 +70,7 @@ When resilience defaults are disabled, the Backup Authentication Service won't u
 
 ## Testing resilience defaults
 
-It isn't possible to conduct a dry run using the Backup Authentication Service or simulate the result of a policy with resilience defaults enabled or disabled at this time. Azure AD will conduct monthly exercises using the Backup Authentication Service and the sign-in logs will display if the Backup Authentication Service was used to issue the access token.
+It isn't possible to conduct a dry run using the Backup Authentication Service or simulate the result of a policy with resilience defaults enabled or disabled at this time. Azure AD will conduct monthly exercises using the Backup Authentication Service. The sign-in logs will display if the Backup Authentication Service was used to issue the access token.
 
 ## Configuring resilience defaults
 
