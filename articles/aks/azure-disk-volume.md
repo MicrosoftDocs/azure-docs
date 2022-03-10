@@ -56,7 +56,7 @@ The disk resource ID is displayed once the command has successfully completed, a
 ```
 
 ## Mount disk as volume
-Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk URI. For example:
+Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk resource ID. For example:
 
 ```yaml
 apiVersion: v1
@@ -72,7 +72,7 @@ spec:
   csi:
     driver: disk.csi.azure.com
     readOnly: false
-    volumeHandle: /subscriptions/{sub-id}/resourcegroups/{group-name}/providers/microsoft.compute/disks/{disk-id}
+    volumeHandle: /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
     volumeAttributes:
       fsType: ext4
 ```
@@ -163,4 +163,3 @@ For more information about AKS clusters interact with Azure disks, see the [Kube
 [azure-files-volume]: azure-files-volume.md
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
-[use-tags]: use-tags.md
