@@ -24,7 +24,7 @@ This sample CLI script scales compute, storage and IOPS for a single Azure Datab
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/monitor-and-scale/monitor-and-scale.sh" range="4-87":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/monitor-and-scale/monitor-and-scale.sh" id="FullScript":::
 
 ## Clean up resources
 
