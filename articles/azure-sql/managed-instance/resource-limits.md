@@ -59,7 +59,6 @@ Support for the premium-series hardware generations (public preview) is currentl
 | Australia Central | Yes | | 
 | Australia East | Yes | Yes | 
 | Canada Central | Yes | | 
-| Canada East | Yes | | 
 | Japan East | Yes | | 
 | Korea Central | Yes | | 
 | North Central US | Yes | | 
