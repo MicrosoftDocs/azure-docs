@@ -17,7 +17,7 @@ ms.date: 03/07/2022
 # Preparation for Azure SQL Managed Instance link
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article will cover how to prepare for Azure SQL Managed Instance link.
+This article provides details on how to prepare for Azure SQL Managed Instance link.
 
 ## Pre-requirements
 Ensure the following requirements are met prior to setting up the link:
@@ -270,6 +270,15 @@ Execute the following query to show the log of the Agent job.
 The result from executing the TNC (Test Network Connection) will be False if no connection from Managed Instance to the destination IP could made on the port 5022. In case of a successful connection, the log will show True, otherwise False.
 
 :::image type="content" source="./media/managed-instance-link-preparation/ssms-output-tnchelper.png" alt-text="Screenshot showing expected output of NetHelper SQL Agent job.":::
+
+Finally, drop the test endpoint and certificate.
+
+```sql
+    DROP ENDPOINT TEST_ENDPOINT
+    GO
+    DROP CERTIFICATE TEST_CERT
+    GO
+```
 
 If the log does not show True, troubleshoot the following:
 - Is firewall on SQL Server host allowing inbound and outbound communication on port 5022?
