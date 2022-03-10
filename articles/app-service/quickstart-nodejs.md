@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Node.js web app'
 description: Deploy your first Node.js Hello World to Azure App Service in minutes.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 09/14/2021
+ms.date: 03/10/2022
 ms.devlang: javascript
 ms.custom: mvc, devcenter, seodec18, mode-api
 #zone_pivot_groups: app-service-ide-oss
@@ -30,7 +30,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 :::zone target="docs" pivot="development-environment-cli"
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-- Install [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
+- Install [Node.js LTS and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in any shell to provision and configure Azure resources.
 
 ::: zone-end
@@ -39,7 +39,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 :::zone target="docs" pivot="development-environment-azure-portal"
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-- Install [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
+- Install [Node.js LTS and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - Have a FTP client (for example, [FileZilla](https://filezilla-project.org)), to connect to your app.
 
 ::: zone-end
@@ -53,14 +53,13 @@ In this step, you create a starter Node.js application and make sure it runs on 
 1. Create a simple Node.js application using the [Express Generator](https://expressjs.com/starter/generator.html), which is installed by default with Node.js and NPM.
 
     ```bash
-    npx express-generator myExpressApp --view pug
+    npx express-generator myExpressApp --view ejs
     ```
 
 1. Change to the application's directory and install the NPM packages.
 
     ```bash
-    cd myExpressApp
-    npm install
+    cd myExpressApp && npm install
     ```
 
 1. Start the development server.
@@ -285,14 +284,14 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 1. From the sample project, open *views/index.pug* and change
 
-    ```PUG
-    p Welcome to #{title}
+    ```html
+    <p>Welcome to <%= title %></p>
     ```
 
     to
     
-    ```PUG
-    p Welcome to Azure!
+    ```html
+    <p>Welcome to Azure</p>
     ```
 
 :::zone target="docs" pivot="development-environment-vscode"
