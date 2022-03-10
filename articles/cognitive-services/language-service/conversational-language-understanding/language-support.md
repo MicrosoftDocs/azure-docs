@@ -43,7 +43,7 @@ The supported languages for conversation projects are:
 | German | `de` 
 | Greek | `el` |
 | English (US) | `en-us` |
-<!-- | English (Uk) | `en-gb` | -->
+| English (Uk) | `en-gb` |
 | Esperanto | `eo` |
 | Spanish | `es` |
 | Estonian | `et` |
