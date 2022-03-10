@@ -5,7 +5,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: tamram
 
 ms.author: tamram
-ms.date: 03/07/2022
+ms.date: 03/10/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -399,6 +399,23 @@ The following example shows a change event record in JSON format that uses event
         }
     }
 }
+```
+
+#### Schema version 5
+
+The following event types may be captured in the change feed records with schema version 5:
+
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
+- BlobTierChanged
+- BlobAsyncOperationInitiated
+
+The following example shows a change event record in JSON format that uses event schema version 5:
+
+```json
+
 ```
 
 <a id="specifications"></a>
