@@ -208,6 +208,42 @@ sections:
         answer: |
               Yes, some examples for internal URLs including ports: `http://app.contoso.local:8888/`, `https://app.contoso.local:8080/`, `https://app.contoso.local:8081/test/`.
 
+      - question: |
+         What are the challenges, if the external and the internal URLs are different?
+        answer: |
+              Some responses sent by the published web applications might contain hard-coded URLs.
+              In this case it must be ensured by using a link translation solution that the client always uses the correct URL.
+              Link translation solutions might be complex and might not work in all the scenarios. You can find [here](application-proxy-configure-hard-coded-link-translation.md) our documented solutions for link translation.
+              
+              As best practice it is advised to use identical external and internal URLs. External and internal URLs are considered to be identical, if the `protocol://hostname:port/path/` in both URLs are identical.
+              
+              This can be achieved by using the [Custom Domains](application-proxy-configure-custom-domain.md) feature.
+              
+              Examples:
+              
+              Identical:
+              ```
+              External URL: https://app1.contoso.com/test/
+              Internal URL: https://app1.contoso.com/test/
+              ```
+              
+              Not identical:
+              
+              ```
+              External URL: https://app1.contoso.com/test/
+              Internal URL:  http://app1.contoso.com/test/
+              
+              External URL: https://app1.contoso.com/test/
+              Internal URL:  https://app1.contoso.com:8080/test/
+              
+              External URL: https://app1.msappproxy.net/test/
+              Internal URL:  https://app1.contoso.com:/test/
+              ```
+              
+              Making the external and internal URLs to be identical is not possible, when the internal URL contains a port number (other than 80 /443) or if different protocols (http / https) must be used in the internal and external URLs.
+              
+              In some scenarios changes must be done in the configuration of the web app.
+
 
   - name: Integrated Windows authentication
     questions:
