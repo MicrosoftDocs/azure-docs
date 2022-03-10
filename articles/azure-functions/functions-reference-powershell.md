@@ -596,7 +596,7 @@ Depending on your use case, Durable Functions may significantly improve scalabil
 
 ### Considerations for using concurrency
 
-PowerShell is a _single threaded_ scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The amount of runspaces created will match the ```PSWorkerInProcConcurrencyUpperBound``` application setting. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
+In version 4.x of the Functions runtime, Powershell max worker thread counts are unbounded. In version 3.x and below, PowerShell is single threaded by default.  However, concurrency can be added by using multiple PowerShell runspaces in the same process. The amount of runspaces created can be defined by the ```PSWorkerInProcConcurrencyUpperBound``` application setting. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
 
 Azure PowerShell uses some _process-level_ contexts and state to help save you from excess typing. However, if you turn on concurrency in your function app and invoke actions that change state, you could end up with race conditions. These race conditions are difficult to debug because one invocation relies on a certain state and the other invocation changed the state.
 
