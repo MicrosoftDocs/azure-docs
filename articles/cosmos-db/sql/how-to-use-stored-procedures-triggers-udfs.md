@@ -714,4 +714,4 @@ Learn more concepts and how-to write or use stored procedures, triggers, and use
 - [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions in Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 - [Working with JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md)
 - [How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md)
-- [How to write stored procedures and triggers using Javascript Query API in Azure Cosmos DB](how-to-write-javascript-query-api.md)
+- [How to write stored procedures and triggers using JavaScript Query API in Azure Cosmos DB](how-to-write-javascript-query-api.md)

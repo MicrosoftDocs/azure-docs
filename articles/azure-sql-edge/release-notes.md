@@ -164,7 +164,7 @@ SQL engine build 15.0.2000.1401
 - Workaround: Restart SQL Server. Otherwise, the container will retry applying the DACPAC.
 
 ### Request support
-You can request support on the [support page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Select the following fields: 
+You can request support on the [support page](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Select the following fields: 
 - **Issue type**: *Technical* 
 - **Service**: *IoT Edge*
 - **Problem type**: *My problem relates to an IoT Edge module*

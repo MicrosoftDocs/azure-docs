@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 02/15/2022
 
 ms.author: baselden
 author: BarbaraSelden
@@ -101,7 +101,7 @@ iOS and Android devices may only be Azure AD registered. The following table pre
 | Consideration | Azure AD registered | Azure AD joined | Hybrid Azure AD joined |
 | --- | :---: | :---: | :---: |
 | **Client operating systems** | | |  |
-| Windows 10 devices | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Windows 11 or Windows 10 devices | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 | Windows down-level devices (Windows 8.1 or Windows 7) | | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 |**Sign in options** | | |  |
 | End-user local credentials | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | |  |
@@ -133,7 +133,7 @@ BYOD and corporate owned mobile device are registered by users installing the Co
 
 * [iOS](/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
 * [Android](/mem/intune/user-help/enroll-device-android-company-portal)
-* [Windows 10](/mem/intune/user-help/enroll-windows-10-device)
+* [Windows 10 or newer](/mem/intune/user-help/enroll-windows-10-device)
 * [macOS](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)
 
 If registering your devices is the best option for your organization, see the following resources:
@@ -143,7 +143,7 @@ If registering your devices is the best option for your organization, see the fo
 
 ## Azure AD join
 
-Azure AD join enables you to transition towards a cloud-first model with Windows. It provides a great foundation if you're planning to modernize your device management and reduce device-related IT costs. Azure AD join works with Windows 10 devices only. Consider it as the first choice for new devices.
+Azure AD join enables you to transition towards a cloud-first model with Windows. It provides a great foundation if you're planning to modernize your device management and reduce device-related IT costs. Azure AD join works with Windows 10 or newer devices only. Consider it as the first choice for new devices.
 
 [Azure AD joined devices can SSO to on-premises resources](azuread-join-sso.md) when they are on the organization's network, can authenticate to on-premises servers like file, print, and other applications.
 
@@ -195,7 +195,7 @@ If hybrid Azure AD join is the best option for your organization, see the follow
 If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure hybrid Azure AD join](hybrid-azuread-join-manual.md). 
 
 > [!NOTE] 
-> The on-premises domain-joined Windows 10 device attempts to auto-join to Azure AD to become hybrid Azure AD joined by default. This will only succeed if you have set up the right environment. 
+> The on-premises domain-joined Windows 10 or newer device attempts to auto-join to Azure AD to become hybrid Azure AD joined by default. This will only succeed if you have set up the right environment. 
 
 You may determine that hybrid Azure AD join is the best solution for a device in a different state. The following table shows how to change the state of a device.
 
@@ -226,7 +226,7 @@ Review supported and unsupported platforms for integrated devices:
 | Device management tools | Azure AD registered | Azure AD joined | Hybrid Azure AD joined |
 | --- | :---: | :---: | :---: |
 | [Mobile Device Management (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
-| [Co-management with Microsoft Intune and Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 and later) | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
+| [Co-management with Microsoft Intune and Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 or newer) | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 | [Group policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only) | | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 
 We recommend that you consider [Microsoft Intune Mobile Application management (MAM)](/mem/intune/apps/app-management) with or without device management for registered iOS or Android devices.

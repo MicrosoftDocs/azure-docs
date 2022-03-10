@@ -110,6 +110,9 @@ This section guides you through the steps to configure the Azure AD provisioning
    |addresses[type eq "work"].country|String|
    |phoneNumbers[type eq "work"].value|String|
    |externalId|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
 
 1. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zip**.
 
@@ -143,6 +146,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Change log
+
+* 02/14/2022 - Added enterprise extension attribute mapping.
 
 ## More resources
 

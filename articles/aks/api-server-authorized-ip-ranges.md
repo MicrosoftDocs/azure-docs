@@ -155,6 +155,9 @@ Add another IP address to the approved ranges with the following command.
 ```bash
 # Retrieve your IP address
 CURRENT_IP=$(dig +short "myip.opendns.com" "@resolver1.opendns.com")
+````
+
+```azurelci
 # Add to AKS approved list
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```

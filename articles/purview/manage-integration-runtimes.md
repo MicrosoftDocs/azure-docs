@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/27/2022
+ms.date: 03/05/2022
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -39,7 +39,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
 - You must be an administrator on the machine to successfully install and configure the self-hosted integration runtime.
 - Scan runs happen with a specific frequency per the schedule you've set up. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is scanned. When multiple scan jobs are in progress, you see resource usage goes up during peak times.
-- Scanning some data sources requires additional setup on the self-hosted integration runtime machine. For example, JDK, Visual C++ Redistributable, or specific driver. Refer to [each source article](purview-connector-overview.md) for prerequisite details.
+- Scanning some data sources requires additional setup on the self-hosted integration runtime machine. For example, JDK, Visual C++ Redistributable, or specific driver. Refer to [each source article](azure-purview-connector-overview.md) for prerequisite details.
 
 > [!IMPORTANT]
 > If you use the Self-Hosted Integration runtime to scan Parquet files, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](#java-runtime-environment-installation) for an installation guide.
@@ -135,8 +135,8 @@ Here are the domains and outbound ports that you need to allow at both **corpora
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net` | 443            | Required for interactive authoring, for example, test connection on Azure Purview Studio. Currently wildcard is required as there is no dedicated resource. |
 | `*.frontend.clouddatahub.net` | 443 | Required to connect to the Azure Purview service. Currently wildcard is required as there is no dedicated resource. |
+| `*.servicebus.windows.net` | 443            | Required for setting up scan on Azure Purview Studio. This endpoint is used for interactive authoring from UI, for example, test connection, browse folder list and table list to scope scan. Currently wildcard is required as there is no dedicated resource. |
 | `<managed_storage_account>.blob.core.windows.net` | 443 | Required to connect to the Azure Purview managed Azure Blob storage account. |
 | `<managed_storage_account>.queue.core.windows.net` | 443 | Required to connect to the Azure Purview managed Azure Queue storage account. |
 | `<managed_Event_Hub_resource>.servicebus.windows.net` | 443            | Azure Purview uses this to connect with the associated service bus. It's covered by allowing the above domain. If you use private endpoint, you need to test access to this single domain.|

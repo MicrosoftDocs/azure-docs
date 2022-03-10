@@ -5,8 +5,8 @@ description: How to troubleshoot when you get errors running a machine learning 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: lobrien
-ms.author: laobri
+author: nibaccam
+ms.author: nibaccam
 ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2

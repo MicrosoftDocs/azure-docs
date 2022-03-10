@@ -1,0 +1,99 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure AD certificate-based authentication (CBA) FAQ - Azure Active Directory
+  description: Frequently asked questions and answers related to Azure AD certificate-based authentication (CBA). 
+  
+  services: multi-factor-authentication
+  ms.service: active-directory
+  ms.subservice: authentication
+  ms.topic: faq
+  ms.date: 02/09/2022
+  ms.author: justinha
+  author: vimrang
+  manager: karenhoran
+  ms.reviewer: vimrang
+  ms.collection: M365-identity-device-management
+title: Frequently asked questions about Azure AD certificate-based authentication (CBA)
+summary: |
+  This article addresses frequently asked questions about how Azure AD certificate-based authentication (CBA) works. 
+  Keep checking back for updated content.
+
+  >[!NOTE]
+  >Azure AD certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+
+  
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          How do I enable Azure AD CBA?
+        answer: |
+          1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
+          1. Click **Azure Active Directory** > **Security** > **Authentication methods** > **Certificate-based Authentication** > **Basics**, click **On** to enable certificate-based authentication.
+
+      - question: |
+          Is Azure AD CBA a free feature?
+        answer: |
+          Certificate-based authentication is a free feature. 
+          Every edition of Azure AD includes Azure AD CBA.
+          For more information about features in each Azure AD edition, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+
+      - question: |
+          Does Azure AD CBA support Alternate ID as the username instead of userPrincipalName?
+        answer: |
+          No, sign-in using a non-UPN value, such as an alternate email, isn't supported now.
+          
+      - question: |
+          Can I have more than one CRL Distribution Point (CDP) for a Certificate Authority (CA)?
+        answer: |
+          No, only one CDP is supported per CA.
+
+      - question: |
+          Can I have non-http URLs for CDP?
+        answer: |
+          No, CDP supports only HTTP URLs.
+
+      - question: |
+          How do I turn certificate revocation checking on or off for a particular CA?
+        answer: |
+          We highly recommend not to disable certificate revocation list (CRL) checking as you won't be able to revoke certificates. 
+          However, to disable CRL checking if there are issues with CRL for a particular CA, you can update a trusted certificate authority and set the crlDistributionPoint attribute to """.
+          
+          Use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
+          
+          ```powershell
+          $c=Get-AzureADTrustedCertificateAuthority
+          $c[0]. crlDistributionPoint =””
+          Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
+          ```
+
+      - question: |
+          Is there a limit for CRL size?
+        answer: |
+          Today, as part of the public preview, CRL sizes are limited as follows:
+          
+          - 20 MB in commercial (Microsoft 365, GCC)
+          - 45 MB in US Government (GCC High, Dept. of Defense)
+
+          We're reviewing the impact of these limits during public preview.
+
+      - question: |
+          Will the changes to authentication policy change take effect immediately?
+        answer: |
+          The policy is cached. After a policy update, it may take up to an hour for the changes to be effective.
+          
+      - question: |
+          How do I instantly revoke a certificate?
+        answer: |
+          Follow the steps to [manually revoke a certificate](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation). 
+          
+additionalContent: |
+  ## Next steps
+    If your question isn't answered here, the following support options are available:
+          
+    * [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
+    * [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
+    * [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
+    * [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
+    * [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)

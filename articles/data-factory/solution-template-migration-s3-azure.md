@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/07/2019
+ms.date: 01/31/2022
 ---
 
 # Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use the templates to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2. 
 
@@ -102,23 +102,23 @@ The template contains two parameters:
 
 3. Go to the **Migrate historical data from AWS S3 to Azure Data Lake Storage Gen2** template. Input the connections to your external control table, AWS S3 as the data source store and Azure Data Lake Storage Gen2 as the destination store. Be aware that the external control table and the stored procedure are reference to the same connection.
 
-    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png" alt-text="Screenshot that shows the Migrate historical data from AWS S3 to Azure Data Lake Storage Gen2 template.":::
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure-1.png" alt-text="Screenshot that shows the Migrate historical data from AWS S3 to Azure Data Lake Storage Gen2 template.":::
 
 4. Select **Use this template**.
 
-    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png" alt-text="Screenshot that highlights the Use this template button.":::
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure-2.png" alt-text="Screenshot that highlights the Use this template button.":::
 	
 5. You see the 2 pipelines and 3 datasets were created, as shown in the following example:
 
-    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png" alt-text="Screenshot that shows the two pipelines and three datasets that were created by using the template.":::
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure-3.png" alt-text="Screenshot that shows the two pipelines and three datasets that were created by using the template.":::
 
 6. Go to the "BulkCopyFromS3" pipeline and select **Debug**, enter the **Parameters**. Then, select **Finish**.
 
-    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png" alt-text="Screenshot that shows where to select Debug and enter the parameters before you select Finish.":::
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure-4.png" alt-text="Screenshot that shows where to select Debug and enter the parameters before you select Finish.":::
 
 7. You see results that are similar to the following example:
 
-    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png" alt-text="Screenshot that shows the returned results.":::
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure-5.png" alt-text="Screenshot that shows the returned results.":::
 
 
 ### For the template to copy changed files only from Amazon S3 to Azure Data Lake Storage Gen2
@@ -165,27 +165,27 @@ The template contains two parameters:
 
 3. Go to the **Copy delta data from AWS S3 to Azure Data Lake Storage Gen2** template. Input the connections to your external control table, AWS S3 as the data source store and Azure Data Lake Storage Gen2 as the destination store. Be aware that the external control table and the stored procedure are reference to the same connection.
 
-    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png" alt-text="Create a new connection":::
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-1.png" alt-text="Create a new connection":::
 
 4. Select **Use this template**.
 
-    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure2.png" alt-text="Use this template":::
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-2.png" alt-text="Use this template":::
 	
 5. You see the 2 pipelines and 3 datasets were created, as shown in the following example:
 
-    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png" alt-text="Review the pipeline":::
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-3.png" alt-text="Review the pipeline":::
 
 6.  Go the "DeltaCopyFromS3" pipeline and select **Debug**, and enter the **Parameters**. Then, select **Finish**.
 
-    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png" alt-text="Click **Debug**":::
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-4.png" alt-text="Click **Debug**":::
 
 7. You see results that are similar to the following example:
 
-    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure5.png" alt-text="Review the result":::
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-5.png" alt-text="Review the result":::
 
 8. You can also check the results from the control table by a query *"select * from s3_partition_delta_control_table"*, you will see the output similar to the following example:
 
-    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png" alt-text="Screenshot that shows the results from the control table after you run the query.":::
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-6.png" alt-text="Screenshot that shows the results from the control table after you run the query.":::
 	
 ## Next steps
 

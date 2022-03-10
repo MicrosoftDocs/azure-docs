@@ -4,7 +4,7 @@ description: List of services that support Azure AD authentication
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 01/10/2022
+ms.date: 02/01/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -27,6 +27,7 @@ The following services support Azure AD authentication. New services are added t
 | Azure Databricks                | [Authenticate using Azure Active Directory tokens](/azure/databricks/dev-tools/api/latest/aad/)
 | Azure Data Explorer             | [How-To Authenticate with Azure Active Directory for Azure Data Explorer Access](/azure/data-explorer/kusto/management/access-control/how-to-authenticate-with-aad)                                                                                                     |
 | Azure Data Lake Storage Gen1    | [Authentication with Azure Data Lake Storage Gen1 using Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)                                                                                                  |
+| Azure Database for PostgreSQL   | [Use Azure Active Directory for authentication with PostgreSQL](../../postgresql/howto-configure-sign-in-aad-authentication.md)
 | Azure Digital Twins             | [Set up an Azure Digital Twins instance and authentication (portal)](../../digital-twins/how-to-set-up-instance-portal.md#set-up-user-access-permissions)                                                                                            |
 | Azure Event Hubs                | [Authenticate an application with Azure Active Directory to access Event Hubs resources](../../event-hubs/authenticate-application.md)
 | Azure IoT Hub                   | [Control access to IoT Hub](../../iot-hub/iot-hub-devguide-security.md)                                                                               |

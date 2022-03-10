@@ -1,10 +1,10 @@
 ---
 title: Azure Files scalability and performance targets
-description: Learn about the scalability and performance targets for Azure Files, including the capacity, request rate, and inbound and outbound bandwidth limits.
+description: Learn about the capacity, IOPS, and throughput rates for Azure file shares.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 01/31/2022
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -12,7 +12,7 @@ ms.subservice: files
 # Azure Files scalability and performance targets
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB and NFS file system protocols. This article discusses the scalability and performance targets for Azure Files and Azure File Sync.
 
-The scalability and performance targets listed here are high-end targets, but may be affected by other variables in your deployment. For example, the throughput for a file may also be limited by your available network bandwidth, not just the servers hosting your Azure file shares. We strongly recommend testing your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements. We are also committed to increasing these limits over time. 
+The targets listed here might be affected by other variables in your deployment. For example, the performance of IO for a file might be impacted by your SMB client's behavior and by your available network bandwidth. You should test your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements. You should also expect these limits will increase over time. 
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -25,7 +25,7 @@ The scalability and performance targets listed here are high-end targets, but ma
 Azure file shares are deployed into storage accounts, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares. There are therefore three categories to consider: storage accounts, Azure file shares, and files.
 
 ### Storage account scale targets
-Azure supports multiple types of storage accounts for different storage scenarios customers may have, but there are two main types of storage accounts for Azure Files. Which storage account type you need to create depends on whether you want to create a standard file share or a premium file share: 
+There are two main types of storage accounts for Azure Files: 
 
 - **General purpose version 2 (GPv2) storage accounts**: GPv2 storage accounts allow you to deploy Azure file shares on standard/hard disk-based (HDD-based) hardware. In addition to storing Azure file shares, GPv2 storage accounts can store other storage resources such as blob containers, queues, or tables. File shares can be deployed into the transaction optimized (default), hot, or cool tiers.
 
@@ -37,8 +37,9 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Maximum storage account capacity | 5 PiB<sup>1</sup> | 100 TiB (provisioned) |
 | Maximum number of file shares | Unlimited | Unlimited, total provisioned size of all shares must be less than max than the max storage account capacity |
 | Maximum concurrent request rate | 20,000 IOPS<sup>1</sup> | 100,000 IOPS |
-| Maximum ingress | <ul><li>US/Europe: 9,536 MiB/sec<sup>1</sup></li><li>Other regions (LRS/ZRS): 9,536 MiB/sec<sup>1</sup></li><li>Other regions (GRS): 4,768 MiB/sec<sup>1</sup></li></ul> | 4,136 MiB/sec |
-| Maximum egress | 47,683 MiB/sec<sup>1</sup> | 6,204 MiB/sec |
+| Throughput (ingress + egress) for LRS/GRS<br /><ul><li>Australia East</li><li>Central US</li><li>East Asia</li><li>East US 2</li><li>Japan East</li><li>Korea Central</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US</li></ul> | <ul><li>Ingress: 7,152 MiB/sec</li><li>Egress: 14,305 MiB/sec</li></ul> | 10,340 MiB/sec |
+| Throughput (ingress + egress) for ZRS<br /><ul><li>Australia East</li><li>Central US</li><li>East US</li><li>East US 2</li><li>Japan East</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US 2</li></ul> | <ul><li>Ingress: 7,152 MiB/sec</li><li>Egress: 14,305 MiB/sec</li></ul> | 10,340 MiB/sec |
+| Throughput (ingress + egress) for redundancy/region combinations not listed in the previous row | <ul><li>Ingress: 2,980 MiB/sec</li><li>Egress: 5,960 MiB/sec</li></ul> | 10,340 MiB/sec |
 | Maximum number of virtual network rules | 200 | 200 |
 | Maximum number of IP address rules | 200 | 200 |
 | Management read operations | 800 per 5 minutes | 800 per 5 minutes |
@@ -80,7 +81,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 <sup>2 Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).</sup>
 
 ## Azure File Sync scale targets
-The following table indicates the boundaries of Microsoft's testing (soft limits) and also indicates which targets are hard limits:
+The following table indicates which target are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum:
 
 | Resource | Target | Hard limit |
 |----------|--------------|------------|
@@ -100,7 +101,7 @@ The following table indicates the boundaries of Microsoft's testing (soft limits
 > An Azure File Sync endpoint can scale up to the size of an Azure file share. If the Azure file share size limit is reached, sync will not be able to operate.
 
 ### Azure File Sync performance metrics
-Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon a number of factors in your infrastructure: Windows Server and the underlying disk configuration, network bandwidth between the server and the Azure storage, file size, total dataset size, and the activity on the dataset. Since Azure File Sync works on the file level, the performance characteristics of an Azure File Sync-based solution is better measured in the number of objects (files and directories) processed per second.
+Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon a number of factors in your infrastructure: Windows Server and the underlying disk configuration, network bandwidth between the server and the Azure storage, file size, total dataset size, and the activity on the dataset. Since Azure File Sync works on the file level, the performance characteristics of an Azure File Sync-based solution should be measured by the number of objects (files and directories) processed per second.
 
 For Azure File Sync, performance is critical in two stages:
 

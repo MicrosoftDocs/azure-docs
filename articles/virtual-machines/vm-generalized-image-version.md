@@ -1,13 +1,14 @@
 ---
 title: Create a VM from a generalized image in a gallery
 description: Create a VM from a generalized image in a gallery.
-author: cynthn
+author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/31/2021
-ms.author: cynthn 
+ms.author: saraic
+ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---

@@ -24,7 +24,7 @@ This article outlines the process to register an Azure Data Lake Storage Gen2 da
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
@@ -252,12 +252,28 @@ It is important to give your service principal the permission to scan the ADLS G
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Access policy
+
+Access policies allow data owners to manage access to datasets from Azure Purview. Owners can monitor and manage data use from within the Azure Purview Studio, without directly modifying the storage account where the data is housed.
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+To create an access policy for Azure Data Lake Storage Gen 2, follow the guidelines below.
+
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
-Follow these configuration guides to:
-- [Configure from Azure Purview data owner access policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
-- [Configure from Azure Purview data owner access policies on all data sources in a subscription or a resource group](./tutorial-data-owner-policies-resource-group.md)
+### Enable data use governance
 
+Data use governance is an option on your Azure Purview sources that will allow you to manage access for that source from within Azure Purview.
+To enable data use governance, follow [the data use governance guide](how-to-enable-data-use-governance.md#enable-data-use-governance).
+
+### Create an access policy
+
+Now that you’ve prepared your storage account and environment for access policies, you can follow one of these configuration guides to create your policies:
+
+* [Single storage account](./tutorial-data-owner-policies-storage.md) - This guide will allow you to enable access policies on a single storage account in your subscription.
+* [All sources in a subscription or resource group](./tutorial-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
+
+Or you can follow the [generic guide for creating data access policies](how-to-data-owner-policy-authoring-generic.md).
 
 ## Next steps
 

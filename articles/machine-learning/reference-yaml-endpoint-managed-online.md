@@ -9,11 +9,13 @@ ms.topic: how-to
 
 author: rsethur
 ms.author: seramasu
-ms.date: 10/21/2021
+ms.date: 02/08/2022
 ms.reviewer: laobri
 ---
 
 # CLI (v2) online endpoint YAML schema
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json.
 
@@ -29,11 +31,10 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
-| `name` | string | **Required.** Name of the endpoint. Needs to be unique at the Azure region level. <br><br> Naming rules are defined [here](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).| | |
+| `name` | string | **Required.** Name of the endpoint. Needs to be unique at the Azure region level. <br><br> Naming rules are defined under [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).| | |
 | `description` | string | Description of the endpoint. | | |
 | `tags` | object | Dictionary of tags for the endpoint. | | |
 | `auth_mode` | string | The authentication method for the endpoint. Key-based authentication and Azure ML token-based authentication are supported. Key-based authentication doesn't expire but Azure ML token-based authentication does. | `key`, `aml_token` | `key` |
-| `allow_public_access` | boolean | Whether to allow public access when Private Link is enabled. | | `true` |
 | `identity` | object | The managed identity configuration for accessing Azure resources for endpoint provisioning and inference. | | |
 | `identity.type` | string | The type of managed identity. If the type is `user_assigned`, the `identity.user_assigned_identities` property must also be specified. | `system_assigned`, `user_assigned` | |
 | `identity.user_assigned_identities` | array | List of fully qualified resource IDs of the user-assigned identities. | | |

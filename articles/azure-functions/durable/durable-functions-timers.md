@@ -11,7 +11,7 @@ ms.devlang: csharp, javascript, powershell, python
 
 [Durable Functions](durable-functions-overview.md) provides *durable timers* for use in orchestrator functions to implement delays or to set up timeouts on async actions. Durable timers should be used in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#), or `setTimeout()` and `setInterval()` (JavaScript), or `time.sleep()` (Python).
 
-You create a durable timer by calling the [`CreateTimer` (.NET)](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.createtimer), the [`createTimer` (JavaScript)](/javascript/api/durable-functions/durableorchestrationcontext#createTimer_Date_), or the [`create_timer` (Python)](/python/api/azure-functions-durable/azure.durable_functions.durableorchestrationcontext#create-timer-fire-at--datetime-datetime-----azure-durable-functions-models-task-task) method of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). The method returns a task that completes on a specified date and time.
+You create a durable timer by calling the [`CreateTimer` (.NET)](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.createtimer), the [`createTimer` (JavaScript)](/javascript/api/durable-functions/durableorchestrationcontext#durable-functions-durableorchestrationcontext-createtimer), or the [`create_timer` (Python)](/python/api/azure-functions-durable/azure.durable_functions.durableorchestrationcontext#azure-durable-functions-durableorchestrationcontext-create-timer) method of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). The method returns a task that completes on a specified date and time.
 
 ## Timer limitations
 

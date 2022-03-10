@@ -30,7 +30,8 @@ The following FQDN / application rules are required:
 | **`registry.redhat.io`** | **HTTPS:443** | Mandatory for core add-ons. This is used by the cluster to download core components such as dev tools, operator-based add-ons, and Red Hat provided container images.
 | **`mirror.openshift.com`** | **HTTPS:443** | This is required in the VDI environment or your laptop to access mirrored installation content and images. It's required in the cluster to download platform release signatures to know what images to pull from quay.io. |
 | **`api.openshift.com`** | **HTTPS:443** | Required  by the cluster to check if there are available updates before downloading the image signatures. |
-| **`arosvc.azurecr.io`** | **HTTPS:443** | Internal Private registry for ARO Operators.  Required if you do not allow the service-endpoints Microsoft.ContainerRegistry on your subnets. |
+| **`arosvc.azurecr.io`** | **HTTPS:443** | Global Internal Private registry for ARO Operators.  Required if you do not allow the service-endpoints Microsoft.ContainerRegistry on your subnets. |
+| **`arosvc.$REGION.data.azurecr.io`** | **HTTPS:443** | Regional Internal Private registry for ARO Operators.  Required if you do not allow the service-endpoints Microsoft.ContainerRegistry on your subnets. |
 | **`management.azure.com`** | **HTTPS:443** | This is used by the cluster to access Azure APIs. |
 | **`login.microsoftonline.com`** | **HTTPS:443** | This is used by the cluster for authentication to Azure. |
 | **`gcs.prod.monitoring.core.windows.net`** | **HTTPS:443** | This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |

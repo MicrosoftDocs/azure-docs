@@ -42,8 +42,8 @@
   items:
     - name: Scale an app
       href: scale-app.md
-    - name: Secure an app
-      href: secure-app.md
+    - name: Manage secrets
+      href: manage-secrets.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions
@@ -76,3 +76,5 @@
       href: quotas.md
     - name: Frequently asked questions
       href: https://github.com/microsoft/azure-container-apps/wiki/FAQs
+    - name: "Video: Build and deliver apps with Container Apps"
+      href: https://www.youtube.com/watch?v=b3dopSTnSRg

@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 11/15/2021
+ms.date: 02/07/2022
 ms.author: danlep
 ---
 
@@ -32,6 +32,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md)                             | Yes         | Yes       | Yes   | Yes      | Yes     |
 | [External cache](./api-management-howto-cache-external.md)                                                    | Yes         | Yes       | Yes   | Yes      | Yes     |
 | [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | Yes         | Yes       | Yes   | Yes      | Yes     |
+| [Policies](api-management-howto-policies.md)<sup>4</sup> | Yes         | Yes       | Yes   | Yes      | Yes     | 
 | [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Yes       | Yes   | Yes      | Yes     |
 | [Management over Git](api-management-configuration-repository-git.md)                        | No          | Yes       | Yes   | Yes      | Yes     |
 | Direct management API                                                                        | No          | Yes       | Yes   | Yes      | Yes     |
@@ -43,3 +44,4 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality e.g. users, groups, issues, applications and email templates and notifications.<br/>
 <sup>3</sup> In the Developer tier self-hosted gateways are limited to single gateway node.<br/>
+<sup>4</sup>The following policies aren't available in the Consumption tier: rate limit by key and quota by key.

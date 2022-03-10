@@ -9,7 +9,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli 
+ms.devlang: azurecli
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
@@ -407,6 +408,8 @@ To install a Conda environment as a kernel in a notebook, see [add a new Jupyter
 This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/spark) demonstrates how to deploy a Spark model as a web service.
 
 ## Create and manage environments with the Azure CLI
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 [!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 

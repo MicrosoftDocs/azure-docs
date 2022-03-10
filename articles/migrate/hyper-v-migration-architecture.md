@@ -70,7 +70,6 @@ You can limit the amount of bandwidth used to upload data to Azure on each Hyper
 2. Run **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**, to open the Windows Azure Backup MMC snap-in.
 3. In the snap-in, select **Change Properties**.
 4. In **Throttling**, select **Enable internet bandwidth usage throttling for backup operations**. Set the limits for work and non-work hours. Valid ranges are from 512 Kbps to 1,023 Mbps.
-I
 
 ### Influence upload efficiency
 

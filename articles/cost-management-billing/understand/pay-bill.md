@@ -36,7 +36,7 @@ On 1 October 2021, automatic payments in India may block some credit card transa
 
 ## Pay by default payment method
 
-The default payment method of your billing profile can either be a credit or debit card, or a check or wire transfer.
+The default payment method of your billing profile can either be a credit card, debit card, or check wire transfer.
 
 ### Credit or debit card
 

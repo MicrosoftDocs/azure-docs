@@ -18,7 +18,10 @@ Azure Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-sour
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-- An AKS cluster. If you do not have an AKS cluster, you can [follow these steps to create one](../aks/kubernetes-walkthrough-portal.md).
+- An AKS cluster with a Linux node pool. If you do not have an AKS cluster, you can [follow these steps to create one](../aks/kubernetes-walkthrough-portal.md).
+
+> [!WARNING]
+> AKS Chaos Mesh faults are only supported on Linux node pools.
 
 ## Set up Chaos Mesh on your AKS cluster
 
@@ -26,8 +29,11 @@ Before you can run Chaos Mesh faults in Chaos Studio, you need to install Chaos 
 
 1. Run the following commands in an [Azure Cloud Shell](../cloud-shell/overview.md) window where you have the active subscription set to be the subscription where your AKS cluster is deployed. Replace `$RESOURCE_GROUP` and `$CLUSTER_NAME` with the resource group and name of your cluster resource.
 
-```bash
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP -n $CLUSTER_NAME
+```
+
+```bash
 helm repo add chaos-mesh https://charts.chaos-mesh.org
 helm repo update
 kubectl create ns chaos-testing

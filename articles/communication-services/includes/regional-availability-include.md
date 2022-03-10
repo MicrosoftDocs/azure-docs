@@ -8,4 +8,4 @@ ms.custom: references_regions
 
 ---
 > [!IMPORTANT]
-> Phone number availability is currently restricted to Azure subscriptions that have a billing address in the United States (including Puerto Rico), United Kingdom or Ireland. For more information, visit the [Phone number types](../concepts/numbers/number-types.md) documentation.
+> The capabilities available (PSTN/SMS, Inbound/Outbound) depend on the country that you're operating within (your Azure billing address location), your use case, and the phone number type that you've selected. These capabilities vary by country due to regulatory requirements. For more information, visit the [Phone number types](../concepts/numbers/number-types.md) documentation.

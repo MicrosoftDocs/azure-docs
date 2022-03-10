@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix slow requests when using Azure Cosmos
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 01/10/2022
+ms.date: 03/09/2022
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -29,6 +29,19 @@ Consider the following when developing your application:
 * Use Direct + TCP connectivity mode
 * Avoid High CPU. Make sure to look at Max CPU and not average, which is the default for most logging systems. Anything above roughly 40% can increase the latency.
 
+## Metadata operations
+
+Do not verify a Database and/or Container exists by calling `Create...IfNotExistsAsync` and/or `Read...Async` in the hot path and/or before doing an item operation. The validation should only be done on application startup when it is necessary, if you expect them to be deleted (otherwise it's not needed). These metadata operations will generate extra end-to-end latency, have no SLA, and their own separate [limitations](https://aka.ms/CosmosDB/sql/errors/metadata-429) that do not scale like data operations.
+
+## Slow requests on bulk mode
+
+[Bulk mode](tutorial-sql-api-dotnet-bulk-import.md) is a throughput optimized mode meant for high data volume operations, not a latency optimized mode; it's meant to saturate the available throughput. If you are experiencing slow requests when using bulk mode make sure that:
+
+* Your application is compiled in Release configuration.
+* You are not measuring latency while debugging the application (no debuggers attached).
+* The volume of operations is high, don't use bulk for less than 1000 operations. Your provisioned throughput dictates how many operations per second you can process, your goal with bulk would be to utilize as much of it as possible.
+* Monitor the container for [throttling scenarios](troubleshoot-request-rate-too-large.md). If the container is getting heavily throttled it means the volume of data is larger than your provisioned throughput, you need to either scale up the container or reduce the volume of data (maybe create smaller batches of data at a time).
+* You are correctly using the `async/await` pattern to process all concurrent Tasks and not [blocking any async operation](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait).
 
 ## <a name="capture-diagnostics"></a>Capture the diagnostics
 
@@ -102,6 +115,7 @@ The timeouts will contain *Diagnostics*, which contain:
 
 * If the `cpu` values are over 70%, the timeout is likely to be caused by CPU exhaustion. In this case, the solution is to investigate the source of the high CPU utilization and reduce it, or scale the machine to a larger resource size.
 * If the `threadInfo/isThreadStarving` nodes have `True` values, the cause is thread starvation. In this case the solution is to investigate the source/s of the thread starvation (potentially locked threads), or scale the machine/s to a larger resource size.
+* If the `dateUtc` time in-between measurements is not approximately 10 seconds, it also would indicate contention on the thread pool. CPU is measured as an independent Task that is enqueued in the thread pool every 10 seconds, if the time in-between measurement is longer, it would indicate that the async Tasks are not able to be processed in a timely fashion. Most common scenarios are when doing [blocking calls over async code](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait) in the application code.
 
 # [Older SDK](#tab/cpu-old)
 

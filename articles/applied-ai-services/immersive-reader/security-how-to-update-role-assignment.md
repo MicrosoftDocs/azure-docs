@@ -3,8 +3,8 @@ title: "Security Advisory: Update Role Assignment for Azure Active Directory aut
 titleSuffix: Azure Applied AI Services
 description: This article will show you how to update the role assignment on existing Immersive Reader resources due to a security bug discovered in November 2021
 services: cognitive-services
-author: rwaller
-manager: guillasi
+author: rwallerms
+manager: nitinme
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 02/23/2022
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -82,7 +82,7 @@ For premium storage accounts, soft-deleted snapshots don't count toward the per-
 
 You can restore soft-deleted blobs or directories (in a hierarchical namespace) by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation within the retention period. The **Undelete Blob** operation restores a blob and any soft-deleted snapshots associated with it. Any snapshots that were deleted during the retention period are restored.
 
-In accounts that have a hierarchical namespace, the **Undelete Blob** operation can also be used to restore a soft-deleted directory and all its contents. If you rename a directory that contains soft deleted blobs, those soft deleted blobs become disconnected from the directory. If you want to restore those blobs, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft deleted blobs. You cannot access the contents of a soft-deleted directory until after the directory has been undeleted.
+In accounts that have a hierarchical namespace, the **Undelete Blob** operation can also be used to restore a soft-deleted directory and all its contents. If you rename a directory that contains soft deleted blobs, those soft deleted blobs become disconnected from the directory. If you want to restore those blobs, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft deleted blobs. You also cannot restore a directory or a blob to a filepath that has a directory or blob of that name already there. For example, if you delete a.txt (1) and upload a new file also named a.txt (2), you cannot restore the soft deleted a.txt (1) until the active a.txt (2) has either been deleted or renamed. You cannot access the contents of a soft-deleted directory until after the directory has been undeleted.
 
 Calling **Undelete Blob** on a blob that isn't soft-deleted will restore any soft-deleted snapshots that are associated with the blob. If the blob has no snapshots and isn't soft-deleted, then calling **Undelete Blob** has no effect.
 
@@ -142,8 +142,8 @@ This table shows how this feature is supported in your account and the impact on
 
 | Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png) <sup>3</sup>            | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png) <sup>3</sup>            | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) <sup>3</sup> | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Premium block blobs | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) <sup>3</sup> | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 

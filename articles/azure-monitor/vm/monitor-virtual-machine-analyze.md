@@ -92,7 +92,7 @@ Three namespaces are used by virtual machines.
 |:---|:---|:---|
 | Virtual Machine Host | Host metrics automatically collected for all Azure virtual machines. Detailed list of metrics at [Microsoft.Compute/virtualMachines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines). | Collected automatically with no configuration required. |
 | Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features, such as metric alerts.  | [Diagnostic extension](../agents/diagnostics-extension-overview.md) installed. Data is read from Azure Storage.  |
-| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) installed with a [Data Collection Rule](../agents/data-collection-rule-overview.md). |
+| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) installed with a [Data Collection Rule](../essentials/data-collection-rule-overview.md). |
 
 ## Analyze log data with Log Analytics
 By using Log Analytics, you can perform custom analysis of your log data. Use Log Analytics when you want to dig deeper into the data used to create the views in VM insights. You might want to analyze different logic and aggregations of that data, correlate security data collected by Microsoft Defender for Cloud and Microsoft Sentinel with your health and availability data, or work with data collected for your [workloads](monitor-virtual-machine-workloads.md).

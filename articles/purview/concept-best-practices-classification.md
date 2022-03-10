@@ -142,7 +142,7 @@ Here are some considerations to bear in mind as you're defining classifications:
     * Describe the phases in the data preparation processes (raw zone, landing zone, and so on) and assign the classifications to specific assets to mark the phase in the process.
 
 * With Azure Purview, you can assign classifications at the asset or column level automatically by including relevant classifications in the scan rule, or you can assign them manually after you ingest the metadata into Azure Purview.
-* For automatic assignment, see [Supported data stores in Azure Purview](./purview-connector-overview.md).
+* For automatic assignment, see [Supported data stores in Azure Purview](./azure-purview-connector-overview.md).
 * Before you scan your data sources in Azure Purview, it is important to understand your data and configure the appropriate scan rule set for it (for example, by selecting relevant system classification, custom classifications, or a combination of both), because it could affect your scan performance. For more information, see [Supported classifications in Azure Purview](./supported-classifications.md).
 * The Azure Purview scanner applies data sampling rules for deep scans (subject to classification) for both system and custom classifications. The sampling rule is based on the type of data sources. For more information, see the "Sampling within a file" section in [Supported data sources and file types in Azure Purview](./sources-and-scans.md#sampling-within-a-file). 
 
