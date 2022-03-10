@@ -238,7 +238,6 @@ As part of the containerized sensor, the following CLI commands have been modifi
 |`cyberx-xsense-reload-interfaces`     |  `sudo dpkg-reconfigure iot-sensor`      |
 |`cyberx-xsense-reconfigure-hostname`     | `sudo dpkg-reconfigure iot-sensor`       |
 | `cyberx-xsense-system-remount-disks` |`sudo dpkg-reconfigure iot-sensor` |
-| | |
 
 The `sudo cyberx-xsense-limit-interface-I eth0 -l value` CLI command was removed. This command was used to limit the interface bandwidth that the sensor uses for day-to-day procedures, and is no longer supported.
 
