@@ -2,7 +2,7 @@
 title: Workload protections for your Kubernetes workloads
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 03/08/2022
 ---
 
 # Protect your Kubernetes workloads
@@ -13,18 +13,6 @@ This page describes how to use Microsoft Defender for Cloud's set of security re
 
 > [!TIP]
 > For a list of the security recommendations that might appear for Kubernetes clusters and nodes, see the [Container recommendations](recommendations-reference.md#container-recommendations) of the recommendations reference table.
-
-## Availability
-
-| Aspect | Details |
-|--|--|
-| Release state: | AKS - General availability (GA) <br> Arc enabled Kubernetes - Preview |
-| Pricing: | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes, it's billed according to the Microsoft Defender for Containers plan |
-| Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations |
-| Environment requirements: | Kubernetes v1.14 (or newer) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
-| Azure Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
-| Non-Azure Clouds, and On-prem: |  supported via Arc enabled Kubernetes. |
-|  |  |
 
 ## Set up your workload protection
 
