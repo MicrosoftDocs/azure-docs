@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Authorization
+# Authorization requirements for memo 22-09
 
 This series of articles offer guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles as described by the US Federal Government’s Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Throughout this document. We refer to it as “The memo.”
 
@@ -36,7 +36,7 @@ M-22-09 specifically requires the use of at least one device-based signal when m
 
 ##  Role-based access controls
 
-Role based access control (RBAC role) remains an important way to enforce basic authorizations through assignments of users to a role in a particular scope. Azure AD has tools that make RBAC assignment and lifecycle management easier. This includes assigning access using [entitlement management](../governance/entitlement-management-overview.md) features, include [Access Packages](..y/governance/entitlement-management-access-package-create.md) and [Access Reviews](../governance/access-reviews-overview.md). These ease the burden of managing authorizations by providing self-service requests and automated functions to managed the lifecycle, for example by automatically ending access based of specific criteria.
+Role based access control (RBAC role) remains an important way to enforce basic authorizations through assignments of users to a role in a particular scope. Azure AD has tools that make RBAC assignment and lifecycle management easier. This includes assigning access using [entitlement management](../governance/entitlement-management-overview.md) features, include [Access Packages](../governance/entitlement-management-access-package-create.md) and [Access Reviews](../governance/access-reviews-overview.md). These ease the burden of managing authorizations by providing self-service requests and automated functions to managed the lifecycle, for example by automatically ending access based of specific criteria.
 
 ## Attribute-based controls
 
@@ -56,11 +56,11 @@ You can also leverage authentication context assigned to data directly in your a
 
 ### Attributes assigned to resources
 
-Azure includes [ABAC for Storage](../../azure/role-based-access-control/conditions-overview.md) which allows the assignment of metadata tags on data stored in an Azure blob storage account. This metadata can then be assigned to users using role assignments to grant access. Other Azure services will incorporate this feature in the future. 
+Azure includes [ABAC for Storage](../../role-based-access-control/conditions-overview.md) which allows the assignment of metadata tags on data stored in an Azure blob storage account. This metadata can then be assigned to users using role assignments to grant access. Other Azure services will incorporate this feature in the future. 
 
 ## Privileged Access Management 
 
-The memo specifically calls out the use of privileged access management tools that leverage single factor ephemeral credentials for accessing systems as insufficient. These technologies often include password vault products that accept MFA logon for an admin and produce a generated password for an alternate account used to access the system. The system being accessed is still accessed with a single factor. Microsoft has tools for implementing [Privileged identity management](..%20/privileged-identity-management/pim-configure.md) (PIM) for privileged systems with the central identity management system of Azure AD. Using the methods described in the MFA section you can enforce MFA for most privileged systems directly, whether these are applications, infrastructure, or devices. Azure also features PIM capabilities to step up into a specific privileged role. This requires implementation of PIM with Azure AD identities and identifying those systems that are privileged and require additional protections to prevent lateral movement. Configuration guidance is located [here](../privileged-identity-management/pim-deployment-plan.md).
+The memo specifically calls out the use of privileged access management tools that leverage single factor ephemeral credentials for accessing systems as insufficient. These technologies often include password vault products that accept MFA logon for an admin and produce a generated password for an alternate account used to access the system. The system being accessed is still accessed with a single factor. Microsoft has tools for implementing [Privileged identity management](../privileged-identity-management/pim-configure.md) (PIM) for privileged systems with the central identity management system of Azure AD. Using the methods described in the MFA section you can enforce MFA for most privileged systems directly, whether these are applications, infrastructure, or devices. Azure also features PIM capabilities to step up into a specific privileged role. This requires implementation of PIM with Azure AD identities and identifying those systems that are privileged and require additional protections to prevent lateral movement. For more information, see the [Privileged Identity mangement deployment plan](../privileged-identity-management/pim-deployment-plan.md).
 
 ## Next steps
 
