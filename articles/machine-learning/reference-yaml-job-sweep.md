@@ -171,7 +171,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Default value |
 | --- | ---- | ----------- | ------------- |
 | `command` | string | **Required.** The command to execute. | |
-| `code.local_path` | string | Local path to the source code directory to be uploaded and used for the job. | |
+| `code` | string | Local path to the source code directory to be uploaded and used for the job. | |
 | `environment` | string or object | **Required.** The environment to use for the job. This can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br> <br> To reference an existing environment use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline please follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline environments. | |
 | `environment_variables` | object | Dictionary of environment variable name-value pairs to set on the process where the command is executed. | |
 | `distribution` | object | The distribution configuration for distributed training scenarios. One of [MpiConfiguration](#mpiconfiguration), [PyTorchConfiguration](#pytorchconfiguration), or [TensorFlowConfiguration](#tensorflowconfiguration). | |
