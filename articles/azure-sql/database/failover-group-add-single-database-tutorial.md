@@ -47,10 +47,6 @@ To complete the tutorial, make sure you have the following items:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
-
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
-
 ---
 
 ## 1 - Create a database
@@ -184,7 +180,7 @@ Set these additional parameter values for use in creating the failover group, in
 
 Change the failover location as appropriate for your environment.
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="12-15":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" id="SetAdditionalParameterValues":::
 
 ### Create the secondary server
 
@@ -192,13 +188,13 @@ Use the [az sql server create](/cli/azure/sql/server#az_sql_server_create) comma
 > [!NOTE]
 > The server login and firewall settings must match that of your primary server.
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="27-29":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" id="CreateSecondaryServer":::
 
 ### Create the failover group
 
 Use the [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) command to create a failover group.
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="30-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" id="CreateFailoverGroup":::
 
 ### Azure CLI failover group creation reference
 
@@ -308,19 +304,19 @@ Test failover using the Azure CLI.
 
 Use the [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) command to confirm the roles of each server.
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="33-35":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" id="VerifyRole":::
 
 ### Fail over to the secondary server
 
 Use the [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) to fail over to the secondary server. Use the [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) command to verify a successful failover.
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="36-41":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" id="FailingOver":::
 
 ### Revert failover group back to the primary server
 
 Use the [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) command to fail back to the primary server.
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="42-44":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" id="FailingBack":::
 
 ### Azure CLI failover group management reference
 
@@ -409,7 +405,7 @@ This script uses the following commands. Each command in the table links to comm
 
 # [Azure CLI](#tab/azure-cli)
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="4-47":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" id="FullScript":::
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
