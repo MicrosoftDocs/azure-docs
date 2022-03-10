@@ -44,15 +44,15 @@ Templates are available to launch the workflow authoring experience. However, a 
 
 Workflow connectors are a common set of actions applicable across all workflows. They can be used in any workflow in Azure Purview to create processes customized to your organization. Currently, the available connectors are: 
 
-1. **Approval connector** – Generates approval requests and assign the requests to individual users or Microsoft Azure Active Directory groups. 
+- **Approval connector** – Generates approval requests and assign the requests to individual users or Microsoft Azure Active Directory groups. 
 
     Azure Purview workflow approval connector currently supports two types of approval types: 
     * First to Respond – This implies that the first approver’s outcome (Approve/Reject) is considered final. 
     * Everyone must approve – This implies everyone identified as an approver must approve the request for the request to be considered approved. If one approver rejects the request, regardless of other approvers, the request is rejected.
 
-1. **Task Connector** - Creates, assigns, and tracks a task to a user or Azure AD group as part of a workflow.  
+- **Task Connector** - Creates, assigns, and tracks a task to a user or Azure AD group as part of a workflow.  
 
-1. **Send Email** – Sends emails as part of a workflow.
+- **Send Email** – Sends emails as part of a workflow.
 
 ## Workflow scope
 
