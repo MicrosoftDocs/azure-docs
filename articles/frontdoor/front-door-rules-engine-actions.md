@@ -56,7 +56,7 @@ When **Caching** is set to **Enabled**, set the following properties:
 |-------|------------------|
 | Query string caching behavior | <ul><li>**Ignore Query String:** Query strings aren't considered when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IgnoreQueryString`.</li><li>**Use query string:** Each unique URL has its own cache key. In ARM templates, use the `queryStringCachingBehavior` of `UseQueryString`.</li><li>**Ignore specified query string:** Query strings specified in the parameters get excluded when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IgnoreSpecifiedQueryStrings`.</li><li>**Include specified query string:** Query strings specified in the parameters get included when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `IncludeSpecifiedQueryStrings`.</li></ul> |
 | Query parameters | The list of query string parameter names, separated by commas. This property is only set when *Query string caching behavior* is set to *Ignore Specified Query Strings* or *Include Specified Query Strings*. |
-| Compression | <ul><li>**Enabled:** Front Door dynamically compresses content at the edge, resulting in a smaller and faster response. For more information, see [File compression](concept-caching.md#file-compression). In ARM templates, set the `isCompressionEnabled` property to `Enabled`.</li><li>**Disabled.** Front Door does not perform compression. In ARM templates, set the `isCompressionEnabled` property to `Disabled`.</li></ul> |
+| Compression | <ul><li>**Enabled:** Front Door dynamically compresses content at the edge, resulting in a smaller and faster response. For more information, see [File compression](front-door-caching.md#file-compression). In ARM templates, set the `isCompressionEnabled` property to `Enabled`.</li><li>**Disabled.** Front Door does not perform compression. In ARM templates, set the `isCompressionEnabled` property to `Disabled`.</li></ul> |
 | Cache behavior | <ul><li>**Honor origin:** Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days. In ARM templates, set the `cacheBehavior` property to `HonorOrigin`.</li><li>**Override always:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideAlways`.</li><li>**Override if origin missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideIfOriginMissing`.</li></ul> |
 | Cache duration | When _Cache behavior_ is set to `Override always` or `Override if origin missing`, these fields must specify the cache duration to use. The maximum duration is 366 days. This property is only set when *Cache behavior* is set to *Override always* or *Override if origin missing*.<ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: use the `cacheDuration` to specify the duration in the format `d.hh:mm:ss`. |
 
@@ -66,7 +66,7 @@ In this example, we route all matched requests to an origin group named `MyOrigi
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/origin-group-override.png" alt-text="Portal screenshot showing origin group override action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/origin-group-override.png" alt-text="Portal screenshot showing origin group override action.":::
 
 # [JSON](#tab/json)
 
@@ -110,7 +110,7 @@ In this example, we set the cache key to include a query string parameter named 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/cache-key-query-string.png" alt-text="Portal screenshot showing cache key query string action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/cache-key-query-string.png" alt-text="Portal screenshot showing cache key query string action.":::
 
 # [JSON](#tab/json)
 
@@ -156,7 +156,7 @@ In this example, we override the cache expiration to 6 hours for matched request
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/cache-expiration.png" alt-text="Portal screenshot showing cache expiration action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/cache-expiration.png" alt-text="Portal screenshot showing cache expiration action.":::
 
 # [JSON](#tab/json)
 
@@ -212,7 +212,7 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/modify-request-header.png" alt-text="Portal screenshot showing modify request header action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/modify-request-header.png" alt-text="Portal screenshot showing modify request header action.":::
 
 # [JSON](#tab/json)
 
@@ -262,7 +262,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/modify-response-header.png" alt-text="Portal screenshot showing modify response header action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/modify-response-header.png" alt-text="Portal screenshot showing modify response header action.":::
 
 # [JSON](#tab/json)
 
@@ -309,11 +309,11 @@ Use the **URL redirect** action to redirect clients to a new URL. Clients are se
 
 ### Example
 
-In this example, we redirect the request to `https://contoso.com/exampleredirection?clientIp={client_ip}`, while preserving the fragment. An HTTP Temporary Redirect (307) is used. The IP address of the client is used in place of the `{client_ip}` token within the URL by using the `client_ip` [server variable](concept-rule-set-server-variables.md).
+In this example, we redirect the request to `https://contoso.com/exampleredirection?clientIp={client_ip}`, while preserving the fragment. An HTTP Temporary Redirect (307) is used. The IP address of the client is used in place of the `{client_ip}` token within the URL by using the `client_ip` [server variable](standard-premium/concept-rule-set-server-variables.md).
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/url-redirect.png" alt-text="Portal screenshot showing URL redirect action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/url-redirect.png" alt-text="Portal screenshot showing URL redirect action.":::
 
 # [JSON](#tab/json)
 
@@ -367,7 +367,7 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/url-rewrite.png" alt-text="Portal screenshot showing URL rewrite action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/url-rewrite.png" alt-text="Portal screenshot showing URL rewrite action.":::
 
 # [JSON](#tab/json)
 

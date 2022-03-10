@@ -11,11 +11,11 @@ ms.author: yuajia
 
 # Azure Front Door Standard/Premium (Preview) Rule Set server variables
 
-Rule Set server variables provide access to structured information about the request when you work with [Rule Sets](concept-rule-set.md).
+Rule Set server variables provide access to structured information about the request when you work with [Rule Sets](../front-door-rules-engine.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json).
 
 When you use [Rule Set match conditions](../rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json), server variables are available as match conditions so that you can identify requests with specific properties.
 
-When you use [Rule Set actions](concept-rule-set-actions.md), you can use server variables to dynamically change the request and response headers, and rewrite URLs, paths, and query strings, for example, when a new page loads or when a form is posted.
+When you use [Rule Set actions](../front-door-rules-engine-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json), you can use server variables to dynamically change the request and response headers, and rewrite URLs, paths, and query strings, for example, when a new page loads or when a form is posted.
 
 > [!NOTE]
 > Server variable is only applicable to Azure Front Door Standard and Premium SKUs. 
@@ -50,14 +50,14 @@ When you work with Rule Set actions, specify server variables by using the follo
 
 Server variables are supported on the following Rule Set actions:
 
-* Query string caching behavior in [Route configuration override](concept-rule-set-actions.md#RouteConfigurationOverride)
-* [Modify request header](concept-rule-set-actions.md#ModifyRequestHeader)
-* [Modify response header](concept-rule-set-actions.md#ModifyResponseHeader)
-* [URL redirect](concept-rule-set-actions.md#UrlRedirect)
-* [URL rewrite](concept-rule-set-actions.md#UrlRewrite)
+* Query string caching behavior in [Route configuration override](../front-door-rules-engine-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#RouteConfigurationOverride)
+* [Modify request header](../front-door-rules-engine-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#ModifyRequestHeader)
+* [Modify response header](../front-door-rules-engine-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#ModifyResponseHeader)
+* [URL redirect](../front-door-rules-engine-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#UrlRedirect)
+* [URL rewrite](../front-door-rules-engine-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#UrlRewrite)
 
 ## Next steps
 
-* Learn more about [Azure Front Door Standard/Premium Rule Set](concept-rule-set.md).
+* Learn more about [Azure Front Door Standard/Premium Rule Set](../front-door-rules-engine-actions.md).
 * Learn more about [Rule Set match conditions](../rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json).
-* Learn more about [Rule Set actions](concept-rule-set-actions.md).
+* Learn more about [Rule Set actions](../front-door-rules-engine-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json).
