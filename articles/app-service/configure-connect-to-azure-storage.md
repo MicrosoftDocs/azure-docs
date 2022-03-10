@@ -4,7 +4,7 @@ description: Learn how to attach custom network share in a containerized app in 
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 12/03/2021
+ms.date: 3/10/2022
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-code
 ---
@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-containers-code
 
 ::: zone pivot="code-windows"
 This is code windows.
-This guide shows how to mount Azure Storage Files as a network share in a Windows container in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
+This guide shows how to mount Azure Storage Files as a network share in Windows code in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
 
 - Configure persistent storage for your App Service app and manage the storage separately.
 - Make static content like video and images readily available for your App Service app. 
@@ -24,7 +24,7 @@ The following features are supported for Windows code:
 - Secured access to storage accounts with [private endpoints](../storage/common/storage-private-endpoints.md) and [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) (when [VNET integration](./overview-vnet-integration.md) is used).
 - Azure Files (read/write).
 - Up to five mount points per app.
-- Mount Azure Storage file shares using "/mounts/<insert-path>".
+- Mount Azure Storage file shares using "/mounts/`<path-name>`".
 
 ::: zone-end
 ::: zone pivot="container-windows"
