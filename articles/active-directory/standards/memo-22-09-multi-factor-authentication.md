@@ -68,10 +68,10 @@ The following table details the availability of phishing-resistant MFA scenarios
 
 |  | AD FS as a federated IDP configured with certificate-based authentication| Azure AD certificate-based authentication| FIDO 2.0 security keys| Windows hello for Business| Microsoft authenticator + CA for managed devices |
 | - | - | - | - | - | - |
-| Windows device| ![Checkmark with solid fill](media\memo-22-09\check.jpg)| ![Checkmark with solid fill](media\memo-22-09\check.jpg)| ![Checkmark with solid fill](media\memo-22-09\check.jpg)| ![Checkmark with solid fill](media\memo-22-09\check.jpg)| ![Checkmark with solid fill](media\memo-22-09\check.jpg) |
-| iOS mobile device| ![Checkmark with solid fill](media\memo-22-09\check.jpg)| ![Checkmark with solid fill](media\memo-22-09\check.jpg)| N/A| N/A| ![Checkmark with solid fill](media\memo-22-09\check.jpg) |
-| Android mobile device| ![Checkmark with solid fill](media\memo-22-09\check.jpg)| ![Checkmark with solid fill](media\memo-22-09\check.jpg)| N/A| N/A| ![Checkmark with solid fill]media\memo-22-09\check.jpg) |
-| MacOS device| ![Checkmark with solid fill](media\memo-22-09\check.jpg)| ![Checkmark with solid fill](media\memo-22-09\check.jpg)| Edge/Chrome (Safari coming later)| N/A| ![Checkmark with solid fill](media\memo-22-09\check.jpg) |
+| Windows device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill]((media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
+| iOS mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| N/A| N/A| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
+| Android mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| N/A| N/A| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
+| MacOS device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Edge/Chrome (Safari coming later)| N/A| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 
 To learn more, see [Browser support for Fido 2.0 passwordless authentication](../authentication/fido2-compatibility.md).
 
