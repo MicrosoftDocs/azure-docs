@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 03/09/2022
 ms.author: v-ydequadros
 ---
 
@@ -34,10 +34,9 @@ To add CloudKnox to your Azure AD tenant:
 - To enable the CloudKnox **Feature highlights** tile in the Azure AD portal, [select this link to run the script in your browser](https://aka.ms/ciem-prod).
 - To use the CloudKnox public preview, we encourage you to fill out a consent form that provides other terms and conditions for the public preview product. To open the form, select [CloudKnox Permissions Management Public Preview: Terms and Conditions](https://aka.ms/ciem-terms).
 
-## View a training video on enabling CloudKnox
+## View a training video on enabling CloudKnox in your Azure AD tenant
 
-To view a video on how to enable CloudKnox in your Azure AD tenant, select
-[Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
+To view a video on how to enable CloudKnox in your Azure AD tenant, select [Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
 
 ## How to onboard an Azure subscription
 
