@@ -143,10 +143,10 @@ The device ID can be used for client authentication with a cloud service or serv
 
 > [!NOTE]
 > A device ID is tied to a physical device, usually in a cryptographic manner. It provides a root of trust. It can be thought of as a "birth certificate" for the device. A device ID represents a unique identity that applies to the entire lifespan of the device.
-
-Other forms of IDs, such as for attestation or operational identification, are updated periodically, like a driver's license. They frequently identify the owner. Security is maintained by requiring periodic updates or renewals.
-
-Just like a birth certificate is used to get a driver's license, the device ID is used to get an operational ID. Within IoT, both the device ID and operational ID are frequently provided as X.509 certificates. They use the associated private keys to cryptographically tie the IDs to the specific hardware.
+>
+> Other forms of IDs, such as for attestation or operational identification, are updated periodically, like a driver's license. They frequently identify the owner. Security is maintained by requiring periodic updates or renewals.
+>
+> Just like a birth certificate is used to get a driver's license, the device ID is used to get an operational ID. Within IoT, both the device ID and operational ID are frequently provided as X.509 certificates. They use the associated private keys to cryptographically tie the IDs to the specific hardware.
 
 **Hardware**: A device ID must be tied to the hardware and must not be easily replicated. You should require hardware-based cryptographic features like those found in an HSM. Some MCU devices might provide similar functionality.
 
@@ -218,7 +218,7 @@ Many MCU devices contain an internal "program flash" where the application firmw
 
 If the MCU allows execution of code from RAM, look for a way to disable that feature. Many attacks will try to modify the application code in some way. If the attacker can't execute code from RAM, it's more difficult to compromise the device.
 
-Placing your application in flash makes it more difficult to change because of the nature of flash technology (unlock/erase/write process) and increases the challenge for an attacker. It's not a perfect solution. To provide for renewable security, the flash needs to be updatable. A completely read-only code section would be better at preventing attacks on executable code but would prevent updating.
+Placing your application in flash makes it more difficult to change. Flash technology requires an unlock, erase, and write process. Flash increases the challenge for an attacker, but it's not a perfect solution. To provide for renewable security, the flash needs to be updatable. A completely read-only code section would be better at preventing attacks on executable code but would prevent updating.
 
 **Hardware**: Presence of a program flash used for code storage and execution. If running in RAM is required, consider using an MMU or MPU, if available, to protect from writing to the executable memory space.
 
@@ -228,7 +228,7 @@ Placing your application in flash makes it more difficult to change because of t
 
 ### Memory buffer checking
 
-Avoiding buffer overflow problems is a primary concern for code running on connected devices. Applications written in unmanaged languages like C are particularly susceptible to buffer overflow issues. Safe coding practices can alleviate some of the problem. 
+Avoiding buffer overflow problems is a primary concern for code running on connected devices. Applications written in unmanaged languages like C are susceptible to buffer overflow issues. Safe coding practices can alleviate some of the problem.
 
 Whenever possible, try to incorporate buffer checking into your application. You might be able to make use of built-in features of the selected hardware platform, third-party libraries, and tools. Even features in the hardware itself can provide a mechanism for detecting or preventing overflow conditions.
 
@@ -240,68 +240,70 @@ Whenever possible, try to incorporate buffer checking into your application. You
 
 ### Enable runtime stack checking
 
-Preventing stack overflow is a primary security concern for any application. Azure RTOS has some stack checking features that should be used whenever possible. These features are covered in the Azure RTOS ThreadX User Guide.
+Preventing stack overflow is a primary security concern for any application. Azure RTOS has some stack checking features that you should use whenever possible. These features are covered in the Azure RTOS ThreadX User Guide.
 
 **Hardware**: Some MCU platform vendors might provide hardware-based stack checking. Use any functionality that's available.
 
 **Azure RTOS**: Azure RTOS ThreadX provides some stack checking functionality that can be optionally enabled at compile time. For more information, see the [Azure RTOS ThreadX documentation](/azure/rtos/threadx/).
 
-**Application**:  Certain compilers such as IAR also have “stack canary” support that helps to catch stack overflow conditions. Check your tools to see what options are available and enable them if possible.
+**Application**: Certain compilers such as IAR also have "stack canary" support that helps to catch stack overflow conditions. Check your tools to see what options are available and enable them if possible.
 
 ## Embedded security components – secure boot and firmware update
 
- An IoT device, unlike a traditional embedded device, will often be connected over the internet to a cloud service for monitoring and data gathering. As a result, it's nearly certain that the device will be probed in some way, which could lead to an attack if a vulnerability is found. 
+ An IoT device, unlike a traditional embedded device, is often connected over the internet to a cloud service for monitoring and data gathering. As a result, it's nearly certain that the device will be probed in some way. Probing can lead to an attack if a vulnerability is found.
 
-A successful attack might result in the discovery of an unknown vulnerability that further compromises the device and, more importantly, other devices of the same kind. For this reason, it's critical that an IoT device can be updated quickly and easily. This means that the firmware image itself must be verified, because if an attacker can load a compromised image onto a device then that device is lost. 
+A successful attack might result in the discovery of an unknown vulnerability that compromises the device. Other devices of the same kind could also be compromised. For this reason, it's critical that an IoT device can be updated quickly and easily. The firmware image itself must be verified, because if an attacker can load a compromised image onto a device, then that device is lost.
 
-The solution is to pair a secure boot mechanism with remote firmware update (also called an OTA update) capability. Secure boot verifies that a firmware image is valid and trusted, while an OTA update mechanism allows updates to be quickly and securely deployed to the device.
+The solution is to pair a secure boot mechanism with remote firmware update capability. This capability is also called an OTA update. Secure boot verifies that a firmware image is valid and trusted. An OTA update mechanism allows updates to be quickly and securely deployed to the device.
 
 The following sections discuss the key security components for secure boot and firmware update.
 
 ### Secure boot
 
-It's vital that a device can be proven to be running valid firmware upon reset. Secure boot prevents the device from running untrusted or modified firmware images. Secure boot mechanisms are tied to the hardware platform and validate the firmware image against internally protected measurements before loading the application. If validation fails, the device will refuse to boot the corrupted image.
+It's vital that a device can prove it's running valid firmware upon reset. Secure boot prevents the device from running untrusted or modified firmware images. Secure boot mechanisms are tied to the hardware platform. They validate the firmware image against internally protected measurements before loading the application. If validation fails, the device refuses to boot the corrupted image.
 
-**Hardware**: MCU vendors might provide their own proprietary secure boot mechanisms as secure boot is tied to the hardware.
+**Hardware**: MCU vendors might provide their own proprietary secure boot mechanisms because secure boot is tied to the hardware.
 
-**Azure RTOS**: No specific Azure RTOS functionality is required for secure boot. There are third-party commercial vendors that offer secure boot products.
+**Azure RTOS**: No specific Azure RTOS functionality is required for secure boot. Third-party commercial vendors offer secure boot products.
 
-**Application**: The application might be affected by secure boot if over-the-air updates are enabled because the application itself might need to be responsible for retrieving and loading new firmware images (OTA update is tied to secure boot). The application will also need to be built with versioning and code-signing to support updates with secure boot.
+**Application**: The application might be affected by secure boot if OTA updates are enabled because the application itself might need to be responsible for retrieving and loading new firmware images. OTA update is tied to secure boot. The application will also need to be built with versioning and code-signing to support updates with secure boot.
 
 ### Firmware or OTA update
 
-An OTA update, sometimes referred to as a firmware update, involves updating the firmware image on your device to a new version to add features or fix bugs. OTA update is important for security because any vulnerabilities that are discovered must be patched as soon as possible.
+An OTA update, sometimes referred to as a firmware update, involves updating the firmware image on your device to a new version to add features or fix bugs. OTA update is important for security because vulnerabilities that are discovered must be patched as soon as possible.
 
 > [!NOTE]
-> OTA updates MUST be tied to secure boot and code signing, or it is impossible to validate that new images aren’t compromised.
+> OTA updates *must* be tied to secure boot and code signing. Otherwise, it's impossible to validate that new images aren't compromised.
 
-**Hardware**: Various implementations for OTA update exist, and some MCU vendors provide OTA update solutions that are tied to their hardware. Some OTA update mechanisms can also use extra storage space (for example, flash) for rollback protection and to provide uninterrupted application functionality during update downloads.
+**Hardware**: Various implementations for OTA update exist. Some MCU vendors provide OTA update solutions that are tied to their hardware. Some OTA update mechanisms can also use extra storage space, for example, flash. The storage space is used for rollback protection and to provide uninterrupted application functionality during update downloads.
 
 **Azure RTOS**: No specific Azure RTOS functionality is required for OTA updates.
 
-**Application**: Some third-party software solutions for OTA update also exist and might be used by an Azure RTOS application. The application will also need to be built with versioning and code-signing to support updates with secure boot.
+**Application**: Third-party software solutions for OTA update also exist and might be used by an Azure RTOS application. The application also needs to be built with versioning and code-signing to support updates with secure boot.
 
 ### Rollback or downgrade protection
 
-Secure boot and OTA update must work together to provide an effective firmware update mechanism. Secure boot must be able to ingest a new firmware image from the OTA mechanism and mark the new version as being trusted. The OTA/Secure boot mechanism must also protect against downgrade attacks. If an attacker can force a rollback to an earlier trusted version that has known vulnerabilities, the OTA/secure boot fails to provide proper security.
+Secure boot and OTA update must work together to provide an effective firmware update mechanism. Secure boot must be able to ingest a new firmware image from the OTA mechanism and mark the new version as being trusted. 
+
+The OTA and secure boot mechanism must also protect against downgrade attacks. If an attacker can force a rollback to an earlier trusted version that has known vulnerabilities, the OTA and secure boot fails to provide proper security.
 
 Downgrade protection also applies to revoked certificates or credentials.
 
-**Hardware**: No specific hardware functionality required, except as part of secure boot, OTA, or certificate management.
+**Hardware**: No specific hardware functionality is required, except as part of secure boot, OTA, or certificate management.
 
-**Azure RTOS**: No specific Azure RTOS functionality required.
+**Azure RTOS**: No specific Azure RTOS functionality is required.
 
-**Application**: No specific application support required, depends on requirements for OTA, secure boot, and certificate management.
+**Application**: No specific application support is required, depending on requirements for OTA, secure boot, and certificate management.
 
 ### Code signing
 
-Make use of any features for signing and verifying code or credential updates. Code signing involves generating a cryptographic hash of the firmware or application image. That hash is used to verify the integrity of the image received by the device, usually using a trusted root X.509 certificate to verify the hash signature. This process is usually tied into secure boot and OTA update mechanisms.
+Make use of any features for signing and verifying code or credential updates. Code signing involves generating a cryptographic hash of the firmware or application image. That hash is used to verify the integrity of the image received by the device. Typically, a trusted root X.509 certificate is used to verify the hash signature. This process is usually tied into secure boot and OTA update mechanisms.
 
-**Hardware**: No specific hardware functionality required (except as part of OTA update or secure boot). Using hardware-based signature verification is recommended if available.
+**Hardware**: No specific hardware functionality is required except as part of OTA update or secure boot. Use hardware-based signature verification if it's available.
 
-**Azure RTOS**: No specific Azure RTOS functionality required
+**Azure RTOS**: No specific Azure RTOS functionality is required
 
-**Application** : Code signing can be is tied to secure boot and OTA update mechanisms to verify the integrity of downloaded firmware images.
+**Application**: Code signing is tied to secure boot and OTA update mechanisms to verify the integrity of downloaded firmware images.
 
 ## Embedded security components – protocols
 
@@ -312,25 +314,24 @@ The following sections discuss the key security components for protocols.
 Support current TLS versions:
 
 - TLS 1.2 is currently (as of 2022) the most widely used TLS version.
-
-- TLS 1.3 is the latest TLS version. Finalized in 2018, it adds many security and performance enhancements, but isn't widely deployed. If your application can support TLS 1.3, we recommend it for new applications.
+- TLS 1.3 is the latest TLS version. Finalized in 2018, TLS 1.3 adds many security and performance enhancements. It isn't widely deployed. If your application can support TLS 1.3, we recommend it for new applications.
 
 > [!NOTE]
 > TLS 1.0 and TLS 1.1 are obsolete protocols. Don't use them for new application development. They're disabled by default in Azure RTOS.
 
 **Hardware**: No specific hardware requirements.
 
-**Azure RTOS**: TLS 1.2 is enabled by default. TLS 1.3 support must be explicitly enabled in Azure RTOS as TLS 1.2 is still the de facto standard.
+**Azure RTOS**: TLS 1.2 is enabled by default. TLS 1.3 support must be explicitly enabled in Azure RTOS because TLS 1.2 is still the de-facto standard.
 
-**Application**: To use TLS with cloud services, a certificate will be required. The certificate must be managed by the application.
+**Application**: To use TLS with cloud services, a certificate is required. The certificate must be managed by the application.
 
 ### Use X.509 certificates for TLS authentication
 
-X.509 certificates are used to authenticate a device to a server and a server to a device. A device certificate is used to prove the identity of a device to a server. 
+X.509 certificates are used to authenticate a device to a server and a server to a device. A device certificate is used to prove the identity of a device to a server.
 
-Trusted root CA certificates are used by a device to authenticate a server or service to which it connects. The ability to update these certificates is critical as certificates can be compromised and have limited lifespans.
+Trusted root CA certificates are used by a device to authenticate a server or service to which it connects. The ability to update these certificates is critical. Certificates can be compromised and have limited lifespans.
 
-Using hardware-based X.509 certificates with TLS mutual authentication and a PKI with active monitoring of certificate status provides the highest level of security.
+Use hardware-based X.509 certificates with TLS mutual authentication and a PKI with active monitoring of certificate status for the highest level of security.
 
 **Hardware**: No specific hardware requirements.
 
@@ -340,25 +341,25 @@ Using hardware-based X.509 certificates with TLS mutual authentication and a PKI
 
 ### Use strongest cryptographic options and cipher suites for TLS
 
-Use the strongest cryptography and cipher suites available for TLS. Having the ability to update TLS and cryptography is also important because over time certain cipher suites and TLS versions might become compromised or discontinued.
+Use the strongest cryptography and cipher suites available for TLS. You need the ability to update TLS and cryptography. Over time, certain cipher suites and TLS versions might become compromised or discontinued.
 
 **Hardware**: If cryptographic acceleration is available, use it.
 
 **Azure RTOS**: Azure RTOS TLS provides hardware drivers for select devices that support cryptography in hardware. For routines not supported in hardware, the [Azure RTOS cryptography library](/azure/rtos/netx/netx-crypto/chapter1) is designed specifically for embedded systems. A FIPS 140-2 certified library that uses the same code base is also available.
 
-**Application**: Applications using TLS should choose cipher suites that use hardware-based cryptography (when available) and the strongest keys available.
+**Application**: Applications that use TLS should choose cipher suites that use hardware-based cryptography, when it's available. They should also use the strongest keys available.
 
 ### TLS mutual certificate authentication
 
 When you use X.509 authentication in TLS, opt for mutual certificate authentication. With mutual authentication, both the server and client must provide a verifiable certificate for identification.
 
-Using hardware-based X.509 certificates with TLS mutual authentication and a PKI with active monitoring of certificate status provides the highest level of security.
+Use hardware-based X.509 certificates with TLS mutual authentication and a PKI with active monitoring of certificate status for the highest level of security.
 
 **Hardware**: No specific hardware requirements.
 
-**Azure RTOS**: Azure RTOS TLS provides support for mutual certificate authentication in both TLS Server and Client applications. For more information, see the [Azure RTOS NetX Secure TLS documentation](/netx-secure-tls/chapter1#netx-secure-unique-features).
+**Azure RTOS**: Azure RTOS TLS provides support for mutual certificate authentication in both TLS server and client applications. For more information, see the [Azure RTOS NetX Secure TLS documentation](/netx-secure-tls/chapter1#netx-secure-unique-features).
 
-**Application**: Applications using TLS should always default to mutual certificate authentication whenever possible. Mutual authentication requires TLS clients to have a device certificate. Mutual authentication is an optional TLS feature but is highly recommended when possible.
+**Application**: Applications that use TLS should always default to mutual certificate authentication whenever possible. Mutual authentication requires TLS clients to have a device certificate. Mutual authentication is an optional TLS feature, but you should use it when possible.
 
 ### Only use TLS-based MQTT
 
@@ -368,7 +369,7 @@ If your device uses MQTT for cloud communication, only use MQTT over TLS.
 
 **Azure RTOS**: Azure RTOS provides MQTT over TLS as a default configuration.
 
-**Application**: Applications using MQTT should only use TLS-based MQTT with mutual certificate authentication.
+**Application**: Applications that use MQTT should only use TLS-based MQTT with mutual certificate authentication.
 
 ## Embedded security components – application design and development
 
@@ -376,23 +377,23 @@ The following sections discuss the key security components for application desig
 
 ### Disable debugging features
 
-For development, most MCU devices use a JTAG interface or similar interface to provide information to debuggers or other applications. Leaving a debugging interface enabled on your device gives an attacker an easy door into your application. Make sure to disable all debugging interfaces and remove associated debugging code from your application before deployment.
+For development, most MCU devices use a JTAG interface or similar interface to provide information to debuggers or other applications. If you leave a debugging interface enabled on your device, you give an attacker an easy door into your application. Make sure to disable all debugging interfaces. Also remove associated debugging code from your application before deployment.
 
-**Hardware**: Some devices might have hardware support to disable debugging interfaces permanently or the interface might be able to be removed physically from the device. Removing the interface physically from the device does *not* mean the interface is disabled. You might need to disable the interface on boot, for example, during a secure boot process. iIt should always be disabled in production devices.
+**Hardware**: Some devices might have hardware support to disable debugging interfaces permanently or the interface might be able to be removed physically from the device. Removing the interface physically from the device does *not* mean the interface is disabled. You might need to disable the interface on boot, for example, during a secure boot process. Always disable the debugging interface in production devices.
 
 **Azure RTOS**: Not applicable.
 
-**Application**: If the device doesn't have a feature to permanently disable debugging interfaces, the application might have to disable those interfaces on boot. Disabling debugging interfaces should be done as early as possible in the boot process, preferably during a secure boot before the application is running.
+**Application**: If the device doesn't have a feature to permanently disable debugging interfaces, the application might have to disable those interfaces on boot. Disable debugging interfaces as early as possible in the boot process. Preferably, disable those interfaces during a secure boot before the application is running.
 
 ### Watchdog timers
 
-When available, an IoT device should use a watchdog timer to reset an unresponsive application. Having the watchdog timer reset the device when time runs out will limit the amount of time an attacker might have to execute an exploit. 
+When available, an IoT device should use a watchdog timer to reset an unresponsive application. Resetting the device when time runs out limits the amount of time an attacker might have to execute an exploit.
 
-The watchdog can be reinitialized by the application and some basic integrity checks can also be done like looking for code executing in RAM, checksums on data, and identity checks. If an attacker doesn't account for the watchdog timer reset while trying to compromise the device, the device would reboot into a (theoretically) clean state. Note that this would require a secure boot mechanism to verify the identity of the application image.
+The watchdog can be reinitialized by the application. Some basic integrity checks can also be done like looking for code executing in RAM, checksums on data, and identity checks. If an attacker doesn't account for the watchdog timer reset while trying to compromise the device, the device would reboot into a (theoretically) clean state. A secure boot mechanism would be required to verify the identity of the application image.
 
 **Hardware**: Watchdog timer support in hardware, secure boot functionality.
 
-**Azure RTOS**: No specific Azure RTOS functionality required.
+**Azure RTOS**: No specific Azure RTOS functionality is required.
 
 **Application**: Watchdog timer management. For more information, see the device hardware platform documentation.
 
@@ -402,25 +403,25 @@ Use cloud resources to record and analyze device failures remotely. Aggregate er
 
 **Hardware**: No specific hardware requirements.
 
-**Azure RTOS**: No specific Azure RTOS requirements, but consider logging Azure RTOS API return codes to look for specific problems with lower-level protocols that might indicate problems. Examples include TLS alert causes and TCP failures.
+**Azure RTOS**: No specific Azure RTOS requirements. Consider logging Azure RTOS API return codes to look for specific problems with lower-level protocols that might indicate problems. Examples include TLS alert causes and TCP failures.
 
-**Application**: Make use of logging libraries and your cloud service's client SDK to push error logs to the cloud where they can be stored and analyzed safely without using valuable device storage space. Integration with [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) would provide this functionality and more.
+**Application**: Make use of logging libraries and your cloud service's client SDK to push error logs to the cloud where they can be stored and analyzed safely without using valuable device storage space. Integration with [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) provides this functionality and more.
 
 Microsoft Defender for IoT provides agent-less monitoring of devices in an IoT solution. Monitoring can be enhanced by including the [Microsoft Defender for IOT micro-agent for Azure RTOS](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) on your device. For more information, see the [Runtime security monitoring and threat detection](#runtime-security-monitoring-and-threat-detection) recommendation.
 
 ### Disable unused protocols and features
 
-RTOS and MCU-based applications will typically have a few dedicated functions. This feature is in sharp contrast to general purpose computing machines running higher-level operating systems, such as Windows and Linux, that enable dozens or hundreds of protocols and features by default. When you design an RTOS MCU application, look closely at what networking protocols are required. Every protocol that's enabled represents a different avenue for attackers to gain a foothold within the device. If you don’t need a feature or protocol, don’t enable it.
+RTOS and MCU-based applications typically have a few dedicated functions. This feature is in sharp contrast to general purpose computing machines running higher-level operating systems, such as Windows and Linux. These machines enable dozens or hundreds of protocols and features by default. When you design an RTOS MCU application, look closely at what networking protocols are required. Every protocol that's enabled represents a different avenue for attackers to gain a foothold within the device. If you don’t need a feature or protocol, don't enable it.
 
 **Hardware**: No specific hardware requirements. If the platform allows unused peripherals and ports to be disabled, use that functionality to reduce your attack surface.
 
-**Azure RTOS**: Azure RTOS has a "disabled by default" philosophy. Only enable protocols and features that are required for your application. Resist the temptation to enable features just in case.
+**Azure RTOS**: Azure RTOS has a "disabled by default" philosophy. Only enable protocols and features that are required for your application. Resist the temptation to enable features "just in case."
 
-**Application**: When you design your application, try to reduce the feature set to the bare minimum. Fewer features make an application easier to analyze for security vulnerabilities and reduce your application attack surface.
+**Application**: When you design your application, try to reduce the feature set to the bare minimum. Fewer features make an application easier to analyze for security vulnerabilities. Fewer features also reduce your application attack surface.
 
 ### Use all possible complier and linker security features when you build your application
 
-Modern compilers and linkers provide numerous options for additional security at build time. Use as many compiler- and linker-based options as possible to improve your application with proven security mitigations. Some options might affect size, performance, or RTOS functionality. Be careful when you enable certain features.
+Modern compilers and linkers provide numerous options for more security at build time. Use as many compiler- and linker-based options as possible to improve your application with proven security mitigations. Some options might affect size, performance, or RTOS functionality. Be careful when you enable certain features.
 
 **Hardware**: No specific hardware requirements. Your hardware platform might support security features that can be enabled during the compiling or linking processes.
 
@@ -428,11 +429,11 @@ Modern compilers and linkers provide numerous options for additional security at
 
 **Application**: If you use GCC, consider the following list of options. For more information, see the GCC documentation.
 
-If you use other development tools, consult your documentation for appropriate options. In general, the following guidelines should help in building a more secure configuration:
+If you use other development tools, consult your documentation for appropriate options. In general, the following guidelines should help you build a more secure configuration:
 
-- All builds should have maximum error and warning levels enabled. Production code should compile and link cleanly with no errors or warnings.
+- Enable maximum error and warning levels for all builds. Production code should compile and link cleanly with no errors or warnings.
 - Enable all runtime checking that's available. Examples include stack checking, buffer overflow detection, Address Space Layout Randomization (ASLR), and integer overflow detection.
-- Some tools and devices might provide options to place code in protected or read-only areas of memory. Make use of any available protection mechanisms to prevent an attacker from being able to run arbitrary code on your device. Simply protecting code by making it read-only doesn't completely protect against arbitrary code execution, but it does help.
+- Some tools and devices might provide options to place code in protected or read-only areas of memory. Make use of any available protection mechanisms to prevent an attacker from being able to run arbitrary code on your device. Making code read-only doesn't completely protect against arbitrary code execution, but it does help.
 
 ### Make sure memory access alignment is correct
 
@@ -440,7 +441,7 @@ Some MCU devices permit unaligned memory accesses, but others do not. Consider t
 
 **Hardware**: The memory access alignment behavior will be specific to your selected device.
 
-**Azure RTOS**: For processors that do *not* support unaligned access, ensure that the macro `NX_CRYPTO_DISABLE_UNALIGNED_ACCESS` is defined. Failure to do so will result in possible CPU faults during certain cryptographic operations.
+**Azure RTOS**: For processors that do *not* support unaligned access, ensure that the macro `NX_CRYPTO_DISABLE_UNALIGNED_ACCESS` is defined. Failure to do so results in possible CPU faults during certain cryptographic operations.
 
 **Application**: In any memory operation, for example, copy or move, consider the memory alignment behavior of your hardware platform.
 
@@ -452,7 +453,7 @@ Connected IoT devices might not have the necessary resources to implement all se
 
 **Azure RTOS**: Azure RTOS supports [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/).
 
-**Application**: The [Microsoft Defender for IOT micro-agent for Azure RTOS](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) provides a comprehensive security solution for Azure RTOS devices. The module provides security services via a small software agent that's built into your device's firmware and comes as part of Azure RTOS. 
+**Application**: The [Microsoft Defender for IOT micro-agent for Azure RTOS](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) provides a comprehensive security solution for Azure RTOS devices. The module provides security services via a small software agent that's built into your device's firmware and comes as part of Azure RTOS.
 
 The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations to help improve the security hygiene of your devices. Whether you're using Azure RTOS in combination with Azure Sphere or not, the Microsoft Defender for IoT micro-agent provides another  layer of security that's built into the RTOS by default.
 
