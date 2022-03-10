@@ -3,6 +3,7 @@ title: Troubleshoot Application Change Analysis - Azure Monitor
 description: Learn how to troubleshoot problems in Application Change Analysis.
 ms.topic: conceptual
 ms.author: hannahhunter
+author: hhunter-ms
 ms.contributor: cawa
 ms.date: 03/10/2022 
 ms.subservice: change-analysis
