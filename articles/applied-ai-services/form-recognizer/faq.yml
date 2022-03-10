@@ -253,6 +253,16 @@ sections:
 
           Learn more about Form Recognizer [service quotas and limits](service-limits.md)
 
+      - question: |
+         What can I do when there's a long latency of the request?
+        answer: |
+
+          - The occasional variability in latency and performance is inherent in any micro-service based stateless, async service that processes images and large documents at scale and while we are continuously scaling up the hardware and capacity and scaling capabilities, you can see still see those issues at run time.
+
+          - Typically, you will apply longer timeouts to account for the random latency spikes. In this case, a timeout of 1 to 2 minutes should be used to catch all responses. If not, you can try the call again after a short delay.
+
+          - You can also consider enabling a backup resource in another region to mitigate the latency impact.
+
   - name: Custom models
     questions:
       - question: |
