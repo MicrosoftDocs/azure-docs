@@ -927,6 +927,8 @@
         href: managed-instance/managed-instance-link-use-ssms-to-replicate-database.md
       - name: Use SSMS to failover database
         href: managed-instance/managed-instance-link-use-ssms-to-failover-database.md
+      - name: Managed Instance link preparation
+        href: managed-instance/managed-instance-link-preparation.md
 
   - name: Migration guides
     items: 
