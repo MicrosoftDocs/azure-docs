@@ -165,7 +165,7 @@
     - name: Move a resource between Azure regions 
       href: howto-move-resource-between-regions.md
     - name: Recover App Configuration stores (Preview)
-      href: howto-recover-deleted-stores-in-Azure-App-Configuration.md
+      href: howto-recover-deleted-stores-in-azure-app-configuration.md
 - name: Reference
   items:
     - name: Client libraries

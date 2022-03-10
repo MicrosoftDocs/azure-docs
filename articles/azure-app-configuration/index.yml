@@ -52,7 +52,7 @@ landingContent:
           url: concept-feature-management.md
         - text: Azure App Configuration Events 
           url: concept-app-configuration-event.md
-        - text: Soft Delete
+        - text: Soft delete
           url: concept-soft-delete.md
           
         
