@@ -21,7 +21,7 @@ This article teaches you to use the Managed Instance link feature to replicate y
 
 Before configuring replication for your database through the link feature, make sure you've [prepared your environment](managed-instance-link-preparation.md). 
 
-Managed Instance link is in public preview.
+Managed Instance link is currently in public preview.
 
 ## Prerequisites 
 
