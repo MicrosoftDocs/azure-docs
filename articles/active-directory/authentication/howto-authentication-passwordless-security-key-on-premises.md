@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 02/22/2022
 
 ms.author: justinha
 author: justinha
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable passwordless security key sign-in to on-premises resources by using Azure AD 
 
-This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Azure Active Directory (Azure AD)-joined* and *hybrid Azure AD-joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust.md)
+This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Azure Active Directory (Azure AD)-joined* and *hybrid Azure AD-joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust)
 
 ## Use SSO to sign in to on-premises resources by using FIDO2 keys
 
@@ -25,7 +25,7 @@ Azure AD can issue Kerberos ticket-granting tickets (TGTs) for one or more of yo
 
 An Azure AD Kerberos Server object is created in your on-premises Active Directory instance and then securely published to Azure Active Directory. The object isn't associated with any physical servers. It's simply a resource that can be used by Azure Active Directory to generate Kerberos TGTs for your Active Directory domain.
 
-:::image type="Image" source="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png" alt-text="Diagram showing how to get a T G T from Azure AD and Active Directory Domain Services." lightbox="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png":::
+:::image type="Image" source="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png" alt-text="Diagram showing how to get a TGT from Azure AD and Active Directory Domain Services." lightbox="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png":::
 
 1. A user signs in to a Windows 10 device with an FIDO2 security key and authenticates to Azure AD.
 1. Azure AD checks the directory for a Kerberos Server key that matches the user's on-premises Active Directory domain.
@@ -107,7 +107,7 @@ Run the following steps in each domain and forest in your organization that cont
    $domain = "contoso.corp.com"
 
    # Enter an Azure Active Directory global administrator username and password.
-   $cloudCred = Get-Credential -Message 'An Active Directory user who is a member of the Domain Admins group for a domain and a member of the Enterprise Admins group for a forest.'
+   $cloudCred = Get-Credential -Message 'An Active Directory user who is a member of the Global Administrators group for Azure AD.'
 
    # Enter a domain administrator username and password.
    $domainCred = Get-Credential -Message 'An Active Directory user who is a member of the Domain Admins group.'

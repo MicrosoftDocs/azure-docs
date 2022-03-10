@@ -1,10 +1,10 @@
 ---
 title: Access, monitor, and manage your GitHub repo
-description: Monitor GitHub events and manage your GitHub repo by creating automated workflows with Azure Logic Apps
+description: Monitor GitHub events and manage your GitHub repo by creating automated workflows with Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 03/02/2018
 tags: connectors
 ---

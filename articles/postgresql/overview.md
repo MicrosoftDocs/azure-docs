@@ -31,7 +31,7 @@ These capabilities require almost no administration, and all are provided at no 
 Azure Database for PostgreSQL powered by the PostgreSQL community edition is available in three deployment modes:
 
 - Single Server
-- Flexible Server (Preview)
+- Flexible Server
 - Hyperscale (Citus)
 
 ### Azure Database for PostgreSQL - Single Server
@@ -46,7 +46,7 @@ For detailed overview of single server deployment mode, refer [single server ove
 
 ### Azure Database for PostgreSQL - Flexible Server
 
-Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible Server provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that don’t need full-compute capacity continuously. The service currently supports community version of PostgreSQL 11 and 12 with plans to add newer versions soon. The service is currently in public preview, available today in wide variety of Azure regions.
+Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible Server provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that don’t need full-compute capacity continuously. The service currently supports community version of PostgreSQL 11, 12, and 13, with plans to add newer versions soon. The service is generally available today in wide variety of Azure regions.
 
 Flexible servers are best suited for
 

@@ -1,6 +1,6 @@
 ---
-title: More app development, less infrastructure management
-description: Azure serverless helps you focus on creating cloud-based apps, while spending less on managing infrastructure when you use Azure Logic Apps and Azure Functions 
+title: Azure serverless
+description: Azure serverless helps you focus on creating cloud-based apps, while spending less on managing infrastructure when you use Azure Logic Apps and Azure Functions.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla

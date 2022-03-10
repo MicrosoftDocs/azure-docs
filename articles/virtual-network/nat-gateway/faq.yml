@@ -22,6 +22,10 @@ sections:
           /30 (4 addresses), 
           /31 (2 addresses)  
 
+      - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
+        answer: |
+          A zone-redundant public IP address can be attached to a non-zonal NAT gateway only. A NAT gateway designated to a specific zone must be attached to a public IP address from the same zone.      
+      
       - question: Can public IPs of an existing Virtual Network NAT gateway be changed? 
         answer: |
           No, an existing IP attached to the Virtual Network NAT can't be changed. A different IP can be attached to Virtual Network NAT by creating a new public IP address.  Associate the new public IP address with the NAT gateway resource.  Disassociate the old IP address.
@@ -38,9 +42,13 @@ sections:
         answer: |
           No. A public IP address of NAT gateway cannot connect directly to a private IP over the internet. 
       
+      - question: If NAT gateway has multiple public IP addresses, can one of those IPs be assigned to a specific VM to use explicitly for going outbound?
+        answer: |
+          No. Explicit IP assignment to specific VM instances in a NAT gateway configured subnet cannot be done.
+      
       - question: Are basic SKU resources (Basic Load Balancer and Basic public IP addresses) compatible with VNet NAT gateway?
         answer: |
-          No. VNet NAT gateway can only be used with standard SKU resources. Learn more from [VNet NAT basics](./nat-overview.md#vnet-nat-basics)
+          No. VNet NAT gateway can only be used with standard SKU resources. Learn more from [VNet NAT basics](./nat-overview.md#virtual-network-nat-basics)
           You can upgrade your basic Load Balancer and basic public IP address to standard in order to work with VNet NAT gateway.
           
           To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
@@ -96,11 +104,11 @@ sections:
 
       - question: Can I use Virtual Network NAT gateway with Azure Firewall?
         answer: |
-          Yes. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
+          Yes. NAT gateway can be used with Azure Firewall unless Azure Firewall is zone-redundant. Because NAT gateway is a zonal resource, it cannot be associated with an Azure Firewall that spans multiple zones. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
 
       - question: Can I use Virtual Network NAT gateway with Virtual Network service endpoints?
         answer: | 
-           Yes. The addition of a Virtual Network NAT Gateway to a subnet with service endpoints does not affect the endpoints. [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md) enable a more specific route for the destination Azure service traffic they represent. Traffic for the service endpoint will continue to be routed toward the service and wont go via the NAT Gateway.
+           Yes. The addition of a Virtual Network NAT Gateway to a subnet with service endpoints does not affect the endpoints. [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md) enable a more specific route for the destination Azure service traffic they represent. Traffic for the service endpoint will continue to be routed toward the service and won't go via the NAT Gateway.
 
 additionalContent: |
 

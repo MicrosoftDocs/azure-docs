@@ -246,6 +246,8 @@
         href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: VM networking
     items:      
+    - name: Migrate a virtual machine public IP address
+      href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-network/toc.json
     - name: Add or remove network interfaces
       href: virtual-network-network-interface-vm.md
     - name: Create VM - multiple NICs
