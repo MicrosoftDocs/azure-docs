@@ -51,7 +51,7 @@ Several resources are defined in the Bicep file:
     ```azurecli
     az group create --name exampleRG --location eastus
 
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters serverName=<analysis-service-name>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters adminUsername=<admin-username>
     ```
 
     # [PowerShell](#tab/PowerShell)
@@ -59,28 +59,52 @@ Several resources are defined in the Bicep file:
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
 
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -serverName "<analysis-service-name>"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -adminUsername "<admin-username>"
     ```
 
     ---
 
     > [!NOTE]
-    > Replace **\<analysis-service-name\>** with a unique analysis service name.
+    > Replace **\<admin-username\>** with a unique analysis service name.
+    > [!NOTE]
+    > You'll be prompted to enter adminPasswordOrKey.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
-You can use the Azure portal to check on the VM and other resource that were created. After the deployment is finished, select **Go to resource group** to see the VM and other resources.
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed VM resource in the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az resource list --resource-group exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName exampleRG
+```
 
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, which deletes the VM and all of the resources in the resource group.
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the VM and all of the resources in the resource group.
 
-1. Select the **Resource group**.
-1. On the page for the resource group, select **Delete**.
-1. When prompted, type the name of the resource group and then select **Delete**.
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az group delete --name exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name exampleRG
+```
+
+---
 
 
 ## Next steps
