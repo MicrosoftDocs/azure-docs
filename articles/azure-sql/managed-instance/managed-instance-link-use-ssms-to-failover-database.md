@@ -23,7 +23,8 @@ Failing over your database from your SQL Server instance to your SQL Managed Ins
 
 Before failing over your database, make sure you've [prepared your environment](managed-instance-link-preparation.md) and [configured replication through the link feature](managed-instance-link-use-ssms-to-replicate-database.md). 
 
-Managed Instance link is currently in public preview.
+> [!NOTE]
+> The link feature for Azure SQL Managed Instance is currently in preview. 
 
 ## Prerequisites 
 

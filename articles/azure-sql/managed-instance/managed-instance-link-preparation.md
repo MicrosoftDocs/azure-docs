@@ -19,7 +19,8 @@ ms.date: 03/07/2022
 
 This article teaches you to prepare your environment for the [Managed Instance link feature](link-feature.md) so that you can replicate your databases from your instance of SQL Server to your instance of Azure SQL Managed Instance. 
 
-Managed Instance link is currently in public preview.
+> [!NOTE]
+> The link feature for Azure SQL Managed Instance is currently in preview. 
 
 ## Prerequisites 
 
@@ -82,7 +83,7 @@ If the availability groups feature is not enabled, follow these steps to enable 
 
 1. Select **OK** on the dialog box to restart the SQL Server service.
 
-### Enable feature startup trace flags
+### Enable startup trace flags
 
 To optimize Managed Instance link performance, enabling trace flags `-T1800` and `-T9567` at startup is highly recommended: 
 
