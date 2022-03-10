@@ -226,7 +226,7 @@ sections:
           
           ### How can I monitor performance of my managed instance?
           
-          See [Monitor your SQL deployments with SQL insights](../../azure-monitor/insights/sql-insights-overview.md).
+          See [Monitoring and performance tuning](../database/monitor-tune-overview.md). 
           
           ### How can I monitor the real-time performance of my managed instance?
           

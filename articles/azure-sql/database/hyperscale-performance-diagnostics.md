@@ -103,7 +103,7 @@ Data IO against remote page servers is not reported in resource utilization view
 ## Additional resources
 
 - For vCore resource limits for a Hyperscale single database see [Hyperscale service tier vCore Limits](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5)
-- For monitoring Azure SQL Databases, enable [Azure Monitor SQL insights](../../azure-monitor/insights/sql-insights-overview.md)
+- For monitoring Azure SQL Databases, enable [Azure Monitor SQL Insights (preview)](../../azure-monitor/insights/sql-insights-overview.md)
 - For Azure SQL Database performance tuning, see [Query performance in Azure SQL Database](performance-guidance.md)
 - For performance tuning using Query Store, see [Performance monitoring using Query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
 - For DMV monitoring scripts, see [Monitoring performance Azure SQL Database using dynamic management views](monitoring-with-dmvs.md)

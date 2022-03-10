@@ -16,11 +16,11 @@ ms.date: 01/31/2022
 > [!CAUTION]
 > Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. For more monitoring options, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/monitor-tune-overview.md).
 
-See [Monitoring Azure SQL Database](monitoring-sql-database-azure-monitor.md) for details on collecting and analyzing monitoring data for Azure SQL Database with Azure Monitor SQL insights.
+See [Monitoring Azure SQL Database](monitoring-sql-database-azure-monitor.md) for details on collecting and analyzing monitoring data for Azure SQL Database with Azure Monitor SQL Insights (preview).
 
 ## Metrics
 
-For more on using Azure Monitor SQL insights for all products in the [Azure SQL family](../../azure-sql/index.yml), see [Monitor your SQL deployments with SQL insights](../../azure-monitor/insights/sql-insights-overview.md).
+For more on using Azure Monitor SQL Insights (preview) for all products in the [Azure SQL family](../../azure-sql/index.yml), see [Monitor your SQL deployments with SQL Insights (preview)](../../azure-monitor/insights/sql-insights-overview.md).
 
 For data specific to Azure SQL Database, see [Data for Azure SQL Database](../../azure-monitor/insights/sql-insights-overview.md#data-for-azure-sql-database).
 

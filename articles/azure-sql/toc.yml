@@ -1123,6 +1123,18 @@
                 href: /sql/machine-learning/administration/extended-events?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
               - name: Monitor PREDICT T-SQL
                 href: /sql/machine-learning/administration/extended-events-predict-tsql?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+            - name: SQL Insights (preview)
+              items:
+              - name: Overview
+                href: insights/sql-insights-overview.md
+              - name: FAQ
+                href: ./faq.yml
+              - name: Enable
+                href: insights/sql-insights-enable.md
+              - name: Alerts
+                href: insights/sql-insights-alerts.md
+              - name: Troubleshoot
+                href: insights/sql-insights-troubleshoot.md
         - name: Security
           items:
           - name: Give users permission

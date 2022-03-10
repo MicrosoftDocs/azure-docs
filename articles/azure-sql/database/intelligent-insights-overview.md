@@ -17,7 +17,7 @@ ms.date: 01/31/2022
 
 Intelligent Insights in Azure SQL Database and Azure SQL Managed Instance lets you know what is happening with your database performance.
 
-Intelligent Insights uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates an Intelligent Insights resource log called SQLInsights (unrelated to [Azure Monitor SQL insights](../../azure-sql/database/monitoring-sql-database-azure-monitor.md)) with an [intelligent assessment of the issues](intelligent-insights-troubleshoot-performance.md). This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements.
+Intelligent Insights uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates an Intelligent Insights resource log called SQLInsights (unrelated to [Azure Monitor SQL Insights (preview)](../../azure-sql/database/monitoring-sql-database-azure-monitor.md)) with an [intelligent assessment of the issues](intelligent-insights-troubleshoot-performance.md). This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements.
 
 ## What can Intelligent Insights do for you?
 
@@ -41,7 +41,7 @@ After a performance degradation issue is detected from multiple observed metrics
 
 The metrics used to measure and detect database performance issues are based on query duration, timeout requests, excessive wait times, and errored requests. For more information on metrics, see [Detection metrics](#detection-metrics).
 
-Identified database performance degradations are recorded in the SQLInsights log with intelligent entries that consist of the following properties:
+Identified database performance degradations are recorded in the Intelligent Insights SQLInsights log with intelligent entries that consist of the following properties:
 
 | Property | Details |
 | :------------------- | ------------------- |
