@@ -48,7 +48,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `retry_settings.timeout` | integer | The timeout in seconds for scoring a mini batch. | | `30` |
 | `output_action` | string | Indicates how the output should be organized in the output file. | `append_row`, `summary_only` | `append_row` |
 | `output_file_name` | string | Name of the batch scoring output file. | | `predictions.csv` |
-| `environment_variables` | object | Dictionary of environment variable name-value pairs to set for each batch scoring job. | | |
+| `environment_variables` | object | Dictionary of environment variable key-value pairs to set for each batch scoring job. | | |
 
 ## Remarks
 
