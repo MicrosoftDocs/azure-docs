@@ -1,22 +1,25 @@
 ---
 title: Deploy a Service Fabric managed cluster with stateless node types
 description: Learn how to create and deploy stateless node types in Service Fabric managed clusters
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 3/4/2022
+author: craftyhouse
+ms.author: mike.craft
+ms.service: service-fabric
 ---
 # Deploy a Service Fabric managed cluster with stateless node types
 
 Service Fabric node types come with an inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types change this assumption for a node type. This allows the node type to benefit from features such as faster scale out operations, support for Automatic OS Upgrades, Spot VMs, and scaling out to more than 100 nodes in a node type.
 
-* Primary node types cannot be configured to be stateless.
+* Primary node types can't be configured to be stateless.
 * Stateless node types require an API version of **2021-05-01** or later.
-* This will automatically set the **multipleplacementgroup** property to **true** which you can [learn more here](how-to-managed-cluster-large-virtual-machine-scale-sets.md).
+* This will automatically set the **multipleplacementgroup** property to **true** which you can [learn more about here](how-to-managed-cluster-large-virtual-machine-scale-sets.md).
 * This enables support for up to 1000 nodes for the given node type.
 * Stateless node types can utilize a VM SKU temporary disk.
 
 ## Enabling stateless node types in a Service Fabric managed cluster
 
-To set one or more node types as stateless in a node type resource, set the **isStateless** property to **true**. When deploying a Service Fabric cluster with stateless node types, it is required to have at least one primary node type, which is not stateless in the cluster.
+To set one or more node types as stateless in a node type resource, set the **isStateless** property to **true**. When deploying a Service Fabric cluster with stateless node types, it's required to have at least one primary node type, which is not stateless in the cluster.
 
 Sample templates are available: [Service Fabric Stateless Node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
@@ -49,7 +52,7 @@ Sample templates are available: [Service Fabric Stateless Node types template](h
 
 [Azure Spot Virtual Machines on scale sets](../virtual-machine-scale-sets/use-spot.md) enables users to take advantage of unused compute capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict these Azure Spot Virtual Machine instances. Therefore, Spot VM node types are great for workloads that can handle interruptions and don't need to be completed within a specific timeframe. Recommended workloads include development, testing, batch processing jobs, big data, or other large-scale stateless scenarios.
 
-To set one or more node types as stateless in a node type resource, set the **isStateless** property to **true**. When deploying a Service Fabric cluster with stateless node types, it is required to have at least one primary node type, which is not stateless in the cluster. Virtual machine scale sets in Spot priority node types have Eviction Policy set to 'Delete'.
+To set one or more node types as stateless in a node type resource, set the **isStateless** property to **true**. When deploying a Service Fabric cluster with stateless node types, it's required to have at least one primary node type, which is not stateless in the cluster. Virtual machine scale sets in Spot priority node types have Eviction Policy set to 'Delete'.
 
 Sample templates are available: [Service Fabric Stateless Node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
@@ -83,7 +86,7 @@ Sample templates are available: [Service Fabric Stateless Node types template](h
 To configure a Stateless node type for zone resiliency you must [configure managed cluster zone spanning](how-to-managed-cluster-availability-zones.md) at the cluster level. 
 
 >[!NOTE]
-> The zonal resiliency property must be set at the cluster level, and this property cannot be changed in place.
+> The zonal resiliency property must be set at the cluster level, and this property can't be changed in place.
 
 ## Temporary disk support
 Stateless node types can be configured to use temporary disk as the data disk instead of a Managed Disk. Using a temporary disk can reduce costs for stateless workloads. To configure a stateless node type to use the temporary disk set the **useTempDataDisk** property to **true**. 
@@ -117,7 +120,7 @@ Stateless node types can be configured to use temporary disk as the data disk in
 
 
 ## Migrate to using stateless node types in a cluster
-For all migration scenarios, a new stateless node type needs to be added. Existing node type cannot be migrated to be stateless. You can add a new stateless node type to an existing Service Fabric managed cluster, and remove any original node types from the cluster. 
+For all migration scenarios, a new stateless node type needs to be added. An existing node type can't be migrated to be stateless. You can add a new stateless node type to an existing Service Fabric managed cluster, and remove any original node types from the cluster. 
 
 ## Next steps 
 
