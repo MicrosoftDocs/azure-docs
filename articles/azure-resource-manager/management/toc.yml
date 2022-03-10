@@ -94,7 +94,11 @@
         - name: Azure SQL DB & MI
           href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Stream Analytics
-          href: ../../stream-analytics/move-cluster.md?toc=/azure/azure-resource-manager/management/toc.json
+          items:
+          - name: Move Stream Analytics jobs
+            href: https://docs.microsoft.com/azure/stream-analytics/copy-job
+          - name: Move Stream Analytics cluster
+            href: ../../stream-analytics/move-cluster.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure VMs
           href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Logic apps
