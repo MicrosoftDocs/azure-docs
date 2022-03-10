@@ -26,6 +26,16 @@ Try the following avenues of investigation in response to:
 - Error code 701 with error message "There is insufficient system memory in resource pool '%ls' to run this query."
 - Error code 802 with error message "There is insufficient memory available in the buffer pool."
 
+## View out of memory events
+
+If you encounter out of memory errors, you will find them logged in [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events). This view includes predicted out of memory cause information that is determined by a heuristic algorithm and is provided with a finite degree of confidence.
+
+```sql
+SELECT * FROM sys.dm_os_out_of_memory_events ORDER BY event_time DESC;  
+```
+
+<!-- XE -->
+
 ## Investigate memory allocation
 
 If out of memory errors persist in Azure SQL Database, consider at least temporarily increasing the service level objective of the database in the Azure portal. If out of memory errors persist, use the following queries to look for unusually high query memory grants that may contribute to an insufficient memory condition. Run the following example queries in the database that experienced the error (not in the `master` database of the Azure SQL logical server).  

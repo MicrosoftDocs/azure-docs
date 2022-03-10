@@ -400,6 +400,8 @@ FROM cte
 ORDER BY SerialDesiredMemory DESC;
 ```
 
+If you encounter out of memory errors in Azure SQL Database, you will find them logged in [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
+
 ### Identify the top 10 active memory grants
 
 Use the following query to identify the top 10 active memory grants:
@@ -769,7 +771,7 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## See also
+## Next steps
 
 - [Introduction to Azure SQL Database and Azure SQL Managed Instance](sql-database-paas-overview.md)
 - [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)
