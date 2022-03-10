@@ -21,7 +21,7 @@ High-level migration recommendations.
 | Feature | Gen2 State | Migration Recommended |
 | ---| ---| ---|
 | Ingesting JSON from Hub with flattening and escaping | TSI Ingestion | ADX - OneClick Ingest / Wizard |
-| Open Cold store | Customer Storage Account |  [Continuous data export](../data-explorer/kusto/management/data-export/continuous-data-export) to customer specified external table in ADLS. |
+| Open Cold store | Customer Storage Account |  [Continuous data export](/azure/data-explorer/kusto/management/data-export/continuous-data-export) to customer specified external table in ADLS. |
 | PBI Connector | Private Preview | Use ADX PBI Connector. Rewrite TSQ to KQL manually. |
 | Spark Connector | Private Preview. Query telemetry data. Query model data. | Migrate data to ADX. Use ADX Spark connector for telemetry data + export model to JSON and load in Spark. Rewrite queries in KQL. |
 | Bulk Upload | Private Preview | Use ADX OneClick Ingest and LightIngest. An optionally, set up partitioning within ADX. |
@@ -58,7 +58,7 @@ Data
         - Hydration and Partitioning: when defining the number of instances in ADX Cluster, consider additional nodes (by 2-3x) to speed up hydration and partitioning.
 
 
-See [Select the correct compute SKU for your Azure Data Explorer cluster](../data-explorer/manage-cluster-choose-sku) for more details.
+See [Select the correct compute SKU for your Azure Data Explorer cluster](/azure/data-explorer/manage-cluster-choose-sku) for more details.
 
 1.	Configure Diagnostic Settings: to best monitor your cluster and the data ingestion you should enable Diagnostic Settings and send the data to a Log Analytics Workspace.
     1.	In the Azure Data Explorer blade go to “Monitoring | Diagnostic settings” and clickon “Add diagnostic setting”
@@ -111,7 +111,7 @@ See [Select the correct compute SKU for your Azure Data Explorer cluster](../dat
   "MaxOriginalSizePerOperation": 0
  }
 ```
-For more references check [ADX Data Partitioning Policy](../data-explorer/kusto/management/partitioningpolicy).
+For more references check [ADX Data Partitioning Policy](/azure/data-explorer/kusto/management/partitioningpolicy).
 
 #### Prepare for Data Ingestion
 
@@ -173,7 +173,7 @@ Copy the LightIngest command and store it somewhere so you can use it in the nex
 
 ## Data Ingestion
 
-Before ingesting data you need to install the [LightIngest tool](../data-explorer/lightingest#prerequisites).
+Before ingesting data you need to install the [LightIngest tool](/azure/data-explorer/lightingest#prerequisites).
 The command generated from One-Click tool includes a SAS token but it’s best to generate a new one so that you have control over the expiration time. In the portal navigate to the Blob Container for the TSI Environment and click on ‘Shared access token’
 
 :::image type="content" source="media/gen2-migration/adx-ingest-sas-token.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS token" lightbox="media/gen2-migration/adx-ingest-sas-token.png":::
@@ -198,15 +198,15 @@ The command generated from One-Click tool includes a SAS token but it’s best t
 
 1. `Option 2: Ingest Data by Year or Month`. For larger environments or to test on a smaller data set you can filter the Lightingest command further.
     1. By Year
-        Change your -prefix parameter
-	        Before: -prefix:"V=1/PT=Time"
-	        After: -prefix:"V=1/PT=Time/Y=<Year>"
-    	    Example: -prefix:"V=1/PT=Time/Y=2021"
+        > Change your -prefix parameter
+	    >    Before: -prefix:"V=1/PT=Time"
+	    >    After: -prefix:"V=1/PT=Time/Y=<Year>"
+    	>    Example: -prefix:"V=1/PT=Time/Y=2021"
      1. By Month
-        Change your -prefix parameter
-	        Before: -prefix:"V=1/PT=Time"
-    	    After: -prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"
-	        Example: -prefix:"V=1/PT=Time/Y=2021/M=03"
+        > Change your -prefix parameter
+	    >    Before: -prefix:"V=1/PT=Time"
+    	>    After: -prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"
+	    >    Example: -prefix:"V=1/PT=Time/Y=2021/M=03"
 
 Once you’ve modified the command execute it like above. One the ingestion is complete (using monitoring option below) modify the command for the next year and month you want to ingest.
 
@@ -479,7 +479,7 @@ The PowerBI query copied from TSI UX Explorer looks like as shown below
 ```
 {"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", 		"inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}]}
 ```
-- To convert this to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](../../rest/api/time-series-insights/dataaccessgen2/query/execute#queryaggregateseriespage1)
+- To convert this to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](/azure/rest/api/time-series-insights/dataaccessgen2/query/execute#queryaggregateseriespage1)
 -	The converted TSQ looks like as shown below. It is the JSON payload inside “queries”
 ```
 {
