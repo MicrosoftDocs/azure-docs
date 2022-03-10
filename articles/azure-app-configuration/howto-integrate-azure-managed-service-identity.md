@@ -54,13 +54,11 @@ To set up a managed identity in the portal, you first create an application and 
 
 ## Grant access to App Configuration
 
-The following steps describe how to assign the App Configuration Data Reader role to the App Service system-managed identity. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the App Configuration store that you created in the quickstart.
 
-1. In the Azure portal, select **All resources** and select the App Configuration store that you created in the quickstart.
-
-1. In the navigation menu, select **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
 1. Select **Add** > **Add role assignment**.
 
@@ -70,19 +68,9 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
     ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
 
-1. On the **Members** tab, select **Managed identity**.
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
-1. Choose **Select members**.
-
-1. In the **Select managed identities** pane, select **System-assigned managed identity**.
-
-1. Find and select the **App Service** managed identity.
-
-1. Choose **Select** to add the managed identities to the Members list.
-
-1. In the **Description** box, enter an optional description for this role assignment.
-
-1. Select **Next**.
+1. Select your Azure subscription, select **System-assigned managed identity**, and then select **App Service**.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
