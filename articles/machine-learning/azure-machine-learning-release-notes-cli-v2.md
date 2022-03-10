@@ -43,7 +43,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - For `az ml model create`, `--model-uri` and `--local-path` arguments removed and consolidated to one `--path` argument that can take either a local path or a cloud path URI 
   - Added the `az ml model download` command to download a model's artifact files
 - `az ml online-deployment`
-  - In the [online deployment YAML schema](reference-yaml-deployment-online.md), flattened the `code` section of the `code_configuration` field. Instead of `code_configuration.code.local_path` to specify the path to the source code directory containing the scoring files, it is now just `code_configuration.code`
+  - In the [online deployment YAML schema](reference-yaml-deployment-managed-online.md), flattened the `code` section of the `code_configuration` field. Instead of `code_configuration.code.local_path` to specify the path to the source code directory containing the scoring files, it is now just `code_configuration.code`
   - Added an `environment_variables` field to the online deployment YAML schema to support configuring environment variables for an online deployment
 - `az ml batch-deployment`
   - In the [batch deployment YAML schema](reference-yaml-deployment-batch.md), flattened the `code` section of the `code_configuration` field. Instead of `code_configuration.code.local_path` to specify the path to the source code directory containing the scoring files, it is now just `code_configuration.code`
@@ -91,7 +91,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Added interactive VSCode debugging support for local endpoints (added the `--vscode-debug` flag to `az ml batch-endpoint create/update`)
 - `az ml online-deployment`
   - `az ml deployment` subgroup split into two separate groups: `az ml online-deployment` and `az ml batch-deployment`
-  - Updated [managed online deployment YAML schema](reference-yaml-endpoint-managed-online.md)
+  - Updated [managed online deployment YAML schema](reference-yaml-deployment-managed-online.md)
   - Added autoscaling support via integration with Azure Monitor Autoscale
   - Added support for updating multiple online deployment properties in the same update operation
   - Added support for performing concurrent operations on deployments under the same endpoint
