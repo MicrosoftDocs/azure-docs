@@ -28,7 +28,7 @@ Try the following avenues of investigation in response to:
 
 ## View out of memory events
 
-If you encounter out of memory errors, you will find them logged in [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events). This view includes predicted out of memory cause information that is determined by a heuristic algorithm and is provided with a finite degree of confidence.
+If you encounter out of memory errors, you will find them logged in [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events). Introduced in January 2022, this view includes predicted out of memory cause information that is determined by a heuristic algorithm and is provided with a finite degree of confidence.
 
 ```sql
 SELECT * FROM sys.dm_os_out_of_memory_events ORDER BY event_time DESC;  
