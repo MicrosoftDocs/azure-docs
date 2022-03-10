@@ -1,8 +1,8 @@
 ---
-title: Microsoft Defender for Cloud's features according to OS, machine type, and cloud
-description: Learn about the availability of Microsoft Defender for Cloud features according to OS, machine type, and cloud deployment.
+title: Microsoft Defender for Cloud's servers features according to OS, machine type, and cloud
+description: Learn about the availability of Microsoft Defender for Cloud's servers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 02/28/2022
+ms.date: 03/08/2022
 ms.custom: references_regions
 ---
 
@@ -32,7 +32,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | [Docker host hardening](./harden-docker-hosts.md)                                                                                 | -                                                                                                               | -                                    | -                              | Yes                                     |
 | Missing OS patches assessment                                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
 | Security misconfigurations assessment                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
-| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds.md#supported-endpoint-protection-solutions-)        | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
+| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions-)        | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
 | Disk encryption assessment                                                                                                        | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                      |
 | Third-party vulnerability assessment                                                                                              | ✔                                                                                                              | -                                    | ✔                             | No                                      |
 | [Network security assessment](protect-network-resources.md)                                                                       | ✔                                                                                                              | ✔                                    | -                              | No                                      |
@@ -56,7 +56,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | [Docker host hardening](./harden-docker-hosts.md)                                                                                 | ✔                                                                                                              | ✔                                    | ✔                             | Yes                                     |
 | Missing OS patches assessment                                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
 | Security misconfigurations assessment                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
-| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds.md#supported-endpoint-protection-solutions-)        | -                                                                                                               | -                                    | -                              | No                                      |
+| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions-)        | -                                                                                                               | -                                    | -                              | No                                      |
 | Disk encryption assessment                                                                                                        | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                      |
 | Third-party vulnerability assessment                                                                                              | ✔                                                                                                              | -                                    | ✔                             | No                                      |
 | [Network security assessment](protect-network-resources.md)                                                                       | ✔                                                                                                              | ✔                                    | -                              | No                                      |
@@ -81,7 +81,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | [Docker host hardening](harden-docker-hosts.md) | ✔ | ✔ |
 | Missing OS patches assessment | ✔ | ✔ |
 | Security misconfigurations assessment | ✔ | ✔ |
-| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds.md#supported-endpoint-protection-solutions-) | ✔ | ✔ |
+| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions-) | ✔ | ✔ |
 | Disk encryption assessment | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) |
 | Third-party vulnerability assessment | - | - |
 | [Network security assessment](protect-network-resources.md) | - | - |
