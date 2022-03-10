@@ -82,7 +82,7 @@ Enable AlwaysOn Availability Groups inside the SQL Server Configuration Manager,
 - Use the Checkbox to enable AlwaysOn Availability Groups.
 - Click OK.
 
-    :::image type="content" source="./media/managed-instance-link-preparation/always-on-availability-groups-properties.png" alt-text="Screenshot showing always on availability groups properties.":::
+:::image type="content" source="./media/managed-instance-link-preparation/always-on-availability-groups-properties.png" alt-text="Screenshot showing always on availability groups properties.":::
 
 - A dialog notification will say SQL Server service needs to be restarted for changes to take place.
 - Close the dialog (click OK)
@@ -105,7 +105,8 @@ To enable the trace flags on a SQL Server, follow the steps:
 - Enter trace flag -T1800 and click Add button.
 - Enter trace flag -T9567 and click Add button.
 - Click OK.
-    :::image type="content" source="./media/managed-instance-link-preparation/startup-parameters-properties.png" alt-text="Screenshot showing Startup parameter properties.":::
+
+:::image type="content" source="./media/managed-instance-link-preparation/startup-parameters-properties.png" alt-text="Screenshot showing Startup parameter properties.":::
 
 ### Restart the SQL Server and validate SQL Server configuration.
 
