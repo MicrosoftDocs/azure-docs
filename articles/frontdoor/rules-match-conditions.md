@@ -213,7 +213,7 @@ In this example, we match all requests that have been sent by using the HTTP 2.0
 
 ## Request cookies
 
-Use the **request cookies** match condition to identify requests that have include a specific cookie.
+Use the **request cookies** match condition to identify requests that have included a specific cookie.
 
 > [!NOTE]
 > The **request cookies** match condition is only available on Azure Front Door Standard/Premium.
@@ -229,7 +229,7 @@ Use the **request cookies** match condition to identify requests that have inclu
 
 ### Example
 
-In this example, we match all requests that have include a cookie named `deploymentStampId` with a value of `1`.
+In this example, we match all requests that have included a cookie named `deploymentStampId` with a value of `1`.
 
 # [Portal](#tab/portal)
 
@@ -498,7 +498,7 @@ In this example, we match all requests where the query string contains the strin
 
 The **remote address** match condition identifies requests based on the requester's location or IP address. You can specify multiple values to match, which will be combined using OR logic.
 
-* Use CIDR notation when specifying IP address blocks. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
+* Use CIDR notation when specifying IP address blocks. The syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
     * **IPv4 example**: `5.5.5.64/26` matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
     * **IPv6 example**: `1:2:3:/48` matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3: ffff:ffff:ffff:ffff:ffff.
 * When you specify multiple IP addresses and IP address blocks, 'OR' logic is applied.
@@ -515,7 +515,7 @@ The **remote address** match condition identifies requests based on the requeste
 
 ### Example
 
-In this example, we match all requests where the request has not originated from the United States.
+In this example, we match all requests where the request hasn't originated from the United States.
 
 # [Portal](#tab/portal)
 
@@ -940,7 +940,7 @@ In this example, we match all requests where the request file extension is `pdf`
 
 ## Request header
 
-The **request header** match condition identifies requests that include a specific header in the request. You can use this match condition to check if a header exists whatever its value, or to check if the header matches a specified value. You can specify multiple values to match, which will be combined using OR logic.
+The **request header** match condition identifies requests that include a specific header in the request. You can use this match condition to check if a header exists or to check if the header matches a specified value. You can specify multiple values to match, which will be combined using OR logic.
 
 ### Properties
 
@@ -1742,7 +1742,7 @@ For rules that accept values from the standard operator list, the following oper
 
 | Operator                   | Description                                                                                                                    | ARM template support                                            |
 |----------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Any                        | Matches when there is any value, regardless of what it is.                                                                     | `operator`: `Any`                                               |
+| Any                        | Matches when there's any value, regardless of what it is.                                                                     | `operator`: `Any`                                               |
 | Equal                      | Matches when the value exactly matches the specified string.                                                                   | `operator`: `Equal`                                             |
 | Contains                   | Matches when the value contains the specified string.                                                                          | `operator`: `Contains`                                          |
 | Less Than                  | Matches when the length of the value is less than the specified integer.                                                       | `operator`: `LessThan`                                          |
@@ -1752,16 +1752,16 @@ For rules that accept values from the standard operator list, the following oper
 | Begins With                | Matches when the value begins with the specified string.                                                                       | `operator`: `BeginsWith`                                        |
 | Ends With                  | Matches when the value ends with the specified string.                                                                         | `operator`: `EndsWith`                                          |
 | RegEx                      | Matches when the value matches the specified regular expression. [See below for further details.](#regular-expressions)        | `operator`: `RegEx`                                             |
-| Not Any                    | Matches when there is no value.                                                                                                | `operator`: `Any` and `negateCondition` : `true`                |
-| Not Equal                  | Matches when the value does not match the specified string.                                                                    | `operator`: `Equal` and `negateCondition` : `true`              |
-| Not Contains               | Matches when the value does not contain the specified string.                                                                  | `operator`: `Contains` and `negateCondition` : `true`           |
-| Not Less Than              | Matches when the length of the value is not less than the specified integer.                                                   | `operator`: `LessThan` and `negateCondition` : `true`           |
-| Not Greater Than           | Matches when the length of the value is not greater than the specified integer.                                                | `operator`: `GreaterThan` and `negateCondition` : `true`        |
-| Not Less Than or Equal     | Matches when the length of the value is not less than or equal to the specified integer.                                       | `operator`: `LessThanOrEqual` and `negateCondition` : `true`    |
-| Not Greater Than or Equals | Matches when the length of the value is not greater than or equal to the specified integer.                                    | `operator`: `GreaterThanOrEqual` and `negateCondition` : `true` |
-| Not Begins With            | Matches when the value does not begin with the specified string.                                                               | `operator`: `BeginsWith` and `negateCondition` : `true`         |
-| Not Ends With              | Matches when the value does not end with the specified string.                                                                 | `operator`: `EndsWith` and `negateCondition` : `true`           |
-| Not RegEx                  | Matches when the value does not match the specified regular expression. [See below for further details.](#regular-expressions) | `operator`: `RegEx` and `negateCondition` : `true`              |
+| Not Any                    | Matches when there's no value.                                                                                                | `operator`: `Any` and `negateCondition` : `true`                |
+| Not Equal                  | Matches when the value doesn't match the specified string.                                                                    | `operator`: `Equal` and `negateCondition` : `true`              |
+| Not Contains               | Matches when the value doesn't contain the specified string.                                                                  | `operator`: `Contains` and `negateCondition` : `true`           |
+| Not Less Than              | Matches when the length of the value isn't less than the specified integer.                                                   | `operator`: `LessThan` and `negateCondition` : `true`           |
+| Not Greater Than           | Matches when the length of the value isn't greater than the specified integer.                                                | `operator`: `GreaterThan` and `negateCondition` : `true`        |
+| Not Less Than or Equal     | Matches when the length of the value isn't less than or equal to the specified integer.                                       | `operator`: `LessThanOrEqual` and `negateCondition` : `true`    |
+| Not Greater Than or Equals | Matches when the length of the value isn't greater than or equal to the specified integer.                                    | `operator`: `GreaterThanOrEqual` and `negateCondition` : `true` |
+| Not Begins With            | Matches when the value doesn't begin with the specified string.                                                               | `operator`: `BeginsWith` and `negateCondition` : `true`         |
+| Not Ends With              | Matches when the value doesn't end with the specified string.                                                                 | `operator`: `EndsWith` and `negateCondition` : `true`           |
+| Not RegEx                  | Matches when the value doesn't match the specified regular expression. [See below for further details.](#regular-expressions) | `operator`: `RegEx` and `negateCondition` : `true`              |
 
 > [!TIP]
 > For numeric operators like *Less than* and *Greater than or equals*, the comparison used is based on length. The value in the match condition should be an integer that specifies the length you want to compare.
