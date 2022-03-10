@@ -65,7 +65,6 @@ To set up B2B collaboration between tenants in different clouds, both tenants ne
 
 - Use B2B collaboration to invite a user in the partner tenant to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
 - Apply Conditional Access policies to the B2B collaboration user and opt to trust device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
-- Add cross-cloud B2B collaboration users to your [Exchange Global Address List](/microsoft-365/solutions/per-group-guest-access).
 
 For configuration steps, see [Configure cross-cloud settings for B2B collaboration (Preview)](cross-cloud-settings.md).
 
@@ -100,6 +99,9 @@ To collaborate with a partner tenant in a different Microsoft Azure cloud, both 
 ## Identify inbound and outbound sign-ins
 
 Several tools are available to help you identify the access your users and partners need before you set inbound and outbound access settings. To ensure you don’t remove access that your users and partners need, you can examine current sign-in behavior. Taking this preliminary step will help prevent loss of desired access for your end users and partner users. However, in some cases these logs are only retained for 30 days, so we strongly recommend you speak with your business stakeholders to ensure required access isn't lost.
+
+> [!NOTE]
+> During the preview of cross-cloud collaboration, sign-in events for cross-cloud scenarios will be reported in the resource tenant, but not in the home tenant.
 
 ### Cross-tenant sign-in activity PowerShell script
 

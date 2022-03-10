@@ -19,27 +19,27 @@ ms.collection: M365-identity-device-management
 > [!NOTE]
 > Cross-cloud settings are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When Azure AD organizations in separate Microsoft Azure clouds need to collaborate, they can enable cross-cloud Azure AD B2B collaboration. B2B collaboration is available between the following sovereign Microsoft Azure clouds:
+When Azure AD organizations in separate Microsoft Azure clouds need to collaborate, they can enable cross-cloud Azure AD B2B collaboration. B2B collaboration is available between the following global and sovereign Microsoft Azure clouds:
 
 - Microsoft Azure global cloud
 - Microsoft Azure Government
 - Microsoft Azure China 21Vianet
 
-To set up B2B collaboration with a partner organization in an external Microsoft Azure cloud, each partner mutually agrees to configure B2B collaboration with each other. An admin in each organization needs to complete the following steps:
+To set up B2B collaboration between partner organizations in different Microsoft Azure clouds, each partner mutually agrees to configure B2B collaboration with each other. An admin in each organization needs to complete the following steps:
 
-1. Configure cross-cloud settings to enable collaboration with the partner's cloud.
+1. Configure your cross-cloud settings to enable collaboration with the partner's cloud.
 
-1. Set the desired defaults that will generally apply to all Azure AD organizations in the partner's cloud.
+1. Add the partner's organization to your organizational settings. You'll add the organization using their tenant ID.
 
-1. Create organizational settings specifically for the partner organization you want to collaborate with. You'll add the organization using their tenant ID and create organization-specific B2B collaboration settings.
+1. Control inbound and outbound collaboration with the partner organization. You can allow your default cross-tenant settings to take effect, or you can configure organizational settings that apply only to the partner organization.
 
 After each organization has completed these steps, their users can collaborate using Azure AD B2B collaboration.
 
 ## Before you begin
 
-- **Obtain the partner's tenant ID.** You'll need the tenant ID for your partner's Azure AD organization to create customized organizational settings for the partner. In cross-cloud scenarios, lookup by the organization's domain isn't available.
+- **Obtain the partner's tenant ID.** To enable B2B collaboration with a partner's Azure AD organization in another Microsoft Azure cloud, you'll need the partner's tenant ID. Using an organization's domain name for lookup isn't available in cross-cloud scenarios.
+- **Decide on inbound and outbound access settings for the partner.** In cross-cloud scenarios, default settings only take effect for partner tenants that you add to your Organizational settings. When you enable an external cloud in your cross-cloud settings, all B2B collaboration with Azure AD organizations in that cloud is blocked. When you first enable another cloud, B2B collaboration is blocked for all tenants in that cloud. You need to add the tenant you want to collaborate with to your Organizational settings, and at that point your default settings go into effect for that tenant only. You can allow the default settings to remain in effect, or you can modify the organizational settings for the tenant.
 - **Obtain any required object IDs or app IDs.** If you want to apply access settings to specific users, groups, or applications in the partner organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
-- In cross-cloud scenarios, default settings only take effect for partner tenants that you add to your Organizational settings. When you first enable another cloud, B2B collaboration is blocked for all tenants in that cloud. You need to add the tenant you want to collaborate with to your Organizational settings, and at that point your default settings go into effect for that tenant only. You can allow the default settings to remain in effect, or you can modify the organizational settings for the tenant.
 
 ## Enable the cloud in your cross-cloud settings
 

@@ -37,15 +37,14 @@ With Azure AD B2B, the partner uses their own identity management solution, so t
 - You don't need to manage external accounts or passwords.
 - You don't need to sync accounts or manage account lifecycles.
 
-## Manage external access with inbound and outbound settings
-
-B2B collaboration is enabled by default, but comprehensive admin settings let you control your B2B collaboration with external partners and organizations:
+## Manage collaboration with other organizations and clouds
+B2B collaboration is enabled by default, but comprehensive admin settings let you control your inbound and outbound B2B collaboration with external partners and organizations:
 
 - For B2B collaboration with other Azure AD organizations, use [cross-tenant access settings](cross-tenant-access-overview.md) to manage inbound and outbound B2B collaboration and scope access to specific users, groups, and applications. You can set a default configuration that applies to all external organizations, and then create individual, organization-specific settings as needed. Using cross-tenant access settings, you can also trust multi-factor (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 
 - Use [external collaboration settings](external-collaboration-settings-configure.md) to limit who can invite external users, allow or block B2B specific domains, and set restrictions on guest user access to your directory.
 
-- Use [cross-cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between sovereign Microsoft Azure clouds.
+- Use [cross-cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between global and sovereign Microsoft Azure clouds.
 
 ## Easily invite guest users from the Azure AD portal
 
