@@ -30,11 +30,6 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 ### New articles
 
 - [Access Azure AD protected resources from an app in Google Cloud (preview)](workload-identity-federation-create-trust-gcp.md)
-- [Quickstart: Acquire a token and call the Microsoft Graph API by using a console app's identity](console-app-quickstart.md)
-- [Quickstart: Acquire a token and call Microsoft Graph API from a desktop application](desktop-app-quickstart.md)
-- [Quickstart: Add sign-in with Microsoft to a web app](web-app-quickstart.md)
-- [Quickstart: Protect a web API with the Microsoft identity platform](web-api-quickstart.md)
-- [Quickstart: Sign in users and call the Microsoft Graph API from a mobile application](mobile-app-quickstart.md)
 
 ### Updated articles
 
@@ -45,6 +40,11 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Exchange a SAML token issued by AD FS for a Microsoft Graph access token](v2-saml-bearer-assertion.md)
 - [Logging in MSAL.js](msal-logging-js.md)
 - [Permissions and consent in the Microsoft identity platform](v2-permissions-and-consent.md)
+- [Quickstart: Acquire a token and call the Microsoft Graph API by using a console app's identity](console-app-quickstart.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a desktop application](desktop-app-quickstart.md)
+- [Quickstart: Add sign-in with Microsoft to a web app](web-app-quickstart.md)
+- [Quickstart: Protect a web API with the Microsoft identity platform](web-api-quickstart.md)
+- [Quickstart: Sign in users and call the Microsoft Graph API from a mobile application](mobile-app-quickstart.md)
 
 ## December 2021
 
