@@ -1,13 +1,13 @@
 ---
 title: The link feature best practices
 titleSuffix: Azure SQL Managed Instance
-description: Learn about the best practices with link feature for Azure SQL Managed Instance
+description: Learn about best practices when using the link feature for Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
-ms.custom: sqldbrb=1
+ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: guide
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma, danil
@@ -23,7 +23,7 @@ This article outlines best practices when using the link feature for Azure SQL M
 
 ## Take log backups regularly
 
-The link feature replicates data using the [Distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups) concept based the Always On availability groups technology stack. Data replication with distributed availability groups is based on replicating transaction log records. No transaction log records can be truncated from the database on the primary instance until they're replicated to the database on the secondary instance. If transaction log record replication is slow or blocked due to network connection issues, the log file keeps growing on the primary instance. Growth speed depends on the intensity of workload and the network speed. If there's a prolonged network connection outage and heavy workload on primary instance, the log file may take all available storage space.
+The link feature replicates data using the [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups) concept based the Always On availability groups technology stack. Data replication with distributed availability groups is based on replicating transaction log records. No transaction log records can be truncated from the database on the primary instance until they're replicated to the database on the secondary instance. If transaction log record replication is slow or blocked due to network connection issues, the log file keeps growing on the primary instance. Growth speed depends on the intensity of workload and the network speed. If there's a prolonged network connection outage and heavy workload on primary instance, the log file may take all available storage space.
 
 
 To minimize the risk of running out of space on your primary instance due to log file growth, make sure to take database log backups regularly. By taking log backups regularly, you make your database more resilient to unplanned log growth events. Consider scheduling daily log backup tasks using SQL Server Agent job.
@@ -66,7 +66,7 @@ In this example, the database has used 76% of the available log, with an absolut
 
 ## Add start up trace flags
 
-There are two trace flags (`-T1800` and `-T9567`) that, when added as start up parameters, can optimize the performance of data replication through the link. See [Enable start up trace flags](managed-instance-link-preparation.md#enable-feature-startup-trace-flags) to learn more. 
+There are two trace flags (`-T1800` and `-T9567`) that, when added as start up parameters, can optimize the performance of data replication through the link. See [Enable start up trace flags](managed-instance-link-preparation.md#enable-startup-trace-flags) to learn more. 
 
 ## Next steps
 
@@ -74,5 +74,5 @@ To get started with the link feature, [prepare your environment for replication]
 
 For more information on the link feature, see the following articles:
 
-- [Managed Instance link – overview](link-feature.md).
-- [Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog).
+- [Managed Instance link – overview](link-feature.md)
+- [Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog)
