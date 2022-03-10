@@ -258,6 +258,8 @@
       href: activity-logs.md
     - name: Create activity log alerts
       href: create-alerts.md
+  - name: Move to new region
+    href: how-to-move-labs.md
 - name: Reference
   items:
   - name: CLI
