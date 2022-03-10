@@ -101,20 +101,29 @@ Use custom alert rule actions to instruct Defender for IT to take specific actio
 
 **To create a custom alert rule**:
 
-1. On the sensor console, select **Custom alert rules > **+ Create rule**.
+1. On the sensor console, select **Custom alert rules** > **+ Create rule**.
 
 1. In the **Create custom alert rule** pane that shows on the right, define the following fields:
 
-    |Name  |Description  |
-    |---------|---------|
-    |**Alert name**     |   Enter a meaningful name for the alert.      |
-    |**Alert protocol**     |   Select the protocol you want to detect. In specific cases, select one of the following protocols: <br><br>- For a database data or structure manipulation event, select **TNS** or **TDS**<br>- For a file event, select **HTTP**, **DELTAV**, **SMB**, or **FTP**, depending on the file type <br>- For a package download event, select **HTTP** <br>- For an open ports (dropped) event, select **TCP** or **UDP**, depending on the port type.      |
-    |**Message**     |   Define a message to display when the alert is triggered. Alert messages support alphanumeric characters and any traffic variables detected. <br><br>For example, you might want to include the detected source and destination addresses. Use curly brackets (**{}**) to add variables to the alert message.      |
-    |**Engine**     |  Select the engine you want to detect the activity.      |
-    |**Direction**     | Enter a source and/or destination IP address where you want to detect traffic.        |
-    |**Conditions**     |    Define one or more conditions that must be met to trigger the alert. <br>- Select the **+** sign to create a condition set with multiple conditions that use the **AND** operator. <br>If you select a MAC address or IP address as a variable, you must convert the value from a dotted-decimal address to decimal format.  |
-    |**Detected**     |   Define a date and/or time range for the traffic you want to detect.      |
-    |**Action**     | Define an action you want Defender for IoT to take automatically when the alert is triggered.   |
+    - **Alert name**. Enter a meaningful name for the alert.
+
+    - **Alert protocol**.  Select the protocol you want to detect. In specific cases, select one of the following protocols:
+
+        - For a database data or structure manipulation event, select **TNS** or **TDS**
+        - For a file event, select **HTTP**, **DELTAV**, **SMB**, or **FTP**, depending on the file type
+        - For a package download event, select **HTTP**
+        - For an open ports (dropped) event, select **TCP** or **UDP**, depending on the port type.
+
+    - **Message**.  Define a message to display when the alert is triggered. Alert messages support alphanumeric characters and any traffic variables detected. For example, you might want to include the detected source and destination addresses. Use curly brackets (**{}**) to add variables to the alert message.
+
+    - **Engine**. Select the engine you want to detect the activity.
+
+    - **Direction**.  Enter a source and/or destination IP address where you want to detect traffic.
+
+    - **Conditions**. Define one or more conditions that must be met to trigger the alert. Select the **+** sign to create a condition set with multiple conditions that use the **AND** operator. If you select a MAC address or IP address as a variable, you must convert the value from a dotted-decimal address to decimal format.
+
+    - **Detected**. Define a date and/or time range for the traffic you want to detect.
+    - **Action**. Define an action you want Defender for IoT to take automatically when the alert is triggered. 
 
 To edit a custom alert rule, select the rule and then select the options (**...**) menu > **Edit**. Modify the alert rule as needed and save your changes.
 
