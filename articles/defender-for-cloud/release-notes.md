@@ -58,7 +58,7 @@ This preview alert is called `Access from a suspicious application`. The alert i
 
 A new section has been added to the alert User Interface (UI) which allows you to view and edit who will receive email notifications for alerts that are triggered on the current subscription.
 
-:::image type="content" source="./media/configure-email-notifications/email-notification-settings.png" alt-text="Configuring the details of the contact who will receive emails about security alerts." :::
+:::image type="content" source="media/release-notes/configure-email.png" alt-text="Screenshot of the new UI showing how to configure email notification.":::
 
 Learn how to [Configure email notifications for security alerts](configure-email-notifications.md).
 
