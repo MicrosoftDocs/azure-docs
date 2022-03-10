@@ -4,12 +4,13 @@ description: Overview of the Azure Monitor agent, which collects monitoring data
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 3/3/2022
+ms.date: 3/9/2022
 ms.custom: references_regions
 ---
 
 # Azure Monitor agent overview
-The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent and includes information on how to install it and how to configure data collection.
+The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent and includes information on how to install it and how to configure data collection.  
+Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure Portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
 ## Relationship to other agents
 The Azure Monitor agent replaces the following legacy agents that are currently used by Azure Monitor to collect guest data from virtual machines ([view known gaps](../faq.yml)):
@@ -94,6 +95,7 @@ The following table shows the current support for the Azure Monitor agent with A
 | Azure Monitor feature | Current support | More information |
 |:---|:---|:---|
 | File based logs and Windows IIS logs | Private preview | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
+| Windows Client OS installer | Private preview | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
 | [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
 | [Connect using private links](azure-monitor-agent-data-collection-endpoint.md) | Public preview | No sign-up needed |
 
