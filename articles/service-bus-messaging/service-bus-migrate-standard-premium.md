@@ -169,7 +169,7 @@ The downtime that is experienced by the application is limited to the time it ta
 
 No, there are no code or configuration changes needed to do the migration. The connection string that sender and receiver applications use to access the standard Namespace is automatically mapped to act as an alias for the premium namespace.
 
-### How to abort the migration? 
+### How do I abort the migration? 
 
 The migration can be aborted either by using the `Abort` command or by using the Azure portal.
 
