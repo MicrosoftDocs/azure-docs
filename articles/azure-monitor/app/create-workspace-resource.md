@@ -153,7 +153,7 @@ The `New-AzApplicationInsights` PowerShell command does not currently support cr
             "properties": {
                 "ApplicationId": "[parameters('name')]",
                 "Application_Type": "[parameters('type')]",
-                "Flow_Type": "Redfield",
+                "Flow_Type": "Bluefield",
                 "Request_Source": "[parameters('requestSource')]",
                 "WorkspaceResourceId": "[parameters('workspaceResourceId')]"
             }

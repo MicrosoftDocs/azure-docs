@@ -126,8 +126,10 @@ To review threat intelligence information:
 
 If cloud connected threat intelligence updates fail, review  connection  information in the **Sensor status** and **Last connected UTC** columns in the **Sites and Sensors** page. 
 
-## See also
+## Next steps
 
-[Onboard a sensor](getting-started.md#onboard-a-sensor)
+For more information, see:
 
-[Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Onboard a sensor](getting-started.md#onboard-a-sensor)
+
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
