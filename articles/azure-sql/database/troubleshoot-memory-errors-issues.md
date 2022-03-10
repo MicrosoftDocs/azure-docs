@@ -42,7 +42,7 @@ If out of memory errors persist in Azure SQL Database, consider at least tempora
 
 ### Use DMV to view out of memory events
 
-Beginning in January 2022, a new dynamic management view (DMV) has been added to allow visibility to the events and causes of out of memory (OOM) events in Azure SQL Database, `sys.dm_os_out_of_memory_events`. For more information, see [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
+Beginning in April 2022, a new dynamic management view (DMV) has been added to allow visibility to the events and causes of out of memory (OOM) events in Azure SQL Database, `sys.dm_os_out_of_memory_events`. For more information, see [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
 
 ### Use DMVs to view memory clerks
 

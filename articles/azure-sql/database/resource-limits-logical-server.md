@@ -125,7 +125,7 @@ Besides the data cache, memory is used in other components of the database engin
 In rare cases, a sufficiently demanding workload may cause an insufficient memory condition, leading to out-of-memory errors. This can happen at any level of memory utilization between 0% and 100%. This is more likely to occur on smaller compute sizes that have proportionally smaller memory limits, and/or with workloads using more memory for query processing, such as in [dense elastic pools](elastic-pool-resource-management.md). 
 
 When encountering out-of-memory errors, mitigation options include:
-- Review the logs and predictive OOM condition cause in [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
+- Review the details of the OOM condition in [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
 - Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - Optimizing queries and configuration to reduce memory utilization. Common solutions are described in the following table.
 
