@@ -50,17 +50,8 @@ Tables for all resources types are referenced here, for example, [Azure Monitor 
 | [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics.md) | Metric data emitted by Azure services that measure their health and performance. Activity from numerous Azure products including SQL databases, SQL managed Instances, and SQL servers.|
 
 ## Activity log
-<!-- REQUIRED. Please keep heading in this order -->
 
-The following table lists the operations related to Azure SQL Database that may be created in the Activity log.
-
-<!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
-| Operation | Description |
-|:---|:---|
-| | |
-| | |
-
-<!-- NOTE: This information may be hard to find or not listed anywhere.  Please ask your PM for at least an incomplete list of what type of messages could be written here. If you can't locate this, contact azmondocs@microsoft.com for help -->
+All maintenance operations related to Azure SQL Database that have been implemented here may appear in the Activity log.
 
 For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
