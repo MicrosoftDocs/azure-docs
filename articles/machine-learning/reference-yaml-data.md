@@ -45,35 +45,35 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: datastore file
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/datasets/cloud-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file.yml":::
 
 ## YAML: datastore folder
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/datasets/cloud-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder.yml":::
 
 ## YAML: https file
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/datasets/cloud-file-https.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file-https.yml":::
 
 ## YAML: https folder
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/datasets/cloud-folder-https.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder-https.yml":::
 
 ## YAML: wasbs file
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/datasets/cloud-file-wasbs.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file-wasbs.yml":::
 
 ## YAML: wasbs folder
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/datasets/cloud-folder-wasbs.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder-wasbs.yml":::
 
 ## YAML: local file
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/datasets/local-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/local-file.yml":::
 
 ## YAML: local folder
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/datasets/local-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/local-folder.yml":::
 
 ## Next steps
 
