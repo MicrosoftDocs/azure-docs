@@ -19,7 +19,7 @@ summary: This page answers frequently asked questions about Azure Active Directo
 sections:
   - name: General
     questions:
-    
+
       - question: |
          Can I modify an App Proxy app from the App registrations page in the Azure portal?
         answer: |
@@ -135,6 +135,12 @@ sections:
           
   - name: Application configuration
     questions:
+      - question: |
+         Can I use the domain suffixes `[tenantname].onmicrosoft.com`` or `[tenantname].mail.onmicrosoft.com`` in the external URL?
+        answer: |
+            Although these suffixes appear in the suffix list, you should not use them. These domain suffixes are not meant to be used with Azure AD Application Proxy. If you use these domain suffixes, the created Azure AD Application Proxy application won't work.
+            You can use either the standard domain suffix `msappproxy.net` or a [custom domain](application-proxy-configure-custom-domain.md).
+
       - question: |
          I am receiving an error about an invalid certificate or possible wrong password
         answer: |
