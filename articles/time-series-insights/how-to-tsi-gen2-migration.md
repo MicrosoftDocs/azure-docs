@@ -37,7 +37,7 @@ Use `PT=Time` folder in the storage account to retrieve the copy of all telemetr
 
 Data 
 1.	Env overview 
-   1.	Record Environment ID from first part of Data Access FQDN (E.g. d390b0b0-1445-4c0c-8365-68d6382c1c2a From .env.crystal-dev.windows-int.net)
+   1.	Record Environment ID from first part of Data Access FQDN (for example, d390b0b0-1445-4c0c-8365-68d6382c1c2a From .env.crystal-dev.windows-int.net)
 1.	Env Overview -> Storage Configuration -> Storage Account
 1.	Use Storage Explorer to get folder statistics
     1.	Record size and the number of blobs of `PT=Time` folder. For customers in private preview of Bulk Import, also record `PT=Import` size and number of blobs.
@@ -47,21 +47,21 @@ Data
 #### Create ADX cluster
 
 1.	Define the cluster size based on data size using the ADX Cost Estimator. 
-    1.	From Event Hub (or IoT Hub) metrics, retrieve the rate of how much data it is ingested per day, and in the Storage Account connected to the TSI environment retrieve how much data there is in the blob container used by TSI. This information will be used to compute the ideal size of an ADX Cluster for your environment. 
+    1.	From Event Hubs (or IoT Hub) metrics, retrieve the rate of how much data it's ingested per day. From the Storage Account connected to the TSI environment, retrieve how much data there is in the blob container used by TSI. This information will be used to compute the ideal size of an ADX Cluster for your environment. 
     1.	Open [the Azure Data Explorer Cost Estimator](https://dataexplorer.azure.com/AzureDataExplorerCostEstimator.html) and fill the existing fields with the information found. Set “Workload type” as “Storage Optimized”, and "Hot Data" with the total amount of data queried actively.
-    1.	After providing all the information, Azure Data Explorer Cost Estimator will suggest a VM size and number of instances for your cluster. Analyze if the size of actively queried data will fit in the Hot Cache multiplying the number of instances suggested by the cache size of the VM size, per example: 
-| Cost Estimator suggestion: | 9x DS14 + 4TB (cache) |
-| Total Hot Cache suggested: | 36TB = [9x (instances) x 4TB (of Hot Cache per node)] |
+    1.	After providing all the information, Azure Data Explorer Cost Estimator will suggest a VM size and number of instances for your cluster. Analyze if the size of actively queried data will fit in the Hot Cache. Multiply the number of instances suggested by the cache size of the VM size, per example: 
+| Cost Estimator suggestion: | 9x DS14 + 4 TB (cache) |
+| Total Hot Cache suggested: | 36 TB = [9x (instances) x 4 TB (of Hot Cache per node)] |
 
-    1. Additional factors to consider:
+    1. More factors to consider:
         - Environment growth: when planning the ADX Cluster size consider the data growth along the time.
-        - Hydration and Partitioning: when defining the number of instances in ADX Cluster, consider additional nodes (by 2-3x) to speed up hydration and partitioning.
+        - Hydration and Partitioning: when defining the number of instances in ADX Cluster, consider extra nodes (by 2-3x) to speed up hydration and partitioning.
 
 
-See [Select the correct compute SKU for your Azure Data Explorer cluster](/azure/data-explorer/manage-cluster-choose-sku) for more details.
+For more information about compute selection, see [Select the correct compute SKU for your Azure Data Explorer cluster](/azure/data-explorer/manage-cluster-choose-sku).
 
-1.	Configure Diagnostic Settings: to best monitor your cluster and the data ingestion you should enable Diagnostic Settings and send the data to a Log Analytics Workspace.
-    1.	In the Azure Data Explorer blade go to “Monitoring | Diagnostic settings” and clickon “Add diagnostic setting”
+1.	To best monitor your cluster and the data ingestion, you should enable Diagnostic Settings and send the data to a Log Analytics Workspace.
+    1.	In the Azure Data Explorer blade, go to “Monitoring | Diagnostic settings” and click on “Add diagnostic setting”
 
         :::image type="content" source="media/gen2-migration/adx-diagnostic.png" alt-text="Screenshot of the Azure Data Explorer blade Monitoring | Diagnostic settings" lightbox="media/gen2-migration/adx-diagnostic.png":::
 
@@ -78,8 +78,8 @@ See [Select the correct compute SKU for your Azure Data Explorer cluster](/azure
         1.	When querying historical data.
         1.	When ingesting out-of-order data.
     1.	The custom data partitioning should include:
-        1.	The timestamp column which results in time-based partitioning of extents. 
-        1.	A string-based column which corresponds to the Time Series ID with highest cardinality. 
+        1.	The timestamp column, which results in time-based partitioning of extents. 
+        1.	A string-based column, which corresponds to the Time Series ID with highest cardinality. 
     1.	An example of data partitioning containing a Time Series ID column and a timestamp column is: 
 
 ```
@@ -111,7 +111,7 @@ See [Select the correct compute SKU for your Azure Data Explorer cluster](/azure
   "MaxOriginalSizePerOperation": 0
  }
 ```
-For more references check [ADX Data Partitioning Policy](/azure/data-explorer/kusto/management/partitioningpolicy).
+For more references, check [ADX Data Partitioning Policy](/azure/data-explorer/kusto/management/partitioningpolicy).
 
 #### Prepare for Data Ingestion
 
@@ -127,8 +127,8 @@ For more references check [ADX Data Partitioning Policy](/azure/data-explorer/ku
 
     :::image type="content" source="media/gen2-migration/adx-ingest-table.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of cluster, database, and table" lightbox="media/gen2-migration/adx-ingest-table.png":::
 
-1.	Click Next: Source
-1.	In the Source tab select the following:
+1.	Select Next: Source
+1.	In the Source tab select:
     1.	Historical data
     1.	“Select Container”
     1.	Choose the Subscription and Storage account for your TSI data
@@ -136,21 +136,21 @@ For more references check [ADX Data Partitioning Policy](/azure/data-explorer/ku
 
     :::image type="content" source="media/gen2-migration/adx-ingest-container.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of container" lightbox="media/gen2-migration/adx-ingest-container.png":::
 
-1.	Click on Advanced settings
+1.	Select on Advanced settings
     1.	Creation time pattern: '/'yyyyMMddHHmmssfff'_'
     1.	Blob name pattern: *.parquet
-    1.	Click on “Don’t wait for ingestion to complete” 
+    1.	Select on “Don’t wait for ingestion to complete” 
 
     :::image type="content" source="media/gen2-migration/adx-ingest-advanced.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of advanced settings" lightbox="media/gen2-migration/adx-ingest-advanced.png":::
 
-1.	Under File Filters add the Folder path `V=1/PT=Time`
+1.	Under File Filters, add the Folder path `V=1/PT=Time`
 
     :::image type="content" source="media/gen2-migration/adx-ingest-folder-path.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of folder path" lightbox="media/gen2-migration/adx-ingest-folder-path.png":::
 
-1.	Click Next: Schema
+1.	Select Next: Schema
     > [!NOTE]
     > TSI applies some flattening and escaping when persisting columns in Parquet files. See these links for more details: https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules, https://docs.microsoft.com/azure/time-series-insights/ingestion-rules-update.
-- If schema is unknown or varying.
+- If schema is unknown or varying
     1. Remove all columns that are infrequently queried, leaving at least timestamp and TSID column(s).
 
         :::image type="content" source="media/gen2-migration/adx-ingest-schema.png" alt-text="Screenshot of the Azure Data Explorer ingestion selection of schema" lightbox="media/gen2-migration/adx-ingest-schema.png":::
@@ -165,7 +165,7 @@ For more references check [ADX Data Partitioning Policy](/azure/data-explorer/ku
 
 - If schema is known or fixed
     1.	Confirm that the data looks correct. Correct any types if needed.
-    1.	Click Next: Summary
+    1.	Select Next: Summary
 
 Copy the LightIngest command and store it somewhere so you can use it in the next step.
 
@@ -174,7 +174,7 @@ Copy the LightIngest command and store it somewhere so you can use it in the nex
 ## Data Ingestion
 
 Before ingesting data you need to install the [LightIngest tool](/azure/data-explorer/lightingest#prerequisites).
-The command generated from One-Click tool includes a SAS token but it’s best to generate a new one so that you have control over the expiration time. In the portal navigate to the Blob Container for the TSI Environment and click on ‘Shared access token’
+The command generated from One-Click tool includes a SAS token. It’s best to generate a new one so that you have control over the expiration time. In the portal, navigate to the Blob Container for the TSI Environment and select on ‘Shared access token’
 
 :::image type="content" source="media/gen2-migration/adx-ingest-sas-token.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS token" lightbox="media/gen2-migration/adx-ingest-sas-token.png":::
 
@@ -186,13 +186,13 @@ The command generated from One-Click tool includes a SAS token but it’s best t
 
     :::image type="content" source="media/gen2-migration/adx-ingest-sas-expiry.png" alt-text="Screenshot of the Azure Data Explorer ingestion for permission expiry" lightbox="media/gen2-migration/adx-ingest-sas-expiry.png":::
 
-1. Click on ‘Generate SAS token and URL’ and copy the ‘SAS Blob URL’
+1. Select on ‘Generate SAS token and URL’ and copy the ‘SAS Blob URL’
 
     :::image type="content" source="media/gen2-migration/adx-ingest-sas-blob.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS Blob URL" lightbox="media/gen2-migration/adx-ingest-sas-blob.png":::
 
 1. Go to the LightIngest command that you copied previously. Replace the -source parameter in the command with this ‘SAS Blob URL’
-1. `Option 1: Ingest All Data`. For smaller environments you can ingest all of the data with a single command.
-    1. Open a command prompt and change to the directory where the LightIngest tool was extracted to. Once there simply paste the LightIngest command and execute it.
+1. `Option 1: Ingest All Data`. For smaller environments, you can ingest all of the data with a single command.
+    1. Open a command prompt and change to the directory where the LightIngest tool was extracted to. Once there, paste the LightIngest command and execute it.
 
     :::image type="content" source="media/gen2-migration/adx-ingest-lightingest-prompt.png" alt-text="Screenshot of the Azure Data Explorer ingestion for command prompt" lightbox="media/gen2-migration/adx-ingest-lightingest-prompt.png":::
 
@@ -208,29 +208,29 @@ The command generated from One-Click tool includes a SAS token but it’s best t
     	>    After: -prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"
 	    >    Example: -prefix:"V=1/PT=Time/Y=2021/M=03"
 
-Once you’ve modified the command execute it like above. One the ingestion is complete (using monitoring option below) modify the command for the next year and month you want to ingest.
+Once you’ve modified the command, execute it like above. One the ingestion is complete (using monitoring option below) modify the command for the next year and month you want to ingest.
 
 ## Monitoring Ingestion
 
-The LightIngest command included the -dontWait flag so the command itself won’t wait for ingestion to complete. The best way to monitor the progress while it’s happening is to utilize the “Insights” tab withing the portal.
-Open the Azure Data Explorer cluster’s blade within the portal and go to ‘Monitoring | Insights’
+The LightIngest command included the -dontWait flag so the command itself won’t wait for ingestion to complete. The best way to monitor the progress while it’s happening is to utilize the “Insights” tab within the portal.
+Open the Azure Data Explorer cluster’s section within the portal and go to ‘Monitoring | Insights’
 
 :::image type="content" source="media/gen2-migration/adx-ingest-monitoring-insights.png" alt-text="Screenshot of the Azure Data Explorer ingestion for Monitoring Insights" lightbox="media/gen2-migration/adx-ingest-monitoring-insights.png":::
 
 You can use the ‘Ingestion (preview)’ section with the below settings to monitor the ingestion as it’s happening
--	Time range:Last 30 minutes
+-	Time range: Last 30 minutes
 -	Look at Successful and by Table
--	If you have any failures look at Failed and by Table
+-	If you have any failures, look at Failed and by Table
 
 :::image type="content" source="media/gen2-migration/adx-ingest-monitoring-results.png" alt-text="Screenshot of the Azure Data Explorer ingestion for Monitoring results" lightbox="media/gen2-migration/adx-ingest-lightingest-command.png":::
 
-You’ll know that the ingestion is complete once you see the metrics go to 0 for your table. If you want to see more details you can utilize Log Analytics. On the Azure Data Explorer cluster blade click on the ‘Log’ tab:
+You’ll know that the ingestion is complete once you see the metrics go to 0 for your table. If you want to see more details,, you can use Log Analytics. On the Azure Data Explorer cluster section select on the ‘Log’ tab:
 
 :::image type="content" source="media/gen2-migration/adx-ingest-monitoring-logs.png" alt-text="Screenshot of the Azure Data Explorer ingestion for Monitoring logs" lightbox="media/gen2-migration/adx-ingest-monitoring-logs.png":::
 
 #### Useful Queries
 
-Understand Schema if Dynamic Schema is Used
+Understand Schema if Dynamic Schema is used
 ```
 | project p=treepath(fullrecord)
 | mv-expand p 
@@ -250,7 +250,7 @@ The model can be download in JSON format from TSI Environment using TSI Explorer
 Then the model can be imported to another system like Azure Data Explorer.
 
 1.	Download TSM from TSI UX.
-1.	Delete first 3 lines using VSCode or another editor.
+1.	Delete first three lines using VSCode or another editor.
 
     :::image type="content" source="media/gen2-migration/adx-tsm-1.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer - Delete first 3 lines" lightbox="media/gen2-migration/adx-tsm-1.png":::
 
@@ -444,19 +444,19 @@ events
 | project IntervalTs, avgSensorValue
 ```
 
-## Migration from TSI PowerBI Connector to ADX PowerBI Connector
+## Migration from TSI Power BI Connector to ADX Power BI Connector
 
 The manual steps involved in this migration are
-1.	Convert PowerBI query to TSQ
+1.	Convert Power BI query to TSQ
 1.	Convert TSQ to KQL
-PowerBI query to TSQ:
-The PowerBI query copied from TSI UX Explorer looks like as shown below
+Power BI query to TSQ:
+The Power BI query copied from TSI UX Explorer looks like as shown below
 ####	For Raw Data(GetEvents API)
 ```
 {"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"getEvents":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"take":250000}}]}
 ```
-- To convert this to TSQ, build a JSON from the above payload. The GetEvents API documentation also has examples to understand it better. Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs
-- The converted TSQ looks like as shown below. It is the JSON payload inside “queries” 
+- To convert it to TSQ, build a JSON from the above payload. The GetEvents API documentation also has examples to understand it better. Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs
+- The converted TSQ looks like as shown below. It's the JSON payload inside “queries” 
 ```
 {
   "getEvents": {
@@ -479,8 +479,8 @@ The PowerBI query copied from TSI UX Explorer looks like as shown below
 ```
 {"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", 		"inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}]}
 ```
-- To convert this to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](/azure/rest/api/time-series-insights/dataaccessgen2/query/execute#queryaggregateseriespage1)
--	The converted TSQ looks like as shown below. It is the JSON payload inside “queries”
+- To convert it to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](/azure/rest/api/time-series-insights/dataaccessgen2/query/execute#queryaggregateseriespage1)
+-	The converted TSQ looks like as shown below. It's the JSON payload inside “queries”
 ```
 {
   "aggregateSeries": {
@@ -507,7 +507,7 @@ The PowerBI query copied from TSI UX Explorer looks like as shown below
   }
 }
 ```
--	For more than one inline variable, append the json into “inlineVariables” as shown in the example below. The PowerBI query for more than one inline variable looks like:
+-	For more than one inline variable, append the json into “inlineVariables” as shown in the example below. The Power BI query for more than one inline variable looks like:
 ```
 {"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com","queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", "inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}, {"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", "inlineVariables":{"Magnitude":{"kind":"numeric","value":{"tsx":"$event['mag'].Double"},"aggregation":{"tsx":"max($value)"}}},"projectedVariables":["Magnitude"]}}]}
 
@@ -546,7 +546,7 @@ The PowerBI query copied from TSI UX Explorer looks like as shown below
   }
 }
 ```
--	If you want to query the latest data("isSearchSpanRelative":true), manually calculate the searchSpan as mentioned below
-    - Find the difference between “from” and “to” from the PowerBI payload. Let’s call that difference as “D” where “D” = “from” - “to”
-    - Take the current timestamp(“T”) and subtract the difference obtained in first step. This will be new “from”(F) of searchSpan where “F” = “T” - “D”
+-	If you want to query the latest data("isSearchSpanRelative": true), manually calculate the searchSpan as mentioned below
+    - Find the difference between “from” and “to” from the Power BI payload. Let’s call that difference as “D” where “D” = “from” - “to”
+    - Take the current timestamp(“T”) and subtract the difference obtained in first step. It will be new “from”(F) of searchSpan where “F” = “T” - “D”
     - Now, the new “from” is “F” obtained in step 2 and new “to” is “T”(current timestamp)
