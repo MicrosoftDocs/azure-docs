@@ -21,11 +21,6 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ## February 2022
 
-### New articles
-
-- [Quickstart: Sign in users and call the Microsoft Graph API from an Android app](mobile-app-quickstart-portal-android.md)
-- [Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app](mobile-app-quickstart-portal-ios.md)
-
 ### Updated articles
 
 - [Desktop app that calls web APIs: Acquire a token using WAM](scenario-desktop-acquire-token-wam.md)
