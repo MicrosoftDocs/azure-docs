@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQ - Protect backups from ransomware with Azure Backup
+  title: FAQ - Protect backups from Ransomware with Azure Backup
   description: In this article, discover answers to protect backups from ransomware with Azure Backup.
   ms.topic: faq
   ms.service: backup
@@ -8,7 +8,7 @@ metadata:
   author: v-amallick
   ms.author: v-amallick
     
-title: Frequently asked questions - Protect backups from ransomware
+title: Frequently asked questions - Protect backups from Ransomware
 summary: |
   This article answers common questions about protecting backups from ransomware with the [Azure Backup](./backup-overview.md) service.
   
@@ -18,7 +18,9 @@ sections:
     questions:
       - question: What’re some best practices to protect backups against security and ransomware threats?
         answer: |
-          Your backup data that’s securely stored in an Azure resource called Recovery Services Vault or Backup Vault is *isolated*. This vault is a management entity, any application or guest don’t have direct access to these backups, thus *prevents malicious actors* to perform destructive operations on the backup storage, such as deletions or tampering of backup data. The following practices  provide guidelines to protect backup against security and ransomware threats:
+          Your backup data that’s securely stored in an Azure resource called Recovery Services Vault or Backup Vault is *isolated*. This vault is a management entity, any application or guest don’t have direct access to these backups, thus *prevents malicious actors* to perform destructive operations on the backup storage, such as deletions or tampering of backup data.
+ 
+          The following practices protect backups against security and ransomware threats:
           
           - **Manage access to back up resources using Azure role-based access control (Azure RBAC)**.
           
@@ -27,27 +29,27 @@ sections:
           
           - **Ensure soft delete isn’t turned off to protect backups from accidental or miscellaneous deletes**
           
-            Soft delete is automatically enabled by default on a newly created Recovery Services vault. It protects backup data from accidental or malicious deletes for 14 days at no additional cost, allowing the recovery of that backup item before it’s permanently lost. It’s not recommended to disable this feature. If backups are deleted and soft delete isn’t enabled, you or Microsoft can’t recover the deleted backup data. Use [Multi-user authorization (MUA)](multi-user-authorization.md) as an additional layer of protection for these critical operations on your Recovery Services vault to validate operation before disabling this feature. For more information, see [How to enable, manage, and when to disable soft delete for Azure backup](backup-azure-security-feature-cloud.md)?
+            Soft delete is enabled by default on a newly created Recovery Services vault. It protects backup data from accidental or malicious deletes for 14 days at no additional cost, allowing the recovery of that backup item before it’s permanently lost. We recommend not to disable this feature. If backups are deleted and soft delete isn’t enabled, you or Microsoft can’t recover the deleted backup data. Use [Multi-user authorization (MUA)](multi-user-authorization.md) as an additional layer of protection for these critical operations on your Recovery Services vault to validate operation before disabling this feature. For more information, see [How to enable, manage, and when to disable soft delete for Azure backup](backup-azure-security-feature-cloud.md)?
           
           - **Ensure multi-user authorization (MUA) is enabled for an additional layer of protection**.
           
             MUA for Backup uses a new resource called the Resource Guard to ensure critical operations, such as disabling soft delete, stopping and deleting backups, or reducing retention of backup policies, are performed only with applicable authorization. For more information, see:
           
-            - [How MUA using Resource Guard works?](multi-user-authorization.md)
+            - [How does MUA using Resource Guard works?](multi-user-authorization.md)
             - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
           
           - **Set up alerts and notifications for critical backup operations**.
           
-            Azure Backup provides multiple monitoring and notification capabilities for a wide range of [scenarios](monitoring-and-alerts-overview.md#monitoring-and-reporting-scenarios). Ensure they are configured correctly to get alerted and to take timely action. For more information, see [Azure Monitor metrics](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics).
+            Azure Backup provides multiple monitoring and notification capabilities for a wide range of [scenarios](monitoring-and-alerts-overview.md#monitoring-and-reporting-scenarios). Ensure they are configured correctly for timely alerts and required actions. [Learn more](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
             
             We recommend you to use [Azure Monitor for Alerts to receive alerts/notifications on critical operations](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview).
           
-          - **Ensure network connectivity between backup services and workloads are secure**.
+          - **Ensure network connectivity between backup services and workloads is secure**.
           
-            - For Azure VM, [by default all communication happens within the Azure network](security-overview.md#internet-connectivity-not-required-for-azure-vm-backup).
+            - For Azure VM, [by default all the communication happens within the Azure network](security-overview.md#internet-connectivity-not-required-for-azure-vm-backup).
             - For databases on Azure VM, secure the outbound access with the following network connectivity requirements [for SQL Server](backup-sql-server-database-azure-vms.md#establish-network-connectivity), [for SAP HANA database](backup-azure-sap-hana-database.md#establish-network-connectivity) on Azure VM.
             - For PaaS resources, such as PostgreSQL, communication happens within the Azure network. For workloads (such as Azure Files, Azure Disk, and Azure Blobs) where the backup data is stored in the operational tier, you need to *allow Azure services on the trusted services list to access storage account* in *Network Settings* for the corresponding storage account.
-            - For on-premises workloads, protected using MARS or MABS, you can use Microsoft peering for *ExpressRoute* or *Virtual Private Network (VPN)* to connect to Azure. Use *private peering* when using *private endpoints* for Backup. Network traffic between peered virtual networks remains private.
+            - For on-premises workloads that are protected using MARS or MABS, can use Microsoft peering for *ExpressRoute* or *Virtual Private Network (VPN)* to connect to Azure. Use *private peering* when using *private endpoints* for Backup. Network traffic between peered virtual networks remains private.
             
             For more information, see:
           
@@ -69,9 +71,9 @@ sections:
             - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
             - [Transport Layer Security in Azure Backup](transport-layer-security.md).
           
-          - **Regularly monitor your backups**.
+          - **Regularly monitor your backups**
           
-            Identify machines in the organization that aren’t protected by Azure Backup, monitor your backup items, backup jobs, and policies using the monitoring solutions. For more information, see:
+            Use the monitoring solutions to identify machines in the organization that aren’t protected by Azure Backup, monitor your backup items, backup jobs, and policies. For more information, see:
           
             - [Monitoring and reporting scenarios](monitoring-and-alerts-overview.md).
             - [Monitor your backups with Backup Explorer](monitor-azure-backup-with-backup-explorer.md).
@@ -79,7 +81,7 @@ sections:
             - [Monitor backup health using Azure monitor metrics](backup-azure-monitoring-built-in-monitor.md).
             - [Custom monitoring and alerting using azure monitor Log Analytics workspace](backup-azure-monitoring-use-azuremonitor.md).
           
-          - **Periodically perform test restores to validate backups**.
+          - **Validate backups periodically by performing test restores**.
           
             Periodically perform data recovery test of your backups to verify the backup configurations and availability of the backup data meet your organization’s recovery needs, and expected RPO and RTO requirements. Define your backup recovery test strategy to include the scope of test recovery and frequency for performing a test recovery.
           
@@ -87,7 +89,7 @@ sections:
         answer: |
           - **Enable Soft delete to protect backups from accidental or miscellaneous deletes**.
           
-            Soft delete is a useful feature that helps you deal with data loss. Soft delete retains backup data for additional 14 days, allowing the recovery of that backup item before it’s permanently lost. For more information, see [How to enable, manage and disable soft delete for Azure Backup](backup-azure-security-feature-cloud.md)?
+            Soft delete is a useful feature that helps you deal with data loss. Soft delete retains backup data for 14 days, allowing the recovery of that backup item before it’s permanently lost. For more information, see [How to enable, manage and disable soft delete for Azure Backup](backup-azure-security-feature-cloud.md)?
           
           - **Ensure Multi-user authorization (MUA) is enabled for an additional layer of protection**.
           
@@ -99,7 +101,7 @@ sections:
             - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
           
           
-      - question: How to perform restore of a system affected by ransomware?
+      - question: How to restore a system affected by ransomware?
         answer: |
           If backup was enabled on the source system and backups are healthy prior to the point of attack, then consider the following actions:
           
