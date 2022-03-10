@@ -43,7 +43,7 @@ The supported languages for conversation projects are:
 | German | `de` 
 | Greek | `el` |
 | English (US) | `en-us` |
-| English (Uk) | `en-gb` |
+<!-- | English (Uk) | `en-gb` | -->
 | Esperanto | `eo` |
 | Spanish | `es` |
 | Estonian | `et` |
@@ -86,7 +86,7 @@ The supported languages for conversation projects are:
 | Burmese | `my` |
 | Nepali | `ne` |
 | Dutch | `nl` |
-| Norwegian (Bokmal) | `no` |
+| Norwegian (Bokmal) | `nb` |
 | Oriya | `or` |
 | Punjabi | `pa` |
 | Polish | `pl` |
