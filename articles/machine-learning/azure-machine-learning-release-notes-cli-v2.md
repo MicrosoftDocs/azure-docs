@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: minxia
 author: mx-iao
-ms.date: 11/03/2021
+ms.date: 03/14/2022
 ---
 
 # Azure Machine Learning CLI (v2) release notes
@@ -21,6 +21,37 @@ In this article, learn about Azure Machine Learning CLI (v2) releases.
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes-v2%22&locale=en-us`
+
+## 2022-03-14
+
+### Azure Machine Learning CLI (v2) v2.2.0
+
+- `az ml job`
+  - For all job types, flattened the `code` section of the YAML schema. Instead of `code.local_path` to specify the path to the source code directory, it is now just `code`
+  - For all job types, changed the schema for defining data inputs to the job in the job YAML. Instead of specifying the data path using either the `file` or `folder` fields, use the `path` field to specify either a local path, a URI to a cloud path containing the data, or a reference to an existing registered Azure ML data asset via `path: azureml:<data_name>:<data_version>`. Also specify the `type` field to clarify whether the data source is a single file (`uri_file`) or a folder (`uri_folder`). If `type` field is omitted, it defaults to `type: uri_folder`. For more information, see the section of any of the [job YAML references](reference-yaml-job-command.md) that discuss the schema for specifying input data.
+  - In the [sweep job YAML schema](reference-yaml-job-sweep.md), changed the `sampling_algorithm` field from a string to an object in order to support additional configurations for the random sampling algorithm type
+  - Removed the component job YAML schema. With this release, if you want to run a command job inside a pipeline that uses a component, just specify the component to the `component` field of the command job YAML definition. 
+  - For all job types, added support for referencing the latest version of a nested asset in the job YAML configuration. When referencing a registered environment or data asset to use as input in a job, you can alias by latest version rather than having to explicity specify the version. For example: `environment: azureml:AzureML-Minimal@latest`
+- `az ml data`
+  - Deprecated the `az ml dataset` subgroup, now using `az ml data` instead
+  - There are two types of data that can now be created, either from a single file source (`type: uri_file`) or a folder (`type: uri_folder`). When creating the data asset, you can either specify the data source from a local file / folder or from a URI to a cloud path location. See the [data YAML schema](reference-yaml-data.md) for the full schema
+- `az ml environment`
+  - In the [environment YAML schema](reference-yaml-environment.md), renamed the `build.local_path` field to `build.path` 
+- `az ml model`
+  - In the [model YAML schema](reference-yaml-model.md), `model_uri` and `local_path` fields removed and consolidated to one `path` field that can take either a local path or a cloud path URI. `model_format` field renamed to `type`; the default type is `custom_model`, but you can specify one of the other types (`mlflow_model`, `triton_model`) to use the model in no-code deployment scenarios
+  - For `az ml model create`, `--model-uri` and `--local-path` arguments removed and consolidated to one `--path` argument that can take either a local path or a cloud path URI 
+  - Added the `az ml model download` command to download a model's artifact files
+- `az ml online-deployment`
+  - In the [online deployment YAML schema](reference-yaml-deployment-online.md), flattened the `code` section of the `code_configuration` field. Instead of `code_configuration.code.local_path` to specify the path to the source code directory containing the scoring files, it is now just `code_configuration.code`
+  - Added an `environment_variables` field to the online deployment YAML schema to support configuring environment variables for an online deployment
+- `az ml batch-deployment`
+  - In the [batch deployment YAML schema](reference-yaml-deployment-batch.md), flattened the `code` section of the `code_configuration` field. Instead of `code_configuration.code.local_path` to specify the path to the source code directory containing the scoring files, it is now just `code_configuration.code`
+- `az ml component`
+  - Flattened the `code` section of the [command component YAML schema](reference-yaml-component-command.md). Instead of `code.local_path` to specify the path to the source code directory, it is now just `code`
+  -  Added support for referencing the latest version of a registered environment to use in the component YAML configuration. When referencing a registered environment, you can alias by latest version rather than having to explicity specify the version. For example: `environment: azureml:AzureML-Minimal@latest`
+  -  Renamed the component input and output type value from `path` to `uri_folder` for the `type` field when defining a component input or output
+- Removed the `delete` commands for assets (model, component, data, environment). The existing delete functionality is only a soft delete, so the `delete` commands will be reintroduced in a later release once hard delete is supported
+- Added support for archiving and restoring assets (model, component, data, environment) and jobs, e.g. `az ml model archive` and `az ml model restore`. You can now archive assets and jobs, which will hide the archived entity from list queries (e.g. `az ml model list`).
 
 ## 2021-10-04
 
