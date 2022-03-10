@@ -188,6 +188,10 @@ Deployments can be rolled back if you receive errors or misconfigurations. Beca
 
 Deleting a deployment doesn't remove the modules from targeted devices. There must be another deployment that defines a new configuration for the devices, even if it's an empty deployment.
 
+However, deleting a deployment may remove modules from the targeted device if it was a layered deployment. A layered deployment updates the underlying deployment, potentially adding modules. Removing a layered deployment removes its update to the underlying deployment, potentially removing modules.
+
+For example, a device has base deployment A and layered deployments O and M applied onto it (so that the A, O, and M deployments are deployed onto the device). If layered deployment M is then deleted, A and O are applied onto the device, and the modules unique to deployment M are removed.
+
 Perform rollbacks in the following sequence:
 
 1. Confirm that a second deployment is also targeted at the same device set. If the goal of the rollback is to remove all modules, the second deployment should not include any modules.
