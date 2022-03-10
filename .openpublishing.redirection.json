@@ -711,7 +711,7 @@
     {
       "source_path_from_root": "/articles/frontdoor/front-door-backend-pool.md",
       "redirect_url": "/azure/frontdoor/origin",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/frontdoor/concept-origin.md",
@@ -721,17 +721,22 @@
     {
       "source_path_from_root": "/articles/frontdoor/concept-private-link.md",
       "redirect_url": "/azure/frontdoor/private-link",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/frontdoor/concept-end-to-end-tls.md",
       "redirect_url": "/azure/frontdoor/end-to-end-tls",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/frontdoor/front-door-routing-methods.md",
       "redirect_url": "/azure/frontdoor/routing-methods",
-      "redirect_document_id": false
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-health-probes.md",
+      "redirect_url": "/azure/frontdoor/health-probes",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
