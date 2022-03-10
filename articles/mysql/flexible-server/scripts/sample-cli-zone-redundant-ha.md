@@ -27,7 +27,7 @@ Currently, Zone-Redundant high availability is supported only for the General pu
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/high-availability/zone-redundant-ha.sh" range="4-46":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/high-availability/zone-redundant-ha.sh" id="FullScript":::
 
 ## Clean up resources
 
