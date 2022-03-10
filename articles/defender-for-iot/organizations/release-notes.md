@@ -29,7 +29,7 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.1 | 02/2022 | 10/2022 |
+| 22.1.1 | 02/2022 | 10/2022 |
 | 10.5.5 | 12/2021 | 09/2022 |
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
