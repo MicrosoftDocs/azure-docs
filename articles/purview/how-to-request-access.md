@@ -38,7 +38,7 @@ This article outlines how to make an access request.
     > [!NOTE]
     > A request access to resource set will actually submit the data access request for the folder one level up which contains all these resource set files.
 
-1. Data source owners will be notified of your request and will either approve or reject the request. You'll receive an email notification when your request is either approved or rejected.
+1. Data owners will be notified of your request and will either approve or reject the request.
 
 
 ## Next steps
