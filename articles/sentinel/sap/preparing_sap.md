@@ -30,7 +30,7 @@ Deployment of the SAP continuous threat monitoring solution is divided into the 
 
 1. [Deploy SAP security content](deploy_sap_security_content.md)
 
-1. [Optional deployment steps](optional_deployment_steps.md)
+1. Optional deployment steps
    - [Configure auditing](configure_audit.md)
    - [Configure SAP data connector to use SNC](configure_snc.md)
 
