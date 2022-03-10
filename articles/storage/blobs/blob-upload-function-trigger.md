@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 - [Visual Studio 2022](https://visualstudio.microsoft.com) or [Visual Studio Code](https://code.visualstudio.com) installed.
  
 
-## Create the Storage Account and Container
+## 1) Create the Storage Account and Container
 Let's begin by creating the Storage Account that will hold our blob data, which in this scenario will be uploaded images. A Storage Account offers several different services, but in this tutorial we will utilize Blob Storage and Table Storage.
 
 ### [Azure portal](#tab/azure-portal)
@@ -87,7 +87,7 @@ You may need to wait a few moments for Azure to provision these resources.
 
 ---
 
-## Create the Computer Vision Account
+## 2) Create the Computer Vision Account
 Next let's create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive services and offers a variety of features for extracting data out of images.  [You can learn more about Computer Vision here](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/#overview).
 
 The Computer Vision service currently can only be created via the Azure Portal.
@@ -115,7 +115,10 @@ Next, we need to find the secret keys and endpoint URL for the Computer Vision s
 
  On the **Keys and EndPoint** page, copy the **Key 1** value and the **EndPoint** values and paste them somewhere to use for later.
 
-## Download and Configure the Sample Project
+:::image type="content" source="./media/blob-upload-storage-function/computer-vision-endpoints.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+ 
+
+## 3) Download and Configure the Sample Project
 The code for the Azure Function used in this tutorial can be found in this repository. You can also clone the project using the command below.
 
 ```terminal
@@ -186,7 +189,7 @@ If you'd like to run the project locally, you can populate the environment varia
 }
 ```
 
-## Deploy the code to Azure Functions
+## 4) Deploy the code to Azure Functions
 
 We are now ready to deploy our application to Azure using Visual Studio.  We can also create the Azure Functions app in Azure at the same time as part of the deployment process.
 
@@ -219,7 +222,7 @@ Once the process has finished, click **Finish** to close out the dialog workflow
 
 The final step to deploy our Azure Function is to click **Publish** in the upper right of the screen. This may also takes a few moments to complete.  Once it finishes, your application will be running out on Azure.
 
-## Connect the Services
+## 5) Connect the Services
 
 Our Azure Function was deployed successfully, but it cannot connect to our Storage Account and Computer Vision services yet. To enable this, we need to add the correct keys and connection strings to the configuration settings of the Azure Functions app.
 
@@ -260,7 +263,7 @@ After you have added these application settings, make sure to click **Save** at 
 All of the required Environment variables to connect our Azure function to different services are now in place.
 
 
-## Upload an image to Blob Storage
+## 6) Upload an image to Blob Storage
 
 We are now ready to test out our application! Let's upload a blob to our container, and then verify that the text in the image was saved to Table Storage.
 
@@ -285,7 +288,6 @@ We should see the **ImageText** table we created earlier.  Click on this Table t
 :::image type="content" source="./media/blob-upload-storage-function/storage-table.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
 
 Congratulations! You succeeded in processing an image that was uploaded to Blob Storage using Azure Functions and Computer Vision.
-
 
 
 ## Clean up resources
