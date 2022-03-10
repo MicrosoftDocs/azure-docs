@@ -48,7 +48,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Added new `model_format` property to Model for no-code deployment scenarios
 - `az ml dataset`
   - Renamed `az ml data` subgroup to `az ml dataset`
-  - Updated [dataset YAML schema](reference-yaml-dataset.md)
+  - Updated dataset YAML schema
 - `az ml component`
   - Added the `az ml component` commands for managing Azure ML components
   - Added support for command components ([command component YAML schema](reference-yaml-component-command.md))
