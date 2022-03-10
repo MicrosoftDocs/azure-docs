@@ -205,6 +205,7 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Next steps
 
-Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
+- Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
+- Check out the Azure AD multi-tenant federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory), and how to pass Azure AD access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory-with-access-token)
 
 ::: zone-end
