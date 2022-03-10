@@ -2,7 +2,7 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 03/09/2022
+ms.date: 03/10/2022
 ---
 # Security alerts - a reference guide
 
@@ -373,6 +373,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 |  |  |  |  |
 
 <sup><a name="footnote1"></a>1</sup>: **Limitations on GKE clusters**: GKE uses a Kuberenetes audit policy that doesn't support all alert types. As a result, this security alert, which is based on Kubernetes audit events, are not supported for GKE clusters.
+
 <sup><a name="footnote2"></a>2</sup>: This alert is supported by Windows.
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and Azure Synapse Analytics
