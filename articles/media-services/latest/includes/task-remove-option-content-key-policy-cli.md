@@ -8,6 +8,6 @@ ms.author: inhenkel
 
 ## Remove an option from a content key policy
 
-:::code language="azurecli" source="~/../media-services-v3-python/cli/code-snippets.sh" id="AmsContentKeyPolicyOptionRemove" interactive="azurecli-interactive":::
+:::code language="azurecli" source="~/media-services-v3-python/cli/code-snippets.sh" id="AmsContentKeyPolicyOptionRemove" interactive="azurecli-interactive":::
 
 For more information about this command, see the [CLI reference](/cli/azure/ams/content-key-policy/option?view=azure-cli-latest#az-ams-content-key-policy-option-remove).
