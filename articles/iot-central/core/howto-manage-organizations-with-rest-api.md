@@ -18,19 +18,21 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
+To learn more about organizations in IoT Central Application, see [Manage IoT Central organizations](howto-create-organizations.md).
+
 ## Organizations REST API
 
 The IoT Central REST API lets you:
 
-* Add a organization to your application
-* Get a organization by ID
-* Update a organization in your application
+* Add an organization to your application
+* Get an organization by ID
+* Update an organization in your application
 * Get a list of the organizations in the application
-* Delete a organization in your application
+* Delete an organization in your application
 
-### Create Organizations
+### Create organizations
 
-The REST API lets you create organizations in your IoT Central application. Use the following request to create a organization in your application:
+The REST API lets you create organizations in your IoT Central application. Use the following request to create an organization in your application:
 
 ```http
 PUT https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.1-preview
@@ -38,12 +40,11 @@ PUT https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-vers
 
 * organizationId - Unique Id of the organization
 
-The following example shows a request body that adds a organization to a IoT Central application.  
+The following example shows a request body that adds an organization to a IoT Central application.  
 
 ```json
 {
   "displayName": "Seattle",
-  "parent": "washington"
 }
 ```
 
@@ -51,17 +52,43 @@ The request body has some required fields:
 
 * `@displayName`: Display name of the organization.
 
-The response to this request looks like the following example: 
+The request body has some optional fields:
+
+* `@parent`:  ID of the parent of the organization.
+
+The response to this request looks like the following example:
 
 ```json
 {
   "id": "seattle",
-  "displayName": "Seattle",
-  "parent": "washington"
+  "displayName": "Seattle"
 }
 ```
 
-### Get a organization
+You can create an organization with hierarchy, for example you can create a sales organization with a parent organization.
+
+The following example shows a request body that adds an organization to a IoT Central application.  
+
+```json
+{
+  "displayName": "Sales",
+  "parent":"seattle"
+}
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "id": "sales",
+  "displayName": "Sales",
+  "parent":"Seattle"
+}
+```
+
+
+
+### Get an organization
 
 Use the following request to retrieve details of a individual organization from your application:
 
@@ -87,7 +114,7 @@ Use the following request to update details of an organization in your applicati
 PATCH https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.1-preview
 ```
 
-The following example shows a request body that updates a organization.
+The following example shows a request body that updates an organization.
 
 ```json
 {
@@ -115,11 +142,15 @@ Use the following request to retrieve a list of organizations from your applicat
 GET https://{your app subdomain}.azureiotcentral.com/api/organizations?api-version=1.1-preview
 ```
 
-The response to this request looks like the following example. The role value identifies the role ID the user is associated with:
+The response to this request looks like the following example.
 
 ```json
 {
     "value": [
+        {
+            "id": "washington",
+            "displayName": "Washington"
+        },
         {
             "id": "redmond",
             "displayName": "Redmond"
@@ -131,20 +162,20 @@ The response to this request looks like the following example. The role value id
         {
             "id": "spokane",
             "displayName": "Spokane",
-            "parent": "Washington"
+            "parent": "washington"
         },
         {
             "id": "seattle",
             "displayName": "Seattle",
-            "parent": "Washington"
+            "parent": "washington"
         }
     ]
 }
 ```
 
-### Delete a user
+### Delete an organization
 
-Use the following request to delete a organization:
+Use the following request to delete an organization:
 
 ```http
 DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=1.1-preview
@@ -152,4 +183,4 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organ
 
 ## Next steps
 
-Now that you've learned how to manage users and roles with the REST API, a suggested next step is to [How to use the IoT Central REST API to manage data exports.](howto-manage-data-export-with-rest-api.md)
+Now that you've learned how to manage organizations with the REST API, a suggested next step is to [How to use the IoT Central REST API to manage data exports.](howto-manage-data-export-with-rest-api.md)
