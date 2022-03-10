@@ -31,7 +31,7 @@ Time Series Insights (TSI) service provides access to historical data ingested t
 | ---| ---| ---|
 | Data ingestion | Event hub, IoT hub limited to 1MB/s | Event hub, IoT hub, Kafka, Spark, Azure storage, Azure Stream Analytics, Azure Data Factory, Logstash, Power automate, Logic apps, Telegraf, Apache Nifi. No limits on ingestion (scalable), Ingestion benchmark is 200 MB/s/node on a 16 core machine in ADX cluster. |
 | Data storage and retention | Warm store – multitenant ADX Cluster | Cold Store - Azure Blob storage in customer’s subscription	Distributed columnar store with highly optimized hot(on SSD of compute nodes) and cold(on Azure storage) store. Choose any ADX SKU so full flexibility |
-| Data formats | JSON | JSON, CSV, Avro, Parquet, ORC, TXT and various others [Data formats supported by Azure Data Explorer for ingestion](../data-explorer/ingestion-supported-formats). |
+| Data formats | JSON | JSON, CSV, Avro, Parquet, ORC, TXT and various others [Data formats supported by Azure Data Explorer for ingestion](/azure/data-explorer/ingestion-supported-formats). |
 | Data Querying | TSQ | KQL, SQL |
 | Data Visualization | TSI Explorer, PBI | PBI, ADX Dashboards, Grafana, Kibana and other visualization tools using ODBC/JDBC connectors |
 | Machine Learning | NA | Supports R, Python to build ML models or score data by exporting existing ML models, Native capabilities for forecasting, anomaly detection at scale, clustering capabilities for diagnostics and RCA |
