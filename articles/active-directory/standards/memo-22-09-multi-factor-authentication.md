@@ -53,9 +53,9 @@ Consider an approach to evaluating phishing resistant MFA methods that encompass
 
 * Logistics of distributing, configuring, and registering MFA methods such as FIDO 2.0 security keys, smart cards, government furnished equipment, or Windows devices with TPM chips.
 
-* Need for FIPS 140 validation at a specific [authenticator assurance level](../standards/nist-about-authenticator-assurance-levels) (AAL). 
+* Need for FIPS 140 validation at a specific [authenticator assurance level](nist-about-authenticator-assurance-levels.md) (AAL). 
 
-  *  For example, some FIDO security keys are FIPS 140-validated at levels required for [AAL3](../standards/nist-authenticator-assurance-level-3) as set by [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html).
+  *  For example, some FIDO security keys are FIPS 140-validated at levels required for [AAL3](nist-authenticator-assurance-level-3.md) as set by [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 ## Implementation considerations for phishing resistant MFA
 
