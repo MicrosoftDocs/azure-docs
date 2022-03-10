@@ -597,7 +597,7 @@
   - name: Protect content
     items:
     - name: Get content key policy
-      href: drm-get-content-key-policy-dotnet-how-to.md   
+      href: drm-get-content-key-policy-how-to.md   
       displayName: content protection, DRM, content keys, content key policy, .NET, how to, how-to, sample, tutorial, 
     - name: Offline FairPlay for iOS 
       href: drm-offline-fairplay-for-ios-concept.md
