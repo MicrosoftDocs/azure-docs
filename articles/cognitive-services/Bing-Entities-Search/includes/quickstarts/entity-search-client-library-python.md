@@ -18,7 +18,7 @@ Use this quickstart to begin searching for entities with the Bing Entity Search 
 
 * The [Bing Entity Search SDK for Python](https://pypi.org/project/azure-cognitiveservices-search-entitysearch/)
 
-It is recommended that you use a python virtual environment. You can install and initialize a virtual environment with the venv module. You can install virtualenv with:
+It is recommended that you use a Python virtual environment. You can install and initialize a virtual environment with the venv module. You can install virtualenv with:
 
 ```Console
 python -m venv mytestenv
