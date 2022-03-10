@@ -68,7 +68,7 @@ The following table details the availability of phishing-resistant MFA scenarios
 
 | Devices | AD FS as a federated IDP configured with certificate-based authentication| Azure AD certificate-based authentication| FIDO 2.0 security keys| Windows hello for Business| Microsoft authenticator + CA for managed devices |
 | - | - | - | - | - | - |
-| Windows device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill]((media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
+| Windows device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | iOS mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| N/A| N/A| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | Android mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| N/A| N/A| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | MacOS device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Edge/Chrome (Safari coming later)| N/A| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
@@ -86,7 +86,7 @@ For each of the five phishing-resistant MFA types previously mentioned, you use 
 | Azure Linux VM| Enable the [Linux VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-linux.md) |
 | Azure Windows VM| Enable the [Windows VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-windows.md) |
 | Azure Virtual Desktop| Enable [Azure virtual desktop for Azure AD sign-in](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join) |
-| VMs hosted on-prem or in other clouds| Enable [Azure Arc](../azure-arc/overview.md) on the VM then enable Azure AD sign-in. (Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap.) |
+| VMs hosted on-prem or in other clouds| Enable [Azure Arc](../../azure-arc/overview.md) on the VM then enable Azure AD sign-in. (Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap.) |
 | Non-Microsoft virtual desktop solutions| Integrate 3rd party virtual desktop solution as an app in Azure AD |
 
 
