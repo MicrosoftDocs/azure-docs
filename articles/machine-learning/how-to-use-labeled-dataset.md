@@ -73,19 +73,18 @@ The exported dataset is a [TabularDataset](/python/api/azureml-core/azureml.data
 import azureml.core
 from azureml.core import Dataset, Workspace
 
-
 # get animal_labels dataset from the workspace
 animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe()
 
 # download the images to local 
-animal_labels.download(stream_column='image_url') 
+download_path = animal_labels.download(stream_column='image_url') 
 
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 #read images from downloaded path
-img = mpimg.imread(animal_pd.loc[0,'image_url'])
+img = mpimg.imread(download_path[0])
 imgplot = plt.imshow(img)
 ```
 
