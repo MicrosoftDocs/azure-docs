@@ -689,7 +689,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-rules-set-action.md",
+      "source_path_from_root": "/articles/frontdoor/concept-rule-set-actions.md",
       "redirect_url": "/azure/frontdoor/front-door-rules-engine-actions",
       "redirect_document_id": false
     },
