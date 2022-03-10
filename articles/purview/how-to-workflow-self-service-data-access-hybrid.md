@@ -33,7 +33,7 @@ This guide will take you through the creation and management of self-service dat
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-authoring-select-new.png" alt-text="Screenshot showing the authoring workflows page, with the + New button highlighted.":::
 
-1. You'll be presented with different categories workflows creatable in Azure Purview. To create **Approval workflows for business terms** Select **Governance** and select **Continue**.
+1. You'll be presented with different categories workflows creatable in Azure Purview. To create **an access request workflow** Select **Governance** and select **Continue**.
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-governance.png" alt-text="Screenshot showing the new workflow window, with the Governance option selected.":::
 
