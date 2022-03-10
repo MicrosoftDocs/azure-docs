@@ -39,6 +39,9 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 * Resources managed by Microsoft in your subscription can’t transfer ownership to you.
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
 
+> [!IMPORTANT]
+> When using a customer-managed key, the costs for your subscription will be higher because of the additional resources in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
 ## Create Azure Key Vault
 
 For the steps to create the key vault, see [Create a key vault](/azure/key-vault/general/quick-create-portal). When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
@@ -86,8 +89,12 @@ Create an Azure Machine Learning workspace. When creating the workspace, you mus
 
 > [!TIP]
 > For examples of creating the workspace with a customer-managed key, see the following articles:
-> * [How to create and manage a workspace](how-to-manage-workspace.md#use-your-own-key).
-> * [How to create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace).
+> | Creation method | Article |
+> | ----- | ----- |
+> | CLI | [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
+> | Azure portal/</br>Python SDK | [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-key) |
+> | Azure Resource Manager</br>template [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
+> | REST API | [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
 
 Once the workspace has been created, you will notice that Azure resource group is created in your subscription. This is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`. It will contain an Azure Cosmos DB instance, Azure Storage Account, and Azure Cognitive Search.
 
