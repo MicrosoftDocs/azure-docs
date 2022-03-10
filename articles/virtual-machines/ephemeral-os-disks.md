@@ -197,7 +197,7 @@ For scale set deployments, use the [Set-AzVmssStorageProfile](/powershell/module
 Set-AzVmssStorageProfile -DiffDiskSetting Local -DiffDiskPlacement ResourceDisk -OsDiskCaching ReadOnly
 ```
  ## Preview - Trusted Launch for Ephemeral OS disks
-Ephemeral OS disks can now be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [here](./trusted-launch#limitations.md) for supported sizes and regions.
+Ephemeral OS disks can now be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [here](trusted-launch#limitations.md) for supported sizes and regions.
 VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
 For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) you would get an error as "OS disk of Ephemeral VM with size greater than 55 GB is not allowed for VM size Standard_DS4_v2 when the DiffDiskPlacement is ResourceDisk."
