@@ -109,9 +109,9 @@ sections:
         answer: |
           There are Performance Monitor counters that are installed along with the connector. To view them:  
           
-          1. Select **Start**, type "Perfmon", and press ENTER.
-          2. Select **Performance Monitor** and click the green **+** icon.
-          3. Add the **Microsoft Azure Active Directory Application Proxy Connector** counters you want to monitor.
+          - Select **Start**, type "Perfmon", and press ENTER.
+          - Select **Performance Monitor** and click the green **+** icon.
+          - Add the **Microsoft Azure Active Directory Application Proxy Connector** counters you want to monitor.
           
       - question: |
          Does the Azure AD Application Proxy connector have to be on the same subnet as the resource?
