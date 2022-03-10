@@ -15,7 +15,7 @@ ms.custom: include file
 | Maximum nodes per cluster with Virtual Machine Availability Sets and Basic Load Balancer SKU                       | 100                                                                                                                                                                                                         |
 | Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 1000 (across all [node pools][node-pool])                                            |
 | Maximum node pools per cluster                                                                                     | 100                                                                                  |
-| Maximum pods per node: [Basic networking][basic-networking] with Kubenet                                           | Maximum: 250 <br /> Azure CLI default: 110 <br /> Azure Resource Manager template default: 110 <br /> Azure portal deployment default: 30          |
+| Maximum pods per node: [Basic networking][basic-networking] with Kubenet                                           | Maximum: 250 <br /> Azure CLI default: 110 <br /> Azure Resource Manager template default: 110 <br /> Azure portal deployment default: 110          |
 | Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface        | Maximum: 250 <br /> Default: 30                                                      |
 | Open Service Mesh (OSM) AKS addon                                                                          | Kubernetes Cluster Version: 1.19+<br />OSM controllers per cluster: 1<br />Pods per OSM controller: 500<br />Kubernetes service accounts managed by OSM: 50 |
 
