@@ -459,7 +459,7 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: your-app-name # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project, defaults to the repository root
-  PYTHON_VERSION: '3.7'                 # set this to the python version to use (supports 3.6, 3.7, 3.8)
+  PYTHON_VERSION: '3.7'                 # set this to the Python version to use (supports 3.6, 3.7, 3.8)
 
 jobs:
   build-and-deploy:

@@ -247,8 +247,38 @@ armclient PATCH /subscriptions/<your-Azure-subscription-ID>/resourceGroups/<your
 
 ---
 
+## Deploy with ARM templates
+
+You can also set up Private Link with Azure Digital Twins using an ARM template. 
+
+For a sample template that allows an Azure function to connect to Azure Digital Twins through a Private Link endpoint, see [Azure Digital Twins with Azure function and Private Link (ARM template)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.digitaltwins/digitaltwins-with-function-private-link).
+
+This template creates an Azure Digital Twins instance, a virtual network, an Azure function connected to the virtual network, and a Private Link connection to make the Azure Digital Twins instance accessible to the Azure function through a private endpoint.
+
+## Troubleshooting Private Link with Azure Digital Twins
+
+Here are some common issues experienced with Private Link for Azure Digital Twins.
+
+* **Issue:** When trying to access Azure Digital Twins APIs, you see an HTTP error code 403 with the following error in the response body:
+    ```json
+    {
+        "statusCode": 403,
+        "message": "Public network access disabled by policy."
+    }
+    ``` 
+
+    **Resolution:** This error occurs when `publicNetworkAccess` has been disabled for the Azure Digital Twins instance and API requests are expected to come through Private Link, but the call was routed through the public network (possibly over a load balancer configured for a virtual network). Make sure that your API client is resolving the private IP for the private endpoint when trying to access the API through the endpoint hostname. 
+
+    To facilitate hostname resolution to the private IP of the private endpoint in a subnet, you can configure a [private DNS zone](../private-link/private-endpoint-dns.md). Verify that the private DNS zone is correctly linked to the virtual network and uses the right zone name, such as `privatelink.digitaltwins.azure.net`.
+
+* **Issue:** When trying to access Azure Digital Twins through a private endpoint, the connection times out.
+
+    **Resolution:** Verify that there are no [network security group](../virtual-network/network-security-groups-overview.md) rules that prohibit the client from communicating to the private endpoint and its subnet. Communication on TCP port 443 must be permitted between the client's source IP address/subnet, and the private endpoint destination IP address/subnet.
+
+For more Private Link troubleshooting suggestions, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 
 ## Next steps
 
-Learn more about Private Link for Azure: 
-* [What is Azure Private Link service?](../private-link/private-link-service-overview.md)
+Quickly set up a protected environment with Private Link using an ARM template: [Azure Digital Twins with Azure function and Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.digitaltwins/digitaltwins-with-function-private-link).
+
+Or, learn more about Private Link for Azure: [What is Azure Private Link service?](../private-link/private-link-service-overview.md)

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 03/09/2022
 ms.author: v-ydequadros
 ---
 
@@ -40,8 +40,8 @@ To enable CloudKnox in your organization:
 
 ## View a training video on enabling CloudKnox
 
-To view a video on how to enable CloudKnox in your Azure AD tenant, select
-[Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
+- To view a video on how to enable CloudKnox in your Azure AD tenant, select [Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
+- To view a video on how to configure and onboard AWS accounts in CloudKnox, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?v=R6K21wiWYmE).
 
 ## How to enable CloudKnox on your Azure AD tenant
 
