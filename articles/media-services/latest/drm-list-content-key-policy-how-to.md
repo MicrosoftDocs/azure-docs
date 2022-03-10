@@ -22,4 +22,8 @@ Use the following methods to create a Media Services asset.
 
 [!INCLUDE [Create an asset with CLI](includes/task-list-content-key-policy-cli.md)]
 
+## [REST](#tab/rest/)
+
+[!INCLUDE [Create an asset with CLI](includes/task-list-content-key-policy-rest.md)]
+
 ---
