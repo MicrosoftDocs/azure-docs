@@ -62,10 +62,10 @@ In this step, you create a starter Node.js application and make sure it runs on 
     cd myExpressApp && npm install
     ```
 
-1. Start the development server.
+1. Start the development server with debug information.
 
     ```bash
-    npm start
+    DEBUG=myexpressapp:* npm start
     ```
 
 1. In a browser, navigate to `http://localhost:3000`. You should see something like this:
@@ -164,7 +164,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 :::zone target="docs" pivot="development-environment-cli"
 
-In the terminal, make sure you're in the *myExpressApp* directory, and deploy the code in your local folder (*myExpressApp*) using the `az webapp up` command:
+In the terminal, make sure you're in the *myExpressApp* directory, and deploy the code in your local folder (*myExpressApp*) using the [az webapp up](/cli/azure/webapp#az-webapp-up) command:
 
 # [Deploy to Linux](#tab/linux)
 
@@ -282,7 +282,7 @@ Azure App Service supports [**two types of credentials**](deploy-configure-crede
 
 You can deploy changes to this app by making edits in Visual Studio Code, saving your files, and then redeploy to your Azure app. For example:
 
-1. From the sample project, open *views/index.pug* and change
+1. From the sample project, open *views/index.ejs* and change
 
     ```html
     <p>Welcome to <%= title %></p>
@@ -304,7 +304,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 :::zone target="docs" pivot="development-environment-cli"
 
-2. Save your changes, then redeploy the app using the `az webapp up` command again with no arguments:
+2. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with no arguments:
 
     ```azurecli
     az webapp up
@@ -361,7 +361,7 @@ az webapp log tail
 
 The command uses the resource group name cached in the *.azure/config* file.
 
-You can also include the `--logs` parameter with then `az webapp up` command to automatically open the log stream on deployment.
+You can also include the `--logs` parameter with then [az webapp up](/cli/azure/webapp#az-webapp-up) command to automatically open the log stream on deployment.
 
 Refresh the app in the browser to generate console logs, which include messages describing HTTP requests to the app. If no output appears immediately, try again in 30 seconds.
 
