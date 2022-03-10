@@ -20,7 +20,7 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 
 [Create a Media Services account](./account-create-how-to.md).
 
-## [Portal](#tab/rest/)
+## [Portal](#tab/portal/)
 
 [!INCLUDE [rest](./includes/task-create-job-portal.md)]
 
