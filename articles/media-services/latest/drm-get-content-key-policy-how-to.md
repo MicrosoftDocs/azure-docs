@@ -15,7 +15,7 @@ ms.author: inhenkel
 
 One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. See the detailed explanation here: For more information, see [Azure RBAC and Media Services accounts](security-rbac-concept.md)
 
-The example in this article shows how to to get a signing key from the existing policy.
+The example in this article shows how to get a signing key from the existing policy.
 
 ## Download
 

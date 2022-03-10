@@ -22,6 +22,8 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 > [!TIP]
 > Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
 
+## Methods
+
 ## [.NET](#tab/net/)
 
 ## .NET sample

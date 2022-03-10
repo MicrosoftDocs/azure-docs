@@ -28,7 +28,7 @@ Cropping is a pre-processing stage, so the *cropping parameters* in the encoding
 
 For example, your input video has a resolution of 1920x1080 pixels (16:9 aspect ratio), but has black bars (pillar boxes) at the left and right, so that only a 4:3 window or 1440x1080 pixels contains active video. You can crop the black bars, and encode the 1440x1080 area.
 
-## [.NEt](#tab/net/)
+## [.NET](#tab/net/)
 
 ## Transform code
 

@@ -516,7 +516,7 @@
     - name: Subclip a video
       href: transform-subclip-video-how-to.md
       displayName: clip, highlight, clips, edit, edit decision list, edl, trim, head, tail, clipping, trimming, editing, subclipping, remove
-    - name: Customize encoder tranforms
+    - name: Customize encoder transforms
       href: transform-custom-transform-how-to.md
       displayName: custom, preset, custom preset, custom encoding, user defined, customize, presets, transcode, encode, encoding, encoder, MES, Standard encoder, .NET, transform, custom transform
     - name: Create an overlay transform

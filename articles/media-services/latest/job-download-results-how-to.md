@@ -19,7 +19,7 @@ This article demonstrates how to download the results using Java and .NET SDKs.
 
 ## Methods
 
-## [.NEt](#tab/net/)
+## [.NET](#tab/net/)
 
 ```csharp
 /// <summary>
@@ -65,6 +65,8 @@ private async static Task DownloadResults(IAzureMediaServicesClient client, stri
     Console.WriteLine("Download complete.");
 }
 ```
+
+## Code sample
 
 See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/Encoding_PredefinedPreset/Program.cs)
 
