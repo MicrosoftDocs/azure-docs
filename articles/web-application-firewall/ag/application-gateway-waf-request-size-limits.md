@@ -36,7 +36,7 @@ For CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows when usin
 
 To set request size limits in the Azure portal, configure **Global parameters** in the WAF policy resource's **Policy settings** page:
 
-![Screenshot of the Azure portal that shows the request size limits configuration for the W A F policy.](../media/application-gateway-waf-request-size-limits/waf-policy-limits.png)
+:::image type="content" source="../media/application-gateway-waf-request-size-limits/waf-policy-limits.png" alt-text="Screenshot of the Azure portal that shows the request size limits configuration for the W A F policy.":::
 
 ## Request body inspection
 
