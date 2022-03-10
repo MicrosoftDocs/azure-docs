@@ -281,35 +281,34 @@ Here's a walk-through of creating a log alert for when the CPU of a virtual mach
     |Operator |The operator to compare the metric value against the threshold|Greater than|
     |Threshold value| The value that the result is measured against.|80|
     |Frequency of evaluation|How often the alert rule should run. A frequency smaller than the aggregation granularity results in a sliding window evaluation.|15 minutes|
-  1. (Optional) In the **Advanced options** section, set the [**Number of violations to trigger the alert**](./alerts-unified-log.md#number-of-violations-to-trigger-alert).
-    
+  1. (Optional) In the **Advanced options** section, set the [Number of violations to trigger alert](../alerts/alerts-unified-log.md#number-of-violations-to-trigger-alert).
     :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Advanced options.":::
 
   1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
-    :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Alert rule preview.":::
+   :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Alert rule preview.":::
 
   1. From this point on, you can select the **Review + create** button at any time. 
-  1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
+  1. In the **Actions** tab, select or create the required [action groups](../alerts/action-groups.md).
 
-    :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
+   :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
 
   1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
   1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to [**Mute actions**](./alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
     
-    :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
+   :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
 
    > [!NOTE]
    > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
 
-    :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
+   :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
 
 1. In the **Review + create** tab, a validation will run and inform you of any issues.
 1. When validation passes and you have reviewed the settings, click the **Create** button.    
     
-    :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
+   :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 ## Next steps
 
 * [Monitor workloads running on virtual machines.](monitor-virtual-machine-workloads.md)
