@@ -1,5 +1,5 @@
 ---
-title: Soft delete
+title: Soft-Delete in Azure App Configuration
 description: Soft-Delete in Azure App Configuration 
 author: muksvso
 ms.author: mubatra
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 03/01/2022
 ---
 
-# Soft delete
+# Soft-Delete in Azure App Configuration
 
-App Configuration's soft delete feature allows recovery of your data such as key-values, feature flags, and revision history of a deleted store. It's automatically enabled for all stores in the standard tier. In this article, learn more about the soft delete feature and its functionality.
+Azure App Configuration's Soft delete feature allows recovery of your data such as key-values, feature flags, and revision history of a deleted store. It's automatically enabled for all stores in the standard tier. In this article, learn more about the soft delete feature and its functionality.
 
-Learn how to [recover App Configuration stores](./howto-recover-deleted-stores-in-Azure-App-Configuration.md) using the soft delete feature.
+Learn how to [recover Azure App Configuration stores](./howto-recover-deleted-stores-in-Azure-App-Configuration.md) using the soft delete feature.
 
 > [!NOTE]
-> When an App Configuration store is soft-deleted, services that are integrated with the App Configuration will be deleted. For example Azure RBAC roles assignments, managed identity, Event Grid subscriptions, and private endpoints. Recovering a soft-deleted App Configuration store will not restore these services. They will need to be recreated.
+> When an App Configuration store is soft-deleted, services that are integrated with the store will be deleted. For example Azure RBAC roles assignments, managed identity, Event Grid subscriptions, and private endpoints. Recovering a soft-deleted App Configuration store will not restore these services. They will need to be recreated.
 
 ## Scenarios
 
@@ -53,4 +53,4 @@ There won't be any charges for the soft deleted stores. Once you recover a soft 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recover App Configuration stores](./howto-recover-deleted-stores-in-Azure-App-Configuration.md)  
+> [Recover Azure App Configuration stores](./howto-recover-deleted-stores-in-Azure-App-Configuration.md)  
