@@ -30,22 +30,17 @@ Azure ML provides a reference syntax (consisting of a shorthand and longhand for
 ### Referencing an Azure ML asset
 
 There are two options for referencing an Azure ML asset (environments, models, data, and components):
+* Reference an explicit version of an asset:
+  * Shorthand syntax: `azureml:<asset_name>:<asset_version>`
+  * Longhand syntax (includes the ARM resource ID of the asset):
+  ```
+  azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/environments/<environment-name>/versions/<environment-version>
+  ```
+* Reference the latest version of an asset:
 
-**1) Reference an explicit version of an asset**
+  In some scenarios you may want to reference the latest version of an asset without having to explicitly look up and specify the actual version string itself. The latest    version is defined as the latest (aka most recently) created version of an asset under a given name. 
 
-* Shorthand syntax: `azureml:<asset_name>:<asset_version>`
-* Longhand syntax (includes the ARM resource ID of the asset):
-```
-azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/environments/<environment-name>/versions/<environment-version>
-```
-
-**2) Reference the latest version of an asset**
-
-In some scenarios you may want to reference the latest version of an asset without having to explicitly look up and specify the actual version string itself. The latest version is defined as the latest (aka most recently) created version of an asset under a given name. 
-
-You can reference the latest version using the following syntax: `azureml:<asset_name>@latest`
-
-Azure ML will resolve the reference to an explicit asset version in the workspace.
+  You can reference the latest version using the following syntax: `azureml:<asset_name>@latest`. Azure ML will resolve the reference to an explicit asset version in the workspace.
 
 ### Reference an Azure ML resource
 
