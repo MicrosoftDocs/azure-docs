@@ -142,11 +142,11 @@ If [workflows](concept-workflow.md) are enabled on a term, then any creates, upd
 
 - **New terms** - when a create approval workflow is enabled on the parent term, during the creation process you'll see **Submit for approval** instead of **Create** after you've entered all the details. Selecting **Submit for approval** will trigger the workflow. You'll receive notification when your request is approved or rejected.
 
-- **Updates to existing terms** - when an update approval workflow is enabled on parent, you'll see **Submit for approval** instead of **Save** when updating the term. Selecting **Submit for approval** will trigger the workflow. The changes won't be saved in catalog until all the approvals are met. You'll receive notification when your request is approved or rejected.
+- **Updates to existing terms** - when an update approval workflow is enabled on parent, you'll see **Submit for approval** instead of **Save** when updating the term. Selecting **Submit for approval** will trigger the workflow. The changes won't be saved in catalog until all the approvals are met.
 
-- **Deletion** - when a delete approval workflow is enabled on the parent term, you'll see **Submit for approval** instead of **Delete** when deleting the term. Selecting **Submit for approval** will trigger the workflow. However, the term won't be deleted from catalog until all the approvals are met. You'll receive notification when your request is approved or rejected.
+- **Deletion** - when a delete approval workflow is enabled on the parent term, you'll see **Submit for approval** instead of **Delete** when deleting the term. Selecting **Submit for approval** will trigger the workflow. However, the term won't be deleted from catalog until all the approvals are met.
 
-- **Importing terms** - when an import approval workflow enabled for Azure Purview's glossary, you'll see **Submit for approval** instead of **OK** in the Import window when importing terms via csv. Selecting **Submit for approval** will trigger the workflow. However, the terms in the file won't be updated in catalog until all the approvals are met. You'll receive notification when your request is approved or rejected.
+- **Importing terms** - when an import approval workflow enabled for Azure Purview's glossary, you'll see **Submit for approval** instead of **OK** in the Import window when importing terms via csv. Selecting **Submit for approval** will trigger the workflow. However, the terms in the file won't be updated in catalog until all the approvals are met.
 
 :::image type="content" source="media/how-to-create-import-export-glossary/create-submit-for-approval.png" alt-text="Screenshot of the create new term window. The parent term requires approval, so the available buttons at the bottom of the page are 'Submit for approval' and 'Cancel'." border="true":::
 
