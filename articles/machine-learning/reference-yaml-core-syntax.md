@@ -150,13 +150,13 @@ For a pipeline job YAML file, the `inputs` and `outputs` sections of each child 
 
 There are two ways to bind inputs and outputs in a pipeline job:
 
-**1) Bind to the top-level inputs and outputs of the pipeline job**
+**Bind to the top-level inputs and outputs of the pipeline job**
 
 You can bind the inputs or outputs of a child job (a pipeline step) to the inputs/outputs of the top-level parent pipeline job using the following syntax: `${{parent.inputs.<input_name>}}` or `${{parent.outputs.<output_name>}}`. This reference resolves to the `parent` context; hence the top-level inputs/outputs. 
 
 In the example below, the input (`raw_data`) of the first `prep` step is bound to the top-level pipeline input via `${{parent.inputs.input_data}}`. The output (`model_dir`) of the final `train` step is bound to the top-level pipeline job output via `${{parent.outputs.trained_model}}`.
 
-**2) Bind to the inputs and outputs of another child job (step)**
+**Bind to the inputs and outputs of another child job (step)**
 
 To bind the inputs/outputs of one step to the inputs/outputs of another step, use the following syntax: `${{parent.jobs.<step_name>.inputs.<input_name>}}` or `${{parent.jobs.<step_name>.outputs.<outputs_name>}}`. Again, this reference resolves to the parent context, so the expression must start with `parent.jobs.<step_name>`.
 
