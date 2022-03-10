@@ -107,11 +107,11 @@ On the **Create Computer Vision** page, enter the following values:
 
 :::image type="content" source="./media/blob-upload-storage-function/computer-vision-create.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
  
-Select **Review + Create** at the bottom, and Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create**.  Azure will begin provisioning the Storage Account, which make take a moment.
+Select **Review + Create** at the bottom, and Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create**.  Azure will begin provisioning the the Computer Vision service, which make take a moment.
 
 When the operation has completed, click **Go to Resource**.
 
-Next, we need to find the secret keys and endpoint URL for the Computer Vision service to use in our Azure Function app. On the **Computer Vision** overview page, select **Keys and Endpoint**.
+Next, we need to find the secret key and endpoint URL for the Computer Vision service to use in our Azure Function app. On the **Computer Vision** overview page, select **Keys and Endpoint**.
 
  On the **Keys and EndPoint** page, copy the **Key 1** value and the **EndPoint** values and paste them somewhere to use for later.
 
@@ -119,7 +119,7 @@ Next, we need to find the secret keys and endpoint URL for the Computer Vision s
  
 
 ## 3) Download and Configure the Sample Project
-The code for the Azure Function used in this tutorial can be found in this repository. You can also clone the project using the command below.
+The code for the Azure Function used in this tutorial can be found in [this Github repository](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/dotnet). You can also clone the project using the command below.
 
 ```terminal
 git clone https://github.com/Azure-Samples/msdocs-storage-bind-function-service.git
@@ -130,7 +130,7 @@ Once you have downloaded and opened the project, there are a few essential conce
 
 The `Table` attribute uses two parameters.  The first parameter specifies the name of the table to write the parsed image text value returned by the function. The second Connection parameter pulls a Table Storage connection string from the environment variables so that our Azure function has access to it. 
 
-The Blob Trigger attribute also has two parameters and is used to trigger our function when a blob is uploaded.  It will pass in that blob as a parameter to our `Run` function.  The Blob Trigger has two parameters of its own - one for the name of the Blob Container to monitor for uploads, and one for the Connection String of our Storage Account again.
+The `BlobTrigger` attribute also has two parameters and is used to trigger our function when a blob is uploaded.  It will pass in that blob as a parameter to our `Run` function.  The Blob Trigger has two parameters of its own - one for the name of the Blob Container to monitor for uploads, and one for the Connection String of our Storage Account again.
 
 This code also retrieves essential configuration values from environment variables, such as the Storage Account connection string and Computer Vision key. We'll add these Environment variables to our Azure Function environment after it's deployed.
 
