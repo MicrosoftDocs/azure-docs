@@ -13,7 +13,7 @@ ms.author: sasapopo
 ms.reviewer: mathoma
 ms.date: 03/07/2022
 ---
-# Failover database with link feature in SSMS
+# Failover database with link feature in SSMS - Azure SQL Managed Instance
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
@@ -30,9 +30,9 @@ Managed Instance link is currently in public preview.
 To failover your databases to Azure SQL Managed Instance, you need the following prerequisites: 
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- [SQL Server 2019](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019?filetype=EXE)
+- [SQL Server 2019 Enterprise or Developer edition](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019), starting with [CU15](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6).
 - An instance of Azure SQL Managed Instance. [Get started](instance-create-quickstart.md) if you don't have one. 
-- [SQL Server Management Studio (SSMS) v 18.11 or later](/sql/ssms/download-sql-server-management-studio-ssms).
+- [SQL Server Management Studio (SSMS) v18.11 or later](/sql/ssms/download-sql-server-management-studio-ssms).
 - Network connectivity between SQL Server and SQL Managed Instance using either [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md), or [VPN gateways](../../vpn-gateway/tutorial-create-gateway-portal.md). 
 - [Prepared your environment for replication](managed-instance-link-preparation.md)
 - Setup the [link feature and replicated your database to your managed instance in Azure](managed-instance-link-use-ssms-to-replicate-database.md). 
@@ -53,29 +53,29 @@ To failover your database, follow these steps:
 
 1. Select **Next** on the **Introduction** page of the **Failover database to Managed Instance** wizard:
 
-   :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-introduction.png" alt-text="Screenshot showing Introduction window.":::
+   :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-introduction.png" alt-text="Screenshot showing Introduction page.":::
 
 
 3. On the **Log in to Azure** page, select **Sign-in** to provide your credentials and sign into your Azure account. Select the subscription that is hosting the your SQL Managed Instance and then select **Next**: 
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-login-to-azure.png" alt-text="Screenshot showing Log in to Azure window.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-login-to-azure.png" alt-text="Screenshot showing Log in to Azure page.":::
 
 4. On the **Failover type** page, choose the type of failover you're performing and check the box to confirm that you've either stopped the workload for a planned failover, or you understand that there may be data loss for a forced failover. Select **Next**: 
 
-   :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-failover-type.png" alt-text="Screenshot showing Failover Type window.":::
+   :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-failover-type.png" alt-text="Screenshot showing Failover Type page.":::
 
 1. On the **Clean up (optional)**, choose to drop the availability group if it was created solely for the purpose of migrating your database to Azure and you no longer need the availability group. If you want to keep the availability group, then leave the boxes unchecked. Select **Next**: 
 
 
-   :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-cleanup-optional.png" alt-text="Screenshot showing Cleanup (optional) window.":::
+   :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-cleanup-optional.png" alt-text="Screenshot showing Cleanup (optional) page.":::
 
 1. On the **Summary** page, review the actions that will be performed for your failover. (Optionally) You can also create a script to save and run yourself at a later time. When you're ready to proceed with the failover, select **Finish**: 
 
-   :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-summary.png" alt-text="Screenshot showing Summary window.":::
+   :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-summary.png" alt-text="Screenshot showing Summary page.":::
 
 7. The **Executing actions** page displays the progress of the actions:  
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-executing-actions.png" alt-text="Screenshot showing Executing actions window.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-executing-actions.png" alt-text="Screenshot showing Executing actions page.":::
 
 8. After all steps complete, the **Results** page shows a completed status, with checkmarks next to each successfully completed action. You can now close the window: 
 
@@ -87,14 +87,14 @@ During the failover process, the Managed Instance link is dropped and no longer 
 
 You can validate this by reviewing the database on the source SQL Server: 
 
-:::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-ssms-sql-server-database.png" alt-text="Screenshot showing database on SQL Server in SSMS.":::
+:::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-ssms-sql-server-database.png" alt-text="Screenshot showing database on S Q L Server in S S M S.":::
 
 And then reviewing the database on the target SQL Managed Instance: 
 
-:::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-ssms-managed-instance-database.png" alt-text="Screenshot showing database on Managed Instance in SSMS.":::
+:::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-ssms-managed-instance-database.png" alt-text="Screenshot showing database on Managed Instance in S S M S.":::
 
 ## Next steps
 
 For more information about Managed Instance link feature, see the following resources:
 
-To learn more, see [Link feature in Azure SQL Managed Instance](link-feature.md). 
+To learn more, review [Link feature in Azure SQL Managed Instance](link-feature.md). 

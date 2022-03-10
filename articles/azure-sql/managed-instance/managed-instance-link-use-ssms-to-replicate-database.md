@@ -13,7 +13,7 @@ ms.author: sasapopo
 ms.reviewer: mathoma
 ms.date: 03/07/2022
 ---
-# Replicate database with link feature in SSMS
+# Replicate database with link feature in SSMS - Azure SQL Managed Instance
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
@@ -28,9 +28,9 @@ Managed Instance link is currently in public preview.
 To replicate your databases to Azure SQL Managed Instance, you need the following prerequisites: 
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- [SQL Server 2019](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019?filetype=EXE)
+- [SQL Server 2019 Enterprise or Developer edition](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019), starting with [CU15](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6).
 - An instance of Azure SQL Managed Instance. [Get started](instance-create-quickstart.md) if you don't have one. 
-- [SQL Server Management Studio (SSMS) v 18.11 or later](/sql/ssms/download-sql-server-management-studio-ssms).
+- [SQL Server Management Studio (SSMS) v18.11 or later](/sql/ssms/download-sql-server-management-studio-ssms).
 - Network connectivity between SQL Server and SQL Managed Instance using either [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md), or [VPN gateways](../../vpn-gateway/tutorial-create-gateway-portal.md). 
 - [Prepared your environment for replication](managed-instance-link-preparation.md).
 
@@ -48,39 +48,39 @@ To set up the Managed Instance link, follow these steps:
 
 1. Select **Next** on the **Introduction** page of the **New Managed Instance link** wizard: 
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-introduction.png" alt-text="Screenshot showing the introduction window for Managed Instance link replicate database wizard.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-introduction.png" alt-text="Screenshot showing the introduction page for Managed Instance link replicate database wizard.":::
 
 1. On the **Requirements** page, the wizard validates requirements to establish a link to your SQL Managed Instance. Select **Next** once all the requirements are validated: 
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-sql-server-requirements.png" alt-text="Screenshot showing SQL Server requirements window.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-sql-server-requirements.png" alt-text="Screenshot showing S Q L Server requirements page.":::
 
 1. On the **Select Databases** page, choose one or more databases you want to replicate to your SQL Managed Instance via the Managed Instance link. Select **Next**: 
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-select-databases.png" alt-text="Screenshot showing Select Databases window.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-select-databases.png" alt-text="Screenshot showing Select Databases page.":::
 
 1. On the **Login to Azure and select Managed Instance** page, select **Sign In...** to sign into Microsoft Azure. Choose the subscription, resource group, and target managed instance from the drop-downs. Provide login details for the SQL Managed Instance: 
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-login-to-azure.png" alt-text="Screenshot showing Login to Azure and select Managed Instance window.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-login-to-azure.png" alt-text="Screenshot showing Login to Azure and select Managed Instance page.":::
 
 1. After providing all necessary information, select **Next**: 
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-login-to-azure-populated.png" alt-text="Screenshot showing Login to Azure and select Managed Instance populated window.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-login-to-azure-populated.png" alt-text="Screenshot showing Login to Azure and select Managed Instance populated page.":::
 
 1. Review the prepopulated values on the **Specify Distributed AG Options** page, and change any that need customization. When ready, select **Next**.  
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-distributed-ag-options.png" alt-text="Screenshot showing Specify Distributed AG options window.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-distributed-ag-options.png" alt-text="Screenshot showing Specify Distributed A G options page.":::
 
-8. Review the actions on the **Summary** page, and select **Finish** when ready. (Optionally) You can also create a script to save and run yourself at a later time. 
+1. Review the actions on the **Summary** page, and select **Finish** when ready. (Optionally) You can also create a script to save and run yourself at a later time. 
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-summary.png" alt-text="Screenshot showing Summary window.":::
 
-9. The **Executing actions** page displays the progress of the actions:  
+1. The **Executing actions** page displays the progress of the actions:  
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-executing-actions.png" alt-text="Screenshot showing Executing actions window.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-executing-actions.png" alt-text="Screenshot showing Executing actions page.":::
 
-10. After all steps complete, the **Results** page shows a completed status, with checkmarks next to each successfully completed action. You can now close the window: 
+1. After all steps complete, the **Results** page shows a completed status, with checkmarks next to each successfully completed action. You can now close the window: 
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-results.png" alt-text="Screenshot showing Results window.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-results.png" alt-text="Screenshot showing Results page.":::
 
 ## View replicated database
 
@@ -88,7 +88,7 @@ After the Managed Instance link is created, the selected databases are replicate
 
 Use **Object Explorer** on your source SQL Server instance to view the `Synchronized` status of the replicated database, and expand **Always On High Availability** and **Availability Groups** to view the distributed availability group that are created for the Managed Instance link. 
 
-:::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-ssms-sql-server-database.png" alt-text="Screenshot showing the state of SQL Server database and Availability Group and Distributed Availability Group in SSMS.":::
+:::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-ssms-sql-server-database.png" alt-text="Screenshot showing the state of S Q L Server database and Availability Group and Distributed Availability Group in S S M S.":::
 
 
 Connect to  your SQL Managed Instance and use **Object Explorer** to view your replicated database. Depending on the database size and network speed, the database may initially be in a `Restoring` state. After the initial seeding completes, the database is restored to the SQL Managed Instance and ready for read-only workloads: 
