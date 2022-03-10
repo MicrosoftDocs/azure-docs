@@ -58,7 +58,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
-1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the App Configuration store that you created in the quickstart.
+1. In the Azure portal, select **All resources** and select the App Configuration store that you created in the quickstart.
 
 1. In the navigation menu, select **Access control (IAM)**.
 
