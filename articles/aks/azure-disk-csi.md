@@ -226,7 +226,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 ```
 
 > [!IMPORTANT]
-> Currently, Azure disk CSI driver supports resizing PVCs without downtime (the volume mounted to a specific node) on specific regions.
+> Currently, Azure disk CSI driver supports resizing PVCs without downtime on specific regions.
 > Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
 
 Let's expand the PVC by increasing the `spec.resources.requests.storage` field:
