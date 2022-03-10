@@ -288,11 +288,13 @@ The console will display restore failures.
 
 ## Update a standalone sensor version
 
-This procedure describes how to update a standalone sensor version.
+This procedure describes how to update a standalone sensor version. If you are upgrading from a version higher than 22.1.x, you can jump straight to [Update your sensor software version](#update-your-sensor-software-version). 
 
-### Updates to version 22.1.x or higher
+However, if you're upgrading from a version earlier than 22.1.x, make sure to [Download a new activation file for version 22.1.x or higher](#download-a-new-activation-file-for-version-221x-or-higher) before you upgrade, and then [reactivate your sensor](#reactivate-your-sensor-for-version-221x-or-higher) after upgrading.
 
-Version [22.1.x ](release-notes.md#upgrade-to-version-221) is a large upgrade with more complicated background processes. You should expect this upgrade to take more time than earlier upgrades have required.
+### Download a new activation file for version 22.1.x or higher
+
+Version [22.1.x ](release-notes.md#upgrade-to-version-221x) is a large upgrade with more complicated background processes. You should expect this upgrade to take more time than earlier upgrades have required.
 
 1. Update your firewall rules between the sensor and the Azure portal. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
 
@@ -341,7 +343,7 @@ If you're upgrading from a legacy version to version 22.1.x or higher, make sure
     - The sensor's **Overview** page shows an activation status of **Valid**.
     - In the Azure portal, on the **Sites and sensors** page, the sensor is listed as **OT cloud connected** and with the updated sensor version.
 
-Your legacy sensors will continue to appear in the **Sites and sensors** page until you delete them. For more information, see [above](#manage-on-boarded-sensors).
+Your legacy sensors will continue to appear in the **Sites and sensors** page until you delete them. For more information, see [Manage on-boarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
 
 > [!NOTE]
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
