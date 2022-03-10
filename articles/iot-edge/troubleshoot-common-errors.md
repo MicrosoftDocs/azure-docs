@@ -1,10 +1,10 @@
 ---
 title: Common errors - Azure IoT Edge | Microsoft Docs 
 description: Use this article to resolve common issues encountered when deploying an IoT Edge solution
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
-ms.date: 03/01/2021
+ms.author: patricka
+ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -469,6 +469,27 @@ IoT Edge devices behind a gateway get their module images from the parent IoT Ed
 **Resolution:**
 
 Make sure the parent IoT Edge device can receive incoming requests from the child IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the child device.
+
+## IoT Edge behind a gateway cannot connect when migrating from one IoT hub to another
+
+**Observed behavior:**
+
+When attempting to migrate a hierarchy of IoT Edge devices from one IoT hub to another, the top level parent IoT Edge device can connect to IoT Hub, but downstream IoT Edge devices cannot. The logs report `Unable to authenticate client downstream-device/$edgeAgent with module credentials`. 
+
+**Root cause:**
+
+The credentials for the downstream devices were not updated properly when the migration to the new IoT hub happened. Because of this, `edgeAgent` and `edgeHub` modules were set to have authentication type of `none` (default if not set explicitly). During connection, the modules on the downstream devices use old credentials, causing the authentication to fail.
+
+**Resolution:**
+
+When migrating to the new IoT hub (assuming not using DPS), follow these steps in order:
+1. Follow [this guide to export and then import device identities](../iot-hub/iot-hub-bulk-identity-mgmt.md) from the old IoT hub to the new one 
+1. Reconfigure all IoT Edge deployments and configurations in the new IoT hub
+1. Reconfigure all parent-child device relationships in the new IoT hub
+1. Update each device to point to the new IoT hub hostname (`iothub_hostname` under `[provisioning]` in `config.toml`)
+1. If you chose to exclude authentication keys during the device export, reconfigure each device with the new keys given by the new IoT hub (`device_id_pk` under `[provisioning.authentication]` in `config.toml`)
+1. Restart the top-level parent Edge device first, make sure it's up and running
+1. Restart each device in hierarchy level by level from top to the bottom
 
 :::moniker-end
 <!-- end 1.2 -->

@@ -54,10 +54,10 @@ To configure a client to access Kubernetes cluster, you will need the Kubernetes
 
 4. While you are in the local web UI, you can:
 
-    - If you have been provided a key from Microsoft (select users may have a key), go to Kubernetes API, select **Advanced config**, and download an advanced configuration file for Kubernetes.
+    - If you have been provided a key from Microsoft (select users may have a key), go to Kubernetes API, select **Advanced config**, and download an advanced configuration file for Kubernetes. 
 
         ![Device page in local UI 1](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
-
+     
         ![Device page in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
 
     - You can also go to **Kubernetes dashboard** endpoint and download an `aseuser` config file. 

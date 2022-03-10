@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 02/28/2022
+ms.date: 03/02/2022
 ms.custom: references_regions
 ---
 
@@ -18,6 +18,9 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.15 - February 2022
 
+### Known issues
+- The "Arc" proxy bypass feature on Linux includes some endpoints that belong to Azure Active Directory. As a result, if you only specify the "Arc" bypass rule, traffic destined for Azure Active Directory endpoints will not use the proxy server as expected. This issue will be fixed in an upcoming release.
+
 ### New features
 
 - Network check improvements during onboarding:
@@ -25,10 +28,12 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
   - Azure Arc network endpoints are now required, onboarding will abort if they are not accessible
   - New `--skip-network-check` flag to override the new network check behavior
 - [Proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) is now available for customers using private endpoints. This allows you to send Azure Active Directory and Azure Resource Manager traffic through a proxy server, but skip the proxy server for traffic that should stay on the local network to reach private endpoints.
+- Oracle Linux 8 is now supported
 
 ### Fixed
 
 - Improved reliability when disconnecting the agent from Azure
+- Improved reliability when installing and uninstalling the agent on Active Directory Domain Controllers
 - Extended the device login timeout to 5 minutes
 - Removed resource constraints for Azure Monitor Agent to support high throughput scenarios
 
