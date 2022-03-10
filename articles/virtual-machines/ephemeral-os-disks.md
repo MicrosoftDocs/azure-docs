@@ -30,7 +30,7 @@ Key differences between persistent and ephemeral OS disks:
 
 |   | Persistent OS Disk | Ephemeral OS Disk |
 |---|---|---|
-| **Size limit for OS disk** | 2 TiB | Cache size for the VM size or 2 TiB, whichever is smaller. For the **cache size in GiB**, see [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series) |
+| **Size limit for OS disk** | 2 TiB | Cache size or temp size for the VM size or 2040 GiB, whichever is smaller. For the **cache or temp size in GiB**, see [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series) |
 | **VM sizes supported** | All | VM sizes that support Premium storage such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M, Mdsv2,Bs, Dav4, Eav4 |
 | **Disk type support**| Managed and unmanaged OS disk| Managed OS disk only|
 | **Region support**| All regions| All regions|
@@ -57,6 +57,15 @@ If you want to opt for **Temp disk placement**: Standard Ubuntu server image fro
 
 Basic Linux and Windows Server images in the Marketplace that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
 Ephemeral disks also require that the VM size supports **Premium storage**. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](sizes.md) for details around which sizes support Premium storage.
+
+ ## Preview - Trusted Launch for Ephemeral OS disks
+Ephemeral OS disks can now be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [here](trusted-launch.md) for supported sizes and regions.
+VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
+
+For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) you would get an error as "OS disk of Ephemeral VM with size greater than 55 GB is not allowed for VM size Standard_DS4_v2 when the DiffDiskPlacement is ResourceDisk."
+This is because the temp storage for [Standard_DS4_v2](dv2-dsv2-series.md) is 56 GiB, and 1 GiB is reserved for VMGS when using trusted launch.
+For the same example above if you create a standard Ephemeral OS disk VM you would not get any errors and it would be a successful operation.
+
 
 ## Ephemeral OS Disks can now be stored on temp/Resource disks
 Ephemeral OS disk can now be stored either in VM cache disk or VM temp/resource disk. 
@@ -196,15 +205,6 @@ For scale set deployments, use the [Set-AzVmssStorageProfile](/powershell/module
 ```PowerShell
 Set-AzVmssStorageProfile -DiffDiskSetting Local -DiffDiskPlacement ResourceDisk -OsDiskCaching ReadOnly
 ```
- ## Preview - Trusted Launch for Ephemeral OS disks
-Ephemeral OS disks can now be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [here](trusted-launch#limitations.md) for supported sizes and regions.
-VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
-
-For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) you would get an error as "OS disk of Ephemeral VM with size greater than 55 GB is not allowed for VM size Standard_DS4_v2 when the DiffDiskPlacement is ResourceDisk."
-This is because the temp storage for [Standard_DS4_v2](dv2-dsv2-series.md) is 56 GiB, and 1 GiB is reserved for VMGS when using trusted launch.
-For the same example above if you create a standard Ephemeral OS disk VM you would not get any errors and it would be a successful operation.
-
-
 ## Frequently asked questions
 
 **Q: What is the size of the local OS Disks?**
