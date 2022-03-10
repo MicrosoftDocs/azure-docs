@@ -29,7 +29,7 @@ Workflow [actions](#workflow-connectors) include things like generating approval
 Currently, there are two kinds of workflows:
 
 * **Data governance** - for data policy, access governance, and loss prevention. [Scoped](#workflow-scope) at the collection level.
-* **Data catalog** - to manage approvals for CUD (create, update, delete) operations in the data catalog. [Scoped](#workflow-scope) at the glossary level.
+* **Data catalog** - to manage approvals for CUD (create, update, delete) operations for glossary terms. [Scoped](#workflow-scope) at the glossary level.
 
 These workflows can be built from pre-established [workflow templates](#workflow-templates) provided in the Azure Purview studio, but are fully customizable using the available workflow connectors.
 
