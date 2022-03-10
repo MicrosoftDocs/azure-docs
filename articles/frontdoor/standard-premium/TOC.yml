@@ -44,7 +44,7 @@
     - name: Routing limits
       href: ../front-door-routing-limits.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Origin
-    href: concept-origin.md
+    href: ../origin.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
   - name: Health probes
     href: ../front-door-health-probes.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Wildcard domain
