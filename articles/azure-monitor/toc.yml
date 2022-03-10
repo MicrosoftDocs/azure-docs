@@ -1617,7 +1617,7 @@ items:
 - name: Resources
   items:
   - name: Azure updates
-    href: https://azure.microsoft.com/en-us/updates/?category=management-tools
+    href: https://azure.microsoft.com/updates/?category=management-tools
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/monitor/
   - name: Pricing calculator

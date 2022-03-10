@@ -1144,15 +1144,15 @@
             - name: SQL Insights (preview)
               items:
               - name: Overview
-                href: insights/sql-insights-overview.md
+                href: ../azure-monitor/insights/sql-insights-overview.md
               - name: FAQ
-                href: ./faq.yml
+                href: ../azure-monitor/faq.yml
               - name: Enable
-                href: insights/sql-insights-enable.md
+                href: ../azure-monitor/insights/sql-insights-enable.md
               - name: Alerts
-                href: insights/sql-insights-alerts.md
+                href: ../azure-monitor/insights/sql-insights-alerts.md
               - name: Troubleshoot
-                href: insights/sql-insights-troubleshoot.md
+                href: ../azure-monitor/insights/sql-insights-troubleshoot.md
         - name: Security
           items:
           - name: Give users permission
@@ -1657,7 +1657,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sql-database/single/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home
+    href: https://social.msdn.microsoft.com/Forums/home
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-sql-database
   - name: Troubleshoot
