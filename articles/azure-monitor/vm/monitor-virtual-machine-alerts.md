@@ -243,12 +243,13 @@ Here's a walk-through of creating a log alert for when the CPU of a virtual mach
  1. In the portal, select the relevant resource. We recommend scaling resources by using subscriptions or resource groups. 
  1. In the Resource menu, select **Logs**.
  1. Use this query to monitor for virtual machines CPU usage:
+   
    ```kusto
    InsightsMetrics
    | where Origin == "vm.azm.ms"
    | where Namespace == "Processor" and Name == "UtilizationPercentage"
    | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
-  ```
+   ```
  1. Run the query to make sure you get the results you were expecting.
  1. From the top command bar, Select **+ New alert rule** to create a rule using the current query.
  1. The **Create an alert rule** page opens with your query. We try to detect summarized data from the query results automatically. If detected, the appropriate values are automatically selected. 
@@ -292,8 +293,9 @@ Here's a walk-through of creating a log alert for when the CPU of a virtual mach
   1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
   1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to [**mute actions**](../alerts/alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
      :::image type="content" source="../alerts/media/alerts-log/alerts-rule-details-tab.png" alt-text="Screenshot of alerts rule preview details tab.":::
-     > [!NOTE]
-     > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
+     
+    > [!NOTE]
+    > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
    :::image type="content" source="../alerts/media/alerts-log/alerts-rule-tags-tab.png" alt-text="Screenshot of alerts rule preview tags tab.":::
