@@ -6,11 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
-author: mx-iao
-ms.author: minxia
+author: nibaccam
+ms.author: nibaccam
 ms.date: 10/21/2021
-ms.reviewer: laobri
 ---
 
 # CLI (v2) component job YAML schema
