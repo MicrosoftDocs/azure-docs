@@ -159,6 +159,8 @@ The sensor console's **Custom alert rules** page now provides:
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png" alt-text="Screenshot of the updated Custom alerts dialog. "lightbox="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png":::
 
+For more information and the updated custom alert procedure, see [Create custom alerts](how-to-accelerate-alert-incident-response.md#create-custom-alerts).
+
 ### New sensor installation wizard
 
 Previously, you needed to use separate dialogs to upload a sensor activation file, verify your sensor network configuration, and configure your SSL/TLS certificates.
