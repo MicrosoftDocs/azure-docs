@@ -14,11 +14,15 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 [!INCLUDE [Region Notice](./includes/workflow-regions.md)]
 
-This article outlines how to request access for a data asset discovered in Azure Purview's data catalog.
+If you discover a data asset in the catalog that you would like access to, you can request access directly through Azure Purview.
 
-1. To request access to a data asset, use Azure Purview's [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) functionality to find the data asset.
+The request will trigger a workflow that will request that the owners of the data resource grant you access to that data source.
 
-    :::image type="content" source="./media/how-to-request-access/search-or-browse.png" alt-text="Screenshot of the Azure Purview studio, with the search bar and browse buttons highlighted." link="https://web.purview.azure.com/resource/":::
+This article outlines how to make an access request.
+
+1. To find a data asset, use Azure Purview's [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) functionality.
+
+    :::image type="content" source="./media/how-to-request-access/search-or-browse.png" alt-text="Screenshot of the Azure Purview studio, with the search bar and browse buttons highlighted.":::
 
 1. Select the asset to go to asset details.
 
@@ -31,8 +35,11 @@ This article outlines how to request access for a data asset discovered in Azure
 
     :::image type="content" source="./media/how-to-request-access/send.png" alt-text="Screenshot of a data asset's overview page, with the Request access window overlaid. The Send button is highlighted at the bottom of the Request access window.":::
 
-> [!NOTE]
-> A request access to resource set will actually submit the data access request for the folder one level up which contains all these resource set files. 
+    > [!NOTE]
+    > A request access to resource set will actually submit the data access request for the folder one level up which contains all these resource set files.
+
+1. Data owners will be notified of your request and will either approve or reject the request.
+
 
 ## Next steps
 

@@ -15,7 +15,7 @@ This article describes how to work with the business glossary in Azure Purview. 
 
 ## Create a new term
 
-To create a new glossary term, do the following steps:
+To create a new glossary term, follow these steps:
 
 1. Select **Data catalog** in the left navigation on the home page, and then select the **Manage glossary** button in the center of the page.
 
@@ -35,7 +35,7 @@ To create a new glossary term, do the following steps:
 
    These status markers are metadata associated with the term. Currently you can set the following status on each term:
 
-   - **Draft**: This term is not yet officially implemented.
+   - **Draft**: This term isn't yet officially implemented.
    - **Approved**: This term is official/standard/approved.
    - **Expired**: This term should no longer be used.
    - **Alert**: This term needs attention.
@@ -66,7 +66,7 @@ Notice that term names are case-sensitive. For example, `Sample` and `saMple` co
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-import.png" alt-text="Screenshot of the Glossary terms page, Import terms button.":::
 
-3. Download the csv template and use it to enter your terms you would like to add. When naming your template csv file, the name needs to start with a letter and can only include letters, numbers, spaces, '_', or other non-ascii unicode characters. Special characters in the file name will create an error.
+3. Download the csv template and use it to enter your terms you would like to add. Give your template csv file a name that starts with a letter and only includes letters, numbers, spaces, '_', or other non-ascii unicode characters. Special characters in the file name will create an error.
 
    > [!Important]
    > The system only supports importing columns that are available in the template. The "System Default" template will have all the default attributes.
@@ -100,11 +100,11 @@ You should be able to export terms from glossary as long as the selected terms b
 
    :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="Screenshot of the data catalog with the glossary highlighted." border="true":::
 
-1. Using checkboxes select the terms you want to delete. You can select a single term, or multiple terms for deletion.
+1. Using checkboxes, select the terms you want to delete. You can select a single term, or multiple terms for deletion.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-terms.png" alt-text="Screenshot of the glossary, with a few terms selected." border="true":::
 
-1. Select **Delete** button on the top.
+1. Select  the **Delete** button in the top menu.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-delete.png" alt-text="Screenshot of the glossary, with the Delete button highlighted in the top menu." border="true":::
 
@@ -120,14 +120,14 @@ You should be able to export terms from glossary as long as the selected terms b
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-remove.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Remove' column highlighted on the right." border="true":::
 
-1. You can also understand which deletion terms will go via approval process in the column **Approval Needed**. If Approval needed is **Yes** it implies that the term will go via approval workflow before deletion. If the value is **No** then the term will be deleted without any approvals.
+1. You can also see which terms will require an approval process in the column **Approval Needed**. If Approval needed is **Yes**, the term will go through an approval workflow before deletion. If the value is **No** then the term will be deleted without any approvals.
 
    > [!NOTE]
-   > The parent delete term workflow will be triggered in this case even if the child has a different delete workflow association. The reason for this being the selection is done on the parent and you are acknowledging to delete child terms along with parent.
+   > If a parent has an associated approval process, but the child does not, the parent delete term workflow will be triggered. This is because the selection is done on the parent and you are acknowledging to delete child terms along with parent.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/approval-needed.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Approval needed' column highlighted." border="true":::
 
-1. If there's a least one term that needs to be approved you'll be presented with **Submit for approval** and **Cancel** buttons. Selecting **Submit for approval** will delete all the terms where approval isn't needed and will trigger approval workflows for terms that are configured to go via approval process before deletion.
+1. If there's a least one term that needs to be approved you'll be presented with **Submit for approval** and **Cancel** buttons. Selecting **Submit for approval** will delete all the terms where approval isn't needed and will trigger approval workflows for terms that require it.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/yes-approval-needed.png" alt-text="Screenshot of the glossary delete window, with a list of all terms to be deleted, and the 'Approval needed' column highlighted. An item is listed as approval needed, so at the bottom, buttons available are 'Submit for approval' and 'Cancel'." border="true":::
 
@@ -138,17 +138,17 @@ You should be able to export terms from glossary as long as the selected terms b
 
 ## Business terms with approval workflow enabled
 
-If workflows are enabled on a term, then any creates, updates, or deletes to the term will go through approval before they are saved in data catalog. 
+If [workflows](concept-workflow.md) are enabled on a term, then any creates, updates, or deletes to the term will go through an approval before they're saved in data catalog. 
 
-- **New terms** - when a create approval workflow is enabled on the parent term, during the creation process you will see **Submit for approval** instead of **Create** after you have entered all the details. Selecting **Submit for approval** will trigger the workflow.
+- **New terms** - when a create approval workflow is enabled on the parent term, during the creation process you'll see **Submit for approval** instead of **Create** after you've entered all the details. Selecting **Submit for approval** will trigger the workflow. You'll receive notification when your request is approved or rejected.
 
-- **Updates to existing terms** - when an update approval workflow is enabled on parent, you will see **Submit for approval** instead of **Save** when updating the term. Selecting **Submit for approval** will trigger the workflow. The changes will not be saved in catalog until all the approvals are met.
+- **Updates to existing terms** - when an update approval workflow is enabled on parent, you'll see **Submit for approval** instead of **Save** when updating the term. Selecting **Submit for approval** will trigger the workflow. The changes won't be saved in catalog until all the approvals are met.
 
-- **Deletion** - when a delete approval workflow is enabled on the parent term, you will see **Submit for approval** instead of **Delete** when deleting the term. Selecting **Submit for approval** will trigger the workflow. However, the term will not be deleted from catalog until all the approvals are met.
+- **Deletion** - when a delete approval workflow is enabled on the parent term, you'll see **Submit for approval** instead of **Delete** when deleting the term. Selecting **Submit for approval** will trigger the workflow. However, the term won't be deleted from catalog until all the approvals are met.
 
-- **Importing terms** - when an import approval workflow enabled for Azure Purview's glossary, you will see **Submit for approval** instead of **OK** in the Import blade when importing terms via csv. Selecting **Submit for approval** will trigger the workflow. However, the terms in the file will not be updated in catalog until all the approvals are met.
+- **Importing terms** - when an import approval workflow enabled for Azure Purview's glossary, you'll see **Submit for approval** instead of **OK** in the Import window when importing terms via csv. Selecting **Submit for approval** will trigger the workflow. However, the terms in the file won't be updated in catalog until all the approvals are met.
 
-:::image type="content" source="media/how-to-create-import-export-glossary/create-submit-for-approval.png" alt-text="Screenshot of the  create new term window. The parent term requires approval, so the available buttons at the bottom of the page are 'Submit for approval' and 'Cancel'." border="true":::
+:::image type="content" source="media/how-to-create-import-export-glossary/create-submit-for-approval.png" alt-text="Screenshot of the create new term window. The parent term requires approval, so the available buttons at the bottom of the page are 'Submit for approval' and 'Cancel'." border="true":::
 
 ## Next steps
 
