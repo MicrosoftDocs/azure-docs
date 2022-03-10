@@ -209,4 +209,4 @@ When you're done, delete the resource group. Deleting the resource group deletes
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use an Azure file share with Linux](storage-how-to-use-files-linux.md)
+> [Learn about using Azure NFS file shares](files-nfs-protocol.md)
