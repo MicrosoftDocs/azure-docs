@@ -62,9 +62,9 @@ With an existing customer Azure deployment, on-premise network is already connec
 
 With this architecture, central policies and security rules governing network connectivity to customer workloads also apply to SAP RISE/ECS managed workloads. The same on-premise network path is used for both customer's vnets and SAP RISE/ECS vnet.
 
-If there is no currently existing Azure to on-premise connectivity, contact your SAP representative for details which connections models are possible to be established. Any on-premise to SAP RISE/ECS connection is then for reaching the SAP managed vnet only. The on-premise to SAP RISE/ECS connection is not used to access customer's own Azure vnets.
+If there's no currently existing Azure to on-premise connectivity, contact your SAP representative for details which connections models are possible to be established. Any on-premise to SAP RISE/ECS connection is then for reaching the SAP managed vnet only. The on-premise to SAP RISE/ECS connection isn't used to access customer's own Azure vnets.
 
-**Important to note**: A virtual network can have [only have one gateway](/azure/virtual-network/virtual-network-peering-overview#gateways-and-on-premises-connectivity), local or remote. With vnet peering established between SAP RISE/ECS using remote gateway transit like in above architecture, no gateways can be added in the SAP RISE/ECS vnet. A combination of vnet peering with remote gateway transit together with another VPN gateway in the SAP RISE/ECS vnet is not possible.
+**Important to note**: A virtual network can have [only have one gateway](/azure/virtual-network/virtual-network-peering-overview#gateways-and-on-premises-connectivity), local or remote. With vnet peering established between SAP RISE/ECS using remote gateway transit like in above architecture, no gateways can be added in the SAP RISE/ECS vnet. A combination of vnet peering with remote gateway transit together with another VPN gateway in the SAP RISE/ECS vnet isn't possible.
 
 ## Virtual WAN with SAP RISE/ECS managed workloads
 
@@ -96,7 +96,7 @@ Design description and specifics:
 
   - Customer-owned Azure vnets are also using custom DNS configuration referring to customer DNS servers located in Azure Hub vnet.
 
-  - Optionally, customers can set up up a DNS forwarder within their Azure vnets. Such forwarder then pushes DNS requests coming from Azure services to SAP DNS servers that are targeted to the delegated zone (\*hec.contoso.com).
+  - Optionally, customers can set up a DNS forwarder within their Azure vnets. Such forwarder then pushes DNS requests coming from Azure services to SAP DNS servers that are targeted to the delegated zone (\*hec.contoso.com).
 
 Alternatively, DNS zone transfer from SAP DNS servers could be performed to a customer’s DNS servers located in Azure Hub VNet (diagram above). This is applicable for the designs when customers operate custom DNS solution (e.g. [AD DS](/windows-server/identity/ad-ds/active-directory-domain-services) or BIND servers) within their Hub VNet.
 
