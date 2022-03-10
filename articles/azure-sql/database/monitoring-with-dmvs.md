@@ -400,7 +400,7 @@ FROM cte
 ORDER BY SerialDesiredMemory DESC;
 ```
 
-If you encounter out of memory errors in Azure SQL Database, you will find them logged in [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
+If you encounter out of memory errors in Azure SQL Database, review [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
 
 ### Identify the top 10 active memory grants
 
