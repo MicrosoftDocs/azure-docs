@@ -14,9 +14,16 @@ ms.date: 3/15/2021
 
 We continue to modernize and optimize Azure Dedicated Host by using the latest innovations in processor and datacenter technologies. Azure Dedicated Host is a combination of a virtual machine (VM) series and a specific Intel or AMD-based physical server. As we innovate and work with our technology partners, we also need to plan how we retire aging technology.
 
-## Migrate your Dsv3-Type1, Dsv3-Type2, Esv3-Type1, and Esv3-Type2 Azure Dedicated Hosts by 31 March 2023
+## Migrations required by 31 March 2023
 
-All hardware has a finite lifespan, including the underlying hardware for Azure Dedicated Host. As we continue to modernize Azure datacenters, hardware is decommissioned and eventually retired. The hardware that runs the Dsv3-Type1, Dsv3-Type2, Esv3-Type1, and Esv3-Type2 SKUs will be reaching end of life, and as a result we'll retire those Dedicated Host SKUs on 31 March 2023.
+All hardware has a finite lifespan, including the underlying hardware for Azure Dedicated Host. As we continue to modernize Azure datacenters, hardware is decommissioned and eventually retired. The hardware that runs the following Dedicated Host SKUs will be reaching end of life:
+
+- Dsv3-Type1
+- Dsv3-Type2
+- Esv3-Type1
+- Esv3-Type2
+
+As a result we'll retire these Dedicated Host SKUs on 31 March 2023.
 
 ## How does the retirement of Azure Dedicated Host SKUs affect you?
 
@@ -50,6 +57,7 @@ A: We'll announce Dedicated Host SKU retirements 12 months in advance of the off
 ### Q: What are the milestones for the Dsv3-Type1, Dsv3-Type2, Esv3-Type1, and Esv3-Type1 retirement?
 
 A: 
+
 | Date          | Action                                                                 |
 | ------------- | -----------------------------------------------------------------------|
 | 15 March 2022 | Dsv3-Type1, Dsv3-Type2, Esv3-Type1, Esv3-Type2 retirement announcement |

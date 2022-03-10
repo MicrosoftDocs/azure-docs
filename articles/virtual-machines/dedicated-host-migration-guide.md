@@ -34,7 +34,7 @@ We recommend migrating your existing VMs to one of the following Dedicated Host 
 - Dsv3-Type3
 - Dsv3-Type4
 
-Note that both Dedicated Host SKUs won't be impacted by the 1 March 2023 retirement date. We recommend moving to one of the Dedicated Host SKUs listed above based on regional availability, pricing, and your organization’s needs.  
+Note that both the Dsv3-Type3 and Dsv3-Type4 won't be impacted by the 31 March 2023 retirement date. We recommend moving to either the Dsv3-Type3 or Dsv3-Type4 based on regional availability, pricing, and your organization’s needs.  
 
 ## Esv3-Type1 and Esv3-Type2
 
@@ -44,7 +44,7 @@ We recommend migrating your existing VMs to one of the following Dedicated Host 
 - Esv3-Type3
 - Esv3-Type4
 
-Note that both Dedicated Host SKUs won't be impacted by the 1 March 2023 retirement date. We recommend moving to one of the Dedicated Host SKUs listed above based on regional availability, pricing, and your organization’s needs.
+Note that both the Esv3-Type3 and Esv3-Type4 won't be impacted by the 31 March 2023 retirement date. We recommend moving to either the Esv3-Type3 or Esv3-Type4 based on regional availability, pricing, and your organization’s needs.
 
 ## Migration steps
 
