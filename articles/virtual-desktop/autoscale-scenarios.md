@@ -3,7 +3,7 @@ title: Azure Virtual Desktop autoscale example scenarios preview
 description: How to use the autoscale feature to allocate resources in your deployment.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 03/10/2022
 ms.author: helohr
 manager: femila
 ---
@@ -104,6 +104,10 @@ Since our example is in the ramp-up phase, new users will keep signing in. As mo
 
 As this table shows, the autoscale feature only turns on new session hosts when the used host pool capacity goes over the capacity threshold. If the used host pool capacity is at or below the capacity threshold, the autoscale feature won't turn on new session hosts.
 
+The following animation is a visual recap of what we just went over in Scenario 1.
+
+:::image type="content" source="./media/scenario1.gif" alt-text="A visual recap of Scenario 1.":::
+
 ## Scenario 2: When does the autoscale feature turn virtual machines off?
 
 In this scenario, we'll show that the autoscale feature turns VMs off when both of the following things are true:
@@ -138,6 +142,10 @@ If our example host pool has a maximum session limit of five sessions per host p
 Once the autoscale feature turns off one of the session hosts without user sessions, there are four session hosts left, each with a maximum session limit of five, making the host pool capacity 20. The used host pool capacity for the five remaining active sessions is 25%, which is still under the capacity threshold.
 
 However, if another user signs out and heads out for lunch, there are now four user sessions spread across the four session hosts in the host pool. If each session host has a maximum session limit of 5, then that makes the host pool capacity 20, and the used host pool capacity 20%. Shutting another session host off would make there be three session hosts with a host pool capacity of 15, which would cause the used host pool capacity to jump up to around 27%. Even though 27% is below the host pool capacity threshold, the breadth-first algorithm spreads the user sessions equally across each session host. Since every session host has at least one user, the autoscale feature won't turn any of the session hosts off.
+
+The following animation is a visual walkthrough of what we just went over in Scenario 2.
+
+:::image type="content" source="./media/scenario2.gif" alt-text="A visual walkthrough of Scenario 2.":::
 
 ## Scenario 3: when does the autoscale feature force users to sign out?
 
@@ -253,6 +261,10 @@ After that, let's say one of the users who was signed out signs back in, making 
 
 Now there are three user sessions in the host pool. However, the host pool capacity is still five, which means the used host pool capacity is 60% and below the capacity threshold. Because the used host pool capacity hasn't gone below the capacity threshold and turning off the remaining session host would make the minimum percentage of hosts go below the 10% limit, the autoscale feature won't be able to turn off any other session hosts.
 
+The following animation is a visual recap of what we just went over in Scenario 3.
+
+:::image type="content" source="./media/scenario3.gif" alt-text="A visual recap of Scenario 3.":::
+
 ## Scenario 4: how do exclusion tags work?
 
 When a session host has a tag name that matches the scaling plan exclusion tag, the autoscale feature won't turn it on, off, or change its drain mode setting. You can use exclusion tags in any phase of a scaling plan schedule.
@@ -353,3 +365,14 @@ So, finally, the deployment will look like this:
 |Host pool capacity | 5 |
 |Active user sessions | 0 |
 |Current used host pool capacity | 0% |
+
+The following animation is a visual recap of what we just went over in Scenario 4.
+
+:::image type="content" source="./media/scenario4.gif" alt-text="A visual recap of Scenario 4.":::
+
+## Next steps
+
+- To review what the autoscale feature is and how it works, see [Autoscale (preview) for Azure Virtual Desktop host pools](autoscale-scaling-plan.md).
+- To learn how to enable scaling plans for the autoscale feature, see [Enable scaling plans for existing and new host pools (preview)](autoscale-new-existing-host-pool.md).
+- To review terms associated with the autoscale feature, see [the autoscale glossary](autoscale-glossary.md).
+- For answers to commonly asked questions about the autoscale feature see [the autoscale FAQ](autoscale-faq.yml).
