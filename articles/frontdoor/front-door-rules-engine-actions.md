@@ -22,7 +22,7 @@ An Azure Front Door Standard/Premium [Rule Set](front-door-rules-engine.md) cons
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Front Door Standard/Premium supports [server variables](standard-premium/concept-rule-set-server-variables.md) on Rule Set actions.
+Azure Front Door Standard/Premium supports [server variables](rule-set-server-variables.md) on Rule Set actions.
 
 The following actions are available to use in Azure Front Door rule set.  
 
@@ -309,7 +309,7 @@ Use the **URL redirect** action to redirect clients to a new URL. Clients are se
 
 ### Example
 
-In this example, we redirect the request to `https://contoso.com/exampleredirection?clientIp={client_ip}`, while preserving the fragment. An HTTP Temporary Redirect (307) is used. The IP address of the client is used in place of the `{client_ip}` token within the URL by using the `client_ip` [server variable](standard-premium/concept-rule-set-server-variables.md).
+In this example, we redirect the request to `https://contoso.com/exampleredirection?clientIp={client_ip}`, while preserving the fragment. An HTTP Temporary Redirect (307) is used. The IP address of the client is used in place of the `{client_ip}` token within the URL by using the `client_ip` [server variable](rule-set-server-variables.md).
 
 # [Portal](#tab/portal)
 
