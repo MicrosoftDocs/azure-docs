@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: "Troubleshooting: Metrics"
+title: Monitor with metrics
 titleSuffix: Azure Digital Twins
 description: Learn how to view Azure Digital Twins metrics in Azure Monitor to troubleshoot and oversee your instance.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/5/2021
+ms.date: 03/10/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -15,13 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Troubleshooting Azure Digital Twins: Metrics
+# Monitor Azure Digital Twins with metrics
 
 The metrics described in this article give you information about the state of Azure Digital Twins resources in your Azure subscription. Azure Digital Twins metrics help you assess the overall health of the Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help analyze the root causes of issues without needing to contact Azure support.
 
 Metrics are enabled by default. You can view Azure Digital Twins metrics from the [Azure portal](https://portal.azure.com).
 
-## How to view Azure Digital Twins metrics
+## View the metrics
 
 1. Create an Azure Digital Twins instance. You can find instructions on how to set up an Azure Digital Twins instance in [Set up an instance and authentication](how-to-set-up-instance-portal.md).
 
@@ -29,22 +29,22 @@ Metrics are enabled by default. You can view Azure Digital Twins metrics from th
 
     From the instance's menu, select **Metrics**.
    
-    :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins in the Azure portal.":::
+    :::image type="content" source="media/how-to-monitor-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins in the Azure portal.":::
 
     This page displays the metrics for your Azure Digital Twins instance. You can also create custom views of your metrics by selecting the ones you want to see from the list.
     
 3. You can choose to send your metrics data to an Event Hubs endpoint or an Azure Storage account by selecting **Diagnostics settings** from the menu, then **Add diagnostic setting**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page and button to add in the Azure portal.":::
+    :::image type="content" source="media/how-to-monitor-diagnostics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page and button to add in the Azure portal.":::
 
-    For more information about this process, see [Troubleshooting: Diagnostics logs](troubleshoot-diagnostics.md).
+    For more information about this process, see [Monitor with diagnostics logs](how-to-monitor-diagnostics.md).
 
 4. You can choose to set up alerts for your metrics data by selecting **Alerts** from the menu, then **+ New alert rule**.
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot showing the Alerts page and button to add in the Azure portal.":::
+    :::image type="content" source="media/how-to-monitor-alerts/alerts-pre.png" alt-text="Screenshot showing the Alerts page and button to add in the Azure portal.":::
 
-    For more information about this process, see [Troubleshooting: Alerts](troubleshoot-alerts.md).
+    For more information about this process, see [Monitor with alerts](how-to-monitor-alerts.md).
 
-## Azure Digital Twins metrics and how to use them
+## List of metrics
 
 Azure Digital Twins provides several metrics to give you an overview of the health of your instance and its associated resources. You can also combine information from multiple metrics to paint a bigger picture of the state of your instance. 
 
@@ -54,7 +54,7 @@ The following tables describe the metrics tracked by each Azure Digital Twins in
 
 You can configure these metrics to track when you're approaching a [published service limit](reference-service-limits.md#functional-limits) for some aspect of your solution. 
 
-To set up tracking, use the [alerts](troubleshoot-alerts.md) feature in Azure Monitor. You can define thresholds for these metrics so that you receive an alert when a metric reaches a certain percentage of its published limit.
+To set up tracking, use the [alerts](how-to-monitor-alerts.md) feature in Azure Monitor. You can define thresholds for these metrics so that you receive an alert when a metric reaches a certain percentage of its published limit.
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
@@ -120,4 +120,4 @@ Dimensions help identify more details about the metrics. Some of the routing met
 
 ## Next steps
 
-To learn more about managing recorded metrics for Azure Digital Twins, see [Troubleshooting: Diagnostics logs](troubleshoot-diagnostics.md).
+To learn more about managing recorded metrics for Azure Digital Twins, see [Monitor with diagnostics logs](how-to-monitor-diagnostics.md).

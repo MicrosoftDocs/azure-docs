@@ -1,17 +1,17 @@
 ---
 # Mandatory fields.
-title: "Troubleshooting: Diagnostics logs"
+title: Monitor with diagnostic logs
 titleSuffix: Azure Digital Twins
 description: In this article, learn how to enable logging with diagnostics settings and query the logs for immediate viewing. Also, learn about the log categories and their schemas.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/25/2022
+ms.date: 03/10/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q1
+ms.custom: contperf-fy22q1, contentperf-fy22q3
 ---
 
-# Troubleshooting Azure Digital Twins: Diagnostics logs
+# Monitor Azure Digital Twins with diagnostics logs
 
 This article shows you how to configure diagnostic settings in the [Azure portal](https://portal.azure.com), including what types of logs to collect and where to store them (such as Log Analytics or a storage account of your choice). Then, you can query the logs to quickly gather custom insights.
 
@@ -27,7 +27,7 @@ Turn on diagnostic settings to start collecting logs on your Azure Digital Twins
 
 2. Select **Diagnostic settings** from the menu, then **Add diagnostic setting**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page in the Azure portal and button to add." lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
+    :::image type="content" source="media/how-to-monitor-diagnostics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page in the Azure portal and button to add." lightbox="media/how-to-monitor-diagnostics/diagnostic-settings.png":::
 
 3. On the page that follows, fill in the following values:
      * **Diagnostic setting name**: Give the diagnostic settings a name.
@@ -48,7 +48,7 @@ Turn on diagnostic settings to start collecting logs on your Azure Digital Twins
     
 4. Save the new settings. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot showing the diagnostic setting page in the Azure portal where the user has filled in a diagnostic setting information." lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
+    :::image type="content" source="media/how-to-monitor-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot showing the diagnostic setting page in the Azure portal where the user has filled in a diagnostic setting information." lightbox="media/how-to-monitor-diagnostics/diagnostic-settings-details.png":::
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured target back on the **Diagnostic settings** page for your instance. 
 
@@ -64,14 +64,14 @@ Here's how to query the logs for your instance.
 
 2. Select **Logs** from the menu to open the log query page. The page opens to a window called **Queries**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance in the Azure portal with the Queries window overlaid, showing prebuilt queries." lightbox="media/troubleshoot-diagnostics/logs.png":::
+    :::image type="content" source="media/how-to-monitor-diagnostics/logs.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance in the Azure portal with the Queries window overlaid, showing prebuilt queries." lightbox="media/how-to-monitor-diagnostics/logs.png":::
 
     These queries are prebuilt examples written for various logs. You can select one of the queries to load it into the query editor and run it to see these logs for your instance.
 
     You can also close the **Queries** window without running anything to go straight to the query editor page, where you can write or edit custom query code.
 
 3. After exiting the **Queries** window, you'll see the main query editor page. Here you can view and edit the text of the example queries, or write your own queries from scratch.
-    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance in the Azure portal. It includes a list of logs, query code, and Queries History." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+    :::image type="content" source="media/how-to-monitor-diagnostics/logs-query.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance in the Azure portal. It includes a list of logs, query code, and Queries History." lightbox="media/how-to-monitor-diagnostics/logs-query.png":::
 
     In the left pane, 
     - The **Tables** tab shows the different Azure Digital Twins [log categories](#log-categories) that are available to use in your queries. 
@@ -363,5 +363,5 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.
 ## Next steps
 
 * For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../azure-monitor/essentials/platform-logs-overview.md).
-* For information about the Azure Digital Twins metrics, see [Troubleshooting: Metrics](troubleshoot-metrics.md).
-* To see how to enable alerts for your metrics, see [Troubleshooting: Alerts](troubleshoot-alerts.md).
+* For information about the Azure Digital Twins metrics, see [Monitor with metrics](how-to-monitor-metrics.md).
+* To see how to enable alerts for your Azure Digital Twins metrics, see [Monitor with alerts](how-to-monitor-alerts.md).
