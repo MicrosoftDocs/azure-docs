@@ -168,7 +168,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-# [CLI](#tab/cli-1)
+# [CLI](#tab/cli-2)
 
 To check the status and details of a search job table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
 
