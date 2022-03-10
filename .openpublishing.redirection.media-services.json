@@ -685,6 +685,11 @@
             "redirect_url": "/azure/media-services/latest/media-reserved-units-how-to",
             "redirect_document_id": false
           },
+          {
+            "source_path_from_root": "/articles/media-services/latest/job-create-cli-how-to.md",
+            "redirect_url": "/azure/media-services/latest/job-create-how-to.md",
+            "redirect_document_id": false
+          },
         {
             "source_path_from_root": "/articles/media-services/latest/latest/asset-publish-cli-how-to.md",
             "redirect_url": "/azure/media-services/latest/video-on-demand-simple-portal-quickstart",
