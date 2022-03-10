@@ -34,8 +34,8 @@ If you don't have a reference on Application Insights SDK yet:
 
 * Add the Application Insights SDK to your project:
 
-  * [ASP.NET project](./asp-net.md)
-  * [ASP.NET Core project](./asp-net-core.md)
+  * [.NET project](./asp-net.md)
+  * [.NETCore project](./asp-net-core.md)
   * [Java project](./java-in-process-agent.md)
   * [Node.js project](./nodejs.md)
   * [JavaScript in each webpage](./javascript.md)
@@ -53,7 +53,7 @@ If you don't have a reference on Application Insights SDK yet:
 
 Get an instance of `TelemetryClient` (except in JavaScript in webpages):
 
-For [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps and [Non HTTP/Worker for .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps, it is recommended to get an instance of `TelemetryClient` from the dependency injection container as explained in their respective documentation.
+For [.NetCore](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps and [Non HTTP/Worker for .NET/.NETCore](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps, it is recommended to get an instance of `TelemetryClient` from the dependency injection container as explained in their respective documentation.
 
 If you use AzureFunctions v2+ or Azure WebJobs v3+ - follow [this document](../../azure-functions/functions-monitoring.md).
 
@@ -85,7 +85,7 @@ var telemetry = applicationInsights.defaultClient;
 
 TelemetryClient is thread-safe.
 
-For ASP.NET and Java projects, incoming HTTP Requests are automatically captured. You might want to create additional instances of TelemetryClient for other module of your app. For instance, you may have one TelemetryClient instance in your middleware class to report business logic events. You can set properties such as UserId and DeviceId to identify the machine. This information is attached to all events that the instance sends.
+For .NET and Java projects, incoming HTTP Requests are automatically captured. You might want to create additional instances of TelemetryClient for other module of your app. For instance, you may have one TelemetryClient instance in your middleware class to report business logic events. You can set properties such as UserId and DeviceId to identify the machine. This information is attached to all events that the instance sends.
 
 *C#*
 
@@ -414,7 +414,7 @@ catch (ex)
 
 The SDKs catch many exceptions automatically, so you don't always have to call TrackException explicitly.
 
-* ASP.NET: [Write code to catch exceptions](./asp-net-exceptions.md).
+* .NET: [Write code to catch exceptions](./asp-net-exceptions.md).
 * Java EE: [Exceptions are caught automatically](./java-in-process-agent.md).
 * JavaScript: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the code snippet that you insert in your webpages:
 
@@ -673,7 +673,7 @@ function Authenticated(signInId) {
 }
 ```
 
-In an ASP.NET web MVC application, for example:
+In an .NET web MVC application, for example:
 
 *Razor*
 
@@ -703,7 +703,7 @@ In [Metrics Explorer](../essentials/metrics-charts.md), you can create a chart t
 You can also [Search](./diagnostic-search.md) for client data points with specific user names and accounts.
 
 > [!NOTE]
-> The [EnableAuthenticationTrackingJavaScript property in the ApplicationInsightsServiceOptions class](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) in the .NET Core SDK simplifies the JavaScript configuration needed to inject the username as the Auth Id for each trace sent by the Application Insights JavaScript SDK. When this property is set to true, the username from the user in the ASP.NET Core is printed along with [client-side telemetry](asp-net-core.md#enable-client-side-telemetry-for-web-applications), so adding `appInsights.setAuthenticatedUserContext` manually wouldn't be needed anymore, as it is already injected by the SDK for ASP.NET Core. The Auth Id will also be sent to the server where the SDK in .NET Core will identify it and use it for any server-side telemetry, as described in the [JavaScript API reference](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). However, for JavaScript applications that don't work in the same way as ASP.NET Core MVC (such as SPA web apps), you would still need to add `appInsights.setAuthenticatedUserContext` manually.
+> The [EnableAuthenticationTrackingJavaScript property in the ApplicationInsightsServiceOptions class](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) in the .NET Core SDK simplifies the JavaScript configuration needed to inject the username as the Auth Id for each trace sent by the Application Insights JavaScript SDK. When this property is set to true, the username from the user in the .NetCore is printed along with [client-side telemetry](asp-net-core.md#enable-client-side-telemetry-for-web-applications), so adding `appInsights.setAuthenticatedUserContext` manually wouldn't be needed anymore, as it is already injected by the SDK for .NetCore. The Auth Id will also be sent to the server where the SDK in .NET Core will identify it and use it for any server-side telemetry, as described in the [JavaScript API reference](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). However, for JavaScript applications that don't work in the same way as .NetCore MVC (such as SPA web apps), you would still need to add `appInsights.setAuthenticatedUserContext` manually.
 
 ## <a name="properties"></a>Filtering, searching, and segmenting your data by using properties
 
@@ -1023,7 +1023,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](./create-new-resource.md) and change their keys, depending on the environment.
 
-Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
+Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as global.aspx.cs in an .NET service:
 
 *C#*
 
@@ -1044,7 +1044,7 @@ protected void Application_Start()
 appInsights.config.instrumentationKey = myKey;
 ```
 
-In webpages, you might want to set it from the web server's state, rather than coding it literally into the script. For example, in a webpage generated in an ASP.NET app:
+In webpages, you might want to set it from the web server's state, rather than coding it literally into the script. For example, in a webpage generated in an .NET app:
 
 *JavaScript in Razor*
 
@@ -1100,14 +1100,14 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 
 ## Reference docs
 
-* [ASP.NET reference](/dotnet/api/overview/azure/insights)
+* [.NET reference](/dotnet/api/overview/azure/insights)
 * [Java reference](/java/api/overview/azure/appinsights)
 * [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## SDK code
 
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [.NETCore SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server packages](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
