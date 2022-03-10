@@ -2,9 +2,10 @@
 title: Dapr integration with Azure Container Apps overview (preview)
 description: Learn more about using Dapr on your Azure Container App service to develop applications.
 ms.author: hannahhunter
-ms.service: containerapps
+author: hhunter-ms
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 03/10/2022
 ---
 
 # Dapr integration with Azure Container Apps
