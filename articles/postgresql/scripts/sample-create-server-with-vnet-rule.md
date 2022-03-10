@@ -24,7 +24,7 @@ This sample CLI script creates an Azure Database for PostgreSQL server and confi
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-vnet/create-postgresql-server.sh" range="4-50":::
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-vnet/create-postgresql-server.sh" id="FullScript":::
 
 ## Clean up resources
 
