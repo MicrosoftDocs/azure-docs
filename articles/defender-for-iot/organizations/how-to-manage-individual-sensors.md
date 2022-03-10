@@ -292,6 +292,8 @@ This procedure describes how to update a standalone sensor version. If you are u
 
 However, if you're upgrading from a version earlier than 22.1.x, make sure to [Download a new activation file for version 22.1.x or higher](#download-a-new-activation-file-for-version-221x-or-higher) before you upgrade, and then [reactivate your sensor](#reactivate-your-sensor-for-version-221x-or-higher) after upgrading.
 
+Updates from legacy versions may require a series of upgrades. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
+
 ### Download a new activation file for version 22.1.x or higher
 
 Version [22.1.x ](release-notes.md#upgrade-to-version-221x) is a large upgrade with more complicated background processes. You should expect this upgrade to take more time than earlier upgrades have required.
