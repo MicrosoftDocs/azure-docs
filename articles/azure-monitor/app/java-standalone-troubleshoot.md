@@ -172,3 +172,6 @@ In this case, the server side is the Application Insights ingestion endpoint or 
 
 If using Java 9 or later, please check if the JVM has `jdk.crypto.cryptoki` module included in the jmods folder. Also if you are building a custom java runtime using `jlink` please make sure to include the same module.
 
+Otherwise, these cipher suites should already be part of modern Java 8+ distributions,
+so it is recommended to check where you installed your Java distribution from, and investigate why the security
+providers in that Java distribution's `java.security` configuration file differ from standard Java distributions.

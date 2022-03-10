@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 12/09/2021
+ms.date: 03/03/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 author: kengaderdus

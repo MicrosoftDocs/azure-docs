@@ -7,7 +7,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 03/01/2022
+ms.date: 03/09/2022
 
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -98,7 +98,7 @@ Azure Firewall Standard has the following known issues:
 |DNAT rule for allow *any* (*) will SNAT traffic.|If a DNAT rule allows *any* (*) as the Source IP address, then an implicit Network rule will match VNet-VNet traffic and will always SNAT the traffic.|This is a current limitation.|
 |Adding a DNAT rule to a secured virtual hub with a security provider is not supported.|This results in an asynchronous route for the returning DNAT traffic, which goes to the security provider.|Not supported.|
 | Error encountered when creating more than 2000 rule collections. | The maximal number of NAT/Application or Network rule collections is 2000 (Resource Manager limit). | This is a current limitation. |
-|Unable to see Network Rule Name in Azure Firewall Logs|Azure Firewall network rule log data does not show the Rule name for network traffic.|A feature is being investigated to support this.|
+|Unable to see Network Rule Name in Azure Firewall Logs|Azure Firewall network rule log data does not show the Rule name for network traffic.|Network rule name logging is in preview. For for information, see [Azure Firewall preview features](firewall-preview.md#network-rule-name-logging-preview).|
 |XFF header in HTTP/S|XFF headers are overwritten with the original source IP address as seen by the firewall. This is applicable for the following use cases:<br>- HTTP requests<br>- HTTPS requests with TLS termination|A fix is being investigated.|
 | Firewall logs (Resource specific tables - Preview) | Resource specific log queries are in preview mode and aren't currently supported. | A fix is being investigated.|
 |Can't upgrade to Premium with Availability Zones in the Southeast Asia region|You can't currently upgrade to Azure Firewall Premium with Availability Zones in the Southeast Asia region.|Deploy a new Premium firewall in Southeast Asia without Availability Zones, or deploy in a region that supports Availability Zones.|

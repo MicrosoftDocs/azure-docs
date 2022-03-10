@@ -24,7 +24,7 @@ This sample CLI script creates an Azure Database for MariaDB server and configur
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/create-mariadb-server-vnet/create-mariadb-server.sh" range="4-50":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/create-mariadb-server-vnet/create-mariadb-server.sh" id="FullScript":::
 
 ## Clean up resources
 

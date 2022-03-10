@@ -59,15 +59,9 @@ Support for the premium-series hardware generations (public preview) is currentl
 | Australia Central | Yes | | 
 | Australia East | Yes | Yes | 
 | Canada Central | Yes | | 
-| Canada East | Yes | | 
-| Central US | Yes | | 
-| East US | Yes | | 
-| East US 2 | Yes | | 
-| Germany West Central |  | Yes | 
 | Japan East | Yes | | 
 | Korea Central | Yes | | 
 | North Central US | Yes | | 
-| North Europe | Yes | | 
 | South Central US | Yes | Yes | 
 | Southeast Asia | Yes |  | 
 | West Europe | | Yes | 
@@ -108,13 +102,13 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 | Max number of database files per instance | Up to 280, unless the instance storage size or [Azure Premium Disk storage allocation space](doc-changes-updates-known-issues.md#exceeding-storage-space-with-small-database-files) limit has been reached. | 32,767 files per database, unless the instance storage size limit has been reached. |
 | Max data file size | Maximum size of each data file is 8 TB. Use at least two data files for databases larger than 8 TB. | Up to currently available instance size (depending on the number of vCores). |
 | Max log file size | Limited to 2 TB and currently available instance storage size. | Limited to 2 TB and currently available instance storage size. |
-| Data/Log IOPS (approximate) | Up to 30-40 K IOPS per instance*, 500 - 7500 per file<br/>\*[Increase file size to get more IOPS](#file-io-characteristics-in-general-purpose-tier)| 16 K - 320 K (4000 IOPS/vCore)<br/>Add more vCores to get better IO performance. |
+| Data/Log IOPS (approximate) | 500 - 7500 per file<br/>\*[Increase file size to get more IOPS](#file-io-characteristics-in-general-purpose-tier)| 16 K - 320 K (4000 IOPS/vCore)<br/>Add more vCores to get better IO performance. |
 | Log write throughput limit (per instance) | 3 MB/s per vCore<br/>Max 120 MB/s per instance<br/>22 - 65 MB/s per DB (depending on log file size)<br/>\*[Increase the file size to get better IO performance](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s per vCore<br/>Max 96 MB/s |
 | Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Increase the file size to get better IO performance](#file-io-characteristics-in-general-purpose-tier) | Not limited. |
 | Storage IO latency (approximate) | 5-10 ms | 1-2 ms |
 | In-memory OLTP | Not supported | Available, [size depends on number of vCore](#in-memory-oltp-available-space) |
 | Max sessions | 30000 | 30000 |
-| Max concurrent workers | 105 * number of vCores + 800 | 105 * vCore count + 800 |
+| Max concurrent workers | 105 * number of vCores + 800 | 105 * number of vCores + 800 |
 | [Read-only replicas](../database/read-scale-out.md) | 0 | 1 (included in price) |
 | Compute isolation | Not supported as General Purpose instances may share physical hardware with other instances| **Standard-series (Gen5)**:<br/> Supported for 40, 64, 80 vCores<BR> **Premium-series**: Supported for 64, 80 vCores <BR> **Memory optimized premium-series**: Supported for 64 vCores |
 
