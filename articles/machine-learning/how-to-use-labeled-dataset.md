@@ -30,10 +30,11 @@ Azure Machine Learning datasets with labels are referred to as labeled datasets.
 
 ## Export data labels 
 
-When you complete a data labeling project, you can export the label data from a labeling project. Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. 
+When you complete a data labeling project, you can [export the label data from a labeling project] (how-to-create-image-labeling-projects.md#export-the-labels). Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. 
 
-Use the [**Export** button on the **Project details** page of your labeling project](how-to-create-image-labeling-projects.md#export-the-labels).
+Use the **Export** button on the **Project details** page of your labeling project.
 
+![Export button in studio UI](./media/how-to-create-labeling-projects/exported-dataset.png)
 
 ### COCO 
 
@@ -66,7 +67,6 @@ The exported dataset is a [TabularDataset](/python/api/azureml-core/azureml.data
 
 > [!NOTE]
 > The public preview methods download() and mount() are [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features, and may change at any time.
-
 
 
 ```Python
