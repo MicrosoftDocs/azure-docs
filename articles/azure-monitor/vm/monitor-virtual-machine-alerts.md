@@ -243,12 +243,12 @@ Here's a walk-through of creating a log alert for when the CPU of a virtual mach
  1. In the portal, select the relevant resource. We recommend scaling resources by using subscriptions or resource groups. 
  1. In the Resource menu, select **Logs**.
  1. Use this query to monitor for virtual machines CPU usage:
-    ```kusto
-    InsightsMetrics
-    | where Origin == "vm.azm.ms"
-    | where Namespace == "Processor" and Name == "UtilizationPercentage"
-    | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
-    ```
+   ```kusto
+   InsightsMetrics
+   | where Origin == "vm.azm.ms"
+   | where Namespace == "Processor" and Name == "UtilizationPercentage"
+   | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
+   ```
  1. Run the query to make sure you get the results you were expecting.
  1. From the top command bar, Select **+ New alert rule** to create a rule using the current query.
  1. The **Create an alert rule** page opens with your query. We try to detect summarized data from the query results automatically. If detected, the appropriate values are automatically selected. 
