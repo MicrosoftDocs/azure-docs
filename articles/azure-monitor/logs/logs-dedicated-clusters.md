@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Azure Monitor Logs Dedicated Clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs customers. Customers can select which of their Log Analytics workspaces should be hosted on dedicated clusters.
 
-Dedicated clusters require customers to commit for at least 500 GB of data ingestion per day. You can migrate an existing workspace to a dedicated cluster with no data loss or service interruption. 
+Dedicated clusters require customers to commit for at least 500 GB of data ingestion per day. You can link existing workspace to a dedicated cluster and unlink it with no data loss or service interruption. 
 
 Capabilities that require dedicated clusters:
 
@@ -27,7 +27,7 @@ Capabilities that require dedicated clusters:
 
 Dedicated clusters are managed with an Azure resource that represents Azure Monitor Log clusters. Operations are performed programmatically using [CLI](/cli/azure/monitor/log-analytics/cluster), [PowerShell](/powershell/module/az.operationalinsights) or the [REST](/rest/api/loganalytics/clusters).
 
-Once a cluster is created, workspaces can be linked to it and new ingested data to them is stored on the cluster. Workspaces can be unlinked from a cluster at any time and new data is stored in shared Log Analytics clusters. The link and unlink operation doesn't affect your queries and the access to data before and after the operation with subjection to retention in workspaces. The Cluster and workspaces must be in the same region to allow linking.
+Once a cluster is created, workspaces can be linked to it, and new ingested data to them is stored on the cluster. Workspaces can be unlinked from a cluster at any time and new data then stored on shared Log Analytics clusters. The link and unlink operation doesn't affect your queries and access to data before, and after the operation. The Cluster and workspaces must be in the same region.
 
 All operations on the cluster level require the `Microsoft.OperationalInsights/clusters/write` action permission on the cluster. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](./manage-access.md). 
 
@@ -45,6 +45,8 @@ There are two modes of billing for usage on a cluster. These can be specified by
 2. **Workspaces**: The Commitment Tier costs for your Cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Microsoft Defender for Cloud](../../security-center/index.yml) for each workspace.) This full details of this pricing model are explained [here](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
 
 If your workspace is using legacy Per Node pricing tier, when it is linked to a cluster it will be billed based on data ingested against the cluster's Commitment Tier, and no longer Per Node. Per-node data allocations from Microsoft Defender for Cloud will continue to be applied.
+
+When you link workspaces to a cluster, the pricing tier is changed to cluster, and ingestion is billed based on cluster's Commitment Tier. Workspaces can be unlinked from a cluster at any time, and pricing tier change to per-GB.
 
 Complete details are billing for Log Analytics dedicated clusters are available [here](./manage-cost-storage.md#log-analytics-dedicated-clusters).
 
@@ -487,6 +489,14 @@ Content-type: application/json
 
 ### Update billingType in cluster
 
+### PowerShell
+
+```powershell
+Select-AzSubscription "cluster-subscription-id"
+
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -BillingType "Workspaces"
+```
+
 The *billingType* property determines the billing attribution for the cluster and its data:
 - *Cluster* (default) -- The billing is attributed to the Cluster resource
 - *Workspaces* -- The billing is attributed to linked workspaces proportionally. When data volume from all workspaces is below the Commitment Tier level, the remaining volume is attributed to the cluster
@@ -601,6 +611,8 @@ Authorization: Bearer <token>
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
   - If you create a cluster and get an error "region-name doesn't support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can not be changed after the cluster has been created.
+
+- Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, it returns to previous state and remains linked to cluster.
 
 ## Troubleshooting
 
