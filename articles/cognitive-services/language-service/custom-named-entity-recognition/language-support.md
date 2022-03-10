@@ -48,7 +48,7 @@ Custom NER supports `.txt` files in the following languages:
 | German | `de` 
 | Greek | `el` |
 | English (US) | `en-us` |
-| English (Uk) | `en-gb` |
+<!-- | English (Uk) | `en-gb` | -->
 | Esperanto | `eo` |
 | Spanish | `es` |
 | Estonian | `et` |
@@ -91,7 +91,7 @@ Custom NER supports `.txt` files in the following languages:
 | Burmese | `my` |
 | Nepali | `ne` |
 | Dutch | `nl` |
-| Norwegian (Bokmal) | `no` |
+| Norwegian (Bokmal) | `nb` |
 | Oriya | `or` |
 | Punjabi | `pa` |
 | Polish | `pl` |
