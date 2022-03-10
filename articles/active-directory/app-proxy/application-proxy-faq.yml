@@ -19,6 +19,16 @@ summary: This page answers frequently asked questions about Azure Active Directo
 sections:
   - name: General
     questions:
+    
+      - question: |
+         Can I modify an App Proxy app from the App registrations page in the Azure portal?
+        answer: |
+            No, the following configuration items are being used by app proxy and should not be altered or deleted:
+            1.	Enable/Disable “Allow public clients flows”.
+            2.	CWAP_AuthSecret (Client secrets).
+            3.	API Permissions.
+            Modifying any of the above configuration items on the App registration page will break pre-authentication for Azure AD Application Proxy. 
+
       - question: |
          Can I delete an App Proxy app from the App registrations page in the Azure portal? 
         answer: |
