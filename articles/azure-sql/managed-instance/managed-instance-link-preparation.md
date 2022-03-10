@@ -17,7 +17,7 @@ ms.date: 03/07/2022
 # Prepare environment for link feature - Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you to prepare your environment for the Managed Instance link feature so that you can replicate your databases from your instance of SQL Server to your instance of Azure SQL Managed Instance. 
+This article teaches you to prepare your environment for the [Managed Instance link feature](link-feature.md) so that you can replicate your databases from your instance of SQL Server to your instance of Azure SQL Managed Instance. 
 
 Managed Instance link is currently in public preview.
 
@@ -28,13 +28,12 @@ To use the Managed Instance link feature, you need the following prerequisites:
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - [SQL Server 2019 Enterprise or Developer edition](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019?filetype=EXE), starting with [CU15 (15.0.4198.2)](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6).
 - An instance of Azure SQL Managed Instance. [Get started](instance-create-quickstart.md) if you don't have one. 
-- [SQL Server Management Studio (SSMS) v18.11 or later](/sql/ssms/download-sql-server-management-studio-ssms).
-- Network connectivity between SQL Server and SQL Managed Instance using either [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md), or [VPN gateways](../../vpn-gateway/tutorial-create-gateway-portal.md). 
+
 
 
 ## Prepare your SQL Server instance
 
-To prepare your SQL Server instance, you need to validate you're on the minimum supported version, you've enabled the availability group feature, and you've enabled the proper traceflags at startup. You may need to restart your SQL Server instance after making any of these changes. 
+To prepare your SQL Server instance, you need to validate you're on the minimum supported version, you've enabled the availability group feature, and you've added the proper trace flags at startup. You will need to restart SQL Server for these changes to take effect. 
 
 ### Install CU15 (or higher)
 
@@ -76,15 +75,12 @@ If the availability groups feature is not enabled, follow these steps to enable 
  
    :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-properties.png" alt-text="Screenshot showing S Q L Server configuration manager.":::
 
-1. Go to the **Always On High Availability** tab. 
+1. Go to the **Always On Availability Groups** tab. 
 1. Select the checkbox to enable **Always On Availability Groups**. Select **OK**: 
 
    :::image type="content" source="./media/managed-instance-link-preparation/always-on-availability-groups-properties.png" alt-text="Screenshot showing always on availability groups properties.":::
 
 1. Select **OK** on the dialog box to restart the SQL Server service.
-
-
-
 
 ### Enable feature startup trace flags
 
@@ -146,10 +142,7 @@ The following screenshot is an example of the expected outcome for a SQL Server 
 
 ## Configure network connectivity
 
-For the Managed Instance link to work, there must be network connectivity between the SQL Server and SQL Managed Instance. The network option that you choose depends on where your SQL Server resides - whether it's on-premises or on a virtual machine (VM). 
-
-
-Depending on where the SQL Server resides (on-premises, or in a VM), there are a couple of options to consider that will be covered in the following paragraphs.
+For the Managed Instance link to work, there must be network connectivity between SQL Server and SQL Managed Instance. The network option that you choose depends on where your SQL Server resides - whether it's on-premises or on a virtual machine (VM). 
 
 ### SQL Server on Azure VM 
 
@@ -158,8 +151,7 @@ Deploying your SQL Server to an Azure VM in the same Azure virtual network (VNet
 If your SQL Server on Azure VM is in a different VNet to your managed instance, either connect the two Azure VNets using [Global VNet peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913), or configure [VPN gateways](../../vpn-gateway/tutorial-create-gateway-portal.md). 
 
 >[!NOTE]
-> Global VNet peering is enabled by default on managed instances provisioned after November 2020. [Raise a support ticket](..//database/quota-increase-request) to enable Global VNet peering on older instances. 
-
+> Global VNet peering is enabled by default on managed instances provisioned after November 2020. [Raise a support ticket](../database/quota-increase-request.md) to enable Global VNet peering on older instances. 
 
 
 ### SQL Server outside of Azure 
@@ -174,17 +166,17 @@ If your SQL Server is hosted outside of Azure, establish a VPN connection betwee
 
 ### Open network ports between the environments
 
-Port 5022 needs to allow inbound and outbound traffic between the SQL Server and the SQL Managed Instance. Port 5022 is the standard port used for availability groups, and cannot be changed or customized. 
+Port 5022 needs to allow inbound and outbound traffic between SQL Server and SQL Managed Instance. Port 5022 is the standard port used for availability groups, and cannot be changed or customized. 
 
 The following table describes port actions for each environment: 
 
 |Environment|What to do|
 |:---|:-----|
-|Source SQL Server (in Azure) | Open both inbound and outbound traffic on port 5022 for the network firewall to the entire subnet of the SQL Managed Instance. If necessary, do the same on the Windows firewall as well. Create an NSG rule in the virtual network hosting the VM that allows communication on port 5022.  |
-|Source SQL Server (outside of Azure) | Open both inbound and outbound traffic on port 5022 for the network firewall to the entire subnet of the SQL Managed Instance. If necessary, do the same on the Windows firewall as well.  |
-|Target SQL Managed Instance |[Create an NSG rule](../../virtual-network/manage-network-security-group.md#create-a-security-rule) in the Azure portal to allow inbound and outbound traffic from the IP address of the source SQL Server on port 5022 on the virtual network hosting the SQL Managed Instance. |
+|SQL Server (in Azure) | Open both inbound and outbound traffic on port 5022 for the network firewall to the entire subnet of the SQL Managed Instance. If necessary, do the same on the Windows firewall as well. Create an NSG rule in the virtual network hosting the VM that allows communication on port 5022.  |
+|SQL Server (outside of Azure) | Open both inbound and outbound traffic on port 5022 for the network firewall to the entire subnet of the SQL Managed Instance. If necessary, do the same on the Windows firewall as well.  |
+|SQL Managed Instance |[Create an NSG rule](../../virtual-network/manage-network-security-group.md#create-a-security-rule) in the Azure portal to allow inbound and outbound traffic from the IP address of the SQL Server on port 5022 to the virtual network hosting the SQL Managed Instance. |
 
-Use the following PowerShell script on the source SQL Server to open ports in the Windows Firewall: 
+Use the following PowerShell script on the host SQL Server to open ports in the Windows Firewall: 
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow TCP port 5022 inbound" -Direction inbound -Profile Any -Action Allow -LocalPort 5022 -Protocol TCP
@@ -199,13 +191,13 @@ Bidirectional network connectivity between SQL Server and SQL Managed Instance i
 
 ### Test connection from SQL Server to SQL Managed Instance 
 
-To check if SQL Server can reach Managed Instance use the `tnc` command in PowerShell from the SQL Server host machine. Replace <ManagedInstanceFQDN> with the fully qualified domain name of the Azure SQL Managed Instance.
+To check if SQL Server can reach your SQL Managed Instance use the `tnc` command in PowerShell from the SQL Server host machine. Replace `<ManagedInstanceFQDN>` with the fully qualified domain name of the Azure SQL Managed Instance.
 
 ```powershell
 tnc <ManagedInstanceFQDN> -port 5022
 ```
 
-A successful test shows `TcpTestSucceeded = True`: 
+A successful test shows `TcpTestSucceeded : True`: 
 
 
 :::image type="content" source="./media/managed-instance-link-preparation/powershell-output-tnc-command.png" alt-text="Screenshot showing output of T N C command in PowerShell.":::
@@ -217,7 +209,7 @@ If the response is unsuccessful, verify the following:
 
 #### Test connection from SQL Managed Instance to SQL Server
 
-To check that the SQL Managed Instance can reach your SQL Server, create a test endpoint, and then use the SQL Agent to execute a PowerShell script with the `tnc` command pinging the SQL Server on port 5022. 
+To check that the SQL Managed Instance can reach your SQL Server, create a test endpoint, and then use the SQL Agent to execute a PowerShell script with the `tnc` command pinging SQL Server on port 5022. 
 
 
 
@@ -321,7 +313,7 @@ If the connection is unsuccessful, verify the following:
 
 ## Install SSMS
 
-SQL Server Management Studio (SSMS) v18.11 is the easiest way to use the Managed Instance Link. [Download SSMS version 18.11 or later](/sql/ssms/download-sql-server-management-studio-ssms) and install it to your client machine. 
+SQL Server Management Studio (SSMS) v18.11.1 is the easiest way to use the Managed Instance Link. [Download SSMS version 18.11.1 or later](/sql/ssms/download-sql-server-management-studio-ssms) and install it to your client machine. 
 
 After installation completes, open SSMS and connect to your supported SQL Server instance. Right-click a user database, and validate you see the "Azure SQL Managed Instance link" option in the menu: 
 
@@ -329,4 +321,4 @@ After installation completes, open SSMS and connect to your supported SQL Server
 
 ## Next steps
 
-After your environment has been prepared, you're ready to start [replicating your database](managed-instance-link-use-ssms-to-replicate-database.md). To learn more, review [Link feature in Azure SQL Managed Instance](link-feature.md) 
+After your environment has been prepared, you're ready to start [replicating your database](managed-instance-link-use-ssms-to-replicate-database.md). To learn more, review [Link feature in Azure SQL Managed Instance](link-feature.md). 

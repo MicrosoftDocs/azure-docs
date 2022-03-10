@@ -17,7 +17,7 @@ ms.date: 03/07/2022
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you to use the Managed Instance link feature to replicate your database from SQL Server to Azure SQL Managed Instance in SQL Server Management Studio (SSMS). 
+This article teaches you to use the [Managed Instance link feature](link-feature.md) to replicate your database from SQL Server to Azure SQL Managed Instance in SQL Server Management Studio (SSMS). 
 
 Before configuring replication for your database through the link feature, make sure you've [prepared your environment](managed-instance-link-preparation.md). 
 
@@ -28,11 +28,10 @@ Managed Instance link is currently in public preview.
 To replicate your databases to Azure SQL Managed Instance, you need the following prerequisites: 
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- [SQL Server 2019 Enterprise or Developer edition](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019), starting with [CU15](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6).
+- [SQL Server 2019 Enterprise or Developer edition](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019), starting with [CU15 (15.0.4198.2)](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6).
 - An instance of Azure SQL Managed Instance. [Get started](instance-create-quickstart.md) if you don't have one. 
-- [SQL Server Management Studio (SSMS) v18.11 or later](/sql/ssms/download-sql-server-management-studio-ssms).
-- Network connectivity between SQL Server and SQL Managed Instance using either [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md), or [VPN gateways](../../vpn-gateway/tutorial-create-gateway-portal.md). 
-- [Prepared your environment for replication](managed-instance-link-preparation.md).
+- [SQL Server Management Studio (SSMS) v18.11.1 or later](/sql/ssms/download-sql-server-management-studio-ssms).
+- A properly [prepared environment](managed-instance-link-preparation.md).
 
 
 ## Replicate database
@@ -58,7 +57,7 @@ To set up the Managed Instance link, follow these steps:
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-select-databases.png" alt-text="Screenshot showing Select Databases page.":::
 
-1. On the **Login to Azure and select Managed Instance** page, select **Sign In...** to sign into Microsoft Azure. Choose the subscription, resource group, and target managed instance from the drop-downs. Provide login details for the SQL Managed Instance: 
+1. On the **Login to Azure and select Managed Instance** page, select **Sign In...** to sign into Microsoft Azure. Choose the subscription, resource group, and target managed instance from the drop-downs. Select **Login** and provide login details for the SQL Managed Instance: 
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-login-to-azure.png" alt-text="Screenshot showing Login to Azure and select Managed Instance page.":::
 
@@ -74,7 +73,7 @@ To set up the Managed Instance link, follow these steps:
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-summary.png" alt-text="Screenshot showing Summary window.":::
 
-1. The **Executing actions** page displays the progress of the actions:  
+1. The **Executing actions** page displays the progress of each action:  
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-executing-actions.png" alt-text="Screenshot showing Executing actions page.":::
 
@@ -86,15 +85,14 @@ To set up the Managed Instance link, follow these steps:
 
 After the Managed Instance link is created, the selected databases are replicated to the SQL Managed Instance. 
 
-Use **Object Explorer** on your source SQL Server instance to view the `Synchronized` status of the replicated database, and expand **Always On High Availability** and **Availability Groups** to view the distributed availability group that are created for the Managed Instance link. 
+Use **Object Explorer** on your SQL Server instance to view the `Synchronized` status of the replicated database, and expand **Always On High Availability** and **Availability Groups** to view the distributed availability group that is created for the Managed Instance link. 
 
 :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-ssms-sql-server-database.png" alt-text="Screenshot showing the state of S Q L Server database and Availability Group and Distributed Availability Group in S S M S.":::
 
-
-Connect to  your SQL Managed Instance and use **Object Explorer** to view your replicated database. Depending on the database size and network speed, the database may initially be in a `Restoring` state. After the initial seeding completes, the database is restored to the SQL Managed Instance and ready for read-only workloads: 
+Connect to  your SQL Managed Instance and use **Object Explorer** to view your replicated database. Depending on the database size and network speed, the database may initially be in a `Restoring` state. After initial seeding completes, the database is restored to the SQL Managed Instance and ready for read-only workloads: 
 
 :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-ssms-managed-instance-database.png" alt-text="Screenshot showing the state of Managed Instance database.":::
 
 ## Next steps
 
-To learn more, see [Link feature in Azure SQL Managed Instance](link-feature.md). To break the link and failover your database to the SQL Managed Instance, see [failover database](managed-instance-link-use-ssms-to-failover-database.md). 
+To break the link and failover your database to the SQL Managed Instance, see [failover database](managed-instance-link-use-ssms-to-failover-database.md).  To learn more, see [Link feature in Azure SQL Managed Instance](link-feature.md).
