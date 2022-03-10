@@ -18,15 +18,15 @@ This section defines where credentials are stored
 This section defines general options of the SAP instance to connect to
 - [Azure Credentials](#azure-credentials-section)<br>
 This section defines credentials to connect to Azure Log Analytics
-- File Extraction ABAP<br>
+- [File Extraction ABAP](#file-extraction-abap-section)<br>
 This section defines logs and credentials that are extracted from ABAP server using SAPControl interface
-- File Extraction JAVA<br>
+- [File Extraction JAVA](#file-extraction-java-section)<br>
 This section defines logs and credentials that are extracted from JAVA server using SAPControl interface
-- Logs Activation Status<br>
+- [Logs Activation Status](#logs-activation-status-section)<br>
 This section defines which logs are extracted from ABAP 
-- Connector Configuration<br>
+- [Connector Configuration](#connector-configuration-section)<br>
 This section defines miscellaneous connector options
-- ABAP Table Selector<br>
+- [ABAP Table Selector](#abap-table-selector-section)<br>
 This section defines which User Master Data logs get extracted from the ABAP system
 
 ### Secrets Source section
@@ -42,6 +42,7 @@ intprefix=<prefix>
 
 ### ABAP Central Instance section
 ````systemconfig.ini
+[ABAP Central Instance]
 auth_type=PLAIN_USER_AND_PASSWORD|SNC_WITH_X509
 # Authentication type - username/password authentication, or X.509 authentication
 
@@ -67,10 +68,10 @@ client=<Client Number>
 # Client number of the ABAP server
 
 user=<username>
-# Username to use to connect to ABAP server
+# Username to use to connect to ABAP server. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
 
 passwd=<password>
-# Password to use to connect to ABAP server
+# Password to use to connect to ABAP server. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
 
 snc_lib=<path to libsapcrypto>
 # Full path, to the libsapcrypto.so
@@ -95,15 +96,17 @@ x509cert=<server certificate>
 
 ### Azure Credentials section
 ````systemconfig.ini
+[Azure Credentials]
 loganalyticswsid=<workspace ID>
-# Log Analytics workspace ID
+# Log Analytics workspace ID. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
 
 publickey=<publickey>
-# Log Analytics workspace primary or secondary key
+# Log Analytics workspace primary or secondary key. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
 ````
 
 ### File Extraction ABAP section
 ````systemconfig.ini
+[File Extraction ABAP]
 osuser = <SAPControl username>
 # Username to use to authenticate to SAPControl
 
@@ -128,6 +131,7 @@ abaptz = <timezone>
 
 ### File Extraction JAVA section
 ````systemconfig.ini
+[File Extraction JAVA]
 javaosuser = <username>
 # Username to use to authenticate to JAVA server
 
@@ -146,5 +150,67 @@ javaseverity = <severity>
 javatz = <timezone>
 # GMT FORMAT
 # example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
+````
 
+#### Logs Activation Status section
+````systemconfig.ini
+[Logs Activation Status]
+# The following logs are retrieved using RFC interface
+# Specify True or False to configure whether log should be collected using the mentioned interface
+ABAPAuditLog = <True/False>
+ABAPJobLog = <True/False>
+ABAPSpoolLog = <True/False>
+ABAPSpoolOutputLog = <True/False>
+ABAPChangeDocsLog = <True/False>
+ABAPAppLog = <True/False>
+ABAPWorkflowLog = <True/False>
+ABAPCRLog = <True/False>
+ABAPTableDataLog = <True/False>
+# The following logs are retrieved using SAP Conntrol interface and OS Login
+ABAPFilesLogs = <True/False>
+SysLog = <True/False>
+ICM = <True/False>
+WP = <True/False>
+GW = <True/False>
+# The following logs are retrieved using SAP Conntrol interface and OS Login
+JAVAFilesLogs = <True/False>
+````
+
+#### Connector Configuration section
+````systemconfig.ini
+extractuseremail = <True/False>
+apiretry = <True/False>
+auditlogforcexal = <True/False>
+auditlogforcelegacyfiles = <True/False>
+
+timechunk = <value>
+# Default timechunk value is 60 (minutes). For certain tables, data connector retrieves data from the ABAP server using timechunks (colleting all events that occured within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
+````
+
+#### ABAP Table Selector section
+````systemconfig.ini
+[ABAP Table Selector]
+# Specify True or False to configure whether table should be collected from the SAP system
+AGR_TCODES_FULL = <True/False>
+USR01_FULL = <True/False>
+USR02_FULL = <True/False>
+USR02_INCREMENTAL = <True/False>
+AGR_1251_FULL = <True/False>
+AGR_USERS_FULL = <True/False>
+AGR_USERS_INCREMENTAL = <True/False>
+AGR_PROF_FULL = <True/False>
+UST04_FULL = <True/False>
+USR21_FULL = <True/False>
+ADR6_FULL = <True/False>
+ADCP_FULL = <True/False>
+USR05_FULL = <True/False>
+USGRP_USER_FULL = <True/False>
+USER_ADDR_FULL = <True/False>
+DEVACCESS_FULL = <True/False>
+AGR_DEFINE_FULL = <True/False>
+AGR_DEFINE_INCREMENTAL = <True/False>
+PAHI_FULL = <True/False>
+AGR_AGRS_FULL = <True/False>
+USRSTAMP_FULL = <True/False>
+USRSTAMP_INCREMENTAL = <True/False>
 ````
