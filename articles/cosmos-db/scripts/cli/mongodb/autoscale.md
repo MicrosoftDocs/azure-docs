@@ -27,7 +27,7 @@ The script in this article demonstrates creating a MongoDB API database with aut
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/mongodb/autoscale.sh" range="4-36":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/mongodb/autoscale.sh" id="FullScript":::
 
 ## Clean up resources
 
