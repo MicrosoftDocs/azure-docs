@@ -87,7 +87,7 @@ To query the generated logs:
    The output of the query is displayed in **Results** pane.
 1. Click **New alert rule** to configure an Azure monitor alert for this query.
 
-   :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/custom-query-inline.png" alt-text="Screenshot showing the storage account" lightbox="media/automation-manage-send-joblogs-log-analytics/custom-query-expanded.png":::
+   :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/custom-query-inline.png" alt-text="Screenshot showing how to query logs" lightbox="media/automation-manage-send-joblogs-log-analytics/custom-query-expanded.png":::
 
 ### Send an email when a runbook job fails or suspends
 
