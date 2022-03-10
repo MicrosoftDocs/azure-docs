@@ -602,7 +602,7 @@
       href: drm-list-content-key-policy-how-to.md
     - name: Update a content key policy
       href: drm-update-content-key-policy-how-to.md
-    - name: Delete a content ky policy
+    - name: Delete a content key policy
       href: drm-delete-content-key-policy-how-to.md
     - name: Add an option to a content key policy
       href: drm-add-option-content-key-policy-how-to.md
