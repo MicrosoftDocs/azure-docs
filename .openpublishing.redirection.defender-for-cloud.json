@@ -70,8 +70,6 @@
             "redirect_url": "/azure/defender-for-cloud/just-in-time-access-overview",
             "redirect_document_id": false
         },
-        
-        
         {
             "source_path_from_root": "/articles/security-center/just-in-time-explained.md",
             "redirect_url": "/azure/defender-for-cloud/just-in-time-access-overview",
