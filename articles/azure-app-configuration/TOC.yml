@@ -124,6 +124,8 @@
       href: concept-feature-management.md
     - name: Event handling
       href: concept-app-configuration-event.md
+    - name: Soft delete
+      href: concept-soft-delete.md
     - name: Security
       items:
         - name: Encrypt using customer-managed keys
@@ -162,6 +164,8 @@
       href: howto-convert-to-the-new-spring-boot.md
     - name: Move a resource between Azure regions 
       href: howto-move-resource-between-regions.md
+    - name: Recover App Configuration stores (Preview)
+      href: howto-recover-deleted-stores-in-azure-app-configuration.md
 - name: Reference
   items:
     - name: Client libraries
