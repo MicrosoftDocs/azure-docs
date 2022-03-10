@@ -90,7 +90,7 @@ Use **Object Explorer** on your source SQL Server instance to view the `Synchron
 
 Connect to  your SQL Managed Instance and use **Object Explorer** to view your replicated database. Depending on the database size and network speed, the database may initially be in a `Restoring` state. After the initial seeding completes, the database is restored to the SQL Managed Instance and ready for read-only workloads: 
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-ssms-managed-instance-database.png" alt-text="Screenshot showing the state of Managed Instance database.":::
+:::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-ssms-managed-instance-database.png" alt-text="Screenshot showing the state of Managed Instance database.":::
 
 ## Next steps
 

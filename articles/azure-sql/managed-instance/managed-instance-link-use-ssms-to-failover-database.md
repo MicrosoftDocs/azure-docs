@@ -17,11 +17,19 @@ ms.date: 03/07/2022
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Managed Instance link is in preview.
+This article teaches you to use the Managed Instance link feature to failover your database from SQL Server to Azure SQL Managed Instance in SQL Server Management Studio (SSMS). 
 
-Managed Instance link feature enables you to replicate and optionally migrate your database hosted on SQL Server to Azure SQL Managed Instance.
+Managed Instance link is in public preview.
 
-Once Managed Instance link database failover is performed from SSMS, the Managed Instance link is cut. Database hosted on SQL Server will become independent from database on Managed Instance and both databases will be able to perform read-write workload. This tutorial will cover performing Managed Instance link database failover by using latest version of SSMS (v18.11 and newer).
+## Prerequisites 
+
+To replicate your databases to Azure SQL Managed Instance, you need the following prerequisites: 
+
+- An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- [SQL Server 2019](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019?filetype=EXE)
+- An instance of Azure SQL Managed Instance. [Get started](instance-create-quickstart.md) if you don't have one. 
+- [SQL Server Management Studio (SSMS) v 18.11 or later](/sql/ssms/download-sql-server-management-studio-ssms).
+- Network connectivity between SQL Server and SQL Managed Instance using either [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md), or [VPN gateways](../../vpn-gateway/tutorial-create-gateway-portal.md). 
 
 ## Managed Instance link database failover (migration)
 
