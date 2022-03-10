@@ -58,6 +58,8 @@ Create variables for your resource's Azure endpoint and subscription keys.
 >
 > You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
 >
+> You also can go to https://www.customvision.ai/. After you sign in, select the **Settings** icon at the top right. On the **Setting** pages, you can get all the keys, resource ID, and endpoints.
+>
 > Remember to remove the keys from your code when you're done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](../../../cognitive-services-security.md) article.
 
 ## Object model

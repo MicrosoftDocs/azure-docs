@@ -9,8 +9,8 @@ metadata:
   services: iot-edge
   ms.service: iot-edge
   ms.topic: landing-page
-  author: kgremban
-  ms.author: kgremban
+  author: PatAltimore
+  ms.author: patricka
   
   ms.date: 08/05/2019
   ms.custom: e2e-hybrid

@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/17/2021
+ms.date: 03/07/2022
 ms.topic: include
 ms.custom: include file, cog-serv-seo-aug-2020
 
@@ -106,12 +106,14 @@ Add the client libraries to the python file.
 
 Create two sets of variables: the first set you change, the second set leave as they appear in the code sample. 
 
+[!INCLUDE [Remember to remove credentials when you're done](app-secrets.md)]
+
 1. Create variables to hold your authoring key and resource names.
 
     [!code-python[Variables you need to change](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=VariablesYouChange)]
 
 1. Create variables to hold your endpoints, app name, version, and intent name.
-
+    
     [!code-python[Variables you don't need to change](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=VariablesYouDontNeedToChangeChange)]
 
 ## Authenticate the client

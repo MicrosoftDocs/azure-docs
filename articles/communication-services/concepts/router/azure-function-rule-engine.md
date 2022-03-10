@@ -88,7 +88,7 @@ The decision flow (as shown above) is as follows:
 
 Before moving on any further in the process, let us first define an Azure function that scores worker.
 > [!NOTE]
-> The following Azure function is using Javascript. For more information, please refer to [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../../../azure-functions/create-first-function-vs-code-node.md)
+> The following Azure function is using JavaScript. For more information, please refer to [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../../../azure-functions/create-first-function-vs-code-node.md)
 
 Sample input for **Worker 1**
 

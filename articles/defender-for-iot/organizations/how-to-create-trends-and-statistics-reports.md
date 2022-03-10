@@ -54,8 +54,12 @@ Number of devices per VLAN | Displays a pie chart that shows the number of disco
 Top bandwidth by VLAN | Displays the bandwidth consumption by VLAN. By default, the widget shows five VLANs with the highest bandwidth usage. You can filter the data by the period presented in the widget. Select the down arrow to show more results.
 
 
-## See also
+## Next steps
 
-[Risk assessment reporting](how-to-create-risk-assessment-reports.md)
-[Sensor data mining queries](how-to-create-data-mining-queries.md)
-[Attack vector reporting](how-to-create-attack-vector-reports.md)
+For more information, see:
+
+- [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+
+- [Sensor data mining queries](how-to-create-data-mining-queries.md)
+
+- [Attack vector reporting](how-to-create-attack-vector-reports.md)

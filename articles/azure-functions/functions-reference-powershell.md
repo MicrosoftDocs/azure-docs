@@ -334,7 +334,8 @@ Use an `HttpResponseContext` object to return a response, as shown in the follow
     },
     {
       "type": "http",
-      "direction": "out"
+      "direction": "out",
+      "name": "Response"
     }
   ]
 }
@@ -347,7 +348,7 @@ param($req, $TriggerMetadata)
 
 $name = $req.Query.Name
 
-Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
     StatusCode = [System.Net.HttpStatusCode]::OK
     Body = "Hello $name!"
 })
