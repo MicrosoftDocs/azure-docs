@@ -49,7 +49,18 @@ The original configuration URL with format `{instance-name}.management.azure-api
 
 ### Security
 
-The user running the self-hosted gateway container requires to have 1001 permissions at least.
+During startup, the self-hosted gateway will prepare the CA certificates that will be used.
+
+Because of that, the gateway container needs to run with at least user ID 1001 and cannot use read-only file system.
+
+When configuring a security context for the container in Kubernetes, the following are required at minimum:
+
+```yaml
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1001
+  readOnlyRootFilesystem: false
+```
 
 ## Next steps
 
