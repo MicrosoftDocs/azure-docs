@@ -7,7 +7,7 @@ ms.service: api-management
 tags: azure-resource-manager, bicep
 ms.topic: quickstart
 ms.author: jgao
-ms.date: 03/08/2022
+ms.date: 03/10/2022
 ---
 
 # Quickstart: Create a new Azure API Management service instance using bicep
@@ -30,9 +30,13 @@ The following resource is defined in the Bicep file:
 
 - **[Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service)**
 
+In this example, the Bicep file configures the API Management instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use.
+
 More Azure API Management Bicep samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Apimanagement&pageNumber=1&sort=Popular).
 
 ## Deploy the Bicep file
+
+You can use Azure CLI or Azure PowerShell to deploy the Bicep file.  For more information about deploying Bicep files, see [Deploy](../azure-resource-manager/bicep/deploy-cli.md).
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
@@ -55,22 +59,24 @@ More Azure API Management Bicep samples can be found in [Azure Quickstart Templa
 
     ---
 
+    Replace **/<publisher-name>** and **/<publisher-email> with the name of the API publisher's organization and the email address to receive notifications.
+
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI or Azure PowerShell to list the deployed resources.
+Use the Azure portal, Azure CLI or Azure PowerShell to list the deployed App Configuration resource in the resource group.
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az apim show --name <api-management-name> --resource-group exampleRG
+az resource list --resource-group exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzApiManagement -Name <api-management-name> -ResourceGroupName exampleRG
+Get-AzResource -ResourceGroupName exampleRG
 ```
 
 ---
