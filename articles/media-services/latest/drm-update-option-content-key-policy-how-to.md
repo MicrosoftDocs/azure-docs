@@ -1,6 +1,6 @@
 ---
 title: Update an option in a content key policy
-description: This article shows how to Update an option in a content key policy.
+description: This article shows how to update an option in a content key policy.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila 
@@ -16,7 +16,7 @@ ms.author: inhenkel
 
 ## Methods
 
-Use the following methods to create a Media Services asset.
+Use the following methods to update an option in a content key policy.
 
 ## [CLI](#tab/cli/)
 

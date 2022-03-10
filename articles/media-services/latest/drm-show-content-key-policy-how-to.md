@@ -16,7 +16,7 @@ ms.author: inhenkel
 
 ## Methods
 
-Use the following methods to create a Media Services asset.
+Use the following methods to show an existing content key policy.
 
 ## [CLI](#tab/cli/)
 
