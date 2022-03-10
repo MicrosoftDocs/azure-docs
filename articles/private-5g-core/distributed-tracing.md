@@ -36,15 +36,15 @@ Long search ranges result in slower searches, so it's recommended that you keep 
 > [!TIP] 
 > You can select the **cog icon** next to the **Date/time range** heading to customize the date and time format, default search period, and time zone according to your preferences.
 
-Once you’ve entered your chosen search parameters, select **Search** to begin your search. The following image shows an example of the results returned for a search on a particular SUPI.
+Once you’ve entered your chosen search parameters, select **Search**. The following image shows an example of the results returned for a search on a particular SUPI.
 
 :::image type="content" source="media\distributed-tracing\distributed-tracing-search-results.png" alt-text="Screenshot of search results on a specific S U P I in the distributed tracing web G U I. It shows matching Successful P D U Session Establishment records.":::
 
-You can view more information on any result by selecting it.
+You can select an entry in the search results to view detailed information for that call flow or error. 
 
 ## Viewing diagnostics details
 
-When you select on a specific result, the display shows the following tabs containing different categories of information.
+When you select a specific result, the display shows the following tabs containing different categories of information.
 
 > [!NOTE] 
 > In addition to the tabs described below, the distributed tracing web GUI also includes a **User Experience** tab. This tab is not used by Azure Private 5G Core Preview and will not display any information.
@@ -78,8 +78,8 @@ The **Call Flow** view shows the sequence of messages flowing between components
 
 The vertical lines in the diagram show the network components involved in the flow.
 
-- Black lines indicate packet core Network Functions that have logged sending or receiving messages for this flow.
-- Grey lines indicate other components that don't log messages.
+- **Black lines** indicate packet core Network Functions that have logged sending or receiving messages for this flow.
+- **Gray lines** indicate other components that don't log messages.
 
 You can customize the view by showing or hiding individual columns and giving them more descriptive display names. To view these options, select the current column name and then select the **+** (plus) sign that appears to the right of it to open a dropdown menu. Additionally, you can select multiple columns by holding down the Ctrl key as you select each column; the **+** (plus) sign remains next to the latest column that you selected.
 
