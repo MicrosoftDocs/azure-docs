@@ -116,7 +116,8 @@ These errors are related to data exceeding the size of data allowed in a contain
 
 **Error description:** Large file shares are not enabled on your storage account(s). 
 
-To disregard this error, follow these steps: 
+**Suggested resolution:** To disregard this error, follow these steps:
+ 
 1. In the Data Box local UI, go to the **Connect and Copy** page and go to **Settings**. 
 
     :::image type="content" source="media/data-box-troubleshoot/icon-connect-copy.png" alt-text="Connect and copy":::
