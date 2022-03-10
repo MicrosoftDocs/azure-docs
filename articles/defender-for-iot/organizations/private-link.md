@@ -15,25 +15,25 @@ For more information about each connection method, see [Private link connection 
 
 If you're an existing customer with a production deployment, start with the following steps to ensure a full and safe migration to an upgraded private link connection:
 
-1. Review your existing production deployment and how sensors are currently connection to Azure. Confirm that the sensors in production networks can reach the Azure data center resource ranges.
+1. **Review your existing production deployment** and how sensors are currently connection to Azure. Confirm that the sensors in production networks can reach the Azure data center resource ranges.
 
-1. Determine which connection method is right for each production site. For more information, see [Choose a private link connection method](#choose-a-private-link-connection-method).
+1. **Determine which connection method is right** for each production site. For more information, see [Choose a private link connection method](#choose-a-private-link-connection-method).
 
-1. Configure any additional resources required as described in the procedure in this article for your chosen connectivity method. For example, additional resources might include a proxy, VPN, or ExpressRoute.
+1. **Configure any additional resources required** as described in the procedure in this article for your chosen connectivity method. For example, additional resources might include a proxy, VPN, or ExpressRoute.
 
     For any connectivity resources outside of Defender for IoT, such as a VPN or proxy, consult with Microsoft solution architects to ensure correct configurations, security, and high availability.
 
-1. If you have legacy sensor versions installed, you'll need to update your sensors to version 22.1.x and reactivate each updated sensor.
+1. **If you have legacy sensor versions installed**, you'll need to update your sensors to version 22.1.x and reactivate each updated sensor.
 
     For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
 
     Sign in to each sensor after the update to verify that the activation file was applied successfully. Also check the Defender for IoT **Sites and sensors** page in the Azure portal to make sure that the updated sensors show as **Connected**.
 
-1. Start migrating with a test lab or reference project where you can validate your connection and fix any issues found.
+1. **Start migrating with a test lab or reference project** where you can validate your connection and fix any issues found.
 
-1. Create a plan of action for your migration, including planning any maintenance windows needed.
+1. **Create a plan of action for your migration**, including planning any maintenance windows needed.
 
-1. After the migration in your production environment, you can delete any private IoT Hubs that you had used before the migration. Make sure that any IoT Hubs you delete are not used by any other services:
+1. **After the migration in your production environment**, you can delete any private IoT Hubs that you had used before the migration. Make sure that any IoT Hubs you delete are not used by any other services:
 
     - All updated sensors should indicate software version 22.1.x or higher.
     - Check the active resources in your account and make sure there are no other services connected to your IoT Hub.
@@ -43,6 +43,8 @@ While you'll need to migrate your connections before the [legacy version reaches
 ## Choose a private link connection method
 
 Use the following flow chart to determine which private link method is right for your organization.
+
+TBD
 
 <!--
 ## Connect via ExpressRoute with Microsoft Peering
@@ -107,9 +109,17 @@ If you already have a proxy set up in your Azure VNET, you can start working wit
 
 1. Toggle on the **Enable Proxy** option and define your proxy host, port, username, and password.
 
-For more information, see <xref>.
-
 If you do not yet have a proxy configured in your Azure VNET, use the following procedures to configure your proxy:
+
+1. [Define a storage account for NSG logs](#step-1-define-a-storage-account-for-nsg-logs)
+
+1. [Define virtual networks and subnets](#step-2-define-virtual-networks-and-subnets)
+1. [Define a virtual or local network gateway](#step-3-define-a-virtual-or-local-network-gateway)
+1. [Define network security groups](#step-4-define-network-security-groups)
+1. [Define an Azure virtual machine scale set](#step-5-define-an-azure-virtual-machine-scale-set)
+1. [Create an Azure load balancer](#step-6-create-an-azure-load-balancer)
+1. [Configure a NAT gateway](#step-7-configure-a-nat-gateway)
+
 ### Step 1: Define a storage account for NSG logs
 
 In the Azure portal, create a new storage account with the following settings:
@@ -120,7 +130,6 @@ In the Azure portal, create a new storage account with the following settings:
 |**Network**     | **Connectivity method**: Public endpoint (selected network) <br>**In Virtual Networks**: None <br>**Routing Preference**: Microsoft network routing       |
 |**Data Protection**     | Keep all options cleared        |
 |**Advanced**     |  Keep all default values       |
-| | |
 
 For more information, see <xref>.
 
@@ -401,34 +410,37 @@ This section describes how to configure private link sensor connections to Defen
 
 ### Prerequisites
 
-Before you start, make sure that you have a sensor deployed in a public cloud, such as AWS or Google Cloud, and configured to monitor SPAN traffic.
+Before you start: 
 
-### Choose your connectivity method
+- Make sure that you have a sensor deployed in a public cloud, such as AWS or Google Cloud, and configured to monitor SPAN traffic.
 
-Use the following flow chart to determine which connectivity method to use:
+- Choose the multi-cloud connectivity method that's right for your organization:
 
-:::image type="content" source="media/architecture-private/multi-cloud-flow-chart.png" alt-text="Flow chart to determine which connectivity method to use.":::
+    Use the following flow chart to determine which connectivity method to use:
 
-- If you do not need to exchange data using private IP addresses, use public IP addresses over the internet.
+    :::image type="content" source="media/architecture-private/multi-cloud-flow-chart.png" alt-text="Flow chart to determine which connectivity method to use.":::
 
-- Use site-to-site VPN over the internet only if you do not require any of the following:
+    - **Use public IP addresses over the internet** if you do not need to exchange data using private IP addresses
 
-    - Predictable throughput
-    - SLA
-    - High data volume transfers
-    - Avoid connections over the public internet
+    - **Use site-to-site VPN over the internet** only if you do *not* require any of the following:
 
-    If you do require any of the items in this list, use ExpressRoute:
+        - Predictable throughput
+        - SLA
+        - High data volume transfers
+        - Avoid connections over the public internet
 
-    - If you want to own and manage the routers making the connection, use ExpressRoute with customer-managed routing.
+    - **Use ExpressRoute** if you require predictable throughput, SLA, high data volume transfers, or to avoid connections over the public internet.
 
-    - If you do not need to own and manage the routers making the connection, use ExpressRoute with a cloud exchange provider.
+        In this case:
+
+        - If you want to own and manage the routers making the connection, use ExpressRoute with customer-managed routing.
+        - If you do not need to own and manage the routers making the connection, use ExpressRoute with a cloud exchange provider.
 
 ### Configuration
 
 1. Configure your sensor to connect to the cloud using one of the Azure Cloud Adoption Framework recommended methods. For more information, see [Connectivity to other cloud providers](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers).
 
-1. To enable private connectivity between your VPCs and Defender for IoT., connect your VPC to an Azure VNET over a VPN connection. For example if you are connecting from an AWS VPC, see our TechCommunity blog: [How to create a VPN between Azure and AWS using only managed solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-to-create-a-vpn-between-azure-and-aws-using-only-managed/ba-p/2281900).
+1. To enable private connectivity between your VPCs and Defender for IoT, connect your VPC to an Azure VNET over a VPN connection. For example if you are connecting from an AWS VPC, see our TechCommunity blog: [How to create a VPN between Azure and AWS using only managed solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-to-create-a-vpn-between-azure-and-aws-using-only-managed/ba-p/2281900).
 
 1. After your VPC and VNET are configured, connect to Defender for IoT as you would when connecting via an Azure proxy. For more information, see [Connect via an Azure proxy](#connect-via-an-azure-proxy).
 

@@ -100,6 +100,8 @@ Depending on your environment configuration, you might connect using one of the 
 
 For more information, see [Connect via multi-cloud vendors](private-link.md#connect-via-multi-cloud-vendors).
 
+TBD WE NEED MORE INFO ABOUT WHEN TO CHOOSE EACH OPTION
+
 ## Next steps
 
 For more information, see [Configure private link connections](private-link.md).
