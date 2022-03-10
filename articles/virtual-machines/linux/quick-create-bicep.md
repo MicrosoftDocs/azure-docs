@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use a Bicep file to create an Ubuntu Linux VM'
 description: In this quickstart, you learn how to use a Bicep file to create a Linux virtual machine
-author: v-eschaffer
+author: schaffererin
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
@@ -28,8 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/vm-simple-linux/).
 
-:::code language="bicep" source="~/azure-quickstart-templates/quickstarts/microsoft.compute/vm-simple-linux/main.bicep":::
-
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-linux/main.bicep":::
 
 Several resources are defined in the Bicep file:
 
@@ -87,6 +86,7 @@ az resource list --resource-group exampleRG
 Get-AzResource -ResourceGroupName exampleRG
 ```
 
+---
 
 ## Clean up resources
 
@@ -106,11 +106,9 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
-
 ## Next steps
 
 In this quickstart, you deployed a simple virtual machine using a Bicep file. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
-
 
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
