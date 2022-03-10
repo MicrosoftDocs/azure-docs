@@ -20,6 +20,16 @@ Azure portal users will always find the latest image available for provisioning 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+## March 9, 2022
+
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version: 21.12.03
+
+Windows 2019 DSVM will now be supported under publisher: microsoft-dsvm, offer ID: dsvm-win-2019, plan ID/SKU ID: winserver-2019
+ 
+Users using ARM template / VMSS to deploy the Windows DSVM machines, should configure the SKU with winserver-2019 instead of server-2019, since we will continue to ship updates to Windows DSVM images on the new SKU from March, 2022.
+
 ## December 3, 2021
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
