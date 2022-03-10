@@ -596,6 +596,20 @@
       displayName: monitoring, metrics, telemetry, logging, charts, charting, azure monitor, monitor, diagnostic, logs, logging
   - name: Protect content
     items:
+    - name: Create a content key policy
+      href: drm-create-content-key-policy-how-to.md
+    - name: List content key policies
+      href: drm-list-content-key-policy-how-to.md
+    - name: Update a content key policy
+      href: drm-update-content-key-policy-how-to.md
+    - name: Delete a content ky policy
+      href: drm-delete-content-key-policy-how-to.md
+    - name: Add an option to a content key policy
+      href: drm-add-option-content-key-policy-how-to.md
+    - name: Update an option in a content key policy
+      href: drm-update-option-content-key-policy-how-to.md
+    - name: Remove and option from a content key policy
+      href: drm-remove-option-content-key-policy-how-to.md
     - name: Get content key policy
       href: drm-get-content-key-policy-how-to.md   
       displayName: content protection, DRM, content keys, content key policy, .NET, how to, how-to, sample, tutorial, 
