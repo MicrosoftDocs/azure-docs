@@ -231,16 +231,16 @@ sections:
               
               ```
               External URL: https://app1.contoso.com/test/
-              Internal URL:  http://app1.contoso.com/test/
+              Internal URL: http://app1.contoso.com/test/
               
               External URL: https://app1.contoso.com/test/
-              Internal URL:  https://app1.contoso.com:8080/test/
+              Internal URL: https://app1.contoso.com:8080/test/
               
               External URL: https://app1.msappproxy.net/test/
-              Internal URL:  https://app1.contoso.com:/test/
+              Internal URL: https://app1.contoso.com:/test/
               ```
               
-              Making the external and internal URLs to be identical is not possible, when the internal URL contains a port number (other than 80 /443) or if different protocols (http / https) must be used in the internal and external URLs.
+              Making the external and internal URLs identical is not possible. Different ports or using http and https must be used in the internal and external URLs.
               
               In some scenarios changes must be done in the configuration of the web app.
 
