@@ -252,7 +252,7 @@ A: No, ephemeral OS disk can only be used during VM and scale set creation.
 
 A: No, you can't have a mix of ephemeral and persistent OS disk instances within the same scale set. 
 
-**Q: Can the ephemeral OS disk be created using Powershell or CLI?**
+**Q: Can the ephemeral OS disk be created using PowerShell or CLI?**
 
 A: Yes, you can create VMs with Ephemeral OS Disk using REST, Templates, PowerShell, and CLI.
 

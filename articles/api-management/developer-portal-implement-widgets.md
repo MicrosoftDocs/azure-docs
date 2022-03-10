@@ -35,7 +35,7 @@ Use a `widget` scaffold from the `/scaffolds` folder as a starting point to buil
 
 ## Rename exported module classes
 
-Rename the exported module classes by replacing the `Widget` prefix with `ConferenceSession` in these files:
+Rename the exported module classes by replacing the `Widget` prefix with `ConferenceSession` and change the binding name to avoid name collision, in these files:
 
 - `widget.design.module.ts`
 
@@ -47,11 +47,17 @@ For example, in the `widget.design.module.ts` file, change `WidgetDesignModule` 
     
 ```typescript
 export class WidgetDesignModule implements IInjectorModule {
+    public register(injector: IInjector): void {
+        injector.bind("widget", WidgetViewModel);
+        injector.bind("widgetEditor", WidgetEditorViewModel);
 ```
 to 
     
 ```typescript
 export class ConferenceSessionDesignModule implements IInjectorModule {
+    public register(injector: IInjector): void {
+        injector.bind("conferenceSession", WidgetViewModel);
+        injector.bind("conferenceSessionEditor", WidgetEditorViewModel);
 ```
     
    
@@ -190,7 +196,7 @@ From the design-time perspective, any runtime component is just an HTML tag with
     ```typescript
     ...
     createModel: async () => {
-        var model = new ConferenceSessionModel();
+        var model = new WidgetModel();
         model.sessionNumber = "107";
             return model;
         }

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/09/2022
 ms.author: eur
 ---
 
@@ -99,7 +99,7 @@ After you've had a chance to get started with the Speech service, try our tutori
 
 ## Get sample code
 
-Sample code is available on GitHub for the Speech service. These samples cover common scenarios like reading audio from a file or stream, continuous and at-start recognition, and working with custom models. Use these links to view SDK and REST samples:
+Sample code is available on GitHub for the Speech service. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
 
 - [Speech-to-text, text-to-speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
@@ -119,13 +119,7 @@ Other products offer speech models tuned for specific purposes, like healthcare 
 
 ## Deploy on-premises by using Docker containers
 
-[Use Speech service containers](speech-container-howto.md) to deploy API features on-premises. By using these Docker containers, you can bring the service closer to your data for compliance, security, or other operational reasons. The Speech service offers the following containers:
-
-* Standard Speech-to-Text
-* Custom Speech-to-Text
-* Prebuilt Neural Text-to-Speech
-* Custom Neural Text-to-Speech (preview)
-* Speech Language Identification (preview)
+[Use Speech service containers](speech-container-howto.md) to deploy API features on-premises. By using these Docker containers, you can bring the service closer to your data for compliance, security, or other operational reasons. 
 
 ## Reference docs
 

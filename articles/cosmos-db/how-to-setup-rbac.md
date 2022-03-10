@@ -392,7 +392,7 @@ const servicePrincipal = new ClientSecretCredential(
     "<client-application-id>",
     "<client-application-secret>");
 const client = new CosmosClient({
-    "<account-endpoint>",
+    endpoint: "<account-endpoint>",
     aadCredentials: servicePrincipal
 });
 ```

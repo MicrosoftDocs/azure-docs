@@ -55,3 +55,5 @@ To edit an existing scaling plan:
 
 - Review how to create a scaling plan at [Autoscale (preview) for Azure Virtual Desktop session hosts](autoscale-new-existing-host-pool.md).
 - Learn how to troubleshoot your scaling plan at [Enable diagnostics for your scaling plan](autoscale-diagnostics.md).
+- Learn more about terms used in this article at our [autoscale glossary](autoscale-glossary.md).
+- View our [autoscale FAQ](autoscale-faq.yml) to answer commonly asked questions.

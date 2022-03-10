@@ -19,7 +19,7 @@ This article outlines the process to register an Azure Blob Storage account in A
 |---|---|---|---|---|---|---|
 | [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes](#access-policy) | Limited** |
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md)
 
 For file types such as csv, tsv, psv, ssv, the schema is extracted when the following logics are in place:
 
@@ -31,7 +31,7 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
@@ -278,7 +278,7 @@ Scans can be managed or run again on completion
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-manage-scan-options.png" alt-text="manage scan options":::
 
-1. You can _run an incremental scan_ or a _full scan_ again 
+1. You can _run an incremental scan_ or a _full scan_ again.
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
 
@@ -292,17 +292,24 @@ To create an access policy for an Azure Storage account, follow the guidelines b
 
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
+### Enable data use governance
+
+Data use governance is an option on your Azure Purview sources that will allow you to manage access for that source from within Azure Purview.
+To enable data use governance, follow [the data use governance guide](how-to-enable-data-use-governance.md#enable-data-use-governance).
+
 ### Create an access policy
 
 Now that you’ve prepared your storage account and environment for access policies, you can follow one of these configuration guides to create your policies:
 
-- [Single storage account](./tutorial-data-owner-policies-storage.md) - This guide will allow you to enable access policies on a single storage account in your subscription.
-- [All sources in a subscription or resource group](./tutorial-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
+* [Single storage account](./tutorial-data-owner-policies-storage.md) - This guide will allow you to enable access policies on a single storage account in your subscription.
+* [All sources in a subscription or resource group](./tutorial-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
+
+Or you can follow the [generic guide for creating data access policies](how-to-data-owner-policy-authoring-generic.md).
 
 ## Next steps
 
 Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
-- [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
-- [Search Data Catalog](how-to-search-catalog.md)
+* [Data insights in Azure Purview](concept-insights.md)
+* [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+* [Search Data Catalog](how-to-search-catalog.md)
