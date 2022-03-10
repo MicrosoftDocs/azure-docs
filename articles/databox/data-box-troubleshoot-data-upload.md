@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 03/08/2022
+ms.date: 03/10/2022
 ms.author: alkohli
 ---
 
@@ -19,11 +19,11 @@ The error notification and options vary depending on whether you can fix the err
 
 - **Retryable errors** - You can fix many types of copy error and resume the upload. The data is then successfully uploaded in your current order. 
     
-     Example of retryable errors: Storage account deleted or moved. One or more storage accounts were moved or deleted. Recover or re-create the storage accounts with the original set of properties, and then confirm to resume data copy. This type of error is referred to as a *retryable error* in the discussion that follows.
+     An example of a retryable error is when a storage account has been deleted or moved. You will need to recover or re-create the storage accounts with the original set of properties, and then confirm to resume data copy. This type of error is referred to as a *retryable error* in the discussion that follows.
 
 - **Non-retryable errors** - Other errors can't be fixed. For those errors, the upload pauses to give you a chance to review the errors. But the order completes without the data that failed to upload, and the data is secure erased from the device. You'll need to create a new order after you resolve the issues in your data. 
 
-    Example of non-retryable errors: If a blob storage container is configured as Write Once, Read Many (WORM), upload of any blobs that are already stored in the container will fail. This type of error is referred to as a *non-retryable error* in the discussion that follows.
+    An example of a non-retryable error is if a blob storage container is configured as Write Once, Read Many (WORM), upload of any blobs that are already stored in the container will fail. This type of error is referred to as a *non-retryable error* in the discussion that follows.
 
 > [!NOTE]
 > The information in this article applies to import orders only.
@@ -101,7 +101,7 @@ When the following errors occur, you can resolve the errors and include the file
 
 |Error message  |Error description |Error resolution |
 |---------------|------------------|-----------------|
-|Large file share not enabled on account |Large file shares aren’t enabled on one or more storage accounts. Resolve the error and resume data copy, or skip to data erasure and complete the order. | Large file shares are not enabled on the indicated storage accounts. Select the option highlighted to enable quota upto 100TiB per share.  |
+|Large file share not enabled on account |Large file shares aren’t enabled on one or more storage accounts. Resolve the error and resume data copy, or skip to data erasure and complete the order. | Large file shares are not enabled on the indicated storage accounts. Select the option highlighted to enable quota up to 100TiB per share. :::image type="content" source="media/data-box-troubleshoot-data-upload/data-box-lfs.png" alt-text="Enable large file shares."::: |
 |Storage account deleted or moved |One or more storage accounts were moved or deleted. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Storage accounts deleted or moved**<br>Storage accounts: &lt;*storage accounts list*&gt; were either deleted, or moved to a different subscription or resource group. Recover or re-create the storage accounts with the original set of properties, and then confirm to resume data copy.<br>[Learn more on how to recover a storage account](../storage/common/storage-account-recover.md). |
 |Storage account location changed |One or more storage accounts were moved to a different region. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Storage accounts location changed**<br>Storage accounts: &lt;*storage accounts list*&gt; were moved to a different region. Restore the account to the original destination region and then confirm to resume data copy.<br>[Learn more on how to move storage accounts](../storage/common/storage-account-move.md). |
 |Virtual network restriction on storage account |One or more storage accounts are behind a virtual network and have restricted access. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Storage accounts behind virtual network**<br>Storage accounts: &lt;*storage accounts list*&gt; were moved behind a virtual network. Add Data Box to the list of trusted services to allow access and then confirm to resume data copy.<br>[Learn more about trusted first party access](../storage/common/storage-network-security.md#exceptions). |

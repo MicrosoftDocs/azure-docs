@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 03/08/2022
+ms.date: 03/10/2022
 ms.author: alkohli
 ---
 
@@ -281,7 +281,7 @@ For more information, see the Azure naming conventions for blob names and file n
 For more information, see [Copy to managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 
 ### ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
-**Error description (as seen in the issue list file):**  Large file share errors were disregarded for Data Box. Remember to enable large file shares on your storage account(s) in the Azure portal. If you don't enable large file shares on these storage accounts in the portal, the data upload to these accounts will fail.
+**Error description:**  Large file share errors were disregarded for Data Box. Remember to **enable large file shares** on your storage account(s) in the Azure portal. If you don't enable large file shares on these storage accounts in the portal, the data upload to these accounts will fail.
 
 **Suggested resolution:** Enable Large File Shares on your storage account(s) in the Azure portal. If you don't enable large file shares on these storage accounts in the portal, the data upload to these accounts will fail.
 
