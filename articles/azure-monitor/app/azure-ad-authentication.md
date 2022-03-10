@@ -25,6 +25,8 @@ Below are SDKs/scenarios not supported in the Public Preview:
 - [Availability tests](availability-overview.md).
 - [Profiler](profiler-overview.md).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Prerequisites to enable Azure AD authentication ingestion
 
 - Familiarity with:
