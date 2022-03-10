@@ -58,8 +58,6 @@ If you want to reset the device inventory to the default settings, in the Edit c
 
 You can search, and filter the device inventory to define what information the table displays.
 
-For a list of filters that can be applied to the device inventory table, see the [Device inventory overview](#device-inventory-overview).
-
 **To filter the device inventory**:
 
 1. Select **Add filter**

@@ -39,7 +39,7 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 ## March 2022
 
-- [More device properties shown in the Azure portal](#more-device-properties-shown-in-the-azure-portal)
+- [More device properties in the Device inventory](#more-device-properties-in-the-device-inventory)
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal)
 - [Key state alert updates](#key-state-alert-updates-preview)
 
