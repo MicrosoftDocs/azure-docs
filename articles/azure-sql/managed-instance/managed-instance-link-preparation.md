@@ -47,8 +47,8 @@ The following needs to be configured on your SQL Server. A restart will be requi
 Run the script to check your SQL Server version.
 
 ```sql
-    -- Shows the version and CU of the SQL Server
-    SELECT @@VERSION
+-- Shows the version and CU of the SQL Server
+SELECT @@VERSION
 ```
 
 If it'sn't SQL Server 2019 CU15 or higher, upgrade your server. SQL Server 2019 CU15 can be downloaded from [here](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6). Install the CU15 upgrade and restart the SQL Server.
@@ -91,7 +91,7 @@ To enable AlwaysOn on a SQL Server, you need to start the **SQL Server Configura
 ### Enable feature Trace Flags at startup on SQL Server
 
 For optimal performance of Manage Instance link feature, it's highly recommended to enable 1800 and 9567. Here are details on these trace flags and their functionality:
-- 1800 – Highly recommended. This trace flag enables SQL Server optimization when disks of different sector sizes are used for primary and secondary replica log files, in SQL Server AlwaysOn environments. This trace flag improves preformance on SQL Server instances with transaction log file residing on disk with sector size of 512 bytes. It isn't required to be enabled on disk with 4k sector sizes. For more information, see [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c).
+- 1800 – Highly recommended. This trace flag enables SQL Server optimization when disks of different sector sizes are used for primary and secondary replica log files, in SQL Server AlwaysOn environments. This trace flag improves performance on SQL Server instances with transaction log file residing on disk with sector size of 512 bytes. It isn't required to be enabled on disk with 4k sector sizes. For more information, see [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c).
 - 9567 – Highly recommended for large databases. This trace flag enables compression of the data stream for AlwaysOn Availability Groups during automatic seeding. Compression can significantly reduce the transfer time during automatic seeding and will increase the load on the processor.
 
 Detailed official instructions for enabling SQL Server trace flags can be found [here](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql). In the following paragraphs, we'll describe how traceflags can be set.
@@ -143,7 +143,7 @@ If you can deploy SQL Server in Azure VM in the same Azure VNet that is hosting 
 > [!TIP]
 > The easiest way to use the Managed Instance Link is through provisioning a new SQL Server 2019 VM into the same VNET where your Managed Instance is deployed. The VM will be placed in the same virtual network as Managed Instance. 
 
-In case our SQL Server in Azure VM is deployed on another Azure VNet use [Global VNet peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913) to connect the two Azure VNETs. Note that Global VNET peering is available to Managed Instances provisioned since November 2020 and onwards out of the box. In case you're using an older Managed Instance, raise a support ticket to have Global VNET peering enableed.
+In case our SQL Server in Azure VM is deployed on another Azure VNet use [Global VNet peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913) to connect the two Azure VNETs. Note that Global VNET peering is available to Managed Instances provisioned since November 2020 and onwards out of the box. In case you're using an older Managed Instance, raise a support ticket to have Global VNET peering enabled.
 
 ### SQL Server outside of Azure (VNet)
 
@@ -170,7 +170,7 @@ New-NetFirewallRule -DisplayName "Allow TCP port 5022 inbound" -Direction inboun
 New-NetFirewallRule -DisplayName "Allow TCP port 5022 outbound" -Direction outbound -Profile Any -Action Allow -LocalPort 5022 -Protocol TCP
 ```
 
-On Azure portal open Network Security Group for the Subnet of the VNet that is hosting the Managed Instance, and there allow inbound and outbound traffic on port 5022.
+On Azure portal open Network Security Group for the Subnet of the VNet that is hosting the Managed Instance, and allow inbound and outbound traffic on port 5022.
 The port 5022 is a standard port used for AlwaysOn High Availability data replication for the SQL Server. The same port is used for Availability group and Distributed Availability Group connectivity. This port can't be changed or customized.
 
 ### Test bidirectional network connectivity on the port 5022
@@ -187,7 +187,7 @@ tnc <ManagedInstanceFQDN> -port 5022
 
 Successful test will show TcpTestSucceeded True.
 
-:::image type="content" source="./media/managed-instance-link-preparation/powershell-output-tnc-command.png" alt-text="Screenshot showing output of tnc command in PowerShell.":::
+:::image type="content" source="./media/managed-instance-link-preparation/powershell-output-tnc-command.png" alt-text="Screenshot showing output of T N C command in PowerShell.":::
 
 If there is unsuccessful response, here is what you can check:
 - Are NSG rules allowing communication on port 5022?
@@ -266,7 +266,7 @@ WHERE
     sj.name = 'NetHelper'
 ```
 
-The result from executing the `tnc` (test network connection) will be False if no connection from Managed Instance to the destination IP could made on the port 5022. If the connection is successful, the log will show True, otherwise False.
+If the connection is successful, the log will show True, otherwise False.
 
 :::image type="content" source="./media/managed-instance-link-preparation/ssms-output-tnchelper.png" alt-text="Screenshot showing expected output of NetHelper S Q L Agent job.":::
 
