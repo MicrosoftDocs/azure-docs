@@ -6,12 +6,12 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 12/20/2021
+ms.date: 03/05/2022
 ---
 
 # SAP ABAP function module deployment guide
 
-When you scan [SAP ECC](register-scan-sapecc-source.md) or [SAP S/4HANA](register-scan-saps4hana-source.md) sources in Azure Purview, you need to create the dependent ABAP function module in your SAP server. Azure Purview invokes this function module to extract the metadata from your SAP system during scan.
+When you scan [SAP ECC](register-scan-sapecc-source.md), [SAP S/4HANA](register-scan-saps4hana-source.md) and [SAP BW](register-scan-sap-bw.md) sources in Azure Purview, you need to create the dependent ABAP function module in your SAP server. Azure Purview invokes this function module to extract the metadata from your SAP system during scan.
 
 This document details the steps required to deploy this module.
 
@@ -20,7 +20,7 @@ This document details the steps required to deploy this module.
 
 ## Prerequisites
 
-Download the SAP ABAP function module source code from Azure Purview Studio. After you register a source for [SAP ECC](register-scan-sapecc-source.md) or [SAP S/4HANA](register-scan-saps4hana-source.md), you can find a download link on top as follows. 
+Download the SAP ABAP function module source code from Azure Purview Studio. After you register a source for [SAP ECC](register-scan-sapecc-source.md),[SAP S/4HANA](register-scan-saps4hana-source.md) or [SAP BW](register-scan-sap-bw.md), you can find a download link on top as follows. You can also see the link when new or edit a scan.
 
 :::image type="content" source="media/abap-functions-deployment-guide/download-abap-code.png" alt-text="Download ABAP function module source code from Azure Purview Studio" border="true":::
 
@@ -30,7 +30,7 @@ Download the SAP ABAP function module source code from Azure Purview Studio. Aft
 
 This step is optional, and an existing package can be used.
 
-1. Log in to the SAP S/4HANA or SAP ECC server and open **Object Navigator** (SE80 transaction).
+1. Log in to the SAP server and open **Object Navigator** (SE80 transaction).
 
 2. Select option **Package** from the list and enter a name for the new package (for example, Z\_MITI) then press button **Display**.
 
@@ -117,9 +117,10 @@ When all the previous steps are completed, follow the below steps to test the fu
 
 4. Put the name of the area of interest into P\_AREA field if a file with metadata must be downloaded or updated. When the function finishes working, the folder which has been indicated in P\_LOCAL\_PATH parameter must contain several files with metadata inside. The names of files mimic areas which can be specified in P\_AREA field.
 
-The function will finish its execution and metadata will be downloaded much faster in case of launching it on the machine which has high-speed network connection with SAP S/4HANA or ECC server.
+The function will finish its execution and metadata will be downloaded much faster in case of launching it on the machine which has high-speed network connection with SAP server.
 
 ## Next steps
 
 - [Register and scan SAP ECC source](register-scan-sapecc-source.md)
 - [Register and scan SAP S/4HANA source](register-scan-saps4hana-source.md)
+- [Register and scan SAP Business Wareouse (BW) source](register-scan-sap-bw.md)

@@ -122,7 +122,7 @@ You can verify the status of the deployment of Azure Arc-enabled data services e
 #### Check status from Azure portal
 
 1. Log in to the Azure portal and browse to the resource group where the Kubernetes connected cluster resource is located.
-1. Select the Azure Arc-enabled kubernetes cluster (Type = "Kubernetes - Azure Arc") where the extension was deployed.
+1. Select the Azure Arc-enabled Kubernetes cluster (Type = "Kubernetes - Azure Arc") where the extension was deployed.
 1. In the navigation on the left side, under **Settings**, select **Extensions**.
 1. The portal shows the extension that was created earlier in an installed state.
 

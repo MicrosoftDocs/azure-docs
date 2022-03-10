@@ -10,8 +10,7 @@ ms.date: 04/14/2021
 
 In this article, we'll give an overview of the storage offered by the BareMetal Infrastructure for Oracle workloads.
 
-BareMetal Infrastructure for Oracle offers NetApp Network File System (NFS) storage. NFS storage does not require Oracle Real Application Clusters (RAC) certification. For more information, see [Oracle RAC Technologies Matrix for Linux Clusters](https://www.oracle.com/database/technologies/tech-generic-linux-new.html).
-
+BareMetal Infrastructure for Oracle offers NetApp Network File System (NFS) storage. 
 This storage offering includes Tier 3 support from an OEM partner, using either A700s or A800s storage controllers.
 
 BareMetal Infrastructure storage offers these premium storage capabilities:

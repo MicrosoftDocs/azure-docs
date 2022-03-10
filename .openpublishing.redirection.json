@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/storage/blobs/storage-ios-how-to-use-blob-storage.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/login-using-aad.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/login-using-aad",
       "redirect_document_id": false
@@ -681,6 +686,26 @@
     {
       "source_path_from_root": "/articles/frontdoor/front-door-troubleshoot-routing.md",
       "redirect_url": "/azure/frontdoor/troubleshoot-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-rules-set-action.md",
+      "redirect_url": "/azure/frontdoor/front-door-rules-engine-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-rules-set.md",
+      "redirect_url": "/azure/frontdoor/front-door-rules-engine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-caching.md",
+      "redirect_url": "/azure/frontdoor/front-door-caching",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-route.md",
+      "redirect_url": "/azure/frontdoor/front-door-route-matching",
       "redirect_document_id": false
     },
     {
@@ -2385,8 +2410,13 @@
     },
     {
       "source_path_from_root": "/articles/aks/aks-ssh.md",
-      "redirect_url": "/azure/aks/ssh",
+      "redirect_url": "/azure/aks/node-access",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/aks/ssh.md",
+      "redirect_url": "/azure/aks/node-access",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/aks/windows-node-limitations.md",
@@ -2512,6 +2542,11 @@
       "source_path_from_root": "/articles/machine-learning/classic/migrate-execute-r-script.md",
       "redirect_url": "/azure/machine-learning/migrate-execute-r-script",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-search-cross-workspace.md",
+      "redirect_url": "/azure/machine-learning/how-to-manage-workspace",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/resource-known-issues.md",
@@ -6831,6 +6866,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-runtime-install.md",
       "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-bindings-event-iot-output.md",
+      "redirect_url": "/azure/azure-functions/functions-bindings-event-hubs-output",
       "redirect_document_id": false
     },
     {
@@ -19855,6 +19895,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/machine-learning/service/tutorial-labeling.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-image-labeling-projects",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-existing-model.md",
       "redirect_url": "/azure/machine-learning/how-to-deploy-and-where",
       "redirect_document_id": false
@@ -32775,6 +32820,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/migrate/migrate-appliance-architecture.md",
+      "redirect_url": "discovered-metadata",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/common/storage-access-blobs-queues-portal.md",
       "redirect_url": "articles/storage/blobs/authorize-blob-access-portal",
       "redirect_document_id": false
@@ -38670,6 +38720,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/phone-sets.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/customize-pronunciation",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
       "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
@@ -43909,24 +43964,10 @@
         "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
         "redirect_document_id": false
       },
-      {   "source_path_from_root": "/articles/azure/marketplace/co-sell-requirements.md",
-          "redirect_url": "/partner-center/co-sell-requirements",
-          "redirect_document_id": false
-      },        
       {
-        "source_path_from_root": "/articles/azure/marketplace/co-sell-status.md",
-        "redirect_url": "/partner-center/co-sell-status",
+        "source_path_from_root": "/articles/virtual-desktop/compare-virtual-desktop-windows-365.md",
+        "redirect_url": "/azure/virtual-desktop/overview",
         "redirect_document_id": false
-      },
-      {
-          "source_path_from_root": "/articles/azure/marketplace/co-sell-configure.md",
-          "redirect_url": "/partner-center/co-sell-configure",
-          "redirect_document_id": false
-      },
-      {
-          "source_path_from_root": "/articles/azure/marketplace/co-sell-overview.md",
-          "redirect_url": "/partner-center/co-sell-overview",
-          "redirect_document_id": false
       }
   ]
 }
