@@ -41,7 +41,7 @@ The `az ml data` commands can be used for managing Azure Machine Learning data a
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/assets/datasets). Several are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/assets/dataset). Several are shown below.
 
 ## YAML: datastore file
 
