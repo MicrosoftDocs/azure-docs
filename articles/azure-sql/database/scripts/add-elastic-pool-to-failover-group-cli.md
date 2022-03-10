@@ -29,7 +29,7 @@ This Azure CLI script example creates a single database, adds it to an elastic p
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" ":::id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" id="FullScript":::
 
 ## Clean up resources
 
