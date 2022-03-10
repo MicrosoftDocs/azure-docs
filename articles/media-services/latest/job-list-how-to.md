@@ -16,7 +16,7 @@ ms.author: inhenkel
 
 ## Methods
 
-Use the following methods to to list jobs.
+Use the following methods to list jobs.
 
 ## [CLI](#tab/cli/)
 
