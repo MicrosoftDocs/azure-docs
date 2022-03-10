@@ -27,7 +27,7 @@ sections:
           
           - **Ensure soft delete isn’t turned off to protect backups from accidental or miscellaneous deletes**
           
-            Soft delete is automatically enabled by default on newly created Recovery Services vaults. It protects backup data from accidental or malicious deletes for 14 days at no additional cost, allowing the recovery of that backup item before it’s permanently lost. It’s not recommended to disable this feature. If backups are deleted and soft delete isn’t enabled, you or Microsoft can’t recover the deleted backup data. Use [Multi-user authorization (MUA)](multi-user-authorization.md) as an additional layer of protection forthis critical operations on your Recovery Services vaults to validate operation before disabling this feature. Fpr more information, see [How to enable, manage, and when to disable soft delete for Azure backup](backup-azure-security-feature-cloud.md)?
+            Soft delete is automatically enabled by default on a newly created Recovery Services vault. It protects backup data from accidental or malicious deletes for 14 days at no additional cost, allowing the recovery of that backup item before it’s permanently lost. It’s not recommended to disable this feature. If backups are deleted and soft delete isn’t enabled, you or Microsoft can’t recover the deleted backup data. Use [Multi-user authorization (MUA)](multi-user-authorization.md) as an additional layer of protection for this critical operations on your Recovery Services vault to validate operation before disabling this feature. For more information, see [How to enable, manage, and when to disable soft delete for Azure backup](backup-azure-security-feature-cloud.md)?
           
           - **Ensure multi-user authorization (MUA) is enabled for an additional layer of protection**.
           
@@ -42,7 +42,7 @@ sections:
             
             We recommend you to use [Azure Monitor for Alerts to receive alerts/notifications on critical operations](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview).
           
-          - **Ensure network connectivity between backup services and workloads are secure**
+          - **Ensure network connectivity between backup services and workloads are secure**.
           
             - For Azure VM, [by default all communication happens within the Azure network](security-overview.md#internet-connectivity-not-required-for-azure-vm-backup).
             - For databases on Azure VM, secure the outbound access with the following network connectivity requirements [for SQL Server](backup-sql-server-database-azure-vms.md#establish-network-connectivity), [for SAP HANA database](backup-azure-sap-hana-database.md#establish-network-connectivity) on Azure VM.
@@ -51,10 +51,10 @@ sections:
             
             For more information, see:
           
-            - [Connect private networks together](/security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json#ns-2-connect-private-networks-together)
-            - [Establish private network access to Azure services](/security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json#ns-3-establish-private-network-access-to-azure-services)
-            - [Use Azure Virtual Network service tags to define network access controls for Backup resources on network security groups (NSGs) or Azure Firewall](/security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json#ns-6-simplify-network-security-rules)
-            - [Security features for hybrid backups that use Azure Backup](backup-azure-security-feature.md)
+            - [Connect private networks together](/security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json#ns-2-connect-private-networks-together).
+            - [Establish private network access to Azure services](/security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json#ns-3-establish-private-network-access-to-azure-services).
+            - [Use Azure Virtual Network service tags to define network access controls for Backup resources on network security groups (NSGs) or Azure Firewall](/security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json#ns-6-simplify-network-security-rules).
+            - [Security features for hybrid backups that use Azure Backup](backup-azure-security-feature.md).
           
           - **Ensure backup data is encrypted**.
           
@@ -65,29 +65,29 @@ sections:
             
             For more information, see:
           
-            - [Encryption of data in the Recovery Services vault using CMK, PMK, Infrastructure-level encryption](backup-encryption.md#levels-of-encryption-in-azure-backup)
-            - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
-            - [Transport Layer Security in Azure Backup](transport-layer-security.md)
+            - [Encryption of data in the Recovery Services vault using CMK, PMK, Infrastructure-level encryption](backup-encryption.md#levels-of-encryption-in-azure-backup).
+            - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
+            - [Transport Layer Security in Azure Backup](transport-layer-security.md).
           
           - **Regularly monitor your backups**.
           
             Identify machines in the organization that aren’t protected by Azure Backup, monitor your backup items, backup jobs, and policies using the monitoring solutions. For more information, see:
           
-            - [Monitoring and reporting scenarios](monitoring-and-alerts-overview.md)
-            - [Monitor your backups with Backup Explorer](monitor-azure-backup-with-backup-explorer.md)
-            - [Monitor backup workloads using Azure portal (using Recovery Services vault)](backup-azure-monitoring-built-in-monitor.md)
-            - [Monitor backup health using Azure monitor metrics](backup-azure-monitoring-built-in-monitor.md)
-            - [Custom monitoring and alerting using azure monitor Log Analytics workspace](backup-azure-monitoring-use-azuremonitor.md)
+            - [Monitoring and reporting scenarios](monitoring-and-alerts-overview.md).
+            - [Monitor your backups with Backup Explorer](monitor-azure-backup-with-backup-explorer.md).
+            - [Monitor backup workloads using Azure portal (using Recovery Services vault)](backup-azure-monitoring-built-in-monitor.md).
+            - [Monitor backup health using Azure monitor metrics](backup-azure-monitoring-built-in-monitor.md).
+            - [Custom monitoring and alerting using azure monitor Log Analytics workspace](backup-azure-monitoring-use-azuremonitor.md).
           
           - **Periodically perform test restores to validate backups**.
           
-            Periodically perform data recovery test of your backups to verify the backup configurations and availability of the backup data meet your organization’s recovery needs, and expected RPO and RTO requirements. Define your backup recovery test strategy to include the scope of test recovery and frequency for performing recovery test.
+            Periodically perform data recovery test of your backups to verify the backup configurations and availability of the backup data meet your organization’s recovery needs, and expected RPO and RTO requirements. Define your backup recovery test strategy to include the scope of test recovery and frequency for performing a test recovery.
           
       - question: How to block (un)intentional deletion of  backup data?
         answer: |
           - **Enable Soft delete to protect backups from accidental or miscellaneous deletes**.
           
-            Soft delete is a useful feature that helps you deal with data loss. Soft delete retains backup data for additional 14 days, allowing the recovery of that backup item before it’s permanently lost. For more information, see [How to enable, manage and disable soft delete for Azure backup](backup-azure-security-feature-cloud.md)?
+            Soft delete is a useful feature that helps you deal with data loss. Soft delete retains backup data for additional 14 days, allowing the recovery of that backup item before it’s permanently lost. For more information, see [How to enable, manage and disable soft delete for Azure Backup](backup-azure-security-feature-cloud.md)?
           
           - **Ensure Multi-user authorization (MUA) is enabled for an additional layer of protection**.
           
