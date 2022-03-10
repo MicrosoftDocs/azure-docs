@@ -12,6 +12,7 @@ author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma
 ms.date: 03/07/2022
+---
 
 # Preparation for Azure SQL Managed Instance link
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -267,7 +268,7 @@ Execute the following query to show the log of the Agent job.
 
 The result from executing the TNC (Test Network Connection) will be False if no connection from Managed Instance to the destination IP could made on the port 5022. In case of a successful connection, the log will show True, otherwise False.
 
-    :::image type="content" source="./media/managed-instance-link-preparation/ssms-output-tnchelper.png" alt-text="Screenshot showing expected output of NetHelper SQL Agent job.":::
+:::image type="content" source="./media/managed-instance-link-preparation/ssms-output-tnchelper.png" alt-text="Screenshot showing expected output of NetHelper SQL Agent job.":::
 
 If the log does not show True, troubleshoot the following:
 - Is firewall on SQL Server host allowing inbound and outbound communication on port 5022?
@@ -284,7 +285,7 @@ With this we have ensured that network connectivity on the port 5022 exists both
 SSMS with Managed Instance link wizard is the easiest and the most recommended way to use Managed Instance link. Download SSMS version 18.11.1 (or newer) from this [link](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and install it on your client machine.
 Once the installation is complete, start SSMS and connect to you SQL Server that is prepared for Managed Instance link. In the context menu of a user database, you will find “Azure SQL Managed Instance link” option.
 
-    :::image type="content" source="./media/managed-instance-link-preparation/ssms-database-context-menu-managed-instance-link.png" alt-text="Screenshot showing Azure SQL Managed Instance link option in the context menu.":::
+:::image type="content" source="./media/managed-instance-link-preparation/ssms-database-context-menu-managed-instance-link.png" alt-text="Screenshot showing Azure SQL Managed Instance link option in the context menu.":::
 
 ## Next steps
 
