@@ -20,10 +20,10 @@ Use the following methods to to list jobs.
 
 ## [CLI](#tab/cli/)
 
-[!INCLUDE [Create an asset with CLI](includes/task-show-job-cli.md)]
+[!INCLUDE [Create an asset with CLI](includes/task-list-job-cli.md)]
 
 ## [REST](#tab/rest/)
 
-[!INCLUDE [Create an asset with CLI](includes/task-get-job-rest.md)]
+[!INCLUDE [Create an asset with CLI](includes/task-list-job-rest.md)]
 
 ---
