@@ -25,7 +25,7 @@ The type of alert rule that you create for a particular scenario depends on wher
 
 Typically, the best strategy is to use metric alerts instead of log alerts when possible because they're more responsive and stateful. To use metric alerts, the data you're alerting on must be available in Metrics. VM insights currently sends all of its data to Logs, so you must install the Azure Monitor agent to use metric alerts with data from the guest operating system. Use Log query alerts with metric data when it's unavailable in Metrics or if you require logic beyond the relatively simple logic for a metric alert rule.
 
-### Metric alert rules
+### Metric alerts
 [Metric alert rules](../alerts/alerts-metric.md) are useful for alerting when a particular metric exceeds a threshold. An example is when the CPU of a machine is running high. The target of a metric alert rule can be a specific machine, a resource group, or a subscription. In this instance, you can create a single rule that applies to a group of machines.
 
 Metric rules for virtual machines can use the following data:
@@ -79,27 +79,14 @@ The most basic requirement is to send an alert when a machine is unavailable. It
 #### Log query alert rules
 Log query alerts use the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat), which should have a heartbeat record every minute from each machine. 
 
-**Separate alerts**
-
-Use a metric measurement rule with the following query.
+Use a rule with the following query.
 
 ```kusto
 Heartbeat
 | summarize TimeGenerated=max(TimeGenerated) by Computer
 | extend Duration = datetime_diff('minute',now(),TimeGenerated)
-| summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,5m)
+| summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,5m), _ResourceId
 ```
-
-**Single alert**
-
-Use a number of results alert with the following query.
-
-```kusto
-Heartbeat
-| summarize LastHeartbeat=max(TimeGenerated) by Computer 
-| where LastHeartbeat < ago(5m)
-```
-
 #### Metric alert rules
 A metric called *Heartbeat* is included in each Log Analytics workspace. Each virtual machine connected to that workspace sends a heartbeat metric value each minute. Because the computer is a dimension on the metric, you can fire an alert when any computer fails to send a heartbeat. Set the **Aggregation type** to **Count** and the **Threshold** value to match the **Evaluation granularity**.
 
@@ -120,27 +107,8 @@ A metric called *Heartbeat* is included in each Log Analytics workspace. Each vi
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Processor" and Name == "UtilizationPercentage"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
 ```
-
-**CPU utilization for all compute resources in a subscription**
-
-```kusto
- InsightsMetrics
- | where Origin == "vm.azm.ms"
- | where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" and (_ResourceId contains "/providers/Microsoft.Compute/virtualMachines/" or _ResourceId contains "/providers/Microsoft.Compute/virtualMachineScaleSets/") 
- | where Namespace == "Processor" and Name == "UtilizationPercentage" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
-```
-
-**CPU utilization for all compute resources in a resource group** 
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/" or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachineScaleSets/"
-| where Namespace == "Processor" and Name == "UtilizationPercentage" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId 
-```
-
 ### Memory alerts
 
 #### Metric alert rules
@@ -158,7 +126,7 @@ InsightsMetrics
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Memory" and Name == "AvailableMB"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
 ```
 
 **Available memory in percentage** 
@@ -168,7 +136,7 @@ InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Memory" and Name == "AvailableMB"
 | extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"]) | extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0
-| summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer  
+| summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer, _ResourceId  
 ``` 
 
 ### Disk alerts
@@ -270,53 +238,78 @@ InsightsMetrics
 ```
 
 ## Example log query alert
-Here's a walk-through of creating an alert for when the CPU of a virtual machine exceeds 80 percent. The data you need is in the [InsightsMetrics table](/azure/azure-monitor/reference/tables/insightsmetrics). The following query returns the records that need to be evaluated for the alert. Each type of alert rule uses a variant of this query.
-
->### Query
-The query for rules using the result count value measurement must include a record for each machine with a numeric property called **AggregatedValue**. This value is compared to the threshold in the alert rule. The query doesn't need to compare this value to a threshold because the threshold is defined in the alert rule.
-
-```kusto
-IPerf
-| where CounterName == "% Processor Time"
-| where ObjectName == "Processor"
-| summarize avg(CounterValue) by bin(TimeGenerated, 15min), Computer, _ResourceId 
-| render timechart
-```
-
-### Alert rule
- 1. In the portal, select the relevant resource. 
+Here's a walk-through of creating a log alert for when the CPU of a virtual machine exceeds 80 percent. The data you need is in the [InsightsMetrics table](/azure/azure-monitor/reference/tables/insightsmetrics). The following query returns the records that need to be evaluated for the alert. Each type of alert rule uses a variant of this query.
+### Create the log alert rule
+ 1. In the portal, select the relevant resource. We recommend scaling resources by using subscriptions or resource groups. 
  1. In the Resource menu, select **Logs**.
- 1. Write the query to find the log events for which you want to create an alert. Use  [alert query examples](../logs/queries.md) to understand what you can discover, [get started on writing your own query](../logs/log-analytics-tutorial.md) or learn how to [create optimized alert queries](../alerts/alerts-log-query.md).
+ 1. Use this query to monitor for virtual machines CPU usage:
+    
+   ```kusto
+   InsightsMetrics
+   | where Origin == "vm.azm.ms"
+   | where Namespace == "Processor" and Name == "UtilizationPercentage"
+   | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
+   ```
+
  1. Run the query to make sure you get the results you were expecting.
- 1. From the top command bar, Select **+ New alert rule** to create a rule using the current query using your workspace the alert Resource.
- 1. The **Condition** tab opens, populated with your log query.
-      :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-query.png" alt-text="Screenshot of new log alert rule query.":::
- 1. In the **Measurement** section, select the values for these fields.
+ 1. From the top command bar, Select **+ New alert rule** to create a rule using the current query.
+ 1. The **Create an alert rule** page opens with your query. We try to detect summarized data from the query results automatically. If detected, the appropriate values are automatically selected. 
+     :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-query.png" alt-text="Screenshot of new log alert rule query.":::
+ 1. In the **Measurement** section, select the values for these fields if they are not already automatically selected.
  
     |Field  |Description  |Value for this scenario |
     |---------|---------|---------|
-    |Measure| Log alerts can measure the number of table rows or combine and numerical value of a specified column. |avg_CounterValue|
-    |Aggregation type|The calculation used on multiple records to combine them into one value.|Average|
-    |Aggregation granularity| The interval used for aggregation.|15 minutes|
+    |Measure| The number of table rows or a numeric column to aggregate |AggregatedValue|
+    |Aggregation type|The type of aggregation to apply to the data points in aggregation granularity|Average|
+    |Aggregation granularity|The interval over which data points are grouped by the aggregation type|15 minutes|
     
     :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-measurement.png" alt-text="Screenshot of new log alert rule measurement. ":::
- 1. In the **Split by dimensions** section, select the values for these fields.
+ 1. In the **Split by dimensions** section, select the values for these fields if they are not already automatically selected.
      
       |Field|Description  |Value for this scenario |
       |---------|---------|---------|
-      |Resource ID column| Name of the Resource ID column to use for the dimension|_Resourceid|
-      |Dimension name| Name of the column to use to split the dimension |Computer|
-      |Operator| Operator to use for the calculation of the dimension |=|
-      |Dimension value| Which of the list of the values of the dimension to be used. |All current and future values| 
+      |Resource ID column|An Azure Resource ID column that will split the alerts and set the fired alert target scope.|_Resourceid|
+      |Dimension name|Dimensions monitor specific time series and provide context to the fired alert. Dimensions can be either number or string columns. If you select more than one dimension value, each time series that results from the combination will trigger its own alert and will be charged separately. The displayed dimension values are based on data from the last 48 hours. Custom dimension values can be added by clicking 'Add custom value'.|Computer|
+      |Operator|The operator to compare the dimension value|=|
+      |Dimension value| The list of dimension column values |All current and future values| 
     
     :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-dimensions.png" alt-text="Screenshot of new log alert rule with dimensions. ":::
- 1. In the **Alert Logic** section, select the values for these fields.
+ 1. In the **Alert Logic** section, select the values for these fields if they are not already automatically selected.
       
     |Field  |Description  |Value for this scenario |
     |---------|---------|---------|
-    |Operator |  The mathematical operator to use in the logic.|Greater than|
+    |Operator |The operator to compare the metric value against the threshold|Greater than|
     |Threshold value| The value that the result is measured against.|80|
-    |Frequency of evaluation|The interval used for the query.|15 minutes|
+    |Frequency of evaluation|How often the alert rule should run. A frequency smaller than the aggregation granularity results in a sliding window evaluation.|15 minutes|
+  1. (Optional) In the **Advanced options** section, set the [**Number of violations to trigger the alert**](./alerts-unified-log.md#number-of-violations-to-trigger-alert).
+    
+    :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Advanced options.":::
+
+  1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
+
+    :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Alert rule preview.":::
+
+  1. From this point on, you can select the **Review + create** button at any time. 
+  1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
+
+    :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
+
+  1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
+  1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to [**Mute actions**](./alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
+    
+    :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
+
+   > [!NOTE]
+   > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
+
+1. In the **Tags** tab, set any required tags on the alert rule resource.
+
+    :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
+
+1. In the **Review + create** tab, a validation will run and inform you of any issues.
+1. When validation passes and you have reviewed the settings, click the **Create** button.    
+    
+    :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 ## Next steps
 
 * [Monitor workloads running on virtual machines.](monitor-virtual-machine-workloads.md)
