@@ -97,7 +97,7 @@ The route specifies the [backend pool](front-door-backend-pool.md) that the requ
 
 ## Evaluate rule sets
 
-If you have defined [rule sets](standard-premium/concept-rule-set.md) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](standard-premium/concept-rule-set-actions.md#OriginGroupOverride) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
+If you have defined [rule sets](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#origin-group-override) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
 
 ::: zone-end
 
@@ -113,7 +113,7 @@ If you have defined [rules engines](front-door-rules-engine.md) for the route, t
 
 ::: zone pivot="front-door-standard-premium"
 
-If the Front Door routing rule has [caching](standard-premium/concept-caching.md) enabled, and the Front Door edge location's cache includes a valid response for the request, then Front Door returns the cached response.
+If the Front Door routing rule has [caching](front-door-caching.md) enabled, and the Front Door edge location's cache includes a valid response for the request, then Front Door returns the cached response.
 
 If caching is disabled or no response is available, the request is forwarded to the origin.
 
