@@ -122,8 +122,8 @@ Next, we need to find the secret keys and endpoint URL for the Computer Vision s
 The code for the Azure Function used in this tutorial can be found in this repository. You can also clone the project using the command below.
 
 ```terminal
-git clone https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore.git
-cd msdocs-app-service-sqldb-dotnetcore
+git clone https://github.com/Azure-Samples/msdocs-storage-bind-function-service.git
+cd msdocs-storage-bind-function-service/dotnet
 ```
 
 Once you have downloaded and opened the project, there are a few essential concepts to understand in the main `Run` method shown below. The Azure function utilizes Trigger and Output bindings, which are applied using attributes on the `Run` method signature. 
