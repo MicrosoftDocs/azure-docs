@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 03/09/2022
 ms.author: v-ydequadros
 ---
 
@@ -30,6 +30,10 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
 - To enable the CloudKnox **Feature highlights** tile in the Azure AD portal, [select this link to run the script in your browser](https://aka.ms/ciem-prod).
 - To use the CloudKnox public preview, we encourage you to fill out a consent form that provides other terms and conditions for the public preview product. To open the form, select [CloudKnox Permissions Management Public Preview: Terms and Conditions](https://aka.ms/ciem-terms).
+
+## View a training video on configuring and onboarding an AWS account
+
+To view a video on how to configure and onboard AWS accounts in CloudKnox, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?v=R6K21wiWYmE).
 
 ## Onboard an AWS account
 

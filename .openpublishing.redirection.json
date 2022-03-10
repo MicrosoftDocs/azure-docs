@@ -699,6 +699,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/concept-caching.md",
+      "redirect_url": "/azure/frontdoor/front-door-caching",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/concept-route.md",
       "redirect_url": "/azure/frontdoor/front-door-route-matching",
       "redirect_document_id": false

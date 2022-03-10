@@ -123,7 +123,7 @@ $importRequest = New-AzSqlDatabaseExport -ResourceGroupName "<resourceGroupName>
 ---
 
 ### Create Import-Export Private link using REST API
-Existing APIs to perform Import and Export jobs have been enhanced to support Private Link. Refer to [Import Database API](/rest/api/sql/2021-08-01-preview/servers/import-database.md)
+Existing APIs to perform Import and Export jobs have been enhanced to support Private Link. Refer to [Import Database API](/rest/api/sql/2021-08-01-preview/servers/import-database)
 
 ## Next steps
 - [Import or Export Azure SQL Database without allowing Azure services to access the server](database-import-export-azure-services-off.md)
