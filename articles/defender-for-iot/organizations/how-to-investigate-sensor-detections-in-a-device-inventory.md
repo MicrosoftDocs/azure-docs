@@ -67,7 +67,6 @@ The following columns are available for each device. Starred items are fully sup
 | **Underlying devices** | Any relevant underlying devices for the device |
 | **Vendor** | The name of the device's vendor, as defined in the MAC address. |
 | **VLAN** | The VLAN of the device. For more information, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names). |
-| | |
 
 **To hide and display columns:**
 
