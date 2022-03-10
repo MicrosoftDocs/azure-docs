@@ -48,8 +48,7 @@ Run the script to check your SQL Server version.
 ```sql
     -- Shows the version and CU of the SQL Server
     SELECT @@VERSION
-
-    ```
+```
 
 If it is not SQL Server 2019 CU15 or higher, upgrade your server. SQL Server 2019 CU15 can be downloaded from [here](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6). Install the CU15 upgrade and restart the SQL Server.
 
@@ -187,7 +186,7 @@ To check if SQL Server can reach Managed Instance use tnc command in PowerShell 
 
 Successful test will show TcpTestSucceeded True.
 
-    :::image type="content" source="./media/managed-instance-link-preparation/powershell-output-tnc-command.png" alt-text="Screenshot showing output of tnc command in PowerShell.":::
+:::image type="content" source="./media/managed-instance-link-preparation/powershell-output-tnc-command.png" alt-text="Screenshot showing output of tnc command in PowerShell.":::
 
 In case of unsuccessful response, troubleshoot the following:
 - Are NSG rules allowing communication on port 5022?
