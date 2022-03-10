@@ -1229,11 +1229,13 @@
       - name: Migrate TDE cert 
         href: managed-instance/tde-certificate-migrate.md
 
-    - name: Use Managed Instance link
+    - name: Managed Instance link
       items:
-      - name: to replicate databases in SSMS
+      - name: Prepare environment for link 
+        href: managed-instance/managed-instance-link-preparation.md
+      - name: Replicate databases in SSMS
         href: managed-instance/managed-instance-link-use-ssms-to-replicate-database.md
-      - name: to failover databases in SSMS
+      - name: Failover databases in SSMS
         href: managed-instance/managed-instance-link-use-ssms-to-failover-database.md
 
     - name: Configure business continuity 
