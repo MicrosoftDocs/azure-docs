@@ -294,7 +294,7 @@ Here's a walk-through of creating a log alert for when the CPU of a virtual mach
    :::image type="content" source="../alerts/media/alerts-log/alerts-rule-actions-tab.png" alt-text="Screenshot of alerts rule preview actions tab.":::
 
   1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
-  1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to [**Mute actions**](./alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
+  1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to [**mute actions**](../alerts/alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
     
    :::image type="content" source="../alerts/media/alerts-log/alerts-rule-details-tab.png" alt-text="Screenshot of alerts rule preview details tab.":::
 
