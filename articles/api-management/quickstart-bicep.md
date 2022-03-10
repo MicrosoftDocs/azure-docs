@@ -59,7 +59,7 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file.  For more in
 
     ---
 
-    Replace **/<publisher-name>** and **/<publisher-email> with the name of the API publisher's organization and the email address to receive notifications.
+    Replace **\<publisher-name\>** and **\<publisher-email\>** with the name of the API publisher's organization and the email address to receive notifications.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
