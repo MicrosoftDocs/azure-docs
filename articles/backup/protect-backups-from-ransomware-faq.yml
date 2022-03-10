@@ -18,16 +18,16 @@ sections:
     questions:
       - question: What’re some best practices to protect backups against security and ransomware threats?
         answer: |
-          Your backup data that’s securely stored in an Azure resource called Recovery Services Vault or Backup Vault is *isolated*. This vault is a management entity, any application or guest don’t have direct access to these backups, thus *prevents malicious actors* to perform destructive operations on the backup storage, such as deletions or tampering of backup data . The following practices  provide guidelines to protect backup against security and ransomware threats:
+          Your backup data that’s securely stored in an Azure resource called Recovery Services Vault or Backup Vault is *isolated*. This vault is a management entity, any application or guest don’t have direct access to these backups, thus *prevents malicious actors* to perform destructive operations on the backup storage, such as deletions or tampering of backup data. The following practices  provide guidelines to protect backup against security and ransomware threats:
           
-          - **Manage access to backup resources using Azure role-based access control (Azure RBAC)**.
+          - **Manage access to back up resources using Azure role-based access control (Azure RBAC)**.
           
-            - Azure Backup allows you segregate duties within your team to grant only the amount of access necessary for your team members to do their jobs using [Azure role-based access control (Azure RBAC) to manage Azure Backup](backup-rbac-rs-vault.md).
+            - Azure Backup allows you to segregate duties within your team to grant only the amount of access necessary for your team members to do their jobs using [Azure role-based access control (Azure RBAC) to manage Azure Backup](backup-rbac-rs-vault.md).
             - Use Privileged Identity Management to provide time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused permissions. [Learn more](../active-directory/privileged-identity-management/pim-configure.md).
           
           - **Ensure soft delete isn’t turned off to protect backups from accidental or miscellaneous deletes**
           
-            Soft delete is automatically enabled by default on a newly created Recovery Services vault. It protects backup data from accidental or malicious deletes for 14 days at no additional cost, allowing the recovery of that backup item before it’s permanently lost. It’s not recommended to disable this feature. If backups are deleted and soft delete isn’t enabled, you or Microsoft can’t recover the deleted backup data. Use [Multi-user authorization (MUA)](multi-user-authorization.md) as an additional layer of protection for this critical operations on your Recovery Services vault to validate operation before disabling this feature. For more information, see [How to enable, manage, and when to disable soft delete for Azure backup](backup-azure-security-feature-cloud.md)?
+            Soft delete is automatically enabled by default on a newly created Recovery Services vault. It protects backup data from accidental or malicious deletes for 14 days at no additional cost, allowing the recovery of that backup item before it’s permanently lost. It’s not recommended to disable this feature. If backups are deleted and soft delete isn’t enabled, you or Microsoft can’t recover the deleted backup data. Use [Multi-user authorization (MUA)](multi-user-authorization.md) as an additional layer of protection for these critical operations on your Recovery Services vault to validate operation before disabling this feature. For more information, see [How to enable, manage, and when to disable soft delete for Azure backup](backup-azure-security-feature-cloud.md)?
           
           - **Ensure multi-user authorization (MUA) is enabled for an additional layer of protection**.
           
@@ -38,7 +38,7 @@ sections:
           
           - **Set up alerts and notifications for critical backup operations**.
           
-            Azure Backup provides multiple monitoring and notification capabilities for a wide range of [scenarios]( monitoring-and-alerts-overview.md#monitoring-and-reporting-scenarios). Ensure they are configured correctly to get alerted and to take timely action. For more information, see [Azure Monitor metrics](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics).
+            Azure Backup provides multiple monitoring and notification capabilities for a wide range of [scenarios](monitoring-and-alerts-overview.md#monitoring-and-reporting-scenarios). Ensure they are configured correctly to get alerted and to take timely action. For more information, see [Azure Monitor metrics](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics).
             
             We recommend you to use [Azure Monitor for Alerts to receive alerts/notifications on critical operations](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview).
           
@@ -104,7 +104,7 @@ sections:
           If backup was enabled on the source system and backups are healthy prior to the point of attack, then consider the following actions:
           
           - Review the incident timeline to estimate the impact on production workloads.
-          - Identify the the last clean recovery point created before the impact.
+          - Identify the last clean recovery point created before the impact.
           - Review the retention duration of the existing recovery points. If more time is required to restore from an attack, then consider extending the retention duration in the backup policy.
           - Perform recovery to an isolated and secure network.
           - Perform restores on smaller sets of data (for example, item-level recovery) to ensure healthy recovery points.
