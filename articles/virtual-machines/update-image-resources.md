@@ -7,7 +7,7 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 03/09/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -34,13 +34,7 @@ See all of image definitions in your gallery using [az sig image-definition list
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-List all of the image definitions shared with your subscription using [az sig image-definition list-shared](/cli/azure/sig/image-definition#az_sig_image_definition_list_shared):
-
-```azurecli-interactive 
-az sig image-definition list-shared --resource-group myGalleryRG --gallery-name myGallery -o table
-```
-
-List all fo the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community):
+List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community):
 
 ```azurecli-interactive 
 az sig image-definition list-community --resource-group myGalleryRG --gallery-name myGallery -o table
@@ -52,12 +46,6 @@ List image versions in your gallery using [az sig image-version list](/cli/azure
 
 ```azurecli-interactive
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
-```
-
-List image versions that are shared with your subscription using [az sig image-version list-shared](/cli/azure/sig/image-version#az_sig_image_version_list_shared):
-
-```azurecli-interactive
-az sig image-version list-shared --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
 ```
 
 List image versions shared in a community gallery using [az sig image-version list-community](/cli/azure/sig/image-version#az_sig_image_version_list_community):

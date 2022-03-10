@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 10/05/2021
+ms.date: 03/09/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to, devx-track-azurecli 
@@ -23,7 +23,7 @@ The Azure Compute Gallery lets you share custom VM images and application packag
 
 The gallery is a top-level resource that provides full Azure role-based access control (Azure RBAC). 
 
-## Create a gallery
+## Create a private gallery
 
 Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
 
@@ -52,9 +52,6 @@ Create a gallery using [az sig create](/cli/azure/sig#az_sig_create). The follow
 az group create --name myGalleryRG --location eastus
 az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
-
-**Create a Community Gallery**
-
 
 
 ### [PowerShell](#tab/powershell)
@@ -98,7 +95,39 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
-**Create a community gallery**
+---
+
+
+## Create a community gallery
+
+A community gallery is shared publicly with everyone. Microsoft does not support images published to the community gallery. For more information, see XXX.
+
+### Prerequisites
+- The user or service principal that will enable community sharing needs to be a member of the `Owner` role definition. Only the `Owner` at the scope of the gallery or higher will be able to enable community sharing. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
+- 
+### [CLI](#tab/cli)
+
+```azurecli-interactive
+location=westus
+galleryName=contosoGallery
+resourceGroup=myCGRG
+publisherUri=https://www.contoso.com
+publisherEmail=support@contoso.com
+eulaLink=https://www.contoso.com/eula
+prefix=ContosoImages
+
+az group create --name $resourceGroup --location $location
+
+az sig create \
+   --gallery-name $galleryName \
+   --permissions community \
+   --resource-group $resourceGroup \
+   --publisher-uri $publisherUri \
+   --publisher-email $publisherEmail \
+   --eula $eulaLink $eula \
+   --public-name-prefix $prefix
+``` 
+### [REST](#tab/rest)
 
 ```rest
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName?api-version=2021-10-01
@@ -123,6 +152,7 @@ Request Body
 }
 ```
 ---
+
 
 ## Next steps
 
