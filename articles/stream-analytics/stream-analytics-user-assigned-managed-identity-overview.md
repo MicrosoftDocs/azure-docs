@@ -40,8 +40,8 @@ There are two types of managed identities:
 
    ![Create managed identity](./media/common/create-managed-identity.png)
 
-    1. Select **Review + create** to review changes
-    2. Select **Create**
+   1. Select **Review + create** to review changes
+   2. Select **Create**
 
 For more information on how to manager user-assigned managed identities please visit the [Managed user-assigned managed identities page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
 
