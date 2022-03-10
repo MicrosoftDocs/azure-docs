@@ -19,7 +19,7 @@ Azure Front Door can redirect traffic at each of the following levels: protocol,
 
 In Azure Front Door Standard/Premium tier, you can configure URL redirect using a Rule Set.
 
-:::image type="content" source="./media/front-door-url-redirect/front-door-url-redirect.png" alt-text="Screenshot of creating url redirect with Rule Set." lightbox="./media/front-door-url-redirect/front-door-url-redirect-expanded.png":::
+:::image type="content" source="./media/front-door-url-redirect/front-door-url-redirect-rule-set.png" alt-text="Screenshot of creating url redirect with Rule Set." lightbox="./media/front-door-url-redirect/front-door-url-redirect-expanded.png":::
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
