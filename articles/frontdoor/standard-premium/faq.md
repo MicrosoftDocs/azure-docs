@@ -152,7 +152,7 @@ Any updates to routes or backend pools are seamless and will cause zero downtime
 
 Azure Front Door (Standard) requires a public IP or a publicly resolvable DNS name to route traffic. Azure Front Door can't route directly to resources in a virtual network. You can use an Application Gateway or an Azure Load Balancer with a public IP to solve this problem.
 
-Azure Front Door (Premium) supports routing traffic to [Private Link origins](private-link.md).
+Azure Front Door (Premium) supports routing traffic to [Private Link origins](../private-link.md).
 
 ### What are the various timeouts and limits for Azure Front Door?
 
