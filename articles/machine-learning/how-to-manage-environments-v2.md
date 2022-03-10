@@ -168,7 +168,7 @@ Note: If you are accessing an image from a private ACR as is, and you are not le
 
 ## Access packages from a private Python feed
 
-If you are developing and hosting Python packages in an Azure DevOps repository as artifacts and publishing them as a feed, you can create environments that use packages from these private Python feeds.
+If you are developing and hosting Python packages in an Azure DevOps repository as artifacts and publishing them as a feed, you can create environments that use packages from these private Python feeds. For more information on setting up Python feeds using Azure DevOps, see [Get Started with Python Packages in Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops).
 
 First, define a YAML file that contains the connection details:
 ```yaml
@@ -184,9 +184,15 @@ az ml connection create --file python-feed-connection.yml --set credentials.pat=
 
 Now you can reference packages from that feed in your conda dependencies file when creating an environment:
 ```yaml
-name: my-python-feed-connection
-type: python_feed
-target: https://pkgs.dev.azure.com/<organization-name>
+dependencies:
+- pip
+- pip:
+  - <package-name>
+  - --extra-index-url https://pkgs.dev.azure.com/<organization-name>/<your-project-name>/_packaging/<feed-name>/pypi/simple 
+```
+
+```cli
+az ml environment create --name my-env --version 1 --image <image> --conda-file python_feed_conda.yml
 ```
 
 ## Manage environments
