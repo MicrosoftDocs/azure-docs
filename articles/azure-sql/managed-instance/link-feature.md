@@ -22,7 +22,7 @@ After a disastrous event, you can continue running your read-only workloads on S
 
 ## Sign-up for link
 
-To use the link feature, you will need:
+To use the link feature, you'll need:
 
 - SQL Server 2019 Enterprise Edition with [CU15 (or above)](https://support.microsoft.com/en-us/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6) installed on-premises, or on an Azure VM.
 - Network connectivity between your SQL Server and managed instance is required. If your SQL Server is running on-premises, use a VPN link or Express route. If your SQL Server is running on an Azure VM, either deploy your VM to the same subnet as your managed instance, or use global VNet peering to connect two separate subnets. 
@@ -37,9 +37,9 @@ Use the following link to sign-up for the limited preview of the link feature.
 
 The underlying technology of near real-time data replication between SQL Server and SQL Managed Instance is based on distributed availability groups, part of the well-known and proven Always On availability group technology stack. Extend your SQL Server on-premises availability group to SQL Managed Instance in Azure in a safe and secure manner. 
 
-There is no need to have an existing availability group or multiple nodes. The link supports single node SQL Server instances without existing availability groups, and also multiple-node SQL Server instances with existing availability groups. Through the link, you can leverage the modern benefits of Azure without migrating your entire SQL Server data estate to the cloud.
+There's no need to have an existing availability group or multiple nodes. The link supports single node SQL Server instances without existing availability groups, and also multiple-node SQL Server instances with existing availability groups. Through the link, you can leverage the modern benefits of Azure without migrating your entire SQL Server data estate to the cloud.
 
-You can keep running the link for as long as you need it, for months and even years at a time. And for your modernization journey, if/when you are ready to migrate to Azure, the link enables a considerably-improved migration experience with the minimum possible downtime compared to all other options available today, providing a true online migration to SQL Managed Instance.
+You can keep running the link for as long as you need it, for months and even years at a time. And for your modernization journey, if/when you're ready to migrate to Azure, the link enables a considerably-improved migration experience with the minimum possible downtime compared to all other options available today, providing a true online migration to SQL Managed Instance.
 
 ## Supported scenarios
 
@@ -83,6 +83,35 @@ There could exist up to 100 links from the same, or various SQL Server sources t
 
 > [!NOTE]
 > The link feature is released in limited public preview with support for currently only SQL Server 2019 Enterprise Edition CU13 (or above). [Sign-up now](https://aka.ms/mi-link-signup) to participate in the limited public preview. 
+
+## Limitations
+
+This section describes the product’s functional limitations.
+
+### General functional limitations
+
+Managed Instance link has a set of general limitations, and those are listed in this section. Listed limitations are of a technical nature and are unlikely to be addressed in the foreseeable future.
+
+- Only user databases can be replicated. Replication of system databases isn't supported.
+- The solution doesn't replicate server level objects, agent jobs, nor user logins from SQL Server to Managed Instance.
+- Only one database can be placed into a single Availability Group per one Distributed Availability Group link.
+- Link can't be established between SQL Server and Managed Instance if functionality used on SQL Server isn't support on Managed Instance. 
+  - File tables and file streams aren't supported for replication, as Managed Instance doesn't support this.
+  - Replicating Databases using Hekaton (In-Memory OLTP) isn't supported on Managed Instance General Purpose service tier. Hekaton is only supported on Managed Instance Business Critical service tier.
+  - For the full list of differences between SQL Server and Managed Instance, see [this article](./transact-sql-tsql-differences-sql-server.md).
+- In case Change data capture (CDC), log shipping, or service broker are used with database replicated on the SQL Server, and in case of database migration to Managed Instance, on the failover to the Azure, clients will need to connect using instance name of the current global primary replica. you'll need to manually re-configure these settings.
+- In case Transactional Replication is used with database replicated on the SQL Server, and in case of migration scenario, on failover to Azure, transactional replication on Azure SQL Managed instance will not continue. you'll need to manually re-configure Transactional Replication.
+- In case distributed transactions are used with database replicated from the SQL Server, and in case of migration scenario, on the cutover to the cloud, the DTC capabilities will not be transferred. There will be no possibility for migrated database to get involved in distributed transactions with SQL Server, as Managed Instance doesn't support distributed transactions with SQL Server at this time. For reference, Managed Instance today supports distributed transactions only between other Managed Instances, see [this article](../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance).
+- Managed Instance link can replicate database of any size if it fits into chosen storage size of target Managed Instance.
+
+### Additional limitations
+
+Some Managed Instance link features and capabilities are limited **at this time**. Details can be found in the following list.
+- SQL Server 2019, Enterprise Edition or Developer Edition, CU15 (or higher) on Windows or Linux host OS is supported.
+- Private endpoint (VPN/VNET) is supported to connect Distributed Availability Groups to Managed Instance. Public endpoint can't be used to connect to Managed Instance.
+- Managed Instance Link authentication between SQL Server instance and Managed Instance is certificate-based, available only through exchange of certificates. Windows authentication between instances isn't supported.
+- Replication of user databases from SQL Server to Managed Instance is one-way. User databases from Managed Instance can't be replicated back to SQL Server.
+- Auto failover groups replication to secondary Managed Instance can't be used in parallel while operating the Managed Instance Link with SQL Server.
 
 ## Next steps
 
