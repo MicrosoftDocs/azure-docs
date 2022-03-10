@@ -78,7 +78,7 @@ snc_lib=<path to libsapcrypto>
 # !!! Note: the path must be valid within the container!!!
 
 snc_partnername=<distinguished name of the server certificate>
-# p: -prefixed distinguished name of the server certificate
+# p: -prefixed valid SAP server SNC name, which is equal to Distinguished Name(DN) of SAP server PSE
 # Used when SNC is in use
 
 snc_qop=<SNC protection level>
@@ -86,7 +86,7 @@ snc_qop=<SNC protection level>
 # Used when SNC is in use
 
 snc_myname=<distinguished name of the client certificate>
-# p: -prefixed distinguished name of the client certificate
+# p: -prefixed valid client SNC name, which is equal to Distinguished Name(DN) of client PSE
 # Used when SNC is in use
 
 x509cert=<server certificate>
@@ -117,6 +117,34 @@ instance = <instance>
 #SAPControl instance name
 
 
-abapseverity = <SET_ABAP_SEVERITY>
-abaptz = <SET_ABAP_TZ>
+abapseverity = <severity>
+# 0 = All logs ; 1 = Warning ; 2 = Error
+
+abaptz = <timezone>
+# GMT FORMAT
+# example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
+
+````
+
+### File Extraction JAVA section
+````systemconfig.ini
+javaosuser = <username>
+# Username to use to authenticate to JAVA server
+
+javaospasswd = <password>
+# Password to use to authenticate to JAVA server
+
+javaappserver = <server>
+#JAVA server hostname/fqdn/IP address
+
+javainstance = <instance number>
+#JAVA instance number
+
+javaseverity = <severity>
+# 0 = All logs ; 1 = Warning ; 2 = Error
+
+javatz = <timezone>
+# GMT FORMAT
+# example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
+
 ````

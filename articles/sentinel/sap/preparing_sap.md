@@ -112,11 +112,11 @@ Close SAP GUI logged on to client `000` as `DDIC` and return to SAP GUI logged o
 1. Repeat the procedure in steps 5-9 to add all additional Change Requests that need to be deployed
 1. In **Import Queue** window, click **Import All Requests**<br>
 ![Import all requests](./media/preparing_sap/import_all_requests.png "Import all requests")
-1. In **Start Import** window select **Options** tab and select **Ignore Invalid Component Version** checkbox, then click the green checkbox at the bottom<br>
+1. In **Start Import** window, click on boxes next to **Target Client** field and select client to deploy the CRs to, then click green checkbox in **Input Help..** window, then select **Options** tab and select **Ignore Invalid Component Version** checkbox, then click the green checkbox at the bottom<br>
 ![Start Import](./media/preparing_sap/start_import.png "Start Import")
 1. In the **Start Import** window click **Yes** to confirm the import
 1. In the **Import Queue** window click **Refresh** button, wait until the import operation completes and import queue becomes empty
-1. To review import status, in the **Import History** window click **More**, select **Import History**<br>
+1. To review import status, in the **Import History** window click **More**, select **Go To**, select **Import History**<br>
 ![Import History](./media/preparing_sap/import_history.png "Import History")
 1. NPLK900180 Change request is expected to end with a Warning, click on the entry to verify that the warning is associated with Table \<tablename\> was activated<br>
 ![Import Status](./media/preparing_sap/import_status.png "Import Status")<br>
