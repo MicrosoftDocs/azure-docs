@@ -1,17 +1,16 @@
 ---
-title: How to crop video files with Media Services - .NET | Microsoft Docs
-description: Cropping is the process of selecting a rectangular window within the video frame, and encoding just the pixels within that window. This topic shows how to crop video files with Media Services using .NET.
+title: How to crop video files with Media Services
+description: Cropping is the process of selecting a rectangular window within the video frame, and encoding just the pixels within that window. This topic shows how to crop video files with Media Services.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
-ms.devlang: csharp
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 03/09/2022
 ms.author: inhenkel
 ---
 
-# How to crop video files with Media Services - .NET
+# How to crop video files with Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -28,6 +27,8 @@ Cropping is a pre-processing stage, so the *cropping parameters* in the encoding
 > If you do not match your encode settings to the cropped video, the output will not be as you expect.
 
 For example, your input video has a resolution of 1920x1080 pixels (16:9 aspect ratio), but has black bars (pillar boxes) at the left and right, so that only a 4:3 window or 1440x1080 pixels contains active video. You can crop the black bars, and encode the 1440x1080 area.
+
+## [.NET](#tab/net/)
 
 ## Transform code
 
@@ -112,3 +113,5 @@ var preset = new StandardEncoderPreset
     }
 
 ```
+
+---
