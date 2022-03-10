@@ -164,7 +164,7 @@ Now you can create an environment that uses an image from the private ACR:
 az ml environment create --name my-env --version 1 --image <registry-name>.azurecr.io/<repo-name>[:<tag>] --conda-file <path-to-conda-file>
 ```
 
-Note: If you are accessing an image from a private ACR as is, and you are not leverage Azure ML to build a custom image on top of the private ACR image as the base image, you do not need to create a workspace connection with the private ACR authentication information. Instead, you can create a compute cluster with managed identity to use for your training jobs. Grant the managed identity ACRPull role on the private ACR to enable the compute cluster to pull the image. For more information, see [Create compute with managed identity to access docker images](how-to-use-managed-identities.md#create-compute-with-managed-identity-to-access-docker-images-for-training).
+Note: If you are accessing an image from a private ACR as is, and you are not leveraging Azure ML to build a custom image on top of the private ACR image as the base image, you do not need to create a workspace connection with the private ACR authentication information. Instead, you can create a compute cluster with managed identity to use for your training jobs. Grant the managed identity ACRPull role on the private ACR to enable the compute cluster to pull the image. For more information, see [Create compute with managed identity to access docker images](how-to-use-managed-identities.md#create-compute-with-managed-identity-to-access-docker-images-for-training).
 
 ## Access packages from a private Python feed
 
