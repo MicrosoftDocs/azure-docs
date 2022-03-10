@@ -17,14 +17,15 @@ ms.custom: azureday1
 
 [!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/intro.md)]
 
-## Connect to backend services or app
+## Connect to backend services as user
 
 User authentication can begin with authenticating the user to your app service as described in the previous section. 
 
 :::image type="content" source="./media/scenario-secure-app-authentication-app-service/web-app-sign-in.svg" alt-text="Diagram that shows user sign-in." border="false":::
 
-Once the app service has the authenticated identity, you as the system architect, chooses if your system needs to connect to backend services as the app:
-    * Use [managed identity](./tutorial-connect-overview.md). If managed identity isn't available, then use Key Vault. 
-    * The user identity doesn't need to flow further. Any additional security to reach backend services is handled with the app service's identity. 
+Once the app service has the authenticated identity, you as the system architect, chooses if your system needs to connect to backend services as the user:
+    * A database example is a SQL database which imposes its own security for that identity on tables
+    * A storage example is Blob Storage which imposes its own security for that identity on containers and blobs
+    * A user needs access to Microsoft Graph for email access.
 
 [!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/end.md)]
