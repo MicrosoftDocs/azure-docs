@@ -33,41 +33,45 @@ The Defender for IoT sensor and on-premises management console update packages i
 |--|--|--|
 | 22.1.2 | 03/2022 | 11/2022 |
 | 22.1 | 02/2022 | 10/2022 |
-| 10.0 | 01/2021 | 10/2021 |
-| 10.3 | 04/2021 | 01/2022 |
-| 10.5.2 | 10/2021 | 07/2022 |
-| 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.4 | 12/2021 | 09/2022 |
+| 10.5.3 | 10/2021 | 07/2022 |
+| 10.5.2 | 10/2021 | 07/2022 |
 
 ## March 2022
 
 - [More device properties shown in the Azure portal](#more-device-properties-shown-in-the-azure-portal)
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal)
-- [Key state alert updates](#key-state-alert-updates)
+- [Key state alert updates](#key-state-alert-updates-preview)
 
 ### More device properties in the Device inventory
 
-The following fields now have extended data displayed in the **Device inventory** pages on the Azure portal and in the sensor console:
+In this release, we've extended the data listed on the **Device inventory** pages on the Azure portal and in the sensor console.
 
-:::row:::
-   :::column span="":::
-      - **Tags**
-      - **Description**
-      - **Protocols**
-   :::column-end:::
-   :::column span="":::
-      - **Scanner**
-      - **FQDN**
-      - **FQDN lookup time**
-   :::column-end:::
-:::row-end:::
+On the Azure portal, fields with extended data include:
 
-For more information, see:
+- **Description**
+- **Tags**
+- **Protocols**
+- **Scanner**
+- **Last Activity**
 
-- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-- [Manage your device inventory from the sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
-The extended data in these fields is only available for sensors with software versions 22.1.x or higher. If you have earlier sensor versions installed, we recommend updating to the latest version. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
+On the sensor console, fields with extended data include:
+
+- **Description**
+- **Tags**
+- **Protocols**
+- **Scanner**
+- **Last Activity**
+- **FQDN**
+- **FQDN lookup time**
+
+For more information, see [Manage your device inventory from the sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
+
+> [!NOTE]
+> The extended data in these fields is only available for sensors with software versions 22.1.x or higher. If you have earlier sensor versions installed, we recommend updating to the latest version. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
+>
 
 ### Edit and delete devices from the Azure portal
 
@@ -79,7 +83,7 @@ For more information, see [Edit device details](how-to-manage-device-inventory-f
 
 You can also delete devices from Defender for IoT, if they've been inactive for more than 14 days.  For more information, see [Delete a device](how-to-manage-device-inventory-for-organizations.md#delete-a-device).
 
-### Key state alert updates
+### Key state alert updates (Preview)
 
 Defender for IoT now supports the Rockwell protocol for PLC operating mode detections.
 

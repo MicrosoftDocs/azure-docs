@@ -200,12 +200,10 @@ Starred items are fully supported only for sensor [software versions 22.1.x and 
 | **Firmware vendor** | The vendor of the device's firmware. |
 | **Firmware version** | The version of the firmware. |
 | **First seen** | The date, and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
-| **FQDN*** | The device's FQDN value |
-| **FQDN lookup time*** | The device's FQDN lookup time |
 | **Importance** | The level of importance of the device. |
 | **IPv4 Address** | The IPv4 address of the device. |
 | **IPv6 Address** | The IPv6 address of the device. |
-| **Last activity** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
+| **Last activity*** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
 | **Last update time** | The date, and time the device last sent a system information event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
 | **Location** | The physical location of the device. |
 | **MAC Address** | The MAC address of the device. |
@@ -221,8 +219,6 @@ Starred items are fully supported only for sensor [software versions 22.1.x and 
 | **Protocols*** | The protocols that the device uses. |
 | **Purdue level** | The Purdue level in which the device exists. |
 | **Scanner*** | Whether the device performs scanning-like activities in the network. |
-| **Scanner IPv6*** | In case of a network scanning device the scanner IPv6 address. |
-| **Scanner location*** | In case of a network scanning device, the scanner location. |
 | **Sensor** | The sensor the device is connected to.  |
 | **Site** | The site that contains this device. |
 | **Slots** | The number of slots the device has.  |
