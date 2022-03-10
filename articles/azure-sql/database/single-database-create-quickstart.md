@@ -110,6 +110,7 @@ Create a firewall rule with the [az sql server firewall-rule create](/cli/azure/
 Create a database with the [az sql db create](/cli/azure/sql/db) command in the [serverless compute tier](serverless-tier-overview.md).
 
 ```azurecli
+echo "Creating $database in serverless tier"
 az sql db create \
     --resource-group $resourceGroup \
     --server $server \
