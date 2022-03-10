@@ -45,7 +45,7 @@ Consider an approach to evaluating phishing resistant MFA methods that encompass
 
 * Device types and capabilities you wish to support
 
-oExamples: Kiosks, laptops, mobile phones, biometric readers, USB, Bluetooth, NFC, etc.
+* Examples: Kiosks, laptops, mobile phones, biometric readers, USB, Bluetooth, NFC, etc.
 
 * The user personas within your organization 
 
@@ -53,9 +53,9 @@ oExamples: Kiosks, laptops, mobile phones, biometric readers, USB, Bluetooth, NF
 
 * Logistics of distributing, configuring, and registering MFA methods such as FIDO 2.0 security keys, smart cards, government furnished equipment, or Windows devices with TPM chips.
 
-* Need for FIPS 140 validation at a specific [authenticator assurance level](..//standards/nist-about-authenticator-assurance-levels) (AAL). 
+* Need for FIPS 140 validation at a specific [authenticator assurance level](../standards/nist-about-authenticator-assurance-levels) (AAL). 
 
-  *  For example, some FIDO security keys are FIPS 140-validated at levels required for [AAL3](..//standards/nist-authenticator-assurance-level-3) as set by [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html).
+  *  For example, some FIDO security keys are FIPS 140-validated at levels required for [AAL3](../standards/nist-authenticator-assurance-level-3) as set by [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 ## Implementation considerations for phishing resistant MFA
 
@@ -66,7 +66,7 @@ The following describes support for implementing phishing resistant methods ment
 The following table details the availability of phishing-resistant MFA scenarios based on the device type being used to sign-in to the applications.
 
 
-|  | AD FS as a federated IDP configured with certificate-based authentication| Azure AD certificate-based authentication| FIDO 2.0 security keys| Windows hello for Business| Microsoft authenticator + CA for managed devices |
+| Devices | AD FS as a federated IDP configured with certificate-based authentication| Azure AD certificate-based authentication| FIDO 2.0 security keys| Windows hello for Business| Microsoft authenticator + CA for managed devices |
 | - | - | - | - | - | - |
 | Windows device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill]((media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | iOS mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| N/A| N/A| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
@@ -85,8 +85,8 @@ For each of the five phishing-resistant MFA types previously mentioned, you use 
 | - | - |
 | Azure Linux VM| Enable the [Linux VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-linux.md) |
 | Azure Windows VM| Enable the [Windows VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-windows.md) |
-| Azure Virtual Desktop| Enable [Azure virtual desktop for Azure AD sign-in](../../architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md) |
-| VMs hosted on-prem or in other clouds| Enable [Azure Arc](../../azure-arc/overview.md) on the VM then enable Azure AD sign-in. (Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap.) |
+| Azure Virtual Desktop| Enable [Azure virtual desktop for Azure AD sign-in](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join) |
+| VMs hosted on-prem or in other clouds| Enable [Azure Arc](../azure-arc/overview.md) on the VM then enable Azure AD sign-in. (Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap.) |
 | Non-Microsoft virtual desktop solutions| Integrate 3rd party virtual desktop solution as an app in Azure AD |
 
 
