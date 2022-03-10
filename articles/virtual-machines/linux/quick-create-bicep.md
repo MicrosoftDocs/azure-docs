@@ -65,7 +65,7 @@ Several resources are defined in the Bicep file:
     ---
 
     > [!NOTE]
-    > Replace **\<admin-username\>** with a unique analysis service name.
+    > Replace **\<admin-username\>** with a unique username.
     > [!NOTE]
     > You'll be prompted to enter adminPasswordOrKey.
 
