@@ -11,7 +11,7 @@ ms.topic: guide
 author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma
-ms.date: 03/07/2022
+ms.date: 03/10/2022
 ---
 # Replicate database with link feature in SSMS - Azure SQL Managed Instance
 
