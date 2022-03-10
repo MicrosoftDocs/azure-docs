@@ -136,7 +136,7 @@ sections:
   - name: Application configuration
     questions:
       - question: |
-         Can I use the domain suffixes `[tenantname].onmicrosoft.com`` or `[tenantname].mail.onmicrosoft.com`` in the external URL?
+         Can I use the domain suffixes `[tenantname].onmicrosoft.com` or `[tenantname].mail.onmicrosoft.com` in the external URL?
         answer: |
             Although these suffixes appear in the suffix list, you should not use them. These domain suffixes are not meant to be used with Azure AD Application Proxy. If you use these domain suffixes, the created Azure AD Application Proxy application won't work.
             You can use either the standard domain suffix `msappproxy.net` or a [custom domain](application-proxy-configure-custom-domain.md).
