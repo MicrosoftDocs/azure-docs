@@ -121,7 +121,7 @@ You can reference Docker images stored in private container registries such as a
 
 ### Access images from private Docker Hub repositories
 
-In order to access an image from a private repository, you will need to create a workspace connection for your corresponding Docker Hub credentials. The credentials are stored securely in the workspace's Key Vault. When Azure ML goes to pull that image for use as is or build an image using that as the base image, it will look up the connection information to handle authentication.
+In order to access an image from a private repository, you will need to create a workspace connection for your corresponding Docker Hub credentials. Workspace connections encapsulate connection and authentication information for accessing external resources from an Azure ML workspace. The credentials for each external resource connection are stored securely in the workspace's Key Vault. When Azure ML goes to pull that image for an environment, it will look up the connection information to handle authentication.
 
 To create the workspace connection, first define a YAML file that contains the connection details. This will include the name for the connection, the type of resource you're connecting to (in this case `container_registry`), and the target URL of the resource.
 ```yaml
