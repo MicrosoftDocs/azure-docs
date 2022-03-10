@@ -62,7 +62,7 @@ What events are available.  Is there a list?  Does the user have to enable them?
 
 ### Metrics
 
-Metrics are collected by [Azure Monitor][azure-monitoring] and provide insight into the resources used by your container apps. This resource usage data helps you easily see the resources your container app is using such as CPU usage and network activity, and the number of requests it's handling. You can configure alerts so that you can quickly react if thresholds are exceeded. These metrics can be gathered using both and Azure portal and the Azure CLI.
+Metrics are collected by Azure Monitor and provide insight into the resources used by your container apps. This resource usage data helps you easily see the resources your container app is using such as CPU usage and network activity, and the number of requests it's handling. You can configure alerts so that you can quickly react if thresholds are exceeded. These metrics can be gathered using both and Azure portal and the Azure CLI.  For more information about how to use the metrics explorer, goto [Gettings started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
 
 <!--
 > [!IMPORTANT]
@@ -71,7 +71,7 @@ Metrics are collected by [Azure Monitor][azure-monitoring] and provide insight i
 
 #### Available metrics
 
-Azure Monitor provides the following metrics.  These metrics are available for your container app.  The information can be split by container app revisions and replica.
+Azure Monitor provides the following metrics for your contianer app.  
 
 * CPU usage nanocores
 * Memory working set bytes
@@ -79,6 +79,7 @@ Azure Monitor provides the following metrics.  These metrics are available for y
 * Network out bytes
 * Number of Requests
 
+The information can be split by container app revisions and replica.  For more information regarding metrics
 #### Metrics page
 
 To access the metrics page:
@@ -87,6 +88,8 @@ To access the metrics page:
 1. Select **Metrics** in the left side menu.
  
 ![Container Apps metrics main page.](./media/observability/metric-main-page.png)
+
+
 
 <!--
 :::image type="content" source="/media/observability/metric-main-page.png" alt-text="Container Apps metrics main page.":::
