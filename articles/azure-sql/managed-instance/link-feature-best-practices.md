@@ -30,7 +30,7 @@ To minimize the risk of running out of space on your primary instance due to log
 
 You can use a Transact-SQL (T-SQL) script to back up the log file, such as the sample provided in this section. Replace the placeholders in the sample script with name of your database, name and path of the backup file, and the description.
 
-To backup your transaction log, use the following sample Transact-SQL (T-SQL) script: 
+To back up your transaction log, use the following sample Transact-SQL (T-SQL) script: 
 
 ```sql
 
@@ -62,11 +62,11 @@ The query output looks like the following example below for sample database **tp
 
 :::image type="content" source="./media/link-feature-best-practices/database-log-file-size.png" alt-text="Screenshot with results of the command showing log file size and space used":::
 
-In this example, the database has used 76% of the available log, with an absolute log file size of approximately 27 GB (27,971 MB). The thresholds for action may vary based on your workload, but its typically an indication that you should take a log backup to truncate log file and free up some space. 
+In this example, the database has used 76% of the available log, with an absolute log file size of approximately 27 GB (27,971 MB). The thresholds for action may vary based on your workload, but it's typically an indication that you should take a log backup to truncate log file and free up some space. 
 
-## Add start up trace flags
+## Add startup trace flags
 
-There are two trace flags (`-T1800` and `-T9567`) that, when added as start up parameters, can optimize the performance of data replication through the link. See [Enable start up trace flags](managed-instance-link-preparation.md#enable-startup-trace-flags) to learn more. 
+There are two trace flags (`-T1800` and `-T9567`) that, when added as start up parameters, can optimize the performance of data replication through the link. See [Enable startup trace flags](managed-instance-link-preparation.md#enable-startup-trace-flags) to learn more. 
 
 ## Next steps
 
