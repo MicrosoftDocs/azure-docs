@@ -4,7 +4,7 @@ metadata:
   description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
   services: active-directory
   author: kenwith
-  manager: karenhoran
+  manager: 
   ms.service: active-directory
   ms.subservice: app-proxy
   ms.workload: identity
@@ -21,12 +21,12 @@ sections:
     questions:
 
       - question: |
-         Can I modify an App Proxy app from the App registrations page in the Azure portal?
+         Can I modify an App Proxy app from the **App registrations** page in the Azure portal?
         answer: |
             No, the following configuration items are being used by app proxy and should not be altered or deleted:
-            1.	Enable/Disable “Allow public clients flows”.
-            2.	CWAP_AuthSecret (Client secrets).
-            3.	API Permissions.
+            -	Enable/Disable “Allow public clients flows”.
+            -	CWAP_AuthSecret (Client secrets).
+            -	API Permissions.
             Modifying any of the above configuration items on the App registration page will break pre-authentication for Azure AD Application Proxy. 
 
       - question: |
@@ -109,9 +109,9 @@ sections:
         answer: |
           There are Performance Monitor counters that are installed along with the connector. To view them:  
           
-          - Select **Start**, type "Perfmon", and press ENTER.
-          - Select **Performance Monitor** and click the green **+** icon.
-          - Add the **Microsoft Azure Active Directory Application Proxy Connector** counters you want to monitor.
+          1. Select **Start**, type "Perfmon", and press ENTER.
+          2. Select **Performance Monitor** and click the green **+** icon.
+          3. Add the **Microsoft Azure Active Directory Application Proxy Connector** counters you want to monitor.
           
       - question: |
          Does the Azure AD Application Proxy connector have to be on the same subnet as the resource?
@@ -136,7 +136,7 @@ sections:
   - name: Application configuration
     questions:
       - question: |
-         Can I use the domain suffixes `[tenantname].onmicrosoft.com` or `[tenantname].mail.onmicrosoft.com` in the external URL?
+         Can I use the domain suffixes [tenantname].onmicrosoft.com or [tenantname].mail.onmicrosoft.com in the external URL?
         answer: |
             Although these suffixes appear in the suffix list, you should not use them. These domain suffixes are not meant to be used with Azure AD Application Proxy. If you use these domain suffixes, the created Azure AD Application Proxy application won't work.
             You can use either the standard domain suffix `msappproxy.net` or a [custom domain](application-proxy-configure-custom-domain.md).
@@ -197,6 +197,17 @@ sections:
          Can I configure Application Proxy to add the HSTS header?
         answer: |
               Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap.
+
+      - question: |
+         Can I use a custom port number in the external URL?
+        answer: |
+              No, if the protocol `http` is configured in the external URL then the Azure AD Application Proxy endpoint accepts incoming request on the port TCP 80, if the protocol `https` then on the port TCP 443.
+
+      - question: |
+         Can I use a custom port number in the internal URL?
+        answer: |
+              Yes, some examples for internal URLs including ports: `http://app.contoso.local:8888/`, `https://app.contoso.local:8080/`, `https://app.contoso.local:8081/test/`.
+
 
   - name: Integrated Windows authentication
     questions:
