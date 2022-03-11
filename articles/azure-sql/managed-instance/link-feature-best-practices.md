@@ -11,7 +11,7 @@ ms.topic: guide
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma, danil
-ms.date: 03/10/2022
+ms.date: 03/11/2022
 ---
 # Best practices with link feature for Azure SQL Managed Instance (preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -23,10 +23,10 @@ This article outlines best practices when using the link feature for Azure SQL M
 
 ## Take log backups regularly
 
-The link feature replicates data using the [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups) concept based the Always On availability groups technology stack. Data replication with distributed availability groups is based on replicating transaction log records. No transaction log records can be truncated from the database on the primary instance until they're replicated to the database on the secondary instance. If transaction log record replication is slow or blocked due to network connection issues, the log file keeps growing on the primary instance. Growth speed depends on the intensity of workload and the network speed. If there's a prolonged network connection outage and heavy workload on primary instance, the log file may take all available storage space.
+The link feature replicates data using the [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups) concept based on the Always On availability groups technology stack. Data replication with distributed availability groups is based on replicating transaction log records. No transaction log records can be truncated from the database on the primary instance until they're replicated to the database on the secondary instance. If transaction log record replication is slow or blocked due to network connection issues, the log file keeps growing on the primary instance. Growth speed depends on the intensity of workload and the network speed. If there's a prolonged network connection outage and heavy workload on primary instance, the log file may take all available storage space.
 
 
-To minimize the risk of running out of space on your primary instance due to log file growth, make sure to take database log backups regularly. By taking log backups regularly, you make your database more resilient to unplanned log growth events. Consider scheduling daily log backup tasks using SQL Server Agent job.
+To minimize the risk of running out of space on your primary instance due to log file growth, make sure to **take database log backups regularly**. By taking log backups regularly, you make your database more resilient to unplanned log growth events. Consider scheduling daily log backup tasks using SQL Server Agent job.
 
 You can use a Transact-SQL (T-SQL) script to back up the log file, such as the sample provided in this section. Replace the placeholders in the sample script with name of your database, name and path of the backup file, and the description.
 
