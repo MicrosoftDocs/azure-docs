@@ -160,7 +160,7 @@ The IoT Edge project template in Visual Studio creates a solution that can be de
 
 1. In Visual Studio, create a new project.
 
-1. On the **Create a new project** page, search for **Azure IoT Edge**. Select the project that matches the platform and architecture for your IoT Edge device, and click **Next**.
+1. On the **Create a new project** page, search for **Azure IoT Edge**. Select the project that matches the platform and architecture for your IoT Edge device, and select **Next**.
 
    :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-project.png" alt-text="Create New Project":::
 
@@ -168,7 +168,7 @@ The IoT Edge project template in Visual Studio creates a solution that can be de
 
 1. On the **Add Module** window, select the type of module you want to develop. You can also select **Existing module** to add an existing IoT Edge module to your deployment. Specify your module name and module image repository.
 
-   Visual Studio autopopulates the repository URL with **localhost:5000/<module name\>**. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then replace **localhost:5000** with the login server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**.The final result should look like **\<*registry name*\>.azurecr.io/_\<module name\>_**.
+   Visual Studio autopopulates the repository URL with **localhost:5000/<module name\>**. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then replace **localhost:5000** with the log in server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**.The final result should look like **\<*registry name*\>.azurecr.io/_\<module name\>_**.
 
    Select **Add** to add your module to the project.
 
@@ -180,7 +180,7 @@ The module folder contains a file for your module code, named either `program.cs
 
 The project folder contains a list of all the modules included in that project. Right now it should show only one module, but you can add more.
 
-The project folder also contains a file named `deployment.template.json`. This file is a template of an IoT Edge deployment manifest, which defines all the modules that will run on a device along with how they will communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). If you open this deployment template, you see that the two runtime modules, **edgeAgent** and **edgeHub** are included, along with the custom module that you created in this Visual Studio project. A fourth module named **SimulatedTemperatureSensor** is also included. This default module generates simulated data that you can use to test your modules, or delete if it's not necessary. To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+The project folder also contains a file named `deployment.template.json`. This file is a template of an IoT Edge deployment manifest, which defines all the modules that will run on a device along with how they'll communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). If you open this deployment template, you see that the two runtime modules, **edgeAgent** and **edgeHub** are included, along with the custom module that you created in this Visual Studio project. A fourth module named **SimulatedTemperatureSensor** is also included. This default module generates simulated data that you can use to test your modules, or delete if it's not necessary. To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
 ### Set IoT Edge runtime version
 
@@ -218,7 +218,7 @@ When you're ready to customize the module template with your own code, use the [
 
 ## Build and push a single module
 
-Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules. Because the solution will be build and debug using the Docker engine running insde the EFLOW VM, the first step will be building and publishing the module to enable remote debugging. 
+Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules. Because the solution will be build and debug using the Docker engine running inside the EFLOW VM, the first step will be building and publishing the module to enable remote debugging. 
 
 1. In **Solution Explorer**, right-click the module folder and select **Set as StartUp Project** from the menu.
 
@@ -272,7 +272,7 @@ Typically, you'll want to test and debug each module before running it within an
    >[!NOTE]
    >This article uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
-1. It's necessary to expose port 22 to access the module SSH service. This tutorial uses 10022 as the host port, but you may specify a different port, which will be used as an SSH port to connect into the Linux C# module. You need to add the SSH port information to the "createOptions" of this Linux module settings found in the file `deployment.debug.template.json`. 
+1. It's necessary to expose port 22 to access the module SSH service. This tutorial uses 10022 as the host port, but you may specify a different port, which will be used as an SSH port to connect into the Linux C# module. You need to add the SSH port information to the "createOptions" of this Linux module setting found in the file `deployment.debug.template.json`. 
 
     ```json
          "createOptions": {
@@ -297,7 +297,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. Right-click on the IoT Edge device to create a deployment for it. Navigate to the debug deployment manifest configured for your platform located in the **config** folder in your Visual Studio solution, such as `deployment.amd64.json`.
 
-1. Click the refresh button to see the new module running along wit **$edgeAgent** and **$edgeHub** modules.
+1. Select the refresh button to see the new module running along wit **$edgeAgent** and **$edgeHub** modules.
 
 1. Using and elevated PowerShell session rung the following commands
 
@@ -322,7 +322,7 @@ Typically, you'll want to test and debug each module before running it within an
    >[!WARNING]
    >For security reasons, every time the EFLOW VM reboots, the IP table rule will delete and go back to the original settings. Also, the module SSH service will have to be started again manually
 
-1. After successfully starting SSH service, click **Debug** -> **Attach to Process**, set Connection Type to SSH, and Connection target to the IP address of your EFLOW VM. If you don’t know the EFLOW VM IP, you can use the `Get-EflowVmAddr` PowerShell cmdlet. First, type the IP and then press enter. In the pop-up window, input the following configurations:
+1. After successfully starting SSH service, select **Debug** -> **Attach to Process**, set Connection Type to SSH, and Connection target to the IP address of your EFLOW VM. If you don’t know the EFLOW VM IP, you can use the `Get-EflowVmAddr` PowerShell cmdlet. First, type the IP and then press enter. In the pop-up window, input the following configurations:
 
    | Field               | Value                                                             |
    |---------------------|-------------------------------------------------------------------|
@@ -336,7 +336,7 @@ Typically, you'll want to test and debug each module before running it within an
 
    ![Connect to Remote System](./media/tutorial-develop-for-linux-on-windows/connect-remote-system.png)
 
-1. After successfully connecting to the module using SSH, then you can choose the process and click Attach. For the C# module you need to choose process dotnet and “Attach to” to Managed (CoreCLR). It may take 10&ndash;20 seconds the first time you do so.
+1. After successfully connecting to the module using SSH, then you can choose the process and select Attach. For the C# module you need to choose process dotnet and “Attach to” to Managed (CoreCLR). It may take 10&ndash;20 seconds the first time you do so.
 
    ![Attach process](./media/tutorial-develop-for-linux-on-windows/attach-process.png)
 
@@ -345,10 +345,10 @@ Typically, you'll want to test and debug each module before running it within an
    * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
-1. The output of the the **SimulatedTemperatureSensor** should be redirected to **input1** of the custom Linux C# module. The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.
+1. The output of the **SimulatedTemperatureSensor** should be redirected to **input1** of the custom Linux C# module. The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.
 
    ![Debug Single Module](./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png)
 
-1. Press **Ctrl + F5** or click the stop button to stop debugging.
+1. Press **Ctrl + F5** or select the stop button to stop debugging.
 
 
