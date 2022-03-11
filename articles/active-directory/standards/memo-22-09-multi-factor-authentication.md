@@ -1,5 +1,5 @@
 ---
-title: Memo 22-09 multi-factor authentication requirements overview| Azure Active Directory
+title: Memo 22-09 multi-factor authentication requirements overview
 description: Guidance on meeting multi-factor authentication requirements outlined in US government OMB memorandum 22-09
 services: active-directory 
 ms.service: active-directory
@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 
 # Multi-factor authentication
 
-This series of articles offer guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles as described by the US Federal Government’s Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Throughout this document. We refer to it as “The Memo.”
+This series of articles offer guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles as described by the US Federal Government’s Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Throughout this document we refer to it as "The Memo."
 
 The Memo requires that all employees use enterprise-managed identities to access applications, and that phishing-resistant multi-factor authentication (MFA) protect those personnel from sophisticated online attacks. *Phishing* is the attempt to obtain and compromise credentials, for example through sending a spoofed email that leads to an inauthentic site.
 
-Adoption of MFA is critical to preventing unauthorized access to accounts and data. The Memo requires MFA usage with phishing resistant methods, defined as “authentication processes designed to detect and prevent disclosure of authentication secrets and outputs to a website or application masquerading as a legitimate system.” The first step is to establish what MFA methods qualify as phishing resistant.
+Adoption of MFA is critical to preventing unauthorized access to accounts and data. The Memo requires MFA usage with phishing resistant methods, defined as "authentication processes designed to detect and prevent disclosure of authentication secrets and outputs to a website or application masquerading as a legitimate system." The first step is to establish what MFA methods qualify as phishing resistant.
 
 ## Phishing resistant methods
 
