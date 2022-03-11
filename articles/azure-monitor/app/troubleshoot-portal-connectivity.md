@@ -1,6 +1,8 @@
 ---
 title: Application Insights portal connectivity troubleshooting 
 description: Troubleshooting steps for Application Insights portal connectivity issues
+services: azure-monitor
+ms.topic: conceptual
 ms.date: 03/09/2022
 ---
 
