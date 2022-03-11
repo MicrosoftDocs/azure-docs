@@ -64,7 +64,7 @@ The simulated device application connects to a device-specific endpoint on your 
 2. Run the following command to install the required packages for simulated device application:
 
     ```cmd/sh
-    dotnet res/tore
+    dotnet restore
     ```
 
 3. Run the following command to build and run the simulated device application.
