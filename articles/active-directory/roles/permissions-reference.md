@@ -1210,7 +1210,7 @@ This role was previously called "Password Administrator" in the [Azure portal](h
 
 ## Hybrid Identity Administrator
 
-Users in this role can create, manage and deploy provisioning configuration setup from AD to Azure AD using Cloud Provisioning as well as manage Azure AD Connect and federation settings. Users can also troubleshoot and monitor logs using this role.
+Users in this role can create, manage and deploy provisioning configuration setup from AD to Azure AD using Cloud Provisioning as well as manage Azure AD Connect, PTA, PHS, Seamless SSO, and federation settings. Users can also troubleshoot and monitor logs using this role.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
