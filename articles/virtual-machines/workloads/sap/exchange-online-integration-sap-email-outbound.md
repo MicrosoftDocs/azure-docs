@@ -185,11 +185,11 @@ SMTP relay lets Microsoft 365 relay emails on your behalf by using a connector t
 
 2. Sign in to the [Microsoft 365 Admin Center](https://admin.microsoft.com/).
 
-![Microsoft 365 AC sign in](media/exchange-online-integration/Microsoft 365_admin_center_sec3.2.png)
+![Microsoft 365 AC sign in](media/exchange-online-integration/Microsoft_365_admin_center_sec3.2.png)
 
 3. Go to **Settings** -> **Domains**, select your domain (for example, contoso.com), and find the MX record.
 
-![Where to retrieve the domain mx record](media/exchange-online-integration/Microsoft 365_admin_center_Domains_sec3.3.png)
+![Where to retrieve the domain mx record](media/exchange-online-integration/Microsoft_365_admin_center_Domains_sec3.3.png)
 
 The MX record will have data for **Points to address or value** that looks similar to `yourdomain.mail.protection.outlook.com`.
 
@@ -197,7 +197,7 @@ The MX record will have data for **Points to address or value** that looks simil
 
 5. In Microsoft 365, select **Admin** and then **Exchange** to go to the new Exchange Admin Center.
 
-![Microsoft 365 Admin Center](media/exchange-online-integration/Microsoft 365_admin_center_exchange_sec3.5.png)
+![Microsoft 365 Admin Center](media/exchange-online-integration/Microsoft_365_admin_center_exchange_sec3.5.png)
 
 6. Choose Mailboxes.
 
