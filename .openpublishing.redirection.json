@@ -709,6 +709,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/concept-rule-set-url-redirect-and-rewrite.md",
+      "redirect_url": "/azure/frontdoor/front-door-url-redirect",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
@@ -9139,8 +9144,18 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-resource-manager/managed-application-createuidefinition-overview.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/create-uidefinition-overview",
+      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-create-application.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/scripts/managed-application-define-create-cli-sample",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-create-definition.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/scripts/managed-application-define-create-cli-sample",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-get-managed-group-resize-vm.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/update-managed-resources",
       "redirect_document_id": false
     },
     {
