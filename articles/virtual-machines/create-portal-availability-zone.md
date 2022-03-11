@@ -4,7 +4,7 @@ description: Create VMs in an availability zone with the Azure portal
 author: mimckitt
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 03/11/2022
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: 
@@ -77,9 +77,11 @@ Some people will see a new preview experience in the portal. If **Availabiity op
    1. For HTTP load balancing, you can leave the defaults and then select **Create**. For HTTPS load balancing, you have two options:
             
         - Upload a certificate and add the password (application gateway will manage certificate storage).For certificate name, type a friendly name for the certificate.
-        - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**. For HTTPs application gateways, please ensure that:
-                -The application gateway certificate is uploaded onto the VM(s) or, 
-                -The domain name (DNS) of the VM certificate(s) matches with the domain name (DNS) of the application gateway certificate by logging into the VM(S)
+        - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**. 
+        
+        > [!IMPORTANT]
+        > After the VMs and application gateway are deployed, log in to the VMs to ensure that either the application gateway certificate is uploaded onto the VMs or the domain name of the VM certificate matches with the domain name of the application gateway.
+
         > [!NOTE]
         > A separate subnet will be defined for Application Gateway upon creation. For more information, see [Application Gateway infrastructure configuration](../application-gateway/configuration-infrastructure.md).
 
