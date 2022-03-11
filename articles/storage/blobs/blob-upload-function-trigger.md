@@ -1,12 +1,11 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+title: Upload and process a file with Azure Functions and Blob Storage
+description: Learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Cognitive Services
+author: alexwolfmsft
+ms.author: alexwolf
+ms.service: storage, functions
+ms.topic: tutorial
+ms.date: 3/11/2022
 ---
 
 # Tutorial: Upload and process a file with Azure Functions and Blob Storage
@@ -55,7 +54,7 @@ On the **Create a storage account** page, enter the following values:
  5) **Performance**: Choose **Standard**.
  6) **Redundancy**: Leave the default value selected.
  
-:::image type="content" source="./media/blob-upload-storage-function/portal-storage-create-small.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure."  lightbox="media/blob-upload-storage-function/portal-storage-create.png":::
+:::image type="content" source="./media/blob-upload-storage-function/portal-storage-create-small.png" alt-text="A screenshot showing how create a Storage Account in Azure."  lightbox="media/blob-upload-storage-function/portal-storage-create.png":::
  
 Select **Review + Create** at the bottom, and Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create**.  Azure will begin provisioning the Storage Account, which make take a moment.
 
@@ -63,11 +62,11 @@ After the Storage Account is provisioned, select **Go to Resource**. We need to 
 
 On the left navigation, choose **Containers**.
 
-:::image type="content" source="./media/blob-upload-storage-function/portal-storage-containers-small.png" lightbox="./media/blob-upload-storage-function/portal-storage-containers.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+:::image type="content" source="./media/blob-upload-storage-function/portal-storage-containers-small.png" lightbox="./media/blob-upload-storage-function/portal-storage-containers.png" alt-text="A screenshot showing how to navigate to the Storage Account containers." :::
 
 On the **Containers** page, select **+ Container** at the top. In the slide out panel, enter a **Name** of *ImageAnalysis*, and then leave the **Public access level** at **Private (no anonymous access)**.  Then click **Create**.
 
-:::image type="content" source="./media/blob-upload-storage-function/portal-container-create.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+:::image type="content" source="./media/blob-upload-storage-function/portal-container-create.png" alt-text="A screenshot showing how to create a new Storage Container." :::
 
 You should see your new container populate in the list of containers.
 
@@ -88,7 +87,7 @@ You may need to wait a few moments for Azure to provision these resources.
 ---
 
 ## 2) Create the Computer Vision Account
-Next let's create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive services and offers a variety of features for extracting data out of images.  [You can learn more about Computer Vision here](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/#overview).
+Next let's create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive services and offers a variety of features for extracting data out of images.  [You can learn more about Computer Vision here](/services/cognitive-services/computer-vision/#overview).
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -105,7 +104,7 @@ On the **Create Computer Vision** page, enter the following values:
  1) **Pricing Tier**: Choose **Free** if it is available, otherwise choose **Standard S1**.
  1) Check the **Responsible AI Notice** box if you agree to the terms
 
-:::image type="content" lightbox="./media/blob-upload-storage-function/computer-vision-create.png" source="./media/blob-upload-storage-function/computer-vision-create-small.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+:::image type="content" lightbox="./media/blob-upload-storage-function/computer-vision-create.png" source="./media/blob-upload-storage-function/computer-vision-create-small.png" alt-text="A screenshot showing how to create a new Computer Vision service." :::
  
 Select **Review + Create** at the bottom, and Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create**.  Azure will begin provisioning the the Computer Vision service, which make take a moment.
 
@@ -115,7 +114,7 @@ Next, we need to find the secret key and endpoint URL for the Computer Vision se
 
  On the **Keys and EndPoint** page, copy the **Key 1** value and the **EndPoint** values and paste them somewhere to use for later.
 
-:::image type="content" source="./media/blob-upload-storage-function/computer-vision-endpoints.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+:::image type="content" source="./media/blob-upload-storage-function/computer-vision-endpoints.png" alt-text="A screenshot showing how to retrieves the Keys and URL Endpoint for a Computer Vision service." :::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -240,11 +239,11 @@ To begin, right click on the **ProcessImage** project node and select Publish.
 
 On the **Publish** dialog screen, select Azure and choose **Next**.
 
-:::image type="content" source="./media/blob-upload-storage-function/visual-studio-publish-target.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+:::image type="content" source="./media/blob-upload-storage-function/visual-studio-publish-target.png" alt-text="A screenshot showing how to select Azure as the deployment target." :::
  
 Select **Azure Function App (Windows)** or **Azure Function App (Linux)** on the next screen, and then choose **Next** again.
 
-:::image type="content" source="./media/blob-upload-storage-function/visual-studio-publish-specific-target.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+:::image type="content" source="./media/blob-upload-storage-function/visual-studio-publish-specific-target.png" alt-text="A screenshot showing how to choose Azure Functions as a specific deployment target." :::
 
 On the **Functions instance** step, make sure to choose the subscription you'd like to deploy to. Next, click on the green **+** symbol on the right side of the dialog.
 
@@ -257,7 +256,7 @@ A new dialog will open.  Enter the following values for your new Function App.
 - **Location**: Choose the region closest to you.
 - **Azure Storage**: Select the Storage Account you created earlier.
 
-:::image type="content" source="./media/blob-upload-storage-function/visual-studio-create-function-app.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+:::image type="content" source="./media/blob-upload-storage-function/visual-studio-create-function-app.png" alt-text="A screenshot showing how to create a new Function App in Azure." :::
 
 Once you have filled in all of those values, click **Create**. Visual Studio and Azure will begin provisioning the requested resources, which may take a few moments to complete.
 
@@ -284,7 +283,7 @@ On the **Application settings** tab, select **+ New application setting**. In th
 
 Click **OK** to add this setting to your app.
 
-:::image type="content" source="./media/blob-upload-storage-function/function-app-settings.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+:::image type="content" source="./media/blob-upload-storage-function/function-app-settings.png" alt-text="A screenshot showing how to add a new application setting to an Azure Function." :::
 
 Next, let's repeat this process for the endpoint of our Computer Vision service, using the following values:
 
@@ -314,13 +313,13 @@ First, at the top of the Azure portal, search for *Storage* and click on **Stora
 
 Next, click **Containers** on the left nav, and then navigate into the **ImageAnalysis** container we created earlier.  From here we can upload a test image right inside the browser. 
 
-:::image type="content" source="./media/blob-upload-storage-function/storage-container-browse.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+:::image type="content" source="./media/blob-upload-storage-function/storage-container-browse.png" alt-text="A screenshot showing how to navigate to a Store Container." :::
 
 You can find a few sample images included in the **images** folder at the root of the downloadable sample project, or you can use one of your own.
 
 At the top of the **ImageAnalysis** page, select  **Upload**.  In the flyout that opens, select the folder icon on the right to open up a file browser.  Choose the image you'd like to upload, and then click **Upload**.
 
-:::image type="content" source="./media/blob-upload-storage-function/storage-container-upload.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+:::image type="content" source="./media/blob-upload-storage-function/storage-container-upload.png" alt-text="A screenshot showing how to upload a blob to an Azure Storage Container." :::
 
 The file should appear inside of your blob container. Next we need to verify that the upload triggered our Azure Function, and that our the text in our image was analyzed and saved to table storage properly.
 
@@ -328,7 +327,7 @@ Using the breadcrumbs at the top of the page, navigate up one level in your Stor
 
 We should see the **ImageText** table we created earlier.  Click on this Table to navigate to preview the data rows inside of it.  You should see an entry for the processed image text of our upload.  You can verify this using either the Timestamp, or by viewing the content of the **Text** column.
 
-:::image type="content" source="./media/blob-upload-storage-function/storage-table.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::
+:::image type="content" source="./media/blob-upload-storage-function/storage-table.png" alt-text="A screenshot showing a text entry in Azure Table Storage." :::
 
 Congratulations! You succeeded in processing an image that was uploaded to Blob Storage using Azure Functions and Computer Vision.
 
@@ -336,7 +335,7 @@ Congratulations! You succeeded in processing an image that was uploaded to Blob 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
-<resources> with the following steps:
+resources with the following steps:
 
 1. From the left-hand menu...
 1. ...click Delete, type...and then click Delete
@@ -345,6 +344,4 @@ If you're not going to continue to use this application, delete
 ## Next steps
 
 Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
 
