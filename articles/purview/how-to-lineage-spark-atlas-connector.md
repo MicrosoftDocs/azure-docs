@@ -32,7 +32,7 @@ The connectors require a version of Spark 2.4.0+. But Spark version 3 is not sup
 | spark.sql.queryExecutionListeners	| 2.3.0 |
 | spark.sql.streaming.streamingQueryListeners |	2.4.0 |
 
->[IMPORTANT]
+>[!IMPORTANT]
 > * If the Spark cluster version is below 2.4.0, Stream query lineage and most of the query lineage will not be captured.
 >
 > * Spark version 3 is not supported.
