@@ -90,7 +90,7 @@ Square support two types of access token: **personal** and **OAuth**.
 Authentication via personal access token only needs `accessToken`, while authentication via OAuth requires `accessToken` and `refreshToken`. Learn how to retrieve access token from [here](https://developer.squareup.com/docs/build-basics/access-tokens).
 
 >[!Note]
-> Define the scope when you get OAuth access tokens and refresh tokens in Square. The scope should at least be set as below:
+> Define the scope when you acquire OAuth access tokens and refresh tokens if you want to use them in this connector. The scope should at least be set as below:
 >`BANK_ACCOUNTS_READ+CUSTOMERS_READ+ITEMS_READ+EMPLOYEES_READ+DISPUTES_READ+GIFTCARDS_READ+INVENTORY_READ+INVOICES_READ+TIMECARDS_READ+PAYMENTS_READ+SUBSCRIPTIONS_READ+ORDERS_READ+LOYALTY_READ+MERCHANT_PROFILE_READ+SETTLEMENTS_READ` 
 
 **Example:**
