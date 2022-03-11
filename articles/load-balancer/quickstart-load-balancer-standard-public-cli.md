@@ -172,7 +172,7 @@ Create a network security group rule using [az network nsg rule create](/cli/azu
 
 ## Create a bastion host
 
-In this section, you'll create a NAT gateway to provide outbound internet access for resources in the virtual network.
+In this section, you'll create te resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
 
 ### Create a public IP address
 
