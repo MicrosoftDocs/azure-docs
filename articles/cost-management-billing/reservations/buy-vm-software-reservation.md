@@ -1,5 +1,5 @@
 ---
-title: Prepay for Azure virtual machine software reservations
+title: Prepay for Virtual machine software reservations
 description: Learn how to prepay for Azure virtual machine software reservations to save money.
 author: bandersmsft
 ms.reviewer: primittal
@@ -10,7 +10,7 @@ ms.date: 03/09/2022
 ms.author: banders
 ---
 
-# Prepay for Azure virtual machine software reservations
+# Prepay for Virtual machine software reservations
 
 When you prepay for your virtual machine software usage (available in the Azure Marketplace), you can save money over your pay-as-you-go costs. The discount is automatically applied to a deployed plan that matches the reservation, not on the virtual machine usage. You can buy reservations for virtual machines separately for more savings.
 
@@ -26,7 +26,7 @@ You can buy virtual machine software reservation in the Azure portal. To buy a r
 2. Select **Add** and then select the Virtual machine software reservation that you want to buy.
 Fill in the required fields. Any virtual machine software reservation that matches the attributes of what you buy gets a discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
 3. Select a subscription. It's used to pay for the plan.
-The subscription payment method is charged the upfront costs for the reservation. The subscription type must be an Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
+The subscription payment method is charged the upfront costs for the reservation. To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (MS-AZR-0003P or MS-AZR-0023P) or Microsoft Customer Agreement.
     - For an enterprise subscription, these reservation purchase charges are not deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance. The charges are billed to the subscription's credit card or invoice payment method.
     - For an individual subscription with pay-as-you-go pricing, the charges are billed to the subscription's credit card or invoice payment method.
 4. Select a scope. The scope can cover one subscription or multiple subscriptions (using a shared scope).
