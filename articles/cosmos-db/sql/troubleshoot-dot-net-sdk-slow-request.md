@@ -178,9 +178,9 @@ If it's still slow, different patterns point to different problems. The followin
 | SLA violated | `StorePhysicalAddress` have the same partition ID, but different replica IDs, with no failure status code. | Likely a problem with Azure Cosmos DB. |
 | SLA violated | `StorePhysicalAddress` is random, with no failure status code. | Points to a problem with the machine. |
 
-For multiple store results for single request, be aware of the following:
+For multiple store results for a single request, be aware of the following:
 
-* Strong and bounded staleness consistency always have at least two store results.
+* Strong consistency and bounded staleness consistency always have at least two store results.
 * Check the status code of each `StoreResult`. The SDK retries automatically on multiple different [transient failures](troubleshoot-dot-net-sdk-request-timeout.md). The SDK is constantly improved to cover more scenarios. 
 
 ### <a name="rntbdRequestStats"></a>RntbdRequestStats 
@@ -190,7 +190,7 @@ Show the time for the different stages of sending and receiving a request in the
 * `ChannelAcquisitionStarted`: The time to get or create a new connection. You can create new connections for numerous different regions. For example, let's say that a connection was unexpectedly closed, or too many requests were getting sent through the existing connections. You create a new connection. 
 * *Pipelined time is large* might be caused by a large request.
 * *Transit time is large*, which leads to a networking problem. Compare this number to the `BELatencyInMs`. If `BELatencyInMs` is small, then the time was spent on the network, and not on the Azure Cosmos DB service.
-* *Received time is large* might be caused by a thread starvation problem. This the time between having the response and returning the result.
+* *Received time is large* might be caused by a thread starvation problem. This is the time between having the response and returning the result.
 
 ```json
 "StoreResult": {
