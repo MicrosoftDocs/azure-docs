@@ -3,7 +3,7 @@ title: Enable Container Storage Interface (CSI) drivers on Azure Kubernetes Serv
 description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure disks and Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 03/10/2022
+ms.date: 03/11/2022
 author: palma21
 
 ---
@@ -107,7 +107,7 @@ The CSI storage system supports the same features as the In-tree drivers, so the
 
 ### Migrating in-tree Azure Disk persistent volumes
 
-If you have in-tree Azure Disk persistent volumes, get disk ID from `azureDisk.diskURI` and then follow this [guide][azure-disk-static-mount] to set up CSI driver persistent volumes
+If you have in-tree Azure Disk persistent volumes, get `diskURI` from in-tree persistent volumes and then follow this [guide][azure-disk-static-mount] to set up CSI driver persistent volumes
 
 ### Migrating in-tree Azure File persistent volumes
 
