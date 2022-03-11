@@ -7,7 +7,7 @@ ms.subservice: security
 author: AndreasWolter
 ms.author: anwolter
 ms.topic: conceptual
-ms.date: 03/11/2022
+ms.date: 03/14/2022
 ms.reviewer: kendralittle, vanto, mathoma
 ---
 
@@ -186,10 +186,10 @@ SELECT roles.principal_id AS RolePID,roles.name AS RolePName,
        INNER JOIN sys.server_principals AS roles
        ON server_role_members.role_principal_id = roles.principal_id
        INNER JOIN sys.server_principals AS members 
-      ON server_role_members.member_principal_id = members.principal_id;
+       ON server_role_members.member_principal_id = members.principal_id;
 ```
 
-### E. Check the virtual master database roles for specific user
+### E. Check the virtual master database roles for specific logins
 
 Run this command in the virtual master database to check with roles `bob` has, or change the value to match your principal.
 
