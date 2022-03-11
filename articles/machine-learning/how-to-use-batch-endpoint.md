@@ -202,7 +202,7 @@ There are three options to specify the data inputs in CLI `invoke`.
 
 * __Option 2: Registered dataset__
 
-    Use `--input-dataset` to pass in an Azure Machine Learning registered dataset. To create a dataset, check `az ml dataset create -h` for instruction, and follow the [Dataset schema](reference-yaml-dataset.md#yaml-syntax).
+    Use `--input-dataset` to pass in an Azure Machine Learning registered dataset. To create a dataset, check `az ml dataset create -h` for instruction, and follow the [Dataset schema](reference-yaml-data.md#yaml-syntax).
 
     > [!NOTE]
     > FileDataset that is created using the preceding version of the CLI and Python SDK can also be used. TabularDataset is not supported. 

@@ -689,7 +689,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-rules-set-action.md",
+      "source_path_from_root": "/articles/frontdoor/concept-rule-set-actions.md",
       "redirect_url": "/azure/frontdoor/front-door-rules-engine-actions",
       "redirect_document_id": false
     },
@@ -706,6 +706,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/concept-route.md",
       "redirect_url": "/azure/frontdoor/front-door-route-matching",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-rule-set-url-redirect-and-rewrite.md",
+      "redirect_url": "/azure/frontdoor/front-door-url-redirect",
       "redirect_document_id": false
     },
     {
@@ -9139,8 +9144,18 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-resource-manager/managed-application-createuidefinition-overview.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/create-uidefinition-overview",
+      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-create-application.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/scripts/managed-application-define-create-cli-sample",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-create-definition.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/scripts/managed-application-define-create-cli-sample",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-get-managed-group-resize-vm.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/update-managed-resources",
       "redirect_document_id": false
     },
     {

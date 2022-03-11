@@ -753,7 +753,7 @@
         - name: Environment
           href: reference-yaml-environment.md
         - name: Data
-          href: reference-yaml-dataset.md
+          href: reference-yaml-data.md
         - name: Model
           href: reference-yaml-model.md
         - name: Compute
