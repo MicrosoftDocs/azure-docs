@@ -12,11 +12,11 @@ services: azure-maps
 
 # Show the correct copyright attribution
 
-When using the [Azure Maps Render service V2](/rest/api/maps/renderv2), either as a Basemap or layer, you are required to show attribution to all data providers that contribute to the information that is displayed. This information appears in the bottom right hand side of the map.
+When using the [Azure Maps Render service V2](/rest/api/maps/renderv2), either as a basemap or layer, you are required to display the appropriate data provider copyright attribution on the map. This information should be displayed in the lower right hand corner of the map.
 
 :::image type="content" source="./media/how-to-show-attribution/attribution-road.png" border="false" alt-text="Example of a map from the Render service V2 showing the attribution when using the road style":::
 
-The above image is an example of a map from the Render service V2 showing the attribution in the lower right hand corner when using the road style.
+The above image is an example of a map from the Render service V2 showing the attribution in the lower right hand corner of the map when using the road style.
 
 :::image type="content" source="./media/how-to-show-attribution/attribution-satellite.png" border="false" alt-text="Example of a map from the Render service V2 showing the attribution when using the satellite style":::
 
@@ -24,17 +24,17 @@ The above image is an example of a map from the Render service V2 showing the at
 
 ## The Get Map Attribution API
 
-The [Get Map Attribution API](/rest/api/maps/render-v2/get-map-attribution) enables you to to request map copyright attribution information and display it in your applications.
+The [Get Map Attribution API](/rest/api/maps/render-v2/get-map-attribution) enables you to request map copyright attribution information and display it on the map within your applications.
 
 ### When to use the Get Map Attribution API
 
-The map copyright attribution information must be displayed in any application that use the Render V2 API, including web and mobile applications.
+The map copyright attribution information must be displayed on the map in any application that use the Render V2 API, including web and mobile applications.
 
-When using any of the Azure Maps SDKs, the map copyright attribution information is automatically displayed and updated. This includes the [Web SDK](how-to-use-map-control.md), [Android SDK](how-to-use-android-map-control-library.md) and the [iOS SDK](how-to-use-ios-map-control-library.md).
+When using any of the Azure Maps SDKs, the map copyright attribution information is automatically displayed and updated on the map. This includes the [Web SDK](how-to-use-map-control.md), [Android SDK](how-to-use-android-map-control-library.md) and the [iOS SDK](how-to-use-ios-map-control-library.md).
 
-When using the Render service in any third party mapping SDK, the map copyright attribution information must be manually updated.
+When using map tiles from the Render service in a third-party map SDK, you must display and update the copyright attribution information on the map.
 
-Map content changes whenever an end user selects a different style, zooms in or out, or pans their map. Each of these user actions causes an event to fire and when any of these events fire, you need to call the Get Map Attribution API to update the map copyright attribution information displayed in the lower right hand corner of the map.
+Map content changes whenever an end user selects a different style, zooms in or out, or pans the map. Each of these user actions causes an event to fire and when any of these events fire, you need to call the Get Map Attribution API to update the map copyright attribution information displayed in the lower right hand corner of the map.
 
 Since the data providers can differ depending on the *region* and *zoom* level, the Get Map Attribution API takes these parameters as input and returns the corresponding attribution text.
 
@@ -50,7 +50,7 @@ You will need the following information to run the `attribution` command:
 | zoom | integer | Zoom level for the selected tile. The valid range depends on the tile, see the [TilesetID](rest/api/maps/render-v2/get-map-attribution#tilesetid) table for valid values for a specific tileset. For additional information see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) article. |
 | subscription-key | string | One of the Azure Maps keys provided from an Azure Map Account. For additional information see the [Authentication with Azure Maps](azure-maps-authentication.md) article. |
 
-Run the following GET command:
+Run the following GET request to get the corresponding copyright attribution to display on the map:
 
 ```http
 https://atlas.microsoft.com/map/attribution?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.1&tilesetId=microsoft.base&zoom=6&bounds=-122.414162,47.579490,-122.247157,47.668372
