@@ -103,7 +103,7 @@ A virtual network and subnet is required for the resources in the tutorial. In t
     | NIC network security group | Select **Advanced**. |
     | Configure network security group | Select the existing **myNSG** |
 
-## Create load balancer
+## Create a load balancer
 
 You'll create a load balancer in this section. The frontend IP, backend pool, load-balancing, and inbound NAT rules are configured as part of the creation.
 
@@ -247,7 +247,7 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
 
 33. Select **Create**.
 
-## Create NAT gateway
+## Create a NAT gateway
 
 In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
 
