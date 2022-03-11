@@ -26,7 +26,7 @@ Form Recognizer uses the following models to easily identify, extract, and analy
 * [**Read model**](concept-read.md) | Extract printed and handwritten text lines, words, locations, and detected languages from documents and images.
 * [**General document model**](concept-general-document.md) | Extract key-value pairs, selection marks, and entities from documents.
 * [**Invoice model**](concept-invoice.md) | Extract text, selection marks, tables, key-value pairs, and key information from invoices.
-* [**Receipt model**](concept-receipt.md) | Extract text and key information from receipts.|
+* [**Receipt model**](concept-receipt.md) | Extract text and key information from receipts.
 * [**ID document model**](concept-id-document.md) | Extract text and key information from driver licenses and international passports.
 * [**Business card model**](concept-business-card.md) | Extract text and key information from business cards.
 

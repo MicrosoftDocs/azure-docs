@@ -362,11 +362,10 @@ if __name__ == "__main__":
 
 ## Prebuilt model
 
-In this example, we'll analyze an invoice using the prebuilt-invoice model.
+In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
-##### Choose a prebuilt model ID
-
-You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [Model data extraction](../concept-model-overview.md#model-data-extraction).
+> [!TIP]
+> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../concept-model-overview.md#model-data-extraction).
 
 #### Try the prebuilt invoice model
 
