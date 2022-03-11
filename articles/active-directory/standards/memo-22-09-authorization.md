@@ -1,5 +1,5 @@
 ---
-title: Memo 22-09 authorization requirements  | Azure Active Directory
+title: Memo 22-09 authorization requirements 
 description: Guidance on meeting authorization requirements outlined in US government OMB memorandum 22-09
 services: active-directory 
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Authorization
+# Meet authorization requirements for Memorandum 22-09
 
 This series of articles offer guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles as described by the US Federal Government’s Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Throughout this document. We refer to it as “The memo.”
 
@@ -37,7 +37,7 @@ Hybrid Azure AD joined since the device is managed by active directory also qual
 
 ##  Role-based access controls
 
-Role based access control (RBAC role) remains an important way to enforce basic authorizations through assignments of users to a role in a particular scope. Azure AD has tools that make RBAC assignment and lifecycle management easier. This includes assigning access using [entitlement management](../governance/entitlement-management-overview.md) features, include [Access Packages](..y/governance/entitlement-management-access-package-create.md) and [Access Reviews](../governance/access-reviews-overview.md). These ease the burden of managing authorizations by providing self-service requests and automated functions to managed the lifecycle, for example by automatically ending access based of specific criteria.
+Role based access control (RBAC role) remains an important way to enforce basic authorizations through assignments of users to a role in a particular scope. Azure AD has tools that make RBAC assignment and lifecycle management easier. This includes assigning access using [entitlement management](../governance/entitlement-management-overview.md) features, include [Access Packages](../governance/entitlement-management-access-package-create.md) and [Access Reviews](../governance/access-reviews-overview.md). These ease the burden of managing authorizations by providing self-service requests and automated functions to managed the lifecycle, for example by automatically ending access based of specific criteria.
 
 ## Attribute-based controls
 
@@ -51,17 +51,17 @@ Attributes assigned to users and stored in Azure AD can be leveraged to create a
 
 Azure AD allows integration of an authorization directly to the data. You can create integrate authorization in multiple ways.
 
-You can configure [authentication context](../conditional-access/concept-conditional-access-cloud-apps.md) within Conditional Access Policies. This allows you to, for example, restrict which actions a user can take within an application or on specific data. These authentication contexts are then mapped within the data source itself. Data sources can be office files like word and excel or SharePoint sites that use  mapped to your authentication context. An example of this integration is shown [here](%20/sharepoint/authentication-context-example). 
+You can configure [authentication context](../conditional-access/concept-conditional-access-cloud-apps.md) within Conditional Access Policies. This allows you to, for example, restrict which actions a user can take within an application or on specific data. These authentication contexts are then mapped within the data source itself. Data sources can be office files like word and excel or SharePoint sites that use  mapped to your authentication context. An example of this integration is shown [here](/sharepoint/authentication-context-example). 
 
-You can also leverage authentication context assigned to data directly in your applications. This requires integration with the application code and [developers](%20../develop/developer-guide-conditional-access-authentication-context.md) to adopt this capability. Authentication context integration with Microsoft Defender for Cloud Apps can be used to control [actions taken on data using session controls](%20/defender-cloud-apps/session-policy-aad?branch=pr-en-us-2082). Dynamic groups mentioned previously when combined with Authentication context allow you to control user access mappings between the data and the user attributes. 
+You can also leverage authentication context assigned to data directly in your applications. This requires integration with the application code and [developers](../develop/developer-guide-conditional-access-authentication-context.md) to adopt this capability. Authentication context integration with Microsoft Defender for Cloud Apps can be used to control [actions taken on data using session controls](/defender-cloud-apps/session-policy-aad). Dynamic groups mentioned previously when combined with Authentication context allow you to control user access mappings between the data and the user attributes. 
 
 ### Attributes assigned to resources
 
-Azure includes [ABAC for Storage](../../azure/role-based-access-control/conditions-overview.md) which allows the assignment of metadata tags on data stored in an Azure blob storage account. This metadata can then be assigned to users using role assignments to grant access. Other Azure services will incorporate this feature in the future. 
+Azure includes [ABAC for Storage](../../role-based-access-control/conditions-overview.md) which allows the assignment of metadata tags on data stored in an Azure blob storage account. This metadata can then be assigned to users using role assignments to grant access. Other Azure services will incorporate this feature in the future. 
 
 ## Privileged Access Management 
 
-The memo specifically calls out the use of privileged access management tools that leverage single factor ephemeral credentials for accessing systems as insufficient. These technologies often include password vault products that accept MFA logon for an admin and produce a generated password for an alternate account used to access the system. The system being accessed is still accessed with a single factor. Microsoft has tools for implementing [Privileged identity management](..%20/privileged-identity-management/pim-configure.md) (PIM) for privileged systems with the central identity management system of Azure AD. Using the methods described in the MFA section you can enforce MFA for most privileged systems directly, whether these are applications, infrastructure, or devices. Azure also features PIM capabilities to step up into a specific privileged role. This requires implementation of PIM with Azure AD identities and identifying those systems that are privileged and require additional protections to prevent lateral movement. Configuration guidance is located [here](../privileged-identity-management/pim-deployment-plan.md).
+The memo specifically calls out the use of privileged access management tools that leverage single factor ephemeral credentials for accessing systems as insufficient. These technologies often include password vault products that accept MFA logon for an admin and produce a generated password for an alternate account used to access the system. The system being accessed is still accessed with a single factor. Microsoft has tools for implementing [Privileged identity management](../privileged-identity-management/pim-configure.md) (PIM) for privileged systems with the central identity management system of Azure AD. Using the methods described in the MFA section you can enforce MFA for most privileged systems directly, whether these are applications, infrastructure, or devices. Azure also features PIM capabilities to step up into a specific privileged role. This requires implementation of PIM with Azure AD identities and identifying those systems that are privileged and require additional protections to prevent lateral movement. Configuration guidance is located [here](../privileged-identity-management/pim-deployment-plan.md).
 
 ## Next steps
 
