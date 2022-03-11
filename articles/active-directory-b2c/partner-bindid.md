@@ -51,7 +51,7 @@ To get started, you'll need:
 
 ::: zone pivot="b2c-custom-policy"
 
-- You can use Azure AD B2C custom policies. If you can't, complete the steps in [Get started with custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy) to learn how to use custom policies.
+- Ability to use Azure AD B2C custom policies. If you can't, complete the steps in [Get started with custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy) to learn how to use custom policies.
 
 ::: zone-end
 
