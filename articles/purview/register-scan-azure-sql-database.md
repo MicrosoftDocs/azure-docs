@@ -125,7 +125,7 @@ Select your method of authentication from the tabs below for steps to authentica
 > [!Note]
 > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about **15 minutes** after granting permission, the Azure Purview account should have the appropriate permissions to be able to scan the resource(s).
 
-1. You'll need a SQL login with at least `db_datareader` permissions to be able to access the information Azure Purview needs to properly scan the databae. You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a sign in for Azure SQL Database. You'll' need to save the **username** and **password** for the next steps.
+1. You'll need a SQL login with at least `db_datareader` permissions to be able to access the information Azure Purview needs to scan the database. You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a sign in for Azure SQL Database. You'll need to save the **username** and **password** for the next steps.
 
 1. Navigate to your key vault in the Azure portal.
 
