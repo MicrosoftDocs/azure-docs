@@ -350,8 +350,6 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. The output of the **SimulatedTemperatureSensor** should be redirected to **input1** of the custom Linux C# module. The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.
 
-   ![Debug Single Module](./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png)
+   ![Debug Single Module](./media/tutorial-develop-for-linux-on-windows/debug-single-module.png)
 
 1. Press **Ctrl + F5** or select the stop button to stop debugging.
-
-
