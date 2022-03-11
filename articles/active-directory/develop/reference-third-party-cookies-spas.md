@@ -67,9 +67,16 @@ There are two ways of accomplishing sign-in:
 
 ### A note on iframe apps
 
-A common pattern in web apps is to use an iframe to embed one app inside another. The common assumption from app developers is that, top-level frame handles authenticating the user, and the application hosted in the iframe is expected  to trust that the user is signed in and fetch the tokens silently. However, there is a caveat to this assumption. Irrespective of whether third-party cookies are enabled or disabled, application embedded in the iframe must switch to using popups to access the user's session as it can't navigate to the login page via redirect method.
+A common pattern in web apps is to use an iframe to embed one app inside another. The common assumption from app developers is that, top-level frame handles authenticating the user, and the application hosted in the iframe is expected to trust that the user is signed in and fetch the tokens silently. However, there are couple of caveats to this assumption irrespective of whether third-party cookies are enabled or blocked in the browser.
 
-If the application embedded within an iframe is based on a javascript framework then, our guidance to invoke the authentication from MSAL.js via popup method can be found [here](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/iframe-usage.md#using-msal-in-iframed-apps). Apart from MSAL.js library, none of the other MSAL flavors(MSAL.Java or MSAL.net etc.) do not provide a way to invoke the authetication via popup method. 
+1. Applications running in an iframe (regardless of protocol) will not be able to do to redirect-based interaction, as this is blocked by eSTS for security reasons. 
+    - The one exception is B2C applications using the Embedded Login feature: https://docs.microsoft.com/en-us/azure/active-directory-b2c/embedded-login?pivots=b2c-custom-policy 
+2. Applications running in an iframe must use silent or popup-based interactions for SSO. 
+    - Popup based interaction requires MSAL.js. Our guidance to invoke the authentication from MSAL.js via popup method can be found [here](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/iframe-usage.md#using-msal-in-iframed-apps). 
+    - Apart from MSAL.js library, none of the other MSAL flavors(MSAL.Java or MSAL.net etc.) do not provide a way to invoke the authetication via popup method. 
+    - Popups from applications running in iframes may blocked, either due to how they are opened, if the user has popups blocked in their browser, or if the iframe is sandboxed to disallow popups.
+    - Silent login/SSO will fail if third-party cookies are blocked (and the application will need to fallback to popup interaction).
+ 
 
 
 ## Security implications of refresh tokens in the browser
