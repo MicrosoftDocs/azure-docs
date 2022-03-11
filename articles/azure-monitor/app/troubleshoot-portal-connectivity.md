@@ -4,17 +4,16 @@ description: Troubleshooting steps for Application Insights portal connectivity 
 ms.date: 03/09/2022
 ---
 
-# Application Insights Portal connectivity
+# “Error retrieving data” message on dashboard
 
-This is a troubleshooting guide for the Application Insights portal when encountering connectivity errors similar to `Error retrieving data.
-Try selecting another sample.` or `Missing localization resource`.
+This is a troubleshooting guide for the Application Insights portal when encountering connectivity errors similar to `Error retrieving data` or `Missing localization resource`.
 
-  <img src="./media/\troubleshoot-portal\troubleshoot-portal.png" style="width:10.64552in;height:2.39638in"
+  <img src="./media/\troubleshoot-portal-connectivity\troubleshoot-portal-connectivity.png" style="width:10.64552in;height:2.39638in"
     alt="Graphical user interface, text, application, email Description automatically generated" />
     
 ## Troubleshooting
 
-The source of the issue is likely plugins that interfere with the portal's connectivity. 
+The source of the issue is likely browser plugins that interfere with the portal's connectivity. 
 
 To confirm that this is the source of the issue and to identify which plugin is interfering:
 
