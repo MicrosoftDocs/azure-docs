@@ -268,10 +268,6 @@ A tenant admin can guarantee that applications have permission to call their req
 
 In some scenarios, you may only have a single pairing of middle-tier and front-end client. In this scenario, you may find it easier to make this a single application, negating the need for a middle-tier application altogether. To authenticate between the front-end and the web API, you can use cookies, an id_token, or an access token requested for the application itself. Then, request consent from this single application to the back-end resource.
 
-## Client limitations
-
-If a client uses the implicit flow to get an id_token, and that client also has wildcards in a reply URL, the id_token can't be used for an OBO flow.  However, access tokens acquired through the implicit grant flow can still be redeemed by a confidential client even if the initiating client has a wildcard reply URL registered.
-
 ## Next steps
 
 Learn more about the OAuth 2.0 protocol and another way to perform service to service auth using client credentials.
