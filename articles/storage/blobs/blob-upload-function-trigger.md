@@ -3,20 +3,18 @@ title: Upload and process a file with Azure Functions and Blob Storage
 description: Learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Cognitive Services
 author: alexwolfmsft
 ms.author: alexwolf
-ms.service: storage, functions
+ms.service: storage
 ms.topic: tutorial
 ms.date: 3/11/2022
 ---
 
 # Tutorial: Upload and process a file with Azure Functions and Blob Storage
 
-In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions and Computer Vision. You will also learn how to implement Azure Function triggers and bindings as part of this process.
+In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions and Computer Vision. You will also learn how to implement Azure Function triggers and bindings as part of this process.  Together, these services will analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes.
 
+Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page]("/storage/blobs/storage-blobs-introduction).
 
-
-Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page]("/azure/storage/blobs/storage-blobs-introduction).
-
-Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page]("/azure/azure-functions/functions-overview).
+Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page]("/azure-functions/functions-overview).
 
 
 In this tutorial, you learn how to:
@@ -35,7 +33,7 @@ In this tutorial, you learn how to:
  
 
 ## 1) Create the Storage Account and Container
-Let's begin by creating the Storage Account that will hold our blob data, which in this scenario will be uploaded images. A Storage Account offers several different services, but in this tutorial we will utilize Blob Storage and Table Storage.
+The first step is to create the Storage Account that will hold the uploaded blob data, which in this scenario will be images that contain text. A Storage Account offers several different services, but this tutorial utilizes Blob Storage and Table Storage.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -48,15 +46,15 @@ On the **Storage accounts** page, select **+ Create** in the top left.
 On the **Create a storage account** page, enter the following values:
 
  1) **Subscription**: Choose your desired Subscription.
- 2) **Resource Group**: Select **Create new** and enter a name of *msdocs-storage-function*, and then choose **OK**.
- 3) **Storage account name**: Enter a value of *msdocsstoragefunction*
+ 2) **Resource Group**: Select **Create new** and enter a name of `msdocs-storage-function`, and then choose **OK**.
+ 3) **Storage account name**: Enter a value of `msdocsstoragefunction`.
  4) **Region**: Select the region that is closest to you.
  5) **Performance**: Choose **Standard**.
  6) **Redundancy**: Leave the default value selected.
  
 :::image type="content" source="./media/blob-upload-storage-function/portal-storage-create-small.png" alt-text="A screenshot showing how create a Storage Account in Azure."  lightbox="media/blob-upload-storage-function/portal-storage-create.png":::
  
-Select **Review + Create** at the bottom, and Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create**.  Azure will begin provisioning the Storage Account, which make take a moment.
+Select **Review + Create** at the bottom. Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create** and Azure will begin provisioning the Storage Account, which make take a moment.
 
 After the Storage Account is provisioned, select **Go to Resource**. We need to create a Storage Container inside of it to hold our uploaded images for analysis. 
 
@@ -72,10 +70,12 @@ You should see your new container populate in the list of containers.
 
 ### [Azure CLI](#tab/azure-cli)
 
+Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+
 To create the Storage Account and Container, we can run the CLI commands seen below.
 
 ```azurecli-interactive
-az group create --location eastus --name msdocs-core-sql \
+az group create --location eastus --name msdocs-storage-function \
 
 az storage account create --name msdocsstorageaccount -resource-group msdocs-storage-function -l eastus --sku Standard_LRS \
 
@@ -87,7 +87,7 @@ You may need to wait a few moments for Azure to provision these resources.
 ---
 
 ## 2) Create the Computer Vision Account
-Next let's create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive services and offers a variety of features for extracting data out of images.  [You can learn more about Computer Vision here](/services/cognitive-services/computer-vision/#overview).
+Next let's create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive services and offers a variety of features for extracting data out of images.  You can [learn more about Computer Vision on the overview page](/services/cognitive-services/computer-vision/#overview).
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -104,9 +104,9 @@ On the **Create Computer Vision** page, enter the following values:
  1) **Pricing Tier**: Choose **Free** if it is available, otherwise choose **Standard S1**.
  1) Check the **Responsible AI Notice** box if you agree to the terms
 
-:::image type="content" lightbox="./media/blob-upload-storage-function/computer-vision-create-small.png" source="./media/blob-upload-storage-function/computer-vision-create.png" alt-text="A screenshot showing how to create a new Computer Vision service." :::
+:::image type="content" lightbox="./media/blob-upload-storage-function/computer-vision-create.png" source="./media/blob-upload-storage-function/computer-vision-create-small.png" alt-text="A screenshot showing how to create a new Computer Vision service." :::
  
-Select **Review + Create** at the bottom, and Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create**.  Azure will begin provisioning the the Computer Vision service, which make take a moment.
+Select **Review + Create** at the bottom. Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create** and Azure will begin provisioning the the Computer Vision service, which may take a moment.
 
 When the operation has completed, click **Go to Resource**.
 
@@ -118,7 +118,7 @@ Next, we need to find the secret key and endpoint URL for the Computer Vision se
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create the Storage Account and Container, we can run the CLI commands seen below.
+To create the Computer Vision service, we can run the CLI command below.
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -139,7 +139,9 @@ Once the Computer Vision service is created, you can retrieve the secret keys an
     --name msdocs-process-image \
     --resource-group msdocs-storage-function  \ 
 
-    az cognitiveservices account list --name msdocs-process-image --resource-group msdocs-storage-function --query "[].properties.endpoint"   
+    az cognitiveservices account list \
+    --name msdocs-process-image \
+     --resource-group msdocs-storage-function --query "[].properties.endpoint"   
 ```
 
 ---
@@ -148,26 +150,24 @@ Once the Computer Vision service is created, you can retrieve the secret keys an
 ## 3) Download and configure the sample project
 The code for the Azure Function used in this tutorial can be found in [this Github repository](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/dotnet). You can also clone the project using the command below.
 
-
-The code sample below accomplishes the following tasks:
-
-- Retrieves environment variables to connect to the Storage Account and Computer Vision service
-- Accepts the incoming file as blob
-- Analyze the blob using the Computer Vision service
-- Send analyzed image text to a new table row using output bindings
-
 ```terminal
 git clone https://github.com/Azure-Samples/msdocs-storage-bind-function-service.git \
 cd msdocs-storage-bind-function-service/dotnet
 ```
 
+The sample project code accomplishes the following tasks:
+
+- Retrieves environment variables to connect to the Storage Account and Computer Vision service
+- Accepts the uploaded file as a blob parameter
+- Analyzes the blob using the Computer Vision service
+- Sends the analyzed image text to a new table row using output bindings
+
 Once you have downloaded and opened the project, there are a few essential concepts to understand in the main `Run` method shown below. The Azure function utilizes Trigger and Output bindings, which are applied using attributes on the `Run` method signature. 
 
 The `Table` attribute uses two parameters.  The first parameter specifies the name of the table to write the parsed image text value returned by the function. The second Connection parameter pulls a Table Storage connection string from the environment variables so that our Azure function has access to it. 
 
-The `BlobTrigger` attribute also has two parameters and is used to trigger our function when a blob is uploaded.  It will pass in that blob as a parameter to our `Run` function.  The Blob Trigger has two parameters of its own - one for the name of the Blob Container to monitor for uploads, and one for the Connection String of our Storage Account again.
+The `BlobTrigger` attribute is used to bind our function to the upload event in Blob Storage, and supplies that uploaded blob to the `Run` function.  The Blob Trigger has two parameters of its own - one for the name of the Blob Container to monitor for uploads, and one for the Connection String of our Storage Account again.
 
-This code also retrieves essential configuration values from environment variables, such as the Storage Account connection string and Computer Vision key. We'll add these Environment variables to our Azure Function environment after it's deployed.
 
 ```csharp
 // Azure Function name and output Binding to Table Storage
@@ -197,7 +197,9 @@ public class ImageContent
 }
 ```
 
-The `ProcessImage` function also utilizes a second method called `AnalyzeImage`.  This code uses the URL Endpoint and Key of our Computer Vision account to make a request to that server to process our image.  The request will return all of the text discovered in the image, which will then be written to Table Storage using the output binding on the `Run` method.
+This code also retrieves essential configuration values from environment variables, such as the Storage Account connection string and Computer Vision key. We'll add these Environment variables to our Azure Function environment after it's deployed.
+
+The `ProcessImage` function also utilizes a second method called `AnalyzeImage`, seen below.  This code uses the URL Endpoint and Key of our Computer Vision account to make a request to that server to process our image.  The request will return all of the text discovered in the image, which will then be written to Table Storage using the output binding on the `Run` method.
 
 ```csharp
 static async Task<string> ReadFileUrl(ComputerVisionClient client, string urlFile)
