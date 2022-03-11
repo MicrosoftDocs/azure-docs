@@ -137,14 +137,14 @@ You can verify the status of the deployment of Azure Arc-enabled data services e
    - The `bootstrapper` pod state is **running** before proceeding to the next step.
 
    ``` console
-   kubectl get pods --name <name of namespace used in the json template file above>
+   kubectl get pods --namespace <name of namespace used in the json template file above>
    ```
 
 For example, the following example gets the pods from `arc` namespace.
 
 ```console
 #Example:
-kubectl get pods --name arc
+kubectl get pods --namespace arc
 ```
 
 ## Retrieve the managed identity and grant roles
