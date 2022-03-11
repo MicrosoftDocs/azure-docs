@@ -51,17 +51,12 @@ Data
     1.	From Event Hubs (or IoT Hub) metrics, retrieve the rate of how much data it's ingested per day. From the Storage Account connected to the TSI environment, retrieve how much data there is in the blob container used by TSI. This information will be used to compute the ideal size of an ADX Cluster for your environment. 
     1.	Open [the Azure Data Explorer Cost Estimator](https://dataexplorer.azure.com/AzureDataExplorerCostEstimator.html) and fill the existing fields with the information found. Set “Workload type” as “Storage Optimized”, and "Hot Data" with the total amount of data queried actively.
     1.	After providing all the information, Azure Data Explorer Cost Estimator will suggest a VM size and number of instances for your cluster. Analyze if the size of actively queried data will fit in the Hot Cache. Multiply the number of instances suggested by the cache size of the VM size, per example: 
-| Cost Estimator suggestion | Total Hot Cache suggested |
-| ---| ---|
-| 9x DS14 + 4 TB (cache) | 36 TB = [9x (instances) x 4 TB (of Hot Cache per node)] |
-
+        - Cost Estimator suggestion: 9x DS14 + 4 TB (cache)
+        - Total Hot Cache suggested: 36 TB = [9x (instances) x 4 TB (of Hot Cache per node)]
     1. More factors to consider:
         - Environment growth: when planning the ADX Cluster size consider the data growth along the time.
         - Hydration and Partitioning: when defining the number of instances in ADX Cluster, consider extra nodes (by 2-3x) to speed up hydration and partitioning.
-
-
-For more information about compute selection, see [Select the correct compute SKU for your Azure Data Explorer cluster](/azure/data-explorer/manage-cluster-choose-sku).
-
+        - For more information about compute selection, see [Select the correct compute SKU for your Azure Data Explorer cluster](/azure/data-explorer/manage-cluster-choose-sku).
 1.	To best monitor your cluster and the data ingestion, you should enable Diagnostic Settings and send the data to a Log Analytics Workspace.
     1.	In the Azure Data Explorer blade, go to “Monitoring | Diagnostic settings” and click on “Add diagnostic setting”
 
