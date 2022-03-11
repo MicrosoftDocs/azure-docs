@@ -17,7 +17,7 @@ ms.custom: azureday1
 
 ## 1. Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## 2. Create and publish a web app on App Service
 
