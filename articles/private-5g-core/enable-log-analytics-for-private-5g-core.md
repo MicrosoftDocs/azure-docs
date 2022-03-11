@@ -167,7 +167,7 @@ In this step, you'll run a query in the Log Analytics workspace to confirm that 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. Search for and select the Log Analytics workspace you used when creating the Azure Monitor extension in [Create an Azure Monitor extension](#create-an-azure-monitor-extension).
 1. Select **Logs** from the resource menu.
-    :::image type="content" source="media/log-analytics-workspace.png" alt-text="Screenshot of the Azure portal showing a Log Analytics workspace resource. The Logs option is highlighted." lightbox="media/log-analytics-workspace.png":::
+    :::image type="content" source="media/log-analytics-workspace.png" alt-text="Screenshot of the Azure portal showing a Log Analytics workspace resource. The Logs option is highlighted.":::
 1. If it appears, select **X** to dismiss the **Queries** window.
 1. Select **Select scope**.
 
@@ -192,7 +192,7 @@ In this step, you'll run a query in the Log Analytics workspace to confirm that 
 
    :::image type="content" source="media/enable-log-analytics-for-private-5g-core/run-query.png" alt-text="Screenshot of the Log Analytics interface. The Run option is highlighted." lightbox="media/enable-log-analytics-for-private-5g-core/run-query.png":::
 
-1. The results window displays the results of the query, showing how many gNodeBs have been connected to the packet core instance in the last 24 hours.
+1. Verify that the results window displays the results of the query, showing how many gNodeBs have been connected to the packet core instance in the last 24 hours.
 
     :::image type="content" source="media/enable-log-analytics-for-private-5g-core/query-results.png" alt-text="Screenshot of the results window displaying results from a query.":::
 
