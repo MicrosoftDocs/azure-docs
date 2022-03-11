@@ -12,7 +12,7 @@ services: azure-maps
 
 # Show the correct copyright attribution
 
-When using the [Azure Maps Render service V2](/rest/api/maps/renderv2), either as a Basemap or layer, you are required to show attribution to all data providers that contribute to the information that is displayed. This information appears in the bottom right hand side of the map.
+When using the [Azure Maps Render service V2](/rest/api/maps/renderv2), either as a basemap or layer, you are required to display the appropriate data provider copyright attribution on the map. This information should be displayed in the lower right hand corner of the map.
 
 :::image type="content" source="./media/how-to-show-attribution/attribution-road.png" border="false" alt-text="Example of a map from the Render service V2 showing the attribution when using the road style":::
 
