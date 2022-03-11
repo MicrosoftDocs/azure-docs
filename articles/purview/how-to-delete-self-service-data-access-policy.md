@@ -2,8 +2,8 @@
 title: Delete self-service policies 
 description: This article describes how to delete auto-generated self-service policies 
 author: bjspeaks
-ms.author: bjspeaks
-ms.service: azure-purview
+ms.author: blessonj
+ms.service: purview
 ms.subservice: azure-purview-data-policies
 ms.topic: how-to
 ms.date: 09/27/2021

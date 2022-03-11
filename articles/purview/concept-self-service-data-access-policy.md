@@ -3,7 +3,7 @@ title: Azure Purview Self-service access concepts
 description: Understand what self-service access and data discovery are in Azure Purview, and explore how users can take advantage of it.
 author: bjspeaks
 ms.author: blessonj
-ms.service: azure-purview
+ms.service: purview
 ms.subservice: azure-purview-data-policies
 ms.topic: conceptual
 ms.date: 03/10/2022

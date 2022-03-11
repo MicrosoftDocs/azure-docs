@@ -161,7 +161,7 @@ landingContent:
   #Card
   - title: Secure your data
     linkLists:
-    - linkLists: concept
+    - linkListType: concept
       links:
         - text: Self-service data access policy 
         - url: concept-self-service-data-access-policy.md
