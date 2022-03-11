@@ -754,8 +754,6 @@
           href: reference-yaml-environment.md
         - name: Data
           href: reference-yaml-data.md
-        - name: Dataset
-          href: reference-yaml-dataset.md
         - name: Model
           href: reference-yaml-model.md
         - name: Compute
@@ -774,8 +772,6 @@
               href: reference-yaml-job-sweep.md
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
-            - name: Component
-              href: reference-yaml-job-component.md
         - name: Datastore
           items:
             - name: Azure Blob
