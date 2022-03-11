@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: OData language reference and full syntax used for creating filter expressions in Azure Cognitive Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: reference
 ms.date: 09/16/2021

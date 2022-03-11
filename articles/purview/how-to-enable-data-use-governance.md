@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 3/02/2022
+ms.date: 3/07/2022
 ms.custom:
 ---
 
@@ -17,19 +17,7 @@ ms.custom:
 *Data use governance* (DUG) is an option in the data source registration in Azure Purview. Its purpose is to make those data sources available in the policy authoring experience of Azure Purview Studio. In other words, access policies can only be written on data sources that have been previously registered and with DUG toggle set to enable. 
 
 ## Prerequisites
-
-To enable the *Data use Governance* (DUG) toggle for a data source, resource group, or subscription, the same user needs to have both certain IAM privileges on the resource and certain Azure Purview privileges. 
-
-1) User needs to have **either one of the following** IAM role combinations on the resource:
-- IAM *Owner*
-- Both IAM *Contributor* + IAM *User Access Administrator*
-
-Follow this [guide to configure Azure RBAC role permissions](../role-based-access-control/check-access.md).
-
-2) In addition, the same user needs to have Azure Purview Data source administrator role at the root collection level. See the guide on [managing Azure Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
-
->[!IMPORTANT]
-> - Currently, Azure Purview roles related to policy operations must be configured at **root collection level** and not child collection level.
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ## Enable Data use governance
 

@@ -62,7 +62,7 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |**FQDN**        |   String      |    A fully qualified domain name using a dot notation, for example, `docs.microsoft.com`. For more information, see [The Device entity](#the-device-entity). |
 |<a name="hostname"></a>**Hostname** | String | A hostname which is not an FQDN, includes up to 63 characters including letters, numbers and hyphens. For more information, see [The Device entity](#the-device-entity).|
 |<a name="domaintype"></a>**DomainType** | Enumerated | The type of domain stored in domain and FQDN fields. Supported values include `FQDN` and `Windows`. For more information, see [The Device entity](#the-device-entity). |
-|<a name="dvcidtype"></a>**DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. Supported values include `AzureResourceId`, `MDEid`, `MD4IoTid`, `VMConnectionId`, `AwsVpcId`, and `Other`. For more information, see [The Device entity](#the-device-entity). |
+|<a name="dvcidtype"></a>**DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. Supported values include `AzureResourceId`, `MDEid`, `MD4IoTid`, `VMConnectionId`, `AwsVpcId`, `VectraId`, and `Other`. For more information, see [The Device entity](#the-device-entity). |
 |<a name="devicetype"></a>**DeviceType** | Enumerated | The type of the device stored in DeviceType fields. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other`. For more information, see [The Device entity](#the-device-entity). |
 |<a name="username"></a>**Username** | String | A valid username in one of the supported [types](#usernametype). For more information, see [The User entity](#the-user-entity). |
 |<a name="usernametype"></a>**UsernameType** | Enumerated | The type of username stored in username fields. Supported values include `UPN`, `Windows`, `DN`, `Simple`, and `Unknown`. For more information, see [The User entity](#the-user-entity). |
@@ -292,6 +292,7 @@ The currently supported list of vendors and products used in the [EventVendor](#
 | Microsoft | - AAD<br> - Azure Firewall<br> - Azure File Storage<br>    - Azure NSG flows<br> -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
 | Okta | Okta | 
 | Palo Alto | - PanOS<br> - CDL<br> |
+| Vectra AI | Vectra Steam |
 | Zscaler |  - ZIA DNS<br> - ZIA Firewall<br> - ZIA Proxy |
 |||
 
