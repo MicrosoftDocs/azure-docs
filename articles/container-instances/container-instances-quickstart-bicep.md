@@ -77,9 +77,26 @@ Get-AzResource -ResourceGroupName exampleRG
 
 Viewing the logs for a container instance is helpful when troubleshooting issues with your container or the application it runs.
 
-To view the container's logs, under **Settings**, select **Containers** > **Logs**. You should see the HTTP GET request generated when you viewed the application in your browser.
+To view the container's logs in Azure Portal, under **Settings**, select **Containers** > **Logs**. You should see the HTTP GET request generated when you viewed the application in your browser.
 
-![Container logs in the Azure portal](media/container-instances-quickstart-template/aci-logs.png)
+![Container logs in the Azure portal](media/container-instances-quickstart-bicep/aci-logs.png)
+
+You can also use Azure CLI or Azure Powershell to view the container's logs.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az container logs --resource-group exampleRG --name containerName
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Get-AzContainerInstanceLog
+```
+
+> [!NOTE]
+> If you're using PowerShell, you'll be prompted to enter the following parameters after running the cmdlet: ContainerGroupName, ContainerName, and ResourceGroupName.
 
 ## Clean up resources
 
