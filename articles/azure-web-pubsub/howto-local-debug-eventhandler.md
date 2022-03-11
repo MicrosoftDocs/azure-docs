@@ -27,7 +27,7 @@ localtunnel will print an url (`https://<domain-name>.loca.lt`) that can be acce
 > Tip:
 > There is one known issue that [localtunnel goes offline when the server restarts](https://github.com/localtunnel/localtunnel/issues/466) and [here is the workaround](https://github.com/localtunnel/localtunnel/issues/466#issuecomment-1030599216)  
 
-There are also other tools to choose when debugging the webhook locally, for example, [ngrok](​https://ngrok.com), [loophole](https://loophole.cloud/docs), [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay) or so. 
+There are also other tools to choose when debugging the webhook locally, for example, [ngrok](https://ngrok.com), [loophole](https://loophole.cloud/docs), [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay) or so. 
 
 
 ## Test if the event handler is working publicly
