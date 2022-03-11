@@ -33,6 +33,8 @@
     href: tutorial-multi-availability-sets-portal.md
   - name: Create a single instance inbound NAT rule
     href: tutorial-load-balancer-port-forwarding-portal.md
+  - name: Create a multiple instance inbound NAT rule
+    href: tutorial-nat-rule-multi-instance-portal.md
   - name: Load balance multiple IP configurations
     href: load-balancer-multiple-ip.md
   - name: Cross-region load balancer
