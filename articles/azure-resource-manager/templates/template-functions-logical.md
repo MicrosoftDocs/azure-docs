@@ -2,7 +2,7 @@
 title: Template functions - logical
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 02/11/2022
 ---
 
 # Logical functions for ARM templates
@@ -16,6 +16,9 @@ Resource Manager provides several functions for making comparisons in your Azure
 * [not](#not)
 * [or](#or)
 * [true](#true)
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see the [bool](../bicep/bicep-functions-logical.md) logical function and [logical](../bicep/operators-logical.md) operators.
 
 ## and
 

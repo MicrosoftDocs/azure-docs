@@ -3,7 +3,7 @@ title: Use an App Service Environment
 description: Learn how to use your App Service Environment to host isolated applications.
 author: madsd
 ms.topic: article
-ms.date: 07/06/2021
+ms.date: 02/14/2022
 ms.author: madsd
 ---
 
@@ -30,10 +30,11 @@ To create an app in an App Service Environment:
 1. Enter a name for a new resource group, or select **Use existing** and select one from the dropdown list.
 1. Enter a name for the app. If you already selected an App Service plan in an App Service Environment, the domain name for the app reflects the domain name of the App Service Environment.
 1. For **Publish**, **Runtime stack**, and **Operating System**, make your selections as appropriate.
-1. For **Region**, select a pre-existing App Service Environment v3. You can't make a new one when you're creating your app.
+1. For **Region**, select a pre-existing App Service Environment v3. If you want to create a new App Service Environment, select a region.
   ![Screenshot that shows how to create an app in an App Service Environment.][1]
-1. Select an existing App Service plan, or create a new one. If you're creating a new app, select the size that you want for your App Service plan. The only SKU you can select for your app is an isolated v2 pricing SKU. Making a new App Service plan will normally take less than 20 minutes.
+1. Select an existing App Service plan, or create a new one. If you're creating a new plan, select the size that you want for your App Service plan. The only SKU you can select for your app is an Isolated v2 pricing SKU. Making a new App Service plan will normally take less than 20 minutes.
   ![Screenshot that shows pricing tiers and their features and hardware.][2]
+1. If you chose to create a new App Service Environment as part of creating your new App Service plan, fill out the name and virtual IP type.
 1. Select **Next: Monitoring**. If you want to enable Application Insights with your app, you can do it here during the creation flow.
 1.  Select **Next: Tags**, and add any tags you want to the app.
 1. Select **Review + create**. Make sure that the information is correct, and then select **Create**.
@@ -209,7 +210,7 @@ To delete:
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
-[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: ../resources-kudu.md
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md

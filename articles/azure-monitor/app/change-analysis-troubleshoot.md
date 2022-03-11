@@ -2,11 +2,8 @@
 title: Troubleshoot Application Change Analysis - Azure Monitor
 description: Learn how to troubleshoot problems in Application Change Analysis.
 ms.topic: conceptual
-author: cawams
-ms.author: cawa
-ms.date: 01/07/2022 
+ms.date: 02/17/2022 
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Troubleshoot Application Change Analysis (preview)
@@ -66,12 +63,9 @@ This general unauthorized error message occurs when the current user does not ha
 * To view infrastructure changes returned by Azure Resource Graph and Azure Resource Manager, reader access is required. 
 * For web app in-guest file changes and configuration changes, contributor role is required. 
 
-You may not immediately see web app in-guest file changes and configuration changes. While we work on providing the option to restart the app in the Azure portal, the current procedure is:
+## Cannot see in-guest changes for newly enabled Web App.
 
-1. User adds the hidden tracking tag, notifying the scheduled worker.
-2. Scheduled worker scans the web app within a few hours.
-3. While scanning, scheduled worker creates a handshake file via AST.
-4. The Web App team checks that handshake file when it restarts.
+You may not immediately see web app in-guest file changes and configuration changes. Restart your web app and you should be able to view changes within 30 minutes. If not, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
 
 ## Diagnose and solve problems tool for virtual machines
 

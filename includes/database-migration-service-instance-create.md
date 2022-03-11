@@ -40,3 +40,6 @@ ms.author: pehewitt
 
     - Select **Review + Create** to review the details and then select **Create** to create the service.
 
+    - After a few moments, your instance of the Azure Database Migration service is created and ready to use:
+
+    ![Migration service created](./media/database-migration-service-instance-create/dms-service-created.png)

@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/09/2022
 ---
 
 # How to create an image overlay
@@ -14,6 +14,7 @@ ms.date: 08/31/2020
 
 Media Services allows you to overlay an image, audio file, or another video on top of a video. The input must specify exactly one image file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file in a supported file format.
 
+## [.NET](#tab/net/)
 
 ## Prerequisites
 
@@ -37,7 +38,7 @@ Media Services allows you to overlay an image, audio file, or another video on t
 If you aren't already familiar with the creation of Transforms, it is recommended that you complete the following activities:
 
 * Read [Encoding video and audio with Media Services](encode-concept.md)
-* Read [How to encode with a custom transform - .NET](transform-custom-presets-how-to.md). Follow the steps in that article to set up the .NET needed to work with transforms, then return here to try out an overlays preset sample.
+* Read [How to encode with a custom transform - .NET](transform-custom-transform-how-to.md). Follow the steps in that article to set up the .NET needed to work with transforms, then return here to try out an overlays preset sample.
 * See the [Transforms reference document](/rest/api/media/transforms).
 
 Once you are familiar with Transforms, download the overlays sample.
@@ -146,9 +147,6 @@ The sample also publishes the content for streaming and will output the full HLS
 * [Filters](/rest/api/media/transforms/create-or-update#filters)
 * [StandardEncoderPreset](/rest/api/media/transforms/create-or-update#standardencoderpreset)
 
-
 [!INCLUDE [reference dotnet sdk references](./includes/reference-dotnet-sdk-references.md)]
 
-## Next steps
-
-[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]
+---

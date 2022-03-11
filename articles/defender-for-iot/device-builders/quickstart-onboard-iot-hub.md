@@ -39,7 +39,7 @@ You can onboard Defender for IoT to an existing IoT Hub, where you can then moni
 
 **To enable Defender for IoT on an existing IoT Hub**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Overview**.
 
@@ -55,7 +55,7 @@ The **Secure your IoT solution** button will only appear if the IoT Hub has not 
 
 **To verify that Defender for IoT is enabled**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Overview**.
 

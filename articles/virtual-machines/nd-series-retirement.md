@@ -19,7 +19,7 @@ After 31 August 2022, any remaining ND size virtual machines remaining in your s
 This VM size retirement only impacts the VM sizes in the [ND-series](nd-series.md). This does not impact the newer [NCv3](ncv3-series.md), [NC T4 v3](nct4-v3-series.md), and [ND v2](ndv2-series.md) series virtual machines. 
 
 ## What actions should I take?  
-You will need to resize or deallocate your NC virtual machines. We recommend moving your GPU workloads to another GPU Virtual Machine size. Learn more about migrating your workloads to another [GPU Accelerated Virtual Machine size](sizes-gpu.md).
+You will need to resize or deallocate your ND virtual machines. We recommend moving your GPU workloads to another GPU Virtual Machine size. Learn more about migrating your workloads to another [GPU Accelerated Virtual Machine size](sizes-gpu.md).
 
 ## Next steps
 [Learn more](n-series-migration.md) about migrating your workloads to other GPU Azure Virtual Machine sizes. 

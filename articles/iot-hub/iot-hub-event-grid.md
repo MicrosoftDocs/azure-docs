@@ -1,13 +1,13 @@
 ---
 title: Azure IoT Hub and Event Grid | Microsoft Docs
 description: Use Azure Event Grid to trigger processes based on actions that happen in IoT Hub.  
-author: eross-msft
+author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/22/2022
-ms.author: lizross
+ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: Cloud Development']
 ---
 

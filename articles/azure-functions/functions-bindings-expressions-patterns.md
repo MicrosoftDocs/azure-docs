@@ -1,13 +1,11 @@
 ---
 title: Azure Functions bindings expressions and patterns
 description: Learn to create different Azure Functions binding expressions based on common patterns.
-author: craigshoemaker
 
 ms.topic: reference
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
-ms.author: cshoe
 ---
 
 # Azure Functions binding expression patterns
@@ -241,7 +239,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 In JavaScript, JSON deserialization is automatically performed.
 
 ```javascript
-module.exports = function (context, info) {
+module.exports = async function (context, info) {
     if ('BlobName' in info) {
         context.res = {
             body: { 'data': context.bindings.blobContents }
@@ -252,7 +250,6 @@ module.exports = function (context, info) {
             status: 404
         };
     }
-    context.done();
 }
 ```
 

@@ -4,9 +4,9 @@ description: Learn how to create a virtual machine (VM) offer from an approved b
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: krsh
-ms.date: 12/07/2021
+ms.author: edewebolton
+author: ebolton-cyber
+ms.date: 02/23/2022
 ---
 
 # Create a virtual machine using an approved base
@@ -31,7 +31,7 @@ Azure offers a range of approved Linux distributions. For a current list, see [L
 
 ## Create VM on the Azure portal
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Virtual machines**.
 3. Select **+ Create** and **+ Virtual machine** from the drop-down menu to open the **Create a virtual machine** screen.
 4. Select the image from the dropdown list or select **See all images** to search or browse all available virtual machine images. You can also configure the VM generation of your image depending on the image you select.
@@ -85,6 +85,9 @@ Windows OS disks are generalized with the [sysprep](/windows-hardware/manufactur
 > [!WARNING]
 > After you run sysprep, turn the VM off until it's deployed because updates may run automatically. This shutdown will avoid subsequent updates from making instance-specific changes to the operating system or installed services. For more information about running sysprep, see [Generalize a Windows VM](../virtual-machines/generalize.md#windows).
 
+> [!NOTE]
+> If you have Microsoft Defender for Cloud (Azure Defender) enabled on the subscription where you are creating the VM to be captured and you do not want any VM created from this image to be enrolled in the Defender for Endpoint portal, ensure you disable Microsoft Defender for Cloud on the subscription or for the VM itself. If this is not disabled, any VM created from this image will be enrolled in the Defender for Endpoint portal even if the VM is deployed to a different tenant without Microsoft Defender for Cloud.
+
 ### For Linux
 
 1. Remove the Azure Linux agent.
@@ -103,7 +106,7 @@ Windows OS disks are generalized with the [sysprep](/windows-hardware/manufactur
 
 Once your VM is ready, you can capture it in an Azure Compute Gallery (formerly know as Shared Image Gallery). Follow the below steps to capture:
 
-1. On the [Azure portal](https://ms.portal.azure.com/), go to your Virtual Machine’s page.
+1. On the [Azure portal](https://portal.azure.com/), go to your Virtual Machine’s page.
 2. Select **Capture**.
 3. Under **Share image to Azure Compute Gallery** select **Yes, share it to a gallery as an image version**.
 4. Under **Operating system state** select Generalized.

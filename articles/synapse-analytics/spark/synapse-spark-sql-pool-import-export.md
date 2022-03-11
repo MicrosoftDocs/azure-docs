@@ -1,7 +1,6 @@
 ---
 title: Import and Export data between serverless Apache Spark pools and SQL pools
 description: This article introduces the Synapse Dedicated SQL Pool Connector API for moving data between dedicated SQL pools and serverless Apache Spark pools.
-services: synapse-analytics
 author: kevxmsft
 ms.service: synapse-analytics
 ms.topic: overview
@@ -21,9 +20,9 @@ It uses Azure Storage and [PolyBase](/sql/relational-databases/polybase/polybase
 Authentication works automatically with the signed in Azure Active Directory user after the following prerequisites.
 
 * Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system-stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
-* Add the user to [Storage Blob Data Contributor role](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) on the storage account.
+* Add the user to [Storage Blob Data Contributor role](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) on the storage account.
 
-The connector also supports password-based [SQL authentication](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) after the following prerequisites.
+The connector also supports password-based [SQL authentication](../../azure-sql/database/logins-create-manage.md#authentication-and-authorization) after the following prerequisites.
   * Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system-stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
   * Create an [external data source](/sql/t-sql/statements/create-external-data-source-transact-sql), whose [database scoped credential](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) secret is the access key to an Azure Storage Account. The API requires the name of this external data source.
 

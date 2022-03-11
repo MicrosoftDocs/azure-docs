@@ -1,8 +1,8 @@
 ---
 title: Overview of the Microsoft Azure IoT Hub Device Provisioning Service
 description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 11/22/2021
 ms.topic: overview
 ms.service: iot-dps
@@ -130,7 +130,7 @@ For more details on quota limits, see [Azure Subscription Service Limits](../azu
 
 Each API call on DPS is billable as one *operation*. This includes all the service APIs and the device registration API.
 
-The tables below show the current billable status for each DPS service API operation. To learn more about pricing, see [Azure Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/) in the IoT Hub Device Provisioning Service section.
+The tables below show the current billable status for each DPS service API operation. To learn more about pricing for DPS, select **Pricing table** at the top of the [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/) page. Then select the  **IoT Hub Device Provisioning Service** tab and the currency and region for your service.
 
 | API | Operation | Billable? |
 | --------------- | -------  | -- |
@@ -179,7 +179,7 @@ DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub]
 
 IoT Central applications use an internal DPS instance to manage device connections. To learn more, see:
 
-* [Get connected to Azure IoT Central](../iot-central/core/concepts-get-connected.md)
+* [How devices connect to IoT Central](../iot-central/core/overview-iot-central-developer.md)
 * [Tutorial: Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md)
 
 ## Next steps

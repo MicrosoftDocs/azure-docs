@@ -79,8 +79,8 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub. I
 ## If you're importing via APIs instead
 
 In addition to importing via the Azure portal, you can also import an update programmatically by:
-* Using `Azure SDK` for [.NET](https://docs.microsoft.com/dotnet/api/azure.iot.deviceupdate), [Java](https://docs.microsoft.com/java/api/com.azure.iot.deviceupdate), [JavaScript](https://docs.microsoft.com/javascript/api/@azure/iot-device-update) or [Python](https://docs.microsoft.com/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate)
-* Using [Import Update REST API](https://docs.microsoft.com/rest/api/deviceupdate/updates/import-update)
+* Using `Azure SDK` for [.NET](/dotnet/api/azure.iot.deviceupdate), [Java](/java/api/com.azure.iot.deviceupdate), [JavaScript](/javascript/api/@azure/iot-device-update) or [Python](/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate)
+* Using [Import Update REST API](/rest/api/deviceupdate/2020-09-01/updates)
 * Using [sample PowerShell modules](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets)
 
 > [!NOTE]
@@ -90,7 +90,7 @@ Update files and import manifest must be uploaded to an Azure Storage Blob conta
 
 > [!TIP]
 > To upload large update files to Azure Storage Blob container, you may use one of the following for better performance:
-> - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+> - [AzCopy](../storage/common/storage-use-azcopy-v10.md)
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer)
 
 ## Next Steps

@@ -1,16 +1,21 @@
 ---
 title: Monitor status, view history, and set up alerts
-description: Troubleshoot logic apps by checking run status, reviewing trigger history, and enabling alerts in Azure Logic Apps
+description: Troubleshoot logic apps by checking run status, reviewing trigger history, and enabling alerts in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: divswa, logicappspm
-ms.topic: article
+ms.reviewer: divswa, azla
+ms.topic: how-to
 ms.date: 05/04/2020
 ---
 
 # Monitor run status, review trigger history, and set up alerts for Azure Logic Apps
 
-After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you can check that logic app's run status, [runs history](#review-runs-history), [trigger history](#review-trigger-history), and performance. To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour."
+> [!NOTE]
+> This article applies only to Consumption logic apps. For information about reviewing run status and monitoring for Standard logic apps, 
+> review the following sections in [Create an integration workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md): 
+> [Review run history](create-single-tenant-workflows-azure-portal.md#review-run-history), [Review trigger history](create-single-tenant-workflows-azure-portal.md#review-trigger-history), and [Enable or open Application Insights after deployment](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
+
+After you create and run a [Consumption logic app workflow](quickstart-create-first-logic-app-workflow.md), you can check that workflow's run status, [runs history](#review-runs-history), [trigger history](#review-trigger-history), and performance. To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour."
 
 For real-time event monitoring and richer debugging, set up diagnostics logging for your logic app by using [Azure Monitor logs](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md), you can create [log queries](../azure-monitor/logs/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
@@ -28,7 +33,7 @@ For real-time event monitoring and richer debugging, set up diagnostics logging 
 
 Each time that the trigger fires for an item or event, the Logic Apps engine creates and runs a separate workflow instance for each item or event. By default, each workflow instance runs in parallel so that no workflow has to wait before starting a run. You can review what happened during that run, including the status for each step in the workflow plus the inputs and outputs for each step.
 
-1. In the [Azure portal](https://portal.azure.com), find and open your logic app in the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), find and open your logic app workflow in the designer.
 
    To find your logic app, in the main Azure search box, enter `logic apps`, and then select **Logic apps**.
 
@@ -104,9 +109,9 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
 Each logic app run starts with a trigger. The trigger history lists all the trigger attempts that your logic app made and information about the inputs and outputs for each trigger attempt.
 
-1. In the [Azure portal](https://portal.azure.com), find and open your logic app in the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), find and open your logic app workflow in the designer.
 
-   To find your logic app , in the main Azure search box, enter `logic apps`, and then select **Logic Apps**.
+   To find your logic app, in the main Azure search box, enter `logic apps`, and then select **Logic Apps**.
 
    ![Find and select "Logic Apps" service](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -134,8 +139,8 @@ Each logic app run starts with a trigger. The trigger history lists all the trig
    |||
 
    > [!TIP]
-   > You can recheck the trigger without waiting for the next recurrence. On the overview toolbar, select **Run trigger**,
-   > and select the trigger, which forces a check. Or, select **Run** on Logic Apps Designer toolbar.
+   > You can recheck the trigger without waiting for the next recurrence. On the overview toolbar, select **Run Trigger**,
+   > and select the trigger, which forces a check. Or, select **Run Trigger** on designer toolbar.
 
 1. To view information about a specific trigger attempt, on the trigger pane, select that trigger event. If the list shows many trigger attempts, and you can't find the entry that you want, try filtering the list. If you don't find the data that you expect, try selecting **Refresh** on the toolbar.
 

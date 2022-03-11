@@ -90,7 +90,7 @@ If you don't have a classic VNet and are running these steps as an exercise, you
 
 If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway before you proceed to [Configure the local site](#local).
 
-1. Open the [Azure portal](https://ms.portal.azure.com) and sign in with your Azure account.
+1. Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 2. Click **+ Create a resource** to open the 'New' page.
 3. In the 'Search the marketplace' field, type 'Virtual Network'. If you instead, select Networking -> Virtual Network, you will not get the option to create a classic VNet.
 4. Locate 'Virtual Network' from the returned list and click it to open the Virtual Network page. 

@@ -7,7 +7,7 @@ author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: reference
+ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: alexeyo
 ---

@@ -45,4 +45,4 @@ Billing is relevant only to individual container apps and their resource usage. 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Managing autoscaling behavior](scale-app.md)
+> [Containers](containers.md)

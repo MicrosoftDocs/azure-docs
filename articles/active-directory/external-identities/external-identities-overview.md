@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 01/31/2022
+ms.date: 02/23/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -53,9 +53,9 @@ Learn more about [B2B collaboration in Azure AD](what-is-b2b.md).
 
 Azure AD B2C is a Customer Identity and Access Management (CIAM) solution that lets you build user journeys for consumer- and customer-facing apps. If you're a business or individual developer creating customer-facing apps, you can scale to millions of consumers, customers, or citizens by using Azure AD B2C. Developers can use Azure AD B2C as the full-featured CIAM system for their applications.
 
-With Azure AD B2C, customers can sign in with an identity they've already established (like Facebook or Gmail). With Azure AD B2C, you can completely customize and control how customers sign up, sign in, and manage their profiles when using your applications. For more information, see the Azure AD B2C documentation.
+With Azure AD B2C, customers can sign in with an identity they've already established (like Facebook or Gmail). You can completely customize and control how customers sign up, sign in, and manage their profiles when using your applications. 
 
-Learn more about [Azure AD B2C](../../active-directory-b2c/index.yml).
+Although Azure AD B2C is built on the same technology as Azure AD, it's a separate service with some feature differences. For more information about how an Azure AD B2C tenant differs from an Azure AD tenant, see [Supported Azure AD features](../../active-directory-b2c/supported-azure-ad-features.md) in the [Azure AD B2C documentation](../../active-directory-b2c/index.yml).
 
 ## Comparing External Identities feature sets
 
@@ -114,7 +114,7 @@ When you're considering B2B collaboration with a specific external Azure AD orga
 
 Azure AD B2C is a separate consumer-based directory that you manage in the Azure portal through the Azure AD B2C service. Each Azure AD B2C tenant is separate and distinct from other Azure Active Directory and Azure AD B2C tenants. The Azure AD B2C portal experience is similar to Azure AD, but there are key differences, such as the ability to customize your user journeys using the Identity Experience Framework.
 
-For details about configuring and managing Azure AD B2C, see the [Azure AD B2B documentation](../../active-directory-b2c/index.yml).
+For details about configuring and managing Azure AD B2C, see the [Azure AD B2C documentation](../../active-directory-b2c/index.yml).
 
 ## Related Azure AD technologies
 
@@ -128,7 +128,7 @@ As an inviting organization, you might not know ahead of time who the individual
 
 Microsoft Graph APIs are available for creating and managing External Identities features.
 
-- **Cross-tenant access settings API**: The Microsoft Graph cross-tenant access API lets you programmatically create the same B2B collaboration policies that are configurable in the Azure portal. Using the API, you can set up policies for inbound and outbound collaboration to allow or block features for everyone by default and limit access to specific organizations, groups, users, and applications. The API also allows you to accept MFA and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
+- **Cross-tenant access settings API**: The [Microsoft Graph cross-tenant access API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-beta) lets you programmatically create the same B2B collaboration policies that are configurable in the Azure portal. Using the API, you can set up policies for inbound and outbound collaboration to allow or block features for everyone by default and limit access to specific organizations, groups, users, and applications. The API also allows you to accept MFA and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 
 - **B2B collaboration invitation manager**: The [Microsoft Graph invitation manager API](/graph/api/resources/invitation) is available for building your own onboarding experiences for B2B guest users. You can use the [create invitation API](/graph/api/invitation-post?tabs=http) to automatically send a customized invitation email directly to the B2B user, for example. Or your app can use the inviteRedeemUrl returned in the creation response to craft your own invitation (through your communication mechanism of choice) to the invited user.
 

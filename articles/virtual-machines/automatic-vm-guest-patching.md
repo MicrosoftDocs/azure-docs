@@ -8,8 +8,7 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 10/20/2021
 ms.author: mimckitt
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Automatic VM guest patching for Azure VMs
 
@@ -119,7 +118,7 @@ VMs on Azure now support the following patch orchestration modes:
 
 **Manual:**
 - This mode is supported only for Windows VMs.
-- This mode disables Automatic Updates on the Windows virtual machine.
+- This mode disables Automatic Updates on the Windows virtual machine. When deploying a VM using CLI or PowerShell, setting `--enable-auto-updates` to `false` will also set `patchMode` to `manual` and will disable Automatic Updates. 
 - This mode does not support availability-first patching.
 - This mode should be set when using custom patching solutions.
 - To use this mode on Windows VMs, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=false`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` in the VM template.

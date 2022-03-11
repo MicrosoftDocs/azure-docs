@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: The Speech CLI - Speech service"
 titleSuffix: Azure Cognitive Services
-description: By using the Azure Speech CLI, you can interact with speech-to-text, text-to-speech, and speech translation without having to write code.
+description: In this Azure Speech CLI quickstart, you interact with speech-to-text, text-to-speech, and speech translation without having to write code.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: eur
 ms.custom: mode-api
 ---
 
-# Get started with the Azure Speech CLI
+# Quickstart: Get started with the Azure Speech CLI
 
 In this article, you'll learn how to use the Azure Speech CLI (also called SPX) to access Speech services such as speech-to-text, text-to-speech, and speech translation, without having to write any code. The Speech CLI is production ready, and you can use it to automate simple workflows in the Speech service by using `.bat` or shell scripts.
 
@@ -21,9 +21,10 @@ This article assumes that you have working knowledge of the Command Prompt windo
 
 > [!NOTE]
 > In PowerShell, the [stop-parsing token](/powershell/module/microsoft.powershell.core/about/about_special_characters#stop-parsing-token---) (`--%`) should follow `spx`. For example, run `spx --% config @region` to view the current region config value.
+ 
+## Download and install
 
 [!INCLUDE [](includes/spx-setup.md)]
-
 
 ## Create a subscription configuration
 
