@@ -34,7 +34,7 @@ When using any of the Azure Maps SDKs, the map copyright attribution information
 
 When using map tiles from the Render service in a third-party map SDK, you must display and update the copyright attribution information on the map.
 
-Map content changes whenever an end user selects a different style, zooms in or out, or pans their map. Each of these user actions causes an event to fire and when any of these events fire, you need to call the Get Map Attribution API to update the map copyright attribution information displayed in the lower right hand corner of the map.
+Map content changes whenever an end user selects a different style, zooms in or out, or pans the map. Each of these user actions causes an event to fire and when any of these events fire, you need to call the Get Map Attribution API to update the map copyright attribution information displayed in the lower right hand corner of the map.
 
 Since the data providers can differ depending on the *region* and *zoom* level, the Get Map Attribution API takes these parameters as input and returns the corresponding attribution text.
 
