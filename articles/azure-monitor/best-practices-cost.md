@@ -11,35 +11,88 @@ ms.date: 03/08/2022
 # Azure Monitor best practices - Cost management
 This article provides guidance on reducing your cloud monitoring costs by implementing Azure Monitor in the most cost effective manner. This includes leveraging cost saving features and ensuring that you're not paying for data collection that provides little or no value. 
 
-## Ensure most effective pricing tier
-In most Azure Monitor implementations, the highest cost will be for data ingestion and retention in your Log Analytics workspace. Since there are various 
+In most Azure Monitor implementations, the highest cost will be for data ingestion and retention in your Log Analytics workspace. 
+
+## Configure pricing tier or dedicated cluster
+By default, your workspace will use Pay-As-You-Go pricing with no minimum data volume. If you collect a sufficient amount of data, you can significantly decrease your cost by configuring a commitment tier. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on commitment tiers and guidance on determining which is most appropriate for you  environment.
+
+[Dedicated clusters](logs/logs-dedicated-clusters.md) provide additional functionality and cost savings if you ingest at least 500 GB per day, collectively among multiple workspaces in the same region. Unlike commitment tiers, workspaces in a dedicated cluster don't need to individually reach the 500 GB.
 
 ## Determine most cost effective workspace configuration
 
-## Consider commitments
 
-## Reduce data collection
+## Reduce the amount of data collected
+The most straightforward strategy to reduce your costs for data ingestion and retention is to reduce the amount of data that you collect. Your goal should be to collect the minimal amount of data to meet your monitoring requirements. If you find that you're collecting data that's not being used for alerting or analysis, then you have an opportunity to reduce your monitoring costs by modifying your configuration to stop collecting data that you don't need.
+
+The configuration change will vary depending on the data source. The following table provides guidance for configuring the most common data sources to reduce the data they send to the workspace.
+
+### Virtual machines
+
+| Source | Strategy | Log Analytics agent | Azure Monitor agent |
+|:---|:---|:---|:---|
+| Event logs | - Reduce the number of event logs collected. <br> - Collect only required event levels. For example, do not collect *Information* level events. | Change the [event log configuration for the workspace](../agents/data-sources-windows-events.md) | Change the [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific event IDs. |
+| Syslog | - Reduce the number of facilities collected. <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events. | Change the [syslog configuration for the workspace](../agents/data-sources-syslog.md). |  Change the [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific events. |
+| Performance counters | - Reduce the frequency of collection. <br> - Reduce the number of performance counters. | Change the [performance counter configuration for the workspace](../agents/data-sources-performance-counters.md). | Change the [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific counters. |
+
+
+
+#### Azure Monitor features
+
+| Source | Strategy |
+|:---|:---|
+| Resource logs | Change the [diagnostic settings](../essentials/diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources that send logs to Log Analytics. <br> - Collect only required logs.<br> - Use [ingesting-time transformations](logs/ingestion-time-transformations.md) on the workspace to filter log data that isn't required. |
+| Application Insights | Review options for [managing Application Insights data volume](../app/pricing.md#managing-your-data-volume). |
+| Container insights | See [Controlling ingestion to reduce cost](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) for guidance on reducing the amount of data sent from Container insights. |
+| [SQL Analytics](../insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings.
+
+#### Other Azure services
+
+| Source | Strategy |
+|:---|:---|
+| Defender for Cloud | Select [common or minimal security events](../../security-center/security-center-enable-data-collection.md#data-collection-tier). |
+| Microsoft Sentinel | Review any [Sentinel data sources](../../sentinel/connect-data-sources.md) that you recently enabled as sources of additional data volume. See [Reduce costs for Microsoft Sentinel](../../sentinel/billing-reduce-costs.md) for other strategies to reduce Sentinel costs. |
+
+
+
+## Configure Basic Logs for low value tables (preview)
+Use [Basic Logs](logs/basic-logs-configure.md) to save on the cost of storing high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts. Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. 
+
+## Reduce long-term retention with Archived Logs (preview)
+Data collected in a Log Analytics workspace is retained for 31 days at no charge (90 days if Azure Sentinel is enabled on the workspace). You incur retention charges for any data that you retain beyond this duration.
+
+For data that you need to retain long-term for compliance or occasional investigation, configure [Archived Logs](logs/data-retention-archive.md) which allows you to retain data at a significantly reduced cost.
+
+## Reduce data collection with Archive Logs (preview)
 Because you're charged for ingestion and retention for any data you collect in your Log Analytics workspace, you can reduce your costs by reducing the amount of data you collect. The following table lists common sources of data and strategies for reducing their data volume.
 
 
-| Source of high data volume | How to reduce data volume |
-| -------------------------- | ------------------------- |
-| Data Collection Rules      | The [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) uses Data Collection Rules to manage the collection of data. You can [limit the collection of data](../agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) using custom XPath queries. | 
-| Container Insights         | [Configure Container Insights](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) to collect only the data you required. |
-| Microsoft Sentinel | Review any [Sentinel data sources](../../sentinel/connect-data-sources.md) that you recently enabled as sources of additional data volume. [Learn more](../../sentinel/azure-sentinel-billing.md) about Sentinel costs and billing. |
-| Security events            | Select [common or minimal security events](../../security-center/security-center-enable-data-collection.md#data-collection-tier). <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for: <br> - [audit filtering platform](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)). <br> - [audit registry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10)). <br> - [audit file system](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10)). <br> - [audit kernel object](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10)). <br> - [audit handle manipulation](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10)). <br> - audit removable storage. |
-| Performance counters       | Change the [performance counter configuration](../agents/data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection. <br> - Reduce the number of performance counters. |
-| Event logs                 | Change the [event log configuration](../agents/data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected. <br> - Collect only required event levels. For example, do not collect *Information* level events. |
-| Syslog                     | Change the [syslog configuration](../agents/data-sources-syslog.md) to: <br> - Reduce the number of facilities collected. <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events. |
-| AzureDiagnostics           | Change the [resource log collection](../essentials/diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources that send logs to Log Analytics. <br> - Collect only required logs. |
-| Solution data from computers that don't need the solution | Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers. |
-| Application Insights | Review options for [managing Application Insights data volume](../app/pricing.md#managing-your-data-volume). |
-| [SQL Analytics](../insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings. 
+## Filter data with transformations (preview)
+Ingestion-time transformations allow you to filter incoming data, allowing you to reduce costs for data ingestion and retention. In addition to filtering records from the incoming data, you can filter out columns in the data, reducing its size as described in [Data size calculation](cost-logs.md#data-size-calculation).
 
+Use ingestion-time transformations on the workspace to further filter data for workflows where you don't have granular control. For example, you can select categories to collect for a particular service in a diagnostic setting, but that category might send a variety of logs that you don't need. Create a transformation for the table that service uses to filter out records you don't want.
 
-### Optimize resource logs
+You can also ingestion-time transformations to lower the storage requirements for records you want by removing columns without useful information. For example, you might have error events in a resource log that you want for alerting, but you don't require certain columns in those records that contain a large amount of data. Create a transformation for the table that removes those columns.
 
-Since diagnostic settings don't allow for granular configuration, you may have some resources that send excessive data. This may be certain types of records that you don't require or data within records that you don't require.
+See the following table for methods to apply transformations to different workflows.
+
+| Source | Target | Description | Filtering method |
+|:---|:---|:---|:---|
+| AMA | Built-in tables | Collect data from standard sources such as Windows events, syslog, and performance data and send to built-in tables in Log Analytics workspace. | Use XPath in DCR to collect specific data from client machine. Ingestion-time transformations in agent DCR are not yet supported. |
+| MMA | Built-in tables | Collect data from standard sources such as Windows events, syslog, and performance data and send to built-in tables in Log Analytics workspace. |Configure data collection on the workspace. Optionally, create ingestion-time transformation in the workspace DCR to filter records and columns. |
+| AMA | Custom tables | Collecting data outside of standard data sources is not yet supported. |
+| MMA | Custom tables | Configure [custom logs](agents/data-sources-custom-logs.md) on the workspace to collect file based text logs. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. You must first migrate the custom table to the new custom logs API. | Data Collector API | Custom tables | Use [Data Collector API](logs/data-collector-api.md) to send data to custom tables in the workspace using REST API. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. You must first migrate the custom table to the new custom logs API. |
+| Custom Logs API | Custom tables<br>Built-in tables | Use [Custom Logs API](logs/custom-logs-overview.md) to send data to custom tables in the workspace using REST API. | Configure ingestion-time transformation in the DCR for the custom log. |
+| Other data sources | Built-in tables | Includes resource logs from diagnostic settings and other Azure Monitor features such as Application insights, Container insights and VM insights. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. |
+
+## Monitor workspace for high data collection
+
+## Limit logs used for troubleshooting
+
+## Optimize alert rules
+
+## Understand data being collected
+
+## Caution when multi-homing agents
 
 ## Next steps
 

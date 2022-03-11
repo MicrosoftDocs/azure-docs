@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 02/18/2022
 ---
  
-# Azure Monitor Logs pricing model
+# Azure Monitor Logs pricing details
 The default pricing Azure Monitor Logs is a cloud-friendly, consumption-based pricing **Pay-As-You-Go** model that's based on ingested data volume and optionally for longer data retention. Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. 
 
 The amount of data ingestion can be considerable, depending on the following factors: 
@@ -13,20 +13,6 @@ The amount of data ingestion can be considerable, depending on the following fac
   - The set of insights and services enabled and their configuration
   - The number and type of monitored resources
   - Type of data collected from each monitored resource
-
-
-## Commitment Tiers
-In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers**, which can save you as much as 30 percent compared to the Pay-As-You-Go price. With commitment tier pricing, you can commit to buy data ingestion starting at 100 GB/day at a lower price than Pay-As-You-Go pricing. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected. 
-
-- During the commitment period, you can change to a higher commitment tier (which restarts the 31-day commitment period), but you can't move back to Pay-As-You-Go or to a lower commitment tier until after you finish the commitment period. 
-- At the end of the commitment period, the workspace retains the selected commitment tier, and the workspace can be moved to Pay-As-You-Go or to a different commitment tier at any time. 
- 
-Billing for the commitment tiers is done on a daily basis. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for a detailed listing of the commitment tiers and their prices. 
-
-
-> [!NOTE]
-> Starting June 2, 2021, **Capacity Reservations** are now called **Commitment Tiers**. Data collected above your commitment tier level (overage) is now billed at the same price-per-GB as the current commitment tier level, lowering costs compared to the old method of billing at the Pay-As-You-Go rate, and reducing the need for users with large data volumes to fine-tune their commitment level. Three new commitment tiers were also added: 1000, 2000, and 5000 GB/day. 
-
 
 ## Data size calculation
 In all pricing tiers, an event's data size is calculated from a string representation of the properties that are stored in the Log Analytics workspace for this event, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [custom logs API](custom-logs-overview.md), [ingestion-time transformations](ingestion-time-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
@@ -56,7 +42,19 @@ Some solutions have more solution-specific policies about free data ingestion, f
 
 See the documentation for different services and solutions for any unique billing calculations.
 
-## Azure Monitor Logs Dedicated Clusters
+## Commitment Tiers
+In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers**, which can save you as much as 30 percent compared to the Pay-As-You-Go price. With commitment tier pricing, you can commit to buy data ingestion starting at 100 GB/day at a lower price than Pay-As-You-Go pricing. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected. 
+
+- During the commitment period, you can change to a higher commitment tier (which restarts the 31-day commitment period), but you can't move back to Pay-As-You-Go or to a lower commitment tier until after you finish the commitment period. 
+- At the end of the commitment period, the workspace retains the selected commitment tier, and the workspace can be moved to Pay-As-You-Go or to a different commitment tier at any time. 
+ 
+Billing for the commitment tiers is done on a daily basis. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for a detailed listing of the commitment tiers and their prices. 
+
+
+> [!NOTE]
+> Starting June 2, 2021, **Capacity Reservations** are now called **Commitment Tiers**. Data collected above your commitment tier level (overage) is now billed at the same price-per-GB as the current commitment tier level, lowering costs compared to the old method of billing at the Pay-As-You-Go rate, and reducing the need for users with large data volumes to fine-tune their commitment level. Three new commitment tiers were also added: 1000, 2000, and 5000 GB/day. 
+
+## Dedicated clusters
 
 [Azure Monitor Logs Dedicated Clusters](logs-dedicated-clusters.md) are collections of workspaces in a single managed Azure Data Explorer cluster to support advanced scenarios, like [Customer-Managed Keys](customer-managed-keys.md). Dedicated clusters use the same commitment tier pricing model as workspaces, except that a cluster must have a commitment level of at least 500 GB/day. There is no Pay-As-You-Go option for clusters. The cluster commitment tier has a 31-day commitment period after the commitment level is increased. During the commitment period, the commitment tier level can't be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces is done at the cluster level using the configured commitment tier level. 
 
@@ -68,9 +66,13 @@ There are two modes of billing for usage on a cluster. These can be specified by
 
 - **Workspaces**: Commitment tier costs for your cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Microsoft Defender for Cloud](../../security-center/index.yml) for each workspace.) If the total data volume ingested into a cluster for a day is less than the commitment tier, each workspace is billed for its ingested data at the effective per-GB commitment tier rate by billing them a fraction of the commitment tier, and the unused part of the commitment tier is billed to the cluster resource. If the total data volume ingested into a cluster for a day is more than the commitment tier, each workspace is billed for a fraction of the commitment tier, based on its fraction of the ingested data that day and each workspace for a fraction of the ingested data above the commitment tier. If the total data volume ingested into a workspace for a day is above the commitment tier, nothing is billed to the cluster resource.
 
-In cluster billing options, data retention is billed for each workspace. Cluster billing starts when the cluster is created, regardless of whether workspaces are associated with the cluster. Workspaces associated to a cluster no longer have their own pricing tier.
+In cluster billing options, data retention is billed for each workspace. Cluster billing starts when the cluster is created, regardless of whether workspaces are associated with the cluster. Workspaces 
+associated to a cluster no longer have their own pricing tier.
 
-## Log Analytics and Microsoft Defender for Cloud
+
+## Workspaces with Microsoft Sentinel
+When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collected in that workspace is subject to Sentinel charges in addition to Log Analytics charges. For this reason, you will often separate your security and operational data in different workspaces so that you don't incur Sentinel charges for operational data. There may be particular situations though where combining this data  can actually result in a cost savings. This is typically when you aren't collecting enough security and operational data to each reach a commitment tier on their own, but the combined data is enough to reach a commitment tier. See **Combining your SOC and non-SOC data** in [Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md#decision-tree) for details and a sample cost calculation.
+## Workspaces with Microsoft Defender for Cloud
 
 [Microsoft Defender for Servers (part of Defender for Cloud)](../../security-center/index.yml) billing is closely tied to Log Analytics billing. Microsoft Defender for Servers [bills by the number of monitored services](https://azure.microsoft.com/pricing/details/azure-defender/) and provides 500 MB/server/day data allocation that is applied to the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 
@@ -91,9 +93,6 @@ The count of monitored servers is calculated on an hourly granularity. The daily
 
 To view the daily Defender for Servers data allocations for a workspace, you need to [export your usage details](#viewing-log-analytics-usage-on-your-azure-bill), open the usage spreadsheet and filter the meter category to "Insight and Analytics".  You'll then see usage with the meter name "Data Included per Node" which has a zero price per GB.  The consumed quantity column will show the number of GBs of Defender for Cloud data allocation for the day. (If the workspace is in the legacy Per Node Log Analytics pricing tier, this meter will also include the data allocations from this Log Analytics pricing tier.) 
 
-## Tracking pricing tier changes
-
-Changes to a workspace's pricing pier are recorded in the [Activity Log](../essentials/activity-log.md) with events with an **Operation** of *Create Workspace*. The event's **Change history** tab will show the old and new pricing tiers in the  `properties.sku.name` row.  Click the **Activity Log** option from your workspace to see events scoped to a particular workspace. To monitor changes the pricing tier, you can create an alert for the *Create Workspace* operation. 
 
 ## Legacy pricing tiers
 
@@ -112,7 +111,7 @@ The Per Node pricing tier charges per monitored VM (node) on an hour granularity
 
 Workspaces created before April 2016 can continue to use the **Standard** and **Premium** pricing tiers that have fixed data retention of 30 days and 365 days, respectively. New workspaces can't be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it can't be moved back. Data ingestion meters on your Azure bill for these legacy tiers are called "Data analyzed."
 
-### Legacy pricing tiers and Microsoft Defender for Cloud
+### Microsoft Defender for Cloud with legacy pricing tiers and 
 
 There are also some behaviors between the use of legacy Log Analytics tiers and how usage is billed for [Microsoft Defender for Cloud](../../security-center/index.yml). 
 
@@ -127,7 +126,7 @@ None of the legacy pricing tiers have regional-based pricing.
 > [!NOTE]
 > To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite, or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
 
-## Evaluating the legacy Per Node pricing tier
+## Evaluate the legacy Per Node pricing tier
 The decision of whether workspaces with access to the legacy **Per Node** pricing tier are better off in that tier or in a current **Pay-As-You-Go** or **Commitment Tier**  is often difficult for customers to assess.  This involves understanding the trade-off between the fixed cost per monitored node in the Per Node pricing tier and its included data allocation of 500 MB/node/day and the cost of just paying for ingested data in the Pay-As-You-Go (Per GB) tier. 
 
 To facilitate this assessment, the following query can be used to make a recommendation for the optimal pricing tier based on a workspace's usage patterns. This query looks at the monitored nodes and data ingested into a workspace in the last seven days, and for each day, it evaluates which pricing tier would have been optimal. To use the query, you need to specify:
@@ -225,49 +224,3 @@ This query isn't an exact replication of how usage is calculated, but it provide
 
 <a name="allocations"></a>
 
-
-## Changing pricing tier
-
-### Azure portal
-
-To change the Log Analytics pricing tier of your workspace:
-
-1. In the Azure portal, open **Usage and estimated costs** from your workspace; you'll see a list of each of the pricing tiers available to this workspace.
-
-2. Review the estimated costs for each pricing tier. This estimate is based on the last 31 days of usage, so this cost estimate relies on the last 31 days being representative of your typical usage. In the example below, you can see how, based on the data patterns from the last 31 days, this workspace would cost less in the Pay-As-You-Go tier (#1) compared to the 100 GB/day commitment tier (#2).  
-
-:::image type="content" source="media/manage-cost-storage/pricing-tier-estimated-costs.png" alt-text="Pricing tiers":::
-    
-3. After reviewing the estimated costs based on the last 31 days of usage, if you decide to change the pricing tier, select **Select**.  
-
-### Azure Resource Manager
-You can also [set the pricing tier via Azure Resource Manager](./resource-manager-workspace.md) using the `sku` object to set the pricing tier, and the `capacityReservationLevel` parameter if the pricing tier is `capacityresrvation`. (Learn more about [setting workspace properties via ARM](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces?tabs=json#workspacesku-object).) Here is a sample Azure Resource Manager template to set your workspace to a 300 GB/day commitment tier (in Resource Manager, it's called `capacityreservation`). 
-
-```
-{
-  "$schema": https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#,
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "name": "YourWorkspaceName",
-      "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2020-08-01",
-      "location": "yourWorkspaceRegion",
-      "properties": {
-                    "sku": {
-                      "name": "capacityreservation",
-                      "capacityReservationLevel": 300
-                    }
-      }
-    }
-  ]
-}
-```
-
-To use this template in PowerShell, after [installing the Azure Az PowerShell module](/powershell/azure/install-az-ps), sign in to Azure using `Connect-AzAccount`, select the subscription containing your workspace using `Select-AzSubscription -SubscriptionId YourSubscriptionId`, and apply the template (saved in a file named template.json):
-
-```
-New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -TemplateFile "template.json"
-```
-
-To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018` for the SKU), omit the `capacityReservationLevel` property. Learn more about [creating ARM templates](../../azure-resource-manager/templates/template-tutorial-create-first-template.md),  [adding a resource to your template](../../azure-resource-manager/templates/template-tutorial-add-resource.md), and [applying templates](../resource-manager-samples.md). 

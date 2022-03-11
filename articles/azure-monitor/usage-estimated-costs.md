@@ -49,7 +49,7 @@ These applications span the range of Application Insights configurations. For ex
 
 
 
-# Viewing Azure Monitor Logs usage on your Azure bill
+## Viewing Azure Monitor Logs usage on your Azure bill
 The easiest way to view your billed usage for a particular Log Analytics workspace is to go to the **Overview** page of the workspace and click **View Cost** in the upper right corner of the **Essentials** section at the top of the page. This will launch the Cost Analysis from Azure Cost Management + Billing already scoped to this workspace.  You might need additional access to Cost Management data ([learn more](../../cost-management-billing/costs/assign-access-acm-data.md))
 
 :::image type="content" source="media/view-bill/view-cost-option.png" lightbox="media/view-bill/view-cost-option.png" alt-text="Screenshot of option to view cost for Log ANalytics workspace.":::

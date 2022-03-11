@@ -1,28 +1,37 @@
 ---
-title: Manage usage and costs for Azure Monitor Logs
-description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in Azure Monitor.
+title: Set daily cap on Log Analytics workspace
+description: Set a 
 ms.topic: conceptual
 ms.date: 02/18/2022
 ---
  
-# Manage maximum daily data volume in Log Analytics workspace
-You can configure a daily cap and limit the daily ingestion for your workspace, but use care because your goal shouldn't be to hit the daily limit. Otherwise, you lose data for the remainder of the day, which can impact other Azure services and solutions whose functionality may depend on up-to-date data being available in the workspace. As a result, your ability to observe and receive alerts when the health conditions of resources supporting IT services are impacted. The daily cap is intended to be used as a way to manage an **unexpected increase** in data volume from your managed resources and stay within your limit, or when you want to limit unplanned charges for your workspace. It's not appropriate to set a daily cap so that it's met each day on a workspace.
+# Set daily cap on Log Analytics workspace
+A daily cap on a Log Analytics workspace allows you to avoid unexpected increases in charges for data ingestion by stopping collection of billable data for the rest of the day if a specified cap is reached. 
 
-Each workspace has its daily cap applied on a different hour of the day. The reset hour is shown in the **Daily Cap** page (see below). This reset hour can't be configured. 
+## Overview
+You should use care when setting a daily cap because when data collection stops, your ability to observe and receive alerts when the health conditions of resources supporting IT services will be impacted. It can also impact other Azure services and solutions whose functionality may depend on up-to-date data being available in the workspace. Your goal shouldn't be to regularly hit the daily limit but rather use it as an infrequent method to avoid unplanned charges resulting from an unexpected increase in the volume of data collected.
 
-Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. Latency inherent in applying the daily cap means that the cap isn't applied at precisely the specified daily cap level. A warning banner appears across the top of the page for the selected Log Analytics workspace, and an operation event is sent to the *Operation* table under the **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule that's based on this operation event, configured to notify when the daily data limit is reached. For more information, see [Alert when daily cap is reached](#alert-when-daily-cap-is-reached) section. 
+Each workspace has its daily cap applied on a different hour of the day. The reset hour is shown in the **Daily Cap** page (see below). This reset hour can't be configured. Latency inherent in applying the daily cap means that the cap isn't applied at precisely the specified daily cap level. 
 
-> [!NOTE]
-> The daily cap can't stop data collection at precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. If data is collected above the cap, it's still billed. For a query that is helpful in studying the daily cap behavior, see the [View the effect of the Daily Cap](#view-the-effect-of-the-daily-cap) section in this article. 
+
+## Determine your daily cap
+To understand the data ingestion trend and the daily volume cap to define, review [Log Analytics Usage and estimated costs](../usage-estimated-costs.md). Consider it with care, because you can't monitor your resources after the limit is reached. 
 
 > [!WARNING]
 > The daily cap doesn't stop the collection of data types **WindowsEvent**, **SecurityAlert**, **SecurityBaseline**, **SecurityBaselineSummary**, **SecurityDetection**, **SecurityEvent**, **WindowsFirewall**, **MaliciousIPCommunication**, **LinuxAuditLog**, **SysmonEvent**, **ProtectionStatus**, **Update**, and **UpdateSummary**, except for workspaces in which Microsoft Defender for Cloud was installed before June 19, 2017. 
 
-### Identify what daily data limit to define
+## When daily cap is reached
+When the daily cap is reached, a warning banner appears across the top of the page for the selected Log Analytics workspace, and an operation event is sent to the *Operation* table under the **LogManagement** category. 
 
-To understand the data ingestion trend and the daily volume cap to define, review [Log Analytics Usage and estimated costs](../usage-estimated-costs.md). Consider it with care, because you can't monitor your resources after the limit is reached. 
 
-### Set the daily cap
+## When data collection resumes
+Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule that's based on this operation event, configured to notify when the daily data limit is reached. For more information, see [Alert when daily cap is reached](#alert-when-daily-cap-is-reached) section. 
+
+> [!NOTE]
+> The daily cap can't stop data collection at precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. If data is collected above the cap, it's still billed. For a query that is helpful in studying the daily cap behavior, see the [View the effect of the Daily Cap](#view-the-effect-of-the-daily-cap) section in this article. 
+
+
+## Set the daily cap
 
 The following steps describe how to configure a limit to manage the volume of data that Log Analytics workspace will ingest per day.  
 
@@ -42,24 +51,7 @@ _LogOperation | where Operation == "Workspace Configuration" | where Detail cont
 
 Learn more about the [_LogOperation](./monitor-workspace.md) function. 
 
-### View the effect of the daily cap
-
-To view the effect of the daily cap, it's important to account for the security data types that aren't included in the daily cap, and the reset hour for your workspace. The daily cap reset hour is visible on the **Daily Cap** page. The following query can be used to track the data volumes that are subject to the daily cap between daily cap resets. In this example, the workspace's reset hour is 14:00. You'll need to update this for your workspace.
-
-```kusto
-let DailyCapResetHour=14;
-Usage
-| where DataType !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
-| where TimeGenerated > ago(32d)
-| extend StartTime=datetime_add("hour",-1*DailyCapResetHour,StartTime)
-| where StartTime > startofday(ago(31d))
-| where IsBillable
-| summarize IngestedGbBetweenDailyCapResets=sum(Quantity)/1000. by day=bin(StartTime , 1d) // Quantity in units of MB
-| render areachart  
-```
-Add `Update` and `UpdateSummary` data types to the `where Datatype` line when the Update Management solution is not running on the workspace or solution targeting is enabled ([learn more](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance).)
-
-### Alert when daily cap is reached
+## Alert when daily cap is reached
 
 Azure portal has a visual cue when your data limit threshold is met, but this behavior doesn't necessarily align to how you manage operational issues that require immediate attention. To receive an alert notification, you can create a new alert rule in Azure Monitor. To learn more, see [how to create, view, and manage alerts](../alerts/alerts-metric.md).
 
@@ -83,3 +75,22 @@ After an alert is defined and the limit is reached, an alert is triggered and pe
 - Automated actions using webhooks
 - Azure Automation runbooks
 - [Integrated with an external ITSM solution](../alerts/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
+
+
+## View the effect of the daily cap
+
+To view the effect of the daily cap, it's important to account for the security data types that aren't included in the daily cap, and the reset hour for your workspace. The daily cap reset hour is visible on the **Daily Cap** page. The following query can be used to track the data volumes that are subject to the daily cap between daily cap resets. In this example, the workspace's reset hour is 14:00. You'll need to update this for your workspace.
+
+```kusto
+let DailyCapResetHour=14;
+Usage
+| where DataType !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| where TimeGenerated > ago(32d)
+| extend StartTime=datetime_add("hour",-1*DailyCapResetHour,StartTime)
+| where StartTime > startofday(ago(31d))
+| where IsBillable
+| summarize IngestedGbBetweenDailyCapResets=sum(Quantity)/1000. by day=bin(StartTime , 1d) // Quantity in units of MB
+| render areachart  
+```
+Add `Update` and `UpdateSummary` data types to the `where Datatype` line when the Update Management solution is not running on the workspace or solution targeting is enabled ([learn more](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance).)
+
