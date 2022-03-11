@@ -72,8 +72,7 @@ In order for devices to be reprovisioned based on the configuration changes made
 
 How often a device submits a provisioning request depends on the scenario.  When designing your solution and defining a reprovisioning logic there are a few things to consider. For example:
 
-* The size of your fleet
-* How you expect your devices to restart
+* How often you expect your devices to restart
 * The [DPS quotas and limits](about-iot-dps.md#quotas-and-limits)
 * Expected deployment time for your fleet (phased rollout vs all at once)
 * Retry capability implemented on your client code, as described on the [Retry general guidance](/architecture/best-practices/transient-faults) at the Azure Architecture Center
@@ -90,7 +89,7 @@ How often a device submits a provisioning request depends on the scenario.  When
 > We also recommend taking into account the service limits when planning activities like pushing updates to your fleet. For example, updating the fleet all at once could cause all devices to re-register through DPS (which could easily be above the registration quota limit) - For such scenarios, consider planning for device updates in phases instead of updating your entire fleet at the same time.
 
 >[!Note]
-> The get the device registration state API does not currently work for TPM devices (the API surface does not include enough information to authenticate the request).
+> The [get device registration state API](/rest/api/iot-dps/service/device-registration-state/get) does not currently work for TPM devices (the API surface does not include enough information to authenticate the request).
 
 ## Next steps
 
