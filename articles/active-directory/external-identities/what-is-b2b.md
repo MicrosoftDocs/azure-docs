@@ -25,7 +25,6 @@ A simple invitation and redemption process lets partners use their own credentia
 
 Developers can use Azure AD business-to-business APIs to customize the invitation process or write applications like self-service sign-up portals. For licensing and pricing information related to guest users, refer to [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
-
 > [!IMPORTANT]
 > **Starting July 2022**, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. As part of this change, Microsoft will stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode)..
 
@@ -38,11 +37,12 @@ With Azure AD B2B, the partner uses their own identity management solution, so t
 - You don't need to sync accounts or manage account lifecycles.
 
 ## Manage collaboration with other organizations and clouds
+
 B2B collaboration is enabled by default, but comprehensive admin settings let you control your inbound and outbound B2B collaboration with external partners and organizations:
 
-- For B2B collaboration with other Azure AD organizations, use [cross-tenant access settings](cross-tenant-access-overview.md) to manage inbound and outbound B2B collaboration and scope access to specific users, groups, and applications. You can set a default configuration that applies to all external organizations, and then create individual, organization-specific settings as needed. Using cross-tenant access settings, you can also trust multi-factor (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
+- For B2B collaboration with other Azure AD organizations, use [cross-tenant access settings](cross-tenant-access-overview.md). Manage inbound and outbound B2B collaboration, and scope access to specific users, groups, and applications. Set a default configuration that applies to all external organizations, and then create individual, organization-specific settings as needed. Using cross-tenant access settings, you can also trust multi-factor (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 
-- Use [external collaboration settings](external-collaboration-settings-configure.md) to limit who can invite external users, allow or block B2B specific domains, and set restrictions on guest user access to your directory.
+- Use [external collaboration settings](external-collaboration-settings-configure.md) to define who can invite external users, allow or block B2B specific domains, and set restrictions on guest user access to your directory.
 
 - Use [cross-cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between global and sovereign Microsoft Azure clouds.
 
@@ -78,8 +78,6 @@ You can use authentication and authorization policies to protect your corporate 
 
 ![Screenshot showing the Conditional Access option](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
-
-
 ## Let application and group owners manage their own guest users
 
 You can delegate guest user management to application owners so that they can add guest users directly to any application they want to share, whether it's a Microsoft application or not.
@@ -104,10 +102,9 @@ Azure AD supports external identity providers like Facebook, Microsoft accounts,
 
 ## Integrate with SharePoint and OneDrive
 
-You can [enable integration with SharePoint and OneDrive](/sharepoint/sharepoint-azureb2b-integration) to share files, folders, list items, document libraries, and sites with people outside your organization, while using Azure B2B for authentication and management. The users you share resources with are typically added to your directory as guests, and permissions and groups work the same for these guests as they do for internal users. When enabling integration with SharePoint and OneDrive, you'll also enable the [email one-time passcode](one-time-passcode.md) feature in Azure AD B2B to serve as a fallback authentication method. 
+You can [enable integration with SharePoint and OneDrive](/sharepoint/sharepoint-azureb2b-integration) to share files, folders, list items, document libraries, and sites with people outside your organization, while using Azure B2B for authentication and management. The users you share resources with are typically added to your directory as guests, and permissions and groups work the same for these guests as they do for internal users. When enabling integration with SharePoint and OneDrive, you'll also enable the [email one-time passcode](one-time-passcode.md) feature in Azure AD B2B to serve as a fallback authentication method.
 
 ![Screenshot of the email one-time-passcode setting.](media/what-is-b2b/enable-email-otp-options.png)
-
 
 ## Next steps
 

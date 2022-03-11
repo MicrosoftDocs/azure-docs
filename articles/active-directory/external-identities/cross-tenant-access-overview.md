@@ -61,7 +61,7 @@ Cross-cloud settings let you collaborate with organizations from different Micro
 - Microsoft Azure Government
 - Microsoft Azure China 21Vianet
 
-To set up B2B collaboration between tenants in different clouds, both tenants need to configure their cross-cloud settings to enable the partner's cloud. Then each tenant will need to configure their inbound and outbound cross-tenant access settings to allow B2B collaboration between their tenants. After you establish cross-cloud B2B collaboration, you'll be able to:
+To set up B2B collaboration, both organizations configure their cross-cloud settings to enable the partner's cloud. Then each organization adds the partner's tenant to their organizational settings. From there, each organization can allow their default cross-tenant access settings apply to the partner, or they can configure partner-specific inbound and outbound settings. After you establish cross-cloud B2B collaboration, you'll be able to:
 
 - Use B2B collaboration to invite a user in the partner tenant to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
 - Apply Conditional Access policies to the B2B collaboration user and opt to trust device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.

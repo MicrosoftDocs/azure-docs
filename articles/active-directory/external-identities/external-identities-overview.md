@@ -49,7 +49,7 @@ You can use [cross-tenant access settings](cross-tenant-access-overview.md) to m
 
 ### Cross-cloud B2B collaboration (preview)
 
-Microsoft Azure cloud services are available in separate national clouds, which are physically isolated instances of Azure. Increasingly, organizations are finding the need to collaborate with organizations and users across global Azure cloud and national cloud boundaries. With cross-cloud access settings, you can establish mutual B2B collaboration between the following Microsoft Azure clouds:
+Microsoft Azure cloud services are available in separate national clouds, which are physically isolated instances of Azure. Increasingly, organizations are finding the need to collaborate with organizations and users across global cloud and national cloud boundaries. With cross-cloud access settings, you can establish mutual B2B collaboration between the following Microsoft Azure clouds:
 
 - Microsoft Azure global cloud
 - Microsoft Azure Government
