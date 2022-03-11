@@ -78,4 +78,4 @@ HDInsight 3.6 end of support is extended till September 30, 2022.
 
 Starting from September 30, 2022, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
-Customers who are on Azure HDInsight 3.6 clusters will continue to get [Basic support](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#support-options-for-hdinsight-versions) till September 30, 2022. After September 30th, 2022, customers will not be able to create new HDInsight 3.6 clusters. 
+Customers who are on Azure HDInsight 3.6 clusters will continue to get [Basic support](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#support-options-for-hdinsight-versions) till September 30, 2022. After September 30th, 2022, customers will not be able to create new HDInsight 3.6 clusters. 
