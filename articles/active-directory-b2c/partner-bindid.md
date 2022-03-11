@@ -66,7 +66,7 @@ Follow the steps in [Configure Your Application](https://developer.bindid.io/doc
 | Redirect URLs | Enter `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-B2C-tenant` with the name of your Azure AD B2C tenant. If you use a custom domain, replace `your-B2C-tenant-name.b2clogin.com` with your custom domain such as `contoso.com`.|
 
 
-After you register the app in BindID, you'll get a **Client ID** and a **Client Secret**. Record the values as you'll need later to configure the an identity provider in Azure AD B2C.
+After you register the app in BindID, you'll get a **Client ID** and a **Client Secret**. Record the values as you'll need them later to configure BindID as an identity provider in Azure AD B2C.
 
 ::: zone pivot="b2c-user-flow"
 
