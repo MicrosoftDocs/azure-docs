@@ -8,4 +8,4 @@ ms.author: inhenkel
 
 ### Create a job with Python
 
-:::code language="python" source="~/media-services-v3-python/BasicEncoding.py" id="CreateJob":::
+:::code language="python" source="~/media-services-v3-python/BasicEncoding/basic-encoding.py" id="CreateJob":::
