@@ -38,15 +38,15 @@ Use the following steps to configure the Azure components for your load test:
 
 1. On the left pane, select **Tests**, and then select your load test from the list.
 
-    :::image type="content" source="media/how-to-update-rerun-test/select-test.png" alt-text="Screenshot that shows a list of load tests to select from.":::  
+    :::image type="content" source="media/how-to-monitor-server-side-metrics/select-test.png" alt-text="Screenshot that shows a list of load tests to select from.":::  
 
 1. On the test runs page, select **Configure**, and then select **App Components** to add or remove Azure resources to monitor during the load test.
 
-    :::image type="content" source="media/how-to-update-rerun-test/configure-app-components.png" alt-text="Screenshot that shows the 'App Components' button for displaying app components to configure for a load test.":::  
+    :::image type="content" source="media/how-to-monitor-server-side-metrics/configure-app-components.png" alt-text="Screenshot that shows the 'App Components' button for displaying app components to configure for a load test.":::  
 
 1. Select or clear the checkboxes next to the Azure resources you want to add or remove, and then select **Apply**.
 
-    :::image type="content" source="media/how-to-update-rerun-test/modify-app-components.png" alt-text="Screenshot that shows how to add or remove app components from a load test configuration.":::  
+    :::image type="content" source="media/how-to-monitor-server-side-metrics/modify-app-components.png" alt-text="Screenshot that shows how to add or remove app components from a load test configuration.":::  
 
     When you run the load test, Azure Load Testing will display the default resource metrics in the test run dashboard.
 
@@ -60,21 +60,21 @@ Use the following steps to view and update the list of resource metrics:
 
 1. On the test runs page, select **Configure**, and then select **Metrics** to select the specific resource metrics to capture during the load test.
 
-    :::image type="content" source="media/how-to-update-rerun-test/configure-metrics.png" alt-text="Screenshot that shows the 'Metrics' button to configure metrics for a load test.":::  
+    :::image type="content" source="media/how-to-monitor-server-side-metrics/configure-metrics.png" alt-text="Screenshot that shows the 'Metrics' button to configure metrics for a load test.":::  
 
 1. Update the list of metrics you want to capture, and then select **Apply**.
 
-    :::image type="content" source="media/how-to-update-rerun-test/modify-metrics.png" alt-text="Screenshot that shows a list of resource metrics to configure for a load test.":::  
+    :::image type="content" source="media/how-to-monitor-server-side-metrics/modify-metrics.png" alt-text="Screenshot that shows a list of resource metrics to configure for a load test.":::  
 
     Alternatively, you can update the app components and metrics from the page that shows test result details.
 
 1. Select **Run** to run the load test with the new configuration settings.
 
-    :::image type="content" source="media/how-to-update-rerun-test/run-load-test.png" alt-text="Screenshot that shows the 'Run' button for running the load test from the test runs page.":::  
+    :::image type="content" source="media/how-to-monitor-server-side-metrics/run-load-test.png" alt-text="Screenshot that shows the 'Run' button for running the load test from the test runs page.":::  
 
     Notice that the test result dashboard now shows the updated server-side metrics.
 
-    :::image type="content" source="media/how-to-update-rerun-test/dashboard-updated-metrics.png" alt-text="Screenshot that shows the updated server-side metrics on the test result dashboard.":::
+    :::image type="content" source="media/how-to-monitor-server-side-metrics/dashboard-updated-metrics.png" alt-text="Screenshot that shows the updated server-side metrics on the test result dashboard.":::
 
 When you update the configuration of a load test, all future test runs will use that configuration. On the other hand, if you update a test run, the new configuration will only apply to that test run.
 
