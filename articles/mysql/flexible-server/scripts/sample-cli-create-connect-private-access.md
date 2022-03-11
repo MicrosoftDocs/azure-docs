@@ -27,7 +27,7 @@ This sample CLI script creates an Azure Database for MySQL - Flexible Server in 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/create-server-private-access/create-connect-server-in-vnet.sh" range="4-77":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/create-server-private-access/create-connect-server-in-vnet.sh" id="FullScript":::
 
 ## Test connectivity to the MySQL server from the VM
 
