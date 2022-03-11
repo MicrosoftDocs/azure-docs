@@ -110,7 +110,11 @@ cd agoncal-application-petstore-ee7
 
 ## Configure the Maven plugin
 
-The deployment process to Azure App Service will use your Azure credentials from the Azure CLI automatically. If the Azure CLI isn't installed locally, then the Maven plugin will authenticate with Oauth or device sign in. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+> [!TIP]
+> The Maven plugin supports the latest **Java 17** and **Tomcat 10.0** now.
+
+
+The deployment process to Azure App Service will use your Azure credentials from the Azure CLI automatically. If the Azure CLI is not installed locally, then the Maven plugin will authenticate with Oauth or device login. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
