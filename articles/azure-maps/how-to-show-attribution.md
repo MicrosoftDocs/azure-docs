@@ -28,7 +28,7 @@ The [Get Map Attribution API](/rest/api/maps/render-v2/get-map-attribution) enab
 
 ### When to use the Get Map Attribution API
 
-The map copyright attribution information must be displayed in any application that use the Render V2 API, including web and mobile applications.
+The map copyright attribution information must be displayed on the map in any application that use the Render V2 API, including web and mobile applications.
 
 When using any of the Azure Maps SDKs, the map copyright attribution information is automatically displayed and updated. This includes the [Web SDK](how-to-use-map-control.md), [Android SDK](how-to-use-android-map-control-library.md) and the [iOS SDK](how-to-use-ios-map-control-library.md).
 
