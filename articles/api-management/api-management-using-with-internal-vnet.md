@@ -55,7 +55,7 @@ For configurations specific to the *external* mode, where the service endpoints 
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
 1. In the top navigation bar, select **Save**, then select **Apply network configuration**.
 
-    It can take 15 to 45 minutes to update the API Management instance.
+    It can take 15 to 45 minutes to update the API Management instance. The Developer tier has downtime during the process. The Basic and higher SKUs don't have downtime during the process.
 
 After successful deployment, you should see your API Management service's **private** virtual IP address and **public** virtual IP address on the **Overview** blade. For more information about the IP addresses, see [Routing](#routing) in this article.
 
