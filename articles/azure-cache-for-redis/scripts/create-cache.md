@@ -6,12 +6,12 @@ tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 08/30/2017
+ms.date: 03/11/2022
 ms.author: franlanglois 
 ms.custom: devx-track-azurecli
 ---
 
-# Create an Azure Cache for Redis
+# Create an Azure Cache for Redis using the Azure CLI
 
 In this scenario, you learn how to create an Azure Cache for Redis.
 

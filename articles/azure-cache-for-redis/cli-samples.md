@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/14/2017 
+ms.date: 03/11/2022 
 ms.custom: devx-track-azurecli
 ---
 # Manage Azure Cache for Redis with Azure CLI
