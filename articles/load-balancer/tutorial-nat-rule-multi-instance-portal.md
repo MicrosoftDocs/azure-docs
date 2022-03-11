@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 03/08/2022
+ms.date: 03/10/2022
 ms.custom: template-tutorial
 ---
 
