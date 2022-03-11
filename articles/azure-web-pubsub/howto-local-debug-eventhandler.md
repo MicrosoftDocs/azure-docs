@@ -27,7 +27,7 @@ localtunnel will print an url (`https://<domain-name>.loca.lt`) that can be acce
 > Tip:
 > There is one known issue that [localtunnel goes offline when the server restarts](https://github.com/localtunnel/localtunnel/issues/466) and [here is the workaround](https://github.com/localtunnel/localtunnel/issues/466#issuecomment-1030599216)  
 
-There are also other tools to choose when debugging the webhook locally, for example, [ngrok](​https://ngrok.com/), [loophole](https://loophole.cloud/docs/), [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay) or so. 
+There are also other tools to choose when debugging the webhook locally, for example, [ngrok](​https://ngrok.com), [loophole](https://loophole.cloud/docs), [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay) or so. 
 
 
 ## Test if the event handler is working publicly
@@ -39,7 +39,7 @@ curl https://<domain-name>.loca.lt/eventhandler -X OPTIONS -H "WebHook-Request-O
 ```
 `https://<domain-name>.loca.lt/eventhandler` is the path that your **event handler** listens to. Update it if your **event handler** listens to other path.
 
-Check if the response header contains the `webhook-allowed-origin` header. This curl command actually checks if the WebHook [abuse protection request](https://docs.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#webhook-validation) responses with the expected header.
+Check if the response header contains the `webhook-allowed-origin` header. This curl command actually checks if the WebHook [abuse protection request](./reference-cloud-events.md#webhook-validation) responses with the expected header.
 
 
 ## Next steps
