@@ -38,7 +38,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 Optionally assign the following permissions to the Service Principal: 
 
 ```azurecli
-az role assignment create --assignee <appId> --role "User Access Administrator"
+az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>
 ```
 
 ## Deploy the control plane
