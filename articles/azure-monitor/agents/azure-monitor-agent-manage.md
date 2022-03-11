@@ -19,7 +19,7 @@ The Azure Monitor agent is implemented as an [Azure VM extension](../../virtual-
 |:---|:---|:---|
 | Publisher | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
+| TypeHandlerVersion  | 1.2 | 1.15 |
 
 ## Extension versions
 We strongly recommended to update to generally available versions listed as follows instead of using preview or intermediate versions.  
