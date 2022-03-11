@@ -104,7 +104,7 @@ You can view Change Analysis data for [multiple Azure resources](./change-analys
 1. Within your resource, select **Diagnose and solve problems** from the left menu.
 1. Under **Common problems**, select **View change details** to view the filtered view from Change Analysis standalone UI.
 
-   :::image type="content" source="./media/change-analysis/diagnose-tool-other-resources.png" alt-text="Screenshot of viewing common problems in Diagnose and Solve Problems tool.":::  
+   :::image type="content" source="./media/change/change-analysis/diagnose-tool-other-resources.png" alt-text="Screenshot of viewing common problems in Diagnose and Solve Problems tool.":::  
 
 ## Activity Log change history
 
