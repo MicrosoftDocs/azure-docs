@@ -50,6 +50,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 ## Limitations and known issues
 
 - Communication Services users can join a Teams meeting that is scheduled for a Teams channel and use audio and video, but they won't be able to send or receive any chat messages because they aren't members of the channel.
+- Communication Services users can join a Teams meeting and use video, but they won't be able to apply background effects.
 - Communication Services users may join a Teams webinar, but the presenter and attendee roles aren't currently enforced, thus Communication Services users could perform actions not intended for attendees, such as screen sharing, turning their camera on/off, or unmuting themselves, if your application provides UX for those actions.
 - When using Microsoft Graph to [list the participants in a Teams meeting](/graph/api/call-list-participants), details for Communication Services users are not currently included.
 - PowerPoint presentations aren't rendered for Communication Services users.
