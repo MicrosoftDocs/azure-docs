@@ -56,7 +56,7 @@ A valid email address will be required to authenticate with Microsoft 365. The e
 ### Requirements for SMTP AUTH
 
 - **SMTP AUTH**: Needs to be enabled for the mailbox being used. SMTP AUTH is disabled for organizations created after January 2020 but can be enabled per-mailbox. For more information, see [Enable or disable authenticated client SMTP submission (SMTP AUTH) in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission).
-- **Authentication**: Use Basic Authentication (which is simply a username and password) to send email from SAP application. If SMTP AUTH is intentionally disabled for the organization or the mailbox being used, you must use other options listed further in this document.
+- **Authentication**: Use Basic Authentication (which is simply a username and password) to send email from SAP application. If SMTP AUTH is intentionally disabled for the organization, you must use Option 2, 3 or 4 below.
 - **Mailbox**: You must have a licensed Microsoft 365 mailbox to send email from.
 - **Transport Layer Security (TLS)**: Your SAP Application must be able to use TLS version 1.2 and above.
 - **Port**: Port 587 (recommended) or port 25 is required and must be unblocked on your network. Some network firewalls or ISPs block ports, especially port 25, because that\'s the port that email servers use to send mail.
