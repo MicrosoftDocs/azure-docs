@@ -108,6 +108,9 @@ Code: 403 Response:
 
 Details: The token you have presented for authorization belongs to a user who does not have sufficient access to this privilege. Verify your workspace GUID and your token request are correct, and if necessary grant IAM privileges in your workspace to the Azure AD Application you created as Contributor.
 
+> [!NOTE]
+> After applying these account changes it may take up to 60 minutes to successfully access the API.
+
 ## Bad Authorization Code
 
 Code: 403 Response:
