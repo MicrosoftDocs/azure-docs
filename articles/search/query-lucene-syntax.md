@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Reference for the full Lucene query syntax, as used in Azure Cognitive Search for wildcard, fuzzy search, RegEx, and other advanced query constructs.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2021

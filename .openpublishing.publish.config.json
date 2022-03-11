@@ -382,6 +382,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-v3-python",
+      "url": "https://github.com/Azure-Samples/media-services-v3-python",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-javascript",
       "url": "https://github.com/Microsoft/tsiclient",
       "branch": "tutorial",
@@ -408,12 +414,6 @@
     {
       "path_to_root": "media-services-v3-node-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-node-tutorials",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "media-services-v3-python",
-      "url": "https://github.com/Azure-Samples/media-services-v3-python",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -899,6 +899,7 @@
     "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
     "articles/mysql/.openpublishing.redirection.mysql.json",
     "articles/container-apps/.openpublishing.redirection.container-apps.json",
-    "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json"
+    "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
+    "articles/load-testing/.openpublishing.redirection.azure-load-testing.json"
   ]
 }
