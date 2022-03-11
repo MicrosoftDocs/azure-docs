@@ -27,13 +27,13 @@
   expanded: true
 - name: Tutorials
   items:
-  - name: Load balance VM within a specific availability zone
+  - name: Load balance a VM within a specific availability zone
     href: tutorial-load-balancer-standard-public-zonal-portal.md
   - name: Load balance VMs with multiple availability sets
     href: tutorial-multi-availability-sets-portal.md
-  - name: Create a single instance inbound NAT rule
+  - name: Create a single VM inbound NAT rule
     href: tutorial-load-balancer-port-forwarding-portal.md
-  - name: Create a multiple instance inbound NAT rule
+  - name: Create a multiple VMs inbound NAT rule
     href: tutorial-nat-rule-multi-instance-portal.md
   - name: Load balance multiple IP configurations
     href: load-balancer-multiple-ip.md
