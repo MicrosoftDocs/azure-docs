@@ -2,7 +2,11 @@
 title: Use Application Change Analysis in Azure Monitor to find web-app issues | Microsoft Docs
 description: Use Application Change Analysis in Azure Monitor to troubleshoot application issues on live sites on Azure App Service.
 ms.topic: conceptual
-ms.date: 01/11/2022 
+ms.author: hannahhunter
+author: hhunter-ms
+ms.contributor: cawa
+ms.date: 03/11/2022 
+ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -188,5 +192,5 @@ foreach ($webapp in $webapp_list)
 
 - Learn about [visualizations in Change Analysis](change-analysis-visualizations.md)
 - Learn how to [troubleshoot problems in Change Analysis](change-analysis-troubleshoot.md)
-- Enable Application Insights for [Azure App Services apps](azure-web-apps.md).
-- Enable Application Insights for [Azure VM and Azure virtual machine scale set IIS-hosted apps](azure-vm-vmss-apps.md).
+- Enable Application Insights for [Azure App Services apps](../../azure-monitor/app/azure-web-apps.md).
+- Enable Application Insights for [Azure VM and Azure virtual machine scale set IIS-hosted apps](../../azure-monitor/app/azure-vm-vmss-apps.md).
