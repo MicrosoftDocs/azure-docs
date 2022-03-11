@@ -291,13 +291,13 @@ items:
           href: network-file-system-protocol-support.md
         - name: Performance considerations
           href: network-file-system-protocol-support-performance.md
-        - name: Known issues
+        - name: Limitations and known issues
           href: network-file-system-protocol-known-issues.md
       - name: SFTP
         items:
         - name: Overview
           href: secure-file-transfer-protocol-support.md
-        - name: Known issues
+        - name: Limitations and known issues
           href: secure-file-transfer-protocol-known-issues.md
     - name: Event handling
       href: storage-blob-event-overview.md
