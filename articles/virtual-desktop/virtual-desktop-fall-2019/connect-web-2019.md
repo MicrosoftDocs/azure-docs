@@ -34,7 +34,7 @@ While any HTML5-capable browser should work, we officially support the following
 In a browser, navigate to the Azure Virtual Desktop web client at <https://client.wvd.microsoft.com/webclient/index.html> and sign in with your user account.
 
 >[!IMPORTANT]
->We will no longer support the original web client URLs at <https://rdweb.wvd.microsoft.com/webclient/index.html> or <https://www.wvd.microsoft.com/webclient/index.html> as of April 11th, 2022. While the URL will still work until that date, we recommend that you move to using the new URL at <https://client.wvd.microsoft.com/webclient/index.html> as soon as possible.
+>We will no longer support the original web client URLs at <https://rdweb.wvd.microsoft.com/webclient/index.html> or <https://www.wvd.microsoft.com/webclient/index.html> as of April 11th, 2022. The current URL will still be available after the move date, but we will begin redirecting traffic from the current URL to the new URL starting April 11th. While the URL will still work until the move date, we recommend that you start using the new URL at <https://client.wvd.microsoft.com/webclient/index.html> as soon as possible.
 
 >[!NOTE]
 >If you're using Azure Virtual Desktop with Azure Resource Manager integration, connect to your resources at <https://rdweb.wvd.microsoft.com/arm/webclient> instead.
