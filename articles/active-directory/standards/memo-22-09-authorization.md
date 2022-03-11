@@ -57,7 +57,7 @@ You can also leverage authentication context assigned to data directly in your a
 
 ### Attributes assigned to resources
 
-Azure includes [ABAC for Storage](../../role-based-access-control/conditions-overview.md) which allows the assignment of metadata tags on data stored in an Azure blob storage account. This metadata can then be assigned to users using role assignments to grant access. Other Azure services will incorporate this feature in the future. 
+Azure includes [ABAC for Storage](../../role-based-access-control/conditions-overview.md) which allows the assignment of metadata tags on data stored in an Azure blob storage account. This metadata can then be assigned to users using role assignments to grant access.  
 
 ## Privileged Access Management 
 
