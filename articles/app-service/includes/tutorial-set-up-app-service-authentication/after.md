@@ -23,10 +23,10 @@ ms.custom: azureday1
 
 For this tutorial, you need a web app deployed to App Service. You can use an existing web app, or you can follow one of the quickstarts to create and publish a new web app to App Service:
 
-* [ASP.NET Core](quickstart-dotnetcore.md)
-* [Node.js](quickstart-nodejs.md) 
-* [Python](quickstart-python.md)
-* [Java](quickstart-java.md)
+* [ASP.NET Core](../../quickstart-dotnetcore.md)
+* [Node.js](../../quickstart-nodejs.md) 
+* [Python](../../quickstart-python.md)
+* [Java](../../quickstart-java.md)
 
 Whether you use an existing web app or create a new one, take note of the following: 
 
@@ -37,13 +37,13 @@ You need these names throughout this tutorial.
 
 ## 3. Configure authentication and authorization
 
-Now that you have a web app running on App Service, enable authentication and authorization. You use Azure AD as the identity provider. For more information, see [Configure Azure AD authentication for your App Service application](configure-authentication-provider-aad.md).
+Now that you have a web app running on App Service, enable authentication and authorization. You use Azure AD as the identity provider. For more information, see [Configure Azure AD authentication for your App Service application](../../configure-authentication-provider-aad.md).
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups**, or search for and select **Resource groups** from any page.
 
 1. In **Resource groups**, find and select your resource group. In **Overview**, select your app's management page.
 
-    :::image type="content" alt-text="Screenshot that shows selecting your app's management page." source="./media/scenario-secure-app-authentication-app-service/select-app-service.png":::
+    :::image type="content" alt-text="Screenshot that shows selecting your app's management page." source="../..media/scenario-secure-app-authentication-app-service/select-app-service.png":::
     
 1. On your app's left menu, select **Authentication**, and then click **Add identity provider**.
 
@@ -57,7 +57,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. At the bottom of the **Add an identity provider** page, click **Add** to enable authentication for your web app.
 
-    :::image type="content" alt-text="Screenshot that shows configuring authentication." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
+    :::image type="content" alt-text="Screenshot that shows configuring authentication." source="../..media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
     
     You now have an app that's secured by the App Service authentication and authorization.
 
@@ -73,7 +73,7 @@ When you enabled the App Service authentication/authorization module in the prev
 1. Select the app registration that was created. 
 1. In the overview, verify that **Supported account types** is set to **My organization only**.
 
-    :::image type="content" alt-text="Screenshot that shows verifying access." source="./media/scenario-secure-app-authentication-app-service/verify-access.png":::
+    :::image type="content" alt-text="Screenshot that shows verifying access." source="../../media/scenario-secure-app-authentication-app-service/verify-access.png":::
     
 1. To verify that access to your app is limited to users in your organization, start a browser in incognito or private mode and go to `https://<app-name>.azurewebsites.net`. 
 1. You should be directed to a secured sign-in page, verifying that unauthenticated users aren't allowed access to the site. 
@@ -82,7 +82,7 @@ When you enabled the App Service authentication/authorization module in the prev
 
 ## 5. Clean up resources
 
-[!INCLUDE [clean up resources](./includes/scenario-secure-app-clean-up-resources.md)]
+[!INCLUDE [clean up resources](../scenario-secure-app-clean-up-resources.md)]
 
 ## Next steps
 
@@ -94,4 +94,4 @@ In this tutorial, you learned how to:
 > * Limit access to the web app to users in your organization.
 
 > [!div class="nextstepaction"]
-> [App service accesses storage](scenario-secure-app-access-storage.md)
+> [App service accesses storage](../../scenario-secure-app-access-storage.md)
