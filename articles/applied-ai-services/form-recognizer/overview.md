@@ -20,17 +20,15 @@ ms.custom: ignite-fall-2021
 
 Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Form Recognizer analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
 
-Form Recognizer easily identifies, extracts, and analyzes the following document data:
+Form Recognizer uses the following models to easily identify, extract, and analyze document data:
 
-| Model|Model ID |Description|
-|---|---|--|
-|W-2 form model|[prebuilt-tax.us.w2](concept-w2.md) |Text and key information from US W2 tax forms.|
-|Read model|[prebuilt-read](concept-read.md)|Printed and handwritten text lines, words, locations, and detected languages from documents and images.|
-|General document model|[prebuilt-document](concept-general-document.md)|Key-value pairs, selection marks, and entities from documents.|
-|Invoice model| [prebuilt-invoice](concept-invoice.md) |Text, selection marks, tables, key-value pairs, and key information from invoices.|
-|Receipt model|[prebuilt-receipt](concept-receipt.md)| Text and key information from receipts.|
-|ID document model| [prebuilt-idDocument](concept-id-document.md)| Text and key information from driver licenses and international passports.|
-|Business card model| [prebuilt-businessCard](concept-business-card.md)| Text and key information from business cards.
+* [**W-2 form model**](concept-w2.md) | Extract text and key information from US W2 tax forms.
+* [**Read model**](concept-read.md) | Extract printed and handwritten text lines, words, locations, and detected languages from documents and images.
+* [**General document model**](concept-general-document.md) | Extract key-value pairs, selection marks, and entities from documents.
+* [**Invoice model**](concept-invoice.md) | Extract text, selection marks, tables, key-value pairs, and key information from invoices.
+* [**Receipt model**](concept-receipt.md) | Extract text and key information from receipts.|
+* [**ID document model**](concept-id-document.md) | Extract text and key information from driver licenses and international passports.
+* [**Business card model**](concept-business-card.md) | Extract text and key information from business cards.
 
 ## Which Form Recognizer feature should I use?
 

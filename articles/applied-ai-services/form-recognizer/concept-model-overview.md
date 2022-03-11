@@ -153,20 +153,19 @@ The custom model analyzes and extracts data from forms and documents specific to
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
 
-## Data extraction
+## Model data extraction
 
  | **Model**   | **Text extraction** |**Key-Value pairs** |**Fields**|**Selection Marks**   | **Tables**   |**Entities** |
-  | --- |:---: |:---:|: ---: |: ---: |:---: |:---: |
-  |🆕Read (preview) | ✓ |   ||   |   |   |
-  |🆕General document (preview)  | ✓  |  ✓ || ✓  | ✓  | ✓  |
-  |🆕W-2 | ✓  |  ✓  | ✓ | ✓ | ✓ ||
-  | Layout  | ✓  |   || ✓  | ✓  |   |
-  | Invoice  | ✓ | ✓  |✓| ✓  | ✓ ||
-  |Receipt  | ✓  |   ✓ |✓|   |  ||
-  | ID document | ✓  |  ✓ |✓|   |   ||
-  | Business card    | ✓  |   ✓ | ✓|  |   ||
-  | Custom             |✓  |  ✓ || ✓  | ✓  | ✓  |
-
+| --- |:---: |:---:|:---: |:---: |:---: |:---: |
+|🆕 [prebuilt-read](concept-read.md#data-extraction) | ✓ |   ||   |   |   |
+|🆕 [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |  ✓  | ✓ | ✓ | ✓ ||
+|🆕 [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |  ✓ || ✓  | ✓  | ✓  |
+| [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   || ✓  | ✓  |   |
+| [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ | ✓  |✓| ✓  | ✓ ||
+| [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   ✓ |✓|   |  ||
+| [prebuilt-idDocument](concept-id-document.md#field-extraction) | ✓  |  ✓ |✓|   |   ||
+| [prebuilt-businessCard](concept-business-card.md#field-extraction)    | ✓  |   ✓ | ✓|  |   ||
+| [Custom](concept-custom.md#compare-model-features)             |✓  |  ✓ || ✓  | ✓  | ✓  |
 
 ## Input requirements
 

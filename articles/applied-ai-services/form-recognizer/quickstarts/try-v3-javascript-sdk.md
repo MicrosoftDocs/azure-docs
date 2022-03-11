@@ -247,27 +247,17 @@ main().catch((error) => {
 
 ## Prebuilt model
 
-Extract and analyze data from common document types using a pre-trained model.
+In this example, we'll analyze an invoice using the prebuilt-invoice model.
 
 ##### Choose a prebuilt model ID
 
-You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs and links to supported fields for the prebuilt models currently supported by the Form Recognizer service:
-
-|Model ID |Description| Field and data extraction |
-|---|---|---|
-|[prebuilt-tax.us.w2](../concept-w2.md) |Text and key information from US W2 tax forms.| [W-2 field extractions](../concept-w2.md#field-extraction)|
-|[prebuilt-read](../concept-read.md)|Printed and handwritten text lines, words, locations, and detected languages from documents and images.|[Read data extraction](../concept-read.md#data-extraction)|
-|[prebuilt-document](../concept-general-document.md)|Key-value pairs, selection marks, and entities from documents.|[General document field extractions](../concept-general-document.md#general-document-model-data-extraction) |
-| [prebuilt-invoice](../concept-invoice.md) |Text, selection marks, tables, key-value pairs, and key information from invoices.|[Invoice field extractions](../concept-invoice.md#field-extraction)|
-| [prebuilt-receipt](../concept-receipt.md)| Text and key information from receipts.| [Receipt field extractions](../concept-receipt.md#field-extraction)|
-|[prebuilt-idDocument](../concept-id-document.md)| Text and key information from driver licenses and international passports.|[ID document field extractions](../concept-id-document.md#field-extraction)|
-|[prebuilt-businessCard](../concept-business-card.md)| Text and key information from business cards.|[Business card field extractions](../concept-business-card.md#field-extraction)|
+You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [Model data extraction](../concept-model-overview.md#model-data-extraction).
 
 #### Try the prebuilt invoice model
 
 > [!div class="checklist"]
 >
-> * We wll analyze an invoice using the prebuilt-invoice model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
+> * Analyze an invoice using the prebuilt-invoice model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 > * We've added the file URL value to the `invoiceUrl` variable at the top of the file.
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.

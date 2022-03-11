@@ -101,7 +101,9 @@ You'll need a form document. You can use our [sample form document](https://raw.
 
  Form Recognizer preview version introduces additional language support for the layout model. *See* our [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
 
-## Features
+## Data extraction
+
+The layout model extracts table structures, selection marks, printed and handwritten text, and corresponding bounding box coordinates from your documents.
 
 ### Tables and table headers
 

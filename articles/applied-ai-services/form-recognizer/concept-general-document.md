@@ -92,7 +92,7 @@ The key value pair extraction model and entity identification model are run in p
 
 * The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content and not just the extracted values.
 
-## General document model data extraction
+## Data extraction
 
 | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
 | --- | :---: |:---:| :---: | :---: |:---: |
