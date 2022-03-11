@@ -657,6 +657,7 @@ Resources of some services, **when registered in your subscription**, can access
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Enable replication for disaster-recovery of Azure IaaS virtual machines when using firewall-enabled cache, source, or target storage accounts.  [Learn more](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 
 <a id="trusted-access-system-assigned-managed-identity"></a>
+<a id="trusted-access-based-on-system-assigned-managed-identity"></a>
 
 ### Trusted access based on a managed identity
 
