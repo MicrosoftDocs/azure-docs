@@ -17,7 +17,7 @@ ms.custom: mode-ui
 # Quickstart: Create an Azure Front Door Standard/Premium profile - Azure portal
 
 > [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
+> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](front-door-overview.md).
 
 In this quickstart, you learn how to create an Azure Front Door Standard/Premium profile using the Azure portal. You can create the Azure Front Door Standard/Premium profile through *Quick Create* with basic configurations or through *Custom create* with more advanced configurations. With *Custom create* you deploy two Web Apps. Next, you create the Azure Front Door Standard/Premium profile using the two Web Apps as your origin. You'll then verify connectivity to your Web Apps using the Azure Front Door Standard/Premium frontend hostname.
 
@@ -38,22 +38,22 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. On the **Compare offerings** page, select **Quick create**. Then select **Continue to create a Front Door**.
 
-   :::image type="content" source="../media/create-front-door-portal/front-door-quick-create.png" alt-text="Screenshot of compare offerings.":::
+   :::image type="content" source="./media/create-front-door-portal/front-door-quick-create.png" alt-text="Screenshot of compare offerings.":::
 
 1. On the **Create a front door profile** page, enter, or select the following settings.
 
-    :::image type="content" source="../media/create-front-door-portal/front-door-quick-create-2.png" alt-text="Screenshot of Front Door quick create page.":::    
+    :::image type="content" source="./media/create-front-door-portal/front-door-quick-create-2.png" alt-text="Screenshot of Front Door quick create page.":::    
 
     | Settings | Value |
     | --- | --- |
     | **Subscription**  | Select your subscription. |
     | **Resource group**  | Select **Create new** and enter *contoso-appservice* in the text box.|
     | **Name** | Give your profile a name. This example uses **contoso-afd-quickcreate**. |
-    | **Tier** | Select either Standard or Premium SKU. Standard SKU is content delivery optimized. Premium SKU builds on Standard SKU and is focused on security. See [Tier Comparison](tier-comparison.md).  |
+    | **Tier** | Select either Standard or Premium SKU. Standard SKU is content delivery optimized. Premium SKU builds on Standard SKU and is focused on security. See [Tier Comparison](standard-premium/tier-comparison.md).  |
     | **Endpoint name** | Enter a globally unique name for your endpoint. |
     | **Origin type** | Select the type of resource for your origin. In this example, we select an App service as the origin that has Private Link enabled. |
     | **Origin host name** | Enter the hostname for your origin. |
-    | **Enable Private Link** | If you want to have a private connection between your Azure Front Door and your origin. For more details, please refer to [Private link guidance](concept-private-link.md) and [Enable private link](./how-to-enable-private-link-web-app.md).
+    | **Enable Private Link** | If you want to have a private connection between your Azure Front Door and your origin. For more details, please refer to [Private link guidance](private-link.md) and [Enable private link](standard-premium/how-to-enable-private-link-web-app.md).
     | **Caching** | Select the check box if you want to cache contents closer to users globally using Azure Front Door's edge POPs and Microsoft network. |
     | **WAF policy** | Select **Create new** or select an existing WAF policy from the dropdown if you want to enable this feature. |
 
@@ -97,7 +97,7 @@ If you don't already have a web app, use the following steps to set up an exampl
     | **Windows Plan** | Select **Create new** and enter *myAppServicePlanCentralUS* in the text box. |
     | **Sku and size** | Select **Standard S1 100 total ACU, 1.75-GB memory**. |
 
-     :::image type="content" source="../media/create-front-door-portal/create-web-app.png" alt-text="Quick create front door premium SKU in the Azure portal":::
+     :::image type="content" source="./media/create-front-door-portal/create-web-app.png" alt-text="Quick create front door premium SKU in the Azure portal":::
 
 1. Select **Review + create**, review the summary, and then select **Create**. It might take several minutes to deploy to a
 
@@ -130,22 +130,22 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
     | **Profile Name** | Enter a unique name in this subscription **Webapp-Contoso-AFD** |
     | **Tier** | Select **Premium**. |
     
-    :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-2.png" alt-text="Create Front Door profile":::
+    :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-2.png" alt-text="Create Front Door profile":::
 
 1. *Optional*: **Secrets**. If you plan to use managed certificates, this step is optional. If you have an existing Key Vault in Azure that you plan to use to Bring Your Own Certificate for custom domain, then select **Add a certificate**. You can also add certificate in the management experience after creation.
 
     > [!NOTE]
     > You need to have the right permission to add the certificate from Azure Key Vault as a user. 
 
-    :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-secret.png" alt-text="Screenshot of add a secret in custom create.":::
+    :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-secret.png" alt-text="Screenshot of add a secret in custom create.":::
 
 1. In the **Endpoint** tab, select **Add an Endpoint** and give your endpoint a globally unique name. You can create multiple endpoints in your Azure Front Door Standard/Premium profile after you finish the create experience. This example uses *contoso-frontend*. Leave Origin response timeout (in seconds) and Status as default. Select **Add** to add the endpoint.
     
-    :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Screenshot of add an endpoint.":::
+    :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Screenshot of add an endpoint.":::
 
 1. Next, add an Origin Group that contains your two web apps. Select **+ Add** to open **Add an origin group** page. For Name, enter *myOriginGroup*, then select **+ Add an origin**.
  
-     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Screenshot of add an origin group.":::
+     :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Screenshot of add an origin group.":::
 
 1. In the **Add an origin** page, enter, or select the information below. Then select **Add**.
 
@@ -160,19 +160,19 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
     > [!NOTE]
     > When creating an Azure Front Door Standard/Premium profile, you must select an origin from the same subscription the Azure Front Door Standard/Premium is created in.
    
-   :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-1.png" alt-text="Screenshot of add more origins.":::
+   :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-add-origin-1.png" alt-text="Screenshot of add more origins.":::
 
 1. Repeat step 8 to add the second origin webapp002. Select `webappcontoso-002.azurewebsite.net` as the **Origin host name** and **Origin host header**.
 
 1. On the **Add an origin group** page, you'll see two origins added, leave all other fields default.
   
-   :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group-2.png" alt-text="Screenshot of add an origin group page.":::
+   :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-add-origin-group-2.png" alt-text="Screenshot of add an origin group page.":::
 
 1. Next, add a Route to map your frontend endpoint to the Origin group. This route forwards requests from the endpoint to myOriginGroup. Select **+ Add** on Route to configure a Route.  
 
 1. On the **Add a route** page, enter, or select the information below. Then select **Add**.
   
-    :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-route-without-caching.png" alt-text="Add route without caching":::
+    :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-add-route-without-caching.png" alt-text="Add route without caching":::
 
     | Setting | Value |
     | --- | --- |
@@ -193,11 +193,11 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
 
 1. Next, select **+ Add** on Security to add a WAF policy. Select **Add** New and give your policy a unique name. Select the check box for **Add bot protection**. Select the endpoint in **Domains**, then select **Add**.
 
-   :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-waf-policy-2.png" alt-text="add WAF policy":::
+   :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-add-waf-policy-2.png" alt-text="add WAF policy":::
 
 1. Select **Review + Create**, and then **Create**. It takes a few mins for the configurations to be propagated to all edge POPs. Now you have your first Front Door profile and endpoint.
 
-   :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-review.png" alt-text="Review custom create":::
+   :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-review.png" alt-text="Review custom create":::
 
 ## Verify Azure Front Door
 
@@ -222,7 +222,7 @@ To test instant global failover, we'll use the following steps:
 
 1. Refresh your browser. This time, you should see an error message.
 
-    :::image type="content" source="../media/create-front-door-portal/web-app-stopped-message.png" alt-text="Both instances of the web app stopped":::
+    :::image type="content" source="./media/create-front-door-portal/web-app-stopped-message.png" alt-text="Both instances of the web app stopped":::
 
 ## Clean up resources
 
@@ -245,4 +245,4 @@ Repeat the procedure for the other two groups.
 
 Advance to the next article to learn how to add a custom domain to your Front Door.
 > [!div class="nextstepaction"]
-> [Add a custom domain](how-to-add-custom-domain.md)
+> [Add a custom domain](standard-premium/how-to-add-custom-domain.md)
