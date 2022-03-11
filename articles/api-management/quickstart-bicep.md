@@ -10,7 +10,7 @@ ms.author: jgao
 ms.date: 03/10/2022
 ---
 
-# Quickstart: Create a new Azure API Management service instance using bicep
+# Quickstart: Create a new Azure API Management service instance using Bicep
 
 This quickstart describes how to use a Bicep file to create an Azure API Management (APIM) service instance. APIM helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md).
 
