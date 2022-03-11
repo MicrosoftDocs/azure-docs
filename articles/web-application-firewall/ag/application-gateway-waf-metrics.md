@@ -37,6 +37,7 @@ For Application Gateway, the following metrics are available:
 
  New Metrics are only applicable to Core Rule Set >=CRS 3.2
 |**Metrics**|**Dimension**|
+| :------------------| :-------------------------------------|
 |WAF Total Requests|Count of successful requests that WAF engine has served. The request count can be further filtered to show count per Action, Country/Region, Method, and Mode. |
 |WAF Managed Rule Matches|Count of total requests that a managed rule has matched. The request count can be further filtered to show count per Action, Country/Region, Mode, Rule Group, and Rule Id|
 |WAF Custom Rule Matches|Count of total requests that match a specific custom rule. The request count can be further filtered to show count per Action, Country/Region, Mode, Rule Group, and Rule Name|
