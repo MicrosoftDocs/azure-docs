@@ -147,8 +147,10 @@
       href: zero-trust-for-developers.md
     - name: Best practices for least privileged access for apps
       href: secure-least-privileged-access.md
-    - name: Security best practices for Azure AD application registration
+    - name: Security best practices for Azure AD app registration
       href: security-best-practices-for-app-registration.md
+    - name: Secure access control using groups in Azure AD
+      href: secure-group-access-control.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
   - name: Use the Microsoft Graph API
