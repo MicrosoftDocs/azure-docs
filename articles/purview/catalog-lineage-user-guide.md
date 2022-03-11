@@ -31,6 +31,7 @@ Data integration and ETL tools can push lineage in to Azure Purview at execution
 | ---------------------- | ------------|
 | Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#copy-activity-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#data-flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#execute-ssis-package-support) |
 | Azure Synapse Analytics | [Copy activity](how-to-lineage-azure-synapse-analytics.md#copy-activity-support) <br> [Data flow activity](how-to-lineage-azure-synapse-analytics.md#data-flow-support) |
+| Azure SQL Database (Preview) | [Lineage extraction](register-scan-azure-sql-database.md?tabs=sql-authentication#lineagepreview) |
 | Azure Data Share | [Share snapshot](how-to-link-azure-data-share.md) |
  
 ### Data storage systems
