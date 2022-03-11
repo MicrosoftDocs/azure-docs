@@ -462,8 +462,8 @@
         href: ../../../active-directory/saas-apps/saphana-tutorial.md
       - name: Configure SSO with SAP Cloud for Customer
         href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md
-      - name: Configure SSO with SAP Fiori Launchpad
-        href: https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad
+      - name: Configure SSO with SAPGUI using Kerberos and Azure AD Domain Services
+        href: https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/
   - name: Azure Services integration
     items:
     - name: Use SAP HANA in Power BI Desktop

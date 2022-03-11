@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 03/11/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -17,9 +17,9 @@ ms.custom: ignite-fall-2021
 
 The Form Recognizer Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 
-***Sample form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature***
+***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/layout-demo.gif" alt-text="Screenshot: Sample Labeling tool processing gif.":::
+:::image type="content" source="media/studio/analyze-layout.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
 
 **Data extraction features**
 
@@ -119,7 +119,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ### Text lines and words
 
-Layout API extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Printed and handwritten text is extracted from lines and words. The service then returns bounding box coordinates, confidence scores, and style (handwritten or other). All the text information is included in the `readResults` section of the JSON output.
+The layout model extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Printed and handwritten text is extracted from lines and words. The service then returns bounding box coordinates, confidence scores, and style (handwritten or other). All the text information is included in the `readResults` section of the JSON output.
 
 :::image type="content" source="./media/layout-text-extraction.png" alt-text="Layout text extraction output":::
 

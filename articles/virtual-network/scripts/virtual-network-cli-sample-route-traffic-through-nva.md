@@ -32,7 +32,7 @@ This script sample creates a virtual network with front-end and back-end subnets
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh" range="4-108":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh" id="FullScript":::
 
 ## Clean up deployment
 
