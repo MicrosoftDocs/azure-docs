@@ -33,6 +33,8 @@
     href: tutorial-multi-availability-sets-portal.md
   - name: Create a single instance inbound NAT rule
     href: tutorial-load-balancer-port-forwarding-portal.md
+  - name: Create a multiple instance inbound NAT rule
+    href: tutorial-nat-rule-multi-instance-portal.md
   - name: Load balance multiple IP configurations
     href: load-balancer-multiple-ip.md
   - name: Cross-region load balancer
@@ -127,6 +129,8 @@
     href: backend-pool-management.md
   - name: Migrate outbound access
     href: ../virtual-network/nat-gateway/tutorial-migrate-outbound-nat.md?toc=%2fazure%2fload-balancer%2ftoc.json
+  - name: Manage inbound NAT rules
+    href: manage-inbound-nat-rules.md
   - name: Manage health probes
     href: manage-probes-how-to.md
   - name: Manage load balancer rules

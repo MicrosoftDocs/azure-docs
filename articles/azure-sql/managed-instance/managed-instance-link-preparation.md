@@ -11,13 +11,13 @@ ms.topic: guide
 author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma
-ms.date: 03/07/2022
+ms.date: 03/10/2022
 ---
 
 # Prepare environment for link feature - Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you to prepare your environment for the [Managed Instance link feature](link-feature.md) so that you can replicate your databases from your instance of SQL Server to your instance of Azure SQL Managed Instance. 
+This article teaches you to prepare your environment for the [Managed Instance link feature](link-feature.md) so that you can replicate databases from SQL Server instance to Azure SQL Managed Instance.
 
 > [!NOTE]
 > The link feature for Azure SQL Managed Instance is currently in preview. 
@@ -34,7 +34,13 @@ To use the Managed Instance link feature, you need the following prerequisites:
 
 ## Prepare your SQL Server instance
 
-To prepare your SQL Server instance, you need to validate you're on the minimum supported version, you've enabled the availability group feature, and you've added the proper trace flags at startup. You will need to restart SQL Server for these changes to take effect. 
+To prepare your SQL Server instance, you need to validate:
+- you're on the minimum supported version;
+- you've enabled the availability group feature;
+- you've added the proper trace flags at startup;
+- your databases are in full recovery mode and backed up.
+
+You'll need to restart SQL Server for these changes to take effect.
 
 ### Install CU15 (or higher)
 
@@ -47,12 +53,27 @@ To check your SQL Server version, run the following Transact-SQL (T-SQL) script:
 SELECT @@VERSION
 ```
 
-If your SQL Server version is lower than CU15 (15.0.4198.2), either install the minimally supported [CU15](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6), or the current latest cumulative update. Your SQL Server instance will be restarted during the update. 
+If your SQL Server version is lower than CU15 (15.0.4198.2), either install the [CU15](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6), or the current latest cumulative update. Your SQL Server instance will be restarted during the update. 
 
+### Create database master key in the master database
+
+Create database master key in the master database by running the following T-SQL script.
+
+```sql
+-- Create MASTER KEY
+USE MASTER
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<strong_password>'
+```
+
+To check if you have database master key, use the following T-SQL script.
+
+```sql
+SELECT * FROM sys.symmetric_keys WHERE name LIKE '%DatabaseMasterKey%'
+```
 
 ### Enable availability groups feature
 
-The link feature for SQL Managed Instance relies on the Always On availability groups feature, which is not enabled by default. To learn more, review [enabling the Always On availability groups feature](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server). 
+The link feature for SQL Managed Instance relies on the Always On availability groups feature, which isn't enabled by default. To learn more, review [enabling the Always On availability groups feature](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server). 
 
 To confirm the Always On availability groups feature is enabled, run the following Transact-SQL (T-SQL) script: 
 
@@ -68,7 +89,7 @@ select
     end as 'HadrStatus'
 ```
 
-If the availability groups feature is not enabled, follow these steps to enable it: 
+If the availability groups feature isn't enabled, follow these steps to enable it: 
 
 1. Open the **SQL Server Configuration Manager**. 
 1. Choose the SQL Server service from the navigation pane. 
@@ -87,8 +108,8 @@ If the availability groups feature is not enabled, follow these steps to enable 
 
 To optimize Managed Instance link performance, enabling trace flags `-T1800` and `-T9567` at startup is highly recommended: 
 
-- **-T1800**: This trace flag optimizes SQL Server performance when the disks hosting the log files for the primary and secondary replica in an availability group have different sector sizes, such as 512 bytes and 4k. If both primary and secondary replicas have a disk sector size of 4k, this trace flag isn't required. To learn more, review [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c). 
-- **-T9567**: This trace flag enables compression of the data stream for availability groups during automatic seeding, which increases the load on the processor but can significantly reduce transfer time during seeding. 
+- **-T1800**: This trace flag optimizes performance when the log files for the primary and secondary replica in an availability group are hosted on disks with different sector sizes, such as 512 bytes and 4k. If both primary and secondary replicas have a disk sector size of 4k, this trace flag isn't required. To learn more, review [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c).
+- **-T9567**: This trace flag enables compression of the data stream for availability groups during automatic seeding. The compression increases the load on the processor but can significantly reduce transfer time during seeding.
 
 To enable these trace flags at startup, follow these steps: 
 
@@ -107,9 +128,7 @@ To enable these trace flags at startup, follow these steps:
 
 To learn more, review [enabling trace flags](/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql). 
 
-
 ### Restart SQL Server and validate configuration
-
 
 After you've validated you're on a supported version of SQL Server, enabled the Always On availability groups feature, and added your startup trace flags, restart your SQL Server instance to apply all of these changes. 
 
@@ -121,7 +140,7 @@ To restart your SQL Server instance, follow these steps:
 
     :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-restart.png" alt-text="Screenshot showing S Q L Server restart command call.":::
 
-After the restart, use Transact-SQL to validate the configuration of your SQL Server. Your SQL Server version should be 15.0.4198.2 or greater, the Always On availability groups feature should be enabled, and you should have the Trace flags -T1800 and -T9567 enabled. 
+After the restart, use Transact-SQL to validate the configuration of your SQL Server. Your SQL Server version should be 15.0.4198.2 or greater, the Always On availability groups feature should be enabled, and you should have the Trace flags -T1800 and -T9567 enabled.
 
 To validate your configuration, run the following Transact-SQL (T-SQL) script: 
 
@@ -140,6 +159,20 @@ The following screenshot is an example of the expected outcome for a SQL Server 
 
 
 :::image type="content" source="./media/managed-instance-link-preparation/ssms-results-expected-outcome.png" alt-text="Screenshot showing expected outcome in S S M S.":::
+
+### User database recovery mode and backup
+
+All databases that are to be replicated via SQL Managed Instance link must be in full recovery mode and have at least one backup.
+
+```sql
+-- Set full recovery mode for all databases you want to replicate.
+ALTER DATABASE [<DatabaseName>] SET RECOVERY FULL
+GO
+
+-- Execute backup for all databases you want to replicate.
+BACKUP DATABASE [<DatabaseName>] TO DISK = N'<DiskPath>'
+GO
+```
 
 ## Configure network connectivity
 
@@ -167,7 +200,7 @@ If your SQL Server is hosted outside of Azure, establish a VPN connection betwee
 
 ### Open network ports between the environments
 
-Port 5022 needs to allow inbound and outbound traffic between SQL Server and SQL Managed Instance. Port 5022 is the standard port used for availability groups, and cannot be changed or customized. 
+Port 5022 needs to allow inbound and outbound traffic between SQL Server and SQL Managed Instance. Port 5022 is the standard port used for availability groups, and can't be changed or customized. 
 
 The following table describes port actions for each environment: 
 
@@ -192,7 +225,7 @@ Bidirectional network connectivity between SQL Server and SQL Managed Instance i
 
 ### Test connection from SQL Server to SQL Managed Instance 
 
-To check if SQL Server can reach your SQL Managed Instance use the `tnc` command in PowerShell from the SQL Server host machine. Replace `<ManagedInstanceFQDN>` with the fully qualified domain name of the Azure SQL Managed Instance.
+To check if SQL Server can reach your SQL Managed Instance, use the `tnc` command in PowerShell from the SQL Server host machine. Replace `<ManagedInstanceFQDN>` with the fully qualified domain name of the Azure SQL Managed Instance.
 
 ```powershell
 tnc <ManagedInstanceFQDN> -port 5022
@@ -203,9 +236,9 @@ A successful test shows `TcpTestSucceeded : True`:
 
 :::image type="content" source="./media/managed-instance-link-preparation/powershell-output-tnc-command.png" alt-text="Screenshot showing output of T N C command in PowerShell.":::
 
-If the response is unsuccessful, verify the following:
+If the response is unsuccessful, verify the following network settings:
 - There are rules in both the network firewall *and* the windows firewall that allow traffic to the *subnet* of the SQL Managed Instance. 
-- There is an NSG rule allowing communication on port 5022 for the virtual network hosting the SQL Managed Instance. 
+- There's an NSG rule allowing communication on port 5022 for the virtual network hosting the SQL Managed Instance. 
 
 
 #### Test connection from SQL Managed Instance to SQL Server
@@ -302,10 +335,10 @@ DROP CERTIFICATE TEST_CERT
 GO
 ```
 
-If the connection is unsuccessful, verify the following: 
+If the connection is unsuccessful, verify the following items: 
 - The firewall on the host SQL Server allows inbound and outbound communication on port 5022. 
-- There is an NSG rule for the virtual network hosting the SQL Managed instance that allows communication on port 5022. 
-- If your SQL Server is on an Azure VM, there is an NSG rule allowing communication on port 5022 on the virtual network hosting the VM.
+- There's an NSG rule for the virtual network hosting the SQL Managed instance that allows communication on port 5022. 
+- If your SQL Server is on an Azure VM, there's an NSG rule allowing communication on port 5022 on the virtual network hosting the VM.
 - SQL Server is running. 
 
 > [!CAUTION]

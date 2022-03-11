@@ -1,12 +1,12 @@
 ---
 title: Control what a user can do at the file level - Azure file shares
 description: Learn how to configure Windows ACLs permissions for on-premises AD DS authentication to Azure file shares. Allowing you to take advantage of granular access control.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
-ms.author: rogarana
+ms.author: kendownie
 ---
 
 # Part three: configure directory and file level permissions over SMB 
