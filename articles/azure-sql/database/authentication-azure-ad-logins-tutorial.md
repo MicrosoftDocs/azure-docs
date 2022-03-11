@@ -68,7 +68,7 @@ In this tutorial, you learn how to:
 
 ## Create user from an Azure AD login
 
-1. Now that we've created an Azure AD login, we can create a database-level Azure AD user that is mapped to the Azure AD login in the virtual master database. We'll continue to use our example, `bob@contoso.com` to create a user in the virtual master database, as we want to demonstrate adding the user to special roles.
+1. Now that we've created an Azure AD login, we can create a database-level Azure AD user that is mapped to the Azure AD login in the virtual master database. We'll continue to use our example, `bob@contoso.com` to create a user in the virtual master database, as we want to demonstrate adding the user to special roles. Only an Azure AD admin or SQL server admin can create users in the virtual master database.
 
 1. We're using the virtual master database, but you can switch to a database of your choice. Run the following query.
 
@@ -102,7 +102,7 @@ In this tutorial, you learn how to:
 
 ## Grant server roles to the Azure AD user
 
-[Special roles for SQL Database](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) can be assigned to users in the virtual master database, including **dbmanager** and **loginmanager**. For more server roles, see [Azure SQL Database server roles for permission management](security-server-roles.md).
+[Special roles for SQL Database](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) can be assigned to users in the virtual master database.
 
 In order to grant one of the server roles, an Azure AD user with a login must be created in the virtual master database. 
 
@@ -125,8 +125,8 @@ In our example, we created the user `bob@contoso.com`. Let's give the user the *
 1. Run the following query:
 
    ```sql
-   ALTER SERVER ROLE [dbamanger] ADD MEMBER [AAD_object] 
-   ALTER SERVER ROLE [loginmanager] ADD MEMBER [AAD_object] 
+   ALTER SERVER ROLE [dbamanger] ADD MEMBER [bob@contoso.com] 
+   ALTER SERVER ROLE [loginmanager] ADD MEMBER [bob@contoso.com] 
    ```
 
 1. Check the server role assignment by running the following query:
@@ -149,6 +149,22 @@ In our example, we created the user `bob@contoso.com`. Let's give the user the *
    dbmanager              bob@contoso.com
    loginmanager	       bob@contoso.com
    ```
+
+### Additional server-level roles
+
+You can also choose to give the user additional [built-in server-level roles](security-server-roles.md#built-in-server-level-roles), such as the **##MS_DefinitionReader##**, **##MS_ServerStateReader##**, or **##MS_ServerStateManager##** role.
+
+```sql
+ALTER SERVER ROLE ##MS_DefinitionReader## ADD MEMBER [AAD_object];
+```
+
+```sql
+ALTER SERVER ROLE ##MS_ServerStateReader## ADD MEMBER [AAD_object];
+```
+
+```sql
+ALTER SERVER ROLE ##MS_ServerStateManager## ADD MEMBER [AAD_object];
+```
 
 ## Optional - Disable a login
 

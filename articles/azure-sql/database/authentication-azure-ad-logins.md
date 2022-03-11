@@ -85,6 +85,12 @@ The Azure AD principal `login_name` won't be able to log into any user database 
 >   DBCC FREESYSTEMCACHE('TokenAndPermUserStore') WITH NO_INFOMSGS 
 >   ```
 
+## Server-level roles for Azure AD principals
+
+[Special roles for SQL Database](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) can be assigned to users in the virtual master database for Azure AD principals, including **dbmanager** and **loginmanager**. For more server roles, see [Azure SQL Database server roles for permission management](security-server-roles.md).
+
+For a tutorial on how to grant these roles to a user, see [Tutorial: Create and utilize Azure Active Directory server logins](authentication-azure-ad-logins-tutorial.md).
+
 ## Azure AD logins and users with non-unique display names
 
 It's possible to create Azure AD resources with the same display names. For example, creating an [Azure AD application (service principal)](authentication-aad-service-principal.md) with the same name. In this release, we're also introducing the ability to create logins and users using the **Object ID**. 
@@ -99,7 +105,7 @@ CREATE LOGIN login_name FROM EXTERNAL PROVIDER WITH OBJECT_ID = 'objectid'
 Using the display name of a service principal that isn't unique in Azure AD could lead to errors when creating the login or user in Azure SQL. For example, if `myapp` isn't unique, you may run into the following error when executing the following query:
 
 ```sql
-CREATE USER [myapp] FROM EXTERNAL PROVIDER 
+CREATE LOGIN [myapp] FROM EXTERNAL PROVIDER 
 ```
 
 ```output
@@ -107,10 +113,10 @@ Msg 33131, Level 16, State 1, Line 4
 Principal 'myapp' has a duplicate display name. Make the display name unique in Azure Active Directory and execute this statement again. 
 ```
 
-With the T-SQL DDL extension to create logins or users with the Object ID, you can avoid this error and also specify an alias for the login or user created with the Object ID. For example, the following will create a user `myapp4466e` using the application Object ID `4466e2f8-0fea-4c61-a470-xxxxxxxxxxxx`.
+With the T-SQL DDL extension to create logins or users with the Object ID, you can avoid this error and also specify an alias for the login or user created with the Object ID. For example, the following will create a login `myapp4466e` using the application Object ID `4466e2f8-0fea-4c61-a470-xxxxxxxxxxxx`.
 
 ```sql
-CREATE USER [myapp4466e] FROM EXTERNAL PROVIDER 
+CREATE LOGIN [myapp4466e] FROM EXTERNAL PROVIDER 
   WITH OBJECT_ID='4466e2f8-0fea-4c61-a470-xxxxxxxxxxxx' 
 ```
 
@@ -119,7 +125,7 @@ For more information on obtaining the Object ID of a service principal, see [Ser
 To get the Object ID of the application, you can execute the following query:
 
 ```sql
-SELECT CAST(sid as uniqueidentifier) ApplicationID from sys.database_principals WHERE NAME = 'myapp4466e'
+SELECT CAST(sid as uniqueidentifier) ApplicationID from sys.server_principals WHERE NAME = 'myapp4466e'
 ```
 
 ## Limitations and remarks
