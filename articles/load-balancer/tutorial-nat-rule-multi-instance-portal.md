@@ -63,8 +63,6 @@ A virtual network and subnet is required for the resources in the tutorial. In t
     | **Inbound port rules** |    |
     | Public inbound ports | Select **None**. |
 
-    :::image type="content" source="./media/tutorial-nat-rule-multi-instance-portal/create-vm-portal.png" alt-text="Screenshot of create virtual machine.":::
-
 5. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
 
 6. In the **Networking** tab, enter or select the following information.
