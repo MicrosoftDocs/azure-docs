@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 03/10/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,18 +18,12 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-> [!Note]
-> Sign up for the CloudKnox Permissions Management public preview by filling [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9AT7gfYe2NPtdIbYxQQX45UNEpIVjY4WUJNSUhMVjcyNzdYOFY2NFhISi4u).
 
 This article describes how to onboard a Google Cloud Platform (GCP) project on CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
 
-## Prerequisites
-
-- To enable the CloudKnox **Feature highlights** tile in the Azure AD portal, [select this link to run the script in your browser](https://aka.ms/ciem-prod).
-- To use the CloudKnox public preview, we encourage you to fill out a consent form that provides other terms and conditions for the public preview product. To open the form, select [CloudKnox Permissions Management Public Preview: Terms and Conditions](https://aka.ms/ciem-terms).
 
 ## Onboard a GCP project
 
@@ -75,7 +69,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
         
 1. You can choose to download and run the script at this point, or you can do it via Google Cloud Shell, as described in the [next step](cloudknox-onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
     
-### 4. Run scripts in Cloud Shell. (Optional if not already executed.)
+### 4. Run scripts in Cloud Shell. (Optional if not already executed)
 
 1. In the **CloudKnox Onboarding - GCP Project Ids** page, select **Launch SSH**.
 1. To copy all your scripts into your current directory, in **Open in Cloud Shell**, select **Trust repo**, and then select **Confirm**.
