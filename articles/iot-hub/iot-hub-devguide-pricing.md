@@ -7,7 +7,7 @@ ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 03/11/2022
 ms.custom: [amqp, mqtt]
 ---
 
@@ -29,7 +29,7 @@ Use the following table to help determine which operations are charged. All bill
 
 | Operation category | Billing information |
 | --------- | ------------------- |
-| Identity registry operations <br/> (create, retrieve, list, update, delete, bulk update, statistics) | Not charged. **REVIEWER IS [BULK UPDATE REGISTRY](https://docs.microsoft.com/rest/api/iothub/service/bulk-registry/update-registry) NOT CHARGED?** |
+| Identity registry operations <br/> (create, update, get, list, delete, bulk update, statistics) | Not charged. |
 | Device-to-cloud messages | Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 100-byte message is charged as one message, and a 6-KB message is charged as two messages. <br/><br/> [Send Device Event](/rest/api/iothub/device/send-device-event), *Device to Cloud Telemetry*, *Device to Cloud Telemetry Routing* <br/> **REVIEWER NEED EXPLICIT DETAILS ABOUT WHEN/HOW Device to Cloud Telemetry Routing GETS CHARGED** |
 | Cloud-to-device messages | Successfully sent messages are charged in 4-KB chunks. For example, a 6-KB message is charged as 2 messages. <br/><br/> [Receive Device Bound Notification](/rest/api/iothub/device/receive-device-bound-notification), *Cloud To Device Command* |
 | File uploads | File transfer to Azure Storage is not metered by IoT Hub. File transfer initiation and completion messages are charged as messaged metered in 4-KB increments. For example, transferring a 10-MB file is charged as two messages in addition to the Azure Storage cost. <br/><br/> [Create File Upload Sas Uri](/rest/api/iothub/device/create-file-upload-sas-uri), *Device To Cloud File Upload* <br/> [Update File Upload Status](/rest/api/iothub/device/update-file-upload-status), *Device To Cloud File Upload* |
@@ -40,9 +40,9 @@ Use the following table to help determine which operations are charged. All bill
 | Digital twin reads | Digital twin reads from the device and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 8-KB twin is charged as 2 messages. <br/><br/> [Get Digital Twin](/rest/api/iothub/service/digital-twin/get-digital-twin), *Get Digital Twin* |
 | Digital twin updates | Digital twin updates from the device and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 12-KB twin is charged as 3 messages. <br/><br/> [Update Digital Twin](/rest/api/iothub/service/digital-twin/get-digital-twin), *Patch Digital Twin* |
 | Digital twin commands | Successful commands are charged in 4-KB chunks, and responses are charged in 4-KB chunks as additional messages. Commands to disconnected devices are charged as messages in 4-KB chunks. For example, a command with a 4-KB body that results in a response with no body from the device is charged as two messages. A command with a 6-KB body that results in a 1-KB response from the device is charged as two messages for the command plus another message for the response.<br/><br/> [Invoke Component Command](/rest/api/iothub/service/digital-twin/invoke-component-command), *Digital Twin Component Command*  <br/> [Invoke Root Level Command](/rest/api/iothub/service/digital-twin/invoke-root-level-command), *Digital Twin Root Command*  |
-| Jobs operations <br/> (create, cancel, get, query) | Not charged. (Same for both Scheduled Job and Import Export Job operations; for more information, see [Jobs overview](/rest/api/iothub/service/jobs) in the Azure IoT Hub REST API documentation.) |
+| Jobs operations <br/> (create, cancel, get, query) | Not charged. |
 | Jobs per-device operations | Jobs operations (such as twin updates, and methods) are charged as normal in 4-KB chunks. For example, a job resulting in 1000 method calls with 1-KB requests and empty-payload responses is charged 2000 messages (one message each for the request and response * 1000). <br/><br/> *Update Twin Device Job* <br/> *Invoke Method Device Job* |
-| Configuration operations <br/> (create, update, list, delete, test query) | Not charged. **REVIEWER NEVER GOT CONFIRMATION ON WHETHER AND HOW TEST QUERY IS CHARGED**|
+| Configuration operations <br/> (create, update, get, list, delete, test query) | Not charged.|
 | Configuration per-device operations | Configuration operations are charged as messages in 4-KB chunks. For example, an apply configuration operation with a 6-KB body and an empty-body response is charged as two messages. <br/><br/> [Apply on Edge Device](/rest/api/iothub/service/configuration/apply-on-edge-device), *Configuration Service Apply* |
 | Keep-alive messages | When using AMQP or MQTT protocols, messages exchanged to establish the connection and messages exchanged in the negotiation or to keep the connection open and alive are not charged. |
 | Device streams (preview) | Device streams is in preview and operations are not yet charged. <br/><br/> **Endpoint**: `/twins/{deviceId}/streams/{streamName}`, *Device Streams* <br/> **Endpoint**: `/twins/{deviceId}/modules/{moduleId}/streams/{streamName}`, *Device Streams Module* |
