@@ -104,7 +104,7 @@ On the **Create Computer Vision** page, enter the following values:
  1) **Pricing Tier**: Choose **Free** if it is available, otherwise choose **Standard S1**.
  1) Check the **Responsible AI Notice** box if you agree to the terms
 
-:::image type="content" lightbox="./media/blob-upload-storage-function/computer-vision-create.png" source="./media/blob-upload-storage-function/computer-vision-create-small.png" alt-text="A screenshot showing how to create a new Computer Vision service." :::
+:::image type="content" lightbox="./media/blob-upload-storage-function/computer-vision-create-small.png" source="./media/blob-upload-storage-function/computer-vision-create.png" alt-text="A screenshot showing how to create a new Computer Vision service." :::
  
 Select **Review + Create** at the bottom, and Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create**.  Azure will begin provisioning the the Computer Vision service, which make take a moment.
 
@@ -147,7 +147,8 @@ Once the Computer Vision service is created, you can retrieve the secret keys an
 
 ## 3) Download and configure the sample project
 The code for the Azure Function used in this tutorial can be found in [this Github repository](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/dotnet). You can also clone the project using the command below.
-```
+
+
 The code sample below accomplishes the following tasks:
 
 - Retrieves environment variables to connect to the Storage Account and Computer Vision service
@@ -158,6 +159,7 @@ The code sample below accomplishes the following tasks:
 ```terminal
 git clone https://github.com/Azure-Samples/msdocs-storage-bind-function-service.git \
 cd msdocs-storage-bind-function-service/dotnet
+```
 
 Once you have downloaded and opened the project, there are a few essential concepts to understand in the main `Run` method shown below. The Azure function utilizes Trigger and Output bindings, which are applied using attributes on the `Run` method signature. 
 
