@@ -56,7 +56,7 @@ To failover your database, follow these steps:
    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-introduction.png" alt-text="Screenshot showing Introduction page.":::
 
 
-3. On the **Log in to Azure** page, select **Sign-in** to provide your credentials and sign into your Azure account. Select the subscription that is hosting the your SQL Managed Instance from the drop-down and then select **Next**: 
+3. On the **Log in to Azure** page, select **Sign-in** to provide your credentials and sign into your Azure account. Select the subscription that is hosting your SQL Managed Instance from the drop-down and then select **Next**: 
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-login-to-azure.png" alt-text="Screenshot showing Log in to Azure page.":::
 
