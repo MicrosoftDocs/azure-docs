@@ -457,7 +457,7 @@ You can make GET requests from a browser passing data in the query string. For a
 
 For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Calling this endpoint with an HTTP POST request on the local server triggers the function. 
 
-To test Event Grid triggered functions locally, see [Local testing with viewer web app](functions-bindings-event-grid-trigger.md#local-testing-with-viewer-web-app).
+To test Event Grid triggered functions locally, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
 
 You can optionally pass test data to the execution in the body of the POST request. This functionality is similar to the **Test** tab in the Azure portal.
 

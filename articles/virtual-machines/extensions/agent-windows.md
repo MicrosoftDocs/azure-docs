@@ -4,8 +4,8 @@ description: Azure Virtual Machine Agent Overview
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: amjads
-author: amjads1
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
 ms.date: 07/20/2019 
 ms.custom: devx-track-azurepowershell
