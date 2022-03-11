@@ -95,7 +95,7 @@ The service application connects to a service-side endpoint on your IoT Hub. The
 
     `{ServiceConnectionString}`: Replace this placeholder with the IoT Hub service connection string you noted previously.
 
-    `{DeviceName}: Replace this placeholder with the name of the device you registered.
+    `{DeviceName}`: Replace this placeholder with the name of the device you registered.
 
     ```cmd/sh
     dotnet run -- -c "{ServiceConnectionString}" -d {DeviceName}

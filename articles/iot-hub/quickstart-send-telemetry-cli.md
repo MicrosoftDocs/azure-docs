@@ -167,7 +167,7 @@ To visualize messaging metrics in the Azure portal:
 
 1. In the **Metric Namespace** field, select *Iot Hub Standard Metrics*.
 
-1. In the **Metric** field, select *Total number of messages used*
+1. In the **Metric** field, select *Total number of messages used*.
 
 1. Hover your mouse pointer over the area of the timeline in which your device sent messages. The total number of messages at a point in time appears in the lower left corner of the timeline.
 
