@@ -12,17 +12,17 @@ ms.date: 3/13/2022
 
 When a WebSocket connection connects to Web PubSub service, the service formulates an HTTP POST request to the registered upstream and expects an HTTP response. We call the upstream as the **event handler** and the **event handler** is responsible to handle the incoming events following the [Web PubSub CloudEvents specification](./reference-cloud-events.md).
 
-When running the **event handler** locally, the local server is usually not publicly accessible so we need some tunnel tool to help expose localhost to public so that the Web PubSub service can reach it.
+When the **event handler** runs locally, the local server is not publicly accessible so we need some tunnel tool to help expose localhost publicly so that the Web PubSub service can reach it.
 
 ## Use localtunnel to expose localhost
 
-[localtunnel](https://github.com/localtunnel/localtunnel) is an open-source project that help expose your localhost to public. [Install the tool](https://github.com/localtunnel/localtunnel#installation) and run the follow command (update the `<port>` value to the port your **event handler** listens to):
+[localtunnel](https://github.com/localtunnel/localtunnel) is an open-source project that help expose your localhost publicly. [Install the tool](https://github.com/localtunnel/localtunnel#installation) and run the follow command (update the `<port>` value to the port your **event handler** listens to):
 
 ```bash
 lt --port <port> --print-requests
 ```
 
-localtunnel will print out an url (`https://<domain-name>.loca.lt`) that can be accessed from internet, e.g. `https://xxx.loca.lt`.
+localtunnel will print an url (`https://<domain-name>.loca.lt`) that can be accessed from internet, for example, `https://xxx.loca.lt`.
 
 > Tip:
 > There is one known issue that [localtunnel goes offline when the server restarts](https://github.com/localtunnel/localtunnel/issues/466) and [here is the workaround](https://github.com/localtunnel/localtunnel/issues/466#issuecomment-1030599216)  
@@ -30,7 +30,7 @@ localtunnel will print out an url (`https://<domain-name>.loca.lt`) that can be 
 There are also other tools to choose when debugging the webhook locally, for example, [ngrok](​https://ngrok.com/), [loophole](https://loophole.cloud/docs/), [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay) or so. 
 
 
-## Test if the event handler is working well publicly
+## Test if the event handler is working publicly
 
 Some tools might have issue returning response headers correctly. Try the following command to see if the tool is working properly:
 
@@ -39,7 +39,7 @@ curl https://<domain-name>.loca.lt/eventhandler -X OPTIONS -H "WebHook-Request-O
 ```
 `https://<domain-name>.loca.lt/eventhandler` is the path that your **event handler** listens to. Update it if your **event handler** listens to other path.
 
-Check if the response header contains the `webhook-allowed-origin` header. This curl command actually checks if the WebHook [abuse protection request](https://docs.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#webhook-validation) can response with the expected header.
+Check if the response header contains the `webhook-allowed-origin` header. This curl command actually checks if the WebHook [abuse protection request](https://docs.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#webhook-validation) responses with the expected header.
 
 
 ## Next steps
