@@ -32,7 +32,8 @@ After receiving a token, the process for calling the Log Analytics API is identi
 To quickly explore the API without using Azure AD authentication, we provide a demonstration workspace with sample data, which allows [authenticating with an API key](authentication-authorization.md#authenticating-with-an-api-key).
 
 > [!NOTE]
-> After applying these account changes it may take up to 60 minutes to successfully access the API.
+> When using Azure AD authentication, it may take up to 60 minutes for the Azure Application Insights REST API to recognize new 
+> role-based access control (RBAC) permissions. While permissions are propagating, REST API calls may fail with error code 403. 
 
 ## Log Analytics API Query Limits
 
