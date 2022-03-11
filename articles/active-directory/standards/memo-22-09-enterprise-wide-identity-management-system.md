@@ -84,15 +84,15 @@ First, connect your cloud-ready apps in priority order. Then look at application
 
 For apps using [legacy authentication protocols](../fundamentals/auth-sync-overview.md), consider the following:
 
-1. For apps with modern authentication not yet using Azure AD, reconfigure them to use Azure AD.
+* For apps with modern authentication not yet using Azure AD, reconfigure them to use Azure AD.
 
-1. For apps without modern authentication, there are two choices:
+* For apps without modern authentication, there are two choices:
 
-   1. Modernize the application code to use modern protocols by integrating the [Microsoft Authentication Library (MSAL).](../develop/v2-overview.md)
+   * Modernize the application code to use modern protocols by integrating the [Microsoft Authentication Library (MSAL).](../develop/v2-overview.md)
 
-   1. [Use Azure AD Application Proxy or Secure hybrid partner access](../manage-apps/secure-hybrid-access.md) to provide secure access.
+   *  [Use Azure AD Application Proxy or Secure hybrid partner access](../manage-apps/secure-hybrid-access.md) to provide secure access.
 
-1. Decommission access to apps that are no longer needed, or are not supported (for example, apps added by shadow IT processes). Also have an alarm for 
+*  Decommission access to apps that are no longer needed, or are not supported (for example, apps added by shadow IT processes). Also have an alarm for 
 
 ## Connect devices
 
