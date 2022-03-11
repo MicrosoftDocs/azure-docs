@@ -123,6 +123,8 @@
        href: ./ag/associate-waf-policy-existing-gateway.md
      - name: Resource logs
        href: ./ag/web-application-firewall-logs.md
+     - name: Monitoring and logging
+       href: ./ag/application-gateway-waf-metrics.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
