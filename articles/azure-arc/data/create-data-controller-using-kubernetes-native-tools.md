@@ -46,7 +46,7 @@ kubectl delete crd sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.co
 kubectl delete crd dags.sql.arcdata.microsoft.com
 kubectl delete crd exporttasks.tasks.arcdata.microsoft.com
 kubectl delete crd monitors.arcdata.microsoft.com
-activedirectoryconnectors.arcdata.microsoft.com
+kubectl delete crd activedirectoryconnectors.arcdata.microsoft.com
 
 # Substitute the name of the namespace the data controller was deployed in into {namespace}.
 
