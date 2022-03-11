@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and virtual machines
 > * Create a standard SKU public load balancer with frontend IP, health probe, backend configuration, and load-balancing rule
-> * Create a multiple instance inbound NAT rule
+> * Create a multiple VMs inbound NAT rule
 > * Create a NAT gateway for outbound internet access for the backend pool
 > * Install and configure a web server on the VMs to demonstrate the port forwarding and load-balancing rules
 
