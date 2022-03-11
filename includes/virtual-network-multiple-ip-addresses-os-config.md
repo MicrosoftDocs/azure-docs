@@ -53,60 +53,14 @@ ping -S 10.0.0.7 outlook.com
 </details>
 
 ### SUSE Linux Enterprise and openSUSE
-
-<details> 
+ 
+<details>
   <summary>Expand</summary>
  
- ##### YaST Method
- 
- 1. For a graphical (GTK) interface, open YaST in a VNC or RDP session and go to the "System" > "Network Settings" module. For command-line (ncurses) interface, run <code>yast2 lan</code> from a terminal window or Azure Serial Console.
- 
-> [!TIP]
-> The ncurses YaST interface highlights a letter of each selectable YaST option which can be selected with Alt + letter.  
-> The GTK interface provides a similar feature but uses an underline for this letter instead.
- 
- 2. In the "Overview" tab, highlight the interface and select the "Edit" option to open a NIC-specific dialog.
- 
- 3. In the "Address" tab, select "Add" on the "Additional IPs" box.
- 
- 4. Add a Label for the IP alias, IP Address and Subnet Mask. Select "OK" then "Next" and finally "OK".
- 
- ##### Manual Method
- 
- Add the IPADDR_0 and LABEL_0 entries to the respective `/etc/sysconfig/network/ifcfg-*` interface file.  
- 
- For example, to add "10.0.0.128" as an IP alias with the label "eth0a" to an existing `eth0` interface on a "/24" network.
- 
- [A]. Use VIM to edit the file in place
- 
- ```bash
- vim /etc/sysconfig/network/ifcfg-eth0
- ```
- 
- Insert <code>i</code> the following lines at the end of the ifcfg file.
- 
- ```vim
- IPADDR_0='10.0.0.128/24'
- LABEL_0='eth0a'
- ```
- Use the "Esc" key to exit insert mode and run the write and quit vim commands:
+SUSE-based distributions use the <code>cloud-netconfig</code> plugin from the <code>cloud-netconfig-azure</code> package to manage additional IP addresses.  No manual configuration is required on the part of the administrator.   The first IP address of an interface set on the platform is assigned via DHCP.  The cloud-netconfig plugin then probes the Azure Instance Metadata Service API continuously (once per minute) for additional IP addresses assigned to the interface and adds/removes them as secondary IP addresses automatically.
 
- ```vim
- :wq
- ```
+This plugin should be installed and enabled on new images by default.  Configuration steps for old workloads can be found here: https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/
 
- [B].  Use bash to append these values in a single command
- 
- ```bash
- echo -e "IPADDR_0='10.0.0.128/24'\nLABEL_0='eth0a'" >> /etc/sysconfig/network/ifcfg-eth0
- ```
- 
- Instruct wicked network service to reload the interface:
-
- ```bash
- sudo wicked ifreload eth0
- ```
- 
 </details>
 
 ### Ubuntu 14/16
