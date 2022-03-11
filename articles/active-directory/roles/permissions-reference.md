@@ -67,7 +67,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Groups Administrator](#groups-administrator) | Members of this role can create/manage groups, create/manage groups settings like naming and expiration policies, and view groups activity and audit reports. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Guest Inviter](#guest-inviter) | Can invite guest users independent of the 'members can invite guests' setting. | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Helpdesk Administrator](#helpdesk-administrator) | Can reset passwords for non-administrators and Helpdesk Administrators. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
-> | [Hybrid Identity Administrator](#hybrid-identity-administrator) | Can manage AD to Azure AD cloud provisioning, Azure AD Connect, and federation settings. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
+> | [Hybrid Identity Administrator](#hybrid-identity-administrator) | Can manage AD to Azure AD cloud provisioning, Azure AD Connect, Pass-through Authentication (PTA), Password hash synchronization (PHS), Seamless SSO, and federation settings. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Identity Governance Administrator](#identity-governance-administrator) | Manage access using Azure AD for identity governance scenarios. | 45d8d3c5-c802-45c6-b32a-1d70b5e1e86e |
 > | [Insights Administrator](#insights-administrator) | Has administrative access in the Microsoft 365 Insights app. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
 > | [Insights Business Leader](#insights-business-leader) | Can view and share dashboards and insights via the Microsoft 365 Insights app. | 31e939ad-9672-4796-9c2e-873181342d2d |
