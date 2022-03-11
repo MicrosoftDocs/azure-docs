@@ -1,5 +1,5 @@
 ---
-title: Memo 22-09 enterprise-wide identity management systems | Azure Active Directory
+title: Memo 22-09 enterprise-wide identity management systems
 description: Guidance on meeting enterprise-wide identity management system requirements outlined in US government OMB memorandum 22-09
 services: active-directory 
 ms.service: active-directory
@@ -37,8 +37,6 @@ M-22-09 requires agencies to develop a plan to consolidate their identity platfo
 
 Azure Active Directory provides the capabilities necessary to implement the recommendations from M-22-09 as well as other broad identity controls that support Zero Trust initiatives. Additionally, if your agency uses Microsoft Office 365, you already have an Azure AD back end to which you can consolidate.
 
-The memo states that federal agencies must support well-designed identity systems to
-
 ## Single sign-on requirements
 
 The memo requires that users sign in once and then directly access applications. Microsoft’s robust single-sign-on capabilities enable the ability for users to sign-in once and then access cloud and other applications. For more information, see [Azure Active Directory Single sign-on](../hybrid/how-to-connect-sso.md).
@@ -46,7 +44,8 @@ The memo requires that users sign in once and then directly access applications.
 ### Integration across agencies
 
 [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) (B2B) helps you to meet the requirement to facilitate integration among agencies. It does this by both limiting what other Microsoft tenants your users can access, and by enabling you to allow access to users that you do not have to manage in your own tenant, but whom you can subject to your MFA and other access requirements.
- ## Connect Applications
+
+## Connect applications
 
 To consolidate your enterprise to using Azure AD as the enterprise-wide identity system, you must first understand the relevant assets that will be in scope. 
 
