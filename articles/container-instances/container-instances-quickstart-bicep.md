@@ -86,7 +86,7 @@ You can also use Azure CLI or Azure Powershell to view the container's logs.
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az container logs --resource-group exampleRG --name containerName
+az container logs --resource-group exampleRG --name acilinuxpublicipcontainergroup
 ```
 
 # [PowerShell](#tab/PowerShell)
