@@ -140,8 +140,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `forward-request` policy forwards the incoming request to the backend service specified in the request [context](api-management-policy-expressions.md#ContextVariables). The backend service URL is specified in the API [settings](./import-and-publish.md) and can be changed using the [set backend service](api-management-transformation-policies.md) policy.
 
-> [!NOTE]
-> Removing this policy results in the request not being forwarded to the backend service and the policies in the outbound section are evaluated immediately upon the successful completion of the policies in the inbound section.
+> [!IMPORTANT]
+> * This policy is required to forward requests to an API backend. By default, API Management sets up this policy at the global scope.
+> * Removing this policy results in the request not being forwarded to the backend service. Policies in the outbound section are evaluated immediately upon the successful completion of the policies in the inbound section.
 
 ### Policy statement
 
