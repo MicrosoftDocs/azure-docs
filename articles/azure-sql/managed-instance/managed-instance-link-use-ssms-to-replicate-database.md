@@ -42,7 +42,7 @@ Use the **New Managed Instance link** wizard in SQL Server Management Studio (SS
 To set up the Managed Instance link, follow these steps: 
 
 1. Open SQL Server Management Studio (SSMS) and connect to your instance of SQL Server. 
-1. In **Object Explorer**, right-click your database, hover over **Azure SQL Managed Instance link** and select **Replicate database** to open the **New Managed Instance link** wizard. In case you are using a version of SQL Server that is not supported, this option will not be available in the context menu.
+1. In **Object Explorer**, right-click your database, hover over **Azure SQL Managed Instance link** and select **Replicate database** to open the **New Managed Instance link** wizard. If SQL Server version isn't supported, this option won't be available in the context menu.
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-ssms-database-context-replicate-database.png" alt-text="Screenshot showing database's context menu option to replicate database after hovering over Azure SQL Managed Instance link.":::
 
