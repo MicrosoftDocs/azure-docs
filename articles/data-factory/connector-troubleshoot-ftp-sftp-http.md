@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 03/11/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -171,6 +171,12 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
     As a compromise, an option is provided to simulate the input in the background instead of your real manual input, which is equivalent to changing the "keyboard-interactive" to "password". If you can accept this security concern, follow the steps below to enable it:<br/> 
     1. On the ADF portal, hover on the SFTP linked service, and open its payload by selecting the code button.
     1. Add `"allowKeyboardInteractiveAuth": true` in the "typeProperties" section.
+
+### Unable to connect to SFTP due to key exchange algorithms provided by SFTP are not supported in ADF
+
+- **Symptoms**: You are unable to connect to SFTP via ADF.
+
+- **Cause**: The key exchange algorithms provided by the SFTP vendor are not supported in ADF. The key exchange algorithms supported by ADF are `diffie-hellman-group-exchange-sha256 [Redacted] diffie-hellman-group14-sha1`, while the key exchange algorithms in the SFTP vendor's list are `curve25519-sha256 ecdh-sha2-nistp256 ecdh-sha2-nistp384 ecdh-sha2-nistp521 diffie-hellman-group14-sha256 diffie-hellman-group15-sha512 diffie-hellman-group16-sha512 diffie-hellman-group17-sha512 diffie-hellman-group18-sha512`. 
 
 ## HTTP
 
