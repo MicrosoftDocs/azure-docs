@@ -71,6 +71,7 @@ Some people will see a new preview experience in the portal. If **Availabiity op
    1. When you are done, select **Create**.
    
    For an **Application Gateway**:
+
    1. Select either an existing application gateway or **Create an application gateway**.
    1. To create a new gateway, type the name for the application gateway. The Application Gateway can load balance multiple applications. Consider naming the Application Gateway according to the workloads you wish to load balance, rather than specific to the virtual machine name.
    1. In **Routing rule**, type a rule name. The rule name should describe the workload you are load balancing.
