@@ -1,5 +1,5 @@
 ---
-title: Create a zoned VMs with the Azure portal 
+title: Create zonal VMs with the Azure portal 
 description: Create VMs in an availability zone with the Azure portal
 author: mimckitt
 ms.service: virtual-machines
@@ -54,8 +54,8 @@ Some people will see a new preview experience in the portal. If **Availabiity op
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose a resource group or create a new one.
 
 1. Under **Instance details**, type a name for the **Virtual machine name**.
-1. For **Availability options**, select **Availability zone**.
-1. For **Availability zone**, the drop-down defaults to *Zone 1*. If you choose multiple zones, a new VM will be created in each zone. For example, if you select all three zones, then three VMs will be created. The VM names are the original name you entered, with **-1**, **-2**, and **-3** appended to the name, depending on the zones you choose. If you want, you can edit each of the default VM names.
+1. For **Availability options**, leave the default of **Availability zone**.
+1. For **Availability zone**, the drop-down defaults to *Zone 1*. If you choose multiple zones, a new VM will be created in each zone. For example, if you select all three zones, then three VMs will be created. The VM names are the original name you entered, with **-1**, **-2**, and **-3** appended to the name based on number of zones selected. If you want, you can edit each of the default VM names.
 
    :::image type="content" source="media/zones/3-vm-names.png" alt-text="Screenshot showing that there are now 3 virtual machines that will be created.":::
 
@@ -76,8 +76,10 @@ Some people will see a new preview experience in the portal. If **Availabiity op
    1. In **Routing rule**, type a rule name. The rule name should describe the workload you are load balancing.
    1. For HTTP load balancing, you can leave the defaults and then select **Create**. For HTTPS load balancing, you have two options:
             
-        -	Upload a certificate and add the password (application gateway will manage certificate storage).For certificate name, type a friendly name for the certificate.
-        - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**.
+        - Upload a certificate and add the password (application gateway will manage certificate storage).For certificate name, type a friendly name for the certificate.
+        - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**. For HTTPs application gateways, please ensure that:
+                -The application gateway certificate is uploaded onto the VM(s) or, 
+                -The domain name (DNS) of the VM certificate(s) matches with the domain name (DNS) of the application gateway certificate by logging into the VM(S)
         > [!NOTE]
         > A separate subnet will be defined for Application Gateway upon creation. For more information, see [Application Gateway infrastructure configuration](../application-gateway/configuration-infrastructure.md).
 
