@@ -304,7 +304,7 @@ The relying party policy, for example [SignUpOrSignIn.xml](https://github.com/Az
 
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 
-1. In the [Azure portal](https://portal.azure.com/), search for and select **Azure AD B2C**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure AD B2C**.
 
 1. Under **Policies**, select **Identity Experience Framework**.
 
