@@ -166,7 +166,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
   - Sample query: [Remove columns from results](../samples/samples-by-category.md#remove-columns-from-results)
   - Sample query: [Secure score per management group](../samples/samples-by-category.md#secure-score-per-management-group)
 - Microsoft.Resources/subscriptions/resourceGroups (Resource groups)
-  - Sample query: [Combine results from two queries into a single result](../samples/samples-by-category.md#combine-results-from-two-queries-into-a-single-result)
+  - Sample query: [Combine results from two queries into a single result](../samples/samples-by-category.md)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
 
@@ -943,7 +943,7 @@ For sample queries for this table, see [Resource Graph sample queries for securi
 - microsoft.security/assessments
   - Sample query: [Count healthy, unhealthy, and not applicable resources per recommendation](../samples/samples-by-category.md#count-healthy-unhealthy-and-not-applicable-resources-per-recommendation)
   - Sample query: [List Container Registry vulnerability assessment results](../samples/samples-by-category.md#list-container-registry-vulnerability-assessment-results)
-  - Sample query: [List Microsoft Defender recommendations](../samples/samples-by-category.md#list-microsoft-defender-recommendations)
+  - Sample query: [List Microsoft Defender recommendations](../samples/samples-by-category.md)
   - Sample query: [List Qualys vulnerability assessment results](../samples/samples-by-category.md#list-qualys-vulnerability-assessment-results)
 - microsoft.security/assessments/governanceassignments
 - microsoft.security/assessments/subassessments
@@ -957,7 +957,7 @@ For sample queries for this table, see [Resource Graph sample queries for securi
   - Sample query: [Get specific IoT alert](../samples/samples-by-category.md#get-specific-iot-alert)
 - microsoft.security/locations/alerts (Security Alerts)
 - microsoft.security/pricings
-  - Sample query: [Show Defender for Cloud plan pricing tier per subscription](../samples/samples-by-category.md#show-defender-for-cloud-plan-pricing-tier-per-subscription)
+  - Sample query: [Show Defender for Cloud plan pricing tier per subscription](../samples/samples-by-category.md)
 - microsoft.security/regulatorycompliancestandards
   - Sample query: [Regulatory compliance state per compliance standard](../samples/samples-by-category.md#regulatory-compliance-state-per-compliance-standard)
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
