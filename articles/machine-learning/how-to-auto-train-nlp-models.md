@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom:
-ms.date: 03/08/2022
+ms.date: 03/15/2022
 
 # Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
@@ -140,9 +140,9 @@ NER only | <li> The file should not start with an empty line. <li> Each line mus
    
 ## Configure experiment
 
-AutoML's DNN NLP capability is triggered through `AutoMLConfig`, which is the same as our main AutoML service. You would set most of the parameters as you would do in AutoML today, such as `primary_metric`, `compute_target`, and `label_column_name` etc. Here we only highlight the most important parameters. For a complete set of instructions on configuration, please check our example notebooks 
+AutoML's DNN NLP capability is triggered through `AutoMLConfig`, which is the same as our main AutoML service. You would set most of the parameters as you would do in AutoML today, such as `primary_metric`, `compute_target`, and `label_column_name` etc. Here we only highlight the most important parameters. For more details on configuration options, see the [example notebooks](#example-notebooks). 
 
-```
+```python
 automl_settings = {
     "iterations": 1,
     "primary_metric": "accuracy",
@@ -194,6 +194,14 @@ enable_distributed_dnn_training = True
 ```
 
 Doing so, schedules distributed training of the NLP models and automatically scales to every GPU on your virtual machine. The max number of virtual machines allowed is 32. The training is scheduled with number of virtual machines that is in powers of two.
+
+## Example notebooks
+
+See the sample notebooks for detailed code examples for each NLP task. 
+* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/automl-nlp-multiclass/automl-nlp-text-classification-multiclass.ipynb)
+* [Multi-label text classification](
+https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/automl-nlp-multilabel/automl-nlp-text-classification-multilabel.ipynb)
+* [Named entity recognition](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/automl-nlp-ner/automl-nlp-ner.ipynb)
 
 ## Next steps
 + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
