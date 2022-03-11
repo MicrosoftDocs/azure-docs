@@ -33,7 +33,7 @@ To quickly explore the API without using Azure AD authentication, we provide a d
 
 > [!NOTE]
 > When using Azure AD authentication, it may take up to 60 minutes for the Azure Application Insights REST API to recognize new 
-> role-based access control (RBAC) permissions. While permissions are propagating, REST API calls may fail with [error code 403](./errors.md). 
+> role-based access control (RBAC) permissions. While permissions are propagating, REST API calls may fail with [error code 403](./errors.md#insufficient-permissions). 
 
 ## Log Analytics API Query Limits
 
