@@ -147,6 +147,6 @@ Perform the high availability update in the following order. Make sure each step
 
 1. Update the sensors.
 
-## See also
+## Next steps
 
-[Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
+For more information, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).

@@ -13,7 +13,7 @@ ms.date: 01/10/2022
 
 # Drop and rebuild an index in Azure Cognitive Search
 
-This article explains how to drop and rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests.
+This article explains how to drop and rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests. If you frequently have to rebuild your search index, we recommend using [index aliases](search-how-to-alias.md) to make it easier to swap which index your application is pointing to. 
 
 A search index is a collection of physical folders and field-based inverted indexes of your content, distributed in shards across the number of partitions allocated to your search index. In Azure Cognitive Search, you cannot drop and recreate individual fields. If you want to fully rebuild a field, all field storage must be deleted, recreated based on an existing or revised index schema, and then repopulated with data pushed to the index or pulled from external sources. 
 

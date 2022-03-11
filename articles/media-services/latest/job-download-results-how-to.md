@@ -1,18 +1,12 @@
 ---
 title: Download the results of a job - Azure Media Services 
 description: This article demonstrates how to download the results of a job.
-services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
-
-ms.service: media-services
-ms.workload: 
+ms.service: media-services 
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/09/2022
 ms.author: inhenkel
-ms.custom: devx-track-csharp
 ---
 
 # Download the results of a job
@@ -23,52 +17,9 @@ In Azure Media Services, when processing your videos (for example, encoding or a
 
 This article demonstrates how to download the results using Java and .NET SDKs.
 
-## Java
+## Methods
 
-```java
-/**
-    * Use Media Service and Storage APIs to download the output files to a local folder
-    * @param manager               The entry point of Azure Media resource management
-    * @param resourceGroup         The name of the resource group within the Azure subscription
-    * @param accountName           The Media Services account name
-    * @param assetName             The asset name
-    * @param outputFolder          The output folder for downloaded files.
-    * @throws StorageException
-    * @throws URISyntaxException
-    * @throws IOException
-    */
-private static void downloadResults(MediaManager manager, String resourceGroup, String accountName,
-        String assetName, File outputFolder) throws StorageException, URISyntaxException, IOException {
-    ListContainerSasInput parameters = new ListContainerSasInput()
-        .withPermissions(AssetContainerPermission.READ)
-        .withExpiryTime(DateTime.now().plusHours(1));
-    AssetContainerSas assetContainerSas = manager.assets()
-        .listContainerSasAsync(resourceGroup, accountName, assetName, parameters).toBlocking().first();
-    
-    String strSas = assetContainerSas.assetContainerSasUrls().get(0);
-    CloudBlobContainer container = new CloudBlobContainer(new URI(strSas));
-
-    File directory = new File(outputFolder, assetName);
-    directory.mkdir();
-
-    ArrayList<ListBlobItem>  blobs = container.listBlobsSegmented(null, true, EnumSet.noneOf(BlobListingDetails.class), 200, null, null, null).getResults();
-
-    for (ListBlobItem blobItem: blobs) {
-        if (blobItem instanceof CloudBlockBlob) {
-            CloudBlockBlob blob = (CloudBlockBlob)blobItem;
-            File downloadTo = new File(directory, blob.getName());
-
-            blob.downloadToFile(downloadTo.getPath());
-        }
-    }
-
-    System.out.println("Download complete.");
-}
-```
-
-See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
-
-## .NET
+## [.NET](#tab/net/)
 
 ```csharp
 /// <summary>
@@ -115,8 +66,8 @@ private async static Task DownloadResults(IAzureMediaServicesClient client, stri
 }
 ```
 
+## Code sample
+
 See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/Encoding_PredefinedPreset/Program.cs)
 
-## Next steps
-
-[Create a job input from an HTTPS URL](job-input-from-http-how-to.md).
+---
