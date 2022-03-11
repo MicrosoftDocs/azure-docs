@@ -21,8 +21,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and virtual machines
 > * Create a standard SKU public load balancer with frontend IP, health probe, backend configuration, and load-balancing rule
-> * Create a NAT gateway for outbound internet access for the backend pool
 > * Create a multiple instance inbound NAT rule
+> * Create a NAT gateway for outbound internet access for the backend pool
 > * Install and configure a web server on the VMs to demonstrate the port forwarding and load-balancing rules
 
 ## Prerequisites
@@ -208,6 +208,33 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
 
 27. Select **Create**.
 
+## Create multiple instance inbound NAT rule
+
+In this section, you'll create a multiple instance inbound NAT rule to the backend pool of the load balancer.
+
+1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+2. Select **myLoadBalancer**.
+
+3. In **myLoadBalancer**, select **Inbound NAT rules** in settings.
+
+4. Select **+ Add** in **Inbound NAT rules**.
+
+5. Enter or select the following information in **Add inbound NAT rule**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myNATRule-SSH**. |
+    | Type | Select **Backend pool**. |
+    | Target backend pool | Select **myBackendPool**. |
+    | Frontend IP address | Select **myFrontend**. |
+    | Frontend port range start | Enter **221**. |
+    | Maximum number of machines in backend pool | Enter **500**. |
+    | Backend port | Enter **22**. |
+    | Protocol | Select **TCP**. |
+
+6. Leave the rest at the default and select **Add**.
+
 ## Create NAT gateway
 
 In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
@@ -248,33 +275,6 @@ For more information about outbound connections and Azure Virtual Network NAT, s
 11. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
 
 12. Select **Create**.
-
-## Create multiple instance inbound NAT rule
-
-In this section, you'll create a multiple instance inbound NAT rule to the backend pool of the load balancer.
-
-1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
-
-2. Select **myLoadBalancer**.
-
-3. In **myLoadBalancer**, select **Inbound NAT rules** in settings.
-
-4. Select **+ Add** in **Inbound NAT rules**.
-
-5. Enter or select the following information in **Add inbound NAT rule**.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myNATRule-SSH**. |
-    | Type | Select **Backend pool**. |
-    | Target backend pool | Select **myBackendPool**. |
-    | Frontend IP address | Select **myFrontend**. |
-    | Frontend port range start | Enter **221**. |
-    | Maximum number of machines in backend pool | Enter **500**. |
-    | Backend port | Enter **22**. |
-    | Protocol | Select **TCP**. |
-
-6. Leave the rest at the default and select **Add**.
 
 ## Install web server
 
