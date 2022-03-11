@@ -308,7 +308,7 @@ The relying party policy, for example [SignUpOrSignIn.xml](https://github.com/Az
 
 1. Under **Policies**, select **Identity Experience Framework**.
 
-1. Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `LocalAccounts/ TrustFrameworkExtensions.xml`, then the relying party policy, such as `LocalAccounts/ SignUpOrSignIn.xml`.
+1. Select **Upload Custom Policy**, and then upload the files in the **LocalAccounts** starter pack in the following order: the base policy, for example `TrustFrameworkBase.xml`, the localization policy, for example `TrustFrameworkLocalization.xml`, the extension policy, for example `TrustFrameworkExtensions.xml`, and the relying party policy, such as `SignUpOrSignIn.xml`.
 
 
 ## Step 8: Test your custom policy
