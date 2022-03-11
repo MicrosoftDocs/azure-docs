@@ -454,7 +454,7 @@ This behavior can occur for one or more of the following reasons:
 
     d.	If an NSG is configured, search for that NSG resource on the **Search** tab or under **All resources**.
 
-    e.	In the **Inbound Rules** section, add an inbound rule to allow destination port range 65503-65534 for v1 SKU or 65200-65535 v2 SKU with the **Source** set as **Any** or **Internet**.
+    e.	In the **Inbound Rules** section, add an inbound rule to allow destination port range 65503-65534 for v1 SKU or 65200-65535 v2 SKU with the **Source** set as **GatewayManager** service tag.
 
     f.	Select **Save** and verify that you can view the backend as Healthy. Alternatively, you can do that through [PowerShell/CLI](../virtual-network/manage-network-security-group.md).
 
