@@ -95,6 +95,8 @@ az container logs --resource-group exampleRG --name containerName
 Get-AzContainerInstanceLog
 ```
 
+---
+
 > [!NOTE]
 > If you're using PowerShell, you'll be prompted to enter the following parameters after running the cmdlet: ContainerGroupName, ContainerName, and ResourceGroupName.
 
