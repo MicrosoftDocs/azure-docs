@@ -52,7 +52,12 @@ Once the migration is complete, you can use [diagnostic settings](../essentials/
     > [!CAUTION]
     > Diagnostics settings uses a different export format/schema than continuous export, migrating will break any existing integrations with Stream Analytics.
 
-- Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will impact how long any new ingested data is stored once you migrate your Application Insights resource. If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period, you may need to adjust your workspace retention settings.
+- Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will impact how long any new ingested data is stored once you migrate your Application Insights resource.
+
+    > [!NOTE]
+    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period, you may need to adjust your workspace retention settings.
+    > - If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource until that data exceeds the retention period. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources.
+
 - Understand [Workspace-based Application Insights](pricing.md#workspace-based-application-insights) usage and costs.
 
 ## Migrate your resource
