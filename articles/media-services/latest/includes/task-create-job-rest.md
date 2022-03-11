@@ -6,6 +6,6 @@ ms.date: 03/10/2022
 ms.author: inhenkel
 ---
 
-## Create a job with REST
+### Create a job with REST
 
 See the Media Services [REST API](/rest/api/media/jobs/create)
