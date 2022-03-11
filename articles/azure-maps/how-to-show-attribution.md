@@ -50,7 +50,7 @@ You will need the following information to run the `attribution` command:
 | zoom | integer | Zoom level for the selected tile. The valid range depends on the tile, see the [TilesetID](rest/api/maps/render-v2/get-map-attribution#tilesetid) table for valid values for a specific tileset. For additional information see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) article. |
 | subscription-key | string | One of the Azure Maps keys provided from an Azure Map Account. For additional information see the [Authentication with Azure Maps](azure-maps-authentication.md) article. |
 
-Run the following GET command:
+Run the following GET request to get the corresponding copyright attribution to display on the map:
 
 ```http
 https://atlas.microsoft.com/map/attribution?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.1&tilesetId=microsoft.base&zoom=6&bounds=-122.414162,47.579490,-122.247157,47.668372
