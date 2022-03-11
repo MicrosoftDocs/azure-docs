@@ -55,8 +55,8 @@ When you enable NFS 3.0 protocol support, some Blob Storage features will be ful
 
 To see how each Blob Storage feature is supported in accounts that have NFS 3.0 support enabled, see [Blob Storage feature support for Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
 
-> [!NOTE] 
-> Static websites is an example of a partially supported feature because the configuration page for static websites does not yet appear in the Azure Portal for accounts that have NFS 3.0 support enabled. You can enable static websites only by using PowerShell or Azure CLI.
+> [!NOTE]
+> Static websites is an example of a partially supported feature because the configuration page for static websites does not yet appear in the Azure portal for accounts that have NFS 3.0 support enabled. You can enable static websites only by using PowerShell or Azure CLI.
 
 ## See also
 
