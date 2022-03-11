@@ -6,7 +6,7 @@ author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 03/08/22
+ms.date: 03/08/2022
 ms.custom: template-how-to
 ---
 

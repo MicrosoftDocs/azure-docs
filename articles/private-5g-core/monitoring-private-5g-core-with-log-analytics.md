@@ -5,7 +5,7 @@ author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
 ms.topic: conceptual 
-ms.date: 03/08/22
+ms.date: 03/08/2022
 ms.custom: template-concept
 ---
 
@@ -34,7 +34,7 @@ For detailed information on using the Log Analytics tool, see [Overview of Log A
 
 ## Constructing queries
 
-You can find a tutorial for writing queries using the Log Analytics tool at [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md). Each packet core instance streams the following logs to the Log Analytics tool. You can use these to construct queries that will allow you to monitor your private mobile network. You'll need to run all queries at the scope of 
+You can find a tutorial for writing queries using the Log Analytics tool at [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md). Each packet core instance streams the following logs to the Log Analytics tool. You can use these logs to construct queries that will allow you to monitor your private mobile network. You'll need to run all queries at the scope of the **Kubernetes - Azure Arc** resource that represents the Kubernetes cluster on which your packet core instance is running.
 
 | Log name | Description |
 |--|--|
@@ -42,7 +42,7 @@ You can find a tutorial for writing queries using the Log Analytics tool at [Get
 | amf_registered_subscribers | Number of currently registered SIMs. |
 | amf_connected_gnb | Number of gNodeBs that are currently connected to the Access and Mobility Management Function (AMF). |
 | subgraph_counts | Number of active PDU sessions being handled by the User Plane Function (UPF). |
-| cppe_bytes_total | Total number of bytes received or transmitted by the UPF at each interface since the UPF last restarted. This is given as a 64 bit unsigned integer. |
+| cppe_bytes_total | Total number of bytes received or transmitted by the UPF at each interface since the UPF last restarted. The value is given as a 64-bit unsigned integer. |
 | amfcc_mm_initial_registration_failure | Total number of failed initial registration attempts handled by the AMF. |
 | amfcc_n1_auth_failure | Counter of Authentication Failure Non-Access Stratum (NAS) messages. The Authentication Failure NAS message is sent by the user equipment (UE) to the AMF to indicate that authentication of the network has failed. |
 | amfcc_n1_auth_reject | Counter of Authentication Reject NAS messages. The Authentication Reject NAS message is sent by the AMF to the UE to indicate that the authentication procedure has failed and that the UE shall abort all activities. |
@@ -59,7 +59,7 @@ You can find a tutorial for writing queries using the Log Analytics tool at [Get
 
 ## Example queries
 
-The following are some example queries you can run to retrieve logs relating to Key Performance Indicators (KPIs) for your private mobile network. You should run all of these queries at the scope of the **Kuberenetes - Azure Arc** resource that represents the Kubernetes cluster on which your packet core instance is running.
+The following are some example queries you can run to retrieve logs relating to Key Performance Indicators (KPIs) for your private mobile network. You should run all of these queries at the scope of the **Kubernetes - Azure Arc** resource that represents the Kubernetes cluster on which your packet core instance is running.
 
 ### PDU sessions
 
@@ -102,7 +102,7 @@ Log Analytics dashboards can visualize all of your saved log queries, giving you
 
 You can find information on how to create a Log Analytics dashboard in [Create and share dashboards of Log Analytics data](../azure-monitor/visualize/tutorial-logs-dashboards.md).
 
-You can also follow the steps in <!-- link to procedure for deploying overview dashboard --> to create an example overview dashboard. This includes charts to monitor important Key Performance Indicators (KPIs) for your private mobile network's operation, including throughput and the number of connected devices.
+You can also follow the steps in <!-- link to procedure for deploying overview dashboard --> to create an example overview dashboard. This dashboard includes charts to monitor important Key Performance Indicators (KPIs) for your private mobile network's operation, including throughput and the number of connected devices.
 
 ## Estimating costs
 
