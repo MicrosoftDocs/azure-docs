@@ -52,7 +52,7 @@ conceptualContent:
         - url: how-to-read-csv-data.md
           itemType: how-to-guide
           text: Read a CSV file in load tests
-        - url: how-to-update-rerun-test.md
+        - url: how-to-monitor-server-side-metrics.md
           itemType: how-to-guide
           text: Configure server-side monitoring
         - url: how-to-define-test-criteria.md

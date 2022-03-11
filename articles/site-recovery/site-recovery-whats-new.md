@@ -19,13 +19,26 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Configuration server ova** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 9.48.6263.1 | 5.1.7207.0 | 9.48.6263.1 | 5.1.7207.0 | 2.0.9245.0
 [Rollup 60](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) | 9.47.6219.1 | 5.1.7127.0 | 9.47.6219.1 | 5.1.7127.0 | 2.0.9241.0
 [Rollup 59](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | 9.46.6149.1 | 5.1.7029.0 | 9.46.6149.1 | 5.1.7030.0 | 2.0.9239.0
 [Rollup 58](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | 9.45.6096.1 | 5.1.6952.0 | 9.45.6096.1 | 5.1.6952.0 | 2.0.9237.0
 [Rollup 57](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 9.44.6068.1 | 5.1.6899.0 | 9.44.6068.1 | 5.1.6899.0 | 2.0.9236.0
-[Rollup 56](https://support.microsoft.com/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)  | 9.43.6040.1  | 5.1.6853.0 | 9.43.6040.1| 5.1.6853.0 | 2.0.9226.0
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (March 2022)
+
+### Update Rollup 61
+
+[Update rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for additional kernels for Debian 10 and Ubuntu 20.04 Linux distros. <br/><br/> Added public preview support for on-Demand Capacity Reservation integration.
+**VMware VM/physical disaster recovery to Azure** | Added support for thin provisioned LVM volumes.<br/><br/> 
 
 ## Updates (January 2022)
 

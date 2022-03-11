@@ -127,7 +127,7 @@ The service application connects to a service-side endpoint on your IoT Hub. The
 3. In the local terminal window, run the following commands to build and run the service application, replacing `{ServiceConnectionString}` with the service connection string you noted previously:
 
     ```cmd/sh
-    dotnet run -- {ServiceConnectionString}
+    dotnet run -- -c "{ServiceConnectionString}"
     ```
 
     The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgment:
