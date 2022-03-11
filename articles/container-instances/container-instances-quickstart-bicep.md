@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Review the Bicep file
 
-The Vicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/aci-linuxcontainer-public-ip/).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/aci-linuxcontainer-public-ip/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.containerinstance/aci-linuxcontainer-public-ip/main.bicep":::
 
