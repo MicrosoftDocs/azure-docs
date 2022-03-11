@@ -760,6 +760,10 @@ items:
       href: app/app-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#application-insights
+    - name: Troubleshooting
+      items:
+      - name: Portal connectivity
+        href: app/troubleshoot-portal-connectivity.md
     - name: Auto-instrumentation
       items: 
       - name: Overview
@@ -977,8 +981,6 @@ items:
         href: app/standard-metrics.md
     - name: Transaction search
       href: app/diagnostic-search.md
-    - name: Portal connectivity
-      href: app/troubleshoot-portal.md
     - name: Profiler
       items:
       - name: Overview
