@@ -52,7 +52,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `dataset` | string or object | **Required.** A dataset to use as input. This value can be either a reference to an existing versioned dataset in the workspace or an inline dataset specification. <br><br> To reference an existing dataset, use the `azureml:<dataset-name>:<dataset-version>` syntax. <br><br> To define a dataset inline, follow the [Dataset schema](reference-yaml-dataset.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline datasets. | | |
+| `dataset` | string or object | **Required.** A dataset to use as input. This value can be either a reference to an existing versioned dataset in the workspace or an inline dataset specification. <br><br> To reference an existing dataset, use the `azureml:<dataset-name>:<dataset-version>` syntax. | | |
 | `mode` | string | Mode of how the dataset should be delivered to the compute target. For read-only mount, the dataset will be consumed as a mount path. A folder will be mounted as a folder and a file will be mounted as the parent folder. For download mode, the dataset will be consumed as a downloaded path. | `ro_mount`, `download` | `ro_mount` |
 
 ## Remarks
