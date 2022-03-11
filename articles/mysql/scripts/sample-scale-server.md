@@ -26,7 +26,7 @@ This sample CLI script scales compute and storage for a single Azure Database fo
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh" range="4-49":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh" id="FullScript":::
 
 ## Clean up resources
 
