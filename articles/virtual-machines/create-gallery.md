@@ -102,10 +102,14 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 A community gallery is shared publicly with everyone. Microsoft does not support images published to the community gallery. For more information, see XXX.
 
+For a community gallery, you create the gallery first, then enable it for sharing.
+
 ### Prerequisites
 - The user or service principal that will enable community sharing needs to be a member of the `Owner` role definition. Only the `Owner` at the scope of the gallery or higher will be able to enable community sharing. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
 - 
 ### [CLI](#tab/cli)
+
+The `--public-name-prefix` value is used to create a name for the public version of your gallery. The `--public-name-prefix` will be the first part of the public name, and the last part will be a GUID, created by the platform, that is unique to your gallery.
 
 ```azurecli-interactive
 location=westus
@@ -127,6 +131,21 @@ az sig create \
    --eula $eulaLink $eula \
    --public-name-prefix $prefix
 ``` 
+
+The output of this command will give you the public name for your community gallery in the `sharingProfile` section, under `publicNames`.
+
+Once you are ready to make the gallery available to the public, enable the community gallery using [az sig share enable-community](/cli/azure/sig/share#az-sig-share-enable-community). Only a user in the `Owner` role definition can enable a gallery for community sharing.
+
+```azurecli-interactive
+az sig share enable-community \
+   --gallery-name $galleryName \
+   --resource-group $resourceGroup 
+```
+
+XXX
+To go back to only RBAC based sharing, use the `Reset` command.
+To delete a gallery shared to community, first Reset the gallery then delete the gallery 
+
 ### [REST](#tab/rest)
 
 ```rest
@@ -150,6 +169,17 @@ Request Body
     }
   }
 }
+```
+
+To go live with community sharing, send the following POST request. As part of the request, include the property `operationType` with value `EnableCommunity`.  
+
+```rest
+POST 
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compu 
+te/galleries/{galleryName}/share?api-version=2021-07-01 
+{ 
+  "operationType" : "EnableCommunity"
+} 
 ```
 ---
 

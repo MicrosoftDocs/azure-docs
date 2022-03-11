@@ -47,7 +47,7 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 Create a VM using [az vm create](/cli/azure/vm#az_vm_create). To use the latest version of the image, set `--image` to the ID of the image definition. 
 
-The example below is for creating a Linux VMsecured with SSH. For Windows or to secure a Linux VM with a password, remove `--generate-ssh-keys` to be prompted for a password. If you want to supply a password directly, replace `--generate-ssh-keys` with `--admin-password`. Replace resource names as needed in this example. 
+The example below is for creating a Linux VM secured with SSH. For Windows or to secure a Linux VM with a password, remove `--generate-ssh-keys` to be prompted for a password. If you want to supply a password directly, replace `--generate-ssh-keys` with `--admin-password`. Replace resource names as needed in this example.
 
 ```azurecli-interactive 
 imgDef="/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
@@ -55,7 +55,6 @@ vmResourceGroup=myResourceGroup
 location=eastus
 vmName=myVM
 adminUsername=azureuser
-
 
 az group create --name $vmResourceGroup --location $location
 
@@ -68,6 +67,13 @@ az vm create\
 ```
 
 You can also use a specific version by using the image version ID for the `--image` parameter. For example, to use image version *1.0.0* type: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.
+
+
+XXX
+For VM deployments of a custom image, use the 
+imageReference.communityGalleryImageId value if the custom image has been shared 
+via subscription / tenant; otherwise use the imageReference.id value if the custom image 
+has been shared using RBAC (user, group, service principal, or managed identity) 
 
 ### [PowerShell](#tab/powershell)
 
