@@ -42,6 +42,15 @@ For Application Gateway, the following metrics are available:
 |WAF Bot Protection Matches|Count of total requests that have been blocked or logged from malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. The request count can be further filtered to show count per Action, Country/Region, Bot Type, and Mode.|
 
 <images>
+
+ ## Access Application Gateway WAF Metrics in Azure portal
+
+1. From the Azure portal menu, select **All Resources** >> **\<your-Application-Gateway-profile>**.
+
+2. Under **Monitoring**, select **Metrics**:
+
+3. In **Metrics**, select the metric to add:
+:::image type="content" source="../media/appgw-waf-metrics-1-expanded.png" alt-text="Screenshot of waf metrics page." lightbox="../media/appgw-waf-metrics-1-expanded":::
  
  
    
