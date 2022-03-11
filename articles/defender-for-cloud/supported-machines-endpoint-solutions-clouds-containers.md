@@ -108,7 +108,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 <sup><a name="footnote3"></a>3</sup>To get [Microsoft Defender for Containers](../azure-arc/kubernetes/overview.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](https://mseng.visualstudio.com/TechnicalContent/_workitems/recentlyupdated/) and enable Defender for Containers as an Arc extension.
 
 > [!NOTE]
-> For additional requirements for Kuberenets workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+> For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
 ## Next steps
 

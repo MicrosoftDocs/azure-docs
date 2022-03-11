@@ -79,7 +79,7 @@ Azure Front Door is a globally distributed multi-tenant service. The infrastruct
 
 ### Is HTTP->HTTPS redirection supported?
 
-Yes. In fact, Azure Front Door supports host, path, query string redirection, and part of URL redirection. Learn more about [URL redirection](concept-rule-set-url-redirect-and-rewrite.md). 
+Yes. In fact, Azure Front Door supports host, path, query string redirection, and part of URL redirection. Learn more about [URL redirection](../front-door-url-redirect.md). 
 
 ### How do I lock down the access to my backend to only Azure Front Door?
 

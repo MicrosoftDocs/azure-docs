@@ -9,7 +9,7 @@ ms.topic: how-to
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma, wiassaf
-ms.date: 11/17/2021
+ms.date: 3/10/2022
 ---
 
 # Configure streaming export of Azure SQL Database and SQL Managed Instance diagnostic telemetry
@@ -658,7 +658,7 @@ Learn more about [database wait statistics](/sql/relational-databases/system-dyn
 |ElasticPoolName_s|Name of the elastic pool for the database, if any |
 |DatabaseName_s|Name of the database |
 |ResourceId|Resource URI |
-|error_state_d|Error state code |
+|error_state_d|A numeric state value associated with the query timeout (an [attention](/sql/relational-databases/errors-events/mssqlserver-3617-database-engine-error) event) |
 |query_hash_s|Query hash, if available |
 |query_plan_hash_s|Query plan hash, if available |
 
