@@ -1,3 +1,15 @@
+---
+title: Monitoring metrics for Azure Application Gateway Web Application metrics
+description: This article describes the Azure Application Gateway WAF monitoring metrics.
+services: appgateway
+author: olotolor
+manager: gunjan.jain 
+ms.service: waf
+ms.topic: how-to
+ms.date: 03/11/2022
+ms.author: olotolor
+---
+
 ## Metrics supported by Application Gateway V1 SKU
 
 ### Application Gateway metrics
