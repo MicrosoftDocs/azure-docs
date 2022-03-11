@@ -28,7 +28,7 @@ The supported SQL Server versions are 2005 and above. SQL Server Express LocalDB
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
@@ -63,7 +63,7 @@ The SQL account must have access to the **master** database. This is because the
 > [!Note]
 > All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
 
-1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, select and hold (or right-click) on login and create New login. Make sure to select SQL authentication.
+1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, select and hold (or right-click) on login and create New login. Make sure to select "SQL authentication".
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Create new login and user.":::
 
@@ -85,7 +85,7 @@ The SQL account must have access to the **master** database. This is because the
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your SQL server login
 1. Select **Create** to complete
 1. If your key vault is not connected to Azure Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to setup your scan
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to set up your scan.
 
 ### Steps to register
 
