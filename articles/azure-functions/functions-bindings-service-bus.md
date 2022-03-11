@@ -163,7 +163,7 @@ This section describes the configuration settings available for this binding, wh
             "maxAutoLockRenewalDuration": "00:05:00",
             "maxConcurrentCalls": 16,
             "maxConcurrentSessions": 8,
-            "maxMessages": 1000,
+            "maxMessageBatchSize": 1000,
             "sessionIdleTimeout": "00:01:00",
             "enableCrossEntityTransactions": false
         }
