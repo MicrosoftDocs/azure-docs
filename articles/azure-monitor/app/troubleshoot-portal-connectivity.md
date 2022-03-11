@@ -1,16 +1,19 @@
 ---
+
 title: Application Insights portal connectivity troubleshooting 
 description: Troubleshooting steps for Application Insights portal connectivity issues
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 03/09/2022
+ms.reviewer: vgorbenko
+
 ---
 
 # “Error retrieving data” message on dashboard
 
 This is a troubleshooting guide for the Application Insights portal when encountering connectivity errors similar to `Error retrieving data` or `Missing localization resource`.
 
-  <img src="./media/\troubleshoot-portal-connectivity\troubleshoot-portal-connectivity.png" style="width:10.64552in;height:2.39638in"
+  <img src="./media/\troubleshoot-portal-connectivity\troubleshoot-portal-connectivity.png" 
     alt="Graphical user interface, text, application, email Description automatically generated" />
     
 ## Troubleshooting
