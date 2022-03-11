@@ -45,6 +45,7 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
     - *BlockNonAdminUserInstall* is set to enabled or 1
     - *EnableLostMode* is set on the device
     - Explorer.exe is replaced with a custom shell
+    - Interactive logon: Require smart card is set to enabled or 1
 - The combination of the following specific three settings can cause this feature to not work.
     - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
     - *DisableLockScreenAppNotifications* = 1 or Enabled

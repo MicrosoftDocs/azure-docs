@@ -1,12 +1,12 @@
 ---
 title: Control access to Azure file shares - on-premises AD DS authentication
 description: Learn how to assign permissions to an Active Directory Domain Services identity that represents your storage account. This allows you control access with identity-based authentication.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
 ms.date: 12/16/2021
-ms.author: rogarana 
+ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli 
 ms.devlang: azurecli
 ---
