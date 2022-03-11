@@ -1,5 +1,5 @@
 ---
-title: Memo 22-09 authorization requirements  | Azure Active Directory
+title: Memo 22-09 authorization requirements
 description: Guidance on meeting authorization requirements outlined in US government OMB memorandum 22-09
 services: active-directory 
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Authorization requirements for memo 22-09
 
-This series of articles offer guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles as described by the US Federal Government’s Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Throughout this document. We refer to it as “The memo.”
+This series of articles offer guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles as described by the US Federal Government’s Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Throughout this document we refer to it as "The memo."
 
 [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf) requires specific types of enforcement within your MFA policies. Specifically, you must account for device-based, role-based, attribute-based controls, and privileged access management.
 
