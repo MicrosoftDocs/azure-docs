@@ -72,6 +72,48 @@ See the [Application upgrade tutorial](service-fabric-application-upgrade-tutori
 
 See [Deploy an application](service-fabric-deploy-remove-applications.md) for examples.
 
+## Cleaning up files and data on nodes
+
+The replication of application files will distribute eventually the files to all nodes depending on balancing events for availability guarantee. This can create disk pressure depending on the number of applications and their file size.
+Even when no active instance is running on a node the files from a former instance will kept. The same is true for data from reliable collections used by stateful services. This serves the purpose of higher availability. In case of a new application instance on the same node no files must be copied. For reliable collections, only the delta must be replicated.
+
+Recommendations to reduce disk pressure:
+
+1. [Remove-ServiceFabricApplicationPackage](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications#remove-an-application-package-from-the-image-store) this removes the package from temporary upload location.
+1. [Unregister-ServiceFabricApplicationType](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications#unregister-an-application-type) releases storage space by removing the application type files from image store and all nodes.
+1. [CleanupUnusedApplicationTypes](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-fabric-settings)
+    cleans up old unused application versions automatically.
+    ```ARM template
+    {
+      "name": "Management",
+      "parameters": [
+        {
+          "name": "CleanupUnusedApplicationTypes",
+          "value": true
+        },
+        {
+          "name": "MaxUnusedAppTypeVersionsToKeep",
+          "value": "3"
+        }
+      ]
+    }
+    ```
+1.  [Remove-ServiceFabricClusterPackage](https://docs.microsoft.com/en-us/powershell/module/servicefabric/remove-servicefabricclusterpackage) removes old unused runtime installation binaries.
+    
+The table shows where files can be expected.
+
+| Name | Path |
+|---|---|
+| Image Store | /_App/__FabricSystem_App{UniqueId}/work/Store/{ReplicaId}/Store/{ApplicationTypeName} |
+| Image Cache | /{NodeName}/Fabric/work/ImageCache/Store/{ApplicationTypeName} |
+| App Instance | /_App/{ApplicationTypeName} |
+| Runtime Binaries | /_App/__FabricSystem_App{UniqueId}/work/Store/{ReplicaId}/WindowsFabricStore |
+
+
+>[!Note]
+> A new feature is under development to allow Service Fabric to delete application folders once the application is evacuated from the node.
+
+
 ## Next steps
 For more information on developing, testing, and managing Service Fabric applications and services, see:
 
