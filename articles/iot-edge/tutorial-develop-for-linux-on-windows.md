@@ -194,6 +194,9 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 
 1. Re-generate your deployment manifest with the new runtime version. Right-click the name of your project and select **Generate deployment for IoT Edge**.
 
+> [!WARNING]
+> If you are chaging the IoT Edge runtime version, make sure the _deploymnet templates_ reflect the necessary changes. There's a bug with Azure IoT Edge Tools, that won't change the _"schemVersion"_ inside the _"properties.desired"_ object of _"$edgeHub"_ module (last section of the json file). 
+
 
 ### Set up Visual Studio 2019 remote Docker engine instance
 
