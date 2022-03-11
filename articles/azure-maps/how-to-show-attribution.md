@@ -32,7 +32,7 @@ The map copyright attribution information must be displayed on the map in any ap
 
 When using any of the Azure Maps SDKs, the map copyright attribution information is automatically displayed and updated on the map. This includes the [Web SDK](how-to-use-map-control.md), [Android SDK](how-to-use-android-map-control-library.md) and the [iOS SDK](how-to-use-ios-map-control-library.md).
 
-When using the Render service in any third party mapping SDK, the map copyright attribution information must be manually updated.
+When using map tiles from the Render service in a third-party map SDK, you must display and update the copyright attribution information on the map.
 
 Map content changes whenever an end user selects a different style, zooms in or out, or pans their map. Each of these user actions causes an event to fire and when any of these events fire, you need to call the Get Map Attribution API to update the map copyright attribution information displayed in the lower right hand corner of the map.
 
