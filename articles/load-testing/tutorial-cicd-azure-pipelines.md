@@ -99,6 +99,7 @@ To access Azure resources, create a service connection in Azure DevOps and use r
     ```azurecli
     az role assignment create --assignee "<sp-object-id>" \
         --role "Load Test Contributor" \
+        --scope /subscriptions/<subscription-name-or-id>/resourceGroups/<resource-group-name> \
         --subscription "<subscription-name-or-id>"
     ```
 
