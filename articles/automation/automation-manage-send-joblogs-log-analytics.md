@@ -26,20 +26,22 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
 ## Azure Automation diagnostic settings
 
-Automation diagnostic settings supports forwarding the following platform logs and metric data:
+Automation diagnostic settings support forwarding the following platform logs and metric data:
 
-  - **Job Logs** - Status of the runbook job in the Automation account.
-  - **Job Streams** - Status of the job streams in the runbook defined in the Automation account.
-  - **DSCNodeStatus** - Status of the DSC Node.
-  - **AuditEvent** - All resource logs that record customer interactions with data or the settings of the Azure Automation service.
-  - **Metrics** - Total jobs, total update, deployment machine runs, total update deployment runs
+| Data types | Description |
+| --- | --- |
+| Job Logs | Status of the runbook job in the Automation account.|
+| Job Streams | Status of the job streams in the runbook defined in the Automation account.|
+| DSCNodeStatus | Status of the DSC Node.|
+| AuditEvent | All resource logs that record customer interactions with data or the settings of the Azure Automation service.|
+| Metrics | Total jobs, total update, deployment machine runs, total update deployment runs.|
 
 
 ## Configure diagnostic settings in Azure portal
 
 You can configure diagnostic settings in the Azure portal from the menu for the Automation account resource. 
 
-1. In Automation account menu, under **Monitoring** select **Diagnostic settings**.
+1. In the Automation account menu, under **Monitoring** select **Diagnostic settings**.
 
     :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/select-diagnostic-settings-inline.png" alt-text="Screenshot showing selection of diagnostic setting option." lightbox="media/automation-manage-send-joblogs-log-analytics/select-diagnostic-settings-expanded.png":::
 
@@ -47,27 +49,29 @@ You can configure diagnostic settings in the Azure portal from the menu for the 
 
     :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/select-add-diagnostic-setting-inline.png" alt-text="Screenshot showing selection of add diagnostic setting." lightbox="media/automation-manage-send-joblogs-log-analytics/select-add-diagnostic-setting-expanded.png":::
 
-1. Enter a setting name in the **Diagnostic setting name** if it doesn't already have one. You can also see all categories of Logs and metrics. 
+1. Enter a setting name in the **Diagnostic setting name** if it doesn't already have one. 
+    
+   You can also see all categories of Logs and metrics. 
 
    :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/view-diagnostic-setting.png" alt-text="Image alt text.":::
 
-    - **Logs and metrics to route** - For logs, either choose a category group or  check the individual boxes for each category of data you want to send to the destinations specified. Choose **AllMetrics** if you want to store metrics into Azure Monitor logs.
-    - **Destination details** - Check the box for each destination. As per the selection of each box, the options appear to allow you to add additional information. 
+    - **Logs and metrics to route** : For logs, choose a category group or select the individual checkboxes for each category of data you want to send to the destinations specified. Choose **AllMetrics** if you want to store metrics into Azure Monitor logs.
+    - **Destination details** : Select the checkbox for each destination. As per the selection of each box, the options appear to allow you to add additional information. 
     
        :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/destination-details-options-inline.png" alt-text="Screenshot showing selections in destination details section" lightbox="media/automation-manage-send-joblogs-log-analytics/destination-details-options-expanded.png":::
 
-       -  **Log Analytics** - Enter the subscription and workspace. If you don't have a workspace, you must [create one before proceeding](/azure/azure-monitor/logs/quick-create-workspace).
+       -  **Log Analytics** : Enter the Subscription ID and workspace name. If you don't have a workspace, you must [create one before proceeding](/azure/azure-monitor/logs/quick-create-workspace).
        
-       - **Event hubs** - Specify the following criteria:
-          - Subscription - the subscription that the event hub is part of.
+       - **Event hubs** : Specify the following criteria:
+          - Subscription : The same subscription as that of the event hub.
           - Event hub namespace - [Create event hub](/azure/event-hubs/event-hubs-create) if you don't have one yet.
-          - Event hub name (optional) - if you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, specify a name to limit the number of event hubs created. See [Azure Event Hubs quotas and limits](/azure/event-hubs/event-hubs-quotas) for details.
+          - Event hub name (optional) : If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, specify a name to limit the number of event hubs created. See [Azure Event Hubs quotas and limits](/azure/event-hubs/event-hubs-quotas) for details.
           - Event Hub policy (optional) A policy defines the permissions that the streaming mechanism has. See [Event hubs feature](/azure/event-hubs/event-hubs-features#publisher-policy).
         
-        - **Storage** - choose the subscription, storage account, and retention policy.
+        - **Storage** : Choose the subscription, storage account, and retention policy.
           :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/storage-account-details-inline.png" alt-text="Screenshot showing the storage account" lightbox="media/automation-manage-send-joblogs-log-analytics/storage-account-details-expanded.png":::
 
-        - **Partner integration** - You must first install a partner integration into your subscription. Configuration options will vary by partner. For more information, see [Azure monitor integration](/azure/partner-solutions/overview).
+        - **Partner integration** : You must first install a partner integration into your subscription. Configuration options will vary by partner. For more information, see [Azure monitor integration](/azure/partner-solutions/overview).
         
 1. Click **Save**.
 
@@ -83,8 +87,10 @@ To query the generated logs:
    :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/select-query-logs.png" alt-text="Screenshot showing how to navigate to select Automation jobs.":::
 
 1. Select one of the queries you want to execute and click **Run**.
-1. To execute your own custom query, close the **Queries** window and paste your custom query in the new query window and click **Run**.
-   The output of the query is displayed in **Results** pane.
+1. To execute a custom query, close the **Queries** window and paste your custom query in the new query window and click **Run**.
+   
+    The output of the query is displayed in **Results** pane.
+
 1. Click **New alert rule** to configure an Azure monitor alert for this query.
 
    :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/custom-query-inline.png" alt-text="Screenshot showing how to query logs" lightbox="media/automation-manage-send-joblogs-log-analytics/custom-query-expanded.png":::
@@ -96,18 +102,17 @@ The following steps explain on how to set up email alerts in Azure Monitor to no
 To create an alert rule, create a log search for the runbook job records that should invoke the alert as described in [Querying the logs](#querying-the-logs). Click the **+New alert rule** to configure the alert rule.
 
 1. In your Automation account, under **Monitoring**, select **Logs**.
-1. Create a log search query for your alert by typing the search into the query.
+1. Create a log search query for your alert by typing the search into the query field.
 
     ```kusto
-        field: AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")   
+    AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")   
     ```
     You can also group by the runbook name by using:
     
     ```kusto
     AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and     Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s 
     ```
-    
-1. To open the **Create alert rule** screen, click **+New alert rule** on the top of the page. To know on the options to configure the alert, see [Log alerts in Azure](/azure/azure-monitor/alerts/alerts-log#create-a-log-alert-rule-in-the-azure-portal)
+ 1. To open the **Create alert rule** screen, click **+New alert rule** on the top of the page. For more information on the options to configure the alerts, see [Log alerts in Azure](/azure/azure-monitor/alerts/alerts-log#create-a-log-alert-rule-in-the-azure-portal)
 
 ## Azure Monitor log records
 
@@ -261,7 +266,7 @@ AzureDiagnostics
 ```
 
 ## Sample Azure Automation Audit log queries
-You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also configure alerts for audit log conditions as part of your security monitoring requirements. For more details on configuring alerts see, [Send an email when a runbook job fails or suspends.](#send-an-email-when-a-runbook-job-fails-or-suspends)
+You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also configure alerts for audit log conditions as part of your security monitoring requirements. For more information on configuring alerts see, [Send an email when a runbook job fails or suspends.](#send-an-email-when-a-runbook-job-fails-or-suspends)
 
 ## Difference between Activity logs and Audit logs?
 The Activity log is a [platform log](/azure/azure-monitor/essentials/platform-logs-overview) in Azure that provides insight into subscription-level events. Activity log for Automation account includes information as when an automation resource is modified or created or deleted, however, it does not capture the name or ID of the resource. Audit logs for Automation accounts would capture the name and ID of the resource like automation variable, credential, connection etc, along with the type of the operation performed for the resource.  
