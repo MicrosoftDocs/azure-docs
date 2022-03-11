@@ -253,11 +253,11 @@ Port: 25
 
 ## Option 4: Using SMTP relay server as intermediary to Exchange Online
 
-Intermediate relay server can be an alternative to a direct connection from the SAP application server to Microsoft 365. This server can be based on any mail server that will allow direct authentication and relay services.
+An intermediate relay server can be an alternative to a direct connection from the SAP application server to Microsoft 365. This server can be based on any mail server that will allow direct authentication and relay services.
 
 The advantage of this solution is that it can be deployed in the hub of a hub-spoke virtual network within your Azure environment or within a DMZ to protect your SAP application hosts from direct access. It also allows for centralized outbound routing to immediately offload all mail traffic to a central relay when sending from multiple application servers.
 
-The configuration steps are the same as for the Microsoft 365 SMTP Relay Connector (Option 3) with the only differences being that the SCOT configuration should reference the mail host that will perform the relay rather than direct to Microsoft 365. Depending on the mail system that is being used for the relay it will also be configured directly to connect to Microsoft 365 using one of the supported methods and a valid user with password.
+The configuration steps are the same as for the Microsoft 365 SMTP Relay Connector (Option 3) with the only differences being that the SCOT configuration should reference the mail host that will perform the relay rather than direct to Microsoft 365. Depending on the mail system that is being used for the relay it will also be configured directly to connect to Microsoft 365 using one of the supported methods and a valid user with password. It is recommended to send a test mail from the relay directly to ensure it can communicate successfully with Microsoft 365 before completing the SAP SCOT configuration and testing as normal.
 
 ![Relay Server Architecture](media/exchange-online-integration/SAP_outbound_mail_with_SMTP_relay_in_hub_architecture.png)
 
