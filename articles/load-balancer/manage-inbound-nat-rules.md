@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 03/04/2022
+ms.date: 03/10/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 # Manage inbound NAT rules for Azure Load Balancer using the Azure portal
