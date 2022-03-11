@@ -78,7 +78,7 @@ To specify additional filters, you must use Custom configuration and specify an 
 
 ### Extracting XPath queries from Windows Event Viewer
 One of the ways to create XPath quries is to use Windows Event Viewer to extract XPath queries as shown below.  
-*NOTE: When pasting over the 'Select Path' parameter value, you must append the log type category followed by '!' and then paste the copied value.
+*In step 5 when pasting over the 'Select Path' parameter value, you must append the log type category followed by '!' and then paste the copied value.
 
 [![Extract XPath](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png#lightbox)
 
