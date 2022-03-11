@@ -29,7 +29,7 @@ In this scenario, you learn how to create a 6 GB Premium tier Azure Cache for Re
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup
