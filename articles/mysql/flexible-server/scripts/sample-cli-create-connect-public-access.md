@@ -29,7 +29,7 @@ Once the script runs successfully, the MySQL Flexible Server will be accessible 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/create-server-public-access/create-connect-burstable-server-public-access.sh" range="4-38":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/create-server-public-access/create-connect-burstable-server-public-access.sh" id="FullScript":::
 
 ## Clean up resources
 

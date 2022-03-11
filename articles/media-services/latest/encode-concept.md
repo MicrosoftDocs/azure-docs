@@ -43,7 +43,7 @@ To encode with Media Services v3, you need to create a [Transform](/rest/api/med
 
 When encoding with Media Services, you use presets to tell the encoder how the input media files should be processed. In Media Services v3, you use Standard Encoder to encode your files. For example, you can specify the video resolution and/or the number of audio channels you want in the encoded content.
 
-You can get started quickly with one of the recommended built-in presets based on industry best practices or you can choose to build a custom preset to target your specific scenario or device requirements. For more information, see [Encode with a custom Transform](transform-custom-presets-how-to.md).
+You can get started quickly with one of the recommended built-in presets based on industry best practices or you can choose to build a custom preset to target your specific scenario or device requirements. For more information, see [Encode with a custom Transform](transform-custom-transform-how-to.md).
 
 Starting with January 2019, when encoding with the Standard  Encoder to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for [dynamic packaging](encode-dynamic-packaging-concept.md) and streaming scenarios.
 
@@ -82,8 +82,7 @@ You can specify to create a [Job](/rest/api/media/jobs/create) with a single cli
 
 See examples:
 
-* [Subclip a video with .NET](transform-subclip-video-dotnet-how-to.md)
-* [Subclip a video with REST](transform-subclip-video-rest-how-to.md)
+* [Subclip a video with .NET](transform-subclip-video-how-to.md)
 
 ## Built-in presets
 
@@ -134,10 +133,7 @@ Media Services fully supports customizing all values in presets to meet your spe
 
 #### Examples
 
-- [Customize presets with .NET](transform-custom-presets-how-to.md)
-- [Customize presets with CLI](transform-custom-preset-cli-how-to.md)
-- [Customize presets with REST](transform-custom-preset-rest-how-to.md)
-
+- [Customize presets with .NET](transform-custom-transform-how-to.md)
 
 ## Preset schema
 
@@ -145,7 +141,7 @@ In Media Services v3, presets are strongly typed entities in the API itself. You
 
 ## Scaling encoding in v3
 
-To scale media processing, see [Scale with CLI](media-reserved-units-cli-how-to.md).
+To scale media processing, see [Scale with CLI](media-reserved-units-how-to.md).
 For accounts created with the **2020-05-01** or later version of the API or through the Azure portal, scaling and media reserved units are no longer required. Scaling will be automatic and handled by the service internally.
 
 ## Billing
@@ -153,14 +149,3 @@ For accounts created with the **2020-05-01** or later version of the API or thro
 Media Services does not bill for canceled or errored jobs. For example, a job that has reached 50% progress and is canceled is not billed at 50% of the job minutes. You are only charged for finished jobs.
 
 For more information, see [pricing](https://azure.microsoft.com/pricing/details/media-services/).
-
-## Ask questions, give feedback, get updates
-
-Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
-
-## Next steps
-
-* [Upload, encode, and stream using Media Services](stream-files-tutorial-with-api.md).
-* [Encode from an HTTPS URL using built-in presets](job-input-from-http-how-to.md).
-* [Encode a local file using built-in presets](job-input-from-local-file-how-to.md).
-* [Build a custom preset to target your specific scenario or device requirements](transform-custom-presets-how-to.md).
