@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Add authentication to a web app on Azure App Service | Azure
-description: In this tutorial, you learn how to enable authentication and authorization for a web app running on Azure App Service. Limit access to the web app to users in your organization​.
+title: Tutorial - Add app authentication to a web app on Azure App Service | Azure
+description: In this tutorial, you learn how to enable app authentication and authorization for a web app running on Azure App Service. Limit access to the web app to users in your organization​.
 services: active-directory, app-service-web
 author: rwike77
 manager: CelesteDG
@@ -15,6 +15,8 @@ ms.custom: azureday1
 #Customer intent: As an application developer, enable authentication and authorization for a web app running on Azure App Service.
 ---
 
+# Tutorial: Add app authentication to your web app running on Azure App Service
+
 [!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/intro.md)]
 
 ## Connect to backend services as app
@@ -27,4 +29,4 @@ Once the app service has the authenticated identity, you as the system architect
     * Use [managed identity](./tutorial-connect-overview.md). If managed identity isn't available, then use Key Vault. 
     * The user identity doesn't need to flow further. Any additional security to reach backend services is handled with the app service's identity. 
 
-[!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/end.md)]
+[!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/after.md)]

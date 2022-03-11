@@ -15,8 +15,6 @@ ms.custom: azureday1
 #Customer intent: As an application developer, enable authentication and authorization for a web app running on Azure App Service.
 ---
 
-# Tutorial: Add authentication to your web app running on Azure App Service
-
 Learn how to enable authentication for your web app running on Azure App Service and limit access to users in your organization.
 
 In this tutorial, you learn how to:
