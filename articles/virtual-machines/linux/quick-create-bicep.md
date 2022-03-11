@@ -64,9 +64,7 @@ Several resources are defined in the Bicep file:
     ---
 
     > [!NOTE]
-    > Replace **\<admin-username\>** with a unique username.
-    > [!NOTE]
-    > You'll be prompted to enter adminPasswordOrKey.
+    > Replace **\<admin-username\>** with a unique username. You'll also be prompted to enter adminPasswordOrKey.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
