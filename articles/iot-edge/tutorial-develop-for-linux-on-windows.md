@@ -224,17 +224,21 @@ Typically, you'll want to test and debug each module before running it within an
 
    ![Set Start-up Project](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)
 
-1. To debug the C# Linux module, we need to update Dockerfile.amd64.debug to enable SSH service. Update the Dockerfile.amd64.debug file to use the following template: [Dockerfile for Azure IoT Edge AMD64 C# Module with Remote Debug Support](https://github.com/fcabrera23/iotedge-eflow/blob/remote-debugging/debugging/Dockerfile.amd64.debug).
+1. To debug the C# Linux module, we need to update Dockerfile.amd64.debug to enable SSH service. Update the Dockerfile.amd64.debug file to use the following template: [Dockerfile for Azure IoT Edge AMD64 C# Module with Remote Debug Support](https://raw.githubusercontent.com/Azure/iotedge-eflow/main/debugging/Dockerfile.amd64.debug).
 
    > [!NOTE]
    > When choosing **Debug**, Visual Studio uses `Dockerfile.(amd64|windows-amd64).debug` to build Docker images. This includes the .NET Core command-line debugger VSDBG in your container image while building it. For production-ready IoT Edge modules, we recommend that you use the **Release** configuration, which uses `Dockerfile.(amd64|windows-amd64)` without VSDBG.
+   
+   >[!WARNING]
+   > Make sure the last line of the template _ENTRYPOINT ["dotnet", "IotEdgeModule1.dll"]_ the name of the DLL matches the name of your IoT Edge module project.
+
 
    ![Set Dockerfile template](./media/tutorial-develop-for-linux-on-windows/vs-solution.png)
 
 1. To establish an SSH connection with the Linux module, we need to create an RSA key. Open an elevated PowerShell session and run the following commands to create a new RSA key.
    
    ```cmd
-   ssh-keygen -t RSA -b 4096 -m PEM`
+   ssh-keygen -t RSA -b 4096 -m PEM
    ```
 
    ![Create SSH key](./media/tutorial-develop-for-linux-on-windows/ssh-keygen.png)
@@ -242,7 +246,7 @@ Typically, you'll want to test and debug each module before running it within an
 1. If you're using a private registry like Azure Container Registry (ACR), use the following Docker command to sign in to it.  You can get the username and password from the **Access keys** page of your registry in the Azure portal. If you're using local registry, you can [run a local registry](https://docs.docker.com/registry/deploying/#run-a-local-registry).
 
    ```cmd
-   docker login -H tcp:\\<eflow-ip>:2375 -u <ACR username> -p <ACR password> <ACR login server>
+   docker -H tcp:\\<eflow-ip>:2375 login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 1. In **Solution Explorer**, right-click the project folder and select **Build and Push IoT Edge Modules** to build and push the Docker image for each module.
 
@@ -268,7 +272,7 @@ Typically, you'll want to test and debug each module before running it within an
    >[!NOTE]
    >This article uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
-1. It's necessary to expose port 22 to access the module SSH service. This tutorial uses 10022 as the host port, but you may specify a different port, which will be used as an SSH port to connect into the Linux C# module. You need to add the SSH port information to the "createOptions" of this Linux module settings found in the file `deployment.template.json`. 
+1. It's necessary to expose port 22 to access the module SSH service. This tutorial uses 10022 as the host port, but you may specify a different port, which will be used as an SSH port to connect into the Linux C# module. You need to add the SSH port information to the "createOptions" of this Linux module settings found in the file `deployment.debug.template.json`. 
 
     ```json
          "createOptions": {
@@ -285,19 +289,19 @@ Typically, you'll want to test and debug each module before running it within an
          }
     ```
 
-In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Cloud Explorer for Visual Studio. You already have a deployment manifest prepared for your scenario, the `deployment.json` file and all you need to do is select a device to receive the deployment.
+1.  In **Solution Explorer**, right-click the project folder and select **Generate Deployment for IoT Edge** to build the new IoT Edge deployment json.
 
 1. Open **Cloud Explorer** by clicking **View** > **Cloud Explorer**. Make sure you've logged in to Visual Studio 2019.
 
 1. In **Cloud Explorer**, expand your subscription, find your Azure IoT Hub and the Azure IoT Edge device you want to deploy.
 
-1. Right-click on the IoT Edge device to create a deployment for it. Navigate to the debug deployment manifest configured for your platform located in the **config** folder in your Visual Studio solution, such as `deployment.arm32v7.json`.
+1. Right-click on the IoT Edge device to create a deployment for it. Navigate to the debug deployment manifest configured for your platform located in the **config** folder in your Visual Studio solution, such as `deployment.amd64.json`.
 
 1. Click the refresh button to see the new module running along wit **$edgeAgent** and **$edgeHub** modules.
 
 1. Using and elevated PowerShell session rung the following commands
 
-   1. Get the moduleId based on the name used for the Linux C# 
+   1. Get the moduleId based on the name used for the Linux C# module
    
       ```powershell
       $moduleId = Invoke-EflowVmCommand “sudo docker ps -aqf name=<iot-edge-module-name>”
@@ -308,7 +312,7 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
    1. Start the SSH service inside the Linux container
       
       ```powershell
-      $moduleId = Invoke-EflowVmCommand “sudo docker ps -aqf name=<iot-edge-module-name>”
+      Invoke-EflowVmCommand “sudo docker exec -it -d $moduleId service ssh start”
       ```
    1. Open the module SSH port on the EFLOW VM (this tutorial uses port 10022)
 
@@ -341,18 +345,9 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
    * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
-1. Test the module by sending a message by running the following command in a **Git Bash** or **WSL Bash** shell. (You cannot run the `curl` command from a PowerShell or command prompt.)
-
-    ```bash
-    curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
-    ```
+1. The output of the the **SimulatedTemperatureSensor** should be redirected to **input1** of the custom Linux C# module. The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.
 
    ![Debug Single Module](./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png)
-
-   The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.
-
-   > [!TIP]
-   > You can also use [PostMan](https://www.getpostman.com/) or other API tools to send messages instead of `curl`.
 
 1. Press **Ctrl + F5** or click the stop button to stop debugging.
 
