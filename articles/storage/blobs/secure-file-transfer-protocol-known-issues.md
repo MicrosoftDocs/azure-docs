@@ -1,5 +1,5 @@
 ---
-title: Known issues with SFTP in Azure Blob Storage (preview) | Microsoft Docs
+title: Limitations & known issues with SFTP in Azure Blob Storage (preview) | Microsoft Docs
 description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support for Azure Blob Storage.
 author: normesta
 ms.subservice: blobs
@@ -11,7 +11,7 @@ ms.reviewer: ylunagaria
 
 ---
 
-# Known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
+# Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
 
 This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
