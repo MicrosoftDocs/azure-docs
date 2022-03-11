@@ -29,7 +29,7 @@ M-22-09 specifically requires the use of at least one device-based signal when m
 
 | Signal| Signal retrieval |
 | - | - |
-| Device must be managed| Integration with Intune or another MDM that supports this integration are required. <p>Hybrid Azure AD joined since the device is managed by active directory also qualifies |
+| Device must be managed| Integration with Intune or another MDM that supports this integration are required. Hybrid Azure AD joined since the device is managed by active directory also qualifies |
 | Device must be compliant| Integration with Intune or other MDM’s that support this integration are required. For more information, see [Use device compliance policies to set rules for devices you manage with Intune](/mem/intune/protect/device-compliance-get-started) |
 | Threat signals| Microsoft Defender for Endpoint and other EDR tools have integrations with Azure AD and Intune to send threat signals that can be used to deny access. Threat signals are part of the compliant status signal |
 | Cross tenant access policies| permits an organization to trust device signals from devices belonging to other organizations. (public preview) |
@@ -52,11 +52,11 @@ Azure AD allows integration of an authorization directly to the data. You can cr
 
 You can configure [authentication context](../conditional-access/concept-conditional-access-cloud-apps.md) within Conditional Access Policies. This allows you to, for example, restrict which actions a user can take within an application or on specific data. These authentication contexts are then mapped within the data source itself. Data sources can be office files like word and excel or SharePoint sites that use  mapped to your authentication context. An example of this integration is shown [here](%20/sharepoint/authentication-context-example). 
 
-You can also leverage authentication context assigned to data directly in your applications. This requires integration with the application code and [developers](%20../develop/developer-guide-conditional-access-authentication-context.md) to adopt this capability. Authentication context integration with Microsoft Defender for Cloud Apps can be used to control [actions taken on data using session controls](%20/defender-cloud-apps/session-policy-aad?branch=pr-en-us-2082). Dynamic groups mentioned previously when combined with Authentication context allow you to control user access mappings between the data and the user attributes. 
+You can also leverage authentication context assigned to data directly in your applications. This requires integration with the application code and [developers](%20../develop/developer-guide-conditional-access-authentication-context.md) to adopt this capability. Authentication context integration with Microsoft Defender for Cloud Apps can be used to control [actions taken on data using session controls](/defender-cloud-apps/session-policy-aad). Dynamic groups mentioned previously when combined with Authentication context allow you to control user access mappings between the data and the user attributes. 
 
 ### Attributes assigned to resources
 
-Azure includes [ABAC for Storage](../../role-based-access-control/conditions-overview.md) which allows the assignment of metadata tags on data stored in an Azure blob storage account. This metadata can then be assigned to users using role assignments to grant access. Other Azure services will incorporate this feature in the future. 
+Azure includes [ABAC for Storage](../../role-based-access-control/conditions-overview.md) which allows the assignment of metadata tags on data stored in an Azure blob storage account. This metadata can then be assigned to users using role assignments to grant access. 
 
 ## Privileged Access Management 
 
