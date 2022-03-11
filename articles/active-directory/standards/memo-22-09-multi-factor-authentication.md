@@ -92,17 +92,13 @@ For each of the five phishing-resistant MFA types previously mentioned, you use 
 
 ### Enforcing phishing-resistant MFA
 
-Today, Conditional Access enable you to enforce MFA for users in your tenant. With the addition of Cross Tenant Access Policies, you can enforce it on external users. 
-
-In the future, you will be able to assess the strength of authenticators in Conditional Access policies. This functionality will enable you to accept any authenticator with the specified strength.
+Conditional Access enables you to enforce MFA for users in your tenant. With the addition of Cross Tenant Access Policies, you can enforce it on external users. 
 
 #### Enforcement across agencies
 
 [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) (B2B) helps you to meet the requirement to facilitate integration among agencies. It does this by both limiting what other Microsoft tenants your users can access, and by enabling you to allow access to users that you do not have to manage in your own tenant, but whom you can subject to your MFA and other access requirements.
 
 You must enforce MFA for partners and external users who access your organization’s resources. This is common in many inter-agency collaboration scenarios. Azure AD provides [Cross Tenant Access Policies (XTAP)](../external-identities/cross-tenant-access-overview.md) to help you configure MFA for external users accessing your applications and resources. XTAP uses trust settings that allow you to trust the MFA method used by the guest user’s tenant instead of having them register an MFA method directly with your tenant. These policies can be configured on a per organization basis. This requires you to understand the available MFA methods in the user’s home tenant and determine if they meet the requirement for phishing resistance. 
-
-In the future, Microsoft will enable signals from your tenant and guest users’ home tenants to help determine if the MFA used by the guest user was phishing resistant. These settings will allow you to incorporate MFA requirements directly into your Conditional Access policies for external users
 
 ## Password policies
 
