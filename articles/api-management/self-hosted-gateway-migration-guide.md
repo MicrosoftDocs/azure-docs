@@ -33,7 +33,11 @@ Before you can migrate to self-hosted gateway v2, you need to ensure your infras
 
 ## Migrating to self-hosted gateway v2
 
-Migrating from self-hosted gateway v2 requires a few small steps to be done.
+Migrating from self-hosted gateway v2 requires a few small steps to be done:
+
+1. [Use the v2 container image](#container-image)
+2. [Use the new configuration API](#using-the-new-configuration-api)
+3. [Meet minimal security requirements](#meet-minimal-security-requirements)
 
 ### Container Image
 
@@ -43,13 +47,24 @@ Alternatively, you can choose to use one of our other [container image tags](art
 
 You can find a full list of available tags [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list) or find us on [Docker Hub](https://hub.docker.com/_/microsoft-azure-api-management-gateway).
 
-### Configuration URL
+### Using the new configuration API
 
-In order to migrate to self-hosted gateway v2, you need to update the configuration URL to use our new configuration API.
+In order to migrate to self-hosted gateway v2, customers need to use our new Configuration API v2.
 
-The original configuration URL with format `{instance-name}.management.azure-api.net/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ApiManagement/service/{instance-name}?api-version=2021-01-01-preview` should be replaced with `{instance-name}.configuration.azure-api.net`.
+Currently, Azure API Management provides the following Configuration APIs for self-hosted gateway:
 
-### Security
+| Configuration Service | URL | Supported | Requirements |
+| --- | --- | --- | --- |
+| v2 | `{name}.configuration.azure-api.net` | Yes | [Link](self-hosted-gateway-overview.md#gateway-v2-requirements) |
+| v1 | `{name}.management.azure-api.net/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.ApiManagement/service/{name}?api-version=2021-01-01-preview` | No | [Link](self-hosted-gateway-overview.md#gateway-v1-requirements) |
+
+Customer must use the new Configuration API v2 by changing their deployment scripts to use the new URL and meet infrastructure requirements.
+
+> [!IMPORTANT]
+> * DNS hostname must be resolvable to IP addresses and the corresponding IP addresses must be reachable.
+> This might require additional configuration in case you are using a private DNS, internal VNET or other infrastrutural requirements.
+
+### Meet minimal security requirements
 
 During startup, the self-hosted gateway will prepare the CA certificates that will be used.
 
