@@ -34,7 +34,7 @@ Azure Form Recognizer prebuilt models enable you to add intelligent document pro
 
 ### Read (preview)
 
-:::image type="content" source="media/studio/read-card.png" alt-text="Screenshot: Studio read icon.":::
+[:::image type="icon" source="media/studio/read-card.png" :::](https://formrecognizer.appliedai.azure.com/studio/read)
 
 The Read API analyzes and extracts ext lines, words, their locations, detected languages, and handwritten style if detected.
 
@@ -47,7 +47,7 @@ The Read API analyzes and extracts ext lines, words, their locations, detected l
 
 ### W-2 (preview)
 
-:::image type="content" source="media/studio/w2.png" alt-text="Screenshot: Studio W-2 icon.":::
+[:::image type="icon" source="media/studio/w2.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
 
 The W-2 model analyzes and extracts key information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present, including both single form and multiple forms (copy A, B, C, D, 1, 2) on one page. 
 
@@ -60,7 +60,7 @@ The W-2 model analyzes and extracts key information reported in each box on a W-
 
 ### General document (preview)
 
-:::image type="content" source="media/studio/general-document.png" alt-text="Screenshot: Studio general document icon.":::
+[:::image type="icon" source="media/studio/general-document.png":::](https://formrecognizer.appliedai.azure.com/studio/document)
 
 * The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
@@ -77,7 +77,7 @@ The W-2 model analyzes and extracts key information reported in each box on a W-
 
 ### Layout
 
-:::image type="content" source="media/studio/layout.png" alt-text="Screenshot: Studio layout icon.":::
+[:::image type="icon" source="media/studio/layout.png":::](https://formrecognizer.appliedai.azure.com/studio/layout)
 
 The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from forms and documents.
 
@@ -90,7 +90,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 ### Invoice
 
-:::image type="content" source="media/studio/invoice.png" alt-text="Screenshot: Studio invoice icon.":::
+[:::image type="icon" source="media/studio/invoice.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
 
 The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due. Currently, the model supports both English and Spanish invoices. 
 
@@ -103,7 +103,7 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 ### Receipt
 
-:::image type="content" source="media/studio/receipt.png" alt-text="Screenshot: Studio receipt icon.":::
+[:::image type="icon" source="media/studio/receipt.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
 The receipt model analyzes and extracts key information from sales receipts. The API analyzes printed and handwritten receipts and extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total. 
 
@@ -116,7 +116,7 @@ The receipt model analyzes and extracts key information from sales receipts. The
 
 ### ID document
 
-:::image type="content" source="media/studio/id-document.png" alt-text="Screenshot: Studio identity document icon.":::
+[:::image type="icon" source="media/studio/id-document.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 
 The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages from international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
 
@@ -129,7 +129,7 @@ The ID document model analyzes and extracts key information from U.S. Driver's L
 
 ### Business card
 
-:::image type="content" source="media/studio/business-card.png" alt-text="Screenshot: Studio business card icon.":::
+[:::image type="icon" source="media/studio/business-card.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
 
 The business card model analyzes and extracts key information from business card images. The API analyzes printed business card images and extracts key information such as first name, last name, company name, email address, and phone number.
 
@@ -142,7 +142,7 @@ The business card model analyzes and extracts key information from business card
 
 ### Custom
 
- :::image type="content" source="media/studio/custom.png" alt-text="Screenshot: Form Recognizer Studio custom icon.":::
+ [:::image type="icon" source="media/studio/custom.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
 
 The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
