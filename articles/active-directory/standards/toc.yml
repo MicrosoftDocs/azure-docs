@@ -34,4 +34,16 @@
     href: fedramp-identification-and-authentication-controls.md
   - name: Configure additional controls
     href: fedramp-other-controls.md
+  - Name: Meeting Memorandum 22-09 identity requirements
+  expanded: true
+  - name: Overview
+    href: memo-22-09-meet-Identity-requirements.md
+  - name: Enterprise-wide identity system
+    href: memo-22-09-enterprise-wide-identity-management-system.md
+  - name: Multi-factor authentication
+    href: memo-22-09-multi-factor-authentication.md
+  - name: Authentication
+    href: memo-22-09-multi-factor-authentication.md
+  - name: Other areas of Zero Trust
+    href: memo-22-09-other-areas-zero-trust.md
    
