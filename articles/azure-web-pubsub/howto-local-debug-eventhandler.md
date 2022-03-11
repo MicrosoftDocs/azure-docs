@@ -1,0 +1,47 @@
+---
+title: How to troubleshoot and debug event handler locally
+description: Guidance about debugging event handler locally when developing with Azure Web PubSub service.
+author: vicancy
+ms.author: lianwei
+ms.service: azure-web-pubsub
+ms.topic: how-to 
+ms.date: 3/13/2022
+---
+
+# How to troubleshoot and debug event handler locally
+
+When a WebSocket connection connects to Web PubSub service, the service formulates an HTTP POST request to the registered upstream and expects an HTTP response. We call the upstream as the **event handler** and the **event handler** is responsible to handle the incoming events following the [Web PubSub CloudEvents specification](./reference-cloud-events.md).
+
+When running the **event handler** locally, the local server is usually not publicly accessible so we need some tunnel tool to help expose localhost to public so that the Web PubSub service can reach it.
+
+## Use localtunnel to expose localhost
+
+[localtunnel](https://github.com/localtunnel/localtunnel) is an open-source project that help expose your localhost to public. [Install the tool](https://github.com/localtunnel/localtunnel#installation) and run the follow command (update the `<port>` value to the port your **event handler** listens to):
+
+```bash
+lt --port <port> --print-requests
+```
+
+localtunnel will print out an url (`https://<domain-name>.loca.lt`) that can be accessed from internet, e.g. `https://xxx.loca.lt`.
+
+> Tip:
+> There is one known issue that [localtunnel goes offline when the server restarts](https://github.com/localtunnel/localtunnel/issues/466) and [here is the workaround](https://github.com/localtunnel/localtunnel/issues/466#issuecomment-1030599216)  
+
+There are also other tools to choose when debugging the webhook locally, for example, [ngrok](​https://ngrok.com/), [loophole](https://loophole.cloud/docs/), [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay) or so. 
+
+
+## Test if the event handler is working well publicly
+
+Some tools might have issue returning response headers correctly. Try the following command to see if the tool is working properly:
+
+```bash
+curl https://<domain-name>.loca.lt/eventhandler -X OPTIONS -H "WebHook-Request-Origin: *" -H "ce-awpsversion: 1.0" --ssl-no-revoke -i
+```
+`https://<domain-name>.loca.lt/eventhandler` is the path that your **event handler** listens to. Update it if your **event handler** listens to other path.
+
+Check if the response header contains the `webhook-allowed-origin` header. This curl command actually checks if the WebHook [abuse protection request](https://docs.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#webhook-validation) can response with the expected header.
+
+
+## Next steps
+
+[!INCLUDE [next step](includes/include-next-step.md)]
