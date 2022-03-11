@@ -4,7 +4,7 @@ description: Analyze the usage of your Teams app or add-in after users acquire i
 ms.localizationpriority: medium
 ms.author: mingshen
 ms.reviewer: dannyevers
-ms.date: 2/21/2022
+ms.date: 3/11/2022
 ---
 
 # Teams apps usage report in Partner Center
@@ -20,7 +20,12 @@ Data for a newly published app can take about 5 days to appear in the report. Th
 
 ## Accessing the Teams apps usage report
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) and select the **Insights** tile.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. If you see the **Workspaces** toggle in the top menu bar, make sure the toggle is set to on.
+
+    [ ![Screenshot of the workspaces toggle on the Partner Center home page.](./images/teams-apps-usage-report/workspaces-toggle.png) ](./images/teams-apps-usage-report/workspaces-toggle.png#lightbox)
+
+1. Select the **Insights** tile.
 
     [ ![Screenshot of the insights tile on the Partner Center home page.](./images/teams-apps-usage-report/partner-center-insights-tile.png) ](./images/teams-apps-usage-report/partner-center-insights-tile.png#lightbox)
 
