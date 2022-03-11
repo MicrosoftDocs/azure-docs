@@ -63,7 +63,7 @@ In this section, you configure the scaling settings of your load test.
 
     :::image type="content" source="media/how-to-high-scale-load/configure-test.png" alt-text="Screenshot that shows the 'Configure' and 'Test' buttons on the test details page.":::
 
-1. On the **Edit test** page, select the **Load** tab. In the **Engine instances** box, enter the number of test engines required to run your test.
+1. On the **Edit test** page, select the **Load** tab. Use the **Engine instances** slider control to update the number of test engine instances, or enter the value directly in the input box.
 
     :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane.":::
 
