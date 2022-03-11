@@ -335,7 +335,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
             };
     
             webSocketClient.connect();
-            System.in.read();
+            webSocketClient.getSocket().getInputStream().read();
         }
     }
 
