@@ -2,12 +2,12 @@
 title: Azure Synapse Spark Common Data Model (CDM) connector
 description: Learn how to use the Azure Synapse Spark CDM connector to read and write CDM entities in a CDM folder on ADLS.
 services: synapse-analytics 
-ms.author: tibisso
+ms.author: ktuckerdavis
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/10/2022
-author: bissont
+author: ktuckd
 ---
 
 # Common Data Model (CDM) Connector for Azure Synapse Spark
@@ -16,8 +16,7 @@ The Synapse Spark Common Data Model (CDM) format reader/writer enables a Spark p
 
 For information on defining CDM documents using CDM 1.0 see. [What is CDM and how to use it](/common-data-model/).
 
-
-## High level function
+## High level functionality
 
 The following capabilities are supported:
 
@@ -50,7 +49,7 @@ The following scenarios aren't supported:
 
 Spark 2.4 and Spark 3.1 are supported.
 
-## Reading Data
+## Reading data
 
 When reading data, the connector uses metadata in the CDM folder to create the dataframe based on the resolved entity definition for the specified entity, as referenced in the manifest. Entity attribute names are used as dataframe column names.  Attribute datatypes are mapped to the column datatype. When the dataframe is loaded, it's populated from the entity partitions identified in the manifest.
 
@@ -65,7 +64,7 @@ When reading CSV data, the connector uses the Spark FAILFAST option by default. 
 
 For example, [here's an example python sample.](https://github.com/Azure/spark-cdm-connector/blob/master/samples/SparkCDMsamplePython.ipynb)
 
-## Writing Data
+## Writing data
 
 When writing to a CDM folder, if the entity doesn't already exist in the CDM folder, a new entity and definition is created and added to the CDM folder and referenced in the manifest. Two writing modes are supported:
 
@@ -84,7 +83,7 @@ When writing to a CDM folder, if the entity doesn't already exist in the CDM fol
 * If the entity exists in the CDM folder, the implicit definition is validated against the existing entity definition. If the definitions don't match an error is returned, otherwise data is written and a derived logical entity definition(s) is written into a subfolder of the entity folder.
 Data is written to data folder(s) within an entity subfolder. A save mode determines whether the new data overwrites or is appended to existing data, or an error is returned if data exists. The default is to return an error if data already exists.
 
-## CDM Alias Integration
+## CDM alias integration
 
 CDM definition files use aliases in import statements to simplify the import statement and allow the location of the imported content to be late bound at execution time. Using aliases:
 
@@ -187,26 +186,7 @@ Folder organization and file format can be changed with the following options.
 |compression|Write only. Parquet only. Defines the compression format used. Default is "snappy" |"uncompressed" \| "snappy" \| "gzip" \| "lzo".
 |dataFolderFormat|Allows user-definable data folder structure within an entity folder.  Allows the use of date and time values to be substituted into folder names using DateTimeFormatter formatting. Non-formatter content must be enclosed in single quotes. Default format is ``` "yyyy"-"MM"-"dd" ``` producing folder names like 2020-07-30| ```year "yyyy" / month "MM"``` <br/> ```"Data"```|
 
-### Parameters, options, and save mode
-
-For both read and write, the Spark CDM Connector library name is provided as a parameter. A series of options are used to parameterize the behavior of the connector. When writing, a save mode is also supported.
-
-The connector library name, options and save mode are formatted as follows:
-
-* dataframe.read.format("com.microsoft.cdm") [.option("option", "value")]*
-* dataframe.write.format("com.microsoft.cdm") [.option("option", "value")]* .mode(savemode.\<saveMode\>)
-
-Here's an example of how the connector is used for read, showing some of the options.  More examples are provided later.
-
-```scala
-val readDf = spark.read.format("com.microsoft.cdm")
-  .option("storage", "mystorageaccount.dfs.core.windows.net")
-  .option("manifestPath", "customerleads/default.manifest.cdm.json")
-  .option("entity", "Customer")
-  .load()
-```
-
-### Save Mode
+### Save mode
 
 The save mode specifies how existing entity data in the CDM folder is handled when writing a dataframe. Options are to overwrite, append to, or error if data already exists. The default save mode is ErrorIfExists
 
@@ -222,13 +202,13 @@ See _Folder and file organization_ below for details of how data files are named
 
 There are three modes of authentication that can be used with the Spark CDM Connector to read/write the CDM metadata and data partitions: Credential Passthrough, SasToken, and App Registration.
 
-### Credential Pass-through
+### Credential pass-through
 
 In Synapse, the Spark CDM Connector supports use of [Managed identities for Azure resource](/active-directory/managed-identities-azure-resources/overview) to mediate access to the Azure datalake storage account containing the CDM folder.  A managed identity is [automatically created for every Synapse workspace](/security/synapse-workspace-managed-identity).  The connector uses the managed identity of the workspace that contains the notebook in which the connector is called to authenticate to the storage accounts being addressed.
 
 You must ensure the identity used is granted access to the appropriate storage accounts.  Grant  **Storage Blob Data Contributor** to allow the library to write to CDM folders, or **Storage Blob Data Reader** to allow only read access. In both cases, no extra connector options are required.
 
-### SAS Token access control options
+### SAS token access control options
 
 SaS Token Credential authentication to storage accounts is an extra option for authentication to storage. With SAS token authentication, the SaS token can be at the container or folder level. The appropriate permissions (read/write) are required – read manifest/partition only needs read level support, while write requires read and write support.
 
@@ -319,7 +299,7 @@ mMembership")
  .save()
 ```
 
-## Other Considerations
+## Other considerations
 
 ### Spark to CDM datatype mapping
 
@@ -366,7 +346,7 @@ offset must be applied when needed to compute local time.
 In most cases, persisting local time isn't important. Local times are often only required in a UI for user
 convenience and based on the user’s time zone, so not storing a UTC time is often a better solution.
 
-### Handling CDM Time data
+### Handling CDM time data
 
 Spark doesn't support an explicit Time datatype.  An attribute with the CDM _Time_ datatype is represented in a Spark dataframe as a column with a Timestamp datatype in a dataframe.  When a time value is read, the timestamp in the dataframe will be initialized with the Spark epoch date 01/01/1970 plus the time value as read from the source.
 
@@ -473,7 +453,7 @@ val df = spark.read.format("com.microsoft.cdm")
  .load()
 ```
 
-#### Implicit Write – using dataframe schema only
+#### Implicit write – using dataframe schema only
 
 This code writes the dataframe _df_ to a CDM folder with a manifest to mystorage.dfs.core.windows.net/cdmdata/Contacts/default.manifest.cdm.json with an Event entity.
 
@@ -492,7 +472,7 @@ df.write.format("com.microsoft.cdm")
  .save()
 ```
 
-#### Explicit Write - using an entity definition stored in ADLS
+#### Explicit write - using an entity definition stored in ADLS
 
 This code writes the dataframe _df_ to a CDM folder with manifest at
 [https://mystorage.dfs.core.windows.net/cdmdata/Contacts/root.manifest.cdm.json](https://mystorage.dfs.core.windows.net/cdmdata/Contacts/root.manifest.cdm.json) with the entity Person. Person data is written as new CSV files (by default) which overwrite existing files in the folder.
@@ -510,7 +490,7 @@ df.write.format("com.microsoft.cdm")
  .save()
 ```
 
-#### Explicit Write - using an entity defined in the CDM GitHub
+#### Explicit write - using an entity defined in the CDM GitHub
 
 This code writes the dataframe _df_ to a CDM folder with the manifest at https://_mystorage_.dfs.core.windows.net/cdmdata/Teams/root.manifest.cdm.json and a submanifest containing the TeamMembership entity, created in a TeamMembership subdirectory. TeamMembership data is written to CSV files (the default) that overwrite any existing data files. The TeamMembership entity definition is retrieved from the CDM CDN, at:
 [https://cdm-schema.microsoft.com/logical/core/applicationCommon/TeamMembership.cdm.json](https://cdm-schema.microsoft.com/logical/core/applicationCommon/TeamMembership.cdm.json)
@@ -528,7 +508,7 @@ mMembership")
  .save()
 ```
 
-### Other Considerations
+### Other considerations
 
 #### Spark to CDM datatype mapping
 
@@ -550,14 +530,21 @@ The following datatype mappings are applied when converting CDM to/from Spark.
 
 The CDM Binary datatype isn't supported.
 
-## Troubleshooting and Known issues
+## Troubleshooting and known issues
 
 * Ensure the decimal precision and scale of decimal data type fields used in the dataframe match the data type used in the CDM entity definition - requires precision and scale traits are defined on the data type.  If the precision and scale aren't defined explicitly in CDM, the default used is Decimal(18,4).  For model.json files, Decimal is assumed to be Decimal(18,4).
 * Folder and file names in the options below shouldn't include spaces or special characters, such as "=": manifestPath, entityDefinitionModelRoot, entityDefinitionPath, dataFolderFormat.
 
-## Not yet supported
+## Unsupported features
 
 The following features aren't yet supported:
 
 * Overriding a timestamp column to be interpreted as a CDM Time rather than a DateTime is initially supported for CSV files only.  Support for writing Time data to Parquet will be added in a later release.
 * Parquet Map type and arrays of primitive types and arrays of array types aren't currently supported by CDM so aren't supported by the Spark CDM Connector.
+
+## Next steps
+
+You can now look at the other Apache Spark connectors:
+
+* [Apache Spark Kusto connector](apache-spark-kusto-connector.md)
+* [Apache Spark SQL connector](apache-spark-sql-connector.md)
