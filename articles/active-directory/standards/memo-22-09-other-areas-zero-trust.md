@@ -45,7 +45,7 @@ It's important to monitor your Azure AD tenant. You must adopt an "assume breach
 *  [Provisioning Logs.](../reports-monitoring/concept-provisioning-logs.md) Shows information about objects synchronized from Azure AD to applications like Service Now by using SCIM. 
 
 Log entries are stored for 7 days in Azure AD free tenants. Tenants with an Azure AD premium license retain log entries for 30 days. It’s important to ensure your logs are ingested by a SIEM tool. Using a SIEM allows sign-in and audit events to be correlated with application, infrastructure, data, device, and network logs for a holistic view of your systems. Microsoft recommends integrating your Azure AD logs with [Microsoft Sentinel](../../sentinel/overview.md) by configuring a connector to ingest your Azure AD tenant Logs. 
-For more infomration, see [Connect Azure Active Directory to Sentinel](../../sentinel/connect-azure-active-directory.md). 
+For more information, see [Connect Azure Active Directory to Sentinel](../../sentinel/connect-azure-active-directory.md). 
 You can also configure the [diagnostic settings](../reports-monitoring/overview-monitoring.md) on your Azure AD tenant to send the data to either a Storage account, EventHub, or Log analytics workspace. These storage options allow you to integrate other SIEM tools to collect the data. For more information, see [Plan reports & monitoring deployment](../reports-monitoring/plan-monitoring-and-reporting.md).
 
 ## Analytics
@@ -56,7 +56,7 @@ Analytics can be used to aggregate information from Azure AD to show trends in y
 
 * [Microsoft Sentinel.](../../sentinel/get-visibility.md) Sentinel has many ways in which information from Azure AD can be analyzed. 
 
-   * Microsoft Sentinel has [User and Entity Behavioral Analytics (UEBA)](../../sentinel/identify-threats-with-entity-behavior-analytics.md). UEBA delivers high-fidelity, actionalble intelligence on potential threats involving user, hosts, IP addresses, and application entities. This enhances events across the enterprise to help detect anomalous behavior in users and systems. 
+   * Microsoft Sentinel has [User and Entity Behavioral Analytics (UEBA)](../../sentinel/identify-threats-with-entity-behavior-analytics.md). UEBA delivers high-fidelity, actionable intelligence on potential threats involving user, hosts, IP addresses, and application entities. This enhances events across the enterprise to help detect anomalous behavior in users and systems. 
 
    * Specific analytics rule templates that hunt for threats and alerts found in information in your Azure AD logs. Your security or operation analyst can then triage and remediate threats.
 
