@@ -26,9 +26,6 @@ An Azure resource group is a logical container into which Azure resources are de
 
 Create a resource group with [az group create](/cli/azure/group#az_group_create):
 
-* Named **CreatePubLBQS-rg**. 
-* In the **eastus** location.
-
 ```azurecli
   az group create \
     --name CreatePubLBQS-rg \
@@ -148,7 +145,7 @@ For a standard load balancer, the VMs in the backend address for are required to
 
 Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the network security group:
 
-```azurecli-interactive
+```azurecli
   az network nsg create \
     --resource-group CreatePubLBQS-rg \
     --name myNSG
@@ -158,7 +155,7 @@ Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to cre
 
 Create a network security group rule using [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
 
-```azurecli-interactive
+```azurecli
   az network nsg rule create \
     --resource-group CreatePubLBQS-rg \
     --nsg-name myNSG \
@@ -181,7 +178,7 @@ In this section, you'll create a NAT gateway to provide outbound internet access
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public ip address for the bastion host. The public IP is used by the bastion host for secure access to the virtual machine resources.
 
-```azurecli-interactive
+```azurecli
 az network public-ip create \
     --resource-group CreatePubLBQS-rg \
     --name myBastionIP \
@@ -191,7 +188,7 @@ az network public-ip create \
 
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a bastion subnet. The bastion subnet is used by the bastion host to access the virtual network.
 
-```azurecli-interactive
+```azurecli
 az network vnet subnet create \
     --resource-group CreatePubLBQS-rg \
     --name AzureBastionSubnet \
@@ -203,7 +200,7 @@ az network vnet subnet create \
 
 Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create a bastion host. The bastion host is used to connect securely to the virtual machine resources created later in this article.
 
-```azurecli-interactive
+```azurecli
 az network bastion create \
     --resource-group CreatePubLBQS-rg \
     --name myBastionHost \
@@ -226,7 +223,7 @@ In this section, you create:
 
 Create three network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create):
 
-```azurecli-interactive
+```azurecli
   array=(myNicVM1 myNicVM2)
   for vmnic in "${array[@]}"
   do
@@ -271,7 +268,7 @@ It may take a few minutes for the VMs to deploy.
 
 Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add):
 
-```azurecli-interactive
+```azurecli
   array=(myNicVM1 myNicVM2)
   for vmnic in "${array[@]}"
   do
@@ -327,7 +324,7 @@ Use [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gatewa
 
 Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install IIS on the virtual machines and set the default website to the computer name.
 
-```azurecli-interactive
+```azurecli
   array=(myVM1 myVM2)
     for vm in "${array[@]}"
     do
@@ -348,7 +345,7 @@ To get the public IP address of the load balancer, use [az network public-ip sho
 
 Copy the public IP address, and then paste it into the address bar of your browser.
 
-```azurecli-interactive
+```azurecli
   az network public-ip show \
     --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
@@ -361,7 +358,7 @@ Copy the public IP address, and then paste it into the address bar of your brows
 
 When no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and all related resources.
 
-```azurecli-interactive
+```azurecli
   az group delete \
     --name CreatePubLBQS-rg
 ```
@@ -370,10 +367,10 @@ When no longer needed, use the [az group delete](/cli/azure/group#az_group_delet
 
 In this quickstart
 
-* You created a standard or public load balancer
-* Attached virtual machines. 
-* Configured the load balancer traffic rule and health probe.
-* Tested the load balancer.
+* You created a standard public load balancer
+* Attached virtual machines
+* Configured the load balancer traffic rule and health probe
+* Tested the load balancer
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
