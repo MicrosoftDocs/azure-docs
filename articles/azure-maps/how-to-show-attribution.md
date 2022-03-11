@@ -16,7 +16,7 @@ When using the [Azure Maps Render service V2](/rest/api/maps/renderv2), either a
 
 :::image type="content" source="./media/how-to-show-attribution/attribution-road.png" border="false" alt-text="Example of a map from the Render service V2 showing the attribution when using the road style":::
 
-The above image is an example of a map from the Render service V2 showing the attribution in the lower right hand corner when using the road style.
+The above image is an example of a map from the Render service V2 showing the attribution in the lower right hand corner of the map when using the road style.
 
 :::image type="content" source="./media/how-to-show-attribution/attribution-satellite.png" border="false" alt-text="Example of a map from the Render service V2 showing the attribution when using the satellite style":::
 
