@@ -2,7 +2,12 @@
 title: Visualizations for Application Change Analysis - Azure Monitor
 description: Learn how to use visualizations in Application Change Analysis in Azure Monitor.
 ms.topic: conceptual
-ms.date: 01/11/2022
+ms.author: hannahhunter
+author: hhunter-ms
+ms.contributor: cawa
+ms.date: 03/11/2022
+ms.subservice: change-analysis
+ms.custom: devx-track-azurepowershell
 ---
 
 # Visualizations for Application Change Analysis (preview)
@@ -99,7 +104,7 @@ You can view Change Analysis data for [multiple Azure resources](./change-analys
 1. Within your resource, select **Diagnose and solve problems** from the left menu.
 1. Under **Common problems**, select **View change details** to view the filtered view from Change Analysis standalone UI.
 
-   :::image type="content" source="./media/change-analysis/diagnose-tool-other-resources.png" alt-text="Screenshot of viewing common problems in Diagnose and Solve Problems tool.":::  
+   :::image type="content" source="./media/change-analysis/change-insight-diagnose-and-solve.png" alt-text="Screenshot of viewing common problems in Diagnose and Solve Problems tool.":::  
 
 ## Activity Log change history
 

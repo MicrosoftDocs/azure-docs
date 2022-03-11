@@ -20,7 +20,7 @@ Twitter allows you to retrieve the data for each tweet as a JavaScript Object No
 
 ### Create a Twitter application
 
-1. From a web browser, sign in to [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/). Select the **Sign-up now** link if you don't have a Twitter account.
+1. From a web browser, sign in to [https://developer.twitter.com](https://developer.twitter.com). Select the **Sign-up now** link if you don't have a Twitter account.
 
 2. Select **Create New App**.
 

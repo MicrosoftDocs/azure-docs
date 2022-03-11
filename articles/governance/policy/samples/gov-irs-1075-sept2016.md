@@ -21,9 +21,6 @@ initiative definition, open **Policy** in the Azure portal and select the **Defi
 Then, find and select the **IRS1075 September 2016** Regulatory Compliance built-in
 initiative definition.
 
-This built-in initiative is deployed as part of the
-[IRS 1075 September 2016 blueprint sample](../../blueprints/samples/irs-1075-sept2016.md).
-
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
 > These policies may help you [assess compliance](../how-to/get-compliance-data.md) with the
