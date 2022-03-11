@@ -1,5 +1,5 @@
 ---
-title: Memo 22-09 additional areas of Zero Trust| Azure Active Directory
+title: Memo 22-09 additional areas of Zero Trust
 description: Guidance on understanding additional Zero Trust requirements outlined in US government OMB memorandum 22-09
 services: active-directory 
 ms.service: active-directory
