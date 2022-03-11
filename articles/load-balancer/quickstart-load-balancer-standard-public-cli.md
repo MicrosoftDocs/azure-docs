@@ -320,6 +320,18 @@ Use [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gatewa
         --idle-timeout 10
 ```
 
+### Associate NAT gateway with subnet
+
+Configure the source subnet in virtual network to use a specific NAT gateway resource with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
+
+```azurecli
+    az network vnet subnet update \
+    --resource-group CreatePubLBQS-rg \
+    --vnet-name myVNet \
+    --name myBackendSubnet \
+    --nat-gateway myNATgateway
+```
+
 ## Install IIS
 
 Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install IIS on the virtual machines and set the default website to the computer name.
