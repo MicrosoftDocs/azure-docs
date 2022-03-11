@@ -9,7 +9,7 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/2/2020
+ms.date: 3/11/2022
 ms.author: rohink
 ms.custom: fasttrack-edit
 ---
@@ -183,6 +183,7 @@ If forwarding queries to Azure doesn't suit your needs, you should provide your 
 
 > [!NOTE]
 > For best performance, when you are using Azure VMs as DNS servers, IPv6 should be disabled.
+> NSGs act as firewalls for you DNS resolver endpoints. You should modify or override your NSG security rules to allow access for UDP Port 53 (and optionally TCP Port 53) to your DNS listener endpoints. Once custom DNS servers are set on a network, then the traffic through port 53 will bypass the NSG's of the subnet.
 
 ### Web apps
 Suppose you need to perform name resolution from your web app built by using App Service, linked to a virtual network, to VMs in the same virtual network. In addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), perform the following steps:
