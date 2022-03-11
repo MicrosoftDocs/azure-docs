@@ -176,9 +176,11 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Symptoms**: You are unable to connect to SFTP via ADF and meet the following error message: `Failed to negotiate key exchange algorithm.`
 
-- **Cause**: The key exchange algorithms provided by the SFTP vendor are not supported in ADF. The key exchange algorithms supported by ADF are:
+- **Cause**: The key exchange algorithms provided by the SFTP server are not supported in ADF. The key exchange algorithms supported by ADF are:
     - diffie-hellman-group-exchange-sha256 [Redacted]
+    - diffie-hellman-group-exchange-sha1
     - diffie-hellman-group14-sha1
+    - diffie-hellman-group1-sha1
 
 ## HTTP
 
