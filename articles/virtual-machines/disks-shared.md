@@ -21,7 +21,12 @@ VMs in the cluster can read or write to their attached disk based on the reserva
 
 Shared managed disks offer shared block storage that can be accessed from multiple VMs, these are exposed as logical unit numbers (LUNs). LUNs are then presented to an initiator (VM) from a target (disk). These LUNs look like direct-attached-storage (DAS) or a local drive to the VM.
 
-Shared managed disks do not natively offer a fully managed file system that can be accessed using SMB/NFS. You need to use a cluster manager, like Windows Server Failover Cluster (WSFC) or Pacemaker, that handles cluster node communication and write locking.
+Shared managed disks do not natively offer a fully managed file system that can be accessed using SMB/NFS. You need to use a **cluster manager**, like Windows Server Failover Cluster (WSFC) or Pacemaker [(Sample Workloads)](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-shared#sample-workloads), that handles cluster node communication and write locking.
+
+> [!Important] 
+> If you are not using a cluster manager with the shared managed disk, any changes to the filesystem metadata on one side will not be updated in other locations where the disk is shared.
+
+You might consider using [Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction). This will allow you to read and write to the same location without extra software to manage metadata changes. Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol or Network File System (NFS) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments.
 
 ## Limitations
 
