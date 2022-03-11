@@ -12,12 +12,12 @@ ms.author: danlep
 
 # Tutorial: Transform and protect your API
 
-In this tutorial, you'll learn about configuring common [policies](api-management-howto-policies.md) to transform your API. You might want to transform your API so it doesn't reveal private backend info. Transforming an API might also help you hide the technology stack info that's running in the backend, or hide the original URLs that appear in the body of the API's HTTP response.
+In this tutorial, you'll learn about configuring common [policies](api-management-howto-policies.md) to transform your API. You might want to transform your API so it doesn't reveal private backend info. Transforming an API might help you hide the technology stack info that's running in the backend, or hide the original URLs that appear in the body of the API's HTTP response.
 
 This tutorial also explains how to add protection to your backend API by configuring a rate limit policy. You might want to limit the rate of API calls so the API isn't overused by developers. For more policy options, see [API Management policies](api-management-policies.md).
 
 > [!NOTE]
-> By default, API Management configures a global [`forward-request`](api-management-advanced-policies.md#ForwardRequest) policy. While fully configurable like other policies, `forward-request` is needed for the gateway to complete a request to a backend service.
+> By default, API Management configures a global [`forward-request`](api-management-advanced-policies.md#ForwardRequest) policy. The `forward-request` policy is needed for the gateway to complete a request to a backend service.
 
 In this tutorial, you learn how to:
 
@@ -74,10 +74,10 @@ This example shows how to use the form-based policy editor, which helps you conf
 
    :::image type="content" source="media/transform-api/set-http-header.png" alt-text="Set HTTP header policy":::
 
-1. To configure the policy, do the following:
-    1. Under **Name**, enter **X-Powered-By**. Under **Action**, select **Delete**.
+1. To configure the set headers policy, do the following:
+    1. Under **Name**, enter **X-Powered-By**. Under **Action**, select **delete**.
     1. Select **+ Add header**.
-    1. Under **Name**, enter **X-AspNet-Version**. Under **Action**, select **Delete**.
+    1. Under **Name**, enter **X-AspNet-Version**. Under **Action**, select **delete**.
 
    :::image type="content" source="media/transform-api/set-policy.png" alt-text="Set HTTP header":::
 
