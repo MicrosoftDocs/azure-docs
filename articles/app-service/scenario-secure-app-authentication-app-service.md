@@ -17,7 +17,7 @@ ms.custom: azureday1
 
 [!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/intro.md)]
 
-## Connect to backend services or app
+## Connect to backend services as app
 
 User authentication can begin with authenticating the user to your app service as described in the previous section. 
 

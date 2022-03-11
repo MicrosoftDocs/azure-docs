@@ -66,7 +66,7 @@
           href: tutorial-multi-container-app.md
     - name: Authenticate users
       href: tutorial-auth-aad.md
-    - name: Securely connect to Azure resources
+    - name: Connect to Azure OBO app
       items:
         - name: Overview
           href: tutorial-connect-overview.md
@@ -102,7 +102,7 @@
                 href: tutorial-connect-msi-key-vault-javascript.md    
               - name: PHP
                 href: tutorial-connect-msi-key-vault-php.md              
-    - name: Securely connect to Azure resources on behalf of user
+    - name: Connect to Azure OBO user
       items:
         - name: Set up App Service authentication
           href: scenario-secure-app-authentication-app-service-as-user.md
