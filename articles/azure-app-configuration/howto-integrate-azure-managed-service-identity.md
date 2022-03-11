@@ -5,7 +5,7 @@ description: Authenticate to Azure App Configuration using managed identities
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp, fasttrack-edit
+ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps
 ms.topic: conceptual
 ms.date: 04/08/2021
 ---
