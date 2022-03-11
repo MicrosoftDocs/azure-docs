@@ -32,3 +32,7 @@ Managed Grafana uses Azure Active Directory (AAD)’s centralized identity manag
 
 You can create dashboards instantaneously by importing existing charts directly from the Azure portal or by using prebuilt dashboards.
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Quickstart: Create a workspace in Azure Managed Grafana Preview using the Azure portal](./quickstart-managed-grafana-portal.md).
