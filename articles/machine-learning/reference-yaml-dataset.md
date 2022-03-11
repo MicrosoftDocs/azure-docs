@@ -6,11 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: reference
-
-author: ynpandey
-ms.author: yogipandey
+author: nibaccam
+ms.author: nibaccam
 ms.date: 10/21/2021
-ms.reviewer: laobri
 ---
 
 # CLI (v2) dataset YAML schema
