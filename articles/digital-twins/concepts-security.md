@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Secure Azure Digital Twins
 
-This article explains Azure Digital Twins security best practices. It covers roles and permissions, managed identity, private network access with Azure Private Link (preview), service tags, encryption of data at rest, and Cross-Origin Resource Sharing (CORS).
+This article explains Azure Digital Twins security best practices. It covers roles and permissions, managed identity, private network access with Azure Private Link, service tags, encryption of data at rest, and Cross-Origin Resource Sharing (CORS).
 
 For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does so through a granular role and permission management strategy called [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
@@ -97,7 +97,7 @@ You can use a system-assigned managed identity for your Azure Digital Instance t
 
 For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [Route events with a managed identity](how-to-route-with-managed-identity.md).
 
-## Private network access with Azure Private Link (preview)
+## Private network access with Azure Private Link
 
 [Azure Private Link](../private-link/private-link-overview.md) is a service that enables you to access Azure resources (like [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure Storage](../storage/common/storage-introduction.md), and [Azure Cosmos DB](../cosmos-db/introduction.md)) and Azure-hosted customer and partner services over a private endpoint in your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). 
 
@@ -109,7 +109,7 @@ The private endpoint uses an IP address from your Azure VNet address space. Netw
 
 Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your VNet.
 
-For instructions on how to set up Private Link for Azure Digital Twins, see [Enable private access with Private Link (preview)](./how-to-enable-private-link.md).
+For instructions on how to set up Private Link for Azure Digital Twins, see [Enable private access with Private Link](./how-to-enable-private-link.md).
 
 ### Design considerations 
 
