@@ -24,7 +24,7 @@ The above image is an example of a map from the Render service V2 showing the at
 
 ## The Get Map Attribution API
 
-The [Get Map Attribution API](/rest/api/maps/render-v2/get-map-attribution) enables you to to request map copyright attribution information and display it in your applications.
+The [Get Map Attribution API](/rest/api/maps/render-v2/get-map-attribution) enables you to request map copyright attribution information and display it on the map within your applications.
 
 ### When to use the Get Map Attribution API
 
