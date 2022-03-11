@@ -105,6 +105,7 @@ Some Managed Instance link features and capabilities are limited **at this time*
 - Managed Instance Link authentication between SQL Server instance and Managed Instance is certificate-based, available only through exchange of certificates. Windows authentication between instances isn't supported.
 - Replication of user databases from SQL Server to Managed Instance is one-way. User databases from Managed Instance can't be replicated back to SQL Server.
 - Auto failover groups replication to secondary Managed Instance can't be used in parallel while operating the Managed Instance Link with SQL Server.
+- Replicated databases are not part of auto-backup process on SQL Managed Instance.
 
 ## Next steps
 

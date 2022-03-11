@@ -49,6 +49,21 @@ SELECT @@VERSION
 
 If your SQL Server version is lower than CU15 (15.0.4198.2), either install the minimally supported [CU15](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6), or the current latest cumulative update. Your SQL Server instance will be restarted during the update. 
 
+### Create database master key in the master database
+
+Create database master key in the master database by running the following T-SQL script.
+
+```sql
+-- Create MASTER KEY
+USE MASTER
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<strong_password>'
+```
+
+To check if you have database master key, use follwing T-SQL script.
+
+```sql
+SELECT * FROM sys.symmetric_keys WHERE name LIKE '%DatabaseMasterKey%'
+```
 
 ### Enable availability groups feature
 
@@ -140,6 +155,20 @@ The following screenshot is an example of the expected outcome for a SQL Server 
 
 
 :::image type="content" source="./media/managed-instance-link-preparation/ssms-results-expected-outcome.png" alt-text="Screenshot showing expected outcome in S S M S.":::
+
+### User database recovery mode and backup
+
+All databases that are to be replicated via SQL Managed Instance link must be in full recovery mode and have at least one backup.
+
+```sql
+-- Set full recovery mode for all databases you want to replicate.
+ALTER DATABASE [<DatabaseName>] SET RECOVERY FULL
+GO
+
+-- Execute backup for all databases you want to replicate.
+BACKUP DATABASE [<DatabaseName>] TO DISK = N'<DiskPath>'
+GO
+```
 
 ## Configure network connectivity
 
