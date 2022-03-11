@@ -17,7 +17,7 @@ ms.custom: azureday1
 
 ## 1. Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../quickstarts-free-trial-note.md)]
 
 ## 2. Create and publish a web app on App Service
 
@@ -43,7 +43,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. In **Resource groups**, find and select your resource group. In **Overview**, select your app's management page.
 
-    :::image type="content" alt-text="Screenshot that shows selecting your app's management page." source="../..media/scenario-secure-app-authentication-app-service/select-app-service.png":::
+    :::image type="content" alt-text="Screenshot that shows selecting your app's management page." source="../../media/scenario-secure-app-authentication-app-service/select-app-service.png":::
     
 1. On your app's left menu, select **Authentication**, and then click **Add identity provider**.
 
@@ -57,7 +57,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. At the bottom of the **Add an identity provider** page, click **Add** to enable authentication for your web app.
 
-    :::image type="content" alt-text="Screenshot that shows configuring authentication." source="../..media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
+    :::image type="content" alt-text="Screenshot that shows configuring authentication." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
     
     You now have an app that's secured by the App Service authentication and authorization.
 
