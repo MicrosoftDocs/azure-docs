@@ -28,7 +28,7 @@ items:
       href: tutorial-data-sources-readiness.md
     - name: Azure Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
-  - name: Data owner access policies
+  - name: Data policies
     items:
     - name: Data owner policies for Azure Storage
       href: tutorial-data-owner-policies-storage.md
@@ -291,7 +291,7 @@ items:
       href: create-azure-purview-portal-faq.md
     - name: Conditional access
       href: catalog-conditional-access.md
-  - name: Data Access policies
+  - name: Data policies
     items:
     - name: Authoring and publishing data owner access policies
       href: how-to-data-owner-policy-authoring-generic.md
