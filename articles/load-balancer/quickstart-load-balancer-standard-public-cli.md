@@ -92,7 +92,7 @@ Create a public load balancer with [az network lb create](/cli/azure/network/lb#
     --sku Standard \
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
+    --backend-pool-name myBackEndPool
 ```
 
 ### Create the health probe
@@ -179,21 +179,22 @@ In this section, you'll create te resources for Azure Bastion. Azure Bastion is 
 Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public ip address for the bastion host. The public IP is used by the bastion host for secure access to the virtual machine resources.
 
 ```azurecli
-az network public-ip create \
+  az network public-ip create \
     --resource-group CreatePubLBQS-rg \
     --name myBastionIP \
-    --sku Standard
+    --sku Standard \
+    --zone 1 2 3
 ```
 ### Create a bastion subnet
 
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a bastion subnet. The bastion subnet is used by the bastion host to access the virtual network.
 
 ```azurecli
-az network vnet subnet create \
+  az network vnet subnet create \
     --resource-group CreatePubLBQS-rg \
     --name AzureBastionSubnet \
     --vnet-name myVNet \
-    --address-prefixes 10.1.1.0/24
+    --address-prefixes 10.1.1.0/27
 ```
 
 ### Create bastion host
@@ -201,13 +202,12 @@ az network vnet subnet create \
 Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create a bastion host. The bastion host is used to connect securely to the virtual machine resources created later in this article.
 
 ```azurecli
-az network bastion create \
+  az network bastion create \
     --resource-group CreatePubLBQS-rg \
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
-    --location eastus \
-    --no-wait
+    --location eastus
 ```
 
 It can take a few minutes for the Azure Bastion host to deploy.
@@ -249,7 +249,9 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create):
     --admin-username azureuser \
     --zone 1 \
     --no-wait
+```
 
+```azurecli
   az vm create \
     --resource-group CreatePubLBQS-rg \
     --name myVM2 \
@@ -258,7 +260,6 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create):
     --admin-username azureuser \
     --zone 2 \
     --no-wait
-
 ```
 It may take a few minutes for the VMs to deploy.
 
@@ -295,7 +296,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public
     --resource-group CreatePubLBQS-rg \
     --name myNATgatewayIP \
     --sku Standard \
-    -- zone 1 2 3
+    --zone 1 2 3
 ```
 
 To create a zonal redundant public IP address in Zone 1:
@@ -313,11 +314,11 @@ To create a zonal redundant public IP address in Zone 1:
 Use [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gateway_create) to create the NAT gateway resource. The public IP created in the previous step is associated with the NAT gateway.
 
 ```azurecli
-    az network nat gateway create \
-        --resource-group CreatePubLBQS-rg \
-        --name myNATgateway \
-        --public-ip-addresses myNATgatewayIP \
-        --idle-timeout 10
+  az network nat gateway create \
+    --resource-group CreatePubLBQS-rg \
+    --name myNATgateway \
+    --public-ip-addresses myNATgatewayIP \
+    --idle-timeout 10
 ```
 
 ### Associate NAT gateway with subnet
@@ -325,7 +326,7 @@ Use [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gatewa
 Configure the source subnet in virtual network to use a specific NAT gateway resource with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
 
 ```azurecli
-    az network vnet subnet update \
+  az network vnet subnet update \
     --resource-group CreatePubLBQS-rg \
     --vnet-name myVNet \
     --name myBackendSubnet \
