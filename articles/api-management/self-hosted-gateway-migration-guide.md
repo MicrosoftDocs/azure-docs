@@ -35,7 +35,7 @@ Before you can migrate to self-hosted gateway v2, you need to ensure your infras
 
 Migrating from self-hosted gateway v2 requires a few small steps to be done:
 
-1. [Use the v2 container image](#container-image)
+1. [Use the new container image](#container-image)
 2. [Use the new configuration API](#using-the-new-configuration-api)
 3. [Meet minimal security requirements](#meet-minimal-security-requirements)
 
