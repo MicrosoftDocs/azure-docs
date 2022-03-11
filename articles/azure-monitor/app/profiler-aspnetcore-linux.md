@@ -21,7 +21,7 @@ After you complete this walkthrough, your app can collect Profiler traces like t
 ## Prerequisites
 The following instructions apply to all Windows, Linux, and Mac development environments:
 
-* Install the [.NET Core SDK 2.1.2 or later](https://dotnet.microsoft.com/download/archives).
+* Install the [.NET Core SDK 3.1 or later](https://dotnet.microsoft.com/download/dotnet).
 * Install Git by following the instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## Set up the project locally
@@ -49,7 +49,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
     {
         services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
         services.AddServiceProfiler(); // Add this line of code to Enable Profiler
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        services.AddControllersWithViews();
     }
     ```
 
@@ -80,7 +80,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
 1. Create the web app environment by using App Service on Linux:
 
-    ![Create the Linux web app](./media/profiler-aspnetcore-linux/create-linux-appservice.png)
+    :::image type="content" source="./media/profiler-aspnetcore-linux/create-linux-appservice.png" alt-text="Create the Linux web app":::
 
 2. Create the deployment credentials:
 

@@ -1,7 +1,6 @@
 ---
 title: Query data from Basic Logs in Azure Monitor (Preview)
 description: Create a log query using tables configured for Basic logs in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 01/27/2022
 

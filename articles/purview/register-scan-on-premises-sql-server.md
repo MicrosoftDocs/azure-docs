@@ -22,11 +22,13 @@ This article outlines how to register on-premises SQL server instances, and how 
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
+The supported SQL Server versions are 2005 and above. SQL Server Express LocalDB is not supported.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 

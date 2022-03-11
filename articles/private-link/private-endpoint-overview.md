@@ -95,7 +95,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Purview | Microsoft.Purview/accounts | portal |
 | Azure Backup | Microsoft.RecoveryServices/vaults | vault |
 | Azure Relay | Microsoft.Relay/namespaces | namespace |
-| Microsoft Search | Microsoft.Search/searchServices | search service |
+| Azure Cognitive Search | Microsoft.Search/searchServices | search service |
 | Azure Service Bus | Microsoft.ServiceBus/namespaces | namespace |
 | Azure SignalR Service | Microsoft.SignalRService/SignalR | signalr |
 | Azure SignalR Service | Microsoft.SignalRService/webPubSub | webpubsub |
@@ -144,7 +144,7 @@ Over a private-endpoint connection, a private-link resource owner can:
 An alias is a unique moniker that's generated when a service owner creates a private-link service behind a standard load balancer. Service owners can share this alias offline with consumers of your service. 
 
 
-The consumers can request a connection to a private-link service by using either the resource URI or the alias. To connect by using the alias, create a private endpoint by using the manual connection approval method. To use the manual connection approval method, set the manual request parameter to *True* during the private-endpoint create flow. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
+The consumers can request a connection to a private-link service by using either the resource URI or the alias. To connect by using the alias, create a private endpoint by using the manual connection approval method. To use the manual connection approval method, set the manual request parameter to *True* during the private-endpoint create flow. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create).
                                      
 > [!NOTE]
 > This manual request can be auto approved if the consumer's subscription is allow-listed on the provider side. To learn more, go to [controlling service access](./private-link-service-overview.md#control-service-access).                                     

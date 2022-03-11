@@ -198,7 +198,7 @@ Each external transformation activity that utilizes an external compute engine h
 Data Flow activities are executed on their associated Azure integration runtime. The Spark compute utilized by Data Flows are determined by the data flow properties in your Azure IR, and are fully managed by the service.
 
 ## Integration Runtime in CI/CD
-Integration runtimes don't change often and are similar across all stages in your CI/CD. Data Factory requires you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can then use this shared factory in all of your environments as a linked integration runtime type.
+Integration runtimes don't change often and are similar across all stages in your CI/CD. Data Factory requires you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a dedicated factory just to contain the shared integration runtimes. You can then use this shared factory in all of your environments as a linked integration runtime type.
 
 ## Next steps
 

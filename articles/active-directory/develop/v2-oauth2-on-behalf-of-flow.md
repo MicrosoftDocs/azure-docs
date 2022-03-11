@@ -26,6 +26,8 @@ This article describes how to program directly against the protocol in your appl
 
 As of May 2018, some implicit-flow derived `id_token` can't be used for OBO flow. Single-page apps (SPAs) should pass an **access** token to a middle-tier confidential client to perform OBO flows instead. For more info about which clients can perform OBO calls, see [limitations](#client-limitations).
 
+Additionally, applications with custom signing keys cannot be used as middle-tier API's in the OBO flow (this includes enterprise applications configured for single sign-on). This will result in an error because tokens signed with a key controlled by the client cannot be safely accepted.
+
 [!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## Protocol diagram
