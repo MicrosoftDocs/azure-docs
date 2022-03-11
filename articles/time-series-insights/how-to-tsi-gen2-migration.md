@@ -37,10 +37,11 @@ Use `PT=Time` folder in the storage account to retrieve the copy of all telemetr
 
 Data 
 1.	Env overview 
-   1.	Record Environment ID from first part of Data Access FQDN (for example, d390b0b0-1445-4c0c-8365-68d6382c1c2a From .env.crystal-dev.windows-int.net)
+    -	Record Environment ID from first part of Data Access FQDN (for example, d390b0b0-1445-4c0c-8365-68d6382c1c2a From .env.crystal-dev.windows-int.net)
 1.	Env Overview -> Storage Configuration -> Storage Account
 1.	Use Storage Explorer to get folder statistics
-    1.	Record size and the number of blobs of `PT=Time` folder. For customers in private preview of Bulk Import, also record `PT=Import` size and number of blobs.
+    -	Record size and the number of blobs of `PT=Time` folder. For customers in private preview of Bulk Import, also record `PT=Import` size and number of blobs.
+
 
 ### Migration Step 2 – Migrate Telemetry To ADX
 
@@ -50,8 +51,9 @@ Data
     1.	From Event Hubs (or IoT Hub) metrics, retrieve the rate of how much data it's ingested per day. From the Storage Account connected to the TSI environment, retrieve how much data there is in the blob container used by TSI. This information will be used to compute the ideal size of an ADX Cluster for your environment. 
     1.	Open [the Azure Data Explorer Cost Estimator](https://dataexplorer.azure.com/AzureDataExplorerCostEstimator.html) and fill the existing fields with the information found. Set “Workload type” as “Storage Optimized”, and "Hot Data" with the total amount of data queried actively.
     1.	After providing all the information, Azure Data Explorer Cost Estimator will suggest a VM size and number of instances for your cluster. Analyze if the size of actively queried data will fit in the Hot Cache. Multiply the number of instances suggested by the cache size of the VM size, per example: 
-| Cost Estimator suggestion: | 9x DS14 + 4 TB (cache) |
-| Total Hot Cache suggested: | 36 TB = [9x (instances) x 4 TB (of Hot Cache per node)] |
+        | Cost Estimator suggestion | Total Hot Cache suggested |
+        | ---| ---|
+        | 9x DS14 + 4 TB (cache) | 36 TB = [9x (instances) x 4 TB (of Hot Cache per node)] |
 
     1. More factors to consider:
         - Environment growth: when planning the ADX Cluster size consider the data growth along the time.
@@ -186,7 +188,7 @@ The command generated from One-Click tool includes a SAS token. It’s best to g
 
     :::image type="content" source="media/gen2-migration/adx-ingest-sas-expiry.png" alt-text="Screenshot of the Azure Data Explorer ingestion for permission expiry" lightbox="media/gen2-migration/adx-ingest-sas-expiry.png":::
 
-1. Select on ‘Generate SAS token and URL’ and copy the ‘SAS Blob URL’
+1. Select on ‘Generate SAS token and URL’ and copy the ‘Blob SAS URL’
 
     :::image type="content" source="media/gen2-migration/adx-ingest-sas-blob.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS Blob URL" lightbox="media/gen2-migration/adx-ingest-sas-blob.png":::
 
