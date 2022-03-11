@@ -406,7 +406,7 @@
   - name: Use Service Fabric managed clusters
     items:
     - name: How to configure Azure Active Directory client access
-      href: how-to-manage-cluster-AAD-client.md    
+      href: how-to-managed-cluster-AAD-client.md    
     - name: Configure your managed cluster
       href: how-to-managed-cluster-configuration.md
     - name: Connect to your managed cluster
