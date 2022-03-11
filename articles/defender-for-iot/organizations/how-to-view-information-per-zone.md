@@ -1,9 +1,9 @@
 ---
 title: Learn about devices on specific zones
 description: Use the on-premises management console to get a comprehensive view information per specific zone 
-author: shhazam-ms
+author: rkarlin
 manager: rkarlin
-ms.author: shhazam
+ms.author: rkarlin
 ms.date: 11/09/2021
 ms.topic: how-to
 ms.service: azure

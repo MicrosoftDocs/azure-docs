@@ -11,6 +11,7 @@ ms.custom:
 ---
 
 # Tutorial: Resource group and subscription access provisioning by data owner (preview)
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This tutorial describes how a data owner can leverage Azure Purview to enable access to ALL data sources in a subscription or a resource group. This can be achieved through a single policy statement, and will cover all existing data sources, as well as data sources that are created afterwards. However, at this point, only the following data sources are supported:
 - Blob storage
@@ -22,10 +23,6 @@ In this tutorial, you learn how to:
 > * Configure permissions
 > * Register a data asset for Data use governance
 > * Create and publish a policy
-
-> [!Note]
-> These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
@@ -46,6 +43,8 @@ Enable the resource group or the subscription for access policies in Azure Purvi
 
 [!INCLUDE [Access policies generic registration](./includes/access-policies-registration-generic.md)]
 
+More here on [registering a data source for Data use governance](./how-to-enable-data-use-governance.md)
+
 ## Create and publish a data owner policy
 Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*:
 
@@ -64,5 +63,5 @@ The limit for Azure Purview policies that can be enforced by Storage accounts is
 Check blog, demo and related tutorials
 
 * [Blog: resource group-level governance can significantly reduce effort](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-resource-group-level-governance-can/ba-p/3096314)
-* [Demo of data owner access policies for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
+* [Demo of data owner access policies for Azure Storage](https://docs.microsoft.com/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4.)
 * [Fine-grain data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)

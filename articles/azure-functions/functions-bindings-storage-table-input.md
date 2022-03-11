@@ -1,10 +1,8 @@
 ---
 title: Azure Tables input bindings for Azure Functions
 description: Understand how to use Azure Tables input bindings in Azure Functions.
-author: craigshoemaker
 ms.topic: reference
-ms.date: 01/23/2022
-ms.author: cshoe
+ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -20,7 +18,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone pivot="programming-language-csharp"
 
-The usage of the binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
+The usage of the binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
 
 # [In-process](#tab/in-process)
 
