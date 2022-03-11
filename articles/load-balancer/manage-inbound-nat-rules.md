@@ -10,7 +10,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 # Manage inbound NAT rules for Azure Load Balancer using the Azure portal
 
-An inbound NAT rule is used to forward traffic from a port of the load balancer frontend to a port of one or more instances in the load balancer backend pool. 
+An inbound NAT rule is used to forward traffic from a load balancer frontend to one or more instances in the backend pool. 
 
 There are two types of inbound NAT rule:
 
@@ -87,7 +87,7 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-In this example you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. 
+In this example, you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -120,7 +120,7 @@ In this example you'll create an inbound NAT rule to forward a range of ports st
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-In this example you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443.
+In this example, you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443.
 
 Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) to create the NAT rule.
 
