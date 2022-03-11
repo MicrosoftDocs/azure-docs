@@ -17,7 +17,8 @@ Log Analytics is a tool in the Azure portal used to edit and run log queries wit
 
 You'll need to carry out the steps in [Enabling Log Analytics for Azure Private 5G Core](enable-log-analytics-for-private-5g-core.md) before you can use Log Analytics with Azure Private 5G Core.
 
-> [!IMPORTANT] Log Analytics is part of Azure Monitor and is chargeable. [Estimating costs](#estimating-costs) provides information on estimating the cost of using Log Analytics to monitor your private mobile network. You shouldn't enable Log Analytics if you don't want to incur any costs. If you don't enable Log Analytics, you can still monitor your packet core instances from the local network using the [packet core dashboards](packet-core-dashboards.md). 
+> [!IMPORTANT] 
+> Log Analytics is part of Azure Monitor and is chargeable. [Estimating costs](#estimating-costs) provides information on estimating the cost of using Log Analytics to monitor your private mobile network. You shouldn't enable Log Analytics if you don't want to incur any costs. If you don't enable Log Analytics, you can still monitor your packet core instances from the local network using the [packet core dashboards](packet-core-dashboards.md). 
 
 ## Accessing Log Analytics for a packet core instance
 
