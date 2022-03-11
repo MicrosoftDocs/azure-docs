@@ -762,7 +762,7 @@ items:
       href: /azure/azure-monitor/faq#application-insights
     - name: Troubleshooting
       items:
-      - name: Portal connectivity
+      - name: Error retrieving data
         href: app/troubleshoot-portal-connectivity.md
     - name: Auto-instrumentation
       items: 
