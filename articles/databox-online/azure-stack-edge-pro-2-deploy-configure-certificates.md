@@ -97,7 +97,7 @@ Use these steps to regenerate and download the Azure Stack Edge Pro 2 device cer
 
     - Make sure that the status of all the certificates is shown as **Valid**. 
 
-        ![Screenshot of newly generated certificates on the Certificates page of an Azure Stack Edge device. Certificates with Valid state are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6.png)
+        ![Screenshot of newly generated certificates on the Certificates page of an Azure Stack Edge device. Certificates with Valid state are highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/generate-certificate-6.png)
 
     - You can select a specific certificate name, and view the certificate details. 
     
@@ -164,13 +164,10 @@ Follow these steps to upload your own certificates including the signing chain.
 
     ![Screenshot of the Add Certificate pane for the Local Web UI certificate for an Azure Stack Edge device. The certificate type and certificate entries highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/add-certificate-5.png)
 
-    At any time, you can select a certificate and view the details to ensure that these match with the certificate that you uploaded.
+    The certificate page should update to reflect the newly added certificates. At any time, you can select a certificate and view the details to ensure that these match with the certificate that you uploaded.
 
-    ![Screenshot of the Add Certificate pane for a node certificate for an Azure Stack Edge device. The certificate type and certificate entries highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
+    ![Screenshot of the Add Certificate pane for a node certificate for an Azure Stack Edge device. The certificate type and certificate entries highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/add-certificate-6.png)
 
-    The certificate page should update to reflect the newly added certificates.
-
-    ![Screenshot of the Certificates page in the local web UI for an Azure Stack Edge device. A newly added set of certificates is highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
 
     > [!NOTE]
     > Except for Azure public cloud, signing chain certificates are needed to be brought in before activation for all cloud configurations (Azure Government or Azure Stack).
@@ -212,7 +209,7 @@ In this tutorial, you learn about:
 > * Configure certificates for the physical device
 > * Configure encryption-at-rest
 
-To learn how to activate your Azure Stack Edge Pro GPU device, see:
+To learn how to activate your Azure Stack Edge Pro 2 device, see:
 
 > [!div class="nextstepaction"]
-> [Activate Azure Stack Edge Pro GPU device](./azure-stack-edge-gpu-deploy-activate.md)
+> [Activate Azure Stack Edge Pro 2 device](./azure-stack-edge-pro-2-deploy-activate.md)
