@@ -76,8 +76,8 @@ Azure Cognitive Services containers provide the following set of Docker containe
 
 ### Applied AI Services containers
 
-| Service |  Container | Description | Availability |
-|--|--|--|--|
+| Service | Container | Description | Availability |
+|--|--|--|:--:|
 | [Form Recognizer](../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md) | *See* [**Container requirements**](../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#container-requirements-and-recommendations) | Form Recognizer containers enable you to identify and extract text, key/value pairs, selection marks, table data, and more from documents and output structured data that includes relationships in the original file. | Gated preview |
 
 <!--
