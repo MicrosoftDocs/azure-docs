@@ -14,9 +14,9 @@ An inbound NAT rule is used to forward traffic from a load balancer frontend to 
 
 There are two types of inbound NAT rule:
 
-* Single instance - An inbound NAT rule that targets a single machine in the backend pool of the load balancer
+* Single virtual machine - An inbound NAT rule that targets a single machine in the backend pool of the load balancer
 
-* Multiple instance - An inbound NAT rule that targets multiple virtual machines in the backend pool of the load balancer
+* Multiple virtual machines - An inbound NAT rule that targets multiple virtual machines in the backend pool of the load balancer
 
 In this article, you'll learn how to add and remove an inbound NAT rule for both types. You'll learn how to change the frontend port allocation in a multiple instance inbound NAT rule.
 
@@ -28,7 +28,7 @@ In this article, you'll learn how to add and remove an inbound NAT rule for both
 
 - A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 
-## Add a single instance inbound NAT rule
+## Add a single VM inbound NAT rule
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
@@ -83,7 +83,7 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
 ```
 ---
 
-## Add a multiple instance inbound NAT rule
+## Add a multiple VMs inbound NAT rule
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
@@ -140,7 +140,7 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
 
 ---
 
-## Change frontend port allocation
+## Change frontend port allocation for a multiple VM rule
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
