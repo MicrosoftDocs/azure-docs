@@ -8,5 +8,7 @@ ms.author: inhenkel
 
 ### List jobs with Python
 
+:::code language="python" source="~/media-services-v3-python/all/jobs.py" id="JobSetup":::
+
 :::code language="python" source="~/media-services-v3-python/all/jobs.py" id="JobList" :::
 
