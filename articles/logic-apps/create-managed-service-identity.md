@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 03/11/2022
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, ignite-fall-2021
 ---
 
@@ -996,9 +996,12 @@ This example shows what the configuration looks like when the logic app enables 
 
 If you use an ARM template to automate deployment, and your workflow includes an *API connection*, which is created by a [managed connector](../connectors/managed.md) such as Office 365 Outlook, Azure Key Vault, and so on that uses a managed identity, you have an extra step to take.
 
-In this scenario, check that the underlying connection resource definition includes the `parameterValueSet` object, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your workflow. This requirement applies only to [specific managed connector triggers and actions](#triggers-actions-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity).
+The ARM template will be different depending on whether this is a [multi-authentication connecfor or single-authentication connector](./logic-apps-securing-a-logic-app?tabs=azure-portal#authentication-types-for-triggers-and-actions-that-support-authentication)
 
-### [Consumption](#tab/consumption)
+> [!NOTE]
+> The below examples are for Logic App Consumption. For Logic App Standard, the `kind` property shall be set to `V2`.
+
+### [Multi-Auth](#tab/multi-auth)
 
 For example, here's the underlying connection resource definition for an Azure Automation action in a Consumption logic app resource that uses a managed identity where the definition includes the `parameterValueSet` object, which has the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Also note that the `apiVersion` property is set to `2018-07-01-preview`:
 
@@ -1022,12 +1025,10 @@ For example, here's the underlying connection resource definition for an Azure A
 },
 ```
 
-### [Standard](#tab/standard)
+### [Single-Auth](#tab/single-auth)
 
 For example, here's the underlying connection resource definition for an Azure Automation action in a Standard logic app resource that uses a managed identity where the definition includes the `parameterValueType` property, which is set to `Alternative`.
 
-> [!NOTE]
-> For Standard, the `kind` property is set to `V2`, and the `apiVersion` property is set to `2016-06-01`:
 
 ```json
 {
@@ -1037,6 +1038,7 @@ For example, here's the underlying connection resource definition for an Azure A
     "location": "[parameters('location')]",
     "kind": "V2",
     "properties": {
+        "alternativeParameterValues":{},
         "displayName": "[variables('automationAccountApiConnectionName')]",
         "parameterValueType": "Alternative",
         "api": {
