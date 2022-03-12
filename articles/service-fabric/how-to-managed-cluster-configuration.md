@@ -4,24 +4,6 @@ description: Learn how to configure your Service Fabric managed cluster for auto
 ms.topic: how-to
 ms.date: 10/25/2021
 ---
-## Add Azure AD configuration to use Azure AD for client access
-
-You add the Azure AD configuration to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those Azure AD parameters and values in a Resource Manager template parameters file (*azuredeploy.parameters.json*). 
-
-> [!NOTE]
-> On Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
-
-```json
-{
-  "azureActiveDirectory": {
-      "tenantId": "[parameters('aadTenantId')]",
-      "clusterApplication": "[parameters('aadClusterApplicationId')]",
-      "clientApplication": "[parameters('aadClientApplicationId')]"
-    },
-    
-  }
-
-```
 
 # Service Fabric managed cluster configuration options
 
@@ -41,6 +23,24 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 * Selecting the cluster [managed disk type](how-to-managed-cluster-managed-disk.md) SKU
 * Configuring cluster [upgrade options](how-to-managed-cluster-upgrades.md) for the runtime updates
 
+## Add Azure AD configuration to use Azure AD for client access
+
+You add the Azure AD configuration to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those Azure AD parameters and values in a Resource Manager template parameters file (*azuredeploy.parameters.json*). 
+
+> [!NOTE]
+> On Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
+
+```json
+{
+  "azureActiveDirectory": {
+      "tenantId": "[parameters('aadTenantId')]",
+      "clusterApplication": "[parameters('aadClusterApplicationId')]",
+      "clientApplication": "[parameters('aadClientApplicationId')]"
+    },
+    
+  }
+
+```
 
 ## Next steps
 
