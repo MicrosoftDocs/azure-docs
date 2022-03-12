@@ -4,7 +4,7 @@ description: Understand what self-service access and data discovery are in Azure
 author: bjspeaks
 ms.author: blessonj
 ms.service: purview
-ms.subservice: azure-purview-data-policies
+ms.subservice: purview-data-policies
 ms.topic: conceptual
 ms.date: 03/10/2022
 ---

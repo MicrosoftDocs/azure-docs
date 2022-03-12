@@ -4,7 +4,7 @@ description: This article describes how to view auto-generated self-service poli
 author: bjspeaks
 ms.author: blessonj
 ms.service: purview
-ms.subservice: azure-purview-data-policies
+ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 09/27/2021
 ---

@@ -163,8 +163,8 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-        - text: Self-service data access policy 
-        - url: concept-self-service-data-access-policy.md
+        - text: Self-service data access policy
+          url: concept-self-service-data-access-policy.md
     - linkListType: tutorial
       links:
         - text: Data owner policies for Azure Storage
