@@ -25,7 +25,7 @@ Time Series Insights (TSI) service provides access to historical data ingested t
 - Connectors to access data with Databricks Spark or PBI.
 
 
-## Feature comparison with Azure Data Explorer (ADX)
+## Feature Comparison with Azure Data Explorer (ADX)
 
 | Feature | TSI | ADX |
 | ---| ---| ---|
@@ -41,11 +41,11 @@ Time Series Insights (TSI) service provides access to historical data ingested t
 | Security | Private link for incoming traffic, but open for storage and hubs | VNet injection, Private Link, Encryption at rest with customer managed keys supported |
 | RBAC role and RLS | Limited RBAC role, no RLS | Granular RBAC role for functions and data access, RLS and data masking supported |
 
-## TSI migration to ADX Steps
+## TSI Migration to ADX Steps
 
 TSI has two offerings, Gen1 and Gen2, which have different migration steps.
 
-### TSI Gen 1
+### TSI Gen1
 
 TSI Gen1 doesn’t have cold storage or hierarchy capability. All data has fixed retention. Extracting data and mapping it to ADX would be complicated and time-consuming task for TSI developers and the customer. Suggestion migration path is to set up parallel data ingestion to ADX. After fixed data retention period passes TSI environment can be deleted as ADX will contain same data.
 1.	Create ADX Cluster
@@ -56,7 +56,7 @@ TSI Gen1 doesn’t have cold storage or hierarchy capability. All data has fixed
 
 Detailed FAQ and engineering experience is outlined in [How to migrate TSI Gen1 to ADX](./how-to-tsi-gen1-migration.md)
 
-### TSI Gen 2
+### TSI Gen2
 
 TSI Gen2 stores all data on cold storage using Parquet format as a blob in customer’s subscription. To migrate data customer, should take the blob and import it into ADX using bulk upload capability Lightingest. More information on lightingest can be fund here.
 1.	Create ADX Cluster
