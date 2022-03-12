@@ -64,19 +64,19 @@ Some people will see a new preview experience in the portal. If **Availabiity op
    For a **Azure load balancer**:
 
    1. You can select an existing load balancer or select **Create a load balancer**.
-   1. To create a new load balancer, for **Load balancer name** type a load balancer name.
-   1. Select the **Type** of load balancer, either Public or Internal.
-   1. Select the **Protocol**, either **TCP** or **UDP**.
-   1. You can leave the default **Port** and **Backend port**, or change them if needed. The backend port you select will be opened up on the Network Security Group (NSG) of the VM.
-   1. When you are done, select **Create**.
+   2. To create a new load balancer, for **Load balancer name** type a load balancer name.
+   3. Select the **Type** of load balancer, either Public or Internal.
+   4. Select the **Protocol**, either **TCP** or **UDP**.
+   5. You can leave the default **Port** and **Backend port**, or change them if needed. The backend port you select will be opened up on the Network Security Group (NSG) of the VM.
+   6. When you are done, select **Create**.
    
    For an **Application Gateway**:
 
    1. Select either an existing application gateway or **Create an application gateway**.
-   1. To create a new gateway, type the name for the application gateway. The Application Gateway can load balance multiple applications. Consider naming the Application Gateway according to the workloads you wish to load balance, rather than specific to the virtual machine name.
-   1. In **Routing rule**, type a rule name. The rule name should describe the workload you are load balancing.
-   1. For HTTP load balancing, you can leave the defaults and then select **Create**. For HTTPS load balancing, you have two options:
-            
+   2. To create a new gateway, type the name for the application gateway. The Application Gateway can load balance multiple applications. Consider naming the Application Gateway according to the workloads you wish to load balance, rather than specific to the virtual machine name.
+   3. In **Routing rule**, type a rule name. The rule name should describe the workload you are load balancing.
+   4. For HTTP load balancing, you can leave the defaults and then select **Create**. For HTTPS load balancing, you have two options:
+        
         - Upload a certificate and add the password (application gateway will manage certificate storage).For certificate name, type a friendly name for the certificate.
         - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**. 
         
