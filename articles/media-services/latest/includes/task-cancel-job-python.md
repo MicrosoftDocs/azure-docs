@@ -6,6 +6,6 @@ ms.date: 03/10/2022
 ms.author: inhenkel
 ---
 
-### List jobs with REST
+### Cancel a job with Python
 
-See the Media Services [REST API](/rest/api/media/jobs/list)
+:::code language="python" source="~/media-services-v3-python/all/jobs.py" id="CancelJob":::
