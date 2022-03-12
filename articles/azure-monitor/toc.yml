@@ -160,13 +160,13 @@ items:
     - name: Azure Monitor costs
       href: usage-estimated-costs.md
     - name: Logs costs
-      href: logs/cost-pricing-model.md
+      href: logs/cost-logs.md
     - name: Application Insights costs
       href: app/pricing.md
     - name: Daily cap
-      href: logs/cost-daily-cap.md
+      href: logs/daily-cap.md
     - name: Analyze usage
-      href: logs/cost-analyze-usage.md    
+      href: logs/analyze-usage.md    
   - name: Data security
     items:
     - name: Roles permissions and security

@@ -25,7 +25,7 @@ The basic Azure Monitor billing model is a cloud-friendly, consumption-based pri
 
 
 > [!NOTE]
-> There is a cost for [multi-step web tests](app/availability-multistep.md), but these have been deprecated.
+> There is a cost for [multi-step web tests](app/availability-multistep.md), but this feature has been deprecated.
 
 
 

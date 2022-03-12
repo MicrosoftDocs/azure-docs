@@ -5,56 +5,58 @@ ms.topic: conceptual
 ms.date: 02/18/2022
 ---
  
-# Investigate your Log Analytics usage
+# Analyze usage in Log Analytics workspace
+This article provides guidance on analyzing the data being collected in your Log Analytics workspace.
 
 ## Causes of high usage
-Higher usage is caused by one, or both, of the following:
-- More nodes than expected sending data to Log Analytics workspace. For information, see the [Understanding nodes sending data](#understanding-nodes-sending-data) section of this article.
-- More data than expected being sent to Log Analytics workspace (perhaps due to starting to use a new solution or a configuration change to an existing solution). For information, see the [Understanding ingested data volume](#understanding-ingested-data-volume) section of this article.
+Higher than expected usage in a Log Analytics workspace can be caused by the following:
+
+- More nodes than expected sending data to the workspace. See [Understanding nodes sending data](#understanding-nodes-sending-data).
+- More data than expected being sent to the workspace. See [Understanding ingested data volume](#understanding-ingested-data-volume).
 
 If you observe high data ingestion reported using the `Usage` records (see the [Data volume by solution](#data-volume-by-solution) section), but you don't observe the same results summing `_BilledSize` directly on the [data type](#data-volume-for-specific-events), it's possible that you have significant late-arriving data. For information about how to diagnose this, see the [Late arriving data](#late-arriving-data) section of this article. 
 
+#
+
 ## Create an alert when data collection is high
+In order to avoid unexpected bills, you should be proactively notified whenever you experience excessive usage. This allows you analyze your data to address potential anomalies before the end of your billing period.
 
-This section describes how to create an alert when the data volume in the last 24 hours exceeded a specified amount, using Azure Monitor [Log Alerts](../alerts/alerts-unified-log.md). 
+Create a [log alert rule](../alerts/alerts-unified-log.md) with the details below. This example sends an alert if the billable data volume ingested in the last 24 hours was greater than 50 GB.
 
-To alert if the billable data volume ingested in the last 24 hours was greater than 50 GB: 
-
-- **Define alert condition** specify your Log Analytics workspace as the resource target.
-- **Alert criteria** specify the following:
-   - **Signal Name** select **Custom log search**
-   - **Search query** to `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`.  
-   - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
-   - **Time period** of *1440* minutes and **Alert frequency** to every *1440* minutes to run once a day.
-- **Define alert details** specify the following:
-   - **Name** to *Billable data volume greater than 50 GB in 24 hours*
-   - **Severity** to *Warning*
-
-To be notified when the log alert matches criteria, specify an existing or create a new [action group](../alerts/action-groups.md).
-
-When you receive an alert, use the steps in the above sections about how to troubleshoot why usage is higher than expected.
+| Setting | Value |
+|:---|:---|
+| **Scope** | |
+| Target scope | Select your Log Analytics workspace. |
+| **Condition** | |
+| Query | `Usage \| where IsBillable \| summarize DataGB = sum(Quantity / 1000.)` |
+| Measurement | Measure: *DataGB*<br>Aggregation type: Total<br>Aggregation granularity: 1 day |
+| Alert Logic | Operator: Greater than<br>Threshold value: 50<br>Frequency of evaluation: 1 day |
+| Actions | Select or add an [action group](../alerts/action-groups.md) to notify you when the threshold is exceeded. |
+| **Details** | |
+| Severity| Warning |
+| Alert rule name | Billable data volume greater than 50 GB in 24 hours |
 
 
-## Log Analytics Workspace Insights
+When you receive an alert, use the guidance in the following sections to troubleshoot why usage is higher than expected.
 
-Start understanding your data volumes in the **Usage** tab of the [Log Analytics Workspace Insights workbook](log-analytics-workspace-insights-overview.md). On the **Usage Dashboard**, you can easily see:
-- Which data tables are ingesting the most data volume in the main table,  
-- What are the top resources contributing data, and 
-- What is the trend of data ingestion.
+# Log Analytics Workspace Insights
+Start understanding your data volumes in the **Usage** tab in [Log Analytics Workspace Insights](log-analytics-workspace-insights-overview.md#usage-tab) which shows the following:
 
-You can pivot to the **Additional Queries** to easily execution more queries useful to understanding your data patterns. 
+- Data tables ingesting the most data volume in the main table
+- Top resources contributing data
+- Trend of data ingestion
 
-Learn more about the [capabilities of the Usage tab](log-analytics-workspace-insights-overview.md#usage-tab). 
+Select **Additional Queries** for pre-built queries that help you further understand your data patterns. If you have additional questions, or you want perform deeper analysis, then have a look at the queries in the following sections.
 
-While this workbook can answer many of the questions without even needing to run a query, to answer more specific questions or do deeper analyses, the queries in the next two sections will help to get you started. 
+
 
 ## Understanding ingested data volume
-
-On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. You can determine trends like whether the overall data usage (or usage by a particular solution) is growing, remaining steady, or decreasing. 
+On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. This helps you determine trends such as whether the overall data usage or usage by a particular solution is growing, remaining steady, or decreasing. 
 
 ### Data volume for specific events
+Use a query like the following to analyze the billable usage for a particular table. The clause `where _IsBillable = true` filters out data types from certain solutions for which there is [no ingestion charge](./log-standard-columns.md#_isbillable).
 
-To look at the size of ingested data for a particular set of events, you can query the specific table (in this example `Event`) and then restrict the query to the events of interest (in this example event ID 5145 or 5156):
+This example analyzes particular event IDs in the  `Event` table. You can modify it for other tables and criteria.
 
 ```kusto
 Event
@@ -64,11 +66,10 @@ Event
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
 ```
 
-Note that the clause `where _IsBillable = true` filters out data types from certain solutions for which there is no ingestion charge. [Learn more](./log-standard-columns.md#_isbillable) about `_IsBillable`.
 
 ### Data volume by solution
 
-The query used to view the billable data volume by solution over the last month (excluding the last partial day) can be built using the [Usage](/azure/azure-monitor/reference/tables/usage) data type as:
+Use the following query to view the billable data volume by solution over the last month (excluding the last partial day) can be built using the [Usage](/azure/azure-monitor/reference/tables/usage) data type as:
 
 ```kusto
 Usage 
