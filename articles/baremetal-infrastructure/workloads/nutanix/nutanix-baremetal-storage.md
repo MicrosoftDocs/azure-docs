@@ -1,16 +1,16 @@
 ---
-title: Storage on BareMetal for Oracle workloads
-description: Learn about the storage offered by the BareMetal Infrastructure for Oracle workloads.
+title: Storage on BareMetal for Nutanix workloads
+description: Learn about the storage offered by the BareMetal Infrastructure for Nutanix workloads.
 ms.topic: reference
-ms.subservice: baremetal-oracle
+ms.subservice: baremetal-nutanix
 ms.date: 04/14/2021
 ---
 
-# Storage on BareMetal for Oracle workloads
+# Storage on BareMetal for Nutanix workloads
 
-In this article, we'll give an overview of the storage offered by the BareMetal Infrastructure for Oracle workloads.
+In this article, we'll give an overview of the storage offered by the BareMetal Infrastructure for Nutanix workloads.
 
-BareMetal Infrastructure for Oracle offers NetApp Network File System (NFS) storage. 
+BareMetal Infrastructure for Nutanix offers NetApp Network File System (NFS) storage. 
 This storage offering includes Tier 3 support from an OEM partner, using either A700s or A800s storage controllers.
 
 BareMetal Infrastructure storage offers these premium storage capabilities:
@@ -30,5 +30,5 @@ BareMetal Infrastructure storage offers these premium storage capabilities:
 Learn about BareMetal Infrastructure patching considerations.
 
 > [!div class="nextstepaction"]
-> [Patching considerations for BareMetal for Oracle](oracle-baremetal-patching.md)
+> [Patching considerations for BareMetal for Nutanix](nutanix-baremetal-patching.md)
 

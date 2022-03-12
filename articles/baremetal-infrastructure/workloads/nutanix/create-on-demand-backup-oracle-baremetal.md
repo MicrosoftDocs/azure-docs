@@ -1,16 +1,16 @@
 ---
-title: Create on-demand backup of your Oracle Database in SnapCenter
-description: Learn how to create an on-demand backup of your Oracle Database in SnapCenter on Oracle BareMetal Infrastructure.
+title: Create on-demand backup of your Nutanix Database in SnapCenter
+description: Learn how to create an on-demand backup of your Nutanix Database in SnapCenter on Nutanix BareMetal Infrastructure.
 ms.topic: how-to
-ms.subservice: baremetal-oracle
+ms.subservice: baremetal-nutanix
 ms.date: 05/07/2021
 ---
 
-# Create on-demand backup of your Oracle Database in SnapCenter
+# Create on-demand backup of your Nutanix Database in SnapCenter
 
-In this article, we'll walk through creating an on-demand backup of your Oracle Database in SnapCenter. 
+In this article, we'll walk through creating an on-demand backup of your Nutanix Database in SnapCenter. 
 
-Once you've [configured SnapCenter](configure-snapcenter-oracle-baremetal.md), backups of your datafiles, control files, and archive logs will continue based on the schedule you entered when creating the resource group(s). However, as part of normal database protection, you might also want on-demand backups.
+Once you've [configured SnapCenter](configure-snapcenter-nutanix-baremetal.md), backups of your datafiles, control files, and archive logs will continue based on the schedule you entered when creating the resource group(s). However, as part of normal database protection, you might also want on-demand backups.
 
 ## Steps to create an on-demand backup
 
@@ -24,7 +24,7 @@ After the backup completes, it will be available in the list of backups under **
 
 ## Next steps
 
-Learn how to restore an Oracle Database in SnapCenter:
+Learn how to restore an Nutanix Database in SnapCenter:
 
 > [!div class="nextstepaction"]
-> [Restore Oracle database](restore-oracle-database-baremetal.md)
+> [Restore Nutanix database](restore-nutanix-database-baremetal.md)

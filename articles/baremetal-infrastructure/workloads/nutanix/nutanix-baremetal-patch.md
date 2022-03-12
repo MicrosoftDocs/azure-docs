@@ -1,14 +1,14 @@
 ---
-title: Patching considerations for BareMetal for Oracle  
-description: Learn about operating system/kernel patching considerations for BareMetal Infrastructure for Oracle.
+title: Patching considerations for BareMetal for Nutanix  
+description: Learn about operating system/kernel patching considerations for BareMetal Infrastructure for Nutanix.
 ms.topic: reference
-ms.subservice: baremetal-oracle
+ms.subservice: baremetal-nutanix
 ms.date: 10/06/2021
 ---
 
-# Patching considerations for BareMetal for Oracle
+# Patching considerations for BareMetal for Nutanix
 
-In this article, we'll look at important operating system (OS)/kernel patching considerations for BareMetal Infrastructure for Oracle.
+In this article, we'll look at important operating system (OS)/kernel patching considerations for BareMetal Infrastructure for Nutanix.
 
 For proper network performance and system stability, install the OS-specific version of eNIC and fNIC drivers. See the following compatibility table. 
 
@@ -22,8 +22,8 @@ Servers are delivered to customers with compatible versions. However, during OS/
 
 ## Next steps
 
-Learn about the Ethernet configuration of BareMetal for Oracle.
+Learn about the Ethernet configuration of BareMetal for Nutanix.
 
 > [!div class="nextstepaction"]
-> [Ethernet configuration of BareMetal for Oracle](oracle-baremetal-ethernet.md)
+> [Ethernet configuration of BareMetal for Nutanix](nutanix-baremetal-ethernet.md)
 

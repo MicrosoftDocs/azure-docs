@@ -1,16 +1,16 @@
 ---
-title: Ethernet configuration of BareMetal for Oracle
-description: Learn about the configuration of Ethernet interfaces on BareMetal instances for Oracle workloads.
+title: Ethernet configuration of BareMetal for Nutanix
+description: Learn about the configuration of Ethernet interfaces on BareMetal instances for Nutanix workloads.
 ms.topic: reference
-ms.subservice: baremetal-oracle
+ms.subservice: baremetal-nutanix
 ms.date: 04/14/2021
 ---
 
-# Ethernet configuration of BareMetal for Oracle
+# Ethernet configuration of BareMetal for Nutanix
 
-In this article, we'll look at the configuration of Ethernet interfaces on BareMetal instances for Oracle workloads.
+In this article, we'll look at the configuration of Ethernet interfaces on BareMetal instances for Nutanix workloads.
 
-Each provisioned BareMetal instance for Oracle comes pre-configured with sets of Ethernet interfaces. The Ethernet interfaces are categorized into four types:
+Each provisioned BareMetal instance for Nutanix comes pre-configured with sets of Ethernet interfaces. The Ethernet interfaces are categorized into four types:
 
 - Used for or by client access.
 - Used for node-to-node communication. This interface is configured on all servers  irrespective of the topology requested. It is used only for scale-out scenarios.
@@ -21,7 +21,7 @@ Each provisioned BareMetal instance for Oracle comes pre-configured with sets of
 
 The following diagram illustrates the architecture of the BareMetal Infrastructure pre-configured Ethernet interfaces. 
 
-[![Diagram showing the architecture of the pre-configured Ethernet interfaces for Oracle workloads.](media/oracle-baremetal-ethernet/architecture-ethernet.png)](media/oracle-baremetal-ethernet/architecture-ethernet.png#lightbox)
+[![Diagram showing the architecture of the pre-configured Ethernet interfaces for Nutanix workloads.](media/nutanix-baremetal-ethernet/architecture-ethernet.png)](media/nutanix-baremetal-ethernet/architecture-ethernet.png#lightbox)
 
 The default configuration comes with one client IP interface (eth1), connecting from your Azure Virtual Network (VNET) by which you can use Secure Shell (SSH) to access a BareMetal instance.
 
@@ -49,13 +49,13 @@ If necessary, you can define more network interface controller (NIC) cards on yo
 For BareMetal instances, the default will have nine assigned IP addresses on the four logical NICs. The following usage rules apply:
 
 - Ethernet "A" should have an assigned IP address that is outside of the server IP pool address range that you submitted to Microsoft. This IP address shouldn't be maintained in the etc/hosts directory of the OS.
-- Ethernet "B" should be maintained exclusively in the etc/hosts directory for communication between the various instances. Maintain these IP addresses in scale-out Oracle Real Application Clusters (RAC) configurations as the IP addresses used for the inter-node configuration.
+- Ethernet "B" should be maintained exclusively in the etc/hosts directory for communication between the various instances. Maintain these IP addresses in scale-out Nutanix Real Application Clusters (RAC) configurations as the IP addresses used for the inter-node configuration.
 - Ethernet "C" should have an assigned IP address that is used for communication to NFS storage. This type of address shouldn't be maintained in the etc/hosts directory.
 - Ethernet "D" should be used exclusively for global reach setup towards accessing BareMetal instances in your DR region.
 
 ## Next steps
 
-Learn more about BareMetal Infrastructure for Oracle architecture.
+Learn more about BareMetal Infrastructure for Nutanix architecture.
 
 > [!div class="nextstepaction"]
-> [Architecture of BareMetal Infrastructure for Oracle](oracle-baremetal-architecture.md)
+> [Architecture of BareMetal Infrastructure for Nutanix](nutanix-baremetal-architecture.md)

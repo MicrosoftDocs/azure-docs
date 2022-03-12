@@ -1,14 +1,14 @@
 ---
-title: Configure SnapCenter for Oracle on BareMetal Infrastructure
-description: Learn how to configure SnapCenter for Oracle on BareMetal Infrastructure.
+title: Configure SnapCenter for Nutanix on BareMetal Infrastructure
+description: Learn how to configure SnapCenter for Nutanix on BareMetal Infrastructure.
 ms.topic: how-to
-ms.subservice: baremetal-oracle
+ms.subservice: baremetal-nutanix
 ms.date: 05/05/2021
 ---
 
-# Configure SnapCenter for Oracle on BareMetal Infrastructure
+# Configure SnapCenter for Nutanix on BareMetal Infrastructure
 
-In this article, we'll walk through the steps to configure NetApp SnapCenter to run Oracle on BareMetal Infrastructure.
+In this article, we'll walk through the steps to configure NetApp SnapCenter to run Nutanix on BareMetal Infrastructure.
 
 ## Add storage hosts to SnapCenter
 
@@ -38,7 +38,7 @@ To add your production storage virtual machine (SVM):
 
     Once the storage is verified, the IP address of the storage system added is shown with the username entered.
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/oracle-baremetal-snapcenter-add-production-storage-complete.png" alt-text="Screenshot showing the IP address of the storage system added.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/nutanix-baremetal-snapcenter-add-production-storage-complete.png" alt-text="Screenshot showing the IP address of the storage system added.":::
 
     The default is one SVM per tenant. If a customer has multiple tenants, the recommendation is to configure all SVMs here in SnapCenter.
 
@@ -53,20 +53,20 @@ Adding a secondary storage location is similar to adding the primary storage loc
 
 Once the ping is verified, repeat the steps you used for adding the primary storage, only now for the DR location on a DR host. We recommend using the same certificate in both locations, but it isn't required.
 
-## Set up Oracle hosts
+## Set up Nutanix hosts
 
 >[!NOTE]
->This process is for all Oracle hosts regardless of their location: production or disaster recovery.
+>This process is for all Nutanix hosts regardless of their location: production or disaster recovery.
 
 1. Before adding the hosts to SnapCenter and installing the SnapCenter plugins, JAVA 1.8 must be installed. Verify that Java 1.8 is installed on each host before proceeding.
 
-2. Create the same non-root user on each of the Oracle Real Application Clusters (RAC) hosts and add to /etc/sudoers. You will need to provide a new password.
+2. Create the same non-root user on each of the Nutanix Real Application Clusters (RAC) hosts and add to /etc/sudoers. You will need to provide a new password.
 
-3. Once the user has been created, it must be added to /etc/sudoers with an explicit set of permissions. These permissions are found by browsing to the following location on the SnapCenter VM: C:\ProgramData\NetApp\SnapCenter\Package Repository and opening the file oracle\_checksum.
+3. Once the user has been created, it must be added to /etc/sudoers with an explicit set of permissions. These permissions are found by browsing to the following location on the SnapCenter VM: C:\ProgramData\NetApp\SnapCenter\Package Repository and opening the file nutanix\_checksum.
 
 4. Copy the appropriate set of commands, depending on the sudo package, where LINUXUSER is replaced with the newly created username. 
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/netapp-snapcenter-oracle-checksum-details.png" alt-text="Screenshot of the oracle_checksum file details.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/netapp-snapcenter-nutanix-checksum-details.png" alt-text="Screenshot of the nutanix_checksum file details.":::
 
     The set of commands for sudo package 1.8.7 or greater is copied into /etc/sudoers.
 
@@ -89,36 +89,36 @@ Once the ping is verified, repeat the steps you used for adding the primary stor
     - **Host Type**: Linux
     - **Host Name**: Enter either FQDN of the primary RAC host or the IP address of the primary RAC host.
     - **Credentials**: Select the drop-down and select the new created credentials for sudoers.
-    - Check the **Oracle Database** box.
+    - Check the **Nutanix Database** box.
 
     >[!NOTE]
-    >You must enter one of the actual Oracle Host IP addresses. Entering either a Node VIP or Scan IP is not supported.
+    >You must enter one of the actual Nutanix Host IP addresses. Entering either a Node VIP or Scan IP is not supported.
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/snapcenter-add-hosts-details.png" alt-text="Screenshot showing the details for the new host.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/snapcenter-add-hosts-details.png" alt-text="Screenshot showing the details for the new host.":::
     
-10. Select **More Options**. Ensure **Add all hosts in the Oracle RAC** is selected. Select **Save** and then select **Submit**.
+10. Select **More Options**. Ensure **Add all hosts in the Nutanix RAC** is selected. Select **Save** and then select **Submit**.
 
-11. The plugin installer will now attempt to communicate with the IP address provided. If communication is successful, the identity of the provided Oracle RAC host is confirmed by selecting **Confirm and Submit**.
+11. The plugin installer will now attempt to communicate with the IP address provided. If communication is successful, the identity of the provided Nutanix RAC host is confirmed by selecting **Confirm and Submit**.
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/snapcenter-add-hosts-confirm-fingerprint.png" alt-text="Screenshot showing the new host fingerprint.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/snapcenter-add-hosts-confirm-fingerprint.png" alt-text="Screenshot showing the new host fingerprint.":::
 
-12. After the initial Oracle RAC is confirmed, SnapCenter will then attempt to communicate and confirm all other Oracle RAC servers as part of the cluster. Select **Confirm Others and Submit**.
+12. After the initial Nutanix RAC is confirmed, SnapCenter will then attempt to communicate and confirm all other Nutanix RAC servers as part of the cluster. Select **Confirm Others and Submit**.
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/snapcenter-add-hosts-fingerprint-authentication.png" alt-text="Screenshot showing the authentication of fingerprint.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/snapcenter-add-hosts-fingerprint-authentication.png" alt-text="Screenshot showing the authentication of fingerprint.":::
 
-    A status screen appears for managed hosts letting you know that SnapCenter is installing the selected Oracle plugin. Installation progress can be checked by looking at the logs located at /opt/NetApp/snapcenter/scc/logs/DISCOVER-PLUGINS\_0.log on any of the Oracle RAC hosts. 
+    A status screen appears for managed hosts letting you know that SnapCenter is installing the selected Nutanix plugin. Installation progress can be checked by looking at the logs located at /opt/NetApp/snapcenter/scc/logs/DISCOVER-PLUGINS\_0.log on any of the Nutanix RAC hosts. 
 
     Once the plugins are installed successfully, the following screen will appear.
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/snapcenter-installed-plugins.png" alt-text="Screenshot showing all the installed SnapCenter plugins.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/snapcenter-installed-plugins.png" alt-text="Screenshot showing all the installed SnapCenter plugins.":::
 
-## Add credentials for Oracle Recovery Manager
+## Add credentials for Nutanix Recovery Manager
 
-The Oracle Recovery Manager (RMAN) catalog authentication method authenticates against the RMAN catalog database. If you have configured an external catalog mechanism and registered your database to catalog a database, you need to add RMAN catalog authentication. RMAN credentials can be added at any time.
+The Nutanix Recovery Manager (RMAN) catalog authentication method authenticates against the RMAN catalog database. If you have configured an external catalog mechanism and registered your database to catalog a database, you need to add RMAN catalog authentication. RMAN credentials can be added at any time.
 
 1. In SnapCenter, select **Settings** on the left menu and then select **Credential**. Select **New** in the upper right corner.
 
-2. Enter the **Credential Name** to call RMAN credentials stored in SnapCenter. In the **Authentication** drop-down, select **Oracle RMAN Catalog for Authentication**. Enter your username and password. Select **OK**.
+2. Enter the **Credential Name** to call RMAN credentials stored in SnapCenter. In the **Authentication** drop-down, select **Nutanix RMAN Catalog for Authentication**. Enter your username and password. Select **OK**.
 
 3. Once the credentials are added, the database settings must be modified within SnapCenter. Select the database in resources. Select **Database Settings** in the upper right corner of the main window.
 
@@ -129,7 +129,7 @@ The Oracle Recovery Manager (RMAN) catalog authentication method authenticates a
     >[!NOTE]
     >Different credentials should be created in the preceding step for each unique combination of username and passwords. If you prefer, SnapCenter will accept a single set of credentials for all databases.
     >
-    >Even though RMAN credentials have been added to the database, RMAN won't be cataloged unless the Catalog Backup with Oracle Recovery Manager (RMAN) is also checked for each protection policy, as discussed in the following section on creating protection policies (per your backup policies).
+    >Even though RMAN credentials have been added to the database, RMAN won't be cataloged unless the Catalog Backup with Nutanix Recovery Manager (RMAN) is also checked for each protection policy, as discussed in the following section on creating protection policies (per your backup policies).
 
 ## Create protection policies
 
@@ -137,7 +137,7 @@ Once your hosts have been successfully added to SnapCenter, you're ready to crea
 
 Select **Resources** on the left menu. SnapCenter will present all of the identified databases that existed on the RAC hosts. The Single Instance types for bn6p1X and grid are ignored as part of the protection scheme. The status of all should be "Not Protected" at this point.
 
-As discussed in the [Overview](netapp-snapcenter-integration-oracle-baremetal.md#oracle-disaster-recovery-architecture), different file types have different snapshot frequencies that enable a local RPO of approximately 15 minutes by making archive log backups every 15 minutes. The datafiles are then backed up at longer intervals, like every hour or more. Therefore, two different policies are created.
+As discussed in the [Overview](netapp-snapcenter-integration-nutanix-baremetal.md#nutanix-disaster-recovery-architecture), different file types have different snapshot frequencies that enable a local RPO of approximately 15 minutes by making archive log backups every 15 minutes. The datafiles are then backed up at longer intervals, like every hour or more. Therefore, two different policies are created.
 
 With the RAC database(s) identified, several protection policies are created, including a policy for datafiles and control files and another for archive logs.
 
@@ -149,29 +149,29 @@ Follow these steps to create a datafiles protection policy.
 
 2. Select the radio button for **Datafiles and control files** and scroll down.
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/snapcenter-new-database-backup-policy.png" alt-text="Screenshot showing the details for the new database backup policy.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/snapcenter-new-database-backup-policy.png" alt-text="Screenshot showing the details for the new database backup policy.":::
 
-3. Select the radio button for **hourly**. If integration with RMAN is desired for catalog purposes and the RMAN credentials have already been added, select the checkbox for **Catalog backup with Oracle Recovery Manager (RMAN)**. Select **Next**. If the catalog backup is checked, [RMAN credentials must be added](#add-credentials-for-oracle-recovery-manager) for cataloging to occur.
+3. Select the radio button for **hourly**. If integration with RMAN is desired for catalog purposes and the RMAN credentials have already been added, select the checkbox for **Catalog backup with Nutanix Recovery Manager (RMAN)**. Select **Next**. If the catalog backup is checked, [RMAN credentials must be added](#add-credentials-for-nutanix-recovery-manager) for cataloging to occur.
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/snapcenter-database-backup-policy-frequency.png" alt-text="Screenshot showing options to choose schedule frequency in your backup policy.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/snapcenter-database-backup-policy-frequency.png" alt-text="Screenshot showing options to choose schedule frequency in your backup policy.":::
 
     >[!IMPORTANT]
     >A selection must be made for schedule policy even if a backup frequency other than hourly or daily, etc. is desired. The actual backup frequency is set later in the process. Do not select "none" unless all backups under this policy will be on-demand only.
 
 4. Select **Retention** on the left menu. There are two types of retention settings that are set for a backup policy. The first retention setting is the maximum number of on-demand snapshots to be kept. Based on your backup policies, a set number of snapshots are kept, such as the following example of 48 on-demand snapshots kept for 14 days. Set the appropriate on-demand retention policy according to your backup policies.
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/snapcenter-new-database-backup-policy-retention.png" alt-text="Screenshot showing the database backup policy retention setting.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/snapcenter-new-database-backup-policy-retention.png" alt-text="Screenshot showing the database backup policy retention setting.":::
 
 5. The next retention setting set is the scheduled number of snapshots to keep based on the previous entry of either hourly, daily, weekly, etc. Select **Next**.
 
 6. On the **Replication** screen, select the checkbox for **Update SnapMirror after creating a local snapshot copy** and select **Next**. The other entries are left at default.
 
     >[!NOTE]
-    >SnapVault is not currently supported in the Oracle BareMetal Infrastructure environment.
+    >SnapVault is not currently supported in the Nutanix BareMetal Infrastructure environment.
 
     Replication can be added later by returning to the Protection Policy screen, selecting **modify protection policy** and **Replication** in the left menu.
 
-7. The **Script** page is where you enter any scripts needed to run either before or after the Oracle backup takes place. Currently, scripts as part of the SnapCenter process aren't supported. Select **Next**.
+7. The **Script** page is where you enter any scripts needed to run either before or after the Nutanix backup takes place. Currently, scripts as part of the SnapCenter process aren't supported. Select **Next**.
 
 8. Select **Verification** on the left menu. If you want the ability to verify snapshots for recoverability integrity, then select the checkbox next to hourly. No verification script commands are currently supported. Select **Next**.
 
@@ -199,25 +199,25 @@ Once a policy has been created, it then needs to be associated with a resource i
 
 3. Under Backup settings, add **/u95** to exclude archive logs.
 
-4. On the Resource page, move all databases that are protected by the same backup protection policy from "Available Resources" to "Selected Resources." Don't add the Oracle database instances for each host, just the databases. Select **Next**.
+4. On the Resource page, move all databases that are protected by the same backup protection policy from "Available Resources" to "Selected Resources." Don't add the Nutanix database instances for each host, just the databases. Select **Next**.
 
 5. Select the protection policy for datafiles and control files you previously created. After selecting the policy, select the pencil under Configure schedules.
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/new-datafiles-resource-group-available-policies.png" alt-text="Screenshot showing selecting the protection policy in order to configure schedules.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/new-datafiles-resource-group-available-policies.png" alt-text="Screenshot showing selecting the protection policy in order to configure schedules.":::
 
 6. Add the schedule for the selected policy to execute. Ensure the start date is after the current date and time.
 
     >[!NOTE]
     >The scheduled frequency does not need to match the frequency selected when you created the policy. For hourly, we recommend you just leave "Repeat every 1 hours." The start time will serve as the start time each hour for backup to occur. Ensure that the schedule for protecting the datafiles does not overlap with the schedule for protecting the archive logs, as only one backup can be active at a given time.
 
-7. Verification ensures the created snapshot is usable. The verification process is extensive, including creating clones of all Oracle database volumes, mounting the database to the primary host, and verifying its recoverability. This process is time-consuming and resource-consuming. If you want to configure the verification schedule, select the **+** sign.
+7. Verification ensures the created snapshot is usable. The verification process is extensive, including creating clones of all Nutanix database volumes, mounting the database to the primary host, and verifying its recoverability. This process is time-consuming and resource-consuming. If you want to configure the verification schedule, select the **+** sign.
 
     >[!NOTE]
     >The verification process occupies resources on the host for a significant amount of time. We recommended that if you add verification, do so on a host in the secondary location if available.
     
     The following screenshot shows verification of a new resource group that did not have replication enabled and snapshots replicated when it was created. 
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/new-resource-group-verification-schedules.png" alt-text="Screenshot showing how to configure the verification schedule for the resource group.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/new-resource-group-verification-schedules.png" alt-text="Screenshot showing how to configure the verification schedule for the resource group.":::
 
     If replication is enabled and a host in the disaster recovery location will be used for verification, then skip to step 2 in the following subsection. That step allows you to load secondary locators to verify backups on the secondary location.
 
@@ -225,7 +225,7 @@ Once a policy has been created, it then needs to be associated with a resource i
 
 1. Select either **Run verification after backup** or **Run scheduled verification** and select a pre-scheduled frequency in the drop-down. If DR is enabled, you can select **Verify on secondary storage location** to execute frequency in the DR location reducing resource strain on production. Select **OK**.
 
-    :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/new-resource-group-add-verification-schedules.png" alt-text="Screenshot showing how to add a verification schedule.":::
+    :::image type="content" source="media/netapp-snapcenter-integration-nutanix-baremetal/new-resource-group-add-verification-schedules.png" alt-text="Screenshot showing how to add a verification schedule.":::
 
     If verification isn't required or is already setup locally, then skip to SMTP setup (step 5) below.
 
@@ -263,7 +263,7 @@ To assign protection policies to your archive log resource group, follow the sam
 
 ## Next steps
 
-Learn how to create an on-demand backup of your Oracle Database in SnapCenter:
+Learn how to create an on-demand backup of your Nutanix Database in SnapCenter:
 
 > [!div class="nextstepaction"]
-> [Create on-demand backup in SnapCenter](create-on-demand-backup-oracle-baremetal.md)
+> [Create on-demand backup in SnapCenter](create-on-demand-backup-nutanix-baremetal.md)

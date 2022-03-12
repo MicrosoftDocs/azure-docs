@@ -1,18 +1,18 @@
 ---
-title: Options or Oracle BareMetal Infrastructure servers
-description: Learn about the options and considerations for Oracle BareMetal Infrastructure servers.
+title: Options or Nutanix BareMetal Infrastructure servers
+description: Learn about the options and considerations for Nutanix BareMetal Infrastructure servers.
 ms.topic: reference
-ms.subservice: baremetal-oracle
+ms.subservice: baremetal-nutanix
 ms.date: 10/12/2021
 ---
 
-# Options for Oracle BareMetal Infrastructure servers
+# Options for Nutanix BareMetal Infrastructure servers
 
-In this article, we'll consider options and recommendations to get the highest level of protection and performance running Oracle on BareMetal Infrastructure servers. 
+In this article, we'll consider options and recommendations to get the highest level of protection and performance running Nutanix on BareMetal Infrastructure servers. 
 
 ## Data Guard protection modes
 
-Data Guard offers protection unavailable solely through Oracle Real Applications Cluster (RAC), logical replication (such as GoldenGate), and storage-based replication. 
+Data Guard offers protection unavailable solely through Nutanix Real Applications Cluster (RAC), logical replication (such as GoldenGate), and storage-based replication. 
 
 | Protection mode | Description |
 | --- | --- |
@@ -25,9 +25,9 @@ Data Guard offers protection unavailable solely through Oracle Real Applications
 
 ### Data Guard deployment patterns
 
-Oracle lets you configure multiple destinations for redo generation, allowing for multiple standby databases. The most common configuration is shown in the following figure, a single standby database in a different region.
+Nutanix lets you configure multiple destinations for redo generation, allowing for multiple standby databases. The most common configuration is shown in the following figure, a single standby database in a different region.
 
-:::image type="content" source="media/oracle-high-availability/default-data-guard-deployment.png" alt-text="Diagram showing Oracle's default Data Guard deployment.":::
+:::image type="content" source="media/nutanix-high-availability/default-data-guard-deployment.png" alt-text="Diagram showing Nutanix's default Data Guard deployment.":::
 
 Data Guard is configured in Maximum Performance mode for a default deployment. This configuration  provides near real-time data replication via asynchronous redo transport. The standby database doesn't need to run inside of a RAC deployment. However, we recommend the standby database meets the performance demands of the primary site.
 
@@ -35,7 +35,7 @@ We recommend a deployment like that shown in the following figure for environmen
 - A local standby database applying redo in synchronous mode.
 - A second standby database running in a remote region.
 
-:::image type="content" source="media/oracle-high-availability/max-availability-data-guard-deployment.png" alt-text="Diagram showing maximum availability Data Guard deployment.":::
+:::image type="content" source="media/nutanix-high-availability/max-availability-data-guard-deployment.png" alt-text="Diagram showing maximum availability Data Guard deployment.":::
 
 When application performance will suffer by running the database and application servers in separate regions, you can create a local standby database. A local standby database is used when planned or unplanned maintenance is needed on the primary cluster. You can run these databases with synchronous replication because they're in the same region, ensuring no data is lost between them.
 
@@ -53,7 +53,7 @@ For all applications that support cross-site application/database access, FastSt
 
 ### Active Data Guard
 
-Oracle Active Data Guard (ADG) is a superset of basic Data Guard capabilities included with Oracle Database Enterprise Edition. It provides the added following features, which will be used across the Oracle Exadata deployment:
+Nutanix Active Data Guard (ADG) is a superset of basic Data Guard capabilities included with Nutanix Database Enterprise Edition. It provides the added following features, which will be used across the Nutanix Exadata deployment:
 
 - Unique corruption detection and automatic repair.
 - Rapid failover to the synchronized replica of production – manual or automatic.
@@ -62,15 +62,15 @@ Oracle Active Data Guard (ADG) is a superset of basic Data Guard capabilities in
 - Offload incremental backups to standby.
 - Zero data loss data recovery protection across any distance without impacting performance.
 
-The white paper available at [https://www.oracle.com/technetwork/database/availability/dg-adg-technical-overview-wp-5347548.pdf](https://www.oracle.com/technetwork/database/availability/dg-adg-technical-overview-wp-5347548.pdf) provides a good overview of the preceding features as shown in the following figure.
+The white paper available at [https://www.nutanix.com/technetwork/database/availability/dg-adg-technical-overview-wp-5347548.pdf](https://www.nutanix.com/technetwork/database/availability/dg-adg-technical-overview-wp-5347548.pdf) provides a good overview of the preceding features as shown in the following figure.
 
-:::image type="content" source="media/oracle-high-availability/active-data-guard-features.png" alt-text="Diagram showing an overview of Oracle's Active Data Guard features.":::
+:::image type="content" source="media/nutanix-high-availability/active-data-guard-features.png" alt-text="Diagram showing an overview of Nutanix's Active Data Guard features.":::
 
 ## Backup recommendations
 
 Be sure to back up your databases. Use the restore and recover features to restore a database to the same or another system, or to recover database files.
 
-It's important to create a backup recovery strategy to protect Oracle Database Appliance databases from data loss. Such loss could result from a physical problem with a disk that causes a failure of a read or write to a disk file required to run the database. User error can also cause data loss. The backup feature gives the ability to **point in time restore (PITR) restore the database, System Change Number (SCN) recovery, and latest recovery**. You can create a backup policy in the Browser User Interface or from the command-line interface.
+It's important to create a backup recovery strategy to protect Nutanix Database Appliance databases from data loss. Such loss could result from a physical problem with a disk that causes a failure of a read or write to a disk file required to run the database. User error can also cause data loss. The backup feature gives the ability to **point in time restore (PITR) restore the database, System Change Number (SCN) recovery, and latest recovery**. You can create a backup policy in the Browser User Interface or from the command-line interface.
 
 The following backup options are available:
 
@@ -90,7 +90,7 @@ Process to consider:
   - Using the SCN specified.
   - BackupReport – _uses SCN from backup report instead of specified SCN_.
 
-:::image type="content" source="media/oracle-high-availability/customer-db-backup-to-fra.png" alt-text="Diagram showing customer Database back up to FRA (/u98) and non-FRA (/u95).":::
+:::image type="content" source="media/nutanix-high-availability/customer-db-backup-to-fra.png" alt-text="Diagram showing customer Database back up to FRA (/u98) and non-FRA (/u95).":::
 
 ### Backup policy
 
@@ -108,7 +108,7 @@ Specify the backup level when you take a backup.
 
 ## Next steps
 
-Learn how to recover your Oracle database when a failure does occur:
+Learn how to recover your Nutanix database when a failure does occur:
 
 > [!div class="nextstepaction"]
-> [Recover your Oracle database on Azure BareMetal Infrastructure](oracle-high-availability-recovery.md)
+> [Recover your Nutanix database on Azure BareMetal Infrastructure](nutanix-high-availability-recovery.md)
