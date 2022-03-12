@@ -59,4 +59,8 @@ You can use either the Azure portal or the CLI to create a Media Services accoun
 
 [!INCLUDE [Create a Media Services account with CLI](./includes/task-create-media-services-account-cli.md)]
 
+## [REST](#tab/rest/)
+
+See the Media Services [REST API](/rest/api/media/mediaservices/create-or-update).
+
 ---
