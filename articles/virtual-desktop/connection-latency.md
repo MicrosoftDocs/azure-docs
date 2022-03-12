@@ -3,7 +3,7 @@ title: Azure Virtual Desktop user connection latency - Azure
 description: Connection latency for Azure Virtual Desktop users.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/07/2022
+ms.date: 03/14/2022
 ms.author: helohr
 manager: femila
 ---
@@ -94,6 +94,8 @@ WVDConnections
 | distinct CorrelationId, SessionHostName, Protocol, ClientOS, ClientType, ClientVersion, ConnectionType, ResourceAlias, SessionHostSxSStackVersion, UserName
 ) on CorrelationId
 | project CorrelationId, StartTime, EndTime, UserName, SessionHostName, RTTP90, BWP90, Protocol, ClientOS, ClientType, ClientVersion, ConnectionType, ResourceAlias, SessionHostSxSStackVersion
+```
+
 ### Query data for a specific user
 
 To look up the bandwidth for a specific user:
