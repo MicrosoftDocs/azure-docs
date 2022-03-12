@@ -95,3 +95,4 @@ For more information about app registration and authentication flow, see:
 
 - [Register an application with the Microsoft identity platform](quickstart-register-app.md)
 - [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
+- This article was originally contributed by Umesh Barapatre
