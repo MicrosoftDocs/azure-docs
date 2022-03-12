@@ -1,13 +1,12 @@
 ---
 title: Monitor usage and estimated costs in Azure Monitor
 description: Get an overview of the process of using the page for Azure Monitor usage and estimated costs.
-author: dalekoetke
 services: azure-monitor
-
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.author: lagayhar
+author: bwren
+ms.author: bwren
 ms.reviewer: Dale.Koetke
+ms.date: 03/11/2022
 ---
 # Monitor usage and estimated costs in Azure Monitor
 
@@ -20,13 +19,13 @@ The basic Azure Monitor billing model is a cloud-friendly, consumption-based pri
 | Type | Description |
 |:---|:---|
 | Logs | Ingestion, retention, and export of data in Log Analytics workspace. There are also costs for retrieving data from tables Configured for [Basic Logs](logs/basic-logs-configure.md) or [Archived Logs](logs/data-retention-archive.md). This will typically be the bulk of Azure Monitor charges for most customers. |
-| Platform Logs | [Diagnostic and auditing information](essentials/resource-logs.md) charged for [certain services](../essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. |
+| Platform Logs | [Diagnostic and auditing information](essentials/resource-logs.md) charged for [certain services](essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. |
 | Metrics | There is no charge for [standard metrics](essentials/metrics-supported.md) collected from Azure resources. There is a cost for cost for collecting [custom metrics](essentials/metrics-custom-overview.md) and for retrieving metrics from the [REST API](essentials/rest-api-walkthrough.md#retrieve-metric-values). |
 | Alerts | Charged based on the type and number of of signals used by the alert rule, its frequency, and the type of notification used in response.  |
 
 
 > [!NOTE]
-> There is a cost for [multi-step web tests](../app/availability-multistep.md), but these have been deprecated.
+> There is a cost for [multi-step web tests](app/availability-multistep.md), but these have been deprecated.
 
 
 
@@ -44,20 +43,20 @@ These applications span the range of Application Insights configurations. For ex
 
 
 1. **Monitoring VMs:** with typical monitoring enabled, 1 GB to 3 GB of data month is ingested per monitored VM. 
-2. **Monitoring Azure Kubernetes Service (AKS) clusters:** details on expected data volumes for monitoring a typical AKS cluster are available [here](../containers/container-insights-cost.md#estimating-costs-to-monitor-your-aks-cluster). Follow these [best practices](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) to control your AKS cluster monitoring costs. 
+2. **Monitoring Azure Kubernetes Service (AKS) clusters:** details on expected data volumes for monitoring a typical AKS cluster are available [here](containers/container-insights-cost.md#estimating-costs-to-monitor-your-aks-cluster). Follow these [best practices](containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) to control your AKS cluster monitoring costs. 
 3. **Application monitoring:** the Azure Monitor pricing calculator includes a data volume estimator using on your application's usage and based on a statistical analysis of  Application Insights data volumes. In the Application Insights section of the pricing calculator, toggle the switch next to "Estimate data volume based on application activity" to use this. 
 
 
 
 ## Viewing Azure Monitor Logs usage on your Azure bill
-The easiest way to view your billed usage for a particular Log Analytics workspace is to go to the **Overview** page of the workspace and click **View Cost** in the upper right corner of the **Essentials** section at the top of the page. This will launch the Cost Analysis from Azure Cost Management + Billing already scoped to this workspace.  You might need additional access to Cost Management data ([learn more](../../cost-management-billing/costs/assign-access-acm-data.md))
+The easiest way to view your billed usage for a particular Log Analytics workspace is to go to the **Overview** page of the workspace and click **View Cost** in the upper right corner of the **Essentials** section at the top of the page. This will launch the Cost Analysis from Azure Cost Management + Billing already scoped to this workspace.  You might need additional access to Cost Management data ([learn more](../cost-management-billing/costs/assign-access-acm-data.md))
 
 :::image type="content" source="media/view-bill/view-cost-option.png" lightbox="media/view-bill/view-cost-option.png" alt-text="Screenshot of option to view cost for Log ANalytics workspace.":::
 
-Alternatively, you can start in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) hub. here you can use the **Cost analysis** functionality to view your Azure resource expenses. Add a filter by **Resource type** using *microsoft.operationalinsights/workspace* for a Log Analytics workspace or *microsoft.operationalinsights/cluster* for dedicated clusters. For **Group by**, select **Meter category** or **Meter**. Other services, like Microsoft Defender for Cloud and Microsoft Sentinel, also bill their usage against Log Analytics workspace resources. To see the mapping to the service name, you can select the Table view instead of a chart.
+Alternatively, you can start in the [Azure Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) hub. here you can use the **Cost analysis** functionality to view your Azure resource expenses. Add a filter by **Resource type** using *microsoft.operationalinsights/workspace* for a Log Analytics workspace or *microsoft.operationalinsights/cluster* for dedicated clusters. For **Group by**, select **Meter category** or **Meter**. Other services, like Microsoft Defender for Cloud and Microsoft Sentinel, also bill their usage against Log Analytics workspace resources. To see the mapping to the service name, you can select the Table view instead of a chart.
 
 ## Download usage
-To gain more understanding of your usage, you can [download your usage from the Azure portal](../../cost-management-billing/understand/download-azure-daily-usage.md). For step-by-step instructions, review this [tutorial](../../cost-management-billing/costs/tutorial-export-acm-data.md). In the downloaded spreadsheet, you can see usage per Azure resource (for example, Log Analytics workspace) per day. In this Excel spreadsheet, usage from your Log Analytics workspaces can be found by first filtering on the **Meter Category** column to show **Log Analytics**, **Insight and Analytics** (used by some of the legacy pricing tiers), and **Azure Monitor** (used by commitment tier pricing tiers). Then add a filter on the **Instance ID** column of *contains workspace* or *contains cluster* (the latter to include Log Analytics Cluster usage). The usage is shown in the **Consumed Quantity** column and the unit for each entry in the *Unit of Measure* column. For more information, see [Review your individual Azure subscription bill](../../cost-management-billing/understand/review-individual-bill.md). 
+To gain more understanding of your usage, you can [download your usage from the Azure portal](../cost-management-billing/understand/download-azure-daily-usage.md). For step-by-step instructions, review this [tutorial](../cost-management-billing/costs/tutorial-export-acm-data.md). In the downloaded spreadsheet, you can see usage per Azure resource (for example, Log Analytics workspace) per day. In this Excel spreadsheet, usage from your Log Analytics workspaces can be found by first filtering on the **Meter Category** column to show **Log Analytics**, **Insight and Analytics** (used by some of the legacy pricing tiers), and **Azure Monitor** (used by commitment tier pricing tiers). Then add a filter on the **Instance ID** column of *contains workspace* or *contains cluster* (the latter to include Log Analytics Cluster usage). The usage is shown in the **Consumed Quantity** column and the unit for each entry in the *Unit of Measure* column. For more information, see [Review your individual Azure subscription bill](../cost-management-billing/understand/review-individual-bill.md). 
 
 
 

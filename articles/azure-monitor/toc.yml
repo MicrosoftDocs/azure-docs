@@ -157,20 +157,16 @@ items:
     href: essentials/data-collection-rule-overview.md
   - name: Usage and cost
     items:
-    - name: Usage and estimated costs
+    - name: Azure Monitor costs
       href: usage-estimated-costs.md
-    - name: Application Insights usage and costs
-      href: app/pricing.md
-    - name: Pricing model
+    - name: Logs costs
       href: logs/cost-pricing-model.md
-    - name: View bill
-      href: logs/cost-view-bill.md
+    - name: Application Insights costs
+      href: app/pricing.md
     - name: Daily cap
       href: logs/cost-daily-cap.md
     - name: Analyze usage
       href: logs/cost-analyze-usage.md    
-    - name: Estimate costs
-      href: logs/cost-estimate.md    
   - name: Data security
     items:
     - name: Roles permissions and security
@@ -219,20 +215,20 @@ items:
     displayName: firewall, firewall exceptions, whitelist
 - name: How-to guides
   items:
-  - name: Scenarios
+  - name: Azure Monitor best practices
     items:
-    - name: Azure Monitor best practices
-      items:
-      - name: Overview
-        href: best-practices.md
-      - name: Planning
-        href: best-practices-plan.md
-      - name: Configure data collection
-        href: best-practices-data-collection.md
-      - name: Analysis and visualizations
-        href: best-practices-analysis.md
-      - name: Alerts and automated actions
-        href: best-practices-alerts.md
+    - name: Overview
+      href: best-practices.md
+    - name: Planning
+      href: best-practices-plan.md
+    - name: Configure data collection
+      href: best-practices-data-collection.md
+    - name: Optimize costs
+      href: best-practices-cost.md
+    - name: Analysis and visualizations
+      href: best-practices-analysis.md
+    - name: Alerts and automated actions
+      href: best-practices-alerts.md
     - name: Monitor virtual machines
       items:
       - name: Overview
@@ -287,6 +283,8 @@ items:
           href: logs/powershell-workspace-configuration.md
         - name: Resource Manager template
           href: logs/resource-manager-workspace.md
+      - name: Change pricing tier
+        href: 
       - name: Monitor a workspace
         href: logs/monitor-workspace.md
       - name: Delete and recover a workspace

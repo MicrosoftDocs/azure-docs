@@ -30,9 +30,9 @@ The configuration change will vary depending on the data source. The following t
 
 | Source | Strategy | Log Analytics agent | Azure Monitor agent |
 |:---|:---|:---|:---|
-| Event logs | - Reduce the number of event logs collected. <br> - Collect only required event levels. For example, do not collect *Information* level events. | Change the [event log configuration for the workspace](../agents/data-sources-windows-events.md) | Change the [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific event IDs. |
-| Syslog | - Reduce the number of facilities collected. <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events. | Change the [syslog configuration for the workspace](../agents/data-sources-syslog.md). |  Change the [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific events. |
-| Performance counters | - Reduce the frequency of collection. <br> - Reduce the number of performance counters. | Change the [performance counter configuration for the workspace](../agents/data-sources-performance-counters.md). | Change the [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific counters. |
+| Event logs | - Reduce the number of event logs collected. <br> - Collect only required event levels. For example, do not collect *Information* level events. | Change the [event log configuration for the workspace](agents/data-sources-windows-events.md) | Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific event IDs. |
+| Syslog | - Reduce the number of facilities collected. <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events. | Change the [syslog configuration for the workspace](agents/data-sources-syslog.md). |  Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific events. |
+| Performance counters | - Reduce the frequency of collection. <br> - Reduce the number of performance counters. | Change the [performance counter configuration for the workspace](agents/data-sources-performance-counters.md). | Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific counters. |
 
 
 
@@ -40,17 +40,17 @@ The configuration change will vary depending on the data source. The following t
 
 | Source | Strategy |
 |:---|:---|
-| Resource logs | Change the [diagnostic settings](../essentials/diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources that send logs to Log Analytics. <br> - Collect only required logs.<br> - Use [ingesting-time transformations](logs/ingestion-time-transformations.md) on the workspace to filter log data that isn't required. |
-| Application Insights | Review options for [managing Application Insights data volume](../app/pricing.md#managing-your-data-volume). |
-| Container insights | See [Controlling ingestion to reduce cost](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) for guidance on reducing the amount of data sent from Container insights. |
-| [SQL Analytics](../insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings.
+| Resource logs | Change the [diagnostic settings](essentials//diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources that send logs to Log Analytics. <br> - Collect only required logs.<br> - Use [ingesting-time transformations](logs/ingestion-time-transformations.md) on the workspace to filter log data that isn't required. |
+| Application Insights | Review options for [managing Application Insights data volume](app/pricing.md#managing-your-data-volume). |
+| Container insights | See [Controlling ingestion to reduce cost](..containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) for guidance on reducing the amount of data sent from Container insights. |
+| [SQL Analytics](insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings.
 
 #### Other Azure services
 
 | Source | Strategy |
 |:---|:---|
-| Defender for Cloud | Select [common or minimal security events](../../security-center/security-center-enable-data-collection.md#data-collection-tier). |
-| Microsoft Sentinel | Review any [Sentinel data sources](../../sentinel/connect-data-sources.md) that you recently enabled as sources of additional data volume. See [Reduce costs for Microsoft Sentinel](../../sentinel/billing-reduce-costs.md) for other strategies to reduce Sentinel costs. |
+| Defender for Cloud | Select [common or minimal security events](../security-center/security-center-enable-data-collection.md#data-collection-tier). |
+| Microsoft Sentinel | Review any [Sentinel data sources](sentinel//connect-data-sources.md) that you recently enabled as sources of additional data volume. See [Reduce costs for Microsoft Sentinel](sentinel//billing-reduce-costs.md) for other strategies to reduce Sentinel costs. |
 
 
 
@@ -78,9 +78,10 @@ See the following table for methods to apply transformations to different workfl
 | Source | Target | Description | Filtering method |
 |:---|:---|:---|:---|
 | AMA | Built-in tables | Collect data from standard sources such as Windows events, syslog, and performance data and send to built-in tables in Log Analytics workspace. | Use XPath in DCR to collect specific data from client machine. Ingestion-time transformations in agent DCR are not yet supported. |
-| MMA | Built-in tables | Collect data from standard sources such as Windows events, syslog, and performance data and send to built-in tables in Log Analytics workspace. |Configure data collection on the workspace. Optionally, create ingestion-time transformation in the workspace DCR to filter records and columns. |
-| AMA | Custom tables | Collecting data outside of standard data sources is not yet supported. |
-| MMA | Custom tables | Configure [custom logs](agents/data-sources-custom-logs.md) on the workspace to collect file based text logs. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. You must first migrate the custom table to the new custom logs API. | Data Collector API | Custom tables | Use [Data Collector API](logs/data-collector-api.md) to send data to custom tables in the workspace using REST API. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. You must first migrate the custom table to the new custom logs API. |
+| MMA | Built-in tables | Collect data from standard sources such as Windows events, syslog, and performance data and send to built-in tables in Log Analytics workspace. | Configure data collection on the workspace. Optionally, create ingestion-time transformation in the workspace DCR to filter records and columns. |
+| AMA | Custom tables | Collecting data outside of standard data sources is not yet supported. | |
+| MMA | Custom tables | Configure [custom logs](agents/data-sources-custom-logs.md) on the workspace to collect file based text logs. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. You must first migrate the custom table to the new custom logs API. |
+| Data Collector API | Custom tables | Use [Data Collector API](logs/data-collector-api.md) to send data to custom tables in the workspace using REST API. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. You must first migrate the custom table to the new custom logs API. |
 | Custom Logs API | Custom tables<br>Built-in tables | Use [Custom Logs API](logs/custom-logs-overview.md) to send data to custom tables in the workspace using REST API. | Configure ingestion-time transformation in the DCR for the custom log. |
 | Other data sources | Built-in tables | Includes resource logs from diagnostic settings and other Azure Monitor features such as Application insights, Container insights and VM insights. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. |
 
