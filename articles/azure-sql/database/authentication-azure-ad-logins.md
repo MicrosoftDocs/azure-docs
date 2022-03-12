@@ -19,8 +19,8 @@ ms.date: 03/14/2022
 
 You can now create and utilize Azure AD server principals, which are logins in the virutal master database of a SQL Database. There are several benefits of using Azure AD server principals for SQL Database:
 
-- Support multiple Azure AD login accounts with [special roles for SQL Database](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse), such as the `loginmanager` and `dbmanager` roles.
 - Support [Azure SQL Database server roles for permission management](security-server-roles.md).
+- Support multiple Azure AD users with [special roles for SQL Database](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse), such as the `loginmanager` and `dbmanager` roles.
 - Functional parity between SQL logins and Azure AD logins.
 - Increase functional improvement support, such as utilizing [Azure AD-only authentication](authentication-azure-ad-only-authentication.md). Azure AD-only authentication allows SQL authentication to be disabled, which includes the SQL server admin, SQL logins and users.
 - Allows Azure AD principals to support geo-replicas. Azure AD principals will be able to connect to the geo-replica of a user database, with a *read-only* permission and *deny* permission to the primary server.

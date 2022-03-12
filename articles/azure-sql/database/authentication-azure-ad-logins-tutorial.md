@@ -100,11 +100,49 @@ In this tutorial, you learn how to:
 >
 > For example, `CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER`.
 
-## Grant roles to the Azure AD login
+## Grant server-level roles to Azure AD logins
 
-[Special roles for SQL Database](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) can be assigned to logins in the virtual master database.
+You can add logins to the [built-in server-level roles](security-server-roles.md#built-in-server-level-roles), such as the **##MS_DefinitionReader##**, **##MS_ServerStateReader##**, or **##MS_ServerStateManager##** role.
 
-In order to grant one of the special database roles, an Azure AD user with a login must be created in the virtual master database. 
+> [!NOTE]
+> The server-level roles mentioned here are not supported for Azure AD groups.
+
+```sql
+ALTER SERVER ROLE ##MS_DefinitionReader## ADD MEMBER [AzureAD_object];
+```
+
+```sql
+ALTER SERVER ROLE ##MS_ServerStateReader## ADD MEMBER [AzureAD_object];
+```
+
+```sql
+ALTER SERVER ROLE ##MS_ServerStateManager## ADD MEMBER [AzureAD_object];
+```
+
+Permissions aren't effective until the user reconnects. Flush the DBCC cache as well:
+
+```sql
+DBCC FLUSHAUTHCACHE
+DBCC FREESYSTEMCACHE('TokenAndPermUserStore') WITH NO_INFOMSGS 
+```
+
+To check which Azure AD logins are part of server-level roles, run the following query:
+
+```sql
+SELECT roles.principal_id AS RolePID,roles.name AS RolePName,
+       server_role_members.member_principal_id AS MemberPID, members.name AS MemberPName
+       FROM sys.server_role_members AS server_role_members
+       INNER JOIN sys.server_principals AS roles
+       ON server_role_members.role_principal_id = roles.principal_id
+       INNER JOIN sys.server_principals AS members 
+       ON server_role_members.member_principal_id = members.principal_id;
+```
+
+## Grant special roles for Azure AD users
+
+[Special roles for SQL Database](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) can be assigned to users in the virtual master database.
+
+In order to grant one of the special database roles to a user, the user must exist in the virtual master database. 
 
 To add a user to a role, you can run the following query:
 
@@ -149,44 +187,6 @@ In our example, we created the user `bob@contoso.com`. Let's give the user the *
    dbmanager              bob@contoso.com
    loginmanager	       bob@contoso.com
    ```
-
-### Server-level roles
-
-You can also choose to give the user additional [built-in server-level roles](security-server-roles.md#built-in-server-level-roles), such as the **##MS_DefinitionReader##**, **##MS_ServerStateReader##**, or **##MS_ServerStateManager##** role.
-
-> [!NOTE]
-> The server-level roles mentioned here are not supported for Azure AD groups.
-
-```sql
-ALTER SERVER ROLE ##MS_DefinitionReader## ADD MEMBER [AzureAD_object];
-```
-
-```sql
-ALTER SERVER ROLE ##MS_ServerStateReader## ADD MEMBER [AzureAD_object];
-```
-
-```sql
-ALTER SERVER ROLE ##MS_ServerStateManager## ADD MEMBER [AzureAD_object];
-```
-
-Permissions aren't effective until the user reconnects. Flush the DBCC cache as well:
-
-```sql
-DBCC FLUSHAUTHCACHE
-DBCC FREESYSTEMCACHE('TokenAndPermUserStore') WITH NO_INFOMSGS 
-```
-
-To check which Azure AD logins are part of server-level roles, run the following query:
-
-```sql
-SELECT roles.principal_id AS RolePID,roles.name AS RolePName,
-       server_role_members.member_principal_id AS MemberPID, members.name AS MemberPName
-       FROM sys.server_role_members AS server_role_members
-       INNER JOIN sys.server_principals AS roles
-       ON server_role_members.role_principal_id = roles.principal_id
-       INNER JOIN sys.server_principals AS members 
-       ON server_role_members.member_principal_id = members.principal_id;
-```
 
 ## Optional - Disable a login
 
