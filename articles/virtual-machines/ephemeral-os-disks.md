@@ -60,12 +60,12 @@ Ephemeral disks also require that the VM size supports **Premium storage**. The 
 
  ## Preview - Trusted Launch for Ephemeral OS disks
 Ephemeral OS disks can now be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [here](trusted-launch.md) for supported sizes and regions.
-VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
+VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
-For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) you would get an error as "OS disk of Ephemeral VM with size greater than 55 GB is not allowed for VM size Standard_DS4_v2 when the DiffDiskPlacement is ResourceDisk."
+For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) usign temp disk placement you would get an error as 
+**"OS disk of Ephemeral VM with size greater than 55 GB is not allowed for VM size Standard_DS4_v2 when the DiffDiskPlacement is ResourceDisk."**
 This is because the temp storage for [Standard_DS4_v2](dv2-dsv2-series.md) is 56 GiB, and 1 GiB is reserved for VMGS when using trusted launch.
 For the same example above if you create a standard Ephemeral OS disk VM you would not get any errors and it would be a successful operation.
-
 
 ## Ephemeral OS Disks can now be stored on temp/Resource disks
 Ephemeral OS disk can now be stored either in VM cache disk or VM temp/resource disk. 
@@ -205,6 +205,15 @@ For scale set deployments, use the [Set-AzVmssStorageProfile](/powershell/module
 ```PowerShell
 Set-AzVmssStorageProfile -DiffDiskSetting Local -DiffDiskPlacement ResourceDisk -OsDiskCaching ReadOnly
 ```
+
+## Unsupported features 
+- Capturing VM images
+- Disk snapshots 
+- Azure Disk Encryption 
+- Azure Backup
+- Azure Site Recovery  
+- OS Disk Swap 
+
 ## Frequently asked questions
 
 **Q: What is the size of the local OS Disks?**
@@ -263,16 +272,6 @@ A: No, you can't have a mix of ephemeral and persistent OS disk instances within
 **Q: Can the ephemeral OS disk be created using PowerShell or CLI?**
 
 A: Yes, you can create VMs with Ephemeral OS Disk using REST, Templates, PowerShell, and CLI.
-
-**Q: What features are not supported with ephemeral OS disk?**
-
-A: Ephemeral disks do not support:
-- Capturing VM images
-- Disk snapshots 
-- Azure Disk Encryption 
-- Azure Backup
-- Azure Site Recovery  
-- OS Disk Swap 
 
 > [!NOTE]
 > 
