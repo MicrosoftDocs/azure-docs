@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
-ms.date: 03/09/2022
+ms.date: 03/11/2022
 
 # Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---
@@ -30,11 +30,11 @@ Azure Machine Learning datasets with labels are referred to as labeled datasets.
 
 ## Export data labels 
 
-When you complete a data labeling project, you can [export the label data from a labeling project] (how-to-create-image-labeling-projects.md#export-the-labels). Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. 
+When you complete a data labeling project, you can [export the label data from a labeling project](how-to-create-image-labeling-projects.md#export-the-labels). Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. 
 
 Use the **Export** button on the **Project details** page of your labeling project.
 
-![Export button in studio UI](./media/how-to-create-labeling-projects/exported-dataset.png)
+![Export button in studio UI](./media/how-to-use-labeled-dataset/export-button.png)
 
 ### COCO 
 
