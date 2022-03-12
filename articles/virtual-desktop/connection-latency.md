@@ -18,7 +18,7 @@ There are currently two ways you can analyze connection quality in your Azure Vi
 >[!NOTE]
 > Azure Log Analytics currently only supports Azure Virtual Desktop connection network data in commercial clouds.
 
-If you're already using [Azure Log Analytics](diagnostics-log-analytics.md), you can monitor network data with the connection network data diagnostics. The data Log Analytics collects can help you discover areas that impact your end-user's graphical experience. The service collects data for reports regularly throughout the session. Log Analytics reports have the following advantages over RemoteFX network performance counters:
+If you're already using [Azure Log Analytics](diagnostics-log-analytics.md), you can monitor network data with the Azure Virtual Desktop connection network data diagnostics. The connection network data Log Analytics collects can help you discover areas that impact your end-user's graphical experience. The service collects data for reports regularly throughout the session. Azure Virtual Desktop connection network data reports have the following advantages over RemoteFX network performance counters:
 
 - Each record is connection-specific and includes the correlation ID of the connection that can be tied back to the user.
 
@@ -54,10 +54,7 @@ The network data you collect for your data tables includes the following informa
 
 - The **Correlation ID**, which is the activity ID of a specific Azure Virtual Desktop connection that's assigned to every diagnostic within that connection.
 
-
-
 - The **time generated**, which is a timestamp in UTC time that marks when an event the data counter is tracking happened on the virtual machine (VM). All averages are measured by the time window that ends that the marked timestamp.
-
 
 - The **Resource ID**, which is a unique ID assigned to the Azure Virtual Desktop host pool associated with the data the diagnostics service collects for this table.
 
@@ -84,7 +81,19 @@ WVDConnectionNetworkData
 | summarize BWP90=percentile(EstAvailableBandwidthKBps,90),BWP50=percentile(EstAvailableBandwidthKBps,50),BWP10=percentile(EstAvailableBandwidthKBps,10) by bin(TimeGenerated,10m)
 | render timechart
 ```
+To look up the round-trip time and bandwidth per connection:
 
+```kusto
+// RTT and BW Per Connection Summary
+// Returns P90 Round Trip Time (ms) and Bandwidth (KBps) per connection with connection details.
+WVDConnectionNetworkData
+| summarize RTTP90=percentile(EstRoundTripTimeInMs,90),BWP90=percentile(EstAvailableBandwidthKBps,90),StartTime=min(TimeGenerated), EndTime=max(TimeGenerated) by CorrelationId
+| join kind=leftouter (
+WVDConnections
+| extend Protocol = iff(UdpUse in ("0","<>"),"TCP","UDP")
+| distinct CorrelationId, SessionHostName, Protocol, ClientOS, ClientType, ClientVersion, ConnectionType, ResourceAlias, SessionHostSxSStackVersion, UserName
+) on CorrelationId
+| project CorrelationId, StartTime, EndTime, UserName, SessionHostName, RTTP90, BWP90, Protocol, ClientOS, ClientType, ClientVersion, ConnectionType, ResourceAlias, SessionHostSxSStackVersion
 ### Query data for a specific user
 
 To look up the bandwidth for a specific user:
