@@ -28,7 +28,7 @@ Use the following methods to delete a job.
 
 [!INCLUDE [task-delete-job-rest.md](includes/task-delete-job-rest.md)]
 
-## [REST](#tab/rest/)
+## [Python](#tab/python/)
 
 [!INCLUDE [task-delete-job-python.md](includes/task-delete-job-python.md)]
 

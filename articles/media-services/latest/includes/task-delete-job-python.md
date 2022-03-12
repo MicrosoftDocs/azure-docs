@@ -8,4 +8,4 @@ ms.author: inhenkel
 
 ### Delete a job with Python
 
-:::code language="python" source="~/media-services-v3-python/all/jobs.py" id="DeleteJob":::
+:::code language="python" source="~/media-services-v3-python/all/jobs.py" id="JobDelete":::

@@ -8,4 +8,4 @@ ms.author: inhenkel
 
 ### Cancel a job with Python
 
-:::code language="python" source="~/media-services-v3-python/all/jobs.py" id="CancelJob":::
+:::code language="python" source="~/media-services-v3-python/all/jobs.py" id="JobCancel":::
