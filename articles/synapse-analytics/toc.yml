@@ -778,6 +778,8 @@ items:
           href: ./synapse-link/how-to-query-analytical-store-spark.md
         - name: Azure Data Explorer (Kusto)
           href: ./spark/data-sources/apache-spark-kusto-connector.md
+        - name: Azure Spark CDM Connector
+          href: ./spark/data-sources/apache-spark-cdm-connector.md
         - name: Azure SQL Dedicated
           href: ./spark/synapse-spark-sql-pool-import-export.md
         - name: Azure SQL and SQL Server 

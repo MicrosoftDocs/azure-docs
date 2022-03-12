@@ -155,7 +155,7 @@ landingContent:
             url: howto-migrate-online.md
           - text: Azure Data migration guide
             url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
-          - text: Troubleshoot common errors
+          - text: Troubleshoot migration errors
             url: howto-troubleshoot-common-errors.md
 
 # Card 6

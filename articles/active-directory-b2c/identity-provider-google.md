@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 03/10/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -189,8 +189,10 @@ You can define a Google account as a claims provider by adding it to the **Claim
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
-::: zone-end
-
 ## Next steps
 
-Learn how to [pass a Google token to your application](idp-pass-through-user-flow.md).
+- Learn how to [pass Google token to your application](idp-pass-through-user-flow.md).
+- Check out the Google federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#google), and how to pass Google access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#google-with-access-token)
+
+
+::: zone-end
