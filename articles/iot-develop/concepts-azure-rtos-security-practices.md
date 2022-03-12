@@ -343,7 +343,7 @@ Use hardware-based X.509 certificates with TLS mutual authentication and a PKI w
 
 **Application**: Depending on requirements, the application might have to enforce X.509 policies. CRLs should be enforced to ensure revoked certificates are rejected.
 
-### Use strongest cryptographic options and cipher suites for TLS
+### Use the strongest cryptographic options and cipher suites for TLS
 
 Use the strongest cryptography and cipher suites available for TLS. You need the ability to update TLS and cryptography. Over time, certain cipher suites and TLS versions might become compromised or discontinued.
 
@@ -443,7 +443,7 @@ If you use other development tools, consult your documentation for appropriate o
 
 ### Make sure memory access alignment is correct
 
-Some MCU devices permit unaligned memory accesses, but others do not. Consider the properties of your specific device when you develop your application.
+Some MCU devices permit unaligned memory accesses, but others don't. Consider the properties of your specific device when you develop your application.
 
 **Hardware**: Memory access alignment behavior is specific to your selected device.
 
@@ -461,7 +461,7 @@ Connected IoT devices might not have the necessary resources to implement all se
 
 **Application**: The [Microsoft Defender for IOT micro-agent for Azure RTOS](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) provides a comprehensive security solution for Azure RTOS devices. The module provides security services via a small software agent that's built into your device's firmware and comes as part of Azure RTOS.
 
-The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations to help improve the security hygiene of your devices. Whether you're using Azure RTOS in combination with Azure Sphere or not, the Microsoft Defender for IoT micro-agent provides another  layer of security that's built into the RTOS by default.
+The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations to help improve the security hygiene of your devices. Whether you're using Azure RTOS in combination with Azure Sphere or not, the Microsoft Defender for IoT micro-agent provides another layer of security that's built into the RTOS by default.
 
 ## Azure RTOS IoT application security checklist
 
@@ -498,20 +498,20 @@ The following measures are meant as a complement to, not a replacement for, the 
 
 ### Security measures to avoid
 
-- Do not use the standard C-library `rand()` function because it doesn't provide cryptographic randomness. Consult your hardware documentation for a proper source of cryptographic entropy.
-- Do not hard-code private keys or credentials like certificates, passwords, or usernames in your application. To provide a higher level of security, update private keys regularly. The actual schedule depends on several factors. Also, hard-coded values might be readable in memory or even in transit over a network if the firmware image isn't encrypted. The actual mechanism for updating keys and certificates depends on your application and the PKI being used.
-- Do not use self-signed device certificates. Instead, use a proper PKI for device identification. Some exceptions might apply, but generally this rule is for most organizations and systems.
-- Do not use any TLS extensions that aren't needed. Azure RTOS TLS disables many features by default. Only enable features you need.
-- Do not try to implement "security by obscurity." It's *not secure*. The industry is plagued with examples where a developer tried to be clever by obscuring or hiding code or algorithms. Obscuring your code or secret information like keys or passwords might prevent some intruders, but it won't stop a dedicated attacker. Obscured code provides a false sense of security.
-- Do not leave unnecessary functionality enabled or unused network or hardware ports open. If your application doesn't need a feature, disable it. Don't fall into the trap of leaving a TCP port open just in case. The more functionality that's enabled, the higher the risk that an exploit will go undetected. The interaction between different features can introduce new vulnerabilities.
-- Do not leave debugging enabled in production code. If an attacker can plug in a JTAG debugger and dump the contents of RAM on your device, not much can be done to secure your application. Leaving a debugging port open is like leaving your front door open with your valuables lying in plain sight. Don't do it.
-- Do not allow buffer overflows in your application. Many remote attacks start with a buffer overflow that's used to probe the contents of memory or inject malicious code to be executed. The best defense is to write defensive code. Double-check any input that comes from, or is derived from, sources outside the device like the network stack, display or GUI interface, and external interrupts. Handle the error gracefully. Use compiler, linker, and runtime system tools to detect and mitigate overflow problems.
-- Do not put network packets on local thread stacks where an overflow can affect return addresses. This practice can lead to return-oriented programming vulnerabilities.
-- Do not put buffers in program stacks. Allocate them statically whenever possible.
-- Do not use dynamic memory and heap operations when possible. Heap overflows can be problematic because the layout of dynamically allocated memory, for example, from functions like `malloc()`, is difficult to predict. Static buffers can be more easily managed and protected.
-- Do not embed function pointers in data packets where overflow can overwrite function pointers.
-- Do not try to implement your own cryptography. Accepted cryptographic routines like elliptic curve cryptography (ECC) and AES were developed by experts in cryptography. These routines went through rigorous analysis over many years to prove their security. It's unlikely that any algorithm you develop on your own will have the security required to protect sensitive communications and data.
-- Do not implement roll-your-own cryptography schemes. Simply using AES doesn't mean your application is secure. Protocols like TLS use various methods to mitigate well-known attacks, for example:
+- Don't use the standard C-library `rand()` function because it doesn't provide cryptographic randomness. Consult your hardware documentation for a proper source of cryptographic entropy.
+- Don't hard-code private keys or credentials like certificates, passwords, or usernames in your application. To provide a higher level of security, update private keys regularly. The actual schedule depends on several factors. Also, hard-coded values might be readable in memory or even in transit over a network if the firmware image isn't encrypted. The actual mechanism for updating keys and certificates depends on your application and the PKI being used.
+- Don't use self-signed device certificates. Instead, use a proper PKI for device identification. Some exceptions might apply, but generally this rule is for most organizations and systems.
+- Don't use any TLS extensions that aren't needed. Azure RTOS TLS disables many features by default. Only enable features you need.
+- Don't try to implement "security by obscurity." It's *not secure*. The industry is plagued with examples where a developer tried to be clever by obscuring or hiding code or algorithms. Obscuring your code or secret information like keys or passwords might prevent some intruders, but it won't stop a dedicated attacker. Obscured code provides a false sense of security.
+- Don't leave unnecessary functionality enabled or unused network or hardware ports open. If your application doesn't need a feature, disable it. Don't fall into the trap of leaving a TCP port open just in case. The more functionality that's enabled, the higher the risk that an exploit will go undetected. The interaction between different features can introduce new vulnerabilities.
+- Don't leave debugging enabled in production code. If an attacker can plug in a JTAG debugger and dump the contents of RAM on your device, not much can be done to secure your application. Leaving a debugging port open is like leaving your front door open with your valuables lying in plain sight. Don't do it.
+- Don't allow buffer overflows in your application. Many remote attacks start with a buffer overflow that's used to probe the contents of memory or inject malicious code to be executed. The best defense is to write defensive code. Double-check any input that comes from, or is derived from, sources outside the device like the network stack, display or GUI interface, and external interrupts. Handle the error gracefully. Use compiler, linker, and runtime system tools to detect and mitigate overflow problems.
+- Don't put network packets on local thread stacks where an overflow can affect return addresses. This practice can lead to return-oriented programming vulnerabilities.
+- Don't put buffers in program stacks. Allocate them statically whenever possible.
+- Don't use dynamic memory and heap operations when possible. Heap overflows can be problematic because the layout of dynamically allocated memory, for example, from functions like `malloc()`, is difficult to predict. Static buffers can be more easily managed and protected.
+- Don't embed function pointers in data packets where overflow can overwrite function pointers.
+- Don't try to implement your own cryptography. Accepted cryptographic routines like elliptic curve cryptography (ECC) and AES were developed by experts in cryptography. These routines went through rigorous analysis over many years to prove their security. It's unlikely that any algorithm you develop on your own will have the security required to protect sensitive communications and data.
+- Don't implement roll-your-own cryptography schemes. Simply using AES doesn't mean your application is secure. Protocols like TLS use various methods to mitigate well-known attacks, for example:
 
   - Known plain-text attacks, which use known unencrypted data to derive information about encrypted data.
   - Padding oracles, which use modified cryptographic padding to gain access to secret data.
@@ -524,7 +524,7 @@ The following measures are meant as a complement to, not a replacement for, the 
 - [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) provides an overview of Microsoft's approach to security across all aspects of an IoT ecosystem, with an emphasis on devices.
 - [IoT Security Maturity Model](https://www.iiconsortium.org/smm.htm) proposes a standard set of security domains, subdomains, and practices and an iterative process you can use to understand, target, and implement security measures important for your device. This set of standards is targeted to all levels of IoT stakeholders. It provides a process framework for considering security in the context of a component's interactions in an IoT system.
 - [Seven properties of highly secured devices](https://www.microsoft.com/research/publication/seven-properties-2nd-edition/), published by Microsoft Research, provides an overview of security properties that must be addressed to produce highly secure devices. The seven properties are hardware root of trust, defense in depth, small trusted computing base, dynamic compartments, passwordless authentication, error reporting, and renewable security. These properties are applicable, depending on cost constraints and target application and environment, to many embedded devices.
-- [PSA certified 10 security goals explained](https://www.psacertified.org/blog/psa-certified-10-security-goals-explained/) discusses the Azure Resource Manager (ARM) Platform Security Architecture. It provides a standardized framework for building secure embedded devices by using ARM TrustZone technology. Microcontroller manufacturers can certify designs with ARM's PSA Certified program. Certification provides a level of confidence about the security of applications built on ARM technologies.
+- [PSA certified 10 security goals explained](https://www.psacertified.org/blog/psa-certified-10-security-goals-explained/) discusses the Azure Resource Manager Platform Security Architecture. It provides a standardized framework for building secure embedded devices by using Resource Manager TrustZone technology. Microcontroller manufacturers can certify designs with the Resource Manager PSA Certified program. Certification provides a level of confidence about the security of applications built on Resource Manager technologies.
 - [Common criteria](https://www.commoncriteriaportal.org/) is an international agreement that provides standardized guidelines and an authorized laboratory program to evaluate products for IT security. Certification provides a level of confidence in the security posture of applications using devices that were evaluated by using the program guidelines.
 - [Security Evaluation Standard for IoT Platforms](https://globalplatform.org/sesip/) is a standardized methodology for evaluating the security of connected IoT products and components.
 - [ISO 27000 family](https://www.iso.org/isoiec-27001-information-security.html) is a collection of standards for the management and security of information assets. The standards provide baseline guarantees about the security of digital information in certified products.
