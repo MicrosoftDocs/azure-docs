@@ -66,7 +66,17 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: cli-samples.md
+    items:
+    - name: Overview
+      href: cli-samples.md
+    - name: Load balance traffic to VMs for high availability
+      href: ./scripts/load-balancer-linux-cli-sample-nlb.md
+    - name: Load balance VMs across availability zones
+      href: ./scripts/load-balancer-linux-cli-sample-zone-redundant-frontend.md
+    - name: Load balance VMs within a specific availability zone
+      href: ./scripts/load-balancer-linux-cli-sample-zonal-frontend.md
+    - name: Load balance multiple websites on VMs
+      href: ./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md
   - name: Azure PowerShell
     href: powershell-samples.md
   - name: Python
