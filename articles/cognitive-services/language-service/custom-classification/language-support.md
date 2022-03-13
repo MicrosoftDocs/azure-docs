@@ -123,7 +123,6 @@ Custom text classification supports `.txt` files in the following languages:
 | Xhosa | `xh` |
 | Yiddish | `yi` |
 | Chinese (Simplified) | `zh-hans` |
-<!-- | Chinese (Traditional) | `zh-hant` |
 | Zulu | `zu` | -->
 
 ## Next steps
