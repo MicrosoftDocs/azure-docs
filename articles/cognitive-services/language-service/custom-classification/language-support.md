@@ -48,7 +48,6 @@ Custom text classification supports `.txt` files in the following languages:
 | German | `de` 
 | Greek | `el` |
 | English (US) | `en-us` |
-<!-- | English (Uk) | `en-gb` | -->
 | Esperanto | `eo` |
 | Spanish | `es` |
 | Estonian | `et` |
