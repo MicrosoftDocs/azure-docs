@@ -85,8 +85,6 @@ Tightly integrated with your SOC workflows and run books, it enables easy priori
 
 - Control all sensors – configure and monitor all sensors from a single location.
 
-   :::image type="content" source="media/architecture/initial-dashboard.png" alt-text="Screen shot of dashboard." lightbox="media/architecture/initial-dashboard.png":::
-
 ### Azure portal
 
 Defender for IoT in the Azure portal in Azure is used to help you:
