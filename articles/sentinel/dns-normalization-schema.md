@@ -125,6 +125,9 @@ To filter only DNS queries for a specified list of domain names, use:
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
 _Im_Dns (domain_has_any = torProxies)
 ```
+> [!TIP]
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+>
 
 ## Normalized content
 

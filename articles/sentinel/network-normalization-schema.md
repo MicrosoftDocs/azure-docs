@@ -81,7 +81,7 @@ The following filtering parameters are available:
 | **eventresult** | String | Filter only network sessions with a specific **EventResult** value. |
 | | | |
 
-For example, to filter only web sessions for a specified list of domain names, use:
+For example, to filter only network sessions for a specified list of domain names, use:
 
 ```kql
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);

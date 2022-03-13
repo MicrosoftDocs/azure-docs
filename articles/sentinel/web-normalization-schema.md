@@ -99,6 +99,10 @@ let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
 _Im_WebSession (url_has_any = torProxies)
 ```
 
+> [!TIP]
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+>
+
 ## Schema details
 
 The Web Session information model is aligned with the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md) and the [OSSEM HTTP entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/http.md).
