@@ -1,11 +1,11 @@
 ---
-title: Connect sensors with a proxy
-description: Learn how to configure Microsoft Defender for IoT to communicate with a sensor through a proxy with no direct internet access.
+title: Connect sensors with a proxy (legacy)
+description: Learn how to configure Microsoft Defender for IoT to communicate with a sensor through a proxy with no direct internet access (legacy procedure).
 ms.topic: how-to
 ms.date: 02/06/2022
 ---
 
-# Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy
+# Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy (legacy)
 
 This article describes how to connect Microsoft Defender for IoT sensors to Defender for IoT via a proxy, with no direct internet access, and is only relevant if you are using a legacy connection method.
 
