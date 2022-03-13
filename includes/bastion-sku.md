@@ -13,6 +13,7 @@ ms.topic: include
 | Access Linux VM Private Keys in Azure Key Vault (AKV) | Available | Available |
 | Connect to Linux VM using SSH | [Available](../articles/bastion/bastion-connect-vm-ssh-linux.md) | [Available](../articles/bastion/bastion-connect-vm-ssh-linux.md)|
 | Connect to Windows VM using RDP | [Available](../articles/bastion/bastion-connect-vm-rdp-windows.md) | [Available](../articles/bastion/bastion-connect-vm-rdp-windows.md)|
+| VM audio output | Available | Available |
 | Host scaling | N/A | [Available](../articles/bastion/configuration-settings.md#instance) |
 | Specify custom inbound port | N/A | [Available](../articles/bastion/configuration-settings.md#ports)|
 | Connect to Linux VM using RDP | N/A| [Available](../articles/bastion/bastion-connect-vm-rdp-linux.md)|

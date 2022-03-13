@@ -33,7 +33,7 @@ The script in this article demonstrates preventing resources from being deleted 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/cassandra/lock.sh" range="4-45":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/cassandra/lock.sh" id="FullScript":::
 
 ## Clean up resources
 

@@ -161,9 +161,13 @@ landingContent:
   #Card
   - title: Secure your data
     linkLists:
+    - linkListType: concept
+      links:
+        - text: Self-service data access policy
+          url: concept-self-service-data-access-policy.md
     - linkListType: tutorial
       links:
         - text: Data owner policies for Azure Storage
           url: tutorial-data-owner-policies-storage.md
         - text: Data owner policies on resource groups or subscriptions
-          url: tutorial-data-owner-policies-resource-group.md  
+          url: tutorial-data-owner-policies-resource-group.md
