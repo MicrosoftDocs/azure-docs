@@ -46,6 +46,14 @@ OE standardizes specific requirements for verification of an enclave evidence. T
 
 Client applications can be designed to take advantage of TPM attestation by delegating security-sensitive tasks to only take place after a platform has been validated to be secure. Such applications can then make use of Azure Attestation to routinely establish trust in the platform and its ability to access sensitive data.
 
+### Trusted Launch attestation 
+
+Azure customers can [prevent bootkit and rootkit infections](https://www.youtube.com/watch?v=CQqu_rTSi0Q) by enabling [Trusted launch](/azure/virtual-machines/trusted-launch) for their virtual machines. When the VM is Secure Boot and vTPM enabled with guest attestation extension installed, vTPM measurements get submitted to Azure Attestation for monitoring of boot integrity. An attestation failure indicates potential malware, which is surfaced to customers via Azure Security Center for recommendations, alerts, and remediations. 
+
+### Azure Confidential VM attestation 
+
+[Azure confidential VM](/azure/confidential-computing/confidential-vm-overview) (CVM) is based on [AMD processors with SEV-SNP technology](/azure/confidential-computing/virtual-machine-solutions-amd) and aims to improve VM security posture by removing trust from host, hypervisor and Cloud Service Provider (CSP). To achieve this, CVM offers an option to encrypt full OS disk with platform-managed keys and binds the disk encryption keys to the virtual machine's TPM. In this option, when a CVM creation is initiated, host sends a measurement of guest VM firmware running in SEV-SNP to Azure Attestation. The service validates the measurements and issues a token that is used to fetch keys from M-HSM. These keys are used to decrypt the vTPM state of the guest VM, unlock the OS disk and start the CVM. Any attestation failure will prevent the CVM for starting.
+
 ## Azure Attestation can run in a TEE
 
 Azure Attestation is critical to Confidential Computing scenarios, as it performs the following actions:
