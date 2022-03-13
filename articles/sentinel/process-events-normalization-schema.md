@@ -104,9 +104,13 @@ The following list mentions fields that have specific guidelines for process act
 |---------------------|-------------|------------|--------------------|
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Process records, supported values include: <br>- `ProcessCreated` <br>- `ProcessTerminated` |
 | **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1`         |
-| **EventSchema** | Mandatory | String | The name of the schema documented here is `ProcessEvent`. |
+| **EventSchema** | Optional | String | The name of the schema documented here is `ProcessEvent`. |
 | **Dvc** fields|        |      | For process activity events, device fields refer to the system on which the process was executed. |
 |||||
+
+> [!IMPORTANT]
+> The `EventSchema` field is currently optional but will become Mandatory on September 1st 2022.
+>
 
 #### All common fields
 
@@ -210,7 +214,10 @@ The process event schema references the following entities, which are central to
 | **TargetProcessTokenElevation**    | Optional    | String     |Token type indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the process that was created or terminated.   <br><br>    Example:  `None`     |
 | | | | |
 
+## Schema updates
 
+These are the changes in version 0.1.1 of the schema:
+- Added the field `EventSchema` - currently optional, but will become mandatory on Sep 1st, 2022.
 
 ## Next steps
 

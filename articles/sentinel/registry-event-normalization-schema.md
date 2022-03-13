@@ -69,9 +69,13 @@ The following list mentions  fields that have specific guidelines for process ac
 |---------------------|-------------|------------|--------------------|
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Registry records, supported values include: <br>- `RegistryKeyCreated` <br>- `RegistryKeyDeleted`<br>- `RegistryKeyRenamed` <br>- `RegistryValueDeleted` <br>- `RegistryValueSet`|
 | **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1`         |
-| **EventSchema** | Mandatory | String | The name of the schema documented here is `RegistryEvent`. |
+| **EventSchema** | Optional | String | The name of the schema documented here is `RegistryEvent`. |
 | **Dvc** fields|        |      | For registry activity events, device fields refer to the system on which the registry activity occurred. |
 |||||
+
+> [!IMPORTANT]
+> The `EventSchema` field is currently optional but will become Mandatory on September 1st 2022.
+>
 
 #### All common fields
 
@@ -144,6 +148,10 @@ Different sources represent registry value types using different representations
 |  **Reg_QWord**   |    `Qword`, `%%1883`     |
 
 
+## Schema updates
+
+These are the changes in version 0.1.1 of the schema:
+- Added the field `EventSchema` - currently optional, but will become mandatory on Sep 1st, 2022.
 
 ## Next steps
 

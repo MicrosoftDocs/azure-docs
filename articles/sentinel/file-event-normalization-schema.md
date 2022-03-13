@@ -74,10 +74,14 @@ The following list mentions fields that have specific guidelines for File activi
 | **Field** | **Class** | **Type**  | **Description** |
 | --- | --- | --- | --- |
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For File records, supported values include: <br><br>- `FileCreated`<br>- `FileModified`<br>- `FileDeleted`<br>- `FileRenamed`<br>- `FileCopied`<br>- `FileMoved`<br>- `FolderCreated`<br>- `FolderDeleted` |
-| **EventSchema** | Mandatory | String | The name of the schema documented here is **FileEvent**. |
+| **EventSchema** | Optional | String | The name of the schema documented here is **FileEvent**. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1`         |
 | **Dvc** fields| -      | -    | For File activity events, device fields refer to the system on which the file activity occurred. |
 | | | | |
+
+> [!IMPORTANT]
+> The `EventSchema` field is currently optional but will become Mandatory on September 1st 2022.
+>
 
 #### All common fields
 
@@ -153,7 +157,6 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 | | | | |
 
 
-
 ## Path structure
 
 The path should be normalized to match one of the following formats. The format the value is normalized to will be reflected in the respective **FilePathType** field.
@@ -166,7 +169,10 @@ The path should be normalized to match one of the following formats. The format 
 |**URL**     |  `https://1drv.ms/p/s!Av04S_*********we`       | Use when the file path is available as a URL. URLs are not limited to *http* or *https*, and any value, including an FTP value, is valid. |
 |     |         |         |
 
+## Schema updates
 
+These are the changes in version 0.1.1 of the schema:
+- Added the field `EventSchema` - currently optional, but will become mandatory on Sep 1st, 2022.
 
 ## Next steps
 
