@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 03/10/2022
+ms.date: 03/13/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -39,16 +39,24 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 ## February 2022
 
+- [New sensor installation wizard](#new-sensor-installation-wizard)
 - [Sensor redesign and unified Microsoft product experience](#sensor-redesign-and-unified-microsoft-product-experience)
 - [Enhanced sensor Overview page](#enhanced-sensor-overview-page)
 - [New support diagnostics log](#new-support-diagnostics-log)
 - [Alert updates](#alert-updates)
-- [New sensor installation wizard](#new-sensor-installation-wizard)
-- [Containerized sensor installation](#containerized-sensor-installation)
+- [CLI command updates](#cli-command-updates)
 - [Update to version 22.1.x](#update-to-version-221x)
 - [New connectivity model and firewall requirements](#new-connectivity-model-and-firewall-requirements)
 - [Protocol improvements](#protocol-improvements)
 - [Modified, replaced, or removed options and configurations](#modified-replaced-or-removed-options-and-configurations)
+
+### New sensor installation wizard
+
+Previously, you needed to use separate dialogs to upload a sensor activation file, verify your sensor network configuration, and configure your SSL/TLS certificates.
+
+Now, when installing a new sensor or a new sensor version, our installation wizard provides a streamlined interface to do all these tasks from a single location. 
+
+For more information, see [Defender for IoT installation](how-to-install-software.md).
 
 ### Sensor redesign and unified Microsoft product experience
 
@@ -160,15 +168,7 @@ The sensor console's **Custom alert rules** page now provides:
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png" alt-text="Screenshot of the updated Custom alerts dialog. "lightbox="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png":::
 
-### New sensor installation wizard
-
-Previously, you needed to use separate dialogs to upload a sensor activation file, verify your sensor network configuration, and configure your SSL/TLS certificates.
-
-Now, when installing a new sensor or a new sensor version, our installation wizard provides a streamlined interface to do all these tasks from a single location. 
-
-For more information, see [Defender for IoT installation](how-to-install-software.md).
-
-### Containerized sensor installation
+### CLI command updates
 
 The Defender for Iot sensor software installation is now containerized. With the now-containerized sensor, you can use the *cyberx_host* user to investigate issues with other containers or the operating system, or to send files via FTP.
 
