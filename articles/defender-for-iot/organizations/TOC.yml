@@ -54,7 +54,7 @@
       items:
       - name: Agentless solution architecture
         href: architecture.md
-      - name: Private link connections
+      - name: Sensor connection methods
         href: architecture-connections.md
     - name: Key concepts
       href: concept-key-concepts.md
@@ -80,9 +80,9 @@
       - name: Install software
         displayName: tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports, hyper-v, NDIS, ClearPass, span, 
         href: how-to-install-software.md
-      - name: Configure private link sensor connections
+      - name: Connect sensors to Defender for IoT
         href: connect-sensors.md
-      - name: Connect sensors with a proxy
+      - name: Connect sensors with a proxy (legacy)
         displayName: Squid, proxy, connect, direct internet access, access, internet, tunnel
         href: how-to-connect-sensor-by-proxy.md
   - name: Manage subscriptions
