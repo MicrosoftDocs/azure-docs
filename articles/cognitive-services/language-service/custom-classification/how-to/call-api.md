@@ -48,7 +48,7 @@ When a model is deployed, you will be able to test the model directly in the por
    
 ### Delete deployment
 
-To delete a deployment, select the deployment you want to delete and click on “Delete deployment”
+To delete a deployment, select the deployment you want to delete and click **Delete deployment**
 
 > [!TIP]
 > You can [test your model in Language Studio](../quickstart.md?pivots=language-studio#test-your-model) by sending samples of text for it to classify. 
