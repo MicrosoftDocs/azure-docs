@@ -101,7 +101,7 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
 - If accessed from outside your virtual network, monitoring view can't access the inputs and outputs from triggers and actions.
 
-- Managed API webhook triggers (aka Push triggers such as Dataverse trigger and EventGrid trigger) and actions will not work since they are running on the public cloud and will not be able to call into your private network. They require a public endpoint to receive calls.
+- Managed API webhook triggers (*push* triggers) and actions won't work because they run in the public cloud and can't call into your private network. They require a public endpoint to receive calls. For example, such triggers include the Dataverse trigger and the Event Grid trigger.
 
 - If you use Office 365 Email trigger, the workflow will be triggered hourly only.
 
