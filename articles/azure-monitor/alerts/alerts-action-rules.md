@@ -171,11 +171,25 @@ For example, to create a rule that adds an action group to all alerts in a subsc
 az monitor alert-processing-rule create \
 --name 'AddActionGroupToSubscription' \
 --rule-type AddActionGroups \
---scopes "/subscriptions/MySubscriptionId" \
---action-groups "/subscriptions/MySubscriptionId/resourcegroups/MyResourceGroup1/providers/microsoft.insights/actiongroups/ActionGroup1" \
+--scopes "/subscriptions/sub1" \
+--action-groups "/subscriptions/sub1/resourcegroups/rg1/providers/microsoft.insights/actiongroups/ag1" \
 --enabled true \
---resource-group alertscorrelationrg \
---description "Add ActionGroup1 to all alerts in the subscription"
+--resource-group rg1 \
+--description "Add action group ag1 to all alerts in the subscription"
+```
+
+The [CLI documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include more examples and an explanation of each parameter.
+
+### [PowerShell](#tab/powershell)
+
+### Create an alert processing rule using PowerShell
+
+Use the `Set-AzAlertProcessingRule` command to create alert processing rules.  
+For example, to create a rule that adds an action group to all alerts in a subscription, run:
+
+```powershell
+Set-AzAlertProcessingRule -ResourceGroupName rg1 -Name AddActionGroupToSubscription -Scope /subscriptions/MySubId -Description "Add action group ag1 to all alerts in the subscription" -AlertProcessingRuleType AddActionGroups -ActionGroupId /subscriptions/sub1/resourcegroups/rg1/providers/microsoft.insights/actiongroups/ag1
+
 ```
 
 The [CLI documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include more examples and an explanation of each parameter.
@@ -210,6 +224,26 @@ az monitor alert-processing-rules update --resource-group MyResourceGroupName --
 
 # Delete an alert processing rule
 az monitor alert-processing-rules delete --resource-group MyResourceGroupName --name MyRule
+```
+
+### [PowerShell](#tab/powershell)
+
+You can view and manage your alert processing rules using the [\*-AzAlertProcessingRule](/powershell/module/az.alertsmanagement) commands from Azure CLI.
+
+Before you manage alert processing rules with the Azure CLI, prepare your environment using the instructions provided in [Configuring an alert processing rule](#configuring-an-alert-processing-rule).
+
+```powershell
+# List all alert processing rules for a subscription
+Get-AzAlertProcessingRule
+
+# Get details of an alert processing rule
+Get-AzAlertProcessingRule -ResourceGroupName MyResourceGroupName -Name MyRule | Format-List
+
+# Update an alert processing rule
+Update-AzAlertProcessingRule -ResourceGroupName MyResourceGroupName -Name MyRule -Enabled False
+
+# Delete an alert processing rule
+Remove-AzAlertProcessingRule -ResourceGroupName MyResourceGroupName -Name MyRule
 ```
 
 * * *

@@ -115,7 +115,7 @@ You will need to copy the module identity connection string from the DefenderIoT
 
    :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="Select the copy button to copy the Connection string (primary key).":::
 
-1. Create a file named `connection_string.txt` containing the copied connection string encoded in utf-8 in the Defender for Cloud agent directory `/etc/defender_iot_micro_agent` path by entering the following command:
+1. Create a file named `connection_string.txt` containing the copied connection string encoded in utf-8 in the Defender for IoT agent directory `/etc/defender_iot_micro_agent` path by entering the following command:
 
     ```bash
     sudo bash -c 'echo "<connection string>" > /etc/defender_iot_micro_agent/connection_string.txt'
@@ -142,7 +142,7 @@ You will need to copy the module identity connection string from the DefenderIoT
 
     `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true`
 
-    This string alerts the Defender for Cloud agent, to expect a certificate be provided for authentication.
+    This string alerts the Defender for IoT agent, to expect a certificate be provided for authentication.
 
 1. Restart the service using the following command:  
 
