@@ -26,7 +26,7 @@ The script in this article demonstrates creating a Cosmos DB account with defaul
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/ipfirewall.sh" range="4-22":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/ipfirewall.sh" id="FullScript":::
 
 ## Clean up resources
 

@@ -105,6 +105,7 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
     ```azurecli
     az role assignment create --assignee "<sp-object-id>" \
         --role "Load Test Contributor" \
+        --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> \
         --subscription "<subscription-id>"
     ```
     
