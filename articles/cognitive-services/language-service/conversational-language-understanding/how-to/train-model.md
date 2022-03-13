@@ -19,7 +19,7 @@ After you have completed [tagging your utterances](#tag-utterances), you can tra
 
 You can create and train multiple models within the same project. However, if you re-train a specific model it overwrites the last state.
 
-To train a model, you need to start a training job. The output of a successful training job is your trained model. Training jobs will be auto deleted after seven days from creation, but the output trained model will not be deleted.
+To train a model, you need to start a training job. The output of a successful training job is your trained model. Training jobs will be automatically deleted after seven days from creation, but the output trained model will not be deleted.
 
 The training times can be anywhere from a few seconds when dealing with orchestration workflow projects, up to a couple of hours when you reach the [maximum limit](https://docs.microsoft.com/azure/cognitive-services/language-service/conversational-language-understanding/service-limits) of utterances. Before training, you will have the option to enable evaluation, which lets you view how your model performs.
 
