@@ -11,8 +11,9 @@ This article describes how to connect your sensors to Microsoft Defender for IoT
 
 For more information about each connection method, see [Sensor connection methods](architecture-connections.md).
 
-The procedures in this article are supported for sensor software versions 10.x and higher.
-
+> [!NOTE]
+> The procedures in this article are supported for sensor software versions 10.x and higher.
+> 
 
 ## Migration for existing customers
 
@@ -45,9 +46,18 @@ While you'll need to migrate your connections before the [legacy version reaches
 
 ## Choose a sensor connection method
 
-Use the following flow chart to determine which sensor connection method is right for your organization.
+Use this section to help determine which connection method is right for your organization.
 
-TBD
+|If ...  |... Then  |
+|---------|---------|
+|You require private connectivity between your sensor and Azure     | [Connect via an Azure proxy](#connect-via-an-azure-proxy)        |
+|Your site is connected to Azure via ExpressRoute     |  [Connect via an Azure proxy](#connect-via-an-azure-proxy)       |
+|Your site is connected to Azure over a VPN     | [Connect via an Azure proxy](#connect-via-an-azure-proxy)        |
+|Your sensor needs a proxy to reach from the OT network to the cloud     | [Connect via proxy chaining](#connect-via-proxy-chaining)        |
+|You want multiple sensors to connect to Azure through a single point    | [Connect via proxy chaining](#connect-via-proxy-chaining)        |
+|You want to connect your sensor to Azure directly    | [Connect directly](#connect-directly)        |
+| You have sensors hosted in multiple public clouds | [Connect via multi-cloud vendors](#connect-via-multi-cloud-vendors)
+
 
 ## Connect via an Azure proxy
 
