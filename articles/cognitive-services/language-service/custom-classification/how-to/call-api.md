@@ -29,7 +29,7 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 ## Deploy your model
 
-Deploying a model is to host and makes it available for predictions through an endpoint.
+Deploying a model hosts it and makes it available for predictions through an endpoint.
 
 When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated with it.
 
