@@ -73,6 +73,8 @@ The following preview alert has been deprecated:
 
 A new alert has been created that provides this information and adds to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) doesn't require a license for Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security).
 
+See more alerts for [Resource Manager](alerts-reference.md#alerts-resourcemanager).
+
 ## February 2022
 
 Updates in February include:
