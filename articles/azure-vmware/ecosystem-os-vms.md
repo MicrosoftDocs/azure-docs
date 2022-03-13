@@ -1,8 +1,8 @@
---
+---
 title: Operating system support for Azure VMware Solution virtual machines
 description: Learn about operating system support for your Azure VMware Solution virtual machines.
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 03/13/2022
 ---
 
 # Operating system support for Azure VMware Solution virtual machines
