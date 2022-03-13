@@ -19,7 +19,7 @@ All supported connection methods provide:
 
 - **Flexible connectivity** using any of the connection methods described in this article
 
-For more information, see [Choose a sensor connection method](connect-sensors.md#choose-a-sensor-connection-connection-method).
+For more information, see [Choose a sensor connection method](connect-sensors.md#choose-a-sensor-connection-method).
 
 The methods described in this article are supported only for sensor versions 10.x and higher.
 
