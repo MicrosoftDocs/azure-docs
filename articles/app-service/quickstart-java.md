@@ -288,7 +288,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
 ::: zone-end
 
-You can modify the configurations for App Service directly in your `pom.xml`. Some common modifications are listed below:
+You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed below:
 
 Property | Required | Description | Version
 ---|---|---|---
@@ -375,7 +375,7 @@ In the preceding steps, you created Azure resources in a resource group. If you 
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
 ```
 
-This command might take a minute to run.
+This command may take a minute to run.
 
 ## Next steps
 
