@@ -79,7 +79,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 1. Log in to the Azure portal.
 1. Click on the search bar at the top of the page.
-1. Under "Recent Services" click "Key Vault". Do not click an individual key vault.
+1. Search for the "Key Vault" service. Do not click an individual key vault.
 1. At the top of the screen click the option to "Manage deleted vaults"
 1. A context pane will open on the right side of your screen.
 1. Select your subscription.
