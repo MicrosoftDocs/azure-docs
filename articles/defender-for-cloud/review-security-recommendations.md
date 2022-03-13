@@ -2,7 +2,7 @@
 title: Security recommendations in Microsoft Defender for Cloud
 description: This document walks you through how recommendations in Microsoft Defender for Cloud help you protect your Azure resources and stay in compliance with security policies.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/13/2022
 ---
 # Review your security recommendations
 
@@ -10,7 +10,7 @@ ms.date: 11/09/2021
 
 This topic explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your Azure resources.
 
-## Manage your recommendations <a name="monitor-recommendations"></a>
+## View your recommendations <a name="monitor-recommendations"></a>
 
 Defender for Cloud analyzes the security state of your resources to identify potential vulnerabilities. 
 
@@ -28,9 +28,16 @@ Defender for Cloud analyzes the security state of your resources to identify pot
 
     :::image type="content" source="media/review-security-recommendations/secure-score-recommendations.png" alt-text="Screenshot showing the location of the secure score recommendations tab.":::
 
+    > [!NOTE]
+    > Custom recommendations can be found under the All recommendations tab. Learn how to [Create custom security initiatives and policies](custom-security-policies.md).
+
+1.  (Optional) Select a relevant environment(s).
+
+    :::image type="content" source="media/review-security-recommendations/environment-filter.png" alt-text="Screenshot of the environment filter, to select your filters.":::
+
 1. Select the :::image type="icon" source="media/review-security-recommendations/drop-down-arrow.png" border="false"::: to expand the control, and view a list of recommendations.
 
-    :::image type="content" source="media/review-security-recommendations/list-recommendations.png" alt-text="Screenshot showing how to see the full list of recommendations by selecting the drop down menu icon.":::
+    :::image type="content" source="media/review-security-recommendations/list-recommendations.png" alt-text="Screenshot showing how to see the full list of recommendations by selecting the drop down menu icon." lightbox="media/review-security-recommendations/list-recommendations-expanded.png":::
 
 1. Select a specific recommendation to view the recommendation details page.
 
@@ -71,7 +78,9 @@ Defender for Cloud analyzes the security state of your resources to identify pot
             :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Not applicable resources with reasons.":::
     1. Action buttons to remediate the recommendation or trigger a logic app.
 
-You can also search for recommendations specific to a resource type, severity, environment, or other criteria that are important to you, use the optional searchbox, or filters above the list of recommendations. 
+## Search for a recommendation
+
+You can search for recommendations specific to resource types, severity, environments, or other criteria. The searchbox and filters above the list of recommendations can be used to help located a recommendation. 
 
 Custom recommendations will appear under the All recommendations tab.
 
@@ -117,15 +126,38 @@ When you open the underlying query, and run it, Azure Resource Graph Explorer re
 
 The Insights column of the page gives you additional details for each recommendation. The options available in this section include:
 
-- :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: **Preview recommendation** - This recommendation will not affect your secure score until it's GA.
-- :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: **Fix**- From within the recommendation details page, you can use 'Fix' to resolve this issue. 
-- :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: **Enforce** - From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource.
-- :::image type="icon" source="media/secure-score-security-controls/grace-preiod-icon.png" border="false"::: **Grace Period** - This recommendation is within it's grace period and will not affect your score.
-- :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: **Deny** - From within the recommendation details page, you can prevent new resources from being created with this issue.
-
+| Icon | Name | Description |
+|--|--|--|
+| :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::  | *Preview recommendation** | This recommendation will not affect your secure score until it's GA. |
+| :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: | **Fix** | From within the recommendation details page, you can use 'Fix' to resolve this issue. |
+| :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: | **Enforce** | From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource. |
+| :::image type="icon" source="media/secure-score-security-controls/grace-preiod-icon.png" border="false"::: | **Grace Period** | This recommendation is within it's grace period and will not affect your score. |
+| :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: | **Deny** | From within the recommendation details page, you can prevent new resources from being created with this issue. |
 
 Recommendations that aren't included in the calculations of your secure score, should still be remediated wherever possible, so that when the period ends they'll contribute towards your score instead of against it.
- 
+
+## Download recommendations in a CSV report
+
+Recommendations can be downloaded to a CSV report fom the Recommendations page.
+
+**To download a CSV report of your recommendations**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
+
+1. Select **Downalod CSV report**.
+
+    :::image type="content" source="media/review-security-recommendations/download-csv.png" alt-text="Screenshot showing you where to select the Download CSV report from.":::
+
+You will know the report is being prepared by the pop up.
+
+:::image type="content" source="media/review-security-recommendations/preparing-report.png" alt-text="Screenshot of report being prepared.":::
+
+When the report is ready you will be notified by a second pop-up.
+
+:::image type="content" source="media/review-security-recommendations/downloaded-csv.png" alt-text="Screenshot letting you know your downloaded completed.":::
+
 ## Next steps
 
 In this document, you were introduced to security recommendations in Defender for Cloud. For related information:
