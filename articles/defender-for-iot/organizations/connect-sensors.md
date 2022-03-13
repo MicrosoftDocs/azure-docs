@@ -20,7 +20,7 @@ If you're an existing customer with a production deployment and sensors connecte
 
 1. **Review your existing production deployment** and how sensors are currently connection to Azure. Confirm that the sensors in production networks can reach the Azure data center resource ranges.
 
-1. **Determine which connection method is right** for each production site. For more information, see [Choose a sensor connection method](#choose-a-sensor-connection-connection-method).
+1. **Determine which connection method is right** for each production site. For more information, see [Choose a sensor connection method](connect-sensors.md#choose-a-sensor-connection-method).
 
 1. **Configure any additional resources required** as described in the procedure in this article for your chosen connectivity method. For example, additional resources might include a proxy, VPN, or ExpressRoute.
 
