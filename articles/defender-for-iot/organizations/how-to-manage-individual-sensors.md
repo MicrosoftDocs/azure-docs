@@ -296,7 +296,7 @@ Updates from legacy versions may require a series of upgrades. For example, if y
 
 ### Download a new activation file for version 22.1.x or higher
 
-Version [22.1.x ](release-notes.md#upgrade-to-version-221x) is a large upgrade with more complicated background processes. You should expect this upgrade to take more time than earlier upgrades have required.
+Version [22.1.x ](release-notes.md#update-to-version-221x) is a large upgrade with more complicated background processes. You should expect this upgrade to take more time than earlier upgrades have required.
 
 1. Update your firewall rules between the sensor and the Azure portal. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
 
