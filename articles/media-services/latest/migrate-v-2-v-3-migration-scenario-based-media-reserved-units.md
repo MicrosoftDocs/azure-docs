@@ -35,7 +35,7 @@ Please migrate your MRUs based on the following scenarios:
 * If you are an existing V2 customer, you need to create a new V3 account to support your existing application prior to the completion of  migration. 
 * Indexer V1 or other media processors that are not fully deprecated yet may need to be enabled again. 
 
-For more information about MRUs, see [Media Reserved Units](concept-media-reserved-units.md) and [How to scale media reserved units](media-reserved-units-cli-how-to.md).
+For more information about MRUs, see [Media Reserved Units](concept-media-reserved-units.md) and [How to scale media reserved units](media-reserved-units-how-to.md).
 
 ## MRU concepts, tutorials and how to guides
 
@@ -45,7 +45,7 @@ For more information about MRUs, see [Media Reserved Units](concept-media-reserv
 
 ### How to guides
 
-[How to scale media reserved units](media-reserved-units-cli-how-to.md)
+[How to scale media reserved units](media-reserved-units-how-to.md)
 
 ## Samples
 

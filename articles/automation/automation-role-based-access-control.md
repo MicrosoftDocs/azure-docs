@@ -296,83 +296,6 @@ The following sections describe the minimum required permissions needed for enab
 |Create / edit saved search     | Microsoft.OperationalInsights/workspaces/write           | Workspace        |
 |Create / edit scope config  | Microsoft.OperationalInsights/workspaces/write   | Workspace|
 
-## Custom Azure Automation Contributor role
-
-Microsoft intends to remove the Automation account rights from the Log Analytics Contributor role. Currently, the built-in [Log Analytics Contributor](#log-analytics-contributor) role described above can escalate privileges to the subscription [Contributor](./../role-based-access-control/built-in-roles.md#contributor) role. Since Automation account Run As accounts are initially configured with Contributor rights on the subscription, it can be used by an attacker to create new runbooks and execute code as a Contributor on the subscription.
-
-As a result of this security risk, we recommend you don't use the Log Analytics Contributor role to execute Automation jobs. Instead, create the Azure Automation Contributor custom role and use it for actions related to the Automation account. Perform the following steps to create this custom role.
-
-### Create using the Azure portal
-
-Perform the following steps to create the Azure Automation custom role in the Azure portal. If you would like to learn more, see [Azure custom roles](./../role-based-access-control/custom-roles.md).
-
-1. Copy and paste the following JSON syntax into a file. Save the file on your local machine or in an Azure storage account. In the JSON file, replace the value for the **assignableScopes** property with the subscription GUID.
-
-   ```json
-   {
-    "properties": {
-        "roleName": "Automation Account Contributor (Custom)",
-        "description": "Allows access to manage Azure Automation and its resources",
-        "assignableScopes": [
-            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Authorization/*/read",
-                    "Microsoft.Insights/alertRules/*",
-                    "Microsoft.Insights/metrics/read",
-                    "Microsoft.Insights/diagnosticSettings/*",
-                    "Microsoft.Resources/deployments/*",
-                    "Microsoft.Resources/subscriptions/resourceGroups/read",
-                    "Microsoft.Support/*"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
-            }
-        ]
-      }
-   }
-   ```
-
-1. Complete the remaining steps as outlined in [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md#start-from-json). For [Step 3:Basics](../role-based-access-control/custom-roles-portal.md#step-3-basics), note the following:
-
-    -  In the **Custom role name** field, enter **Automation account Contributor (custom)** or a name matching your naming standards.
-    - For **Baseline permissions**, select **Start from JSON**. Then select the custom JSON file you saved earlier.
-
-1. Complete the remaining steps, and then review and create the custom role. It can take a few minutes for your custom role to appear everywhere.
-
-### Create using PowerShell
-
-Perform the following steps to create the Azure Automation custom role with PowerShell. If you would like to learn more, see [Azure custom roles](./../role-based-access-control/custom-roles.md).
-
-1. Copy and paste the following JSON syntax into a file. Save the file on your local machine or in an Azure storage account. In the JSON file, replace the value for the **AssignableScopes** property with the subscription GUID.
-
-   ```json
-   { 
-       "Name": "Automation account Contributor (custom)",
-       "Id": "",
-       "IsCustom": true,
-       "Description": "Allows access to manage Azure Automation and its resources",
-       "Actions": [
-           "Microsoft.Authorization/*/read",
-           "Microsoft.Insights/alertRules/*",
-           "Microsoft.Insights/metrics/read",
-           "Microsoft.Insights/diagnosticSettings/*",
-           "Microsoft.Resources/deployments/*",
-           "Microsoft.Resources/subscriptions/resourceGroups/read",
-           "Microsoft.Support/*"
-       ],
-       "NotActions": [],
-       "AssignableScopes": [
-           "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
-       ] 
-   } 
-   ```
-
-1. Complete the remaining steps as outlined in [Create or update Azure custom roles using Azure PowerShell](./../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template). It can take a few minutes for your custom role to appear everywhere.
-
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
 You can create [Azure custom roles](/azure/role-based-access-control/custom-roles) in Automation and grant the following permissions to Hybrid Worker Groups and Hybrid Workers:
@@ -388,7 +311,6 @@ Update Management can be used to assess and schedule update deployments to machi
 
 |**Resource** |**Role** |**Scope** |
 |---------|---------|---------|
-|Automation account |[Custom Azure Automation Contributor role](#custom-azure-automation-contributor-role) |Automation account |
 |Automation account |Virtual Machine Contributor  |Resource Group for the account  |
 |Log Analytics workspace | Log Analytics Contributor|Log Analytics workspace |
 |Log Analytics workspace |Log Analytics Reader|Subscription|
