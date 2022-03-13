@@ -49,7 +49,7 @@ The precision, consistency and completeness of your tagged data are key factors 
 
 :::image type="content" source="../media/tagging-screen.png" alt-text="A screenshot showing the Language Studio screen for tagging data." lightbox="../media/tagging-screen.png":::
 
-*Section 1*: is where the content of the text file is displayed and tagging takes place. You have [two options for tagging](https://docs.microsoft.com/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/tag-data#tagging-options) your files.
+*Section 1*: is where the content of the text file is displayed and tagging takes place. You have [two options for tagging](#tagging-options) your files.
 
 *Section 2*: includes your project's entities and distribution across your files and tags.
 For distribution section, you can **View tag distribution across**:
