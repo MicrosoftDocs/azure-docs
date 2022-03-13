@@ -261,12 +261,12 @@ Use the following object in your request. The model will be named `MyModel` once
 ```
 |Key  |Value  | Example |
 |---------|---------|---------|
-|`modelLabel  `    | Your Model name.   | MyModel |
-|`RunVerification`     | Boolean value to run validation on the test set.   | True |
-|`evaluationOptions`     | Specifies evaluation options.   | -- |
+|`modelLabel  `    | Your Model name.   | `MyModel` |
+|`RunVerification`     | Boolean value to run validation on the test set.   | `True` |
+|`evaluationOptions`     | Specifies evaluation options.   |  |
 |`type`     | Specifies datasplit type.   | set or percentage |
-|`testingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies testing split.   | 30 |
-|`trainingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies training split.   | 70 |
+|`testingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies testing split.   | `30` |
+|`trainingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies training split.   | `70` |
 
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
