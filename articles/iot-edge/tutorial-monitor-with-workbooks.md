@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Azure Monitor workbooks for IoT Edge
 description: Learn how to monitor IoT Edge modules and devices using Azure Monitor Workbooks for IoT
-author: kgremban
+author: PatAltimore
 manager: lizross
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/13/2021
 ms.topic: tutorial
 ms.service: iot-edge
@@ -35,7 +35,7 @@ Every IoT Edge device relies on two modules, the *runtime modules*, which manage
 
 Both of the runtime modules create metrics that allow you to remotely monitor how an IoT Edge device or its individual modules are performing. The IoT Edge agent reports on the state of individual modules and the host device, so creates metrics like how long a module has been running correctly, or the amount of RAM and percent of CPU being used on the device. The IoT Edge hub reports on communications on the device, so creates metrics like the total number of messages sent and received, or the time it takes to resolve a direct method. For the full list of available metrics, see [Access built-in metrics](how-to-access-built-in-metrics.md).
 
-These metrics are exposed automatically by both modules so that you can create your own solutions to access and report on these metrics. To make this process easier, Microsoft provides the [azureiotedge-metrics-collector module](https://hub.docker.com/_/microsoft-azureiotedge-metrics-collector) that handles this process for those who don't have or want a custom solution. The metrics collector module collects metrics from the two runtime modules and any other modules you may want to monitor, and transports them off-device.
+These metrics are exposed automatically by both modules so that you can create your own solutions to access and report on these metrics. To make this process easier, Microsoft provides the [azureiotedge-metrics-collector module](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.metrics-collector?tab=overview) that handles this process for those who don't have or want a custom solution. The metrics collector module collects metrics from the two runtime modules and any other modules you may want to monitor, and transports them off-device.
 
 The metrics collector module works one of two ways to send your metrics to the cloud. The first option, which we'll use in this tutorial, is to send the metrics directly to Log Analytics. The second option, which is only recommended if your networking policies require it, is to send the metrics through IoT Hub and then set up a route to pass the metric messages to Log Analytics. Either way, once the metrics are in your Log Analytics workspace, they are available to view through Azure Monitor workbooks.
 
@@ -119,9 +119,9 @@ It may take up to fifteen minutes for your device monitoring workbooks to be rea
 
 Azure Monitor provides three default workbook templates for IoT:
 
-* The **IoT Edge fleet view** workbook shows an overview of active devices so that you can identify any unhealthy devices and drill down into how each device is performing. This workbook also shows alerts generated from any alert rules that you may create.
-* The **IoT Edge device details** workbook provides visualizations around three categories: messaging, modules, and host. The messaging view visualizes the message routes for a device and reports on the overall health of the messaging system. The modules view shows how the individual modules on a device are performing. The host view shows information about the host device including version information for host components and resource use.
-* The **IoT Edge health snapshot** workbook measures device signals against configurable thresholds to determine if a device is health or not. This workbook can only be accessed from within the fleet view workbook, which passes the parameters required to initialize the health snapshot of a particular device.
+* The **Fleet View** workbook shows the health of devices across multiple IoT resources. The view allows configuring thresholds for determining device health and presents aggregations of primary metrics, per-device.
+* The **Device Details** workbook provides visualizations around three categories: messaging, modules, and host. The messaging view visualizes the message routes for a device and reports on the overall health of the messaging system. The modules view shows how the individual modules on a device are performing. The host view shows information about the host device including version information for host components and resource use.
+* The **Alerts** workbook View presents alerts for devices across multiple IoT resources.
 
 ### Explore the fleet view and health snapshot workbooks
 
@@ -133,11 +133,11 @@ The fleet view workbook shows all of your devices, and lets you select specific 
 
    :::image type="content" source="./media/tutorial-monitor-with-workbooks/workbooks-gallery.png" alt-text="Select workbooks to open the Azure Monitor workbooks gallery.":::
 
-1. Select the **IoT Edge fleet view** workbook.
+1. Select the **Fleet View** workbook.
 
 1. You should see your device that's running the metrics collector module. The device is listed as either **healthy** or **unhealthy**.
 
-1. Select the device name to open the **IoT Edge health snapshot** and view specific details about the device health.
+1. Select the device name to view detailed metrics from the device.
 
 1. On any of the time charts, use the arrow icons under the X-axis or click on the chart and drag your cursor to change the time range.
 

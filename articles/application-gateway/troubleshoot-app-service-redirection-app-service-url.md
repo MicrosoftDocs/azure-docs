@@ -79,7 +79,7 @@ In the previous example, notice that the response header has a status code of 30
 Set the host name in the location header to the application gateway's domain name. To do this, create a [rewrite rule](./rewrite-http-headers-url.md) with a condition that evaluates if the location header in the response contains azurewebsites.net. It must also perform an action to rewrite the location header to have the application gateway's host name. For more information, see instructions on [how to rewrite the location header](./rewrite-http-headers-url.md#modify-a-redirection-url).
 
 > [!NOTE]
-> The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) of Application Gateway. We recommend [migrating to v2](./migrate-v1-v2.md) for Header Rewrite and other [advanced capabilities](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.
+> The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) of Application Gateway. We recommend [migrating to v2](./migrate-v1-v2.md) for Header Rewrite and other [advanced capabilities](./overview-v2.md#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.
 
 ## Alternate solution: Use a custom domain name
 

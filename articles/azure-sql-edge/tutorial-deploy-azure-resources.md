@@ -5,9 +5,9 @@ keywords:
 services: sql-edge
 ms.service: sql-edge
 ms.topic: tutorial
-author: VasiyaKrishnan
-ms.author: vakrishn
-ms.reviewer: sstein
+author: kendalvandyke
+ms.author: kendalv 
+ms.reviewer: jroth
 ms.date: 05/19/2020
 ---
 # Install software and set up resources for the tutorial
@@ -243,14 +243,14 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
 
 15. Update the connection string in the IoT Edge configuration file on the Edge device. The following commands use Azure CLI for deployments.
 
-    ```powershell
+    ```azurecli
     $script = "/etc/iotedge/configedge.sh '" + $connString + "'"
     az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShellScript --script $script
     ```
 
 16. Create an Azure Machine Learning workspace within the resource group.
 
-    ```powershell
+    ```azurecli
     az ml workspace create -w $MyWorkSpace -g $ResourceGroup
     ```
 

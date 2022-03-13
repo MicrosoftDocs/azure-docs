@@ -10,10 +10,10 @@ ms.topic: sample
 author: urosmil 
 ms.author: urmilano
 ms.reviewer:  mathoma
-ms.date: 01/05/2022
+ms.date: 01/26/2022 
 ---
 
-# Use CLI to create an Azure SQL Managed Instance
+# Create an Azure SQL Managed Instance using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
@@ -21,6 +21,8 @@ This Azure CLI script example creates an Azure SQL Managed Instance in a dedicat
 
 > [!IMPORTANT]
 > For limitations, see [supported regions](../../../azure-sql/managed-instance/resource-limits.md#supported-regions) and [supported subscription types](../../../azure-sql/managed-instance/resource-limits.md#supported-subscription-types).
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -30,7 +32,7 @@ This Azure CLI script example creates an Azure SQL Managed Instance in a dedicat
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/managed-instance/create-managed-instance.sh" range="4-51":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/managed-instance/create-managed-instance.sh" id="FullScript":::
 
 ## Clean up resources
 

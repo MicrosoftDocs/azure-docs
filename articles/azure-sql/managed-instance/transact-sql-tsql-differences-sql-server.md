@@ -311,7 +311,7 @@ The following table types aren't supported:
 
 - [FILESTREAM](/sql/relational-databases/blob/filestream-sql-server)
 - [FILETABLE](/sql/relational-databases/blob/filetables-sql-server)
-- [EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) (Polybase)
+- [EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) (except Polybase, in preview)
 - [MEMORY_OPTIMIZED](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (not supported only in General Purpose tier)
 
 For information about how to create and alter tables, see [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql) and [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).

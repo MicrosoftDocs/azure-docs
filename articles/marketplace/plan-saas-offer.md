@@ -257,7 +257,7 @@ For SaaS apps that run in your (the publisher’s) Azure subscription, infrastru
 
 SaaS app offers that are sold through Microsoft support monthly or annual billing based on a flat fee, per user, or consumption charges using the [metered billing service](./partner-center-portal/saas-metered-billing.md). The commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to publishers while withholding an agency fee.
 
-The following example shows a sample breakdown of costs and payouts to demonstrate the agency model. In this example, Microsoft bills $100.00 to the customer for your software license and pays out $80.00 to the publisher.
+The following example shows a sample breakdown of costs and payouts to demonstrate the agency model. In this example, Microsoft bills $100.00 to the customer for your software license and pays out $97.00 to the publisher.
 
 | Your license cost | $100 per month |
 | ------------ | ------------- |
@@ -315,7 +315,7 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 
 - **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. For more information about this program, see [Cloud Solution Provider program](cloud-solution-providers.md).
 
-- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. For details about co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). For detailed information on how to prepare your offer for evaluation, see [Co-sell option in Partner Center](co-sell-configure.md).
+- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. For details about co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). For detailed information on how to prepare your offer for evaluation, see [Co-sell option in Partner Center](/partner-center/co-sell-configure?context=/azure/marketplace/context/context).
 
 ## Next steps
 

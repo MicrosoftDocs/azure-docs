@@ -50,7 +50,7 @@ Before transitioning the resource to the new region, we recommended using [log a
 
 ## Move
 
-You are now ready to move your resource to your new location. Follow [these instructions](/azure/iot-hub/iot-hub-how-to-clone) to move your IoT Hub.
+You are now ready to move your resource to your new location. Follow [these instructions](../../iot-hub/iot-hub-how-to-clone.md) to move your IoT Hub.
 
 After transferring, and enabling the resource, you can link to the same log analytics workspace that was configured earlier.
 
@@ -96,6 +96,6 @@ Don’t clean up until you have finished verifying that the resource has moved, 
 
 In this tutorial, you moved an Azure resource from one region to another and cleaned up the source resource.
 
-- Learn more about [Moving your resources to a new resource group or subscription.](/azure/azure-resource-manager/management/move-resource-group-and-subscription).
+- Learn more about [Moving your resources to a new resource group or subscription.](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- Learn how to [move VMs to another Azure region](/azure/site-recovery/azure-to-azure-tutorial-migrate).
+- Learn how to [move VMs to another Azure region](../../site-recovery/azure-to-azure-tutorial-migrate.md).

@@ -2,7 +2,7 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 03/10/2022
 ---
 
 # Object functions for ARM templates
@@ -18,11 +18,16 @@ Resource Manager provides several functions for working with objects in your Azu
 * [null](#null)
 * [union](#union)
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [object](../bicep/bicep-functions-object.md) functions.
+
 ## contains
 
 `contains(container, itemToFind)`
 
 Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
+
+In Bicep, use the [contains](../bicep/bicep-functions-object.md#contains) function.
 
 ### Parameters
 
@@ -58,7 +63,7 @@ The output from the preceding example with the default values is:
 
 Creates an object from the keys and values.
 
-The `createObject` function isn't supported by Bicep.  Construct an object by using `{}`. See [Objects](../bicep/data-types.md#objects).
+The `createObject` function isn't supported by Bicep. Construct an object by using `{}`. See [Objects](../bicep/data-types.md#objects).
 
 ### Parameters
 
@@ -99,6 +104,8 @@ The output from the preceding example with the default values is an object named
 
 Determines if an array, object, or string is empty.
 
+In Bicep, use the [empty](../bicep/bicep-functions-object.md#empty) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -128,6 +135,8 @@ The output from the preceding example with the default values is:
 `intersection(arg1, arg2, arg3, ...)`
 
 Returns a single array or object with the common elements from the parameters.
+
+In Bicep, use the [intersection](../bicep/bicep-functions-object.md#intersection) function.
 
 ### Parameters
 
@@ -161,6 +170,8 @@ The output from the preceding example with the default values is:
 `json(arg1)`
 
 Converts a valid JSON string into a JSON data type.
+
+In Bicep, use the [json](../bicep/bicep-functions-object.md#json) function.
 
 ### Parameters
 
@@ -201,6 +212,8 @@ The output from the preceding example with the default values is:
 `length(arg1)`
 
 Returns the number of elements in an array, characters in a string, or root-level properties in an object.
+
+In Bicep, use the [length](../bicep/bicep-functions-object.md#length) function.
 
 ### Parameters
 
@@ -258,7 +271,9 @@ The output from the preceding example is:
 
 `union(arg1, arg2, arg3, ...)`
 
-Returns a single array or object with all elements from the parameters. Duplicate values or keys are only included once.
+Returns a single array or object with all elements from the parameters. For arrays, duplicate values are included once. For objects, duplicate property names are only included once.
+
+In Bicep, use the [union](../bicep/bicep-functions-object.md#union) function.
 
 ### Parameters
 
@@ -271,6 +286,14 @@ Returns a single array or object with all elements from the parameters. Duplicat
 ### Return value
 
 An array or object.
+
+### Remarks
+
+The union function uses the sequence of the parameters to determine the order and values of the result.
+
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, it's earlier placement in the array is preserved.
+
+For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
 ### Example
 

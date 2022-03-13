@@ -8,7 +8,6 @@ manager: karenhoran
 editor: ''
 
 ms.service: role-based-access-control
-ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity

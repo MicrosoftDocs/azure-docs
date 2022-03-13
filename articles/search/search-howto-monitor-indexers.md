@@ -48,7 +48,7 @@ For more information about investigating indexer errors and warnings, see [Index
 
 ## Monitor with Azure Monitoring Metrics
 
-Cognitive Search is a monitored resource in Azure Monitor, which means that you can use [Metrics Explorer](/azure/azure-monitor/essentials/data-platform-metrics#metrics-explorer) to see basic metrics about the number of indexer-processed documents and skill invocations. These metrics can be used to monitor indexer progress and [set up alerts](/azure/azure-monitor/alerts/alerts-metric-overview). 
+Cognitive Search is a monitored resource in Azure Monitor, which means that you can use [Metrics Explorer](../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) to see basic metrics about the number of indexer-processed documents and skill invocations. These metrics can be used to monitor indexer progress and [set up alerts](../azure-monitor/alerts/alerts-metric-overview.md). 
 
 Metric views can be filtered or split up by a set of predefined dimensions.
 

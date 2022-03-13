@@ -1,13 +1,13 @@
 ---
 title: Troubleshooting Azure IoT Hub error 403002 IoTHubQuotaExceeded
 description: Understand how to fix error 403002 IoTHubQuotaExceeded 
-author: jlian
+author: kgremban
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.author: jlian
+ms.author: kgremban
 #Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 403002 IoTHubQuotaExceeded errors.
 ---
 

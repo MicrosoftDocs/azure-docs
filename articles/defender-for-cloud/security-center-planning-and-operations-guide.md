@@ -185,7 +185,7 @@ You should also regularly monitor existing resources for configuration changes t
 
 As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications that are running on VMs. By locking down inbound traffic to your Azure VMs, you are reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](just-in-time-access-usage.md) access feature to hardening access to your VMs.
 
-You can use [adaptive application controls](adaptive-application-controls.md) to limit which applications can run on your VMs located in Azure. Among other benefits, this helps harden your VMs against malware. Using machine learning, Defender for Cloud analyzes processes running in the VM to help you create allow listing rules.
+You can use [adaptive application controls](adaptive-application-controls.md) to limit which applications can run on your VMs located in Azure. Among other benefits, this helps harden your VMs against malware. Using machine learning, Defender for Cloud analyzes processes running in the VM to help you create allowlist rules.
 
 
 ## Incident response
@@ -215,7 +215,7 @@ This page shows the details regarding the time that the attack took place, the s
 
 Once you identify the compromised system, you can run a [workflow automation](workflow-automation.md) that was previously created. These are a collection of procedures that can be executed from Defender for Cloud once triggered by an alert.
 
-In the [How to Leverage the Defender for Cloud & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video, you can see some demonstrations that show how Defender for Cloud can be used in each one of those stages.
+In the How to Leverage the Defender for Cloud & Microsoft Operations Management Suite for an Incident Response video, you can see some demonstrations that show how Defender for Cloud can be used in each one of those stages.
 
 > [!NOTE]
 > Read [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.md) for more information on how to use Defender for Cloud capabilities to assist you during your Incident Response process.

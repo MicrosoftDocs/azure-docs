@@ -2,15 +2,17 @@
 title: include file
 description: include file
 services: Communication Services
-author: shahen
-manager: anvalent
+author: rahulva
+manager: shahen
 ms.service: Communication Services
 ms.subservice: Communication Services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: shahen
+ms.author: rahulva
 ---
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/network-traversal-get-relay-config)
 
 ## Setting Up
 

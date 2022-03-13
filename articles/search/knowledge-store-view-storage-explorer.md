@@ -19,7 +19,7 @@ Start with an existing knowledge store created in the [Azure portal](knowledge-s
 
 ## Start Storage Browser
 
-1. In the Azure portal, [open the Storage account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) that you used to create the knowledge store.
+1. In the Azure portal, [open the Storage account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) that you used to create the knowledge store.
 
 1. In the storage account's left navigation pane, select **Storage Browser**.
 

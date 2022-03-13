@@ -25,7 +25,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Create CI/CD with the DevOps Starter using Azure DevOps (8:53)
-            url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
+            url: /Events/Connect/2017/T174/player/
 
   # Card (optional)
   - title: Configure CI/CD 

@@ -42,6 +42,9 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
    | TLE title line | Enter TLE title line |
    | TLE line 1 | Enter TLE line 1 |
    | TLE line 2 | Enter TLE line 2 |
+   
+   > [!NOTE]
+   > TLE stands for Two-Line Element.
 
    :::image type="content" source="media/orbital-eos-register-bird.png" alt-text="Register Spacecraft Resource Page" lightbox="media/orbital-eos-register-bird.png":::
 
@@ -53,7 +56,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
    | Direction | Select Uplink or Downlink |
    | Center Frequency | Enter the center frequency in Mhz |
    | Bandwidth | Enter the bandwidth in Mhz |
-   | Polarization | Select RHCP, LHCP, Dual, or Linear Vertical |
+   | Polarization | Select RHCP, LHCP, or Linear Vertical |
 
    :::image type="content" source="media/orbital-eos-register-links.png" alt-text="Spacecraft Links Resource Page" lightbox="media/orbital-eos-register-links.png":::
 

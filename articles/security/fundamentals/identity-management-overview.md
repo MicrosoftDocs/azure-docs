@@ -164,7 +164,7 @@ Azure AD Identity Protection is a security service that provides a consolidated 
 Learn more:
 
 * [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
-* [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* Channel 9: Azure AD and Identity Show: Identity Protection Preview
 
 ## Hybrid identity management/Azure AD connect
 

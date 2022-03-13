@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 01/20/2022
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -35,10 +35,6 @@ For more information about what user information is collected by Azure Multi-Fac
 ## Password-based Single Sign-On for Enterprise Applications
  
 If a customer creates a new enterprise application (whether through Azure AD Gallery or non-Gallery) and enables password-based SSO, the Application sign in URL, and custom capture sign in fields are stored in the United States. For more information, see [Configure password-based single sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
-
-## Microsoft Azure Active Directory B2C (Azure AD B2C)
-
-Azure AD B2C policy configuration data and Key Containers are stored in U.S. datacenters, which do not contain any user personal data. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](../../active-directory-b2c/user-flow-overview.md) article.
 
 ## Microsoft Azure Active Directory B2B (Azure AD B2B) 
     

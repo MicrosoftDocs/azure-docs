@@ -34,9 +34,9 @@ landingContent:
     - linkListType: video
       links:
         - text: Introducing the Anomaly Detector API (univariate) 
-          url: https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
+          url: /shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
         - text: Introducing the new multivariate capabilities
-          url: https://channel9.msdn.com/Shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities
+          url: /shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities
         - text: More videos ...
           url: whats-new.md#videos
     - linkListType: reference
@@ -89,7 +89,7 @@ landingContent:
     - linkListType: video
       links:
         - text: Anomaly Detector best practices (univariate)
-          url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices 
+          url: /shows/AI-Show/Anomaly-Detector-v10-Best-Practices
 
 - title: Use Docker containers
   linkLists:
@@ -106,7 +106,7 @@ landingContent:
     - linkListType: video
       links:
         - text: Bring Anomaly Detector on-premises with containers support (univariate)
-          url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
+          url: /shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
   
 - title: Help and feedback
   linkLists:

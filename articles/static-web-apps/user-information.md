@@ -26,6 +26,7 @@ Client principal data object exposes user-identifiable information to your app. 
 | `userId`           | An Azure Static Web Apps-specific unique identifier for the user. <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static Web Apps resource.<li>The value persists for the lifetime of a user. If you delete and add the same user back to the app, a new `userId` is generated.</ul> |
 | `userDetails`      | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.md), while others send the [user handle](authentication-authorization.md).                                                                                                                                                                    |
 | `userRoles`        | An array of the [user's assigned roles](authentication-authorization.md).                                                                                                                                                                                                                                                                                          |
+| `claims`        | An array of claims returned by your [custom authentication provider](authentication-custom.md).                                                                                                                                                                                                                                                                        |
 
 The following example is a sample client principal object:
 
@@ -34,7 +35,11 @@ The following example is a sample client principal object:
   "identityProvider": "github",
   "userId": "d75b260a64504067bfc5b2905e3b8182",
   "userDetails": "username",
-  "userRoles": ["anonymous", "authenticated"]
+  "userRoles": ["anonymous", "authenticated"],
+  "claims": [{
+    "typ": "name",
+    "val": "Azure Static Web Apps"
+  }]
 }
 ```
 

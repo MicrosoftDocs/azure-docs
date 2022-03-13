@@ -331,7 +331,7 @@ Test your private peering connectivity by **counting** packets arriving and leav
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/connectivity-issues.png" alt-text="Screenshot of connectivity issues option.":::
 
-1. In the dropdown for *Tell us more about the problem you are experiencing*, select **Connectivity to Azure Private, Azure Public, or Dynamics 365 services.**
+1. In the dropdown for *Tell us more about the problem you're experiencing*, select **Connectivity to Azure Private, Azure Public, or Dynamics 365 services.**
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/tell-us-more.png" alt-text="Screenshot of drop-down option for problem user is experiencing.":::
 
@@ -339,7 +339,7 @@ Test your private peering connectivity by **counting** packets arriving and leav
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/test-private-peering.png" alt-text="Screenshot of troubleshooting connectivity issues options.":::
 
-1. Execute the [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) test from your on-premises IP address to your Azure IP address and keep it running during the connectivity test.
+1. Execute the [PsPing](/sysinternals/downloads/psping) test from your on-premises IP address to your Azure IP address and keep it running during the connectivity test.
 
 1. Fill out the fields of the form, making sure to enter the same on-premises and Azure IP addresses used in Step 5. Then select **Submit** and then wait for your results to load. Once your results are ready, review the information for interpreting them below.
 
@@ -347,7 +347,7 @@ Test your private peering connectivity by **counting** packets arriving and leav
 
 ### Interpreting results
 Your test results for each MSEE device will look like the example below. You'll have two sets of results for the primary and secondary MSEE devices. Review the number of matches in and out and use the following scenarios to interpret the results:
-* **You see packet matches sent and received on both MSEEs:** This indicates healthy traffic inbound to and outbound from the MSEE on your circuit. If loss is occurring either on-premises or in Azure, it is happening downstream from the MSEE.
+* **You see packet matches sent and received on both MSEEs:** This indicates healthy traffic inbound to and outbound from the MSEE on your circuit. If loss is occurring either on-premises or in Azure, it's happening downstream from the MSEE.
 * **If testing PsPing from on-premises to Azure *(received)* results show matches, but *sent* results show NO matches:** This indicates that traffic is getting inbound to Azure, but isn't returning to on-prem. Check for return-path routing issues (for example, are you advertising the appropriate prefixes to Azure? Is there a UDR overriding prefixes?).
 * **If testing PsPing from Azure to on-premises *(sent)* results show NO matches, but *(received)* results show matches:** This indicates that traffic is getting to on-premises, but isn't getting back. You should work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
 * **One MSEE shows NO matches, while the other shows good matches:** This indicates that one MSEE isn't receiving or passing any traffic. It could be offline (for example, BGP/ARP down).
@@ -362,6 +362,24 @@ This test result has the following properties:
 * IP Port: 3389
 * On-prem IP Address CIDR: 10.0.0.0
 * Azure IP Address CIDR: 20.0.0.0
+
+## Verify virtual network gateway availability
+
+The ExpressRoute virtual network gateway facilitates the management and control plane connectivity to private link services and private IPs deployed to an Azure virtual network. The virtual network gateway infrastructure is managed by Microsoft and sometimes undergoes maintenance. During a maintenance period, performance of the virtual network gateway may be reduced. You can use the *Diagnose and Solve* experience within the ExpressRoute Circuit page to troubleshoot connectivity issues to the virtual network and reactively detect if recent maintenance events reduced the virtual network gateway capacity.
+
+1. To access this diagnostic tool, select **Diagnose and solve problems** from your ExpressRoute circuit in the Azure portal.
+
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/diagnose-problems.png" alt-text="Screenshot of selecting the diagnose and solve problem page from ExpressRoute circuit.":::
+
+1. Select the **Performance Issues** option.
+
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/performance-issues.png" alt-text="Screenshot of selecting the performance issue option.":::
+
+1. Wait for the diagnostics to run and interpret the results:
+
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/gateway-result.png" alt-text="Screenshot of the diagnostic results.":::
+   
+    Review if your virtual network gateway recently underwent maintenance. If maintenance occurred during a period when you experienced packet loss or latency, it's possible that the reduced capacity of the virtual network gateway contributed to connectivity issues you're experiencing with the target virtual network. Follow the recommended steps and also consider upgrading the [virtual network gateway SKU](expressroute-about-virtual-network-gateways.md#gwsku) to support a higher network throughput and avoid connectivity issues during future maintenance events.
 
 ## Next Steps
 For more information or help, check out the following links:

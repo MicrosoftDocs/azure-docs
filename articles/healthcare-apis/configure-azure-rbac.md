@@ -4,7 +4,7 @@ description: This article describes how to configure Azure RBAC for FHIR.
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 12/08/2021
+ms.date: 01/06/2022
 ms.author: zxue
 ---
 
@@ -68,6 +68,6 @@ In the **Select** box, search for a user, service principal, or group that you w
 
 In this article, you've learned how to assign Azure roles for the FHIR service and DICOM service. To learn how to access the Healthcare APIs using Postman, see
 
-- [Access using Postman](use-postman.md)
-- [Access using the REST Client](using-rest-client.md)
-- [Access using cURL](using-curl.md)
+- [Access using Postman](./fhir/use-postman.md)
+- [Access using the REST Client](./fhir/using-rest-client.md)
+- [Access using cURL](./fhir/using-curl.md)

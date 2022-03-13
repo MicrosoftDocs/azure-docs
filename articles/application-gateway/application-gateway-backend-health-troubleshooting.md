@@ -264,7 +264,7 @@ request contains the string **unauthorized**, it will be marked as Healthy. Othe
 
 1.  Verify that the response body in the Application Gateway custom probe configuration matches what's configured.
 
-1.  If they don't match, change the probe configuration so that is has the correct string value to accept.
+1.  If they don't match, change the probe configuration so that it has the correct string value to accept.
 
 Learn more about [Application Gateway probe matching](./application-gateway-probe-overview.md#probe-matching).
 
@@ -454,7 +454,7 @@ This behavior can occur for one or more of the following reasons:
 
     d.	If an NSG is configured, search for that NSG resource on the **Search** tab or under **All resources**.
 
-    e.	In the **Inbound Rules** section, add an inbound rule to allow destination port range 65503-65534 for v1 SKU or 65200-65535 v2 SKU with the **Source** set as **Any** or **Internet**.
+    e.	In the **Inbound Rules** section, add an inbound rule to allow destination port range 65503-65534 for v1 SKU or 65200-65535 v2 SKU with the **Source** set as **GatewayManager** service tag.
 
     f.	Select **Save** and verify that you can view the backend as Healthy. Alternatively, you can do that through [PowerShell/CLI](../virtual-network/manage-network-security-group.md).
 

@@ -13,17 +13,17 @@ This article describes how to configure metrics, alerts, and diagnostic settings
 
 ## Monitor Azure Purview
 
-Azure Purview admins can use Azure Monitor to track the operational state of Purview account. Metrics are collected to provide data points for you to track potential problems, troubleshoot, and improve the reliability of the Purview account. The metrics are sent to Azure monitor for events occurring in Azure Purview.
+Azure Purview admins can use Azure Monitor to track the operational state of Azure Purview account. Metrics are collected to provide data points for you to track potential problems, troubleshoot, and improve the reliability of the Azure Purview account. The metrics are sent to Azure monitor for events occurring in Azure Purview.
 
 ## Aggregated metrics
 
-The metrics can be accessed from the Azure portal for a Purview account. Access to the metrics are controlled by the role assignment of Purview account. Users need to be part of the "Monitoring Reader" role in Azure Purview to see the metrics. Check out [Monitoring Reader Role permissions](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles) to learn more about the roles access levels.
+The metrics can be accessed from the Azure portal for an Azure Purview account. Access to the metrics are controlled by the role assignment of Azure Purview account. Users need to be part of the "Monitoring Reader" role in Azure Purview to see the metrics. Check out [Monitoring Reader Role permissions](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles) to learn more about the roles access levels.
 
-The person who created the Purview account automatically gets permissions to view metrics. If anyone else wants to see metrics, add them to the **Monitoring Reader** role, by following these steps:
+The person who created the Azure Purview account automatically gets permissions to view metrics. If anyone else wants to see metrics, add them to the **Monitoring Reader** role, by following these steps:
 
 ### Add a user to the Monitoring Reader role
 
-To add a user to the **Monitoring Reader** role, the owner of Purview account or the Subscription owner can follow these steps:
+To add a user to the **Monitoring Reader** role, the owner of Azure Purview account or the Subscription owner can follow these steps:
 
 1. Go to the [Azure portal](https://portal.azure.com) and search for the Azure Purview account name.
 
@@ -41,13 +41,13 @@ To add a user to the **Monitoring Reader** role, the owner of Purview account or
 
 ## Metrics visualization
 
-Users in the **Monitoring Reader** role can see the aggregated metrics and diagnostic logs sent to Azure Monitor. The metrics are listed in the Azure portal for the corresponding Purview account. In the Azure portal, select the Metrics section to see the list of all available metrics.
+Users in the **Monitoring Reader** role can see the aggregated metrics and diagnostic logs sent to Azure Monitor. The metrics are listed in the Azure portal for the corresponding Azure Purview account. In the Azure portal, select the Metrics section to see the list of all available metrics.
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/purview-metrics.png" alt-text="Screenshot showing available Purview metrics section." lightbox="./media/how-to-monitor-with-azure-monitor/purview-metrics.png":::
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/purview-metrics.png" alt-text="Screenshot showing available Azure Purview metrics section." lightbox="./media/how-to-monitor-with-azure-monitor/purview-metrics.png":::
 
-Azure Purview users can also access the metrics page directly from the management center of the Azure Purview account. Select Azure Monitor in the main page of Purview management center to launch Azure portal.
+Azure Purview users can also access the metrics page directly from the management center of the Azure Purview account. Select Azure Monitor in the main page of Azure Purview management center to launch Azure portal.
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/launch-metrics-from-management.png" alt-text="Screenshot to launch Purview metrics from management center." lightbox="./media/how-to-monitor-with-azure-monitor/launch-metrics-from-management.png":::
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/launch-metrics-from-management.png" alt-text="Screenshot to launch Azure Purview metrics from management center." lightbox="./media/how-to-monitor-with-azure-monitor/launch-metrics-from-management.png":::
 
 ### Available metrics
 
@@ -66,7 +66,7 @@ The following table contains the list of metrics available to explore in the Azu
 
 ## Diagnostic Logs to Azure Storage account
 
-Raw telemetry events are emitted to Azure Monitor. Events can be logged to a customer storage account of choice for further analysis. Exporting of logs is done via the Diagnostic settings for the Purview account on the Azure portal.
+Raw telemetry events are emitted to Azure Monitor. Events can be logged to a customer storage account of choice for further analysis. Exporting of logs is done via the Diagnostic settings for the Azure Purview account on the Azure portal.
 
 Follow the steps to create a Diagnostic setting for your Azure Purview account.
 

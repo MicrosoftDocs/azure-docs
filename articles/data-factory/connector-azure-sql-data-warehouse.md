@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/29/2021
+ms.date: 01/14/2022
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -456,8 +456,13 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 | tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. Allowed values are: `none` (default), `autoCreate`. |No |
 | disableMetricsCollection | The service collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations, which introduce additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
+| WriteBehavior | Specify the write behavior for copy activity to load data into Azure SQL Database. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
+| upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upert`. | No |
+| ***Under `upsertSettings`:*** | | |
+| keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. If not specified, the primary key is used. | No |
+| interimSchemaName | Specify the interim schema for creating interim table. Note: user need to have the permission for creating and deleting table. By default, interim table will share the same schema as sink table. | No |
 
-#### Azure Synapse Analytics sink example
+#### Example 1: Azure Synapse Analytics sink
 
 ```json
 "sink": {
@@ -470,6 +475,21 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
         "rejectSampleValue": 100,
         "useTypeDefault": true
     }
+}
+```
+
+#### Example 2: Upsert data
+
+```json
+"sink": {
+    "type": "SqlDWSink",
+    "writeBehavior": "Upsert",
+    "upsertSettings": {
+        "keys": [
+             "<column name>"
+        ],
+        "interimSchemaName": "<interim schema name>"
+    },
 }
 ```
 

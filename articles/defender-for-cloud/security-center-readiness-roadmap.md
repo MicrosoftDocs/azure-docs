@@ -50,16 +50,12 @@ Articles
 - [Protecting Azure SQL service and data in Defender for Cloud](./implement-security-recommendations.md)
 
 
-Video    
-- [Mitigating Security Issues using Defender for Cloud](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
-
 ### Defender for Cloud for incident response
 To reduce costs and damage, it's important to have an incident response plan in place before an attack takes place. You can use Defender for Cloud in different stages of an incident response.
 
 Use the following resources to understand how Defender for Cloud can be incorporated in your incident response process.
 
 Videos    
-* [Defender for Cloud in Incident Response](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Respond quickly to threats with next-generation security operation, and investigation](https://youtu.be/e8iFCz5RM4g)
 
 Articles    

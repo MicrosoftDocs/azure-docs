@@ -79,7 +79,7 @@ After the database user or group is created, then the user `steve@gmail.com` can
 - SSMS version 17.2 provides DacFx Wizard support for Export/Extract/Deploy Data database. Once a specific user is authenticated through the initial authentication dialog using Universal Authentication, the DacFx Wizard functions the same way it does for all other authentication methods.
 - The SSMS Table Designer does not support Universal Authentication.
 - There are no additional software requirements for Active Directory Universal Authentication except that you must use a supported version of SSMS.  
-- See the following link for the latest Microsoft Authentication Library (MSAL) version for Universal authentication: [Overview of the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview#languages-and-frameworks).  
+- See the following link for the latest Microsoft Authentication Library (MSAL) version for Universal authentication: [Overview of the Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md#languages-and-frameworks).  
 
 ## Next steps
 

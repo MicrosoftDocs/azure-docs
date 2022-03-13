@@ -33,7 +33,7 @@ We support the following [standard ciphers](https://1.ieee802.org/security/802-1
 * GCM-AES-XPN-128
 * GCM-AES-XPN-256
 ### Does ExpressRoute Direct MACsec support Secure Channel Identifier (SCI)?
-Yes, you can set [Secure Channel Identifier (SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE) on the ExpressRoute Direct ports. Refer to [Configure MACsec](https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec).
+Yes, you can set [Secure Channel Identifier (SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE) on the ExpressRoute Direct ports. Refer to [Configure MACsec](./expressroute-howto-macsec.md).
 ## End-to-end encryption by IPsec FAQ
 IPsec is an [IETF standard](https://tools.ietf.org/html/rfc6071). It encrypts data at the Internet Protocol (IP) level or Network Layer 3. You can use IPsec to encrypt an end-to-end connection between your on-premises network and your virtual network (VNET) on Azure. See other FAQs below.
 ### Can I enable IPsec in addition to MACsec on my ExpressRoute Direct ports?

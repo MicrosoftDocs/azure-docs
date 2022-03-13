@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-
 ---
 
 # Application Insights for Worker Service applications (non-HTTP applications)

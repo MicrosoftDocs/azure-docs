@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: jonburchel
   ms.author: jburchel
-  ms.date: 06/14/2021
+  ms.date: 02/02/2022
   ms.custom: contperf-fy21q4
 
 landingContent:
@@ -28,13 +28,11 @@ landingContent:
           - text: Whitepapers
             url: ./whitepapers.md
           - text: Pricing
-            url: https://azure.microsoft.com/pricing/details/data-factory/
+            url: ./pricing.md
           - text: Understanding pricing through examples
             url: ./pricing-concepts.md
-          - text: Recent feature updates
-            url: https://azure.microsoft.com/updates/?tag=data-factory
           - text: ADF Blog
-            url: https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog
+            url: ./blog.md
           - text: Request a feature
             url: /answers/topics/azure-data-factory.html
   - title: Get started
@@ -102,7 +100,7 @@ landingContent:
           - text: Create data flow
             url: ./data-flow-create.md
           - text: Data flow expression language
-            url: ./data-flow-expression-functions.md
+            url: ./data-transformation-functions.md
           - text: Debug data flow
             url: ./concepts-data-flow-debug-mode.md
           - text: Execute data flow activity inside pipeline
@@ -116,7 +114,7 @@ landingContent:
           - text: What are mapping data flows?
             url: ./concepts-data-flow-overview.md
           - text: Data transformation expressions in mapping data flow
-            url: ./data-flow-expression-functions.md          
+            url: ./data-transformation-functions.md          
   - title: Lift and shift SSIS packages
     linkLists:
       - linkListType: overview

@@ -20,7 +20,7 @@ When making your decision, consider the following two options:
 
    - [Flexible Server](flexible-server/overview.md) - Azure Database for MySQL Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. Flexible Server also supports reserved instances allowing you to save up to 63% cost, ideal for production workloads with predictable compute capacity requirements. The service supports community version of MySQL 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](flexible-server/overview.md#azure-regions). Flexible servers are best suited for all new developments and migration of production workloads to Azure Database for MySQL service.
 
-   - [Single Server](single-server-overview.md) is a fully managed database service designed for minimal customization. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability on single availability zone. It supports community version of MySQL 5.6 (retired), 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/). Single servers are best suited **only for existing applications already leveraging single server**. For all new developments or migrations, Flexible Server would be the recommended deployment option. To learn about the differences between Flexible Server and Single Server deployment options, refer [select the right deployment option for you](select-right-deployment-type.md) documentation.
+   - [Single Server](single-server-overview.md) is a fully managed database service designed for minimal customization. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability on single availability zone. It supports community version of MySQL 5.6 (retired), 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/). Single servers are best suited **only for existing applications already leveraging single server**. For all new developments or migrations, Flexible Server would be the recommended deployment option.
  
 - **MySQL on Azure VMs**. This option falls into the industry category of IaaS. With this service, you can run MySQL Server inside a managed virtual machine on the Azure cloud platform. All recent versions and editions of MySQL can be installed in the virtual machine.
 
@@ -88,10 +88,10 @@ The main differences between these options are listed in the following table:
 | Fast restore point | No | Yes | No |
 | Ability to restore on a different zone | Not supported | Yes | Yes |
 | Ability to restore to a different VNET | No | Yes | Yes |
-| Ability to restore to a different region | Yes (Geo-redundant) | No | User Managed |
-| Ability to restore a deleted server | Yes | No | No |
+| Ability to restore to a different region | Yes (Geo-redundant) | Yes (Geo-redundant) | User Managed |
+| Ability to restore a deleted server | Yes | Yes | No |
 | [**Disaster Recovery**](flexible-server/concepts-business-continuity.md) | | | | 
-| DR across Azure regions | Using cross region read replicas, geo-redundant backup | Not supported | User Managed |
+| DR across Azure regions | Using cross region read replicas, geo-redundant backup | Using geo-redundant backup | User Managed |
 | Automatic failover | No | Not Supported | No |
 | Can use the same r/w endpoint | No | Not Supported | No |
 | [**Monitoring**](flexible-server/concepts-monitoring.md) | | | |

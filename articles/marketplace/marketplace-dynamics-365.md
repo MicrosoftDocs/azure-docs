@@ -81,7 +81,7 @@ To help create your offer more easily, prepare these items ahead of time. All ar
 
 ## Additional sales opportunities
 
-You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two a tab toward the end of the process for **Co-sell with Microsoft**. This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](./co-sell-configure.md) for detailed information on how to prepare your offer for evaluation.
+You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two a tab toward the end of the process for **Co-sell with Microsoft**. This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](/partner-center/co-sell-configure?context=/azure/marketplace/context/context) for detailed information on how to prepare your offer for evaluation.
 
 ## Next steps
 
