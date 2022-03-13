@@ -57,7 +57,7 @@ The following fields are defined by ASIM for all schemas:
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP address | The IP address of the device on which the event occurred or which reported the event, depending on the schema. <br><br>Example: `45.21.42.12`    |
 | <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   | The hostname of the device on which the event occurred or which reported the event, depending on the schema. <br><br>Example: `ContosoDc`               |
 | <a name="dvcdomain"></a>**DvcDomain** | Recommended | String | The domain of the device on which the event occurred or which reported the event, depending on the schema.<br><br>Example: `Contoso` |
-| <a name="dvcdomaintype"></a>**DvcDomainType** | Recommended | Enumerated | The type of  [DvcDomain](#dvcdomain). For a list of allowed values and further information refer to [DomainType](#domaintype).<br><br>**Note**: This field is required if the [DvcDomain](#dvcdomain) field is used. |
+| <a name="dvcdomaintype"></a>**DvcDomainType** | Recommended | Enumerated | The type of  [DvcDomain](#dvcdomain). For a list of allowed values and further information refer to [DomainType](normalization-about-schemas.md#domaintype).<br><br>**Note**: This field is required if the [DvcDomain](#dvcdomain) field is used. |
 | <a name="dvcfqdn"></a>**DvcFQDN** | Optional | String | The hostname of the device on which the event occurred or which reported the event, depending on the schema. <br><br> Example: `Contoso\DESKTOP-1282V4D`<br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The  [DvcDomainType](#dvcdomaintype) field reflects the format used.  |
 | <a name ="dvcid"></a>**DvcId**               | Optional    | String     | The unique ID of the device on which the event occurred or which reported the event, depending on the schema. <br><br>Example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
 | <a name="dvcidtype"></a>**DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid). For a list of allowed values and further information refer to [DvcIdType](#dvcidtype).<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list, and store the others by using the field names **DvcAzureResourceId** and **DvcMDEid**, respectively.<br><br>**Note**: This field is required if the [DvcId](#dvcid) field is used. |
@@ -71,6 +71,30 @@ The following fields are defined by ASIM for all schemas:
 | <a name="dvcsubscription"></a>**DvcSubscriptionId** | Optional | String | The cloud platform subscription ID the device belongs to. **DvcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | <a name="additionalfields"></a>**AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic **AdditionalFields** field, and add to it the extra information as key/value pairs.    |
 | | | | |
+
+
+## Vendors and products
+
+To maintain consistency, the list of allowed vendors and products is set as part of ASIM, and may not directly correspond to the value sent by the source, when available.
+
+The currently supported list of vendors and products used in the [EventVendor](#eventvendor) and [EventProduct](#eventproduct) fields respectively is:
+
+| Vendor | Products |
+| ------ | -------- | 
+| Apache | Squid Proxy | 
+| AWS | - CloudTrail<br> - VPC | 
+| Cisco | - ASA<br> - Umbrella |
+| Corelight | Zeek | 
+| GCP | Cloud DNS | 
+| Infoblox | NIOS | 
+| Microsoft | - AAD<br> - Azure Firewall<br> - Azure File Storage<br>    - Azure NSG flows<br> -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
+| Okta | Okta | 
+| Palo Alto | - PanOS<br> - CDL<br> |
+| Vectra AI | Vectra Steam |
+| Zscaler |  - ZIA DNS<br> - ZIA Firewall<br> - ZIA Proxy |
+|||
+
+If you are developing a parser for a vendor or a product which are not listed here, contact the [Microsoft Sentinel](mailto:azuresentinel@microsoft.com) team to allocate a new allowed vendor and product designators. 
 
 ## Next steps
 
