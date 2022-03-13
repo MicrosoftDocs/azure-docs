@@ -24,9 +24,9 @@ Azure Attestation receives evidence from compute entities, turns them into a set
 
 Azure Attestation provides comprehensive attestation services for multiple environments and distinctive use cases.
 
-### SGX attestation
+### SGX enclave attestation
 
-SGX refers to hardware-grade isolation, which is supported on certain Intel CPUs models. SGX enables code to run in sanitized compartments known as SGX enclaves. Access and memory permissions are then managed by hardware to ensure a minimal attack surface with proper isolation.
+[Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) refers to hardware-grade isolation, which is supported on certain Intel CPUs models. SGX enables code to run in sanitized compartments known as SGX enclaves. Access and memory permissions are then managed by hardware to ensure a minimal attack surface with proper isolation.
 
 Client applications can be designed to take advantage of SGX enclaves by delegating security-sensitive tasks to take place inside those enclaves. Such applications can then make use of Azure Attestation to routinely establish trust in the enclave and its ability to access sensitive data.
 
@@ -35,14 +35,14 @@ Intel® Xeon® Scalable processors only support [ECDSA-based attestation solutio
 > [!NOTE]
 > To perform attestation of Intel® Xeon® Scalable processor-based server platforms using Azure Attestation, users are expected to install [Azure DCAP version 1.10.0](https://github.com/microsoft/Azure-DCAP-Client) or higher.
 
-### Open Enclave
+### Open Enclave attestation
 [Open Enclave](https://openenclave.io/sdk/) (OE) is a collection of libraries targeted at creating a single unified enclaving abstraction for developers to build TEE-based applications. It offers a universal secure app model that minimizes platform specificities. Microsoft views it as an essential stepping-stone toward democratizing hardware-based enclave technologies such as SGX and increasing their uptake on Azure.
 
 OE standardizes specific requirements for verification of an enclave evidence. This qualifies OE as a highly fitting attestation consumer of Azure Attestation.
 
 ### TPM attestation 
 
-Trusted Platform Module (TPM) based attestation is critical to provide proof of a platforms’ state. TPM acts as the root of trust and the security coprocessor to provide cryptographic validity to the measurements(evidence). Devices with a TPM, can rely on attestation to prove that boot integrity is not compromised along with using the claims to detect feature states enablement’s during boot. 
+[Trusted Platform Modules (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) based attestation is critical to provide proof of a platforms’ state. TPM acts as the root of trust and the security coprocessor to provide cryptographic validity to the measurements(evidence). Devices with a TPM, can rely on attestation to prove that boot integrity is not compromised along with using the claims to detect feature states enablement’s during boot. 
 
 Client applications can be designed to take advantage of TPM attestation by delegating security-sensitive tasks to only take place after a platform has been validated to be secure. Such applications can then make use of Azure Attestation to routinely establish trust in the platform and its ability to access sensitive data.
 
