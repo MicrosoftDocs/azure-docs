@@ -38,18 +38,18 @@ When a model is deployed, you will be able to test the model directly in the por
 > You can only have ten deployment names
 
 1. Go to your project in [Language studio](https://aka.ms/custom-extraction).
-2. From the left panel, select Deploy model
-3. Click on *Add deployment* to submit a new deployment job
+2. From the left panel, select **Deploy model**.
+3. Click on **Add deployment** to submit a new deployment job.
 
     :::image type="content" source="../../custom-named-entity-recognition/media/deploy-model.png" alt-text="run-inference" lightbox="../../custom-named-entity-recognition/media/deploy-model.png":::
 
-4. In the window that appears, you can create a new deployment name by or override an existing deployment name. Then, you can add a trained model to this deployment name.
+4. In the window that appears, you can create a new deployment name or override an existing one. Then, you can add a trained model to this deployment name.
 
    :::image type="content" source="../../custom-named-entity-recognition/media/add-deployment.png" alt-text="run-inference" lightbox="../../custom-named-entity-recognition/media/add-deployment.png":::
    
 ### Delete deployment
 
-To delete a deployment, select the deployment you want to delete and click on “Delete deployment”
+To delete a deployment, select the deployment you want to delete and select **Delete deployment**
 
 > [!TIP]
 > You can test your model in Language Studio by sending samples of text for it to classify. 
