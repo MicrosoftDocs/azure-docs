@@ -96,7 +96,7 @@ For example, to filter only Web sessions for a specified list of domain names, u
 
 ```kql
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
-imWebSession (url_has_any = torProxies)
+_Im_WebSession (url_has_any = torProxies)
 ```
 
 ## Schema details
