@@ -44,7 +44,7 @@ Your utterances are split into two sets:
 * Training set: These utterances are used to create your conversational model during training. The training set is processed as part of the training job to produce a trained model.
 * Testing set: These utterances are used to test the performance of your conversation model when the model is created. Testing set is also used to output the evaluation of the model.
 
-When adding utterances, you have the option to add to a specific set explicitly (training or testing). If you choose to do this you need to set your split type in train model page to **manual split of training and testing data**, otherwise keep all your utterances in the train set and use **Automatically split the testing set from training data** splitting. Learn more about how your [data is split before training](https://docs.microsoft.com/azure/cognitive-services/language-service/conversational-language-understanding/how-to/train-model#train-model).
+When adding utterances, you have the option to add to a specific set explicitly (training or testing). If you choose to do this you need to set your split type in train model page to **manual split of training and testing data**, otherwise keep all your utterances in the train set and use **Automatically split the testing set from training data**. See [How to train your model](train-model.md#train-model) for more information.
 
 *Section 2* is where you add your utterances. You must select one of the intents from the drop-down list, the language of the utterance (if applicable) and the utterance itself. Press the Enter key in the utterance's text box to add the utterance.
 
