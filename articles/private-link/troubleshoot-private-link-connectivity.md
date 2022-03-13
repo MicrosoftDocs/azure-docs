@@ -43,7 +43,7 @@ If you experience connectivity problems with your private link setup, review the
 
 1. Review Private Link configuration by browsing the resource.
 
-    a. Go to [Private Link Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
+    a. Go to [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
       ![Private Link Center](./media/private-link-tsg/private-link-center.png)
 
@@ -113,7 +113,7 @@ If you experience connectivity problems with your private link setup, review the
 
 ![DependencyView](https://user-images.githubusercontent.com/20302679/135001741-8e848c52-d4bb-4646-b0d3-a85614ebe16c.png)
 
-4. Contact the [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) team if your problem is still unresolved and a connectivity problem still exists.
+4. Contact the [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) team if your problem is still unresolved and a connectivity problem still exists.
 
 ## Next steps
 

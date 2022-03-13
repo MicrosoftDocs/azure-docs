@@ -68,7 +68,7 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 
 | Component | Description |  
 | ----------------- | ------------- |  
-| `kubelet` | The Kubernetes agent that processes the orchestration requests from the control plane and scheduling of running the requested containers. |  
+| `kubelet` | The Kubernetes agent that processes the orchestration requests from the control plane along with scheduling and running the requested containers. |  
 | *kube-proxy* | Handles virtual networking on each node. The proxy routes network traffic and manages IP addressing for services and pods. |  
 | *container runtime* | Allows containerized applications to run and interact with additional resources, such as the virtual network and storage. AKS clusters using Kubernetes version 1.19+ for Linux node pools use `containerd` as their container runtime. Beginning in Kubernetes version 1.20 for Windows node pools, `containerd` can be used in preview for the container runtime, but Docker is still the default container runtime. AKS clusters using prior versions of Kubernetes for node pools use Docker as their container runtime. |  
 

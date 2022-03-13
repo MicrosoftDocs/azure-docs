@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Create a serverless Apache Spark pool using Synapse Studio'
 description: Create a serverless Apache Spark pool using Synapse Studio by following the steps in this guide.
-services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: quickstart

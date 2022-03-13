@@ -7,9 +7,9 @@ ms.author: memildin
 ---
 ## Enable the plan
 
-1. From Defender for Cloud's menu, open the [Environment settings page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/EnvironmentSettings) and select the relevant subscription.
+1. From Defender for Cloud's menu, open the [Environment settings page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/EnvironmentSettings) and select the relevant subscription.
 
-1. In the [Defender plans page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier), enable **Defender for Containers**
+1. In the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier), enable **Defender for Containers**
 
     > [!TIP]
     > If the subscription already has Defender for Kubernetes and/or Defender for container registries enabled, an update notice is shown. Otherwise, the only option will be **Defender for Containers**.
@@ -20,7 +20,7 @@ ms.author: memildin
 
     :::image type="content" source="../media/defender-for-containers/defender-for-containers-provisioning-configuration.gif" alt-text="Viewing the configuration for Defender for Containers.":::
 
-    You can also modify this configuration from the [Auto provisioning page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
+    You can also modify this configuration from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
 
     :::image type="content" source="../media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="../media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
 
@@ -116,7 +116,7 @@ Request body parameters:
 
 ### Use Azure Resource Manager to deploy the Defender profile
 
-To use Azure Resource Manager to deploy the Defender profile, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
+To use Azure Resource Manager to deploy the Defender profile, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!TIP]
 > If you're new to Resource Manager templates, start here: [What are Azure Resource Manager templates?](../../azure-resource-manager/templates/overview.md)

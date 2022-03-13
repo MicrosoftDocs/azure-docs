@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot library installation errors
 description: This tutorial provides an overview on how to troubleshoot library installation errors.
-services: synapse-analytics
 author: midesa
 ms.author: midesa 
 ms.service: synapse-analytics

@@ -20,8 +20,8 @@ In this article, we provide troubleshooting help for connecting your client appl
   - [Kubernetes hosted applications](#kubernetes-hosted-applications)
   - [Linux-based client application](#linux-based-client-application)
 - [Continuous connectivity issues](#continuous-connectivity)
-  - [Azure Cache for Redis CLI](#azure-cache-for-redis-cli)
-  - [PSPING](#psping)
+  - [Test connectivity using _redis-cli_](#test-connectivity-using-redis-cli)
+  - [Test connectivity using PSPING](#test-connectivity-using-psping)
   - [Virtual network configuration](#virtual-network-configuration)
   - [Private endpoint configuration](#private-endpoint-configuration)
   - [Firewall rules](#third-party-firewall-or-external-proxy)
@@ -49,15 +49,15 @@ Using optimistic TCP settings in Linux might cause client applications to experi
 
 ## Continuous connectivity
 
-If your application can't maintain a continuous connection to your Azure Cache for Redis, it's possible some configuration on the cache isn't set up correctly. The following sections offer suggestions on how to make sure your cache is configured correctly.
+If your application can't connect to your Azure Cache for Redis, it's possible some configuration on the cache isn't set up correctly. The following sections offer suggestions on how to make sure your cache is configured correctly.
 
-### Azure Cache for Redis CLI
+### Test connectivity using _redis-cli_
 
-Test connectivity using Azure Cache for Redis CLI. For more information on CLI, [Use the Redis command-line tool with Azure Cache for Redis](cache-how-to-redis-cli-tool.md).
+Test connectivity using _redis-cli_. For more information on CLI, [Use the Redis command-line tool with Azure Cache for Redis](cache-how-to-redis-cli-tool.md).
 
-### PSPING
+### Test connectivity using PSPING
 
-If Azure Cache for Redis CLI is unable to connect, you can test connectivity using `PSPING` in PowerShell.
+If _redis-cli_ is unable to connect, you can test connectivity using `PSPING` in PowerShell.
 
 ```azurepowershell-interactive
 psping -q <cache DNS endpoint>:<Port Number>

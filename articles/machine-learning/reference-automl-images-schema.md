@@ -10,7 +10,6 @@ ms.reviewer: nibaccam
 ms.author: rvadthyavath
 author: vadthyavath
 ms.date: 10/13/2021
-ms.custom: 
 ---
 
 # Data schemas to train computer vision models with automated machine learning
@@ -398,4 +397,6 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 
 ## Next steps
 
-Learn how to [Prepare data for training computer vision models with automated ML](how-to-prepare-datasets-for-automl-images.md).
+* Learn how to [Prepare data for training computer vision models with automated ML](how-to-prepare-datasets-for-automl-images.md).
+* [Set up computer vision tasks in AutoML](how-to-auto-train-image-models.md)
+* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).

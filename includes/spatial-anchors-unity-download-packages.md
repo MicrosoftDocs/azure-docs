@@ -1,14 +1,14 @@
 ---
-author: msftradford
+author: pamistel
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/12/2021
-ms.author: parkerra
+ms.author: pamistel
 ---
 
 The next step is to download the Azure Spatial Anchors packages for Unity. 
 
-To use Azure Spatial Anchors in Unity, you need to download the **core package** (`com.microsoft.azure.spatial-anchors-sdk.core`) and a **platform-specific package** for each platform that you plan to support.
+To use Azure Spatial Anchors in Unity, you need to download **both** the **core package** (`com.microsoft.azure.spatial-anchors-sdk.core`) and a **platform-specific package** for each platform that you plan to support.
 
 | Platform | Package name                                    |
 |----------|-------------------------------------------------|

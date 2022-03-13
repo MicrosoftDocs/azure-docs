@@ -27,7 +27,7 @@ Creating an Azure virtual machine usually includes two steps:
 - Create a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine.
 - Create a virtual machine.
 
-The following example creates an [Azure Generation 2 VM](https://docs.microsoft.com/azure/virtual-machines/generation-2) by default from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json). Here is a copy of the template:
+The following example creates an [Azure Generation 2 VM](../generation-2.md) by default from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json). Here is a copy of the template:
 
 [!code-json[create-windows-vm](~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json)]
 

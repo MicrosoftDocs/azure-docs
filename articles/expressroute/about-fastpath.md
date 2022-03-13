@@ -19,7 +19,7 @@ ExpressRoute virtual network gateway is designed to exchange network routes and 
 
 ### Circuits
 
-FastPath is available on all ExpressRoute circuits.
+FastPath is available on all ExpressRoute circuits. Public preview support for Private Link connectivity over FastPath is available for connections associated to ExpressRoute Direct circuits. Connections associated to ExpressRoute partner circuits are not eligible for the preview.
 
 ### Gateways
 
@@ -68,6 +68,8 @@ This preview supports connectivity to the following Azure Services:
 - Azure Key Vault
 - Azure Storage
 - Third Party Private Link Services
+
+This preview is available for connections associated to ExpressRoute Direct circuits. Connections associated to ExpressRoute partner circuits are not eligible for this preview.
 
 > [!NOTE]
 > Private Link pricing will not apply to traffic sent over ExpressRoute FastPath during Public preview. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).

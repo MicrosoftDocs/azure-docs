@@ -20,7 +20,7 @@ Azure Arc-enabled Kubernetes provides its agents with out- of-the-box auto-upgra
 
 The following command connects a cluster to Azure Arc with auto-upgrade **enabled**:
 
-```console
+```azurecli
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
@@ -28,7 +28,7 @@ With auto-upgrade enabled, the agent polls Azure hourly for availability of a ne
 
 To opt-out of auto-upgrade, specify the `--disable-auto-upgrade` parameter while connecting the cluster to Azure Arc. The following command connects a cluster to Azure Arc with auto-upgrade **disabled**:
 
-```console
+```azurecli
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest --disable-auto-upgrade
 ```
 
@@ -39,7 +39,7 @@ az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest --dis
 
 After you connect a cluster to Azure Arc, you can toggle the auto-upgrade capability with the `az connectedk8s update` command, as shown below:
 
-```console
+```azurecli
 az connectedk8s update --name AzureArcTest1 --resource-group AzureArcTest --auto-upgrade false
 ```
 
@@ -47,7 +47,7 @@ az connectedk8s update --name AzureArcTest1 --resource-group AzureArcTest --auto
 
 If you have disabled auto-upgrade for agents, you can manually initiate upgrades for these agents using the `az connectedk8s upgrade` command as shown below:
 
-```console
+```azurecli
 az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.1.0
 ```
 

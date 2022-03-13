@@ -58,10 +58,12 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 - The supported versions of Windows are:
   - Windows 8.1
   - Windows 10
+  - Windows 11
   - Windows Server 2012
   - Windows Server 2012 R2
   - Windows Server 2016
   - Windows Server 2019
+  - Windows Server 2022
 
 Installation of the self-hosted integration runtime on a domain controller isn't supported.
 
@@ -270,13 +272,7 @@ When the processor and available RAM aren't well utilized, but the execution of 
 
 ### TLS/SSL certificate requirements
 
-Here are the requirements for the TLS/SSL certificate that you use to secure communication between integration runtime nodes:
-
-- The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public partner certification authority (CA).
-- Each integration runtime node must trust this certificate.
-- We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item is used. All other SAN items are ignored. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose fully qualified domain name (FQDN) is **node2.domain.contoso.com**.
-- The certificate can use any key size supported by Windows Server 2012 R2 for TLS/SSL certificates.
-- Certificates that use CNG keys aren't supported.  
+ If you want to enable remote access from intranet with TLS/SSL certificate (Advanced) to secure communication between integration runtime nodes, you can follow steps in [Enable remote access from intranet with TLS/SSL certificate](tutorial-enable-remote-access-intranet-tls-ssl-certificate.md).
 
 > [!NOTE]
 > This certificate is used:
@@ -449,6 +445,18 @@ For example, to copy from an on-premises data store to a SQL Database sink or an
 
 > [!NOTE]
 > If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and Azure Synapse Analytics. In this scenario, you require only HTTPS (port 443) for the data movement.
+
+## Credentials store
+There are two ways to store the credentials when using self-hosted integration runtime:
+1. Use Azure Key Vault.
+This is the recommended way to store your credentials in Azure. The self-hosted integration runtime can directly get the credentials from Azure Key Vault which can highly avoid some potential security issues or any credential in-sync problems between self-hosted integration runtime nodes.
+2. Store credentials locally.
+The credentials will be push to the machine of your self-hosted integration runtime and be encrypted. 
+When your self-hosted integration runtime is recovered from crash, you can either recover credential from the one you backup before or edit linked service and let the credential be pushed to self-hosted integration runtime again. Otherwise, the pipeline doesn't work due to the lack of credential when running via self-hosted integration runtime.
+> [!NOTE]
+> If you prefer to store the credential locally, your need to put the domain for interactive authoring in the allowlist of your firewall 
+> and open the port. This channel is also for the self-hosted integration runtime to get the credentials. 
+> For the domain and port needed for interactive authoring, refer to [Ports and firewalls](#ports-and-firewalls)
 
 ## Installation best practices
 

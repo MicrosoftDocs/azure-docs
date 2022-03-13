@@ -37,7 +37,7 @@ Indexer limits vary by the workload. For each workload, the following job limits
 | Workload | Maximum duration | Maximum jobs | Execution environment <sup>1</sup> |
 |----------|------------------|---------------------|-----------------------------|
 | Text-based indexing | 24 hours | One per search unit <sup>2</sup> | Typically runs on the search service. |
-| Skills-based indexing | 2 hours | Indeterminate | Typically runs on an internally-managed, multi-tenant cluster. If a skills-based indexing is executed off the search service, the number of concurrent jobs can exceed the maximum of one per search unit. |
+| Skills-based indexing | 2 hours | Indeterminate | Typically runs on an internally-managed, multi-tenant content processing cluster, depending on how complex the skillset is. A simple skill might execute on your search service if the service has capacity. Otherwise, skills-based indexer jobs execute off-service. Because the content processing cluster is multi-tenant, nodes are added to meet demand. If you experience a delay in on-demand or scheduled execution, it's probably because the system is either adding nodes or waiting for one to become available.|
 
 <sup>1</sup> For optimum processing, a search service will determine an internal execution environment for the indexer operation. You cannot control or configure the environment, but depending on the number and complexity of tasks, the search service will either run the job itself, or offload computationally-intensive tasks to an internally-managed cluster, leaving more service-specific resources available for routine operations. The multi-tenant environment used for performing computationally-intensive tasks is managed and secured by Microsoft, at no extra cost to the customer.
 
@@ -72,7 +72,7 @@ Reset also applies to just new and update operations. It will not trigger deleti
 
 Once you reset an indexer, you cannot undo the action.
 
-### [**Azure portal**](#tab/reset-indexer-portal)
+### [**Azure portal**](#tab/portal)
 
 1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
 1. On the **Overview** page, select the **Indexers** tab.

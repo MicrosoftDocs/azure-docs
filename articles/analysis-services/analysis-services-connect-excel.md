@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Analysis Services server by using 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan
 

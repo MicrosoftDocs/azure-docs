@@ -1,6 +1,6 @@
 ---
 title: Labeling in Azure Purview
-description: Start utilizing sensitivity labels and classifications to enhance your Purview assets
+description: Start utilizing sensitivity labels and classifications to enhance your Azure Purview assets
 author: batamig
 ms.author: bagol
 ms.service: purview
@@ -24,8 +24,8 @@ For example, applying a sensitivity label ‘highly confidential’ to a documen
 
 Azure Purview allows you to apply sensitivity labels to assets, enabling you to classify and protect your data.
 
-* **Label travels with the data:** The sensitivity labels created in Microsoft 365 can also be extended to Purview, SharePoint, Teams, Power BI, and SQL. When you apply a label on an office document and then scan it in Purview, the label will flow to Purview. While the label is applied to the actual file in M365, it is only added as metadata in the Purview catalog. While there are differences in how a label is applied to an asset across various services/applications, labels travel with the data and is recognized by all the services you extend it to. 
-* **Overview of your data estate:** Purview provides insights into your data through pre-canned reports. When you scan data in Purview, we hydrate the reports with information on what assets you have, scan history, classifications found in your data, labels applied, glossary terms, etc.
+* **Label travels with the data:** The sensitivity labels created in Microsoft 365 can also be extended to Azure Purview, SharePoint, Teams, Power BI, and SQL. When you apply a label on an office document and then scan it in Azure Purview, the label will flow to Azure Purview. While the label is applied to the actual file in M365, it is only added as metadata in the Azure Purview catalog. While there are differences in how a label is applied to an asset across various services/applications, labels travel with the data and is recognized by all the services you extend it to. 
+* **Overview of your data estate:** Azure Purview provides insights into your data through pre-canned reports. When you scan data in Azure Purview, we hydrate the reports with information on what assets you have, scan history, classifications found in your data, labels applied, glossary terms, etc.
 * **Automatic labeling:** Labels can be applied automatically based on sensitivity of the data. When an asset is scanned for sensitive data, autolabeling rules are used to decide which sensitivity label to apply. You can create autolabeling rules for each sensitivity label, defining which classification/sensitive information type constitutes a label.
 * **Apply labels to files and database columns:** Labels can be applied to files in storage like Azure Data Lake, Azure Files, etc. and to schematized data like columns in Azure SQL DB, Cosmos DB, etc.
 
@@ -33,7 +33,7 @@ Sensitivity labels are tags that you can apply on assets to classify and protect
 
 ## How to apply labels to assets in Azure Purview
 
-:::image type="content" source="media/create-sensitivity-label/apply-label-flow.png" alt-text="Applying labels to assets in Purview flow. Create labels, register asset, scan asset, classifications found, labels applied.":::
+:::image type="content" source="media/create-sensitivity-label/apply-label-flow.png" alt-text="Applying labels to assets in Azure Purview flow. Create labels, register asset, scan asset, classifications found, labels applied.":::
 
 Being able to apply labels to your asset in Azure Purview requires you to perform the following steps:
 
@@ -58,9 +58,9 @@ Sensitivity labels are supported in Azure Purview for the following data sources
 
 ## Labeling for SQL databases
 
-In addition to Purview labeling for schematized data assets, Microsoft also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Purview uses the global [sensitivity labels](/microsoft-365/compliance/sensitivity-labels), SSMS only uses labels defined locally.
+In addition to Azure Purview labeling for schematized data assets, Microsoft also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Azure Purview uses the global [sensitivity labels](/microsoft-365/compliance/sensitivity-labels), SSMS only uses labels defined locally.
 
-Labeling in Purview and labeling in SSMS are separate processes that do not currently interact with each other. Therefore, **labels applied in SSMS are not shown in Purview, and vice versa**. We recommend Azure Purview for labeling SQL databases, as it uses global MIP labels that can be applied across multiple platforms.
+Labeling in Azure Purview and labeling in SSMS are separate processes that do not currently interact with each other. Therefore, **labels applied in SSMS are not shown in Azure Purview, and vice versa**. We recommend Azure Purview for labeling SQL databases, as it uses global MIP labels that can be applied across multiple platforms.
 
 For more information, see the [SQL data discovery and classification documentation](/sql/relational-databases/security/sql-data-discovery-and-classification). </br></br>
 

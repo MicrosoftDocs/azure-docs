@@ -82,7 +82,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
    f. **IS NOT NULL**. Clause returns "true" if the evaluated attribute isn't empty.
 
-   g. **REGEX MATCH**. Clause returns "true" if the evaluated attribute matches a regular expression pattern. For example: ([1-9][0-9]) matches any number between 10 and 99.
+   g. **REGEX MATCH**. Clause returns "true" if the evaluated attribute matches a regular expression pattern. For example: ([1-9][0-9]) matches any number between 10 and 99 (case sensitive).
 
    h. **NOT REGEX MATCH**. Clause returns "true" if the evaluated attribute doesn't match a regular expression pattern.
    

@@ -1,7 +1,6 @@
 ---
 title: Use T-SQL loops
 description: Tips for using T-SQL loops, replacing cursors, and developing related solutions with Synapse SQL in Azure Synapse Analytics.
-services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics

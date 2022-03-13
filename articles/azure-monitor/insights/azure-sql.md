@@ -2,10 +2,10 @@
 title: Azure SQL Analytics (preview) solution in Azure Monitor
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 ms.topic: conceptual
-author: danimir
-ms.author: danil
+author: dimitri-furman
+ms.author: dfurman 
 ms.date: 11/22/2021
-ms.reviewer: wiassaf
+ms.reviewer: wiassaf, mathoma
 ms.custom: devx-track-azurepowershell
 ---
 

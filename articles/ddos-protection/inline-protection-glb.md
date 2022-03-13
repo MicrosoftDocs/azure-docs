@@ -46,6 +46,6 @@ Enabling Azure DDoS Protection Standard on the VNet of the Standard Public Load 
 5.	Azure DDoS Protection Standard on the gamer servers Load Balancer protects from L3/4 DDoS attacks and the DDoS protection policies are automatically tuned for game servers traffic profile and application scale. 
 
 ## Next steps
-- Learn more about [inline L7 DDoS protection partners](https://aka.ms/inlineddospartners)
+- Learn more about our launch partner [A10 Networks](https://www.a10networks.com/blog/introducing-l3-7-ddos-protection-for-microsoft-azure-tenants/)
 - Learn more about [Azure DDoS Protection Standard](./ddos-protection-overview.md)
 - Learn more about [Gateway Load Balancer](../load-balancer/gateway-overview.md)

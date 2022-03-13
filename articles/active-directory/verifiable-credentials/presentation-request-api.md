@@ -209,7 +209,7 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 | `state` |string| Returns the state value that you passed in the original payload.   |
 | `subject`|string | The verifiable credential user DID.|
 | `issuers`| array |Returns an array of verifiable credentials requested. For each verifiable credential, it provides: </li><li>The verifiable credential type.</li><li>The claims retrieved.</li><li>The verifiable credential issuer’s domain. </li><li>The verifiable credential issuer’s domain validation status. </li></ul> |
-| `receipt`| string | Optional. The receipt contains the original payload sent from the authenticator to Verifiable Credentials.  |
+| `receipt`| string | Optional. The receipt contains the original payload sent from the wallet to the Verifiable Credentials service. The receipt should be used for troubleshooting/debugging only. The format in the receipt is not fix and can change based on the wallet and version used.|
 
 The following example demonstrates a callback payload when the authenticator app starts the presentation request:
 

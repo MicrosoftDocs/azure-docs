@@ -1,8 +1,8 @@
 ---
 title: Remove a virtual machine association from a Capacity Reservation group (preview)
 description: Learn how to remove a virtual machine from a Capacity Reservation group.
-author: vargupt
-ms.author: vargupt
+author: bdeforeest
+ms.author: bidefore
 ms.service: virtual-machines #Required
 ms.topic: how-to
 ms.date: 08/09/2021
@@ -10,15 +10,15 @@ ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
 
-# Remove a VM association from a Capacity Reservation Group (preview)
+# Remove a VM association from a Capacity Reservation group (preview)
 
-This article walks you through the steps of removing a VM association to a Capacity Reservation Group. To learn more about capacity reservations, see the [overview article](capacity-reservation-overview.md). 
+This article walks you through the steps of removing a VM association to a Capacity Reservation group. To learn more about capacity reservations, see the [overview article](capacity-reservation-overview.md). 
 
 Because both the VM and the underlying Capacity Reservation logically occupy capacity, Azure imposes some constraints on this process to avoid ambiguous allocation states and unexpected errors.  
 
 There are two ways to change an association: 
-- Option 1: Deallocate the Virtual Machine, change the Capacity Reservation Group property, and optionally restart the virtual machine
-- Option 2: Update the reserved quantity to zero and then change the Capacity Reservation Group property
+- Option 1: Deallocate the virtual machine, change the Capacity Reservation group property, and optionally restart the virtual machine
+- Option 2: Update the reserved quantity to zero and then change the Capacity Reservation group property
 
 > [!IMPORTANT]
 > Capacity Reservation is currently in public preview.
@@ -27,7 +27,7 @@ There are two ways to change an association:
 
 ## Deallocate the VM
 
-The first option is to deallocate the Virtual Machine, change the Capacity Reservation Group property, and optionally restart the VM. 
+The first option is to deallocate the VM, change the Capacity Reservation group property, and optionally restart the VM. 
 
 ### [API](#tab/api1)
 
@@ -37,7 +37,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/deallocate?api-version=2021-04-01
     ```
 
-1. Update the VM to remove association with the Capacity Reservation Group
+1. Update the VM to remove association with the Capacity Reservation group
     
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/update?api-version=2021-04-01
@@ -62,17 +62,17 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
 <!-- no images necessary if steps are straightforward --> 
 
 1. Open [Azure portal](https://portal.azure.com)
-1. Go to your Virtual Machine and select **Overview**
+1. Go to your VM and select **Overview**
 1. Select **Stop** 
-    1. You'll know your VM is deallocated when the status changes to *Stopped (deallocated)*
-    1. At this point in the process, the VM is still associated with the Capacity Reservation Group, which is reflected in the `virtualMachinesAssociated` property of the Capacity Reservation 
+    1. You will know your VM is deallocated when the status changes to *Stopped (deallocated)*
+    1. At this point in the process, the VM is still associated with the Capacity Reservation group, which is reflected in the `virtualMachinesAssociated` property of the Capacity Reservation 
 1. Select **Configuration**
-1. Set the **Capacity Reservation Group** value to *None*
-    - The VM is no longer associated with the Capacity Reservation Group 
+1. Set the **Capacity Reservation group** value to *None*
+    - The VM is no longer associated with the Capacity Reservation group 
 
 ### [CLI](#tab/cli1)
 
-1. Deallocate the Virtual Machine
+1. Deallocate the virtual machine
 
     ```azurecli-interactive
     az vm deallocate 
@@ -82,7 +82,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
 
     Once the status changes to **Stopped (deallocated)**, the virtual machine is deallocated.
 
-1. Update the VM to remove association with the Capacity Reservation Group by setting the `capacity-reservation-group` property to None:
+1. Update the VM to remove association with the Capacity Reservation group by setting the `capacity-reservation-group` property to None:
 
     ```azurecli-interactive
     az vm update 
@@ -93,7 +93,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
 
 ### [PowerShell](#tab/powershell1)
 
-1. Deallocate the Virtual Machine
+1. Deallocate the virtual machine
 
     ```powershell-interactive
     Stop-AzVM
@@ -103,7 +103,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
 
     Once the status changes to **Stopped (deallocated)**, the virtual machine is deallocated.
 
-1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to null:
+1. Update the VM to remove association with the Capacity Reservation group by setting the `CapacityReservationGroupId` property to null:
 
     ```powershell-interactive
     $VirtualMachine =
@@ -125,9 +125,9 @@ To learn more, go to Azure PowerShell commands [Stop-AzVM](/powershell/module/az
 
 ## Update the reserved quantity to zero 
 
-The second option involves updating the reserved quantity to zero and then changing the Capacity Reservation Group property.
+The second option involves updating the reserved quantity to zero and then changing the Capacity Reservation group property.
 
-This option works well when the virtual machine can’t be deallocated and when a reservation is no longer needed. For example, you may create a capacity reservation to temporarily assure capacity during a large-scale deployment. Once completed, the reservation is no longer needed. 
+This option works well when the virtual machine can’t be deallocated and when a reservation is no longer needed. For example, you may create a Capacity Reservation to temporarily assure capacity during a large-scale deployment. Once completed, the reservation is no longer needed. 
 
 ### [API](#tab/api2)
 
@@ -137,7 +137,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}/CapacityReservations/{CapacityReservationName}?api-version=2021-04-01
     ```
 
-    In the request body, include the following:
+    In the request body, include the following parameters:
     
     ```json
     {
@@ -148,9 +148,9 @@ This option works well when the virtual machine can’t be deallocated and when 
     }
     ```
     
-    Note that `capacity` property is set to 0 above.
+    Note that `capacity` property is set to 0.
 
-1. Update the VM to remove the association with the Capacity Reservation Group
+1. Update the VM to remove the association with the Capacity Reservation group
 
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{VirtualMachineName}/update?api-version=2021-04-01
@@ -176,15 +176,15 @@ This option works well when the virtual machine can’t be deallocated and when 
 <!-- no images necessary if steps are straightforward --> 
 
 1. Open [Azure portal](https://portal.azure.com)
-1. Go to your Capacity Reservation Group and select **Overview**
+1. Go to your Capacity Reservation group and select **Overview**
 1. Select **Reservations** 
 1. Select **Manage Reservation** at the top of the page 
 1. On the *Manage Reservations* blade:
     1. Enter `0` in the **Instances** field
     1. Select **Save** 
-1. Go to your Virtual Machine and select **Configuration**
-1. Set the **Capacity Reservation Group** value to *None*
-    - Note that the VM is no longer associated with the Capacity Reservation Group
+1. Go to your VM and select **Configuration**
+1. Set the **Capacity Reservation group** value to *None*
+    - Note that the VM is no longer associated with the Capacity Reservation group
 
 ### [CLI](#tab/cli2)
 
@@ -198,7 +198,7 @@ This option works well when the virtual machine can’t be deallocated and when 
    --capacity 0
    ```
 
-1. Update the VM to remove association with the Capacity Reservation Group by setting the `capacity-reservation-group` property to None:
+1. Update the VM to remove association with the Capacity Reservation group by setting the `capacity-reservation-group` property to None:
 
     ```azurecli-interactive
     az vm update 
@@ -220,7 +220,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     -CapacityToReserve 0
     ```
 
-1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to null:
+1. Update the VM to remove association with the Capacity Reservation group by setting the `CapacityReservationGroupId` property to null:
 
     ```powershell-interactive
     $VirtualMachine =
@@ -243,4 +243,4 @@ To learn more, go to Azure PowerShell commands [New-AzCapacityReservation](/powe
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to associate a scale set to a capacity reservation group](capacity-reservation-associate-virtual-machine-scale-set.md)
+> [Learn how to associate a scale set to a Capacity Reservation group](capacity-reservation-associate-virtual-machine-scale-set.md)

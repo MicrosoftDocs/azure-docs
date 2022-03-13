@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/24/2021
+ms.date: 01/06/2022
 ms.author: zxue
 ms.custom: mode-api
 ---
@@ -57,8 +57,8 @@ You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CLI, o
 
 #### Access using existing tools
 
-- [Postman](../use-postman.md)
-- [REST Client](../using-rest-client.md)
+- [Postman](../fhir/use-postman.md)
+- [REST Client](../fhir/using-rest-client.md)
 - [.NET C#](dicomweb-standard-apis-c-sharp.md)
 - [cURL](dicomweb-standard-apis-curl.md)
 - [Python](dicomweb-standard-apis-python.md)

@@ -173,7 +173,7 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 
 Shared Access Signature token authentication is in preview.
 
-Shared access signature (SAS) tokens are authentication tokens created using the JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API. A SAS token is created by first integrating a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview) with an Azure Maps account in your Azure subscription. The user-assigned managed identity is given authorization to the Azure Maps account through Azure RBAC using one of the built-in or custom role definitions.
+Shared access signature (SAS) tokens are authentication tokens created using the JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API. A SAS token is created by first integrating a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) with an Azure Maps account in your Azure subscription. The user-assigned managed identity is given authorization to the Azure Maps account through Azure RBAC using one of the built-in or custom role definitions.
 
 Functional key differences of SAS token from Azure AD Access tokens:
 
@@ -375,7 +375,7 @@ Only one CORS rule with its list of allowed origins can be specified. Each origi
 
 ### Remove CORS policy
 
-You can remove CORS manually in the Azure portal, or programmatically using the Azure Maps SDK, Azure Maps management REST API or an [ARM template](/azure/azure-resource-manager/templates/overview). 
+You can remove CORS manually in the Azure portal, or programmatically using the Azure Maps SDK, Azure Maps management REST API or an [ARM template](../azure-resource-manager/templates/overview.md). 
 
 > [!TIP]
 > If you use the Azure Maps management REST API , use `PUT` or `PATCH` with an empty `corsRule` list in the request body.

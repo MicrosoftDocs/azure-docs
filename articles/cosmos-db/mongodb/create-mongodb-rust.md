@@ -1,8 +1,8 @@
 ---
 title: Connect a Rust application to Azure Cosmos DB's API for MongoDB
 description: This quickstart demonstrates how to build a Rust application backed by Azure Cosmos DB's API for MongoDB.
-author: abhirockzz
-ms.author: abhishgu
+author: rothja
+ms.author: jroth
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: rust

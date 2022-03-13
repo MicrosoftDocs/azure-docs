@@ -92,11 +92,11 @@
     - name: Deploy and manage cluster extensions
       href: extensions.md
     - name: Monitor using Azure Monitor for containers
-      href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
+      href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
     - name: Enforce threat protection using Microsoft Defender for Cloud
-      href: ../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
+      href: ../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
     - name: In-cluster policy enforcements using Azure Policy
-      href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+      href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
     - name: Deploy Azure Arc-enabled Open Service Mesh
       href: tutorial-arc-enabled-open-service-mesh.md
     - name: Access secrets from Azure Key Vault
@@ -106,7 +106,7 @@
       - name: Create custom locations
         href: custom-locations.md
       - name: Azure Arc-enabled Machine Learning
-        href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+        href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
   - name: Troubleshooting
     href: troubleshooting.md
 - name: Reference

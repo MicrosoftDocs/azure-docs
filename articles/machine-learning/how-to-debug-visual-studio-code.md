@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: luisquintanilla
-ms.author: luquinta
+author: ssalgadodev
+ms.author: ssalgado
 ms.date: 10/21/2021
 ---
 

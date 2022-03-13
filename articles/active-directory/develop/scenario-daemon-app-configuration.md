@@ -31,7 +31,7 @@ Daemon applications use application permissions rather than delegated permission
 
 The authority specified in the application configuration should be tenanted (specifying a tenant ID or a domain name associated with your organization).
 
-Even if want to provide a multitenant tool, you should use a tenant ID or domain name, and **not** `common` or `organizations` with this flow, because the service cannot reliably infer which tenant should be used.
+Even if you want to provide a multitenant tool, you should use a tenant ID or domain name, and **not** `common` or `organizations` with this flow, because the service cannot reliably infer which tenant should be used.
 
 ## Configure and instantiate the application
 
@@ -77,15 +77,22 @@ You provide either a `ClientSecret` or a `CertificateName`. These settings are e
 
 Configuration parameters for the [Node.js daemon sample](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console/) are located in an *.env* file:
 
-```Text 
+```JavaScript 
 # Credentials
 TENANT_ID=Enter_the_Tenant_Info_Here
 CLIENT_ID=Enter_the_Application_Id_Here
+
+// You provide either a ClientSecret or a CertificateConfiguration, or a ClientAssertion. These settings are exclusive
 CLIENT_SECRET=Enter_the_Client_Secret_Here
+CERTIFICATE_THUMBPRINT=Enter_the_certificate_thumbprint_Here
+CERTIFICATE_PRIVATE_KEY=Enter_the_certificate_private_key_Here
+CLIENT_ASSERTION=Enter_the_Assertion_String_Here
 
 # Endpoints
-AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here
-GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here
+// the Azure AD endpoint is the authority endpoint for token issuance
+AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here // https://login.microsoftonline.com/
+// the graph endpoint is the application ID URI of Microsoft Graph
+GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here // https://graph.microsoft.com/
 ```
 
 # [Python](#tab/python)
@@ -265,6 +272,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithAuthority(new Uri(config.Authority))
     .Build();
 ```
+
 # [Java](#tab/java)
 
 In MSAL Java, there are two builders to instantiate the confidential client application with certificates:
@@ -300,7 +308,24 @@ ConfidentialClientApplication cca =
 
 # [Node.js](#tab/nodejs)
 
-The sample application does not implement initialization with certificates at the moment.
+```JavaScript
+
+const config = {
+    auth: {
+        clientId: process.env.CLIENT_ID,
+        authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
+        clientCertificate: {
+            thumbprint:  process.env.CERTIFICATE_THUMBPRINT, // a 40-digit hexadecimal string
+            privateKey:  process.env.CERTIFICATE_PRIVATE_KEY,
+        }
+    }
+};
+
+// Create an MSAL application object
+const cca = new msal.ConfidentialClientApplication(config);
+```
+
+For details, see [Use certificate credentials with MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/certificate-credentials.md).
 
 # [Python](#tab/python)
 
@@ -369,7 +394,18 @@ ConfidentialClientApplication cca =
 
 # [Node.js](#tab/nodejs)
 
-The sample application does not implement initialization with assertions at the moment.
+```JavaScript
+const clientConfig = {
+    auth: {
+        clientId: process.env.CLIENT_ID,
+        authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
+        clientAssertion:  process.env.CLIENT_ASSERTION
+    }
+};
+const cca = new msal.ConfidentialClientApplication(clientConfig);
+```
+
+For details, see [Initialize the ConfidentialClientApplication object](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md).
 
 # [Python](#tab/python)
 

@@ -238,7 +238,6 @@ if __name__ == '__main__':
 ```
 
 ## Next steps 
-- Watch [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) to see a demo. 
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events GitHub repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Read more about the APIs that are available in the [Instance Metadata Service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json).

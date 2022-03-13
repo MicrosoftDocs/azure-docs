@@ -22,11 +22,11 @@ Private Link allows Media Services to be accessed from private networks. When us
 
 ## Azure Private Endpoint and Azure Private Link
 
-An [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) is a network interface that uses a private IP address from your virtual network.  This network interface connects you privately and securely to a service via Azure Private Link.
+An [Azure Private Endpoint](../../private-link/private-endpoint-overview.md) is a network interface that uses a private IP address from your virtual network.  This network interface connects you privately and securely to a service via Azure Private Link.
 
 Media Services endpoints may be accessed from a virtual network using private endpoints. Private endpoints may also be accessed from peered virtual networks or other networks connected to the virtual network using Express Route or VPN.
 
-[Azure Private Links](/azure/private-link/) allow access to Media Services private endpoints in your virtual network without exposing them to the public Internet. It routes traffic over the Microsoft backbone network.
+[Azure Private Links](../../private-link/index.yml) allow access to Media Services private endpoints in your virtual network without exposing them to the public Internet. It routes traffic over the Microsoft backbone network.
 
 ## Restricting access
 
@@ -54,10 +54,10 @@ Internet access to the endpoints in the Media Services account can be restricted
 
 | Service                | Media Services integration                      | Private link documentation |
 | ---------------------- | ----------------------------------------------- | -------------------------- |
-| Azure Storage          | Used to store media                             | [Use private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints) |
-| Azure Key Vault        | Used to store [customer managed keys](security-customer-managed-keys-portal-tutorial.md)             | [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security) |
-| Azure Resource Manager | Provides access to Media Services APIs          | [Use REST API to create private link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-rest) |
-| Event Grid             | Provides [notifications of Media Services events](./monitoring/job-state-events-cli-how-to.md) | [Configure private endpoints for Azure Event Grid topics or domains](/azure/event-grid/configure-private-endpoints)  |
+| Azure Storage          | Used to store media                             | [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints.md) |
+| Azure Key Vault        | Used to store [customer managed keys](security-customer-managed-keys-portal-tutorial.md)             | [Configure Azure Key Vault networking settings](../../key-vault/general/how-to-azure-key-vault-network-security.md) |
+| Azure Resource Manager | Provides access to Media Services APIs          | [Use REST API to create private link for managing Azure resources](../../azure-resource-manager/management/create-private-link-access-rest.md) |
+| Event Grid             | Provides [notifications of Media Services events](./monitoring/job-state-events-cli-how-to.md) | [Configure private endpoints for Azure Event Grid topics or domains](../../event-grid/configure-private-endpoints.md)  |
 
 ## Private endpoints are created on the Media Services account
 

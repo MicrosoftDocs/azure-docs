@@ -7,7 +7,7 @@ author: longli0
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: longl
 ms.devlang: csharp

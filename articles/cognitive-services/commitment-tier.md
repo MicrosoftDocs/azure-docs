@@ -30,6 +30,9 @@ For more information, see [Azure Cognitive Services pricing](https://azure.micro
 
 ## Request approval to purchase a commitment plan
 
+> [!CAUTION]
+> The following instructions are for purchasing a commitment tier for web-based APIs and connected containers only. For instructions on purchasing plans for disconnected containers, see [Run containers in disconnected environments](containers/disconnected-containers.md).  
+
 Before you can purchase a commitment plan, you must [submit an online application](https://aka.ms/csgatecommitment). If your application is approved, you will be able to purchase a commitment tier on the Azure portal, for both new and existing Azure Resources. 
 
 * On the form, you must use a corporate email address associated with an Azure subscription ID.
@@ -61,7 +64,9 @@ Once you are approved, you can use either create a new resource to use a commitm
     > * The resource is using the standard pricing tier.
     > * You have been approved to purchase  commitment tier pricing. 
  
-1. Select **Change** to view the available commitments for hosted API and container usage. 
+3. Select **Change** to view the available commitments for hosted API and container usage. Choose a commitment plan for one or more of the following offerings:
+    * **Web**: web-based APIs, where you send data to Azure for processing.
+    * **Connected container**: Docker containers that enable you to [deploy Cognitive services on premises](cognitive-services-container-support.md), and maintain an internet connection for billing and metering.
 
     :::image type="content" source="media/commitment-tier/commitment-tier-pricing.png" alt-text="A screenshot showing the commitment tier pricing page on the Azure portal." lightbox="media/commitment-tier/commitment-tier-pricing.png":::
 

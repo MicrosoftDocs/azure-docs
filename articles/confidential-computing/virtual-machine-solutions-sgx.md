@@ -64,10 +64,6 @@ To provide Intel SGX support on confidential compute instances, all deployments 
 
 **DCsv3** and **DCdsv3-series** VMs support Standard SSD, Premium SSD, and Ultra Disk.
 
-### Disk encryption 
-
-Confidential compute instances don't support disk encryption at this time. 
-
 ## High availability and disaster recovery considerations
 
 When you use Azure VMs, you're responsible for creating a high availability (HA) and disaster recovery solution to avoid any downtime. 

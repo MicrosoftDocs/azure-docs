@@ -109,7 +109,7 @@ az aks update \
 The above example updates cluster autoscaler on the single node pool in *myAKSCluster* to a minimum of *1* and maximum of *5* nodes.
 
 > [!NOTE]
-> The cluster autoscaler makes scaling decisions based on the minimum and maximum counts set on each node pool, but it does not enforce them after updating the min or max counts. For example, setting a min count of 5 when the current node count is 3 will not immediately scale the pool up to 5. If the minimum count on the node pool has a value higher than the current number of nodes, the new min or max settings will be respected when there are enough unschedulable pods present that would require 2 new additional nodes and trigger an autoscaler event. After the scale event, the new count limits are respected.
+> The cluster autoscaler will enforce the minimum count in cases where the actual count drops below the minimum due to external factors, such as during a spot eviction or when changing the minimum count value from the AKS API.
 
 Monitor the performance of your applications and services, and adjust the cluster autoscaler node counts to match the required performance.
 
@@ -215,7 +215,7 @@ If you wish to re-enable the cluster autoscaler on an existing cluster, you can 
 
 ## Retrieve cluster autoscaler logs and status
 
-To diagnose and debug autoscaler events, logs and status can be retrieved from the autoscaler add-on.
+To diagnose and debug autoscaler events, logs and status can be retrieved from the cluster autoscaler.
 
 AKS manages the cluster autoscaler on your behalf and runs it in the managed control plane. You can enable control plane node to see the logs and operations from CA.
 

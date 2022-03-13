@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial - Develop module for Linux devices using Azure IoT Edge'
-description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Linux containers for Linux devices 
-author: kgremban
+description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Linux containers for Linux devices
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -37,7 +37,7 @@ A development machine:
 * You can use your own computer or a virtual machine, depending on your development preferences.
   * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
 * Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on macOS or Linux.
-* Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.  
+* Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
 
@@ -67,13 +67,10 @@ The following table lists the supported development scenarios for **Linux contai
 
 |   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
-| **Linux device architecture** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
+| **Linux device architecture** | Linux AMD64 <br> Linux ARM32 <br> Linux ARM64 | Linux AMD64 <br> Linux ARM32 <br> Linux ARM64 |
 | **Azure services** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Languages** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
 | **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
-
->[!NOTE]
->Support for Linux ARM64 devices is available in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 This tutorial teaches the development steps for Visual Studio Code. If you would rather use Visual Studio, refer to the instructions in [Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
@@ -288,7 +285,7 @@ If you encounter errors when building and pushing your module image, it often ha
 * Did you run the `docker login` command using the credentials that you copied from your container registry? These credentials are different than the ones that you use to sign in to Azure.
 * Is your container repository correct? Does it have your correct container registry name and your correct module name? Open the **module.json** file in the SampleModule folder to check. The repository value should look like **\<registry name\>.azurecr.io/samplemodule**.
 * If you used a different name than **SampleModule** for your module, is that name consistent throughout the solution?
-* Is your machine running the same type of containers that you're building? This tutorial is for Linux IoT Edge devices, so Visual Studio Code should say **amd64** or **arm32v7** in the side bar, and Docker Desktop should be running Linux containers.  
+* Is your machine running the same type of containers that you're building? This tutorial is for Linux IoT Edge devices, so Visual Studio Code should say **amd64** or **arm32v7** in the side bar, and Docker Desktop should be running Linux containers.
 
 ## Deploy modules to device
 

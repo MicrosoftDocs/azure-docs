@@ -2,12 +2,12 @@
 title: What is agentless solution architecture
 description: Learn about Microsoft Defender for IoT agentless architecture and information flow.
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 02/06/2022
 ---
 
 # Microsoft Defender for IoT architecture
 
-This article describes the functional system architecture of the Defender for IoT agentless solution. Microsoft Defender for IoT offers two sets of capabilities to fit your environment's needs, agentless solution for organizations, and agent-based solution for device builders.
+This article describes the functional system architecture of the Defender for IoT agentless solution. Microsoft Defender for IoT offers two sets of capabilities to fit your environment's needs, agentless solution for organizations, and agent-based solution for device builders. This article provides architectural information about the agentless solution for organizations.
 
 ## Agentless solution architecture for organizations
 ### Defender for IoT components
@@ -27,8 +27,6 @@ Microsoft Defender for IoT includes the following components:
 
 - Microsoft Defender for IoT sensor VM or appliance
 - On-premises management console for local site management
-
-:::image type="content" source="./media/architecture/defender-iot-security-architecture-v3.png" alt-text="The architecture for Defender for IoT.":::
 
 ### Microsoft Defender for IoT sensors
 
@@ -60,7 +58,7 @@ The anomaly detection engine detects unusual machine-to-machine (M2M) communicat
 The operational incident detection detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device is thought to be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
 
 ### Management consoles
-Managing Microsoft Defender for IoT across hybrid environments is accomplished via two management portals: 
+Managing Microsoft Defender for IoT across hybrid environments is accomplished via three management portals: 
 - Sensor console
 - The on-premises management console
 - The Azure portal
@@ -68,7 +66,7 @@ Managing Microsoft Defender for IoT across hybrid environments is accomplished v
 ### Sensor console
 Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, device inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to partner systems, manage users, and more.
 
-:::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Defender for IoT sensor console":::
+:::image type="content" source="media/release-notes/new-interface.png" alt-text="Screenshot that shows the updated interface." lightbox="media/release-notes/new-interface.png":::
 
 ### On-premises management console
 The on-premises management console enables security operations center (SOC) operators to manage and analyze alerts aggregated from multiple sensors into one single dashboard and provides an overall view of the health of the OT networks.
@@ -86,8 +84,6 @@ Tightly integrated with your SOC workflows and run books, it enables easy priori
 - Aggregation and correlation – display, aggregate, and analyze data and alerts collected from all sites.
 
 - Control all sensors – configure and monitor all sensors from a single location.
-
-   :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Manage all of your alerts and information.":::
 
 ### Azure portal
 

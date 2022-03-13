@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/12/2020
+ms.date: 01/12/2022
 ---
 # Query Performance Insight in Azure Database for MySQL
 
@@ -39,7 +39,19 @@ In the portal page of your Azure Database for MySQL server, select **Query Perfo
 
 ### Long running queries
 
-The **Long running queries** tab shows the top 5 queries by average duration per execution, aggregated in 15-minute intervals. You can view more queries by selecting from  the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
+The **Long running queries** tab shows the top 5 Query IDs by average duration per execution, aggregated in 15-minute intervals. You can view more Query IDs by selecting from the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
+
+> [!Note]
+>  Displaying the Query Text is no longer supported and will show as empty. The query text is removed to avoid unauthorized access to the query text or underlying schema which can pose a security risk.
+
+The recommended steps to view the query text is shared below:
+ 1. Identify the query_id of the top queries from the Query Performance Insight blade in the Azure portal.
+1. Log in to your Azure Database for MySQL server from MySQL Workbench or mysql.exe client or your preferred query tool and execute the following queries.
+ 
+```sql
+    SELECT * FROM mysql.query_store where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for queries in Query Store
+    SELECT * FROM mysql.query_store_wait_stats where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for wait statistics
+```
 
 You can click and drag in the chart to narrow down to a specific time window. Alternatively, use the zoom in and out icons to view a smaller or larger time period respectively.
 
@@ -55,6 +67,18 @@ Wait statistics provides a view of the wait events that occur during the executi
 Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
 
 Queries displayed in the wait statistics view are grouped by the queries that exhibit the largest waits during the specified time interval.
+
+> [!Note]
+>  Displaying the Query Text is no longer supported and will show as empty. The query text is removed to avoid unauthorized access to the query text or underlying schema which can pose a security risk.
+
+The recommended steps to view the query text is shared below:
+ 1. Identify the query_id of the top queries from the Query Performance Insight blade in the Azure portal.
+1. Log in to your Azure Database for MySQL server from MySQL Workbench or mysql.exe client or your preferred query tool and execute the following queries.
+ 
+```sql
+    SELECT * FROM mysql.query_store where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for queries in Query Store
+    SELECT * FROM mysql.query_store_wait_stats where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for wait statistics
+```
 
 :::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight waits statistics":::
 

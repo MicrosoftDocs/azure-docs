@@ -7,7 +7,7 @@ ms.author: jeffme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 05/24/2021
 ms.custom: mode-other
 ---
