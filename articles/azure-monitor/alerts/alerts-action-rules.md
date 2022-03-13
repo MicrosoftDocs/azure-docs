@@ -212,6 +212,26 @@ az monitor alert-processing-rules update --resource-group MyResourceGroupName --
 az monitor alert-processing-rules delete --resource-group MyResourceGroupName --name MyRule
 ```
 
+### [PowerShell](#tab/powershell)
+
+You can view and manage your alert processing rules using the [\*-AzAlertProcessingRule](/powershell/module/az.alertsmanagement) commands from Azure CLI.
+
+Before you manage alert processing rules with the Azure CLI, prepare your environment using the instructions provided in [Configuring an alert processing rule](#configuring-an-alert-processing-rule).
+
+```powershell
+# List all alert processing rules for a subscription
+Get-AzAlertProcessingRule
+
+# Get details of an alert processing rule
+Get-AzAlertProcessingRule -ResourceGroupName MyResourceGroupName -Name MyRule | Format-List
+
+# Update an alert processing rule
+Update-AzAlertProcessingRule -ResourceGroupName MyResourceGroupName -Name MyRule -Enabled False
+
+# Delete an alert processing rule
+Remove-AzAlertProcessingRule -ResourceGroupName MyResourceGroupName -Name MyRule
+```
+
 * * *
 
 ## Next steps
