@@ -122,6 +122,7 @@ You will need to copy the module identity connection string from the DefenderIoT
     ```
 
     The `connection_string.txt` will now be located in the following path location `/etc/defender_iot_micro_agent/connection_string.txt`.
+    Please note that the connection string includes a key that enables direct access to the module itself, therefore includes sensitive information that should only be used and readable by root users.
 
 1. Restart the service using this command:  
 
