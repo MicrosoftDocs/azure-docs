@@ -5,25 +5,28 @@ ms.topic: how-to
 ms.date: 03/08/2022
 ---
 
-# Configure private link sensor connections
+# Connect your sensors to Microsoft Defender for IoT
 
-This article describes how to configure private link connections between your sensors and Microsoft Defender for IoT, for sensor software versions 22.1.x and higher.
+This article describes how to connect your sensors to Microsoft Defender for IoT.
 
-For more information about each connection method, see [Private link connection architectures](architecture-private.md).
+For more information about each connection method, see [Sensor connection methods](architecture-connections.md).
+
+The procedures in this article are supported for sensor software versions 10.x and higher.
+
 
 ## Migration for existing customers
 
-If you're an existing customer with a production deployment, start with the following steps to ensure a full and safe migration to an upgraded private link connection:
+If you're an existing customer with a production deployment and sensors connected using an IoT Hub, start with the following steps to ensure a full and safe migration to an updated connection method, without the IoT Hub.
 
 1. **Review your existing production deployment** and how sensors are currently connection to Azure. Confirm that the sensors in production networks can reach the Azure data center resource ranges.
 
-1. **Determine which connection method is right** for each production site. For more information, see [Choose a private link connection method](#choose-a-private-link-connection-method).
+1. **Determine which connection method is right** for each production site. For more information, see [Choose a sensor connection method](#choose-a-sensor-connection-connection-method).
 
 1. **Configure any additional resources required** as described in the procedure in this article for your chosen connectivity method. For example, additional resources might include a proxy, VPN, or ExpressRoute.
 
     For any connectivity resources outside of Defender for IoT, such as a VPN or proxy, consult with Microsoft solution architects to ensure correct configurations, security, and high availability.
 
-1. **If you have legacy sensor versions installed**, you'll need to update your sensors to version 22.1.x and reactivate each updated sensor.
+1. **If you have legacy sensor versions installed**, you'll need to update your sensors at least to a version 10.x or higher. We recommend that you upgrade to version 22.1.x or higher, and reactivate each updated sensor.
 
     For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
 
@@ -35,14 +38,14 @@ If you're an existing customer with a production deployment, start with the foll
 
 1. **After the migration in your production environment**, you can delete any private IoT Hubs that you had used before the migration. Make sure that any IoT Hubs you delete are not used by any other services:
 
-    - All updated sensors should indicate software version 22.1.x or higher.
+    - All updated sensors should indicate software version 10.x or higher, and recommended 22.1.x or higher.
     - Check the active resources in your account and make sure there are no other services connected to your IoT Hub.
 
-While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versions-and-support-dates), you can currently deploy a hybrid network of sensors, including both legacy software versions with their IoT Hub connections, and sensors with software version 22.1.x or higher.
+While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versions-and-support-dates), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
 
-## Choose a private link connection method
+## Choose a sensor connection method
 
-Use the following flow chart to determine which private link method is right for your organization.
+Use the following flow chart to determine which sensor connection method is right for your organization.
 
 TBD
 
@@ -77,7 +80,7 @@ Rest of World	East US
 
 ## Connect via an Azure proxy
 
-This section describes how to configure a private link sensor connection to Defender for IoT in Azure using an Azure proxy. For more information, see [Proxy connections with an Azure proxy](architecture-private.md#proxy-connections-with-an-azure-proxy).
+This section describes how to configure a private link sensor connection to Defender for IoT in Azure using an Azure proxy. For more information, see [Proxy connections with an Azure proxy](architecture-connections.md#proxy-connections-with-an-azure-proxy).
 
 ### Prerequisites
 
@@ -131,7 +134,6 @@ In the Azure portal, create a new storage account with the following settings:
 |**Data Protection**     | Keep all options cleared        |
 |**Advanced**     |  Keep all default values       |
 
-For more information, see <xref>.
 
 ### Step 2: Define virtual networks and subnets
 
@@ -321,7 +323,7 @@ To configure a NAT gateway for your private link:
 
 ## Connect via proxy chaining
 
-This section describes how to configure a private link sensor connection to Defender for IoT in Azure using proxy chaining. For more information, see [Proxy connections with proxy chaining](architecture-private.md#proxy-connections-with-proxy-chaining).
+This section describes how to configure a private link sensor connection to Defender for IoT in Azure using proxy chaining. For more information, see [Proxy connections with proxy chaining](architecture-connections.md#proxy-connections-with-proxy-chaining).
 
 ### Prerequisites
 
@@ -388,7 +390,7 @@ This procedure describes how to install and configure a connection between your 
 
 ## Connect directly
 
-This section describes how to configure a direct, private link sensor connection to Defender for IoT in Azure. For more information, see [Direct connections](architecture-private.md#direct-connections).
+This section describes how to configure a direct, private link sensor connection to Defender for IoT in Azure. For more information, see [Direct connections](architecture-connections.md#direct-connections).
 
 ### Prerequisites
 
@@ -406,7 +408,7 @@ MISSING STEPS HERE, WE ONLY HAVE THE DIAGRAM
 
 ## Connect via multi-cloud vendors
 
-This section describes how to configure private link sensor connections to Defender for IoT from sensors deployed in one or more public clouds. For more information, see [Multi-cloud connections](architecture-private.md#multi-cloud-connections).
+This section describes how to configure private link sensor connections to Defender for IoT from sensors deployed in one or more public clouds. For more information, see [Multi-cloud connections](architecture-connections.md#multi-cloud-connections).
 
 ### Prerequisites
 
@@ -418,7 +420,7 @@ Before you start:
 
     Use the following flow chart to determine which connectivity method to use:
 
-    :::image type="content" source="media/architecture-private/multi-cloud-flow-chart.png" alt-text="Flow chart to determine which connectivity method to use.":::
+    :::image type="content" source="media/architecture-connections/multi-cloud-flow-chart.png" alt-text="Flow chart to determine which connectivity method to use.":::
 
     - **Use public IP addresses over the internet** if you do not need to exchange data using private IP addresses
 
@@ -446,4 +448,4 @@ Before you start:
 
 ## Next steps
 
-For more information, see [Private link connection architectures](architecture-private.md).
+For more information, see [Sensor connection methods](architecture-connections.md).
