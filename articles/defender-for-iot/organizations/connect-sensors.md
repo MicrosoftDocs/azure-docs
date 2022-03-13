@@ -49,35 +49,6 @@ Use the following flow chart to determine which sensor connection method is righ
 
 TBD
 
-<!--
-## Connect via ExpressRoute with Microsoft Peering
-
-Prerequisites
-As a first step towards connecting your sensor to Azure, you should configure your network in the following manner:
-
-•	Deploy ExpressRoute connectivity at the remote site (see Azure ExpressRoute: Connectivity models | Microsoft Docs for more information).
-•	Set up an Express Route Microsoft Peering Circuit
-•	Prior to proceeding, ensure that the circuit has been fully provisioned by the connectivity provider by checking the Provider Status.
- 
-
-Configuration
-Configure the circuit to reach the following services:
-o	IoT Hub
-o	Blob Storage
-o	Event Hub
-Create a route filter to the relevant region for all remote sites:
-
-Tenant Country	Azure Region
-Europe	West Europe
-Rest of World	East US
-
-
-
-  
-
-
--->
-
 ## Connect via an Azure proxy
 
 This section describes how to configure a private link sensor connection to Defender for IoT in Azure using an Azure proxy. For more information, see [Proxy connections with an Azure proxy](architecture-connections.md#proxy-connections-with-an-azure-proxy).

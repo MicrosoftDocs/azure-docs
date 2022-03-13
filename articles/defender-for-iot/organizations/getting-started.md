@@ -26,7 +26,9 @@ If you are using an Defender for IoT sensor version lower than 22.1.x, you must 
 
 ### Supported service regions
 
-Defender for IoT routes all traffic from all European regions to the West Europe regional datacenter. It routes traffic from all remaining regions to the Central US regional datacenter. Review [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+Defender for IoT routes all traffic from all European regions to the West Europe regional datacenter. It routes traffic from all remaining regions to the Central US regional datacenter. 
+
+If you are connecting your sensors using an IoT Hub (legacy), see also the [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
 
 ### Permissions: Sensors and on-premises management consoles
@@ -118,11 +120,11 @@ Onboard a sensor by registering it with Microsoft Defender for IoT and downloadi
 
 1. Choose a sensor connection mode:
 
-   - **Cloud connected sensors**: Information that sensors detect is displayed in the sensor console. In addition, alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel. You can also choose to automatically push threat intelligence packages from Defender for IoT to your sensors. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
+   - **Cloud connected sensors**: Information that sensors detect is displayed in the sensor console. In addition, alert information is delivered to Azure and can be shared with other Azure services, such as Microsoft Sentinel. You can also choose to automatically push threat intelligence packages from Defender for IoT to your sensors. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
 
    - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
 
-1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Microsoft Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [Sites and Sensors page](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
+1. Select a site to associate your sensor to. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [Sites and Sensors page](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
 
 1. Select **Register**.
 
