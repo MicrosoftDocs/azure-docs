@@ -46,17 +46,18 @@ Your utterances are split into two sets:
 
 When adding utterances, you have the option to add to a specific set explicitly (training or testing). If you choose to do this you need to set your split type in train model page to **manual split of training and testing data**, otherwise keep all your utterances in the train set and use **Automatically split the testing set from training data**. See [How to train your model](train-model.md#train-model) for more information.
 
-*Section 2* is where you add your utterances. You must select one of the intents from the drop-down list, the language of the utterance (if applicable) and the utterance itself. Press the Enter key in the utterance's text box to add the utterance.
+*Section 2* is where you add your utterances. You must select one of the intents from the drop-down list, the language of the utterance (if applicable), and the utterance itself. Press the enter key in the utterance's text box to add the utterance.
 
-*Section 3* includes your project's entities and distribution of intents and entities across your Training set and Testing set.
+*Section 3* includes your project's entities and distribution of intents and entities across your training set and testing set.
 
-You can select the highlighter button next to any of the entities you've added, and then hover over the text to label the entities within your utterances, shown in *section 4*. You can also add new entities here by pressing the + Add Entity button. 
+You can select the highlight button next to any of the entities you've added, and then hover over the text to label the entities within your utterances, shown in *section 4*. You can also add new entities here by clicking the **+ Add Entity** button. 
 
-On clicking distribution, you can also view tag distribution across:
+When you select your distribution, you can also view tag distribution across:
 
-* Total instances per tagged entity: shows the distribution of each of your entities across the training and testing sets. 
-* Unique utterances per tagged entity: shows how your entities are distributed among the different utterances you have.
-* Utterances per intent: shows the distribution of utterances among intents across your training and testing sets.
+* Total instances per tagged entity: The distribution of each of your entities across the training and testing sets. 
+
+* Unique utterances per tagged entity: How your entities are distributed among the different utterances you have.
+* Utterances per intent: The distribution of utterances among intents across your training and testing sets.
 
 :::image type="content" source="../media/label-distribution.png" alt-text="Distribution" lightbox="../media/label-distribution.png":::
 
