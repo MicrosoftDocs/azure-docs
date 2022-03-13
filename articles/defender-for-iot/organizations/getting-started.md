@@ -152,7 +152,9 @@ This section is required only when you are using an Defender for IoT sensor vers
 
 Connect your sensors to Defender for IoT to ensure that sensors send alert and device inventory information to Defender for IoT on the Azure portal.
 
-For more information, see [Private link connection architectures](architecture-connections.md) and [Configure private link sensor connections](connect-sensors.md).
+For more information, see [Sensor connection methods](architecture-connections.md) and [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md)
+.
+
 ## Connect sensors to an on-premises management console
 
 This section is required only when you are using an Defender for IoT sensor version lower than 22.1.x.

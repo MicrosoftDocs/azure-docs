@@ -1,8 +1,8 @@
 ---
-title: Configure private link sensor connections to Microsoft Defender for IoT
-description: Learn how to connect your sensors to Microsoft Defender for IoT using a private link connection.
+title: Connect sensors to Microsoft Defender for IoT
+description: Learn how to connect your sensors to Microsoft Defender for IoT on Azure
 ms.topic: how-to
-ms.date: 03/08/2022
+ms.date: 03/13/2022
 ---
 
 # Connect your sensors to Microsoft Defender for IoT
@@ -16,7 +16,7 @@ The procedures in this article are supported for sensor software versions 10.x a
 
 ## Migration for existing customers
 
-If you're an existing customer with a production deployment and sensors connected using an IoT Hub, start with the following steps to ensure a full and safe migration to an updated connection method, without the IoT Hub.
+If you're an existing customer with a production deployment and sensors connected using the legacy IoT Hub method, start with the following steps to ensure a full and safe migration to an updated connection method.
 
 1. **Review your existing production deployment** and how sensors are currently connection to Azure. Confirm that the sensors in production networks can reach the Azure data center resource ranges.
 
@@ -51,7 +51,7 @@ TBD
 
 ## Connect via an Azure proxy
 
-This section describes how to configure a private link sensor connection to Defender for IoT in Azure using an Azure proxy. For more information, see [Proxy connections with an Azure proxy](architecture-connections.md#proxy-connections-with-an-azure-proxy).
+This section describes how to connect your sensor to Defender for IoT in Azure using an Azure proxy. For more information, see [Proxy connections with an Azure proxy](architecture-connections.md#proxy-connections-with-an-azure-proxy).
 
 ### Prerequisites
 
@@ -171,7 +171,7 @@ For more information, see:
 
 Define an Azure virtual machine scale set to create and manage a group of load-balanced VMs, where you can automatically increase or decrease the number of VMs as needed.
 
-Use the following procedure to create a scale set to use with your private link connection. For more information, see [What are Virtual Machine scale sets?](/azure/virtual-machine-scale-sets/overview)
+Use the following procedure to create a scale set to use with your sensor connection. For more information, see [What are Virtual Machine scale sets?](/azure/virtual-machine-scale-sets/overview)
 
 1. Create a scale set with the following parameter definitions:
 
@@ -260,7 +260,7 @@ Azure Load Balancer is a layer-4 load balancer that distributes incoming traffic
 
 For more information, see the [Azure Load Balancer documentation](/azure/load-balancer/load-balancer-overview).
 
-To create an Azure load balancer for your private link connection:
+To create an Azure load balancer for your sensor connection:
 
 1.	Create a load balancer with a standard SKU and an **Internal** type to ensure that the load balancer is closed to the internet.
 
@@ -284,7 +284,7 @@ To create an Azure load balancer for your private link connection:
 
 ### Step 7: Configure a NAT gateway
 
-To configure a NAT gateway for your private link:
+To configure a NAT gateway for your sensor connection:
 
 1.	Create a new NAT Gateway.
 
@@ -294,7 +294,7 @@ To configure a NAT gateway for your private link:
 
 ## Connect via proxy chaining
 
-This section describes how to configure a private link sensor connection to Defender for IoT in Azure using proxy chaining. For more information, see [Proxy connections with proxy chaining](architecture-connections.md#proxy-connections-with-proxy-chaining).
+This section describes how to connect your sensor to Defender for IoT in Azure using proxy chaining. For more information, see [Proxy connections with proxy chaining](architecture-connections.md#proxy-connections-with-proxy-chaining).
 
 ### Prerequisites
 
@@ -361,7 +361,7 @@ This procedure describes how to install and configure a connection between your 
 
 ## Connect directly
 
-This section describes how to configure a direct, private link sensor connection to Defender for IoT in Azure. For more information, see [Direct connections](architecture-connections.md#direct-connections).
+This section describes how to configure a direct sensor connection to Defender for IoT in Azure. For more information, see [Direct connections](architecture-connections.md#direct-connections).
 
 ### Prerequisites
 
@@ -379,7 +379,7 @@ MISSING STEPS HERE, WE ONLY HAVE THE DIAGRAM
 
 ## Connect via multi-cloud vendors
 
-This section describes how to configure private link sensor connections to Defender for IoT from sensors deployed in one or more public clouds. For more information, see [Multi-cloud connections](architecture-connections.md#multi-cloud-connections).
+This section describes how to connect your sensor to Defender for IoT in Azure from sensors deployed in one or more public clouds. For more information, see [Multi-cloud connections](architecture-connections.md#multi-cloud-connections).
 
 ### Prerequisites
 

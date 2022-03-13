@@ -31,7 +31,7 @@ While you'll need to migrate your connections before the [legacy version reaches
 
 After migrating, you can remove any relevant IoT Hubs from your subscription as they'll no longer be required for your sensor connections.
 
-For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Migrate to private link connections](connect-sensors.md#migrate-to-sensor-connection-connections).
+For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Migration for existing customers](connect-sensors.md#migration-for-existing-customers).
 
 > [!IMPORTANT]
 > To ensure that your network is ready, we recommend that you first run the the migration in a lab or testing environment so that you can safely validate your Azure service configurations.
@@ -93,4 +93,4 @@ TBD WE NEED MORE INFO ABOUT WHEN TO CHOOSE EACH OPTION
 
 ## Next steps
 
-For more information, see [Configure private link connections](connect-sensors.md).
+For more information, see [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
