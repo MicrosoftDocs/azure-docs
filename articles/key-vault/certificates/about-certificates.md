@@ -41,7 +41,7 @@ The addressable key becomes more relevant with non-exportable KV certificates. T
 
 The type of key pair to supported for certificates
 
- - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
+ - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/certificates/create-certificate/create-certificate#jsonwebkeytype))
    Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
 
 |Key type|About|Security|
@@ -91,7 +91,7 @@ At a high level, a certificate policy contains the following information (their 
 
 -   X509 certificate properties: Contains subject name, subject alternate names, and other properties used to create an x509 certificate request.  
 -   Key Properties: contains key type, key length, exportable, and ReuseKeyOnRenewal fields. These fields instruct key vault on how to generate a key. 
-     - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
+     - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/certificates/create-certificate/create-certificate#jsonwebkeytype)) 
 -   Secret properties: contains secret properties such as content type of addressable secret to generate the secret value, for retrieving certificate as a secret.  
 -   Lifetime Actions: contains lifetime actions for the KV Certificate. Each lifetime action contains:  
 

@@ -7,7 +7,7 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 01/11/2022
+ms.date: 01/26/2022 
 ---
 
 # Create a MariaDB server and configure a firewall rule using the Azure CLI
@@ -24,7 +24,7 @@ This sample CLI script creates an Azure Database for MariaDB server and configur
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/create-mariadb-server-and-firewall-rule/create-mariadb-server-and-firewall-rule.sh" range="4-31":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/create-mariadb-server-and-firewall-rule/create-mariadb-server-and-firewall-rule.sh" id="FullScript":::
 
 ## Clean up resources
 

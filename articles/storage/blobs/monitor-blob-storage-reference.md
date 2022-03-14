@@ -66,10 +66,9 @@ Azure Storage supports following dimensions for metrics in Azure Monitor.
 
 For the metrics supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you look at  **Transactions** value for successful responses, you need to filter the **ResponseType** dimension with **Success**. If you look at **BlobCount** value for Block Blob, you need to filter the **BlobType** dimension with **BlockBlob**.
 
-## Resource logs (preview)
+<a id="resource-logs-preview"></a>
 
-> [!NOTE]
-> Azure Storage logs in Azure Monitor is in public preview, and is available for preview testing in all public and US Government cloud regions. This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1 and general-purpose v2 storage accounts. Classic storage accounts are not supported.
+## Resource logs
 
 The following table lists the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
 

@@ -5,9 +5,9 @@ keywords:
 services: sql-edge
 ms.service: sql-edge
 ms.topic: tutorial
-author: VasiyaKrishnan
-ms.author: vakrishn
-ms.reviewer: sstein
+author: kendalvandyke
+ms.author: kendalv 
+ms.reviewer: jroth
 ms.date: 12/18/2020
 ---
 # Using Azure SQL Edge to build smarter renewable resources

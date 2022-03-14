@@ -1,12 +1,13 @@
 ---
 
-title: Update web services
+title: Update deployed web services
 titleSuffix: Azure Machine Learning
 description: Learn how to refresh a web service that is already deployed in Azure Machine Learning. You can update settings such as model, environment, and entry script.
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.reviewer: larryfr
+ms.author: larryfr
+author: blackmist
 ms.date: 10/21/2021
 ms.custom: deploy
 ---
@@ -77,6 +78,8 @@ print(service.get_logs())
 **Using the CLI**
 
 You can also update a web service by using the ML CLI. The following example demonstrates registering a new model and then updating a web service to use the new model:
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --output-metadata-file modelinfo.json

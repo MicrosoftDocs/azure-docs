@@ -5,10 +5,9 @@ metadata:
   author: mmccrory
   ms.service: automanage
   ms.workload: infrastructure
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.date: 12/10/2021
   ms.author: memccror
-    
 title: Frequently asked questions for Azure Automanage for VMs
 summary: |
   This article provides answers to some of the most common questions about [Azure Automanage for virtual machines](automanage-virtual-machines.md).
@@ -137,7 +136,7 @@ sections:
       - question: |
           How can I get troubleshooting support for Automanage?
         answer: |
-          You can file a [technical support case ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the **Service** option, search for and select *Automanage* under the *Monitoring and Management* section.
+          You can file a [technical support case ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the **Service** option, search for and select *Automanage* under the *Monitoring and Management* section.
           
 additionalContent: |
 

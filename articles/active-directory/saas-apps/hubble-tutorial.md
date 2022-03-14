@@ -34,7 +34,6 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Hubble supports **SP** initiated SSO.
-* Hubble supports **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -122,7 +121,7 @@ To configure single sign-on on **Hubble** side, you need to send the downloaded 
 
 ### Create Hubble test user
 
-In this section, a user called Britta Simon is created in Hubble. Hubble supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Hubble, a new one is created after authentication.
+In this section, you create a user called B.Simon in Hubble. Work with [Hubble client support team](mailto:cs@hubble-inc.jp) to add the users in the Hubble platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

@@ -82,11 +82,11 @@ You can track application requests by customer name at the Microsoft Application
 
 The timeline for the process of listing a SAML 2.0 or WS-Fed application in the gallery is 7 to 10 business days.
 
-:::image type="content" source="/media/howto-app-gallery-listing/timeline.png" alt-text="Screenshot that shows the timeline for listing a SAML application.":::
+:::image type="content" source="./media/howto-app-gallery-listing/timeline.png" alt-text="Screenshot that shows the timeline for listing a SAML application.":::
 
 The timeline for the process of listing an OpenID Connect application in the gallery is 2 to 5 business days.
 
-:::image type="content" source="/media/howto-app-gallery-listing/timeline-2.png" alt-text="Screenshot that shows the timeline for listing an OpenID Connect application.":::
+:::image type="content" source="./media/howto-app-gallery-listing/timeline2.png" alt-text="Screenshot that shows the timeline for listing an OpenID Connect application.":::
 
 The timeline for the process of listing a SCIM provisioning application in the gallery is variable and depends on numerous factors.
 
@@ -94,7 +94,7 @@ Not all applications can be onboarded. Per the terms and conditions, the choice 
 
 Here's the flow of customer-requested applications.
 
-:::image type="content" source="/media/howto-app-gallery-listing/customer-request-2.png" alt-text="Screenshot that shows the customer-requested apps flow.":::
+:::image type="content" source="./media/howto-app-gallery-listing/customer-request-2.png" alt-text="Screenshot that shows the customer-requested apps flow.":::
 
 For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com), and a response is sent as soon as possible.
 

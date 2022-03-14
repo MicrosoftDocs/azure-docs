@@ -1,7 +1,7 @@
 ---
-title: Lookup transformation in mapping data flow
+title: Lookup transformations in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Reference data from another source using the lookup transformation in mapping data flow for Azure Data Factory and Synapse Analytics pipelines.
+description: Reference data from another source using lookup transformations in mapping data flow for Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.reviewer: daperlov
 ms.author: makromer
@@ -12,7 +12,7 @@ ms.custom: synapse
 ms.date: 09/09/2021
 ---
 
-# Lookup transformation in mapping data flow
+# Lookup transformations in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -34,9 +34,9 @@ A lookup transformation is similar to a left outer join. All rows from the prima
 
 **Match multiple rows:** If enabled, a row with multiple matches in the primary stream will return multiple rows. Otherwise, only a single row will be returned based upon the 'Match on' condition.
 
-**Match on:** Only visible if 'Match multiple rows' is not selected. Choose whether to match on any row, the first match, or the last match. Any row is recommended as it executes the fastest. If first row or last row is selected, you'll be required to specify sort conditions.
+**Match on:** Only visible if 'Match multiple rows' isn't selected. Choose whether to match on any row, the first match, or the last match. Any row is recommended as it executes the fastest. If first row or last row is selected, you'll be required to specify sort conditions.
 
-**Lookup conditions:** Choose which columns to match on. If the equality condition is met, then the rows will be considered a match. Hover and select 'Computed column' to extract a value using the [data flow expression language](data-flow-expression-functions.md).
+**Lookup conditions:** Choose which columns to match on. If the equality condition is met, then the rows will be considered a match. Hover and select 'Computed column' to extract a value using the [data flow expression language](data-transformation-functions.md).
 
 All columns from both streams are included in the output data. To drop duplicate or unwanted columns, add a [select transformation](data-flow-select.md) after your lookup transformation. Columns can also be dropped or renamed in a sink transformation.
 

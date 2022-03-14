@@ -3,7 +3,7 @@ title:  Microsoft Azure Maps Weather services coverage
 description: Learn about Microsoft Azure Maps Weather services coverage
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 01/18/2021
+ms.date: 01/26/2022
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -13,19 +13,19 @@ ms.custom: references_regions
 
 # Azure Maps Weather services coverage
 
-This article provides coverage information for Azure Maps [Weather services](/rest/api/maps/weather). Azure Maps Weather data services returns details such as radar tiles, current weather conditions, weather forecasts, and the weather along a route.
+This article provides coverage information for Azure Maps [Weather services](/rest/api/maps/weather). Azure Maps Weather data services returns details such as radar tiles, current weather conditions, weather forecasts, the weather along a route, air quality, historical weather and tropical storms info.
 
 Azure Maps doesn't have the same level of information and accuracy for all countries and regions.
 
-The following table provides information about what kind of weather information you can request from each country/region.
+The following table refers to the *Other* column and provides a list containing the weather information you can request from that country/region.
 
-| Symbol | Meaning |
-|--------|---------|
-|*       |Covers Current Conditions, Hourly Forecast, Quarter-day Forecast, Daily Forecast, Weather Along Route and Daily Indices. |
+| Symbol  | Meaning                  |
+|:-------:|--------------------------|
+|    *    |Refers to coverage of the following features: Air Quality, Current Conditions, Daily Forecast, Daily Indices, Historical Weather, Hourly Forecast, Quarter-day Forecast, Tropical Storms and Weather Along Route. |
 
 ## Americas
 
-| Country/region                           | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region                           | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
 |------------------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Anguilla                                 |            ✓             |                              |                       |   ✓   |
 | Antarctica                               |            ✓             |                              |                       |   ✓   |
@@ -89,7 +89,7 @@ The following table provides information about what kind of weather information 
 
 ## Asia Pacific
 
-| Country/region                     | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region                     | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
 ||-----------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Afghanistan                        |            ✓             |                              |                       |   ✓   |
 | American Samoa                     |            ✓             |                              |           ✓           |   ✓   |
@@ -155,7 +155,7 @@ The following table provides information about what kind of weather information 
 
 ## Europe
 
-| Country/region          | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region          | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
 |-------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Albania                 |            ✓             |                              |                       |   ✓   |
 | Andorra                 |            ✓             |                              |           ✓           |   ✓   |
@@ -217,7 +217,7 @@ The following table provides information about what kind of weather information 
 
 ## Middle East & Africa
 
-| Country/region                         | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region                         | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
 |----------------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Algeria                                |            ✓             |                              |                       |   ✓   |
 | Angola                                 |            ✓             |                              |                       |   ✓   |
@@ -227,8 +227,8 @@ The following table provides information about what kind of weather information 
 | Bouvet Island                          |            ✓             |                              |                       |   ✓   |
 | Burkina Faso                           |            ✓             |                              |                       |   ✓   |
 | Burundi                                |            ✓             |                              |                       |   ✓   |
-| Cabo Verde                             |            ✓             |                              |                       |   ✓   |
 | Cameroon                               |            ✓             |                              |                       |   ✓   |
+| Cape Verde                             |            ✓             |                              |                       |   ✓   |
 | Central African Republic               |            ✓             |                              |                       |   ✓   |
 | Chad                                   |            ✓             |                              |                       |   ✓   |
 | Comoros                                |            ✓             |                              |                       |   ✓   |

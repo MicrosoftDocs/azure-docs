@@ -4,11 +4,10 @@ description: Learn how to store and restore automated backups on separate Azure 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: backup-restore
-ms.custom: devx-track-azurepowershell
-ms.devlang: 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-author: rothja
-ms.author: jroth
+author: SudhirRaparla 
+ms.author: nvraparl 
 ms.reviewer: mathoma
 ms.date: 09/12/2021
 ---
@@ -264,7 +263,7 @@ This example shows how to list the LTR policies within an instance for a single 
 
 ```powershell
 # gets the current version of LTR policy for a database
-$LTRPolicies = @{
+$LTRPolicy = @{
     InstanceName = $instanceName 
     DatabaseName = $dbName 
     ResourceGroupName = $resourceGroup

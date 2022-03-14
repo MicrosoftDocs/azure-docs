@@ -68,7 +68,7 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
         Name = 'myVirtualNetwork'
         ResourceGroupName = 'myERRG'
     } 
-    Get-AzVirtualNewtork @virtualnetwork
+    Get-AzVirtualNetwork @virtualnetwork
     ```
 
 ## Applying or updating the custom BGP value for an existing virtual network

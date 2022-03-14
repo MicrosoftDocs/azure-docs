@@ -7,7 +7,7 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 01/11/2022
+ms.date: 01/26/2022 
 ---
 
 # List and update configurations of an Azure Database for MariaDB server using Azure CLI
@@ -24,7 +24,7 @@ This sample CLI script lists all available configuration parameters as well as t
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/change-server-configurations/change-server-configurations.sh" range="4-34":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/change-server-configurations/change-server-configurations.sh" id="FullScript":::
 
 ## Clean up resources
 

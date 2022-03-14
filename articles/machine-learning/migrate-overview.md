@@ -11,7 +11,7 @@ ms.author: zhanxia
 ms.date: 10/21/2021
 ---
 
-# Migrate to Azure Machine Learning 
+# Migrate to Azure Machine Learning from ML Studio (classic)
 
 > [!IMPORTANT]
 > Support for Machine Learning Studio (classic) will end on 31 August 2024. We recommend you transition to [Azure Machine Learning](./overview-what-is-azure-machine-learning.md) by that date.
@@ -23,6 +23,8 @@ ms.date: 10/21/2021
 Learn how to migrate from Studio (classic) to Azure Machine Learning. Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
 
 This is a guide for a basic "lift and shift" migration. If you want to optimize an existing machine learning workflow, or modernize a machine learning platform, see the [Azure Machine Learning adoption framework](https://aka.ms/mlstudio-classic-migration-repo) for additional resources including digital survey tools, worksheets, and planning templates.
+
+Please work with your Cloud Solution Architect on the migration. 
 
 ![Azure ML adoption framework](./media/migrate-overview/aml-adoption-framework.png)
 
@@ -58,6 +60,8 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 1. Define business justifications and expected outcomes.
 1. Align an actionable Azure Machine Learning adoption plan to business outcomes.
 1. Prepare people, processes, and environments for change.
+
+Please work with your Cloud Solution Architect to define your strategy. 
 
 See the [Azure Machine Learning Adoption Framework](https://aka.ms/mlstudio-classic-migration-repo) for planning resources including a planning doc template. 
 

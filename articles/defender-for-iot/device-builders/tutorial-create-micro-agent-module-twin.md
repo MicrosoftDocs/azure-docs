@@ -58,7 +58,7 @@ A `DefenderIotMicroAgent` module twin can be created by manually editing each mo
 
 **To create a DefenderIotMicroAgent module twin for a device**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Device management** > **Devices**.
 
@@ -74,7 +74,7 @@ A `DefenderIotMicroAgent` module twin can be created by manually editing each mo
 
 **To verify the creation of a DefenderIotMicroAgent module twin on a specific device**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Device management** > **Devices**.
 

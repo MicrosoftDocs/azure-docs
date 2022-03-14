@@ -450,6 +450,7 @@ There are no limits in defining migration jobs. You can define the same StorSimp
 
 * Only one migration job with the same StorSimple source volume can run at the same time.
 * Only one migration job with the same target Azure file share can run at the same time.
+* Before starting the next job, you ensured that any of the previous jobs are in the `copy stage` and show progress of moving files for at least 30 Minutes.
 * You can run up to four migration jobs in parallel per StorSimple device manager, as long as you also abide by the previous rules.
 
 When you attempt to start a migration job, the previous rules are checked. If there are jobs running, you may not be able to start the current job. You'll receive an alert that lists the name of currently running job(s) that must finish before you can start the new job.

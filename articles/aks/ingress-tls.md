@@ -247,7 +247,7 @@ Note that this sample is for a Bash shell.
 
 ### [Azure CLI](#tab/azure-cli)
 
-```bash
+```azurecli
 # Public IP address of your ingress controller
 IP="MY_EXTERNAL_IP"
 

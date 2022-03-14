@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 01/18/2022
+ms.date: 02/07/2022
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -23,15 +23,28 @@ The new v2 SKU includes the following enhancements:
 - **Static VIP**: Application Gateway v2 SKU supports the static VIP type exclusively. This ensures that the VIP associated with the application gateway doesn't change for the lifecycle of the deployment, even after a restart.  There isn't a static VIP in v1, so you must use the application gateway URL instead of the IP address for domain name routing to App Services via the application gateway.
 - **Header Rewrite**: Application Gateway allows you to add, remove, or update HTTP request and response headers with v2 SKU. For more information, see [Rewrite HTTP headers with Application Gateway](./rewrite-http-headers-url.md)
 - **Key Vault Integration**: Application Gateway v2 supports integration with Key Vault for server certificates that are attached to HTTPS enabled listeners. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
+- **Mutual Authentication (mTLS)**: Application Gateway v2 supports authentication of client requests. For more information, see [Overview of mutual authentication with Application Gateway](mutual-authentication-overview.md).
 - **Azure Kubernetes Service Ingress Controller**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service (AKS) known as AKS Cluster. For more information, see [What is Application Gateway Ingress Controller?](ingress-controller-overview.md).
 - **Performance enhancements**: The v2 SKU offers up to 5X better TLS offload performance as compared to the Standard/WAF SKU.
 - **Faster deployment and update time** The v2 SKU provides faster deployment and update time as compared to Standard/WAF SKU. This also includes WAF configuration changes.
 
 ![Diagram of auto-scaling zone.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
-## Supported regions
+## Unsupported regions
 
-The Standard_v2 and WAF_v2 SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, East Asia, Korea Central, Korea South, UK South, Central India, West India, South India,Jio India West, Norway East, Switzerland North, UAE North, South Africa North, Germany West Central.
+The Standard_v2 and WAF_v2 SKU is not currently available in the following regions:
+
+- UK North
+- UK South2
+- South Africa West
+- China East
+- China North
+- US DOD East
+- US DOD Central
+- US Gov Central
+- Germany Northeast
+- Germany Central
+- Qatar Central
 
 ## Pricing
 
@@ -58,6 +71,7 @@ The following table compares the features available with each SKU.
 | Rewrite HTTP(S) headers                           |          | &#x2713; |
 | URL-based routing                                 | &#x2713; | &#x2713; |
 | Multiple-site hosting                             | &#x2713; | &#x2713; |
+| Mutual Authentication (mTLS)                      |          | &#x2713; |
 | Traffic redirection                               | &#x2713; | &#x2713; |
 | Web Application Firewall (WAF)                    | &#x2713; | &#x2713; |
 | WAF custom rules                                  |          | &#x2713; |

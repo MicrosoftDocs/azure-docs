@@ -7,7 +7,7 @@ ms.service: sql-edge
 ms.topic: quickstart
 author: rothja
 ms.author: jroth
-ms.reviewer: sstein
+ms.reviewer: jroth
 ms.date: 09/22/2020
 ms.custom: mode-other
 ---

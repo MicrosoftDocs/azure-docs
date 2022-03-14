@@ -2,7 +2,7 @@
 title: CI/CD with Azure Pipelines and templates
 description: Describes how to configure continuous integration in Azure Pipelines by using Azure Resource Manager templates. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there.
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 02/07/2022
 ---
 # Integrate ARM templates with Azure Pipelines
 
@@ -172,20 +172,20 @@ The following YAML shows the [Azure Resource Manager template deployment task](h
 
 There are several parts of this task to review in greater detail.
 
-- `deploymentScope`: Select the scope of deployment from the options: `Management Group`, `Subscription`, and `Resource Group`. To learn more about the scopes, see [Deployment scopes](deploy-rest.md#deployment-scope).
+* `deploymentScope`: Select the scope of deployment from the options: `Management Group`, `Subscription`, and `Resource Group`. To learn more about the scopes, see [Deployment scopes](deploy-rest.md#deployment-scope).
 
-- `azureResourceManagerConnection`: Provide the name of the service connection you created.
+* `azureResourceManagerConnection`: Provide the name of the service connection you created.
 
-- `subscriptionId`: Provide the target subscription ID. This property only applies to the Resource Group deployment scope and the subscription deployment scope.
+* `subscriptionId`: Provide the target subscription ID. This property only applies to the Resource Group deployment scope and the subscription deployment scope.
 
-- `resourceGroupName` and `location`: provide the name and location of the resource group you want to deploy to. The task creates the resource group if it doesn't exist.
+* `resourceGroupName` and `location`: provide the name and location of the resource group you want to deploy to. The task creates the resource group if it doesn't exist.
 
    ```yml
    resourceGroupName: '<resource-group-name>'
    location: '<location>'
    ```
 
-- `csmFileLink`: Provide the link for the staged template. When setting the value, use variables returned from the file copy task. The following example links to a template named mainTemplate.json. The folder named **templates** is included because that where the file copy task copied the file to. In your pipeline, provide the path to your template and the name of your template.
+* `csmFileLink`: Provide the link for the staged template. When setting the value, use variables returned from the file copy task. The following example links to a template named mainTemplate.json. The folder named **templates** is included because that where the file copy task copied the file to. In your pipeline, provide the path to your template and the name of your template.
 
    ```yml
    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
@@ -224,7 +224,7 @@ steps:
     deploymentName: 'deploy1'
 ```
 
-When you select **Save**, the build pipeline is automatically run. Go back to the summary for your build pipeline, and watch the status.
+When you select **Save**, the build pipeline is automatically run. Under the **Jobs** frame, select **Job** to see the job status.
 
 ## Next steps
 

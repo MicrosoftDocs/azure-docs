@@ -1,7 +1,7 @@
 ---
 title: Deploy certificates
 description: Learn how to set up and deploy certificates for Defender for IoT.
-ms.date: 11/09/2021
+ms.date: 02/06/2022
 ms.topic: how-to
 ---
 
@@ -18,7 +18,7 @@ Defender for IoT uses SSL/TLS certificates to secure communication between the f
 
 Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
 
-:::image type="content" source="media/how-to-deploy-certificates/certificate-upload.png" alt-text="Certificate-upload dialog box.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of an initial sensor sign in certificate page.":::
 
 ## About certificate generation methods
 
@@ -152,7 +152,7 @@ When using a key length of 4096 bits, the SSL handshake at the start of each con
 
 ### Certificate chain file requirements (if .pem is used)
 
-A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate.  
+A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate. 
 
 Bag attributes are supported in the certificate chain file.
 
@@ -172,7 +172,7 @@ You can also convert existing certificate files if you do not want to create new
 
 You can compare your certificate to the sample certificate below. Verify that the same fields exits and that the order of the fields is the same.
 
-:::image type="content" source="media/how-to-deploy-certificates/sample-certificate.png" alt-text="sample-certificate.":::
+:::image type="content" source="media/how-to-deploy-certificates/sample-certificate.png" alt-text="Screenshot of a sample certificate.":::
 
 ## Test certificates you create
 
@@ -223,3 +223,7 @@ If the conversion fails:
 - Use the conversion commands described in [Convert existing files to supported files](#convert-existing-files-to-supported-files).
 - Make sure the file parameters are accurate. See, [File type requirements](#file-type-requirements) and  [Certificate File Parameter Requirements](#certificate-file-parameter-requirements) for details.  
 - Consult your certificate lead.
+
+## Next steps
+
+For more information, see [Identify required appliances](how-to-identify-required-appliances.md).

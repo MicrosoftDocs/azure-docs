@@ -111,7 +111,7 @@ Provide the SQL Server license type as either pay-as-you-go (`PAYG`) to pay per 
 Register a SQL Server VM in full mode with the Azure CLI:
 
 ```azurecli-interactive
-# Register Enterprise or Standard self-installed VM in Lightweight mode
+# Register Enterprise or Standard self-installed VM in full mode
 az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type <license_type> --sql-mgmt-type Full
 ```
 

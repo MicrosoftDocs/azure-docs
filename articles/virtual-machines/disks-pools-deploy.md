@@ -7,7 +7,8 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 # Deploy an Azure disk pool (preview)
 
@@ -208,7 +209,7 @@ storagePoolObjectId=$(az ad sp list --filter "displayName eq 'StoragePool Resour
 storagePoolObjectId="${storagePoolObjectId%"}"
 storagePoolObjectId="${storagePoolObjectId#"}"
 
-az role assignment create --assignee-object-id $storagePoolObjectId --role "Virtual Machine Contributor" --resource-group $resourceGroupName
+az role assignment create --assignee-object-id $storagePoolObjectId --role "Virtual Machine Contributor" --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName --resource-group $resourceGroupName
 
 #Create a disk pool
 #To create a disk pool configured for ultra disks, add --additional-capabilities "DiskPool.Disk.Sku.UltraSSD_LRS" to your command

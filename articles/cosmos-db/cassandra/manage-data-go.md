@@ -2,8 +2,8 @@
 title: Build a Go app with Azure Cosmos DB Cassandra API using the gocql client
 description: This quickstart shows how to use a Go client to interact with Azure Cosmos DB Cassandra API
 ms.service: cosmos-db
-author: abhirockzz
-ms.author: abhishgu
+author: rothja
+ms.author: jroth
 ms.subservice: cosmosdb-cassandra
 ms.devlang: golang
 ms.topic: quickstart

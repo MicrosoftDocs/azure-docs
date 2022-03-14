@@ -3,7 +3,8 @@ title: Evaluate AutoML experiment results
 titleSuffix: Azure Machine Learning
 description: Learn how to view and evaluate charts and metrics for each of your automated machine learning experiment runs. 
 services: machine-learning
-ms.reviewer: nibaccam
+ms.author: nibaccam
+author: nibaccam
 ms.service: machine-learning
 ms.subservice: automl
 ms.date: 10/21/2021

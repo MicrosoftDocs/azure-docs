@@ -128,14 +128,15 @@ After you've created your organization hierarchy you can use organizations in ar
 
 ## Default organization
 
-You can set an organization as the default organization to use in your application. The default organization becomes the default option whenever you choose an organization, such as when you add a new user to your IoT Central application.
+> [!TIP]
+> This is a personal preference that only applies to you.
+
+You can set an organization as the default organization to use in your application as a personal preference. The default organization becomes the default option whenever you choose an organization, such as when you add a new user or add a device to your IoT Central application.
 
 To set the default organization, select **Settings** on the top menu bar:
 
 :::image type="content" source="media/howto-create-organization/set-default-organization.png" alt-text="Screenshot that shows how to set your default organization.":::
 
-> [!TIP]
-> This is a personal preference that only applies to you.
 
 ## Add organizations to an existing application
 
@@ -149,10 +150,11 @@ When you start adding organizations, all existing devices, users, and experience
 
 ## Limits
 
-To following limits apply to organizations:
+The following limits apply to organizations:
 
 - The hierarchy can be no more than five levels deep.
 - The total number of organization cannot be more than 200. Each node in the hierarchy counts as an organization.
+
 
 ## Next steps
 

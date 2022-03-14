@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 03/10/2022
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
@@ -27,12 +27,12 @@ There are four main components of implementing the change feed processor:
 
 1. **The lease container:** The lease container acts as a state storage and coordinates processing the change feed across multiple workers. The lease container can be stored in the same account as the monitored container or in a separate account.
 
-1. **The host:** A host is an application instance that uses the change feed processor to listen for changes. Multiple instances with the same lease configuration can run in parallel, but each instance should have a different **instance name**.
+1. **The compute instance**: A compute instance hosts the change feed processor to listen for changes. Depending on the platform, it could be represented by a VM, a kubernetes pod, an Azure App Service instance, an actual physical machine. It has a unique identifier referenced as the *instance name* throughout this article.
 
 1. **The delegate:** The delegate is the code that defines what you, the developer, want to do with each batch of changes that the change feed processor reads. 
 
 To further understand how these four elements of change feed processor work together, let's look at an example in the following diagram. The monitored container stores documents and uses 'City' as the partition key. We see that the partition key values are distributed in ranges that contain items. 
-There are two host instances and the change feed processor is assigning different ranges of partition key values to each instance to maximize compute distribution. 
+There are two compute instances and the change feed processor is assigning different ranges of partition key values to each instance to maximize compute distribution, each instance has a unique and different name. 
 Each range is being read in parallel and its progress is maintained separately from other ranges in the lease container.
 
 :::image type="content" source="./media/change-feed-processor/changefeedprocessor.png" alt-text="Change feed processor example" border="false":::
@@ -50,7 +50,7 @@ An example of a delegate would be:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-Finally you define a name for this processor instance with `WithInstanceName` and which is the container to maintain the lease state with `WithLeaseContainer`.
+Afterwards, you define the compute instance name or unique identifier with `WithInstanceName`, this should be unique and different in each compute instance you are deploying, and finally which is the container to maintain the lease state with `WithLeaseContainer`.
 
 Calling `Build` will give you the processor instance that you can start by calling `StartAsync`.
 
@@ -86,13 +86,13 @@ The change feed processor lets you hook to relevant events in its [life cycle](#
 
 ## Deployment unit
 
-A single change feed processor deployment unit consists of one or more instances with the same `processorName` and lease container configuration. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances. 
+A single change feed processor deployment unit consists of one or more compute instances with the same `processorName` and lease container configuration but different instance name each. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances. 
 
 For example, you might have one deployment unit that triggers an external API anytime there is a change in your container. Another deployment unit might move data, in real time, each time there is a change. When a change happens in your monitored container, all your deployment units will get notified.
 
 ## Dynamic scaling
 
-As mentioned before, within a deployment unit you can have one or more instances. To take advantage of the compute distribution within the deployment unit, the only key requirements are:
+As mentioned before, within a deployment unit you can have one or more compute instances. To take advantage of the compute distribution within the deployment unit, the only key requirements are:
 
 1. All instances should have the same lease container configuration.
 1. All instances should have the same `processorName`.

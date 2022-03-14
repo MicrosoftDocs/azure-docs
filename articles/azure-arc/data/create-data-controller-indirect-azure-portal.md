@@ -30,7 +30,7 @@ When you use direct connect mode, you can provision the data controller directly
 
 Follow the steps below to create an Azure Arc data controller using the Azure portal and Azure Data Studio.
 
-1. First, log in to the [Azure portal marketplace](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/azure%20arc%20data%20controller).  The marketplace search results will be filtered to show you the 'Azure Arc data controller'.
+1. First, log in to the [Azure portal marketplace](https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/azure%20arc%20data%20controller).  The marketplace search results will be filtered to show you the 'Azure Arc data controller'.
 1. If the first step has not entered the search criteria. Please enter in to the search results, click on 'Azure Arc data controller'.
 1. Select the Azure Data Controller tile from the marketplace.
 1. Click on the **Create** button.

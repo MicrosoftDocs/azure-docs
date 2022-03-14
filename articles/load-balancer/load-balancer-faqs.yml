@@ -5,10 +5,9 @@ metadata:
   services: load-balancer
   author: erichrt
   ms.service: load-balancer
-  ms.topic: article
+  ms.topic: faq
   ms.date: 04/22/2020
   ms.author: errobin
-    
 title: Load Balancer frequently asked questions
 summary: |
 
@@ -88,7 +87,7 @@ sections:
       - question: |
           Can I access the frontend of my Internal Load Balancer from the participating backend pool VM?
         answer: |
-          No, Azure Load Balancer does not support this scenario. To learn more about this topic, visit our [troubleshoot page](load-balancer-troubleshoot-backend-traffic.md#cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm).
+          No, Azure Load Balancer does not support this scenario. To learn more about this topic, visit our [troubleshoot page](load-balancer-troubleshoot-backend-traffic.md#cause-4-access-of-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm).
 
       - question: |
           What are best practices with respect to outbound connectivity?
@@ -105,6 +104,11 @@ sections:
           If I enable DDoS Protection Standard for my load balancer frontend, what does that mean for the resources in the backend pool?
         answer: |
           When enabled on the frontend IP for a load balancer, DDoS Protection Standard will apply protection for all backend pool resources that are accessible through that public IP.  Please see [Azure DDoS Protection Reference](../ddos-protection/ddos-protection-reference-architectures.md) for more details. 
+      
+      - question: |
+          Why are certain ports restricted for HTTP health probes?
+        answer: |
+          The following ports are restricted for HTTP health probes: 19, 21, 25, 70, 110, 119, 143, 220, 993. These ports are blocked for security reasons by WinHTTP, meaning that Load Balancer health probes are unable to use these ports. Please see [What's New in WinHTTP 5.1](/windows/win32/winhttp/what-s-new-in-winhttp-5-1#changes-to-default-settings) for more details.
 
 additionalContent: |
 

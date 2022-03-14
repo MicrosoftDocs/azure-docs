@@ -7,7 +7,7 @@ ms.service: sql-edge
 ms.topic: conceptual
 author: rothja
 ms.author: jroth
-ms.reviewer: sstein
+ms.reviewer: jroth
 ms.date: 09/22/2020
 ---
 # Performance best practices and configuration guidelines

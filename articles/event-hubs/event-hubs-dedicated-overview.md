@@ -1,8 +1,8 @@
 ---
-title: Overview of dedicated event hubs - Azure Event Hubs | Microsoft Docs
+title: Overview of Azure Event Hubs dedicated tier
 description: This article provides an overview of dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
 ms.topic: article
-ms.date: 09/23/2021
+ms.date: 01/26/2022
 ---
 
 # Overview of Event Hubs Dedicated
@@ -37,7 +37,7 @@ For more quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas
 
 ## How to onboard
 
-The self-serve experience to [create an Event Hubs cluster](event-hubs-dedicated-cluster-create-portal.md) through the [Azure portal](https://aka.ms/eventhubsclusterquickstart) is now in Preview. If you have any questions or need help with onboarding to Event Hubs Dedicated, contact the [Event Hubs team](mailto:askeventhubs@microsoft.com).
+Event Hubs dedicated tier is generally available (GA). The self-serve experience to create an Event Hubs cluster through the [Azure portal](event-hubs-dedicated-cluster-create-portal.md) is currently in Preview. You can also request for the cluster to be created by contacting the [Event Hubs team](mailto:askeventhubs@microsoft.com). 
 
 ## FAQs
 

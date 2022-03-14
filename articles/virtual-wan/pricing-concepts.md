@@ -160,7 +160,7 @@ A **connection unit** applies to any on-premises/non-Microsoft endpoint connecti
 
 * Two ExpressRoute circuit connections connecting to a virtual hub would cost $0.05*2/hr.
 
-* Three remote user connections connecting to the Azure virtual hub P2S gateway would cost $0.03*3/hr.
+* Three remote user connections connecting to the Azure virtual hub P2S gateway would cost $0.01*3/hr.
 
 ### <a name="data-transfer"></a>How are data transfer charges calculated?
 
