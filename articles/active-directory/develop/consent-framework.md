@@ -53,7 +53,7 @@ The following steps show you how the consent experience works for both the appli
    1. Go to the **API permissions** page for your application
    1. Click on the **Grant admin consent** button.
 
-      :::image type="content" source="./media/consent-framework/grant-consent.png alt-text="Grant permissions for explicit admin consent" lightbox="./media/consent-framework/grant-consent.png":::
+      :::image type="content" source="./media/consent-framework/grant-consent.png" alt-text="Grant permissions for explicit admin consent" lightbox="./media/consent-framework/grant-consent.png":::
 
    > [!IMPORTANT]
    > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use MSAL.js. Otherwise, the application fails when the access token is requested.
