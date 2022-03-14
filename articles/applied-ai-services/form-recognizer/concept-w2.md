@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 03/08/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -28,7 +28,7 @@ The prebuilt W-2 form, model is supported by Form Recognizer v3.0 with the follo
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**W-2 model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|**prebuilt-tax.us.w2**|
+|**W-2 model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
 
 ### Try Form Recognizer
 
@@ -81,44 +81,44 @@ See how data, including employee, employer, wage, and tax information is extract
 |Name| Box | Type | Description | Standardized output|
 |:-----|:----|:----|:----|:----|
 | Employee.SocialSecurityNumber | a | String | Employee's Social Security Number (SSN).  | 123-45-6789 |
-| Employer.IdNumber | b | String | Employer's ID number (EIN), the business equivalent of a social security number.| 12-1234567 |
-| Employer.Name | c | String | Employer's name. | Contoso |
-| Employer.Address | c | String | Employer's address (with city). | 123 Example Street Sample City, CA |
-| Employer.ZipCode | c | String | Employer's zip code. | 12345 |
-| ControlNumber | d | String | A code identifying the unique W-2 in the records of employer. | R3D1 |
-| Employee.Name | e | String | Full name of the employee. | Henry Ross|
-| Employee.Address | f | String | Employee's address (with city). | 123 Example Street Sample City, CA |
-| Employee.ZipCode | f | String | Employee's zip code. | 12345 |
-| WagesTipsAndOtherCompensation | 1 | Number | A summary of your pay, including wages, tips and other compensation. | 50000 |
-| FederalIncomeTaxWithheld | 2 | Number | Federal income tax withheld. | 1111 |
-| SocialSecurityWages | 3 | Number | Social security wages. | 35000 |
-| SocialSecurityTaxWithheld | 4 | Number | Social security tax with held. | 1111 |
-| MedicareWagesAndTips | 5 | Number | Medicare wages and tips. | 45000 |
-| MedicareTaxWithheld | 6 | Number | Medicare tax with held. | 1111 |
-| SocialSecurityTips | 7 | Number | Social security tips. | 1111 |
-| AllocatedTips | 8 | Number | Allocated tips. | 1111 |
+| Employer.IdNumber | b | String | Employer's ID number (EIN), the business equivalent of a social security number| 12-1234567 |
+| Employer.Name | c | String | Employer's name | Contoso |
+| Employer.Address | c | String | Employer's address (with city) | 123 Example Street Sample City, CA |
+| Employer.ZipCode | c | String | Employer's zip code | 12345 |
+| ControlNumber | d | String | A code identifying the unique W-2 in the records of employer | R3D1 |
+| Employee.Name | e | String | Full name of the employee | Henry Ross|
+| Employee.Address | f | String | Employee's address (with city) | 123 Example Street Sample City, CA |
+| Employee.ZipCode | f | String | Employee's zip code | 12345 |
+| WagesTipsAndOtherCompensation | 1 | Number | A summary of your pay, including wages, tips and other compensation | 50000 |
+| FederalIncomeTaxWithheld | 2 | Number | Federal income tax withheld | 1111 |
+| SocialSecurityWages | 3 | Number | Social security wages | 35000 |
+| SocialSecurityTaxWithheld | 4 | Number | Social security tax with held | 1111 |
+| MedicareWagesAndTips | 5 | Number | Medicare wages and tips | 45000 |
+| MedicareTaxWithheld | 6 | Number | Medicare tax with held | 1111 |
+| SocialSecurityTips | 7 | Number | Social security tips | 1111 |
+| AllocatedTips | 8 | Number | Allocated tips | 1111 |
 | VerificationCode | 9 | String | Verification Code on Form W-2 | A123-B456-C789-DXYZ |
-| DependentCareBenefits | 10 | Number | Dependent care benefits. | 1111 |
-| NonqualifiedPlans | 11 | Number | The non-qualified plan, a type of retirement savings plan that is employer-sponsored and tax-deferred. | 1111 |
-| AdditionalInfo |  | Array of objects | An array of LetterCode and Amount. |  |
-| LetterCode | 12a, 12b, 12c, 12d | String | Letter code. Refer to [IRS/W-2](https://www.irs.gov/pub/irs-prior/fw2--2014.pdf) for the semantics of the code values. | D |
+| DependentCareBenefits | 10 | Number | Dependent care benefits | 1111 |
+| NonqualifiedPlans | 11 | Number | The non-qualified plan, a type of retirement savings plan that is employer-sponsored and tax-deferred | 1111 |
+| AdditionalInfo |  | Array of objects | An array of LetterCode and Amount |  |
+| LetterCode | 12a, 12b, 12c, 12d | String | Letter code Refer to [IRS/W-2](https://www.irs.gov/pub/irs-prior/fw2--2014.pdf) for the semantics of the code values. | D |
 | Amount | 12a, 12b, 12c, 12d | Number | Amount | 1234 |
-| IsStatutoryEmployee | 13 | String | Whether the RetirementPlan box is checked or not. | true |
-| IsRetirementPlan | 13 | String | Whether the RetirementPlan box is checked or not. | true |
-| IsThirdPartySickPay | 13 | String | Whether the ThirdPartySickPay box is checked or not. | false |
-| Other | 14 | String | Other info employers may use this field to report. |  |
-| StateTaxInfos |  | Array of objects | An array of state tax info including State, EmployerStateIdNumber, StateIncomeTax, StageWagesTipsEtc. |  |
+| IsStatutoryEmployee | 13 | String | Whether the RetirementPlan box is checked or not | true |
+| IsRetirementPlan | 13 | String | Whether the RetirementPlan box is checked or not | true |
+| IsThirdPartySickPay | 13 | String | Whether the ThirdPartySickPay box is checked or not | false |
+| Other | 14 | String | Other info employers may use this field to report |  |
+| StateTaxInfos |  | Array of objects | An array of state tax info including State, EmployerStateIdNumber, StateIncomeTax, StageWagesTipsEtc |  |
 | State | 15 | String | State | CA |
-| EmployerStateIdNumber | 15 | String | Employer state number. | 123-123-1234 |
+| EmployerStateIdNumber | 15 | String | Employer state number | 123-123-1234 |
 | StateWagesTipsEtc  | 16 | Number | State wages, tips, etc. | 50000 |
-| StateIncomeTax | 17 | Number | State income tax. | 1535 |
-| LocalTaxInfos |  | Array of objects | An array of local income tax info including LocalWagesTipsEtc, LocalIncomeTax, LocalityName. |  |
+| StateIncomeTax | 17 | Number | State income tax | 1535 |
+| LocalTaxInfos |  | Array of objects | An array of local income tax info including LocalWagesTipsEtc, LocalIncomeTax, LocalityName |  |
 | LocalWagesTipsEtc | 18 | Number | Local wages, tips, etc. | 50000 |
-| LocalIncomeTax | 19 | Number | Local income tax. | 750 |
+| LocalIncomeTax | 19 | Number | Local income tax | 750 |
 | LocalityName | 20 | Number | Locality name. | CLEVELAND |
- | W2Copy |  | String | Copy of W-2 forms A, B, C, D, 1, or 2. | Copy A For Social Security Administration |
-| TaxYear |  | Number | Tax year. | 2020 |
-| W2FormVariant |  | String | The variants of W-2 forms, including "W-2", "W-2AS", "W-2CM", "W-2GU", "W-2VI". | W-2 |
+ | W2Copy |  | String | Copy of W-2 forms A, B, C, D, 1, or 2 | Copy A For Social Security Administration |
+| TaxYear |  | Number | Tax year | 2020 |
+| W2FormVariant |  | String | The variants of W-2 forms, including "W-2", "W-2AS", "W-2CM", "W-2GU", "W-2VI" | W-2 |
 
 
 ### Migration guide and REST API v3.0
@@ -131,10 +131,8 @@ See how data, including employee, employer, wage, and tax information is extract
 
 * Complete a Form Recognizer quickstart:
 
-  > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md)
-
-* Explore our REST API:
-
-    > [!div class="nextstepaction"]
-    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+|Programming language | :::image type="content" source="media/form-recognizer-icon.png" alt-text="Form Recognizer icon from the Azure portal."::: |Programming language
+|:---:|:---:|:---:|
+|[**C#**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)||[**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)|
+|[**Java**](quickstarts/try-v3-java-sdk.md#prebuilt-model)||[**Python**](quickstarts/try-v3-python-sdk.md#prebuilt-model)|
+|[**REST API**](quickstarts/try-v3-rest-api.md#prebuilt-model)|||
