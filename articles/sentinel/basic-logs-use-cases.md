@@ -41,7 +41,7 @@ In Azure, VPC Logs are named network security group (NSG) logs.
 
 ## TLS/SSL certificate monitor logs
 
-TLS/SSL certificate monitor logs have an outsized relevance since the SolarWinds hack incident. While TLS/SSL certificate monitoring isn't a common log source, its valuable data for specific attacks. They help understand the source of the certificate:
+TLS/SSL certificate monitor logs have an outsized relevance since the SolarWinds hack incident. While TLS/SSL certificate monitoring isn't a common log source, it's valuable data for specific attacks. They help understand the source of the certificate:
 
 - Was it self-signed?
 - Was it generated using a free service?
