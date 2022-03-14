@@ -48,17 +48,17 @@ For Application Gateway, the following metrics are available:
 &nbsp;
 ## Application Gateway WAF V2 Metrics  
 
- _New Metrics are only applicable to Core Rule Set >=CRS 3.2_  
+ _New WAF Metrics are only applicable to Core Rule Set >=CRS 3.2_  
  
  
-|**Metrics**|**Description**|
-| :------------------| :-------------------------------------|
+|**Metrics**|**Description**|**Dimension**|
+| :------------------| :-------------------------------------| :-----------------|
 |WAF Total Requests|Count of successful requests that WAF engine has served. The request count can be further filtered to show count per Action, Country/Region, Method, and Mode. |
 |WAF Managed Rule Matches|Count of total requests that a managed rule has matched. The request count can be further filtered to show count per Action, Country/Region, Mode, Rule Group, and Rule Id|
 |WAF Custom Rule Matches|Count of total requests that match a specific custom rule. The request count can be further filtered to show count per Action, Country/Region, Mode, Rule Group, and Rule Name|
 |WAF Bot Protection Matches|Count of total requests that have been blocked or logged from malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. The request count can be further filtered to show count per Action, Country/Region, Bot Type, and Mode.|
 
-<images>
+Note: AppGW WAF v2 CRS 3.1 or older do not have any WAF metrics
 
  ## Access Application Gateway WAF Metrics in Azure portal
 
