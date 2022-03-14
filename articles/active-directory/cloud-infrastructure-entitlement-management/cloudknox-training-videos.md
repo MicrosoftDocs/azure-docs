@@ -21,16 +21,15 @@ To view step-by-step training videos on how to use CloudKnox Permissions Managem
 
 ### Enable CloudKnox in your Azure Active Directory (Azure AD) tenant
 
-To view a video on how to enable CloudKnox in your Azure AD tenant, select
-[Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
+To view a video on how to enable CloudKnox in your Azure AD tenant, select [Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
 
 ### Configure and onboard Amazon Web Services (AWS) accounts
 
-To view a video on how to configure and onboard Amazon Web Services (AWS) accounts in CloudKnox Permissions Management, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?v=R6K21wiWYmE).
+To view a video on how to configure and onboard Amazon Web Services (AWS) accounts in CloudKnox, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?v=R6K21wiWYmE).
 
 ### Configure and onboard Google Cloud Platform (GCP) accounts
 
-To view a video on how to configure and onboard Google Cloud Platform (GCP) accounts in CloudKnox Permissions Management, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
+To view a video on how to configure and onboard Google Cloud Platform (GCP) accounts in CloudKnox, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
 
 <!---## Privilege on demand (POD) work flows
 

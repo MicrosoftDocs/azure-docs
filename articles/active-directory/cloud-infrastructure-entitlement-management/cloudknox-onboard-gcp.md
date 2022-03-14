@@ -25,7 +25,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 
 ## View a training video on configuring and onboarding a GCP account
 
-To view a video on how to configure and onboard GCP accounts in CloudKnox Permissions Management, select [Configure and onboard GCP accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
+To view a video on how to configure and onboard GCP accounts in CloudKnox, select [Configure and onboard GCP accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
 
 
 ## Onboard a GCP project
