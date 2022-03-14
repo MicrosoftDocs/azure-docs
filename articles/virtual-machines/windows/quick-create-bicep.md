@@ -13,7 +13,7 @@ ms.custom: subject-armqs, mode-arm
 
 # Quickstart: Create a Windows virtual machine using a Bicep file
 
-**Applies to:** :heavy_check_mark: Windows VMs 
+**Applies to:** :heavy_check_mark: Windows VMs
 
 This quickstart shows you how to use a Bicep file to deploy a Windows virtual machine (VM) in Azure.
 
@@ -28,7 +28,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/vm-simple-windows/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-windows/main.bicep":::
-
 
 Several resources are defined in the Bicep file:
 
@@ -64,11 +63,11 @@ Several resources are defined in the Bicep file:
   > [!NOTE]
   > Replace **\<admin-username\>** with a unique username. For Azure CLI, replace **\<admin-password\>** with a unique password. For Azure PowerShell, you'll be prompted to enter adminPassword. The minimum password length is 12 characters.
 
-    When the deployment finishes, you should see a messaged indicating the deployment succeeded.
+  When the deployment finishes, you should see a messaged indicating the deployment succeeded.
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed VM resource in the resource group.
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
 
 # [CLI](#tab/CLI)
 
