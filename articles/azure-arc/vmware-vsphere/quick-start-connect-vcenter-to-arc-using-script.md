@@ -46,7 +46,7 @@ You need a vSphere account that can:
 - Read all inventory. 
 - Deploy and update VMs to all the resource pools (or clusters), networks, and VM templates that you want to use with Azure Arc.
 
-This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere (preview) and the VM deployment of the Azure Arc resource bridge (preview).
+This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere (preview) and the deployment of the Azure Arc resource bridge (preview) VM.
 
 ### Workstation
 
@@ -130,7 +130,7 @@ A typical onboarding that uses the script takes 30 to 60 minutes. During the pro
 
 | **Requirement** | **Details** |
 | --- | --- |
-| **Azure login** | [Sign in to Azure](https://www.microsoft.com/devicelogin) and enter the code when you're prompted. |
+| **Azure login** | When you're prompted, go to the [device sign-in page](https://www.microsoft.com/devicelogin), enter the authorization code shown in the terminal, and sign in to Azure. |
 | **vCenter FQDN/Address** | Enter the fully qualified domain name for the vCenter Server instance (or an IP address). For example: **10.160.0.1** or **nyc-vcenter.contoso.com**. |
 | **vCenter Username** | Enter the username for the vSphere account. The required permissions for the account are listed in the [prerequisites](#prerequisites). |
 | **vCenter password** | Enter the password for the vSphere account. |
