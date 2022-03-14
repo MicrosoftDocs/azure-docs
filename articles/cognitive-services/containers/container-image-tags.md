@@ -169,8 +169,8 @@ Regular monthly upgrade
 Release note for `2.15.0-amd64`:
 
 **Fixes**
-* Fix container start issue that may occur when customer run it in some RHEL environments.
-* Fix model download nil error issue in some cases when customer download customized models.
+* Fix container start issue that may occur when customers run it in some RHEL environments.
+* Fix model download nil error issue in some cases when customers download customized models.
 
 Release note for `2.14.0-amd64`:
 
