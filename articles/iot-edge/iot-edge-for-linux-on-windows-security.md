@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Edge for Linux on Windows security | Microsoft Docs 
-description: How to update IoT Edge devices to run the latest versions of the security daemon and the IoT Edge runtime
+description: Security framework - Azure IoT Edge for Linux on Windows 
 keywords: 
 author: PatAltimore
 
@@ -60,7 +60,7 @@ Because you may need write access to _/etc_, _/home_, _/root_, _/var_ for specif
 | RootFS A | 2048 MB | One of two active/passive partitions holding the root file system |
 | RootFS B | 2048 MB | One of two active/passive partitions holding the root file system |
 | ABUpdate | 2048 MB | Holds the update files. Ensure there's always enough space in the VM for updates |
-| Data | 2 GB to 2 TB | Stateful partition for storing persistent data across updates. Expandable according the deployment configuration |
+| Data | 2 GB to 2 TB | Stateful partition for storing persistent data across updates. Expandable according to the deployment configuration |
 
 :::moniker-end
 <!-- end 1.1 -->
@@ -73,14 +73,14 @@ Because you may need write access to _/etc_, _/home_, _/root_, _/var_ for specif
 | Partition | Size | Description | 
 | --------- |---------- |------------ |
 | BootEFIA | 8 MB | Firmware partition A for future GRUBless boot |
-| BootEFIB | 8 MB | Firmware partition B for future GRUBless boot |.
+| BootEFIB | 8 MB | Firmware partition B for future GRUBless boot |
 | BootA | 192 MB | Contains the bootloader for A partition |
 | BootB | 192 MB | Contains the bootloader for B partition |
 | RootFS A | 4096 MB | One of two active/passive partitions holding the root file system |
 | RootFS B | 4096 MB | One of two active/passive partitions holding the root file system |
 | Unused | 4096 MB | This partition is reserved for future use |
 | Log | 1 GB or 6 GB | Logs specific partition mounted under _/logs |
-| Data | 2 GB to 2 TB | Stateful partition for storing persistent data across updates. Expandable according the deployment configuration |
+| Data | 2 GB to 2 TB | Stateful partition for storing persistent data across updates. Expandable according to the deployment configuration |
 
 :::moniker-end
 <!-- end 1.2 -->
@@ -88,7 +88,7 @@ Because you may need write access to _/etc_, _/home_, _/root_, _/var_ for specif
 >[!NOTE]
 >The partition layout represents the logical disk size and does not indicate the physical space the virtual machine will occupy on the host OS disk.​
 
-## Firewall
+### Firewall
 
 The EFLOW virtual machine is configured to use [_iptables_](https://git.netfilter.org/) by default. Iptables is used to set up, maintain, and inspect the tables of IP packet filter rules in the Linux kernel. The default implementation only allows incoming traffic on port 22 (SSH service) and blocks the traffic otherwise. You can check the _iptables_ configuration with the following steps:
 
@@ -101,14 +101,11 @@ The EFLOW virtual machine is configured to use [_iptables_](https://git.netfilte
     ```bash
     sudo iptables -L
     ```
-
     ![EFLOW iptables default](./media/iot-edge-for-linux-on-windows-security/default-iptables-output.png)
-
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
-
-## Verified boot
+### Verified boot
 
 The EFLOW virtual machine supports **Verified Boot** through the included device-mapper-verity (dm-verity) kernel feature, which provides transparent integrity checking of block devices. _dm-verity_ helps prevent persistent rootkits that can hold onto root privileges and compromise devices. This feature assures the virtual machine it is in the same state as when it was last booted. The virtual machine uses the _dm-verity_ feature to check specific block device, the underlying storage layer of the file system, and determine if it matches its expected configuration.
 
