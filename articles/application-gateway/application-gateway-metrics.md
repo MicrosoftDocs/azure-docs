@@ -177,11 +177,6 @@ For Application Gateway, the following metrics are available:
 - **Web Application Firewall Total Rule Distribution**  
 
 
-### Web Application Firewall (WAF) metrics
-
-_For information on WAF Monitoring, see [WAF Metrics](../../web-application-firewall/ag/application-gateway-waf-metrics.md)_  
-
-
 ### Backend metrics
 
 For Application Gateway, the following metrics are available:
@@ -193,6 +188,11 @@ For Application Gateway, the following metrics are available:
 - **Unhealthy host count**
 
   The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.
+
+### Web Application Firewall (WAF) metrics
+
+_For information on WAF Monitoring, see [WAF Metrics](../../web-application-firewall/ag/application-gateway-waf-metrics.md)_  
+
 
 ## Metrics visualization
 
