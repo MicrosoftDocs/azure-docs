@@ -63,7 +63,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Runtime protection| Threat detection (workload) | GKE | Preview | X | Defender extension | Defender for Containers |
 | Discovery and provisioning | Discovery of unprotected clusters | GKE | Preview | X | Agentless | Free |
 | Discovery and provisioning | Collection of control plane threat data | GKE | Preview | ✓ | Agentless | Defender for Containers |
-| Discovery and provisioning | Auto provisioning of Defender DaemonSet | GKE | Preview | X | Agentless | Defender for Containers |
+| Discovery and provisioning | Auto provisioning of Defender extension | GKE | Preview | X | Agentless | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Azure policy extension | GKE | Preview | X | Agentless | Defender for Containers |
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -80,7 +80,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Runtime protection| Threat detection (control plane)| Arc enabled K8s clusters | Preview | ✓ | Defender extension | Defender for Containers |
 | Runtime protection| Threat detection (workload) | Arc enabled K8s clusters | Preview | X | Defender extension | Defender for Containers |
 | Discovery and provisioning | Discovery of unprotected clusters | Arc enabled K8s clusters | Preview | X | Agentless | Free |
-| Discovery and Auto  provisioning | Collection of control plane threat data | Arc enabled K8s clusters | Preview | ✓ | Defender extension | Defender for Containers |
+| Discovery and provisioning | Collection of control plane threat data | Arc enabled K8s clusters | Preview | ✓ | Defender extension | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Defender extension | Arc enabled K8s clusters | Preview | ✓ | Agentless | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Azure policy extension | Arc enabled K8s clusters | Preview | X | Agentless | Defender for Containers |
 
