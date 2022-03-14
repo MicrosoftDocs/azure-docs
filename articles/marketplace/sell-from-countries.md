@@ -8,7 +8,7 @@ ms.custom: references_regions
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 01/04/2021
+ms.date: 03/14/2022
 ---
 
 # Supported publisher countries and regions
