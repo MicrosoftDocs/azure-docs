@@ -66,7 +66,7 @@ After the deployment is complete, select the Private Link resource in the resour
 
 After the deployment is complete, browse to the new resource group that is created as part of the deployment. You'll see two private DNS zone records and one for each service. If you have more FHIR and DICOM services in the workspace, additional DNS zone records will be created for them.
 
-[![Screen image of Private Link FHIR Mapping.](media/private-link/private-link-fhir-mapping.png) ](media/private-link/private-link-fhir-mapping.png#lightbox)
+[![Screen image of Private Link FHIR Mapping.](media/private-link/private-link-fhir-map.png) ](media/private-link/private-link-fhir-map.png#lightbox)
 
 Select **Virtual network links** from the **Settings**. You'll notice the FHIR service is linked to the virtual network.
 
@@ -75,7 +75,7 @@ Select **Virtual network links** from the **Settings**. You'll notice the FHIR s
 
 Similarly, you can see the private link mapping for the DICOM service.
 
-[ ![Screen image of Private Link DICOM Mapping.](media/private-link/private-link-dicom-mapping.png) ](media/private-link/private-link-dicom-mapping.png#lightbox)
+[ ![Screen image of Private Link DICOM Mapping.](media/private-link/private-link-dicom-map.png) ](media/private-link/private-link-dicom-map.png#lightbox)
 
 Also, you can see the DICOM service is linked to the virtual network.
 
