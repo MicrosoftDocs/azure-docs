@@ -158,7 +158,7 @@ Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM
 
 ### Does trusted launch support Azure Compute Gallery?
 
-Trusted launch now allows images to be created and shared through the Azure Compute Gallery (formerly Shared Image Gallery). The image source can be an existing Azure VM which is either generalized or specialized, an existing managed disk or a snapshot, a VHD or an image version from another gallery. Deploy a Trusted Launch VM from an Azure Compute Gallery image version 
+Trusted launch now allows images to be created and shared through the Azure Compute Gallery (formerly Shared Image Gallery). The image source can be an existing Azure VM which is either generalized or specialized, an existing managed disk or a snapshot, a VHD or an image version from another gallery. To deploy a Trusted Launch VM from an Azure Compute Gallery image version see [trusted launch VM](trusted-launch-portal.md).
 
 ### Does trusted launch support Azure Backup?
 
