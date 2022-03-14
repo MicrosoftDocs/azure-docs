@@ -62,7 +62,7 @@ You don’t create backups on Azure SQL Database and that is because you don’t
 |Basic|7|
 |Standard|35|
 |Premium|35|
-|||
+
 
 In addition, the [Long-Term Retention (LTR)](long-term-retention-overview.md) feature allows you to hold onto your backup files for a much longer period specifically, for up to 10 years, and restore data from these backups at any point within that period. Furthermore, the database backups are kept in geo-replicated storage to ensure resilience from regional catastrophe. You can also restore these backups in any Azure region at any point of time within the retention period. See [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 

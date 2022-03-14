@@ -223,7 +223,7 @@ WHERE database_id = DB_ID();
 |`slo_name`|Service objective name, including hardware generation|
 |`user_data_directory_space_quota_mb`|**Maximum local storage**, in MB|
 |`user_data_directory_space_usage_mb`|Current local storage consumption by data files, transaction log files, and tempdb files, in MB. Updated every five minutes.|
-|||
+
 
 This query should be executed in the user database, not in the master database. For elastic pools, the query can be executed in any database in the pool. Reported values apply to the entire pool.
 
