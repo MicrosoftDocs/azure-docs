@@ -20,13 +20,13 @@ As the IoT Edge for Linux on Windows (EFLOW) application releases new versions, 
 
 With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and has no package manager, so you cannot manually update or change any of the VM components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically.
 
-Each update consits of three components that may get updated to latest versions. The first is the IoT Edge runtime and security daemon, which is updated following the IoT Edge releases to keep the newest version available. For more information about IoT Edge updates, see [IoT Edge updates](./how-to-update-iot-edge.md). 
+Each update consists of three components that may get updated to latest versions. The first is the IoT Edge runtime and security daemon, which is updated following the IoT Edge releases to keep the newest version available. For more information about IoT Edge updates, see [IoT Edge updates](./how-to-update-iot-edge.md). 
 
-The second component is the virutal machine base operating system. The EFLOW virutal machine is based on [Microsoft CBL-Mariner](https://github.com/microsoft/CBL-Mariner) and each update will provide performance and security fixes to keep the OS with the latest CVE patches. As part of the EFLOW Release notes, the version will indicate the CBL-Mariner version used, and users can check the [CBL-Mariner Releases](https://github.com/microsoft/CBL-Mariner/releases) to get the list of CVEs fixed for each version. 
+The second component is the virtual machine base operating system. The EFLOW virtual machine is based on [Microsoft CBL-Mariner](https://github.com/microsoft/CBL-Mariner) and each update will provide performance and security fixes to keep the OS with the latest CVE patches. As part of the EFLOW Release notes, the version will indicate the CBL-Mariner version used, and users can check the [CBL-Mariner Releases](https://github.com/microsoft/CBL-Mariner/releases) to get the list of CVEs fixed for each version. 
 
-The third component is the group of Windows runtime components needed to run and interop with the EFLOW virutal machine. The EFLOW virtual machine lifecycle and interop is managed through differnt components: WSSDAgent, EFLOWProxy service and the PowerShell module. 
+The third component is the group of Windows runtime components needed to run and interop with the EFLOW virtual machine. The EFLOW virtual machine lifecycle and interop is managed through different components: WSSDAgent, EFLOWProxy service and the PowerShell module. 
 
-IoT Edge for Linux on Windows update are not cumulative, so in order to get to the latest version, you'll have to either do a fresh installtaion using the latest version, or apply all the preivous serciving updates until the desired version. 
+IoT Edge for Linux on Windows updates aren't cumulative, so in order to get to the latest version, you'll have to either do a fresh installation using the latest version, or apply all the previous servicing updates until the desired version. 
 
 To find the latest version of Azure IoT Edge for Linux on Windows, see [EFLOW releases](https://aka.ms/AzEFLOW-Releases).
 
@@ -55,7 +55,7 @@ To receive IoT Edge for Linux on Windows updates, the Windows host should be con
 
 ## Offline manual update
 
-In some scenarios with restricted or limited internet connectivity, you may want to manually apply EFLOW updates offline. This is possible using Micorsoft Update offline mechanisms. You can manually download and install an IoT Edge for LInux on Windows updates with the following steps:
+In some scenarios with restricted or limited internet connectivity, you may want to manually apply EFLOW updates offline. This is possible using Microsoft Update offline mechanisms. You can manually download and install an IoT Edge for LInux on Windows updates with the following steps:
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -80,7 +80,7 @@ In some scenarios with restricted or limited internet connectivity, you may want
 :::moniker range="iotedge-2018-06"
 ## Special case: Migration from HCS to VMMS on Server SKUs
 
-If you are updating a Windows Server SKU device previous to 1.1.2110.03111 version of IoT Edge for Linux on Windows to the latest available version, you need to do a manual migration.
+If you're updating a Windows Server SKU device previous to 1.1.2110.03111 version of IoT Edge for Linux on Windows to the latest available version, you need to do a manual migration.
 
 Update [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2110.03111) introduced a change to the VM technology (HCS to VMMS) used for EFLOW Windows Server deployments. You can execute the VM migration with the following steps:
 
@@ -92,13 +92,14 @@ Update [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2
     Migrate-EflowVmFromHcsToVmms
     ```
 
-Note: Fresh EFLOW 1.1.2110.0311 msi installations on Windows Server SKUs will result in EFLOW deployments using VMMS technology, so no migration is needed.
+>[!NOTE]
+>Fresh EFLOW 1.1.2110.0311 msi installations on Windows Server SKUs will result in EFLOW deployments using VMMS technology, so no migration is needed.
 <!-- end 1.1 -->
 :::moniker-end
 
 ## Migrations between EFLOW 1.1LTS and EFLOW CR
 
-
+IoT Edge for Linux on Windows doesn't support migrations between the different release trains. If you want to move from the 1.1LTS version to the Continuous Release (CR) version or viceversa, you'll have to uninstall the current version and install the new desired version. 
 
 
 ## Next steps
