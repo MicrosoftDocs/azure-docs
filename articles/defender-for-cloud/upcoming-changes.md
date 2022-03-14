@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 03/08/2022
+ms.date: 03/13/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -21,7 +21,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses) | January 2022 |
 | [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013) | January 2022 |
 | [Deprecating the recommendation to use service principals to protect your subscriptions](#deprecating-the-recommendation-to-use-service-principals-to-protect-your-subscriptions) | February 2022 |
 | [Moving recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices](#moving-recommendation-vulnerabilities-in-container-security-configurations-should-be-remediated-from-the-secure-score-to-best-practices) | February 2022 |
@@ -31,19 +30,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Deprecating Microsoft Defender for IoT device recommendations](#deprecating-microsoft-defender-for-iot-device-recommendations)| March 2022 |
 | [Deprecating Microsoft Defender for IoT device alerts](#deprecating-microsoft-defender-for-iot-device-alerts) | March 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2022 |
-
-### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
-
-**Estimated date for change:** January 2022 
-
-We'll be deprecating the following preview alert:
-
-|Alert name| Description|
-|----------------------|---------------------------|
-|**PREVIEW - Activity from a risky IP address**<br>(ARM.MCAS_ActivityFromAnonymousIPAddresses)|Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected.<br>These proxies are used by people who want to hide their device's IP address, and can be used for malicious intent. This detection uses a machine learning algorithm that reduces false positives, such as mis-tagged IP addresses that are widely used by users in the organization.<br>Requires an active Microsoft Defender for Cloud Apps license.|
-|||
-
-We've created new alerts that provide this information and add to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) don't require a license for Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security).
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 

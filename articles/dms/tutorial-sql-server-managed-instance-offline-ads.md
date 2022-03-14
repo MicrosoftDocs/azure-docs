@@ -124,11 +124,11 @@ To complete this tutorial, you need to:
 
 * For backups stored in an Azure storage blob container specify the below details of the **Target database name**, **Resource group**, **Azure storage account**, **Blob container** and **Last backup file from** the corresponding drop-down lists. 
 
- |Field    |Description  |
- |---------|-------------|
- |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
- |**Storage account details** |The resource group, storage account and container where backup files are located.    
- |**Last Backup File** |The file name of the last backup of the database that you are migrating.
+    |Field    |Description  |
+    |---------|-------------|
+    |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
+    |**Storage account details** |The resource group, storage account and container where backup files are located.    
+    |**Last Backup File** |The file name of the last backup of the database that you are migrating.
 
 > [!IMPORTANT]
 > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, then source won't be able to access the files hare using FQDN. To fix this issue, disable loopback check functionality using the instructions [here](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)

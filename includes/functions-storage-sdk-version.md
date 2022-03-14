@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: functions
 author: craigshoemaker
-manager: gwallace
+manager: mijacobs
 ms.service: azure-functions
 ms.topic: include
 ms.date: 01/28/2020
