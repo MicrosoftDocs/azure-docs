@@ -10,11 +10,11 @@ ms.author: bwren
 
 # Azure Activity log insights (Preview)
 
-In an Azure subscription, a lot of activity can occur. Administrators can delete, update or create resources. Moreover, several users in a single subscription can do these tasks if they have the right permissions. To trace activities, Activity logs are attached to each resource and resource group in Azure. 
+In an Azure subscription, many activity can occur. Administrators can delete, update or create resources. Moreover, several users in a single subscription can do these tasks if they have the right permissions. To trace activities, Activity logs are attached to each resource and resource group in Azure. 
 
  All information is centralized and you can review quickly who has made the most change and the status of change (failed, succeeded, etc.)
 
- To view the data use the Activity Logs Insights workbook.
+ To view the data, use the Activity Logs Insights workbook.
 
 ![Azure Activity Logs insights general](media/activity-log/activity-logs-insights-main.png)
 
