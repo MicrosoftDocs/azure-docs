@@ -6,7 +6,7 @@ ms.author: sunila
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 02/25/2022
+ms.date: 03/14/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -113,7 +113,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Southeast Asia | :heavy_check_mark: | :x: $  | :x: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
-| Switzerland North | :heavy_check_mark: | :x: | :x: |
+| Switzerland North | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 | UAE North | :heavy_check_mark: | :x: | :x: |
 | US Gov Arizona | :heavy_check_mark: | :x: | :x: |
 | US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: |
