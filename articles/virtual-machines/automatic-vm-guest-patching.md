@@ -70,9 +70,8 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 Only VMs created from certain OS platform images are currently supported. Custom images are currently not supported.
 
 > [!NOTE]
-> Automatic VM guest patching is only supported on Gen1 images. 
+> Patch orchestration modes and automatic guest VM patching are only supported for VMs created from the below OS platform images (more are added periodically).  Custom images are currently not supported.
 
-The following platform SKUs are currently supported (and more are added periodically):
 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
