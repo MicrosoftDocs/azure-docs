@@ -25,9 +25,15 @@ User authentication can begin with authenticating the user to your app service a
 
 :::image type="content" source="./media/scenario-secure-app-authentication-app-service/web-app-sign-in.svg" alt-text="Diagram that shows user sign-in." border="false":::
 
-Once the app service has the authenticated identity, you as the system architect, chooses if your system needs to connect to backend services as the user:
-    * A database example is a SQL database which imposes its own security for that identity on tables
-    * A storage example is Blob Storage which imposes its own security for that identity on containers and blobs
-    * A user needs access to Microsoft Graph for email access.
+Once the app service has the authenticated identity, your system needs to **connect to backend services as the user**:
+
+* A database example is a SQL database which imposes its own security for that identity on tables
+    
+* A storage example is Blob Storage which imposes its own security for that identity on containers and blobs
+
+* A user needs access to Microsoft Graph to access their own email.
 
 [!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/after.md)]
+
+> [!div class="nextstepaction"]
+> [App service accesses Graph](../../scenario-secure-app-authentication-app-service-as-user.md)

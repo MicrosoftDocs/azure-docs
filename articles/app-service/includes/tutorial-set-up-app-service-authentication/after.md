@@ -92,6 +92,3 @@ In this tutorial, you learned how to:
 >
 > * Configure authentication for the web app.
 > * Limit access to the web app to users in your organization.
-
-> [!div class="nextstepaction"]
-> [App service accesses storage](../../scenario-secure-app-access-storage.md)
