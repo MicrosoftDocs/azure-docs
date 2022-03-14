@@ -53,7 +53,7 @@ To get started with SQL Server on Azure VMs, review the following resources:
 - **Connect to SQL VM**: To connect to your SQL Server on Azure VMs, review the [ways to connect](ways-to-connect-to-sql.md). 
 - **Migrate data**: Migrate your data to SQL Server on Azure VMs from [SQL Server](../../migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md), [Oracle](../../migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md), or [Db2](../../migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md). 
 - **Storage configuration**: For information about configuring storage for your SQL Server on Azure VMs, review [Storage configuration](storage-configuration.md). 
-- **Performance**: Fine-tune the performance of your SQL Server on Azure VM by reviewing the [Performance best practices checklist](performance-guidelines-best-practices-checklist.md)
+- **Performance**: Fine-tune the performance of your SQL Server on Azure VM by reviewing the [Performance best practices checklist](performance-guidelines-best-practices-checklist.md).
 - **Pricing**: For information about the pricing structure of your SQL Server on Azure VM, review the [Pricing guidance](pricing-guidance.md).
 - **Frequently asked questions**: For commonly asked questions, and scenarios, review the [FAQ](frequently-asked-questions-faq.yml).
 
