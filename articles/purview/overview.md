@@ -19,7 +19,7 @@ Azure Purview automates data discovery by providing data scanning and classifica
 |App  |Description  |
 |----------|-----------|
 |[Data Map](#data-map) | Makes your data meaningful by graphing your data assets, and their relationships, across your data estate. The data map used to discover data and manage access to that data. |
-|[Data Catalog](#data-catalog)  | Find trusted data sources by browsing and searching your data assets. The data catalog aligns your assets with friendly business terms and data classification to identify data sources.      |
+|[Data Catalog](#data-catalog)  | Finds trusted data sources by browsing and searching your data assets. The data catalog aligns your assets with friendly business terms and data classification to identify data sources.      |
 |[Data Insights](#data-insights) | Gives you an overview of your data estate to help you discover what kinds of data you have and where. |
 
 ## Data Map
@@ -79,9 +79,6 @@ Discovering and understanding data sources and their use is the primary purpose 
 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
 
-## In-region data residency
-For Azure Purview, customer content related to the metadata (e.g. blob uri path, table names and column names) stored in Azure Purview is Data Residency compliant with the exception of multi-cloud environments.
-For multi-cloud environments (AWS sources), the customer content will reside in the US region as a part of the global logs and will be data residency compliant in the next few months. 
 
 ## Next steps
 

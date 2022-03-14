@@ -24,7 +24,7 @@ This sample CLI script creates an Azure Database for MariaDB server and configur
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/create-mariadb-server-and-firewall-rule/create-mariadb-server-and-firewall-rule.sh" range="4-31":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/create-mariadb-server-and-firewall-rule/create-mariadb-server-and-firewall-rule.sh" id="FullScript":::
 
 ## Clean up resources
 

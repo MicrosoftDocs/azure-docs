@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Reference for the full Lucene query syntax, as used in Azure Cognitive Search for wildcard, fuzzy search, RegEx, and other advanced query constructs.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2021
@@ -168,7 +168,9 @@ Field grouping is similar but scopes the grouping to a single field. For example
 
 ## Query size limits
 
-There is a limit to the size of queries that you can send to Azure Cognitive Search. Specifically, you can have at most 1024 clauses (expressions separated by AND, OR, and so on). There is also a limit of approximately 32 KB on the size of any individual term in a query. If your application generates search queries programmatically, we recommend designing it in such a way that it does not generate queries of unbounded size.  
+Azure Cognitive Search imposes limits on query size and composition because unbounded queries can destabilize your search service. There are limits on query size and composition (the number of clauses). Limits also exist for the length of prefix search and for the complexity of regex search and wildcard search. If your application generates search queries programmatically, we recommend designing it in such a way that it does not generate queries of unbounded size.
+
+For more information on query limits, see [API request limits](search-limits-quotas-capacity.md#api-request-limits).
 
 ## See also
 

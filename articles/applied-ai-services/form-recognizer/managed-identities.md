@@ -60,7 +60,7 @@ To get started, you'll need:
 
 ## Managed identity assignments
 
-There are two types of managed identity: **system-assigned** and **user-assigned**. Currently, Form Recognizer supports system-assigned managed identity:
+There are two types of managed identity: **system-assigned** and **user-assigned**. Currently, Form Recognizer only supports system-assigned managed identity:
 
 * A system-assigned managed identity is **enabled** directly on a service instance. It isn't enabled by default; you must go to your resource and update the identity setting.
 
