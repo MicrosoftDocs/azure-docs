@@ -174,6 +174,10 @@ You can use the [Connection steps](#steps) in the section below to easily connec
 
 [!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-table.md)]
 
+### <a name="audio"></a>To enable audio output
+
+[!INCLUDE [Enable VM audio output](../../includes/bastion-vm-audio.md)]
+
 ## <a name="ip"></a>Remove VM public IP address
 
 Azure Bastion doesn't use the public IP address to connect to the client VM. If you don't need the public IP address for your VM, you can disassociate the public IP address. See [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).

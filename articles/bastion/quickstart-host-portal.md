@@ -102,6 +102,10 @@ When the Bastion deployment is complete, the screen changes to the **Connect** p
 
      :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Screenshot of RDP connection." lightbox="./media/quickstart-host-portal/connected.png":::
 
+### <a name="audio"></a>To enable audio output
+
+[!INCLUDE [Enable VM audio output](../../includes/bastion-vm-audio.md)]
+
 ## <a name="remove"></a>Remove VM public IP address
 
 [!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]

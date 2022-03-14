@@ -5,7 +5,7 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 02/28/2022
+ms.date: 03/14/2022
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
@@ -154,7 +154,7 @@ This is the public IP address of the Bastion host resource on which RDP/SSH will
 
 [!INCLUDE [Connect to a VM](../../includes/bastion-vm-connect.md)]
 
-### To enable audio output
+### <a name="audio"></a>To enable audio output
 
 [!INCLUDE [Enable VM audio output](../../includes/bastion-vm-audio.md)]
 
