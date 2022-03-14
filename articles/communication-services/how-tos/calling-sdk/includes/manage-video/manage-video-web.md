@@ -58,7 +58,7 @@ You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams
 ```js
 const cameras = await deviceManager.getCameras();
 const camera = cameras[0];
-const localVideotream = new LocalVideoStream(camera);
+const localVideoStream = new LocalVideoStream(camera);
 const videoStreamRenderer = new VideoStreamRenderer(localVideoStream);
 const view = await videoStreamRenderer.createView();
 htmlElement.appendChild(view.target);
