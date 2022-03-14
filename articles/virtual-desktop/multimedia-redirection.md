@@ -54,7 +54,7 @@ to do these things:
 
 Using the multimedia redirection MSI will install the browser extensions. However, as this service is still in public preview, user experience may vary. For more information about known issues, see [Known issues](#known-issues-and-limitations).
 
-Keep in mind that when you install an extension with MSI, you'll see a prompt that says "New Extension added." In order to use the app, you'll need to confirm the prompt. If you select **Cancel**, then your browser will uninstall the extension. If you want the browser to force install the extension without any input from your users, we recommend you use the group policy in the following section.
+Keep in mind that when the user installs an extension with MSI, they'll see a prompt that says "New Extension added." In order to use the app, they'll need to confirm the prompt. If they select **Cancel**, then their browser will uninstall the extension. If you want the browser to force install the extension without any input from your users, we recommend you use the group policy in the following section.
 
 In some cases, you can change the group policy to manage the browser extensions and improve user experience. For example:
 
@@ -128,11 +128,11 @@ If you run into issues while using the public preview version of multimedia redi
 
 The following issues are ones we're already aware of, so you won't need to report them:
 
-- Multimedia redirection only works on the Windows Desktop client, not the web client.
+- Multimedia redirection only works on the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client), not the web client.
 
 - Multimedia redirection doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
 
-- During public preview, multimedia redirection will be disabled on all sites except YouTube. However, if you have the extension, you can enable multimedia redirection for all websites. We added the extension so organizations can test the feature on their company websites.
+- During public preview, multimedia redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](#websites-that-work-with-mmr). However, if you have the extension, you can enable multimedia redirection for all websites. We added the extension so organizations can test the feature on their company websites.
 
 - There's a small chance that the MSI installer won't be able to install the extension during internal testing. If you run into this issue, you'll need to install the multimedia redirection extension from the Microsoft Edge Store or Google Chrome Store.
 
