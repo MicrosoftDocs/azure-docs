@@ -2,7 +2,7 @@
 title: Delete a lab virtual machine or a lab
 description: Learn how to delete a virtual machine from a lab or delete a lab in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 03/11/2022
+ms.date: 03/14/2022
 ---
 
 # Delete a lab VM or lab in Azure DevTest Labs
@@ -23,12 +23,12 @@ To delete a VM from a lab:
 
 1. Either:
 
-   - Select the **More options** ellipse **...** next to the VM, and select **Delete** from the context menu.
+   - Select **More options** (**...**) next to the VM listing, and select **Delete** from the context menu.
      ![Screenshot of Delete selected on the V M's context menu on the lab Overview page.](media/devtest-lab-delete-lab-vm/delete-vm-menu-in-list.png)
 
    or
 
-   - Select the VM name, and on the VM's **Overview** page, select **Delete** from the top menu.
+   - Select the VM name in the list, and then on the VM's **Overview** page, select **Delete** from the top menu.
      ![Screenshot of the Delete button on the V M Overview page.](media/devtest-lab-delete-lab-vm/delete-from-vm-page.png) 
 
 1. On the **Are you sure you want to delete it?** page, select **Delete**.
@@ -58,7 +58,7 @@ To delete a lab:
 
 1. On the **Are you sure you want to delete it?** page, under **Type the lab name**, type the lab name, and then select **Delete**.
 
-   ![Screenshot of the lab deletion confirmation page.](media/devtest-lab-delete-lab-vm/select-lab.png) 
+   ![Screenshot of the lab deletion confirmation page.](media/devtest-lab-delete-lab-vm/confirm-delete.png) 
 
 1. To check deletion status, select the **Notifications** icon on the Azure menu bar. 
 
