@@ -61,7 +61,7 @@ To view a video on how to configure and onboard GCP accounts in CloudKnox, selec
 
     Optionally, specify **G-Suite IDP Secret Name** and **G-Suite IDP User Email** to enable G-Suite integration.
 
-    You can either download and run the script at this point or you can do it in the Google Cloud Shell, as described in [later in this article](cloudknox-onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
+    You can either download and run the script at this point or you can do it in the Google Cloud Shell, as described [later in this article](cloudknox-onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
 1. Select **Next**.
 
 ### 3. Set up GCP member projects.

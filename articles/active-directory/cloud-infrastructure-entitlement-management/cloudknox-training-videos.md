@@ -29,7 +29,7 @@ To view a video on how to configure and onboard Amazon Web Services (AWS) accoun
 
 ### Configure and onboard Google Cloud Platform (GCP) accounts
 
-To view a video on how to configure and onboard Google Cloud Platform (GCP) accounts in CloudKnox, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
+To view a video on how to configure and onboard Google Cloud Platform (GCP) accounts in CloudKnox, select [Configure and onboard GCP accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
 
 <!---## Privilege on demand (POD) work flows
 
