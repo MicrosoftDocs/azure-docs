@@ -81,7 +81,7 @@ Follow these steps to list Azure AD roles assigned to a user using the Microsoft
    GET https://graph.microsoft.com/beta/rolemanagement/directory/transitiveRoleAssignments?$count=true&$filter=principalId eq '6b937a9d-c731-465b-a844-2d5b5368c161'
    ```
   
-3. Navigate to **Request headers** tab. Add 'ConsistencyLevel' as key and 'Eventual' as its value. 
+3. Navigate to **Request headers** tab. Add `ConsistencyLevel` as key and `Eventual` as its value. 
 
 5. Select **Run query**.
 
