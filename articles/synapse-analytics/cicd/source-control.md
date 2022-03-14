@@ -55,6 +55,7 @@ The configuration pane shows the following Azure DevOps git settings:
 | Setting | Description | Value |
 |:--- |:--- |:--- |
 | **Repository Type** | The type of the Azure Repos code repository.<br/> | Azure DevOps Git or GitHub |
+| **Cross tenant sign in** | Checkbox to sign in with cross tenant account. | unselected (default) |
 | **Azure Active Directory** | Your Azure AD tenant name. | `<your tenant name>` |
 | **Azure DevOps account** | Your Azure Repos organization name. You can locate your Azure Repos organization name at `https://{organization name}.visualstudio.com`. You can [sign in to your Azure Repos organization](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | `<your organization name>` |
 | **ProjectName** | Your Azure Repos project name. You can locate your Azure Repos project name at `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
@@ -86,6 +87,29 @@ To use a personal Microsoft account for Git integration, you can link your perso
 After these configuration steps, your personal repo is available when you set up Git integration in the Synapse Studio.
 
 For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+
+### Use a cross tenant Azure DevOps account
+
+When your Azure DevOps is not in the same tenant as the Synapse workspace, you can configure the workspace with your cross tenant Azure DevOps account with the guide below.  
+
+1. Select the **Cross tenant sign in** option and click **Continue** 
+
+    ![Select the cross tenant sign in ](media/cross-tenant-signin.png)
+
+1. Select **OK** in the dialog box.
+
+    ![Confirm the cross tenant sign in ](media/cross-tenant-signin-confirm.png)
+
+1. click **Use another account** and login with your Azure DevOps account.
+
+    ![Use another account ](media/use-another-account.png)
+
+1. After signing in, choose the directory and repository and configure it accordingly.
+
+    ![Choose the directory ](media/cross-tenant-aad.png)
+
+> [!NOTE]
+> To login the workspace, you need to use the first sign-in to log into to your Synapse workspace user account. Your cross tenant Azure DevOps account is only used for signing into and getting access to the Azure DevOps repo associated with this Synapse workspace.
 
 ## Connect with GitHub 
 
