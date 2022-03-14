@@ -26,7 +26,7 @@ Each update consists of three components that may get updated to latest versions
 
 The second component is the virtual machine base operating system. The EFLOW virtual machine is based on [Microsoft CBL-Mariner](https://github.com/microsoft/CBL-Mariner) and each update will provide performance and security fixes to keep the OS with the latest CVE patches. As part of the EFLOW Release notes, the version will indicate the CBL-Mariner version used, and users can check the [CBL-Mariner Releases](https://github.com/microsoft/CBL-Mariner/releases) to get the list of CVEs fixed for each version. 
 
-The third component is the group of Windows runtime components needed to run and interop with the EFLOW virtual machine. The EFLOW virtual machine lifecycle and interop is managed through different components: WSSDAgent, EFLOWProxy service and the PowerShell module. 
+The third component is the group of Windows runtime components needed to run and interop with the EFLOW virtual machine. The virtual machine lifecycle and interop is managed through different components: WSSDAgent, EFLOWProxy service and the PowerShell module. 
 
 IoT Edge for Linux on Windows updates aren't cumulative, so in order to get to the latest version, you'll have to either do a fresh installation using the latest version, or apply all the previous servicing updates until the desired version. 
 
@@ -62,21 +62,26 @@ In some scenarios with restricted or limited internet connectivity, you may want
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 1. Check the current EFLOW installed version. Open **Settings**, select **Apps** -> **Apps & features**  search for _Azure IoT Edge LTS_.
-<!-- end 1.1 -->
-:::moniker-end
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-1. Check the current EFLOW installed version. Open **Settings**, select **Apps** -> **Apps & features**  search for _Azure IoT Edge_. 
-<!-- end 1.2 -->
-:::moniker-end
 
 1. Search and download the required update from [EFLOW - Microsoft Update catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20IoT%20Edge%20for%20Linux%20on%20Windows).
 
 1. Extract _AzureIoTEdge.msi_ from the downloaded _.cab_ file.
 
 1. Install the extracted _AzureIoTEdge.msi_.
+<!-- end 1.1 -->
+:::moniker-end
 
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+1. Check the current EFLOW installed version. Open **Settings**, select **Apps** -> **Apps & features**  search for _Azure IoT Edge_. 
+
+1. Search and download the required update from [EFLOW - Microsoft Update catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20IoT%20Edge%20for%20Linux%20on%20Windows).
+
+1. Extract _AzureIoTEdge.msi_ from the downloaded _.cab_ file.
+
+1. Install the extracted _AzureIoTEdge.msi_.
+<!-- end 1.2 -->
+:::moniker-end
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
