@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/28/2020
+ms.date: 3/11/2022
 ms.author: yitoh
 
 ---
@@ -51,16 +51,17 @@ This [template](https://aka.ms/ddosalert) deploys the necessary components of an
 You can select any of the available DDoS protection metrics to alert you when there’s an active mitigation during an attack, using the Azure Monitor alert configuration. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your DDoS Protection Plan.
-2. Under **Monitoring**, select **Metrics**.
-3. In the gray navigation bar, select **New alert rule**. 
-4. Enter, or select your own values, or enter the following example values, accept the remaining defaults, and then select **Create alert rule**:
+2. Under **Monitoring**, select **Alerts**.
+3. Click on **Create Alert Rule** button or Select **“+ Create”** on the navigation bar, then select **“Alert Rule”**
+4. Close the **Select a Signal** dialog
+5. On the **Create an alert rule** dialog, you will see these steps: Scope, Condition, Actions, Details, Tags, Review + create. For each step use the values described below.
 
     |Setting                  |Value                                                                                               |
     |---------                |---------                                                                                           |
-    | Scope                   | Select **Select resource**. </br> Select the **Subscription** that contains the public IP address you want to log, select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for. </br> Select **Done**. | 
-    | Condition | Select **Select condition**. </br> Under signal name, select **Under DDoS attack or not**. </br> Under **Operator**, select **Greater than or equal to**. </br> Under **Aggregation type**, select **Maximum**. </br> Under **Threshold value**, enter *1*. For the **Under DDoS attack or not** metric, **0** means you are not under attack while **1** means you are under attack. </br> Select **Done**. | 
-    | Actions | Select **Add actions groups**. </br> Select **Create action group**. </br> Under **Notifications**, under **Notification type**, select **Email/SMS message/Push/Voice**. </br> Under **Name**, enter _MyUnderAttackEmailAlert_. </br> Click the edit button, then select **Email** and as many of the following options you require, and then select **OK**. </br> Select **Review + create**. | 
-    | Alert rule details | Under **Alert rule name**, Enter _MyDdosAlert_. |
+    | Scope                   | Click on the **“+ Select Scope”** button <br/> On the “Filter by subscription” dropdown list, select the **Subscription** that contains the public IP address you want to log. <br/> On the “Filter by resource type ” dropdown list, select **Public IP Address**, then select the specific public IP address you want to log metrics for.<br/> Select **Done**. |
+    | Condition | Click on the **“+ Add Condition”** button <br/> On the “Search by signal name” search box, select **Under DDoS attack or not**. <br/> Leave “Chart period” and “Alert Logic” default. <br/> Under **Operator**, select **Greater than or equal to**. <br/> Under **Aggregation type**, select **Maximum**. <br/> Under Threshold value, enter _1_. For the **Under DDoS attack or not metric**, **0** means you are not under attack while **1** means you are under attack. <br/> Select **Done**. |
+    | Actions | Click on the **“+ Create action group”** button <br/> On the **Basics** step, select your subscription, you resource group and provide the Action Group Name and Display Name <br/> On the **Notifications** step, under **Notification type**, select **Email/SMS message/Push/Voice**. <br/> Under **Name**, enter *MyUnderAttackEmailAlert*. <br/> On the **“Email/SMS message/Push/Voice”** dialog enter the **Email** and as many of the available options you require, and then select **OK**. <br/> Click on **Review + create** and then **Create**. |
+    | Details | Under **Alert rule name**, Enter _MyDdosAlert_. <br/> Click on **Review + create** and then **Create**. |
 
 Within a few minutes of attack detection, you should receive an email from Azure Monitor metrics that looks similar to the following picture:
 
