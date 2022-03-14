@@ -28,7 +28,6 @@ With custom text classification, you can train a model in one language and test 
 
 Custom text classification supports `.txt` files in the following languages:
 
-
 | Language | Language Code |
 | --- | --- |
 | Afrikaans | `af` |

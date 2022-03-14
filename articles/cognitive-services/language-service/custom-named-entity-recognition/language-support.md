@@ -28,7 +28,6 @@ With custom NER, you can train a model in one language and test in another langu
 
 Custom NER supports `.txt` files in the following languages:
 
-
 | Language | Language code |
 | --- | --- |
 | Afrikaans | `af` |
