@@ -30,146 +30,146 @@ A role has one or more privileges. Roles are assigned to users (zero or more) to
 ### Diagnostic log auditing
 An additional column called "userId" has been added to the MongoRequests table in the Azure Portal Diagnostics feature. This column will identify which user performed which data plan operation. The value is in this column is empyty when RBAC is not enabled. 
 
-## Concepts
+## RBAC Commands
 
-## Create a role (CLI, PowerShell)
-# CLI - Create Role Definition
+### CLI - Create Role Definition
 ```powershell
 az cosmosdb mongodb role definition create --account-name <account-name> --resource-group <resource-group-name> --body {\"Id\":\"test.My_Read_Only_Role101\",\"RoleName\":\"My_Read_Only_Role101\",\"Type\":\"CustomRole\",\"DatabaseName\":\"test\",\"Privileges\":[{\"Resource\":{\"Db\":\"test\",\"Collection\":\"test\"},\"Actions\":[\"insert\",\"find\"]}],\"Roles\":[]}
 ```
 
-# CLI - Create Role by passing JSON file body
+### CLI - Create Role by passing JSON file body
 ```powershell
 az cosmosdb mongodb role definition create --account-name <account-name> --resource-group <resource-group-name> --body role.json
 ```
 
-# CLI - Update Role Definition
+### CLI - Update Role Definition
 ```powershell
 az cosmosdb mongodb role definition update --account-name <account-name> --resource-group <resource-group-name> --body {\"Id\":\"test.My_Read_Only_Role101\",\"RoleName\":\"My_Read_Only_Role101\",\"Type\":\"CustomRole\",\"DatabaseName\":\"test\",\"Privileges\":[{\"Resource\":{\"Db\":\"test\",\"Collection\":\"test\"},\"Actions\":[\"insert\",\"find\"]}],\"Roles\":[]}
 ```
 
-# CLI - Update Role by passing JSON file body
+### CLI - Update Role by passing JSON file body
 ```powershell
 az cosmosdb mongodb role definition update --account-name <account-name> --resource-group <resource-group-name> --body role.json
 ```
 
-# CLI - List Roles
+### CLI - List Roles
 ```powershell
 az cosmosdb mongodb role definition list --account-name <account-name> --resource-group <resource-group-name>
 ```
 
-# CLI - Check If Role Exists
+### CLI - Check If Role Exists
 ```powershell
 az cosmosdb mongodb role definition exists --account-name <account-name> --resource-group <resource-group-name> --id test.My_Read_Only_Role
 ```
     
-# CLI - Delete Role
+### CLI - Delete Role
 ```powershell
 az cosmosdb mongodb role definition delete --account-name <account-name> --resource-group <resource-group-name> --id test.My_Read_Only_Role
 ```
     
-# Powershell - Create Privilege Resource
-# Note: First create PrivilegeResource then Privileges and then Roles.
+### Powershell - Create Privilege Resource
+Note: First create PrivilegeResource then Privileges and then Roles.
 ```powershell
 New-AzCosmosDBMongoDBPrivilegeResource -Database <String> -Collection <String>
 ```
 
-# Powershell - Create Privilege
+### Powershell - Create Privilege
 ```powershell
 New-AzCosmosDBMongoDBPrivilege -PrivilegeResource <PSMongoPrivilegeResource> -Action <String[]>
 ```
 
-# Powershell - Create Roles List
+### Powershell - Create Roles List
 ```powershell
 New-NewAzCosmosDBMongoDBRole -Role <String> [-Db <String>]
 ```
 
-# Powershell - Create Role Definition
-# Note: Use Privilege and Roles created above to create a Role Definition
+### Powershell - Create Role Definition
+Note: Use Privilege and Roles created above to create a Role Definition
 ```powershell
 New-AzCosmosDBMongoDBRoleDefinition -ResourceGroupName <String> -AccountName <String> -Id <String> -RoleName <String> -Type <String> -DatabaseName <String> -Privilege <PSMongoPrivilege[]> [-Role <PSMongoRole[]>]
 ```
     
-# Powershell - Update Role Definition
+### Powershell - Update Role Definition
 ```powershell
 Update-AzCosmosDBMongoDBRoleDefinition -ResourceGroupName <String> -AccountName <String> -Id <String> -RoleName <String> -Type <String> -DatabaseName <String> -Privilege <PSMongoPrivilege[]> [-Role <PSMongoRole[]>]
 ```
 
-# Powershell - List Roles
+### Powershell - List Roles
 ```powershell
 Get-AzCosmosDBMongoDBRoleDefinition -Id <String> -ResourceGroupName <String> -AccountName <String>
 ```
     
-# Powershell - Delete Role
+### Powershell - Delete Role
 ```powershell
 Remove-AzCosmosDBMongoDBRoleDefinition -AccountName <String> -ResourceGroupName <String> -Id <String>
 ```
 
 
-## Create a user definition (CLI, PowerShell)
-# CLI - Create User Definition
+### CLI - Create User Definition
 ```powershell
 az cosmosdb mongodb user definition create --account-name <account-name> --resource-group <resource-group-name> --body {\"Id\":\"test.myName\",\"UserName\":\"myName\",\"Password\":\"pass\",\"DatabaseName\":\"test\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"My_Read_Only_Role101\",\"Db\":\"test\"}]}
 ```
 
-# CLI - Create User by passing JSON file body
+### CLI - Create User by passing JSON file body
 ```powershell
 az cosmosdb mongodb user definition create --account-name <account-name> --resource-group <resource-group-name> --body user.json
 ```
 
-# CLI - Update User Definition
+### CLI - Update User Definition
+To update the user's password, send the new password in the password field. 
+
 ```powershell
 az cosmosdb mongodb user definition update --account-name <account-name> --resource-group <resource-group-name> --body {\"Id\":\"test.myName\",\"UserName\":\"myName\",\"Password\":\"pass\",\"DatabaseName\":\"test\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"My_Read_Only_Role101\",\"Db\":\"test\"}]}
 ```
 
-# CLI - Update User by passing JSON file body
+### CLI - Update User by passing JSON file body
 ```powershell
 az cosmosdb mongodb user definition update --account-name <account-name> --resource-group <resource-group-name> --body user.json
 ```
 
-# CLI - List Users
+### CLI - List Users
 ```powershell
 az cosmosdb mongodb user definition list --account-name <account-name> --resource-group <resource-group-name>
 ```
 
-# CLI - Check If User Exists
+### CLI - Check If User Exists
 ```powershell
 az cosmosdb mongodb user definition exists --account-name <account-name> --resource-group <resource-group-name> --id test.myName
 ```
 
-# CLI - Delete User
+### CLI - Delete User
 ```powershell
 az cosmosdb mongodb user definition delete --account-name <account-name> --resource-group <resource-group-name> --id test.myName
 ```
 
-# Powershell - Create Roles List
-# Note: Role name should be a Valid existing role name.
+### Powershell - Create Roles List
+Note: Role name should be a Valid existing role name.
 ```powershell
 New-NewAzCosmosDBMongoDBRole -Role <String> [-Db <String>]
 ```
 
-# Powershell - Create User Definition
-# Note: Use Roles created above to create a User Definition
+### Powershell - Create User Definition
+Note: Use Roles created above to create a User Definition
 ```powershell
 New-AzCosmosDBMongoDBUserDefinition -ResourceGroupName <String> -AccountName <String> -Id <String> -UserName <String> -Password <String> -Mechanism <String> [[CustomData <String>] -DatabaseName <String>] -Role <PSMongoRole[]>
 ```
     
-# Powershell - Update existing User Definition
+### Powershell - Update existing User Definition
 ```powershell
 Update-AzCosmosDBMongoDBUserDefinition -ResourceId <String> -Id <String> -UserName <String> -Password <String> -Mechanism <String> [-CustomData <String>] -DatabaseName <String> -Role <PSMongoRole[]>
 ```
-# or
-# The PSMongoDBUserDefinitionGetResults object is the response object of the Get-AzCosmosDBMongoDBUserDefinition call.
+### or
+### The PSMongoDBUserDefinitionGetResults object is the response object of the Get-AzCosmosDBMongoDBUserDefinition call.
 ```powershell
 Update-AzCosmosDBMongoDBUserDefinition -ResourceGroupName <String>] -AccountName <String> -InputObject <PSMongoDBUserDefinitionGetResults>
 ```
 
-# Powershell - List Users
+### Powershell - List Users
 ```powershell
 Get-AzCosmosDBMongoDBUserDefinition -AccountName <String> -ResourceGroupName <String> -Id <String> -ResourceId <String>
 ```
 
-# Powershell - Delete Role
+### Powershell - Delete Role
 ```powershell
 Remove-AzCosmosDBMongoDBUserDefinition -AccountName <String> -ResourceGroupName <String> -Id <String>
 ```
@@ -196,7 +196,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
  ]
 ```
 
-## Limits
+## Limitations
 
 - You can create up to 100 role definitions and 2,000 role assignments per Azure Cosmos DB account.
 - You can only assign role definitions to Azure AD identities belonging to the same Azure AD tenant as your Azure Cosmos DB account.
@@ -217,6 +217,10 @@ Azure portal support for role management is not available yet.
 ### Is it possible to disable the usage of the account primary/secondary keys when using RBAC?
 
 Yes, see [Enforcing RBAC as the only authentication method](#disable-local-auth).
+
+### How do I change a user's password?
+
+Update the user definition with the new password.
 
 ## Next steps
 
