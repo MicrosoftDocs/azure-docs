@@ -23,9 +23,9 @@ This quickstart shows you how to use a Bicep file to deploy a Windows virtual ma
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Review the template
+## Review the Bicep file
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/vm-simple-windows/).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/vm-simple-windows/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-windows/main.bicep":::
 
