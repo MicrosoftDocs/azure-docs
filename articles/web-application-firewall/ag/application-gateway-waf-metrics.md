@@ -29,8 +29,8 @@ For Application Gateway, the following metrics are available:
 - **Web Application Firewall Blocked Requests Distribution**
 - **Web Application Firewall Total Rule Distribution**  
 
-&nbsp
-&nbsp
+&nbsp;
+&nbsp;
 ## Application Gateway WAF V2 Metrics  
 
  _New Metrics are only applicable to Core Rule Set >=CRS 3.2_  
