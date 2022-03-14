@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2022
+ms.date: 03/14/2022
 ms.author: v-ydequadros
 ---
 
@@ -16,14 +16,9 @@ ms.author: v-ydequadros
 
 To view step-by-step training videos on how to use CloudKnox Permissions Management (CloudKnox) features, select a link below.
 
-<<<<<<< HEAD
 ## Onboard CloudKnox in your organization
 
 ### Enable CloudKnox in your Azure Active Directory (Azure AD) tenant
-=======
-
-## Enable CloudKnox in your Azure Active Directory (Azure AD) tenant
->>>>>>> fef92beb534f2456650a07961c5b5a7b045575a8
 
 To view a video on how to enable CloudKnox in your Azure AD tenant, select
 [Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
