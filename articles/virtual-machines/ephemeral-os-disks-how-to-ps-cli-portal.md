@@ -1,6 +1,6 @@
 ---
-title: Ephemeral OS disks 
-description: Learn more about ephemeral OS disks for Azure VMs.
+title: How to create Ephemeral OS disks 
+description: Learn how to create ephemeral OS disks for Azure VMs.
 author: Aarthi-Vijayaraghavan
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -11,7 +11,7 @@ ms.subservice: disks
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Ephemeral OS disks for Azure VMs
+# How to create Ephemeral OS disks for Azure VMs
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
