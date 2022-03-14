@@ -2,9 +2,9 @@
 title: Monitoring metrics for Azure Application Gateway Web Application Firewall metrics
 description: This article describes the Azure Application Gateway WAF monitoring metrics.
 services: appgateway
-author: olotolor
+author: tobystic
 manager: gunjan.jain 
-ms.service: waf
+ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 03/11/2022
 ms.author: olotolor
