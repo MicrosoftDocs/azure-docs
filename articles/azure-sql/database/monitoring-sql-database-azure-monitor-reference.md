@@ -8,7 +8,7 @@ ms.reviewer: mathoma, dfurman
 ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: subject-monitoring
-ms.date: 01/31/2022
+ms.date: 03/14/2022
 ---
 
 # Monitoring Azure SQL Database data reference
@@ -51,19 +51,11 @@ Tables for all resources types are referenced here, for example, [Azure Monitor 
 
 ## Activity log
 
-All maintenance operations related to Azure SQL Database that have been implemented here may appear in the Activity log.
+The Activity log contains records of management operations performed on your Azure SQL Database resources. All maintenance operations related to Azure SQL Database that have been implemented here may appear in the Activity log.
 
 For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
-## Schemas
-<!-- REQUIRED. Please keep heading in this order -->
+## Next steps
 
-The following schemas are in use by Azure SQL Database
-
-<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
-
-## See Also
-
-<!-- replace below with the proper link to your main monitoring service article -->
 - See [Monitoring Azure SQL Database with Azure Monitor](monitoring-sql-database-azure-monitor.md) for a description of monitoring Azure SQL Database.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
