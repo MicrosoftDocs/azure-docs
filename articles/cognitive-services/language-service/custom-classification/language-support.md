@@ -30,7 +30,7 @@ Custom text classification supports `.txt` files in the following languages:
 
 
 | Language | Language Code |
-| -- | -- |
+| --- | --- |
 | Afrikaans | `af` |
 | Amharic | `am` |
 | Arabic | `ar` |
@@ -123,7 +123,7 @@ Custom text classification supports `.txt` files in the following languages:
 | Xhosa | `xh` |
 | Yiddish | `yi` |
 | Chinese (Simplified) | `zh-hans` |
-| Zulu | `zu` | -->
+| Zulu | `zu` | 
 
 ## Next steps
 

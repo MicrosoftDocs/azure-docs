@@ -24,7 +24,7 @@ When creating a conversation project in CLU, you can specify the primary languag
 The supported languages for conversation projects are:
 
 
-| **Language** | **Language Code** |
+| Language | Language code |
 | --- | --- |
 | Afrikaans | `af` |
 | Amharic | `am` |
