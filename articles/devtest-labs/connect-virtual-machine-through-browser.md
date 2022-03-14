@@ -5,12 +5,12 @@ ms.topic: how-to
 ms.date: 03/14/2022
 ---
 
-# Connect to DevTest Labs VMs with Browser connect
+# Connect to DevTest Labs VMs through a browser
 
-This article describes how to connect to DevTest Labs virtual machines (VMs) through a browser by using [Azure Bastion](../bastion/index.yml). Azure Bastion provides secure remote desktop protocol (RDP) or secure shell (SSH) access to lab VMs without using public IP addresses or exposing the VMs' RDP or SSH ports to the internet.
+This article describes how to connect to DevTest Labs virtual machines (VMs) through a browser by using [Azure Bastion](../bastion/index.yml). Azure Bastion provides secure remote desktop protocol (RDP) or secure shell (SSH) access without using public IP addresses or exposing RDP or SSH ports to the internet.
 
 > [!IMPORTANT]
-> The VM's lab must be in a [Bastion-configured virtual network](enable-browser-connection-lab-virtual-machines.md) and have [Browser connect enabled](enable-browser-connection-lab-virtual-machines.md#connect-to-lab-vms-through-azure-bastion). For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
+> The VM's lab must be in a [Bastion-configured virtual network](enable-browser-connection-lab-virtual-machines.md#option-1-connect-a-lab-to-an-azure-bastion-enabled-virtual-network) and have [Browser connect enabled](enable-browser-connection-lab-virtual-machines.md#connect-to-lab-vms-through-azure-bastion). For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
 
 To connect to a lab VM through a browser:
 
@@ -29,5 +29,5 @@ To connect to a lab VM through a browser:
    :::image type="content" source="./media/connect-virtual-machine-through-browser/lab-vm-browser-connect.png" alt-text="Screenshot of the V M Overview screen with the Browser connect button highlighted.":::
 
 > [!NOTE]
-> If you don't see **Browser connect** on the VM's top menu, the lab isn't set up for Browser connect. You can select **Connect** from the VM page's top toolbar to connect via [Remote Desktop Protocol (RDP)](connect-windows-virtual-machine.md) or [secure shell (SSH)](connect-linux-virtual-machine.md).
+> If you don't see **Browser connect** on the VM's top menu, the lab isn't set up for Browser connect. You can select **Connect** to connect via [RDP](connect-windows-virtual-machine.md) or [SSH](connect-linux-virtual-machine.md).
 

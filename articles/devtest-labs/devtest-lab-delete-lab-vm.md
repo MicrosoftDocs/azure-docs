@@ -15,7 +15,7 @@ When you create a lab VM, DevTest Labs automatically creates resources for the V
 
 - Any resources you manually created in the VM's resource group.
 - The VM's key vault in the lab's resource group.
-- The availability set, load balancer, or public IP address in the VM's resource group. These resources are shared by multiple VMs in a resource group.
+- Any availability set, load balancer, or public IP address in the VM's resource group. These resources are shared by multiple VMs in a resource group.
 
 To delete a VM from a lab:
 
