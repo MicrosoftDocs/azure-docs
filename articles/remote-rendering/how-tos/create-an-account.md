@@ -27,6 +27,9 @@ The following steps are needed to create an account for the Azure Remote Renderi
 1. Once the account is created, navigate to it and:
     1. In the *Overview* tab, note the 'Account ID'
     1. In the *Settings > Access Keys* tab, note the 'Primary key' - this is the account's secret account key
+    1. Make sure, that in the *Settings > Identity* tab, the option *System assigned > Status* is turned on.
+
+![Azure Identity turn on System assigned status](./media/azure-identity-add.png)
 
 ### Account regions
 The location that is specified during account creation time of an account determines which region the account resource is assigned to. This cannot be changed after creation. However, the account can be used to connect to a Remote Rendering session in any [supported region](./../reference/regions.md), regardless of the account's location.
@@ -76,12 +79,22 @@ Ensure you have owner permissions over this storage account to ensure that you c
 
 Click on the **Add** button in the "Add a role assignment" tile to add the role.
 
-![Storage account IAM add role assignment](./media/azure-add-role-assignment.png)
+![Storage account IAM add role assignment choose role](./media/azure-add-role-assignment-choose-role.png)
 
-* Assign **Storage Blob Data Contributor** role as shown in the screenshot above.
-* Select **Remote Rendering Account**  system assigned managed identity from the **Assign access to** dropdown.
-* Select your subscription and Remote Rendering account in the last dropdowns.
-* Click "Save" to save your changes.
+Search for the role **Storage Blob Data Contributor** in the list or by typing it in the search field. Select the role by clicking on the item in the list and click **Next**.
+
+![Storage account IAM add role assignment choose member](./media/azure-add-role-assignment-choose-member.png)
+
+Now select the new member for this role assignment:
+
+1. Click **+ Select members**.
+2. Search for the account name of your **Remote Rendering Account** and click on the item in the list.
+3. Confirm your selection with a click on **Select**.
+4. Click on **Next** until you are in the **Review + assign** tab.
+
+![Storage account IAM add role assignment finish up](./media/azure-add-role-assignment-finish-up.png)
+
+Finally check the that the correct member is listed under *Members > Name* and then finish up the assignment by clicking **Review + assign**.
 
 > [!WARNING]
 > In case your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
