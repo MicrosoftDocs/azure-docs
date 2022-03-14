@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 02/27/2022
+ms.date: 03/10/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
@@ -39,7 +39,7 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 |----|:----|
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
 |Pricing:|The **CSPM plan** is free.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for AWS at the same price as for Azure resources.<br>For every AWS machine connected to Azure with [Azure Arc-enabled servers](../azure-arc/servers/overview.md), the **Defender for servers** plan is billed at the same price as the [Microsoft Defender for servers](defender-for-servers-introduction.md) plan for Azure machines. If an AWS EC2 doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
-|Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details (required for the Defender for servers plan)|
+|Required roles and permissions:|**Contributor** permission for the relevant Azure subscription.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 |||
 
@@ -52,13 +52,20 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
     - The resource capacity to create a new SQS queue, Kinesis Fire Hose delivery stream, and S3 bucket in the cluster's region.
 
 - **To enable the Defender for servers plan**, you'll need:
+    
     - Microsoft Defender for servers enabled on your subscription. Learn how to enable plans in the [Enable enhanced security features](enable-enhanced-security.md) article.
+    
     - An active AWS account, with EC2 instances.
+    
     - Azure Arc for servers installed on your EC2 instances. 
         - (Recommended) Use the auto provisioning process to install Azure Arc on all of your existing, and future EC2 instances managed by AWS Systems Manager (SSM) and using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent pre-installed. If that is the case, their AMI's are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you will need to install it using either of the following relevant instructions from Amazon:
             - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
             - [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
-        - To manually install Azure Arc on your existing and future EC2 instances, follow the instructions in the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation. 
+        > [!NOTE]
+        > To enable the Azure Arc auto-provisioning, you'll need an **Owner** permission on the relevant Azure subscription.
+        
+        - To manually install Azure Arc on your existing and future EC2 instances, follow the instructions in the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation.
+        
     - Additional extensions should be enabled on the Arc-connected machines. These extensions are currently configured in the subscription level. It means that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regards to these components.
         - Microsoft Defender for Endpoint
         - VA solution (TVM/ Qualys)
