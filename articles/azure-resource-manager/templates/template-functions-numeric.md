@@ -2,7 +2,7 @@
 title: Template functions - numeric
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers.
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.date: 03/10/2022
 ---
 
 # Numeric functions for ARM templates
@@ -29,7 +29,7 @@ Resource Manager provides the following functions for working with integers in y
 
 Returns the sum of the two provided integers.
 
-The `add` function in not supported in Bicep. Use the [`+` operator](../bicep/operators-numeric.md#add-) instead.
+The `add` function isn't supported in Bicep. Use the [`+` operator](../bicep/operators-numeric.md#add-) instead.
 
 ### Parameters
 
@@ -59,6 +59,8 @@ The output from the preceding example with the default values is:
 `copyIndex(loopName, offset)`
 
 Returns the index of an iteration loop.
+
+In Bicep, use [iterative loops](../bicep/loops.md).
 
 ### Parameters
 
@@ -96,7 +98,7 @@ An integer representing the current index of the iteration.
 
 Returns the integer division of the two provided integers.
 
-The `div` function in not supported in Bicep. Use the [`/` operator](../bicep/operators-numeric.md#divide-) instead.
+The `div` function isn't supported in Bicep. Use the [`/` operator](../bicep/operators-numeric.md#divide-) instead.
 
 ### Parameters
 
@@ -151,6 +153,8 @@ The following example shows how to use float to pass parameters to a Logic App:
 
 Converts the specified value to an integer.
 
+In Bicep, use the [int](../bicep/bicep-functions-numeric.md#int) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -175,9 +179,11 @@ The output from the preceding example with the default values is:
 
 ## max
 
-`max (arg1)`
+`max(arg1)`
 
 Returns the maximum value from an array of integers or a comma-separated list of integers.
+
+In Bicep, use the [max](../bicep/bicep-functions-numeric.md#max) function.
 
 ### Parameters
 
@@ -204,9 +210,11 @@ The output from the preceding example with the default values is:
 
 ## min
 
-`min (arg1)`
+`min(arg1)`
 
 Returns the minimum value from an array of integers or a comma-separated list of integers.
+
+In Bicep, use the [min](../bicep/bicep-functions-numeric.md#min) function.
 
 ### Parameters
 
@@ -298,6 +306,8 @@ The output from the preceding example with the default values is:
 `sub(operand1, operand2)`
 
 Returns the subtraction of the two provided integers.
+
+The `sub` function isn't supported in Bicep. Use the [- operator](../bicep/operators-numeric.md#subtract--) instead.
 
 ### Parameters
 

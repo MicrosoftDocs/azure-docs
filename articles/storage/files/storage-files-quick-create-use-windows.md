@@ -1,11 +1,11 @@
 ---
 title: Tutorial - Create and use an Azure file shares on Windows VMs
 description: This tutorial covers how to create and use an Azure files shares in the Azure portal. Connect it to a Windows VM, connect to the file share, and upload a file to the file share.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: tutorial
 ms.date: 02/14/2022
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
