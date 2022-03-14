@@ -129,5 +129,5 @@ See a series of blog posts on the architecture of the SAP BTP Private Link Servi
 Check out the documentation:
 
 - [SAP workloads on Azure: planning and deployment checklist](./sap-deployment-checklist.md)
-- [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md)
+- [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview)
 - [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md)
