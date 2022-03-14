@@ -65,4 +65,4 @@ sections:
           
       - question: How can I get access and use DICOM cast?
         answer: |
-          To enable DICOM cast for your Azure subscription, please request access for DICOM cast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOM cast, see [DICOM cast request access](dicom-cast-access-request-md). 
+          To enable DICOM cast for your Azure subscription, please request access for DICOM cast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOM cast, see [DICOM cast request access](dicom-cast-access-request.md). 

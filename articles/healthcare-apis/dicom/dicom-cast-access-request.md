@@ -11,7 +11,7 @@ ms.author: aersoy
 
 # DICOM cast access request
 
-This article describes the steps how to request DICOM cast access.
+This article describes how to request DICOM cast access.
 
 ## Create Azure support ticket
 
