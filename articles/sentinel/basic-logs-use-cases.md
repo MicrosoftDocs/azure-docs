@@ -15,37 +15,52 @@ Basic logs provide access to data in high-volume verbose logs in a cost-effectiv
 
 ## Storage access logs for cloud providers
 
-Misconfigured access controls in major cloud storage providers have resulted in the exposure of sensitive data to unauthorized parties. Several of these incidents are in the news today and some of them involved Azure customers. Those in organizations with administrative rights are responsible for configure permissions according to what people and systems have a need to access the data. Most often they get it wrong. Many cloud providers provide the ability to log all activity, which can be used to investigate or threat hunt unusual or unauthorized activity or in response to an incident. I personally have used these logs for major Microsoft SSIRP type incidents. Currently Sentinel doesn’t have any connectors or solutions for these log types.
+Storage access logs can provide a secondary source of information for investigations involving exposure of sensitive data to unauthorized parties. These logs can help you identify issues with system or user permissions granted to the data.
+
+
+Many cloud providers provide the ability to log all activity, which you can used to investigate or threat hunt unusual or unauthorized activity or in response to an incident.
+
+Currently, Microsoft Sentinel doesn’t have connectors or solutions for these log types.
 
 ## Netflow logs
 
-NetFlow is a network protocol developed by Cisco for collecting IP traffic information and monitoring network flow. Most people say “NetFlow” logs, but often they may be referring to logs derived from other protocols like sFlow, IPFIX, J-Flow, Netstream, etc. These all provide the same basic information.
+NetFlow is a network protocol developed by Cisco to collect IP traffic information and monitor network flow. Most people say “NetFlow” logs, but they might be referring to logs derived from other protocols like sFlow, IPFIX, J-Flow, Netstream, etc. These logs all provide the same basic information.
 
-Typically, NetFlow data is used to get a picture of the network traffic flow and volume.  Most commonly it is used to investigate command and control activity since it records source and destination IPs and ports. There are some sophisticated network monitoring systems that claim to use NetFlow combined with deep packet inspection logs to generate detections, but in absence of installing a system like that, the metadata provided by NetFlow helps provide a better fidelity when piecing together information about an adversary on the network.
+Typically, you use NetFlow data to get a picture of the network traffic flow and volume.  Most commonly, you use this data to investigate command and control activity because it records source and destination IPs and ports.
+
+Some sophisticated network monitoring systems use NetFlow combined with deep packet inspection logs to generate detections. But when you don't have a system like that installed, use the metadata provided by NetFlow to help you piece together information about an adversary on the network.
 
 ## VPC flow logs for cloud providers
 
-Virtual Private Cloud (VPC) flow logs have become very important for threat hunting. When organizations operate cloud environments, threat hunters will need to be able to examine network flows between clouds or between clouds and endpoints. Having that visibility with so many endpoints in the cloud has become critical. (Azure VPC Logs are named “NSG” logs)
+Virtual Private Cloud (VPC) flow logs have become important for threat hunting. When organizations operate cloud environments, threat hunters need to be able to examine network flows between clouds or between clouds and endpoints.
+
+In Azure, VPC Logs are named network security group (NSG) logs.
 
 ## TLS/SSL certificate monitor logs
 
-This log type had outsized relevance with regards to the SolarWinds hack incident. While TLS/SSL certificate monitoring is not a common log source, its value for specific attacks is valuable. They help understand the source of the certificate: Was it self-signed? Was it generated using a free service? Was the certificate issued from a reputable source?  Also, the certificate metadata can also be leveraged for hunting. For instance, hunters could identify certificates created using email addresses from their organization, from IP addresses outside their approved or known networks, or they might already be chasing down rouge certificates created by the attackers.
+TLS/SSL certificate monitor logs have an outsized relevance since the SolarWinds hack incident. While TLS/SSL certificate monitoring isn't a common log source, its value for specific attacks is valuable. They help understand the source of the certificate:
+
+- Was it self-signed? 
+- Was it generated using a free service?
+- Was the certificate issued from a reputable source?  
+
+Also, use the certificate metadata for hunting. For example, you could identify certificates created by using email addresses from your organization, from IP addresses outside your approved or known networks, or chase down rouge certificates created by the attackers.
 
 ## Proxy logs
 
-Many networks maintain a transparent proxy, providing visibility over traffic of internal users. Proxy server logs contain requests made by users and applications on a local network, as well as application or service requests made over the Internet, such as application updates. The logging will depend upon the appliance or solution; however, it is likely going to give you (at a minimum) the date, time, size, the internal host making the request, and what they requested. One thing to keep in mind is that when threat hunters are trying to dig into the network, log data overlap can be a very valuable resource.
+Many networks maintain a transparent proxy to provide visibility over traffic of internal users. Proxy server logs contain requests made by users and applications on a local network. These logs also contain application or service requests made over the Internet, such as application updates. What's logged depends on the appliance or solution. But the logs will likely give you at least the date, time, size, the internal host that made the request, and what they requested. When you dig into the network as you're threat hunting, log data overlap can be a very valuable resource.
 
 ## Firewall logs
 
-Firewall data is often the most fundamental of network log sources for threat hunting and investigations. Firewall data can reveal abnormally large file transfers, volume, and frequency of communication by host, and important events such as failed sequential connection attempts. Firewall data is also very useful as a data source for various unstructured hunting techniques, such as stacking ephemeral ports, or grouping and clustering different communication patterns.
+Firewall data is often the most fundamental of network log sources for threat hunting and investigations. Firewall data can reveal abnormally large file transfers, volume, and frequency of communication by a host. These logs can also show important events such as failed sequential connection attempts. Firewall data is also very useful as a data source for various unstructured hunting techniques, such as stacking ephemeral ports, or grouping and clustering different communication patterns.
 
 ## IoT Logs
 
-A new and growing source of log data is Internet of Things (IoT) connected devices. IoT devices may log their own activity and/or sensor data captured by the device. IoT visibility for security investigations and threat hunting is a major challenge. Advanced IoT deployments save log data to a central cloud service like Azure.
+A new and growing source of log data is Internet of Things (IoT) connected devices. IoT devices might log their own activity and/or sensor data captured by the device. IoT visibility for security investigations and threat hunting is a major challenge. Advanced IoT deployments save log data to a central cloud service like Azure.
 
 
 ## Next steps
 
-- [Log plans](../azure-monitor/log-analytics-workspace-overview.md#log-data-plans-preview) 
+- [Log plans](../azure-monitor/log-analytics-workspace-overview.md#log-data-plans-preview)
 - [Configure Basic Logs in Azure Monitor (Preview)](../azure-monitor/basic-logs-configure.md)
 - [Start an investigation by searching for events in large datasets (preview)](investigate-large-datasets.md)
