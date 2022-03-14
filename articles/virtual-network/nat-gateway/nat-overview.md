@@ -46,7 +46,7 @@ NAT is fully scaled out from the start. There's no ramp up or scale-out operatio
 
 * Outbound connectivity can be defined for each subnet with NAT. Multiple subnets within the same virtual network can have different NATs. Or multiple subnets within the same virtual network can use the same NAT. A subnet is configured by specifying which NAT gateway resource to use.  All outbound traffic for the subnet is processed by NAT automatically without any customer configuration. NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
 
-* Presence of UDRs for virtual appliances and virtual network gateways override NAT gateway for directing internet bound traffic (route to the 0.0.0.0/0 address prefix). See [Troubleshooting NAT gateway](./troubleshoot-nat.md#virtual-appliance-and-virtual-network-gateway-udrs-supersede-nat-gateway-for-going-outbound) to learn more.
+* Presence of custom UDRs for virtual appliances and VPN ExpressRoutes override NAT gateway for directing internet bound traffic (route to the 0.0.0.0/0 address prefix). See [Troubleshooting NAT gateway](./troubleshoot-nat.md#virtual-appliance-udrs-and-vpn-expressroute-override-nat-gateway-for-routing-outbound-traffic) to learn more.
 
 * NAT supports TCP and UDP protocols only. ICMP isn't supported.
 
