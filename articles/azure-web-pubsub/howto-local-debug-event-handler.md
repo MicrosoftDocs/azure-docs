@@ -1,5 +1,5 @@
 ---
-title: How to troubleshoot and debug event handler locally
+title: How to troubleshoot and debug Azure Web PubSub event handler locally 
 description: Guidance about debugging event handler locally when developing with Azure Web PubSub service.
 author: vicancy
 ms.author: lianwei
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 3/13/2022
 ---
 
-# How to troubleshoot and debug event handler locally
+# How to troubleshoot and debug Azure Web PubSub event handler locally
 
 When a WebSocket connection connects to Web PubSub service, the service formulates an HTTP POST request to the registered upstream and expects an HTTP response. We call the upstream as the **event handler** and the **event handler** is responsible to handle the incoming events following the [Web PubSub CloudEvents specification](./reference-cloud-events.md).
 
