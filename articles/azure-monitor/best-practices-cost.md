@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor best practices - Cost management
-description: Guidance and recommendations for reducing your cost with Azure Monitor.
+description: Guidance and recommendations for reducing your cost for Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -40,9 +40,9 @@ The configuration change will vary depending on the data source. The following t
 
 | Source | Strategy |
 |:---|:---|
-| Resource logs | Change the [diagnostic settings](essentials//diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources that send logs to Log Analytics. <br> - Collect only required logs.<br> - Use [ingesting-time transformations](logs/ingestion-time-transformations.md) on the workspace to filter log data that isn't required. |
+| Resource logs | Change the [diagnostic settings](essentials/diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources that send logs to Log Analytics. <br> - Collect only required logs.<br> - Use [ingesting-time transformations](logs/ingestion-time-transformations.md) on the workspace to filter log data that isn't required. |
 | Application Insights | Review options for [managing Application Insights data volume](app/pricing.md#managing-your-data-volume). |
-| Container insights | See [Controlling ingestion to reduce cost](..containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) for guidance on reducing the amount of data sent from Container insights. |
+| Container insights | See [Controlling ingestion to reduce cost](containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) for guidance on reducing the amount of data sent from Container insights. |
 | [SQL Analytics](insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings.
 
 #### Other Azure services
@@ -50,7 +50,7 @@ The configuration change will vary depending on the data source. The following t
 | Source | Strategy |
 |:---|:---|
 | Defender for Cloud | Select [common or minimal security events](../security-center/security-center-enable-data-collection.md#data-collection-tier). |
-| Microsoft Sentinel | Review any [Sentinel data sources](sentinel//connect-data-sources.md) that you recently enabled as sources of additional data volume. See [Reduce costs for Microsoft Sentinel](sentinel//billing-reduce-costs.md) for other strategies to reduce Sentinel costs. |
+| Microsoft Sentinel | Review any [Sentinel data sources](../sentinel/connect-data-sources.md) that you recently enabled as sources of additional data volume. See [Reduce costs for Microsoft Sentinel](../sentinel/billing-reduce-costs.md) for other strategies to reduce Sentinel costs. |
 
 
 
@@ -67,7 +67,7 @@ Because you're charged for ingestion and retention for any data you collect in y
 
 
 ## Filter data with transformations (preview)
-Ingestion-time transformations allow you to filter incoming data, allowing you to reduce costs for data ingestion and retention. In addition to filtering records from the incoming data, you can filter out columns in the data, reducing its size as described in [Data size calculation](cost-logs.md#data-size-calculation).
+Ingestion-time transformations allow you to filter incoming data, allowing you to reduce costs for data ingestion and retention. In addition to filtering records from the incoming data, you can filter out columns in the data, reducing its size as described in [Data size calculation](logs/cost-logs.md#data-size-calculation).
 
 Use ingestion-time transformations on the workspace to further filter data for workflows where you don't have granular control. For example, you can select categories to collect for a particular service in a diagnostic setting, but that category might send a variety of logs that you don't need. Create a transformation for the table that service uses to filter out records you don't want.
 

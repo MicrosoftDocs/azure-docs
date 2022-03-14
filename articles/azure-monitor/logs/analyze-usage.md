@@ -1,6 +1,6 @@
 ---
-title: Manage usage and costs for Azure Monitor Logs
-description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in Azure Monitor.
+title: Analyze usage in Log Analytics workspace in Azure Monitor
+description: Methods and queries to analyze the data in your Log Analytics workspace to help you understand usage and potential cause for high usage.
 ms.topic: conceptual
 ms.date: 02/18/2022
 ---

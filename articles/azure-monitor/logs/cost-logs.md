@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Logs pricing model
-description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in Azure Monitor.
+title: Azure Monitor Logs pricing details
+description: Cost details for data stored in a Log Analytics workspace in Azure Monitor, including commitment tiers and data size calculation.
 ms.topic: conceptual
 ms.date: 02/18/2022
 ---
@@ -224,3 +224,4 @@ This query isn't an exact replication of how usage is calculated, but it provide
 
 <a name="allocations"></a>
 
+## Next steps
