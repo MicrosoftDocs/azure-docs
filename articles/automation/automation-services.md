@@ -167,11 +167,7 @@ Orchestrates repetitive processes using graphical, PowerShell, and Python runboo
 
 **Scenarios** | **Users**
 --- | ---
-| Azure resource life-cycle management and governance which includes Resource provisioning, de-provisioning, adding correct tags, locks, NSGs and so on through runbooks that are triggered from ITSM alerts.
-- Use hybrid worker as a bridge from cloud to on-premises enabling resource\user management on-premise.
-- Execute complex disaster recovery workflows through Automation runbooks.
-- Execute automation runbooks as part of Logic apps workflow through Azure Automation Connector. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting.
-- Infrastructure Administrators managing on-premises infrastructure using scripts or executing long running jobs such as month-end operations on servers running on-premises.
+| Azure resource life-cycle management and governance which includes Resource provisioning, de-provisioning, adding correct tags, locks, NSGs and so on through runbooks that are triggered from ITSM alerts. </br>Use hybrid worker as a bridge from cloud to on-premises enabling resource\user management on-premise. </br> Execute complex disaster recovery workflows through Automation runbooks. </br> Execute automation runbooks as part of Logic apps workflow through Azure Automation Connector. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting. </br> </br> Infrastructure Administrators managing on-premises infrastructure using scripts or executing long running jobs such as month-end operations on servers running on-premises.
 
 
 ### Azure functions
