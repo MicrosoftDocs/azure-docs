@@ -5,3 +5,8 @@ items:
   items:
     - name: About Azure Managed Grafana
       href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a Managed Grafana workspace from the portal
+    href: quickstart-managed-grafana-portal.md
