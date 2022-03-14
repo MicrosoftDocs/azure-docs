@@ -114,7 +114,7 @@ When these recommendations go live, their impact will be included in the calcula
 
 **Estimated date for change:** March 2022
 
-Custom recommendation are those created by a user, and have no impact on the secure score. Therefore, the custom recommendations are being relocated from the Secure score recommendations tab to the All recommendations tab.
+Custom recommendations are those created by a user, and have no impact on the secure score. Therefore, the custom recommendations are being relocated from the Secure score recommendations tab to the All recommendations tab.
 
 When the move occurs, the custom recommendations will be found via a new "recommendation type" filter.
 
