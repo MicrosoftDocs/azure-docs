@@ -29,7 +29,7 @@ Once you have [created an Active Directory connection](create-active-directory-c
 ## Options for Active Directory connections
 
 | Field Name | What it is | Can it be modified? | Considerations & Impact | Effect |
-|:-:|:-|:-:|:-|:-|
+|:-:|:--|:-:|:--|:--|
 | Primary DNS | Primary DNS server IP addresses for the Active Directory domain. | Yes | None* | New DNS IP will be used for DNS resolution. |
 | Secondary DNS | Secondary DNS server IP addresses for the Active Directory domain. | Yes | None* | New DNS IP will be used for DNS resolution in case primary DNS fails. |
 | AD DNS Domain Name | The domain name of your Active Directory Domain Services that you want to join. | No | None | N/A |
