@@ -96,6 +96,6 @@ Some people will see a new preview experience in the portal. If **Availability o
 ---
 
     
-## Next steps
+**Next steps**
 
 In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.
