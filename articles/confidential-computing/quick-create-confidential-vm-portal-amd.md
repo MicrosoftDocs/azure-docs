@@ -3,7 +3,7 @@ title: Create an Azure AMD-based confidential VM in the Azure portal (preview)
 description: Learn how to quickly create an AMD-based confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
 author: RunCai
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/15/2021
@@ -23,7 +23,7 @@ You can use the Azure portal to create a [confidential VM](confidential-vm-overv
 ## Prerequisites
 
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
-- If you're using a Linux-based confidential VM, have a BASH shell to use for SSH or install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+- If you're using a Linux-based confidential VM, use a BASH shell for SSH or install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## Create confidential VM
 
@@ -81,18 +81,49 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. For **Confidential compute encryption type**, select the type of encryption to use. 
     
-    1. If **Confidential disk encryption with a customer-managed key** is selected,  **Confidential disk encryption set** needs to be created before creating confidential VM. 
+    1. If **Confidential disk encryption with a customer-managed key** is selected, create a **Confidential disk encryption set** before creating your confidential VM. 
 
-        * To create **Confidential disk encryption set**, follow below steps:
-        * Create Azure Key Vault [create key vault](../key-vault/general/quick-create-portal.md) with pricing tier selected to **Premium (includes support for HSM backed keys)**, Or create Azure Key Vault Managed HSM [create Azure Key Vault](../key-vault/managed-hsm/quick-create-cli.md).
-        * Search **Disk Encryption Sets**, then click create, select subscription, and choose or create new Resource group. 
-        * Provide Disk encryption set name and select Region, then choose **Confidential disk encryption with a customer-managed key** under **Encryption Type**.
-        * Select Key Vault, which has been setup previously. 
-        * Click **Create new** to create a new key. 
-        > [!Note] If Azure Managed-HSM is selected in previous step, use [Azure PS/CLI to create new key](../confidential-computing/quick-create-confidential-vm-arm-amd.md). 
-        * Provide Name of the key, and select **RSA-HSM**, select key size, and click **Create**.
-        * click **Review + create** to create new Disk encryption set.
-        * Once Disk encryption set is created successfully, go to this resource and click the pink banner to grant permissions to key vault. This step is important, otherwise confidential VM creation will fail.
+1. (Optional) If necessary, create a **Confidential disk encryption set**:
+
+    1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md). For the pricing tier, select **Premium (includes support for HSM backed keys)**. Or, create [create an Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md).
+        
+    1. In the Azure portal, search for and select **Disk Encryption Sets**. 
+
+    1. Select **Create**. 
+
+    1. For **Subscription**, select which Azure subscription to use. 
+
+    1. For **Resource group**, select or create a new resource group to use.
+    
+    1. For **Disk encryption set name**, enter a name for the set.
+
+    1. For **Region**, select an available region. 
+
+    1. For **Encryption type**, select **Confidential disk encryption with a customer-managed key**.
+
+    1. For **Key Vault**, select the key vault you already created. 
+
+    1. Under **Key Vault**, select **Create new** to create a new key.
+
+    > [!NOTE]
+    > If you selected an Azure managed HSM previously, [use PowerShell or the Azure CLI to create the new key](../confidential-computing/quick-create-confidential-vm-arm-amd.md) instead.
+
+    1. For **Name**, enter a name for the key.
+
+    1. For the key type, select **RSA-HSM**
+
+    1. Select your key size
+
+    1. Select **Create** to finish creating the key.
+
+    1. Select **Review + create** to create new disk encryption set. Wait for the resource creation to complete successfully.
+ 
+    1. Go to the disk encryption set resource in the Azure portal.
+
+    1. Select the pink banner to grant permissions to Azure Key Vault. 
+
+    > [!IMPORTANT]
+    > You must perform this step to successfully create the confidential VM.
 
 1. As needed, make changes to settings under the tabs **Networking**, **Management**, **Guest Config**, and **Tags**.
 
