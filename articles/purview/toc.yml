@@ -295,7 +295,7 @@ items:
     items:
     - name: Authoring and publishing data owner access policies
       href: how-to-data-owner-policy-authoring-generic.md
-    - name: Data use governance
+    - name: Registering data sources for Data use governance
       href: how-to-enable-data-use-governance.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
