@@ -70,7 +70,7 @@ Several resources are defined in the Bicep file:
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed VM resource in the resource group.
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
 
 # [CLI](#tab/CLI)
 
