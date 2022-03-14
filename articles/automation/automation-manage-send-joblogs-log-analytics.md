@@ -174,7 +174,7 @@ Azure Automation diagnostics create the following types of records in Azure Moni
 | Resource | Automation Account name|
 | ResourceType | AUTOMATIONACCOUNTS |
 | OperationName | Possible values are Update, Create, Delete.|
-| ResultType | Status of the runbook job. Possible values are: Completed.|
+| ResultType | Status of the runbook job. Possible value is: Completed.|
 | CorrelationId |  Correlation GUID of the runbook job. |
 | ResultDescription | Runbook job result state. Possible values are Update, Create, Delete. |
 | Tenant_g | GUID that identifies the tenant for the caller. |
