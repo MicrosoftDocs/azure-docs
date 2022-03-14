@@ -55,5 +55,7 @@ For Application Gateway, the following metrics are available:
  
 :::image type="content" source="../media/waf-appgateway-metrics/appgw-waf-metrics-1.png" alt-text="Screenshot of waf metrics page." lightbox="../media/waf-appgateway-metrics/appgw-waf-metrics-1-expanded.png":::
  
+4. Select Add filter to add a filter:
+
+:::image type="content" source="../media/waf-appgateway-metrics/appgw-waf-metrics-2.png" alt-text="Screenshot of adding filters to metrics." lightbox="../media/waf-appgateway-metrics/appgw-waf-metrics-2-expanded.png":::
  
-   
