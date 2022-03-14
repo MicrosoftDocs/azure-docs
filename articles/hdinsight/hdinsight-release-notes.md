@@ -32,11 +32,11 @@ Spark 3.1 is now Generally Available on HDInsight 4.0 release.  This release inc
 * Dynamic Partition Pruning, 
 * Customers will be able to create new Spark 3.1 clusters and not Spark 3.0 (preview) clusters.
 
-For more details, refer to the [Apache Spark 3.1](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/spark-3-1-is-now-generally-available-on-hdinsight/ba-p/3253679) is now Generally Available on HDInsight - Microsoft Tech Community.
+For more details, see the [Apache Spark 3.1](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/spark-3-1-is-now-generally-available-on-hdinsight/ba-p/3253679) is now Generally Available on HDInsight - Microsoft Tech Community.
 
-For a complete list of improvements, please refer to the [Apache Spark 3.1 release notes.](https://spark.apache.org/releases/spark-release-3-1-2.html)
+For a complete list of improvements, see the [Apache Spark 3.1 release notes.](https://spark.apache.org/releases/spark-release-3-1-2.html)
 
-For more details on migration, refer to the [migration guide.](https://spark.apache.org/docs/latest/migration-guide.html)
+For more details on migration, see the [migration guide.](https://spark.apache.org/docs/latest/migration-guide.html)
 
 ## Kafka 2.4 is now generally available
 
@@ -59,7 +59,7 @@ HDInsight has now expanded its geographical presence to two new regions: China E
 
 OSS backports that are included in Hive including HWC 1.0 (Spark 2.4) which supports Map data type.
 
-### Here are the OSS ackported Apache JIRAs for this release:
+### Here are the OSS backported Apache JIRAs for this release:
 
 | Impacted Feature    |   Apache JIRA                                                      |
 |---------------------|--------------------------------------------------------------------|
