@@ -154,6 +154,10 @@ This is the public IP address of the Bastion host resource on which RDP/SSH will
 
 [!INCLUDE [Connect to a VM](../../includes/bastion-vm-connect.md)]
 
+### To enable audio output
+
+[!INCLUDE [Enable VM audio output](../../includes/bastion-vm-audio.md)]
+
 ## Remove VM public IP address
 
 [!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]

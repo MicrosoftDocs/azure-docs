@@ -110,7 +110,7 @@ arg_parser.add_argument("--logging_level", type=str, help="logging level")
 args, unknown_args = arg_parser.parse_known_args()
 print(args.logging_level)
 
-# Initialize python logger
+# Initialize Python logger
 logger = logging.getLogger(__name__)
 logger.setLevel(args.logging_level.upper())
 logger.info("Info log statement")
