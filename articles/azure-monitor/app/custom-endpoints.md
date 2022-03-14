@@ -15,7 +15,7 @@ To send data from Application Insights to certain regions, you'll need to overri
 > [Connection strings](./sdk-connection-string.md?tabs=net) are the new preferred method of setting custom endpoints within Application Insights.   
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
-git 
+
 
 ---
 
