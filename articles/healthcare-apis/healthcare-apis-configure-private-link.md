@@ -6,7 +6,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/01/2022
+ms.date: 03/14/2022
 ms.author: zxue
 ---
 
@@ -50,13 +50,13 @@ For the resource type, search and select **Microsoft.HealthcareApis/services** f
 
 [ ![Screen image of the Azure portal Resource tab.](media/private-link/private-link-resource.png) ](media/private-link/private-link-resource.png#lightbox)
 
-### Manual Approval
+### Manual approval
 
 For manual approval, select the second option under Resource, **Connect to an Azure resource by resource ID or alias**. For the resource ID, enter **subscriptions/{subcriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.HealthcareApis/workspaces/{workspacename}**. For the Target subresource, enter **healthcareworkspace** as in Auto Approval.
 
 [ ![Screen image of the Manual Approval Resources tab.](media/private-link/private-link-resource-id.png) ](media/private-link/private-link-resource-id.png#lightbox)
 
-### Private Link DNS Configuration
+### Private Link DNS configuration
 
 After the deployment is complete, select the Private Link resource in the resource group. Open **DNS configuration** from the settings menu. You can find the DNS records and private IP addresses for the workspace, and FHIR and DICOM services.
 

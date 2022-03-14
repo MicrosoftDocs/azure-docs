@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/28/2022
+ms.date: 03/14/2022
 ms.author: jasteppe
 ---
 
@@ -51,9 +51,9 @@ It's important that you have the following prerequisites completed before you be
 
 5. After provisioning a new Events subscription, event messages won't be sent until the System Topic deployment has successfully completed and the status of the Workspace has changed from "Updating" to "Succeeded".
 
-   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-creating.png" alt-text="Screenshot of an events subscription being deployed"  lightbox="media/events-deploy-in-portal/events-new-subscription-creating.png":::
+   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-create.png" alt-text="Screenshot of an events subscription being deployed"  lightbox="media/events-deploy-in-portal/events-new-subscription-create.png":::
 
-   :::image type="content" source="media/events-deploy-in-portal/events-workspace-updating.png" alt-text="Screenshot of an events subscription successfully deployed."  lightbox="media/events-deploy-in-portal/events-workspace-updating.png":::
+   :::image type="content" source="media/events-deploy-in-portal/events-workspace-update.png" alt-text="Screenshot of an events subscription successfully deployed."  lightbox="media/events-deploy-in-portal/events-workspace-update.png":::
 
 
 6. After the subscription is deployed, it will require access to your message delivery endpoint. 

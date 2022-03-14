@@ -5,11 +5,11 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 03/01/2022
+ms.date: 03/14/2022
 ms.author: ginle
 ---
 
-# Authentication & Authorization for Azure Health Data Services
+# Authentication and Authorization for Azure Health Data Services
 
 ## Authentication
 
