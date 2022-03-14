@@ -231,7 +231,7 @@ The following table describes the workbooks included in the **IoT OT Threat Moni
 |**Incidents**     |   Displays data such as: <br><br>- Incident Metrics, Topmost Incident, Incident over time, Incident by Protocol, Incident by Device Type, Incident by Vendor, and Incident by IP address.<br><br>- Incident by Severity, Incident Mean time to respond, Incident Mean time to resolve and Incident close reasons.       |   Uses data from the following log: SecurityAlert       |
 |**MITRE ATT&CK® for ICS**     |   Displays data such as: Tactic Count, Tactic Details, Tactic over time, Technique Count.        |   Uses data from the following log: SecurityAlert       |
 |**Device Inventory**     | Displays data such as: OT device name, type, IP address, Mac address, Model, OS, Serial Number, Vendor, Protocols.         |    Uses data from the following log: SecurityAlert      |
-|     |         |         |
+
 
 ## Automate response to Defender for IoT alerts
 
