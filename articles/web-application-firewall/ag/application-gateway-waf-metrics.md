@@ -86,5 +86,5 @@ Alert will be charged based on Azure Monitor. For more information about alerts,
 
 ## Next steps
 
-- Learn about [Web Application Firewall](overview.md).
+- Learn about [Web Application Firewall](../overview.md).
 - Learn about [Web Application Firewall Logs](../ag/web-application-firewall-logs.md).
