@@ -189,9 +189,12 @@ If you put a *deny everything else* rule before the default rules, you prevent t
 
 If you assigned an IP address to your app, make sure you keep the ports open. To see the ports, select **App Service Environment** > **IP addresses**.  
 
-All the items shown in the following outbound rules are needed, except for the last item. They enable network access to the App Service Environment dependencies that were noted earlier in this article. If you block any of them, your App Service Environment stops working. The last item in the list enables your App Service Environment to communicate with other resources in your virtual network.
+All the items shown in the following outbound rules are needed, except for the rule named **ASE-internal-outbound**. They enable network access to the App Service Environment dependencies that were noted earlier in this article. If you block any of them, your App Service Environment stops working. The rule named **ASE-internal-outbound** in the list enables your App Service Environment to communicate with other resources in your virtual network.
 
 ![Screenshot that shows outbound security rules.][5]
+
+> [!NOTE]
+> The IP range in the ASE-internal-outbound rule is only an example and should be changed to match the subnet range for the App Service Environment subnet.
 
 After your NSGs are defined, assign them to the subnet. If you don't remember the virtual network or subnet, you can see it from the App Service Environment portal. To assign the NSG to your subnet, go to the subnet UI and select the NSG.
 

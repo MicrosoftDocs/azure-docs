@@ -29,7 +29,7 @@ To certify an asset, you must be a **data curator** for the collection containin
     :::image type="content" source="media/how-to-certify-assets/view-certified-asset.png" alt-text="An asset with a certified label" border="true":::
 
 > [!NOTE]
-> PowerBI assets can only be [certified in a PowerBI workspace](https://docs.microsoft.com/power-bi/collaborate-share/service-endorse-content). PowerBI endorsement labels are displayed in Azure Purview's search and browse experiences.
+> PowerBI assets can only be [certified in a PowerBI workspace](/power-bi/collaborate-share/service-endorse-content). PowerBI endorsement labels are displayed in Azure Purview's search and browse experiences.
 
 ### Certify assets in bulk
 

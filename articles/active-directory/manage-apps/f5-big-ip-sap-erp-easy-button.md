@@ -2,14 +2,14 @@
 title: Configure F5 BIG-IP Easy Button for SSO to SAP ERP
 description: Learn to secure SAP ERP using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 services: active-directory
-author: NishthaBabith-V
+author: CelesteDG
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 3/1/2022
-ms.author: v-nisba
+ms.author: celested
 ms.collection: M365-identity-device-management
 ---
 
@@ -259,7 +259,7 @@ Selected policies should either have an **Include** or **Exclude** option checke
 ![ Screenshot for CA policies](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
 
 >[!NOTE]
->The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
+>The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed. 
 
 ### Virtual Server Properties
 

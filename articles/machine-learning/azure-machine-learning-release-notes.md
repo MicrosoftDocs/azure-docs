@@ -37,7 +37,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-synapse**
     +  Fix the issue that magic widget is disappeared.
   + **azureml-train-automl-runtime**
-    +  Updating AutoML dependencies to support python 3.8. This change will break compatibility with models trained with SDK 1.37 or below due to newer Pandas interfaces being saved in the model.
+    +  Updating AutoML dependencies to support Python 3.8. This change will break compatibility with models trained with SDK 1.37 or below due to newer Pandas interfaces being saved in the model.
     +  Automl training now supports numpy version 1.19
     +  Fix automl reset index logic for ensemble models in automl_setup_model_explanations API
     +  In automl, use lightgbm surrogate model instead of linear surrogate model for sparse case after latest lightgbm version upgrade
@@ -1092,7 +1092,7 @@ Learn more about [image instance segmentation labeling](how-to-label-data.md).
     + Throw exception and clean up workspace and dependent resources if workspace private endpoint creation fails.
     + Support workspace sku upgrade in workspace update method.
   + **azureml-datadrift**
-    + Update matplotlib version from 3.0.2 to 3.2.1 to support python 3.8.
+    + Update matplotlib version from 3.0.2 to 3.2.1 to support Python 3.8.
   + **azureml-dataprep**
     + Added support of web url data sources with `Range` or `Head` request. 
     + Improved stability for file dataset mount and download.
@@ -1460,7 +1460,7 @@ Learn more about [image instance segmentation labeling](how-to-label-data.md).
   + **azureml-datadrift**
     + Data Drift results query from the SDK had a bug that didn't differentiate the minimum, maximum, and mean feature metrics, resulting in duplicate values. We have fixed this bug by prefixing target or baseline to the metric names. Before: duplicate min, max, mean. After: target_min, target_max, target_mean, baseline_min, baseline_max, baseline_mean.
   + **azureml-dataprep**
-    + Improve handling of write restricted python environments when ensuring .NET Dependencies required for data delivery.
+    + Improve handling of write restricted Python environments when ensuring .NET Dependencies required for data delivery.
     + Fixed Dataflow creation on file with leading empty records.
     + Added error handling options for `to_partition_iterator` similar to `to_pandas_dataframe`.
   + **azureml-interpret**
@@ -1591,7 +1591,7 @@ Access the following web-based authoring tools from the studio:
 ### Azure Machine Learning SDK for Python v1.2.0
 
 + **Breaking changes**
-  + Drop support for python 2.7
+  + Drop support for Python 2.7
 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
@@ -1623,7 +1623,7 @@ Access the following web-based authoring tools from the studio:
 
 + **Feature deprecation**
   + **Python 2.7**
-    + Last version to support python 2.7
+    + Last version to support Python 2.7
 
 + **Breaking changes**
   + **Semantic Versioning 2.0.0**
@@ -1827,7 +1827,7 @@ Access the following web-based authoring tools from the studio:
   + **azureml-contrib-interpret**
     + Removed text explainers from azureml-contrib-interpret as text explanation has been moved to the interpret-text repo that will be released soon.
   + **azureml-core**
-    + Dataset: usages for file dataset no longer depend on numpy and pandas to be installed in the python env.
+    + Dataset: usages for file dataset no longer depend on numpy and pandas to be installed in the Python env.
     + Changed LocalWebservice.wait_for_deployment() to check the status of the local Docker container before trying to ping its health endpoint, greatly reducing the amount of time it takes to report a failed deployment.
     + Fixed the initialization of an internal property used in LocalWebservice.reload() when the service object is created from an existing deployment using the LocalWebservice() constructor.
     + Edited error message for clarification.
@@ -2364,7 +2364,7 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
     + Exception will be thrown out when either coarse grain or fine grained timestamp column is not included in keep columns list with indication for user that keeping can be done after either including timestamp column in keep column list or call with_time_stamp with None value to release timestamp columns.
     + Added logging for the size of a registered model.
   + **azureml-explain-model**
-    + Fixed warning printed to console when "packaging" python package is not installed: "Using older than supported version of lightgbm, please upgrade to version greater than 2.2.1"
+    + Fixed warning printed to console when "packaging" Python package is not installed: "Using older than supported version of lightgbm, please upgrade to version greater than 2.2.1"
     + Fixed download model explanation with sharding for global explanations with many features
     + Fixed mimic explainer missing initialization examples on output explanation
     + Fixed immutable error on set properties when uploading with explanation client using two different types of models
@@ -2464,7 +2464,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
   + **azureml-pipeline-core**
     + Added support to create, update, and use PipelineDrafts - can be used to maintain mutable pipeline definitions and use them interactively to run
   + **azureml-train-automl**
-    + Created feature to install specific versions of gpu-capable pytorch v1.1.0, :::no-loc text="cuda"::: toolkit 9.0, pytorch-transformers, which is required to enable BERT/ XLNet in the remote python runtime environment.
+    + Created feature to install specific versions of gpu-capable pytorch v1.1.0, :::no-loc text="cuda"::: toolkit 9.0, pytorch-transformers, which is required to enable BERT/ XLNet in the remote Python runtime environment.
   + **azureml-train-core**
     + Early failure of some hyperparameter space definition errors directly in the sdk instead of server side.
 
@@ -2511,9 +2511,9 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Improve reliability of API calls be expanding retries to common requests library exceptions.
     + Add support for submitting runs from a submitted run.
     + Fixed expiring SAS token issue in FileWatcher, which caused files to stop being uploaded after their initial token had expired.
-    + Supported importing HTTP csv/tsv files in dataset python SDK.
+    + Supported importing HTTP csv/tsv files in dataset Python SDK.
     + Deprecated the Workspace.setup() method. Warning message shown to users suggests using create() or get()/from_config() instead.
-    + Added Environment.add_private_pip_wheel(), which enables uploading private custom python packages `whl`to the workspace and securely using them to build/materialize the environment.
+    + Added Environment.add_private_pip_wheel(), which enables uploading private custom Python packages `whl`to the workspace and securely using them to build/materialize the environment.
     + You can now update the TLS/SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
   + **azureml-explain-model**
     + Added parameter to add a model ID to explanations on upload.
