@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: caya
 
 ---
-# Overview of mutual authentication with Application Gateway (Preview)
+# Overview of mutual authentication with Application Gateway
 
 Mutual authentication, or client authentication, allows for the Application Gateway to authenticate the client sending requests. Usually only the client is authenticating the Application Gateway; mutual authentication allows for both the client and the Application Gateway to authenticate each other. 
 
@@ -68,7 +68,7 @@ For more information on how to extract trusted client CA certificate chains, see
 
 ## Server variables 
 
-With mutual authentication, there are additional server variables that you can use to pass information about the client certificate to the backend servers behind the Application Gateway. For more information about which server variables are available and how to use them, check out [server variables](./rewrite-http-headers-url.md#mutual-authentication-server-variables-preview).
+With mutual authentication, there are additional server variables that you can use to pass information about the client certificate to the backend servers behind the Application Gateway. For more information about which server variables are available and how to use them, check out [server variables](./rewrite-http-headers-url.md#mutual-authentication-server-variables).
 
 ## Certificate Revocation
 

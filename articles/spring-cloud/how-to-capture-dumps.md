@@ -70,10 +70,19 @@ az spring-cloud app deployment start-jfr \
 
 The default value for `duration` is 60 seconds.
 
+## Generate a dump using the Azure portal
+
+Use the following steps to generate a heap or thread dump of your app in Azure Spring Cloud.
+
+1. In the Azure portal, navigate to your target app, then select **Troubleshooting**.
+2. In the **Troubleshooting** pane, select the app instance and the type of dump you'd like to collect.
+3. In the **File path** field, specify the mount path of your persistent storage.
+4. Select **Collect**.
+
 ## Get your diagnostic files
 
 Navigate to the target file path in your persistent storage and find your dump/JFR. From there, you can download them to your local machine. The name of the generated file will be similar to *`<app-instance>_heapdump_<time-stamp>.hprof`* for the heap dump, *`<app-instance>_threaddump_<time-stamp>.txt`* for the thread dump, and *`<app-instance>_JFR_<time-stamp>.jfr`* for the JFR file.
 
 ## Next steps
 
-- [Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud](how-to-dump-jvm-options.md)
+* [Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud](how-to-dump-jvm-options.md)

@@ -1,18 +1,18 @@
 ---
 title: Understand the roles required to perform common tasks in Azure Synapse
-description: This article describes which built-in Synapse RBAC role(s) are required to accomplish specific tasks
+description: Understand which Synapse RBAC (role-based access control) roles or Azure RBAC roles you need to get work done in Synapse Studio.  
 author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 11/02/2021
+ms.date: 3/07/2022
 ms.author: mesrivas
-ms.reviewer: wiassaf
+ms.reviewer: sngun, wiassaf
 ms.custom: ignite-fall-2021
 ---
 # Understand the roles required to perform common tasks in Azure Synapse
 
-This article will help you understand which Synapse RBAC (role-based access control) roles or Azure RBAC roles you need to get work done in Synapse Studio.  
+This article will help you understand which Synapse RBAC (role-based access control) roles or Azure RBAC roles you need to get work done in Synapse Studio. To manage role membership, see [Manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md).
 
 ## Synapse Studio access control and workflow summary 
 
@@ -61,6 +61,9 @@ The table below lists common tasks and for each task, the Synapse RBAC, or Azure
 
 >[!Note]
 > Synapse Administrator is not listed for each task unless it is the only role that provides the necessary permission. A Synapse Administrator can perform all tasks enabled by other Synapse RBAC roles.</br>
+
+> [!Note]
+> Guest users from another tenant are also able to review, add, or change role assignments once they have been assigned as Synapse Administrator. 
 
 The minimum Synapse RBAC role required is shown. 
 
@@ -129,8 +132,6 @@ ACCESS MANAGEMENT|
 Review Synapse RBAC role assignments at any scope|Synapse User|read
 Assign and remove Synapse RBAC role assignments for users, groups, and service principals| Synapse Administrator at the workspace or at a specific workspace item scope|roleAssignments/write, delete 
 
-> [!Note]
-> Guest users from another tenant are also able to review, add, or change role assignments once they have been assigned as Synapse Administrator. 
 
 ## Next steps
 

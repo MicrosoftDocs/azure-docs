@@ -154,6 +154,8 @@ The following is a sample JSONL file for image classification:
 Once your data is in JSONL format, you can create a TabularDataset with the following code:
 
 ```python
+ws = Workspace.from_config()
+ds = ws.get_default_datastore()
 from azureml.core import Dataset
 
 training_dataset = Dataset.Tabular.from_json_lines_files(
@@ -508,4 +510,5 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 ## Next steps
 
 * [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Make predictions with ONNX on computer vision models from AutoML](how-to-inference-onnx-automl-image-models.md) 
 * [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).

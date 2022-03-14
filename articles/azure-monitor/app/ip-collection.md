@@ -95,9 +95,9 @@ If you only need to modify the behavior for a single Application Insights resour
     
     A list of properties is returned as a result. One of the properties should read `DisableIpMasking: true`. If you run the PowerShell commands before deploying the new property with Azure Resource Manager, the property won't exist.
 
-### Rest API
+### REST API
 
-The [Rest API](/rest/api/azure/) payload to make the same modifications is as follows:
+The [REST API](/rest/api/azure/) payload to make the same modifications is as follows:
 
 ```
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1

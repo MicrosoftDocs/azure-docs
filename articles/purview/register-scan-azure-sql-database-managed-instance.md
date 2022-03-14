@@ -26,14 +26,14 @@ This article outlines how to register and Azure SQL Database Managed Instance, a
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * [Configure public endpoint in Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md)
 
     > [!Note]
-    > We now support scanning Azure SQL Database Managed Instances that are configured with private endpoints using Azure Purview ingestion private endpoints and a self-hosted integration runtime VM.
+    > We now support scanning Azure SQL Database Managed Instances over the private connection using Azure Purview ingestion private endpoints and a self-hosted integration runtime VM.
     > For more information related to prerequisites, see [Connect to your Azure Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md)
 
 ## Register

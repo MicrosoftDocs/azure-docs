@@ -1,11 +1,11 @@
 ---
 title: Quickstart for managing Azure file shares
 description: See how to create and manage Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell module. Create a storage account, create an Azure file share, and use your Azure file share.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: quickstart
 ms.date: 09/17/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ms.custom: mode-ui, devx-track-azurecli 
 ms.devlang: azurecli

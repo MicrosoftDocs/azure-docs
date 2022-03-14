@@ -12,11 +12,10 @@ metadata:
   ms.subservice: hybrid
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.topic: reference
+  ms.topic: faq
   ms.date: 07/18/2017
   ms.author: billmath
   ms.collection: M365-identity-device-management
-    
 title: Azure AD Connect Health frequently asked questions
 summary: This article includes answers to frequently asked questions (FAQs) about Azure Active Directory (Azure AD) Connect Health. These FAQs cover questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
 

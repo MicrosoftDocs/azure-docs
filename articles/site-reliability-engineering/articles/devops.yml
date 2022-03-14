@@ -6,11 +6,9 @@ metadata:
   author: dnblankedelman
   manager: ScottCa
   ms.service: site-reliability-engineering
-  ms.topic: article
+  ms.topic: faq
   ms.date: 09/14/2020
   ms.author: dnb
-  
-    
 title: "Frequently asked questions: What's the relationship between SRE and DevOps?"
 summary: There is a set of common questions that come up around the relationship between site reliability engineering and DevOps including "How are they same? How are they different? Can we have both in our organization?". This article attempts to share some of the answers that have been offered by the SRE and DevOps communities that get us closer to an understanding of this relationship.
 
