@@ -3,7 +3,7 @@ title: Multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/11/2022
+ms.date: 03/15/2022
 ms.author: helohr
 manager: femila
 ---
@@ -28,9 +28,7 @@ The following list shows websites that are known to work with MMR. MMR is suppos
 - Facebook
 - Fox Sports
 - IMDB
-- Sites with embedded YouTube videos, such as Medium, UdaciTY, Los Angeles Times, and so on.   
-
-Currently, Teams live events aren't optimized on Azure Virtual Desktop and Windows 365. MMR is a short-term workaround for a smoother Teams live events playback on Azure Virtual Desktop. For more information, see [How to use MMR for Teams live events](#how-to-use-mmr-for-teams-live-events).
+- Sites with embedded YouTube videos, such as Medium, UdaciTY, Los Angeles Times, and so on.
 
 ## Requirements
 
@@ -50,11 +48,13 @@ to do these things:
 
    To learn more about the Insiders program, see [Windows Desktop client for admins](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups).
 
-4. Use [the MSI installer (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) to install both the host native component and the multimedia redirection extensions for your internet browser on your Azure VM. Keep in mind that when you install an extension with MSI, you'll see a prompt that says "New Extension added." In order to use the app, you'll need to confirm the prompt. If you select **Cancel**, then your browser will uninstall the extension. If you want the browser to force install the extension without any input from your users, we recommend you use the group policy in the following section.
+4. Use [the MSI installer (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) to install both the host native component and the multimedia redirection extensions for your internet browser on your Azure VM.
 
 ## Managing group policies for the multimedia redirection browser extension
 
 Using the multimedia redirection MSI will install the browser extensions. However, as this service is still in public preview, user experience may vary. For more information about known issues, see [Known issues](#known-issues-and-limitations).
+
+Keep in mind that when you install an extension with MSI, you'll see a prompt that says "New Extension added." In order to use the app, you'll need to confirm the prompt. If you select **Cancel**, then your browser will uninstall the extension. If you want the browser to force install the extension without any input from your users, we recommend you use the group policy in the following section.
 
 In some cases, you can change the group policy to manage the browser extensions and improve user experience. For example:
 
@@ -120,19 +120,9 @@ To quickly tell if multimedia redirection is active in your browser, we've added
 
 Selecting the icon will display a pop-up menu that has a checkbox you can select to enable or disable multimedia redirection on all websites. It also lists the version numbers for each component of the service.
 
-### How to use MMR for Teams live events 
-
-To use MMR for Teams live events:
-
-1. Make sure the green check symbol is next to the status icon.
-
-2. Open the link to the Teams live event in a Microsoft Edge or Chrome browser.
-
-3. Select **Watch on the web instead** instead of using the Teams app. The Teams live event should automatically start playing in your browser.
-
 ## Support during public preview
 
-If you run into issues while using the public preview version of multimedia redirection, we reccomend contacting Microsoft Support.
+If you run into issues while using the public preview version of multimedia redirection, we recommend contacting Microsoft Support.
 
 ### Known issues and limitations
 
