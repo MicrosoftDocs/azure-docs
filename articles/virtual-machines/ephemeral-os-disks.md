@@ -58,153 +58,10 @@ If you want to opt for **Temp disk placement**: Standard Ubuntu server image fro
 Basic Linux and Windows Server images in the Marketplace that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
 Ephemeral disks also require that the VM size supports **Premium storage**. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](sizes.md) for details around which sizes support Premium storage.
 
- ## Preview - Trusted Launch for Ephemeral OS disks
-Ephemeral OS disks can now be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [here](trusted-launch.md) for supported sizes and regions.
-VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
-
-For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) usign temp disk placement you would get an error as 
-**"OS disk of Ephemeral VM with size greater than 55 GB is not allowed for VM size Standard_DS4_v2 when the DiffDiskPlacement is ResourceDisk."**
-This is because the temp storage for [Standard_DS4_v2](dv2-dsv2-series.md) is 56 GiB, and 1 GiB is reserved for VMGS when using trusted launch.
-For the same example above if you create a standard Ephemeral OS disk VM you would not get any errors and it would be a successful operation.
-
-## Ephemeral OS Disks can now be stored on temp/Resource disks
-Ephemeral OS disk can now be stored either in VM cache disk or VM temp/resource disk. 
-This feature enables Ephemeral OS disks to be created for all the VMs, which don't have cache or have insufficient cache (such as Dav3, Dav4, Eav4, and Eav3) but has sufficient temp disk to host the Ephemeral OS disk.
+## Placement options for Ephemeral OS disks
+Ephemeral OS disk can be stored either on VM's OS cache disk or VM's temp/resource disk. 
 [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement) is the new property that can be used to specify where you want to place the Ephemeral OS disk. 
 With this feature, when a Windows VM is provisioned, we configure the pagefile to be located on the OS Disk.
-
-## Portal
-
-In the Azure portal, you can choose to use ephemeral disks when deploying a virtual machine or virtual machine scale sets by opening the **Advanced** section of the **Disks** tab. For choosing placement of Ephemeral OS disk, select **OS cache placement** or **Temp disk placement**.
-
-![Screenshot showing the radio button for choosing to use an ephemeral OS disk](./media/virtual-machines-common-ephemeral/ephemeral-portal-temp.png)
- 
-
-If the option for using an ephemeral disk or OS cache placement or Temp disk placement is greyed out, you might have selected a VM size that doesn't have a cache/temp size larger than the OS image or that doesn't support Premium storage. Go back to the **Basics** page and try choosing another VM size.
-
-## Scale set template deployment  
-The process to create a scale set that uses an ephemeral OS disk is to add the `diffDiskSettings` property to the 
-`Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. placement can be changed to `CacheDisk` for OS cache disk placement.
-
-```json
-{ 
-  "type": "Microsoft.Compute/virtualMachineScaleSets", 
-  "name": "myScaleSet", 
-  "location": "East US 2", 
-  "apiVersion": "2019-12-01", 
-  "sku": { 
-    "name": "Standard_DS2_v2", 
-    "capacity": "2" 
-  }, 
-  "properties": { 
-    "upgradePolicy": { 
-      "mode": "Automatic" 
-    }, 
-    "virtualMachineProfile": { 
-       "storageProfile": { 
-        "osDisk": { 
-          "diffDiskSettings": { 
-            "option": "Local" ,
-            "placement": "ResourceDisk"
-          }, 
-          "caching": "ReadOnly", 
-          "createOption": "FromImage" 
-        }, 
-        "imageReference":  { 
-          "publisher": "Canonical", 
-          "offer": "UbuntuServer", 
-          "sku": "16.04-LTS", 
-          "version": "latest" 
-        } 
-      }, 
-      "osProfile": { 
-        "computerNamePrefix": "myvmss", 
-        "adminUsername": "azureuser", 
-        "adminPassword": "P@ssw0rd!" 
-      } 
-    } 
-  } 
-}  
-```
-
-## VM template deployment 
-You can deploy a VM with an ephemeral OS disk using a template. The process to create a VM that uses ephemeral OS disks is to add the `diffDiskSettings` property to Microsoft.Compute/virtualMachines resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. placement option can be changed to `CacheDisk` for OS cache disk placement.
-
-```json
-{ 
-  "type": "Microsoft.Compute/virtualMachines", 
-  "name": "myVirtualMachine", 
-  "location": "East US 2", 
-  "apiVersion": "2019-12-01", 
-  "properties": { 
-       "storageProfile": { 
-            "osDisk": { 
-              "diffDiskSettings": { 
-                "option": "Local" ,
-                "placement": "ResourceDisk"
-              }, 
-              "caching": "ReadOnly", 
-              "createOption": "FromImage" 
-            }, 
-            "imageReference": { 
-                "publisher": "MicrosoftWindowsServer", 
-                "offer": "WindowsServer", 
-                "sku": "2016-Datacenter-smalldisk", 
-                "version": "latest" 
-            }, 
-            "hardwareProfile": { 
-                 "vmSize": "Standard_DS2_v2" 
-             } 
-      }, 
-      "osProfile": { 
-        "computerNamePrefix": "myvirtualmachine", 
-        "adminUsername": "azureuser", 
-        "adminPassword": "P@ssw0rd!" 
-      } 
-    } 
- } 
-```
-
-## CLI
-
-To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az_vm_create) to `true` and the `--ephemeral-os-disk-placement` parameter to `ResourceDisk` for temp disk placement or `CacheDisk` for cache disk placement and the `--os-disk-caching` parameter to `ReadOnly`.
-
-```azurecli-interactive
-az vm create \
-  --resource-group myResourceGroup \
-  --name myVM \
-  --image UbuntuLTS \
-  --ephemeral-os-disk true \
-  --ephemeral-os-disk-placement ResourceDisk \
-  --os-disk-caching ReadOnly \
-  --admin-username azureuser \
-  --generate-ssh-keys
-```
-
-For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az_vmss_create) and set the `--os-disk-caching` parameter to `ReadOnly` and the `--ephemeral-os-disk-placement` parameter to `ResourceDisk` for temp disk placement or `CacheDisk` for cache disk placement.
-
-## Reimage a VM using REST
-You can reimage a Virtual Machine instance with ephemeral OS disk using REST API as described below and via Azure portal by going to Overview pane of the VM. For scale sets, reimaging is already available through PowerShell, CLI, and the portal.
-
-```
-POST https://management.azure.com/subscriptions/{sub-
-id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?a pi-version=2019-12-01" 
-```
-
-## PowerShell
-To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching` to `ReadOnly` and  `-DiffDiskPlacement` to `ResourceDisk`.     
-```powershell
-Set-AzVMOSDisk -DiffDiskSetting Local -DiffDiskPlacement ResourceDisk -Caching ReadOnly
-
-```
-To use an ephemeral disk on cache disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` , `-Caching` to `ReadOnly` and  `-DiffDiskPlacement` to `CacheDisk`.     
-```PowerShell
-Set-AzVMOSDisk -DiffDiskSetting Local -DiffDiskPlacement CacheDisk -Caching ReadOnly
-```
-For scale set deployments, use the [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) cmdlet in your configuration. Set the `-DiffDiskSetting` to `Local` , `-Caching` to `ReadOnly` and  `-DiffDiskPlacement` to `ResourceDisk` or `CacheDisk`.
-```PowerShell
-Set-AzVmssStorageProfile -DiffDiskSetting Local -DiffDiskPlacement ResourceDisk -OsDiskCaching ReadOnly
-```
 
 ## Unsupported features 
 - Capturing VM images
@@ -213,6 +70,20 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -DiffDiskPlacement ResourceDisk 
 - Azure Backup
 - Azure Site Recovery  
 - OS Disk Swap 
+
+ ## Preview - Trusted Launch for Ephemeral OS disks
+Ephemeral OS disks can be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [here](trusted-launch.md#limitations) for supported sizes and regions.
+VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
+
+For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) usign temp disk placement you would get an error as 
+**"OS disk of Ephemeral VM with size greater than 55 GB is not allowed for VM size Standard_DS4_v2 when the DiffDiskPlacement is ResourceDisk."**
+This is because the temp storage for [Standard_DS4_v2](dv2-dsv2-series.md) is 56 GiB, and 1 GiB is reserved for VMGS when using trusted launch.
+For the same example above if you create a standard Ephemeral OS disk VM you would not get any errors and it would be a successful operation.
+
+> [!NOTE]
+> 
+> While using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after VM creation may not be persisted for operations like reimaging and platform events like service healing.
+> 
 
 ## Frequently asked questions
 
