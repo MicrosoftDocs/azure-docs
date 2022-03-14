@@ -15,11 +15,11 @@ ms.author: allensu
 
 An inbound NAT rule is used to forward traffic from a load balancer frontend to one or more instances in the backend pool.
 
-## Why use inbound NAT rule?
+## Why use an inbound NAT rule?
 
 An inbound NAT rule is used for port forwarding. Port forwarding lets you connect to virtual machines by using the load balancer frontend IP address and port number. The load balancer will receive the traffic on a port, and based on the inbound NAT rule, forwards the traffic to a designated virtual machine on a specific backend port. 
 
-## Types of inbound NAT rule
+## Types of inbound NAT rules
 
 There are two types of inbound NAT rule available for Azure Load Balancer, single virtual machine and multiple virtual machines.
 
