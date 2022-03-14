@@ -65,7 +65,7 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties. This data is optionally collected via Diagnostic settings.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/essentials/resource-logs-schema.md) The schema for Azure SQL Database resource logs is found in the [Azure SQL Database Data Reference](monitoring-sql-database-azure-monitor-reference.md#schemas).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/essentials/resource-logs-schema.md).
 
 The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
