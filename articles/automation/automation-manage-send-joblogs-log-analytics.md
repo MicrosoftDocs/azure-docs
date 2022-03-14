@@ -21,7 +21,7 @@ Azure Automation can send runbook job status and job streams to your Log Analyti
 
 Using Azure Monitor logs, you can consolidate logs from different resources in the same workspace where it can be analyzed with [queries](/azure/azure-monitor/logs/log-query-overview) to quickly retrieve, consolidate, and analyse the collected data. You can create and test queries using [Log Analytics](/azure/azure-monitor/logs/log-query-overview) in the Azure portal and then either directly analyse the data using these tools or save queries for use with [visualization](/azure/azure-monitor/best-practices-analysis) or [alert rules](/azure/azure-monitor/alerts/alerts-overview).
 
-Azure Monitor uses a version of the [(Kusto query language(KQL)](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries. It also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](/azure/azure-monitor/logs/get-started-queries).
+Azure Monitor uses a version of the [Kusto query language(KQL)](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries. It also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](/azure/azure-monitor/logs/get-started-queries).
 
 
 ## Azure Automation diagnostic settings
@@ -271,7 +271,7 @@ You can now send audit logs also to the Azure monitor workspace. This allows ent
 ## Difference between Activity logs and Audit logs?
 The Activity log is a [platform log](/azure/azure-monitor/essentials/platform-logs-overview) in Azure that provides insight into subscription-level events. Activity log for Automation account includes information about when an automation resource is modified or created or deleted, however, it does not capture the name or ID of the resource. Audit logs for Automation accounts capture the name and ID of the resource like automation variable, credential, connection etc, along with the type of the operation performed for the resource.  
 
-**Query to view Automation resource Audit logs**
+**Query to view Automation resource audit logs**
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" 
@@ -286,12 +286,12 @@ AzureDiagnostics
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s contains "Runbook" 
 ```
-**Query to monitor any Certificate creation, updating or deletion**
+**Query to monitor any certificate creation, updating or deletion**
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s contains "Certificate" 
 ```
-**Query to monitor any Credentials creation, updating or delete**
+**Query to monitor any credentials creation, updating or deletion**
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s contains "Credential" 
