@@ -10,7 +10,6 @@ ms.topic: quickstart
 ms.date: 03/14/2022
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021, mode-api
 ---
 <!-- markdownlint-disable MD025 -->
 # Get started: Form Recognizer C# SDK v3.0 | Preview
