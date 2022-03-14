@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: wenxwei
-ms.author: wenxwei
-ms.date: 10/21/2021
-ms.reviewer: peterlu
+author: singankit
+ms.author: anksing
+ms.date: 03/15/2022
+ms.reviewer: nibaccam
 ms.custom: devplatv2
 ---
 

@@ -6,11 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 02/28/2022
-ms.reviewer: laobri
+ms.date: 03/15/2022
+ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2
 ---
 
