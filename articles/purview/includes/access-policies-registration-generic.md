@@ -4,17 +4,15 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 03/07/2022
 ms.custom:
 ---
 
->[!Important]
-> Make sure you write down the **Name** you use when registering in Azure Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
-
->[!Note]
-> - To disable a source for *Data use Governance*, remove it first from being bound (i.e. published) in any policy.
-> - While user needs to have both data source *Owner* and Azure Purview *Data source admin* to enable a source for *Data use governance*, any of those roles can independently disable it.
-> - Disabling *Data use governance* for a subscription will disable it also for all assets registered in that subscription.
+### Important considerations related to Data use governance
+1. Make sure you write down the **Name** you use when registering in Azure Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
+2. To disable a source for *Data use governance*, remove it first from being bound (i.e. published) in any policy.
+3. While user needs to have both data source *Owner* and Azure Purview *Data source admin* to enable a source for *Data use governance*, either of those roles can independently disable it.
+4. Disabling *Data use governance* for a subscription will disable it also for all assets registered in that subscription.
 
 > [!WARNING]
 > **Known issues** related to source registration
@@ -26,6 +24,7 @@ ms.custom:
 - Should you have multiple Azure Purview accounts, be aware that **all** data sources belonging to a subscription must be registered for *Data use governance* in a single Azure Purview account. That Azure Purview account can be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples of valid and invalid configurations follow in the diagram below:
     - **Case 1** shows a valid configuration where a Storage account is registered in an Azure Purview account in the same subscription.
     - **Case 2** shows a valid configuration where a Storage account is registered in an Azure Purview account in a different subscription. 
-    - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Azure Purview accounts. In that case, the *Data use governance* toggle will only work in the Azure Purview account that wins and registers a data source in that subscription first. The toggle will then be greyed out for the other data source.
+    - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Azure Purview accounts. In that case, the *Data use governance* toggle will only enable in the Azure Purview account that wins and registers a data source in that subscription first. The toggle will then be greyed out for the other data source.
+- If the *Data use governance* toggle is greyed out and cannot be enabled, hover over it to know the name of the Azure Purview account that has registered the data resource first.
 
 ![Diagram shows valid and invalid configurations when using multiple Azure Purview accounts to manage policies.](../media/access-policies-common/valid-and-invalid-configurations.png)

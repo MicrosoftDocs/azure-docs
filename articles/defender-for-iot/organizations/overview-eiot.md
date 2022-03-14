@@ -45,6 +45,6 @@ Defender for IoT helps ensure a quick, frictionless deployment of network sensor
 
 If you experience any issues, we encourage you to contact our customer support team.
 
-## See also
+## Next steps
 
-To learn more, see [Tutorial: Get started with enterprise IoT](tutorial-getting-started-eiot-sensor.md).
+For more information, see [Tutorial: Get started with enterprise IoT](tutorial-getting-started-eiot-sensor.md).

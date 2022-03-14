@@ -63,8 +63,8 @@ To get an API token, you can use the IoT Central UI or a REST API call. Administ
 
 In the IoT Central UI:
 
-1. Navigate to **Administration > API tokens**.
-1. Select **+ Create token**.
+1. Navigate to **Permissions > API tokens**.
+1. Click **+ New** or **Create an API token**.
 1. Enter a name for the token and select a role and [organization](howto-create-organizations.md).
 1. Select **Generate**.
 1. IoT Central displays the token that looks like the following example:
