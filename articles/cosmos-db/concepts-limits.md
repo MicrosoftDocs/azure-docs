@@ -89,7 +89,10 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | Maximum RU/s per container | 5,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
-| Maximum storage per container | 50 GB |
+| Maximum storage per container | 50 GB * |
+
+> [!NOTE]
+> * Maximum storage limit is 30GB for Cassandra API. 
 
 ## Control plane operations
 
