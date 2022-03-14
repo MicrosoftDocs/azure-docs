@@ -1,5 +1,5 @@
 ---
-title: Protect your static web app with a password
+title: Enable password protection for Azure Static Web Apps
 description: Prevent unauthorized access to your static web app with a password.
 services: static-web-apps
 author: craigshoemaker
@@ -26,11 +26,11 @@ An existing static web app in the Standard plan.
 
 1. Open your static web app in the Azure portal.
 
-1. Under _Settings_ menu, select **Configuration**.
+1. Under *Settings* menu, select **Configuration**.
 
 1. Select the **General settings** tab.
 
-1. In the _Password protection_ section, select **Protect staging environments only** to protect only your app's pre-production environments or select **Protect both production and staging environments** to protect all environments.
+1. In the *Password protection* section, select **Protect staging environments only** to protect only your app's pre-production environments or select **Protect both production and staging environments** to protect all environments.
 
     :::image type="content" source="media/password-protection/portal-enable.png" alt-text="Enable password protection":::
 
