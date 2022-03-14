@@ -114,6 +114,13 @@ By default, this feature is enabled in the virtual machine, and can't be turned 
 :::moniker-end
 <!-- end 1.2 -->
 
+## Trusted Platform Module (TPM)
+[Trusted Platform Module (TPM)](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node) technology is designed to provide hardware-based, security-related functions. A TPM chip is a secure crypto-processor that is designed to carry out cryptographic operations. The chip includes multiple physical security mechanisms to make it tamper resistant, and malicious software is unable to tamper with the security functions of the TPM.
+
+By providing a TPM passthrough feature, the EFLOW virtual machine leverages the Windows host OS TPM. This enables two main scenarios:
+* Use TPM technology for IoT Edge device provisioning using Device Provision Service (DPS). For more information, refer to [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](./how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
+* Read-only access to cryptographic keys stored inside the TPM. For more information, refer to [Set-EflowVmFeature to enable TPM passthrough](./reference-iot-edge-for-linux-on-windows-functions.md).
+
 ## Next steps
 
 View the latest [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
