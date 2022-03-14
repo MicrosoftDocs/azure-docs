@@ -30,7 +30,7 @@ To learn more about our at-scale deployment recommendations, you can also refer 
 
 Consider the following basic requirements when planning your deployment:
 
-* Your machines must run a [supported operating system](agent-overview.md#supported-operating-systems) for the Connected Machine agent.
+* Your machines must run a [supported operating system](prerequisites.md#supported-operating-systems) for the Connected Machine agent.
 * Your machines must have connectivity from your on-premises network or other cloud environment to resources in Azure, either directly or through a proxy server.
 * To install and configure the Azure Connected Machine agent, you must have an account with elevated privileges (that is, an administrator or as root)on the machines.
 * To onboard machines, you must have the **Azure Connected Machine Onboarding** Azure built-in role.
