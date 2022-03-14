@@ -143,7 +143,7 @@ The following samples illustrate Microsoft Teams applications that sign in users
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample(s) <br/>on GitHub | Auth<br/> libraries | Auth flow |  
 > | ------- | -------- | ------------- | -------------- |  
-> | Node | [Teams Tab App - Single Sign on and call Microsoft Graph via OBO](https://github.com/OfficeDev/Microsoft-Teams-Samples/tree/main/samples/tab-sso/nodejs) | MSAL Node |  On-Behalf-Of (OBO) |
+> | Node.js | [Teams Tab app: single sign-on (SSO) and call Microsoft Graph](https://github.com/OfficeDev/Microsoft-Teams-Samples/tree/main/samples/tab-sso/nodejs) | MSAL Node |  On-Behalf-Of (OBO) |
 
 ## Multi-tenant SaaS
 
