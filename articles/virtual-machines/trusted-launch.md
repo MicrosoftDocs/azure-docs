@@ -70,8 +70,6 @@ No additional cost to existing VM pricing.
 
 **The following features are not supported**:
 - Azure Site Recovery
-- Azure Compute Gallery (formerly known as Shared Image Gallery)
-- Ephemeral OS disk
 - Shared disk
 - Ultra disk
 - Managed image
@@ -162,7 +160,7 @@ Trusted launch now allows images to be created and shared through the Azure Comp
 
 ### Does trusted launch support Azure Backup?
 
-Trusted launch now supports Azure Backup in preview. For more information, see https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-iaas#vm-compute-support
+Trusted launch now supports Azure Backup in preview. For more information, see https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support
 
 ### Does trusted launch support ephemeral OS disks?
 
