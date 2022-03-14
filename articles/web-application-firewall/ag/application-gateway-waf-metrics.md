@@ -58,4 +58,15 @@ For Application Gateway, the following metrics are available:
 4. Select Add filter to add a filter:
 
 :::image type="content" source="../media/waf-appgateway-metrics/appgw-waf-metrics-2.png" alt-text="Screenshot of adding filters to metrics." lightbox="../media/waf-appgateway-metrics/appgw-waf-metrics-2-expanded.png":::
+
+ 5. Select New chart to add a new chart
  
+ ## Configure Alerts in Azure portal
+
+1. Set up alerts on Azure Front Door Standard/Premium (Preview) by selecting **Monitoring** >> **Alerts**.
+
+1. Select **New alert rule** for metrics listed in Metrics section.
+
+Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../../azure-monitor/alerts/alerts-overview.md).
+
+## Next steps
