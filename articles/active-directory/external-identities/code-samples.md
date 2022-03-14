@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 ## PowerShell example
 
-You can bulk-invite external users to an organization from email addresses that you have stored in a .CSV file.
+You can bulk-invite external users to an organization from email addresses that you've stored in a .CSV file.
 
 1. Prepare the .CSV file
    Create a new CSV file and name it invitations.csv. In this example, the file is saved in C:\data, and contains the following information:
@@ -50,7 +50,7 @@ You can bulk-invite external users to an organization from email addresses that 
    foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
    ```
 
-This cmdlet sends an invitation to the email addresses in invitations.csv. Additional features of this cmdlet include:
+This cmdlet sends an invitation to the email addresses in invitations.csv. More features of this cmdlet include:
 
 - Customized text in the email message
 - Including a display name for the invited user
@@ -58,7 +58,7 @@ This cmdlet sends an invitation to the email addresses in invitations.csv. Addit
 
 ## Code sample
 
-Here we illustrate how to call the invitation API, in "app-only" mode, to get the redemption URL for the resource to which you are inviting the B2B user. The goal is to send a custom invitation email. The email can be composed with an HTTP client, so you can customize how it looks and send it through the Microsoft Graph API.
+The code sample illustrates how to call the invitation API and get the redemption URL. Use the redemption URL to send a custom invitation email. The email can be composed with an HTTP client, so you can customize how it looks and send it through the Microsoft Graph API.
 
 
 # [HTTP](#tab/http)
