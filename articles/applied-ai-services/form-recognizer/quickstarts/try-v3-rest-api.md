@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 03/08/2022
 ms.author: lajanuar
 ---
 
@@ -60,11 +60,11 @@ The following table illustrates the updates to the REST API calls.
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [🆕 **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
-* [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Model**](#try-it-prebuilt-model)—Analyze and extract data from common document types, using a pre-trained model.
+* [**Prebuilt Model**](#prebuilt-model)—Analyze and extract data from common document types, using a pre-trained model.
 
 ## Prerequisites
 
@@ -85,17 +85,17 @@ In this quickstart you'll use following features to analyze and extract data and
 
 ### Select a code sample to copy and paste into your application:
 
-* [**General document**](#try-it-general-document-model)
+* [**General document**](#general-document-model)
 
-* [**Layout**](#try-it-layout-model)
+* [**Layout**](#layout-model)
 
-* [**Prebuilt Model**](#try-it-prebuilt-model)
+* [**Prebuilt Model**](#prebuilt-model)
 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
-## **Try it**: General document model
+## General document model
 
 > [!div class="checklist"]
 >
@@ -134,7 +134,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-docume
 
 ### Examine the response
 
-You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is not complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
 The `"analyzeResults"` node contains all of the recognized text. Text is organized by page, lines, tables, key-value pairs, and entities.
 
@@ -350,7 +350,7 @@ The `"analyzeResults"` node contains all of the recognized text. Text is organiz
 
 ```
 
-## **Try it**: Layout model
+## Layout model
 
 > [!div class="checklist"]
 >
@@ -394,22 +394,19 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout
 
 You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
-## **Try it**: Prebuilt model
+## Prebuilt model
 
-This sample demonstrates how to analyze data from certain common document types with a pre-trained model, using an invoice as an example.
+In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
+
+> [!TIP]
+> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../concept-model-overview.md#model-data-extraction).
+
+#### Try the prebuilt invoice model
 
 > [!div class="checklist"]
 >
-> * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
-
-##### Choose the invoice prebuilt model ID
-
-You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
-
-* **prebuilt-invoice**: extracts text, selection marks, tables, key-value pairs, and key information from invoices.
-* **prebuilt-businessCard**: extracts text and key information from business cards.
-* **prebuilt-idDocument**: extracts text and key information from driver licenses and international passports.
-* **prebuilt-receipt**: extracts text and key information from receipts.
+> * Analyze an invoice document using a prebuilt model. 
+> * You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 
 Before you run the command, make these changes:
 
