@@ -96,15 +96,15 @@ The second control flow policy is in the outbound section and conditionally appl
 
 #### Example
 
-This example shows how to perform content filtering by removing data elements from the response received from the backend service when using the `Starter` product. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 34:30. Start at 31:50 to see an overview of [The Dark Sky Forecast API](https://developer.forecast.io/) used for this demo.
+This example shows how to perform content filtering by removing data elements from the response received from the backend service when using the `Starter` product. The example backend response includes root-level properties similar to the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api).
 
 ```xml
-<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
+<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the product -->
 <choose>
   <when condition="@(context.Response.StatusCode == 200 && context.Product.Name.Equals("Starter"))">
     <set-body>@{
         var response = context.Response.Body.As<JObject>();
-        foreach (var key in new [] {"minutely", "hourly", "daily", "flags"}) {
+        foreach (var key in new [] {"current", "minutely", "hourly", "daily", "alerts"}) {
           response.Property (key).Remove ();
         }
         return response.ToString();
