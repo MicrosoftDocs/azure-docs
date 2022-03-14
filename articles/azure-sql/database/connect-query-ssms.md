@@ -76,7 +76,6 @@ In SSMS, connect to your server.
    | **Authentication** | SQL Server Authentication | This tutorial uses SQL Authentication. |
    | **Login** | Server admin account user ID | The user ID from the server admin account used to create the server. |
    | **Password** | Server admin account password | The password from the server admin account used to create the server. |
-   ||||
 
    ![connect to server](./media/connect-query-ssms/connect.png)  
 

@@ -170,7 +170,6 @@ For protecting your sensitive data in-flight and at rest, SQL Database provides 
 |**Allowed T-SQL operations**|Equality comparison|All T-SQL surface area is available|
 |**App changes required to use the feature**|Minimal|Very Minimal|
 |**Encryption granularity**|Column level|Database level|
-||||
 
 ### How can I limit access to sensitive data in my database
 
@@ -300,7 +299,7 @@ SQL Database offers various service tiers Basic, Standard, and Premium. Each ser
 |**Basic**|Applications with a handful users and a database that doesn’t have high concurrency, scale, and performance requirements. |
 |**Standard**|Applications with a considerable concurrency, scale, and performance requirements coupled with low to medium IO demands. |
 |**Premium**|Applications with lots of concurrent users, high CPU/memory, and high IO demands. High concurrency, high throughput, and latency sensitive apps can leverage the Premium level. |
-|||
+
 
 For making sure you’re on the right compute size, you can monitor your query and database resource consumption through one of the above-mentioned ways in “How do I monitor the performance and resource utilization in SQL Database”. Should you find that your queries/databases are consistently running hot on CPU/Memory etc. you can consider scaling up to a higher compute size. Similarly, if you note that even during your peak hours, you don’t seem to use the resources as much; consider scaling down from the current compute size.
 
