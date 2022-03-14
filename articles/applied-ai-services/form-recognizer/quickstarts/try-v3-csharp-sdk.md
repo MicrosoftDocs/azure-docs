@@ -157,120 +157,120 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 
 #### Add the following code to the Program.cs file:
 
-    ```csharp
+```csharp
 
-    using Azure;
-    using Azure.AI.FormRecognizer.DocumentAnalysis;
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-    string endpoint = "<your-endpoint>";
-    string apiKey = "<your-key>";
-    AzureKeyCredential credential = new AzureKeyCredential(key);
-    DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+string endpoint = "<your-endpoint>";
+string key = "<your-key>";
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
 
-    // sample form document
-    Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
+// sample form document
+Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
-    AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-document", fileUri);
+AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-document", fileUri);
 
-    await operation.WaitForCompletionAsync();
+await operation.WaitForCompletionAsync();
 
-    AnalyzeResult result = operation.Value;
+AnalyzeResult result = operation.Value;
 
-    Console.WriteLine("Detected key-value pairs:");
+Console.WriteLine("Detected key-value pairs:");
 
-    foreach (DocumentKeyValuePair kvp in result.KeyValuePairs)
+foreach (DocumentKeyValuePair kvp in result.KeyValuePairs)
+{
+    if (kvp.Value == null)
     {
-        if (kvp.Value == null)
-        {
-            Console.WriteLine($"  Found key with no value: '{kvp.Key.Content}'");
-        }
-        else
-        {
-            Console.WriteLine($"  Found key-value pair: '{kvp.Key.Content}' and '{kvp.Value.Content}'");
-        }
+        Console.WriteLine($"  Found key with no value: '{kvp.Key.Content}'");
+    }
+    else
+    {
+        Console.WriteLine($"  Found key-value pair: '{kvp.Key.Content}' and '{kvp.Value.Content}'");
+    }
+}
+
+Console.WriteLine("Detected entities:");
+
+foreach (DocumentEntity entity in result.Entities)
+{
+    if (entity.SubCategory == null)
+    {
+        Console.WriteLine($"  Found entity '{entity.Content}' with category '{entity.Category}'.");
+    }
+    else
+    {
+        Console.WriteLine($"  Found entity '{entity.Content}' with category '{entity.Category}' and sub-category '{entity.SubCategory}'.");
+    }
+}
+
+foreach (DocumentPage page in result.Pages)
+{
+    Console.WriteLine($"Document Page {page.PageNumber} has {page.Lines.Count} line(s), {page.Words.Count} word(s),");
+    Console.WriteLine($"and {page.SelectionMarks.Count} selection mark(s).");
+
+    for (int i = 0; i < page.Lines.Count; i++)
+    {
+        DocumentLine line = page.Lines[i];
+        Console.WriteLine($"  Line {i} has content: '{line.Content}'.");
+
+        Console.WriteLine($"    Its bounding box is:");
+        Console.WriteLine($"      Upper left => X: {line.BoundingBox[0].X}, Y= {line.BoundingBox[0].Y}");
+        Console.WriteLine($"      Upper right => X: {line.BoundingBox[1].X}, Y= {line.BoundingBox[1].Y}");
+        Console.WriteLine($"      Lower right => X: {line.BoundingBox[2].X}, Y= {line.BoundingBox[2].Y}");
+        Console.WriteLine($"      Lower left => X: {line.BoundingBox[3].X}, Y= {line.BoundingBox[3].Y}");
     }
 
-    Console.WriteLine("Detected entities:");
-
-    foreach (DocumentEntity entity in result.Entities)
+    for (int i = 0; i < page.SelectionMarks.Count; i++)
     {
-        if (entity.SubCategory == null)
+        DocumentSelectionMark selectionMark = page.SelectionMarks[i];
+
+        Console.WriteLine($"  Selection Mark {i} is {selectionMark.State}.");
+        Console.WriteLine($"    Its bounding box is:");
+        Console.WriteLine($"      Upper left => X: {selectionMark.BoundingBox[0].X}, Y= {selectionMark.BoundingBox[0].Y}");
+        Console.WriteLine($"      Upper right => X: {selectionMark.BoundingBox[1].X}, Y= {selectionMark.BoundingBox[1].Y}");
+        Console.WriteLine($"      Lower right => X: {selectionMark.BoundingBox[2].X}, Y= {selectionMark.BoundingBox[2].Y}");
+        Console.WriteLine($"      Lower left => X: {selectionMark.BoundingBox[3].X}, Y= {selectionMark.BoundingBox[3].Y}");
+    }
+}
+
+foreach (DocumentStyle style in result.Styles)
+{
+    // Check the style and style confidence to see if text is handwritten.
+    // Note that value '0.8' is used as an example.
+
+    bool isHandwritten = style.IsHandwritten.HasValue && style.IsHandwritten == true;
+
+    if (isHandwritten && style.Confidence > 0.8)
+    {
+        Console.WriteLine($"Handwritten content found:");
+
+        foreach (DocumentSpan span in style.Spans)
         {
-            Console.WriteLine($"  Found entity '{entity.Content}' with category '{entity.Category}'.");
-        }
-        else
-        {
-            Console.WriteLine($"  Found entity '{entity.Content}' with category '{entity.Category}' and sub-category '{entity.SubCategory}'.");
+            Console.WriteLine($"  Content: {result.Content.Substring(span.Offset, span.Length)}");
         }
     }
+}
 
-    foreach (DocumentPage page in result.Pages)
+Console.WriteLine("The following tables were extracted:");
+
+for (int i = 0; i < result.Tables.Count; i++)
+{
+    DocumentTable table = result.Tables[i];
+    Console.WriteLine($"  Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+
+    foreach (DocumentTableCell cell in table.Cells)
     {
-        Console.WriteLine($"Document Page {page.PageNumber} has {page.Lines.Count} line(s), {page.Words.Count} word(s),");
-        Console.WriteLine($"and {page.SelectionMarks.Count} selection mark(s).");
-
-        for (int i = 0; i < page.Lines.Count; i++)
-        {
-            DocumentLine line = page.Lines[i];
-            Console.WriteLine($"  Line {i} has content: '{line.Content}'.");
-
-            Console.WriteLine($"    Its bounding box is:");
-            Console.WriteLine($"      Upper left => X: {line.BoundingBox[0].X}, Y= {line.BoundingBox[0].Y}");
-            Console.WriteLine($"      Upper right => X: {line.BoundingBox[1].X}, Y= {line.BoundingBox[1].Y}");
-            Console.WriteLine($"      Lower right => X: {line.BoundingBox[2].X}, Y= {line.BoundingBox[2].Y}");
-            Console.WriteLine($"      Lower left => X: {line.BoundingBox[3].X}, Y= {line.BoundingBox[3].Y}");
-        }
-
-        for (int i = 0; i < page.SelectionMarks.Count; i++)
-        {
-            DocumentSelectionMark selectionMark = page.SelectionMarks[i];
-
-            Console.WriteLine($"  Selection Mark {i} is {selectionMark.State}.");
-            Console.WriteLine($"    Its bounding box is:");
-            Console.WriteLine($"      Upper left => X: {selectionMark.BoundingBox[0].X}, Y= {selectionMark.BoundingBox[0].Y}");
-            Console.WriteLine($"      Upper right => X: {selectionMark.BoundingBox[1].X}, Y= {selectionMark.BoundingBox[1].Y}");
-            Console.WriteLine($"      Lower right => X: {selectionMark.BoundingBox[2].X}, Y= {selectionMark.BoundingBox[2].Y}");
-            Console.WriteLine($"      Lower left => X: {selectionMark.BoundingBox[3].X}, Y= {selectionMark.BoundingBox[3].Y}");
-        }
+        Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) has kind '{cell.Kind}' and content: '{cell.Content}'.");
     }
+}
 
-    foreach (DocumentStyle style in result.Styles)
-    {
-        // Check the style and style confidence to see if text is handwritten.
-        // Note that value '0.8' is used as an example.
-
-        bool isHandwritten = style.IsHandwritten.HasValue && style.IsHandwritten == true;
-
-        if (isHandwritten && style.Confidence > 0.8)
-        {
-            Console.WriteLine($"Handwritten content found:");
-
-            foreach (DocumentSpan span in style.Spans)
-            {
-                Console.WriteLine($"  Content: {result.Content.Substring(span.Offset, span.Length)}");
-            }
-        }
-    }
-
-    Console.WriteLine("The following tables were extracted:");
-
-    for (int i = 0; i < result.Tables.Count; i++)
-    {
-        DocumentTable table = result.Tables[i];
-        Console.WriteLine($"  Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
-
-        foreach (DocumentTableCell cell in table.Cells)
-        {
-            Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) has kind '{cell.Kind}' and content: '{cell.Content}'.");
-        }
-    }
-
-    ```
+```
 
 ### General document model output
 
-Visit our Azure samples respositort on GitHub to  view the [General Document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-general-document-output.md).
+Visit the Azure samples repository on GitHub to  view the [general Document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-general-document-output.md).
 
 ___
 
@@ -288,6 +288,15 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
 ```csharp
 
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
+
+string endpoint = "<your-endpoint>";
+string key = "<your-key>";
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
+// sample document
 Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
 AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-layout", fileUri);
@@ -359,6 +368,12 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
+### Layout model output
+
+Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-layout-output.md).
+
+___
+
 ## Prebuilt model
 
 In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
@@ -378,6 +393,15 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 #### Add the following code to your Program.cs file:
 
 ```csharp
+
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
+
+string endpoint = "<your-endpoint>";
+string key = "<your-key>";
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
 // sample invoice document
 
 Uri invoiceUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf");
@@ -477,6 +501,13 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 
 ```
+
+### Prebuilt model output
+
+Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).
+
+___
+
 
 ## Run your application
 
