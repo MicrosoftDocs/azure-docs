@@ -103,7 +103,7 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
 - Managed API webhook triggers (*push* triggers) and actions won't work because they run in the public cloud and can't call into your private network. They require a public endpoint to receive calls. For example, such triggers include the Dataverse trigger and the Event Grid trigger.
 
-- If you use Office 365 Email trigger, the workflow will be triggered hourly only.
+- If you use the Office 365 Outlook trigger, the workflow is triggered only hourly.
 
 - Deployment from Visual Studio Code or Azure CLI works only from inside the virtual network. You can use the Deployment Center to link your logic app to a GitHub repo. You can then use Azure infrastructure to build and deploy your code.
 
