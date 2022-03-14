@@ -135,7 +135,7 @@ Use the following steps to guide you through the process to onboard in Arc for A
     - VMware vCenter
 
 > [!IMPORTANT]
-> You can't create the resources in a separate resource group. You'll need to use the resource group from where the Azure VMware Solution private cloud was created to create the resources. 
+> You can't create the resources in a separate resource group. Make sure you use the same resource group from where the Azure VMware Solution private cloud was created to create the resources. 
  
 ## Discover and project your VMware infrastructure resources to Azure
 
