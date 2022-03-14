@@ -10,18 +10,10 @@ ms.date: 09/03/2021
 
 In this article, we'll give an overview of the features BareMetal Infrastructure offers for Nutanix workloads.
 
-BareMetal Infrastructure for Nutanix is based on Nutanix-certified Unified Computing System (UCS) and FLexPod. The FlexPod platform delivers pre-validated storage, networking, and server technologies. It offers NetApp Network File System (NFS) storage, providing integration using DirectNFS protocol. The BareMetal servers are dedicated to you, with no hypervisor on the BareMetal instances. 
+Nutanix Clusters on Microsoft Azure provides a hybrid cloud solution that operates as a single cloud, allowing you to manage applications and infrastructure in your private cloud and Azure. With your Nutanix clusters running on Azure, you can seamlessly move your applications between on-premises and Azure using a single management console. With Nutanix Clusters on Azure, you can use your existing Azure accounts and networking setup (VPN, VNets, and Subnets), eliminating the need to manage any complex network overlays. With this hybrid offering, you use the same Nutanix software and licenses across your on-premises cluster and Azure to optimize your IT investment efficiently.
 
-These instances are for running mission critical applications requiring an Nutanix workload. BareMetal instances provide low latency (0.35 ms) to your applications running in Azure virtual machines (VMs). BareMetal provides shared storage. It also supports multi-casting required for node-to-node communication with a dedicated private interconnect network. 
+You use the Nutanix Clusters console to create a cluster, update the cluster capacity (the number of nodes), and delete a Nutanix cluster. After you create a Nutanix cluster in Azure using Nutanix Clusters, you can operate the cluster in the same manner as you operate your on-prem Nutanix cluster with minor changes in the Nutanix command-line interface (nCLI), the Prism Element and Prism Central web consoles, and APIs.  
 
-Other features of BareMetal Infrastructure for Nutanix include:
-
-- Nutanix certified UCS blades - UCSB200-M5, UCSB460-M4, UCSB480-M5
-- Microsoft-managed hardware
-  - Redundant storage, network, power, management
-  - Monitoring for Infra, repairs, and replacement
-  - Includes Azure ExpressRoute to the customer's domain controller
-  - Secured physical and network security, can access all Azure cloud services
 
 ### Supported protocols
 
