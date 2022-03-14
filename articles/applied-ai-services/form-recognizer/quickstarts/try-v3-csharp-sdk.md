@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/08/2022
+ms.date: 03/14/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021, mode-api
@@ -49,7 +49,7 @@ In this quickstart, you'll use following features to analyze and extract data an
 
 ## Set up
 
-<!--- 
+<!---
 ### [Option 1: .NET Command-line interface (CLI)](#tab/cli)
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
@@ -111,7 +111,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
     :::image type="content" source="../media/quickstarts/select-nuget-package.png" alt-text="Screenshot: select-nuget-package.png":::
 
- 1. Select the Browse tab and type Azure.AI.FormRecognizer. 
+ 1. Select the Browse tab and type Azure.AI.FormRecognizer.
 
      :::image type="content" source="../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
@@ -119,7 +119,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
 <!-- --- -->
 ## Build your application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your apiKey and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your key from the Azure portal and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 > [!NOTE]
 >
@@ -130,37 +130,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 1. Open the **Program.cs** file.
 
-1. Include the following using directives:
-
-    ```csharp
-    using Azure;
-    using Azure.AI.FormRecognizer.DocumentAnalysis;
-    ```
-
-1. Add the following code snippet to your Program.cs file. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance:
-
-    ```csharp
-    string endpoint = "<your-endpoint>";
-    string apiKey = "<your-apiKey>";
-    AzureKeyCredential credential = new AzureKeyCredential(apiKey);
-    DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
-    ```
-
-1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the code sample scripts to the file:
-
-    :::image type="content" source="../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
-
-> [!TIP]
-> If you would like to try more than one code sample:
->
-> * Select one of the sample code blocks below to copy and paste into your application.
-> * [**Run your application**](#run-your-application).
-> * Comment out that sample code block but keep the set-up code and library directives.
-> * Select another sample code block to copy and paste into your application.
-> * [**Run your application**](#run-your-application).
-> * You can continue to comment out, copy/paste, and run the sample blocks of code.
-
-### Select one of the following code samples to copy and paste into your application Program.cs file:
+1. Delete the pre-existing code including the line, `Console.Writeline("Hello World!");`, and select one of the following code samples to copy and paste into your application Program.cs file:
 
 * [**General document model**](#general-document-model)
 
@@ -168,9 +138,11 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 * [**Prebuilt model**](#prebuilt-model)
 
+1. Set your  `endpoint` and `key`  environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance:
+
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
 ## General document model
 
@@ -185,107 +157,122 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 
 #### Add the following code to the Program.cs file:
 
-```csharp
+    ```csharp
 
-// sample form document
-Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
+    using Azure;
+    using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-document", fileUri);
+    string endpoint = "<your-endpoint>";
+    string apiKey = "<your-key>";
+    AzureKeyCredential credential = new AzureKeyCredential(key);
+    DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
-await operation.WaitForCompletionAsync();
 
-AnalyzeResult result = operation.Value;
+    // sample form document
+    Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
-Console.WriteLine("Detected key-value pairs:");
+    AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-document", fileUri);
 
-foreach (DocumentKeyValuePair kvp in result.KeyValuePairs)
-{
-    if (kvp.Value == null)
+    await operation.WaitForCompletionAsync();
+
+    AnalyzeResult result = operation.Value;
+
+    Console.WriteLine("Detected key-value pairs:");
+
+    foreach (DocumentKeyValuePair kvp in result.KeyValuePairs)
     {
-        Console.WriteLine($"  Found key with no value: '{kvp.Key.Content}'");
-    }
-    else
-    {
-        Console.WriteLine($"  Found key-value pair: '{kvp.Key.Content}' and '{kvp.Value.Content}'");
-    }
-}
-
-Console.WriteLine("Detected entities:");
-
-foreach (DocumentEntity entity in result.Entities)
-{
-    if (entity.SubCategory == null)
-    {
-        Console.WriteLine($"  Found entity '{entity.Content}' with category '{entity.Category}'.");
-    }
-    else
-    {
-        Console.WriteLine($"  Found entity '{entity.Content}' with category '{entity.Category}' and sub-category '{entity.SubCategory}'.");
-    }
-}
-
-foreach (DocumentPage page in result.Pages)
-{
-    Console.WriteLine($"Document Page {page.PageNumber} has {page.Lines.Count} line(s), {page.Words.Count} word(s),");
-    Console.WriteLine($"and {page.SelectionMarks.Count} selection mark(s).");
-
-    for (int i = 0; i < page.Lines.Count; i++)
-    {
-        DocumentLine line = page.Lines[i];
-        Console.WriteLine($"  Line {i} has content: '{line.Content}'.");
-
-        Console.WriteLine($"    Its bounding box is:");
-        Console.WriteLine($"      Upper left => X: {line.BoundingBox[0].X}, Y= {line.BoundingBox[0].Y}");
-        Console.WriteLine($"      Upper right => X: {line.BoundingBox[1].X}, Y= {line.BoundingBox[1].Y}");
-        Console.WriteLine($"      Lower right => X: {line.BoundingBox[2].X}, Y= {line.BoundingBox[2].Y}");
-        Console.WriteLine($"      Lower left => X: {line.BoundingBox[3].X}, Y= {line.BoundingBox[3].Y}");
-    }
-
-    for (int i = 0; i < page.SelectionMarks.Count; i++)
-    {
-        DocumentSelectionMark selectionMark = page.SelectionMarks[i];
-
-        Console.WriteLine($"  Selection Mark {i} is {selectionMark.State}.");
-        Console.WriteLine($"    Its bounding box is:");
-        Console.WriteLine($"      Upper left => X: {selectionMark.BoundingBox[0].X}, Y= {selectionMark.BoundingBox[0].Y}");
-        Console.WriteLine($"      Upper right => X: {selectionMark.BoundingBox[1].X}, Y= {selectionMark.BoundingBox[1].Y}");
-        Console.WriteLine($"      Lower right => X: {selectionMark.BoundingBox[2].X}, Y= {selectionMark.BoundingBox[2].Y}");
-        Console.WriteLine($"      Lower left => X: {selectionMark.BoundingBox[3].X}, Y= {selectionMark.BoundingBox[3].Y}");
-    }
-}
-
-foreach (DocumentStyle style in result.Styles)
-{
-    // Check the style and style confidence to see if text is handwritten.
-    // Note that value '0.8' is used as an example.
-
-    bool isHandwritten = style.IsHandwritten.HasValue && style.IsHandwritten == true;
-
-    if (isHandwritten && style.Confidence > 0.8)
-    {
-        Console.WriteLine($"Handwritten content found:");
-
-        foreach (DocumentSpan span in style.Spans)
+        if (kvp.Value == null)
         {
-            Console.WriteLine($"  Content: {result.Content.Substring(span.Offset, span.Length)}");
+            Console.WriteLine($"  Found key with no value: '{kvp.Key.Content}'");
+        }
+        else
+        {
+            Console.WriteLine($"  Found key-value pair: '{kvp.Key.Content}' and '{kvp.Value.Content}'");
         }
     }
-}
 
-Console.WriteLine("The following tables were extracted:");
+    Console.WriteLine("Detected entities:");
 
-for (int i = 0; i < result.Tables.Count; i++)
-{
-    DocumentTable table = result.Tables[i];
-    Console.WriteLine($"  Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
-
-    foreach (DocumentTableCell cell in table.Cells)
+    foreach (DocumentEntity entity in result.Entities)
     {
-        Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) has kind '{cell.Kind}' and content: '{cell.Content}'.");
+        if (entity.SubCategory == null)
+        {
+            Console.WriteLine($"  Found entity '{entity.Content}' with category '{entity.Category}'.");
+        }
+        else
+        {
+            Console.WriteLine($"  Found entity '{entity.Content}' with category '{entity.Category}' and sub-category '{entity.SubCategory}'.");
+        }
     }
-}
 
-```
+    foreach (DocumentPage page in result.Pages)
+    {
+        Console.WriteLine($"Document Page {page.PageNumber} has {page.Lines.Count} line(s), {page.Words.Count} word(s),");
+        Console.WriteLine($"and {page.SelectionMarks.Count} selection mark(s).");
+
+        for (int i = 0; i < page.Lines.Count; i++)
+        {
+            DocumentLine line = page.Lines[i];
+            Console.WriteLine($"  Line {i} has content: '{line.Content}'.");
+
+            Console.WriteLine($"    Its bounding box is:");
+            Console.WriteLine($"      Upper left => X: {line.BoundingBox[0].X}, Y= {line.BoundingBox[0].Y}");
+            Console.WriteLine($"      Upper right => X: {line.BoundingBox[1].X}, Y= {line.BoundingBox[1].Y}");
+            Console.WriteLine($"      Lower right => X: {line.BoundingBox[2].X}, Y= {line.BoundingBox[2].Y}");
+            Console.WriteLine($"      Lower left => X: {line.BoundingBox[3].X}, Y= {line.BoundingBox[3].Y}");
+        }
+
+        for (int i = 0; i < page.SelectionMarks.Count; i++)
+        {
+            DocumentSelectionMark selectionMark = page.SelectionMarks[i];
+
+            Console.WriteLine($"  Selection Mark {i} is {selectionMark.State}.");
+            Console.WriteLine($"    Its bounding box is:");
+            Console.WriteLine($"      Upper left => X: {selectionMark.BoundingBox[0].X}, Y= {selectionMark.BoundingBox[0].Y}");
+            Console.WriteLine($"      Upper right => X: {selectionMark.BoundingBox[1].X}, Y= {selectionMark.BoundingBox[1].Y}");
+            Console.WriteLine($"      Lower right => X: {selectionMark.BoundingBox[2].X}, Y= {selectionMark.BoundingBox[2].Y}");
+            Console.WriteLine($"      Lower left => X: {selectionMark.BoundingBox[3].X}, Y= {selectionMark.BoundingBox[3].Y}");
+        }
+    }
+
+    foreach (DocumentStyle style in result.Styles)
+    {
+        // Check the style and style confidence to see if text is handwritten.
+        // Note that value '0.8' is used as an example.
+
+        bool isHandwritten = style.IsHandwritten.HasValue && style.IsHandwritten == true;
+
+        if (isHandwritten && style.Confidence > 0.8)
+        {
+            Console.WriteLine($"Handwritten content found:");
+
+            foreach (DocumentSpan span in style.Spans)
+            {
+                Console.WriteLine($"  Content: {result.Content.Substring(span.Offset, span.Length)}");
+            }
+        }
+    }
+
+    Console.WriteLine("The following tables were extracted:");
+
+    for (int i = 0; i < result.Tables.Count; i++)
+    {
+        DocumentTable table = result.Tables[i];
+        Console.WriteLine($"  Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+
+        foreach (DocumentTableCell cell in table.Cells)
+        {
+            Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) has kind '{cell.Kind}' and content: '{cell.Content}'.");
+        }
+    }
+
+    ```
+
+### General document model output
+
+Visit our Azure samples respositort on GitHub to  view the [General Document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-general-document-output.md).
+
+___
 
 ## Layout model
 
