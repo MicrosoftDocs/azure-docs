@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: tutorial
-ms.date: 03/08/2022
+ms.date: 03/14/2022
 ms.custom:
 ---
 
@@ -44,9 +44,7 @@ Enable the data source for access policies in Azure Purview by setting the **Dat
 
 ![Image shows how to register a data source for policy.](./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png)
 
-[!INCLUDE [Access policies generic registration](./includes/access-policies-registration-generic.md)]
-
-More here on [registering a data source for Data use governance](./how-to-enable-data-use-governance.md)
+Follow this link for more information and best practices related to [registering a data resource for Data use governance](./how-to-enable-data-use-governance.md)
 
 ## Create and publish a data owner policy
 Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides group *Contoso Team* *read* access to Storage account *marketinglake1*:
