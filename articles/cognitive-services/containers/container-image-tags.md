@@ -7,13 +7,16 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 09/09/2021
+ms.date: 03/14/2022
 ms.author: aahi
 ---
 
 # Azure Cognitive Services container image tags and release notes
 
 Azure Cognitive Services offers many container images. The container registries and corresponding repositories vary between container images. Each container image name offers multiple tags. A container image tag is a mechanism of versioning the container image. This article is intended to be used as a comprehensive reference for listing all the Cognitive Services container images and their available tags.
+
+> [!NOTE]
+> See [Form Recognizer container image tags and release notes](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-image-tags.md) for **Applied AI Services Form Recognizer** container tag information and updates.
 
 > [!TIP]
 > When using [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/), pay close attention to the casing of the container registry, repository, container image name and corresponding tag - as they are **case sensitive**.
@@ -166,8 +169,8 @@ Regular monthly upgrade
 Release note for `2.15.0-amd64`:
 
 **Fixes**
-* Fix container start issue that may occur when customer run it in some RHEL environments.
-* Fix model download nil error issue in some cases when customer download customized models.
+* Fix container start issue that may occur when customers run it in some RHEL environments.
+* Fix model download nil error issue in some cases when customers download customized models.
 
 Release note for `2.14.0-amd64`:
 
@@ -321,6 +324,11 @@ Since Speech-to-text v2.5.0, images are supported in the *US Government Virginia
 
 # [Latest version](#tab/current)
 
+Release note for `3.0.1-amd64-<locale>`:
+
+**Features**
+* Support new locale `uk-UA`.
+
 Release note for `3.0.0-amd64-<locale>`:
 
 **Features**
@@ -331,9 +339,13 @@ Note that due to the phrase lists feature, the size of this container image has 
 | Image Tags                    | Notes                                                                                                |
 |-------------------------------|:-----------------------------------------------------------------------------------------------------|
 | `latest`                      | Container image with the `en-US` locale.                                                             |
-| `3.0.0-amd64-<locale>`       | Replace `<locale>` with one of the available locales, listed below. For example `3.0.0-amd64-en-us`.|
+| `3.0.0-amd64-<locale>`        | Replace `<locale>` with one of the available locales, listed below. For example `3.0.0-amd64-en-us`. |
 
 This container has the following locales available.
+
+| Locale for v3.0.1           | Notes                                    | Digest                                                                    |
+|-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
+| `uk-ua`                     | Container image with the `uk-UA` locale. | `sha256:af8c370a7ed3e231a611ea37053e809fa7e52ea514c70f4c85f133c7b28a4fba` |
 
 | Locale for v3.0.0           | Notes                                    | Digest                                                                    |
 |-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|

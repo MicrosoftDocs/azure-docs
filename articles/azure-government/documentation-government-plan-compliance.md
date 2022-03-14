@@ -8,7 +8,7 @@ ms.custom: references_regions
 ms.author: stevevi
 author: stevevi
 recommendations: false
-ms.date: 01/28/2022
+ms.date: 03/07/2022
 ---
 
 # Azure Government compliance
@@ -40,7 +40,7 @@ For links to additional Azure Government compliance assurances, see [Azure compl
 - [Electronic Prescriptions for Controlled Substances (EPCS)](/azure/compliance/offerings/offering-epcs-us)
 - And many more US government, global, and industry standards
 
-For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
+For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
 > [!NOTE]
 >
@@ -56,12 +56,12 @@ For a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform se
 
 ## Audit documentation
 
-You can access Azure and Azure Government audit reports and related documentation via the [Service Trust Portal](https://servicetrust.microsoft.com) (STP) in the following sections:
+You can access Azure and Azure Government audit reports and related documentation from the [Service Trust Portal](https://servicetrust.microsoft.com) (STP) in the following sections:
 
 - STP [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3), which has a subsection for FedRAMP Reports.
 - STP [Data Protection Resources](https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3), which is further divided into Compliance Guides, FAQ and White Papers, and Pen Test and Security Assessments subsections.
 
-You must sign in to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](https://aka.ms/stphelp).
+You must sign in to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](/microsoft-365/compliance/get-started-with-service-trust-portal).
 
 Alternatively, you can access certain audit reports and certificates in the Azure or Azure Government portal by navigating to *Home > Security Center > Regulatory compliance > Audit reports* or using direct links based on your subscription (sign in required):
 

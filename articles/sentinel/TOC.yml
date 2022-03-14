@@ -17,8 +17,6 @@
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
-  - name: Integrate with Microsoft Defender for IoT
-    href: iot-solution.md
   - name: Write your first query with Kusto Query Language (Learn module)
     href: /learn/modules/write-first-query-kusto-query-language/
   - name: Get started with notebooks and MSTICPy
@@ -29,10 +27,22 @@
     href: monitor-key-vault-honeytokens.md
   - name: Build and monitor Zero Trust
     href: /security/zero-trust/integrate/sentinel-solution
+  - name: Integrate with Microsoft Defender for IoT
+    href: iot-solution.md
+  - name: Integrate with Azure Purview
+    href: purview-solution.md
 - name: Concepts
   items:
   - name: Microsoft Sentinel prerequisites
     href: prerequisites.md
+  - name: Costs and billing
+    items:
+    - name: Plan costs
+      href: billing.md
+    - name: Monitor costs
+      href: billing-monitor-costs.md
+    - name: Reduce costs
+      href: billing-reduce-costs.md
   - name: Best practices
     items:
     - name: Overview
@@ -47,8 +57,6 @@
     items:
     - name: Roles and permissions
       href: roles.md
-    - name: Costs and billing
-      href: billing.md
     - name: Extend Microsoft Sentinel across workspaces and tenants
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Security baseline
@@ -65,6 +73,8 @@
       href: connect-data-sources.md
     - name: Classifying data with entities
       href: entities.md
+    - name: Ingestion-time data transformation
+      href: data-transformation.md
   - name: Normalization with ASIM
     items:
     - name: ASIM overview
@@ -109,6 +119,10 @@
       href: watchlists.md
   - name: Threat hunting
     href: hunting.md
+  - name: Investigate
+    items:
+    - name: Investigate large datasets
+      href: investigate-large-datasets.md
   - name: SOAR
     items:
     - name: Orchestration, automation, and response
@@ -135,6 +149,8 @@
       href: resource-context-rbac.md
   - name: Migrate to Microsoft Sentinel
     href: migration.md
+  - name: Understand MITRE ATT&CK coverage
+    href: mitre-coverage.md
   - name: Manage Microsoft Sentinel content
     items:
     - name: Discover and deploy out-of-the-box content
@@ -162,6 +178,8 @@
       items:
       - name: Azure, Windows, and Microsoft connectors
         href: connect-azure-windows-microsoft-services.md
+      - name: AMA migration for Microsoft Sentinel
+        href: ama-migrate.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
       - name: Syslog (raw) sources
@@ -170,16 +188,18 @@
         href: connect-rest-api-template.md
       - name: Azure Functions API connection
         href: connect-azure-functions-template.md
+      - name: Connect using Logstash
+        href: connect-logstash.md
       - name: Custom log sources
         href: connect-custom-logs.md
       - name: Azure Virtual Desktop
         href: connect-azure-virtual-desktop.md
+    - name: Configure ingestion-time transformation
+      href: configure-data-transformation.md
     - name: Deploy a log forwarder
       href: connect-log-forwarder.md
     - name: Troubleshoot CEF/Syslog data collection
       href: troubleshooting-cef-syslog.md
-    - name: Connect using Logstash
-      href: connect-logstash.md
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Create a codeless connector
@@ -274,6 +294,10 @@
     items:
     - name: Investigate incidents
       href: investigate-cases.md
+    - name: Search large datasets
+      href: search-jobs.md
+    - name: Restore historical data
+      href: restore.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
     - name: Collaborate in Microsoft Teams
@@ -308,7 +332,7 @@
       href: sap-deploy-solution.md
     - name: Deployment requirements
       href: sap-solution-detailed-requirements.md
-    - name: Available SAP logs
+    - name: SAP solution data reference
       href: sap-solution-log-reference.md
     - name: SAP workbook, rules, and watchlists
       href: sap-solution-security-content.md
@@ -340,6 +364,8 @@
     items:
       - name: ASIM content
         href: normalization-content.md
+      - name: ASIM Common fields
+        href: normalization-common-fields.md 
       - name: ASIM schemas
         items:
         - name: ASIM authentication schema

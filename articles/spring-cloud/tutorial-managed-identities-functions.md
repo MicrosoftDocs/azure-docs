@@ -10,6 +10,8 @@ ms.date: 07/10/2020
 
 # Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Cloud app
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article shows you how to create a managed identity for an Azure Spring Cloud app and use it to invoke Http triggered Functions.
 
 Both Azure Functions and App Services have built in support for Azure Active Directory (Azure AD) authentication. By leveraging this built-in authentication capability along with Managed Identities for Azure Spring Cloud, we can invoke RESTful services using modern OAuth semantics. This method doesn't require storing secrets in code and provides more granular controls for controlling access to external resources.

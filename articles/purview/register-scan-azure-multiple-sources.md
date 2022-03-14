@@ -18,13 +18,13 @@ This article outlines how to register multiple Azure sources and how to authenti
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No| [Source Dependant](catalog-lineage-user-guide.md)|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| [Yes](tutorial-data-owner-policies-resource-group.md) | [Source Dependant](catalog-lineage-user-guide.md)|
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
@@ -34,13 +34,9 @@ This section describes how to register multiple Azure sources in Azure Purview u
 
 ### Prerequisites for registration
 
-You need to set up some authentication to be able to enumerate resources under a subscription or resource group.
+Azure Purview needs permissions to be able to list resources under a subscription or resource group.
 
-1. Go to the subscription or the resource group in the Azure portal.  
-1. Select **Access Control (IAM)** from the left menu.
-1. Select **+Add**.
-1. In the **Select input** box, select the **Reader** role and enter your Azure Purview account name (which represents its MSI file name). 
-1. Select **Save** to finish the role assignment.
+[!INCLUDE [Permissions to list resources](./includes/authentication-to-enumerate-resources.md)]
 
 ### Authentication for registration
 

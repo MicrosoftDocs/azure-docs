@@ -2,7 +2,7 @@
 title: What is Azure Video Analyzer for Media (formerly Video Indexer)?
 description: This article gives an overview of the Azure Video Analyzer for Media (formerly Video Indexer) service.
 ms.topic: overview
-ms.date: 01/04/2022
+ms.date: 02/15/2022
 ms.author: juliako
 ---
 
@@ -92,7 +92,7 @@ When indexing by one channel, partial result for those models will be available.
 
 * **Keywords extraction**: Extracts keywords from speech and visual text.
 * **Named entities extraction**: Extracts brands, locations, and people from speech and visual text via natural language processing (NLP).
-* **Topic inference**: Makes inference of main topics from transcripts. The 2nd-level IPTC taxonomy is included.
+* **Topic inference**: Extracts topics based on various keywords (i.e. keywords 'Stock Exchange', 'Wall Street' will produce the topic 'Economics'). The model uses three different ontologies ([IPTC](https://iptc.org/standards/media-topics/), [Wikipedia](https://www.wikipedia.org/) and the Video Indexer hierarchical topic ontology). The model uses transcription (spoken words), OCR content (visual text), and celebrities recognized in the video using the Video Indexer facial recognition model. 
 * **Artifacts**: Extracts rich set of "next level of details" artifacts for each of the models.
 * **Sentiment analysis**: Identifies positive, negative, and neutral sentiments from speech and visual text.
 

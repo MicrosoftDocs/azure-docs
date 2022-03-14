@@ -10,7 +10,8 @@ ms.subservice: mlops
 ms.reviewer: nibaccam
 ms.date: 12/16/2021
 ms.topic: how-to
-ms.custom: devx-track-python, mlflow
+ms.custom: devx-track-python, mlflow, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Track ML experiments and models with MLflow or the Azure Machine Learning CLI (v2) (preview)

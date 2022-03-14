@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Microsoft Azure Active Directory B2C Video Series 
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

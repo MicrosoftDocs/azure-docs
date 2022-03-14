@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 11/15/2021
+ms.date: 02/17/2022
 ms.author: madsd
 ---
 
@@ -78,6 +78,20 @@ You can set route tables without restriction. You can tunnel all of the outbound
 
 You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so exposes specific apps on that App Service Environment. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
 
+## Private endpoint
+
+In order to enable Private Endpoints for apps hosted in your App Service Environment, you must first enable this feature at the App Service Environment level.
+
+You can activate it through the Azure portal: in the App Service Environment configuration pane turn **on** the setting `Allow new private endpoints`.
+Alternatively the following CLI can enable it:
+
+```azurecli-interactive
+az appservice ase update --name myasename --allow-new-private-endpoint-connections true
+```
+
+For more information about Private Endpoint and Web App, see [Azure Web App Private Endpoint][privateendpoint] 
+
+
 ## DNS
 
 The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment.
@@ -117,3 +131,7 @@ While App Service Environment does deploy into your virtual network, there are a
 ## More resources
 
 - [Environment variables and app settings reference](../reference-app-settings.md)
+
+<!--Links-->
+[privateendpoint]: ../networking/private-endpoint.md
+ 
