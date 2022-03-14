@@ -193,7 +193,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |schemas.microsoft.com:443 |
 |management.core.windows.net:443 |
 |management.core.windows.net:80 |
-|management.Azure.com:443 |
+|management.azure.com:443 |
 |www.msftconnecttest.com:80 |
 |shavamanifestcdnprod1.azureedge.net:443 |
 |validation-v2.sls.microsoft.com:443 |
@@ -334,7 +334,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |azprofileruploads8.blob.core.windows.net:80 |
 |azprofileruploads9.blob.core.windows.net:80 |
 |azureprofilerfrontdoor.cloudapp.net:80 |
-|azurewatsonanalysis.usgovcloudapp.v:80 |
+|azurewatsonanalysis.usgovcloudapp.net:80 |
 |cacerts.digicert.com:80 |
 |client.wns.windows.com:80 |
 |crl.microsoft.com:80 |
