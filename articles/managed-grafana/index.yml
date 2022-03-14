@@ -20,3 +20,11 @@ landingContent:
         links:
           - text: What is Azure Managed Grafana?
             url: overview.md
+            
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Create a Managed Grafana workspace from the Azure portal
+            url: quickstart-managed-grafana-portal.md
+            
