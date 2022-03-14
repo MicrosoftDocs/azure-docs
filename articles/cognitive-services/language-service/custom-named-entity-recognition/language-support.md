@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 03/14/2022
 ms.custom: references_regions, language-service-custom-ner, ignite-fall-2021
 ms.author: aahi
 ---
@@ -29,8 +29,8 @@ With custom NER, you can train a model in one language and test in another langu
 Custom NER supports `.txt` files in the following languages:
 
 
-| **Language** | **Language Code** |
-| --- | --- |
+| Language | Language Code |
+| -- | -- |
 | Afrikaans | `af` |
 | Amharic | `am` |
 | Arabic | `ar` |

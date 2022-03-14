@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 03/14/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -29,8 +29,8 @@ With custom text classification, you can train a model in one language and test 
 Custom text classification supports `.txt` files in the following languages:
 
 
-| **Language** | **Language Code** |
-| --- | --- |
+| Language | Language Code |
+| -- | -- |
 | Afrikaans | `af` |
 | Amharic | `am` |
 | Arabic | `ar` |
