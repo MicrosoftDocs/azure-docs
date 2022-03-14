@@ -8,9 +8,9 @@ ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
 ---
 
-# Microsoft Sentinel built-in watchlist template schemas (Public preview)
+# Microsoft Sentinel built-in watchlist template schemas (preview)
 
-This article details the schemas used in each built-in watchlist template provided by Microsoft Sentinel. For more information, see [Create a new watchlist by using a template (Public preview)](watchlists-create.md#create-a-watchlist-by-using-a-template-public-preview).
+This article details the schemas used in each built-in watchlist template provided by Microsoft Sentinel. For more information, see [Create watchlists in Microsoft Sentinel](watchlists-create.md).
 
 The Microsoft Sentinel watchlist templates are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 

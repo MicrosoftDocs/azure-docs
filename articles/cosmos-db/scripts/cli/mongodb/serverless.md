@@ -27,7 +27,7 @@ The script in this article demonstrates creating a MongoDB API serverless accoun
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/mongodb/serverless.sh" range="4-45":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/mongodb/serverless.sh" id="FullScript":::
 
 ## Clean up resources
 

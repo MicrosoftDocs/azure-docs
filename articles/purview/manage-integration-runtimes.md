@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/27/2022
+ms.date: 03/14/2022
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -135,11 +135,11 @@ Here are the domains and outbound ports that you need to allow at both **corpora
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net` | 443            | Required for interactive authoring, for example, test connection on Azure Purview Studio. Currently wildcard is required as there is no dedicated resource. |
 | `*.frontend.clouddatahub.net` | 443 | Required to connect to the Azure Purview service. Currently wildcard is required as there is no dedicated resource. |
+| `*.servicebus.windows.net` | 443            | Required for setting up scan on Azure Purview Studio. This endpoint is used for interactive authoring from UI, for example, test connection, browse folder list and table list to scope scan. Currently wildcard is required as there is no dedicated resource. |
+| `<purview_account>.purview.azure.com` | 443 | Required to connect to Azure Purview service. |
 | `<managed_storage_account>.blob.core.windows.net` | 443 | Required to connect to the Azure Purview managed Azure Blob storage account. |
 | `<managed_storage_account>.queue.core.windows.net` | 443 | Required to connect to the Azure Purview managed Azure Queue storage account. |
-| `<managed_Event_Hub_resource>.servicebus.windows.net` | 443            | Azure Purview uses this to connect with the associated service bus. It's covered by allowing the above domain. If you use private endpoint, you need to test access to this single domain.|
 | `download.microsoft.com` | 443           | Required to download the self-hosted integration runtime updates. If you have disabled auto-update, you can skip configuring this domain. |
 | `login.windows.net`<br>`login.microsoftonline.com` | 443 | Required to sign in to the Azure Active Directory. |
 

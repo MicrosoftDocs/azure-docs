@@ -337,15 +337,15 @@ In this example the policy routes the request to a service fabric backend, using
 ```
 
 #### Filter response based on product
- This example shows how to perform content filtering by removing data elements from the response received from the backend service when using the `Starter` product. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 34:30. Start  at 31:50 to see an overview of [The Dark Sky Forecast API](https://developer.forecast.io/) used for this demo.
+ This example shows how to perform content filtering by removing data elements from the response received from a backend service when using the `Starter` product. The example backend response includes root-level properties similar to the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api). 
 
 ```xml
-<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
+<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the product -->
 <choose>
   <when condition="@(context.Response.StatusCode == 200 && context.Product.Name.Equals("Starter"))">
     <set-body>@{
         var response = context.Response.Body.As<JObject>();
-        foreach (var key in new [] {"minutely", "hourly", "daily", "flags"}) {
+        foreach (var key in new [] {"current", "minutely", "hourly", "daily", "alerts"}) {
           response.Property (key).Remove ();
         }
         return response.ToString();
@@ -479,7 +479,7 @@ OriginalUrl.
 
 
 #### Forward context information to the backend service
- This example shows how to apply policy at the API level to supply context information to the backend service. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 10:30. At 12:10 there is a demo of calling an operation in the developer portal where you can see the policy at work.
+ This example shows how to apply policy at the API level to supply context information to the backend service.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -495,7 +495,7 @@ OriginalUrl.
 > Multiple values of a header are concatenated to a CSV string, for example:
 > `headerName: value1,value2,value3`
 >
-> Exceptions include standardized headers, which values:
+> Exceptions include standardized headers whose values:
 > - may contain commas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
 > - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
@@ -548,7 +548,7 @@ OriginalUrl.
 ```
 
 #### Forward context information to the backend service
- This example shows how to apply policy at the API level to supply context information to the backend service. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 10:30. At 12:10 there is a demo of calling an operation in the developer portal where you can see the policy at work.
+ This example shows how to apply policy at the API level to supply context information to the backend service.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
