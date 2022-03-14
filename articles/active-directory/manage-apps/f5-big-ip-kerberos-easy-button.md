@@ -2,14 +2,14 @@
 title: Configure F5 BIG-IP Easy Button for Kerberos SSO
 description: Learn to implement Secure Hybrid Access (SHA) with Single Sign-on to Kerberos applications using F5’s BIG-IP Easy Button guided configuration..
 services: active-directory
-author: KarenH444
+author: CelesteDG
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 12/20/2021
-ms.author: karenhoran
+ms.author: celested
 ms.collection: M365-identity-device-management
 ---
 
