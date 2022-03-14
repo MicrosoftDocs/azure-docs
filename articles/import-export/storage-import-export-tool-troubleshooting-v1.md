@@ -3,11 +3,10 @@ title: Troubleshooting import and export issues in Azure Import/Export | Microso
 description: Learn how to handle common issues when using Azure Import/Export.
 author: v-dalc
 services: storage
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: troubleshooting
-ms.date: 01/25/2022
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
 ---
 
 # Troubleshoot issues in Azure Import/Export

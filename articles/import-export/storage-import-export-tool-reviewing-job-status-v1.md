@@ -3,11 +3,11 @@ title: Use logs to troubleshoot imports and exports via Azure Import/Export | Mi
 description: Learn how to review error/copy logs from imports and exports for data copy, upload issues.
 author: v-dalc
 services: storage
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: how-to
-ms.date: 12/27/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
+
 ---
 
 # Use logs to troubleshoot imports and exports via Azure Import/Export

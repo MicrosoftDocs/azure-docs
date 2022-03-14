@@ -3,11 +3,10 @@ title: Tutorial to import data to Azure Blob Storage with Azure Import/Export se
 description: Learn how to create import and export jobs in Azure portal to transfer data to and from Azure Blobs.
 author: alkohli
 services: storage
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: tutorial
-ms.date: 12/27/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
 # Tutorial: Import data to Blob Storage with Azure Import/Export service
