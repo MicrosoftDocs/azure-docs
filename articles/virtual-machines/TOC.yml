@@ -737,7 +737,7 @@
         href: ./windows/ps-template.md
       - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
-  - name: Delete a VM and it's resources
+  - name: Delete a VM and its resources
     href: delete.md
   - name: Connect to Virtual Machines
     items:
