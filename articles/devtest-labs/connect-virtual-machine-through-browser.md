@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 03/14/2022
 ---
 
-# Connect to DevTest Labs VMs through a browser
+# Connect to DevTest Labs VMs through a browser with Azure Bastion
 
 This article describes how to connect to DevTest Labs virtual machines (VMs) through a browser by using [Azure Bastion](../bastion/index.yml). Azure Bastion provides secure remote desktop protocol (RDP) or secure shell (SSH) access without using public IP addresses or exposing RDP or SSH ports to the internet.
 

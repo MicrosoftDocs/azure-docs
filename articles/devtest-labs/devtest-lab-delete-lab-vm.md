@@ -5,13 +5,13 @@ ms.topic: how-to
 ms.date: 03/14/2022
 ---
 
-# Delete a lab VM or lab in Azure DevTest Labs
+# Delete labs or lab VMs in Azure DevTest Labs
 
 This article shows you how to delete a virtual machine (VM) from a lab or delete a lab in Azure DevTest Labs.
 
-## Delete a lab VM
+## Delete a VM from a lab
 
-When you create a lab VM, DevTest Labs automatically creates resources for the VM, like a disk, network interface, and public IP address, in a separate resource group. Deleting the VM deletes most of the resources created at VM creation, including the VM, network interface, and disk. However, deleting the VM doesn't delete:
+When you create a VM in a lab, DevTest Labs automatically creates resources for the VM, like a disk, network interface, and public IP address, in a separate resource group. Deleting the VM deletes most of the resources created at VM creation, including the VM, network interface, and disk. However, deleting the VM doesn't delete:
 
 - Any resources you manually created in the VM's resource group.
 - The VM's key vault in the lab's resource group.
