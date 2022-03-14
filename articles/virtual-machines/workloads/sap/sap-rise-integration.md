@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/10/2022
+ms.date: 03/14/2022
 ms.author: robiro
 
 ---
@@ -44,7 +44,7 @@ Since SAP RISE/ECS runs in SAP’s Azure tenant and subscriptions, the virtual n
 
 As an alternative to vnet peering, virtual private network (VPN) connection can be established between VPN gateways, deployed both in the SAP RISE/ECS subscription and customers own. A vnet-to-vnet connection will be established between these two VPN gateways, enabling fast communication between the two separate vnets. The respective vnets and gateways can be located in different Azure regions.
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-vpn.png" alt-text="SAP RISE/ECS VPN connection to customer vnet":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-vpn.png" alt-text="Diagram ofSAP RISE/ECS VPN connection to customer vnet.":::
    This diagram shows a typical SAP customer's hub and spoke virtual networks. VPN gateway located in SAP RISE vnet connects through vnet-to-vnet connection into gateway contained in customer's hub vnet.
 :::image-end:::
 
@@ -56,7 +56,7 @@ Network Security Groups are in effect on both customer and SAP vnet, identically
 
 With an existing customer Azure deployment, on-premise network is already connected through ExpressRoute (ER) or VPN. The same on-premise network path is typically used for SAP RISE/ECS managed workloads. Preferred architecture is to use existing ER/VPN Gateways in customer’s hub vnet for this purpose, with connected SAP RISE vnet seen as a spoke network connected to customer’s vnet hub.
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-onprem.png" alt-text="Example of SAP RISE/ECS as spoke network peered to customer's vnet hub and on-premise":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-on-premises.png" alt-text="Example diagram of SAP RISE/ECS as spoke network peered to customer's vnet hub and on-premise.":::
    This diagram shows a typical SAP customer's hub and spoke virtual networks. It's connected to on-premise with a connection. Cross tenant virtual network peering connects SAP RISE vnet to customer's hub vnet. The vnet peering has remote gateway transit enabled, enabling SAP RISE vnet to be accessed from on-premise.
 :::image-end:::
 
@@ -80,7 +80,7 @@ Integration of customer owned networks with Cloud-based infrastructure and provi
 
 This diagram describes one of the common integration scenarios of SAP owned subscriptions, VNets and DNS infrastructure with customer’s local network and DNS services. In this setup on-premise DNS servers are holding all DNS entries. The DNS infrastructure is capable to resolve DNS requests coming from all sources (on-premise clients, customer’s Azure services and SAP managed environments).
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-dns.png" alt-text="DNS integration between SAP RISE/ECS on Azure, custom DNS in Hub VNet and on-prem DNS":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-dns.png" alt-text="Diagram of DNS integration between SAP RISE/ECS on Azure, custom DNS in Hub VNet and on-prem DNS.":::
    This diagram shows a typical SAP customer's hub and spoke virtual networks. Cross-tenant virtual network peering connects SAP RISE vnet to customer's hub vnet. On-premise connectivity is provided from customer's hub. DNS servers are located both within customer's hub vnet as well as SAP RISE vnet, with DNS zone transfer between them. DNS Queries from customer's VMs query the customer's DNS servers.
 :::image-end:::
 
@@ -110,7 +110,7 @@ SAP workloads communicating with external applications or inbound connections fr
 
 Should you enable Internet bound or incoming traffic with your SAP representatives, the network communication is protected through various Azure technologies such as NSGs, ASGs, Application Gateway with Web Application Firewall (WAF), proxy servers and others. These services are entirely managed through SAP within the SAP RISE/ECS vnet and subscription. The network path SAP RISE/ECS to and from Internet remains typically within the SAP RISE/ECS vnet only and does not transit into/from customer’s own vnet(s).
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-internet.png" alt-text="Internet outbound/inbound connections with SAP RISE/ECS":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-internet.png" alt-text="Diagram of Internet outbound/inbound connections with SAP RISE/ECS.":::
    This diagram shows a typical SAP customer's hub and spoke virtual networks. Cross-tenant virtual network peering connects SAP RISE vnet to customer's hub vnet. On-premise connectivity is provided from customer's hub. SAP Cloud Connector VM from SAP RISE vnet connects through Internet to SAP BTP. Another SAP Cloud Connector VM connects through Internet to SAP BTP, with internet inbound and outbound connectivity facilitated by customer's hub vnet.
 :::image-end:::
 
@@ -124,3 +124,10 @@ Customer services running in their Azure subscriptions access them either direct
 SAP has a [preview program](https://help.sap.com/products/PRIVATE_LINK/42acd88cb4134ba2a7d3e0e62c9fe6cf/3eb3bc7aa5db4b5da9dcdbf8ee478e52.html) in operation for SAP Private Link Service for customers using SAP BTP on Azure. The SAP Private Link Service exposes SAP BTP services through a private IP range to customer’s Azure network and thus accessible privately through previously described vnet peering or VPN site-to-site connections instead of through the Internet.
 
 See a series of blog posts on the architecture of the SAP BTP Private Link Service and private connectivity methods, dealing with DNS and certificates in following SAP blog series [Getting Started with BTP Private Link Service for Azure](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure/)
+
+## Next steps
+Check out the documentation:
+
+- [SAP workloads on Azure: planning and deployment checklist](./sap-deployment-checklist.md)
+- [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md)
+- [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md)
