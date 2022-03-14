@@ -20,6 +20,8 @@ As the IoT Edge for Linux on Windows (EFLOW) application releases new versions, 
 
 With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and has no package manager, so you cannot manually update or change any of the VM components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically.
 
+The EFLOW virtual machine is designed to be reliably updated via Microsoft Update. The virtual machine operating system has an A/B update partition scheme to utilize a subset of those to make each update safe and enable a roll-back to a previous version if anything goes wrong.
+
 Each update consists of three components that may get updated to latest versions. The first is the IoT Edge runtime and security daemon, which is updated following the IoT Edge releases to keep the newest version available. For more information about IoT Edge updates, see [IoT Edge updates](./how-to-update-iot-edge.md). 
 
 The second component is the virtual machine base operating system. The EFLOW virtual machine is based on [Microsoft CBL-Mariner](https://github.com/microsoft/CBL-Mariner) and each update will provide performance and security fixes to keep the OS with the latest CVE patches. As part of the EFLOW Release notes, the version will indicate the CBL-Mariner version used, and users can check the [CBL-Mariner Releases](https://github.com/microsoft/CBL-Mariner/releases) to get the list of CVEs fixed for each version. 
