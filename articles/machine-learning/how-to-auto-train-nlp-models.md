@@ -33,7 +33,16 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
    > [!Warning]
    > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
   
-* In order to utilize this new feature with our SDK, please follow the setup instruction on [this page](https://github.com/ZeratuuLL/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml). That would be enough to start AutoML DNN-NLP runs with jupyter notebook. If you would like to explore more about our DNN-NLP module, you can do ``` pip install azureml-automl-dnn-nlp ```
+* The Azure Machine Learning Python SDK installed. If you would like to explore more about the NLP specific package, you can do ``` pip install azureml-automl-dnn-nlp ```. 
+    To install the SDK you can either, 
+    * Create a compute instance, which automatically installs the SDK and is preconfigured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
+
+    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+
+    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+    
+    > [!WARNING]
+    > Python 3.8 is not compatible with `automl`. 
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
@@ -140,14 +149,15 @@ NER only | <li> The file should not start with an empty line. <li> Each line mus
    
 ## Configure experiment
 
-AutoML's DNN NLP capability is triggered through `AutoMLConfig`, which is the same as our main AutoML service. You would set most of the parameters as you would do in AutoML today, such as `primary_metric`, `compute_target`, and `label_column_name` etc. Here we only highlight the most important parameters. For more details on configuration options, see the [example notebooks](#example-notebooks). 
+Automated ML's NLP capability is triggered through `AutoMLConfig`, which is the same workflow for submitting automated ML experiments for classification, regression and forecasting tasks. You would set most of the parameters as you would for those experiments, such as `task`, `compute_target` and data inputs. 
+
+However, there are key differences include: 
+* You can ignore `primary_metric`, as it is only for reporting purpose. Currently, automated ML only trains one model per run for NLP and there is no model selection.
+* The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks. 
+
 
 ```python
 automl_settings = {
-    "iterations": 1,
-    "primary_metric": "accuracy",
-    "max_concurrent_iterations": 1,
-    "featurization": "auto",
     "verbosity": logging.INFO,
 }
 
