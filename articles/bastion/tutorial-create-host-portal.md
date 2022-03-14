@@ -150,7 +150,13 @@ This is the public IP address of the Bastion host resource on which RDP/SSH will
 1. At the bottom of the page, select **Create**.
 1. You'll see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 10 minutes for the Bastion resource to be created and deployed.
 
-## Connect to a VM
+## <a name="connect"></a>Connect to a VM
+
+You can use the [Connection steps](#steps) in the section below to connect to your VM. You can also use any of the following articles to connect to a VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus).
+
+[!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-table.md)]
+
+### <a name="steps"></a>Connection steps
 
 [!INCLUDE [Connect to a VM](../../includes/bastion-vm-connect.md)]
 
@@ -158,7 +164,7 @@ This is the public IP address of the Bastion host resource on which RDP/SSH will
 
 [!INCLUDE [Enable VM audio output](../../includes/bastion-vm-audio.md)]
 
-## Remove VM public IP address
+## <a name="ip"></a>Remove VM public IP address
 
 [!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 

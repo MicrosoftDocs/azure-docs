@@ -42,10 +42,10 @@ Azure Bastion is a PaaS service that's maintained for you, not a bastion host th
 
   * 3389 for Windows VMs
   * 22 for Linux VMs
- 
- > [!NOTE]
- > The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
- >
+
+> [!NOTE]
+> The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
+>
 
 ### <a name="values"></a>Example values
 
@@ -122,7 +122,7 @@ When you're done using the virtual network and the virtual machines, delete the 
 
 ## Next steps
 
-In this quickstart, you deployed Bastion to your virtual network, and then connected to a virtual machine securely via Bastion. Next, you can continue with the following step if you want to connect to a virtual machine scale set.
+In this quickstart, you deployed Bastion to your virtual network, and then connected to a virtual machine securely via Bastion. Next, you can continue with the following steps if you want to copy and paste to your VM.
 
 > [!div class="nextstepaction"]
-> [Connect to a virtual machine scale set using Azure Bastion](bastion-connect-vm-scale-set.md)
+> [Copy and paste to a Windows VM](bastion-vm-copy-paste.md)
