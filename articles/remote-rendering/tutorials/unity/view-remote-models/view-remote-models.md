@@ -725,15 +725,6 @@ public void DisconnectRuntimeFromRemoteSession()
     ARRSessionService.CurrentActiveSession.ConnectionStatusChanged -= OnLocalRuntimeStatusChanged;
     CurrentCoordinatorState = RemoteRenderingState.RemoteSessionReady;
 }
-
-/// <summary>
-/// The session must have its runtime pump updated.
-/// The Connection.Update() will push messages to the server, receive messages, and update the frame-buffer with the remotely rendered content.
-/// </summary>
-private void LateUpdate()
-{
-    ARRSessionService?.CurrentActiveSession?.Connection?.Update();
-}
 ```
 
 > [!NOTE]

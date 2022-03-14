@@ -117,11 +117,11 @@ For full implementation details, see our fork of [PetClinic](https://github.com/
 ### [Basic/Standard tier](#tab/basic-standard-tier)
 
 > [!div class="nextstepaction"]
-> [Provision Azure Spring Cloud instance](./quickstart-provision-service-instance.md)
+> [Quickstart: Provision an Azure Spring Cloud service instance](./quickstart-provision-service-instance.md)
 
 ### [Enterprise tier](#tab/enterprise-tier)
 
 > [!div class="nextstepaction"]
-> [Provision Azure Spring Cloud instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
+> [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
 
 ---

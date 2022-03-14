@@ -5,7 +5,7 @@ author: yanivlavi
 ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 2/23/2022
 ---
 
 # Webhook actions for log alert rules

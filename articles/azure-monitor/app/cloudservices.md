@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-
 ---
 
 # Application Insights for Azure cloud services
