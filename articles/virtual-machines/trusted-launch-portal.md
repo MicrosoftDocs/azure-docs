@@ -156,6 +156,25 @@ You can deploy trusted launch VMs using a quickstart template:
 
 ## Deploy a trusted launch VM from an Azure Compute Gallery Image
 
+### [Portal](#tab/portal)
+
+1. Sign in to the Azure [portal](https://portal.azure.com).
+2. To create an Azure Compute Gallery Image from a VM, open an existing Trusted launch VM and select **Capture**.
+3. In the Create an Image page that follows, allow the image to be shared to the gallery as a VM image version as Managed Images are not supported for Trusted Launch.
+4. Create a new Target Azure Compute Gallery or select an existing gallery.
+5. Select the Operating system state as either **Generalized** or **Specialized**.
+6. Create a new Target Image Definition by providing a name, publisher, offer and SKU details. Note that the Security Type of the image definition is already set to 'Trusted launch'.
+7. Provide a version number for the image version.
+8. Modify replication options if required.
+9. At the bottom of the **Create an Image** page, select **Review + Create** and when validation shows as passed, select **Create**.
+10. Once the image version is created, go the image version directly. Alternatively, you can navigate to the required image version through the Image Definition.
+11. On the **VM image version** page, select the **+ Create VM** to land on the Create a virtual machine page.
+12. In the Create a virtual machine page, under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
+13. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#limitations).
+14. Note that the image and the security type are already populated based on the selected image version. The **Secure Boot** and **vTPM** checkboxes are enabled by default.
+15. Fill in the **Administrator account** information and then **Inbound port rules**.
+16. At the bottom of the page, select **Review + Create**
+17. On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
 
 ### [CLI](#tab/cli)
 
