@@ -82,11 +82,11 @@ In some scenarios with restricted or limited internet connectivity, you may want
 :::moniker range="iotedge-2018-06"
 ## Special case: Migration from HCS to VMMS on Server SKUs
 
-If you're updating a Windows Server SKU device previous to 1.1.2110.03111 version of IoT Edge for Linux on Windows to the latest available version, you need to do a manual migration.
+If you're updating a Windows Server SKU device previous to [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2110.03111) version of IoT Edge for Linux on Windows to the latest available version, you need to do a manual migration.
 
 Update [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2110.03111) introduced a change to the VM technology (HCS to VMMS) used for EFLOW Windows Server deployments. You can execute the VM migration with the following steps:
 
- 1. Using Microsoft Update, download and install the 1.1.2110.03111 update (same as any other EFLOW update, no need for manual steps as long as EFLOW updates are turned on).
+ 1. Using Microsoft Update, download and install the [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2110.03111) update (same as any other EFLOW update, no need for manual steps as long as EFLOW updates are turned on).
  2. Once EFLOW update is finished, open an elevated PowerShell session.
  3. Run the migration script:
 
