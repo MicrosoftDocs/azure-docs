@@ -3,7 +3,6 @@ title: Application Insights availability tests
 description: Set up recurring web tests to monitor availability and responsiveness of your app or website.
 ms.topic: conceptual
 ms.date: 07/13/2021
-
 ---
 
 # Application Insights availability tests
@@ -25,6 +24,9 @@ There are four types of availability tests:
 > Both the [URL ping test](monitor-web-app-availability.md) and the [multi-step web test](availability-multistep.md) rely on the DNS infrastructure of the public internet to resolve the domain names of the tested endpoints. If you're using private DNS, you must ensure that the public domain name servers can resolve every domain name of your test. When that's not possible, you can use [custom TrackAvailability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) instead.
 
 You can create up to 100 availability tests per Application Insights resource.
+
+> [!NOTE]
+> Availability tests are stored encrypted, according to [Microsoft Azure Data Encryption at rest](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) policies.
 
 ## Troubleshooting
 

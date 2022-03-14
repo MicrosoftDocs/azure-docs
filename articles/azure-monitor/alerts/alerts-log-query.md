@@ -4,7 +4,7 @@ description:  Recommendations for writing efficient alert queries
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 2/23/2022
 ---
 # Optimizing log alert queries
 This article describes how to write and convert [Log Alert](./alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.

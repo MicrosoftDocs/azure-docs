@@ -1,12 +1,12 @@
 ---
 title: Use Azure AD Domain Services to authorize access to file data over SMB
 description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Azure Active Directory Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using Azure AD credentials.
-author: roygara
+author: khdownie
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/14/2022
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 ---

@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management training videos
-description: Microsoft CloudKnox Permissions Management training videos.
+title: CloudKnox Permissions Management training videos
+description: CloudKnox Permissions Management training videos.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,15 +8,16 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 03/09/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management training videos
+# CloudKnox Permissions Management training videos
 
-To view step-by-step training videos on how to use CloudKnox features, select a link below.
+To view step-by-step training videos on how to use CloudKnox Permissions Management (CloudKnox) features, select a link below.
 
-### Enable CloudKnox in your Azure Active Directory (Azure AD) tenant
+
+## Enable CloudKnox in your Azure Active Directory (Azure AD) tenant
 
 To view a video on how to enable CloudKnox in your Azure AD tenant, select
 [Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).

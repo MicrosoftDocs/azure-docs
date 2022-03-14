@@ -265,6 +265,8 @@ You use Speech-to-text recognition when you need to identify the language in an 
 
 > [!NOTE]
 > Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
+> 
+> Currently for speech-to-text recognition with continuous language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -652,7 +654,8 @@ You use Speech translation when you need to identify the language in an audio so
 
 > [!NOTE]
 > Speech translation with language identification is only supported with Speech SDKs in C#, C++, and Python. 
-
+> 
+> Currently for speech translation with language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 
 ::: zone pivot="programming-language-csharp"
 
