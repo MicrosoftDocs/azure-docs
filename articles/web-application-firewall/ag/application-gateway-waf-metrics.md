@@ -10,7 +10,7 @@ ms.date: 03/11/2022
 ms.author: olotolor
 ---
 
-# Azure Web Application Firewall monitoring and logging
+# Azure Web Application Firewall Monitoring and Logging
 
 Azure Web Application Firewall (WAF) monitoring and logging are provided through logging and integration with Azure Monitor and Azure Monitor logs
 
