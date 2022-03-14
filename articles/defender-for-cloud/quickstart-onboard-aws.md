@@ -141,6 +141,8 @@ Additional extensions should be enabled on Arc-connected machines. These extensi
 
     > [!Note] 
     > Azure Arc-enabled Kubernetes, the Defender Arc extension, and the Azure Policy Arc extension should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
+    >
+    > Before you enable the Defender for Containers plan, you must ensure you have fulfilled the [prerequisites](defender-for-containers-enable.md?tabs=defender-for-container-eks#network-requirements). 
 
 1. Select **Next: Configure access**.
 
