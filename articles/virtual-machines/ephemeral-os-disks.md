@@ -71,7 +71,7 @@ With this feature, when a Windows VM is provisioned, we configure the pagefile t
 - Azure Site Recovery  
 - OS Disk Swap 
 
- ## Preview - Trusted Launch for Ephemeral OS disks
+ ## Trusted Launch for Ephemeral OS disks (Preview)
 Ephemeral OS disks can be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [here](trusted-launch.md#limitations) for supported sizes and regions.
 VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
@@ -150,4 +150,4 @@ A: Yes, you can create VMs with Ephemeral OS Disk using REST, Templates, PowerSh
 > 
  
 ## Next steps
-You can create a VM with an ephemeral OS disk using the [Azure CLI](/cli/azure/vm#az_vm_create).
+You can create a VM with an ephemeral OS disk using the [Azure Portal/CLI/Powershell/ARM template](ephemeral-os-disks-how-to-ps-cli-portal.md).
