@@ -67,10 +67,9 @@ For OS types that release patches on a fixed cadence, VMs configured to the publ
 As a new rollout is triggered every month, a VM will receive at least one patch rollout every month if the VM is powered on during off-peak hours. This process ensures that the VM is patched with the latest available security and critical patches on a monthly basis. To ensure consistency in the set of patches installed, you can configure your VMs to assess and download patches from your own private repositories.
 
 ## Supported OS images
-Only VMs created from certain OS platform images are currently supported. Custom images are currently not supported.
 
-> [!NOTE]
-> Patch orchestration modes and automatic guest VM patching are only supported for VMs created from the below OS platform images (more are added periodically).  Custom images are currently not supported.
+> [!IMPORTANT]
+> Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the below supported OS images list. Custom images or any other publisher, offer, sku combinations are not supported. More images are added periodically.
 
 
 | Publisher               | OS Offer      |  Sku               |
@@ -92,9 +91,6 @@ Only VMs created from certain OS platform images are currently supported. Custom
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
-
-> [!NOTE]
->Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the supported OS images list. Custom images or any other publisher, offer, sku combinations are not supported.
 
 ## Patch orchestration modes
 VMs on Azure now support the following patch orchestration modes:
