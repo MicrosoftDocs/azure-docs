@@ -4,7 +4,7 @@ description: This article describes the Azure Application Gateway WAF monitoring
 services: appgateway
 author: tobystic
 manager: gunjan.jain 
-ms.service: azure-web-application-firewall
+ms.service: web-application-firewall
 ms.topic: how-to
 ms.date: 03/11/2022
 ms.author: olotolor
