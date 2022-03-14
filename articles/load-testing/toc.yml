@@ -29,7 +29,7 @@
     - name: Compare test runs
       href: how-to-compare-multiple-test-runs.md
     - name: Configure server-side monitoring
-      href: how-to-update-rerun-test.md
+      href: how-to-monitor-server-side-metrics.md
     - name: Configure for high scale loads
       href: how-to-high-scale-load.md
     - name: Troubleshoot test execution errors

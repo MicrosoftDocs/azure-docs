@@ -18,11 +18,11 @@ By default, the Self Hosted Integration Runtime’s diagnostic and performance t
 
 ## Event logs
 
-When logged on locally to the Self Hosted Integration Runtime, specific events can be viewed using the [event viewer](/windows/win32/eventlog/viewing-the-event-log.md). The relevant events are captured in two event viewer journals named: **Connectors – Integration Runtime** and **Integration Runtime** respectively. While it’s possible to log on to to the Self Hosted Integration Runtime hosts individually to view these events, it's also possible to stream these events to a Log Analytics workspace in Azure monitor for ease of query and centralization purposes.
+When logged on locally to the Self Hosted Integration Runtime, specific events can be viewed using the [event viewer](/windows/win32/eventlog/viewing-the-event-log). The relevant events are captured in two event viewer journals named: **Connectors – Integration Runtime** and **Integration Runtime** respectively. While it’s possible to log on to to the Self Hosted Integration Runtime hosts individually to view these events, it's also possible to stream these events to a Log Analytics workspace in Azure monitor for ease of query and centralization purposes.
 
 ## Performance counters
 
-Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications such as the Self Hosted Integration Runtime. The performance counters can be viewed and collected locally on the VM using the performance monitor tool. See the article on [using performance counters](/windows/win32/perfctrs/using-performance-counters.md) for more details. 
+Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications such as the Self Hosted Integration Runtime. The performance counters can be viewed and collected locally on the VM using the performance monitor tool. See the article on [using performance counters](/windows/win32/perfctrs/using-performance-counters) for more details. 
 
 ## Centralize log collection and analysis
 
