@@ -196,6 +196,13 @@ The [ALTER LOGIN (Transact-SQL)](/sql/t-sql/statements/alter-login-transact-sql?
 ALTER LOGIN [bob@contoso.com] DISABLE
 ```
 
+For the `DISABLE` or `ENABLE` changes to take immediate effect, the authentication cache and the **TokenAndPermUserStore** cache must be cleared using the following T-SQL commands:
+
+```sql
+DBCC FLUSHAUTHCACHE
+DBCC FREESYSTEMCACHE('TokenAndPermUserStore') WITH NO_INFOMSGS 
+```
+
 Check that the login has been disabled by executing the following query:
 
 ```sql

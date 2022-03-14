@@ -45,7 +45,7 @@ New syntax for Azure SQL Database to use Azure AD server principals has been int
 ### Create login syntax
 
 ```syntaxsql
-CREATE LOGIN login_name { FROM EXTERNAL PROVIDER [WITH OBJECT_ID = 'objectid'] | WITH <option_list> [,..] }  
+CREATE LOGIN login_name { FROM EXTERNAL PROVIDER | WITH <option_list> [,..] }  
 
 <option_list> ::=      
     PASSWORD = {'password'}   
@@ -54,19 +54,19 @@ CREATE LOGIN login_name { FROM EXTERNAL PROVIDER [WITH OBJECT_ID = 'objectid'] |
 
 The *login_name* specifies the Azure AD principal, which is an Azure AD user, group, or application.
 
-For more information, see [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true). More information about the `WITH OBJECT_ID` clause is explained in [the section below](#azure-ad-logins-and-users-with-non-unique-display-names).
+For more information, see [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true).
 
 ### Create user syntax
 
 The below T-SQL syntax is already available in SQL Database, and can be used for creating database-level Azure AD principals mapped to Azure AD logins in the virtual master database.
 
-To create an Azure AD user from an Azure AD login, use the following syntax:
+To create an Azure AD user from an Azure AD login, use the following syntax. Only the Azure AD admin can execute this command in the virtual master database.
 
 ```syntaxsql
 CREATE USER user_name FROM LOGIN login_name
 ```
 
-For more information, see [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql). More information about the `WITH OBJECT_ID` clause is explained in [the section below](#azure-ad-logins-and-users-with-non-unique-display-names).
+For more information, see [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql).
 
 ### Disable or enable a login using ALTER LOGIN syntax
 
@@ -97,64 +97,6 @@ The Azure AD principal `login_name` won't be able to log into any user database 
 
 For a tutorial on how to grant these roles, see [Tutorial: Create and utilize Azure Active Directory server logins](authentication-azure-ad-logins-tutorial.md).
 
-## Azure AD logins and users with non-unique display names
-
-Using the display name of a service principal that isn't unique in Azure AD leads to errors when creating the login or user in Azure SQL. For example, if `myapp` isn't unique, you may run into the following error when executing the following query:
-
-```sql
-CREATE LOGIN [myapp] FROM EXTERNAL PROVIDER 
-```
-
-```output
-Msg 33131, Level 16, State 1, Line 4 
-Principal 'myapp' has a duplicate display name. Make the display name unique in Azure Active Directory and execute this statement again. 
-```
-
-> [!NOTE]
-> The same error would happen with `CREATE USER` with a non-unique name.
-
-This happens because it is possible to create Azure AD resources with the same display names. For example, creating an [Azure AD application (service principal)](authentication-aad-service-principal.md) or Azure AD group with the same name. In this release, we're also introducing the ability to create logins and users using the **Object ID** of the Azure resource. 
-
-```sql
-CREATE LOGIN login_name FROM EXTERNAL PROVIDER WITH OBJECT_ID = 'objectid'
-```
-
-- To execute the above query, the specified Object ID must exist in Azure AD where the Azure SQL resource resides. Otherwise, the `CREATE` command will fail.
-- Most non-unique display names in Azure AD are related to service principals. Group names can also be non-unique as well. All Azure AD user display names are unique. 
-
-With the T-SQL DDL extension to create logins or users with the Object ID, you can avoid error *33131* and also specify an alias for the login or user created with the Object ID. For example, the following will create a login `myapp4466e` using the application Object ID `4466e2f8-0fea-4c61-a470-xxxxxxxxxxxx`.
-
-```sql
-CREATE LOGIN [myapp4466e] FROM EXTERNAL PROVIDER 
-  WITH OBJECT_ID='4466e2f8-0fea-4c61-a470-xxxxxxxxxxxx' 
-```
-
-> [!TIP]
-> If you're looking to create a contained database user using the OBJECT ID, the command would be:
->
-> ```sql
-> CREATE USER [myapp4466e] FROM EXTERNAL PROVIDER
->   WITH OBJECT_ID='4466e2f8-0fea-4c61-a470-xxxxxxxxxxxx'
-> ```
-
-For more information on obtaining the Object ID of a service principal, see [Service principal object](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object.)
-
-### Identify the user created for the application
-
-It's important to verify the Azure AD alias is tied to the correct application or group. To check that the user was created for the correct service principal (application) or Azure AD group:
-
-1. Get the **Application ID** of the application, or **Object ID** of the Azure AD group from the user created in SQL Database by executing the following query:
-
-   ```sql
-   SELECT CAST(sid as uniqueidentifier) AzureID from sys.server_principals WHERE NAME = 'myapp4466e'
-   ```
-
-   `AzureID` corresponds to the *Applicaiton ID* for the service principal or *Object ID* for the Azure AD group.
-
-1. Go to the [Azure portal](https://portal.azure.com), and in your **Enterprise Application** or Azure AD group resource, check the **Application ID** or **Object ID** respectively. See if it matches the one obtained from the above query.
-
-> [!NOTE]
-> When creating a user from a service principal, the **Object ID** is required when using the `WITH OBJECT_ID` clause with the `CREATE` T-SQL statement. This is different from the **Application ID** that is returned when you are trying to verify the alias in Azure SQL. Using this verification process, you can identify the main owner of the SQL alias in Azure AD, and prevent possible mistakes when creating logins or users with an Object ID.
 
 ## Limitations and remarks
 
