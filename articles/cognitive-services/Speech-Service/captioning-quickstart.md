@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 03/13/2022
 ms.author: eur
 ms.devlang: cpp, csharp
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-set-seven
 ---
 
 # Quickstart: Create captions with speech to text

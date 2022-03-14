@@ -16,28 +16,21 @@ ms.author: eur
 
 Use captioning with speech to text to transcribe the spoken words into text.
 
+We will discuss captioning in general as a scenario:
+* Types of scenarios: Real-time/Offline. For offline: Take a look at AVA
+* Applications: Meeting/Broadcast/Call/Talkshow, etc. We will offer them a general architecture diagram with some explanations (accepting stream, encoding, peeling off audio, compressing, send to SDK, turn into accepted protocol, package onto video according to standards) with potentially links for more information .
+Some "tips & tricks" we have learned :
+* Link to QuickStart where we talk about StablePartials, etc. The below is additional items to consider:
+* Consider having captions be prominent on the screen, in a large font and centered horizontally . [1]
+* Captions should be synchronized to the speed of the person talking.  [1] 
+* Consider adding capitalization on the real-time result.
+* Latency may have a tradeoff with stability of the result (lower latency = potentially more 'flickering’ of the result).
+* Learn about the different captioning protocols that exist (e.g. SMPTE). 
+* If offline captioning, consider adding the full caption at once, instead of word-by-word. [1]
+* Consider the number of lines to add for the captions (2 vs. 3), there may be tradeoffs one way or the other depending on how long the caption is. 
+* Consider adding a statement that captions are auto-generated. Inform your end users. 
 
-•	We will discuss captioning in general as a scenario:
-o	Types of scenarios: Real-time/Offline
-	For offline: Take a look at AVA
-o	Applications: Meeting/Broadcast/Call/Talkshow, etc.
-•	We will offer them a general architecture diagram with some explanations (accepting stream, encoding, peeling off audio, compressing, send to SDK, turn into accepted protocol, package onto video according to standards) with potentially links for more information .
-•	Some ‘tips & tricks’ we have learned :
-o	Link to QuickStart where we talk about StablePartials, etc. The below is additional items to consider:
-o	Consider having captions be prominent on the screen, in a large font and centered horizontally . [1]
-o	Captions should be synchronized to the speed of the person talking.  [1] 
-o	Consider adding capitalization on the real-time result.
-o	Latency may have a tradeoff with stability of the result (lower latency = potentially more 'flickering’ of the result).
-o	Learn about the different captioning protocols that exist (e.g. SMPTE). 
-o	If offline captioning, consider adding the full caption at once, instead of word-by-word. [1]
-o	Consider the number of lines to add for the captions (2 vs. 3), there may be tradeoffs one way or the other depending on how long the caption is. 
-o	Consider adding a statement that captions are auto-generated. Inform your end users. 
-
-[Azure Video Analyzer for Media](https://docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview) if you want to demo a full captioning solution. 
-
-
-
-
+[Azure Video Analyzer for Media](/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview) if you want to demo a full captioning solution. 
 
 ## Start and end time
 
@@ -108,8 +101,6 @@ speech_recognizer.Recognized += (object sender, SpeechRecognitionEventArgs e) =>
         }
     };
 ```
-
-
 
 ## Profanity filter 
 
@@ -183,9 +174,6 @@ RECOGNIZING: Text=welcome to applied mathematics
 RECOGNIZED: Text=Welcome to applied Mathematics course 201.
 ```
 
-
-
-
 ## Improve recognition accuracy
 
 For specific terms/names (e.g. captioning a sports game), Phrase list would help.
@@ -200,7 +188,5 @@ Short switches not supported well (in the LID doc already)
 
 
 
-
-
 ## Next steps
-[Get started with speech to text](get-started-speech-to-text.md)
+* [Get started with speech to text](get-started-speech-to-text.md)
