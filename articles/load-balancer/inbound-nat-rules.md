@@ -31,14 +31,31 @@ A single virtual machine inbound NAT rule is defined for a single target virtual
 
 ### Multiple virtual machines and virtual machine scale sets
 
-A multiple virtual machines inbound NAT rule references the entire backend pool in the rule. A range of frontend ports are pre-allocated based on the rule settings of **
+A multiple virtual machines inbound NAT rule references the entire backend pool in the rule. A range of frontend ports are pre-allocated based on the rule settings of **Frontend port range start** and **Maximum number of machines in the backend pool**.
 
-Instead of choosing a single target machine, you can also reference the entire backend pool in the inbound NAT rule. A range of frontend ports will be pre-allocated based on your input of *frontend port range start* and *maximum number of machines in backend pool*. Upon creation of inbound NAT rule, port mappings will be created so that each instance in the backend pool can be connected to through a frontend port taken from the pre-allocated range. During the event of scaling down the backend pool, existing port mappings for the remaining instances will stay the same. And during the event of scaling up the backend pool, new port mappings will be created automatically for the new instances without the need to update the inbound NAT rule settings.
+:::image type="content" source="./media/inbound-nat-rules/add-inbound-nat-rule.png" alt-text="Screenshot of a multiple virtual machines inbound NAT rule.":::
+
+When the inbound NAT rule is created, port mappings are made to the backend pool from the pre-allocated range defined in the rule.
+
+When the backend pool is scaled down, existing port mappings for the remaining virtual machines persist. When the backend pool is scaled up, new port mappings are created automatically for the new virtual machines added to the backend pool. An update to the inbound NAT rule settings isn't required.
+
+:::image type="content" source="./media/inbound-nat-rules/inbound-nat-rule-port-mapping.png" alt-text="Diagram of a multiple virtual machine inbound NAT rule.":::
 
 >[!NOTE]
-> If the pre-defined frontend port range does not have sufficient number of frontend ports available, scaling up the backend pool will be blocked. And this could result in lack of network connectivity for the new instances. 
+> If the pre-defined frontend port range doesn't have a sufficient number of frontend ports available, scaling up the backend pool will be blocked. This blockage could result in a lack of network connectivity for the new instances. 
+
+## Port mapping retrieval
+
+You can use the portal to retrieve the port mappings for virtual machines in the backend pool. For more information see [Manage inbound NAT rules](manage-inbound-nat-rules.md) and [Tutorial: Create a multiple virtual machines inbound NAT rule - Azure portal](tutorial-nat-rule-multi-instance-portal.md).
+
+## Next steps
+
+To learn more about Azure Load Balancer inbound NAT rules see:
+
+* [Manage inbound NAT rules](manage-inbound-nat-rules.md)
+
+* [Tutorial: Create a multiple virtual machines inbound NAT rule - Azure portal](tutorial-nat-rule-multi-instance-portal.md)
+
+* [Tutorial: Create a single virtual machine inbound NAT rule using the Azure portal](tutorial-load-balancer-port-forwarding-portal.md)
 
 
-## Port Mapping Retrival
-To retrieve the frontend port number for a specific instance in the backend pool, you can leverage the port mapping retrival API. 
-Read more here. Insert how-to doc.
