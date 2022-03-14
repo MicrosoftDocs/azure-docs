@@ -17,7 +17,7 @@ ms.date: 03/14/2022
 > [!NOTE]
 > Azure Active Directory (Azure AD) server principals (logins) are currently in public preview for Azure SQL Database. Azure SQL Managed Instance can already utilize Azure AD logins.
 
-You can now create and utilize Azure AD server principals, which are logins in the virutal master database of a SQL Database. There are several benefits of using Azure AD server principals for SQL Database:
+You can now create and utilize Azure AD server principals, which are logins in the virtual master database of a SQL Database. There are several benefits of using Azure AD server principals for SQL Database:
 
 - Support [Azure SQL Database server roles for permission management](security-server-roles.md).
 - Support multiple Azure AD users with [special roles for SQL Database](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse), such as the `loginmanager` and `dbmanager` roles.
@@ -93,7 +93,7 @@ The Azure AD principal `login_name` won't be able to log into any user database 
 
 [Special roles for SQL Database](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) can be assigned to *users* in the virtual master database for Azure AD principals, including **dbmanager** and **loginmanager**. 
 
-[Azure SQL Database server roles](security-server-roles.md) can be assigned to *logins* in the virtual master database..
+[Azure SQL Database server roles](security-server-roles.md) can be assigned to *logins* in the virtual master database.
 
 For a tutorial on how to grant these roles, see [Tutorial: Create and utilize Azure Active Directory server logins](authentication-azure-ad-logins-tutorial.md).
 
@@ -122,8 +122,8 @@ For a tutorial on how to grant these roles, see [Tutorial: Create and utilize Az
   - `GRANT <PERMISSION> ON LOGIN :: <Azure AD account> TO <Any other login> `
 - When permissions are altered for an Azure AD login with existing open connections to an Azure SQL Database, permissions aren't effective until the user reconnects. Also [flush the authentication cache and the TokenAndPermUserStore cache](#disable-or-enable-a-login-using-alter-login-syntax). This applies to server role membership change using the [ALTER SERVER ROLE](/sql/t-sql/statements/alter-server-role-transact-sql) statement. 
 - [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) doesn't display the login names in **Object Explorer**.
-- Setting an Azure AD login mapped to an Azure AD group as the database owner is not supported.
-- [Azure SQL Database server roles](security-server-roles.md) are not supported for Azure AD groups.
+- Setting an Azure AD login mapped to an Azure AD group as the database owner isn't supported.
+- [Azure SQL Database server roles](security-server-roles.md) aren't supported for Azure AD groups.
 
 ## Next steps
 
