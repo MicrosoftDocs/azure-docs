@@ -98,7 +98,7 @@ The environment will now have to be prepared.
 
     * **Download Center**: download.microsoft.com
 
-    * [Legacy connection methods only](architecture-connections.md): **IoT Hub**: *.azure-devices.net
+    * **IoT Hub**: *.azure-devices.net
 
 You can also download, and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) to your firewall will allow the Azure resources that are specified above along with their region.
 
