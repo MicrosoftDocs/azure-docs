@@ -34,6 +34,10 @@ To create and train with datasets, you need:
 
 * The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install) (>= 1.13.0), which includes the `azureml-datasets` package.
 
+* For structured data, follow the steps starting at the section labeled "Consume datasets in machine learning training scripts".
+
+* For unstructured data, follow the steps starting at the section labeled "Mount files to remote compute targets"
+
 > [!Note]
 > Some Dataset classes have dependencies on the [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
