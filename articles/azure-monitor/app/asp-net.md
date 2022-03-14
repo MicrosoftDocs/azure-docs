@@ -17,7 +17,6 @@ This procedure configures your ASP.NET web app to send telemetry to the [Applica
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-
 ## Prerequisites
 To add Application Insights to your ASP.NET website, you need to:
 
