@@ -18,13 +18,104 @@ ms.date: 02/22/2022
 > Some logs, noted below, are not sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 >
 
-This article describes the SAP logs available from the Microsoft Sentinel SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
+This article describes the functions, logs, and tables available as part of the Microsoft Sentinel SAP solution and its data connector. It is intended for advanced SAP users.
 
-This article is intended for advanced SAP users.
+## Functions available from the SAP solution
+
+This section describes the [functions](/azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
+
+Users are *strongly encouraged* to use the functions as the subjects of their analysis whenever possible, instead of the underlying logs or tables. These functions are intended to serve as the principal user interface to the data. This allows for changes to be made to the data infrastructure beneath the functions, without breaking user-created content. With this in mind, these functions serve as the basis for all the built-in analytics rules and workbooks available to you out of the box.
+
+- [SAPUsersAssignments](#sapusersassignments)
+- [SAPUsersGetPrivileged](#sapusersgetprivileged)
+- [SAPUsersAuthorizations](#sapusersauthorizations)
+
+### SAPUsersAssignments
+
+The **SAPUsersAssignments** function gathers data from multiple SAP data sources and creates a user-centric view of the current user master data, roles, and profiles currently assigned.
+
+ This function summarizes the user assignments to roles and profiles, and returns the following data:
+
+
+| Field | Description |	Data Source/Notes |
+| - | - | - |
+| User |	SAP user ID|	SAL only |
+| Email |	SMTP address| USR21 (SMTP_ADDR) |
+| UserType |	User type| USR02 (USTYP) |
+| Timezone |	Time zone| USR02 (TZONE) |
+| LockedStatus |	Lock status| USR02 (UFLAG) |
+| LastSeenDate |	Last seen date| USR02 (TRDAT) |
+| LastSeenTime |	Last seen time| USR02 (LTIME) |
+| UserGroupAuth |	User group in user master maintenance| USR02 (CLASS) |
+| Profiles |Set of profiles (default maximum set size = 50)|`["Profile 1", "Profile 2",...,"profile 50"]` |
+| DirectRoles |	Set of Directly assigned roles (default max set size = 50)	|`["Role 1", "Role 2",...,"”"Role 50"]` |
+| ChildRoles |Set of indirectly assigned roles  (default max set size = 50)	|`["Role 1", "Role 2",...,"”"Role 50"]` |
+| Client |	Client ID	| |
+| SystemID	| System ID | As defined in the connector |
+||||
+
+### SAPUsersGetPrivileged
+
+The **SAPUsersGetPrivileged** function returns a list of privileged users per client and system ID.
+
+Users are considered privileged when they are listed in the *SAP - Privileged Users* watchlist, have been assigned to a profile listed in *SAP - Sensitive Profiles* watchlist, or have been added to a role listed in *SAP - Sensitive Roles* watchlist.
+
+**Parameters:**
+  - TimeAgo
+      - optional
+      - default value: 7 days
+      - Function will only seek User master data from TimeAgo until now()
+
+The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns the following data:
+
+|Field|	Description|
+|-|-|
+|User|SAP user ID	|
+|Client|	Client ID	|
+|SystemID|	System ID|
+| | |
+
+### SAPUsersAuthorizations
+
+lists user assignments to authorizations, including the following data:
+The **SAPUsersAuthorizations** Microsoft Sentinel Function brings together data from several tables to produce a user-centric view of the current roles and authorizations assigned.  Only users with active role and authorization assignments are returned.
+
+**Parameters:**
+  - TimeAgo
+      - Optional
+      - Default value: 7 days
+      - Determines that the function seeks User master data from the time defined by the `TimeAgo` value until the time defined by the `now()` value.
+
+The **SAPUsersAuthorizations** function returns the following data:
+
+|Field|	Description	|Notes|
+|-|-|-|
+|User|	SAP user ID||
+|Roles|	Set of roles (default max set size = 50)|	`["Role 1", "Role 2",...,"Role 50"]`|
+|AuthorizationsDetails|	Set of authorizations (default max set size = 100|`{ {AuthorizationsDeatils1}`,<br>`{AuthorizationsDeatils2}`, <br>...,<br>`{AuthorizationsDeatils100}}`|
+|Client|	Client ID	|
+|SystemID|	System ID|
+
 
 ## Logs produced by the data connector agent
 
-The following sections describe the logs that are produced by the SAP data connector agent and ingested into Microsoft Sentinel.
+This section describes the SAP logs available from the Microsoft Sentinel SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
+
+- [ABAP Application log](#abap-application-log)
+- [ABAP Change Documents log](#abap-change-documents-log)
+- [ABAP CR log](#abap-cr-log)
+- [ABAP DB table data log](#abap-db-table-data-log)
+- [ABAP Gateway log](#abap-gateway-log)
+- [ABAP ICM log](#abap-icm-log)
+- [ABAP Job log](#abap-job-log)
+- [ABAP Security Audit log](#abap-security-audit-log)
+- [ABAP Spool log](#abap-spool-log)
+- [APAB Spool Output log](#apab-spool-output-log)
+- [ABAP SysLog](#abap-syslog)
+- [ABAP Workflow log](#abap-workflow-log)
+- [ABAP WorkProcess log](#abap-workprocess-log)
+- [HANA DB Audit Trail](#hana-db-audit-trail)
+- [JAVA files](#java-files)
 
 ### ABAP Application log
 
@@ -299,38 +390,38 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 #### ABAPAuditLog_CL log schema
 
-| Field                      | Description                     |
-| -------------------------- | ------------------------------- |
-| ABAPProgramName            | Program name, SAL only                    |
-| AlertSeverity              | Alert severity                  |
-| AlertSeverityText          | Alert severity text, SAL only             |
-| AlertValue                 | Alert value                     |
-| AuditClassID               | Audit class ID, SAL only                 |
-| ClientID                   | ABAP client ID (MANDT)          |
-| Computer                   | User machine, SAL only                   |
-| Email                      | User email                      |
-| Host                       | Host                                                   |
-| Instance                   | ABAP instance, in the following syntax: `<HOST>_<SYSID>_<SYSNR>`                  |
-| MessageClass               | Message class                   |
-| MessageContainerID         | Message container ID, XAL Only            |
-| MessageID                  | Message ID, such as `‘AU1’,’AU2’…`                     |
-| MessageText                | Message text                    |
-| MonitoringObjectName       | MTE Monitor object name, XAL only        |
-| MonitorShortName           | MTE Monitor short name, XAL only          |
-| SAPProcesType              | System Log: SAP process type, SAL only    |
-| B* - Background Processing |                                 |
-| D* - Dialog Processing     |                                 |
-| U* - Update Tasks         |                                 |
+| Field                      | Description                      |
+| -------------------------- | -------------------------------- |
+| ABAPProgramName            | Program name, SAL only           |
+| AlertSeverity              | Alert severity                   |
+| AlertSeverityText          | Alert severity text, SAL only    |
+| AlertValue                 | Alert value                      |
+| AuditClassID               | Audit class ID, SAL only         |
+| ClientID                   | ABAP client ID (MANDT)           |
+| Computer                   | User machine, SAL only           |
+| Email                      | User email                       |
+| Host                       | Host                             |
+| Instance                   | ABAP instance, in the following syntax: `<HOST>_<SYSID>_<SYSNR>` |
+| MessageClass               | Message class                    |
+| MessageContainerID         | Message container ID, XAL Only   |
+| MessageID                  | Message ID, such as `‘AU1’,’AU2’…` |
+| MessageText                | Message text                     |
+| MonitoringObjectName       | MTE Monitor object name, XAL only |
+| MonitorShortName           | MTE Monitor short name, XAL only |
+| SAPProcesType              | System Log: SAP process type, SAL only |
+| B* - Background Processing |                                  |
+| D* - Dialog Processing     |                                  |
+| U* - Update Tasks          |                                  |
 | SAPWPName                  | System Log: Work process number, SAL only |
-| SystemID                   | System ID                       |
-| SystemNumber               | System number                   |
-| TerminalIPv6               | User machine IP, SAL only |
-| TransactionCode            | Transaction code, SAL only |
-| User                       | User                            |
-| Variable1                  | Message variable 1              |
-| Variable2                  | Message variable 2              |
-| Variable3                  | Message variable 3              |
-| Variable4                  | Message variable 4              |
+| SystemID                   | System ID                        |
+| SystemNumber               | System number                    |
+| TerminalIPv6               | User machine IP, SAL only        |
+| TransactionCode            | Transaction code, SAL only       |
+| User                       | User                             |
+| Variable1                  | Message variable 1               |
+| Variable2                  | Message variable 2               |
+| Variable3                  | Message variable 3               |
+| Variable4                  | Message variable 4               |
 | | |
 
 ### ABAP Spool log
@@ -466,7 +557,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | Instance         | ABAP instance, in the following syntax: `<HOST>_<SYSID>_<SYSNR> ` |
 | MessageNumber    | Message number         |
 | MessageText      | Message text           |
-| Severity         | Message severity, one of the following values: `Debug`, `Info`, `Warning`, `Error`        |
+| Severity         | Message severity, one of the following values: `Debug`, `Info`, `Warning`, `Error` |
 | SystemID         | System ID              |
 | SystemNumber     | System number          |
 | TransacationCode | Transaction code       |
@@ -639,97 +730,28 @@ The data retrieved from these tables provides a clear view of the authorization 
 
 The tables listed below are required to enable functions that identify privileged users, map users to roles, groups, and authorizations.
 
-| Table name | Table description |
-| ---------------- | -------------------- |
-| USR01 | User master record (runtime data) |
-| USR02 | Logon data (kernel-side use) |
-| UST04 | User masters<br>Maps users to profiles |
-| AGR_USERS | Assignment of roles to users |
-| AGR_1251 |Authorization data for the activity group |
-| USGRP_USER |Assignment of users to user groups |
-| USR21 | User name/Address key assignment |
-| ADR6 | Email addresses (business address services) |
-| USRSTAMP | Time stamp for all changes to the user |
-| ADCP | Person/Address assignment (business address services) |
-| USR05 | User master parameter ID |
-| AGR_PROF | Profile name for role |
-| AGR_FLAGS | Role attributes |
-| DEVACCESS | Table for development user |
-| AGR_DEFINE | Role definition |
-| AGR_AGRS | Roles in composite roles |
-| PAHI | History of the system, database, and SAP parameters |
-|||
+For best results, refer to these tables using the name in the **Sentinel function name** column below:
 
-
-## Functions available from the SAP solution
-
-This section describes the [functions](/azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
-
-### SAPUsersAssignments
-
-The **SAPUsersAssignments** function gathers data from multiple SAP data sources and creates a user-centric view of the current user master data, roles, and profiles currently assigned.
-
- This function summarizes the user assignments to roles and profiles, and returns the following data:
-
-
-| Field | Description |	Data Source/Notes |
-| - | - | - |
-| User |	SAP user ID|	SAL only |
-| Email |	SMTP address| USR21 (SMTP_ADDR) |
-| UserType |	User type| USR02 (USTYP) |
-| Timezone |	Time zone| USR02 (TZONE) |
-| LockedStatus |	Lock status| USR02 (UFLAG) |
-| LastSeenDate |	Last seen date| USR02 (TRDAT) |
-| LastSeenTime |	Last seen time| USR02 (LTIME) |
-| UserGroupAuth |	User group in user master maintenance| USR02 (CLASS) |
-| Profiles |Set of profiles (default maximum set size = 50)|`["Profile 1", "Profile 2",...,"profile 50"]` |
-| DirectRoles |	Set of Directly assigned roles (default max set size = 50)	|`["Role 1", "Role 2",...,"”"Role 50"]` |
-| ChildRoles |Set of indirectly assigned roles  (default max set size = 50)	|`["Role 1", "Role 2",...,"”"Role 50"]` |
-| Client |	Client ID	| |
-| SystemID	| System ID | As defined in the connector |
+| Table name | Table description                              | Sentinel function name |
+| -----------| ---------------------------------------------- | ---------------------- |
+| USR01      | User master record (runtime data)                     | SAP_USR01       |
+| USR02      | Logon data (kernel-side use)                          | SAP_USR02       |
+| UST04      | User masters<br>Maps users to profiles                | SAP_UST04       |
+| AGR_USERS  | Assignment of roles to users                          | SAP_AGR_USERS   |
+| AGR_1251   | Authorization data for the activity group             | SAP_AGR_1251    |
+| USGRP_USER | Assignment of users to user groups                    | SAP_USGRP_USER  |
+| USR21      | User name/Address key assignment                      | SAP_USR21       |
+| ADR6       | Email addresses (business address services)           | SAP_ADR6        |
+| USRSTAMP   | Time stamp for all changes to the user                | SAP_USRSTAMP    |
+| ADCP       | Person/Address assignment (business address services) | SAP_ADCP        |
+| USR05      | User master parameter ID                              | SAP_USR05       |
+| AGR_PROF   | Profile name for role                                 | SAP_AGR_PROF    |
+| AGR_FLAGS  | Role attributes                                       | SAP_AGR_FLAGS   |
+| DEVACCESS  | Table for development user                            | SAP_DEVACCESS   |
+| AGR_DEFINE | Role definition                                       | SAP_AGR_DEFINE  |
+| AGR_AGRS   | Roles in composite roles                              | SAP_AGR_AGRS    |
+| PAHI       | History of the system, database, and SAP parameters   | SAP_PAHI        |
 ||||
-
-### SAPUsersGetPrivileged
-
-The **SAPUsersGetPrivileged** function returns a list of privileged users per client and system ID.
-
-Users are considered privileged when they are listed in the *SAP - Privileged Users* watchlist, have been assigned to a profile listed in *SAP - Sensitive Profiles* watchlist, or have been added to a role listed in *SAP - Sensitive Roles* watchlist.
-
-**Parameters:**
-  - TimeAgo
-      - optional
-      - default vaule: 7 days
-      - Function will only seek User master data from TimeAgo until now()
-
-The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns the following data:
-
-|Field|	Description|
-|-|-|
-|User|SAP user ID	|
-|Client|	Client ID	|
-|SystemID|	System ID|
-| | |
-
-### SAPUsersAuthorizations
-
-lists user assignments to authorizations, including the following data:
-The **SAPUsersAuthorizations** Microsoft Sentinel Function brings together data from several tables to produce a user-centric view of the current roles and authorizations assigned.  Only users with active role and authorization assignments are returned.
-
-**Parameters:**
-  - TimeAgo
-      - Optional
-      - Default value: 7 days
-      - Determines that the function seeks User master data from the time defined by the `TimeAgo` value until the time defined by the `now()` value.
-
-The **SAPUsersAuthorizations** function returns the following data:
-
-|Field|	Description	|Notes|
-|-|-|-|
-|User|	SAP user ID||
-|Roles|	Set of roles (default max set size = 50)|	`["Role 1", "Role 2",...,"Role 50"]`|
-|AuthorizationsDetails|	Set of authorizations (default max set size = 100|`{ {AuthorizationsDeatils1}`,<br>`{AuthorizationsDeatils2}`, <br>...,<br>`{AuthorizationsDeatils100}}`|
-|Client|	Client ID	|
-|SystemID|	System ID|
 
 
 ## Next steps
