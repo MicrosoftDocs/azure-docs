@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 02/04/2022
+ms.date: 03/14/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -48,9 +48,25 @@ It's easy to list your own permissions as well. Select **Your Role** on the **Ro
 
 ### Download role assignments
 
-To download all assignments for a specific role, on the **Roles and administrators** page, select a role, and then select **Download role assignments**. A CSV file that lists assignments at all scopes for that role is downloaded.
+To download all assignments for a specific role, follow these steps.
 
-![download all assignments for a role](./media/view-assignments/download-role-assignments.png)
+1. On the **Roles and administrators** page, select a role.
+
+1. Select **Download role assignments**.
+
+    A CSV file that lists assignments at all scopes for that role is downloaded.
+
+    ![Screenshot showing download all assignments for a specific role](./media/view-assignments/download-role-assignments.png)
+
+To download all active role assignments across all roles, including built-in and custom roles, follow these steps (currently in Preview).
+
+1. On the **Roles and administrators** page, select **All roles**.
+
+1. Select **Download assignments**.
+
+    A CSV file that lists assignments at all scopes for all roles is downloaded.
+
+    ![Screenshot showing download all role assignments.](./media/view-assignments/download-role-assignments-all.png)
 
 ### List role assignments with single-application scope
 
@@ -75,24 +91,36 @@ This section describes how to list role assignments with single-application scop
 
 This section describes viewing assignments of a role with organization-wide scope. This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](custom-assign-powershell.md).
 
-Example of listing the role assignments.
+Use the [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition) and [Get-AzureADMSRoleAssignment](/powershell/module/azuread/get-azureadmsroleassignment) commands to list role assignments.
+
+The following example shows hows to list the role assignments for a specific role definition with the ID `3671d40a-1aac-426c-a0c1-a3821ebd8218`.
 
 ``` PowerShell
 # Fetch list of all directory roles with template ID
 Get-AzureADMSRoleDefinition
 
 # Fetch a specific directory role by ID
-$role = Get-AzureADMSRoleDefinition -Id "5b3fe201-fa8b-4144-b6f1-875829ff7543"
+$role = Get-AzureADMSRoleDefinition -Id "3671d40a-1aac-426c-a0c1-a3821ebd8218"
 
 # Fetch membership for a role
 Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '$($role.Id)'"
 ```
 
+The following example shows hows to list all active role assignments across all roles, including built-in and custom roles (currently in Preview).
+
+```powershell
+$roles = Get-AzureADMSRoleDefinition
+foreach ($role in $roles)
+{
+  Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '$($role.Id)'"
+}
+```
+
 ## Microsoft Graph API
 
-This section describes how to list role assignments with organization-wide scope.  To list single-application scope role assignments using Graph API, you can use the operations in [Assign custom roles with Graph API](custom-assign-graph.md).
+This section describes how to list role assignments with organization-wide scope. To list single-application scope role assignments using Graph API, you can use the operations in [Assign custom roles with Graph API](custom-assign-graph.md).
 
-Use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments) API to get the role assignment for a specified role definition.
+Use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments) API to get the role assignments for a specific role definition. The following example shows hows to list the role assignments for a specific role definition with the ID `3671d40a-1aac-426c-a0c1-a3821ebd8218`.
 
 ```http
 GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<template-id-of-role-definition>’
