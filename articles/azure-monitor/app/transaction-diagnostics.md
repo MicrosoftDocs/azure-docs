@@ -100,5 +100,3 @@ Time not explained in the gantt chart, is time that is not covered by a tracked 
 This can be due to either external calls that were not instrumented (automatically or manually), or that the time taken was in process rather than because of an external call.
 
 If all calls were instrumented, in process is the likely root cause for the time spent. A useful tool for diagnosing the process is the [Application Insights profiler](./profiler.md).
-
-
