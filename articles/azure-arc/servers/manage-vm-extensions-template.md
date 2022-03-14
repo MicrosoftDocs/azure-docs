@@ -138,7 +138,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 To use the Custom Script extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](../../virtual-machines/extensions/custom-script-windows.md) or [Custom Script extension for Linux](../../virtual-machines/extensions/custom-script-linux.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
 
-* The list of supported operating systems with the Azure VM Custom Script extension is not applicable to Azure Arc-enabled servers. The list of supported OSs for Azure Arc-enabled servers can be found [here](agent-overview.md#supported-operating-systems).
+* The list of supported operating systems with the Azure VM Custom Script extension is not applicable to Azure Arc-enabled servers. The list of supported OSs for Azure Arc-enabled servers can be found [here](prerequisites.md#supported-operating-systems).
 
 * Configuration details regarding Azure Virtual Machine Scale Sets or Classic VMs are not applicable.
 
