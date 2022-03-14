@@ -42,7 +42,7 @@
       href: front-door-routing-architecture.md?pivots=front-door-classic
     - name: Route matching
       href: front-door-route-matching.md
-    - name: Backend selection
+    - name: Origin selection
       href: front-door-routing-methods.md
     - name: Routing limits
       href: front-door-routing-limits.md
