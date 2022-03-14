@@ -18,7 +18,7 @@ This article steps through using the Azure portal to create virtual machines in 
 
 To use availability zones, create your virtual machines in a [supported Azure region](../availability-zones/az-region.md).
 
-Some people will see a new preview experience in the portal. If **Availabiity options** defaults to an **Availability zone**, select the *Limited preview* tab below.
+Some people will see a new preview experience in the portal. If **Availability options** defaults to an **Availability zone**, select the *Limited preview* tab below.
 
 ### [Standard](#tab/standard)
 
@@ -77,7 +77,7 @@ Some people will see a new preview experience in the portal. If **Availabiity op
    3. In **Routing rule**, type a rule name. The rule name should describe the workload you are load balancing.
    4. For HTTP load balancing, you can leave the defaults and then select **Create**. For HTTPS load balancing, you have two options:
         
-        - Upload a certificate and add the password (application gateway will manage certificate storage).For certificate name, type a friendly name for the certificate.
+        - Upload a certificate and add the password (application gateway will manage certificate storage). For certificate name, type a friendly name for the certificate.
         - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**. 
         
         > [!IMPORTANT]
