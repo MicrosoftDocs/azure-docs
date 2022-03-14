@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 03/14/2022
 ms.author: jasteppe
 ---
 
@@ -32,7 +32,10 @@ The four line colors show the different parts of the data journey.
 2. Data from Azure IoT Edge sent to Azure IoT Hub.
 3. Copy of raw IoT device data sent to a secure storage environment for device administration.
 4. PHI IoMT payload moves from Azure IoT Hub to the MedTech service. Multiple Azure services are represented by 1 MedTech service icon.
-5. Three parts to number 5: a. MedTech service request Patient resource from FHIR service. b. FHIR service sends Patient resource back to the MedTech service. c. IoT Patient Observation is record in FHIR service.
+5. Three parts to number 5: 
+ a. MedTech service request Patient resource from FHIR service. 
+ b. FHIR service sends Patient resource back to the MedTech service. 
+ c. IoT Patient Observation is record in FHIR service.
 
 **Machine Learning and AI Data Route – Steps 6 through 11**
 

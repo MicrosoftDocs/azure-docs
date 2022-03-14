@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: troubleshooting
-ms.date: 02/18/2022
+ms.date: 03/14/2022
 ms.author: jasteppe
 ---
 # Troubleshoot Events
@@ -40,7 +40,7 @@ Use this resource to learn about the Events message structure, required and non-
 ### How to
 
 Use this resource to learn how to deploy Events in the Azure portal: 
-* [How to deploy Event in the Azure portal](./events-deploy-portal.md)
+* [How to deploy Events in the Azure portal](./events-deploy-portal.md)
 
 >[!Important]
 >The Event Subscription requires access to whichever endpoint you chose to send Events messages to. For more information, see [Enable managed identity for a system topic](../../event-grid/enable-identity-system-topics.md).

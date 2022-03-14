@@ -5,7 +5,7 @@ author: aersoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 03/14/2022
 ms.author: aersoy
 ---
 
@@ -33,7 +33,7 @@ To help manage the supported tags in a given DICOM service instance, the followi
 | GET        .../extendedquerytags/{tagPath}/errors | [List Extended Query Tag Errors](#list-extended-query-tag-errors) |
 | GET        .../operations/{operationId}           | [Get Operation](#get-operation)                              |
 
-### Add Extended Query Tags 
+### Add extended query tags 
 
 Adds one or more extended query tags and starts a long-running operation that reindexes current DICOM instances with the specified tag(s).
 
@@ -41,13 +41,13 @@ Adds one or more extended query tags and starts a long-running operation that re
 POST .../extendedquerytags
 ```
 
-#### Request Header
+#### Request header
 
 | Name         | Required | Type   | Description                     |
 | ------------ | -------- | ------ | ------------------------------- |
 | Content-Type | True     | string | `application/json` is supported |
 
-#### Request Body
+#### Request body
 
 | Name | Required | Type                                                         | Description |
 | ---- | -------- | ------------------------------------------------------------ | ----------- |
@@ -90,7 +90,7 @@ The following VR types are supported:
 | 400 (Bad Request) |                                             | Request body has invalid data                                |
 | 409 (Conflict)    |                                             | One or more requested query tags already are supported       |
 
-### List Extended Query Tags
+### List extended query tags
 
 Lists of all extended query tag(s).
 
@@ -104,7 +104,7 @@ GET .../extendedquerytags
 | -------- | --------------------------------------------- | --------------------------- |
 | 200 (OK) | [Extended Query Tag](#extended-query-tag)`[]` | Returns extended query tags |
 
-### Get Extended Query Tag
+### Get extended query tag
 
 Get an extended query tag.
 
@@ -112,7 +112,7 @@ Get an extended query tag.
 GET .../extendedquerytags/{tagPath}
 ```
 
-#### URI Parameters
+#### URI parameters
 
 | Name    | In   | Required | Type   | Description                                                  |
 | ------- | ---- | -------- | ------ | ------------------------------------------------------------ |
@@ -126,7 +126,7 @@ GET .../extendedquerytags/{tagPath}
 | 400 (Bad Request) |                                           | Requested tag path is invalid                          |
 | 404 (Not Found)   |                                           | Extended query tag with requested tagPath isn't found |
 
-### Delete Extended Query Tag
+### Delete extended query tag
 
 Delete an extended query tag.
 
@@ -134,7 +134,7 @@ Delete an extended query tag.
 DELETE .../extendedquerytags/{tagPath}
 ```
 
-#### URI Parameters
+#### URI parameters
 
 | Name    | In   | Required | Type   | Description                                                  |
 | ------- | ---- | -------- | ------ | ------------------------------------------------------------ |
@@ -148,7 +148,7 @@ DELETE .../extendedquerytags/{tagPath}
 | 400 (Bad Request) |      | Requested tag path is invalid.                               |
 | 404 (Not Found)   |      | Extended query tag with requested tagPath isn't found       |
 
-### Update Extended Query Tag
+### Update extended query tag
 
 Update an extended query tag.
 
@@ -156,19 +156,19 @@ Update an extended query tag.
 PATCH .../extendedquerytags/{tagPath}
 ```
 
-#### URI Parameters
+#### URI parameters
 
 | Name    | In   | Required | Type   | Description                                                  |
 | ------- | ---- | -------- | ------ | ------------------------------------------------------------ |
 | tagPath | path | True     | string | tagPath is the path for the tag, which can be either tag or keyword. For example, Patient ID is represented by `00100020` or `PatientId` |
 
-#### Request Header
+#### Request header
 
 | Name         | Required | Type   | Description                      |
 | ------------ | -------- | ------ | -------------------------------- |
 | Content-Type | True     | string | `application/json` is supported. |
 
-#### Request Body
+#### Request body
 
 | Name | Required | Type                                                         | Description |
 | ---- | -------- | ------------------------------------------------------------ | ----------- |
@@ -182,7 +182,7 @@ PATCH .../extendedquerytags/{tagPath}
 | 400 (Bad Request) |                                           | Requested tag path or body is invalid                  |
 | 404 (Not Found)   |                                           | Extended query tag with requested tagPath isn't found |
 
-### List Extended Query Tag Errors
+### List extended query tag errors
 
 Lists errors on an extended query tag.
 
@@ -190,7 +190,7 @@ Lists errors on an extended query tag.
 GET .../extendedquerytags/{tagPath}/errors
 ```
 
-#### URI Parameters
+#### URI parameters
 
 | Name    | In   | Required | Type   | Description                                                  |
 | ------- | ---- | -------- | ------ | ------------------------------------------------------------ |
@@ -204,7 +204,7 @@ GET .../extendedquerytags/{tagPath}/errors
 | 400 (Bad Request) |                                                            | Requested tag path is invalid                             |
 | 404 (Not Found)   |                                                            | Extended query tag with requested tagPath isn't found    |
 
-### Get Operation
+### Get operation
 
 Get a long-running operation.
 
@@ -212,7 +212,7 @@ Get a long-running operation.
 GET .../operations/{operationId}
 ```
 
-#### URI Parameters
+#### URI parameters
 
 | Name        | In   | Required | Type   | Description      |
 | ----------- | ---- | -------- | ------ | ---------------- |
@@ -226,9 +226,9 @@ GET .../operations/{operationId}
 | 202 (Accepted)  | [Operation](#operation) | The running operation for the specified ID   |
 | 404 (Not Found) |                         | The operation isn't found                   |
 
-## QIDO with Extended Query Tags
+## QIDO with extended query tags
 
-### Tag Status
+### Tag status
 
 The [Status](#extended-query-tag-status) of extended query tag indicates current status. When an extended query tag is first added, its status is set to `Adding`, and a long-running operation is kicked off to reindex existing DICOM instances. After the operation is completed, the tag status is updated to `Ready`. The extended query tag can now be used in [QIDO](dicom-services-conformance-statement.md#search-qido-rs). 
 
@@ -244,7 +244,7 @@ They can also be used with existing tags. For example:
 ../instances?00081090=Microsoft&PatientName=Jo&fuzzyMatching=true
 ```
 
-### Tag Query Status
+### Tag query status
 
 [QueryStatus](#extended-query-tag-status) indicates whether QIDO is allowed for the tag. When a reindex operation fails to process one or more DICOM instances for a tag, that tag's QueryStatus is set to `Disabled` automatically. You can choose to ignore indexing errors and allow queries to use this tag by setting the `QueryStatus` to `Enabled` via  [Update Extended Query Tag](#update-extended-query-tag) API. Any QIDO requests that reference at least one manually enabled tag will include the set of tags with indexing errors in the response header `erroneous-dicom-attributes`.
 
@@ -256,7 +256,7 @@ For example, suppose the extended query tag `PatientAge` had errors during reind
 
 ## Definitions
 
-### Extended Query Tag
+### Extended query tag
 
 A DICOM tag that will be supported for QIDO-RS.
 
@@ -303,7 +303,7 @@ Code **example 2** is a standard tag (0010,1010) in `Adding` status.  An operati
 }
 ```
 
-### Operation Reference
+### Operation reference
 
 Reference to a long-running operation.
 
@@ -342,7 +342,7 @@ The following code **example** is a running reindex operation.
 }
 ```
 
-### Operation Status
+### Operation status
 
 Represents a run time status of long running operation.
 
@@ -353,7 +353,7 @@ Represents a run time status of long running operation.
 | Completed  | string | The operation has finished successfully                      |
 | Failed     | string | The operation has stopped prematurely after encountering one or more errors |
 
-### Extended Query Tag Error
+### Extended query tag error
 
 An error that occurred during an extended query tag indexing operation.
 
@@ -377,7 +377,7 @@ The following code **example** contains an unexpected value length error on a DI
 }
 ```
 
-### Extended Query Tag Errors Reference
+### Extended query tag errors reference
 
 Reference to extended query tag errors.
 
@@ -386,7 +386,7 @@ Reference to extended query tag errors.
 | Count | Integer | Total number of errors on the extended query tag |
 | Href  | string  | URI to extended query tag errors                 |
 
-### Operation Type
+### Operation type
 
 The type of  a long-running operation.
 
@@ -394,7 +394,7 @@ The type of  a long-running operation.
 | ------- | ------ | ------------------------------------------------------------ |
 | Reindex | string | A reindex operation that updates the indices for previously added data based on new tags |
 
-### Extended Query Tag Status
+### Extended query tag status
 
 The status of  extended query tag.
 
@@ -404,7 +404,7 @@ The status of  extended query tag.
 | Ready    | string | The extended query tag  is ready for QIDO-RS                 |
 | Deleting | string | The extended query tag  is being deleted                     |
 
-### Extended Query Tag Level
+### Extended query tag level
 
 The level of the DICOM information hierarchy where this tag applies.
 
@@ -414,7 +414,7 @@ The level of the DICOM information hierarchy where this tag applies.
 | Series   | string | The extended query tag is relevant at the series level   |
 | Study    | string | The extended query tag is relevant at the study level    |
 
-### Extended Query Tag Query Status
+### Extended query tag query status
 
 The query status of extended query tag.
 
@@ -426,7 +426,7 @@ The query status of extended query tag.
 > [!NOTE]
 > Errors during the reindex operation disables QIDO on the extended query tag. You can call the [Update Extended Query Tag](#update-extended-query-tag) API to enable it.
 
-### Extended Query Tag for Updating
+### Extended query tag for updating
 
 Represents extended query tag for updating.
 
@@ -434,7 +434,7 @@ Represents extended query tag for updating.
 | ----------- | ------------------------------------------------------------ | -------------------------------------- |
 | QueryStatus | [Extended Query Tag Query Status](#extended-query-tag-query-status) | The query status of extended query tag |
 
-### Extended Query Tag for Adding
+### Extended query tag for adding
 
 Represents extended query tag for adding.
 

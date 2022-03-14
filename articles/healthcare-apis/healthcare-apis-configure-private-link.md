@@ -6,7 +6,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/01/2022
+ms.date: 03/14/2022
 ms.author: zxue
 ---
 
@@ -50,13 +50,13 @@ For the resource type, search and select **Microsoft.HealthcareApis/services** f
 
 [ ![Screen image of the Azure portal Resource tab.](media/private-link/private-link-resource.png) ](media/private-link/private-link-resource.png#lightbox)
 
-### Manual Approval
+### Manual approval
 
 For manual approval, select the second option under Resource, **Connect to an Azure resource by resource ID or alias**. For the resource ID, enter **subscriptions/{subcriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.HealthcareApis/workspaces/{workspacename}**. For the Target subresource, enter **healthcareworkspace** as in Auto Approval.
 
 [ ![Screen image of the Manual Approval Resources tab.](media/private-link/private-link-resource-id.png) ](media/private-link/private-link-resource-id.png#lightbox)
 
-### Private Link DNS Configuration
+### Private Link DNS configuration
 
 After the deployment is complete, select the Private Link resource in the resource group. Open **DNS configuration** from the settings menu. You can find the DNS records and private IP addresses for the workspace, and FHIR and DICOM services.
 
@@ -66,7 +66,7 @@ After the deployment is complete, select the Private Link resource in the resour
 
 After the deployment is complete, browse to the new resource group that is created as part of the deployment. You'll see two private DNS zone records and one for each service. If you have more FHIR and DICOM services in the workspace, additional DNS zone records will be created for them.
 
-[![Screen image of Private Link FHIR Mapping.](media/private-link/private-link-fhir-mapping.png) ](media/private-link/private-link-fhir-mapping.png#lightbox)
+[![Screen image of Private Link FHIR Mapping.](media/private-link/private-link-fhir-map.png) ](media/private-link/private-link-fhir-map.png#lightbox)
 
 Select **Virtual network links** from the **Settings**. You'll notice the FHIR service is linked to the virtual network.
 
@@ -75,7 +75,7 @@ Select **Virtual network links** from the **Settings**. You'll notice the FHIR s
 
 Similarly, you can see the private link mapping for the DICOM service.
 
-[ ![Screen image of Private Link DICOM Mapping.](media/private-link/private-link-dicom-mapping.png) ](media/private-link/private-link-dicom-mapping.png#lightbox)
+[ ![Screen image of Private Link DICOM Mapping.](media/private-link/private-link-dicom-map.png) ](media/private-link/private-link-dicom-map.png#lightbox)
 
 Also, you can see the DICOM service is linked to the virtual network.
 
