@@ -21,7 +21,7 @@ Azure Automation can send runbook job status and job streams to your Log Analyti
 
 Using Azure Monitor logs, you can consolidate logs from different resources in the same workspace where it can be analyzed with [queries](/azure/azure-monitor/logs/log-query-overview) to quickly retrieve, consolidate, and analyse the collected data. You can create and test queries using [Log Analytics](/azure/azure-monitor/logs/log-query-overview) in the Azure portal and then either directly analyse the data using these tools or save queries for use with [visualization](/azure/azure-monitor/best-practices-analysis) or [alert rules](/azure/azure-monitor/alerts/alerts-overview).
 
-Azure Monitor uses a version of the [Kusto query language(KQL)](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries. It also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](/azure/azure-monitor/logs/get-started-queries).
+Azure Monitor uses a version of the [Kusto query language (KQL)](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries. It also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](/azure/azure-monitor/logs/get-started-queries).
 
 
 ## Azure Automation diagnostic settings
@@ -162,7 +162,7 @@ Azure Automation diagnostics create the following types of records in Azure Moni
 | ResourceProvider | Resource provider. The value is MICROSOFT.AUTOMATION. |
 | ResourceType | Resource type. The value is AUTOMATIONACCOUNTS. |
 
-### AuditEvents
+### Audit events
 | Property | Description |
 | --- | --- |
 | TenantID | GUID that identifies the tenant for the caller. |
