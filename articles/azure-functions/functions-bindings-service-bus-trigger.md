@@ -347,7 +347,7 @@ The following parameter types are supported by all C# modalities and extension v
 | **byte[]** | Use for binary data messages. |
 | **Object** | When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type. |
 
-Messaging-specific parameter types contain additional message metadata. The specific types supported by the Event Grid trigger depend on the Functions runtime version, the extension package version, and the C# modality used.
+Messaging-specific parameter types contain additional message metadata. The specific types supported by the Service Bus trigger depend on the Functions runtime version, the extension package version, and the C# modality used.
 
 # [Extension v5.x](#tab/extensionv5/in-process)
 

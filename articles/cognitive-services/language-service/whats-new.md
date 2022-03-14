@@ -17,9 +17,16 @@ ms.custom: ignite-fall-2021
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## March 2022
+
+* Expanded language support for:
+  * [Custom text classification](custom-classification/language-support.md)
+  * [Custom Named Entity Recognition (NER)](custom-named-entity-recognition/language-support.md)
+  * [Conversational language understanding](conversational-language-understanding/language-support.md)
+
 ## February 2022
 
-- Model improvements for latest model-version for [text summarization](text-summarization/overview.md)
+* Model improvements for latest model-version for [text summarization](text-summarization/overview.md)
 
 ## December 2021
 
