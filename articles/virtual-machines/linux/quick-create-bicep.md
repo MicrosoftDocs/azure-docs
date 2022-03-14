@@ -14,7 +14,7 @@ tags: azure-resource-manager, bicep
 
 # Quickstart: Create an Ubuntu Linux virtual machine using a Bicep file
 
-**Applies to:** :heavy_check_mark: Linux VMs 
+**Applies to:** :heavy_check_mark: Linux VMs
 
 This quickstart shows you how to use a Bicep file to deploy an Ubuntu Linux virtual machine (VM) in Azure.
 
