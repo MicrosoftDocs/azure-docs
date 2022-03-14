@@ -71,9 +71,9 @@ OSS backports that are included in Hive including HWC 1.0 (Spark 2.4) which supp
 | Upgrade arrow version to 0.11.0                    | [HIVE-23987](https://issues.apache.org/jira/browse/HIVE-23987)     |
 
 ## Deprecation notices
-### Azure virtual machine scale set on HDInsight  
+### Azure Virtual Machine Scale Sets on HDInsight  
 
-HDInsight will no longer use Azure virtual machine scale set (VMSS) to provision the clusters, no breaking change is expected. Existing HDInsight clusters on virtual machine scale sets will have no impact, any new clusters on latest images will no longer use VMSS.  
+HDInsight will no longer use Azure Virtual Machine Scale Sets to provision the clusters, no breaking change is expected. Existing HDInsight clusters on virtual machine scale sets will have no impact, any new clusters on latest images will no longer use Virtual Machine Scale Sets.  
 
 ### Scaling of Azure HDInsight HBase workloads will now be supported only using manual scale
 
