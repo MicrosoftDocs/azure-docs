@@ -14,7 +14,6 @@ Health Data Services is a set of managed API services based on open standards an
 
 FHIR service is an implementation of the FHIR specification within Health Data Services. It enables you to combine in a single workspace one or more FHIR service instances with optional DICOM and MedTech service instances. Azure API for FHIR is generally available as a stand-alone service offering.
 
-
 | **Quota Name** | **Default Limit**| **Maximum Limit** | **Notes** |
 |---|---|---|---|
 |Workspace |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per subscription|
