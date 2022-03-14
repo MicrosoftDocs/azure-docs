@@ -10,29 +10,29 @@ ms.custom: devx-track-azurepowershell
 
 # Forward Azure Automation diagnostic logs to Azure monitor
 
-Azure Automation can send runbook job status and job streams to your Log Analytics workspace. This process does not involve workspace linking and is completely independent. Job logs and job streams are visible in the Azure portal, or with PowerShell, for individual jobs and this allows you to perform simple investigations. With Azure Monitor logs for your Automation account, you can:
+Azure Automation can send runbook job status and job streams to your Log Analytics workspace. This process does not involve workspace linking and is completely independent and allows you to perform simple investigations. Job logs and job streams are visible in the Azure portal, or with PowerShell for individual jobs. With Azure Monitor logs for your Automation account, you can:
 
-  - Get insight into the status of your Automation jobs.
+  - Get insights into the status of your Automation jobs.
   - Trigger an email or alert based on your runbook job status (for example, failed or suspended).
   - Write advanced queries across your job streams.
   - Correlate jobs across Automation accounts.
-  - Use custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.
+  - Use customized views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.
   - Get the audit logs related to Automation accounts, runbooks, and other asset create, modify and delete operations. 
 
-Using Azure Monitor logs, you can consolidate logs from different resources in the same workspace where it can be analyzed with [queries](/azure/azure-monitor/logs/log-query-overview) to quickly retrieve, consolidate, and analyse the collected data. You can create and test queries using [Log Analytics](/azure/azure-monitor/logs/log-query-overview) in the Azure portal and then either directly analyse the data using these tools or save queries for use with [visualization](/azure/azure-monitor/best-practices-analysis) or [alert rules](/azure/azure-monitor/alerts/alerts-overview)
+Using Azure Monitor logs, you can consolidate logs from different resources in the same workspace where it can be analyzed with [queries](/azure/azure-monitor/logs/log-query-overview) to quickly retrieve, consolidate, and analyse the collected data. You can create and test queries using [Log Analytics](/azure/azure-monitor/logs/log-query-overview) in the Azure portal and then either directly analyse the data using these tools or save queries for use with [visualization](/azure/azure-monitor/best-practices-analysis) or [alert rules](/azure/azure-monitor/alerts/alerts-overview).
 
-Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries. It also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](/azure/azure-monitor/logs/get-started-queries).
+Azure Monitor uses a version of the [(Kusto query language(KQL)](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries. It also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](/azure/azure-monitor/logs/get-started-queries).
 
 
 ## Azure Automation diagnostic settings
 
-Automation diagnostic settings support forwarding the following platform logs and metric data:
+You can forward the following platform logs and metric data using Automation diagnostic settings support :
 
 | Data types | Description |
 | --- | --- |
 | Job Logs | Status of the runbook job in the Automation account.|
 | Job Streams | Status of the job streams in the runbook defined in the Automation account.|
-| DSCNodeStatus | Status of the DSC Node.|
+| DSCNodeStatus | Status of the DSC node.|
 | AuditEvent | All resource logs that record customer interactions with data or the settings of the Azure Automation service.|
 | Metrics | Total jobs, total update, deployment machine runs, total update deployment runs.|
 
@@ -51,7 +51,7 @@ You can configure diagnostic settings in the Azure portal from the menu for the 
 
 1. Enter a setting name in the **Diagnostic setting name** if it doesn't already have one. 
     
-   You can also see all categories of Logs and metrics. 
+   You can also view all categories of Logs and metrics. 
 
    :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/view-diagnostic-setting.png" alt-text="Image alt text.":::
 
@@ -102,7 +102,7 @@ The following steps explain on how to set up email alerts in Azure Monitor to no
 To create an alert rule, create a log search for the runbook job records that should invoke the alert as described in [Querying the logs](#querying-the-logs). Click the **+New alert rule** to configure the alert rule.
 
 1. In your Automation account, under **Monitoring**, select **Logs**.
-1. Create a log search query for your alert by typing the search into the query field.
+1. Create a log search query for your alert by entering a search criteria into the query field.
 
     ```kusto
     AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")   
@@ -116,51 +116,51 @@ To create an alert rule, create a log search for the runbook job records that sh
 
 ## Azure Monitor log records
 
-Azure Automation diagnostics create the following types of records in Azure Monitor logs, tagged as `AzureDiagnostics`. The tables in the next sections are examples of records that Azure Automation generates and the data types that appear in log search results.
+Azure Automation diagnostics create the following types of records in Azure Monitor logs, tagged as `AzureDiagnostics`. The tables in the below sections are examples of records that Azure Automation generates and the data types that appear in log search results.
 
 ### Job logs
 
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the runbook job executed. |
-| RunbookName_s |The name of the runbook. |
-| Caller_s |The caller that initiated the operation. Possible values are either an email address or system for scheduled jobs. |
-| Tenant_g | GUID that identifies the tenant for the caller. |
+| RunbookName_s |Name/names of the runbook. |
+| Caller_s |Caller that initiated the operation. Possible values are either an email address or system for scheduled jobs. |
+| Tenant_g | GUID (globally unique identifier) that identifies the tenant for the caller. |
 | JobId_g |GUID that identifies the runbook job. |
-| ResultType |The status of the runbook job. Possible values are:<br>- New<br>- Created<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Completed |
+| ResultType |Status of the runbook job. Possible values are:<br>- New<br>- Created<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Completed |
 | Category | Classification of the type of data. For Automation, the value is JobLogs. |
-| OperationName | The type of operation performed in Azure. For Automation, the value is Job. |
-| Resource | The name of the Automation account |
+| OperationName | Type of operation performed in Azure. For Automation, the value is Job. |
+| Resource | Name of the Automation account |
 | SourceSystem | System that Azure Monitor logs use to collect the data. The value is always Azure for Azure diagnostics. |
-| ResultDescription |The runbook job result state. Possible values are:<br>- Job is started<br>- Job Failed<br>- Job Completed |
-| CorrelationId |The correlation GUID of the runbook job. |
-| ResourceId |The Azure Automation account resource ID of the runbook. |
-| SubscriptionId | The Azure subscription GUID for the Automation account. |
-| ResourceGroup | The name of the resource group for the Automation account. |
-| ResourceProvider | The resource provider. The value is MICROSOFT.AUTOMATION. |
-| ResourceType | The resource type. The value is AUTOMATIONACCOUNTS. |
+| ResultDescription |Runbook job result state. Possible values are:<br>- Job is started<br>- Job Failed<br>- Job Completed |
+| CorrelationId |Correlation GUID of the runbook job. |
+| ResourceId |Azure Automation account resource ID of the runbook. |
+| SubscriptionId | Azure subscription GUID for the Automation account. |
+| ResourceGroup | Name of the resource group for the Automation account. |
+| ResourceProvider | Name of the resource provider. The value is MICROSOFT.AUTOMATION. |
+| ResourceType | Resource type. The value is AUTOMATIONACCOUNTS. |
 
 ### Job streams
 | Property | Description |
 | --- | --- |
-| TimeGenerated |Date and time when the runbook job executed. |
-| RunbookName_s |The name of the runbook. |
-| Caller_s |The caller that initiated the operation. Possible values are either an email address or system for scheduled jobs. |
-| StreamType_s |The type of job stream. Possible values are:<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose |
+| TimeGenerated |Date and time when the runbook job was executed. |
+| RunbookName_s |Name of the runbook. |
+| Caller_s |Caller that initiated the operation. Possible values are either an email address or system for scheduled jobs. |
+| StreamType_s |Type of job stream. Possible values are:<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose |
 | Tenant_g | GUID that identifies the tenant for the caller. |
 | JobId_g |GUID that identifies the runbook job. |
 | ResultType |The status of the runbook job. Possible values are:<br>- In Progress |
 | Category | Classification of the type of data. For Automation, the value is JobStreams. |
 | OperationName | Type of operation performed in Azure. For Automation, the value is Job. |
-| Resource | The name of the Automation account. |
+| Resource | Name of the Automation account. |
 | SourceSystem | System that Azure Monitor logs use to collect the data. The value is always Azure for Azure diagnostics. |
 | ResultDescription |Description that includes the output stream from the runbook. |
-| CorrelationId |The correlation GUID of the runbook job. |
-| ResourceId |The Azure Automation account resource ID of the runbook. |
-| SubscriptionId | The Azure subscription GUID for the Automation account. |
-| ResourceGroup | The name of the resource group for the Automation account. |
-| ResourceProvider | The resource provider. The value is MICROSOFT.AUTOMATION. |
-| ResourceType | The resource type. The value is AUTOMATIONACCOUNTS. |
+| CorrelationId |Correlation GUID of the runbook job. |
+| ResourceId |Azure Automation account resource ID of the runbook. |
+| SubscriptionId | Azure subscription GUID for the Automation account. |
+| ResourceGroup | Name of the resource group for the Automation account. |
+| ResourceProvider | Resource provider. The value is MICROSOFT.AUTOMATION. |
+| ResourceType | Resource type. The value is AUTOMATIONACCOUNTS. |
 
 ### AuditEvents
 | Property | Description |
@@ -169,14 +169,14 @@ Azure Automation diagnostics create the following types of records in Azure Moni
 | TimeGenerated (UTC) | Date and time when the runbook job is executed.|
 | Category | AuditEvent|
 | ResourceGroup | Resource group name of the Automation account.|
-| Subscription Id | The Azure subscription GUID for the Automation account.|
+| Subscription Id | Azure subscription GUID for the Automation account.|
 | ResourceProvider | MICROSOFT.AUTOMATION|
 | Resource | Automation Account name|
 | ResourceType | AUTOMATIONACCOUNTS |
 | OperationName | Possible values are Update, Create, Delete.|
-| ResultType | The status of the runbook job. Possible values are: Completed.|
-| CorrelationId |  The correlation GUID of the runbook job. |
-| ResultDescription | The runbook job result state. Possible values are Update, Create, Delete. |
+| ResultType | Status of the runbook job. Possible values are: Completed.|
+| CorrelationId |  Correlation GUID of the runbook job. |
+| ResultDescription | Runbook job result state. Possible values are Update, Create, Delete. |
 | Tenant_g | GUID that identifies the tenant for the caller. |
 | SourceSystem | System that Azures Monitor logs use to collect the data. The value is always Azure for Azure diagnostics. |
 | clientInfo_IpAddress_s | {scrubbed} |
@@ -188,7 +188,7 @@ Azure Automation diagnostics create the following types of records in Azure Moni
 | clientInfo_ClientRequestId_g | RequestID of the client|
 | targetResources_Resource_s | Account, Job, Credential, Connections, Variables, Runbook. |
 | Type | AzureDiagnostics |
-| _ResourceId | The Azure Automation account resource ID of the runbook. |
+| _ResourceId | Azure Automation account resource ID of the runbook. |
 
 
 ## View Automation logs in Azure Monitor logs
@@ -266,32 +266,32 @@ AzureDiagnostics
 ```
 
 ## Sample Azure Automation Audit log queries
-You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also configure alerts for audit log conditions as part of your security monitoring requirements. For more information on configuring alerts see, [Send an email when a runbook job fails or suspends.](#send-an-email-when-a-runbook-job-fails-or-suspends)
+You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also configure alerts for audit log conditions as part of your security monitoring requirements. For information on configuring alerts see, [Send an email when a runbook job fails or suspends.](#send-an-email-when-a-runbook-job-fails-or-suspends)
 
 ## Difference between Activity logs and Audit logs?
-The Activity log is a [platform log](/azure/azure-monitor/essentials/platform-logs-overview) in Azure that provides insight into subscription-level events. Activity log for Automation account includes information as when an automation resource is modified or created or deleted, however, it does not capture the name or ID of the resource. Audit logs for Automation accounts would capture the name and ID of the resource like automation variable, credential, connection etc, along with the type of the operation performed for the resource.  
+The Activity log is a [platform log](/azure/azure-monitor/essentials/platform-logs-overview) in Azure that provides insight into subscription-level events. Activity log for Automation account includes information about when an automation resource is modified or created or deleted, however, it does not capture the name or ID of the resource. Audit logs for Automation accounts capture the name and ID of the resource like automation variable, credential, connection etc, along with the type of the operation performed for the resource.  
 
 **Query to view Automation resource Audit logs**
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" 
 ```
-**Query to monitor for any variable update, create or delete operation**
+**Query to monitor any variable update, create or delete operation**
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s == "Variable" 
 ```
-**Query to monitor for any runbook operation like create, draft or update**
+**Query to monitor any runbook operation like create, draft or update**
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s contains "Runbook" 
 ```
-**Query to monitor for any Certificate creation, updating or deletion**
+**Query to monitor any Certificate creation, updating or deletion**
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s contains "Certificate" 
 ```
-**Query to monitor for any Credentials creation, updating or delete**
+**Query to monitor any Credentials creation, updating or delete**
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s contains "Credential" 
@@ -299,7 +299,7 @@ AzureDiagnostics
 
 ### Filter job status output converted into a JSON object
 
-Recently we changed the behavior of how the Automation log data is written to the `AzureDiagnostics` table in the Log Analytics service, where it no longer breaks down the JSON properties into separate fields. If you configured your runbook to format objects in the output stream in JSON format as separate columns, it is necessary to reconfigure your queries to parse that field to a JSON object in order to access those properties. This is accomplished using [parse json](/azure/data-explorer/kusto/query/samples?pivots=#parsejson) to access a specific JSON element in a known path.
+Recently we changed the behavior of how the Automation log data is written to the `AzureDiagnostics` table in the Log Analytics service, where it no longer breaks down the JSON properties into separate fields. If you configured your runbook to format objects in the output stream in JSON format as separate columns, it is necessary to reconfigure your queries to parse that field to a JSON object to access those properties. This is accomplished using [parse json](/azure/data-explorer/kusto/query/samples?pivots=#parsejson) to access a specific JSON element in a known path.
 
 For example, a runbook formats the *ResultDescription* property in the output stream in JSON format with multiple fields. To search for the status of your jobs that are in a failed state as specified in a field called **Status**, use this example query to search the *ResultDescription* with a status of **Failed**:
 
