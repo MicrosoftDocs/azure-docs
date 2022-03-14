@@ -35,7 +35,7 @@ Permissions for the `citus` role:
   extensions--even views or extensions normally visible only to superusers.
 * Execute monitoring functions that may take ACCESS SHARE locks on tables,
   potentially for a long time.
-* [Create PostgreSQL extensions](concepts-extensions.md) (because
+* [Create PostgreSQL extensions](reference-extensions.md) (because
   the role is a member of `azure_pg_admin`).
 
 Notably, the `citus` role has some restrictions:

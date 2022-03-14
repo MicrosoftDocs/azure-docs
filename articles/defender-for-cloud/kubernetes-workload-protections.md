@@ -2,7 +2,7 @@
 title: Workload protections for your Kubernetes workloads
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 03/08/2022
 ---
 
 # Protect your Kubernetes workloads
@@ -13,18 +13,6 @@ This page describes how to use Microsoft Defender for Cloud's set of security re
 
 > [!TIP]
 > For a list of the security recommendations that might appear for Kubernetes clusters and nodes, see the [Container recommendations](recommendations-reference.md#container-recommendations) of the recommendations reference table.
-
-## Availability
-
-| Aspect | Details |
-|--|--|
-| Release state: | AKS - General availability (GA) <br> Arc enabled Kubernetes - Preview |
-| Pricing: | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes, it's billed according to the Microsoft Defender for Containers plan |
-| Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations |
-| Environment requirements: | Kubernetes v1.14 (or newer) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
-| Azure Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
-| Non-Azure Clouds, and On-prem: |  supported via Arc enabled Kubernetes. |
-|  |  |
 
 ## Set up your workload protection
 
@@ -122,9 +110,8 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
     | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | **Yes**                |
     | Container images should be deployed only from trusted registries            | Remediate vulnerabilities                | **Yes**                |
-    | Containers should listen on allowed ports only                              | Restrict unauthorized network access     | **Yes**                |
     | Least privileged Linux capabilities should be enforced for containers       | Manage access and permissions            | **Yes**                |
-    | Overriding or disabling of containers AppArmor profile should be restricted | Remediate security configurations        | **Yes**                |
+    | Containers should only use allowed AppArmor profiles                        | Remediate security configurations        | **Yes**                |
     | Services should listen on allowed ports only                                | Restrict unauthorized network access     | **Yes**                |
     | Usage of host networking and ports should be restricted                     | Restrict unauthorized network access     | **Yes**                |
     | Usage of pod HostPath volume mounts should be restricted to a known list    | Manage access and permissions            | **Yes**                |
@@ -134,6 +121,7 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
     | Kubernetes clusters should be accessible only over HTTPS                    | Encrypt data in transit                  | No                     |
     | Kubernetes clusters should disable automounting API credentials             | Manage access and permissions            | No                     |
     | Kubernetes clusters should not use the default namespace                    | Implement security best practices        | No                     |
+    | Kubernetes clusters should not grant CAPSYSADMIN security capabilities      | Manage access and permissions            | No                     |
     | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
     | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
     ||||

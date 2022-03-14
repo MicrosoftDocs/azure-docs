@@ -142,10 +142,10 @@ Required attributes for the SAML 2.0 response from the IdP:
 
 Required claims for the SAML 2.0 token issued by the IdP:
 
-|Attribute  |Value  |
+|Attribute Name |Value  |
 |---------|---------|
 |NameID Format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
-|emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`      | emailaddress |
 
 ### WS-Fed configuration
 

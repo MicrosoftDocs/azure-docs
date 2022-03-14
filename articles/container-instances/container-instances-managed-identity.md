@@ -38,7 +38,6 @@ To use a managed identity, the identity must be granted access to one or more Az
 ### Limitations
 
 * Currently you can't use a managed identity in a container group deployed to a virtual network.
-* You can't use a managed identity to pull an image from Azure Container Registry when creating a container group. The identity is only available within a running container.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 

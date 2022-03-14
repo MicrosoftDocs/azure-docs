@@ -12,9 +12,9 @@ ms.date: 02/21/2022
 ## Types of data collection rules
 There are currently two types of data collection rule in Azure Monitor:
 
-- **Standard DCR**. Used with different workflows that send data to Azure Monitor. Workflows currently supported are [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and [custom logs](../logs/custom-logs-overview.md).
+- **Standard DCR**. Used with different workflows that send data to Azure Monitor. Workflows currently supported are [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and [custom logs (preview)](../logs/custom-logs-overview.md).
 
-- **Workspace transformation DCR**. Used with a Log Analytics workspace to apply transformations to workflows that don't currently support DCRs.
+- **Workspace transformation DCR)**. Used with a Log Analytics workspace to apply [ingestion-time transformations (preview)](../logs/ingestion-time-transformations.md) to workflows that don't currently support DCRs.
 
 ## Structure of a data collection rule
 Data collection rules are formatted in JSON. While you may not need to interact with them directly, there are scenarios where you may need to directly edit a data collection rule. See [Data collection rule structure](data-collection-rule-structure.md) for a description of this structure and different elements.
@@ -59,7 +59,10 @@ See the following resources for programmatically working with DCRs.
 
 
 ## Data resiliency and high availability
-Data collection rules are stored regionally, and are available in all public regions where Log Analytics is supported. Government regions and clouds are not currently supported. A rule gets created and stored in the region you specify, and is backed up to the [paired-region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) within the same geography. The service is deployed to all three [availability zones](../../availability-zones/az-overview.md#availability-zones) within the region, making it a **zone-redundant service** which further adds to high availability.
+A rule gets created and stored in the region you specify, and is backed up to the [paired-region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) within the same geography. The service is deployed to all three [availability zones](../../availability-zones/az-overview.md#availability-zones) within the region, making it a **zone-redundant service** which further adds to high availability.
+
+## Supported regions
+Data collection rules are stored regionally, and are available in all public regions where Log Analytics is supported, as well as the Azure Government and China clouds. Air-gapped clouds are not yet supported.
 
 ### Single region data residency
 This is a preview feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. Single region residency is enabled by default in these regions.

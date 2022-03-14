@@ -8,7 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
+<<<<<<< HEAD
 ms.date: 03/14/2022
+=======
+ms.date: 03/10/2022
+>>>>>>> fef92beb534f2456650a07961c5b5a7b045575a8
 ms.author: v-ydequadros
 ---
 
@@ -18,14 +22,21 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fef92beb534f2456650a07961c5b5a7b045575a8
 This article describes how to onboard a Google Cloud Platform (GCP) project on CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
 
+<<<<<<< HEAD
 ## View a training video on configuring and onboarding a GCP account
 
 To view a video on how to configure and onboard GCP accounts in CloudKnox Permissions Management, select [Configure and onboard GCP accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
+=======
+>>>>>>> fef92beb534f2456650a07961c5b5a7b045575a8
 
 ## Onboard a GCP project
 

@@ -3,7 +3,6 @@ title: Azure Monitor Application Insights workspace-based resource schema
 description: Learn about the new table structure and schema for Azure Monitor Application Insights workspace-based resources.
 ms.topic: conceptual
 ms.date: 05/09/2020
-
 ---
 
 # Workspace-based resource changes
@@ -374,7 +373,7 @@ Legacy table: requests
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
-### AppSystemEvents
+### AppExceptions
 
 Legacy table: exceptions
 

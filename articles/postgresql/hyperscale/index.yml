@@ -36,12 +36,14 @@ landingContent:
             url: concepts-nodes.md
           - text: Sharding data on worker nodes
             url: tutorial-shard.md
-          - text: Data modeling for common use cases
-            url: concepts-choose-distribution-column.md
+          - text: Regions
+            url: resources-regions.md
+      - linkListType: how-to-guide
+        links:
+          - text: Choose distribution column
+            url: howto-choose-distribution-column.md
           - text: Choosing a server group size
             url: howto-scale-initial.md
-          - text: Regions and resources
-            url: concepts-configuration-options.md
       - linkListType: video
         links:
           - text: How Citus distributes PostgreSQL
@@ -50,14 +52,14 @@ landingContent:
   # Card
   - title: Connect and query
     linkLists:
-      - linkListType: concept
+      - linkListType: how-to-guide
         links:
           - text: Public access
-            url: concepts-firewall-rules.md
+            url: howto-manage-firewall-using-portal.md
           - text: Private access
-            url: concepts-private-access.md
+            url: howto-private-access.md
           - text: Configure TLS
-            url: concepts-ssl-connection-security.md
+            url: howto-ssl-connection-security.md
       - linkListType: how-to-guide
         links:
           - text: Troubleshoot connection issues
@@ -115,7 +117,7 @@ landingContent:
           - text: Columnar table storage
             url: concepts-columnar.md
           - text: Limits and limitations
-            url: concepts-limits.md
+            url: reference-limits.md
       - linkListType: how-to-guide
         links:
           - text: Scale server group
