@@ -44,7 +44,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - Lsv2-series
 
 **OS support**:
-- Redhat Enterprise Linux 8.3
+- Redhat Enterprise Linux 8.3, 8.5
 - SUSE 15 SP2
 - Ubuntu 20.04 LTS
 - Ubuntu 18.04 LTS
@@ -156,10 +156,22 @@ Azure Defender for Cloud periodically performs attestation. If the attestation f
 
 Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in conjunction with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or virtual machine scale sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
 
+### Does trusted launch support Azure Compute Gallery?
+
+Trusted launch now allows images to be created and shared through the Azure Compute Gallery (formerly Shared Image Gallery). The image source can be an existing Azure VM which is either generalized or specialized, an existing managed disk or a snapshot, a VHD or an image version from another gallery. Deploy a Trusted Launch VM from an Azure Compute Gallery image version 
+
+### Does trusted launch support Azure Backup?
+
+Trusted launch now supports Azure Backup in preview. For more information, see https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-iaas#vm-compute-support
+
+### Does trusted launch support ephemeral OS disks?
+
+Trusted launch now supports ephemeral OS disks in preview. For more information, see https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks
+
 ### What is VM Guest State (VMGS)?  
 
 VM Guest State (VMGS) is specific to Trusted Launch VM. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
 ## Next steps
 
-Deploy a [trusted launch VM using the portal](trusted-launch-portal.md).
+Deploy a [trusted launch VM](trusted-launch-portal.md).
