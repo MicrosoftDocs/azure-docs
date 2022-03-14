@@ -9,30 +9,36 @@ ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
-ms.date: 04/20/2018
+ms.date: 03/04/2022
 ms.author: allensu 
 ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI script example: Load balance traffic to VMs for high availability
 
-This Azure CLI script example creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer. 
-
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+This Azure CLI script example creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
 ## Sample script
 
-## Clean up deployment 
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-Run the following command to remove the resource group, VM, and all related resources.
+### Run the script
+
+:::code language="azurecli" source="~/azure_cli_scripts/load-balancer/create-vm-nlb/create-vm-nlb.sh" id="FullScript":::
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands to create a resource group, virtual machine, availability set, load balancer, and all related resources. Each command in the table links to command specific documentation.
 
