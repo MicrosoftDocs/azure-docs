@@ -73,9 +73,9 @@ For example, use "Platform" to have the rule apply only to metric alerts.
 For example, you can use this filter with "Does not equal" to exclude one or more resources when the rule's scope is a subscription.  
 * **Resource group** - the rule will apply only to alerts from the specified resource groups.  
 For example, you can use this filter with "Does not equal" to exclude one or more resource groups when the rule's scope is a subscription.  
-* **Resource type** - the rule will apply only to alerts on resource from the specified resource types, such as virtual machines. You can use "Equals" to match one or more specific resources, or you can use contains to match a resource type and all its sub-resources.  
-For example, use "contains MICROSOFT.SQL/SERVERS" to match both SQL servers and all their sub-resources, like databases.
-* **Severity** -  the  rule will apply only to alerts with the selected severities.  
+* **Resource type** - the rule will apply only to alerts on resource from the specified resource types, such as virtual machines. You can use "Equals" to match one or more specific resources, or you can use contains to match a resource type and all its child resources.  
+For example, use "contains MICROSOFT.SQL/SERVERS" to match both SQL servers and all their schild resources, like databases.
+* **Severity** - the rule will apply only to alerts with the selected severities.  
 
 **FILTERS BEHAVIOR**  
 * If you define multiple filters in a rule, all of them apply - there is a logical AND between all filters.  
@@ -145,7 +145,7 @@ You can use the Azure CLI to work with alert processing rules. See the `az monit
 
 1. **Sign in**
 
-   If you're using a local installation of the CLI, sign in using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
+   If you're using a local installation of the CLI, sign in using the `az login` [command](/cli/azure/reference-index#az-login). Follow the steps displayed in your terminal to complete the authentication process.
 
     ```azurecli
     az login
