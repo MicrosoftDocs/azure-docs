@@ -86,7 +86,7 @@ You may need to wait a few moments for Azure to provision these resources.
 
 ---
 
-## 2) Create the Computer Vision Account
+## 2) Create the Computer Vision service
 Next let's create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive services and offers a variety of features for extracting data out of images.  You can [learn more about Computer Vision on the overview page](/services/cognitive-services/computer-vision/#overview).
 
 ### [Azure portal](#tab/azure-portal)
@@ -268,7 +268,7 @@ Once the process has finished, click **Finish** to close out the dialog workflow
 
 The final step to deploy our Azure Function is to click **Publish** in the upper right of the screen. This may also takes a few moments to complete.  Once it finishes, your application will be running out on Azure.
 
-## 5) Connect the Services
+## 5) Connect the services
 
 Our Azure Function was deployed successfully, but it cannot connect to our Storage Account and Computer Vision services yet. To enable this, we need to add the correct keys and connection strings to the configuration settings of the Azure Functions app.
 
