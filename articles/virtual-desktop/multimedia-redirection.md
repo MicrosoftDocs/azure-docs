@@ -28,7 +28,7 @@ The following list shows websites that are known to work with MMR. MMR is suppos
 - Facebook
 - Fox Sports
 - IMDB
-- Sites with embedded YouTube videos, such as Medium, UdaciTY, Los Angeles Times, and so on.
+- Sites with embedded YouTube videos, such as Medium, Udacity, Los Angeles Times, and so on.
 
 ## Requirements
 
