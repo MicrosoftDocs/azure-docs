@@ -348,7 +348,7 @@
               items:
               - name: Guidance for running on Kubernetes
                 href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
-              - name: Migration guide to v2
+              - name: Migrate to self-hosted gateway v2
                 href: self-hosted-gateway-migration-guide.md
             - name: Integrate with Service Fabric
               items:
