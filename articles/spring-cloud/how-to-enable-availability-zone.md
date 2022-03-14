@@ -2,10 +2,12 @@
 title: Create Azure Spring Cloud with availability zone enabled
 titleSuffix: Azure Spring Cloud
 description: How to create an azure spring cloud instance with availability zone enabled.
+author: Descatles
 ms.author: wenhaozhang
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 03/14/2022
+ms.custom: devx-track-java
 ---
 # Create Azure Spring Cloud with availability zone enabled
 
