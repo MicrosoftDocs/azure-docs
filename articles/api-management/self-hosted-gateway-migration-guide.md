@@ -1,6 +1,6 @@
 ---
 title: Self-hosted gateway migration guide | Azure API Management
-description: Learn how to migrate to self-hosted gateway v2.
+description: Learn how to migrate the Azure API Management self-hosted gateway to v2.
 services: api-management
 documentationcenter: ''
 author: tomkerkhove
