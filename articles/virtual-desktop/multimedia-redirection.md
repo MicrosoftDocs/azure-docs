@@ -54,7 +54,7 @@ to do these things:
 
 Using the multimedia redirection MSI will install the browser extensions. However, as this service is still in public preview, user experience may vary. For more information about known issues, see [Known issues](#known-issues-and-limitations).
 
-Keep in mind that when the IT admin installs an extension with MSI, they'll see a prompt that says "New Extension added." In order to use the app, they'll need to confirm the prompt. If they select **Cancel**, then their browser will uninstall the extension. If you want the browser to force install the extension without any input from your users, we recommend you use the group policy in the following section.
+Keep in mind that when the IT admin installs an extension with MSI, the users will see a prompt that says "New Extension added." In order to use the app, they'll need to confirm the prompt. If they select **Cancel**, then their browser will uninstall the extension. If you want the browser to force install the extension without any input from your users, we recommend you use the group policy in the following section.
 
 In some cases, you can change the group policy to manage the browser extensions and improve user experience. For example:
 
