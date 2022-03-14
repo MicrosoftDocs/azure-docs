@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 07/29/2021
 ---
 
-# Use REST API to create private link for managing Azure resources
+# Use REST API to create private link for managing Azure resources (preview)
 
 This article explains how you can use [Azure Private Link](../../private-link/index.yml) to restrict access for managing resources in your subscriptions.
 

@@ -1,11 +1,11 @@
 ---
 title: SMB file shares in Azure Files
 description: Learn about file shares hosted in Azure Files using the Server Message Block (SMB) protocol.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/10/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 
 ---
