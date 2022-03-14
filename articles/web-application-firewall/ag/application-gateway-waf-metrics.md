@@ -49,8 +49,9 @@ For Application Gateway, the following metrics are available:
 
 2. Under **Monitoring**, select **Metrics**:
 
-3. In **Metrics**, select the metric to add:
-:::image type="content" source="..media/waf-appgateway-metrics/appgw-waf-metrics-1.png" alt-text="Screenshot of waf metrics page." lightbox="..media/waf-appgateway-metrics/appgw-waf-metrics-1-expanded.png":::
+3. In **Metrics**, select the metric to add:  
+ 
+:::image type="content" source="../media/waf-appgateway-metrics/appgw-waf-metrics-1.png" alt-text="Screenshot of waf metrics page." lightbox="../media/waf-appgateway-metrics/appgw-waf-metrics-1-expanded.png":::
  
  
    
