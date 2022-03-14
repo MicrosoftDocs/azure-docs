@@ -20,10 +20,14 @@ Use the following methods to cancel a job.
 
 ## [CLI](#tab/cli/)
 
-[!INCLUDE [Create an asset with CLI](includes/task-cancel-job-cli.md)]
+[!INCLUDE [task-cancel-job-cli.md](includes/task-cancel-job-cli.md)]
 
 ## [REST](#tab/rest/)
 
-[!INCLUDE [Create an asset with CLI](includes/task-cancel-job-rest.md)]
+[!INCLUDE [task-cancel-job-rest.md](includes/task-cancel-job-rest.md)]
+
+## [Python](#tab/python/)
+
+[!INCLUDE [task-cancel-job-python.md](includes/task-cancel-job-python.md)]
 
 ---
