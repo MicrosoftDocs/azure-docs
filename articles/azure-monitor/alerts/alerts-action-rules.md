@@ -74,7 +74,7 @@ For example, you can use this filter with "Does not equal" to exclude one or mor
 * **Resource group** - the rule will apply only to alerts from the specified resource groups.  
 For example, you can use this filter with "Does not equal" to exclude one or more resource groups when the rule's scope is a subscription.  
 * **Resource type** - the rule will apply only to alerts on resource from the specified resource types, such as virtual machines. You can use "Equals" to match one or more specific resources, or you can use contains to match a resource type and all its child resources.  
-For example, use "contains MICROSOFT.SQL/SERVERS" to match both SQL servers and all their schild resources, like databases.
+For example, use "contains MICROSOFT.SQL/SERVERS" to match both SQL servers and all their child resources, like databases.
 * **Severity** - the rule will apply only to alerts with the selected severities.  
 
 **FILTERS BEHAVIOR**  
