@@ -162,11 +162,11 @@ After you've enabled VMs to be managed from Azure, you can install guest managem
 
  **Azure VMware Solution private cloud with Azure Arc**
 
-When the script has run successfully, you can check the status to see if Azure Arc has been configured. To verify if your private cloud is Arc-enabled, do the following:
+When the script has run successfully, you can check the status to see if Azure Arc has been configured. To verify if your private cloud is Arc-enabled, do the following action:
 - In the left navigation, locate **Operations**.
 - Choose **Azure Arc (preview)**. Azure Arc state will show as **Configured**.
 
-    :::image type="content" source="media/deploy-arc-for-avs/arc-avs-private-cloud-configured.png" alt-text="Image showing navigation to Azure Arc state to verify it is configured."lightbox="media/deploy-arc-for-avs/arc-avs-private-cloud-configured.png":::
+    :::image type="content" source="media/deploy-arc-for-avs/arc-avs-private-cloud-configured.png" alt-text="Image showing navigation to Azure Arc state to verify it's configured."lightbox="media/deploy-arc-for-avs/arc-avs-private-cloud-configured.png":::
 
 **Arc enabled VMware resources**
 
@@ -314,16 +314,18 @@ Use the following guide to change your Arc appliance credential once you've chan
 
 Use the **`Set Credential`** command to update the provider credentials for appliance resource. When **cloud admin** credentials are updated, use the following steps to update the credentials in the appliance store.
 
-1. Log into the jumpbox VM from where
+1. Log into the jumpbox VM from where onboarding was performed. Change the directory to **onboarding directory**.
 1. Run the following command for Windows-based jumpbox VM.
     
     `./.temp/.env/Scripts/activate`
-1. Run the following command
+1. Run the following command.
 
     `az arcappliance setcredential vmware --kubeconfig kubeconfig`
 
 1. Run the onboard command again. See step 3 in the [Process to onboard]() in Arc for Azure VMware Preview. 
     
+> [!NOTE]
+> Customers need to persist kubeconfig and SSH as it will be required for log collection, appliance Upgrade, and credential rotation.
 
 **Parameters**
 
@@ -349,8 +351,6 @@ Use the following steps to perform a manual upgrade for Arc appliance virtual ma
 1. Get the previous script `Config_avs` file and add the following configuration item:
     1. `"register":false`
 1. Rerun the onboarding script with the changes from the jump box VM, without changing other config items.
-
-
 
 ## Off board from Azure Arc-enabled Azure VMware Solution
 
