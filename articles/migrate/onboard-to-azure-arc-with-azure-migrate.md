@@ -175,7 +175,7 @@ Unable to connect to server. Either you have provided incorrect credentials on t
 - The server hosts an unsupported operating system for Azure Arc onboarding.
 
 **Recommended actions**  
-- [Review the supported operating systems](../azure-arc/servers/agent-overview.md#supported-operating-systems) for Azure Arc. 
+- [Review the supported operating systems](../azure-arc/servers/prerequisites.md#supported-operating-systems) for Azure Arc. 
  
 ### Error 10002 - ScriptExecutionTimedOutOnVm  
 
