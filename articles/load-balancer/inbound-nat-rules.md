@@ -35,7 +35,7 @@ A multiple virtual machines inbound NAT rule references the entire backend pool 
 
 :::image type="content" source="./media/inbound-nat-rules/add-inbound-nat-rule.png" alt-text="Screenshot of a multiple virtual machines inbound NAT rule.":::
 
-When the inbound NAT rule is created, port mappings are made to the backend pool from the pre-allocated range defined in the rule.
+During inbound port rule creation, port mappings are made to the backend pool from the pre-allocated range that's defined in the rule.
 
 When the backend pool is scaled down, existing port mappings for the remaining virtual machines persist. When the backend pool is scaled up, new port mappings are created automatically for the new virtual machines added to the backend pool. An update to the inbound NAT rule settings isn't required.
 
@@ -46,11 +46,11 @@ When the backend pool is scaled down, existing port mappings for the remaining v
 
 ## Port mapping retrieval
 
-You can use the portal to retrieve the port mappings for virtual machines in the backend pool. For more information see [Manage inbound NAT rules](manage-inbound-nat-rules.md) and [Tutorial: Create a multiple virtual machines inbound NAT rule - Azure portal](tutorial-nat-rule-multi-instance-portal.md).
+You can use the portal to retrieve the port mappings for virtual machines in the backend pool. For more information, see [Manage inbound NAT rules](manage-inbound-nat-rules.md) and [Tutorial: Create a multiple virtual machines inbound NAT rule - Azure portal](tutorial-nat-rule-multi-instance-portal.md).
 
 ## Next steps
 
-To learn more about Azure Load Balancer inbound NAT rules see:
+For more information about Azure Load Balancer inbound NAT rules, see:
 
 * [Manage inbound NAT rules](manage-inbound-nat-rules.md)
 
