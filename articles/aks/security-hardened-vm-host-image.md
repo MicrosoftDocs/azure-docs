@@ -2,10 +2,8 @@
 title: Security hardening in AKS virtual machine hosts 
 description: Learn about the security hardening in AKS VM host OS
 services: container-service
-author: georgewallace
 ms.topic: article
 ms.date: 03/29/2021
-ms.author: gwallace
 ms.custom: mvc
 ---
 
