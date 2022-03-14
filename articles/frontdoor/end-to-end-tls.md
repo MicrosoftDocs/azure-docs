@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/02/2021
+ms.date: 03/14/2022
 ms.author: duau
 ---
 
@@ -47,7 +47,12 @@ For HTTPS connections, Azure Front Door expects that your backend presents a cer
 > [!NOTE]
 > The certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests which involve that certificate are not guaranteed to work as expected.
 
-From a security standpoint, Microsoft doesn't recommend disabling certificate subject name check. In certain use cases such as for testing, as a work-around to resolve failing HTTPS connection, you can disable certificate subject name check for your Azure Front Door. Note that the origin still needs to present a certificate with a valid trusted chain, but doesn't have to match the origin host name. The option to disable is present under the Azure Front Door settings in the Azure portal and on the BackendPoolsSettings in the Azure Front Door API. 
+From a security standpoint, Microsoft doesn't recommend disabling certificate subject name check. In certain use cases such as for testing, as a work-around to resolve failing HTTPS connection, you can disable certificate subject name check for your Azure Front Door. Note that the origin still needs to present a certificate with a valid trusted chain, but doesn't have to match the origin host name. The option to disable this feature is different for each Azure Front Door tier:
+
+* Azure Front Door Standard and Premium - it is present in the origin settings.
+* Azure Front Door (classic) - it is present under the Azure Front Door settings in the Azure portal and in the Backend PoolsSettings in the Azure Front Door API.
+
+ under the Azure Front Door settings in the Azure portal and on the BackendPoolsSettings in the Azure Front Door API. 
 
 ## Frontend TLS connection (Client to Front Door)
 
