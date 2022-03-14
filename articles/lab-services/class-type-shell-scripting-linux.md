@@ -10,7 +10,7 @@ ms.custom: devdivchpfy22
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-This article shows you how to set up a lab to teach shell scripting on Linux. Scripting is a useful part of system administration that allows administrators to avoid repetitive tasks. In this sample scenario, the class covers traditional bash scripts and enhanced scripts. Enhanced scripts are scripts that combine bash commands and Ruby. This approach allows Ruby to pass data around and bash commands to interact with the shell.
+This article shows you how to set up a lab to teach shell scripting on Linux. Scripting is a useful part of system administration that allows administrators to avoid repetitive tasks. In this sample scenario, the class covers traditional bash scripts and enhanced scripts. Enhanced scripts are scripts that combine bash commands and Ruby. This approach lets Ruby pass the data around and bash commands to interact with the shell.
 
 Students taking these scripting classes get a Linux virtual machine to learn the basics of Linux, and also get familiar with the bash shell scripting. The Linux virtual machine comes with remote desktop access enabled and with [gedit](https://help.gnome.org/users/gedit/stable/) and [Visual Studio Code](https://code.visualstudio.com/) text editors installed.
 
@@ -76,7 +76,7 @@ This section shows you how to install a couple of text editors. Gedit is the def
     sudo apt-get install gedit
     ```
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/). Visual Studio code can be installed using the Snap Store. For alternate installation options, see [Visual Studio Code alternate downloads](https://code.visualstudio.com/#alt-downloads).
+1. Install [Visual Studio Code](https://code.visualstudio.com/). Use the Snap Store to install Visual Studio code. For alternate installation options, see [Visual Studio Code alternate downloads](https://code.visualstudio.com/#alt-downloads).
 
     ```bash
     sudo snap install vscode --classic 
