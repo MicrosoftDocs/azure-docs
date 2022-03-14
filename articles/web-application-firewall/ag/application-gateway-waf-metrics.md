@@ -85,3 +85,6 @@ Note: AppGW WAF v2 CRS 3.1 or older do not have any WAF metrics
 Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../../azure-monitor/alerts/alerts-overview.md).
 
 ## Next steps
+
+- Learn about [Web Application Firewall](overview.md).
+- Learn about [Web Application Firewall Logs](../ag/web-application-firewall-logs.md).
