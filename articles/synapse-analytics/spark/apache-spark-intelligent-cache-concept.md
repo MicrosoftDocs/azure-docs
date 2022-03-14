@@ -24,14 +24,14 @@ The Synapse cache is a single cache per node. If you're using a medium size node
 > [!Note]
 > Intelligent Cache is currently in Public Preview.
 
-## Enable/Disable the cache for your Apache Spark pool 
+## Enable or Disable the cache
 
-The cache size can be adjusted based on the percent of total disk size available for each Apache Spark pool. By default, the cache is set to disabled but it's as easy as moving the slider bar from 0 (disabled) to the desired percentage for your cache size to enable it. We reserve a minimum of 20% of available disk space for data shuffles. For shuffle intensive workloads, you can minimize the cache size or disable the cache. We recommend starting with a 50% cache size and adjust as necessary. It's important to note that if your workload requires a lot of disk space on the local SSD for shuffle or RDD caching, then consider reducing the cache size to reduce the chance of failure due to insufficient storage. The actual size of the available storage and the cache size on each node will depend on the node family and node size.
+The cache size can be adjusted based on the percent of total disk size available for each Apache Spark pool. By default, the cache is set to disabled but it's as easy as moving the **slider** bar from 0 (disabled) to the desired percentage for your cache size to enable it. We reserve a minimum of 20% of available disk space for data shuffles. For shuffle intensive workloads, you can minimize the cache size or disable the cache. We recommend starting with a 50% cache size and adjust as necessary. It's important to note that if your workload requires a lot of disk space on the local SSD for shuffle or RDD caching, then consider reducing the cache size to reduce the chance of failure due to insufficient storage. The actual size of the available storage and the cache size on each node will depend on the node family and node size.
 
 
 ### Enabling cache for new Spark pools
 
-When creating a new Spark pool, browse under the additional settings tab to find the Intelligent cache slider you can move to your preferred size to enable the feature. 
+When creating a new Spark pool, browse under the **additional settings** tab to find the **Intelligent cache slider** you can move to your preferred size to enable the feature. 
 
 ![How to enable intelligent cache during new Spark pools creation](./media/apache-spark-intelligent-cache-concept/inteligent-cache-creation-config.png)
 
@@ -39,14 +39,14 @@ When creating a new Spark pool, browse under the additional settings tab to find
 
 ### Enabling/Disabling cache for existing Spark pools
 
-For existing Spark pools, browse to the Scale settings of your Apache Spark pool of choice to enable, by moving the slider to a value more then 0, or disable it, by moving slider to 0.
+For existing Spark pools, browse to the **Scale settings** of your Apache Spark pool of choice to enable, by moving the **slider** to a value more then 0, or disable it, by moving **slider** to 0.
 
 ![How to enable or disable intelligent cache for existing Spark pools](./media/apache-spark-intelligent-cache-concept/inteligent-cache-setting-config.png)
 
 
 ### Changing cache size for existing Spark pools
 
-To change the Intelligent Cache size of a pool, you must force a restart if the pool has active sessions. If the Spark pool has an active session, then it will show “Force new settings”.  Click on the check box and select “Apply” to automatically restart the session. 
+To change the Intelligent Cache size of a pool, you must force a restart if the pool has active sessions. If the Spark pool has an active session, then it will show **Force new settings**.  Click on the **check box** and select **Apply** to automatically restart the session. 
 
 ![Force restarting a session after changing intelligent cache setting](./media/apache-spark-intelligent-cache-concept/inteligent-cache-change-size.png)
 
@@ -56,39 +56,39 @@ To change the Intelligent Cache size of a pool, you must force a restart if the 
 
 Easily disable the Intelligent cache within a session by running the following code in your notebook: 
 ```scala
-    %spark 
+   %spark 
 
-    spark.conf.set("spark.synapse.vegas.useCache", "false") 
+   spark.conf.set("spark.synapse.vegas.useCache", "false") 
 ```
 
 ```python
-    %pyspark 
+   %pyspark 
 
-    spark.conf.set('spark.synapse.vegas.useCache', 'false') 
+   spark.conf.set('spark.synapse.vegas.useCache', 'false') 
 ```
 
 And enable by running:  
 ```scala
-    %spark 
+   %spark 
 
-    spark.conf.set("spark.synapse.vegas.useCache", "true") 
+   spark.conf.set("spark.synapse.vegas.useCache", "true") 
 ```
 
 ```python
-    %pyspark 
+   %pyspark 
 
-    spark.conf.set('spark.synapse.vegas.useCache', 'true') 
+   spark.conf.set('spark.synapse.vegas.useCache', 'true') 
 ```
 
 
-## When should I use the Intelligent cache and when should I not? 
+## When to use the Intelligent cache and when not to? 
 
 This feature will benefit you if:
 * Your workload requires reading the same file multiple times and the file size can fit into the cache. 
 
 * Your workload uses Delta tables, parquet file formats and CSV files. 
 
-* Your using Apache Spark v3.1 or higher on Azure Synapse. 
+* You're using Apache Spark v3.1 or higher on Azure Synapse. 
 
 
 You won't see the benefit of this feature if:
