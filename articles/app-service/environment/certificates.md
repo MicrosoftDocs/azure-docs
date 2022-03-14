@@ -19,7 +19,7 @@ The ASE is a single tenant system. Because it is single tenant, there are some f
 
 ## ILB ASE certificates 
 
-If you are using an External ASE, then your apps are reached at &lt;appname&gt;.&lt;asename&gt;.p.azurewebsites.NET. By default all ASEs, even ILB ASEs, are created with certificates that follow that format. When you have an ILB ASE, the apps are reached based on the domain name that you specify when creating the ILB ASE. In order for the apps to support TLS, you need to upload certificates. Obtain a valid TLS/SSL certificate by using internal certificate authorities, purchasing a certificate from an external issuer, or using a self-signed certificate. 
+If you are using an External ASE, then your apps are reached at &lt;appname&gt;.&lt;asename&gt;.p.azurewebsites.net. By default all ASEs, even ILB ASEs, are created with certificates that follow that format. When you have an ILB ASE, the apps are reached based on the domain name that you specify when creating the ILB ASE. In order for the apps to support TLS, you need to upload certificates. Obtain a valid TLS/SSL certificate by using internal certificate authorities, purchasing a certificate from an external issuer, or using a self-signed certificate. 
 
 There are two options for configuring certificates with your ILB ASE.  You can set a wildcard default certificate for the ILB ASE or set certificates on the individual web apps in the ASE.  Regardless of the choice you make, the following certificate attributes must be configured properly:
 
