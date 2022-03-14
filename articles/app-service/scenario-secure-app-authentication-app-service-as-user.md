@@ -36,4 +36,4 @@ Once the app service has the authenticated identity, your system needs to **conn
 [!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/after.md)]
 
 > [!div class="nextstepaction"]
-> [App service accesses Graph](../../scenario-secure-app-authentication-app-service-as-user.md)
+> [App service accesses Graph](scenario-secure-app-authentication-app-service-as-user.md)
