@@ -1,8 +1,6 @@
 ---
 title: Secure Azure Computing Architecture
 description: Learn about the Secure Azure Computing Architecture (SACA). Using SACA allows US DoD and civilian customers to comply with the SCCA FRD.
-author: jahender
-ms.author: jahender
 ms.date: 08/27/2021
 ms.topic: article
 ms.service: azure-government
