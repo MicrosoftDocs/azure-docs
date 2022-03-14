@@ -200,7 +200,7 @@ pa = purview_client.accounts.begin_delete(rg_name, purview_name).result()
 
 ## Next steps
 
-The code in this tutorial creates a purview account and  deletes a purview account. You can now download the python SDK and learn about other resource provider actions you can perform for an Azure Purview account.
+The code in this tutorial creates a purview account and  deletes a purview account. You can now download the Python SDK and learn about other resource provider actions you can perform for an Azure Purview account.
 
 Follow these next articles to learn how to navigate the Azure Purview Studio, create a collection, and grant access to Azure Purview.
 
