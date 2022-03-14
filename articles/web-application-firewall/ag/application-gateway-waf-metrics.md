@@ -78,7 +78,7 @@ Note: AppGW WAF v2 CRS 3.1 or older do not have any WAF metrics
  
  ## Configure Alerts in Azure portal
 
-1. Set up alerts on Azure Front Door Standard/Premium (Preview) by selecting **Monitoring** >> **Alerts**.
+1. Set up alerts on Azure Application Gateway by selecting **Monitoring** >> **Alerts**.
 
 1. Select **New alert rule** for metrics listed in Metrics section.
 
