@@ -14,16 +14,22 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
+[!INCLUDE [term-job.md](./includes/term-job.md)]
+
 ## Methods
 
 Use the following methods to delete a job.
 
 ## [CLI](#tab/cli/)
 
-[!INCLUDE [Create an asset with CLI](includes/task-delete-job-cli.md)]
+[!INCLUDE [task-delete-job-cli.md](includes/task-delete-job-cli.md)]
 
 ## [REST](#tab/rest/)
 
-[!INCLUDE [Create an asset with CLI](includes/task-delete-job-rest.md)]
+[!INCLUDE [task-delete-job-rest.md](includes/task-delete-job-rest.md)]
+
+## [Python](#tab/python/)
+
+[!INCLUDE [task-delete-job-python.md](includes/task-delete-job-python.md)]
 
 ---
