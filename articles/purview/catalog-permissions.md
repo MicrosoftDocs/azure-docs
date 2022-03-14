@@ -5,7 +5,7 @@ author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 03/09/2022
 ---
 
 # Access control in Azure Purview
@@ -18,31 +18,39 @@ A collection is a tool Azure Purview uses to group assets, sources, and other ar
 
 > [!NOTE]
 > As of November 8th, 2021, ***Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
->
->
+
 ## Roles
 
 Azure Purview uses a set of predefined roles to control who can access what within the account. These roles are currently:
 
-- **Collection admins** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
+- **Collection administrator** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
 - **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
-- **Data source admins** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+- **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+- **Policy author (Preview)** - a role that allows a user to view, update, and delete Azure Purview policies through the policy management app within Azure Purview.
+- **Workflow administrator** - a role that allows a user to access the workflow authoring page in the Azure Purview studio, and publish workflows on collections where they have access permissions. Workflow administrator only has access to authoring, and so will need at least Data reader permission on a collection to be able to access the Purview Studio.
+
+> [!NOTE] 
+> At this time, Azure Purview Policy author role is not sufficient to create policies. The Azure Purview Data source admin role is also required.
 
 ## Who should be assigned to what role?
 
 |User Scenario|Appropriate Role(s)|
 |-------------|-----------------|
-|I just need to find assets, I don't want to edit anything|Data Reader|
-|I need to edit information about assets, assign classifications, associate them with glossary entries, and so on.|Data Curator|
-|I need to edit the glossary or set up new classification definitions|Data Curator|
-|I need to view Insights to understand the governance posture of my data estate|Data Curator|
-|My application's Service Principal needs to push data to Azure Purview|Data Curator|
-|I need to set up scans via the Azure Purview Studio|Data Curator on the collection **or** Data Curator **And** Data Source Administrator where the source is registered|
-|I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data Source Admin|
-|I need to put users into roles in Azure Purview | Collection Admin |
+|I just need to find assets, I don't want to edit anything|Data reader|
+|I need to edit information about assets, assign classifications, associate them with glossary entries, and so on.|Data curator|
+|I need to edit the glossary or set up new classification definitions|Data curator|
+|I need to view Insights to understand the governance posture of my data estate|Data curator|
+|My application's Service Principal needs to push data to Azure Purview|Data curator|
+|I need to set up scans via the Azure Purview Studio|Data curator on the collection **or** data curator **and** data source administrator where the source is registered.|
+|I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data source administrator|
+|I need to put users into roles in Azure Purview | Collection administrator |
+|I need to create and publish access policies | Data source administrator and policy author |
+|I need to create workflows for my Azure Purview account | Workflow administrator |
 
-:::image type="content" source="./media/catalog-permissions/collection-permissions-roles.png" alt-text="Chart showing Azure Purview roles" lightbox="./media/catalog-permissions/collection-permissions-roles.png":::
+:::image type="content" source="media/catalog-permissions/catalog-permission-role.svg" alt-text="Chart showing Azure Purview roles" lightbox="media/catalog-permissions/catalog-permission-role.svg":::
+>[!NOTE]
+> **\*Data source administrator permissions on Policies** - Data source administrators are also able to publish data policies.
 
 ## Understand how to use Azure Purview's roles and collections
 
@@ -52,7 +60,7 @@ When an Azure Purview account is created, it starts with a root collection that 
 
 Sources, assets, and objects can be added directly to this root collection, but so can other collections. Adding collections will give you more control over who has access to data across your Azure Purview account.
 
-All other users can only access information within the Azure Purview account if they, or a group they're in, are given one of the above roles. This means, when you create an Azure Purview account, no one but the creator can access or use its APIs until they are [added to one or more of the above roles in a collection](how-to-create-and-manage-collections.md#add-role-assignments).
+All other users can only access information within the Azure Purview account if they, or a group they're in, are given one of the above roles. This means, when you create an Azure Purview account, no one but the creator can access or use its APIs until they're [added to one or more of the above roles in a collection](how-to-create-and-manage-collections.md#add-role-assignments).
 
 Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by its subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, its subcollections will no longer inherit permissions from the parent and will need to be added directly, though collection admins that are automatically inherited from a parent collection can't be removed.
 
@@ -96,7 +104,7 @@ Similarly with the Data Curator and Data Source Admin roles, permissions for tho
 
 ### Add users to roles
 
-Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Azure Purview Studio](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they will be able to add and manage users who need permissions.
+Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Azure Purview Studio](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they'll be able to add and manage users who need permissions.
 
 For full instructions, see our [how-to guide for adding role assignments](how-to-create-and-manage-collections.md#add-role-assignments).
 

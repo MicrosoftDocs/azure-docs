@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-In this section, you use an Azure Resource Manager template to create the Azure-SSIS integration runtime. 
+In this section, you use an Azure Resource Manager template to create the Azure-SSIS integration runtime in Azure Data Factory. 
 
 ## Sample Azure Resource Manager template
 

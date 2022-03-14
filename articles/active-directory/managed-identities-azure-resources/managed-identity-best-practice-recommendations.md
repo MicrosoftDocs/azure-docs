@@ -75,7 +75,7 @@ In the example below, “Virtual Machine 4” has both a user-assigned identity,
 
 ## Limits 
 
-View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits)
+View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits)
 and for [custom roles and role assignments](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
 
 ## Follow the principle of least privilege when granting access

@@ -6,14 +6,13 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: B2B
-  ms.topic: reference
+  ms.topic: faq
   ms.date: 02/14/2022
   ms.author: mimart
   author: msmimart
   manager: celestedg
   ms.custom: "it-pro, seo-update-azuread-jan"
   ms.collection: M365-identity-device-management
-    
 title: Azure Active Directory B2B collaboration FAQs
 summary: |
   These frequently asked questions (FAQs) about Azure Active Directory (Azure AD) business-to-business (B2B) collaboration are periodically updated to include new topics.

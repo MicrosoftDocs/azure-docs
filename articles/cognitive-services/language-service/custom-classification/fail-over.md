@@ -363,7 +363,8 @@ Use the following JSON in your request. Use the name of the model you wan to dep
 
 ```json
 {
-  "trainedModelLabel": "{MODEL-NAME}"
+  "trainedModelLabel": "{MODEL-NAME}",
+  "deploymentName": "{DEPLOYMENT-NAME}"
 }
 ```
 

@@ -10,9 +10,14 @@
   - name: Release notes
     href: release-notes.md
     displayName: Release Notes, notes, updates, announcements, deprecations
-  - name: Compliance and regulatory
-    href: compliance-concept.md
-    displayName: compliance, regulatory, FedRamp, DOD CC SRG IL2, DOD CC SG IL 4, GDPR
+  - name: Compliance
+    items:
+    - name: Regulatory compliance
+      href: compliance-concept.md
+      displayName: compliance, regulatory, FedRamp, DOD CC SRG IL2, DOD CC SG IL 4, GDPR
+    - name: Privacy and security compliance
+      href: media-services-compliance.md
+      displayName: compliance, security, privacy
   - name: FAQs
     items:
       - name: Frequently asked questions
@@ -57,14 +62,14 @@
         displayName: samples, SDK, tutorial, GitHub, .NET, Python, Nodejs, Node, Node.JS Java, TypeScript, TS, JavaScript, JS
   - name: Try Media Services in the portal
     items:
+    - name: Basic Video On Demand (VOD) app
+      href: video-on-demand-simple-portal-quickstart.md
     - name: Live event with portal and Wirecast
       href: live-event-wirecast-quickstart.md
       displayName: Wirecast, live streaming, live, software, encoder
     - name: Live event with portal and OBS
       href: live-event-obs-quickstart.md
       displayName: OBS, Open Broadcast, OBS Studio, live streaming, live, software, encoder
-    - name: Use portal to upload, encode, and stream content 
-      href: asset-create-asset-upload-portal-quickstart.md
     - name: Use portal to encrypt content
       href: drm-encrypt-content-how-to.md
   - name: Deploy using an ARM template
@@ -191,9 +196,6 @@
     - name: Customer managed keys
       href: concept-use-customer-managed-keys-byok.md
       displayName: customer managed keys, byok, customer keys, keys, management
-    - name: Reset account credentials
-      href: account-reset-account-credentials.md   
-      displayName: reset, account credentials, remove credentials, security, restore, remove, credentials 
   - name: Assets
     items: 
     - name: Assets
@@ -204,7 +206,7 @@
     - name: Overview
       href: encode-concept.md   
       displayName: encode, transcode, encoding, presets, jobs, adaptive, bitrate, billing, h264, h265, aac, audio, video, MP4, HLS, DASH, Smooth
-    - name: Setting up transforms and jobs
+    - name: Transforms and jobs
       href: transform-jobs-concept.md 
       displayName: preset, schema, transform, job, template, encode, encoding, analyze, speech to text, captions, subtitles, transcode         
     - name: Supported file formats  
@@ -235,6 +237,9 @@
     - name: Overview
       href: stream-live-streaming-concept.md
       displayName: basic pass-through, standard pass-through, pass through, pass, pass-through, cloud encoding, cloud transcoding, cloud encoding, encoding channel, 4K, 1080P, 720P, streaming, live, live event, low latency, RTMP, Smooth, RTMPS, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP
+    - name: Live streaming best practices guide 
+      href: live-event-streaming-best-practices-guide.md 
+      displayName: ingest, static, hostname, rtmp, ingest, streaming, live, live event, low latency, RTMP,RTMPS, stream key, hostname, Smooth, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP, live output, outputs, DVR Window, time shift
     - name: Live events and live outputs 
       href: live-event-outputs-concept.md 
       displayName: ingest, static, hostname, rtmp, ingest, streaming, live, live event, low latency, RTMP,RTMPS, stream key, hostname, Smooth, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP, live output, outputs, DVR Window, time shift   
@@ -283,10 +288,7 @@
     items:
     - name: Dynamic encryption and key delivery
       displayName: content protection, access control, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, AES, AES-128,custom, DRM, CENC, CBCS, secure, encrypt, protect, authorization, keys, content keys, key delivery, license, license template, Playready license, SL3000
-      href: drm-content-protection-concept.md  
-    - name: Design of multi-DRM system 
-      displayName: drm, access control, content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, AES, AES-128,custom, DRM, CENC, CBCS, secure, encrypt, protect, authorization, keys, content keys, key delivery, license, license template, Playready license, SL3000
-      href: architecture-design-multi-drm-system.md  
+      href: drm-content-protection-concept.md
     - name: DRM licenses
       items:
       - name: PlayReady license template
@@ -449,73 +451,120 @@
     - name: Find your subscription ID
       href: setup-azure-subscription-how-to.md
       displayName: how to, how-to, tutorial, find subscription, subscription, subscription id
-  - name: Create assets and upload media
+    - name: Reset account credentials
+      href: account-reset-account-credentials.md   
+      displayName: reset, account credentials, remove credentials, security, restore, remove, credentials 
+  - name: Manage accounts and storage
+    items:
+      - name: Add storage to an account
+        href: account-add-account-storage-how-to.md
+      - name: Remove storage from an account
+        href: account-remove-account-storage-how-to.md
+      - name: List assets in an account
+        href: account-add-account-storage-how-to.md
+      - name: List transforms in an account
+        href: account-add-account-storage-how-to.md
+      - name: Set account encryption with customer managed keys
+        href: account-set-account-encryption-customer-managed-key-how-to.md
+      - name: Show account encryption
+        href: account-show-encryption-how-to.md
+      - name: Manage multiple storage accounts
+        href: storage-managing-multiple-storage-accounts-how-to.md
+        displayName: how to, how-to, tutorial, storage accounts, multiple storage accounts
+      - name: Sync storage keys
+        href: storage-sync-storage-keys-how-to.md
+  - name: Manage assets
     items:
     - name: Create an asset
       href: asset-create-asset-how-to.md
       displayName: how to, how-to, tutorial, create asset, upload file, ingest file, upload, container, storage account, SAS, S3, URL, HTTP ingest
+    - name: Delete an asset
+      href: asset-delete-asset-how-to.md
+    - name: Get asset SAS URLs
+      href: asset-get-asset-sas-urls-how-to.md
+    - name: Get asset encryption key
+      href: asset-get-encryption-key-how-to.md
+    - name: Create an asset filter
+      href: asset-create-asset-filter-how-to.md
+    - name: Update an asset filter
+      href: asset-update-asset-filter-how-to.md
+    - name: List asset filters
+      href: asset-list-asset-filters-how-to.md
+    - name: Delete an asset filter
+      href: asset-delete-asset-filter-how-to.md
+    - name: List asset streaming locators
+      href: asset-list-asset-streaming-locators-how-to.md
+  - name: Upload media
+    items:
     - name: Upload media
       href: asset-upload-media-how-to.md
       displayName: how to, how-to, tutorial, create asset, upload file, ingest file, upload, container, storage account, SAS, S3, URL, HTTP ingest, upload media
-    - name: Manage multiple storage accounts
-      href: storage-managing-multiple-storage-accounts-how-to.md
-      displayName: how to, how-to, tutorial, storage accounts, multiple storage accounts, 
   - name: Encode media
     items:
     - name: Create a transform
       href: transform-create-transform-how-to.md
       displayName: Transform, encoding, encode, encoder, thumbnail, H264, HEVC, MP4, TS, MOV, MXF, Content aware encoding, ABR, adaptive bitrate, custom encoding, custom job, job, preset
-    - name: Create a basic audio transform with REST
+    - name: Create a basic audio transform
       href: transform-create-basic-audio-how-to.md
       displayName: Transform, speech to text, audio, transcription, captions, subtitles, translation, language, accessibility
     - name: Create thumbnail sprites
       href: transform-create-thumbnail-sprites-how-to.md
       displayName: thumbnail, thumbnails, encoder, encode, sprite, webVTT sprite, webVTT, web VTT, sprites, poster, VTT
-    - name: Stitch two or more video files with .NET
+    - name: Stitch two or more video files
       href: transform-stitch-how-to.md
       displayName: stitch, edit, edit decision list, edl, stitching, combine, merge, clips, highlight
-    - name: Subclip a video .NET
-      href: transform-subclip-video-dotnet-how-to.md
+    - name: Subclip a video
+      href: transform-subclip-video-how-to.md
       displayName: clip, highlight, clips, edit, edit decision list, edl, trim, head, tail, clipping, trimming, editing, subclipping, remove
-    - name: Subclip a video REST
-      href: transform-subclip-video-rest-how-to.md
-      displayName: clip, highlight, clips, edit, edit decision list, edl, trim, head, tail, clipping, trimming, editing, subclipping, remove
-    - name: Customize encoder presets .NET
-      href: transform-custom-presets-how-to.md
+    - name: Customize encoder transforms
+      href: transform-custom-transform-how-to.md
       displayName: custom, preset, custom preset, custom encoding, user defined, customize, presets, transcode, encode, encoding, encoder, MES, Standard encoder, .NET, transform, custom transform
-    - name: Create an overlay transform .NET
+    - name: Create an overlay transform
       href: transform-create-overlay-how-to.md
       displayName: overlay, video overlay, audio overlay, audio silence, remove audio, redact video, logo, lower third, bug, brand, branding, text overlay, graphic overlay, graphics, image overlay, image
-    - name: Generate thumbnails .NET
-      href: transform-generate-thumbnails-dotnet-how-to.md
+    - name: Generate thumbnails
+      href: transform-generate-thumbnails-how-to.md
       displayName: thumbnail, generate thumbnail, thumbnail job, job, image, jpg, png, bmp, sprite, VTT, WebVTT, best frame, automatic thumbnail, poster, poster frame, step, percentage
-    - name: Crop videos with .NET
-      href: crop-howto.md
+    - name: Crop videos
+      href: transform-crop-how-to.md
       displayName: encoder, transcoder, encode, custom preset, crop, resolution, aspect ratio, pixels, remove, 
-    - name: Customize encoder presets CLI
-      href: transform-custom-preset-cli-how-to.md
-      displayName: CLI, custom preset, encoder, transcoder, custom
-    - name: Customize encoder presets REST
-      displayName: encode, encoding, custom, transform, REST
-      href: transform-custom-preset-rest-how-to.md
-    - name: Generate thumbnails REST
-      href: transform-generate-thumbnails-rest-how-to.md
+    - name: Generate thumbnails
+      href: transform-generate-thumbnails-how-to.md
       displayName: thumbnail, generate thumbnail, thumbnail job, job, image, jpg, png, bmp, sprite, VTT, WebVTT, best frame, automatic thumbnail, poster, poster frame, step, percentage
-    - name: Create a copyAllBitrateNonInterleaved transform with REST
+    - name: Create a copyAllBitrateNonInterleaved transform
       href: transform-create-copyallbitratenoninterleaved-how-to.md
       displayName: Copy, copy bitrates, copyAllBitrateNonInterleaved
-    - name: Copy videos without re-encoding with REST
+    - name: Copy videos without re-encoding
       href: transform-create-copy-video-audio-how-to.md
       displayName: copy videos, copy, copy codec, copy video codec, copy audio codec, fast encoding, fast remux, remuxing, re-package, packaging, re-encoding
     - name: Use the content aware encoding preset
       href: encode-content-aware-how-to.md
       displayName: encode, encoder, transcode, custom preset, content aware, transform, CAE, scene based, shot based, qvbr, quality defined
+    - name: Add a custom output transform
+      href: transform-add-custom-transform-output-how-to.md
+    - name: Create a custom transform
+      href: transform-create-transform-how-to.md
+    - name: List transforms
+      href: account-list-transforms-how-to.md
+    - name: Update a transform
+      href: transform-update-transform-how-to.md
+    - name: Delete a transform
+      href: transform-delete-transform-how-to.md
   - name: Create jobs
     items:
-    - name: Create jobs with CLI
-      href: job-create-cli-how-to.md
-      displayName: CLI, create job, jobs, submit job, encode with CLI, encode
-    - name: Create job input with a local file and .NET
+    - name: Create or start a job
+      href: job-create-how-to.md
+    - name: List jobs
+      href: job-list-how-to.md
+    - name: Show or get the details of a job
+      href: job-show-how-to.md
+    - name: Cancel a job
+      href: job-cancel-how-to.md
+    - name: Update a job
+      href: job-update-how-to.md
+    - name: Delete a job
+      href: job-delete-how-to.md
+    - name: Create job input with a local file
       displayName: upload, upload file, ingest file, local file, uploading, CLI
       href: job-input-from-local-file-how-to.md
     - name: Jobs with multiple transform outputs
@@ -523,10 +572,7 @@
       displayName: jobs, CLI, transform, multiple outputs, multi output
     - name: HTTPS as job input
       href: job-input-from-http-how-to.md
-      displayName: ingest, URL, remote URL, remote ingest, SAS, SAS URL, S3, S3 token, ingest from HTTP, JobInputHttp, blob, storage, storage account, blob file, ingest blob file, upload blob, copy blob, http, https
-  - name: Scale media reserved units CLI
-    href: media-reserved-units-cli-how-to.md   
-    displayName: CLI, MRU, media reserved units, scaling    
+      displayName: ingest, URL, remote URL, remote ingest, SAS, SAS URL, S3, S3 token, ingest from HTTP, JobInputHttp, blob, storage, storage account, blob file, ingest blob file, upload blob, copy blob, http, https    
   - name: Stream live
     items:
     - name: Live event with portal and Wirecast
@@ -537,7 +583,10 @@
       displayName: streaming, stream live, RTMP, RTMPS, ingest, live event, live streaming, live, partner, partners, on-premises, on premises, partner encoder, hardware encoder, hardware, verify, certification, certification, testing, partner testing, partner program 
     - name: Live event error codes
       href: live-event-error-codes-reference.md  
-      displayName: live event, error codes, error, codes, live streaming, debugging, troubleshooting live  
+      displayName: live event, error codes, error, codes, live streaming, debugging, troubleshooting live
+    - name: Scale media reserved units
+      href: media-reserved-units-how-to.md   
+      displayName: CLI, MRU, media reserved units, scaling
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
@@ -556,8 +605,22 @@
       displayName: monitoring, metrics, telemetry, logging, charts, charting, azure monitor, monitor, diagnostic, logs, logging
   - name: Protect content
     items:
+    - name: Create a content key policy
+      href: drm-create-content-key-policy-how-to.md
+    - name: List content key policies
+      href: drm-list-content-key-policy-how-to.md
+    - name: Update a content key policy
+      href: drm-update-content-key-policy-how-to.md
+    - name: Delete a content key policy
+      href: drm-delete-content-key-policy-how-to.md
+    - name: Add an option to a content key policy
+      href: drm-add-option-content-key-policy-how-to.md
+    - name: Update an option in a content key policy
+      href: drm-update-option-content-key-policy-how-to.md
+    - name: Remove and option from a content key policy
+      href: drm-remove-option-content-key-policy-how-to.md
     - name: Get content key policy
-      href: drm-get-content-key-policy-dotnet-how-to.md   
+      href: drm-get-content-key-policy-how-to.md   
       displayName: content protection, DRM, content keys, content key policy, .NET, how to, how-to, sample, tutorial, 
     - name: Offline FairPlay for iOS 
       href: drm-offline-fairplay-for-ios-concept.md
@@ -600,15 +663,16 @@
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
       displayName: descriptive audio, accessibility, access, accessible
-    - name: Publish
-      href: asset-publish-cli-how-to.md
-      displayName: publish, manifest, HLS, DASH, URL, Streaming URL, Streaming Locator, CLI, how-to, how to, sample
   - name: Security
     items:
       - name: Account security
         items:
         - name: Create a Media Services account
           href: account-create-how-to.md
+        - name: Set account encryption with customer managed keys
+          href: account-set-account-encryption-customer-managed-key-how-to.md
+        - name: Show account encryption
+          href: account-show-encryption-how-to.md
       - name: Network security
         items:
         - name: Use a Private Link with a Streaming endpoint
@@ -618,7 +682,7 @@
           displayName: security, private link, links, firewall, storage account, storage, private, links, secure
       - name: Secure streaming
         items:
-        - name: How to pass authentication tokens to the key delivery service
+        - name: Pass authentication tokens to key delivery service
           href: security-pass-authentication-tokens-how-to.md
           displayName: AMP, player, Azure Media Player, authentication, tokens, auth tokens, token auth, authentication tokens
   - name: Use media players
@@ -673,7 +737,7 @@
       displayName: MES schema, MES, Standard encoder, schema, metadata, input metadata, source metadata  
     - name: Output metadata
       href: output-metadata-schema.md      
-      displayName: MES schema, MES, Standard encoder, schema, metadata, output metadata, output description 
+      displayName: MES schema, MES, Standard encoder, schema, metadata, output metadata, output description
 - name: Resources
   items:
   - name: Azure Media Services community

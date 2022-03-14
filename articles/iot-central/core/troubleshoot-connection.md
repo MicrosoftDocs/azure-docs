@@ -131,11 +131,11 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | - | - | - |
 | Provisioned | No immediately recognizable issue. | N/A |
 | Registered | The device has not yet connected to IoT Central. | Check your device logs for connectivity issues. |
-| Blocked | The device is blocked from connecting to IoT Central. | Device is blocked from connecting to the IoT Central application. Unblock the device in IoT Central and retry. To learn more, see [Block devices](concepts-get-connected.md#device-status-values). |
-| Unapproved | The device is not approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Approve devices](concepts-get-connected.md#device-registration) |
-| Unassociated | The device is not associated with a device template. | Associate the device with a device template so that IoT Central knows how to parse the data. |
+| Blocked | The device is blocked from connecting to IoT Central. | Device is blocked from connecting to the IoT Central application. Unblock the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values). |
+| Unapproved | The device is not approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values) |
+| Unassigned | The device is not assigned to a device template. | Assign the device to a device template so that IoT Central knows how to parse the data. |
 
-Learn more about [device status codes](concepts-get-connected.md#device-status-values).
+Learn more about [Device status values](howto-manage-devices-individually.md#device-status-values).
 
 ### Error codes
 
@@ -229,6 +229,6 @@ If you chose to create a new template that models the data correctly, migrate de
 
 ## Next steps
 
-If you need more help, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
+If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
 For more information, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).

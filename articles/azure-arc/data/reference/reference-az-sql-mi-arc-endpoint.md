@@ -18,12 +18,12 @@ ms.subservice: azure-arc-data
 [az sql mi-arc endpoint list](#az-sql-mi-arc-endpoint-list) | List the SQL endpoints.
 ## az sql mi-arc endpoint list
 List the SQL endpoints.
-```bash
+```azurecli
 az sql mi-arc endpoint list 
 ```
 ### Examples
 List the endpoints for a SQL managed instance.
-```bash
+```azurecli
 az sql mi-arc endpoint list -n sqlmi1
 ```
 ### Global Arguments

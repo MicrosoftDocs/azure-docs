@@ -5,7 +5,7 @@ description: Learn how to process change feed logs in a .NET client application
 author: tamram
 
 ms.author: tamram
-ms.date: 10/01/2021
+ms.date: 03/03/2022
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs

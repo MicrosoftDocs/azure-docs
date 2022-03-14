@@ -34,7 +34,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 * *Premium_ZRS* - premium zone redundant storage (ZRS)
 
 > [!NOTE]
-> minimum premium file share is 100GB
+> Minimum premium file share is 100GB.
 
 For more information on Kubernetes storage classes for Azure Files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 

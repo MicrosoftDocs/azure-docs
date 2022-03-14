@@ -4,11 +4,10 @@ metadata:
   description: Troubleshoot common issues related to testing and certifying virtual machine images for Azure Marketplace.
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
-  ms.topic: troubleshooting
+  ms.topic: faq
   author: mathapli
   ms.author: mathapli
   ms.date: 09/27/2021
-    
 title: Troubleshoot virtual machine certification
 summary: |
   When you publish your virtual machine (VM) image to Azure Marketplace, the Azure team validates it to ensure that it's bootable, secure, and compatible with Azure. If your VM image fails any of the high-quality tests, it won't be published. You'll receive an error message that describes the issue.

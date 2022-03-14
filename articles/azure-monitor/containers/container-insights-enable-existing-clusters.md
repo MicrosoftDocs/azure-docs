@@ -3,7 +3,7 @@ title: Monitor an Azure Kubernetes Service (AKS) cluster deployed | Microsoft Do
 description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Container insights already deployed in your subscription.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform, devx-track-azurepowershell
+ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Enable monitoring of Azure Kubernetes Service (AKS) cluster already deployed
@@ -71,7 +71,13 @@ If you would rather integrate with an existing workspace, perform the following 
 
     In the output, find the workspace name, and then copy the full resource ID of that Log Analytics workspace under the field **id**.
 
-4. Run the following command to enable the monitoring add-on, replacing the value for the `--workspace-resource-id` parameter. The string value must be within the double quotes:
+4. Switch to the subscription hosting the cluster using the following command:
+
+    ```azurecli
+    az account set -s <subscriptionId of the cluster>
+    ```
+
+5. Run the following command to enable the monitoring add-on, replacing the value for the `--workspace-resource-id` parameter. The string value must be within the double quotes:
 
     ```azurecli
     az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"
