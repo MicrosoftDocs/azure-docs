@@ -23,7 +23,7 @@ This allows customers to more easily adopt, deploy and operate our self-hosted g
 
 We have [introduced new container image tags](how-to-self-hosted-gateway-on-kubernetes-in-production.md#container-image-tag) to let customers choose the best way to try our gateway and deploy it in production.
 
-To help customers run our gateway in production we have extended [our production guidance](how-to-self-hosted-gateway-on-kubernetes-in-production.md) to cover how to autoscale the gateway, and deploy it highly available in your Kubernetes cluster.
+To help customers run our gateway in production we have extended [our production guidance](how-to-self-hosted-gateway-on-kubernetes-in-production.md) to cover how to autoscale the gateway, and deploy it for high availability in your Kubernetes cluster.
 
 Learn more about the connectivity of our gateway, our new infrastructure requirements, and what happens in case of connectivity loss in [this article](self-hosted-gateway-overview.md#connectivity-to-azure).
 
