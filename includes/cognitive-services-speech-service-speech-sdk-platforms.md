@@ -16,7 +16,7 @@ ms.author: trbye
 | Objective-C / Swift | iOS, macOS | [Objective-C SDK](/objectivec/cognitive-services/speech/) |
 | Python | Windows, Linux, macOS | [Python SDK](/python/api/azure-cognitiveservices-speech/) |
 
-<sup>1 The .NET Speech SDK is based on .NET Standard 2.0, thus it supports many platforms. For more information, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).</sup>
+<sup>1 The .NET Speech SDK is based on .NET Standard 2.0, so it supports many platforms. For more information, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).</sup>
 
 > [!IMPORTANT]
-> C is not a supported programming language for the Speech SDK. Several supported programming languages, e.g. C++, include C headers that are part of a common Application Binary Interface (ABI) layer. These ABI headers are **not** intended for direct use and are subject to change across versions.
+> C isn't a supported programming language for the Speech SDK. Several supported programming languages, for example, C++, include C headers that are part of a common Application Binary Interface (ABI) layer. These ABI headers are *not* intended for direct use and are subject to change across versions.

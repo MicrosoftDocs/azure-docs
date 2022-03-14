@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/24/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 
 ms.collection: M365-identity-device-management
@@ -35,7 +35,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 
 To run the CLI script examples in this tutorial, you have two options:
 
-- Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the **Try It** button, located in the top right corner of each code block.
+- Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the **Try It** button, located in the top-right corner of each code block.
 - [Install the latest version of CLI 2.0](/cli/azure/install-azure-cli) (2.0.23 or later) if you prefer to use a local CLI console.
 
 ## Create a storage account 
@@ -58,7 +58,7 @@ Files require blob storage so you need to create a blob container in which to st
 1. Navigate back to your newly created storage account.
 2. Under **Blob Service**, click **Containers**.
 3. Click **+ Container** on the top of the page.
-4. Under **New container**, enter a name for the container and under **Public access level** keep the default value .
+4. Under **New container**, enter a name for the container and under **Public access level** keep the default value.
 
     ![Create storage container](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
@@ -85,7 +85,7 @@ To complete the following steps, you need to work from the VM created earlier an
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect**. Copy the string to connect to your VM.
 2. **Connect** to the VM with the SSH client of your choice. 
-3. In the terminal window, using CURL, make a request to the local Managed Identity endpoint to get an access token for Azure Storage.
+3. In the terminal window, use CURL to make a request to the local Managed Identity endpoint to get an access token for Azure Storage.
     
     ```bash
     curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fstorage.azure.com%2F' -H Metadata:true

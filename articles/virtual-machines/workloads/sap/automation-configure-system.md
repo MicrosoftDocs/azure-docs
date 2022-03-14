@@ -1,6 +1,6 @@
 ---
 title: Configure SAP system parameters for automation
-description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters JSON file.
+description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters file.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -277,7 +277,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 
 The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags. 
 
-High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device)
+High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device)
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"
@@ -296,13 +296,10 @@ Replace `<prefix>` with the name prefix of your environment, such as `DEV-WEEU-S
 The fencing agent details must be stored in the workload zone key vault using a predefined naming convention. Replace `<prefix>` with the name prefix of your environment, such as `DEV-WEEU-SAP01`, `<workload_kv_name>` with the name of the key vault from the workload zone resource group and for the other values use the values recorded from the previous step and run the script.
 
 
-```azurecli
-
-    ```azurecli-interactive
-    az keyvault secret set --name "<prefix>-fencing-spn-id" --vault-name "<workload_kv_name>" --value "<appId>";
-    az keyvault secret set --name "<prefix>-fencing-spn-pwd" --vault-name "<workload_kv_name>" --value "<password>";
-    az keyvault secret set --name "<prefix>-fencing-spn-tenant" --vault-name "<workload_kv_name>" --value "<tenant>";
-    ```
+```azurecli-interactive
+az keyvault secret set --name "<prefix>-fencing-spn-id" --vault-name "<workload_kv_name>" --value "<appId>";
+az keyvault secret set --name "<prefix>-fencing-spn-pwd" --vault-name "<workload_kv_name>" --value "<password>";
+az keyvault secret set --name "<prefix>-fencing-spn-tenant" --vault-name "<workload_kv_name>" --value "<tenant>";
 ```
 
 ## Next steps

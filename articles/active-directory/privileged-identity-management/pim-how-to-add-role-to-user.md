@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 02/02/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
@@ -24,6 +24,11 @@ With Azure Active Directory (Azure AD), a Global administrator can make **perman
 The Azure AD Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Azure AD admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
 
 Privileged Identity Management support both built-in and custom Azure AD roles. For more information on Azure AD custom roles, see [Role-based access control in Azure Active Directory](../roles/custom-overview.md).
+
+>[!Note]
+>When a role is assigned, the assignment:
+>- Can't be asigned for a duration of less than five minutes
+>- Can't be removed within five minutes of it being assigned
 
 ## Assign a role
 

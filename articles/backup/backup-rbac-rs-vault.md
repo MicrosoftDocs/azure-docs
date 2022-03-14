@@ -3,7 +3,10 @@ title: Manage Backups with Azure role-based access control
 description: Use Azure role-based access control to manage access to backup management operations in Recovery Services vault.
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 02/28/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Use Azure role-based access control to manage Azure Backup recovery points
@@ -37,7 +40,7 @@ The following table captures the Backup management actions and corresponding min
 | | Virtual Machine Contributor | VM resource |  Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read Microsoft.Compute/virtualMachines/instanceView/read |
 | On-demand backup of VM | Backup Operator | Recovery Services vault |   |
 | Restore VM | Backup Operator | Recovery Services vault |   |
-| | Contributor | Resource group in which VM will be deployed |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions:  Microsoft.Resources/subscriptions/resourceGroups/write Microsoft.DomainRegistration/domains/write, Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/join/action |
+| | Contributor | Resource group in which VM will be deployed |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions:  Microsoft.Resources/subscriptions/resourceGroups/write Microsoft.DomainRegistration/domains/write, Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/read Microsoft.Network/virtualNetworks/subnets/join/action |
 | | Virtual Machine Contributor | Source VM that got backed up |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read|
 | Restore unmanaged disks VM backup | Backup Operator | Recovery Services vault |
 | | Virtual Machine Contributor | Source VM that got backed up | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read |
@@ -76,15 +79,19 @@ The following table captures the Backup management actions and corresponding min
 | Modify backup policy of Azure VM backup | Backup Contributor | Recovery Services vault |
 | Delete backup policy of Azure VM backup | Backup Contributor | Recovery Services vault |
 | Stop backup (with retain data or delete data) on VM backup | Backup Contributor | Recovery Services vault |
+|             | Virtual Machine Contributor | Source VM that got backed-up | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write |
 
 ### Minimum role requirements for the Azure File share backup
 
-The following table captures the Backup management actions and corresponding role required to perform Azure File share operation.
+The following table captures the Backup management actions and corresponding Azure role required to perform that operation.
 
 | Management Operation | Role Required | Resources |
 | --- | --- | --- |
-| Enable backup of Azure File shares | Backup Contributor |Recovery Services vault |
-| | Storage Account Backup Contributor | Storage account resource |
+| Enable backup from Recovery Services vault | Backup Contributor | Recovery Services vault |
+| | Storage account Contributor | Storage account resource |
+| Enable backup from file share blade | Backup Contributor | Recovery Services vault |
+| | Storage account Contributor | Storage account Resource |
+| | Contributor | Subscription |
 | On-demand backup of VM | Backup Operator | Recovery Services vault |
 | Restore File share | Backup Operator | Recovery Services vault |
 | | Storage Account Backup Contributor | Storage account resources where restore source and Target file shares are present |
@@ -93,6 +100,9 @@ The following table captures the Backup management actions and corresponding rol
 | Stop protection |Backup Contributor | Recovery Services vault |
 | Unregister storage account from vault |Backup Contributor | Recovery Services vault |
 | |Storage Account Contributor | Storage account resource|
+
+>[!Note]
+>If you've contributor access at the resource group level and want to configure backup from file share blade, ensure to get *microsoft.recoveryservices/Locations/backupStatus/action* permission at the subscription level. To do so, create a [*custom role*](../role-based-access-control/custom-roles-portal.md#start-from-scratch) and assign this permission.
 
 ## Next steps
 

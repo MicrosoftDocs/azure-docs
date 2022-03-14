@@ -1,13 +1,13 @@
 ---
 title: Troubleshooting Azure IoT Hub error 400027 ConnectionForcefullyClosedOnNewConnection
 description: Understand how to fix error 400027 ConnectionForcefullyClosedOnNewConnection 
-author: jlian
+author: kgremban
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.author: jlian
+ms.author: kgremban
 ms.custom: [mqtt, fasttrack-edit, iot]
 #Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 400027 ConnectionForcefullyClosedOnNewConnection errors.
 ---
@@ -24,7 +24,7 @@ Your device-to-cloud twin operation (such as read or patch reported properties) 
 
 ## Cause
 
-Another client created a new connection to IoT Hub using the same credentials, so IoT Hub closed the previous connection. IoT Hub doesn't allow more than one client to connect using the same set of credentials.
+Another client created a new connection to IoT Hub using the same identity, so IoT Hub closed the previous connection. IoT Hub doesn't allow more than one client to connect using the same identity.
 
 ## Solution
 

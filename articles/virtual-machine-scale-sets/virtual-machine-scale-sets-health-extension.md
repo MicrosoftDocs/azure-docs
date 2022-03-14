@@ -47,7 +47,9 @@ The following JSON shows the schema for the Application Health extension. The ex
     "settings": {
       "protocol": "<protocol>",
       "port": "<port>",
-      "requestPath": "</requestPath>"
+      "requestPath": "</requestPath>",
+      "intervalInSeconds": "5.0",
+      "numberOfProbes": "1.0"
     }
   }
 }  

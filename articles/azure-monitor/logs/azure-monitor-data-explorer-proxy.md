@@ -30,6 +30,17 @@ adx('https://help.kusto.windows.net/Samples').StormEvents
 >* Database names are case sensitive.
 >* Cross-resource query as an alert is not supported.
 >* Identifying the Timestamp column in the cluster is not supported, Log Analytics query API will not pass along the time filter
+> * The cross-service query ability is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
+
+## Function supportability
+
+The Azure Monitor cross-service queries support functions for both Application Insights, Log Analytics and Azure Data Explorer.
+This capability enables cross-cluster queries to reference an Azure Monitor/Azure Data Explorer tabular function directly.
+The following commands are supported with the cross-service query:
+
+* `.show functions`
+* `.show function {FunctionName}`
+* `.show database {DatabaseName} schema as json`
 
 ## Combine Azure Data Explorer cluster tables with a Log Analytics workspace
 

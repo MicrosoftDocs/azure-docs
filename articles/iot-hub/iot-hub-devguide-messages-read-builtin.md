@@ -70,6 +70,7 @@ The product integrations you can use with the built-in Event Hub-compatible endp
 * [Time Series Insights](../time-series-insights/index.yml). See [Add an IoT hub event source to your Time Series Insights environment](../time-series-insights/how-to-ingest-data-iot-hub.md).
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
 * [Apache Spark integration](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md).
+* [Apache Kafka](https://kafka.apache.org/). For more information, see the [Apache Kafka developer guide for Event Hubs](../event-hubs/apache-kafka-developer-guide.md).
 * [Azure Databricks](/azure/azure-databricks/).
 
 ## Use AMQP-WS or a proxy with Event Hubs SDKs

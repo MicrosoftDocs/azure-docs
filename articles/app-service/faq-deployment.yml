@@ -6,12 +6,11 @@ metadata:
   manager: dcscontentpm
   tags: top-support-issue
   ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-  ms.topic: article
+  ms.topic: faq
   ms.service: app-service
   ms.date: 11/01/2018
   ms.author: genli
   ms.custom: seodec18
-    
 title: Deployment FAQs for Web Apps in Azure
 summary: |
   This article has answers to frequently asked questions (FAQs) about deployment issues for the [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/).

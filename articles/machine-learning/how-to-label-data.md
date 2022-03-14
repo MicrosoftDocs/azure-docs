@@ -198,4 +198,4 @@ When you're done labeling, select your name in the upper-right corner of the lab
 
 ## Next steps
 
-* Learn to [train image classification models in Azure](./tutorial-train-models-with-aml.md)
+* Learn to [train image classification models in Azure](./tutorial-train-deploy-notebook.md)

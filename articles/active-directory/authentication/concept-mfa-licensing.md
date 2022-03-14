@@ -111,5 +111,6 @@ If you don't want to enable Azure AD Multi-Factor Authentication for all users, 
 
 * For more information on costs, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 * [What is Conditional Access](../conditional-access/overview.md)
+* [What is Identity Protection?](../identity-protection/overview-identity-protection.md)
 * MFA can also be [enabled on a per-user basis](howto-mfa-userstates.md)
 

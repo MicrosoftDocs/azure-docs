@@ -47,7 +47,7 @@ Next, you'll need to create and prepare a VHD image to use the Rule Editor on:
 1. Open a command prompt as an administrator. and run the following command:
 
     ```cmd
- 	    taskkill /F /IM MicrosoftEdge.exe /T
+ 	    taskkill /F /IM MSEdge.exe /T
     ```
 
     >[!NOTE]

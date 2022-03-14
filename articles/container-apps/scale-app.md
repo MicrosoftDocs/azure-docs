@@ -198,7 +198,6 @@ The following example shows how to create a memory scaling rule.
 - In this example, the container app scales when memory usage exceeds 50%.
 - At a minimum, a single replica remains in memory for apps that scale based on memory utilization.
 
-
 ## Considerations
 
 - Vertical scaling is not supported.
@@ -208,4 +207,4 @@ The following example shows how to create a memory scaling rule.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure your container app](secure-app.md)
+> [Manage secrets](manage-secrets.md)

@@ -488,5 +488,5 @@ Here are a few things to be aware of while you use Azure role-based access contr
 
 - [Enterprise security overview](concept-enterprise-security.md)
 - [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
-- [Tutorial: Train models](tutorial-train-models-with-aml.md)
+- [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 - [Resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)

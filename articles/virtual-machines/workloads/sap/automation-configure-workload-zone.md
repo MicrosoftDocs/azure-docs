@@ -149,9 +149,17 @@ The table below defines the parameters used for defining the Key Vault informati
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                             | Type        |
 > | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
-> | `NFS_Provider`                     | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files.  | 
-> | `sapmnt_volume_size`               | Defines the size (in GB) for the 'sapmnt' volume                        | Optional    |
+> | `NFS_Provider`                     | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files, 'NONE' for NFS from the SCS server or 'NFS' for an external NFS solution.  | Optional |
+> | `transport_volume_size`               | Defines the size (in GB) for the 'transport' volume                        | Optional    |
 
+### Azure Files NFS Support
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                           | Description                                                            | Type         | Notes  |
+> | ---------------------------------- | -----------------------------------------------------------------------| -----------  | ------ |
+> | `azure_files_transport_storage_account_id`               | Azure resource identifier for the 'transport' storage account.   | Optional     | For existing environment deployments |
+
+### Azure NetApp Files Support
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                            | Type         | Notes  |
@@ -173,7 +181,7 @@ The table below defines the parameters used for defining the Key Vault informati
 > | Variable                             | Description                                                            | Type     | Notes                                 |
 > | ------------------------------------ | ---------------------------------------------------------------------- | -------- | ------------------------------------- |
 > | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional | Use only for test deployments         |
-> | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used                 | Optional |                                       |
+> | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used for storage accounts and key vaults. | Optional |                                       |
 > | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For existing environment deployments  |
 > | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | For existing environment deployments  |
 

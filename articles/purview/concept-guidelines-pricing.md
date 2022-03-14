@@ -1,6 +1,6 @@
 ---
-title: Purview pricing guidelines
-description: This article provides a guideline towards understanding the various components in Purview pricing.
+title: Azure Purview pricing guidelines
+description: This article provides a guideline towards understanding the various components in Azure Purview pricing.
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
@@ -16,12 +16,12 @@ Azure Purview enables a unified governance experience by providing a single pane
 
 ## Why do you need to understand the components of the Azure Purview pricing? 
 
-- While the pricing for Azure Purview is on a subscription-based **Pay-As-You-Go** model, there are various dimensions that you can consider while budgeting for Purview
-- This guideline is intended to help you plan the budgeting for Purview by providing a view on the various control factors that impact the budget
+- While the pricing for Azure Purview is on a subscription-based **Pay-As-You-Go** model, there are various dimensions that you can consider while budgeting for Azure Purview
+- This guideline is intended to help you plan the budgeting for Azure Purview by providing a view on the various control factors that impact the budget
 
 
 ## Factors impacting Azure Pricing  
-There are **direct** and **indirect** costs that need to be considered while planning the Purview budgeting and cost management.
+There are **direct** and **indirect** costs that need to be considered while planning the Azure Purview budgeting and cost management.
 
 ### Direct costs
 
@@ -32,7 +32,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 #### Elastic data map
 
-- The **Data map** is the foundation of the Purview architecture and so needs to be up to date with asset information in the data estate at any given point
+- The **Data map** is the foundation of the Azure Purview architecture and so needs to be up to date with asset information in the data estate at any given point
 
 - The data map is charged in terms of **Capacity Unit** (CU). The data map is provisioned at one CU if the catalog is storing up to 10 GB of metadata storage and serves up to 25 data map operations/sec
 
@@ -96,10 +96,10 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 - **Advanced Resource Set** is an optional feature, which allows for customers to get enriched resource set information computed such as Total Size, Partition Count, etc., and enables the customization of resource set grouping via pattern rules. If Advanced Resource Set feature is not enabled, your data catalog will still contain resource set assets, but without the aggregated properties. There will be no "Resource Set" meter billed to the customer in this case.
 
-- Use the basic resource set feature, before switching on the Advanced Resource Sets in Purview to verify if requirements are met
+- Use the basic resource set feature, before switching on the Advanced Resource Sets in Azure Purview to verify if requirements are met
 
 - Consider turning on Advanced Resource Sets if:
-    - your data lakes schema is constantly changing, and you are looking for additional value beyond the basic Resource Set feature to enable Purview to compute parameters such as #partitions, size of the data estate, etc., as a service
+    - your data lakes schema is constantly changing, and you are looking for additional value beyond the basic Resource Set feature to enable Azure Purview to compute parameters such as #partitions, size of the data estate, etc., as a service
     - there is a need to customize how resource set assets get grouped 
 
 - It is important to note that billing for Advanced Resource Sets is based on the compute used by the offline tier to aggregate resource set information and is dependent on the size/number of resource sets in your catalog
@@ -110,11 +110,11 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 Indirect costs impacting Azure Purview pricing to be considered are:
 
 - [Managed resources](https://azure.microsoft.com/pricing/details/azure-purview/)
-    - When a Purview account is provisioned, a storage account and event hub queue are created within the subscription in order to cater to secured scanning, which may be charged separately
+    - When an Azure Purview account is provisioned, a storage account and event hub queue are created within the subscription in order to cater to secured scanning, which may be charged separately
 
 
 - [Azure private endpoint](./catalog-private-link.md)
-    - Azure private end points are used for Purview accounts where it is required for users on a virtual network (VNet) to securely access the catalog over a private link
+    - Azure private end points are used for Azure Purview accounts where it is required for users on a virtual network (VNet) to securely access the catalog over a private link
     - The prerequisites for setting up private endpoints could result in extra costs
 
 - [Self-hosted integration runtime related costs](./manage-integration-runtimes.md) 

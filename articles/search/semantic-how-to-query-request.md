@@ -101,18 +101,17 @@ Similar to [scoring profiles](index-add-scoring-profiles.md), semantic configura
 
 ### [**Azure portal**](#tab/portal)
 
-To create a semantic configuration in the Azure portal:
+1. [Sign in to Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
 
-1. Open the [Azure portal](https://portal.azure.com) and navigate to a search service that has semantic search [enabled](semantic-search-overview.md#enable-semantic-search).
-
-1. Navigate to the index you want to add a semantic configuration to.
+1. Open an index.
 
 1. Select **Semantic Configurations** and then select **Add Semantic Configuration**.
 
-1. At this point, a wizard will appear allowing you to select a title field, content fields, and keyword fields. Make sure to list content fields and keyword fields in priority order. After you're finished, select **OK** and then save the changes.
+   The **New Semantic Configuration** page opens with options for selecting a title field, content fields, and keyword fields. Make sure to list content fields and keyword fields in priority order.
 
-:::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." border="true":::
+   Select **OK** to save the changes.
 
+   :::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." border="true":::
 
 ### [**REST API**](#tab/rest)
 

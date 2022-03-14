@@ -165,7 +165,7 @@ In this step, you'll create and configure an attestation provider in Microsoft A
 
 # [Portal](#tab/azure-portal)
 
-1. Browse to the [Create attestation provider](https://ms.portal.azure.com/#create/Microsoft.Attestation) page.
+1. Browse to the [Create attestation provider](https://portal.azure.com/#create/Microsoft.Attestation) page.
 1. On the **Create attestation provider** page, provide the following inputs:
 
    - **Subscription**: Choose the same subscription you created the Azure SQL logical server in.

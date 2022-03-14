@@ -185,7 +185,7 @@ appInsights.trackMetric({name: "queueLength", average: 42});
 ```csharp
 var sample = new MetricTelemetry();
 sample.Name = "queueLength";
-sample.Value = 42.3;
+sample.Sum = 42.3;
 telemetryClient.TrackMetric(sample);
 ```
 
@@ -632,13 +632,23 @@ dependencies
 
 Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever buffer is full (typically 500 items). However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
 
-*C#*
+*.NET*
+
+When using Flush(), we recommend this [pattern](./console.md#full-example):
 
 ```csharp
 telemetry.Flush();
 // Allow some time for flushing before shutdown.
 System.Threading.Thread.Sleep(5000);
 ```
+
+When using FlushAsync(), we recommend this pattern:
+
+```csharp
+await telemetryClient.FlushAsync()
+```
+
+We recommend always flushing as part of the application shutdown to guarantee that telemetry is not lost.
 
 *Java*
 
@@ -656,7 +666,8 @@ telemetry.flush();
 
 The function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
-Ideally, flush() method should be used in the shutdown activity of the Application.
+> [!NOTE]
+> The Java and Javascript SDKs automatically flush on application shutdown.
 
 ## Authenticated users
 

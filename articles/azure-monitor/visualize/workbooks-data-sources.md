@@ -56,6 +56,7 @@ To make a query control use this data source, use the Data source drop-down to c
 ## Azure Data Explorer
 
 Workbooks now have support for querying from [Azure Data Explorer](/azure/data-explorer/) clusters with the powerful [Kusto](/azure/kusto/query/index) query language.
+For the **Cluster Name** field, you should add ther region name following the cluster name. For example: *mycluster.westeurope*.
 
 ![Screenshot of Kusto query window](./media/workbooks-data-sources/data-explorer.png)
 

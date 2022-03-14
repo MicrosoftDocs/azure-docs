@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 06/21/2021
+ms.date: 02/23/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -59,6 +59,7 @@ To read more about securing your Active Directory environment, see [Best practic
 #### Installation prerequisites
 
 - Azure AD Connect must be installed on a domain-joined Windows Server 2016 or later. 
+- The minimum .Net Framework version required is 4.6.2, and newer versions of .Net are also supported.
 - Azure AD Connect can't be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better. 
 - The Azure AD Connect server must have a full GUI installed. Installing Azure AD Connect on Windows Server Core isn't supported. 
 - The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you use the Azure AD Connect wizard to manage Active Directory Federation Services (AD FS) configuration. You can enable PowerShell transcription if you use the Azure AD Connect wizard to manage sync configuration. 
@@ -87,7 +88,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 ### SQL Server used by Azure AD Connect
 * Azure AD Connect requires a SQL Server database to store identity data. By default, a SQL Server 2019 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10-GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, point the installation wizard to a different installation of SQL Server. The type of SQL Server installation can impact the [performance of Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors).
 * If you use a different installation of SQL Server, these requirements apply:
-  * Azure AD Connect supports all versions of SQL Server from 2012 (with the latest service pack) to SQL Server 2019. Azure SQL Database *isn't supported* as a database.
+  * Azure AD Connect supports all versions of SQL Server from 2012 (with the latest service pack) to SQL Server 2019. Azure SQL Database *isn't supported* as a database.  This includes both Azure SQL Database and Azure SQL Managed Instance.
   * You must use a case-insensitive SQL collation. These collations are identified with a \_CI_ in their name. Using a case-sensitive collation identified by \_CS_ in their name *isn't supported*.
   * You can have only one sync engine per SQL instance. Sharing a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync *isn't supported*.
 

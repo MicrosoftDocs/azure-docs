@@ -158,7 +158,7 @@ A few notes on the column values:
 
 * **PartitionKey**: Contains the instance ID of the orchestration.
 * **EventType**: Represents the type of the event. May be one of the following types:
-  * **OrchestrationStarted**: The orchestrator function resumed from an await or is running for the first time. The `Timestamp` column is used to populate the deterministic value for the `CurrentUtcDateTime` (.NET), `currentUtcDateTime` (JavaScript), and `current_utc_datetime` (Python) APIs.
+  * **OrchestratorStarted**: The orchestrator function resumed from an await or is running for the first time. The `Timestamp` column is used to populate the deterministic value for the `CurrentUtcDateTime` (.NET), `currentUtcDateTime` (JavaScript), and `current_utc_datetime` (Python) APIs.
   * **ExecutionStarted**: The orchestrator function started executing for the first time. This event also contains the function input in the `Input` column.
   * **TaskScheduled**: An activity function was scheduled. The name of the activity function is captured in the `Name` column.
   * **TaskCompleted**: An activity function completed. The result of the function is in the `Result` column.

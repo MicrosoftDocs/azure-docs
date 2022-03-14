@@ -67,7 +67,7 @@ The following are requirements for configuring the customer-managed key:
 * The customer-managed key to be used for encrypting the DEK can be only asymmetric, RSA 2048.
 * The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
 * The key must be in the *Enabled* state.
-* If you're [importing an existing key](/rest/api/keyvault/ImportKey/ImportKey) into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
+* If you're [importing an existing key](/rest/api/keyvault/keys/import-key/import-key) into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
 
 ## Recommendations
 

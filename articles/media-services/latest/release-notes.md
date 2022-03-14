@@ -34,7 +34,7 @@ The JavaScript SDK is now updated to support the latest REST API release of 2021
 
 To download the latest package, see the [@azure/arm-media-services NPM package](https://www.npmjs.com/package/@azure/arm-mediaservices).
 
-An updated and expanded set of Node.js and Typescript based samples for the new JavaScript package is available in Git Hub. 
+An updated and expanded set of Node.js and TypeScript based samples for the new JavaScript package is available in Git Hub. 
 [https://github.com/Azure-Samples/media-services-v3-node-tutorials](https://github.com/Azure-Samples/media-services-v3-node-tutorials)
 
 ### Hebrew, Persian, and Portugal Portuguese languages available in the Audio/Video Analyzer preset for transcriptions
@@ -94,7 +94,7 @@ You also now have an account level feature flag to allow/block public internet a
 
 ### .NET SDK (Microsoft.Azure.Management.Media) 5.0.0 release available in NuGet
 
-The [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) .NET SDK version 5.0.0 is now released on NuGet. This version is generated to work with the [2021-06-01 stable](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) version of the Open API (Swagger) ARM Rest API.
+The [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) .NET SDK version 5.0.0 is now released on NuGet. This version is generated to work with the [2021-06-01 stable](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) version of the Open API (Swagger) ARM REST API.
 
 For details on changes from the 4.0.0 release see the [change log](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mediaservices/Microsoft.Azure.Management.Media/CHANGELOG.md).
 
@@ -141,8 +141,8 @@ This feature can also be used to shut off all public internet delivery of DRM li
 
 See the article [Restrict access to DRM license and AES key delivery using IP allowlists](./drm-content-protection-key-delivery-ip-allow.md) for details.
 
-### New Samples for Python and Node.js (with Typescript)
-Updated samples for **Node.js** that use the latest Typescript support in the Azure SDK.
+### New Samples for Python and Node.js (with TypeScript)
+Updated samples for **Node.js** that use the latest TypeScript support in the Azure SDK.
 
 |Sample|Description|
 |---|---|
@@ -251,7 +251,7 @@ New client SDK versions for all available languages are now available with the a
 Please update to the latest client SDKs in your code bases using your package manager.
 
 - [.NET SDK package 3.0.4](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/)
-- [Node.js Typescript version 8.1.0](https://www.npmjs.com/package/@azure/arm-mediaservices)
+- [Node.js TypeScript version 8.1.0](https://www.npmjs.com/package/@azure/arm-mediaservices)
 - [Python azure-mgmt-media 3.1.0](https://pypi.org/project/azure-mgmt-media/)
 - [Java SDK 1.0.0-beta.2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-mediaservices/1.0.0-beta.2/jar)
 
@@ -263,9 +263,9 @@ Please update to the latest client SDKs in your code bases using your package ma
 
 - **[Managed Identities](concept-managed-identities.md)**: Customers may enable a System Assigned Managed Identity for a Media Services account to provide access to Key Vaults (for Customer-Managed Keys) and storage accounts (for Trusted Storage).
 
-### Updated Typescript Node.js Samples using isomorphic SDK for JavaScript
+### Updated TypeScript Node.js Samples using isomorphic SDK for JavaScript
 
-The Node.js samples have been updated to use the latest isomorphic SDK. The samples now show use of Typescript. In addition, a new live streaming sample was added for Node.js/Typescript.
+The Node.js samples have been updated to use the latest isomorphic SDK. The samples now show use of TypeScript. In addition, a new live streaming sample was added for Node.js/TypeScript.
 
 See the latest samples in the **[media-services-v3-node-tutorials](https://github.com/Azure-Samples/media-services-v3-node-tutorials)** Git Hub repo.
 
@@ -285,7 +285,7 @@ Azure Media Services is now available in the Norway East region in the Azure por
 
 ### Basic Audio Analysis
 
-The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyze-video-audio-files-concept.md#built-in-presets)
+The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription, and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyze-video-audio-files-concept.md#built-in-presets)
 
 Customers using Indexer v1 and Indexer v2 should migrate to the Basic Audio Analysis preset.
 
@@ -463,8 +463,7 @@ This functionality works with any [Transform](/rest/api/media/transforms) that i
 
 See examples:
 
-* [Subclip a video with .NET](transform-subclip-video-dotnet-how-to.md)
-* [Subclip a video with REST](transform-subclip-video-rest-how-to.md)
+* [Subclip a video with REST](transform-subclip-video-how-to.md)
 
 ## May 2019
 
@@ -546,7 +545,7 @@ The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/
 - [az ams live-output](/cli/azure/ams/live-output)
 - [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint)
 - [az ams streaming-locator](/cli/azure/ams/streaming-locator)
-- [az ams account mru](/cli/azure/ams/account/mru) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
+- [az ams account mru](/cli/azure/ams/account/mru) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-how-to.md).
 
 ### New features and breaking changes
 
@@ -597,7 +596,7 @@ Starting with this release, you can use Resource Manager templates to create Liv
 The following improvements were introduced:
 
 - Ingest from HTTP(s) URLs or Azure Blob Storage SAS URLs.
-- Specify you own container names for Assets. 
+- Specify your own container names for Assets.
 - Easier output support to create custom workflows with Azure Functions.
 
 #### New Transform object
@@ -610,7 +609,7 @@ Azure AD Authentication and Azure role-based access control (Azure RBAC) enable 
 
 #### Client SDKs  
 
-Languages supported in Media Services v3: .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
+Languages supported in Media Services v3: .NET Core, Java, Node.js, Ruby, TypeScript, Python, Go.
 
 #### Live encoding updates
 

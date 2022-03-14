@@ -31,6 +31,22 @@ The following steps exemplify how to add these buttons to the app.
 </StackPanel>
 ```
 
+### Register Video Handler
+
+An UI component, like XAML's MediaElement, will require the app registering a configuration for rendering local and remote video feeds.
+Please add the following content between the `Package` tags of the `Package.appxmanifest`:
+
+```xml
+<Extensions>
+    <Extension Category="windows.activatableClass.inProcessServer">
+        <InProcessServer>
+            <Path>RtmMvrUap.dll</Path>
+            <ActivatableClass ActivatableClassId="VideoN.VideoSchemeHandler" ThreadingModel="both" />
+        </InProcessServer>
+    </Extension>
+</Extensions>
+```
+
 ### Setting up the app with Calling SDK APIs
 
 The Calling SDK APIs are in two different namespaces.

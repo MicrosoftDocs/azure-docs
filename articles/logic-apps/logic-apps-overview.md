@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q4
-ms.date: 08/18/2021
+ms.date: 01/27/2022
 ---
 
 # What is Azure Logic Apps?
@@ -23,11 +23,11 @@ The following list describes just a few example tasks, business processes, and w
 
 * Monitor tweets, analyze the sentiment, and create alerts or tasks for items that need review.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/player]
 
 Based on the logic app resource type that you choose and create, your logic apps run in multi-tenant Azure Logic Apps, [single-tenant Azure Logic Apps](single-tenant-overview-compare.md), or a dedicated [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md) when accessing an Azure virtual network. To run logic apps in containers, [create single-tenant based logic apps using Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md). For more information, review [What is Azure Arc enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md) and [Resource type and host environment differences for logic apps](#resource-environment-differences).
 
-To securely access and run operations in real time on various data sources, you can choose [*managed connectors*](#managed-connector) from a [400+ and growing Azure connectors ecosystem](/connectors/connector-reference/connector-reference-logicapps-connectors) to use in your workflows, for example:
+To securely access and run operations on various data sources, you can use [*managed connectors*](#managed-connector) in your workflows. Choose from [many hundreds of connectors in an abundant and growing Azure ecosystem](/connectors/connector-reference/connector-reference-logicapps-connectors), for example:
 
 * Azure services such as Blob Storage and Service Bus
 
@@ -211,13 +211,13 @@ You might also want to explore other quickstart guides for Azure Logic Apps:
 
 * [Create a multi-tenant based logic app using an ARM template](quickstart-create-deploy-azure-resource-manager-template.md)
 
-* [Create a multi-tenant based logic app using the Azure CLI](quickstart-create-deploy-azure-resource-manager-template.md)
+* [Create a multi-tenant based logic app using the Azure CLI](quickstart-logic-apps-azure-cli.md)
 
 ## Other resources
 
 Learn more about the Azure Logic Apps platform with these introductory videos:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps/player]
 
 ## Next steps
 

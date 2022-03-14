@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://work.facebook.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Facebook Work Accounts Client support team](mailto:WorkplaceSupportPartnerships@fb.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Engage the [Work Accounts team](https://www.workplace.com/help/work) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Facebook Work Accounts test user
 
-In this section, you create a user called Britta Simon in Facebook Work Accounts. Work with [Facebook Work Accounts support team](mailto:WorkplaceSupportPartnerships@fb.com) to add the users in the Facebook Work Accounts platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Facebook Work Accounts. Work with the [Work Accounts team](https://www.workplace.com/help/work) to add the users in the Facebook Work Accounts platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

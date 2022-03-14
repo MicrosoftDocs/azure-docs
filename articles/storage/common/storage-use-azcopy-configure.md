@@ -66,6 +66,9 @@ To filter the transfers by status, use the following command:
 azcopy jobs show <job-id> --with-status=Failed
 ```
 
+> [!TIP]
+> The value of the `--with-status` flag is case-sensitive. 
+
 Use the following command to resume a failed/canceled job. This command uses its identifier along with the SAS token as it isn't persistent for security reasons:
 
 ```
