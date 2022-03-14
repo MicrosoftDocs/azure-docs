@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: sample
-ms.date: 03/09/2022
+ms.date: 03/14/2022
 
 ms.author: mimart
 author: msmimart
@@ -19,6 +19,7 @@ ms.collection: M365-identity-device-management
 # Azure Active Directory B2B collaboration code and PowerShell samples
 
 ## PowerShell example
+
 You can bulk-invite external users to an organization from email addresses that you have stored in a .CSV file.
 
 1. Prepare the .CSV file
@@ -50,15 +51,32 @@ You can bulk-invite external users to an organization from email addresses that 
    ```
 
 This cmdlet sends an invitation to the email addresses in invitations.csv. Additional features of this cmdlet include:
+
 - Customized text in the email message
 - Including a display name for the invited user
 - Sending messages to CCs or suppressing email messages altogether
 
 ## Code sample
+
 Here we illustrate how to call the invitation API, in "app-only" mode, to get the redemption URL for the resource to which you are inviting the B2B user. The goal is to send a custom invitation email. The email can be composed with an HTTP client, so you can customize how it looks and send it through the Microsoft Graph API.
 
-```csharp
 
+# [HTTP](#tab/http)
+
+```http
+POST https://graph.microsoft.com/v1.0/invitations
+Content-type: application/json
+{
+  "invitedUserEmailAddress": "david@fabrikam.com",
+  "invitedUserDisplayName": "David",
+  "inviteRedirectUrl": "https://myapp.contoso.com",
+  "sendInvitationMessage": true
+}
+```
+
+# [C#](#tab/csharp)
+
+```csharp
 using System;
 using System.Threading.Tasks;
 using Microsoft.Graph;
@@ -133,6 +151,70 @@ namespace SampleInviteApp
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
+Install the following npm packages:
+
+```bash
+npm install express
+npm install isomorphic-fetch
+npm install @azure/identity
+npm install @microsoft/microsoft-graph-client
+```
+
+```javascript
+const express = require('express')
+const app = express()
+
+const { Client } = require("@microsoft/microsoft-graph-client");
+const { TokenCredentialAuthenticationProvider } = require("@microsoft/microsoft-graph-client/authProviders/azureTokenCredentials");
+const { ClientSecretCredential } = require("@azure/identity");
+require("isomorphic-fetch");
+
+// This is the application id of the application that is registered in the above tenant.
+const CLIENT_ID = ""
+
+// Client secret of the application.
+const CLIENT_SECRET = ""
+
+// This is the tenant ID of the tenant you want to invite users to. For example fabrikam.onmicrosoft.com
+const TENANT_ID = ""
+
+async function sendInvite() {
+
+  // Initialize a confidential client application. For more info, visit: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/samples/AzureIdentityExamples.md#authenticating-a-service-principal-with-a-client-secret
+  const credential = new ClientSecretCredential(TENANT_ID, CLIENT_ID, CLIENT_SECRET);
+
+  // Initialize the Microsoft Graph authentication provider. For more info, visit: https://docs.microsoft.com/en-us/graph/sdks/choose-authentication-providers?tabs=Javascript#using--for-server-side-applications
+  const authProvider = new TokenCredentialAuthenticationProvider(credential, { scopes: ['https://graph.microsoft.com/.default'] });
+
+  // Create MS Graph client instance. For more info, visit: https://github.com/microsoftgraph/msgraph-sdk-javascript/blob/dev/docs/CreatingClientInstance.md
+  const client = Client.initWithMiddleware({
+    debugLogging: true,
+    authProvider,
+  });
+
+  // Create invitation object
+  const invitation = {
+    invitedUserEmailAddress: 'david@fabrikam.com',
+    invitedUserDisplayName: 'David',
+    inviteRedirectUrl: 'https://www.microsoft.com',
+    sendInvitationMessage: true
+  };
+  
+  // Execute the MS Graph command. For more information, visit: https://docs.microsoft.com/en-us/graph/api/invitation-post
+  graphResponse = await client.api('/invitations')
+    .post(invitation);
+  
+  // Return the invite redeem URL
+  return graphResponse.inviteRedeemUrl
+}
+
+const inviteRedeemUrl = await sendInvite();
+
+```
+
+---
 
 ## Next steps
 
