@@ -124,7 +124,7 @@ In the fourth tab (**Details**), you give this rule a name, pick where it will b
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can use the Azure CLI to work with alert processing rules. See the `az monitor alert-processing-rules` page in the [Azure CLI docs](/cli/azure/monitor/alert-processing-rule)  for detailed documentation and examples.
+You can use the Azure CLI to work with alert processing rules. See the `az monitor alert-processing-rules` [page in the Azure CLI docs](/cli/azure/monitor/alert-processing-rule)  for detailed documentation and examples.
 
 ### Prepare your environment
 
@@ -169,18 +169,20 @@ For example, to create a rule that adds an action group to all alerts in a subsc
 
 ```azurecli
 az monitor alert-processing-rule create \
---name 'AddActionGroupToSubscription' \
---rule-type AddActionGroups \
---scopes "/subscriptions/sub1" \
---action-groups "/subscriptions/sub1/resourcegroups/rg1/providers/microsoft.insights/actiongroups/ag1" \
---enabled true \
---resource-group rg1 \
---description "Add action group ag1 to all alerts in the subscription"
+  --name 'AddActionGroupToSubscription' \
+  --rule-type AddActionGroups \
+  --scopes "/subscriptions/sub1" \
+  --action-groups "/subscriptions/sub1/resourcegroups/rg1/providers/microsoft.insights/actiongroups/ag1" \
+  --resource-group rg1 \
+  --description "Add action group ag1 to all alerts in the subscription"
 ```
 
 The [CLI documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include more examples and an explanation of each parameter.
 
 ### [PowerShell](#tab/powershell)
+
+You can use PowerShell to work with alert processing rules. See the `*-AzAlertProcessingRule` commands [in the PowerShell docs](/powershell/module/az.alertsmanagement) for detailed documentation and examples.
+
 
 ### Create an alert processing rule using PowerShell
 
@@ -188,11 +190,16 @@ Use the `Set-AzAlertProcessingRule` command to create alert processing rules.
 For example, to create a rule that adds an action group to all alerts in a subscription, run:
 
 ```powershell
-Set-AzAlertProcessingRule -ResourceGroupName rg1 -Name AddActionGroupToSubscription -Scope /subscriptions/MySubId -Description "Add action group ag1 to all alerts in the subscription" -AlertProcessingRuleType AddActionGroups -ActionGroupId /subscriptions/sub1/resourcegroups/rg1/providers/microsoft.insights/actiongroups/ag1
-
+Set-AzAlertProcessingRule `
+  -Name AddActionGroupToSubscription `
+  -AlertProcessingRuleType AddActionGroups `
+  -Scope /subscriptions/MySubId `
+  -ActionGroupId /subscriptions/sub1/resourcegroups/rg1/providers/microsoft.insights/actiongroups/ag1 `
+  -ResourceGroupName rg1 `
+  -Description "Add action group ag1 to all alerts in the subscription"
 ```
 
-The [CLI documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include more examples and an explanation of each parameter.
+The [PowerShell documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include more examples and an explanation of each parameter.
 
 * * *
 
