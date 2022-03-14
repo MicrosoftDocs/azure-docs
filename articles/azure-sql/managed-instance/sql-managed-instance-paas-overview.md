@@ -66,7 +66,7 @@ The key features of SQL Managed Instance are shown in the following table:
 | Built-in Integration Service (SSIS) | No - SSIS is a part of [Azure Data Factory PaaS](../../data-factory/tutorial-deploy-ssis-packages-azure.md) |
 | Built-in Analysis Service (SSAS) | No - SSAS is separate [PaaS](../../analysis-services/analysis-services-overview.md) |
 | Built-in Reporting Service (SSRS) | No - use [Power BI paginated reports](/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) instead or host SSRS on an Azure VM. While SQL Managed Instance cannot run SSRS as a service, it can host [SSRS catalog databases](/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) for a reporting server installed on Azure Virtual Machine, using SQL Server authentication. |
-|||
+
 
 ## vCore-based purchasing model
 
