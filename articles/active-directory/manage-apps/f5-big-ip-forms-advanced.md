@@ -1,13 +1,13 @@
 ---
 title: Configure F5 BIG-IP’s Access Policy Manager for form-based SSO
 description: Learn how to configure F5's BIG-IP Access Policy Manager and Azure Active Directory for secure hybrid access to form-based applications.
-author: NishthaBabith-V
+author: KarenH444
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/20/2021
-ms.author: v-nisba
+ms.author: karenhoran
 ms.collection: M365-identity-device-management
 ---
 

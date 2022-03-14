@@ -2,14 +2,14 @@
 title: Configure F5 BIG-IP’s Easy Button for Header-based and LDAP SSO 
 description: Learn to configure F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
 services: active-directory
-author: NishthaBabith-V
+author: karenhoran
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/22/2021
-ms.author: v-nisba
+ms.author: KarenH444
 ms.collection: M365-identity-device-management
 ---
 
