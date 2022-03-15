@@ -37,7 +37,7 @@ In comparison to the dedicated offering, the premium tier provides the following
 - Scale far more elastically and quicker
 - PUs can be dynamically adjusted
 
-Therefore, the premium tier is often a more cost effective option for mid-range (<120MB/sec) throughput requirements, especially with changing loads throughout the day or week, when compared to the dedicated tier. 
+Therefore, the premium tier is often a more cost effective option for event streaming workloads up to 160 MB/sec (per namespace), especially with changing loads throughout the day or week, when compared to the dedicated tier. 
 
 For the extra robustness gained by availability-zone support, the minimal deployment scale for the dedicated tier is 8 capacity units (CU), but you'll have availability zone support in the premium tier from the first PU in all availability zone regions. 
 

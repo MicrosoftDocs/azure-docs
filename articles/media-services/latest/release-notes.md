@@ -94,7 +94,7 @@ You also now have an account level feature flag to allow/block public internet a
 
 ### .NET SDK (Microsoft.Azure.Management.Media) 5.0.0 release available in NuGet
 
-The [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) .NET SDK version 5.0.0 is now released on NuGet. This version is generated to work with the [2021-06-01 stable](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) version of the Open API (Swagger) ARM Rest API.
+The [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) .NET SDK version 5.0.0 is now released on NuGet. This version is generated to work with the [2021-06-01 stable](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) version of the Open API (Swagger) ARM REST API.
 
 For details on changes from the 4.0.0 release see the [change log](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mediaservices/Microsoft.Azure.Management.Media/CHANGELOG.md).
 
@@ -285,7 +285,7 @@ Azure Media Services is now available in the Norway East region in the Azure por
 
 ### Basic Audio Analysis
 
-The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyze-video-audio-files-concept.md#built-in-presets)
+The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription, and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyze-video-audio-files-concept.md#built-in-presets)
 
 Customers using Indexer v1 and Indexer v2 should migrate to the Basic Audio Analysis preset.
 
@@ -463,8 +463,7 @@ This functionality works with any [Transform](/rest/api/media/transforms) that i
 
 See examples:
 
-* [Subclip a video with .NET](transform-subclip-video-dotnet-how-to.md)
-* [Subclip a video with REST](transform-subclip-video-rest-how-to.md)
+* [Subclip a video with REST](transform-subclip-video-how-to.md)
 
 ## May 2019
 
@@ -546,7 +545,7 @@ The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/
 - [az ams live-output](/cli/azure/ams/live-output)
 - [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint)
 - [az ams streaming-locator](/cli/azure/ams/streaming-locator)
-- [az ams account mru](/cli/azure/ams/account/mru) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
+- [az ams account mru](/cli/azure/ams/account/mru) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-how-to.md).
 
 ### New features and breaking changes
 
@@ -597,7 +596,7 @@ Starting with this release, you can use Resource Manager templates to create Liv
 The following improvements were introduced:
 
 - Ingest from HTTP(s) URLs or Azure Blob Storage SAS URLs.
-- Specify you own container names for Assets. 
+- Specify your own container names for Assets.
 - Easier output support to create custom workflows with Azure Functions.
 
 #### New Transform object

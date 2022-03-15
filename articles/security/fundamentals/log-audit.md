@@ -44,7 +44,7 @@ The following table lists the most important types of logs available in Azure:
 
 | Log category | Log type | Usage | Integration |
 | ------------ | -------- | ------ | ----------- |
-|[Activity logs](../../azure-monitor/essentials/platform-logs-overview.md)|Control-plane events on Azure Resource Manager resources|	Provides insight into the operations that were performed on resources in your subscription.|	Rest API, [Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md)|
+|[Activity logs](../../azure-monitor/essentials/platform-logs-overview.md)|Control-plane events on Azure Resource Manager resources|	Provides insight into the operations that were performed on resources in your subscription.|	REST API, [Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md)|
 |[Azure Resource logs](../../azure-monitor/essentials/platform-logs-overview.md)|Frequent data about the operation of Azure Resource Manager resources in subscription|	Provides insight into operations that your resource itself performed.| Azure Monitor|
 |[Azure Active Directory reporting](../../active-directory/reports-monitoring/overview-reports.md)|Logs and reports | Reports user sign-in activities and system activity information about users and group management.|[Graph API](../../active-directory/develop/microsoft-graph-intro.md)|
 |[Virtual machines and cloud services](../../azure-monitor/vm/monitor-virtual-machine.md)|Windows Event Log service and Linux Syslog|	Captures system data and logging data on the virtual machines and transfers that data into a storage account of your choice.|	Windows (using Windows Azure Diagnostics [[WAD](../../azure-monitor/agents/diagnostics-extension-overview.md)] storage) and Linux in Azure Monitor|

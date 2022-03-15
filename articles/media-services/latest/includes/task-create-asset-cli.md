@@ -9,8 +9,8 @@ ms.custom: CLI, devx-track-azurecli
 
 <!--Create a media services asset CLI-->
 
-The following Azure CLI command creates a new Media Services asset. Replace the values `assetName`  `amsAccountName` and `resourceGroup` with values you are currently working with.
+## Create an asset
 
-```azurecli
-az ams asset create -n assetName -a amsAccountName -g resourceGroup
-```
+:::code language="azurecli" source="~/media-services-v3-python/cli/code-snippets.sh" id="AmsAssetCreate" interactive="azurecli-interactive":::
+
+For more information about this command, see the [CLI reference](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-create).

@@ -421,7 +421,7 @@ The request body looks like the following example:
 
 ```json
 {
-  "since": "2021-03-24T12:55:20.789Z"
+  "request": "2021-03-24T12:55:20.789Z"
 }
 ```
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about existing industry ontologies that can be adopted for Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/27/2021
+ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 

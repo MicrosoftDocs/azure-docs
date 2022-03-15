@@ -63,7 +63,7 @@ Let's take a deeper dive into connectivity architecture for SQL Managed Instance
 
 ![Connectivity architecture of the virtual cluster](./media/connectivity-architecture-overview/connectivityarch003.png)
 
-Clients connect to SQL Managed Instance by using a host name that has the form `<mi_name>.<dns_zone>.database.windows.net`. This host name resolves to a private IP address, although it's registered in a public Domain Name System (DNS) zone and is publicly resolvable. The `zone-id` is automatically generated when you create the cluster. If a newly created cluster hosts a secondary managed instance, it shares its zone ID with the primary cluster. For more information, see [Use auto failover groups to enable transparent and coordinated failover of multiple databases](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
+Clients connect to SQL Managed Instance by using a host name that has the form `<mi_name>.<dns_zone>.database.windows.net`. This host name resolves to a private IP address, although it's registered in a public Domain Name System (DNS) zone and is publicly resolvable. The `zone-id` is automatically generated when you create the cluster. If a newly created cluster hosts a secondary managed instance, it shares its zone ID with the primary cluster. For more information, see [Use auto failover groups to enable transparent and coordinated failover of multiple databases](auto-failover-group-configure-sql-mi.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 This private IP address belongs to the internal load balancer for SQL Managed Instance. The load balancer directs traffic to the SQL Managed Instance gateway. Because multiple managed instances can run inside the same cluster, the gateway uses the SQL Managed Instance host name to redirect traffic to the correct SQL engine service.
 
@@ -146,7 +146,7 @@ These routes are necessary to ensure that management traffic is routed directly 
 |mi-storage-REGION-internet|Storage.REGION|Internet|
 |mi-storage-REGION_PAIR-internet|Storage.REGION_PAIR|Internet|
 |mi-azureactivedirectory-internet|AzureActiveDirectory|Internet|
-||||
+
 
 \* MI SUBNET refers to the IP address range for the subnet in the form x.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
 

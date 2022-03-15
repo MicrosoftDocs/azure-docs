@@ -8,7 +8,7 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: faq
-  ms.date: 01/11/2022
+  ms.date: 03/11/2022
   ms.author: aahi
 title: FAQ for Azure Cognitive Services disconnected containers
 summary: |
@@ -21,7 +21,9 @@ sections:
           Disconnected containers are offered through commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
           * Speech services
             *	Speech to Text (Standard)
+            * Neural Text to Speech
           *	Text Translation (Standard)
+          * Language Understanding (LUIS)
           *	Azure Cognitive Service for Language
               *	Sentiment Analysis
               *	Key Phrase Extraction
@@ -127,7 +129,9 @@ sections:
 
           * [Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for:
             * Speech to Text (Standard)
+            * Neural Text to Speech
           * [Text Translation (Standard)](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)
+          * [Language Understanding (LUIS)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)
           *	[Azure Cognitive Service for Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) for
             * Sentiment Analysis
             * Key Phrase Extraction
@@ -146,7 +150,9 @@ sections:
 
           * [Speech Services](../speech-service/speech-container-howto.md#host-computer-requirements-and-recommendations) for:
             * Speech to Text (Standard)
+            * Neural Text to Speech
           * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
+          * [Language Understanding (LUIS)](../luis/luis-container-howto.md#container-requirements-and-recommendations)
           *	Azure Cognitive Service for Language documentation for
               * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#host-computer-requirements-and-recommendations)
               * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#host-computer-requirements-and-recommendations)

@@ -25,6 +25,8 @@ Below are SDKs/scenarios not supported in the Public Preview:
 - [Availability tests](availability-overview.md).
 - [Profiler](profiler-overview.md).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Prerequisites to enable Azure AD authentication ingestion
 
 - Familiarity with:
@@ -107,7 +109,7 @@ import { DefaultAzureCredential } from "@azure/identity";
  
 const credential = new DefaultAzureCredential();
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
-appInsights.defaultClient.aadTokenCredential = credential;
+appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
 
@@ -123,7 +125,7 @@ const credential = new ClientSecretCredential(
     "<YOUR_CLIENT_SECRET>"
   );
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
-appInsights.defaultClient.aadTokenCredential = credential;
+appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
 

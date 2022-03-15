@@ -81,7 +81,7 @@ There's no more cost for Azure Arc-enabled servers, but there might be some cost
 ### Machines that can't use Azure Arc-enabled servers
 If you have any hybrid machines that match the following criteria, they won't be able to use Azure Arc-enabled servers:
 
-- The operating system of the machine isn't supported by the server agents enabled by Azure Arc. For more information, see [Supported operating systems](../../azure-arc/servers/agent-overview.md#prerequisites).
+- The operating system of the machine isn't supported by the server agents enabled by Azure Arc. For more information, see [Supported operating systems](../../azure-arc/servers/prerequisites.md#supported-operating-systems).
 - Your security policy doesn't allow machines to connect directly to Azure. The Log Analytics agent can use the [Log Analytics gateway](../agents/gateway.md) whether or not Azure Arc-enabled servers are installed. The server agents enabled by Azure Arc must connect directly to Azure.
 
 You still can monitor these machines with Azure Monitor, but you need to manually install their agents. To manually install the Log Analytics agent and Dependency agent on those hybrid machines, see [Enable VM insights for a hybrid virtual machine](vminsights-enable-hybrid.md).
