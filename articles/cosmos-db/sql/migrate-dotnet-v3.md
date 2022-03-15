@@ -146,10 +146,10 @@ CosmosClient client = cosmosClientBuilder.Build();
 
 ### Exceptions
 
-Where the v2 SDK used `DocumentClientException` to signal errors during operations, the v3 SDK uses `CosmosClientException`, which exposes the `StatusCode`, `Diagnostics`, and other response-related information. All the complete information is serialized when `ToString()` is used:
+Where the v2 SDK used `DocumentClientException` to signal errors during operations, the v3 SDK uses `CosmosException`, which exposes the `StatusCode`, `Diagnostics`, and other response-related information. All the complete information is serialized when `ToString()` is used:
 
 ```csharp
-catch (CosmosClientException ex)
+catch (CosmosException ex)
 {
     HttpStatusCode statusCode = ex.StatusCode;
     CosmosDiagnostics diagnostics = ex.Diagnostics;
