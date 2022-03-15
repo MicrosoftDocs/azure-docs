@@ -488,6 +488,19 @@ Appendix 1 shows proxy URLs required by the Azure Arc-enabled private cloud. The
 |Resource bridge (appliance) Dataplate service | `https://*.dp.prod.appliances.azure.com` |
 | Resource bridge (appliance) container image download | `https://ecpacr.azurecr.io` |
 |Resource bridge (appliance) image download | `https://.blob.core.windows.net https://*.dl.delivery.mp.microsoft.com https://*.do.dsp.mp.microsoft.com` |
-| Azure Resource Manager | `https://management.azure.com` |
-|Azure Active Directory | `https://login.mirosoftonline.com` |
+| Azure Resource Manager | `https://management.azure.com`  |
+|Azure Active Directory | `https://login.mirosoftonline.com`  |
+| **Other Resources** | **URL** |
+|  | `https://*.blob.core.windows.net` |
+|  | [files.pythonhosted.org](http://files.pythonhosted.org/)  |
+|  | `https://*.api.cdp.microsoft.com`  |
+|  | [gcr.io](http://gcr.io/)  |
+|  | [storage.googleapis.com](http://storage.googleapis.com/)  |
+|  | [registry-1.docker.io](http://registry-1.docker.io/)  |
+|  | [auth.docker.io](http://auth.docker.io/)  |
+|  | [production.cloudflare.docker.com](http://production.cloudflare.docker.com/)  |
+|  | [quay.io](http://quay.io/)  |
+---
+
+
 
