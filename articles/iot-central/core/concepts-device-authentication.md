@@ -114,7 +114,7 @@ To automatically register devices that use SAS tokens:
 
 1. Copy the group primary key from the **SAS-IoT-Devices** enrollment group:
 
-    :::image type="content" source="media/concepts-device-authentication/group-primary-key.png" alt-text="Group primary key from SAS-IoT-Devices enrollment group":::
+    :::image type="content" source="media/concepts-device-authentication/group-primary-key.png" alt-text="Group primary key from S A S - I o T - Devices enrollment group.":::
 
 1. Use the `az iot central device compute-device-key` command to generate the device SAS keys. Use the group primary key from the previous step. The device ID can contain letters, numbers, and the `-` character:
 

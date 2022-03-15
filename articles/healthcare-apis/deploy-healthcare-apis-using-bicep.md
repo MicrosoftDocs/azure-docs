@@ -1,18 +1,18 @@
 ---
-title: How to create Healthcare APIs, workspaces, FHIR and DICOM service, and IoT connectors using Azure Bicep
-description: This document describes how to deploy Healthcare APIs using Azure Bicep.
+title: How to create Azure Health Data Services, workspaces, FHIR and DICOM service, and IoT connectors using Azure Bicep
+description: This document describes how to deploy Azure Health Data Services using Azure Bicep.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 01/31/2022
+ms.date: 02/15/2022
 ms.author: zxue
 ms.custom: mode-api
 ---
 
-# Deploy Healthcare APIs Using Azure Bicep
+# Deploy Azure Health Data Services Using Azure Bicep
 
-In this article, you'll learn how to create Healthcare APIs, including workspaces, FHIR services, DICOM services, and IoT connectors using Azure Bicep. You can view and download the Bicep scripts used in this article in [HealthcareAPIs samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/templates/healthcareapis.bicep). 
+In this article, you'll learn how to create Azure Health Data Services, including workspaces, FHIR services, DICOM services, and IoT connectors using Azure Bicep. You can view and download the Bicep scripts used in this article in [HealthcareAPIs samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/templates/healthcareapis.bicep). 
 
 ## What is Azure Bicep
 
@@ -63,7 +63,7 @@ resource exampleWorkspace 'Microsoft.HealthcareApis/workspaces@2021-06-01-previe
 }
 ```
 
-To use or reference an existing workspace without creating one, use the keyword *existing*. Specify the workspace resource name, and the existing workspace instance name for the name property. Note that a different name for the existing workspace resource is used in the template, but that is not a requirement.
+To use or reference an existing workspace without creating one, use the keyword *existing*. Specify the workspace resource name, and the existing workspace instance name for the name property. Note that a different name for the existing workspace resource is used in the template, but that isn't a requirement.
 
 ```
 //Use an existing workspace
@@ -260,7 +260,7 @@ tenantid=$(az account show --subscription $subscriptionid --query tenantId --out
 az deployment group create --resource-group $resourcegroupname --template-file $bicepfilename --parameters workspaceName=$workspacename fhirName=$fhirname dicomName=$dicomname iotName=$iotname tenantId=$tenantid
 ```
 
-Note that the child resource name such as the FHIR service includes the parent resource name, and the "dependsOn" property is required. However, when the child resource is created within the parent resource, its name does not need to include the parent resource name, and the "dependsOn" property is not required. For more info on nested resources, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).
+Note that the child resource name such as the FHIR service includes the parent resource name, and the "dependsOn" property is required. However, when the child resource is created within the parent resource, its name doesn't need to include the parent resource name, and the "dependsOn" property isn't required. For more info on nested resources, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).
 
 ## Debugging Bicep templates
 
@@ -275,7 +275,7 @@ output stringOutput2 string = audience
 
 ## Next steps
 
-In this article, you learned how to create Healthcare APIs, including workspaces, FHIR services, DICOM services, and IoT connectors using Bicep. You also learned how to create and debug Bicep templates. For more information about Healthcare APIs, see 
+In this article, you learned how to create Azure Health Data Services, including workspaces, FHIR services, DICOM services, and IoT connectors using Bicep. You also learned how to create and debug Bicep templates. For more information about Azure Health Data Services, see 
 
 >[!div class="nextstepaction"]
->[What is Azure Healthcare APIs](healthcare-apis-overview.md)
+>[What is Azure Health Data Services](healthcare-apis-overview.md)

@@ -748,7 +748,7 @@ Perform the following steps for each database on the VM:
 
 1. Unmount the restore point.
 
-   When all databases on the VM have been successfully recovered you may unmount the restore point. This can be done on the VM using the `unmount` command or in Azure portal from the File Recovery blade. You can also unmount the recovery volumes by running the python script again with the **-clean** option.
+   When all databases on the VM have been successfully recovered you may unmount the restore point. This can be done on the VM using the `unmount` command or in Azure portal from the File Recovery blade. You can also unmount the recovery volumes by running the Python script again with the **-clean** option.
 
    In the VM using unmount:
    ```bash
