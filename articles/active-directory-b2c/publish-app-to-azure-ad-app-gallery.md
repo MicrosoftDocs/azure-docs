@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 03/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -58,7 +58,7 @@ Upon successful sign-in, Azure AD returns a token to Azure AD B2C. Azure AD B2C 
 
 To enable sign-in to your app with Azure AD B2C, register your app in the Azure AD B2C directory. Registering your app establishes a trust relationship between the app and Azure AD B2C. 
 
-If you haven't already done so, [register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). Later, you'll register this app with the Azure app gallery.
+If you haven't already done so, [register a web application](tutorial-register-applications.md). Later, you'll register this app with the Azure app gallery.
 
 ## Step 2: Set up sign-in for multitenant Azure AD
 
