@@ -160,8 +160,7 @@ If there's a firewall between your servers and Azure AD, configure the following
 ## US government cloud firewall and proxy requirements
 Use the following information for URLS when installing the Azure AD Connect provisioning agent against the government cloud.
 
-
-- If your firewall or proxy allows you to specify safe suffixes, add connections: 
+If your firewall or proxy allows you to specify safe suffixes, add the following connections: 
 
  |URL |How it's used|
  |-----|-----|
