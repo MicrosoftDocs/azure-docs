@@ -67,7 +67,7 @@ Once a NAT rule is defined for a connection, the effective address space for the
 
 * BGP peer IP address consideration for a NAT'ed on-premises network:
    * APIPA (169.254.0.1 to 169.254.255.254) address: NAT is not supported with BGP APIPA addresses.
-   * Non-APIPA address: Exclude the BGP Peer IP address from the NAT range.
+   * Non-APIPA address: Exclude the BGP Peer IP addresses from the NAT range.
 
 > [!NOTE]
 > The learned routes on connections without IngressSNAT rules will not be converted. The VNet routes advertised to connections without EgressSNAT rules will also not be converted.
