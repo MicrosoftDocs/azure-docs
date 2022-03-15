@@ -16,8 +16,6 @@ ms.custom:
 
 This article steps through using Azure Portal to create highly resilient virtual machines in [availability zones](../availability-zones/az-overview.md). Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. Use availability zones to protect your applications and data against unlikely datacenter failures.
 
-This article steps through using the Azure portal to create virtual machines in Azure availability zones. An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
-
 To use availability zones, create your virtual machines in a [supported Azure region](../availability-zones/az-region.md).
 
 Some users will now see the option to create VMs in multiple zones. If you see the following message, please use the **Preview** tab below.
