@@ -186,22 +186,24 @@ The command generated from One-Click tool includes a SAS token. It’s best to g
     :::image type="content" source="media/gen2-migration/adx-ingest-sas-blob.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS Blob URL" lightbox="media/gen2-migration/adx-ingest-sas-blob.png":::
 
 1. Go to the LightIngest command that you copied previously. Replace the -source parameter in the command with this ‘SAS Blob URL’
-1. `Option 1: Ingest All Data`. For smaller environments, you can ingest all of the data with a single command.
+1. **Option 1: Ingest All Data**. For smaller environments, you can ingest all of the data with a single command.
     1. Open a command prompt and change to the directory where the LightIngest tool was extracted to. Once there, paste the LightIngest command and execute it.
 
     :::image type="content" source="media/gen2-migration/adx-ingest-lightingest-prompt.png" alt-text="Screenshot of the Azure Data Explorer ingestion for command prompt" lightbox="media/gen2-migration/adx-ingest-lightingest-prompt.png":::
 
-1. `Option 2: Ingest Data by Year or Month`. For larger environments or to test on a smaller data set you can filter the Lightingest command further.
-    1. By Year
-        > Change your -prefix parameter
-	    > Before: `-prefix:"V=1/PT=Time"`
-	    > After: `-prefix:"V=1/PT=Time/Y=<Year>"`
-    	    > Example: `-prefix:"V=1/PT=Time/Y=2021"`
-     1. By Month
-        > Change your -prefix parameter
-	    > Before: `-prefix:"V=1/PT=Time"`
-    	    > After: `-prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"`
-	    > Example: `-prefix:"V=1/PT=Time/Y=2021/M=03"`
+1. **Option 2: Ingest Data by Year or Month**. For larger environments or to test on a smaller data set you can filter the Lightingest command further.
+
+   1. By Year: Change your -prefix parameter
+       
+      Before: `-prefix:"V=1/PT=Time"`
+      After: `-prefix:"V=1/PT=Time/Y=<Year>"`
+      Example: `-prefix:"V=1/PT=Time/Y=2021"`
+
+   1. By Month: Change your -prefix parameter
+
+      Before: `-prefix:"V=1/PT=Time"`
+      After: `-prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"`
+      Example: `-prefix:"V=1/PT=Time/Y=2021/M=03"`
 
 Once you’ve modified the command, execute it like above. One the ingestion is complete (using monitoring option below) modify the command for the next year and month you want to ingest.
 
