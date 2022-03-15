@@ -1,23 +1,20 @@
 ---
-title: JsonPathContentTemplate mappings in IoT connector Device mappings - Azure Healthcare APIs
-description: This article describes how to use JsonPathContentTemplate mappings with IoT connector Device mappings templates. 
+title: JsonPathContentTemplate mappings in MedTech service Device mappings - Azure Health Data Services
+description: This article describes how to use JsonPathContentTemplate mappings with the MedTech service Device mappings templates. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
 
 # How to use JsonPathContentTemplate mappings
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 > [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
 
-This article describes how to use JsonPathContentTemplate mappings with IoT connector Device mappings templates.
+This article describes how to use JsonPathContentTemplate mappings with the MedTech service Device mappings templates.
 
 ## JsonPathContentTemplate
 
@@ -221,7 +218,7 @@ The JsonPathContentTemplate allows matching on and extracting values from an Azu
 ```
 
 > [!TIP]
-> See IoT connector [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See the MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
 
 ## Next steps
 

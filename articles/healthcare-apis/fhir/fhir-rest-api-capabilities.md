@@ -1,17 +1,17 @@
 ---
-title: FHIR REST API capabilities for Azure Healthcare APIs FHIR service
-description: This article describes the RESTful interactions and capabilities for Azure Healthcare APIs FHIR service.
+title: FHIR Rest API capabilities for Azure Health Data Services FHIR service
+description: This article describes the RESTful interactions and capabilities for Azure Health Data Services FHIR service.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 01/03/2022
+ms.date: 03/09/2022
 ms.author: cavoeg
 ---
 
-# FHIR REST API capabilities for Azure Healthcare APIs FHIR service
+# FHIR Rest API capabilities for Azure Health Data Services FHIR service
 
-In this article, we'll cover some of the nuances of the RESTful interactions of Azure Healthcare APIs FHIR service (hereby called the FHIR service).
+In this article, we'll cover some of the nuances of the RESTful interactions of Azure Health Data Services FHIR service (hereby called FHIR service).
 
 ## Conditional create/update
 
@@ -19,14 +19,14 @@ The FHIR service supports create, conditional create, update, and conditional up
 
 ## Delete and Conditional Delete
 
-The FHIR service offers two delete types. There is [Delete](https://www.hl7.org/fhir/http.html#delete), which is also know as Hard + Soft Delete, and [Conditional Delete](https://www.hl7.org/fhir/http.html#3.1.0.7.1).
+FHIR service offers two delete types. There's [Delete](https://www.hl7.org/fhir/http.html#delete), which is also know as Hard + Soft Delete, and [Conditional Delete](https://www.hl7.org/fhir/http.html#3.1.0.7.1).
 
 ### Delete (Hard + Soft Delete)
 
 Delete defined by the FHIR specification requires that after deleting a resource, subsequent non-version specific reads of a resource returns a 410 HTTP status code. Therefore, the resource is no longer found through searching. Additionally, the FHIR service enables you to fully delete (including all history) the resource. To fully delete the resource, you can pass a parameter settings `hardDelete` to true `(DELETE {{FHIR_URL}}/{resource}/{id}?hardDelete=true)`. If you don't pass this parameter or set `hardDelete` to false, the historic versions of the resource will still be available.
 
 > [!NOTE]
-> If you only want to delete the history, the FHIR service supports a custom operation called `$purge-history`. This operation allows you to delete the history off of a resource.
+> If you only want to delete the history, FHIR service supports a custom operation called `$purge-history`. This operation allows you to delete the history off of a resource.
 
 ### Conditional Delete
 
@@ -46,7 +46,7 @@ To delete multiple resources, include `_count=100` parameter. This parameter wil
  
 ### Recovery of deleted files
 
-If you don't use the hard delete parameter, then the record(s) in the FHIR service should still exist. The record(s) can be found by doing a history search on the resource and looking for the last version with data.
+If you don't use the hard delete parameter, then the record(s) in FHIR service should still exist. The record(s) can be found by doing a history search on the resource and looking for the last version with data.
  
 If the ID of the resource that was deleted is known, use the following URL pattern:
 
@@ -54,7 +54,7 @@ If the ID of the resource that was deleted is known, use the following URL patte
 
 For example: `https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Patient/123456789/_history`
  
-If the ID of the resource is not known, do a history search on the entire resource type:
+If the ID of the resource isn't known, do a history search on the entire resource type:
 
 `<FHIR_URL>/<resource-type>/_history`
 
@@ -74,7 +74,7 @@ Patch is a valuable RESTful operation when you need to update only a portion of 
 
 ### Testing Patch
 
-Within Patch, there is a test operation that allows you to validate that a condition is true before doing the patch. For example, if you want to set a patient as deceased (only if they're not already marked as deceased) you can use the example below: 
+Within Patch, there's a test operation that allows you to validate that a condition is true before doing the patch. For example, if you want to set a patient as deceased (only if they're not already marked as deceased) you can use the example below: 
 
 PATCH `http://{FHIR-SERVICE-NAME}/Patient/{PatientID}`
 Content-type: `application/json-patch+json`
@@ -97,7 +97,7 @@ Content-type: `application/json-patch+json`
 
 ### Patch in Bundles
 
-By default, JSON Patch is not supported in Bundle resources. This is because a Bundle only supports with FHIR resources and JSON Patch is not a FHIR resource. To work around this, we'll treat Binary resources with a content-type of `"application/json-patch+json"`as base64 encoding of JSON string when a Bundle is executed. For information about this workaround, log in to [Zulip](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/Transaction.20with.20PATCH.20request). 
+By default, JSON Patch isn't supported in Bundle resources. This is because a Bundle only supports with FHIR resources and JSON Patch isn't a FHIR resource. To work around this, we'll treat Binary resources with a content-type of `"application/json-patch+json"`as base64 encoding of JSON string when a Bundle is executed. For information about this workaround, log in to [Zulip](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/Transaction.20with.20PATCH.20request). 
 
 In the example below, we want to change the gender on the patient to female. We've taken the JSON patch `[{"op":"replace","path":"/gender","value":"female"}]` and encoded it to base64.
 
