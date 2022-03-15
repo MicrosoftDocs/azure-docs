@@ -33,11 +33,11 @@ By default, Azure IoT Edge for Linux on Windows includes IoT Edge runtime as par
 
 IoT Edge for Linux on Windows uses IoT Edge in a Linux virtual machine running on a Windows host. In this way, you can run Linux modules on a Windows device. Azure IoT Edge for Linux on Windows runs on the following Windows SKUs:
 
-* Windows Client 
+* **Windows Client** 
   * Pro, Enterprise, IoT Enterprise SKUs
   * Windows 10 - Minimum build 17763 with all current cumulative updates installed
   * Windows 11
-* Windows Server
+* **Windows Server**
   * Windows Server 2019 - Minimum build 17763 with all current cumulative updates installed
   * Windows Server 2022
 
@@ -64,7 +64,7 @@ Azure IoT Edge for Linux on Windows supports running inside a Windows virtual ma
 
 IoT Edge for Linux on Windows release assets and release notes are available on the [iotedge-eflow releases](https://github.com/Azure/iotedge-eflow/releases) page. This section reflects information from those release notes to help you visualize the components of each version more easily.
 
-The following table lists the components included in each release. Each release train is independent, and we don't guarantee backwards compatibility and migration between versions. For more information about IoT Edge version, see [IoT Edge platform support](./support.md)
+The following table lists the components included in each release. Each release train is independent, and we don't guarantee backwards compatibility and migration between versions. For more information about IoT Edge version, see [IoT Edge platform support](./support.md).
 
 | Release | IoT Edge | CBL-Mariner | Defender for IoT |
 | ------- | -------- | ----------- | ---------------- |
