@@ -70,7 +70,7 @@ NAT gateway is not compatible with basic resources, such as Basic Load Balancer 
 
 ### NAT gateway cannot be attached to a gateway subnet
 
-NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway subnets for VPN connections between site-to-site Azure virtual networks and local networks or between two Azure virtual networks. See [VPN gateway overview](/azure/vpn-gateway/vpn-gateway-about-vpngateways) to learn more about how gateway subnets are used.
+NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway subnets for VPN connections between site-to-site Azure virtual networks and local networks or between two Azure virtual networks. See [VPN gateway overview](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used.
 
 ### IPv6 coexistence
 
@@ -102,7 +102,7 @@ NAT gateway has a configurable TCP idle timeout timer that defaults to 4 minutes
 
 | Scenario | Evidence | Mitigation |
 |---|---|---|
-| You would like to ensure that TCP connections stay active for long periods of time without idle timing out so you increase the TCP idle timeout timer setting. After a while you start to notice that connection failures occur more often. You suspect that you may be exhausting your inventory of SNAT ports since connections are holding on to them longer. | You check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor to determine if SNAT port exhaustion is happening: **Total SNAT Connection**: "Sum" aggregation shows high connection volume. "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume. | You have a few possible mitigation steps that you can take to resolve SNAT port exhaustion: - **Reduce the TCP idle timeout** to a lower value to free up SNAT port inventory earlier. The TCP idle timeout timer cannot be set lower than 4 minutes. - Consider **[asynchronous polling patterns](/azure/architecture/patterns/async-request-reply)** to free up connection resources for other operations. - **Use TCP keepalives or application layer keepalives** to avoid intermediate systems timing out. For examples, see [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive). - For connections going to Azure PaaS services, use **[Private Link](/azure/private-link/private-link-overview)**. Private Link eliminates the need to use public IPs of your NAT gateway which frees up more SNAT ports for outbound connections to the internet.|
+| You would like to ensure that TCP connections stay active for long periods of time without idle timing out so you increase the TCP idle timeout timer setting. After a while you start to notice that connection failures occur more often. You suspect that you may be exhausting your inventory of SNAT ports since connections are holding on to them longer. | You check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor to determine if SNAT port exhaustion is happening: **Total SNAT Connection**: "Sum" aggregation shows high connection volume. "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume. | You have a few possible mitigation steps that you can take to resolve SNAT port exhaustion: - **Reduce the TCP idle timeout** to a lower value to free up SNAT port inventory earlier. The TCP idle timeout timer cannot be set lower than 4 minutes. - Consider **[asynchronous polling patterns](/azure/architecture/patterns/async-request-reply)** to free up connection resources for other operations. - **Use TCP keepalives or application layer keepalives** to avoid intermediate systems timing out. For examples, see [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive). - For connections going to Azure PaaS services, use **[Private Link](../../private-link/private-link-overview.md)**. Private Link eliminates the need to use public IPs of your NAT gateway which frees up more SNAT ports for outbound connections to the internet.|
 
 ## Connection failures due to idle timeouts
 
@@ -176,21 +176,21 @@ Once the custom UDR is removed from the routing table, the NAT gateway public IP
 
 ### Private IPs are used to connect to Azure services by Private Link
 
-[Private Link](/azure/private-link/private-link-overview) connects your Azure virtual networks privately to Azure PaaS services such as Storage, SQL, or Cosmos DB over the Azure backbone network instead of over the internet. Private Link uses the private IP addresses of virtual machine instances in your virtual network to connect to these Azure platform services instead of the public IP of NAT gateway. As a result, when looking at the source IP address used to connect to these Azure services, you will notice that the private IPs of your instances are used. See [Azure services listed here](/azure/private-link/availability) for all services supported by Private Link.   
+[Private Link](../../private-link/private-link-overview.md) connects your Azure virtual networks privately to Azure PaaS services such as Storage, SQL, or Cosmos DB over the Azure backbone network instead of over the internet. Private Link uses the private IP addresses of virtual machine instances in your virtual network to connect to these Azure platform services instead of the public IP of NAT gateway. As a result, when looking at the source IP address used to connect to these Azure services, you will notice that the private IPs of your instances are used. See [Azure services listed here](../../private-link/availability.md) for all services supported by Private Link.   
 
 When possible, Private Link should be used to connect directly from your virtual networks to Azure platform services in order to [reduce the demand on SNAT ports](#tcp-idle-timeout-timers-set-higher-than-the-default-value). Reducing the demand on SNAT ports can help reduce the risk of SNAT port exhaustion. 
 
 To create a Private Link, see the following Quickstart guides to get started: 
-- [Create a Private Endpoint](/azure/private-link/create-private-endpoint-portal)
-- [Create a Private Link](/azure/private-link/create-private-link-service-portal)
+- [Create a Private Endpoint](../../private-link/create-private-endpoint-portal.md)
+- [Create a Private Link](../../private-link/create-private-link-service-portal.md)
 
 To check which Private Endpoints you have set up with Private Link:
 1. From the Azure portal, search for Private Link in the search box.
-2. In the Private Link center, select Private Endpoints or Private Link services to see what configurations have been set up. See [Manage private endpoint connections](/azure/private-link/manage-private-endpoint#manage-private-endpoint-connections-on-azure-paas-resources) for more details.
+2. In the Private Link center, select Private Endpoints or Private Link services to see what configurations have been set up. See [Manage private endpoint connections](../../private-link/manage-private-endpoint.md#manage-private-endpoint-connections-on-azure-paas-resources) for more details.
 
 Service endpoints can also be used to connect your virtual network to Azure PaaS services. To check if you have service endpoints configured for your virtual network:
 1. From the Azure portal, navigate to your virtual network and select "Service endpoints" from Settings.
-2. All Service endpoints created will be listed along with which subnets they are configured. See [logging and troubleshooting Service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview#logging-and-troubleshooting) for more details.
+2. All Service endpoints created will be listed along with which subnets they are configured. See [logging and troubleshooting Service endpoints](../virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) for more details.
 
 >[!NOTE]
 >Private Link is the recommended option over Service endpoints for private access to Azure hosted services.
