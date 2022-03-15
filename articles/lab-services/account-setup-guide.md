@@ -2,7 +2,7 @@
 title: Accelerated lab account setup guide (deprecated)
 description: This guide helps administrators quickly set up a lab account for use within their school. (deprecated)
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 03/15/2022
 ms.custom: devdivchpfy22
 ---
 
