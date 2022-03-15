@@ -195,15 +195,15 @@ The command generated from One-Click tool includes a SAS token. It’s best to g
 
    1. By Year: Change your -prefix parameter
        
-      Before: `-prefix:"V=1/PT=Time"`
-      After: `-prefix:"V=1/PT=Time/Y=<Year>"`
-      Example: `-prefix:"V=1/PT=Time/Y=2021"`
+      - Before: `-prefix:"V=1/PT=Time"`
+      - After: `-prefix:"V=1/PT=Time/Y=<Year>"`
+      - Example: `-prefix:"V=1/PT=Time/Y=2021"`
 
    1. By Month: Change your -prefix parameter
 
-      Before: `-prefix:"V=1/PT=Time"`
-      After: `-prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"`
-      Example: `-prefix:"V=1/PT=Time/Y=2021/M=03"`
+      - Before: `-prefix:"V=1/PT=Time"`
+      - After: `-prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"`
+      - Example: `-prefix:"V=1/PT=Time/Y=2021/M=03"`
 
 Once you’ve modified the command, execute it like above. One the ingestion is complete (using monitoring option below) modify the command for the next year and month you want to ingest.
 
