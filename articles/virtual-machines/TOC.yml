@@ -1259,8 +1259,8 @@
     items:
     - name: Overview
       href: ephemeral-os-disks.md
-    - name: How to create a VM using ephemeral OS disks
-      herf: ephemeral-os-disks-how-to-ps-cli-portal.md
+    - name: Create a VM using ephemeral OS disks
+      herf: ephemeral-os-disks-deploy.md
   - name: Securely import/export a disk
     items:
     - name: Configure private links for disks - CLI
