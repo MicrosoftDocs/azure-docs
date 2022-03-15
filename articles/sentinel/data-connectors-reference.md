@@ -1033,7 +1033,7 @@ end
 Add http://localhost:8081/ under **Authorized redirect URIs** while creating [Web application credentials](https://developers.google.com/workspace/guides/create-credentials#web).
 
 1. [Follow the instructions](https://developers.google.com/admin-sdk/reports/v1/quickstart/python) to obtain the credentials.json.
-1. To get the Google pickle string, run [this python script](https://aka.ms/sentinel-GWorkspaceReportsAPI-functioncode) (in the same path as credentials.json).
+1. To get the Google pickle string, run [this Python script](https://aka.ms/sentinel-GWorkspaceReportsAPI-functioncode) (in the same path as credentials.json).
 1. Copy the pickle string output in single quotes and save. It will be needed for deploying the Function App.
 
 

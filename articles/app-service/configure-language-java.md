@@ -1067,7 +1067,7 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
 
 2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
 
-### JBoss EAP
+### JBoss EAP Data Sources
 
 There are three core steps when [registering a data source with JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management): uploading the JDBC driver, adding the JDBC driver as a module, and registering the module. App Service is a stateless hosting service, so the configuration commands for adding and registering the data source module must be scripted and applied as the container starts.
 
@@ -1124,7 +1124,18 @@ If you choose to pin the minor version, you will need to periodically update the
 
 ::: zone pivot="platform-linux"
 
-## JBoss EAP App Service Plans
+## JBoss EAP
+
+### Clustering in JBoss EAP
+
+App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, the web app will restart and JBoss EAP will automatically startup with a clustered configuration. The JBoss EAP instances will communicate over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
+
+> [!NOTE]
+> If you are enabling your virtual network integration with an ARM template, you will need to manually set the property `vnetPrivatePorts` to a value of `2`. If you enable virtual network integration from the CLI or Portal, this property will be set for you automatically.  
+
+When clustering is enabled, the JBoss EAP instances use the FILE_PING JGroups discovery protocol to discover new instances and persist the cluster information like the cluster members, their identifiers, and their IP addresses. On App Service, these files are under `/home/clusterinfo/`. The first EAP instance to start will obtain read/write permissions on the cluster membership file. Other instances will read the file, find the primary node, and coordinate with that node to be included in the cluster and added to the file.
+
+### JBoss EAP App Service Plans
 
 <a id="jboss-eap-hardware-options"></a>
 
