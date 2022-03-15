@@ -81,9 +81,9 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Select the **Next: Select Plans**.
 
-1. (**Containers only**) Ensure you have fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for the Defender for Containers plan.
-
 1. Toggle the plans you want to connect to **On**. By default all necessary prerequisites and components will be provisioned. (Optional) Learn how to [configure each plan](#optional-configure-selected-plans).
+
+1. (**Containers only**) Ensure you have fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for the Defender for Containers plan.
 
 1. Select the **Next: Configure access**.
 
