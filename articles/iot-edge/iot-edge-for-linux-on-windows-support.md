@@ -48,7 +48,7 @@ Azure IoT Edge for Linux on Windows supports the following architectures:
 | Version | AMD64 | ARM64 |
 | ---------------- | ----- |  ----- |
 | EFLOW 1.1 LTS | ![AMD64](./media/support/green-check.png) | |
-| EFLOW CR ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
+| EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
 
 
 ## Virtual Machines
@@ -62,13 +62,14 @@ Azure IoT Edge for Linux on Windows supports running inside a Windows virtual ma
 
 ## Releases
 
-IoT Edge release assets and release notes are available on the [iotedge-eflow releases](https://github.com/Azure/iotedge-eflow/releases) page. This section reflects information from those release notes to help you visualize the components of each version more easily.
+IoT Edge for Linux on Windows release assets and release notes are available on the [iotedge-eflow releases](https://github.com/Azure/iotedge-eflow/releases) page. This section reflects information from those release notes to help you visualize the components of each version more easily.
 
-The following table lists the components included in each release starting with 1.2.0. The components listed in this table can be installed or updated individually, and are backwards compatible with older versions.
+The following table lists the components included in each release. Each release train is independent, and we don't guarantee backwards compatibility and migration between versions. For more information about IoT Edge version, see [IoT Edge platform support](./support.md)
 
-| Release | aziot-edge | edgeHub<br>edgeAgent | aziot-identity-service |
-| ------- | ---------- | -------------------- | ---------------------- |
-| **1.2** | 1.2.0<br>1.2.1<br>1.2.3<br>1.2.4<br>1.2.5<br><br>1.2.7 | 1.2.0<br>1.2.1<br>1.2.3<br>1.2.4<br>1.2.5<br>1.2.6<br>1.2.7 | 1.2.0<br>1.2.1<br>1.2.3<br>1.2.4<br>1.2.5<br> |
+| Release | IoT Edge | CBL-Mariner | Defender for IoT |
+| ------- | -------- | ----------- | ---------------- |
+| **1.1 LTS** | 1.1 | 1.0 | - |
+| **Continuous Release** | 1.2 | 1.0 | 1.0 | 
 
 
 ## Minimum system requirements
@@ -83,5 +84,5 @@ A Windows device with the following minimum requirements:
 
 * Virtualization support
   * On Windows 10, enable Hyper-V. For more information, see [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
-  * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](../articles/iot-edge/nested-virtualization.md).
-  * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](../articles/iot-edge/nested-virtualization.md).
+  * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](.nested-virtualization.md).
+  * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](.nested-virtualization.md).
