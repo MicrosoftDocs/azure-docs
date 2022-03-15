@@ -214,7 +214,7 @@ Learn more about [FluidRelay Server - UpgradeClientLibrary (Upgrade your Azure F
 
 Starting July 1, 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
 
-Learn more about [HDInsight cluster - KafkaVersionRetirement (Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster)](../hdinsight/hdinsight-release-notes.md#deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster).
+Learn more about [HDInsight cluster - KafkaVersionRetirement (Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster)](../hdinsight/hdinsight-release-notes.md).
 
 ### Deprecation of Older Spark Versions in HDInsight Spark cluster
 
