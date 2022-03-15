@@ -76,7 +76,7 @@ This table summarizes the capabilities and features of [point in time restore (P
 | **Restore via Azure portal**|Yes|Yes|Yes|
 | **Restore via PowerShell** |Yes|Yes|Yes|
 | **Restore via Azure CLI** |Yes|Yes|Yes|
-| | | | |
+
 
 \* For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](auto-failover-group-overview.md). 
 
@@ -411,7 +411,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 ```json
 { 
     "properties":{
-        "retentionDays":28
+        "retentionDays":28,
         "diffBackupIntervalInHours":24
   }
 }
@@ -425,7 +425,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
   "name": "default",
   "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
   "properties": {
-    "retentionDays": 28
+    "retentionDays": 28,
     "diffBackupIntervalInHours":24
   }
 }

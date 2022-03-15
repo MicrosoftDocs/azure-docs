@@ -27,7 +27,7 @@ The script in this article demonstrates creating an Azure Cosmos DB account, key
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts//cosmosdb/cassandra/create.sh" range="4-51":::
+:::code language="azurecli" source="~/azure_cli_scripts//cosmosdb/cassandra/create.sh" id="FullScript":::
 
 ## Clean up resources
 

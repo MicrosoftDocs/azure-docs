@@ -1059,7 +1059,7 @@ Following this `Microsoft.Web/connections` resource definition, make sure that y
 {
    "type": "Microsoft.Web/connections/accessPolicies",
    "apiVersion": "2016-06-01",
-   "name": "[concat('<connection-name>'),'/','<object-ID>')]",
+   "name": "[concat('<connection-name>','/','<object-ID>')]",
    "location": "<location>",
    "dependsOn": [
       "[resourceId('Microsoft.Web/connections', parameters('connection_name'))]"

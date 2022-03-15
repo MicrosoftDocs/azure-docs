@@ -552,9 +552,18 @@
       href: transform-delete-transform-how-to.md
   - name: Create jobs
     items:
-    - name: Create jobs
-      href: job-create-cli-how-to.md
-      displayName: CLI, create job, jobs, submit job, encode with CLI, encode
+    - name: Create or start a job
+      href: job-create-how-to.md
+    - name: List jobs
+      href: job-list-how-to.md
+    - name: Show or get the details of a job
+      href: job-show-how-to.md
+    - name: Cancel a job
+      href: job-cancel-how-to.md
+    - name: Update a job
+      href: job-update-how-to.md
+    - name: Delete a job
+      href: job-delete-how-to.md
     - name: Create job input with a local file
       displayName: upload, upload file, ingest file, local file, uploading, CLI
       href: job-input-from-local-file-how-to.md
@@ -596,6 +605,20 @@
       displayName: monitoring, metrics, telemetry, logging, charts, charting, azure monitor, monitor, diagnostic, logs, logging
   - name: Protect content
     items:
+    - name: Create a content key policy
+      href: drm-create-content-key-policy-how-to.md
+    - name: List content key policies
+      href: drm-list-content-key-policy-how-to.md
+    - name: Update a content key policy
+      href: drm-update-content-key-policy-how-to.md
+    - name: Delete a content key policy
+      href: drm-delete-content-key-policy-how-to.md
+    - name: Add an option to a content key policy
+      href: drm-add-option-content-key-policy-how-to.md
+    - name: Update an option in a content key policy
+      href: drm-update-option-content-key-policy-how-to.md
+    - name: Remove and option from a content key policy
+      href: drm-remove-option-content-key-policy-how-to.md
     - name: Get content key policy
       href: drm-get-content-key-policy-how-to.md   
       displayName: content protection, DRM, content keys, content key policy, .NET, how to, how-to, sample, tutorial, 

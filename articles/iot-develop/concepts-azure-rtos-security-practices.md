@@ -324,7 +324,7 @@ Using hardware-based X.509 certificates with TLS mutual authentication and a PKI
 
 **Hardware**: No specific hardware requirements.
 
-**Azure RTOS**: Azure RTOS TLS provides support for mutual certificate authentication in both TLS Server and Client applications. For more information, see the [Azure RTOS NetX Secure TLS documentation](/netx-secure-tls/chapter1#netx-secure-unique-features).
+**Azure RTOS**: Azure RTOS TLS provides support for mutual certificate authentication in both TLS Server and Client applications. For more information, see the [Azure RTOS NetX Secure TLS documentation](/azure/rtos/netx-duo/netx-secure-tls/chapter1#netx-secure-unique-features).
 
 **Application**: Applications using TLS should always default to mutual certificate authentication whenever possible. Mutual authentication requires TLS clients to have a device certificate. Mutual authentication is an optional TLS feature but is highly recommended when possible.
 
