@@ -64,7 +64,6 @@ The following columns are available for each device.
 | **Protocols** | The protocols that the device uses. |
 | **Type** | The type of device as determined by the sensor, or as entered by the user. |
 | **Unacknowledged Alerts** | The number of unacknowledged alerts associated with this device. |
-| **Underlying devices** | Any relevant underlying devices for the device |
 | **Vendor** | The name of the device's vendor, as defined in the MAC address. |
 | **VLAN** | The VLAN of the device. For more information, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names). |
 
