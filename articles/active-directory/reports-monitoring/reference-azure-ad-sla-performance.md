@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/28/2022
+ms.date: 03/15/2022
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -51,26 +51,36 @@ To help you plan for moving workloads to Azure AD, we publish past SLA performan
 For each month, we truncate the SLA attainment at three places after the decimal. Numbers are not rounded up, so actual SLA attainment is higher than indicated. 
 
 
-| Month     | 2021   | 2022 |
-| ---       | ---    | ---  |
-| January   | 99.999 |      |
-| February  | 99.999 |      |
-| March     | 99.999 |      |
-| April     | 99.999 |      |
-| May       | 99.999 |      |
-| June      | 99.999 |      |
-| July      | 99.999 |      |
-| August    | 99.999 |      |
-| September | 99.999 |      |
-| October   | 99.999 |      |
-| November  | 99.998 |      |
-| December  | 99.998 |      |
+| Month     | 2021    | 2022    |
+| ---       | ---     | ---     |
+| January   | 99.999% | 99.999% |
+| February  | 99.999% | 99.999% |
+| March     | 99.999% |         |
+| April     | 99.999% |         |
+| May       | 99.999% |         |
+| June      | 99.999% |         |
+| July      | 99.999% |         |
+| August    | 99.999% |         |
+| September | 99.999% |         |
+| October   | 99.999% |         |
+| November  | 99.998% |         |
+| December  | 99.998% |         |
 
+
+
+### How is Azure AD SLA measured? 
+
+The Azure AD SLA is measured in a way that reflects customer authentication experience, rather than simply reporting on whether the system is available to outside connections. This means that the calculation is based on whether:
+
+- Users can authenticate 
+- Azure AD successfully issues tokens for target apps after authentication
+  
+The numbers above are a global total of Azure AD authentications across all customers and geographies. 
   
 
-## Root cause analysis  
+## Incident history 
 
-All incidents that cause Azure AD to go below its SLA for a set of customers are documented in the [Azure status history](https://status.azure.com/status/history/). You can view information about the impact of incidents, as well as a root cause analysis of what caused the incident and what steps Microsoft took to prevent future incidents. 
+All incidents that seriously impact Azure AD performance are documented in the [Azure status history](https://status.azure.com/status/history/). Not all events documented in Azure status history are serious enough to cause Azure AD to go below its SLA. You can view information about the impact of incidents, as well as a root cause analysis of what caused the incident and what steps Microsoft took to prevent future incidents. 
 
  
 
