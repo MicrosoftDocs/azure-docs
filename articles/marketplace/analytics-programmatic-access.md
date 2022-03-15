@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 3/08/2021
+ms.date: 03/14/2022
 ---
 
 # Programmatic access paradigm
@@ -39,14 +39,14 @@ You can also use the [system queries](analytics-system-queries.md) we provide. W
 
 The following example shows how to create a custom query to get _Normalized Usage and Estimated Financial Charges for PAID SKUs_ from the [ISVUsage](analytics-make-your-first-api-call.md#programmatic-api-call) dataset for the last month.
 
-*Request syntax*
+**Request syntax**
 
 | Method | Request URI |
 | ------------ | ------------- |
 | POST | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledQueries` |
 |||
 
-*Request header*
+**Request header**
 
 | Header | Type | Description |
 | ------------- | ------------- | ------------- |
@@ -54,15 +54,15 @@ The following example shows how to create a custom query to get _Normalized Usag
 | Content-Type | `string` | `application/JSON` |
 ||||
 
-*Path parameter*
+**Path parameter**
 
 None
 
-*Query parameter*
+**Query parameter**
 
 None
 
-*Request payload example*
+**Request payload example**
 
 ```json
 {
@@ -72,7 +72,7 @@ None
 }
 ```
 
-*Glossary*
+**Glossary**
 
 This table provides the key definitions of elements in the request payload.
 
@@ -86,7 +86,7 @@ This table provides the key definitions of elements in the request payload.
 > [!NOTE]
 > For custom query samples, see [Examples of sample queries](analytics-sample-queries.md).
 
-*Sample Response*
+**Sample response**
 
 The response payload is structured as follows:
 
@@ -113,7 +113,7 @@ Response payload example:
 }
 ```
 
-*Glossary*
+**Glossary**
 
 This table provides the key definitions of elements in the response.
 
@@ -135,14 +135,14 @@ This table provides the key definitions of elements in the response.
 
 On creating a custom report template successfully and receiving the `QueryID` as part of [Create Report Query](#create-report-query-api) response, this API can be called to schedule a query to be executed at regular intervals. You can set a frequency and schedule for the report to be delivered. For system queries we provide, the Create Report API can also be called with [QueryId](analytics-sample-queries.md).
 
-*Request syntax*
+**Request syntax**
 
 | Method | Request URI |
 | ------------ | ------------- |
 | POST | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledReport` |
 |||
 
-*Request header*
+**Request header**
 
 | Header | Type | Description |
 | ------ | ---- | ----------- |
@@ -150,15 +150,15 @@ On creating a custom report template successfully and receiving the `QueryID` as
 | Content Type | string | `application/JSON` |
 ||||
 
-*Path parameter*
+**Path parameter**
 
 None
 
-*Query parameter*
+**Query parameter**
 
 None
 
-*Request payload example*
+**Request payload example**
 
 ```json
 {
@@ -173,7 +173,7 @@ None
 }
 ```
 
-*Glossary*
+**Glossary**
 
 This table provides the key definitions of elements in the request payload.
 
@@ -192,7 +192,7 @@ This table provides the key definitions of elements in the request payload.
 | `QueryEndTime` | No | Optionally specifies the end time for the query extracting the data. This parameter is applicable only for one time execution report which has `ExecuteNow` set to `true`. The format should be yyyy-MM-ddTHH:mm:ssZ | Timestamp as string |
 |||||
 
-*Sample response*
+**Sample response**
 
 The response payload is structured as follows:
 
@@ -226,7 +226,7 @@ Response payload:
 }
 ```
 
-*Glossary*
+**Glossary**
 
 This table provides the key definitions of elements in the response.
 
@@ -258,14 +258,14 @@ You can use this method to query the status of a report execution using the `Rep
 > [!IMPORTANT]
 > This API has default query parameters set for `executionStatus=Completed` and  `getLatestExecution=true`. Hence, calling the API before the first successful execution of the report will return 404. Pending executions can be obtained by setting `executionStatus=Pending`.
 
-*Request syntax*
+**Request syntax**
 
 | Method | Request URI |
 | ------------ | ------------- |
 | Get | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledReport/execution/{reportId}?executionId={executionId}&executionStatus={executionStatus}&getLatestExecution={getLatestExecution}` |
 |||
 
-*Request header*
+**Request header**
 
 | Header | Type | Description |
 | ------ | ------ | ------ |
@@ -273,11 +273,11 @@ You can use this method to query the status of a report execution using the `Rep
 | Content type | string | `application/json` |
 ||||
 
-*Path parameter*
+**Path parameter**
 
 None
 
-*Query parameter*
+**Query parameter**
 
 | Parameter name | Required | Type | Description |
 | ------------ | ------------- | ------------- | ------------- |
@@ -287,11 +287,11 @@ None
 | `getLatestExecution` | No | boolean | The API will return details of the latest report execution.<br>By default, this parameter is set to `true`. If you choose to pass the value of this parameter as `false`, then the API will return the last 90 days execution instances. |
 |||||
 
-*Request payload*
+**Request payload**
 
 None
 
-*Sample response*
+**Sample response**
 
 The response payload is structured as follows:
 
@@ -323,7 +323,7 @@ Response payload example:
 
 Once report execution is complete, the execution status `Completed` is shown. You can download the report by selecting the URL in the `reportAccessSecureLink`.
 
-*Glossary*
+**Glossary**
 
 Key definitions of elements in the response.
 
