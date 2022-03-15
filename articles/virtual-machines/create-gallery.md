@@ -104,6 +104,13 @@ A community gallery is shared publicly with everyone. Microsoft does not support
 
 For a community gallery, you create the gallery first, then enable it for sharing.
 
+During the preview, make sure that you create your gallery, image definitions, and image versions in the same region in order to be aboe to share your gallery publicly.
+
+> [!IMPORTANT]
+> Community Galleries is currently in public preview.
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ### Prerequisites
 - The user or service principal that will enable community sharing needs to be a member of the `Owner` role definition. Only the `Owner` at the scope of the gallery or higher will be able to enable community sharing. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
 - 
