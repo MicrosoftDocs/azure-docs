@@ -154,7 +154,7 @@ You can deploy trusted launch VMs using a quickstart template:
 
 ---
 
-## Deploy a trusted launch VM from an Azure Compute Gallery Image
+## Deploy a trusted launch VM from an Azure Compute Gallery image
 
 ### [Portal](#tab/portal)
 
