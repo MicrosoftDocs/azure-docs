@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 03/15/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -23,7 +23,7 @@ This article describes how to list roles you have assigned in Azure Active Direc
 
 ## Prerequisites
 
-- AzureADPreview module when using PowerShell
+- AzureAD module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
