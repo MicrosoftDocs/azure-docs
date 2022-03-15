@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about existing industry ontologies that can be adopted for Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/27/2021
+ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -29,7 +29,7 @@ Each ontology is focused on an initial set of models. The ontology authors welco
 
 ## RealEstateCore smart building ontology
 
-*Get the ontology from the following repository:* [Digital Twins Definition Language-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building).
+Get the ontology from the following repository: [Digital Twins Definition Language-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building).
 
 Microsoft has partnered with [RealEstateCore](https://www.realestatecore.io/) to deliver this open-source DTDL ontology for the real estate industry. [RealEstateCore](https://www.realestatecore.io/) is a Swedish consortium of real estate owners, software vendors, and research institutions.
 
@@ -41,7 +41,7 @@ You can also read more about the partnership with RealEstateCore and goals for t
 
 ## Smart cities ontology
 
-*Get the ontology from the following repository:* [Digital Twins Definition Language (DTDL) ontology for Smart Cities](https://github.com/Azure/opendigitaltwins-smartcities).
+Get the ontology from the following repository: [Digital Twins Definition Language (DTDL) ontology for Smart Cities](https://github.com/Azure/opendigitaltwins-smartcities).
 
 Microsoft has collaborated with [Open Agile Smart Cities (OASC)](https://oascities.org/) and [Sirus](https://sirus.be/) to provide a DTDL-based ontology for smart cities, starting with [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim). Apart from ETSI NGSI-LD, we've also evaluated Saref4City, CityGML, ISO, and others.
 
@@ -51,7 +51,7 @@ You can also read more about the partnerships and approach for smart cities in t
 
 ## Energy grid ontology
 
-*Get the ontology from the following repository:* [Digital Twins Definition Language (DTDL) ontology for Energy Grid](https://github.com/Azure/opendigitaltwins-energygrid/).
+Get the ontology from the following repository: [Digital Twins Definition Language (DTDL) ontology for Energy Grid](https://github.com/Azure/opendigitaltwins-energygrid/).
 
 This ontology was created to help solution providers accelerate development of digital twin solutions for energy use cases like monitoring grid assets, outage and impact analysis, simulation, and predictive maintenance. Additionally, the ontology can be used to enable the digital transformation and modernization of the energy grid. It's adapted from the [Common Information Model (CIM)](https://cimug.ucaiug.org/), a global standard for energy grid assets management, power system operations modeling, and physical energy commodity market.
 

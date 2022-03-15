@@ -30,11 +30,11 @@ To manage the Azure Connected Machine agent (azcmagent) on Windows, your user ac
 
 The Azure Connected Machine agent is composed of three services, which run on your machine.
 
-* The Hybrid Instance Metadata Service (himds) service is responsible for all core functionality of Arc. This includes sending heartbeats to Azure, exposing a local instance metadata service for other apps to learn about the machine’s Azure resource ID, and retrieve Azure AD tokens to authenticate to other Azure services. This service runs as an unprivileged virtual service account on Windows, and as the **himds** user on Linux.
+* The Hybrid Instance Metadata Service (himds) service is responsible for all core functionality of Arc. This includes sending heartbeats to Azure, exposing a local instance metadata service for other apps to learn about the machine’s Azure resource ID, and retrieve Azure AD tokens to authenticate to other Azure services. This service runs as an unprivileged virtual service account (NT SERVICE\\himds) on Windows, and as the **himds** user on Linux. The virtual service account requires the Log on as a Service right on Windows.
 
 * The Guest Configuration service (GCService) is responsible for evaluating Azure Policy on the machine.
 
-* The Guest Configuration Extension service (ExtensionService) is responsible for installing, updating, and deleting extensions (agents, scripts, or other software) on the machine.
+* The Guest Configuration Extension service (ExtensionService) is responsible for installing, upgrading, and deleting extensions (agents, scripts, or other software) on the machine.
 
 The guest configuration and extension services run as Local System on Windows, and as root on Linux.
 

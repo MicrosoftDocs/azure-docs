@@ -185,7 +185,7 @@ The Azure services that support each encryption model:
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | Yes                | Yes                | -                  |
 | Azure SQL Database for PostgreSQL | Yes               | Yes                | -                  |
-| Azure Synapse Analytics          | Yes                | Yes, RSA 3072-bit  | -                  |
+| Azure Synapse Analytics          | Yes                | Yes, RSA 3072-bit, including Managed HSM | -                  |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 3072-bit  | Yes                |
 | Table Storage                    | Yes                | Yes                | Yes                |
 | Azure Cosmos DB                  | Yes  ([learn more](../../cosmos-db/database-security.md?tabs=sql-api))              | Yes ([learn more](../../cosmos-db/how-to-setup-cmk.md))                | -                  |

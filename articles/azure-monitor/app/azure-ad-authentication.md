@@ -107,7 +107,7 @@ import { DefaultAzureCredential } from "@azure/identity";
  
 const credential = new DefaultAzureCredential();
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
-appInsights.defaultClient.aadTokenCredential = credential;
+appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
 
@@ -123,7 +123,7 @@ const credential = new ClientSecretCredential(
     "<YOUR_CLIENT_SECRET>"
   );
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
-appInsights.defaultClient.aadTokenCredential = credential;
+appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
 

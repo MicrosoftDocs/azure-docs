@@ -124,13 +124,13 @@ The alert message indicates that a user-defined rule triggered the alert.
   
 1. Select **Create rule** (**+**). 
 
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/custom-alerts-rules.png" alt-text="Create custom alert rules":::
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/custom-alerts-rules.png" alt-text="Screenshot of the Create custom alert rules pane.":::
 
 1. Define an alert name.
 1. Select protocol to detect.
 1. Define a message to display. Alert messages can contain alphanumeric characters you enter, as well as traffic variables detected. For example, include the detected source and destination addresses in the alert messages. Use { } to add variables to the message
 1. Select the engine that should detect the activity.
-1. **Select the source and destination devices that pairs for which activity should be detected.** 
+1. Select the source and destination devices for the activity you want to detect.
 
 #### Create rule conditions
 
@@ -165,13 +165,13 @@ Create conditions based on unique values associated with the category selected. 
 
 8. Enter a **Value** as a number. If the variable you selected is a MAC address or IP address, the value must be converted from a dotted-decimal address to decimal format. Use an IP address conversion tool, for example <https://www.ipaddressguide.com/ip>.
 
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/custom-rule-conditions.png" alt-text="Custom rule condition":::
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/custom-rule-conditions.png" alt-text="Screenshot of the Custom rule condition options.":::
 
 9. Select  plus (**+**) to create a condition set.
 
 When the rule condition or condition set is met, the alert is sent. You will be notified if the condition logic is not valid.
 
-**Condition Based when activity took place**
+**Condition based on when activity took place**
 
 Create conditions based on when the activity was detected. In the Detected section, select a time period and day in which the detection must occur in order to send the alert. You can choose to send the alert if the activity is detected:
 - any time throughout the day 
@@ -191,7 +191,7 @@ The following actions can be defined for the rule:
 
 The rule is added to the **Customized Alerts Rules** page.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/custom-alerts-page.png" alt-text="Custom alerts main page" lightbox="media/how-to-work-with-alerts-sensor/custom-alerts-page.png":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/custom-alerts-page.png" alt-text="Screenshot of the main Custom alerts page." lightbox="media/how-to-work-with-alerts-sensor/custom-alerts-page.png":::
 
 ### Managing customer alert rules
 
@@ -213,6 +213,6 @@ Changes made to custom alert rules are tracked in the event timeline. For exampl
 1. Navigate to the Event timeline page.
 
 
-### See also
+## Next steps
 
-[Manage the alert event](how-to-manage-the-alert-event.md)
+For more information, see [Manage the alert event](how-to-manage-the-alert-event.md).

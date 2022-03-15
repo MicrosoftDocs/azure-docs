@@ -342,7 +342,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Senserva Offer for Microsoft Sentinel** |Data connector, workbooks, analytics rules, hunting queries |Compliance |[Senserva](https://www.senserva.com/contact/) |
+|**Senserva Offer for Microsoft Sentinel** |Data connector, workbooks, analytics rules, hunting queries |Compliance |[Senserva](https://www.senserva.com/support/) |
 | | | | |
 
 

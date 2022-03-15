@@ -27,9 +27,9 @@ The following sections provide information about known issues associated with th
 Chrome version 98 introduced a regression with anormal generation of video keyframes that impacts resolution of a sent video stream negatively for majority (70%+) of users.
 - This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1295815)
 
-### Some Android devices failing to join calls and meetings.
+### Some Android devices failing call scenarios except for group calls.
 
-A number of specific Android devices fail to start, join or accept calls and meetings. The devices that run into this issue, won't recover and will fail on every attempt. These are mostly Samsung model A devices, particularly models A326U, A125U and A215U.
+A number of specific Android devices fail to start, accept calls, and meetings. The devices that run into this issue, won't recover and will fail on every attempt. These are mostly Samsung model A devices, particularly models A326U, A125U and A215U.
 - This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=13223).
 
 ### iOS 15.1 users joining group calls or Microsoft Teams meetings.

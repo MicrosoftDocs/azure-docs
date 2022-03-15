@@ -44,6 +44,8 @@
       href: front-door-route-matching.md
     - name: Backend selection
       href: front-door-routing-methods.md
+    - name: Routing limits
+      href: front-door-routing-limits.md
   - name: Backends and backend pools
     href: front-door-backend-pool.md
   - name: Health probes

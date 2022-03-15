@@ -31,7 +31,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an application
 
-To enable sign-in for users with a Twitter account in Azure AD B2C, you need to create a Twitter application. If you don't already have a Twitter account, you can sign up at [`https://twitter.com/signup`](https://twitter.com/signup). You also need to [Apply for a developer account](https://developer.twitter.com/en/apply/user.html). For more information, see [Apply for access](https://developer.twitter.com/en/apply-for-access).
+To enable sign-in for users with a Twitter account in Azure AD B2C, you need to create a Twitter application. If you don't already have a Twitter account, you can sign up at [`https://twitter.com/signup`](https://twitter.com/signup). You also need to [Apply for a developer account](https://developer.twitter.com/). For more information, see [Apply for access](https://developer.twitter.com/en/apply-for-access).
 
 1. Sign in to the [Twitter Developer Portal](https://developer.twitter.com/portal/projects-and-apps) with your Twitter account credentials.
 1. Under **Standalone Apps**, select **+Create App**.

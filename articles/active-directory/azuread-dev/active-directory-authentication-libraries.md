@@ -28,8 +28,10 @@ The Azure Active Directory Authentication Library (ADAL) v1.0 enables applicatio
 
 > [!NOTE]
 > Looking for the Azure AD v2.0 libraries (MSAL)? Checkout the [MSAL library guide](../develop/reference-v2-libraries.md).
->
->
+
+
+> [!WARNING]
+> Support for Active Directory Authentication Library (ADAL) will end in December, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. For more information, see [Migrate apps to MSAL](..\develop\msal-migration.md).
 
 ## Microsoft-supported Client Libraries
 

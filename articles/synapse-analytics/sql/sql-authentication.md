@@ -1,15 +1,16 @@
 ---
-title: SQL Authentication
-description: Learn about SQL authentication in Azure Synapse Analytics.
+title: SQL Authentication  in Azure Synapse Analytics
+description: Learn about SQL authentication in Azure Synapse Analytics. Azure Synapse Analytics has two SQL form-factors to control your resource consumption. 
+services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: overview
-ms.date: 04/15/2020
+ms.date: 03/07/2022
 ms.author: vvasic
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf
 ---
-# SQL Authentication
+# SQL Authentication in Azure Synapse Analytics
 
 Azure Synapse Analytics has two SQL form-factors that enable you to control your resource consumption. This article explains how the two form-factors control the user authentication.
 
@@ -18,7 +19,7 @@ To authorize to Synapse SQL, you can use two authorization types:
 - Azure Active Directory authorization
 - SQL authorization
 
-Azure Active Directory enables you to have single place for user management. SQL authorization enables legacy applications to use Synapse SQL in a well familiar way.
+SQL authorization enables legacy applications to connect to Azure Synapse SQL in a familiar way. However, Azure Active Directory authentication allows you to centrally manage access to Azure Synapse resources, such as SQL pools. Azure Synapse Analytics supports disabling local authentication, such as SQL authentication, both during and after workspace creation. Once disabled, local authentication can be enabled at any time by authorized users. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](active-directory-authentication.md).
 
 ## Administrative accounts
 
@@ -28,7 +29,7 @@ There are two administrative accounts (**Server admin** and **Active Directory a
 
 - **Server admin**
 
-  When you create an Azure Synapse Analytics, you must name a **Server admin login**. SQL server creates that account as a login in the master database. This account connects using SQL Server authentication (user name and password). Only one of these accounts can exist.
+  When you create an Azure Synapse Analytics, you must name a **Server admin login**. SQL server creates that account as a login in the `master` database. This account connects using SQL Server authentication (user name and password). Only one of these accounts can exist.
 
 - **Azure Active Directory admin**
 
@@ -38,9 +39,9 @@ The **Server admin** and **Azure AD admin** accounts have the following characte
 
 - Are the only accounts that can automatically connect to any SQL Database on the server. (To connect to a user database, other accounts must either be the owner of the database, or have a user account in the user database.)
 - These accounts enter user databases as the `dbo` user and they have all the permissions in the user databases. (The owner of a user database also enters the database as the `dbo` user.)
-- Don't enter the `master` database as the `dbo` user, and have limited permissions in master.
+- Don't enter the `master` database as the `dbo` user, and have limited permissions in the `master` database.
 - Are **not** members of the standard SQL Server `sysadmin` fixed server role, which is not available in SQL Database.  
-- Can create, alter, and drop databases, logins, users in master, and server-level IP firewall rules.
+- Can create, alter, and drop databases, logins, users in the `master` database, and server-level IP firewall rules.
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
 
@@ -55,7 +56,9 @@ CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN [Mary@domainname.net] FROM EXTERNAL PROVIDER;
 ```
+
 Once the login exists, you can create users in the individual databases within the serverless SQL pool endpoint and grant required permissions to these users. To create a use, you can use the following syntax:
+
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -96,12 +99,23 @@ To create a database, the user must be a user based on a SQL Server login in the
 
    To improve performance, logins (server-level principals) are temporarily cached at the database level. To refresh the authentication cache, see [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-3. Create a databases user by using the [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement. The user can be an Azure Active Directory authentication contained database user (if you've configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) Sample statements:
+3. Create a databases user by using the [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement. The user can be an Azure Active Directory authentication contained database user (if you've configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) 
 
+   Sample statements:
+
+   Create a user with Azure Active Directory:
    ```sql
-   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
-   CREATE USER Ann WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
-   CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
+   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; 
+   ```
+   
+   Create a SQL Database contained database user:
+   ```sql
+   CREATE USER Ann WITH PASSWORD = '<strong_password>';
+   ```
+   
+   Create a SQL Server user based on a SQL Server authentication login:
+   ```sql
+   CREATE USER Mary FROM LOGIN Mary;
    ```
 
 4. Add the new user, to the **dbmanager** database role in `master` using the [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest&preserve-view=true) procedure (note that [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement is not supported in SQL provisioned). Sample statements:
@@ -112,7 +126,7 @@ To create a database, the user must be a user based on a SQL Server login in the
    ```
 
    > [!NOTE]
-   > The dbmanager is a database role in master database so you can only add a database user to the dbmanager role. You cannot add a server-level login to database-level role.
+   > The **dbmanager** is a database role in `master` database so you can only add a database user to the **dbmanager** role. You cannot add a server-level login to database-level role.
 
 5. If necessary, configure a firewall rule to allow the new user to connect. (The new user might be covered by an existing firewall rule.)
 
@@ -120,13 +134,13 @@ Now the user can connect to the `master` database and can create new databases. 
 
 ### Login managers
 
-The other administrative role is the login manager role. Members of this role can create new logins in the master database. If you wish, you can complete the same steps (create a login and user, and add a user to the **loginmanager** role) to enable a user to create new logins in the master. Usually logins aren't necessary as Microsoft recommends using contained database users, which authenticate at the database-level instead of using users based on logins. For more information, see [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?view=azure-sqldw-latest&preserve-view=true).
+The other administrative role is the login manager role. Members of this role can create new logins in the `master` database. If you wish, you can complete the same steps (create a login and user, and add a user to the **loginmanager** role) to enable a user to create new logins in the master. Usually logins aren't necessary as Microsoft recommends using contained database users, which authenticate at the database-level instead of using users based on logins. For more information, see [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?view=azure-sqldw-latest&preserve-view=true).
 
 ---
 
 ## Non-administrator users
 
-Generally, non-administrator accounts don't need access to the master database. Create contained database users at the database level using the [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) statement. 
+Generally, non-administrator accounts don't need access to the `master` database. Create contained database users at the database level using the [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) statement. 
 
 The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.)  
 
@@ -192,19 +206,20 @@ There are over 100 permissions that can be individually granted or denied in SQL
 
 Because of the nested nature and the number of permissions, it can take careful study to design an appropriate permission system to properly protect your database. 
 
-Start with the list of permissions at [Permissions (Database Engine)](/sql/relational-databases/security/permissions-database-engine) and review the [poster size graphic](/sql/relational-databases/security/media/database-engine-permissions.png) of the permissions.
+Start with the list of permissions at [Permissions (Database Engine)](/sql/relational-databases/security/permissions-database-engine) and review the [poster size graphic of database engine permissions](/sql/relational-databases/security/media/database-engine-permissions.png).
 
 ### Considerations and restrictions
 
 When managing logins and users in SQL Database, consider the following points:
 
-- You must be connected to the **master** database when executing the `CREATE/ALTER/DROP DATABASE` statements.
+- You must be connected to the `master` database when executing the `CREATE/ALTER/DROP DATABASE` statements.
 - The database user corresponding to the **Server admin** login can't be altered or dropped.
+- **Server admin** will be disabled if Azure AD-only authentication is enabled.
 - US-English is the default language of the **Server admin** login.
-- Only the administrators (**Server admin** login or Azure AD administrator) and the members of the **dbmanager** database role in the **master** database have permission to execute the `CREATE DATABASE` and `DROP DATABASE` statements.
-- You must be connected to the master database when executing the `CREATE/ALTER/DROP LOGIN` statements. However using logins is discouraged. Use contained database users instead.
+- Only the administrators (**Server admin** login or Azure AD administrator) and the members of the **dbmanager** database role in the `master` database have permission to execute the `CREATE DATABASE` and `DROP DATABASE` statements.
+- You must be connected to the `master` database when executing the `CREATE/ALTER/DROP LOGIN` statements. However, using logins is discouraged. Use contained database users instead. For more information, see [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 - To connect to a user database, you must provide the name of the database in the connection string.
-- Only the server-level principal login and the members of the **loginmanager** database role in the **master** database have permission to execute the `CREATE LOGIN`, `ALTER LOGIN`, and `DROP LOGIN` statements.
+- Only the server-level principal login and the members of the **loginmanager** database role in the `master` database have permission to execute the `CREATE LOGIN`, `ALTER LOGIN`, and `DROP LOGIN` statements.
 - When executing the `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP DATABASE` statements in an ADO.NET application, using parameterized commands isn't allowed. For more information, see [Commands and Parameters](/dotnet/framework/data/adonet/commands-and-parameters).
 - When executing the `CREATE/ALTER/DROP DATABASE` and `CREATE/ALTER/DROP LOGIN` statements, each of these statements must be the only statement in a Transact-SQL batch. Otherwise, an error occurs. For example, the following Transact-SQL checks whether the database exists. If it exists, a `DROP DATABASE` statement is called to remove the database. Because the `DROP DATABASE` statement is not the only statement in the batch, executing the following Transact-SQL statement results in an error.
 
@@ -224,6 +239,7 @@ When managing logins and users in SQL Database, consider the following points:
 
 - When executing the `CREATE USER` statement with the `FOR/FROM LOGIN` option, it must be the only statement in a Transact-SQL batch.
 - When executing the `ALTER USER` statement with the `WITH LOGIN` option, it must be the only statement in a Transact-SQL batch.
+- `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP USER` statements are not supported when Azure AD-only authentication is enabled for the Azure Synapse workspace.
 - To `CREATE/ALTER/DROP` a user requires the `ALTER ANY USER` permission on the database.
 - When the owner of a database role tries to add or remove another database user to or from that database role, the following error may occur: **User or role 'Name' does not exist in this database.** This error occurs because the user isn't visible to the owner. To resolve this issue, grant the role owner the `VIEW DEFINITION` permission on the user. 
 

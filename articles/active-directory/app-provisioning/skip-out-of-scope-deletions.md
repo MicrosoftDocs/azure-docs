@@ -3,7 +3,7 @@ title: Skip deletion of out of scope users in Azure Active Directory Application
 description: Learn how to override the default behavior of de-provisioning out of scope users in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: 
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
@@ -20,7 +20,7 @@ This article describes how to use the Microsoft Graph API and the Microsoft Grap
 * If ***SkipOutOfScopeDeletions*** is set to 0 (false), accounts that go out of scope will be disabled in the target.
 * If ***SkipOutOfScopeDeletions*** is set to 1 (true), accounts that go out of scope will not be disabled in the target. This flag is set at the *Provisioning App* level and can be configured using the Graph API. 
 
-Because this configuration is widely used with the *Workday to Active Directory user provisioning* app, the following steps include screenshots of the Workday application. However, the configuration can also be used with *all other apps*, such as ServiceNow, Salesforce, and Dropbox.
+Because this configuration is widely used with the *Workday to Active Directory user provisioning* app, the following steps include screenshots of the Workday application. However, the configuration can also be used with *all other apps*, such as ServiceNow, Salesforce, and Dropbox. Note that in order to successfully complete this procedure you must have first set up app provisioning for the app. Each app has its own configuration article. For example, to configure the Workday application, see [Tutorial: Configure Workday to Azure AD user provisioning](../saas-apps/workday-inbound-cloud-only-tutorial.md).
 
 ## Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 

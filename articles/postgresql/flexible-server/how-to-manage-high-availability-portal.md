@@ -4,6 +4,7 @@ description: This article describes how to enable or disable zone redundant high
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/30/2021
 ---

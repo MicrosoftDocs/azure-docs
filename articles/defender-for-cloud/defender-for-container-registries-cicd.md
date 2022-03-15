@@ -65,9 +65,10 @@ To enable vulnerability scans of images in your GitHub workflows:
     >  The push to the registry must happen prior to the results being published.
 
     ```yml
-    - run: |
-      echo "github.sha=$GITHUB_SHA"
-      docker build -t githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+    - name: Build and Tag Image
+      run: |
+        echo "github.sha=$GITHUB_SHA"
+        docker build -t githubdemo1.azurecr.io/k8sdemo:${{ github.sha }} .
     
     - uses: Azure/container-scan@v0 
       name: Scan image for vulnerabilities
@@ -76,9 +77,9 @@ To enable vulnerability scans of images in your GitHub workflows:
       with:
         image-name: githubdemo1.azurecr.io/k8sdemo:${{ github.sha }} 
     
-    - name: Push Docker image - githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+    - name: Push Docker image 
       run: |
-      docker push githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+        docker push githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
     
     - name: Post logs to appinsights
       uses: Azure/publish-security-assessments@v0
@@ -88,7 +89,7 @@ To enable vulnerability scans of images in your GitHub workflows:
         subscription-token: ${{ secrets.AZ_SUBSCRIPTION_TOKEN }} 
     ```
 
-1. Run the workflow that will push the image to the selected container registry. Once the image is pushed into the registry, a scan of the registry runs and you can view the CI/CD scan results along with the registry scan results within Microsoft Defender for Cloud.
+1. Run the workflow that will push the image to the selected container registry. Once the image is pushed into the registry, a scan of the registry runs and you can view the CI/CD scan results along with the registry scan results within Microsoft Defender for Cloud. Running the above YAML file will install an instance of Aqua Security's [Trivy](https://github.com/aquasecurity/trivy) in your build system. Trivy is licensed under the Apache 2.0 License and has dependencies on data feeds, many of which contain their own terms of use.
 
 1. [View CI/CD scan results](#view-cicd-scan-results).
 

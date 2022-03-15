@@ -251,6 +251,8 @@
         href: ncv3-series.md
       - name: NCasT4_v3-series
         href: nct4-v3-series.md
+      - name: NC_A100_v4-series
+        href: nc-a100-v4-series.md
       - name: NDasrA100_v4-series
         href: nda100-v4-series.md
       - name: NDm_A100_v4-series
@@ -1255,6 +1257,24 @@
       href: page-blobs-backup-and-disaster-recovery.md
   - name: Ephemeral OS disks
     href: ephemeral-os-disks.md
+  - name: Securely import/export a disk
+    items:
+    - name: Configure private links for disks - CLI
+      href: ./linux/disks-export-import-private-links-cli.md
+    - name: Configure private links for disks - Portal
+      href: disks-enable-private-links-for-import-export-portal.md
+    - name: Upload a vhd to a disk - PowerShell
+      href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
+    - name: Upload a vhd to a disk - CLI
+      href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
+    - name: Download a VHD
+      items:
+      - name: Linux
+        displayName: Download a VHD
+        href: ./linux/download-vhd.md
+      - name: Windows
+        displayName: Download a VHD
+        href: ./windows/download-vhd.md
   - name: Migration and conversion
     items:
     - name: Convert disk to another disk type
@@ -1326,24 +1346,6 @@
     - name: Deploy disks with ARM template
       displayName: Azure Resource Manager
       href: using-managed-disks-template-deployments.md
-    - name: Securely import/export a disk
-      items:
-      - name: Configure private links for disks - CLI
-        href: ./linux/disks-export-import-private-links-cli.md
-      - name: Configure private links for disks - Portal
-        href: disks-enable-private-links-for-import-export-portal.md
-      - name: Upload a vhd to a disk - PowerShell
-        href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
-      - name: Upload a vhd to a disk - CLI
-        href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
-      - name: Download a VHD
-        items:
-        - name: Linux
-          displayName: Download a VHD
-          href: ./linux/download-vhd.md
-        - name: Windows
-          displayName: Download a VHD
-          href: ./windows/download-vhd.md
     - name: Use Storage Explorer to manage disks
       href: disks-use-storage-explorer-managed-disks.md
     - name: Swap the OS disk - CLI

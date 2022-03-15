@@ -428,3 +428,75 @@ There is no limit on the total number of VNet service endpoints in a virtual net
  
 >[!NOTE]
 > The limits are subjected to changes at the discretion of the Azure service. Refer to the respective service documentation for services details.
+
+## Migrate classic network resources to Resource Manager
+
+### What is Azure Service Manager and the term classic mean? 
+
+Azure Service Manager is the old deployment model of Azure responsible for creating, managing, and deleting resources. The word *classic* in a networking service refers to resources managed by the Azure Service Manager model. For more information, see [Comparison between deployment models](../azure-resource-manager/management/deployment-models.md).
+
+### What is Azure Resource Manager? 
+
+Azure Resource Manager is the latest deployment and management model in Azure responsible for creating, managing, deleting resources in your Azure subscription. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
+
+### Can I revert the migration after resources have been committed to Resource Manager? 
+
+You can cancel the migration as long as resources are still in the prepared state. Rolling back to the previous deployment model isn't supported after resources have been successfully migrated through the commit operation. 
+
+### Can I revert the migration if the commit operation failed? 
+
+You can't reverse a migration if the commit operation failed. All migration operations, including the commit operation can't be changed once started. It's recommended that you retry the operation again after a short period. If the operation continues to fail, submit a support request.
+
+### Can I validate my subscription or resources to see if they're capable of migration? 
+
+Yes. As part of the migration procedure, the first step in preparing for migration is to validate if resources are capable of being migrated. In the case the validate operation fails, you'll receive messages for all the reasons the migration can't be completed. 
+
+### Are Application Gateway resources migrated as part of the classic to Resource Manager VNet migration?  
+
+Application Gateway resources won't be migrated automatically as part of the VNet migration process. If one is present in the virtual network, the migration won't be successful. In order to migrate an Application Gateway resource to Resource Manager, you'll have to remove and recreate the Application Gateway once the migration is complete. 
+
+### Does the VPN Gateway get migrated as part of the classic to Resource Manager VNet migration? 
+
+VPN Gateway resources are migrated as part of VNet migration process. The migration is completed one virtual network at a time with no other requirements. The migration steps are the same as migrating a virtual network without a VPN gateway. 
+
+### Is there a service interruption associated with migrating classic VPN gateways to Resource Manager?  
+ 
+You won't experience any service interruption with your VPN connection when migrating to Resource Manager. Therefore existing workloads will continue to function without loss of on-premises connectivity during the migration.
+
+### Do I need to reconfigure my on-premises device after the VPN Gateway has been migrated to Resource Manager? 
+
+The public IP address associated with the VPN gateway will remain the same even after the migration. You don't need to reconfigure your on-premises router.
+
+### What are the supported scenarios for classic VPN Gateway migration to Resource Manager? 
+
+Most of the common VPN connectivity scenarios are covered by the classic to Resource Manager migration. The supported scenarios include: 
+
+* Point-to-site connectivity 
+
+* Site-to-site connectivity with a VPN Gateway connected to an on-premises location 
+
+* VNet-to-VNet connectivity between two virtual networks using VPN gateways 
+
+* Multiple VNets connected to same on-premises location 
+
+* Multi-site connectivity 
+
+* Forced tunneling enabled virtual networks 
+
+### Which scenarios aren't supported for classic VPN Gateway migration to Resource Manager? 
+
+Scenarios that aren't supported include: 
+
+* Virtual network with both an ExpressRoute Gateway and a VPN Gateway is currently not supported.
+
+* Virtual network with an ExpressRoute Gateway connected to a circuit in a different subscription. 
+
+* Transit scenarios where VM extensions are connected to on-premises servers.
+
+### Where can I find more information regarding classic to Azure Resource Manager migration? 
+
+For more information, see [FAQ about classic to Azure Resource Manager migration](../virtual-machines/migration-classic-resource-manager-faq.yml).
+
+### How can I report an issue? 
+
+You can post your questions about your migration issues to the [Microsoft Q&A](https://aka.ms/AAflal1) page. It's recommended that you post all your questions on this forum. If you have a support contract, you can also file a support request.

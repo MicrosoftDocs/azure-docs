@@ -11,13 +11,21 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/08/2022
+ms.date: 03/02/2022
 ms.custom: ignite-fall-2021
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 When you deploy an Azure virtual machine (VM) with SQL Server installed on it, either manually, or through a built-in image, you can leverage Azure features to improve your experience. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines (VMs)](https://azure.microsoft.com/services/virtual-machines/sql-server/). To learn more about SQL Server on Azure VMs, see the [overview](sql-server-on-azure-vm-iaas-what-is-overview.md). 
+
+## March 2022
+
+| Changes | Details |
+| --- | --- |
+| **Security best practices** | The [SQL Server VM security best practices](security-considerations-best-practices.md) have been rewritten and refreshed! | 
+| &nbsp; | &nbsp; |
+
 
 ## January 2022
 

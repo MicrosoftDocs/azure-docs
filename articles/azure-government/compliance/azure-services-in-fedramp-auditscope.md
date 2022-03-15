@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 02/25/2022
+ms.date: 03/07/2022
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -29,7 +29,7 @@ Microsoft Azure cloud environments meet demanding US government compliance requi
 - [DoD IL4](/azure/compliance/offerings/offering-dod-il4) PA issued by DISA
 - [DoD IL5](/azure/compliance/offerings/offering-dod-il5) PA issued by DISA
 
-For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
+For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
 > [!NOTE]
 >
@@ -201,7 +201,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Defender for IoT](../../defender-for-iot/index.yml) (formerly Azure Security for IoT) | &#x2705; | &#x2705; |
 | [Microsoft Graph](/graph/) | &#x2705; | &#x2705; |
 | [Microsoft Intune](/mem/intune/) | &#x2705; | &#x2705; |
-| [Microsoft Sentinel](../../sentinel/index.yml) (incl. [UEBA](../../sentinel/identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba)) | &#x2705; | &#x2705; |
+| [Microsoft Sentinel](../../sentinel/index.yml)  | &#x2705; | &#x2705; |
 | [Microsoft Stream](/stream/) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; |

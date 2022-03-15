@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 02/28/2022
+ms.date: 03/01/2022
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
 
@@ -207,7 +207,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information.
+    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information. The v1 extension does not return this information.
 
     ```azurecli-interactive
     az ml workspace show -w yourworkspacename -g resourcegroupname --query 'container_registry'
@@ -248,19 +248,16 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 1. Use one of the following methods to configure the workspace to build Docker images using the compute cluster.
 
     > [!IMPORTANT]
-    > When using a compute cluster for image builds, only a CPU SKU is supported.
+    > The following limitations apply When using a compute cluster for image builds:
+    > * Only a CPU SKU is supported.
+    > * You can't use a compute cluster configured for no public IP address.
 
     # [Azure CLI](#tab/cli)
 
-    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace update` command to set a build compute. In the following command, replace `myworkspace` with your workspace name, `myresourcegroup` with the resource group that contains the workspace, and `mycomputecluster` with the compute cluster name:
+    You can use the `az ml workspace update` command to set a build compute. The command is the same for both the v1 and v2 Azure CLI extensions for machine learning. In the following command, replace `myworkspace` with your workspace name, `myresourcegroup` with the resource group that contains the workspace, and `mycomputecluster` with the compute cluster name:
 
     ```azurecli
-    az ml workspace update \
-      -n myworkspace \
-      -g myresourcegroup \
-      -i mycomputecluster
+    az ml workspace update --name myworkspace --resource-group myresourcegroup --image-build-compute mycomputecluster
     ```
 
     # [Python SDK](#tab/python)

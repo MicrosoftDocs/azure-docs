@@ -33,7 +33,7 @@ The script in this article demonstrates four operations.
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/keys.sh" range="4-34":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/keys.sh" id="FullScript":::
 
 ## Clean up resources
 

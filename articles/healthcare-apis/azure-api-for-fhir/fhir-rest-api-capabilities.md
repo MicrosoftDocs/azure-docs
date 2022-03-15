@@ -1,5 +1,5 @@
 ---
-title: FHIR Rest API capabilities for Azure API for FHIR
+title: FHIR REST API capabilities for Azure API for FHIR
 description: This article describes the RESTful interactions and capabilities for Azure API for FHIR.
 author: stevewohl
 ms.service: healthcare-apis
@@ -9,7 +9,7 @@ ms.date: 01/05/2022
 ms.author: cavoeg
 ---
 
-# FHIR Rest API capabilities for Azure API for FHIR
+# FHIR REST API capabilities for Azure API for FHIR
 
 In this article, we'll cover some of the nuances of the RESTful interactions of Azure API for FHIR.
 

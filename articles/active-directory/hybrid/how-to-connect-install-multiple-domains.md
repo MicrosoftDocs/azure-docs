@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 03/09/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -128,7 +128,7 @@ By using the PowerShell command `Get-MsolDomainFederationSettings -DomainName <y
 
 ![Screenshot that shows the federation settings updated on the original domain.](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
-And the IssuerUri on the new domain has been set to `https://bmfabrikam.com/adfs/services/trust`
+And the IssuerUri on the new domain has been set to `https://bmcontoso.com/adfs/services/trust`
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/settings2.png)
 

@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 02/23/2022
+ms.date: 03/03/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -97,13 +97,13 @@ The following versions of the Windows and Linux operating system are officially 
 * SUSE Linux Enterprise Server (SLES) 12 and 15 (x64)
 * Red Hat Enterprise Linux (RHEL) 7 and 8 (x64)
 * Amazon Linux 2 (x64)
-* Oracle Linux 7 (x64)
+* Oracle Linux 7 and 8 (x64)
 
 > [!WARNING]
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
 
 > [!NOTE]
-> While Azure Arc-enabled servers supports Amazon Linux, the following do not support this distribution:
+> While Azure Arc-enabled servers supports Amazon Linux, the following features are not support by this distribution:
 >
 > * The Dependency agent used by Azure Monitor VM insights
 > * Azure Automation Update Management
@@ -188,18 +188,21 @@ Service Tags:
 
 URLs:
 
-| Agent resource | Description |
-|---------|---------|
-|`azgn*.servicebus.windows.net`|Notification service for extensions|
-|`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Azure Active Directory|
-|`login.microsoftonline.com`|Azure Active Directory|
-|`pas.windows.net`|Azure Active Directory|
-|`*.guestconfiguration.azure.com` |Extension and guest configuration services|
-|`*.his.arc.azure.com`|Metadata and hybrid identity services|
-|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|
-|`dc.services.visualstudio.com`|Agent telemetry|
-|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service|
+| Agent resource | Description | When required| Endpoint used with private link |
+|---------|---------|--------|---------|
+|`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
+|`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
+|`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only| Public |
+|`login.windows.net`|Azure Active Directory|Always| Public |
+|`login.microsoftonline.com`|Azure Active Directory|Always| Public |
+|`pas.windows.net`|Azure Active Directory|Always| Public |
+|`management.azure.com`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
+|`*.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
+|`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
+|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service for extension and connectivity scenarios|Always| Private |
+|`azgn*.servicebus.windows.net`|Notification service for extension and connectivity scenarios|Always| Public |
+|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
+|`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
 
 For a list of IP addresses for each service tag/region, see the JSON file [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
@@ -220,9 +223,6 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 | At scale | [Connect machines with a Configuration Manager custom task sequence](onboard-configuration-manager-custom-task.md)
 | At scale | [Connect machines from Automation Update Management](onboard-update-management-machines.md) to create a service principal that installs and configures the agent for multiple machines managed with Azure Automation Update Management to connect machines non-interactively. |
 
-
-
-
 > [!IMPORTANT]
 > The Connected Machine agent cannot be installed on an Azure Windows virtual machine. If you attempt to, the installation detects this and rolls back.
 
@@ -235,6 +235,8 @@ The Connected Machine agent for Windows can be installed by using one of the fol
 * Running the file `AzureConnectedMachineAgent.msi`.
 * Manually by running the Windows Installer package `AzureConnectedMachineAgent.msi` from the Command shell.
 * From a PowerShell session using a scripted method.
+
+Installing, upgrading, or removing the Connected Machine agent will not require you to restart your server.
 
 After installing the Connected Machine agent for Windows, the following system-wide configuration changes are applied.
 
@@ -255,6 +257,21 @@ After installing the Connected Machine agent for Windows, the following system-w
     |himds |Azure Hybrid Instance Metadata Service |himds |This service implements the Hybrid Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
     |GCArcService |Guest configuration Arc Service |gc_service |Monitors the desired state configuration of the machine.|
     |ExtensionService |Guest configuration Extension Service | gc_service |Installs the required extensions targeting the machine.|
+
+* The following virtual service account is created during agent installation.
+
+    | Virtual Account  | Description |
+    |------------------|---------|
+    | NT SERVICE\\himds | Unprivileged account used to run the Hybrid Instance Metadata Service. |
+
+    > [!TIP]
+    > This account requires the "Log on as a service" right. This right is automatically granted during agent installation, but if your organization configures user rights assignments with Group Policy, you may need to adjust your Group Policy Object to grant the right to  "NT SERVICE\\himds" or "NT SERVICE\\ALL SERVICES" to allow the agent to function.
+
+* The following local security group is created during agent installation.
+
+    | Security group name | Description |
+    |---------------------|-------------|
+    | Hybrid agent extension applications | Members of this security group can request Azure Active Directory tokens for the system-assigned managed identity |
 
 * The following environmental variables are created during agent installation.
 
@@ -284,6 +301,8 @@ After installing the Connected Machine agent for Windows, the following system-w
 ### Linux agent installation details
 
 The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/). The agent is installed and configured with the shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
+
+Installing, upgrading, or removing the Connected Machine agent will not require you to restart your server.
 
 After installing the Connected Machine agent for Linux, the following system-wide configuration changes are applied.
 

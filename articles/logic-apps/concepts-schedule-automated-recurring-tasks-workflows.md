@@ -43,13 +43,13 @@ This article describes the capabilities for the Schedule built-in triggers and a
 
 ## Schedule triggers
 
-You can start your logic app workflow by using the Recurrence trigger or Sliding Window trigger, which isn't associated with any specific service or system. These triggers start and run your workflow based on your specified recurrence where you select the interval and frequency, such as the number of seconds, minutes, hours, days, weeks, or months. You can also set the start date and time along with the time zone. Each time that a trigger fires, Azure Logic Apps creates and runs a new workflow instance for your logic app.
+You can start your logic app workflow by using the [Recurrence trigger](../connectors/connectors-native-recurrence.md) or [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), which isn't associated with any specific service or system. These triggers start and run your workflow based on your specified recurrence where you select the interval and frequency, such as the number of seconds, minutes, hours, days, weeks, or months. You can also set the start date and time along with the time zone. Each time that a trigger fires, Azure Logic Apps creates and runs a new workflow instance for your logic app.
 
 Here are the differences between these triggers:
 
 * **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If the trigger misses recurrences, for example, due to disruptions or disabled workflows, the Recurrence trigger doesn't process the missed recurrences but restarts recurrences with the next scheduled interval.
 
-  If you select **Day** as the frequency, you can specify the hours of the day and minutes of the hour, for example, every day at 2:30. If you select **Week** as the frequency, you can also select days of the week, such as Wednesday and Saturday. You can also specify a start date and time along with a time zone for your recurrence schedule.
+  If you select **Day** as the frequency, you can specify the hours of the day and minutes of the hour, for example, every day at 2:30. If you select **Week** as the frequency, you can also select days of the week, such as Wednesday and Saturday. You can also specify a start date and time along with a time zone for your recurrence schedule. For more information about time zone formatting, see [Add a Recurrence trigger](../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
 
   > [!IMPORTANT]
   > If you use the **Day** or **Week** frequency and specify a future date and time, make sure that you set up the recurrence in advance:
