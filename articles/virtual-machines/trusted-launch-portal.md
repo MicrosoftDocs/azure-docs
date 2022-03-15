@@ -167,7 +167,7 @@ You can deploy trusted launch VMs using a quickstart template:
 7. Provide a version number for the image version.
 8. Modify replication options if required.
 9. At the bottom of the **Create an Image** page, select **Review + Create** and when validation shows as passed, select **Create**.
-10. Once the image version is created, go the image version directly. Alternatively, you can navigate to the required image version through the Image Definition.
+10. Once the image version is created, go the image version directly. Alternatively, you can navigate to the required image version through the image definition.
 11. On the **VM image version** page, select the **+ Create VM** to land on the Create a virtual machine page.
 12. In the Create a virtual machine page, under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
 13. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#limitations).
