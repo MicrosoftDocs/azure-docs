@@ -19,7 +19,7 @@ This article provides an overview of Service Connector service.
 
 Any application that runs on Azure compute services and requires a backing service, can use Service Connector. We list some examples that can use Service Connector to simplify service-to-service connection experience.
 
-* **WebApp + DB:** Use Service Connector to connect PostgreSQL, MySQL, SQL DB or Cosmos DB to your App Service.  
+* **WebApp + DB:** Use Service Connector to connect PostgreSQL, MySQL, or Cosmos DB to your App Service.  
 * **WebApp + Storage:** Use Service Connector to connect to Azure Storage Accounts and use your preferred storage products easily in your App Service.
 * **Spring Cloud + Database:** Use Service Connector to connect PostgreSQL, MySQL, SQL DB or Cosmos DB to your Spring Cloud application.
 * **Spring Cloud + Apache Kafka:** Service Connector can help you connect your Spring Cloud application to Apache Kafka on Confluent Cloud.
