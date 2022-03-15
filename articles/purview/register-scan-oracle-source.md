@@ -181,6 +181,13 @@ To create and run a new scan, do the following:
         > [!Note]
         > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
+    1. **Stored procedure details**: Controls the amount of details imported from stored procedures:
+
+        - Signature: The name and parameters of stored procedures.
+        - Code, signature: The name, parameters and code of stored procedures.
+        - Lineage, code, signature: The name, parameters and code of stored procedures, and the data lineage derived from the code.
+        - None: Stored procedure details are not included.
+
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Oracle source to be scanned.
 
         > [!Note]
