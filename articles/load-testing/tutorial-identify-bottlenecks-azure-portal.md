@@ -107,10 +107,6 @@ If you don't yet have a Load Testing resource, create one now:
 
 [!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
 
-### <a name="role_assignment"></a> Configure role-based access
-
-[!INCLUDE [azure-load-testing-role-assignment](../../includes/azure-load-testing-role-assignment.md)]
-
 ### <a name="create_test"></a> Create a load test
 
 To create a load test in the Load Testing resource for the sample app:

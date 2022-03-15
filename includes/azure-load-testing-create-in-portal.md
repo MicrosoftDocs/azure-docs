@@ -45,3 +45,5 @@ ms.date: 02/15/2022
 1. To view the new resource, select **Go to resource**.
     
     :::image type="content" source="media/azure-load-testing-create-in-portal/create-azure-load-testing-goto-resource.png" alt-text="Screenshot that shows the deployment completion screen.":::
+
+1. Optionally, [manage access to your Azure Load Testing resource](../articles/load-testing/how-to-assign-roles.md).
