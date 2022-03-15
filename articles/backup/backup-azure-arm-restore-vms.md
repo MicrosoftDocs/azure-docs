@@ -197,6 +197,12 @@ Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-ob
 >- The Azure roles needed to restore in the secondary region are the same as those in the primary region.
 >- While restoring an Azure VM, Azure Backup configures the virtual network settings in the secondary region automatically. If you are [restoring disks](#restore-disks) while deploying the template, ensure to provide the virtual network settings, corresponding to the secondary region.
 >- If VNet/Subnet is not available in the primary region or is not configured in the secondary region, Azure portal doesn't auto-populate any default values during restore operation.
+>- For Cross Region Restores, the **Staging Location** (i.e. storage account location) must be in the region that the Recovery Services Vault treats as the ‘**secondary**’ region.
+>For Example: 
+>A Recovery Services Vault is located in Central US region (with Geo-Redundancy and Cross Region Restore enabled).
+>This means that the ‘**secondary**’ region would be **East US 2**.
+>So, you would need to create a storage account in **East US 2** to be able to perform a Cross Region Restore of a VM.
+>See [Azure cross-region replication pairings for all geographies.](../availability-zones/cross-region-replication-azure.md)
 
 [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) can be restored in any [availability zones](../availability-zones/az-overview.md) of the same region.
 
