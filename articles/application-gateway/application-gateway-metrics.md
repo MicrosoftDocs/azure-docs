@@ -141,6 +141,9 @@ For Application Gateway, the following metrics are available:
 
   The average number of requests received by each healthy member in a backend pool in a minute. You must specify the backend pool using the *BackendPool HttpSettings* dimension.  
   
+### Web Application Firewall (WAF) metrics
+
+_For information on WAF Monitoring, see [WAF v2 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics)_  
 
 ## Metrics supported by Application Gateway V1 SKU
 
@@ -172,10 +175,6 @@ For Application Gateway, the following metrics are available:
 
   Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 
-- **Web Application Firewall Blocked Requests Count**
-- **Web Application Firewall Blocked Requests Distribution**
-- **Web Application Firewall Total Rule Distribution**  
-
 
 ### Backend metrics
 
@@ -191,8 +190,7 @@ For Application Gateway, the following metrics are available:
 
 ### Web Application Firewall (WAF) metrics
 
-_For information on WAF Monitoring, see [WAF Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md)_  
-
+_For information on WAF Monitoring, see [WAF v1 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#metrics-supported-by-application-gateway-v1-sku)_  
 
 ## Metrics visualization
 
