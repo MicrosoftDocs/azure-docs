@@ -71,7 +71,7 @@ In order to turn off advertisements from a custom IP prefix, it must be decommis
 > [!NOTE]
 > All public IP prefixes created from an provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.
 > 
-> The current estimated time to fully complete the decommissioning process is 3-4 hours.
+> The estimated time to fully complete the decommissioning process is 3-4 hours.
 
 The following commands can be used in Azure CLI and Azure PowerShell to begin the process to stop advertising the range from Azure. The operation is asynchronous, use view commands to retrieve the status. The **CommissionedState** field will initially show the prefix as **Decommissioning**, followed by **Provisioned** as it transitions to the earlier state. Advertisement removal isn't binary. The range will be partially advertised while still in **Decommissioning**.
 
@@ -79,6 +79,7 @@ The following commands can be used in Azure CLI and Azure PowerShell to begin th
 
 |Tool|Command|
 |---|---|
+|Azure portal|Use the **Decommission** option in the Overview section of a Custom IP Prefix |
 |CLI|[az network custom-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-update) with the flag to `-Decommission` |
 |PowerShell|[Update-AzCustomIpPrefix](/powershell/module/az.network/update-azcustomipprefix) with the `--state` flag set to decommission |
 
@@ -97,6 +98,7 @@ The following commands can be used in Azure CLI and Azure PowerShell to deprovis
 
 |Tool|Command|
 |---|---|
+|Azure portal|Use the **Deprovision** option in the Overview section of a Custom IP Prefix |
 |CLI|[az network custom-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-update) with the flag to `-Deprovision` <br>[az network custom-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-delete) to remove|
 |PowerShell|[Update-AzCustomIpPrefix](/powershell/module/az.network/update-azcustomipprefix) with the `--state` flag set to deprovision<br>[Remove-AzCustomIpPrefix](/powershell/module/az.network/update-azcustomipprefix) to remove|
 

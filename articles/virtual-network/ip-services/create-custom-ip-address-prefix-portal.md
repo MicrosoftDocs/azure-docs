@@ -1,7 +1,7 @@
 ---
-title: Create a custom IP address prefix - Azure PowerShell
+title: Create a custom IP address prefix - Azure portal
 titleSuffix: Azure Virtual Network
-description: Learn about how to onboard a custom IP address prefix using Azure PowerShell
+description: Learn about how to onboard a custom IP address prefix using the Azure portal
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
@@ -11,7 +11,7 @@ ms.author: allensu
 
 ---
 
-# Create a custom IP address prefix using Azure PowerShell
+# Create a custom IP address prefix using the Azure portal
 
 Use of a custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
 
@@ -26,11 +26,10 @@ The steps in this article detail the full process to:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell installed locally or Azure Cloud Shell.
-- Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
-- Ensure your Az. Network module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az. Network" if necessary.
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
 > For problems encountered during the provisioning process, please see [Troubleshooting for custom IP prefix](manage-custom-ip-address-prefix.md#troubleshooting-and-faqs).
@@ -106,59 +105,39 @@ The following steps show the steps required to prepare sample customer range (1.
 
 ## Provisioning steps
 
-The following steps display the procedure for provisioning a sample customer range (1.2.3.0/24) to the US West 2 region.  
+The following steps display the procedure for provisioning a sample customer range (1.2.3.0/24) to the US West 2 region.
 
 > [!NOTE]
 > Clean up or delete steps aren't shown on this page, given the nature of the resource. For information on removing a provisioned custom IP prefix, see [Manage custom IP prefix](manage-custom-ip-address-prefix.md).
 
-### Create a resource group and specify the prefix and authorization messages
+## Create and Provision a custom IP address prefix
 
-Create a resource group in the desired location (region) for provisioning the BYOIP range. 
+1. In the search box at the top of the portal, enter **Custom IP**.
 
- ```azurepowershell-interactive
-$rg =@{
-    Name = 'myResourceGroup'
-    Location = 'WestUS2'
-}
-New-AzResourceGroup $rg
+2. In the search results, select **Custom IP Prefixes**.
 
-```
+3. Select **+ Create**.
 
-### Provision a custom IP address prefix
+4. In **Create custom IP prefix**, enter, or select the following information in the **Basics** tab:
 
-The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. For the `-Message` parameter, substitute your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription |
+    | Resource group | Select **Create new**. </br> Enter **myResourceGroup**. </br> Select **OK**. |
+    | **Instance details** |   |
+    | Name | Enter **myCustomIPPrefix**. |
+    | Region | Select **West US 2**. |
+    | Availability Zone | Select **Zone-redundant**. |
+    | IPv4 Prefix (CIDR) | Enter **1.2.3.0/24**. |
+    | ROA expiration date | Enter in your ROA expiration date in yyyymmdd format. |
+    | Signed message | Paste in the output of $byoipauthsigned from the earlier section. |
 
- ```azurepowershell-interactive
-$prefix =@{
-    Name = 'myCustomIPPrefix'
-    ResourceGroupName = 'myResourceGroup'
-    Location = 'WestUS2'
-    CIDR = '1.2.3.0/24'
-    Zone = '1,2,3'
-    AuthorizationMessage = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd'
-    SignedMessage = $byoipauthsigned
-}
-$myCustomIpPrefix = New-AzCustomIPPrefix $prefix
-```
+5. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
-The range will be pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. To determine the status, execute the following command:  
+6. Select **Create**.
 
- ```azurepowershell-interactive
-Get-AzCustomIpPrefix -ResourceId $myCustomIpPrefix.Id
-```
-Sample output is shown below, with some fields removed for clarity:
-
-```
-Name              : myCustomIpPrefix
-ResourceGroupName : myResourceGroup
-Location          : westus2
-Id                : /subscriptions/xxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/customIPPrefixes/MyCustomIPPrefix
-Cidr              : 1.2.3.0/24
-Zones             : {1, 2, 3}
-CommissionedState : Provisioning
-```
-
-The **CommissionedState** field should show the range as “Provisioning” initially, followed in the future by “Provisioned”.
+The range will be pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous.  You can check the status by reviewing the **Commissioned state** field for the Custom IP Prefix.
 
 > [!NOTE]
 > The estimated time to complete the provisioning process is 30 minutes.
@@ -166,15 +145,37 @@ The **CommissionedState** field should show the range as “Provisioning” init
 > [!IMPORTANT]
 > After the custom IP prefix is in a "Provisioned" state, a child public IP prefix can be created. These public IP prefixes and any public IP addresses can be attached to networking resources. For example, virtual machine network interfaces or load balancer front ends. The IPs won't be advertised and therefore won't be reachable. For more information on a migration of an active prefix, see [Manage a custom IP prefix](manage-custom-ip-address-prefix.md).
 
-### Commission the custom IP address prefix
+## Create a public IP prefix from custom IP prefix
 
-When the custom IP prefix is in “Provisioned” state, the following command updates the prefix to begin the process of advertising the range from Azure.
+Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
 
-```azurepowershell-interactive
-Update-AzCustomIpPrefix -ResourceId $myCustomIPPrefix.Id -Commission
-```
+1. In the search box at the top of the portal, enter **Custom IP**.
 
-As before, the operation is asynchronous. The [Get-AzCustomIpPrefix](/powershell/module/az.network/get-azcustomipprefix) command can be used again to retrieve the status. The **CommissionedState** field will initially show the prefix as “Commissioning”, followed in the future by “Commissioned”. The advertisement rollout isn't binary and the range will be partially advertised while still in "Commissioning".
+2. In the search results, select **Custom IP Prefixes**.
+
+3. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
+
+4. In **Overview** of **myCustomIPPrefix**, select **+ Add IP prefix**.
+
+5. Enter **myPublicIPPrefix** in **Name** and choose the desired size of the prefix (note it can be as large as the Custom IP Prefix).
+
+6. Select **Add**.
+
+7. Select **Public IP prefixes** in **Settings** to view the created prefix.  You can now allocate Public IP addresses from this prefix.  For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-IP-address-from-a-prefix)].
+
+## Commission the custom IP address prefix
+
+Once the custom IP prefix is in “Provisioned” state, you'll need to update the prefix to begin the process of advertising the range from Azure.
+
+1. In the search box at the top of the portal, enter **Custom IP**.
+
+2. In the search results, select **Custom IP Prefixes**.
+
+3. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
+
+4. In **Overview** of **myCustomIPPrefix**, select **Commission**.
+
+As before, the operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the Custom IP Prefix, which will initially show the prefix as “Commissioning”, followed in the future by “Commissioned”. The advertisement rollout isn't binary and the range will be partially advertised while still in "Commissioning".
 
 > [!NOTE]
 > The estimated time to fully complete the commissioning process is 3-4 hours.

@@ -34,6 +34,9 @@ The steps in this article detail the full process to:
 > [!NOTE]
 > For problems encountered during the provisioning process, please see [Troubleshooting for custom IP prefix](manage-custom-ip-address-prefix.md#troubleshooting-and-faqs).
 
+> [!NOTE]
+> Note that a sample customer range (1.2.3.0/24) of is used for this example, which would not be validated by Azure.  Please substitute in applicable customer range/region/etc as required.
+
 ## Pre-provisioning steps
 
 In order to utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IP address range:
@@ -80,6 +83,7 @@ The following steps show the steps required to prepare sample customer range (1.
     * [ARIN](https://www.arin.net/resources/registry/manage/netmod/) - edit the "Comments" of the prefix record
     * [RIPE](https://www.ripe.net/manage-ips-and-asns/db/support/updating-the-ripe-database) - edit the "Remarks" of the inetnum record
     * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - in order to edit the prefix record, contact helpdesk@apnic.net
+    * For ranges from either LACNIC or AFRINIC registries, please create a support ticket with Microsoft.
      
     After the public comments are filled out, the Whois/RDAP record should look like the example below. Ensure there aren't spaces or carriage returns. Include all dashes:
 
@@ -166,7 +170,7 @@ az network custom-ip prefix update \
     --state commission 
 ```
 
-As before, the operation is asynchronous. Utilizing the [az network custom-ip prefix show](/cli/azure/network/custom-ip/prefix#az_network_custom_ip_prefix_show) command to get the status can be used again to retrieve the status. The **CommissionedState** field will initially show the prefix as “Commissioning”, followed in the future by “Commissioned”. The advertisement rollout isn't binary and the range will be partially advertised while still in "Commissioning".
+As before, the operation is asynchronous. The [az network custom-ip prefix show](/cli/azure/network/custom-ip/prefix#az_network_custom_ip_prefix_show) command can be used again to retrieve the status. The **CommissionedState** field will initially show the prefix as “Commissioning”, followed in the future by “Commissioned”. The advertisement rollout isn't binary and the range will be partially advertised while still in "Commissioning".
 
 > [!NOTE]
 > The estimated time to fully complete the commissioning process is 3-4 hours.
