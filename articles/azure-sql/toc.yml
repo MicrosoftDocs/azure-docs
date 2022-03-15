@@ -367,6 +367,20 @@
       href: database/elastic-pool-overview.md
     - name: Logical servers
       href: database/logical-servers.md
+    - name: Serverless
+      href: database/serverless-tier-overview.md
+    - name: Hyperscale
+      items: 
+      - name: Overview
+        href: database/service-tier-hyperscale.md
+      - name: FAQ
+        displayName: Frequently asked questions
+        href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
+      - name: Replicas
+        href: database/service-tier-hyperscale-replicas.md
+      - name: Replicas FAQ
+        displayName: Frequently asked questions
+        href: database/service-tier-hyperscale-named-replicas-faq.yml
 
     - name: Purchasing models
       items: 
@@ -377,23 +391,6 @@
         href: database/service-tiers-sql-database-vcore.md
       - name: DTU model 
         href: database/service-tiers-dtu.md
-
-    - name: Service tiers
-      items: 
-      - name: Serverless
-        href: database/serverless-tier-overview.md
-      - name: Hyperscale
-        items: 
-        - name: Overview
-          href: database/service-tier-hyperscale.md
-        - name: FAQ
-          displayName: Frequently asked questions
-          href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
-        - name: Replicas
-          href: database/service-tier-hyperscale-replicas.md
-        - name: Replicas FAQ
-          displayName: Frequently asked questions
-          href: database/service-tier-hyperscale-named-replicas-faq.yml
 
     - name: Connectivity
       items: 
@@ -452,23 +449,6 @@
         - name: Server roles
           href: database/security-server-roles.md
 
-    - name: Resource limits 
-      items: 
-      - name: Logical server limits
-        href: database/resource-limits-logical-server.md
-      - name: Single database resources
-        items:        
-        - name: vCore resource limits
-          href: database/resource-limits-vcore-single-databases.md
-        - name: DTU resource limits
-          href: database/resource-limits-dtu-single-databases.md
-      - name: Elastic pool resources
-        items:
-        - name: vCore resource limits
-          href: database/resource-limits-vcore-elastic-pools.md
-        - name: DTU resource limits
-          href: database/resource-limits-dtu-elastic-pools.md
-
 
     - name: Business continuity
       items: 
@@ -515,6 +495,23 @@
         href: database/elastic-scale-faq.yml
       - name: Glossary
         href: database/elastic-scale-glossary.md
+
+    - name: Resource limits 
+      items: 
+      - name: Logical server limits
+        href: database/resource-limits-logical-server.md
+      - name: Single database resources
+        items:        
+        - name: vCore resource limits
+          href: database/resource-limits-vcore-single-databases.md
+        - name: DTU resource limits
+          href: database/resource-limits-dtu-single-databases.md
+      - name: Elastic pool resources
+        items:
+        - name: vCore resource limits
+          href: database/resource-limits-vcore-elastic-pools.md
+        - name: DTU resource limits
+          href: database/resource-limits-dtu-elastic-pools.md
 
   - name: Migration guides
     items: 
