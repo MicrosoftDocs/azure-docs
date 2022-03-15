@@ -34,13 +34,13 @@ This section guides you in configuring your Automation account securely.
 
 1. Install Hybrid workers using the [Hybrid Runbook Worker VM extension](./extension-based-hybrid-runbook-worker-install.md?tabs=windows), that doesn't have any dependency on the Log Analytics agent. We recommend this platform as it leverages Azure AD based authentication. 
    [Hybrid Runbook Worker](./automation-hrw-run-runbooks.md) feature of Azure Automation allows you to execute runbooks directly on the machine hosting the role in Azure or non-Azure machine to execute Automation jobs in the local environment. 
-    - Use only high privilege users or [Hybrid worker custom roles](./extension-based-hybrid-runbook-worker-install.md?tabs=windows#manage-role-permissions-for-hybrid-worker-groups) for users responsible for managing operations such as registering or unregistering Hybrid workers and hybrid groups and executing runbooks against Hybrid runbook worker groups. 
+    - Use only high privilege users or [Hybrid worker custom roles](./extension-based-hybrid-runbook-worker-install.md?tabs=windows) for users responsible for managing operations such as registering or unregistering Hybrid workers and hybrid groups and executing runbooks against Hybrid runbook worker groups. 
     - The same user would also require VM contributor access on the machine hosting Hybrid worker role. Since the VM contributor is a high privilege role, ensure only a limited right set of users have access to manage Hybrid works, thereby reducing the potential for breach by a compromised owner.
 
    Follow the [Azure RBAC best practices](../role-based-access-control/best-practices.md).
 
 1. Follow the principle of least privilege and grant only the required permissions to users for runbook execution against a Hybrid worker. Don't provide unrestricted permissions to the machine hosting the hybrid runbook worker role. In case of unrestricted access, a user with VM Contributor rights or having permissions to run commands against the hybrid worker machine can use the Automation Account Run As certificate from the hybrid worker machine and could potentially allow a malicious user access as a subscription contributor. This could jeopardize the security of your Azure environment.
-   Use [Hybrid worker custom roles](./extension-based-hybrid-runbook-worker-install.md?tabs=windows#manage-role-permissions-for-hybrid-worker-groups) for users responsible to manage Automation runbooks against Hybrid runbook workers and Hybrid runbook worker groups.
+   Use [Hybrid worker custom roles](./extension-based-hybrid-runbook-worker-install.md?tabs=windows) for users responsible to manage Automation runbooks against Hybrid runbook workers and Hybrid runbook worker groups.
 
 1. [Unregister](./extension-based-hybrid-runbook-worker-install.md?tabs=windows#delete-a-hybrid-runbook-worker) any unused or non-responsive hybrid workers.
 
