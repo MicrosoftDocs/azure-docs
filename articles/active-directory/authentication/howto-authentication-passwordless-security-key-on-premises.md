@@ -247,7 +247,7 @@ For information about compliant security keys, see [FIDO2 security keys](concept
 
 ### What can I do if I lose my security key?
 
-To retrieve a security key, sign in to the Azure portal, and then go to the **Security info** page.
+To delete an enrolled security key, sign in to the Azure portal, and then go to the **Security info** page.
 
 ### What can I do if I'm unable to use the FIDO security key immediately after I create a hybrid Azure AD-joined machine?
 
