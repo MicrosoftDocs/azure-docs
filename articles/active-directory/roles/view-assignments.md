@@ -93,17 +93,23 @@ This section describes viewing assignments of a role with organization-wide scop
 
 Use the [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition) and [Get-AzureADMSRoleAssignment](/powershell/module/azuread/get-azureadmsroleassignment) commands to list role assignments.
 
-The following example shows hows to list the role assignments for a specific role definition with the ID `3671d40a-1aac-426c-a0c1-a3821ebd8218`.
+The following example shows hows to list the role assignments for the [Groups Administrator](permissions-reference.md#groups-administrator) role.
 
-``` PowerShell
+```powershell
 # Fetch list of all directory roles with template ID
 Get-AzureADMSRoleDefinition
 
 # Fetch a specific directory role by ID
-$role = Get-AzureADMSRoleDefinition -Id "3671d40a-1aac-426c-a0c1-a3821ebd8218"
+$role = Get-AzureADMSRoleDefinition -Id "fdd7a751-b60b-444a-984c-02652fe8fa1c"
 
 # Fetch membership for a role
 Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '$($role.Id)'"
+```
+
+```Example
+RoleDefinitionId                     PrincipalId                          DirectoryScopeId
+----------------                     -----------                          ----------------
+fdd7a751-b60b-444a-984c-02652fe8fa1c 04f632c3-8065-4466-9e30-e71ec81b3c36 /administrativeUnits/3883b136-67f0-412c-9b...
 ```
 
 The following example shows hows to list all active role assignments across all roles, including built-in and custom roles (currently in Preview).
@@ -114,6 +120,15 @@ foreach ($role in $roles)
 {
   Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '$($role.Id)'"
 }
+```
+
+```Example
+RoleDefinitionId                     PrincipalId                          DirectoryScopeId Id
+----------------                     -----------                          ---------------- --
+e8611ab8-c189-46e8-94e1-60213ab1f814 9f9fb383-3148-46a7-9cec-5bf93f8a879c /                uB2o6InB6EaU4WAhOrH4FHwni...
+e8611ab8-c189-46e8-94e1-60213ab1f814 027c8aba-2e94-49a8-974b-401e5838b2a0 /                uB2o6InB6EaU4WAhOrH4FEqdn...
+fdd7a751-b60b-444a-984c-02652fe8fa1c 04f632c3-8065-4466-9e30-e71ec81b3c36 /administrati... UafX_Qu2SkSYTAJlL-j6HL5Dr...
+...
 ```
 
 ## Microsoft Graph API
