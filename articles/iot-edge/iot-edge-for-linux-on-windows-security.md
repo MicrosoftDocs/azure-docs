@@ -121,6 +121,14 @@ By providing a TPM passthrough feature, the EFLOW virtual machine leverages the 
 * Use TPM technology for IoT Edge device provisioning using Device Provision Service (DPS). For more information, refer to [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](./how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
 * Read-only access to cryptographic keys stored inside the TPM. For more information, refer to [Set-EflowVmFeature to enable TPM passthrough](./reference-iot-edge-for-linux-on-windows-functions.md).
 
+
+## Secure host & virtual machine communication
+EFLOW provides multiple ways to interact with the virutal machine by exposing a rich PowerShell module implementation. For more information, refer to [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md). This module requires an elevated session to run, and it's signed using Microsoft Corporation certificate.
+
+All communications between the Windows host operating system and the EFLOW virutal machine required by the PowerShell cmdlets are done using a SSH channel. By default, the virtual machine SSH service won't allow authentication via username and password, and it's limited to certificate authentication. The certificate it's created during EFLOW deployment process, and is unique for each EFLOW installation. Furthermore, 
+
+
+
 ## Next steps
 
 View the latest [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
