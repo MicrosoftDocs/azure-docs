@@ -6,7 +6,7 @@ author: MartinPankraz
 ms.service: virtual-machines-sap
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 06/26/2021
+ms.date: 03/11/2022
 ms.author: mapankra
 
 ---
@@ -91,7 +91,7 @@ The per-mailbox setting to enable SMTP AUTH is available in the [Microsoft 365 A
 
 This will enable SMTP AUTH for that individual user in Exchange Online that you require for SCOT.
 
-## Configure SMTP Auth with SCOT.
+### Configure SMTP Auth with SCOT
 
 1. Ping or telnet smtp.office365.com on port 587 from your SAP application server to make sure ports are open and accessible.
 
