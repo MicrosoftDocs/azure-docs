@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 02/16/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -30,11 +30,11 @@ See the [application development lifecycle](../overview.md#application-developme
 
 ## Deploy your model
 
-1. Go to your project in [Language studio](https://aka.ms/custom-extraction)
+Go to your project in [Language studio](https://aka.ms/custom-extraction).
 
-2. Select **Deploy model** from the left side menu.
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
 
-3. Select the model you want to deploy, then select **Deploy model**. If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
+If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
 
 > [!TIP]
 > You can test your model in Language Studio by sending samples of text for it to classify. 

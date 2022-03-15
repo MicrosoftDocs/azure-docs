@@ -5,11 +5,9 @@ metadata:
   author: Rodrigossz
   ms.author: rosouz
   ms.service: cosmos-db
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 11/02/2021
   ms.custom: synapse-cosmos-db
-  
-    
 title: Frequently asked questions about Azure Synapse Link for Azure Cosmos DB
 summary: |
   [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]

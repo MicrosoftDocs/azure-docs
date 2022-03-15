@@ -7,11 +7,13 @@ ms.topic: article
 
 # Support for IoT, OT, ICS, and SCADA protocols
 
-Microsoft Defender for IoT provides an open and interoperable Operation Technology (OT) cybersecurity platform. Defender for IoT is deployed in many different locations and reduces IoT, IT, and ICS risk with deployments in demanding, and complex OT environments across all industry verticals and geographies.
+Microsoft Defender for IoT provides an open and interoperable Operation Technology (OT) cybersecurity platform. Defender for IoT reduces IoT, IT, and ICS risk with deployments in demanding and complex OT environments across all industry verticals and geographies.
 
 ## Supported protocols
 
-Microsoft Defender for IoT supports a broad range of protocols across a diverse enterprise, and includes industrial automation equipment across all industrial sectors, enterprise networks, and building management system (BMS) environments. For custom or proprietary protocols, Microsoft offers an SDK that makes it easy to develop, test, and deploy custom protocol dissectors as plugins. The SDK does all this without divulging proprietary information, such as how the protocols are designed, or by sharing PCAPs that may contain sensitive information. Supported protocols are listed below.
+Defender for IoT supports a broad range of protocols across a diverse enterprise. Supported protocols include industrial automation equipment across all industrial sectors, enterprise networks, and building management system (BMS) environments.
+
+For custom or proprietary protocols, Microsoft offers an SDK that makes it easy to develop, test, and deploy custom protocol dissectors as plugins. The SDK does all this without divulging proprietary information, such as how the protocols are designed, or by sharing PCAPs that may contain sensitive information. Supported protocols are listed below.
 
 ### Supported protocols (passive monitoring)
 
@@ -113,4 +115,5 @@ We invite you to join our community here: <horizon-community@microsoft.com>
 
 ## Next steps
 
-[Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules).
+[Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules)
+[About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information)

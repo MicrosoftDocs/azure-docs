@@ -25,7 +25,12 @@ If the VM is configured with Accelerated Networking, a second network interface 
 
 Different Azure hosts use different models of Mellanox physical NIC, so Linux automatically determines whether to use the “mlx4” or “mlx5” driver. Placement of the VM on an Azure host is controlled by the Azure infrastructure. With no customer option to specify which physical NIC that a VM deployment uses, the VMs must include both drivers. If a VM is stopped/deallocated and then restarted, it might be redeployed on hardware with a different model of Mellanox physical NIC. Therefore, it might use the other Mellanox driver. 
 
-FreeBSD provides the same support for Accelerated Networking as Linux when running in Azure. The remainder of this article describes Linux and uses Linux examples, but the same functionality is available in FreeBSD. 
+If a VM image doesn't include a driver for the Mellanox physical NIC, networking capabilities will continue to work at the slower speeds of the virtual NIC, even though the portal, Azure CLI, and Azure PowerShell will still show the Accelerated Networking feature as _enabled_.
+
+FreeBSD provides the same support for Accelerated Networking as Linux when running in Azure. The remainder of this article describes Linux and uses Linux examples, but the same functionality is available in FreeBSD.
+
+> [!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When this term is removed from the software, we'll remove it from this article.
 
 ## Bonding
 
@@ -37,7 +42,7 @@ Both interfaces are visible via the “ifconfig” or “ip addr” command in L
 
 ```output
 U1804:~$ ifconfig 
-enP53091s1np0: flags=6211<UP,BROADCAST,RUNNING,SLA\/E,MULTICAST>  mtu 1500 
+enP53091s1np0: flags=6211<UP,BROADCAST,RUNNING,SLAVE,MULTICAST>  mtu 1500 
 ether 00:0d:3a:f5:76:bd  txqueuelen 1000  (Ethernet) 
 RX packets 365849  bytes 413711297 (413.7 MB) 
 RX errors 0  dropped 0  overruns 0  frame 0 
@@ -232,7 +237,7 @@ Accelerated Networking can be toggled on a virtual NIC in a running VM with Azur
 $ az network nic update --name u1804895 --resource-group testrg --accelerated-network false 
 ```
 
-Disabling Accelerated Networking that is enabled in the guest VM produces a “dmesg” output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same “dmesg” output as when the VF interface is readded after Azure host servicing. These Azure CLI commands can be used to simulate Azure host servicing, which can help test applications in your VM don't have to directly interact with the VF interface.
+Disabling Accelerated Networking that is enabled in the guest VM produces a “dmesg” output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same “dmesg” output as when the VF interface is readded after Azure host servicing. These Azure CLI commands can be used to simulate Azure host servicing. With them you can verify that your applications do not incorrectly depend on direct interaction with the VF interface.
 
 ## Next steps
 * Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)

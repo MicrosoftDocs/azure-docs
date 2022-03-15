@@ -9,6 +9,16 @@ ms.date: 12/22/2021
 
 Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
+## February 18, 2022
+
+Per VMware security advisory [VMSA-2022-0004](https://www.vmware.com/security/advisories/VMSA-2022-0004.html), multiple vulnerabilities in VMware ESXi have been reported to VMware.
+
+To address the vulnerabilities (CVE-2021-22040 and CVE-2021-22041) reported in this VMware security advisory, ESXi hosts have been patched in all Azure VMware Solution private clouds to ESXi 6.7, Patch Release ESXi670-202111001. All new Azure VMware Solution private clouds are deployed with the same version.
+
+For more information on this ESXi version, see [VMware ESXi 6.7, Patch Release ESXi670-202111001](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/esxi670-202111001.html).
+
+No further action is required.
+
 ## December 22, 2021
 
 Azure VMware Solution (AVS) has completed maintenance activities to address critical vulnerabilities in Apache Log4j. 

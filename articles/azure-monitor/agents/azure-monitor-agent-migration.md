@@ -44,7 +44,7 @@ You migration plan to the Azure Monitor agent should include the following consi
 
 
 ## Gap analysis between agents
-The following tables show gap analyses for the log types that are currently collected by each agent. This will be updated as support for AMA grows towards parity with the Log Analytics agent. For a general comparison of Azure Monitor agents, see [Overview of Azure Monitor agents](../agents/azure-monitor-agent-overview.md).
+The following tables show gap analyses for the **log types** that are currently collected by each agent. This will be updated as support for AMA grows towards parity with the Log Analytics agent. For a general comparison of Azure Monitor agents, see [Overview of Azure Monitor agents](../agents/azure-monitor-agent-overview.md).
 
 
 > [!IMPORTANT]
@@ -62,7 +62,6 @@ The following tables show gap analyses for the log types that are currently coll
 | **Custom logs** | No | Yes |
 | **IIS logs** | No | Yes |
 | **Application and service logs** | Yes | Yes |
-| **DNS logs** | No | Yes |
 | **Multi-homing** | Yes | Yes |
 
 ### Linux logs
@@ -70,6 +69,7 @@ The following tables show gap analyses for the log types that are currently coll
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
 |---------|---------|---------|
 | **Syslog** | Yes | Yes |
+| **Performance counters** | Yes | Yes |
 | **Custom logs** | No | Yes |
 | **Multi-homing** | Yes | No |
 

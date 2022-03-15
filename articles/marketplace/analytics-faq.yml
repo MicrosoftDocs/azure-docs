@@ -4,12 +4,11 @@ metadata:
   description: Get answers to frequently asked questions about commercial marketplace analytics in Partner Center for offers published to Azure Marketplace.
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
-  ms.topic: conceptual
+  ms.topic: faq
   author: smannepalle
   ms.author: smannepalle
   ms.reviewer: sroy
   ms.date: 02/11/2022
-    
 title: Commercial marketplace analytics Frequently Asked Questions
 summary: This article addresses frequently asked questions about analytics in Partner Center.
 
@@ -252,17 +251,17 @@ sections:
       - question: |
           The retention widget looks like it's showing me 45 days of data. What day is it counting from?
         answer: |
-          Read **Retained customers** in the [Customer retention dashboard](/customer-retention-dashboard#retained-customers). The data shown here is a normalized view of 18 months of customer data, and so is not “to” or “from” a specific date.
+          Read **Retained customers** in the [Customer retention dashboard](customer-retention-dashboard.md#retained-customers). The data shown here is a normalized view of 18 months of customer data, and so is not “to” or “from” a specific date.
 
       - question: |
           Can I filter the graphs to show a specific date range?
         answer: |
-          No. As the documentation indicates, it is a normalized view of 18 months of data. The retention [heat map](/customer-retention-dashboard#retention-heat-map) shows monthly views, but you cannot filter to specific dates.
+          No. As the documentation indicates, it is a normalized view of 18 months of data. The retention [heat map](customer-retention-dashboard.md#retention-heat-map) shows monthly views, but you cannot filter to specific dates.
 
       - question: |
           What is the difference between Total offers and Offer count?
         answer: |
-          Total offers is how many there are in the entire category. For example, if you set the “category” filter to security, it is showing how many offers there are in the marketplace under the category Security. Offer count shows the count of offers in the category whose retention scores are above 0. So if you have the Category filter set to Security, the Y axis of the graph is showing how many offers in security have retention scores above 0.
+          Total offers is how many there are in the entire category. For example, if you set the “category” filter to security, it is showing how many offers there are in the marketplace under the category Security. Offer count shows the count of offers in the category whose retention scores are above zero. So if you have the Category filter set to Security, the Y axis of the graph is showing how many offers in security have retention scores above 0.
 
       - question: |
           What is the green or red arrow on retention rank?
@@ -272,7 +271,7 @@ sections:
       - question: |
           How do I know which customers are retaining and which are churning?
         answer: |
-          [Customers](/customer-retention-dashboard#customers) shows this information.
+          [Customers](customer-retention-dashboard.md#customers) shows this information.
 
       - question: |
           What does dormant mean?

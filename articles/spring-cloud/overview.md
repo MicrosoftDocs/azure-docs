@@ -126,7 +126,6 @@ The following quickstarts will help you get started using the Enterprise tier:
 * [Provision an Azure Spring Cloud instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md)
 * [Set up Application Configuration Service for Tanzu](quickstart-setup-application-configuration-service-enterprise.md)
 * [Build and deploy applications](quickstart-deploy-apps-enterprise.md)
-* [Set up Tanzu Service Registry](quickstart-setup-service-registry-enterprise.md)
 
 Most of the Azure Spring Cloud documentation applies to all tiers. Some articles apply only to Enterprise tier or only to Basic/Standard tier, as indicated at the beginning of each article.
 

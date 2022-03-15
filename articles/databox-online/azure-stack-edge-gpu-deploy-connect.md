@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/07/2021
+ms.date: 02/22/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect to Azure Stack Edge Pro GPU so I can use it to transfer data to Azure. 
@@ -43,6 +43,7 @@ In this tutorial, you learn about:
 Before you configure and set up your Azure Stack Edge Pro GPU device, make sure that:
 
 * You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
+* You've run the Azure Stack Network Readiness Checker tool to verify that your network meets Azure Stack Edge requirements. For instructions, see [Check network readiness for Azure Stack Edge devices](azure-stack-edge-deploy-check-network-readiness.md).
 
 
 ## Connect to the local web UI setup

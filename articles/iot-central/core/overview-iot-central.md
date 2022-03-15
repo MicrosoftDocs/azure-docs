@@ -20,7 +20,7 @@ This article provides an overview of the features of Azure IoT Central.
 
 ## Create an IoT Central application
 
-[Quickly deploy a new IoT Central application](quick-deploy-iot-central.md) and then customize it to your specific requirements. Application templates in Azure IoT Central are a tool to help you kickstart your IoT solution development. You can use app templates for everything from getting a feel for what is possible, to fully customizing your application to resell to your customers.
+[Quickly deploy a new IoT Central application](quick-deploy-iot-central.md) and then customize it to your specific requirements. Application templates in Azure IoT Central are a tool to help you kickstart your IoT solution development. You can use application templates for everything from getting a feel for what is possible, to fully customizing your application to resell to your customers.
 
 Start with a generic _application template_ or with one of the industry-focused application templates:
 

@@ -4,7 +4,7 @@ description: Learn how to use a Resource Manager template to create a log alert
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 2/23/2022
 ---
 # Create a log alert with a Resource Manager template
 

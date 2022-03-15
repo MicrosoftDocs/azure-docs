@@ -1,7 +1,6 @@
 ---
 title: Use dynamic SQL in Synapse SQL 
 description: Tips for using dynamic SQL in Synapse SQL.
-services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics

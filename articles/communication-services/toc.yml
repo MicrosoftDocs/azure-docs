@@ -262,10 +262,12 @@ items:
   items:
   - name: Overview
     href: samples/overview.md
-  - name: Group calling hero sample
+  - name: Calling hero sample
     href: samples/calling-hero-sample.md
-  - name: Group chat hero sample
+  - name: Chat hero sample
     href: samples/chat-hero-sample.md
+  - name: Authentication service hero sample
+    href: samples/trusted-auth-sample.md
   - name: Web calling sample
     href: samples/web-calling-sample.md
 - name: References

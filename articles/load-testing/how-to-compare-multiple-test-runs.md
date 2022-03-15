@@ -8,7 +8,7 @@ ms.author: nicktrog
 author: ntrogh
 ms.date: 02/16/2022
 ms.topic: how-to
-
+ms.custom: contperf-fy22q3
 ---
 
 # Identify performance regressions by comparing test runs in Azure Load Testing Preview
@@ -18,7 +18,7 @@ In this article, you'll learn how you can identify performance regressions by co
 You can compare load test runs for the following scenarios:
 
 - [Identify performance regressions](#identify-performance-regressions) between application builds or configurations. You could run a load test at each development sprint to ensure that the previous sprint didn't introduce performance issues.
-- [Identify which application component is responsible](#identify-the-performance-issue-root-cause) for a performance problem (root cause analysis). For example, an application redesign might result in slower application response times. Comparing load test runs might reveal that the root cause was a lack of database resources.
+- [Identify which application component is responsible](#identify-the-root-cause) for a performance problem (root cause analysis). For example, an application redesign might result in slower application response times. Comparing load test runs might reveal that the root cause was a lack of database resources.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -86,9 +86,9 @@ Use the client-side metrics, such as requests per second or response time, on th
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/compare-client-side-requests-filter.png" alt-text="Screenshot of the client-side 'requests' filter, which allows you to filter specific application requests.":::
 
-## Identify the performance issue root cause
+## Identify the root cause
 
-When there's a performance issue, you can use the server-side metrics to analyze what the root cause of the problem is. Azure Load Testing can [capture server-side resource metrics](./how-to-update-rerun-test.md) for Azure-hosted applications.
+When there's a performance issue, you can use the server-side metrics to analyze what the root cause of the problem is. Azure Load Testing can [capture server-side resource metrics](./how-to-monitor-server-side-metrics.md) for Azure-hosted applications.
 
 1. Hover over the server-side metrics graphs to compare the values across the different test runs.
 
@@ -96,7 +96,11 @@ When there's a performance issue, you can use the server-side metrics to analyze
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/compare-server-side-metrics.png" alt-text="Screenshot of the server-side metrics, highlighting the difference in database resource consumption and provisioning throughput.":::
 
-1. Optionally, use the **Resource** filter to hide or show specific Azure application component metric graphs.
+1. Optionally, select **Configure metrics** to add or remove server-side metrics.
+
+    You can add more server-side metrics for the selected Azure app components to further investigate performance problems. The dashboard immediately shows the additional metrics data, and you don't have to rerun the load test.
+
+1. Optionally, use the **Resource** filter to hide or show all metric graphs for an Azure component.
 
 ## Next steps
 

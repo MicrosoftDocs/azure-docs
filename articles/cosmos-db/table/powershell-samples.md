@@ -32,6 +32,6 @@ The following table includes links to commonly used Azure PowerShell scripts for
 |[Create an account and table](../scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account and table. |
 |[Create an account and table with autoscale](../scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account and table autoscale. |
 |[List or get tables](../scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get tables. |
-|[Throughput operations](../scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Throughput operations for a table including get, update and migrate between autoscale and standard throughput. |
+|[Perform throughput operations](../scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Perform throughput operations for a table including get, update and migrate between autoscale and standard throughput. |
 |[Lock resources from deletion](../scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Prevent resources from being deleted with resource locks. |
 |||

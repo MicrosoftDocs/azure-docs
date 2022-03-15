@@ -51,7 +51,18 @@ az monitor log-analytics workspace table update --resource-group ContosoRG \
 
 The retention time is between 30 and 730 days.
 
-For more information about tables, see [Data structure](./data-platform-logs.md#data-structure).
+For more information about tables, see [Data structure](./log-analytics-workspace-overview.md#data-structure).
+
+## Delete a table
+
+You can delete [Custom Log](custom-logs-overview.md), [Search Results](search-jobs.md) and [Restored Logs](restore.md) tables.
+
+To delete a table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-data-export-delete) command:
+
+```azurecli
+az monitor log-analytics workspace table delete –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
+   --name MySearchTable_SRCH
+```
 
 ## Export data from selected tables
 
@@ -79,6 +90,7 @@ az monitor log-analytics workspace data-export delete --resource-group ContosoRG
 ```
 
 For more information about data export, see [Log Analytics workspace data export in Azure Monitor](./logs-data-export.md).
+
 
 ## Manage a linked service
 

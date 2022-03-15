@@ -36,4 +36,4 @@ worker nodes.
 
 ## Next steps
 
-* Learn about other Hyperscale (Citus) [quotas and limits](concepts-limits.md).
+* Learn about other Hyperscale (Citus) [quotas and limits](reference-limits.md).

@@ -6,11 +6,10 @@ metadata:
   services: azure-video-analyzer
   author: Juliako
   manager: femila
-  ms.topic: article
+  ms.topic: faq
   ms.subservice: azure-video-analyzer-media
   ms.date: 05/25/2021
   ms.author: juliako
-    
 title: Video Analyzer for Media frequently asked questions
 summary: This article answers frequently asked questions about Azure Video Analyzer for Media (formerly Video Indexer).
 
@@ -200,4 +199,3 @@ sections:
 
       - question: Does Video Analyzer for Media offer a free trial?
         answer: Yes, Video Analyzer for Media offers a free trial that gives full service and API functionality. There is a quota of 600 minutes worth of videos for web-based interface users and 2,400 minutes for API users. 
-
