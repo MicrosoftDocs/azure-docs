@@ -48,7 +48,7 @@ Several resources are defined in the Bicep file:
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters adminUsername=<admin-username> adminPassword=<admin-password>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters adminUsername=<admin-username>
     ```
 
     # [PowerShell](#tab/PowerShell)
@@ -61,7 +61,7 @@ Several resources are defined in the Bicep file:
     ---
 
   > [!NOTE]
-  > Replace **\<admin-username\>** with a unique username. For Azure CLI, replace **\<admin-password\>** with a unique password. For Azure PowerShell, you'll be prompted to enter adminPassword. The minimum password length is 12 characters.
+  > Replace **\<admin-username\>** with a unique username. You'll also be prompted to enter adminPassword. The minimum password length is 12 characters.
 
   When the deployment finishes, you should see a messaged indicating the deployment succeeded.
 
