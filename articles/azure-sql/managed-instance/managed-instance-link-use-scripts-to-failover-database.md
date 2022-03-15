@@ -1,7 +1,7 @@
 ---
-title: Failover database with link feature with T-SQL and PowerShell scripts
+title: Fail over database with link feature with T-SQL and PowerShell scripts
 titleSuffix: Azure SQL Managed Instance
-description: This guide teaches you how to use the SQL Managed Instance link with scripts to failover database from SQL Server to Azure SQL Managed Instance.
+description: This guide teaches you how to use the SQL Managed Instance link with scripts to fail over database from SQL Server to Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -18,7 +18,7 @@ ms.date: 03/15/2022
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you to use scripts, T-SQL and PowerShell, to use [Managed Instance link feature](link-feature.md), more specifically to failover (migrate) your database from SQL Server to Azure SQL Managed Instance.
+This article teaches you to use T-SQL and PowerShell scripts for [Managed Instance link feature](link-feature.md) to fail over (migrate) your database from SQL Server to Azure SQL Managed Instance.
 
 > [!NOTE]
 > The link feature for Azure SQL Managed Instance is currently in preview.
@@ -29,16 +29,16 @@ This article teaches you to use scripts, T-SQL and PowerShell, to use [Managed I
 > [!TIP]
 > SQL Managed Instance link database failover can be set up with [SSMS wizard](managed-instance-link-use-ssms-to-failover-database.md).
 
-Failing over your database from your SQL Server instance to your SQL Managed Instance breaks the link between the two databases, stopping replication, and leaving both databases in an independent state, ready for individual read-write workloads.
+Database failover from SQL Server instance to SQL Managed Instance breaks the link between the two databases. Failover stops replication and leaves both databases in an independent state, ready for individual read-write workloads.
 
 To start migrating database to the SQL Managed Instance, first stop the application workload to the SQL Server during your maintenance hours. This is required to enable SQL Managed Instance to catchup with the database replication and make migration to Azure without any data loss.
 
-Note that while database is a part of Always On Availability Group, it is not possible to set it to read-only mode. You will need to ensure that your applications(s) are not committing transactions to SQL Server.
+While database is a part of Always On Availability Group, it isn't possible to set it to read-only mode. You'll need to ensure that your application(s) aren't committing transactions to SQL Server.
 
 ## Switch the replication mode from asynchronous to synchronous
 
-The replication between SQL Server and SQL Managed Instance is asynchronous by default. Before migrating databse to Azure, link needs to be switched to synchronous mode. Synchronous replication across distances might slow down transactions on the primary SQL Server.
-Switching from Async to Sync mode requires replication mode change on SQL Managed Instance as well as on SQL Server.
+The replication between SQL Server and SQL Managed Instance is asynchronous by default. Before you perform database migration to Azure, the link needs to be switched to synchronous mode. Synchronous replication across distances might slow down transactions on the primary SQL Server.
+Switching from async to sync mode requires replication mode change on SQL Managed Instance and SQL Server.
 
 ## Switch replication mode on Managed Instance
 
@@ -107,7 +107,7 @@ Invoke-WebRequest -Method PATCH -Headers $headers -Uri $uriFull -ContentType "ap
 ## Switch replication mode on SQL Server
 
 Use the following T-SQL script to change the replication mode of Distributed Availability Group on SQL Server from async to sync. Replace `<DAGName>` with the name of Distributed Availability Group, and replace `<AGName>` with the name of Availability Group created on SQL Server. In addition, replace `<ManagedInstanceName>` with the name of your SQL Managed Instance.
-With this step, the migration of the database from SQL Server to SQL Managed Instance is been completed.
+With this step, the migration of the database from SQL Server to SQL Managed Instance is completed.
 
 ```sql
 -- Sets the Distributed Availability Group to synchronous commit.
@@ -123,7 +123,7 @@ AVAILABILITY GROUP ON
     (AVAILABILITY_MODE = SYNCHRONOUS_COMMIT);
 ```
 
-To validate change of the link replication, execute the following DMV, and expected results are shown below. They are indicating SYNCHRONOUS_COMIT state.
+To validate change of the link replication, execute the following DMV, and expected results are shown below. They're indicating SYNCHRONOUS_COMIT state.
 
 ```sql
 -- Verifies the state of the distributed availability group
@@ -141,11 +141,11 @@ WHERE
     ag.is_distributed=1
 ```
 
-With both SQL Managed Instance, and SQL Server being switched to Sync mode, the replication between the two entities is now synchronous. If you require to reverse this state, follow the same steps by setting async state in properties for both SQL Server and SQL Managed Instance.
+With both SQL Managed Instance, and SQL Server being switched to Sync mode, the replication between the two entities is now synchronous. If you require to reverse this state, follow the same steps and set async state for both SQL Server and SQL Managed Instance.
 
 ## Check LSN values on both SQL Server and Managed Instance
 
-To complete the migration, we need to ensure that the replication has completed. For this we need to ensure that LSNs (Log Sequence Numbers) indicating the log records written for both SQL Server and SQL Managed Instance are the same. Initially, it is expected that SQL Server LSN will be higher than LSN number on SQL Managed Instance. The difference is caused by the fact that SQL Managed Instance might be lagging somewhat behind the primary SQL Server due to network latency. After some time, LSNs on SQL Managed Instance and SQL Server should match and stop changing, as the workload on SQL Server should be stopped.
+To complete the migration, we need to ensure that the replication has completed. For this, you need to ensure that LSNs (Log Sequence Numbers) indicating the log records written for both SQL Server and SQL Managed Instance are the same. Initially, it's expected that SQL Server LSN will be higher than LSN number on SQL Managed Instance. The difference is caused by the fact that SQL Managed Instance might be lagging somewhat behind the primary SQL Server due to network latency. After some time, LSNs on SQL Managed Instance and SQL Server should match and stop changing, as the workload on SQL Server should be stopped.
 
 Use the following T-SQL query on SQL Server to read the LSN number of the last recorded transaction log. Replace `<DatabaseName>` with your database name and look for the last hardened LSN number, as shown below.
 
@@ -170,9 +170,9 @@ WHERE
 
 Use the following T-SQL query on SQL Managed Instance to read the LSN number of the last hardened LSN number for your database. Replace `<DatabaseName>` with your database name.
 
-Query shown below will work on General Purpose SQL Managed Instance. For Business Critical Managed Instance, you will need to uncomment `and drs.is_primary_replica = 1` at the end of the script. On Business Critical, this will read only primary replica details.
+Query shown below will work on General Purpose SQL Managed Instance. For Business Critical Managed Instance, you will need to uncomment `and drs.is_primary_replica = 1` at the end of the script. On Business Critical, this filter will make sure that only primary replica details are read.
 
-```
+```sql
 -- Obtain LSN for a database on SQL Managed Instance.
 SELECT
     db.name AS [Database name],
@@ -199,7 +199,7 @@ SQL Managed Instance link database failover and migration to Azure is accomplish
 
 Use the following API to initiate database failover to Azure. Replace `<YourSubscriptionID>` with your actual Azure subscription ID. Replace `<RG>` with the resource group where your SQL Managed Instance is deployed and replace `<ManagedInstanceName>` with the name of our SQL Managed Instance. In addition, replace `<DAGName>` with the name of Distributed Availability Group made on SQL Server.
 
-```
+```PowerShell
 # ====================================================================================
 # POWERSHELL SCRIPT TO FAILOVER AND MIGRATE DATABASE WITH SQL MANAGED INSTANCE LINK
 # USER CONFIGURABLE VALUES
@@ -246,7 +246,7 @@ Invoke-WebRequest -Method DELETE -Headers $headers -Uri $uriFull -ContentType "a
 
 ## Cleanup Availability Group and Distributed Availability Group on SQL Server
 
-After breaking the link and migrating database to Azure SQL Managed Instance, consider cleaning up Availability Group and Distributed Availability Group on SQL Server if they are not used otherwise.
+After breaking the link and migrating database to Azure SQL Managed Instance, consider cleaning up Availability Group and Distributed Availability Group on SQL Server if they aren't used otherwise.
 Replace `<DAGName>` with the name of the Distributed Availability Group on SQL Server and replace `<AGName>` with Availability Group name on the SQL Server.
 
 ``` sql
@@ -260,7 +260,7 @@ With this step, the migration of the database from SQL Server to Managed Instanc
 
 ## Next steps
 
-For more information on the link feature, see the following:
+For more information on the link feature, see the following resources:
 
 - [Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog).
 - [Prepare for SQL Managed Instance link](./managed-instance-link-preparation.md).

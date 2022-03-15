@@ -1243,7 +1243,7 @@
         href: managed-instance/link-feature-best-practices.md
       - name: Replicate databases with scripts
         href: managed-instance/managed-instance-link-use-scripts-to-replicate-database.md
-      - name: Failover databases with scripts
+      - name: Fail over databases with scripts
         href: managed-instance/managed-instance-link-use-scripts-to-failover-database.md
 
     - name: Configure business continuity 
