@@ -536,7 +536,7 @@ Images can also be passed into and returned from custom skills. The skillset bas
  }
 ```
 
-The [Azure Search python samples](https://github.com/Azure-Samples/azure-search-python-samples) repository has a complete sample implemented in Python of a custom skill that enriches images.
+The [Azure Search Python samples](https://github.com/Azure-Samples/azure-search-python-samples) repository has a complete sample implemented in Python of a custom skill that enriches images.
 
 <a name="passing-images-to-custom-skills"></a>
 
