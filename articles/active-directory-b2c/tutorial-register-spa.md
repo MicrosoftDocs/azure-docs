@@ -76,7 +76,9 @@ This authentication flow doesn't include application scenarios that use cross-pl
 If your SPA app uses MSAL.js 1.3 or earlier and the implicit grant flow, you need to enable the implicit grant flow in the app registration:
 
 1. In the left menu, under **Manage**, select **Authentication**.
-1. Under **Implicit grant and hybrid flows**, select both the **Access tokens** and **ID tokens** check boxes.
+
+1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **D tokens (used for implicit and hybrid flows)** check boxes.
+
 1. Select **Save**.
 
 If your app uses MSAL.js 2.0 or later, don't enable implicit flow grant as MSAL.js 2.0+ supports the authorization code flow with PKCE. 
