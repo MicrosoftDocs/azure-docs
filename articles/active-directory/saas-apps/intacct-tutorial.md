@@ -75,10 +75,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | Reply URL |
     | ------------- |
     | `https://www.intacct.com/ia/acct/sso_response.phtml` (Select as the default.) |
-    | `https://www.p-02.intacct.com/ia/acct/sso_response.phtml` |  
-    | `https://www.p-03.intacct.com/ia/acct/sso_response.phtml` | 
-    | `https://www.p-04.intacct.com/ia/acct/sso_response.phtml` |  
-    | `https://www.p-05.intacct.com/ia/acct/sso_response.phtml` |
+    | `https://www-p02.intacct.com/ia/acct/sso_response.phtml` |  
+    | `https://www-p03.intacct.com/ia/acct/sso_response.phtml` | 
+    | `https://www-p04.intacct.com/ia/acct/sso_response.phtml` |  
+    | `https://www-p05.intacct.com/ia/acct/sso_response.phtml` |
     |
 
 1. The Sage Intacct application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog..
