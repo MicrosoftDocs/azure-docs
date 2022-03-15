@@ -4,9 +4,6 @@ description: Debug snapshots are automatically collected when exceptions are thr
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/12/2021
-author: cweining
-ms.author: cweining
-
 ms.reviewer: cweining
 ---
 
@@ -50,7 +47,7 @@ Subscription owners should assign the `Application Insights Snapshot Debugger` r
 
 1. Assign the Debugger role to the **Application Insights Snapshot**.
 
-    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).  
 
 
 > [!IMPORTANT]

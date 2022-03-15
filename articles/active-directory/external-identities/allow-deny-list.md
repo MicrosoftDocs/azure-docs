@@ -25,7 +25,7 @@ You can use an allow list or a deny list to allow or block invitations to B2B us
 
 - You can create either an allow list or a deny list. You can't set up both types of lists. By default, whatever domains are not in the allow list are on the deny list, and vice versa. 
 - You can create only one policy per organization. You can update the policy to include more domains, or you can delete the policy to create a new one. 
-- The number of domains you can add to an allow list or deny list is limited only by the size of the policy. This limit applies to the number of characters, so you can have more shorter domains or fewer longer domains. The maximum size of the entire policy is 25 KB (25,000 characters), which includes the allow list or deny list and any other parameters configured for other features.
+- The number of domains you can add to an allow list or deny list is limited only by the size of the policy. This limit applies to the number of characters, so you can have a greater number of shorter domains or fewer longer domains. The maximum size of the entire policy is 25 KB (25,000 characters), which includes the allow list or deny list and any other parameters configured for other features.
 - This list works independently from OneDrive for Business and SharePoint Online allow/block lists. If you want to restrict individual file sharing in SharePoint Online, you need to set up an allow or deny list for OneDrive for Business and SharePoint Online. For more information, see [Restricted domains sharing in SharePoint Online and OneDrive for Business](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
 - The list does not apply to external users who have already redeemed the invitation. The list will be enforced after the list is set up. If a user invitation is in a pending state, and you set a policy that blocks their domain, the user's attempt to redeem the invitation will fail.
 
@@ -47,13 +47,13 @@ To add a deny list:
 
    ![Shows the deny option with added domains](./media/allow-deny-list/DenyListSettings.png)
  
-6. When you're done, click **Save**.
+6. When you're done, select **Save**.
 
 After you set the policy, if you try to invite a user from a blocked domain, you receive a message saying that the domain of the user is currently blocked by your invitation policy.
  
 ### Add an allow list
 
-This is a more restrictive configuration, where you can set specific domains in the allow list and restrict invitations to any other organizations or domains that aren't mentioned. 
+This is a more restrictive configuration, where you can set specific domains in the allow list and restrict invitations to any other organizations or domains that aren't mentioned.
 
 If you want to use an allow list, make sure that you spend time to fully evaluate what your business needs are. If you make this policy too restrictive, your users may choose to send documents over email, or find other non-IT sanctioned ways of collaborating.
 
@@ -68,11 +68,11 @@ To add an allow list:
 
    ![Shows the allow option with added domains](./media/allow-deny-list/AllowListSettings.png)
  
-6. When you're done, click **Save**.
+6. When you're done, select **Save**.
 
 After you set the policy, if you try to invite a user from a domain that's not on the allow list, you receive a message saying that the domain of the user is currently blocked by your invitation policy.
 
-### Switch from allow to deny list and vice versa 
+### Switch from allow list to deny list and vice versa 
 
 If you switch from one policy to the other, this discards the existing policy configuration. Make sure to back up details of your configuration before you perform the switch. 
 
@@ -159,4 +159,4 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 ## Next steps
 
 - For an overview of Azure AD B2B, see [What is Azure AD B2B collaboration?](what-is-b2b.md)
-- For information about Conditional Access and B2B collaboration, see [Conditional Access for B2B collaboration users](conditional-access.md).
+- For information about Conditional Access and B2B collaboration, see [Conditional Access for B2B collaboration users](authentication-conditional-access.md).

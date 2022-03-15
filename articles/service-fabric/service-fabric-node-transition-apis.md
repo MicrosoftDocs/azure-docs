@@ -1,10 +1,8 @@
 ---
 title: Start and stop cluster nodes
 description: Learn how to use fault injection to test a Service Fabric application by starting and stopping cluster nodes.
-author: LMWF
 ms.topic: conceptual
 ms.date: 6/12/2017
-ms.author: lemai
 ms.custom: devx-track-csharp
 ---
 

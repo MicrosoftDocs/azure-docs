@@ -4,6 +4,7 @@ description: This article describes how to configure the Postgres parameters in 
 author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/30/2021
 ---
@@ -39,7 +40,7 @@ To step through this how-to guide you need:
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png" alt-text="Reset all to default":::
 
 ## Working with time zone parameters
-If you plan to work with date and time data in PostgreSQL, you’ll want to ensure that you’ve set the correct time zone for your location. All timezone-aware dates and times are stored internally in Postgres in UTC. They are converted to local time in the zone specified by the **TimeZone** server parameter before being displayed to the client.  This parameter can be edited on **Server parameters** page as explained above. 
+If you plan to work with date and time data in PostgreSQL, you’ll want to ensure that you’ve set the correct time zone for your location. All timezone-aware dates and times are stored internally in PostgreSQL in UTC. They are converted to local time in the zone specified by the **TimeZone** server parameter before being displayed to the client.  This parameter can be edited on **Server parameters** page as explained above. 
 PostgreSQL allows you to specify time zones in three different forms:
 1. A full time zone name, for example America/New_York. The recognized time zone names are listed in the [**pg_timezone_names**](https://www.postgresql.org/docs/9.2/view-pg-timezone-names.html) view.  
    Example to query this view in psql and get list of time zone names:

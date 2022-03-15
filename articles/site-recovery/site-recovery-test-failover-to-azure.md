@@ -37,7 +37,7 @@ This procedure describes how to run a test failover for a recovery plan. If you 
 4. If you're failing over to Azure and data encryption is enabled, in **Encryption Key**, select the certificate that was issued when you enabled encryption during Provider installation. You can ignore this step if encryption isn't enabled.
 5. Track failover progress on the **Jobs** tab. You should be able to see the test replica machine in the Azure portal.
 6. To initiate an RDP connection to the Azure VM, you need to [add a public IP address](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) on the network interface of the failed over VM. 
-   If you don't want to add a public IP address to the virtual machine, check the recommended alternatives [here](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking#best-practice-control-public-ip-addresses).
+   If you don't want to add a public IP address to the virtual machine, check the recommended alternatives [here](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking#best-practice-control-public-ip-addresses).
 7. When everything is working as expected, click **Cleanup test failover**. This deletes the VMs that were created during test failover.
 8. In **Notes**, record and save any observations associated with the test failover.
 

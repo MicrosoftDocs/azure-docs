@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/22/2021
+ms.date: 01/18/2022
 
 ---
 
@@ -17,9 +17,12 @@ ms.date: 10/22/2021
 
 LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set.
 
-## Multi-language LUIS apps
+## Multilingual LUIS apps
 
-If you need a multi-language LUIS client application such as a chatbot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use the [Translator service](../translator/translator-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
+If you need a multilingual LUIS client application such as a chatbot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use the [Translator service](../translator/translator-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
+
+> [!NOTE]
+> A newer version of Language Understanding capabilities is now available as part of Azure Cognitive Service for Language. For more information, see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities that support multiple languages within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/concepts/multiple-languages.md).
 
 ## Languages supported
 
@@ -31,6 +34,7 @@ LUIS understands utterances in the following languages:
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Dutch |`nl-NL` |✔|-|-|✔|
 | English (United States) |`en-US` | ✔ | ✔  |✔|✔|
+| English (UK) |`en-GB` | ✔ | ✔  |✔|✔|
 | French (Canada) |`fr-CA` |-|-|-|✔|
 | French (France) |`fr-FR` |✔| ✔ |✔ |✔|
 | German |`de-DE` |✔| ✔ |✔ |✔|
@@ -85,6 +89,7 @@ To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossar
 |Chinese||✔||
 |Dutch|✔||✔|
 |English (en-us)|✔ |||
+|English (en-GB)|✔ |||
 |French (fr-FR)|✔|||
 |French (fr-CA)|✔|||
 |German|✔||✔|

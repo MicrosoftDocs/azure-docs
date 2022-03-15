@@ -1,8 +1,8 @@
 ---
 title: Plan an Azure managed application for an Azure application offer
 description: Learn what is required to create a managed application plan for a new Azure application offer using the commercial marketplace portal in Microsoft Partner Center.
-author: aarathin
-ms.author: aarathin
+author: macerru
+ms.author: macerr
 ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

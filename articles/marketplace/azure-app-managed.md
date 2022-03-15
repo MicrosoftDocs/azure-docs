@@ -1,8 +1,8 @@
 ---
 title: Configure a managed application plan
 description: Configure a managed application plan for your Azure application offer in Partner Center (Azure Marketplace). 
-author: aarathin
-ms.author: aarathin
+author: macerru
+ms.author: macerr
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher

@@ -1,11 +1,11 @@
 ---
 title: Create an NFS share - Azure Files
 description: Learn how to create an Azure file share that can be mounted using the Network File System protocol.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 11/16/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---

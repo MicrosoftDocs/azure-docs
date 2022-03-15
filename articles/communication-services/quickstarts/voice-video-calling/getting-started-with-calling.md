@@ -16,8 +16,6 @@ ms.custom: mode-other
 
 Get started with Azure Communication Services by using the Communication Services Calling SDK to add voice and video calling to your app.
 
-[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
-
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 ::: zone pivot="platform-windows"
@@ -45,5 +43,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 For more information, see the following articles:
 
 - Check out our [calling hero sample](../../samples/calling-hero-sample.md)
+- Get started with the [UI Library](https://aka.ms/acsstorybook)
 - Learn about [Calling SDK capabilities]()
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

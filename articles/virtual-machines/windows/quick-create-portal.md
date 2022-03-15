@@ -27,7 +27,8 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Type **virtual machines** in the search.
 1. Under **Services**, select **Virtual machines**.
-1. In the **Virtual machines** page, select **Create** then **Virtual machine**. 
+1. In the **Virtual machines** page, select **Create** and then **Virtual machine**. The **Create a virtual machine** page opens.
+
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name. 
 
     ![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/quick-create-portal/project-details.png)

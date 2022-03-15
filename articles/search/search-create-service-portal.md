@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 01/17/2022
 ---
 
 # Create an Azure Cognitive Search service in the portal
 
-[Azure Cognitive Search](search-what-is-azure-search.md) is an Azure resource used for adding a full text search experience to custom apps. You can integrate it easily with other Azure services that provide data or additional processing, with apps on network servers, or with software running on other cloud platforms.
+[**Azure Cognitive Search**](search-what-is-azure-search.md) is an Azure resource used for adding a full text search experience to custom apps.
 
 You can create search service using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), the [Management REST API](/rest/api/searchmanagement/), or an [Azure Resource Manager service template](https://azure.microsoft.com/resources/templates/azure-search-create/).
 
@@ -167,6 +167,23 @@ Although most customers use just one service, service redundancy might be necess
 > In Azure Cognitive Search, you cannot segregate indexing and querying operations; thus, you would never create multiple services for segregated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
 
 A second service is not required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+
+## Add more services to a subscription
+
+Cognitive Search restricts the [number of resources](search-limits-quotas-capacity.md#subscription-limits) you can initially create in a subscription. If you exhaust your maximum limit, file a new support request to add more search services.
+
+1. Sign in to the Azure portal, and find your search service.
+1. On the left-navigation pane, scroll down and select **New Support Request.**
+1. For **issue type**, choose **Service and subscription limits (quotas).**
+1. Select the subscription that needs more quota.
+1. Under **Quota type**, select **Search**. Then select **Next**.
+1. In the **Problem details** section, select **Enter details**.
+1. Follow the prompts to select location and tier.
+1. Add the new limit you would like on the subscription. The value must not be empty and must between 0 to 100.
+   For example: The maximum number of S2 services is 8 and you would like to have 12 services, then request to add 4 of S2 services."
+1. When you're finished, select **Save and continue** to continue creating your support request.
+1. Complete the rest of the additional information requested, and then select **Next**.
+1. On the **review + create** screen, review the details that you'll send to support, and then select **Create**. 
 
 ## Next steps
 

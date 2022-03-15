@@ -3,7 +3,7 @@ title: Service Connector Troubleshooting Guidance
 description: Error list and suggested actions of Service Connector
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: how-to
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021

@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 05/18/2019
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Explore Java trace logs in Application Insights

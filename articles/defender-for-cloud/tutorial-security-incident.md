@@ -22,7 +22,7 @@ In this tutorial, you will learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
-To step through the features covered in this tutorial, you must have Defender for Cloud's enhanced security features enabled. You can try these at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Get started with Defender for Cloud](get-started.md) walks you through how to upgrade.
+To step through the features covered in this tutorial, you must have Defender for Cloud's enhanced security features enabled. You can try these at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). The quickstart [Get started with Defender for Cloud](get-started.md) walks you through how to upgrade.
 
 
 ## Triage security alerts

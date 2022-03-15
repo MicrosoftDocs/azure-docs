@@ -116,8 +116,7 @@ Now that you've prepared the function app to connect to the service bus namespac
 1. In the root project folder, run the following commands:
 
     ```command
-    dotnet remove package Microsoft.Azure.Webjobs.Extensions.ServiceBus
-    dotnet add package Microsoft.Azure.Webjobs.Extensions.ServiceBus --prerelease
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version 5.2.0
     ```
 
     This replaces the default version of the Service Bus extension package with a version that supports managed identities.

@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Prove Ownership of CA certificates in Azure IoT Hub | Microsoft Docs
 description: Tutorial - Prove that you own a CA certificate for Azure IoT Hub
-author: eross-msft
+author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 06/25/2021
-ms.author: lizross
+ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to show me how to prove that I own the certificate I uploaded to IoT Hub
 ---

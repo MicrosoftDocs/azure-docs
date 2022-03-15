@@ -332,9 +332,9 @@ For Original-Location Recovery (OLR):
 
 **Recommended action:** [Learn](#azure-backup) about the supported operations.
 
-## Scheduler
+## Azure Scheduler
 
-Azure Scheduler is being retired. To create scheduling jobs, you can use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) in global Azure instead.
+Azure Scheduler is fully retired since January 31, 2022.. To create scheduling jobs, use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) in global Azure instead.
 
 For more information:
 

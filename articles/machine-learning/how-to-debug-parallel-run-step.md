@@ -83,11 +83,16 @@ def run(mini_batch):
     return resultList
 ```
 
-If you have another file or folder in the same directory as your inference script, you can reference it by finding the current working directory.
+If you have another file or folder in the same directory as your inference script, you can reference it by finding the current working directory. If you want to import your packages, you can also append your package folder to `sys.path`.
 
 ```python
 script_dir = os.path.realpath(os.path.join(__file__, '..',))
 file_path = os.path.join(script_dir, "<file_name>")
+
+packages_dir = os.path.join(file_path, '<your_package_folder>')
+if packages_dir not in sys.path:
+    sys.path.append(packages_dir)
+from <your_package> import <your_class>
 ```
 
 ### Parameters for ParallelRunConfig

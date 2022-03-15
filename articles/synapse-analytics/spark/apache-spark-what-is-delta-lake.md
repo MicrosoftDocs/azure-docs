@@ -2,12 +2,12 @@
 title: What is Delta Lake 
 description: Overview of Delta Lake and how it works as part of Azure Synapse Analytics
 services: synapse-analytics 
-author: jasonwhowell 
+author: jovanpop-msft
+ms.author: jovanpop
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice: spark
-ms.date: 04/15/2020 
-ms.author: jasonh 
+ms.date: 02/15/2022
 ms.reviewer: euang
 ---
 

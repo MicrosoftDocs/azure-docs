@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 You can enable Azure Arc-enabled servers for one or more of your Windows or Linux virtual machines or physical servers hosted on-premises or other cloud environment that are managed with Azure Automation Update Management. This onboarding process automates the download and installation of the [Connected Machine agent](agent-overview.md). To connect the machines to Azure Arc-enabled servers, an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) is used instead of your privileged identity to [interactively connect](onboard-portal.md) the machine. This service principal is created automatically as part of the onboarding process for these machines.
 
-Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
+Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

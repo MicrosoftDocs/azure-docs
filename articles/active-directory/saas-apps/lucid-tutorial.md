@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Lucid (All Products) | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Lucid (All Products)'
 description: Learn how to configure single sign-on between Azure Active Directory and Lucid (All Products).
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/04/2020
+ms.date: 01/27/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Lucid (All Products)
+# Tutorial: Azure AD SSO integration with Lucid (All Products)
 
 In this tutorial, you'll learn how to integrate Lucid (All Products) with Azure Active Directory (Azure AD). When you integrate Lucid (All Products) with Azure AD, you can:
 
@@ -29,18 +29,20 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Lucid (All Products) single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Lucid (All Products) supports **SP and IDP** initiated SSO
-* Lucid (All Products) supports **Just In Time** user provisioning
+* Lucid (All Products) supports **SP and IDP** initiated SSO.
+* Lucid (All Products) supports **Just In Time** user provisioning.
+
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-
-
-## Adding Lucid (All Products) from the gallery
+## Add Lucid (All Products) from the gallery
 
 To configure the integration of Lucid (All Products) into Azure AD, you need to add Lucid (All Products) from the gallery to your list of managed SaaS apps.
 
@@ -50,7 +52,6 @@ To configure the integration of Lucid (All Products) into Azure AD, you need to 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Lucid (All Products)** in the search box.
 1. Select **Lucid (All Products)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Lucid (All Products)
 
@@ -71,11 +72,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Lucid (All Products)** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
     In the **Reply URL** text box, type a URL using the following pattern:
     `https://lucid.app/saml/sso/<TENANT_NAME>?idpHash=<HASH_ID>`
@@ -95,6 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Lucid (All Products)** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -133,16 +135,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-1. Click on **Test this application** in Azure portal. This will redirect to Lucid (All Products) Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to the Lucid (All Products) sign-on URL where you can initiate the login flow.  
 
-1. Go to Lucid (All Products) Sign-on URL directly and initiate the login flow from there.
+* Go to Lucid (All Products) Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Lucid (All Products) for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Lucid (All Products) for which you set up the SSO.
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Lucid (All Products) tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Lucid (All Products) for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
-
+You can also use Microsoft My Apps to test the application in any mode. When you click the Lucid (All Products) tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Lucid (All Products) for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next Steps
 

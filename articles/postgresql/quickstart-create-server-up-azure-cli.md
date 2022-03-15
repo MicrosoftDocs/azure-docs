@@ -6,37 +6,22 @@ ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 01/25/2022
 ms.custom: devx-track-azurecli, mode-api
 ---
-# Quickstart: Use an Azure CLI command, az postgres up (preview), to create an Azure Database for PostgreSQL - Single Server
-
-> [!IMPORTANT]
-> The [az postgres up](/cli/azure/postgres#az_postgres_up) Azure CLI command is in preview.
+# Quickstart: Use the az postgres up command to create an Azure Database for PostgreSQL - Single Server
 
 Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az postgres up](/cli/azure/postgres#az_postgres_up) command to create an Azure Database for PostgreSQL server using the Azure CLI. In addition to creating the server, the `az postgres up` command creates a sample database, a root user in the database, opens the firewall for Azure services, and creates default firewall rules for the client computer. These defaults help to expedite the development process.
 
-## Prerequisites
-
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-
-This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-You'll need to sign in to your account using the [az login](/cli/azure/authenticate-azure-cli) command. Note the **ID** property from the command output for the corresponding subscription name.
-
-```azurecli
-az login
-```
-
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **subscription ID** property from the **az login** output for your subscription into the subscription ID placeholder.
-
-```azurecli
-az account set --subscription <subscription id>
-```
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create an Azure Database for PostgreSQL server
 
-To use the commands, install the [db-up](/cli/azure/ext/db-up/mysql) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
+
+Install the [db-up](/cli/azure/ext/db-up/mysql) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli
 az extension add --name db-up

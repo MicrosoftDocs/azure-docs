@@ -14,7 +14,7 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This article shows you how to use a private link with a Streaming Endpoint. It's assumed that you already know how to create an [Azure resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal), a [Media Services account](account-create-how-to.md), and an [Azure virtual network](/azure/virtual-network/quick-create-portal).
+This article shows you how to use a private link with a Streaming Endpoint. It's assumed that you already know how to create an [Azure resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md), a [Media Services account](account-create-how-to.md), and an [Azure virtual network](../../virtual-network/quick-create-portal.md).
 
 You'll be creating a private endpoint resource which is a link between a virtual network and a streaming endpoint. This deployment creates a network interface IP address inside the virtual network. The private link allows you to connect the network interface in the private network to the streaming endpoint in the Media Services account. You'll also be creating DNS zones which pass the private IP addresses.
 
@@ -74,7 +74,7 @@ To use the streaming endpoint inside your virtual network, create private DNS zo
 1. Review your settings and make sure they're correct.
 1. Select **Create**. The private endpoint deployment screen appears.
 
-While the deployment is in progress, it's also creating an [Azure Resource Manager (ARM) template](/azure/azure-resource-manager/templates/overview). You can use ARM templates to automate deployment. To see the template, select **Template** from the menu.
+While the deployment is in progress, it's also creating an [Azure Resource Manager (ARM) template](../../azure-resource-manager/templates/overview.md). You can use ARM templates to automate deployment. To see the template, select **Template** from the menu.
 
 ## Clean up resources
 

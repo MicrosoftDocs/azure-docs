@@ -295,6 +295,6 @@ You can manage Azure SQL Database auditing using [Azure Resource Manager](../../
 
 ## See also
 
-- Data Exposed episode [What's New in Azure SQL Auditing](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-in-Azure-SQL-Auditing) on Channel 9.
+- Data Exposed episode [What's New in Azure SQL Auditing](/Shows/Data-Exposed/Whats-New-in-Azure-SQL-Auditing) on Channel 9.
 - [Auditing for SQL Managed Instance](../managed-instance/auditing-configure.md)
 - [Auditing for SQL Server](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)

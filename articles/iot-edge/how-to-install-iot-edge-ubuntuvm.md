@@ -1,6 +1,6 @@
 ---
 title: Run Azure IoT Edge on Ubuntu Virtual Machines | Microsoft Docs
-description: Azure IoT Edge setup instructions for Ubuntu 18.04 LTS Virtual Machines
+description: Azure IoT Edge setup instructions for Ubuntu LTS Virtual Machines
 author: toolboc
 manager: veyalla
 # this is the PM responsible
@@ -8,7 +8,7 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 01/20/2022
 ms.author: pdecarlo 
 
 ---
@@ -20,9 +20,14 @@ The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The r
 
 To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-This article lists the steps to deploy an Ubuntu 18.04 LTS virtual machine with the Azure IoT Edge runtime installed and configured using a pre-supplied device connection string. The deployment is accomplished using a [cloud-init](../virtual-machines/linux/using-cloud-init.md) based [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) maintained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) project repository.
+:::moniker range="iotedge-2018-06"
+This article lists the steps to deploy an Ubuntu 18.04 LTS virtual machine with the Azure IoT Edge runtime installed and configured using a pre-supplied device connection string. The deployment is accomplished using a [cloud-init](../virtual-machines/linux/using-cloud-init.md) based [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) maintained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/master) project repository.
+:::moniker-end
+:::moniker range=">=iotedge-2020-11"
+This article lists the steps to deploy an Ubuntu 20.04 LTS virtual machine with the Azure IoT Edge runtime installed and configured using a pre-supplied device connection string. The deployment is accomplished using a [cloud-init](../virtual-machines/linux/using-cloud-init.md) based [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) maintained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.2) project repository.
+:::moniker-end
 
-On first boot, the Ubuntu 18.04 LTS virtual machine [installs the latest version of the Azure IoT Edge runtime via cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt). It also sets a supplied connection string before the runtime starts, allowing you to easily configure and connect the IoT Edge device without the need to start an SSH or remote desktop session.
+On first boot, the virtual machine [installs the latest version of the Azure IoT Edge runtime via cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt). It also sets a supplied connection string before the runtime starts, allowing you to easily configure and connect the IoT Edge device without the need to start an SSH or remote desktop session.
 
 ## Deploy using Deploy to Azure Button
 
@@ -32,36 +37,35 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
    :::moniker range="iotedge-2018-06"
    [![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
    :::moniker-end
-   :::moniker range="iotedge-2020-11"
-   [![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2F1.2.0%2FedgeDeploy.json)
+   :::moniker range=">=iotedge-2020-11"
+   [![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2F1.2%2FedgeDeploy.json)
    :::moniker-end
 
 1. On the newly launched window, fill in the available form fields:
 
     > [!div class="mx-imgBorder"]
+
+   :::moniker range="iotedge-2018-06"
     > [![Screenshot showing the iotedge-vm-deploy template](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
+   :::moniker-end
+   :::moniker range=">=iotedge-2020-11"
+    > [![Screenshot showing the iotedge-vm-deploy template](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy-ubuntu2004.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy-ubuntu2004.png)
+   :::moniker-end
 
-    **Subscription**: The active Azure subscription to deploy the virtual machine into.
+   | Field | Description |
+   | --------- | ----------- |
+   | **Subscription** | The active Azure subscription to deploy the virtual machine into. |
+   | **Resource group** | An existing or newly created Resource Group to contain the virtual machine and it's associated resources. |
+   | **Region** | The [geographic region](https://azure.microsoft.com/global-infrastructure/locations/) to deploy the virtual machine into, this value defaults to the location of the selected Resource Group. |
+   | **DNS Label Prefix** | A required value of your choosing that is used to prefix the hostname of the virtual machine. |
+   | **Admin Username** | A username, which will be provided root privileges on deployment. |
+   | **Device Connection String** | A [device connection string](./how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md). |
+   | **VM Size** | The [size](../cloud-services/cloud-services-sizes-specs.md) of the virtual machine to be deployed. |
+   | **Ubuntu OS Version** | The version of the Ubuntu OS to be installed on the base virtual machine. |
+   | **Authentication Type** | Choose **sshPublicKey** or **password** depending on your preference. |
+   | **Admin Password or Key** | The value of the SSH Public Key or the value of the password depending on the choice of Authentication Type. |
 
-    **Resource group**: An existing or newly created Resource Group to contain the virtual machine and it's associated resources.
-
-    **DNS Label Prefix**: A required value of your choosing that is used to prefix the hostname of the virtual machine.
-
-    **Admin Username**: A username, which will be provided root privileges on deployment.
-
-    **Device Connection String**: A [device connection string](./how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md).
-
-    **VM Size**: The [size](../cloud-services/cloud-services-sizes-specs.md) of the virtual machine to be deployed
-
-    **Ubuntu OS Version**: The version of the Ubuntu OS to be installed on the base virtual machine.
-
-    **Location**: The [geographic region](https://azure.microsoft.com/global-infrastructure/locations/) to deploy the virtual machine into, this value defaults to the location of the selected Resource Group.
-
-    **Authentication Type**: Choose **sshPublicKey** or **password** depending on your preference.
-
-    **Admin Password or Key**: The value of the SSH Public Key or the value of the password depending on the choice of Authentication Type.
-
-    When all fields have been filled in, select the checkbox at the bottom of the page to accept the terms and select **Purchase** to begin the deployment.
+    When all fields have been filled in, click the button at the bottom to move to `Next : Review + create` where you can review the terms and click **Create** to begin the deployment.
 
 1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name, this should be in the format `vm-0000000000000`. Also, take note of the associated **DNS Name**, which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
@@ -140,13 +144,13 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
    --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
    ```
    :::moniker-end
-   :::moniker range="iotedge-2020-11"
+   :::moniker range=">=iotedge-2020-11"
    To use an **authenticationType** of `password`, see the example below:
 
    ```azurecli-interactive
    az deployment group create \
    --resource-group IoTEdgeResources \
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2/edgeDeploy.json" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
@@ -163,7 +167,7 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
    #Create a VM using the iotedge-vm-deploy script
    az deployment group create \
    --resource-group IoTEdgeResources \
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2/edgeDeploy.json" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \

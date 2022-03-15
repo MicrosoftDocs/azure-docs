@@ -1,13 +1,13 @@
 ---
 title: Deploy to Azure button
-description: Use button to deploy Azure Resource Manager templates from a GitHub repository.
+description: Use button to deploy remote Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 12/03/2021
+ms.date: 02/15/2022
 ---
 
-# Use a deployment button to deploy templates from GitHub repository
+# Use a deployment button to deploy remote templates
 
-This article describes how to use the **Deploy to Azure** button to deploy ARM JSON templates from a GitHub repository. You can add the button directly to the _README.md_ file in your GitHub repository. Or, you can add the button to a web page that references the repository. This method doesn't support [Bicep files](../bicep/overview.md).
+This article describes how to use the **Deploy to Azure** button to deploy remote ARM JSON templates from a GitHub repository or an Azure storage account. You can add the button directly to the _README.md_ file in your GitHub repository. Or, you can add the button to a web page that references the repository. This method doesn't support deploying remote [Bicep files](../bicep/overview.md).
 
 The deployment scope is determined by the template schema. For more information, see:
 
@@ -15,6 +15,8 @@ The deployment scope is determined by the template schema. For more information,
 - [subscriptions](deploy-to-subscription.md)
 - [management groups](deploy-to-management-group.md)
 - [tenants](deploy-to-tenant.md)
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Use common image
 
@@ -34,7 +36,11 @@ The image appears as:
 
 ## Create URL for deploying template
 
-To create the URL for your template, start with the raw URL to the template in your repo. To see the raw URL, select **Raw**.
+This section shows how to get the URLs for the templates stored in GitHub and Azure storage account, and how to format the URLs.
+
+### Template stored in GitHub
+
+To create the URL for your template, start with the raw URL to the template in your GitHub repo. To see the raw URL, select **Raw**.
 
 :::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="select Raw":::
 
@@ -44,7 +50,37 @@ The format of the URL is:
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
 ```
 
-Then, convert the URL to a URL-encoded value. You can use an online encoder or run a command. The following PowerShell example shows how to URL encode a value.
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
+
+If you're using [Git with Azure Repos](/azure/devops/repos/git/) instead of a GitHub repo, you can still use the **Deploy to Azure** button. Make sure your repo is public. Use the [Items operation](/rest/api/azure/devops/git/items/get) to get the template. Your request should be in the following format:
+
+```http
+https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
+```
+
+## Template stored in Azure storage account
+
+The format of the URLs for the templates stored in a public container is:
+
+```html
+https://{storage-account-name}.blob.core.windows.net/{container-name}/{template-file-name}
+```
+
+For example:
+
+```html
+https://demostorage0215.blob.core.windows.net/democontainer/azuredeploy.json
+```
+
+You can secure the template with SAS token. For more information, see [How to deploy private ARM template with SAS token](./secure-template-with-sas-token.md). The following url is an example with SAS token:
+
+```html
+https://demostorage0215.blob.core.windows.net/privatecontainer/azuredeploy.json?sv=2019-07-07&sr=b&sig=rnI8%2FvKoCHmvmP7XvfspfyzdHjtN4GPsSqB8qMI9FAo%3D&se=2022-02-16T17%3A47%3A46Z&sp=r
+```
+
+## Format the URL
+
+Once you have the URL, you need to convert the URL to a URL-encoded value. You can use an online encoder or run a command. The following PowerShell example shows how to URL encode a value.
 
 ```powershell
 $url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
@@ -70,16 +106,6 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 ```
 
 You have your full URL for the link.
-
-[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
-
-If you're using [Git with Azure Repos](/azure/devops/repos/git/) instead of a GitHub repo, you can still use the **Deploy to Azure** button. Make sure your repo is public. Use the [Items operation](/rest/api/azure/devops/git/items/get) to get the template. Your request should be in the following format:
-
-```http
-https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
-```
-
-Encode this request URL.
 
 ## Create Deploy to Azure button
 

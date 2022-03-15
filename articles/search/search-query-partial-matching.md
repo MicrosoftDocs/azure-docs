@@ -208,6 +208,7 @@ The following example illustrates a custom analyzer that provides the keyword to
 "tokenizers":[],
 "charFilters": [],
 "tokenFilters": []
+}
 ```
 
 > [!NOTE]
@@ -276,6 +277,7 @@ As you can imagine, the additional tokenization results in a larger index. If yo
   "side": "front"
   }
 ]
+}
 ```
 
 ## Next steps

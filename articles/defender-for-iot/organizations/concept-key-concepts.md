@@ -32,6 +32,30 @@ Engines identify security issues via continuous monitoring and five analytics en
 - **Anomaly detection**: Detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the engine uses a patented technique called Industrial Finite State Modeling (IFSM). The solution requires a shorter learning period than generic mathematical approaches or analytics, which were originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives.
 
 - **Operational incident detection**: Identifies operational issues such as intermittent connectivity that can indicate early signs of equipment failure.
+ 
+Tools are available to enable and disable sensor engines. Alerts are not triggered from engines that are disabled. See [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md).
+ 
+You can fine-tune detection instructions by working with Smart IT learning. See  [Learning and Smart IT Learning modes](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
+
+## Detection engines and alerts 
+
+Alerts are triggered when sensor engines detect changes in network traffic and behavior that need your attention. This section describes the kind of alerts that each engine triggers.
+
+| Alert type | Description |
+|-|-|
+| Policy violation alerts | Triggered when the Policy Violation engine detects a deviation from traffic previously learned. For example: <br /> - A new device is detected.  <br /> - A new configuration is detected on a device. <br /> - A device not defined as a programming device carries out a programming change. <br /> - A firmware version changed. |
+| Protocol violation alerts | Triggered when the Protocol Violation engine detects packet structures or field values that don't comply with the protocol specification. | 
+| Operational alerts | Triggered when the Operational engine detects network operational incidents or a device malfunctioning. For example, a network device was stopped through a Stop PLC command, or an interface on a sensor stopped monitoring traffic. |
+| Malware alerts | Triggered when the Malware engine detects malicious network activity. For example, the engine detects a known attack such as Conficker. |
+| Anomaly alerts | Triggered when the Anomaly engine detects a deviation. For example, a device is performing network scans but is not defined as a scanning device. |
+ 
+For more alert information, see:
+
+- [Manage the alert event](how-to-manage-the-alert-event.md)
+
+- [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+
+- [Alert types and descriptions](alert-engine-messages.md)
 
 ## Network Traffic Analysis for risk and vulnerability assessment
 
@@ -66,7 +90,7 @@ Defender for IoT enables the effective management of multiple deployments and a 
 
 The on-premises management console is a web-based administrative platform that lets you monitor and control the activities of global sensor installations. In addition to managing the data received from deployed sensors, the on-premises management console seamlessly integrates data from various business resources: CMDBs, DNS, firewalls, Web APIs, and more.
 
-:::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="On-premises management console display.":::
+:::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="On-premises management console display." lightbox="media/concept-air-gapped-networks/site-management-alert-screen.png":::
 
 We recommend that you familiarize yourself with the concepts, capabilities, and features available to sensors before working with the on-premises management console.
 

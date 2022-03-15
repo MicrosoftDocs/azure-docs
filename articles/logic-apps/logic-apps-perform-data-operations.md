@@ -1,10 +1,10 @@
 ---
 title: Perform operations on data
-description: Convert, manage, and manipulate data outputs and formats in Azure Logic Apps
+description: Convert, manage, and manipulate data outputs and formats in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 05/11/2021
 ---
 

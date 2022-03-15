@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 01/06/2022
+ms.date: 01/11/2022
 ms.author: bemabonsu
 recommendations: false
 #Customer intent: As a form-processing software developer, I want to learn how to use the Form Recognizer service with Logic Apps.
@@ -15,13 +15,18 @@ recommendations: false
 
 # Tutorial: Use Azure Logic Apps with Form Recognizer
 
+> [!IMPORTANT]
+>
+> This tutorial and the Logic App Form Recognizer connector targets Form Recognizer REST API v2.1. 
+
+
 Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. A Logic App is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a Logic App:
 
 * Create business processes and workflows visually.
 * Integrate workflows with software as a service (SaaS) and enterprise applications.
 * Automate enterprise application integration (EAI), business-to-business(B2B), and electronic data interchange (EDI) tasks.
 
-For more information, *see* [Logic Apps Overview](/azure/logic-apps/logic-apps-overview).
+For more information, *see* [Logic Apps Overview](../../logic-apps/logic-apps-overview.md).
 
  In this tutorial, you'll learn how to build a Logic App connector flow to automate the following tasks:
 
@@ -33,11 +38,11 @@ For more information, *see* [Logic Apps Overview](/azure/logic-apps/logic-apps-o
 
 ## Prerequisites
 
-To complete this tutorial, you'll need the following:
+To complete this tutorial, You'll need the following resources:
 
 * **An Azure subscription**. You can [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
 
-* **A Form Recognizer resource**.  Once you have your Azure subscription, [create a Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Form Recognizer resource, navigate directly to your resource page. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+* **A Form Recognizer resource**.  Once you have your Azure subscription, [create a Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Form Recognizer resource, navigate directly to your resource page. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
   1. After the resource deploys, select **Go to resource**.
 
@@ -90,7 +95,7 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
    * **Subscription**. Select your current subscription.
    * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. Choose the same resource group you have for your Form Recognizer resource.
-   * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](/azure/logic-apps/logic-apps-pricing#consumption-pricing).
+   * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing).
    * **Logic App name**. Enter a name for your resource. We recommend using a descriptive name, for example *YourNameLogicApp*.
    * **Region**. Select your local region.
    * **Enable log analytics**. For this project, select **No**.
@@ -211,7 +216,7 @@ Now that we've created the flow, the last thing to do is to test it and make sur
 
 1. Check your email and you should see a new email with the information we pre-specified.
 
-1. Be sure to [disable or delete](/azure/logic-apps/manage-logic-apps-with-azure-portal#disable-or-enable-a-single-logic-app) your logic App after you're done so usage stops.
+1. Be sure to [disable or delete](../../logic-apps/manage-logic-apps-with-azure-portal.md#disable-or-enable-a-single-logic-app) your logic App after you're done so usage stops.
 
 Congratulations! You've officially completed this tutorial.
 

@@ -81,7 +81,7 @@ Here is the flow of events in a typical scenario:
 
 -  The Resource Guard and the Recovery Services vault must be in the same Azure region.
 -  As stated in the previous section, ensure the Backup admin does **not** have **Contributor** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
-- Ensure that your subscriptions containing the Recovery Services vault as well as the Resource Guard (in different subscriptions or tenants) are registered to use the **Microsoft.RecoveryServices** provider. For more details, see [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).
+- Ensure that your subscriptions containing the Recovery Services vault as well as the Resource Guard (in different subscriptions or tenants) are registered to use the **Microsoft.RecoveryServices** provider. For more details, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
 
 ## Usage scenarios
 
@@ -158,6 +158,8 @@ Now that the Backup admin has the Reader role on the Resource Guard, they can ea
 
 1. Go to the Recovery Services vault. Navigate to **Properties** on the left navigation panel, then to **Multi-User Authorization** and click **Update**.
 
+   :::image type="content" source="./media/multi-user-authorization/test-vault-properties.png" alt-text="Screenshot showing the Recovery services vault-properties.":::
+
 1. Now you are presented with the option to enable MUA and choose a Resource Guard using one of the following ways:
 
    1. You can either specify the URI of the Resource Guard, make sure you specify the URI of a Resource Guard you have **Reader** access to and that is the same regions as the vault. You can find the URI (Resource Guard ID) of the Resource Guard in its **Overview** screen:
@@ -190,6 +192,8 @@ Depicted below is an illustration of what happens when the Backup admin tries to
 1. Disable the soft delete using the slider. You are informed that this is a protected operation, and you need to verify their access to the Resource Guard.
 1. Select the directory containing the Resource Guard and Authenticate yourself. This step may not be required if the Resource Guard is in the same directory as the vault.
 1. Proceed to click **Save**. The request fails with an error informing them about not having sufficient permissions on the Resource Guard to let you perform this operation.
+
+   :::image type="content" source="./media/multi-user-authorization/test-vault-properties-security-settings-inline.png" alt-text="Screenshot showing the Test Vault properties security settings." lightbox="./media/multi-user-authorization/test-vault-properties-security-settings-expanded.png":::
 
 ## Authorize critical (protected) operations using Azure AD Privileged Identity Management
 
@@ -272,6 +276,10 @@ Once the Backup admin’s request for the Contributor role on the Resource Guard
 >[!NOTE]
 > If the access was assigned using a JIT mechanism, the Contributor role is retracted at the end of the approved period. Else, the Security admin manually removes the **Contributor** role assigned to the Backup admin to perform the critical operation.
 
+The following screenshot shows an example of disabling soft delete for an MUA-enabled vault.
+
+:::image type="content" source="./media/multi-user-authorization/disable-soft-delete-inline.png" alt-text="Screenshot showing to disable soft delete." lightbox="./media/multi-user-authorization/disable-soft-delete-expanded.png":::
+
 ## Disable MUA on a Recovery Services vault
 
 Disabling MUA is a protected operation, and hence, is protected using MUA. This means that the Backup admin must have the required Contributor role in the Resource Guard. Details on obtaining this role are described here. Following is a summary of steps to disable MUA on a vault.
@@ -282,3 +290,5 @@ Disabling MUA is a protected operation, and hence, is protected using MUA. This 
    1. Uncheck the Protect with Resource Guard check box
    1. Choose the Directory that contains the Resource Guard and verify access using the Authenticate button (if applicable).
    1. After **authentication**, click **Save**. With the right access, the request should be successfully completed.
+   
+   :::image type="content" source="./media/multi-user-authorization/disable-mua.png" alt-text="Screenshot showing to disable multi-user authentication.":::

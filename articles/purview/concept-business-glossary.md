@@ -36,7 +36,7 @@ Azure Purview supports eight out-of-the-box attributes for any business glossary
 - Related terms
 - Resources
 
-These attributes cannot be edited or deleted. However, these attributes are not sufficient to completely define a term in an organization. To solve this problem, Purview provides a feature where you can define custom attributes for your glossary.
+These attributes cannot be edited or deleted. However, these attributes are not sufficient to completely define a term in an organization. To solve this problem, Azure Purview provides a feature where you can define custom attributes for your glossary.
 
 ## Term templates
 
@@ -59,11 +59,11 @@ Classifications are annotations that can be assigned to entities. The flexibilit
 - understanding the nature of data stored in the data assets
 - defining access control policies
 
-Purview has more than 200 system classifiers today and you can define your own classifiers in catalog. As part of the scanning process, we automatically detect these classifications and apply them to data assets and schemas. However, you can override them at any point of time. The human overrides are never replaced by automated scans.
+Azure Purview has more than 200 system classifiers today and you can define your own classifiers in catalog. As part of the scanning process, we automatically detect these classifications and apply them to data assets and schemas. However, you can override them at any point of time. The human overrides are never replaced by automated scans.
 
 ### Sensitivity labels
 
-Sensitivity labels are a type of annotation that allows you to classify and protect your organization's data, without hindering productivity and collaboration. Sensitivity labels are used to identify the categories of classification types within your organizational data, and group the policies that you wish to apply to each category. Purview makes use of the same sensitive information types as Microsoft 365, which allows you to stretch your existing security policies and protection across your entire content and data estate. The same labels can be shared across Microsoft Office products and data assets in Purview.
+Sensitivity labels are a type of annotation that allows you to classify and protect your organization's data, without hindering productivity and collaboration. Sensitivity labels are used to identify the categories of classification types within your organizational data, and group the policies that you wish to apply to each category. Azure Purview makes use of the same sensitive information types as Microsoft 365, which allows you to stretch your existing security policies and protection across your entire content and data estate. The same labels can be shared across Microsoft Office products and data assets in Azure Purview.
 
 ## Next steps
 
