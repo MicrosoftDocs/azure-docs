@@ -223,7 +223,7 @@ The following table describes the columns and data generated in the *SentinelHea
 | **RecordId**      | String         | A unique identifier for the record that can be shared with the support team for better correlation as needed.                |
 | **ExtendedProperties**        | Dynamic (json) | A JSON bag that varies by the [OperationName](#operationname) value and the [Status](#status) of the event: <br><br>- For `Data fetch status change` events with a success indicator, the bag contains a ‘DestinationTable’ property to indicate where data from this connector is expected to land. For failures, the contents vary depending on the failure type.    |
 | **Type**          | String         | `SentinelHealth`                         |
-| | | |
+
 
 ## Next steps
 

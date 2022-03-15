@@ -27,7 +27,7 @@ The script in this article demonstrates creating a Gremlin database and graph.
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/create.sh" range="4-55":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/create.sh" id="FullScript":::
 
 ## Clean up resources
 

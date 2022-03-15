@@ -25,7 +25,7 @@ The script in this article creates a Gremlin database with shared throughput and
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/throughput.sh" range="4-93":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/throughput.sh" id="FullScript":::
 
 ## Clean up resources
 

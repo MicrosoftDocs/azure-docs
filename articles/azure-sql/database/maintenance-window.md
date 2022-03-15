@@ -125,7 +125,7 @@ Choosing a maintenance window other than the default is currently available in t
 | West US | Yes | Yes |  |
 | West US 2 | Yes | Yes | Yes |
 | West US 3 | Yes | | |
-| | | | | 
+
 
 ## Gateway maintenance
 
