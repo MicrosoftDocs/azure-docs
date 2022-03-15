@@ -52,13 +52,13 @@ Complete the following prerequisites to successfully walk through this guide.
 
 Azure Active Directory (Azure AD) implements OpenID Connect (OIDC). OIDC lets you use Azure AD to sign in to the ARO cluster. Follow the steps in [Configure Azure Active Directory authentication](configure-azure-ad-cli.md) to set up your cluster.
 
-After you complete the setup, sign ino the cluster with an Azure AD user.
+After you complete the setup, return to this document and sign in to the cluster with an Azure AD user.
 
 1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user. We'll leverage the OpenShift OpenID authentication against Azure Active Directory to use OpenID to define the administrator.
 
    1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console. The window will look different after having enabled OIDC.
    
-   :::image type="content" source="media/built-in-container-registry/oidc-enabled-login-window.png" alt-text="OpenID Connect enabled sign in window.":::
+      :::image type="content" source="media/built-in-container-registry/oidc-enabled-login-window.png" alt-text="OpenID Connect enabled sign in window.":::
    1. Select **openid**
 
    > [!NOTE]
