@@ -121,7 +121,6 @@ For a tutorial on how to grant these roles, see [Tutorial: Create and utilize Az
 - Changing permissions on specific Azure AD login object isn't supported:
   - `GRANT <PERMISSION> ON LOGIN :: <Azure AD account> TO <Any other login> `
 - When permissions are altered for an Azure AD login with existing open connections to an Azure SQL Database, permissions aren't effective until the user reconnects. Also [flush the authentication cache and the TokenAndPermUserStore cache](#disable-or-enable-a-login-using-alter-login-syntax). This applies to server role membership change using the [ALTER SERVER ROLE](/sql/t-sql/statements/alter-server-role-transact-sql) statement. 
-- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) doesn't display the login names in **Object Explorer**.
 - Setting an Azure AD login mapped to an Azure AD group as the database owner isn't supported.
 - [Azure SQL Database server roles](security-server-roles.md) aren't supported for Azure AD groups.
 
