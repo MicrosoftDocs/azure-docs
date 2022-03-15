@@ -10,7 +10,7 @@ ms.date: 03/10/2022
 
 # Dapr integration with Azure Container Apps
 
-With Azure Container Apps, you get a fully managed version of [Dapr][dapr-concepts] (Distributed Application Runtime) APIs that simplify microservice development and implementation. Dapr is an incrementally adoptable set of APIs that makes it easy for you to write distributed applications. When you use Dapr in Azure Container Apps, leveraging the sidecar pattern, Dapr provides HTTP and gRPC APIs that solve common distributed app challenges, such as:
+With Azure Container Apps, you get a fully managed version of [Dapr][dapr-concepts] (Distributed Application Runtime) APIs that simplify microservice development and implementation. Dapr is an incrementally adoptable set of APIs that makes it easy for you to write distributed applications. When you use Dapr in Azure Container Apps, using the sidecar pattern, Dapr provides HTTP and gRPC APIs that solve common distributed app challenges, such as:
 
 - [Service to Service calls][dapr-serviceinvo] 
     - mTLS authentication / encryption
@@ -51,16 +51,16 @@ Dapr enables mTLS with no extra code or complex configuration inside your produc
 
 #### Resiliency / retries
 
-Dapr service invocation performs automatic retries with back-off time periods in the event of errors like: 
+Dapr service invocation performs automatic retries with back-off time periods with errors like: 
 
 - Network errors, including endpoint unavailability and refused connections.
 - Authentication errors, due to a renewing certificate on the calling/callee Dapr sidecars.
 
-Per-call retries are performed with a back-off interval of 1 second up to a threshold of 3 times. Connection establishment via gRPC to the target sidecar has a timeout of 5 seconds.
+Per-call retries are performed with a back-off interval of one second up to a threshold of three times. Connection establishment via gRPC to the target sidecar has a timeout of five seconds.
 
 #### Service discovery
 
-Dapr can run on a variety of hosting platforms. To enable service discovery and service invocation, Dapr uses pluggable [name resolution components][dapr-pluggable].
+Dapr can run on various hosting platforms. To enable service discovery and service invocation, Dapr uses pluggable [name resolution components][dapr-pluggable].
 
 [Learn more about Dapr's Service Invocation capabilities.][dapr-serviceinvo]
 
