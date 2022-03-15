@@ -2,10 +2,8 @@
 title: 'Time Series Insights Gen2 migration to Azure Data Explorer | Microsoft Docs'
 description: How to migrate Azure Time Series Insights Gen 2 environments to Azure Data Explorer.
 ms.service: time-series-insights
-services: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
-manager: 
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 3/15/2022
@@ -196,14 +194,14 @@ The command generated from One-Click tool includes a SAS token. It’s best to g
 1. `Option 2: Ingest Data by Year or Month`. For larger environments or to test on a smaller data set you can filter the Lightingest command further.
     1. By Year
         > Change your -prefix parameter
-	    >    Before: -prefix:"V=1/PT=Time"
-	    >    After: -prefix:"V=1/PT=Time/Y=<Year>"
-    	>    Example: -prefix:"V=1/PT=Time/Y=2021"
+	    > Before: `-prefix:"V=1/PT=Time"`
+	    > After: `-prefix:"V=1/PT=Time/Y=<Year>"`
+    	    > Example: `-prefix:"V=1/PT=Time/Y=2021"`
      1. By Month
         > Change your -prefix parameter
-	    >    Before: -prefix:"V=1/PT=Time"
-    	>    After: -prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"
-	    >    Example: -prefix:"V=1/PT=Time/Y=2021/M=03"
+	    > Before: `-prefix:"V=1/PT=Time"`
+    	    > After: `-prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"`
+	    > Example: `-prefix:"V=1/PT=Time/Y=2021/M=03"`
 
 Once you’ve modified the command, execute it like above. One the ingestion is complete (using monitoring option below) modify the command for the next year and month you want to ingest.
 
