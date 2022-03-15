@@ -171,7 +171,7 @@ You can deploy trusted launch VMs using a quickstart template:
 11. On the **VM image version** page, select the **+ Create VM** to land on the Create a virtual machine page.
 12. In the Create a virtual machine page, under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
 13. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#limitations).
-14. Note that the image and the security type are already populated based on the selected image version. The **Secure Boot** and **vTPM** checkboxes are enabled by default.
+14. The image and the security type are already populated based on the selected image version. The **Secure Boot** and **vTPM** checkboxes are enabled by default.
 15. Fill in the **Administrator account** information and then **Inbound port rules**.
 16. At the bottom of the page, select **Review + Create**
 17. On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
