@@ -148,7 +148,7 @@ If there's a firewall between your servers and Azure AD, configure the following
 
 #### [Public Cloud](#tab/public-cloud)
 
-```
+
      |URL |How it's used|
      |-----|-----|
      |&#42;.msappproxy.net</br>&#42;.servicebus.windows.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
@@ -156,8 +156,7 @@ If there's a firewall between your servers and Azure AD, configure the following
      |`mscrl.microsoft.com:80` </br>`crl.microsoft.com:80` </br>`ocsp.msocsp.com:80` </br>`www.microsoft.com:80`| The agent uses these URLs to verify certificates.|
      |login.windows.net</br>|The agent uses these URLs during the registration process.
 
-- If you are unable to add connections, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
-```
+
 
 #### [U.S. Government Cloud](#tab/us-government-cloud)
 
@@ -188,6 +187,7 @@ login.live.com
 ```
 
 
+- If you are unable to add connections, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
 
 
 
