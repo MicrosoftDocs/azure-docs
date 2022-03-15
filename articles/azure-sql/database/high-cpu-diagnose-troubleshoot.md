@@ -388,3 +388,4 @@ Learn more about monitoring and performance tuning Azure SQL Database in the fol
 * [Query processing architecture guide](/sql/relational-databases/query-processing-architecture-guide)
 * [Best practices with Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store)
 * [Detectable types of query performance bottlenecks in Azure SQL Database](../identify-query-performance-issues.md)
+* [Analyze and prevent deadlocks in Azure SQL Database](analyze-prevent-deadlocks.md)

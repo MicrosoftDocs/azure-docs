@@ -745,6 +745,15 @@ ORDER BY 2 DESC;
 
 Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in database. For example code, see [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql). For more information on troubleshooting blocking, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 
+### Monitoring deadlocks
+
+In some cases, two or more queries may mutually block one another, resulting in a deadlock. 
+
+
+The [sys.fn_xe_telemetry_blob_target_read_file](/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql) dynamic management function returns information regarding recent deadlock graphs for a database in Azure SQL Database. Learn more in [Analyze and prevent deadlocks in Azure SQL Database](analyze-prevent-deadlocks.md).
+
+For Azure SQL Managed Instance, refer to the [Deadlocks](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#deadlock_tools) of the [Transaction locking and row versioning guide](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide).
+
 ### Monitoring query plans
 
 An inefficient query plan also may increase CPU consumption. The following example uses the [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql) view to determine which query uses the most cumulative CPU.
@@ -769,8 +778,12 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## See also
+## Next steps
+
+Learn more about related concepts in the following articles:
 
 - [Introduction to Azure SQL Database and Azure SQL Managed Instance](sql-database-paas-overview.md)
 - [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)
 - [Tune applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance](performance-guidance.md)
+- [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md)
+- [Analyze and prevent deadlocks in Azure SQL Database](analyze-prevent-deadlocks.md)
