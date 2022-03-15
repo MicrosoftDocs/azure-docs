@@ -34,7 +34,7 @@ https://github.com/MicrosoftDocs/pipelines-javascript-docker
 
 ## Create the Azure resources
 
-Sign in to the [Azure Portal](https://portal.azure.com/), and then select the [Cloud Shell](/azure/cloud-shell/overview) button in the upper-right corner.
+Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](/azure/cloud-shell/overview) button in the upper-right corner.
 
 
 ### Create a container registry
@@ -243,7 +243,7 @@ https://github.com/MicrosoftDocs/pipelines-javascript-docker
 
 ## Create the Azure resources
 
-Sign in to the [Azure Portal](https://portal.azure.com/), and then select the [Cloud Shell](/azure/cloud-shell/overview) button in the upper-right corner.
+Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](/azure/cloud-shell/overview) button in the upper-right corner.
 
 ### Create a container registry
 
@@ -284,7 +284,7 @@ It also packaged and published a Helm chart as an artifact. In the release pipel
 
 1. In the build summary, choose the **Release** icon to start a new release pipeline.
 
-   If you have previously created a release pipeline that uses these build artifacts, you will
+   If you've previously created a release pipeline that uses these build artifacts, you'll
    be prompted to create a new release instead. In that case, go to the **Releases** page and
    start a new release pipeline from there by choosing the **+** icon.
 
@@ -301,12 +301,12 @@ It also packaged and published a Helm chart as an artifact. In the release pipel
    - **Connection Type**: Select **Azure Resource Manager** to connect to an AKS cluster by using
      an Azure service connection. Alternatively, if you want to connect to any Kubernetes
      cluster by using kubeconfig or a service account, you can select **Kubernetes Service Connection**.
-     In this case, you will need to create and select a Kubernetes service connection instead of
+     In this case, you'll need to create and select a Kubernetes service connection instead of
      an Azure subscription for the following setting.
  
    - **Azure subscription**: Select a connection from the list under **Available Azure Service Connections** or create a more restricted permissions connection to your Azure subscription.
      If you see an **Authorize** button next to the input, use it to authorize the connection to your Azure subscription.
-     If you do not see the required Azure subscription in the list of subscriptions, see [Create an Azure service connection](/azure/devops/library/connect-to-azure) to manually set up the connection.
+     If you don't see the required Azure subscription in the list of subscriptions, see [Create an Azure service connection](/azure/devops/library/connect-to-azure) to manually set up the connection.
 
    - **Resource group**: Enter or select the resource group containing your AKS cluster.  
    
@@ -315,7 +315,7 @@ It also packaged and published a Helm chart as an artifact. In the release pipel
    - **Command**: Select **init** as the Helm command. This will install Tiller to your running Kubernetes cluster.
      It will also set up any necessary local configuration.
      Tick **Use canary image version** to install the latest pre-release version of Tiller.
-     You could also choose to upgrade Tiller if it is pre-installed by ticking **Upgrade Tiller**.
+     You could also choose to upgrade Tiller if it's pre-installed by ticking **Upgrade Tiller**.
      If these options are enabled, the task will run `helm init --canary-image --upgrade`
    
 1. Choose **+** in the **Agent job** and add another **Package and deploy Helm charts** task.
@@ -330,14 +330,14 @@ It also packaged and published a Helm chart as an artifact. In the release pipel
 
    - **Command**: Select **upgrade** as the Helm command.
      You can run any Helm command using this task and pass in command options as arguments.
-     When you select the **upgrade**, the task shows some additional fields:
+     When you select the **upgrade**, the task shows some more fields:
 
      * **Chart Type**: Select **File Path**. Alternatively, you can specify **Chart Name** if you want to
        specify a URL or a chart name. For example, if the chart name is `stable/mysql`, the task will execute
        `helm upgrade stable/mysql` 
    
      * **Chart Path**: This can be a path to a packaged chart or a path to an unpacked chart directory.
-       In this example, you are publishing the chart using a CI build, so select the file package using file picker
+       In this example, you're publishing the chart using a CI build, so select the file package using file picker
        or enter `$(System.DefaultWorkingDirectory)/**/*.tgz`
    
      * **Release Name**: Enter a name for your release; for example, `azuredevops`
@@ -351,7 +351,7 @@ It also packaged and published a Helm chart as an artifact. In the release pipel
 
      * **Arguments**: Enter the Helm command arguments and their values; for this example
        `--set image.repository=$(imageRepoName) --set image.tag=$(Build.BuildId)` 
-       See [this section](#argument-details) for a description of why we are using these arguments. 
+       See [this section](#argument-details) for a description of why we're using these arguments. 
    
      * **Enable TLS**: Tick this checkbox to enable strong TLS-based connections between Helm and Tiller.
 
