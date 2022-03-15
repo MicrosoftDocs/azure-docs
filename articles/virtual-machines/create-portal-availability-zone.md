@@ -45,7 +45,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
 1. After the VM is created, you can see the availability zone listed in the **Essentials section** on the page for the VM.
 
 
-### [Limited preview](#tab/preview)
+### [Preview](#tab/preview)
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 
