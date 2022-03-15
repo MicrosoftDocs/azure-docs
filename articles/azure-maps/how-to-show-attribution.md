@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: The map copyright attribution information must be displayed in any applications that use the Render V2 API, including web and mobile applications. In this article, you'll learn how to display the correct attribution every time you display or update a tile. 
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 3/11/2022
+ms.date: 3/16/2022
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -24,7 +24,7 @@ The above image is an example of a map from the Render service V2, displaying th
 
 ## The Get Map Attribution API
 
-The [Get Map Attribution API](/rest/api/maps/render-v2/get-map-attribution) enables you to request map copyright attribution information and display it on the map within your applications.
+The [Get Map Attribution API](/rest/api/maps/render-v2/get-map-attribution) enables you to request map copyright attribution information so that you can display in on the map within your applications.
 
 ### When to use the Get Map Attribution API
 
@@ -32,7 +32,7 @@ The map copyright attribution information must be displayed on the map in any ap
 
 When using any of the Azure Maps SDKs, the map copyright attribution information is automatically displayed and updated on the map. This includes the [Web SDK](how-to-use-map-control.md), [Android SDK](how-to-use-android-map-control-library.md) and the [iOS SDK](how-to-use-ios-map-control-library.md).
 
-When using map tiles from the Render service in a third-party map SDK, you must display and update the copyright attribution information on the map.
+When using map tiles from the Render service in a third-party map, you must display and update the copyright attribution information on the map.
 
 Map content changes whenever an end user selects a different style, zooms in or out, or pans the map. Each of these user actions causes an event to fire and when any of these events fire, you need to call the Get Map Attribution API to update the map copyright attribution information displayed in the lower right-hand corner of the map.
 
