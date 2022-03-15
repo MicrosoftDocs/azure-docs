@@ -93,6 +93,8 @@
     href: concepts.md
   - name: Distribution modes
     href: distribution-mode-concepts.md
+  - name: Inbound NAT rules
+    href: inbound-nat-rules.md
   - name: SKUs
     href: skus.md
   - name: Health monitoring
