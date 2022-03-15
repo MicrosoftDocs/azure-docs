@@ -1,32 +1,33 @@
 ---
-title: "Tutorial: Register a single-page application"
+title: Register a single-page application (SPA) in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
-description: Follow this tutorial to learn how to register a single-page application (SPA) in Azure Active Directory B2C using the Azure portal.
+description: Follow this guide to learn how to register a single-page application (SPA) in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: tutorial
-ms.date: 09/20/2021
+ms.topic: how-to
+ms.date: 03/30/2022
 ms.custom: project-no-code 
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Tutorial: Register a single-page application (SPA) in Azure Active Directory B2C
+# Register a single-page application (SPA) in Azure Active Directory B2C
 
-Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a single-page application ("SPA") using the Azure portal.
+Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This guide shows you how to register a single-page application ("SPA") using the Azure portal.
 
 ## Overview of authentication options
 
-Many modern web applications are built as client-side single-page applications ("SPAs"). Developers write them by using JavaScript or a SPA framework such as Angular, Vue, and React. These applications run on a web browser and have different authentication characteristics than traditional server-side web applications.
+Many modern web applications are built as client-side single-page applications ("SPAs"). Developers write them by using JavaScript or an SPA framework such as Angular, Vue, and React. These applications run on a web browser and have different authentication characteristics than traditional server-side web applications.
 
 Azure AD B2C provides **two** options to enable single-page applications to sign in users and get tokens to access back-end services or web APIs:
 
 ### Authorization code flow (with PKCE)
-- [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md). The authorization code flow allows the application to exchange an authorization code for **ID** tokens to represent the authenticated user and **Access** tokens needed to call protected APIs. In addition, it returns **Refresh** tokens that provide long-term access to resources on behalf of users without requiring interaction with those users. 
+
+[OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md) allows the application to exchange an authorization code for **ID** tokens to represent the authenticated user and **Access** tokens needed to call protected APIs. In addition, it returns **Refresh** tokens that provide long-term access to resources on behalf of users without requiring interaction with those users. 
 
 This is the **recommended** approach. Having limited-lifetime refresh tokens helps your application adapt to [modern browser cookie privacy limitations](../active-directory/develop/reference-third-party-cookies-spas.md), like Safari ITP.
 
@@ -35,7 +36,8 @@ To take advantage of this flow, your application can use an authentication libra
 ![Single-page applications-auth](./media/tutorial-single-page-app/spa-app-auth.svg)
 
 ### Implicit grant flow
-- [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). Some libraries, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow. The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow does not return a **Refresh token**. 
+
+Some libraries, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow or your applications is implemented to use implicit flow. In these cases, Azure AD B2C supports the [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow does not return a **Refresh token**. 
 
 ![Single-page applications-implicit](./media/tutorial-single-page-app/spa-app.svg)
 
@@ -43,9 +45,9 @@ This authentication flow does not include application scenarios that use cross-p
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.
+- If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.
 
 ## Register the SPA application
 
@@ -58,7 +60,7 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**
 1. Under **Redirect URI**, select **Single-page application (SPA)**, and then enter `https://jwt.ms` in the URL text box.
 
-    The redirect URI is the endpoint to which the user is sent by the authorization server (Azure AD B2C, in this case) after completing its interaction with the user, and to which an access token or authorization code is sent upon successful authorization. In a production application, it's typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `http://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
+    The redirect URI is the endpoint to which the user is sent by the authorization server (Azure AD B2C, in this case) after completing its interaction with the user, and to which an access token or authorization code is sent upon successful authorization. In a production application, it's typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this guide, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `http://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
 
     The following restrictions apply to redirect URIs:
 
@@ -70,15 +72,18 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
 
 ## Enable the implicit flow
-If using the implicit flow, you need to enable the implicit grant flow in the app registration.
+
+If your SPA app uses MSAL.js 1.3 or earlier and the implicit grant flow, you need to enable the implicit grant flow in the app registration:
 
 1. In the left menu, under **Manage**, select **Authentication**.
-1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
+1. Under **Implicit grant and hybrid flows**, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
+
+If your app uses uses MSAL.js 2.0 or later, don't enable implicit flow grant as MSAL.js 2.0+ supports the authorization code flow with PKCE. 
 
 ## Migrate from the implicit flow
 
-If you have an existing application that uses the implicit flow, we recommend migrating to using the authorization code flow by using a framework that supports it, like [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
+If you have an existing application that uses the implicit flow, we recommend migrating to using the authorization code flow by using a framework that supports it, like [MSAL.js 2.0+](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
 
 When all your production single-page applications represented by an app registration are using the authorization code flow, disable the implicit grant flow settings. 
 
