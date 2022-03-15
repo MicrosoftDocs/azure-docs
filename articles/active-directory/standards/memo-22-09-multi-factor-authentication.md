@@ -85,7 +85,7 @@ For each of the five phishing-resistant MFA types previously mentioned, you use 
 | - | - |
 | Azure Linux VM| Enable the [Linux VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-linux.md) |
 | Azure Windows VM| Enable the [Windows VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-windows.md) |
-| Azure Virtual Desktop| Enable [Azure virtual desktop for Azure AD sign-in](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join) |
+| Azure Virtual Desktop| Enable [Azure virtual desktop for Azure AD sign-in](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join) |
 | VMs hosted on-prem or in other clouds| Enable [Azure Arc](../../azure-arc/overview.md) on the VM then enable Azure AD sign-in. (Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap.) |
 | Non-Microsoft virtual desktop solutions| Integrate 3rd party virtual desktop solution as an app in Azure AD |
 
