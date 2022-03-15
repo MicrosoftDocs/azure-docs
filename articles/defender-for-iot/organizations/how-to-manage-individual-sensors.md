@@ -173,8 +173,6 @@ If you create a new IP address, you might be required to sign in again.
 
 2. In the **System Settings** window, select **Network**.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/edit-network-configuration-screen.png" alt-text="Configure your network settings.":::
-
 3. Set the parameters:
 
     | Parameter | Description |
@@ -191,8 +189,6 @@ If you create a new IP address, you might be required to sign in again.
 ## Synchronize time zones on the sensor
 
 You can configure the sensor's time and region so that all the users see the same time and region.
-
-:::image type="content" source="media/how-to-manage-individual-sensors/time-and-region.png" alt-text="Configure the time and region.":::
 
 | Parameter | Description |
 |--|--|

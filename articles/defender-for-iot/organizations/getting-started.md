@@ -157,8 +157,6 @@ For more information, see [Sensor connection methods](architecture-connections.m
 
 ## Connect sensors to an on-premises management console
 
-This section is required only when you are using an Defender for IoT sensor version lower than 22.1.x.
-
 Connect sensors to the management console to ensure that:
 
 - Sensors send alert and device inventory information to the on-premises management console.
