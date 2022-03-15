@@ -96,7 +96,7 @@ Following is a baseline configuration for various sizes and uses of SAP on Db2 d
 | VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  ||  |
-|vCPU: 4 |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256 KB |ReadOnly |
+|vCPU: 4 |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256<br />KB |ReadOnly |
 |RAM: 32 GiB |/db2/```<SID>```/saptmp |P6 |1 |240  |50  |128  |3,500  |170  | ||
 | |/db2/```<SID>```/log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64<br />KB ||
 | |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  || |
@@ -134,7 +134,7 @@ Following is a baseline configuration for various sizes and uses of SAP on Db2 d
 |M128s |/db2 |P10 |1 |500  |100  |128  |3,500  |170  || |
 |vCPU: 128 |/db2/```<SID>```/sapdata |P40 |4 |30,000  |1.000  |8.192  |30,000  |1.000  |256 KB |ReadOnly |
 |RAM:  2048 GiB |/db2/```<SID>```/saptmp |P20 |2 |4,600  |300  |1.024  |7,000  |340  |128 KB ||
-| |/db2/```<SID>```/log_dir |P30 |4 |20,000  |800  |4.096  |20,000  |800  |64<br />KB |WriteAccelerator |
+| |/db2/```<SID>```/log_dir |P30 |4 |20,000  |800  |4.096  |20,000  |800  |64<br />KB |Write-<br />Accelerator |
 | |/db2/```<SID>```/offline_log_dir |P30 |1 |5,000  |200  |1.024  |5,000  |200  || |
 
 
