@@ -197,7 +197,7 @@ Port mappings for the virtual machines in the backend pool can be viewed by usin
 
     :::image type="content" source="./media/manage-inbound-nat-rules/view-inbound-nat-rule.png" alt-text="Screenshot of inbound NAT rule page.":::
 
-6. Scroll to **Port mappings** section of the inbound NAT rule properties page.
+6. Scroll to the **Port mapping** section of the inbound NAT rule properties page.
 
     :::image type="content" source="./media/manage-inbound-nat-rules/view-port-mappings.png" alt-text="Screenshot of inbound NAT rule port mappings.":::
 
