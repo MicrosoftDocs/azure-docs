@@ -90,7 +90,7 @@ Because you may need write access to */etc*, */home*, */root*, */var* for specif
 
 ### Firewall
 
-The EFLOW virtual machine is configured to use [*iptables*](https://git.netfilter.org/) by default. Iptables is used to set up, maintain, and inspect the tables of IP packet filter rules in the Linux kernel. The default implementation only allows incoming traffic on port 22 (SSH service) and blocks the traffic otherwise. You can check the *iptables* configuration with the following steps:
+By default, the EFLOW virtual machine uses [*iptables*](https://git.netfilter.org/) utility for firewall configurations. Iptables is used to set up, maintain, and inspect the tables of IP packet filter rules in the Linux kernel. The default implementation only allows incoming traffic on port 22 (SSH service) and blocks the traffic otherwise. You can check the *iptables* configuration with the following steps:
 
 1. Open an elevated PowerShell session
 1. Connect to the EFLOW virtual machine
@@ -101,6 +101,7 @@ The EFLOW virtual machine is configured to use [*iptables*](https://git.netfilte
     ```bash
     sudo iptables -L
     ```
+
     ![EFLOW iptables default](./media/iot-edge-for-linux-on-windows-security/default-iptables-output.png)
 
 <!-- 1.2 -->
