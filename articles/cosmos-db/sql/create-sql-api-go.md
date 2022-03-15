@@ -226,19 +226,19 @@ $env:AZURE_COSMOS_PRIMARY_KEY=<Your_AZURE_COSMOS_URI>
 
 ---
 
-1. Create a new Go module by running the following command:
+Create a new Go module by running the following command:
 
-	```bash
-	go mod init azcosmos
-	```
+```bash
+go mod init azcosmos
+```
 
-1. Create a new file named `main.go` and copy the desired code from the sample sections above.
+Create a new file named `main.go` and copy the desired code from the sample sections above.
 
-1. Run the following command to execute the app:
+Run the following command to execute the app:
 
-	```bash
-	go run main.go
-	```
+```bash
+go run main.go
+```
 
 
 ## Clean up resources
