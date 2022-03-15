@@ -37,7 +37,7 @@ Before you begin, make sure that the person you're requesting billing ownership 
 - For a Microsoft Online Subscription Agreement, the person must be an Account Administrator.
 
 > [!NOTE]
-> To perform transfer, the destination account must be a paid account with a valid form of payment. For example, if the destination is an Azure free account, you can upgrade it to pay-as-you-go Azure plan under a Microsoft Customer Agreement. Then you can make the transfer.
+> To perform a transfer, the destination account must be a paid account with a valid form of payment. For example, if the destination is an Azure free account, you can upgrade it to a pay-as-you-go Azure plan under a Microsoft Customer Agreement. Then you can make the transfer.
 
 When you're ready, use the following instructions. You can also go along with the following video that outlines each step of the process.
 
