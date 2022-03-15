@@ -46,7 +46,7 @@ Refer to the [Products by region](https://azure.microsoft.com/global-infrastruct
 
 ### What are the subscription quota limits for Azure Health Data Services?
 
-For more information, see [Azure Health Data Services service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-healthcare-apis) for the most current information.
+For more information, see [Azure Health Data Services service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-health-data-services) for the most current information.
 
 ### What is the backup and recovery policy for Azure Health Data Services?
 
