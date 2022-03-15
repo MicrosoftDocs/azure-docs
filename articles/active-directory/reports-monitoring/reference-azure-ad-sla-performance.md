@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory SLA performance 
 
-As an identity admin, you may need to track Azure AD service-level agreement (SLA) performance to make sure Azure AD can support your vital apps. This article shows how the Azure AD service has performed according to the [SLA for Azure Active Directory (Azure AD)](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/). 
+As an identity admin, you may need to track Azure AD's service-level agreement (SLA) performance to make sure Azure AD can support your vital apps. This article shows how the Azure AD service has performed according to the [SLA for Azure Active Directory (Azure AD)](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/). 
 
 You can use this article in discussions with app or business owners to help them understand the performance they can expect from Azure AD. 
 
