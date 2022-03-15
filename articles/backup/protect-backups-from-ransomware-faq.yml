@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to protect backups from ransomware with Azure Backup.
   ms.topic: faq
   ms.service: backup
-  ms.date: 03/10/2022
+  ms.date: 03/14/2022
   author: v-amallick
   ms.author: v-amallick
     
@@ -16,7 +16,7 @@ summary: |
 sections:
   - name: Ignored
     questions:
-      - question: What’re some best practices to protect backups against security and ransomware threats?
+      - question: What’re the best practices to configure and protect Azure Backups against security and ransomware threats?
         answer: |
           Your backup data that’s securely stored in an Azure resource called Recovery Services Vault or Backup Vault is *isolated*. This vault is a management entity, any application or guest don’t have direct access to these backups, thus *prevents malicious actors* to perform destructive operations on the backup storage, such as deletions or tampering of backup data.
  
@@ -27,13 +27,15 @@ sections:
             - Azure Backup allows you to segregate duties within your team to grant only the amount of access necessary for your team members to do their jobs using [Azure role-based access control (Azure RBAC) to manage Azure Backup](backup-rbac-rs-vault.md).
             - Use Privileged Identity Management to provide time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused permissions. [Learn more](../active-directory/privileged-identity-management/pim-configure.md).
           
-          - **Ensure soft delete isn’t turned off to protect backups from accidental or miscellaneous deletes**
+          - **Ensure soft delete is enabled to protect backups from accidental or malicious deletes**
           
-            Soft delete is enabled by default on a newly created Recovery Services vault. It protects backup data from accidental or malicious deletes for 14 days at no additional cost, allowing the recovery of that backup item before it’s permanently lost. We recommend not to disable this feature. If backups are deleted and soft delete isn’t enabled, you or Microsoft can’t recover the deleted backup data. Use [Multi-user authorization (MUA)](multi-user-authorization.md) as an additional layer of protection for these critical operations on your Recovery Services vault to validate operation before disabling this feature. For more information, see [How to enable, manage, and when to disable soft delete for Azure backup](backup-azure-security-feature-cloud.md)?
+            Soft delete is enabled by default on a newly created Recovery Services vault. It protects backup data from accidental or malicious deletes for 14 days at no additional cost, allowing the recovery of that backup item before it’s permanently lost. We recommend not to disable this feature. If backups are deleted and soft delete isn’t enabled, you or Microsoft can’t recover the deleted backup data. Use [Multi-user authorization (MUA)](multi-user-authorization.md) as an additional layer of protection for these critical operations on your Recovery Services vault to validate operation before disabling this feature. For more information, see [How to enable, manage, and when to disable soft delete for Azure Backup](backup-azure-security-feature-cloud.md)?
+            
+            We also recommend to use Multi-user authorization (MUA) to protection critical operations on your Recovery Services vault.
           
-          - **Ensure multi-user authorization (MUA) is enabled for an additional layer of protection**.
+          - **Ensure Multi-user authorization (MUA) is enabled to protect against rogue admin scenario**.
           
-            MUA for Backup uses a new resource called the Resource Guard to ensure critical operations, such as disabling soft delete, stopping and deleting backups, or reducing retention of backup policies, are performed only with applicable authorization. For more information, see:
+            MUA for Azure Backup uses a new resource called the Resource Guard to ensure critical operations, such as disabling soft delete, stopping and deleting backups, or reducing retention of backup policies, are performed only with applicable authorization. For more information, see:
           
             - [How does MUA using Resource Guard works?](multi-user-authorization.md)
             - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
@@ -46,7 +48,7 @@ sections:
           
           - **Ensure network connectivity between backup services and workloads is secure**.
           
-            - For Azure VM, [by default all the communication happens within the Azure network](security-overview.md#internet-connectivity-not-required-for-azure-vm-backup).
+            - For Azure VM, [data in transit remains on the Azure backbone network without needing to access your virtual network](security-overview.md#internet-connectivity-not-required-for-azure-vm-backup). Therefore, backup of Azure VMs placed inside secured networks doesn't require you to allow access to any IPs or FQDNs.
             - For databases on Azure VM, secure the outbound access with the following network connectivity requirements [for SQL Server](backup-sql-server-database-azure-vms.md#establish-network-connectivity), [for SAP HANA database](backup-azure-sap-hana-database.md#establish-network-connectivity) on Azure VM.
             - For PaaS resources, such as PostgreSQL, communication happens within the Azure network. For workloads (such as Azure Files, Azure Disk, and Azure Blobs) where the backup data is stored in the operational tier, you need to *allow Azure services on the trusted services list to access storage account* in *Network Settings* for the corresponding storage account.
             - For on-premises workloads that are protected using MARS or MABS, can use Microsoft peering for *ExpressRoute* or *Virtual Private Network (VPN)* to connect to Azure. Use *private peering* when using *private endpoints* for Backup. Network traffic between peered virtual networks remains private.
@@ -73,7 +75,7 @@ sections:
           
           - **Regularly monitor your backups**
           
-            Use the monitoring solutions to identify machines in the organization that aren’t protected by Azure Backup, monitor your backup items, backup jobs, and policies. For more information, see:
+            Use the monitoring solutions (for example, Backup Explorer) to identify machines in the organization that aren’t protected by Azure Backup, monitor your backup items, backup jobs, and policies. For more information, see:
           
             - [Monitoring and reporting scenarios](monitoring-and-alerts-overview.md).
             - [Monitor your backups with Backup Explorer](monitor-azure-backup-with-backup-explorer.md).
@@ -87,13 +89,13 @@ sections:
           
       - question: How to block (un)intentional deletion of  backup data?
         answer: |
-          - **Enable Soft delete to protect backups from accidental or miscellaneous deletes**.
+          - **Enable Soft delete is enabled to protect backups from accidental or malicious deletes**.
           
             Soft delete is a useful feature that helps you deal with data loss. Soft delete retains backup data for 14 days, allowing the recovery of that backup item before it’s permanently lost. For more information, see [How to enable, manage and disable soft delete for Azure Backup](backup-azure-security-feature-cloud.md)?
           
           - **Ensure Multi-user authorization (MUA) is enabled for an additional layer of protection**.
           
-            MUA for Backup uses a new resource called Resource Guard to ensure critical operations, such as disabling soft delete, stopping and deleting backups, or reducing retention of backup policies, are performed only with applicable authorization.
+            MUA for Azure Backup uses a new resource called Resource Guard to ensure critical operations, such as disabling soft delete, stopping and deleting backups, or reducing retention of backup policies, are performed only with applicable authorization.
           
             For more information, see:
           
@@ -115,9 +117,9 @@ sections:
           - Once complete, ensure backups are configured and healthy on the recovered workloads.
           - Identify gaps to check where the process didn’t work as expected. Find opportunities to improve process.
           
-      - question: Will backups containing an infected copy of data from a compromised source server impact the existing recovery points?
+      - question: Will an infected backup copy impact the existing clean recovery points?
         answer: No, the infected recovery point (that is, backed-up data containing infected data) can’t spread to previous non-infected recovery points.
 
-      - question: I want to stop the recovery points on compromised server being pruned. What should I do?
-        answer: You need to [extend the retention duration of existing recovery points](backup-architecture.md#additional-reference), so that they aren’t deleted by the retention policy.
+      - question: How can I extend the expiration of recovery points in case of impact?
+        answer: If you need more time to investigate and recover in case of an impact, you can extend expiration to ensure the recovery points aren't cleaned up (as per policy). [Learn more](backup-architecture.md#additional-reference), so that they aren’t deleted by the retention policy
 
