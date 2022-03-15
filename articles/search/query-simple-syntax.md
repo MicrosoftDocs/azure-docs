@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Reference for the simple query syntax used for full text search queries in Azure Cognitive Search.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020

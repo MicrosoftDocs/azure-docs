@@ -305,6 +305,10 @@ To use your function app with virtual networks, you need to join it to a subnet.
 
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Screenshot of how to connect a function app to a subnet.":::
 
+1. Ensure that the **Route All** configuration setting is set to **Enabled**.
+
+    :::image type="content" source="./media/functions-create-vnet/10-enable-route-all.png" alt-text="Screenshot of how to enable route all functionality.":::
+
 ## Configure your function app settings
 
 1. In your function app, in the menu on the left, select **Configuration**.
@@ -318,7 +322,6 @@ To use your function app with virtual networks, you need to join it to a subnet.
     | **WEBSITE_CONTENTSHARE** | files | The name of the file share you created in the storage account. Use this setting with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. |
     | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Create this app setting for the connection string of your Service Bus. This storage connection string is from the [Get a Service Bus connection string](#get-a-service-bus-connection-string) section.|
     | **WEBSITE_CONTENTOVERVNET** | 1 | Create this app setting. A value of 1 enables your function app to scale when your storage account is restricted to a virtual network. |
-    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Create this app setting. When your app integrates with a virtual network, it uses the same DNS server as the virtual network. Your function app needs this setting so it can work with Azure DNS private zones. It's required when you use private endpoints. |
 
 1. In the **Configuration** view, select the **Function runtime settings** tab.
 

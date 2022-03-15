@@ -27,7 +27,7 @@ The script in this article demonstrates creating a serverless Azure Cosmos DB ac
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/cassandra/serverless.sh" range="4-50":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/cassandra/serverless.sh" id="FullScript":::
 
 ## Clean up resources
 

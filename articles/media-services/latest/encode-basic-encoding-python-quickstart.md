@@ -50,7 +50,7 @@ For samples, we recommend you always create and activate a Python virtual enviro
 2. Create a virtual environment.
 
     ``` bash
-      # py -3 uses the global python interpreter. You can also use python -m venv .venv.
+      # py -3 uses the global Python interpreter. You can also use python -m venv .venv.
       py -3 -m venv .venv
     ```
 
