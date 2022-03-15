@@ -14,6 +14,8 @@ This procedure configures your ASP.NET web app to send telemetry to the [Applica
 > [!NOTE]
 > A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. [Learn more](opentelemetry-overview.md).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Prerequisites
 To add Application Insights to your ASP.NET website, you need to:
 

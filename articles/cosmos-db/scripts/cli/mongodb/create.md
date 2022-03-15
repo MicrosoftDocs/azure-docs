@@ -27,7 +27,7 @@ The script in this article demonstrates creating a MongoDB API database and coll
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/mongodb/create.sh" range="4-54":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/mongodb/create.sh" id="FullScript":::
 
 ## Clean up resources
 

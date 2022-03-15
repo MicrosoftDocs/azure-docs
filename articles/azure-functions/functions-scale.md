@@ -63,7 +63,8 @@ The following table shows operating system and [language support](supported-lang
 
 ## Scale
 
-The following table compares the scaling behaviors of the various hosting plans.
+The following table compares the scaling behaviors of the various hosting plans.  
+Maximum instances are given on a per-function app (Consumption) or per-plan (Premium/Dedicated) basis, unless otherwise indicated. 
 
 | Plan | Scale out | Max # instances | 
 | --- | --- | --- |
