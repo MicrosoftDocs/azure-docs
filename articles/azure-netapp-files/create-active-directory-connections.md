@@ -12,12 +12,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 03/15/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
 
-Several features of Azure NetApp Files require that you have an Active Directory connection.  For example, you need to have an Active Directory connection before you can create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md).  This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
+Several features of Azure NetApp Files require that you have an Active Directory connection.  For example, you need to have an Active Directory connection before you can create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
 
 ## Before you begin  
 
@@ -35,6 +35,9 @@ Several features of Azure NetApp Files require that you have an Active Directory
 * The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify.  
 
 * The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify. In some cases, `msDS-SupportedEncryptionTypes` write permission is required to set account attributes within AD.
+
+
+* Group Managed Service Accounts (GMSA) cannot be used with the Active Directory connection user account.
 
 * If you change the password of the Active Directory user account that is used in Azure NetApp Files, be sure to update the password configured in the [Active Directory Connections](#create-an-active-directory-connection). Otherwise, you will not be able to create new volumes, and your access to existing volumes might also be affected depending on the setup.  
 
@@ -231,7 +234,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * **LDAP over TLS**   
-        See [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md) for information about this option.
+        See [Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) for information about this option.
 
     * **LDAP Search Scope**, **User DN**, **Group DN**, and **Group Membership Filter**   
         See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
@@ -354,9 +357,10 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
  
 ## Next steps  
 
+* [Modify Active Directory connections](modify-active-directory-connections.md)
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm) 
-* [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md)
+* [Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
 * [ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)

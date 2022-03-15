@@ -4,12 +4,13 @@ description: Overview of the Azure Monitor agent, which collects monitoring data
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/21/2021
+ms.date: 3/9/2022
 ms.custom: references_regions
 ---
 
 # Azure Monitor agent overview
-The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent and includes information on how to install it and how to configure data collection.
+The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent and includes information on how to install it and how to configure data collection.  
+Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure Portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
 ## Relationship to other agents
 The Azure Monitor agent replaces the following legacy agents that are currently used by Azure Monitor to collect guest data from virtual machines ([view known gaps](../faq.yml)):
@@ -28,12 +29,12 @@ In addition to consolidating this functionality into a single agent, the Azure M
 ### Current limitations
 When compared with the existing agents, this new agent doesn't yet have full parity.
 - **Comparison with Log Analytics agents (MMA/OMS):**
-	- Not all Log Analytics solutions are supported today. [View supported features and services](#supported-services-and-features).
-	- No support for collecting file based logs or IIS logs.
+	- Not all Log Analytics solutions are supported yet. [View supported features and services](#supported-services-and-features).
+	- The support for collecting file based logs or IIS logs is in [private preview](https://aka.ms/amadcr-privatepreviews).
 
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
-  - No support for Event Hubs and Storage accounts as destinations.
-  - No support for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
+  - No support yet for Event Hubs and Storage accounts as destinations.
+  - No support yet for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor agent.
@@ -82,7 +83,7 @@ The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log A
 <sup>2</sup> Azure Monitor Linux Agent v1.15.2 or higher supports syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee and CEF (Common Event Format).
 
 ## Supported services and features
-The following table shows the current support for the Azure Monitor agent with other Azure services.
+The following table shows the current support for the Azure Monitor agent with other Azure services. 
 
 | Azure service | Current support | More information |
 |:---|:---|:---|
@@ -93,10 +94,10 @@ The following table shows the current support for the Azure Monitor agent with A
 
 | Azure Monitor feature | Current support | More information |
 |:---|:---|:---|
+| File based logs and Windows IIS logs | Private preview | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
+| Windows Client OS installer | Private preview | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
 | [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
 | [Connect using private links](azure-monitor-agent-data-collection-endpoint.md) | Public preview | No sign-up needed |
-| [VM insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
-| [SQL insights](../insights/sql-insights-overview.md) | Public preview | Available only on the new agent |
 
 The following table shows the current support for the Azure Monitor agent with Azure solutions.
 
@@ -121,6 +122,15 @@ The Azure Monitor agent doesn't require any keys but instead requires a [system-
 
 ## Networking
 The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required). It supports connecting via **direct proxies, Log Analytics gateway, and private links** as described below.
+
+### Firewall requirements
+|Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
+|------|------|---------|--------|--------|
+|global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes |  
+|`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |  
+|`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes |  
+
+If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)
 
 ### Proxy configuration
 If the machine connects through a proxy server to communicate over the internet, review requirements below to understand the network configuration required.
@@ -188,8 +198,8 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
    `Stop-Service -Name <gateway-name>`  
    `Start-Service -Name <gateway-name>` 
 
-## Private link configuration
-To configure the agent to use private links for network communications with Azure Monitor, you can use [Azure Monitor Private Links Scopes (AMPLS)](../logs/private-link-security.md) and [data collection endpoints](azure-monitor-agent-data-collection-endpoint.md) to enable required network isolation. 
+### Private link configuration
+To configure the agent to use private links for network communications with Azure Monitor, follow instructions to [enable network isolation](./azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent) using [data collection endpoints](azure-monitor-agent-data-collection-endpoint.md). 
 
 ## Next steps
 

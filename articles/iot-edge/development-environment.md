@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Edge development environment | Microsoft Docs 
 description: Learn about the supported systems and first-party development tools that will help you create IoT Edge modules
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge

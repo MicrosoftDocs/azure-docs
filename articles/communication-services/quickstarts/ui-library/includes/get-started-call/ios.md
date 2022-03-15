@@ -48,6 +48,7 @@ end
 
 3. Run `pod install --repo-update`.
 4. Open the generated `.xcworkspace` with Xcode.
+5. (Optional) For Mackbook Pro M1, install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
 
 ### Request access to the microphone, camera, etc.
 
@@ -73,7 +74,7 @@ Set `Enable Bitcode` option to `No` in the project `Build Settings`. To find the
 
 ## Initialize composite
 
-Go to 'ViewController'. Here we'll drop the following code to initialize our Composite Components for Call. Replace `<GROUP_CALL_ID>` with either your call group ID or `UUID()` to generate one. Also replace `<DISPLAY_NAME>` with your name, and `<USER_ACCESS_TOKEN>` with your token.
+Go to 'ViewController'. Here we'll drop the following code to initialize our Composite Components for Call. Replace `<GROUP_CALL_ID>` with either your call group ID or `UUID()` to generate one. Also replace `<DISPLAY_NAME>` with your name, and `<USER_ACCESS_TOKEN>` with your token. The limit for string length of `<DISPLAY_NAME>` is 256.
 
 ```swift
 import UIKit

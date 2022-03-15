@@ -11,7 +11,7 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: kendralittle, mathoma
-  ms.date: 02/02/2022
+  ms.date: 03/02/2022
 title: Azure SQL Database Hyperscale FAQ
 summary: |
   [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -281,6 +281,11 @@ sections:
           Are the database backups managed for me by Azure SQL Database?
         answer: |
           Yes.
+
+      - question: |
+          Does Hyperscale support Availability Zones?
+        answer: |
+          Yes, Hyperscale supports [zone redundant configuration](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview) in public preview. At least 1 HA compute replica and the use of zone-redundant backup storage is required for enabling the zone redundant configuration for Hyperscale. 
 
       - question: |
           How often are the database backups taken?

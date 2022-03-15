@@ -27,7 +27,7 @@ The script in this article demonstrates creating a SQL API database and containe
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/sql/autoscale.sh" range="4-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/sql/autoscale.sh" id="FullScript":::
 
 ## Clean up resources
 

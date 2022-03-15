@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management, has-adal-ref
 
 The first version of Azure Active Directory (Azure AD) Connect was released several years ago. Since then, we've scheduled several components of Azure AD Connect for deprecation and updated them to newer versions. 
 
-Making updates to all these components individually requires a lot of time and planning. To address this drawback, we've bundled many of the newer components into a new, single release, so you have to update Azure AD Connect only once. This release, Azure AD Connect V2.0, is the same software you're already using to accomplish your hybrid identity goals, but it's updated with the latest foundational components. 
+Making updates to all these components individually requires a lot of time and planning. To address this drawback, we've bundled many of the newer components into a new, single release, so you have to update only once. This release, Azure AD Connect V2.0, is a new version of the same software you're already using to accomplish your hybrid identity goals, but it's updated with the latest foundational components. 
 
 ## What are the major changes? 
 
@@ -27,11 +27,11 @@ Earlier versions of Azure AD Connect shipped with the SQL Server 2012 LocalDB fe
 
 ### MSAL authentication library 
 
-Earlier versions of Azure AD Connect shipped with the Azure Active Directory Authentication Library (ADAL). This library will be deprecated in June 2022. The Azure AD Connect V2.0 release ships with the newer Microsoft Authentication Library (MSAL). For more information, see [Overview of the MSAL library](../../active-directory/develop/msal-overview.md).
+Earlier versions of Azure AD Connect shipped with the Azure Active Directory Authentication Library (ADAL). This library will be deprecated in June 2022. The V2.0 release ships with the newer Microsoft Authentication Library (MSAL). For more information, see [Overview of the MSAL library](../../active-directory/develop/msal-overview.md).
 
 ### Visual C++ Redistributable 14 runtime 
 
-SQL Server 2019 requires the Visual C++ Redistributable 14 runtime, so we have updated the C++ runtime library to use this version. This library is installed with the Azure AD Connect V2.0 package, so you don't have to take any action to get the C++ runtime update. 
+SQL Server 2019 requires the Visual C++ Redistributable 14 runtime, so we've updated the C++ runtime library to use this version. The library is installed with the Azure AD Connect V2.0 package, so you don't have to take any action to get the C++ runtime update. 
 
 ### TLS 1.2 
 
@@ -68,35 +68,35 @@ Next year, several components in your current Azure AD Connect server installati
 This upgrade is especially important, because we've had to update our prerequisites for Azure AD Connect. You might need additional time to plan and update your servers to the newest versions of the prerequisites. 
 
 **Is there any new functionality I need to know about?** </br>
-No, this release doesn't contain new functionality. It only updates some of the foundational components on Azure AD Connect. 
+No, this release doesn't contain new functionality. It contains only updates of some of the foundational components on Azure AD Connect. However, later releases of Azure AD Connect V2 might contain new functionality.
 
 **Can I upgrade from earlier versions to V2.0?** </br>
-Yes, upgrading from earlier versions of Azure AD Connect to Azure AD Connect V2.0 is supported. To determine your best strategy, see [Azure AD Connect: Upgrade from a previous version to the latest](how-to-upgrade-previous-version.md). 
+Yes, upgrading from earlier versions of Azure AD Connect to Azure AD Connect V2.0 is supported. To determine your best upgrade strategy, see [Azure AD Connect: Upgrade from a previous version to the latest](how-to-upgrade-previous-version.md). 
 
 **Can I export the configuration of my current server and import it in Azure AD Connect V2.0?** </br>
 Yes, and it's a great way to migrate to Azure AD Connect V2.0, especially if you're also upgrading to a new operating system version. For more information, see [Import and export Azure AD Connect configuration settings](how-to-connect-import-export-config.md). 
 
-**I have enabled auto upgrade for Azure AD Connect. Will I get this new version automatically?** </br> 
-No, Azure AD Connect V2.0 isn't available for auto upgrade at this time. 
+**I have enabled the auto-upgrade feature for Azure AD Connect. Will I get this new version automatically?** </br> 
+Yes. Your Azure AD Connect server will be upgraded to the latest release if you've enabled the auto-upgrade feature. Note that we have not yet released an auto-upgrade version for Azure AD Connect.
 
 **I am not ready to upgrade yet. How much time do I have?** </br>
 All Azure AD Connect V1 versions will be retired on August 31, 2022, so you should upgrade to Azure AD Connect V2.0 as soon as you can. For the time being, we'll continue to support earlier versions of Azure AD Connect, but it might be difficult to provide a good support experience if some Azure AD Connect components are no longer supported. This upgrade is particularly important for ADAL and TLS 1.0/1.1, because these services might stop working unexpectedly after they're deprecated. 
 
-**I use an external SQL database and do not use SQL 2012 LocalDB. Do I still have to upgrade?** </br>
-Yes, you need to upgrade to remain in a supported state, even if you don't use SQL Server 2012, because of the TLS 1.0/1.1 and ADAL deprecation. Note that SQL Server 2012 can still be used as an external SQL database with Azure AD Connect V2.0. The SQL 2019 drivers in Azure AD Connect V2.0 are compatible with SQL Server 2012.
+**I use an external SQL database and do not use SQL Server 2012 LocalDB. Do I still have to upgrade?** </br>
+Yes, you need to upgrade to remain in a supported state, even if you don't use SQL Server 2012, because of the TLS 1.0/1.1 and ADAL deprecation. Note that you can still use SQL Server 2012 as an external SQL database with Azure AD Connect V2.0. The SQL Server 2019 drivers in Azure AD Connect V2.0 are compatible with SQL Server 2012.
 
-**After the upgrade of my Azure AD Connect instance to V2.0, will the SQL 2012 components automatically get uninstalled?** </br>
-No, the upgrade to SQL 2019 doesn't remove any SQL 2012 components from your server. If you no longer need these components, follow the instructions in [Uninstall an existing instance of SQL Server](/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup).
+**After I've upgraded my Azure AD Connect instance to V2.0, will the SQL Server 2012 components get uninstalled automatically?** </br>
+No, the upgrade to SQL Server 2019 doesn't remove any SQL Server 2012 components from your server. If you no longer need these components, follow the instructions in [Uninstall an existing instance of SQL Server](/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup).
 
 **What happens if I don't upgrade?** </br>
 Until a component that's being retired is actually deprecated, your current version of Azure AD Connect will keep working and you won't see any impact. 
 
-We expect TLS 1.0/1.1 to be deprecated in January 2022. You need to make sure that you're no longer using these protocols by that date, because your service might stop working unexpectedly. You can manually configure your server for TLS 1.2, though, which doesn't require an upgrade to Azure AD Connect V2.0. 
+We expect TLS 1.0/1.1 to be deprecated in January 2022. You need to make sure that you're no longer using these protocols by that date, because your service might stop working unexpectedly. You can manually configure your server for TLS 1.2, though, because that doesn't require an upgrade to Azure AD Connect V2.0. 
 
-In June 2022, ADAL will no longer be supported. At that time, authentication might stop working unexpectedly, and the Azure AD Connect server won't work properly. We strongly recommend that you upgrade to Azure AD Connect V2.0 before June 2022. You can't upgrade to a supported authentication library with your current Azure AD Connect version. 
+In June 2022, ADAL is planned to go out of support. At that time, authentication might stop working unexpectedly, and the Azure AD Connect server will no longer work properly. We strongly recommend that you upgrade to Azure AD Connect V2.0 before June 2022. You can't upgrade to a supported authentication library with your current Azure AD Connect version. 
 
 **After I upgraded to Azure AD Connect V2.0, the ADSync PowerShell cmdlets don't work. What can I do?** </br>
-This is a known issue. To resolve this, restart your PowerShell session after you install or upgrade to Azure AD Connect V2.0, and then reimport the module. To import the module, do the following:
+This is a known issue. To resolve it, restart your PowerShell session after you've installed or upgraded to Azure AD Connect V2.0, and then reimport the module. To import the module, do the following:
  
  1. Open Windows PowerShell with administrative privileges.
  1. Run the following command: 
@@ -105,7 +105,7 @@ This is a known issue. To resolve this, restart your PowerShell session after yo
      Import-module -Name "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync"
      ```
 
-## License requirements for using Azure AD Connect V2.0
+## License requirements for using Azure AD Connect V2
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 

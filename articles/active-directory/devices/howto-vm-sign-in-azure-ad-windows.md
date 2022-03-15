@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 03/01/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 Organizations can now improve the security of Windows virtual machines (VMs) in Azure by integrating with Azure Active Directory (AD) authentication. You can now use Azure AD as a core authentication platform to RDP into a **Windows Server 2019 Datacenter edition** and later or **Windows 10 1809** and later. Additionally, you will be able to centrally control and enforce Azure RBAC and Conditional Access policies that allow or deny access to the VMs. This article shows you how to create and configure a Windows VM and login with Azure AD based authentication.
 
 There are many security benefits of using Azure AD based authentication to login to Windows VMs in Azure, including:
-- Use your corporate AD credentials to login to Windows VMs in Azure.
+- Use your corporate Azure AD credentials to login to Windows VMs in Azure.
 - Reduce your reliance on local administrator accounts, you do not need to worry about credential loss/theft, users configuring weak credentials etc.
 - Password complexity and password lifetime policies configured for your Azure AD directory help secure Windows VMs as well.
 - With Azure role-based access control (Azure RBAC), specify who can login to a VM as a regular user or with administrator privileges. When users join or leave your team, you can update the Azure RBAC policy for the VM to grant access as appropriate. When employees leave your organization and their user account is disabled or removed from Azure AD, they no longer have access to your resources.
@@ -299,14 +299,14 @@ This Exit code translates to `DSREG_AUTOJOIN_DISC_FAILED` because the extension 
 
 1. Verify the required endpoints are accessible from the VM using PowerShell:
 
-   - `curl https://login.microsoftonline.com// -D`
-   - `curl https://login.microsoftonline.com/<TenantID>// -D`
-   - `curl https://enterpriseregistration.windows.net// -D`
-   - `curl https://device.login.microsoftonline.com// -D`
-   - `curl https://pas.windows.net// -D`
+   - `curl https://login.microsoftonline.com/ -D -`
+   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
+   - `curl https://enterpriseregistration.windows.net/ -D -`
+   - `curl https://device.login.microsoftonline.com/ -D -`
+   - `curl https://pas.windows.net/ -D -`
    
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.<br/>`enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
+   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.<br/> Attempt to connect to `enterpriseregistration.windows.net` may return 404 Not Found, which is expected behavior.<br/> Attempt to connect to `pas.windows.net` may prompt for pin credentials (you do not need to enter the pin) or may return 404 Not Found. Either one is sufficient to verify the URL is reachable.
 
 1. If any of the commands fails with "Could not resolve host `<URL>`", try running this command to determine the DNS server that is being used by the VM.
    

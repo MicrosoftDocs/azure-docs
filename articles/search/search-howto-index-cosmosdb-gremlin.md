@@ -299,7 +299,7 @@ api-key: [Search service admin key]
 
 <a name="MappingGraphData"></a>
 
-## Mapping graph data to a search index
+## Mapping graph data to fields in a search index
 
 The Cosmos DB Gremlin API indexer will automatically map a couple pieces of graph data for you:
 

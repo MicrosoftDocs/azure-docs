@@ -6,8 +6,8 @@
  ms.author: cherylmc
 ---
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the virtual machine to which you want to connect. 
-1. At the top of the page, select  **Connect->Bastion** to navigate to the **Bastion** page. You can also navigate to the Bastion page using the left menu.
+1. In the [Azure portal](https://portal.azure.com), go to the virtual machine to which you want to connect. 
+1. At the top of the page, select  **Connect->Bastion** to go to the **Bastion** page. You can also go to the Bastion page using the left menu.
 1. The options available on the **Bastion** page are dependant on the Bastion SKU tier.
 
    When the Bastion **Basic SKU**  is configured, you connect to a Windows computer using RDP and port 3389, and to a Linux computer using SSH and port 22. You don't have options to change the port number or the protocol.

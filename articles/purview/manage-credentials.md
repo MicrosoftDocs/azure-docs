@@ -148,6 +148,7 @@ These credential types are supported in Azure Purview:
 - Basic authentication: You add the **password** as a secret in key vault.
 - Service Principal: You add the **service principal key** as a secret in key vault.
 - SQL authentication: You add the **password** as a secret in key vault.
+- Windows authentication: You add the **password** as a secret in key vault.
 - Account Key: You add the **account key** as a secret in key vault.
 - Role ARN: For an Amazon S3 data source, add your **role ARN** in AWS.
 - Consumer Key: For Salesforce data sources, you can add the **password** and the **consumer secret** in key vault.
