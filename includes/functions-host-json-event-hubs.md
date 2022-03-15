@@ -22,7 +22,7 @@ ms.author: glenga
             "initialOffsetOptions" : {
                 "type" : "fromStart",
                 "enqueuedTimeUtc" : ""
-            }
+            },
             "clientRetryOptions":{
                 "mode" : "exponential",
                 "tryTimeout" : "00:01:00",
