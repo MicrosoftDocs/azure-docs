@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 03/14/2022
+ms.date: 03/15/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -136,7 +136,7 @@ With the add-on on your AKS cluster, every request to the Kubernetes API server 
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
-Learn more in [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
+Learn more in [Kubernetes data plane hardening](kubernetes-workload-protections.md).
 
 
 
@@ -208,7 +208,7 @@ Defender for Containers protects your clusters whether they're running in:
 - **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
 
 > [!NOTE]
-> Defender for Containers' support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is a preview feature.
+> Defender for Containers' support for Arc-enabled Kubernetes clusters (AWS EKS, and GCP GKE) is a preview feature.
 
 For high-level diagrams of each scenario, see the relevant tabs below. 
 
