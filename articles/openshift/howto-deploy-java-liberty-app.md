@@ -428,8 +428,8 @@ Now you can deploy the sample Liberty application to the ARO 4 cluster with the 
 1. [Log in to the OpenShift CLI with the token for the Azure AD user](https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/guides/howto-deploy-java-liberty-app.md#log-in-to-the-openshift-cli-with-the-token).
 1. Run the following commands to deploy the application.
    ```bash
-   # Change directory to "<path-to-repo>/3-integration/connect-db/mysql"
-   cd <path-to-repo>/3-integration/connect-db/mysql
+   # Change directory to "<path-to-repo>/3-integration/connect-db/mysql/target"
+   cd <path-to-repo>/3-integration/connect-db/mysql/target
 
    # Change project to "open-liberty-demo"
    oc project open-liberty-demo 
