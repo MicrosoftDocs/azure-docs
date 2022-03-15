@@ -44,26 +44,23 @@ To learn more about Azure Cosmos DB, go to [Azure Cosmos DB](/azure/cosmos-db/in
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 
-## Create an Auzre Cosmos account
+## Getting started
 
 For this quickstart you'll need to create an Azure resource group and a Cosmos DB account.
 
-Run the following commands to create the necessary Azure resources:
+Run the following commands to create an Azure resource groups:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
+```
+
+Next create a Cosmos DB account by running the following command:
+
+```
 az cosmosdb create --name my-cosmosdb-account --resource-group myResourceGroup
 ```
 
-## Create a new Go app
-
-With your Azure resource group and Cosmos DB account created, setup your Go app. 
-
-Run the `go mod init` command to create a new Go module.
-
-```bash
-go mod init cosmos_get_started
-```
+### Install the package
 
 Use the `go get` command to install the [azcosmos](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos) package.
 
@@ -71,29 +68,18 @@ Use the `go get` command to install the [azcosmos](https://pkg.go.dev/github.com
 go get github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos
 ```
 
-Next, create a new file named `main.go`.
+## Key concepts
 
-## Write the sample code
+* A `Client` is a connection to an Azure Cosmos DB account.
+* Azure Cosmos DB accounts can have multiple `databases`. A `DatabaseClient` allows you to create, read, and delete databases.
+* Database within an Azure Cosmos Account can have multiple `containers`. A `ContainerClient` allows you to create, read, update, and delete containers, and to modify throughput provision.
+* Information is stored as items inside containers and the client allows you to create, read, update, and delete items in containers.
 
-This section walk you through creating a sample Go application that uses the Azure Cosmos DB SQL API account and the Azure SDK for Go. You'll learn how to: authenticate to Azure with a client, create a Cosmos database and container, and insert, query, and delete items from the Cosmos database.
+## Code examples
 
-Add the following code to the `main.go` file:
+**Authenticate the client**
 
 ```go
-package main
-
-import (
-	"context"
-	"encoding/json"
-	"fmt"
-	"log"
-	"os"
-
-	"github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos"
-)
-
-func main() {
-	//Load the environment variables
 	endpoint, ok := os.LookupEnv("AZURE_COSMOS_URI")
 	if !ok {
 		panic("AZURE_COSMOS_ENDPOINT could not be found")
@@ -104,7 +90,7 @@ func main() {
 		panic("AZURE_COSMOS_KEY could not be found")
 	}
 
-	// Create a new CosmosDB client
+	// Create a CosmosDB client
 	cred, err := azcosmos.NewKeyCredential(key)
 	if err != nil {
 		log.Fatal("Failed to create a credential: ", err)
@@ -114,95 +100,99 @@ func main() {
 	if err != nil {
 		log.Fatal("Failed to create a client: ", err)
 	}
+```
 
-	//Create a Cosmos database
-	databaseProperties := azcosmos.DatabaseProperties{ID: "ToDoListDB"}
+**Create a Cosmos database**
 
-	databaseResp, err := client.CreateDatabase(context.Background(), databaseProperties, nil)
-	if err != nil {
-		panic(err)
-	}
+```go
+databaseProperties := azcosmos.DatabaseProperties{ID: "ToDoListDB"}
 
-	fmt.Printf("Database created. ActivityId %s\n", databaseResp.ActivityID)
-
-	//Create a Cosmos container inside the database
-	database, err := client.NewDatabase("ToDoListDB") //returns struct that represents a database.
-	if err != nil {
-		panic(err)
-	}
-
-	properties := azcosmos.ContainerProperties{
-		ID: "ToDoItems",
-		PartitionKeyDefinition: azcosmos.PartitionKeyDefinition{
-			Paths: []string{"/category"},
-		},
-	}
-
-	resp, err := database.CreateContainer(context.Background(), properties, nil)
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Printf("Container created. ActivityId %s", resp.ActivityID)
-
-	// Create an item inside the Cosmos container
-	container, err := client.NewContainer("ToDoListDB", "ToDoItems")
-	if err != nil {
-		panic(err)
-	}
-
-	pk := azcosmos.NewPartitionKeyString("personal") //specifies the value of the partition key
-
-	item := map[string]string{ //change to interface{} if you want to store any other type of data
-		"id":          "1",
-		"category":    "personal",
-		"name":        "groceries",
-		"description": "Pick up apples and strawberries",
-		"isComplete":  "false",
-	}
-
-	marshalled, err := json.Marshal(item)
-	if err != nil {
-		panic(err)
-	}
-
-	itemResponse, err := container.CreateItem(context.Background(), pk, marshalled, nil)
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Printf("Item created. ActivityId %s consuming %v RU \n", itemResponse.ActivityID, itemResponse.RequestCharge)
-
-	// Read an item from a Cosmos container
-	getResponse, err := container.ReadItem(context.Background(), pk, "1", nil)
-	if err != nil {
-		panic(err)
-	}
-
-	var getResponseBody map[string]interface{} //interface{} is a generic type accepting any value types returned
-	err = json.Unmarshal([]byte(getResponse.Value), &getResponseBody)
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println("Read item with Id 1:")
-
-	for key, value := range getResponseBody {
-		fmt.Printf("%s: %v\n", key, value)
-	}
-
-	//delete an item from a Cosmos container
-	delResponse, err := container.DeleteItem(context.Background(), pk, "1", nil)
-
-	if err != nil {
-		panic(err)
-	}
-	//change to map output category, id, name
-	fmt.Printf("Item deleted. ActivityId %s consuming %v RU", delResponse.ActivityID, delResponse.RequestCharge)
+databaseResp, err := client.CreateDatabase(context.Background(), databaseProperties, nil)
+if err != nil {
+	panic(err)
 }
 ```
 
-To learn more about the different elements in an Azure Cosmos account, see [Azure Cosmos DB resource model](/azure/cosmos-db/account-databases-containers-items).
+**Create a container**
+
+```go
+database, err := client.NewDatabase("ToDoListDB") //returns struct that represents a database.
+if err != nil {
+	panic(err)
+}
+
+properties := azcosmos.ContainerProperties{
+	ID: "ToDoItems",
+	PartitionKeyDefinition: azcosmos.PartitionKeyDefinition{
+		Paths: []string{"/category"},
+	},
+}
+
+resp, err := database.CreateContainer(context.Background(), properties, nil)
+if err != nil {
+	panic(err)
+}
+```
+
+**Create an item**
+
+```go
+container, err := client.NewContainer("ToDoListDB", "ToDoItems")
+if err != nil {
+	panic(err)
+}
+
+pk := azcosmos.NewPartitionKeyString("personal") //specifies the value of the partition key
+
+item := map[string]string{ //change to interface{} if you want to store any other type of data
+	"id":          "1",
+	"category":    "personal",
+	"name":        "groceries",
+	"description": "Pick up apples and strawberries",
+	"isComplete":  "false",
+}
+
+marshalled, err := json.Marshal(item)
+if err != nil {
+	panic(err)
+}
+
+itemResponse, err := container.CreateItem(context.Background(), pk, marshalled, nil)
+if err != nil {
+	panic(err)
+}
+```
+
+**Read an item**
+
+```go
+getResponse, err := container.ReadItem(context.Background(), pk, "1", nil)
+if err != nil {
+	panic(err)
+}
+
+var getResponseBody map[string]interface{}
+err = json.Unmarshal([]byte(getResponse.Value), &getResponseBody)
+if err != nil {
+	panic(err)
+}
+
+fmt.Println("Read item with Id 1:")
+
+for key, value := range getResponseBody {
+	fmt.Printf("%s: %v\n", key, value)
+}
+```
+
+**Delete an item**
+
+```go
+delResponse, err := container.DeleteItem(context.Background(), pk, "1", nil)
+
+if err != nil {
+	panic(err)
+}
+```
 
 ## Run the code
 
@@ -234,13 +224,22 @@ $env:AZURE_COSMOS_URL=<Your_AZURE_COSMOS_URI>
 $env:AZURE_COSMOS_PRIMARY_KEY=<Your_AZURE_COSMOS_URI>
 ```
 
-Run the following command to execute the app:
-
-```bash
-go run main.go
-```
-
 ---
+
+1. Create a new Go module by running the following command:
+
+	```bash
+	go mod init azcosmos
+	```
+
+1. Create a new file named `main.go` and copy the desired code from the sample sections above.
+
+1. Run the following command to execute the app:
+
+	```bash
+	go run main.go
+	```
+
 
 ## Clean up resources
 
