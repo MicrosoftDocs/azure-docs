@@ -3,7 +3,9 @@ title: Supported VM SKUs for Azure Policy
 description: 'An article describing the supported VM SKUs (by Publisher, Image Offer and Image SKU) which are supported for the built-in Azure Policies provided by Backup'
 ms.topic: conceptual
 ms.date: 03/15/2022
-
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Supported VM SKUs for Azure Policy
