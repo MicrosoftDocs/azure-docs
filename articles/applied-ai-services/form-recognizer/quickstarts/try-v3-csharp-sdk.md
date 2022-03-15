@@ -158,7 +158,7 @@ Analyze and extract text, tables, structure, key-value pairs, and named entities
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//Set `your-endpoint` and `your-key` environment variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance.
+//set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
 string endpoint = "<your-endpoint>";
 string key = "<your-key>";
 AzureKeyCredential credential = new AzureKeyCredential(key);
@@ -287,7 +287,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//Set `your-endpoint` and `your-key` environment variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance.
+//set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
 string endpoint = "<your-endpoint>";
 string key = "<your-key>";
 AzureKeyCredential credential = new AzureKeyCredential(key);
@@ -393,7 +393,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//Set `your-endpoint` and `your-key` environment variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance.
+//set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
 string endpoint = "<your-endpoint>";
 string key = "<your-key>";
 AzureKeyCredential credential = new AzureKeyCredential(key);
