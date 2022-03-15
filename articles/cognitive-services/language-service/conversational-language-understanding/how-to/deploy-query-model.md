@@ -31,18 +31,18 @@ When a model is deployed, you will be able to test the model directly in the por
 
 1.	Click on *Add deployment* to submit a new deployment job
 
-:::image type="content" source="../media/add-deployment-model.png" alt-text="A screenshot showing the model deployment button in Language Studio." lightbox="../media/add-deployment-model.png":::
+    :::image type="content" source="../media/add-deployment-model.png" alt-text="A screenshot showing the model deployment button in Language Studio." lightbox="../media/add-deployment-model.png":::
 
 2. In the window that appears, you can create a new deployment name by giving the deployment a name or override an existing deployment name. Then, you can add a trained model to this deployment name.
 
-:::image type="content" source="../media/create-deployment-job.png" alt-text="A screenshot showing the add deployment job screen in Language Studio." lightbox="../media/create-deployment-job.png":::
+    :::image type="content" source="../media/create-deployment-job.png" alt-text="A screenshot showing the add deployment job screen in Language Studio." lightbox="../media/create-deployment-job.png":::
 
 
 #### Swap deployments
 
 If you would like to swap the models between two deployments, simply select the two deployment names you want to swap and click on **Swap deployments**. From the window that appears, select the deployment name you want to swap with.
 
-:::image type="content" source="../media/swap-deployment.png" alt-text="A screenshot showing swaping deployments in Language Studio." lightbox="../media/swap-deployment.png":::
+:::image type="content" source="../media/swap-deployment.png" alt-text="A screenshot showing a swapped deployment in Language Studio." lightbox="../media/swap-deployment.png":::
 
 #### Delete deployment
 
@@ -58,17 +58,17 @@ To delete a deployment, select the deployment you want to delete and click on **
 
 1.	Click on **Add deployment** to submit a new deployment job.
 
-Like conversation projects, In the window that appears, you can create a new deployment name by giving the deployment a name or override an existing deployment name. Then, you can add a trained model to this deployment name and press next.
+    Like conversation projects, In the window that appears, you can create a new deployment name by giving the deployment a name or override an existing deployment name. Then, you can add a trained model to this deployment name and press next.
 
-:::image type="content" source="../media/create-deployment-job-orch.png" alt-text="A screenshot showing deployment job creation in Language Studio." lightbox="../media/create-deployment-job-orch.png":::
+    :::image type="content" source="../media/create-deployment-job-orch.png" alt-text="A screenshot showing deployment job creation in Language Studio." lightbox="../media/create-deployment-job-orch.png":::
 
 2. If you're connecting one or more LUIS applications or conversational language understanding projects, specify the deployment name.
 
-No configurations are required for custom question answering or unlinked intents.
+    No configurations are required for custom question answering or unlinked intents.
 
-LUIS projects **must be published** to the slot configured during the Orchestration deployment, and custom question answering KBs must also be published to their Production slots.
+    LUIS projects **must be published** to the slot configured during the Orchestration deployment, and custom question answering KBs must also be published to their Production slots.
 
-:::image type="content" source="../media/deploy-connected-services.png" alt-text="A screenshot showing the deployment screen for orchestration workflow projects." lightbox="../media/deploy-connected-services.png":::
+    :::image type="content" source="../media/deploy-connected-services.png" alt-text="A screenshot showing the deployment screen for orchestration workflow projects." lightbox="../media/deploy-connected-services.png":::
 
 ## Send a Conversational Language Understanding request
 

@@ -67,7 +67,7 @@ To delete a deployment, select the deployment you want to delete and click **Del
 
 5. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId}>`
 
-6. Copy the retrieve request and replace `<OPERATION-ID>` with `jobId` received form last step and submit the request.
+6. Copy the retrieve request and replace `<OPERATION-ID>` with `jobId` received from the last step and submit the request.
 
     :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
 
