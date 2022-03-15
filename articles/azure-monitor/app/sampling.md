@@ -488,6 +488,138 @@ When presenting telemetry back to you, the Application Insights service adjusts 
 
 The accuracy of the approximation largely depends on the configured sampling percentage. Also, the accuracy increases for applications that handle a large volume of generally similar requests from lots of users. On the other hand, for applications that don't work with a significant load, sampling is not needed as these applications can usually send all their telemetry while staying within the quota, without causing data loss from throttling. 
 
+## Log query accuracy and high sample rates
+
+         // Our hypothetical application picks up work items from an Azure Queue or an Event 
+            // Hub. Work items come in 3 kinds: A, B and C.
+            // Every time a telemetry item is processed, we log its kind and its Id. We also 
+            // compute and log how long it took to process the work item(duration). In addition, 
+            // we log the outcome(result), a detailed status message and whether or not the 
+            // processing was successful overall.If the processing fails, we also log the 
+            // respective exception and correlate it with the work item via its Id.
+            //
+            // All this information allows us to do 3 key things:
+            //  - Monitor the processing duration for work items and alert if it crosses a 
+            //    specified threshold.
+            //  - Monitor the number of failed work items and alert if the number of failed 
+            //    processing events crosses a specified threshold.
+            //  - If any problem is detected, use the detailed logged event and exception 
+            //    telemetry to diagnose the issue.
+            //
+            // As long as the number of processed work items is relatively low, everything is just
+            // fine. However, as the application is scaled up, it may be processing dozens, 
+            // hundreds, or thousands of work items per second. Logging an event for each of them 
+            // is not resource-effective and not cost-effective. Application Insights uses 
+            // sampling to adapt to growing telemetry volume in a flexible manner and to control 
+            // resource usage and cost. See:
+            // https://docs.microsoft.com/en-us/azure/application-insights/app-insights-sampling
+            //
+            // However, sampling can affect the accuracy of query results gained from sampled 
+            // telemetry. For example, assume that 0.01% of all work items actually fail (1 out
+            // of 10,000). Also assume that the sampling rate is 1% (1 out of 100 events is 
+            // chosen for storage, the other 99 are discarded). Consider a case where 1000 work 
+            // items are actually processed per some time period, so 10 are randomly chosen by 
+            // the sampling engine. Assume that 1 out of these 10 stored events happens to 
+            // represent a work item processing failure. Based on the the sampling rate of 1% 
+            // the system will estimate that the number of processing failures is 100 out of the
+            // 1000 processed items (10%). This grossly overestimates the true failure rate of 
+            // 0.01%. If any alerts based of failure counts were set up they will likely be 
+            // triggered and unnecessary investigations will occur.
+            // Because the true error rate is 0.01%, this problem will occur rarely, but it will 
+            // occur. For similar reasons, it will be impossible to get accurate statistics about 
+            // the processing duration grouped by successful vs. failing executions. The 
+            // corresponding events will be either missing or be over-represented.
+            // 
+            // To address these problems introduced by sampling we use a technique called
+            // pre-aggregation:
+            // We identify properties of the logged data that are most relevant and extract the 
+            // respective statistics before sampling occurs. Because metrics are always 
+            // aggregated, the resulting aggregate data will be represented by only a few metric 
+            // telemetry items per minute, instead of potentially thousands of event telemetry 
+            // items. This will avoid resource and cost problems.
+            // 
+            // We implement a
+            //  class PreaggregatedWorkitemProcessingDurationMetricExtractor
+            //                  : ITelemetryProcessor, ITelemetryModule
+            // that extracts and pre-aggregates relevant metrics from the event telemetry. In 
+            // this example, we extract the duration and count of processing events grouped by
+            // work item kind and by the success-status.
+            // For this to work correctly, it is critical that we install our metrics extractor 
+            // into the Application Insights processing pipeline before the sampling processor.
+            // For example, in ApplicatioinInsights.config:
+            //
+            //     ...
+            //     <TelemetryProcessors>
+            //         ...
+            //         < !-- Insert here -->
+            //         <Add Type="User.Namespace.Example07.PreaggregatedWorkitemProcessingDurationMetricExtractor, Your.Assembly.Name" />
+            //         < !-- Insert BEFORE here -->
+            //     
+            //         <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            //             <MaxTelemetryItemsPerSecond>5</ MaxTelemetryItemsPerSecond>
+            //             <IncludedTypes>Event</IncludedTypes>
+            //        </Add>
+            //        ...
+            //     </TelemetryProcessors>
+            //     ...
+            //     
+            // See further down in this example to see how to implement the metric extractor.
+            // In order to learn more about telemetry processors in Application Insights, see:
+            // https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-filtering-sampling
+            
+ Teams Content:
+show customers why sampling impacts log based queries. How sampling is by operation id, not just random individual records and when sampling rates increase log based queries accuracy is way off, usually inflated
+
+I've been trying to find a way to deliver this message to customers with an example. I pasted my last attempt at that example in the work item, but don't think we should use colors, or if we do different colors to describe which records we sample out compared to which records we keep and set itemCount value to higher values. 
+Think we just need to explain that if sampling is turned off the itemCount = 1, Always. 
+
+If sampling starts to occur then itemCount will be greater than 1 and again any Log-based query that uses sum(ItemCount) is just not going to be accurate anymore and the accuracy gets worse as sample rates increase and itemCount gets extreme like 30-60-100+ etc. 
+
+If itemCount = 2 then I think that means sample rates are already 50%, we typically dont' see customers complain about log based, sum(ItemCount), queries until sample rates get into the high 60s-80s percent rate
+
+Work Item content:
+
+Once we land the spot for this content, we need to walk customers through a clear example, show the problem, explain why the numbers are inflated, explain WHY our SDK does it that way so that we can more easily have conversations with these customers to rely on the Pre-aggregated Standard metrics instead when sample rates get high. 
+
+I am going to paste in verbiage that I used for our last customer who faced this which I think is helpful, however not sure if the "tick colors" example is best for public docs or if we could just switch those out for 25x"Rs", 25x"Ds", 25x"Ts", 25x"Es" to represent 25 Requests, Dependencies, Traces, and Exceptions messages. Maybe we just need better images as an example, showing 100 telemetry items with itemCount set to 1, versus only keeping a single record out of the 100 adn setting itemCount to 100.  However we want to pitch the example, I think showing customers 100 telemetry items and walking through the problem of only getting to keep one of those records helps with the discussion. I don't know the best way to word this but we desperately need to get something up there for customers and I think my walkthrough example below is a decent start. 
+
+
+To help explain this behavior, it helps to walk through a controlled example. Let’s say that my web application generated 100 distinct telemetry records. For this hypothetical scenario let's assume 25 different users made a single request to my web site and each of those requests generated 1 Request telemetry record, 1 Dependency telemetry record, 1 Trace Message telemetry record and 1 Exception telemetry record. If all 25 of those users completed their requests, then we’d have the raw 100 telemetry records in the image below, so 25 Requests in black, 25 Dependencies in blue, 25 traces in green and 25 exceptions in red.
+
+ 
+
+Now, let’s make the assumption that the App Insights did NOT need to throttle the telemetry. Your web application wanted to send all 100 records up to our ingestion endpoint. The SDK would package up all of those 100 telemetry records into json payloads and send them up to our ingestion service. Every single one of those 100 telemetry records would get their itemCount field set to 1. That is because we don’t need to drop any records for sampling and each single telemetry record represents a count of 1. With a sample rate of 0% we keep each telemetry record and when you do a sum(itemCount) against the requests telemetry you get 25, which matches the 25 requests and 25% of the 100 telemetry records produced by the web application.
+
+ 
+
+ Image
+
+
+Now that we know how the telemetry behaves without sampling, let’s then talk about what happens during extreme sampling. Let’s say you use Ingestion Sampling or Fixed Rate sampling and decide you are getting too much telemetry and only want to keep 1% of all the records, thus dropping 99% of all of your telemetry. If your sample rate was 99% against our 100 telemetry records above, then that would mean I could only keep a single record out of all 100 items. If I can only keep 1 out of these 100 records, then let’s assume the SDK picks one of the black request telemetry records. It will have to drop all the other 99 records (24 requests, 25 dependencies, 25 traces, 25 exceptions = 99 records). Since we are keeping only one record, dropping 99, then the SDK would naturally set the itemCount field for that single request record to 100, because this single record that is getting ingested represents 100 total telemetry records that executed within the web app.
+
+
+Image
+ 
+
+Now, when you go to run your same log-based sum(itemCount) calculation, you are going to see that the telemetry reports your web application processed 100 Requests, when we know that in reality it only processed 25 requests. Thus, this is how extreme sample rates can wildly start to skew log-based query results. There is no possible way for us to keep just keep 1 out of those 100 records and still somehow represent the true real values across the other telemetry types.
+
+ 
+
+In practice it’s not this simple, because our App Insights SDK samples based on Operation Id, meaning we’ll identify an operation_Id that we want to keep and then we’ll collect ALL of the telemetry for that single operation and make sure all of those records get ingested and saved. The reason we do this is so that your End-to-End experience is complete. When you review a failing operation in the end-to-end view, we want to allow you to see all of the telemetry for that single failing operation so that you know where in the code it was breaking, and you’ll be able to get the exception details. If we were to drop telemetry items from within each operation too, then that wouldn’t help sum(itemCount) computations nor the e2e investigation experience. Since we sample out by operation id that also means you could see wild fluctuations from day to day if your operations produce different counts of telemetry. Say you had a Single-Page-Application that ran at some kiosk and ran all day for multiple users, it’s possible that a single telemetry operation could have produced 4000 telemetry records for just that operation id alone, and if that’s the operation id selected by the SDK to get ingested, as compared to other operations in your web app that only require 1 to 3 telemetry records, you could randomly see a spike in your adjusted sample rates.
+
+ 
+
+This is a hard issue to describe and explain, but it is intentional and only impacts the accuracy of log-based, sum(itemCount), queries when sampling is enabled and starts to get high. I’ve seen some customers detect inaccuracies when sample rates get into the 60% range, but it impacts customers differently based on their telemetry types, telemetry counts per operation, etc.
+
+ 
+
+The product team is well aware of this issue, and there just is no good solution so solve the issues with sum(itemCount) log-based queries. So, to help customers, the product team added pre-aggregated metrics to the SDKs, Log-based and pre-aggregated metrics in Azure Application Insights - Azure Monitor | Microsoft Docs. These metrics will calculate the 25 requests above and send a metric to your MDM account reporting “this web app processed 25 requests”, but then it will send that sole request telemetry record with itemCount of 100 from our example above. The pre-aggregated metrics report the correct numbers and customers can find that on the Metrics blade of Application Insights, just search for anything in the Metric Namespace Application Insights Standard Metrics. Those standard metrics will chart correct numbers, the sum(itemCount) log-based queries will not when sampling rates get high.
+
+
+
+
+
+
 ## Frequently asked questions
 
 *What is the default sampling behavior in the ASP.NET and ASP.NET Core SDKs?*
