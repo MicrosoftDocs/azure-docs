@@ -491,6 +491,10 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. Restart the top-level parent Edge device first, make sure it's up and running
 1. Restart each device in hierarchy level by level from top to the bottom
 
+## MTU mismatch problem!
+
+Lorem Ipsum
+
 :::moniker-end
 <!-- end 1.2 -->
 
