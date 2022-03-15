@@ -46,7 +46,7 @@ When the backend pool is scaled down, existing port mappings for the remaining v
 
 ## Port mapping retrieval
 
-You can use the portal to retrieve the port mappings for virtual machines in the backend pool. For more information, see [Manage inbound NAT rules](manage-inbound-nat-rules.md) and [Tutorial: Create a multiple virtual machines inbound NAT rule - Azure portal](tutorial-nat-rule-multi-instance-portal.md).
+You can use the portal to retrieve the port mappings for virtual machines in the backend pool. For more information, see [Manage inbound NAT rules](manage-inbound-nat-rules.md#view-port-mappings).
 
 ## Next steps
 
@@ -54,7 +54,7 @@ For more information about Azure Load Balancer inbound NAT rules, see:
 
 * [Manage inbound NAT rules](manage-inbound-nat-rules.md)
 
-* [Tutorial: Create a multiple virtual machines inbound NAT rule - Azure portal](tutorial-nat-rule-multi-instance-portal.md)
+* [Tutorial: Create a multiple virtual machines inbound NAT rule using the Azure portal](tutorial-nat-rule-multi-instance-portal.md)
 
 * [Tutorial: Create a single virtual machine inbound NAT rule using the Azure portal](tutorial-load-balancer-port-forwarding-portal.md)
 
