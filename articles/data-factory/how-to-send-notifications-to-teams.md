@@ -90,6 +90,16 @@ Before you can send notifications to Teams from your pipelines you must create a
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-variables.png" alt-text="Shows the &quot;Pipeline variables&quot;.":::
 
+1.  Search for "Set variable" in the pipeline "Activities" pane, and drag a **Set Variable** activity to the pipeline canvas.
+
+1.  Select the Set variable activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
+
+1.  In the "General" tab, specify **Set JSON schema** for **Name** of the "Set variable" activity.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/set-variable-activity-name.png" alt-text="Shows the &quot;Set variable&quot; activity general tab.":::
+
+1.  Select **Variables** tab, and choose **messageCard** variable.
+
 1.  Search for "teams", then select and use the **Send notification to a channel in Microsoft Teams** template.
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-dialog.png" alt-text="Shows the &quot;Send notification to a channel in Microsoft Teams&quot; template in the template gallery.":::
@@ -112,7 +122,6 @@ Before you can send notifications to Teams from your pipelines you must create a
     :::image type="content" source="media/how-to-send-notifications-to-teams/name-pipeline-synapse.png" alt-text="Shows the &quot;Properties&quot; panel.":::
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/hide-properties-panel-synapse.png" alt-text="Shows the &quot;Properties&quot; pannel hidden.":::
-
 
 1.  In the "Configurations" pane, select **Parameters**, and then select the **+ New** button define following parameters for your pipeline.
 
@@ -139,6 +148,14 @@ Before you can send notifications to Teams from your pipelines you must create a
     | messageCard           | String                |                           |
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-variables-synapse.png" alt-text="Shows the &quot;Pipeline variables&quot;.":::
+
+1.  Search for "Set variable" in the pipeline "Activities" pane, and drag a **Set Variable** activity to the pipeline canvas.
+
+1.  Select the Set variable activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
+
+1.  In the "General" tab, specify **Set JSON schema** for **Name** of the "Set variable" activity.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/set-variable-activity-name-synapse.png" alt-text="Shows the &quot;Set variable&quot; activity general tab.":::
 
 1.  Search for "teams", then select and use the **Send notification to a channel in Microsoft Teams** template.
     
