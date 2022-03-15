@@ -7,12 +7,15 @@ ms.date: 01/27/2022
 ---
 
 # Query Basic Logs in Azure Monitor (Preview)
-Basic Logs reduce the cost of high-volume verbose logs you don’t need for analytics and alerts. Basic Logs have reduced charges for ingestion and limitations on log queries and other Azure Monitor features. This article describes how to query data from tables configured for Basic Logs in the Azure portal and using the Log Analytics REST API. 
+Basic Logs tables reduce the cost of ingesting high-volume verbose logs and let you query the data they store using a limited set of log queries. This article explains how to query data from Basic Logs tables. 
+
+For more information, see [Azure log data plans](log-analytics-workspace-overview.md#log-data-plans-preview) and [Configure a table for Basic Logs.](basic-logs-configure.md). 
+
 
 > [!NOTE]
 > Other tools that use the Azure API for querying - for example, Grafana and Power BI - cannot access Basic Logs. 
 
-## Limits
+## Limitations
 Queries with Basic Logs are subject to the following limitations:
 ### KQL language limits
 Log queries against Basic Logs are optimized for simple data retrieval using a subset of KQL language, including the following operators: 
@@ -77,7 +80,7 @@ https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 }
 ```
 
-## Costs
+## Pricing model
 The charge for a query on Basic Logs is based on the amount of data the query scans, not just the amount of data the query returns. For example, a query that scans three days of data in a table that ingests 100 GB each day, would be charged for 300 GB. Calculation is based on chunks of up to one day of data. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
