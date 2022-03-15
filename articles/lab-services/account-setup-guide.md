@@ -37,7 +37,7 @@ For more information on how to structure labs, see the "Lab" section of [Azure L
 ### Understand subscription VM limits and regional VM capacity
 After you've estimated the number of VMs and the VM sizes for your labs, you need to:
 
-- Ensure that your Azure subscription's capacity limit allows for the number of VMs and the VM size that you plan to use in your labs.
+- Ensure that your Azure subscription's capacity limit lets the number of VMs and the VM size that you plan to use.
 - Create your lab account within a region that has sufficient available VM capacity.
 
 For more information, see [VM subscription limits and regional capacity](https://techcommunity.microsoft.com/t5/azure-lab-services/vm-subscription-limits-and-regional-capacity/ba-p/1845553).
@@ -94,7 +94,7 @@ For more information, see:
 
 Azure Marketplace provides hundreds of images that you can enable so that Lab Creators can use them for creating their labs. Some images might include everything that a lab already needs. In other cases, you might use an image as a starting point, and then the Lab Creator can customize it by installing more applications or tools.
 
-If you don't know which images you need, you can come back later to enable them. The best way to see which images are available is to first create a lab account. This gives you access so that you can review the list of available images and their contents.  
+If you don't know which images you need, you can come back later to enable them. The best way to see which images are available is to first create a lab account. Creating a lab account gives you access so that you can review the list of available images and their contents.
 
 For more information, see [Specify the Azure Marketplace images that are available to Lab Creators](./specify-marketplace-images.md).
   
@@ -114,7 +114,7 @@ When you set up a lab account, you also can peer your lab account with a virtual
 
 - **Access to other Azure resources that are located outside a virtual network**
 
-   If you need access to Azure resources that *aren't* secured within a virtual network, you can access them through the public internet, without having to do any peering.
+   You can access the Azure resources that *aren't* secured in a virtual network through the public internet.
 
    For more information about virtual networks, see:
   - The "Virtual network" section of [Architecture fundamentals in Azure Lab Services](./classroom-labs-fundamentals.md#virtual-network)
@@ -139,11 +139,11 @@ After you've finished planning, you're ready to set up your lab account. You can
 
    To review the contents of each Azure Marketplace image, select the image name. For example, the following screenshot shows the details of the Ubuntu Data Science VM image:
 
-   :::image type="content" source="./media/setup-guide/review-marketplace-images.png" alt-text="Screenshot of a list of images available for review in Azure Marketplace.":::
+   :::image type="content" source="./media/setup-guide/review-azure-marketplace-images.png" alt-text="Screenshot of a list of images available for review in Azure Marketplace.":::
 
    If a shared image gallery is attached to your lab account, and you want to enable custom images to be shared by Lab Creators, complete similar steps as shown in the following screenshot:
 
-   :::image type="content" source="./media/setup-guide/enable-sig-custom-images.png" alt-text="Screenshot of a list of enabled custom images in a shared image gallery.":::
+   :::image type="content" source="./media/setup-guide/enable-azure-compute-gallery-images.png" alt-text="Screenshot of a list of enabled custom images.":::
 
 ## Next steps
 
