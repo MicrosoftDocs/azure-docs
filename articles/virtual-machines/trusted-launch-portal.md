@@ -221,7 +221,7 @@ az vm create --resource-group MyResourceGroup \
 
 ### [PowerShell](#tab/powershell)
 
-Create an image definition with TrustedLaunch security type
+Create an image definition with `TrustedLaunch` security type
 
 ```azurepowershell-interactive
 $rgName = "MyResourceGroup"
