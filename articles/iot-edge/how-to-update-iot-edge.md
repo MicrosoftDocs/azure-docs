@@ -92,7 +92,7 @@ If you want to update to the most recent version of IoT Edge, use the following 
 
 # [Linux on Windows](#tab/linuxonwindows)
 
-For information about IoT Edge for Linux on Windows updates, refer to [EFLOW Updates](./iot-edge-for-linux-on-windows-updates.md).
+For information about IoT Edge for Linux on Windows updates, see [EFLOW Updates](./iot-edge-for-linux-on-windows-updates.md).
 
 # [Windows](#tab/windows)
 
