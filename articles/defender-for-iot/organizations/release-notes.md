@@ -2,11 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-<<<<<<< HEAD
-ms.date: 03/09/2022
-=======
-ms.date: 03/13/2022
->>>>>>> fcffd8c3e0536d0ee11aa8eb55792d6629517b9c
+ms.date: 03/15/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
