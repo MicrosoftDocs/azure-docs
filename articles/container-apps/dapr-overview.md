@@ -13,6 +13,9 @@ ms.date: 03/10/2022
 With Azure Container Apps, you get a fully managed version of [Dapr][dapr-concepts] (Distributed Application Runtime) APIs that simplify microservice development and implementation. Dapr is an incrementally adoptable set of APIs that makes it easy for you to write distributed applications. When you use Dapr in Azure Container Apps, leveraging the sidecar pattern, Dapr provides HTTP and gRPC APIs that solve common distributed app challenges, such as:
 
 - [Service to Service calls][dapr-serviceinvo] 
+    - mTLS authentication / encryption
+    - Resiliency / retries
+    - Service discovery
 - [Pub/Sub][dapr-pubsub]
 - [Event Bindings][dapr-bindings]
 - [State Stores][dapr-statemgmt]
@@ -28,11 +31,36 @@ Currently, Azure Container Apps supports Dapr version 1.4.2.
 
 ## Supported Dapr capabilities and features
 
-### Service-to-service invocation
-
 Azure Container Apps offers a fully managed version of the Dapr APIs. With Dapr for Container Apps, you enable Dapr sidecars to run next to your application instances.
 
+### Service-to-service invocation
+
+Dapr addresses challenges around encryption, resiliency, service discovery, and more by:
+- Providing a service invocation API that acts as a combination of a reverse proxy with built-in service discovery.
+- Leveraging built-in distributed tracing, metrics, error handling, encryption, and more.
+
 :::image type="content" source="./media/dapr-overview/service-invocation.png" alt-text="Service-to-service invocation diagram" :::
+
+#### mTLS authentication / encryption
+
+One of the security mechanisms that Dapr employs for encrypting data in transit is mutual authentication TLS (mTLS). Calls between Dapr sidecars are secured with an "on-by-default" mTLS on hosted platforms, including automatic certificate rollover, via the Dapr Sentry service. 
+
+Dapr enables mTLS with no extra code or complex configuration inside your production systems. With Dapr, operators and developers can either:
+- Bring in their own certificates, or 
+- Let Dapr automatically create and persist self-signed root and issuer certificates. 
+
+#### Resiliency / retries
+
+Dapr service invocation performs automatic retries with back-off time periods in the event of errors like: 
+
+- Network errors, including endpoint unavailability and refused connections.
+- Authentication errors, due to a renewing certificate on the calling/callee Dapr sidecars.
+
+Per-call retries are performed with a back-off interval of 1 second up to a threshold of 3 times. Connection establishment via gRPC to the target sidecar has a timeout of 5 seconds.
+
+#### Service discovery
+
+Dapr can run on a variety of hosting platforms. To enable service discovery and service invocation, Dapr uses pluggable [name resolution components][dapr-pluggable].
 
 [Learn more about Dapr's Service Invocation capabilities.][dapr-serviceinvo]
 
@@ -108,3 +136,4 @@ Now that you've learned about Dapr and some of the challenges it solves, try [De
 [dapr-serviceinvo]: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/
 [dapr-bindings]: https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/
 [dapr-actors]: https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/
+[dapr-pluggable]: https://docs.dapr.io/reference/components-reference/supported-name-resolution/
