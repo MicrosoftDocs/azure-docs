@@ -122,7 +122,7 @@ While you can run the MMA and AMA simultaneously, you may want to migrate each c
 
 For more information, see:
 
-- [Frequently asked questions for AMA migration](../azure-monitor/faq.yml#azure-monitor-agent)
+- [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent)
 - [Overview of the Azure Monitor agents](../azure-monitor/agents/agents-overview.md)
 - [Migrate from Log Analytics agents](../azure-monitor/agents/azure-monitor-agent-migration.md)
 - [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)
