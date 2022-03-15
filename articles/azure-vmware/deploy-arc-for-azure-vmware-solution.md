@@ -151,8 +151,8 @@ After you've enabled VMs to be managed from Azure, you can install guest managem
 - Enable customers to install and use extensions.
     - To enable guest management, customers will be required to use admin credentials
     - VMtools should already be running on the VM
-  > [!NOTE] 
-  > Azure VMware Solution vCenter will be available in global search but will NOT be available in the list of vCenters for ARc for VMware.
+> [!NOTE] 
+> Azure VMware Solution vCenter will be available in global search but will NOT be available in the list of vCenters for ARc for VMware.
 
 - Customers can view the list of VM extensions available in public preview.
     - Change tracking
