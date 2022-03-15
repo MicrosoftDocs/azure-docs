@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: In this article, you will learn how to use the pie chart layer in an Azure Maps Power BI visual.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 03/14/2022
+ms.date: 03/15/2022
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -34,11 +34,8 @@ The pie chart layer is added automatically based on what fields in the **Visuali
 
 The following steps will walk you through creating a pie chart layer.
 
-1. In Power BI, select the dataset that you wish to use.
-1. Select the plus sign (:::image type="icon" source="./media/power-bi-visual/plus-sign.png":::) at the bottom of the Power BI window to create a new page in Power BI, and rename it to Pie chart.
-1. Make sure to have the Azure Maps visual selected in the **Visualizations** pane.
 1. Select two location sources from the **Fields** pane, such as city/state, to add to the **Location** field.
-1. Select a numerical field from your table, such as sales, and add it to the **Size** field in the **Visualizations** pane. This is the numerical value used in the pie chart.
+1. Select a numerical field from your table, such as sales, and add it to the **Size** field in the **Visualizations** pane. This field must contain the numerical values used in the pie chart.
 1. Select a data field from your table that can be used as the category that the numerical field applies to, such as *manufacturer*, and add it to the **Legend** field in the **Visualizations** pane. This will appear as the slices of the pie, the size of each slice is a percentage of the whole based on the value in the size field, such as the number of sales broken out by manufacturer.
 1. Next, in the **Format** tab of the **Visualizations** pane, switch the **Bubbles** toggle to **On**.
 
@@ -70,22 +67,3 @@ Change how your data is displayed on the map:
 
 > [!div class="nextstepaction"]
 > [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)
-
-Add more context to the map:
-
-> [!div class="nextstepaction"]
-> [Add a reference layer](power-bi-visual-add-reference-layer.md)
-
-> [!div class="nextstepaction"]
-> [Add a tile layer](power-bi-visual-add-tile-layer.md)
-
-> [!div class="nextstepaction"]
-> [Show real-time traffic](power-bi-visual-show-real-time-traffic.md)
-
-Customize the visual:
-
-> [!div class="nextstepaction"]
-> [Tips and tricks for color formatting in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
-
-> [!div class="nextstepaction"]
-> [Customize visualization titles, backgrounds, and legends](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
