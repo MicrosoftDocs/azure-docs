@@ -181,6 +181,26 @@ Use [az network lb inbound-nat-rule update](/cli/azure/network/lb/inbound-nat-ru
 
 ---
 
+## View port mappings
+
+Port mappings for the virtual machines in the backend pool can be viewed by using the Azure portal. In this example, you'll use the Azure portal to view the port mappings:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+3. Select **myLoadBalancer** or your load balancer.
+
+4. In the load balancer page in, select **Inbound NAT rules** in **Settings**.
+
+5. Select **myInboundNATrule** or your inbound NAT rule.
+
+    :::image type="content" source="./media/manage-inbound-nat-rules/view-inbound-nat-rule.png" alt-text="Screenshot of inbound NAT rule page.":::
+
+6. Scroll to the **Port mapping** section of the inbound NAT rule properties page.
+
+    :::image type="content" source="./media/manage-inbound-nat-rules/view-port-mappings.png" alt-text="Screenshot of inbound NAT rule port mappings.":::
+
 ## Remove an inbound NAT rule
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
