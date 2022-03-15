@@ -58,24 +58,6 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 "operationRequestSource": "Partner",
 ```
 
-*Webhook payload example of a purchase event:*
-
-```json
-// end user changed a quantity of purchased seats for a plan on Microsoft side
-{
-  "id": "<guid>", // this is the operation ID to call with get operation API
-  "activityId": "<guid>", // do not use
-  "subscriptionId": "guid", // The GUID identifier for the SaaS resource which status changes
-  "publisherId": "contoso", // A unique string identifier for each publisher
-  "offerId": "offer1", // A unique string identifier for each offer
-  "planId": "silver", // the most up-to-date plan ID
-  "quantity": "25", // the most up-to-date number of seats, can be empty if not relevant
-  "timeStamp": "2019-04-15T20:17:31.7350641Z", // UTC time when the webhook was called
-  "action": "ChangeQuantity", // the operation the webhook notifies about
-  "status": "Success" // Can be either InProgress or Success
-}
-```
-
 *Webhook payload example of a subscription reinstatement event:*
 
 ```json
