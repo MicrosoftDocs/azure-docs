@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/27/2021
+ms.date: 03/21/2022
 ms.subservice: app-proxy
 ms.author: kenwith
 ms.reviewer: ashishj
@@ -25,6 +25,27 @@ Here is a list of related resources:
 | How to enable Application Proxy                  | Pre-requisites for enabling Application Proxy and installing and registering a connector are described in this [tutorial](application-proxy-add-on-premises-application.md). |
 | Understand Azure AD Application Proxy connectors | Find out more about [connector management](application-proxy-connectors.md) and how connectors [auto-upgrade](application-proxy-connectors.md#automatic-updates). |
 | Azure AD Application Proxy Connector Download    | [Download the latest connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download). |
+
+## 1.5.2846.0
+
+### Release status
+
+March 21, 2022: Released for download
+This version is only available for install via the download page. 
+
+### New features and improvements
+
+**General flow improvements:**
+- Maximum number of HTTP headers supported on a HTTP requests increased from 41 to 60.
+- Trigger request retry for GET requests on SSL failures.
+- Change default ServicePoint connection limit from 2 to 200.
+
+**Websocket support:**
+- Improved telemetry.
+- Failing websocket connect attempts will return the original error code and response instead of a 400 Bad Request code.
+
+**Installation flow:**
+- Use MSAL and not ADAL as part of installation.
 
 ## 1.5.1975.0
 
