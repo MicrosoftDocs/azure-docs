@@ -162,7 +162,7 @@ You can deploy trusted launch VMs using a quickstart template:
 2. To create an Azure Compute Gallery Image from a VM, open an existing Trusted launch VM and select **Capture**.
 3. In the Create an Image page that follows, allow the image to be shared to the gallery as a VM image version as Managed Images are not supported for Trusted Launch.
 4. Create a new Target Azure Compute Gallery or select an existing gallery.
-5. Select the Operating system state as either **Generalized** or **Specialized**.
+5. Select the **Operating system state** as either **Generalized** or **Specialized**.
 6. Create a new Target Image Definition by providing a name, publisher, offer and SKU details. Note that the Security Type of the image definition is already set to 'Trusted launch'.
 7. Provide a version number for the image version.
 8. Modify replication options if required.
