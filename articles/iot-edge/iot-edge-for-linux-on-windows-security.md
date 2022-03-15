@@ -139,4 +139,4 @@ In the EFLOW Continuous Release (CR) version, we introduced a change in the tran
 
 Read more about [Windows IoT security premises](https://docs.microsoft.com/windows/iot/iot-enterprise/os-features/security)
 
-Stay up-to-date with the latest [IoT Ede for Linuxon Windows updates](./iot-edge-for-linux-on-windows.md)
+Stay up-to-date with the latest [IoT Edge for Linux on Windows updates](./iot-edge-for-linux-on-windows.md)
