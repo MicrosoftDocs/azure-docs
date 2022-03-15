@@ -27,7 +27,7 @@ In this tutorial, you learn two data recovery patterns:
 |:--|:--|
 | Restore into a parallel database | This pattern can be used for tasks such as review, auditing, and compliance to allow a tenant to inspect their data from an earlier point. The tenant's current database remains online and unchanged. |
 | Restore in place | This pattern is typically used to recover a tenant to an earlier point, after a tenant accidentally deletes or corrupts data. The original database is taken off line and replaced with the restored database. |
-|||
+
 
 To complete this tutorial, make sure the following prerequisites are completed:
 

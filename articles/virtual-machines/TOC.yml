@@ -626,6 +626,12 @@
     - name: GPU Optimized SKUs
       displayName: dedicated, packing, dedicated host, GPU optimized
       href: dedicated-host-gpu-optimized-skus.md
+    - name: Dedicated Host SKU Retirement
+      displayName: dedicated, dedicated host, retirement
+      href: dedicated-host-retirement.md
+    - name: Dedicated Host SKU Migration
+      displayName: dedicated, dedicated host, retirement, migration
+      href: dedicated-host-migration-guide.md
   - name: Azure Spot Virtual Machines
     items:
     - name: Overview
