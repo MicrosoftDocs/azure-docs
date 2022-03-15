@@ -91,7 +91,6 @@ The vCore-based service tiers are differentiated based on database availability 
 || **General Purpose** | **Hyperscale** | **Business Critical** |
 |:---:|:---:|:---:|:---:|
 | **Best for** | Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB,fast vertical and horizontal compute scaling, fast database restore.| OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
-| **Resource type** | SQL Database / SQL Managed Instance | Single database | SQL Database / SQL Managed Instance |
 | **Compute size** | 1 to 80 vCores | 1 to 80  vCores<sup>1</sup> | 1 to 80 vCores |
 | **Storage type** | Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance)|
 | **Storage size**<sup>1</sup> | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |

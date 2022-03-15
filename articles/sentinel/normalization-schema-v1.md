@@ -1,11 +1,10 @@
 ---
 title: Microsoft Sentinel network normalization schema (Legacy version - Public preview)| Microsoft Docs
 description: This article displays the Microsoft Sentinel data normalization schema.
-author: yelevin
+author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
-ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.author: ofshezaf
 ---
 
 # Microsoft Sentinel network normalization schema (Legacy version - Public preview)

@@ -47,6 +47,10 @@
     items:
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Web
+    items:
+    - name: API Management
+      href: ../../api-management/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
 - name: Concepts
   expanded: true
   items:
