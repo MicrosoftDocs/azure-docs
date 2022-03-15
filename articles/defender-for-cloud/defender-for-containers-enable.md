@@ -3,7 +3,7 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 03/14/2022
+ms.date: 03/15/2022
 ---
 # Enable Microsoft Defender for Containers
 
@@ -36,10 +36,6 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
 [!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-arc-eks.md)]
 ::: zone-end
-
-Microsoft Defender for Containers is configured to defend all of your clouds automatically. When you install all of the required prerequisites and enable all of the auto provisioning capabilities.
-
-If you choose to disable all of the auto provision configuration options, no agents, or components will be deployed to your clusters. Protection will be limited to the Agentless features only. Learn which features are Agentless in the [availability section](supported-machines-endpoint-solutions-clouds-containers.md) for Defender for Containers. 
 
 ::: zone pivot="defender-for-container-aks"
 [!INCLUDE [Enable plan for AKS](./includes/defender-for-containers-enable-plan-aks.md)]
