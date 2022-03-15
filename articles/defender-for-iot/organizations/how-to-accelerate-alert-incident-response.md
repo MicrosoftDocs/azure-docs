@@ -114,9 +114,9 @@ Use custom alert rule actions to instruct Defender for IT to take specific actio
         - For a package download event, select **HTTP**
         - For an open ports (dropped) event, select **TCP** or **UDP**, depending on the port type.
 
+        To create rules that monitor for specific changes in one of your OT protocols, such as S7 or CIP, use any parameters found on that protocol, such as `tag` or `sub-function`.
+        
     - **Message**.  Define a message to display when the alert is triggered. Alert messages support alphanumeric characters and any traffic variables detected. For example, you might want to include the detected source and destination addresses. Use curly brackets (**{}**) to add variables to the alert message.
-
-    - **Engine**. Select the engine you want to detect the activity.
 
     - **Direction**.  Enter a source and/or destination IP address where you want to detect traffic.
 
