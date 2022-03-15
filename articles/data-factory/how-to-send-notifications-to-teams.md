@@ -24,17 +24,23 @@ Before you can send notifications to Teams from your pipelines you must create a
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-incoming-webhook-connector.png" alt-text="Shows the Incoming Webhook app under the Apps tab in Teams.":::
 
-1.  Add the connector to the Teams site where you want to send the notifications.
+1.  Click the "Add to a team" button to add the connector to the Team or Team channel name site where you want to send notifications.
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-add-connector-to-site.png" alt-text="Highlights the &quot;Add to a team&quot; button for the Incoming Webhook app.":::
-    
-    :::image type="content" source="media/how-to-send-notifications-to-teams/teams-prod-notifications.png" alt-text="Shows the team selection prompt on the Incoming Webhook app configuration dialog in Teams.":::
+
+1.  Type or select Team or Team channel name where you want to send the notifications.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/type-a-team-or-team-channel-name.png" alt-text="Shows the team selection prompt on the Incoming Webhook app configuration dialog in Teams. Type the &quot;Team or Team channel name&quot;":::
+
+1.  Click the "Set up a connector" button to set up the Incoming Webhook for the Team or Team channel name you selected in the previous step.
+ 
+    :::image type="content" source="media/how-to-send-notifications-to-teams/teams-prod-notifications.png" alt-text="Shows the team selection prompt on the Incoming Webhook app configuration dialog in Teams. Highlights the Team and the &quot;Set up a connector&quot; button":::
 
 1.  Name the Webhook as appropriate and optionally upload an icon to identify your messages.
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-add-icon.png" alt-text="Highlights the name property, optional image upload, and &quot;Create&quot; button in the Incoming Webhook options page.":::  
 
-1.  Copy the store of the webhook URL that is generated on creation for later use in ADF.
+1.  Copy the Webhook URL that is generated on creation and save it for later use in ADF pipeline. After that, click the "Done" button to complete the set up.
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-copy-webhook-url.png" alt-text="Shows the new webhook URL on the Incoming Webhook options page after creation.":::
 
