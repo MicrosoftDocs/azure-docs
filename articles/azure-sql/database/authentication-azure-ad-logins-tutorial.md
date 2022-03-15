@@ -219,4 +219,4 @@ For more information and examples, see:
 
 - [Azure Active Directory server principals](authentication-azure-ad-logins.md)
 - [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true)
-- [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sq)
+- [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql)
