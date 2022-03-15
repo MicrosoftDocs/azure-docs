@@ -474,5 +474,6 @@ For more information on the link feature, see the following:
 
 - [Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog).
 - [Prepare for SQL Managed Instance link](./managed-instance-link-preparation.md).
+- [Use SQL Managed Instance link via SSMS to migrate database](./managed-instance-link-use-scripts-to-failover-database.md).
 - [Use SQL Managed Instance link via SSMS to replicate database](./managed-instance-link-use-ssms-to-replicate-database.md).
 - [Use SQL Managed Instance link via SSMS to migrate database](./managed-instance-link-use-ssms-to-failover-database.md).
