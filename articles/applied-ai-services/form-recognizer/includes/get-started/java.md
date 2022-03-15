@@ -92,7 +92,7 @@ You will create the following directory structure:
 
 :::image type="content" source="../../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
 
-Navigate to the java directory and create a file called *FormRecognizer.java*.  Open it in your preferred editor or IDE and add the following package declaration and  `import` statements:
+Navigate to the Java directory and create a file called *FormRecognizer.java*.  Open it in your preferred editor or IDE and add the following package declaration and `import` statements:
 
 ```java
 import com.azure.ai.formrecognizer.*;
