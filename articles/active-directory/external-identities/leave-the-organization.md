@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 03/21/2022
 
 ms.author: mimart
 author: msmimart
@@ -17,12 +17,16 @@ ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ---
 
-# Leave an organization as a guest user
+# Leave an organization as a B2B collaboration user
 
-An Azure Active Directory (Azure AD) B2B guest user can decide to leave an organization at any time if they no longer need to use apps from that organization or maintain any association. A user can leave an organization on their own, without having to contact an administrator.
+An Azure Active Directory (Azure AD) B2B collaboration user can decide to leave an organization at any time if they no longer need to use apps from that organization or maintain any association. A B2B collaboration user can leave an organization on their own, without having to contact an administrator.
 
-> [!NOTE]
-> A guest user can't leave an organization if their account is disabled in either the home tenant or the resource tenant. If their account is disabled, the guest user will need to contact the tenant admin, who can either delete the guest account or enable the guest account so the user can leave the organization.
+- **B2B collaboration users** can leave external organizations they're collaborating with. However, you can't leave an organization if your B2B collaboration account is disabled (either in your home organization or in the external organization). If your account is disabled, contact the tenant admin so they can either delete your B2B collaboration account or enable it so you can leave the organization yourself.
+
+- **B2B direct connect users** don't currently have the option to leave the external organization. If you're a B2B direct connect user at an organization, you can contact your IT admin to submit a Data Subject Request, which is a request to remove the personal data associated with your B2B direct connect user account from the organization.
+ 
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 ## Leave an organization
 
@@ -44,7 +48,7 @@ To leave an organization, follow these steps.
 
 ## Account removal
 
-When a user leaves an organization, the user account is "soft deleted" in the directory. By default, the user object moves to the **Deleted users** area in Azure AD but isn't permanently deleted for 30 days. This soft deletion enables the administrator to restore the user account (including groups and permissions), if the user makes a request to restore the account within the 30-day period.
+When a B2B collaboration user leaves an organization, the B2B collaboration user account is "soft deleted" in the directory. By default, the user object moves to the **Deleted users** area in Azure AD but isn't permanently deleted for 30 days. This soft deletion enables the administrator to restore the B2B collaboration user account (including groups and permissions), if the user makes a request to restore the account within the 30-day period.
 
 If desired, a tenant administrator can permanently delete the account at any time during the 30-day period. To do this:
 
@@ -53,9 +57,7 @@ If desired, a tenant administrator can permanently delete the account at any tim
 3. Select **Deleted users**.
 4. Select the check box next to a deleted user, and then select **Delete permanently**.
 
-If you permanently delete a user, this action is irrevocable.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
+If you permanently delete a B2B collaboration user account, this action is irrevocable.
 
 ## Next steps
 
