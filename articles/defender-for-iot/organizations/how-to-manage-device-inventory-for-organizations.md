@@ -21,6 +21,9 @@ Some of the benefits of the device inventory include:
 
 - Export the entire device inventory to a CSV file for your reports.
 
+> [!NOTE]
+> Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> 
 ## View the device inventory
 
 1. Open the [Azure portal](https://portal.azure.com).
@@ -80,7 +83,7 @@ To view a specific devices information, select the device and the device informa
 
 :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
 
-## Edit device details
+## Edit device details (Public preview)
 
 As you manage your devices, you may need to update their details, such as to modify security value as assets change, to personalize an inventory so that you can better identify specific devices, or if a device was classified incorrectly.
 
@@ -169,7 +172,7 @@ If you are under the impression that certain devices are not actively communicat
 
 1. Enter a time period, or a custom date range, and select **Apply**.
 
-## Delete a device
+## Delete a device (Public preview)
 
 If you have devices no longer in use, delete them from the device inventory so that they are no longer connected to Defender for IoT.
 
