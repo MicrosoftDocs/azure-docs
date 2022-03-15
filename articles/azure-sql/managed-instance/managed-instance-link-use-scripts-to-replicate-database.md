@@ -12,6 +12,7 @@ author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma
 ms.date: 03/15/2022
+---
 
 # Replicate database with Azure SQL Managed Instance link feature with T-SQL and PowerShell scripts
 
@@ -188,7 +189,7 @@ The result of this operation will be time stamp of the successful upload of the 
 
 Certificate for securing the endpoint for SQL Managed Instance link is automatically generated. This section describes how to get the SQL Managed Instance certificate public key, and how import is to SQL Server.
 
-Use SSMS to connect to the SQL Managed Instance and execute stored procedure [sp_get_endpoint_certificate](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-get-endpoint-certificate-transact-sql) to get the certificate public key.
+Use SSMS to connect to the SQL Managed Instance and execute stored procedure [sp_get_endpoint_certificate](/sql/relational-databases/system-stored-procedures/sp-get-endpoint-certificate-transact-sql) to get the certificate public key.
 
 ```sql
 -- Execute stored procedure on SQL Managed Instance to get public key of the instance certificate.
@@ -277,9 +278,9 @@ FROM
 
 In case that the output shows that the existing DATABASE_MIRRORING endpoint connection_auth_desc is not “CERTIFICATE”, or encryption_algorthm_desc is not “AES”, the **endpoint needs to be altered to meet the requirements**.
 
-On SQL Server, one database mirroring endpoint is used for both Availability Groups and Distributed Availability Groups. In case your connection_auth_desc is NTLM (Windows authentication) or KERBEROS, and you need Windows authentication for an existing Availability Groups, it is possible to alter the endpoint to use multiple authentication methods by switching the auth option to NEGOTIATE CERTIFICATE. This will allow the existing AG to use Windows authentication, while using certificate authentication for SQL Managed Instance. See details of possible options at documentation page for [sys.database_mirroring_endpoints](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
+On SQL Server, one database mirroring endpoint is used for both Availability Groups and Distributed Availability Groups. In case your connection_auth_desc is NTLM (Windows authentication) or KERBEROS, and you need Windows authentication for an existing Availability Groups, it is possible to alter the endpoint to use multiple authentication methods by switching the auth option to NEGOTIATE CERTIFICATE. This will allow the existing AG to use Windows authentication, while using certificate authentication for SQL Managed Instance. See details of possible options at documentation page for [sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
 
-Similarly, if encryption does not include AES and you need RC4 encryption, it is possible to alter the endpoint to use both algorithms. See details of possible options at documentation page for [sys.database_mirroring_endpoints](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
+Similarly, if encryption does not include AES and you need RC4 encryption, it is possible to alter the endpoint to use both algorithms. See details of possible options at documentation page for [sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
 
 The script below is provided as an example of how to alter your existing database mirroring endpoint. Please note that depending on your existing specific configuration, you perhaps might need to customize it further for your scenario. Replace `<YourExistingEndpointName>` with your existing endpoint name. Replace `<CERTIFICATE-NAME>` with the name of the generated SQL Server certificate. You can also use `SELECT * FROM sys.certificates` to get the name of the created certificate on the SQL Server.
 
