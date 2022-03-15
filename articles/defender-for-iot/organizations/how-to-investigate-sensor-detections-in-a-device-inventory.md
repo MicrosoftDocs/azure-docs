@@ -42,26 +42,26 @@ This section describes device details available from the inventory and describes
 
 In the console left pane, select **Device inventory**.
 
-The following columns are available for each device. Starred items are fully supported only for [sensor version 22.1.x](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
+The following columns are available for each device.
 
 | Name | Description |
 |--|--|
-| **Description*** | A description of the device |
+| **Description** | A description of the device |
 | **Discovered** | When this device was first seen in the network. |
 | **Firmware version** | The device's firmware, if detected. |
-| **FQDN*** | The device's FQDN value |
-| **FQDN lookup time*** | The device's FQDN lookup time |
-| **Groups*** | The groups that this device participates in. |
+| **FQDN** | The device's FQDN value |
+| **FQDN lookup time** | The device's FQDN lookup time |
+| **Groups** | The groups that this device participates in. |
 | **IP Address** | The IP address of the device. |
 | **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
-| **Is Known as Scanner*** | Defined as a network scanning device by the user. |
+| **Is Known as Scanner** | Defined as a network scanning device by the user. |
 | **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
-| **Last Activity*** | The last activity that the device performed. |
+| **Last Activity** | The last activity that the device performed. |
 | **MAC Address** | The MAC address of the device. |
 | **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
 | **Operating System** | The OS of the device, if detected. |
 | **PLC mode** (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. |
-| **Protocols*** | The protocols that the device uses. |
+| **Protocols** | The protocols that the device uses. |
 | **Type** | The type of device as determined by the sensor, or as entered by the user. |
 | **Unacknowledged Alerts** | The number of unacknowledged alerts associated with this device. |
 | **Underlying devices** | Any relevant underlying devices for the device |

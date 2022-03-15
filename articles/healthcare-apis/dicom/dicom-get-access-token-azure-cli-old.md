@@ -1,18 +1,15 @@
 ---
-title: Get access token using Azure CLI - Azure Healthcare APIs for DICOM service
+title: Get access token using Azure CLI - Azure Health Data Services for DICOM service
 description: This article explains how to obtain an access token for the DICOM service using the Azure CLI.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/10/2021
+ms.date: 03/02/2022
 ms.author: aersoy
 ---
 
 # Get access token for the DICOM service using Azure CLI
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this article, you'll learn how to obtain an access token for the DICOM service using the Azure CLI. When you [deploy the DICOM service](deploy-dicom-services-in-azure.md), you configure a set of users or service principals that have access to the service. If your user object ID is in the list of allowed object IDs, you can access the service using a token obtained using the Azure CLI.
 
@@ -20,8 +17,7 @@ In this article, you'll learn how to obtain an access token for the DICOM servic
 
 Use the Bash environment in Azure Cloud Shell.
 
-
-[ ![Launch Azure Cloud Shell.](media/launch-cloud-shell.png) ](media/launch-cloud-shell.png#lightbox)
+[ ![Screenshot of Launch Azure Cloud Shell.](media/launch-cloud-shell.png) ](media/launch-cloud-shell.png#lightbox)
 
 If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 

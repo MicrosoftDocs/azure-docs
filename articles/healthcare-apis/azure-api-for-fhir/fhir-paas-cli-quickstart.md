@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/27/2021
+ms.date: 02/15/2022
 ms.author: zxue
 ms.custom: devx-track-azurecli, mode-api
 ---

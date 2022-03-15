@@ -76,14 +76,17 @@ If the virtual network is in a different subscription than the app, you must ens
 
 ### Routes
 
-There are three types of routing to consider when you configure regional virtual network integration. [Application routing](#application-routing) defines what traffic is routed from your app and into the virtual network. [Configuration routing](#configuration-routing) affects operations that happen before or during startup of you app. Examples are container image pull and app settings with Key Vault reference. [Network routing](#network-routing) is the ability to handle how both app and configuration traffic is routed from your virtual network and out.
+You can control what traffic goes through the virtual network integration. There are three types of routing to consider when you configure regional virtual network integration. [Application routing](#application-routing) defines what traffic is routed from your app and into the virtual network. [Configuration routing](#configuration-routing) affects operations that happen before or during startup of you app. Examples are container image pull and app settings with Key Vault reference. [Network routing](#network-routing) is the ability to handle how both app and configuration traffic is routed from your virtual network and out.
+
+By default, only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) sent from your app is routed through the virtual network integration. Unless you configure application routing or configuration routing options, all other traffic will not be sent through the virtual network integration. Traffic is only subject to [network routing](#network-routing) if it is sent through the virtual network integration.
 
 #### Application routing
 
-Application routing affects all the traffic that is sent from your app after it has been started. See [configuration routing](#configuration-routing) for traffic during start up. When you configure application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your virtual network. You configure this behavior through the **Route All** setting. If **Route All** is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound app traffic into your virtual network, make sure that **Route All** is enabled.
+Application routing applies to traffic that is sent from your app after it has been started. See [configuration routing](#configuration-routing) for traffic during start up. When you configure application routing, you can either route all traffic or only private traffic into your virtual network. You configure this behavior through the **Route All** setting. If **Route All** is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound app traffic into your virtual network, make sure that **Route All** is enabled.
 
 > [!NOTE]
-> * When **Route All** is enabled, all app traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When **Route All** is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
+> * Only traffic configured in applicaiton or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
+> * When **Route All** is enabled, outbound traffic from your app is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
 > * Regional virtual network integration can't use port 25.
 
 Learn [how to configure application routing](./configure-vnet-integration-routing.md).
@@ -92,7 +95,7 @@ We recommend that you use the **Route All** configuration setting to enable rout
 
 #### Configuration routing
 
-When you are using virtual network integration, you can configure how parts of the configuration traffic is managed. By default, configuration traffic will go directly over the public route, but individual components you actively configure it to be routed through the virtual network integration.
+When you are using virtual network integration, you can configure how parts of the configuration traffic is managed. By default, configuration traffic will go directly over the public route, but for the mentioned individual components, you can actively configure it to be routed through the virtual network integration.
 
 > [!NOTE]
 > * Windows containers don't support routing App Service Key Vault references or pulling custom container images over virtual network integration.
@@ -116,15 +119,15 @@ App settings using Key Vault references will attempt to get secrets over the pub
 
 #### Network routing
 
-You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. When **Route All** is disabled in [application routing](#application-routing), only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests.
+You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. Route tables only apply to traffic routed through the virtual network integration. See [application routing](#application-routing) and [configuration routing](#configuration-routing) for details. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests.
 
-When you want to route all outbound traffic on-premises, you can use a route table to send all outbound traffic to your Azure ExpressRoute gateway. If you do route traffic to a gateway, set routes in the external network to send any replies back.
+When you want to route outbound traffic on-premises, you can use a route table to send outbound traffic to your Azure ExpressRoute gateway. If you do route traffic to a gateway, set routes in the external network to send any replies back.
 
 Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic is affected. Similar to user-defined routes, BGP routes affect traffic according to your routing scope setting.
 
 ### Network security groups
 
-An app that uses regional virtual network integration can use a [network security group](../virtual-network/network-security-groups-overview.md) to block outbound traffic to resources in your virtual network or the internet. To block traffic to public addresses, enable [Route All](#application-routing) to the virtual network. When **Route All** isn't enabled, NSGs are only applied to RFC1918 traffic.
+An app that uses virtual network integration can use a [network security group](../virtual-network/network-security-groups-overview.md) to block outbound traffic to resources in your virtual network or the internet. To block traffic to public addresses, enable [Route All](#application-routing). When **Route All** isn't enabled, NSGs are only applied to RFC1918 traffic from your app.
 
 An NSG that's applied to your integration subnet is in effect regardless of any route tables applied to your integration subnet.
 
