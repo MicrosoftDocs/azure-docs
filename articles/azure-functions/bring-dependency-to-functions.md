@@ -84,7 +84,7 @@ One of the simplest ways to bring in dependencies is to put the files/artifact t
  | - local.settings.json
  | - pom.xml
 ```
-For java specifically, you need to specifically include the artifacts into the build/target folder when copying resources. Here's  an example on how to do it in Maven:
+For Java specifically, you need to specifically include the artifacts into the build/target folder when copying resources. Here's an example on how to do it in Maven:
 
 ```xml
 ...
