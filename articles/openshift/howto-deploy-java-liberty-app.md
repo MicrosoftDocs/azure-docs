@@ -70,12 +70,7 @@ After you complete the setup, return to this document and sign in to the cluster
    1. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
 
        ```bash
-       oc login --token=XOdASlzeT7BHT0JZW6Fd4dl5EwHpeBlN27TAdWHseob --server=https://api.aqlm62xm.rnfghf.aroapp.io:6443
-       Logged into "https://api.aqlm62xm.rnfghf.aroapp.io:6443" as "kube:admin" using the token provided.
-
-       You have access to 57 projects, the list has been suppressed. You can list all projects with 'oc projects'
-
-       Using project "default".
+       oc login --token=<login-token> --server=<server-url>
        ```
 
 1. Run `oc whoami` in the console and note the output as **\<aad-user>**.  We'll use this value later in the article.
@@ -306,12 +301,7 @@ To build image remotely on the cluster, you need to sign in to the OpenShift CLI
    1. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
 
        ```bash
-       oc login --token=XOdASlzeT7BHT0JZW6Fd4dl5EwHpeBlN27TAdWHseob --server=https://api.aqlm62xm.rnfghf.aroapp.io:6443
-       Logged into "https://api.aqlm62xm.rnfghf.aroapp.io:6443" as "kube:admin" using the token provided.
-
-       You have access to 57 projects, the list has been suppressed. You can list all projects with 'oc projects'
-
-       Using project "open-liberty-demo".
+       oc login --token=<login-token> --server=<server-url>
        ```
 
 #### Build the application and push to the image stream of the OpenShift
@@ -368,12 +358,7 @@ To build image remotely on the cluster, you need to sign in to the OpenShift CLI
    1. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
 
        ```bash
-       oc login --token=XOdASlzeT7BHT0JZW6Fd4dl5EwHpeBlN27TAdWHseob --server=https://api.aqlm62xm.rnfghf.aroapp.io:6443
-       Logged into "https://api.aqlm62xm.rnfghf.aroapp.io:6443" as "kube:admin" using the token provided.
-
-       You have access to 57 projects, the list has been suppressed. You can list all projects with 'oc projects'
-
-       Using project "default".
+       oc login --token=<login-token> --server=<server-url>
        ```
 
 #### Build the application and push to the image stream of the OpenShift
