@@ -2,21 +2,13 @@
 title: Azure Media Services v3 overview
 : Azure Media Services
 description: A high-level overview of Azure Media Services v3 with links to quickstarts, tutorials, and code samples.
-services: media-services
-documentationcenter: na
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
-tags: ''
-keywords: azure media services, stream, broadcast, live, offline
-
 ms.service: media-services
 ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: media
-ms.date: 3/10/2021
+ms.date: 03/09/2022
 ms.author: inhenkel
-ms.custom: mvc
+
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
 ---
 
@@ -86,7 +78,7 @@ How-to guides contain code samples that demonstrate how to complete a task. In t
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
 * [Monitor events - Portal](monitoring/monitor-events-portal-how-to.md)
 * [Encrypt dynamically with multi-DRM - .NET](drm-protect-with-drm-tutorial.md) 
-* [How to encode with a custom transform - CLI](transform-custom-preset-cli-how-to.md)
+* [How to encode with a custom transform - CLI](transform-custom-transform-how-to.md)
 
 ## Ask questions, give feedback, get updates
 

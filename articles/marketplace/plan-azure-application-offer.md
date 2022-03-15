@@ -5,15 +5,15 @@ author: macerru
 ms.author: macerr
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 11/11/2021
 ---
 
-# Plan an Azure Application offer
+# Tutorial: Plan an Azure Application offer
 
-This article explains the different options and requirements for publishing an Azure Application offer to the commercial marketplace.
+This tutorial explains how to publish an Azure Application offer to the commercial marketplace, including different options and requirements available to you.
 
-## Before you begin
+## Prerequisites
 
 Designing, building, and testing Azure application offers requires technical knowledge of both the Azure platform and the technologies used to build the offer. Your engineering team should have knowledge about the following Microsoft technologies:
 

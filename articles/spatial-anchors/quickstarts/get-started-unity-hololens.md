@@ -11,9 +11,9 @@ ms.service: azure-spatial-anchors
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 ---
-# Quickstart: Create a Unity HoloLens app that uses Azure Spatial Anchors
+# Run the sample app: HoloLens - Unity (C#)
 
-In this quickstart, you'll create a Unity HoloLens app that uses [Azure Spatial Anchors](../overview.md). Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences with objects that persist their location across devices over time. When you're finished, you'll have a HoloLens app built with Unity that can save and recall a spatial anchor.
+In this quickstart, you'll run the [Azure Spatial Anchors](../overview.md) sample app for HoloLens using Unity (C#). Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences with objects that persist their location across devices over time. When you're finished, you'll have a HoloLens app built with Unity that can save and recall a spatial anchor.
 
 You'll learn how to:
 

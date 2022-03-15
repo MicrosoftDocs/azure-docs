@@ -28,7 +28,7 @@ This script uses a Core (SQL) API account. To use this sample for other APIs, ap
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/service-endpoints.sh" range="4-35":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/service-endpoints.sh" id="FullScript":::
 
 ## Clean up resources
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 03/03/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -109,6 +109,9 @@ Follow these steps to configure the network for your device.
     * Serial number for any port corresponds to the node serial number.    <!--* On 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.-->
     <!--* Network Interface Card (NIC) Teaming or link aggregation is not supported with Azure Stack Edge. <!--NIC teaming should work for 2-node -->
 
+    > [!NOTE]
+    > If you need to connect to your device from an outside network, see [Enable device access from outside network](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#enable-device-access-from-outside-network) for additional network settings.
+
     Once the device network is configured, the page updates as shown below.
 
     ![Screenshot of local web UI "Network" page for fully configured one node. ](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
@@ -175,7 +178,7 @@ You can add or delete virtual networks associated with your virtual switches. To
 
     1. Select a virtual switch for which you want to create a virtual network.
     1. Provide a **Name** for your virtual network.
-    1. Enter a **VLAN ID** as a unique number in 1-4094 range.
+    1. Enter a **VLAN ID** as a unique number in 1-4094 range. The VLAN ID that you provide should be in your trunk configuration. For more information on trunk configuration for your switch, refer to the instructions from your physical switch manufacturer. 
     1. Specify the **Subnet mask** and **Gateway** for your virtual LAN network as per the physical network configuration.
     1. Select **Apply**.
 
@@ -466,7 +469,7 @@ You can add or delete virtual networks associated with your virtual switches. To
 
     1. Select a virtual switch for which you want to create a virtual network.
     1. Provide a **Name** for your virtual network.
-    1. Enter a **VLAN ID** as a unique number in 1-4094 range.
+    1. Enter a **VLAN ID** as a unique number in 1-4094 range. The VLAN ID that you provide should be in your trunk configuration. For more information on trunk configuration for your switch, refer to the instructions from your physical switch manufacturer.
     1. Specify the **Subnet mask** and **Gateway** for your virtual LAN network as per the physical network configuration.
     1. Select **Apply**.
 

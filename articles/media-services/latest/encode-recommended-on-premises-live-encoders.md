@@ -6,7 +6,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/17/2022
+ms.date: 03/04/2022
 ms.topic: conceptual
 ms.service: media-services
 ---
@@ -55,10 +55,10 @@ When streaming via RTMPS, check firewall and/or proxy settings to confirm that o
 - [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 and Hero 8
 - Haivision KB
 - Haivision Makito X HEVC
-- [Restream.io](https://restream.io/)
-- OBS Studio
+- [OBS Studio](https://obsproject.com/download)
 - [Osprey Talon hardware encoders](https://www.ospreyvideo.com/talon-encoders), Talon 4K-SC, Talon UHD-SC
-- [Streamlabs OBS](https://streamlabs.com/)
+- [Restream.io](https://restream.io/)
+- [Streamlabs](https://streamlabs.com/)
 - [Switcher Studio (iOS)](https://www.switcherstudio.com/)
 - Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)
 - Telestream Wirecast S (only RTMP is supported. No RTMPS support due to lack of TLS 1.2+)

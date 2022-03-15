@@ -127,7 +127,7 @@ sections:
       - question: |
           What is the format for the private registry server URL?
         answer: |
-          Provide the full registry URL, including `http://` or `https://`.
+          Provide the full registry URL, including `http://` or `https://`. For Azure Container Registry with private endpoints and pulling images over virtual network, explicitly remove the `http://` or `https://` when using Admin credentials (for example, myacr.azurecr.io).
           
       - question: |
           What is the format for the image name in the private registry option?
@@ -171,7 +171,7 @@ sections:
           Create the following application settings:
           
           - DOCKER_REGISTRY_SERVER_USERNAME
-          - DOCKER_REGISTRY_SERVER_URL (full URL, ex: `https://<server-name>.azurecr.io`)
+          - DOCKER_REGISTRY_SERVER_URL (full URL, ex: `https://<server-name>.azurecr.io`). With private endpoints and virtual networks, remove the `http://` or `https://` when using Admin credentials.
           - DOCKER_REGISTRY_SERVER_PASSWORD (enable admin access in ACR settings)
           
           Within the configuration file, reference your ACR image like the following example:

@@ -4,6 +4,7 @@ description: Learn about connecting Azure Kubernetes Service (AKS) with Azure Da
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
+ms.subservice: single-server
 ms.date: 07/14/2020
 ms.topic: conceptual
 ---

@@ -21,11 +21,11 @@ As we're adding new integrations, the auto-instrumentation capability matrix bec
 
 |Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Public Preview  | Public Preview  | Not supported   |
+|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Public Preview, Container and Custom Containers are GA  | Public Preview  | Not supported   |
 |Azure App Service on Linux             | N/A             | Public Preview  | GA              | GA              | Not supported   |
 |Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
-|Azure Functions - dependencies         | Not supported   | Not supported   | Public Preview  | Not supported   | Through [extension](monitor-functions.md#distributed-tracing-for-python-function-apps)   |
-|Azure Spring Cloud                     | Not supported   | Not supported   | Public Preview  | Not supported   | Not supported   |
+|Azure Functions - dependencies         | Not supported   | Not supported   | Public Preview  | Not supported   | Through [extension](monitor-functions.md#distributed-tracing-for-python-function-apps)      |
+|Azure Spring Cloud                     | Not supported   | Not supported   | GA              | Not supported   | Not supported   |
 |Azure Kubernetes Service               | N/A             | Not supported   | Through agent   | Not supported   | Not supported   |
 |Azure VMs Windows                      | Public Preview  | Public Preview  | Through agent   | Not supported   | Not supported   |
 |On-Premises VMs Windows                | GA, opt-in      | Public Preview  | Through agent   | Not supported   | Not supported   |

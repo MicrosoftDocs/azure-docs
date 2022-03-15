@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 03/10/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -35,7 +35,7 @@ Custom models can be one of two types, [**custom template**](concept-custom-temp
 
 The custom neural (custom document) model is a deep learning model type that relies on a base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
 
-### Build mode
+## Build mode
 
 The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
 
@@ -52,9 +52,17 @@ This table provides links to the build mode programming language SDK references 
 |JavaScript | [DocumentBuildMode type](/javascript/api/@azure/ai-form-recognizer/documentbuildmode?view=azure-node-preview&preserve-view=true)| [buildModel.js](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/buildModel.js)|
 |Python | [DocumentBuildMode Enum](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.documentbuildmode?view=azure-python-preview&preserve-view=true#fields)| [sample_build_model.py](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_build_model.py)|
 
-## Model features
+## Compare model features
 
 The table below compares custom template and custom neural features:
+
+|Feature|Custom template (form) | Custom neural (document) |
+|---|---|---|
+|Document structure|Template, form, and structured | Structured, semi-structured, and unstructured|
+|Training time | 1 to 5 minutes | 20 minutes to 1 hour |
+|Data extraction | Key-value pairs, tables, selection marks, coordinates, and signatures | Key-value pairs and selection marks |
+|Document variations | Requires a model per each variation | Uses a single model for all variations |
+|Language support | Multiple [language support](language-support.md#read-layout-and-custom-form-template-model)  | United States English (en-US) [language support](language-support.md#custom-neural-model) |
 
 ## Custom model tools
 

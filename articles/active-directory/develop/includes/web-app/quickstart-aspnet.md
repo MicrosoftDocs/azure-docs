@@ -16,11 +16,9 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 # Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
 ---
 
-In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts.
+In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts. 
 
-The following diagram shows how the sample app works:
-
-![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](../../media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
@@ -55,13 +53,12 @@ If you want to manually configure your application and code sample, use the foll
 
 #### Step 2: Download the project
 
-
-[Download the Visual Studio 2019 solution](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Download the ASP.NET code sample](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
 
-#### Step 3: Run your Visual Studio project
+#### Step 3: Run the project
 
 1. Extract the .zip file to a local folder that's close to the root folder. For example, extract to *C:\Azure-Samples*.
    
