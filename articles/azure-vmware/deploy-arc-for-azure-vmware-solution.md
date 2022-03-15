@@ -325,7 +325,7 @@ Use the **`Set Credential`** command to update the provider credentials for appl
 1. Run the onboard command again. See step 3 in the [Process to onboard]() in Arc for Azure VMware Preview. 
     
 > [!NOTE]
-> Customers need to persist kubeconfig and SSH as it will be required for log collection, appliance Upgrade, and credential rotation.
+> Customers need to ensure kubeconfig and SSH remain available as they will be required for log collection, appliance Upgrade, and credential rotation. These parameters will be required at the time of upgrade, log collection, and credential update scenarios. 
 
 **Parameters**
 
@@ -343,14 +343,15 @@ The following command invokes the set credential for the specified appliance res
 
 Use the following steps to perform a manual upgrade for Arc appliance virtual machine (VM).
 
-1. Log into vCenter
+1. Log into vCenter.
 1. Locate the arc appliance VM, which should be in the resource pool that was configured during onboarding.
     1. Power off the VM.
     1. Delete the VM.
 1. Delete the download template corresponding to the VM.
 1. Get the previous script `Config_avs` file and add the following configuration item:
     1. `"register":false`
-1. Rerun the onboarding script with the changes from the jump box VM, without changing other config items.
+1. Download the latest version of the Azure VMware Solution onboarding script.
+1. Run the new onboarding script with the previous `config_avs.json` from the jump box VM, without changing other config items.
 
 ## Off board from Azure Arc-enabled Azure VMware Solution
 
