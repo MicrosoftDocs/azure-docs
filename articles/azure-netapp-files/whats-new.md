@@ -26,6 +26,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     You can now enable SMB encryption for communication between the Azure NetApp Files service and the Active Directory Domain Services domain controller (DC). When you enable this functionality, SMB3 protocol will be used for encrypted DC connections.
 
+* Features that are now generally available (GA)   
+
+    The following features are now GA. You no longer need to register the features before using them.   
+    * **[Backup policy users](create-active-directory-connections.md#backup-policy-users)** 
+    * **[AES encryption for AD authentication](create-active-directory-connections.md#aes-encryption)**
+
 ## January 2022
 
 * [Azure Application Consistent Snapshot Tool (AzAcSnap) v5.1 Public Preview](azacsnap-release-notes.md)

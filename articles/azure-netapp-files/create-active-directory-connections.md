@@ -187,29 +187,13 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         ![Join Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
-    * **AES Encryption**   
+    * <a name="aes-encryption"></a>**AES Encryption**   
         Select this checkbox if you want to enable AES encryption for AD authentication or if you require [encryption for SMB volumes](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume).   
         
         See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.  
   
         ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
-        The **AES Encryption** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
-
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
-        ```
-
-        Check the status of the feature registration: 
-
-        > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
-
-        ```azurepowershell-interactive
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
-        ```
-        
-        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * <a name="encrypted-smb-connection"></a>**Encrypted SMB connection to domain controller** 
 
@@ -267,7 +251,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         ![Screenshot showing the Security privilege users box of Active Directory connections window.](../media/azure-netapp-files/security-privilege-users.png) 
 
-     * **Backup policy users**  
+     * <a name="backup-policy-users"></a>**Backup policy users**  
         You can grant additional security privileges to AD users or groups that require elevated backup privileges to access the Azure NetApp Files volumes. The specified AD user accounts or groups will have elevated NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for backing up, restoring, or migrating data to an SMB file share in Azure NetApp Files.
 
         The following privileges apply when you use the **Backup policy users**  setting:
@@ -278,24 +262,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         |  `SeRestorePrivilege`  |  Restore files and directories, overriding any ACLs. <br> Set any valid user or group SID as the file owner.    |
         |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege are not required to have traverse (`x`) permissions to traverse folders or symlinks.  |
 
-        ![Active Directory backup policy users](../media/azure-netapp-files/active-directory-backup-policy-users.png)
-
-        The **Backup policy users** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
-
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
-        ```
-
-        Check the status of the feature registration: 
-
-        > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
-
-        ```azurepowershell-interactive
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
-        ```
-        
-        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
+        ![Active Directory backup policy users](../media/azure-netapp-files/active-directory-backup-policy-users.png) 
 
     * **Administrators privilege users** 
 
