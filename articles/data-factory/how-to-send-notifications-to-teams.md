@@ -40,7 +40,7 @@ Before you can send notifications to Teams from your pipelines you must create a
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-add-icon.png" alt-text="Highlights the name property, optional image upload, and &quot;Create&quot; button in the Incoming Webhook options page.":::  
 
-1.  Copy the Webhook URL that is generated on creation and save it for later use in ADF pipeline. After that, click the "Done" button to complete the set up.
+1.  Copy the Webhook URL that is generated on creation and save it for later use in pipeline. After that, click the "Done" button to complete the set up.
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-copy-webhook-url.png" alt-text="Shows the new webhook URL on the Incoming Webhook options page after creation.":::
 
@@ -59,11 +59,26 @@ Before you can send notifications to Teams from your pipelines you must create a
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/new-pipeline.png" alt-text="Shows the &quot;New pipeline&quot; menu in the Azure Data Factory Studio.":::
 
-1.  In the Properties panel under "General", specify **NotifiyTeamsChannelPipeline** for **Name**. Then collapse the panel by clicking the **Properties** icon in the top-right corner.
+1.  In the "Properties" pane under "General", specify **NotifiyTeamsChannelPipeline** for **Name**. Then collapse the panel by clicking the **Properties** icon in the top-right corner.
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/name-pipeline.png" alt-text="Shows the &quot;Properties&quot; panel.":::
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/hide-properties-panel.png" alt-text="Shows the &quot;Properties&quot; pannel hidden.":::
+
+1.  In the "Configurations" pane, select **Parameters**, and then select the **+ New** button define following parameters for your pipeline.
+
+| Name                  | Type                  | Default Value                                                                 |
+| :-------------------- | :-------------------- |:----------------------------------------------------------------------------- |
+| subscription          | String                | Specify subscription id for the pipeline                                      |
+| resourceGroup         | String                | Specify resource group name for the pipeline                                  |
+| runId                 | String                | @activity('Specify name of the calling pipeline').output['pipelineRunId']     |
+| name                  | String                | @activity('Specify name of the calling pipeline').output['pipelineName']      |
+| triggerTime           | String                | @activity('Specify name of the calling pipeline').ExecutionStartTime          |
+| status                | String                | @activity('Specify name of the calling pipeline').Status                      |
+| message               | String                | @activity('Specify name of the calling pipeline').Error['message']            |
+| executionEndTime      | String                | @activity('Specify name of the calling pipeline').ExecutionEndTime            |
+| runDuration           | String                | @activity('Specify name of the calling pipeline').Duration                    |
+| teamWebhookUrl        | String                | Specify Team Webhook URL                                                      |
 
 1.  Search for "teams", then select and use the **Send notification to a channel in Microsoft Teams** template.
     
