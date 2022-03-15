@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 01/26/2022
+ms.date: 03/15/2022
 ms.author: aahi
 ms.devlang: csharp, python
 ms.custom: language-service-clu, ignite-fall-2021
@@ -31,11 +31,11 @@ When a model is deployed, you will be able to test the model directly in the por
 
 1.	Click on *Add deployment* to submit a new deployment job
 
-:::image type="content" source="../media/add-deployment-model.png" alt-text="A screenshot showing the model deployment page in Language Studio." lightbox="../media/add-deploy-model.png":::
+:::image type="content" source="../media/add-deployment-model.png" alt-text="A screenshot showing the model deployment button in Language Studio." lightbox="../media/add-deployment-model.png":::
 
 2. In the window that appears, you can create a new deployment name by giving the deployment a name or override an existing deployment name. Then, you can add a trained model to this deployment name.
 
-:::image type="content" source="../media/create-deployment-job.png" alt-text="A screenshot showing deployment job creation in Language Studio." lightbox="../media/create-deployment-job.png":::
+:::image type="content" source="../media/create-deployment-job.png" alt-text="A screenshot showing the add deployment job screen in Language Studio." lightbox="../media/create-deployment-job.png":::
 
 
 #### Swap deployments

@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 01/27/2022
+ms.date: 03/15/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -102,7 +102,7 @@ When you're done, select **Save Changes** to save the utterances and labels to t
 Select **train model** on the left of the screen. Select **Start a training job**. To train your model, you need to provide a name for the model. Write a name like "*v1*" and press the enter key.
 
 > [!NOTE]
-> If you did not [add utterances to testing set](https://docs.microsoft.com/azure/cognitive-services/language-service/conversational-language-understanding/how-to/tag-utterances#tag-utterances), you will only be allowed to train using the **Automatically split the testing set from all data** option.
+> If you did not [tag utterances](#tag-utterances) you will only be allowed to train using the **Automatically split the testing set from all data** option. See [Add utterances to testing set](../../how-to/tag-utterances#tag-utterances) for more information.
 
 When the training job is complete, which may take some time, you should see the output model performance in the **View model details** page.
 
@@ -110,7 +110,7 @@ When the training job is complete, which may take some time, you should see the 
 
 From the **Deploy model** page on the left of the screen, select **Add deployment**.
 
-In the window that appears, give your deployment a **deploment name** and then assign your trained model to this deployment name and then select **Submit**.
+In the window that appears, give your deployment a **deployment name** and then assign your trained model to this deployment name and then select **Submit**.
 
 ## Test your model
 
