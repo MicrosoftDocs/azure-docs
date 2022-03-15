@@ -170,6 +170,8 @@ Use the following information for URLS when installing the Azure AD Connect prov
      |`mscrl.microsoft.com:80` </br>`crl.microsoft.com:80` </br>`ocsp.msocsp.com:80` </br>`www.microsoft.com:80`| The agent uses these URLs to verify certificates.|
      |login.windows.net</br>|The agent uses these URLs during the registration process.
 
+By comparison:
+
  |URL |How it's used|
  |-----|-----|
  |&#42;.msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
