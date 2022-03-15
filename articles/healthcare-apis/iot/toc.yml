@@ -1,17 +1,17 @@
 items:
-- name: IoT connector
+- name: MedTech service
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: About IoT connector
+  - name: About MedTech service
     href: iot-connector-overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Get started with IoT connector
+  - name: Get started with MedTech service
     href: get-started-with-iot.md
-  - name: Deploy IoT connector
+  - name: Deploy MedTech service
     expanded: true
     items:
     - name: Using portal
@@ -55,18 +55,18 @@ items:
 - name: Concepts
   expanded: true
   items:
-  - name: IoT connector data flow
+  - name: MedTech service data flow
     href: iot-data-flow.md
-  - name: IoT connector and Azure Machine Learning Service
+  - name: MedTech service and Azure Machine Learning Service
     href: iot-connector-machine-learning.md
-  - name: IoT connector and Microsoft Power BI
+  - name: MedTech service and Microsoft Power BI
     href: iot-connector-power-bi.md
-  - name: IoT connector and Microsoft Teams notifications
+  - name: MedTech service and Microsoft Teams notifications
     href: iot-connector-teams.md
 - name: Resources
   expanded: true
   items:
-    - name: FAQs - IoT connector
+    - name: FAQs - MedTech service
       href: iot-connector-faqs.md
     - name: Open-source projects
       href: iot-git-projects.md

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: IoT connector
-summary: IoT connector documentation page for Azure Healthcare APIs (preview). 
+title: MedTech service documentation
+summary: MedTech service documentation for Azure Health Data Services. MedTech service is an optional service of the Azure Health Data Services designed to ingest health data from multiple and disparate Internet of Medical Things (IoMT) devices and persisting the health data in a FHIR service. 
 
 metadata:
-  title: Azure Healthcare APIs IoT connector
-  description: Data Transformation documentation section for Azure Healthcare APIs
+  title: Azure Health Data Services MedTech service
+  description: MedTech service is an optional service of the Azure Health Data Services designed to ingest health data from multiple and disparate Internet of Medical Things (IoMT) devices and persisting the health data in a FHIR service.
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: data-transformation
@@ -13,24 +13,24 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 11/16/2021
+  ms.date: 02/22/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 
-  - title: Deploy IoT connector
+  - title: Deploy MedTech service
     linkLists:
       - linkListType: get-started
         links:
-          - text: Deploy IoT connector using portal
+          - text: Deploy MedTech service using portal
             url: deploy-iot-connector-in-azure.md
             
-  - title: Using IoT connector
+  - title: Using MedTech service
     linkLists:
       - linkListType: concept
         links:
-          - text: IoT connector data flow
+          - text: MedTech service data flow
             url: iot-data-flow.md
           - text: Device mappings
             url: how-to-use-device-mappings.md
