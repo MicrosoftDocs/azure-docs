@@ -1,15 +1,15 @@
 ---
-title: Service providers and built-in connectors for Standard logic apps
-description: Learn about service providers for creating built-in connectors for Standard workflows in single-tenant Azure Logic Apps.
+title: Create built-in connectors for Standard logic app workflows
+description: Learn how to create built-in connectors for Standard workflows in single-tenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/15/2022
-# As a developer, I want background information about service providers so I can create my own built-in operations.
+# As a developer, I want learn how to create my own built-in connector operations to use and run in my Standard logic app workflows.
 ---
 
-# Built-in connectors in single-tenant Azure Logic Apps
+# Create built-in connector operations for Standard logic app workflows in single-tenant Azure Logic Apps
 
 In Azure Logic Apps, connectors provide triggers and actions, which are operations that you use in logic app workflows to quickly access data, events, and actions across other apps, services, systems, protocols, and platforms. These operations expand the capabilities in your cloud apps and on-premises apps to work with new and existing data. Connectors are powered by the connector infrastructure that runs in Azure.
 
@@ -22,3 +22,22 @@ This article shows how you can use the Azure Functions extensibility framework t
 For more information about connectors, review the following documentation:
 
 * [About connectors in Azure Logic Apps](../connectors/apis-list.md)
+
+## Built-in connector plugin model
+
+The Azure Logic Apps built-in connector extensibility model uses the Azure Functions extensibility model, which enables the capability to add built-in connector implementations, such as Azure Functions extensions. You can use this capability to create, build, and package your own built-in connectors as Azure Functions extensions that anyone can use.
+
+In this built-in connector extensibility model, you have to implement the following operation parts:
+
+* Operation descriptions
+
+  Operation descriptions are metadata about the operations implemented by your custom built-in connector. The workflow designer primarily uses these descriptions to drive the authoring and monitoring experiences for your connector's operations. For example, the designer uses operation descriptions to understand the input parameters required by a specific operation and to facilitate generating the outputs' property tokens, based on the schema for the operation's outputs.
+
+* Operation invocations
+
+  At runtime, the Azure Logic Apps runtime uses these implementations to invoke the specified operation in the workflow definition.
+
+After you finish your custom built-in connector extension, you also have to register the your custom built-in connector with the Azure Functions runtime extension, which is described later in this article.
+
+## Example custom built-in connector
+
