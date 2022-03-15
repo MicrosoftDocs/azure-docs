@@ -42,7 +42,7 @@ For additional information on diagnostics log, visit [Application Gateway resour
 ## Metrics supported by Application Gateway V1 SKU
 
 |**Metrics**|**Description**|**Dimension**|
-
+| :------------------| :-------------------------------------| :-----------------|
 |**Web Application Firewall Blocked Requests Count**|Count of total requests that have been blocked by the WAF engine||
 |**Web Application Firewall Blocked Requests Distribution**|Total number of rules hit distribution for the blocked requests by Rule Group and Rule ID|Rule Group, Rule ID|
 |**Web Application Firewall Total Rule Distribution**|Count of total matched requests distribution by Rule Group and Rule ID |Rule Group, Rule ID|  
