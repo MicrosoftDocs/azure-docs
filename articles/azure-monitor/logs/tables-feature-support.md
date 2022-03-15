@@ -178,7 +178,7 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [NWConnectionMonitorPathResult](/azure/azure-monitor/reference/tables/nwconnectionmonitorpathresult) | |
 | [NWConnectionMonitorTestResult](/azure/azure-monitor/reference/tables/nwconnectionmonitortestresult) | |
 | [OfficeActivity](/azure/azure-monitor/reference/tables/officeactivity) | |
-| [Perf](/azure/azure-monitor/reference/tables/perf) | Partial support – only windows perf data is currently supported. | |
+| [Perf](/azure/azure-monitor/reference/tables/perf) | Partial support – only windows perf data is currently supported. | 
 | [PowerBIDatasetsWorkspace](/azure/azure-monitor/reference/tables/powerbidatasetsworkspace) | |
 | [HDInsightRangerAuditLogs](/azure/azure-monitor/reference/tables/hdinsightrangerauditlogs) | |
 | [PurviewScanStatusLogs](/azure/azure-monitor/reference/tables/purviewscanstatuslogs) | |
