@@ -405,12 +405,12 @@
   items:
   - name: Use Service Fabric managed clusters
     items:
-    - name: How to configure Azure Active Directory client access
-      href: how-to-managed-cluster-AAD-client.md    
     - name: Configure your managed cluster
       href: how-to-managed-cluster-configuration.md
     - name: Connect to your managed cluster
       href: how-to-managed-cluster-connect.md
+    - name: Configure Azure Active Directory client access
+      href: how-to-managed-cluster-aad-client.md         
     - name: Configure autoscaling on a managed cluster
       href: how-to-managed-cluster-autoscale.md
     - name: Configure node types on a managed cluster
