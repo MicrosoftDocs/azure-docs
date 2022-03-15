@@ -254,9 +254,9 @@ New mirroring endpoint was created with CERTIFICATE authentication, and AES encr
 
 ### Altering existing database mirroring endpoint
 
-> [!NOTE] SKIP this step if you've just created a new mirroring endpoint.
-> Use this step only if using existing Availability Groups with existing database mirroring endpoint. 
-> 
+> [!NOTE]
+> Skip this step if you've just created a new mirroring endpoint. Use this step only if using existing Availability Groups with existing database mirroring endpoint.
+
 
 In case existing Availability Groups are used for SQL Managed Instance link, or in case there's an existing database mirroring endpoint, first validate it satisfies the following mandatory conditions for SQL Managed Instance Link:
 - Type must be “DATABASE_MIRRORING”.
@@ -474,6 +474,6 @@ For more information on the link feature, see the following:
 
 - [Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog).
 - [Prepare for SQL Managed Instance link](./managed-instance-link-preparation.md).
-- [Use SQL Managed Instance link wity scripts to migrate database](./managed-instance-link-use-scripts-to-failover-database.md).
+- [Use SQL Managed Instance link with scripts to migrate database](./managed-instance-link-use-scripts-to-failover-database.md).
 - [Use SQL Managed Instance link via SSMS to replicate database](./managed-instance-link-use-ssms-to-replicate-database.md).
 - [Use SQL Managed Instance link via SSMS to migrate database](./managed-instance-link-use-ssms-to-failover-database.md).
