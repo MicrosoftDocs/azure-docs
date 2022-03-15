@@ -57,7 +57,7 @@ More Azure Container Instances template samples can be found in the [quickstart 
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed VM resource in the resource group.
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
 
 # [CLI](#tab/CLI)
 
@@ -90,6 +90,9 @@ Get-AzContainerInstanceLog -ResourceGroupName exampleRG -ContainerGroupName acil
 ```
 
 ---
+
+> [!NOTE]
+> It may take a few minutes for the HTTP GET request to generate.
 
 ## Clean up resources
 
