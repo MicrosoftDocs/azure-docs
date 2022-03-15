@@ -212,7 +212,7 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the **Maximum number of machines in backend pool** from **1000** to **1500**. This setting will increase the maximum number of machines in the backend pool to a **1000**
+To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the **Maximum number of machines in backend pool** from **500** to **1000**. This setting will increase the maximum number of machines in the backend pool to a **1000**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -226,7 +226,7 @@ To accommodate more virtual machines in the backend pool in a multiple instance 
 
     :::image type="content" source="./media/manage-inbound-nat-rules/select-inbound-nat-rule.png" alt-text="Screenshot of inbound NAT rule overview.":::
 
-6. In the properties of the inbound NAT rule, change the value in **Maximum number of machines in backend pool** to **1500**.
+6. In the properties of the inbound NAT rule, change the value in **Maximum number of machines in backend pool** to **1000**.
 
 7. Select **Save**.
 
@@ -264,7 +264,7 @@ $lb | Set-AzLoadBalancerInboundNatRuleConfig @rule
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-To accommodate more virtual machines in the backend pool, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the frontend port allocation from 500 to 1500. This setting will increase the maximum number of machines in the backend pool to a **1000**
+To accommodate more virtual machines in the backend pool, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the frontend port allocation from **500** to **1500**. This setting will increase the maximum number of machines in the backend pool to a **1000**
 
 Use [az network lb inbound-nat-rule update](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-update) to change the frontend port allocation.
 
