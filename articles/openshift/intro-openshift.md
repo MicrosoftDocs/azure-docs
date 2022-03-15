@@ -1,8 +1,8 @@
 ---
 title: Introduction to Azure Red Hat OpenShift
 description: Learn the features and benefits of Microsoft Azure Red Hat OpenShift to deploy and manage container-based applications.
-author: jimzim
-ms.author: jzim
+author: sakthi-vetrivel
+ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: overview
 ms.date: 11/13/2020

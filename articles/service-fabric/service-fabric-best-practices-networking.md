@@ -65,7 +65,7 @@ The rules described below are the recommended minimum for a typical configuratio
 |3930       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |Any               |Allow         |Yes
 |3940       |Ephemeral          |49152-65534 |TCP       |VirtualNetwork     |Any               |Allow         |Yes
 |3950       |Application        |20000-30000 |TCP       |VirtualNetwork     |Any               |Allow         |Yes
-|3960       |RDP                |3389-3488   |TCP       |Internet           |Any               |Deny          |No
+|3960       |RDP                |3389        |TCP       |Internet           |Any               |Deny          |No
 |3970       |SSH                |22          |TCP       |Internet           |Any               |Deny          |No
 |3980       |Custom endpoint    |443         |TCP       |Internet           |Any               |Deny          |No
 
