@@ -57,7 +57,7 @@ In this section, you retrieve and download the Azure Load Testing logs from the 
 
 ## Next steps
 
-- Learn how to [Monitor server-side application metrics](./how-to-update-rerun-test.md).
+- Learn how to [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
 
 - Learn how to [Get detailed insights for Azure App Service based applications](./how-to-appservice-insights.md).
 

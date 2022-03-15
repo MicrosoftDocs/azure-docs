@@ -39,6 +39,12 @@ During a meeting, Communication Services users will be able to use core audio, v
 
 Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a web application.
 
+## Chat storage
+
+During a Teams meeting, all chat messages sent by Teams users or Communication Services users are stored in the geographic region associated with the Microsoft 365 organization hosting the meeting. For more information, review the article [Location of data in Microsoft Teams](/microsoftteams/location-of-data-in-teams). For each Communication Services user in the meetings, there is also a copy of the most recently sent message that is stored in the geographic region associated with the Communication Services resource used to develop the Communication Services application. For more information, review the article [Region availability and data residency](/azure/communication-services/concepts/privacy).
+
+If the hosting Microsoft 365 organization has defined a retention policy that deletes chat messages for any of the Teams users in the meeting, then all copies of the most recently sent message that have been stored for Communication Services users will also be deleted in accordance with the policy.  If there is not a retention policy defined, then the copies of the most recently sent message for all Communication Services users will be deleted after 30 days. For more information about Teams retention policies, review the article [Learn about retention for Microsoft Teams](/microsoft-365/compliance/retention-policies-teams).
+
 ## Diagnostics and call analytics
 After a Teams meeting ends, diagnostic information about the meeting is available using the [Communication Services logging and diagnostics](./logging-and-diagnostics.md) and using the [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality) in the Teams admin center. Communication Services users will appear as "Anonymous" in Call Analytics screens. Communication Services users aren't included in the [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality).
 
@@ -50,6 +56,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 ## Limitations and known issues
 
 - Communication Services users can join a Teams meeting that is scheduled for a Teams channel and use audio and video, but they won't be able to send or receive any chat messages because they aren't members of the channel.
+- Communication Services users can join a Teams meeting and use video, but they won't be able to apply background effects.
 - Communication Services users may join a Teams webinar, but the presenter and attendee roles aren't currently enforced, thus Communication Services users could perform actions not intended for attendees, such as screen sharing, turning their camera on/off, or unmuting themselves, if your application provides UX for those actions.
 - When using Microsoft Graph to [list the participants in a Teams meeting](/graph/api/call-list-participants), details for Communication Services users are not currently included.
 - PowerPoint presentations aren't rendered for Communication Services users.

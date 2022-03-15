@@ -14,11 +14,17 @@ ms.custom: references_regions
 
 Learn what's new in the service. Bookmark this page to keep up to date with service updates. Check out the [**Preview feature list**](search-api-preview.md) for an itemized list of features that are not yet approved for production workloads.
 
+## February 2022
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------------|--------------|---------------|
+| [Index aliases](search-how-to-alias.md) | An index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. You can create an alias that maps to a search index and substitute the alias name in places where you would otherwise reference an index name. This gives you added flexibility if you ever need to change which index your application is pointing to. Instead of updating the references to the index name in your application, you can just update the mapping for your alias. | Public preview REST APIs (no portal support at this time).|
+
 ## December 2021
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------------|--------------|---------------|
-| [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | Semantic configurations are a multi-part specification of the fields used during semantic ranking, captions, and answers. This is a new addition to the 2021-04-30-Preview API, and are now required for semantic queries. | Public preview REST APIs (no portal support at this time).|
+| [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | Semantic configurations are a multi-part specification of the fields used during semantic ranking, captions, and answers. This is a new addition to the 2021-04-30-Preview API, and are now required for semantic queries. | Public preview in the portal and preview REST APIs.|
 
 ## November 2021
 
