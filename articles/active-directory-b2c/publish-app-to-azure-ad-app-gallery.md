@@ -30,12 +30,12 @@ Here are some benefits of adding your Azure AD B2C app to the app gallery:
 - Customers can assign the app to various users and groups within their organization.
 - The tenant administrator can grant tenant-wide admin consent to your app.
 
-## Sign-in flow overview
+## Sign in flow overview
 
-The sign-in flow involves the following steps:
+The sign in flow involves the following steps:
 
-1. Users go to the [My Apps portal](https://myapps.microsoft.com/) and select your app, which opens the app sign-in URL.
-1. The app sign-in URL starts an authorization request and redirects users to the Azure AD B2C authorization endpoint.
+1. Users go to the [My Apps portal](https://myapps.microsoft.com/) and select your app, which opens the app sign in URL.
+1. The app sign in URL starts an authorization request and redirects users to the Azure AD B2C authorization endpoint.
 1. Users choose to sign in with their Azure AD "Corporate" account. Azure AD B2C takes them to the Azure AD authorization endpoint, where they sign in with their work account.
 1. If the Azure AD SSO session is active, Azure AD issues an access token without prompting users to sign in again. If the Azure AD session expires or becomes invalid, users are prompted to sign in again.
 
@@ -48,7 +48,7 @@ Depending on the users' SSO session and Azure AD identity settings, they might b
 - Complete multifactor authentication.
 - Accept the consent page. Your customer's tenant administrator can [grant tenant-wide admin consent to an app](../active-directory/manage-apps/grant-admin-consent.md). When consent is granted, the consent page won't be presented to users.
 
-Upon successful sign-in, Azure AD returns a token to Azure AD B2C. Azure AD B2C validates and reads the token claims, and then returns a token to your application.
+Upon successful sign in, Azure AD returns a token to Azure AD B2C. Azure AD B2C validates and reads the token claims, and then returns a token to your application.
 
 ## Prerequisites
 
@@ -56,17 +56,17 @@ Upon successful sign-in, Azure AD returns a token to Azure AD B2C. Azure AD B2C 
 
 ## Step 1: Register your application in Azure AD B2C
 
-To enable sign-in to your app with Azure AD B2C, register your app in the Azure AD B2C directory. Registering your app establishes a trust relationship between the app and Azure AD B2C. 
+To enable sign in to your app with Azure AD B2C, register your app in the Azure AD B2C directory. Registering your app establishes a trust relationship between the app and Azure AD B2C. 
 
 If you haven't already done so, [register a web application](tutorial-register-applications.md). Later, you'll register this app with the Azure app gallery.
 
-## Step 2: Set up sign-in for multitenant Azure AD
+## Step 2: Set up sign in for multitenant Azure AD
 
-To allow employees and consumers from any Azure AD tenant to sign in by using Azure AD B2C, follow the guidance for [setting up sign-in for multitenant Azure AD](identity-provider-azure-ad-multi-tenant.md?pivots=b2c-custom-policy).
+To allow employees and consumers from any Azure AD tenant to sign in by using Azure AD B2C, follow the guidance for [setting up sign in for multitenant Azure AD](identity-provider-azure-ad-multi-tenant.md?pivots=b2c-custom-policy).
 
 ## Step 3: Prepare your app
 
-In your app, copy the URL of the sign-in endpoint. If you use the [web application sample](configure-authentication-sample-web-app.md), the sign-in URL is `https://localhost:5001/MicrosoftIdentity/Account/SignIn?`. This URL is where the Azure AD app gallery takes users to sign in to your app.
+In your app, copy the URL of the sign in endpoint. If you use the [web application sample](configure-authentication-sample-web-app.md), the sign in URL is `https://localhost:5001/MicrosoftIdentity/Account/SignIn?`. This URL is where the Azure AD app gallery takes users to sign in to your app.
 
 In production environments, the app registration redirect URI is ordinarily a publicly accessible endpoint where your app is running, such as `https://woodgrovedemo.com/Account/SignIn`. The reply URL must begin with `https`.
 
@@ -83,7 +83,7 @@ Finally, add the multitenant app to the Azure AD app gallery. Follow the instruc
     |What feature would you like to enable when listing your application in the gallery? | Select **Federated SSO (SAML, WS-Fed & OpenID Connect)**. | 
     | Select your application federation protocol| Select **OpenID Connect & OAuth 2.0**. |
     | Application (Client) ID | Provide the ID of [your Azure AD B2C application](#step-1-register-your-application-in-azure-ad-b2c). |
-    | Application sign-in URL|Provide the app sign-in URL as it's configured in [Step 3. Prepare your app](#step-3-prepare-your-app).|
+    | Application sign in URL|Provide the app sign in URL as it's configured in [Step 3. Prepare your app](#step-3-prepare-your-app).|
     | Multitenant| Select **Yes**. |
     | | |
 
