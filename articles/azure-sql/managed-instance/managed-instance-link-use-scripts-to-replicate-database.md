@@ -13,7 +13,7 @@ ms.author: sasapopo
 ms.reviewer: mathoma
 ms.date: 03/15/2022
 
-# Replicate database with link feature in SSMS - Azure SQL Managed Instance
+# Replicate database with Azure SQL Managed Instance link feature with T-SQL and PowerShell scripts
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
