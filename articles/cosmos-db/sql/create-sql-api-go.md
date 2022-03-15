@@ -144,12 +144,12 @@ if err != nil {
 
 pk := azcosmos.NewPartitionKeyString("personal") //specifies the value of the partition key
 
-item := map[string]string{ //change to interface{} if you want to store any other type of data
+item := map[string]interface{}{
 	"id":          "1",
 	"category":    "personal",
 	"name":        "groceries",
 	"description": "Pick up apples and strawberries",
-	"isComplete":  "false",
+	"isComplete":  false,
 }
 
 marshalled, err := json.Marshal(item)
