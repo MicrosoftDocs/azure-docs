@@ -173,9 +173,9 @@ The local cache is found in:
 
 - On Linux
 
-```path
-/home/<username>/.bicep
-```
+    ```path
+    /home/<username>/.bicep
+    ```
 
 ## upgrade
 
