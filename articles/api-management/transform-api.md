@@ -6,15 +6,15 @@ author: dlepow
 ms.service: api-management
 ms.custom: mvc, devdivchpfy22
 ms.topic: tutorial
-ms.date: 03/10/2022
+ms.date: 03/15/2022
 ms.author: danlep
 ---
 
 # Tutorial: Transform and protect your API
 
-In this tutorial, you'll learn about configuring common [policies](api-management-howto-policies.md) to transform your API. You might want to transform your API so it doesn't reveal private backend info. Transforming an API might help you hide the technology stack info that's running in the backend, or hide the original URLs that appear in the body of the API's HTTP response.
+In this tutorial, you'll learn about configuring common [policies](api-management-howto-policies.md) to transform your API. You might want to transform your API so it doesn't reveal private backend info. Transforming an API can help you hide the technology stack info that's running in the backend, or hide the original URLs that appear in the body of the API's HTTP response.
 
-This tutorial also explains how to add protection to your backend API by configuring a rate limit policy. You might want to limit the rate of API calls so the API isn't overused by developers. For more policy options, see [API Management policies](api-management-policies.md).
+This tutorial also explains how to add protection to your backend API by configuring a rate limit policy, so that the API isn't overused by developers. For more policy options, see [API Management policies](api-management-policies.md).
 
 > [!NOTE]
 > By default, API Management configures a global [`forward-request`](api-management-advanced-policies.md#ForwardRequest) policy. The `forward-request` policy is needed for the gateway to complete a request to a backend service.
@@ -81,11 +81,11 @@ This example shows how to use the form-based policy editor, which helps you conf
 
    :::image type="content" source="media/transform-api/set-policy.png" alt-text="Set HTTP header":::
 
-1. Select **Save**.
+1. Select **Save**. Two **set-header** policy elements appear in the **Outbound processing** section.
 
 ## Replace original URLs in the body of the API response with API Management gateway URLs
 
-This section shows how to hide original URLs that appear in the body of the API's HTTP response and instead redirect them to the API Management gateway.
+This section shows how to replace original URLs that appear in the body of the API's HTTP response with API Management gateway URLs. You might want to hide the original backend URLs from users.
 
 ### Test the original response
 
@@ -107,11 +107,13 @@ In this example, you use the policy code editor to add the policy XML snippet di
 
    :::image type="content" source="media/transform-api/outbound-policy-code.png" alt-text="Navigate to outbound policy code editor" border="false":::
 
-1. Position the cursor inside the **&lt;outbound&gt;** element on a blank line, indented from the **&lt;outbound&gt;** element. Then select **Show snippets** at the top-right corner of the screen.
+1. Position the cursor inside the **`<outbound>`** element on a blank line. Then select **Show snippets** at the top-right corner of the screen.
 
    :::image type="content" source="media/transform-api/show-snippets-1.png" alt-text="Select show snippets":::
 
-1. In the right window, under **Transformation policies**, select **Mask URLs in content**.
+1. In the right window, under **Transformation policies**, select **Mask URLs in content**. 
+
+    The **`<redirect-content-urls />`** element is added at the cursor.
 
    :::image type="content" source="media/transform-api/mask-urls-new.png" alt-text="Mask URLs in content":::
 
@@ -126,15 +128,17 @@ This section shows how to add protection to your backend API by configuring rate
 
    :::image type="content" source="media/transform-api/inbound-policy-code.png" alt-text="Navigate to inbound policy":::
 
-1. Position the cursor inside the **&lt;inbound&gt;** element on a blank line, indented from the **&lt;inbound&gt;** element. Then, select **Show snippets** at the top-right corner of the screen.
+1. Position the cursor inside the **`<inbound>`** element on a blank line. Then, select **Show snippets** at the top-right corner of the screen.
 
     :::image type="content" source="media/transform-api/show-snippets-2.png" alt-text="Set inbound policy" border="false":::
 
-1. In the right window, under **Access restriction policies**, select **Limit call rate per key**.
+1. In the right window, under **Access restriction policies**, select **Limit call rate per key**. 
+
+    The **`<rate-limit-by-key />`** element is added at the cursor. 
 
    :::image type="content" source="media/transform-api/limit-call-rate-per-key.png" alt-text="Select limit call rate per key":::
 
-1. Modify your **rate-limit-by-key** code in the **\<inbound\>** element to the following code. Then select **Save**.
+1. Modify your **`<rate-limit-by-key />`** code in the  **`<inbound>`** element to the following code. Then select **Save**.
 
     ```
     <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
