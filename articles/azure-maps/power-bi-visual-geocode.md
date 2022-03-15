@@ -28,7 +28,7 @@ The **Location** field in the Azure Maps Power BI Visual can accept multiple val
 
 When entering multiple values into the **Location** field, you create a geo-hierarchy. Geo-hierarchies enable the hierarchical drill-down features in the map, allowing you to drill-down to different "levels" of location.
 
-:::image type="content" source="media/power-bi-visual/drill-down-buttons.png" alt-text="A screenshot showing the Visualizations and fields panes in Power BI desktop with the Azure Maps visual location field highlighted.":::
+:::image type="content" source="media/power-bi-visual/drill-down-buttons.png" alt-text="A screenshot showing the drill down buttons in Power BI desktop.":::
 
 | Button  | Description |
 |:-:|-------------------------------------------------------------------------------------------|
