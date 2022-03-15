@@ -42,12 +42,12 @@ The EFLOW virtual machine is built on a four-point comprehensive security platfo
 <!-- end 1.2 -->
 
 ### Servicing updates
-When security vulnerabilities arise, CBL-Mariner makes the latest security patches and fixes available for being serviced through [EFLOW Updates](./iot-edge-for-linux-on-windows.md). The virtual machine has no package manager, so it's not possible to manually download and install RPM packages.
+When security vulnerabilities arise, CBL-Mariner makes the latest security patches and fixes available for being serviced through ELOW monthly updates. The virtual machine has no package manager, so it's not possible to manually download and install RPM packages. ALl updates to the virtual machine are installed using EFLOW A/B update mechanism. For more information on EFLOW updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows.md)
 
 ### Read-only root filesystem
-The EFLOW virtual machine is made up of two main partitions _rootfs_, and _data_. The rootFS-A or rootFS-B partitions are interchangeable and one of the two is mounted as a read-only filesystem at “/”, which means that no changes are allowed on files stored inside this partition. On the other hand, the _data_ partition mounted under “/var” is readable and writeable, allowing the user to modify the content inside the partition. The data stored on this partition isn’t manipulated by the update process and hence won't be modified across updates.
+The EFLOW virtual machine is made up of two main partitions *rootfs*, and *data*. The rootFS-A or rootFS-B partitions are interchangeable and one of the two is mounted as a read-only filesystem at “/”, which means that no changes are allowed on files stored inside this partition. On the other hand, the *data* partition mounted under “/var” is readable and writeable, allowing the user to modify the content inside the partition. The data stored on this partition isn’t manipulated by the update process and hence won't be modified across updates.
 
-Because you may need write access to _/etc_, _/home_, _/root_, _/var_ for specific use cases, write access for these directories is done by overlaying them onto our data partition specifically to the directory _/var/.eflow/overlays_. The end result of this is that users can write anything to the previous mentioned directories. For more information about overlays, refer to [overlayfs](https://docs.kernel.org/filesystems/overlayfs.html).
+Because you may need write access to */etc*, */home*, */root*, */var* for specific use cases, write access for these directories is done by overlaying them onto our data partition specifically to the directory */var/.eflow/overlays*. The end result of this is that users can write anything to the previous mentioned directories. For more information about overlays, see [overlayfs](https://docs.kernel.org/filesystems/overlayfs.html).
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -79,7 +79,7 @@ Because you may need write access to _/etc_, _/home_, _/root_, _/var_ for specif
 | RootFS A | 4096 MB | One of two active/passive partitions holding the root file system |
 | RootFS B | 4096 MB | One of two active/passive partitions holding the root file system |
 | Unused | 4096 MB | This partition is reserved for future use |
-| Log | 1 GB or 6 GB | Logs specific partition mounted under _/logs |
+| Log | 1 GB or 6 GB | Logs specific partition mounted under /logs |
 | Data | 2 GB to 2 TB | Stateful partition for storing persistent data across updates. Expandable according to the deployment configuration |
 
 :::moniker-end
@@ -90,7 +90,7 @@ Because you may need write access to _/etc_, _/home_, _/root_, _/var_ for specif
 
 ### Firewall
 
-The EFLOW virtual machine is configured to use [_iptables_](https://git.netfilter.org/) by default. Iptables is used to set up, maintain, and inspect the tables of IP packet filter rules in the Linux kernel. The default implementation only allows incoming traffic on port 22 (SSH service) and blocks the traffic otherwise. You can check the _iptables_ configuration with the following steps:
+The EFLOW virtual machine is configured to use [*iptables*](https://git.netfilter.org/) by default. Iptables is used to set up, maintain, and inspect the tables of IP packet filter rules in the Linux kernel. The default implementation only allows incoming traffic on port 22 (SSH service) and blocks the traffic otherwise. You can check the *iptables* configuration with the following steps:
 
 1. Open an elevated PowerShell session
 1. Connect to the EFLOW virtual machine
@@ -107,7 +107,7 @@ The EFLOW virtual machine is configured to use [_iptables_](https://git.netfilte
 :::moniker range=">=iotedge-2020-11"
 ### Verified boot
 
-The EFLOW virtual machine supports **Verified Boot** through the included device-mapper-verity (dm-verity) kernel feature, which provides transparent integrity checking of block devices. _dm-verity_ helps prevent persistent rootkits that can hold onto root privileges and compromise devices. This feature assures the virtual machine it is in the same state as when it was last booted. The virtual machine uses the _dm-verity_ feature to check specific block device, the underlying storage layer of the file system, and determine if it matches its expected configuration.
+The EFLOW virtual machine supports **Verified Boot** through the included device-mapper-verity (dm-verity) kernel feature, which provides transparent integrity checking of block devices. *dm-verity* helps prevent persistent rootkits that can hold onto root privileges and compromise devices. This feature assures the virtual machine it is in the same state as when it was last booted. The virtual machine uses the *dm-verity* feature to check specific block device, the underlying storage layer of the file system, and determine if it matches its expected configuration.
 
 By default, this feature is enabled in the virtual machine, and can't be turned off. For more information, see [dm-verity](https://www.kernel.org/doc/html/latest/admin-guide/device-mapper/verity.html#).
 
@@ -117,20 +117,26 @@ By default, this feature is enabled in the virtual machine, and can't be turned 
 ## Trusted Platform Module (TPM)
 [Trusted Platform Module (TPM)](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node) technology is designed to provide hardware-based, security-related functions. A TPM chip is a secure crypto-processor that is designed to carry out cryptographic operations. The chip includes multiple physical security mechanisms to make it tamper resistant, and malicious software is unable to tamper with the security functions of the TPM.
 
-By providing a TPM passthrough feature, the EFLOW virtual machine leverages the Windows host OS TPM. This enables two main scenarios:
-* Use TPM technology for IoT Edge device provisioning using Device Provision Service (DPS). For more information, refer to [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](./how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
-* Read-only access to cryptographic keys stored inside the TPM. For more information, refer to [Set-EflowVmFeature to enable TPM passthrough](./reference-iot-edge-for-linux-on-windows-functions.md).
+By providing a TPM passthrough feature, the EFLOW virtual machine uses the Windows host OS TPM. This enables two main scenarios:
+* Use TPM technology for IoT Edge device provisioning using Device Provision Service (DPS). For more information, see [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](./how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
+* Read-only access to cryptographic keys stored inside the TPM. For more information, see [Set-EflowVmFeature to enable TPM passthrough](./reference-iot-edge-for-linux-on-windows-functions.md).
 
 
 ## Secure host & virtual machine communication
-EFLOW provides multiple ways to interact with the virutal machine by exposing a rich PowerShell module implementation. For more information, refer to [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md). This module requires an elevated session to run, and it's signed using Microsoft Corporation certificate.
+EFLOW provides multiple ways to interact with the virtual machine by exposing a rich PowerShell module implementation. For more information, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md). This module requires an elevated session to run, and it's signed using Microsoft Corporation certificate.
 
-All communications between the Windows host operating system and the EFLOW virutal machine required by the PowerShell cmdlets are done using a SSH channel. By default, the virtual machine SSH service won't allow authentication via username and password, and it's limited to certificate authentication. The certificate it's created during EFLOW deployment process, and is unique for each EFLOW installation. Furthermore, 
+All communications between the Windows host operating system and the EFLOW virtual machine required by the PowerShell cmdlets are done using an SSH channel. By default, the virtual machine SSH service won't allow authentication via username and password, and it's limited to certificate authentication. The certificate it's created during EFLOW deployment process, and is unique for each EFLOW installation. Furthermore, to prevent SSH brute force attacks, the virtual machine will block an IP address if it attempts more than three connections per minute to SSH service. 
 
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+In the EFLOW Continuous Release (CR) version, we introduced a change in the transport channel used to establish the SSH connection. Originally, SSH service runs on TCP port 22, which can be accessed by all external devices in the same network using a TCP socket to that specific port. For security reasons, EFLOW CR runs the SSH service over Hyper-V sockets instead of normal TCP sockets. All communication over Hyper-V sockets runs between the Windows host OS and the EFLOW virtual machine, without using networking. This limits the access of the SSH service, restricting connections to only the Windows host OS. For more information, see [Hyper-V sockets](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/make-integration-service).
+
+:::moniker-end
+<!-- end 1.2 -->
 
 
 ## Next steps
 
-View the latest [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
+Read more about [Windows IoT security premises](https://docs.microsoft.com/windows/iot/iot-enterprise/os-features/security)
 
-Stay up-to-date with recent updates and announcements in the [Internet of Things blog](https://azure.microsoft.com/blog/topics/internet-of-things/)
+Stay up-to-date with the latest [IoT Ede for Linuxon Windows updates](./iot-edge-for-linux-on-windows.md)
