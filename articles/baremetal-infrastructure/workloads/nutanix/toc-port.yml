@@ -1,0 +1,36 @@
+- name: What is BareMetal Infrastructure for Nutanix?
+  href: nutanix-baremetal-overview.md
+- name: BareMetal SKUs 
+  href: nutanix-baremetal-skus.md
+- name: Storage
+  href: nutanix-baremetal-storage.md
+- name: Patching considerations
+  href: nutanix-baremetal-patching.md
+- name: Ethernet configuration
+  href: nutanix-baremetal-ethernet.md
+- name: Architecture
+  href: nutanix-baremetal-architecture.md
+- name: Provision
+  href: nutanix-baremetal-provision.md
+- name: High availability and disaster recovery
+  items: 
+    - name: HA/DR Overview
+      href: concepts-nutanix-high-availability.md
+    - name: High availability features
+      href: high-availability-features.md
+    - name: Options and considerations
+      href: options-considerations-high-availability.md
+    - name: Choose how to recover 
+      href: nutanix-high-availability-recovery.md
+- name: SnapCenter integration
+  items:
+    - name: SnapCenter overview
+      href: netapp-snapcenter-integration-nutanix-baremetal.md
+    - name: Set up SnapCenter to route traffic
+      href: set-up-snapcenter-to-route-traffic.md
+    - name: Configure SnapCenter
+      href: configure-snapcenter-nutanix-baremetal.md
+    - name: Create on-demand backup
+      href: create-on-demand-backup-nutanix-baremetal.md
+    - name: Restore Nutanix Database
+      href: restore-nutanix-database-baremetal.md
