@@ -75,7 +75,7 @@ With this feature, when a Windows VM is provisioned, we configure the pagefile t
 Ephemeral OS disks can be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [here](trusted-launch.md#limitations) for supported sizes and regions.
 VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
-For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) usign temp disk placement you would get an error as 
+For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) using temp disk placement you would get an error as 
 **"OS disk of Ephemeral VM with size greater than 55 GB is not allowed for VM size Standard_DS4_v2 when the DiffDiskPlacement is ResourceDisk."**
 This is because the temp storage for [Standard_DS4_v2](dv2-dsv2-series.md) is 56 GiB, and 1 GiB is reserved for VMGS when using trusted launch.
 For the same example above if you create a standard Ephemeral OS disk VM you would not get any errors and it would be a successful operation.
@@ -84,6 +84,7 @@ For the same example above if you create a standard Ephemeral OS disk VM you wou
 > 
 > While using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after VM creation may not be persisted for operations like reimaging and platform events like service healing.
 > 
+For further information on how to deploy a trusted launch VM, click [here](trusted-launch-portal.md)
 
 ## Frequently asked questions
 
