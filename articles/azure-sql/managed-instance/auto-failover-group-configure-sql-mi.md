@@ -427,7 +427,7 @@ The following table lists specific permission scopes for Azure SQL Managed Insta
 |**Create failover group**| Azure RBAC write access | Primary managed instance </br> Secondary managed instance|
 | **Update failover group** Azure RBAC write access | Failover group </br> All databases within the managed instance|
 | **Fail over failover group** | Azure RBAC write access | Failover group on new primary managed instance |
-| | | 
+
 
 
 ## Next steps
