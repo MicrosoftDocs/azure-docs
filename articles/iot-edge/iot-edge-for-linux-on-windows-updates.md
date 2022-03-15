@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge for Linux on Windows Updates | Microsoft Docs
+title: Azure IoT Edge for Linux on Windows updates
 description: Overview of Azure IoT Edge for Linux on Windows updates
 author: PatAltimore
 
