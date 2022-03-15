@@ -6,7 +6,7 @@ author: tobystic
 manager: gunjan.jain 
 ms.service: web-application-firewall
 ms.topic: how-to
-ms.date: 03/11/2022
+ms.date: 03/15/2022
 ms.author: olotolor
 ---
 
