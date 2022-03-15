@@ -145,7 +145,10 @@ If there's a firewall between your servers and Azure AD, configure the following
  
 - If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
 - If your firewall or proxy allows you to specify safe suffixes, add connections: 
-     
+
+#### [Public Cloud](#tab/public-cloud)
+
+```
      |URL |How it's used|
      |-----|-----|
      |&#42;.msappproxy.net</br>&#42;.servicebus.windows.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
@@ -154,6 +157,43 @@ If there's a firewall between your servers and Azure AD, configure the following
      |login.windows.net</br>|The agent uses these URLs during the registration process.
 
 - If you are unable to add connections, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
+```
+
+#### [U.S. Government Cloud](#tab/us-government-cloud)
+
+```
+*.applicationinsights.us
+*.azure.us
+*.loganalytics.us
+*.microsoft.us
+*.microsoftonline.us
+*.msauth.net
+*.usgovcloudapi.net
+*.usgovtrafficmanager.net
+*.windowsazure.us
+```
+
+#### [China Government Cloud](#tab/china-government-cloud)
+
+```
+aadcdn.msauth.cn
+aadcdn.msftauth.cn
+login.live.com
+*.azure.cn
+*.microsoft.cn
+*.microsoftonline.cn
+*.chinacloudapi.cn
+*.trafficmanager.cn
+*.windowsazure.cn
+```
+---
+
+
+
+
+
+     
+
 
 
 
