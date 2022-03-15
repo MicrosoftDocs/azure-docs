@@ -22,9 +22,9 @@ In this article, you'll learn how to add and remove an inbound NAT rule for both
 
 ## Prerequisites
 
-- A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+- A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -72,9 +72,9 @@ In this example, you'll create an inbound NAT rule to forward port 500 to backen
 
 Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
 
-Use [New-AzLoadBalancerInboundNatRuleConfig] to create the inbound NAT rule.
+Use [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig) to create the inbound NAT rule.
 
-To save the configuration to the load balancer, use [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer) 
+To save the configuration to the load balancer, use [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer).
 
 ```azurepowershell
 ## Place the load balancer information into a variable for later use. ##
@@ -158,7 +158,7 @@ In this example, you'll create an inbound NAT rule to forward a range of ports s
 
 Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
 
-Use [New-AzLoadBalancerInboundNatRuleConfig] to create the inbound NAT rule.
+Use [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig) to create the inbound NAT rule.
 
 To save the configuration to the load balancer, use [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer) 
 
@@ -212,7 +212,7 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the **Maximum number of machines in backend pool** from 1000 to 1500.
+To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the **Maximum number of machines in backend pool** from **1000** to **1500**. This setting will increase the maximum number of machines in the backend pool to a **1000**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -281,7 +281,7 @@ Use [az network lb inbound-nat-rule update](/cli/azure/network/lb/inbound-nat-ru
 
 ## View port mappings
 
-Port mappings for the virtual machines in the backend pool can be viewed by using the Azure portal. In this example, you'll use the Azure portal to view the port mappings:
+Port mappings for the virtual machines in the backend pool can be viewed by using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -327,7 +327,7 @@ Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to pl
 
 To remove the inbound NAT rule, use [Remove-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/remove-azloadbalancerinboundnatruleconfig).
 
-To save the configuration to the load balancer, use [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer) 
+To save the configuration to the load balancer, use [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer).
 
 ```azurepowershell
 ## Place the load balancer information into a variable for later use. ##
