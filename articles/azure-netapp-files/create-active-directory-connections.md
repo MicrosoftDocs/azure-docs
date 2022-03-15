@@ -12,12 +12,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/11/2022
+ms.date: 03/15/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
 
-Several features of Azure NetApp Files require that you have an Active Directory connection.  For example, you need to have an Active Directory connection before you can create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md).  This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
+Several features of Azure NetApp Files require that you have an Active Directory connection.  For example, you need to have an Active Directory connection before you can create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
 
 ## Before you begin  
 
@@ -357,6 +357,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
  
 ## Next steps  
 
+* [Modify Active Directory connections](modify-active-directory-connections.md)
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
