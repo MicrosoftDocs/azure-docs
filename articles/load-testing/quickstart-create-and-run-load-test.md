@@ -34,10 +34,6 @@ To create a Load Testing resource:
 
 [!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
 
-## <a name="role_assignment"></a> Configure role-based access
-
-[!INCLUDE [azure-load-testing-role-assignment](../../includes/azure-load-testing-role-assignment.md)]
-
 ## <a name="jmeter"></a> Create an Apache JMeter script
 
 In this section, you'll create a sample Apache JMeter script that you'll use in the next section to load test a web endpoint. If you already have a script, you can skip to [Create a load test](#create_test).

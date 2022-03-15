@@ -268,8 +268,6 @@ for (int i = 0; i < result.Tables.Count; i++)
 ### General document model output
 
 Visit the Azure samples repository on GitHub to  view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-general-document-output.md).
-
-___
 ___
 
 ## Layout model
@@ -370,7 +368,6 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-layout-output.md).
 
-___
 
 ## Prebuilt model
 
@@ -504,7 +501,6 @@ for (int i = 0; i < result.Documents.Count; i++)
 
 Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-prebuilt-invoice-output.md).
 
-___
 
 ## Run your application
 

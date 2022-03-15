@@ -10,4 +10,4 @@ ms.author: cynthn
 | Maximum number of VMs in a scale set |1,000 |
 | Maximum number of VMs based on a custom VM image in a scale set|600 |
 | Maximum number of scale sets in a region |2,500 |
-
+| Maximum number of nodes supported in VMSS for IB cluster |100 |
