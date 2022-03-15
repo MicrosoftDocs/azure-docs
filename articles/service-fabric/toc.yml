@@ -414,7 +414,7 @@
     - name: Connect to your managed cluster
       href: how-to-managed-cluster-connect.md
     - name: Configure Azure Active Directory client access
-      href: how-to-managed-cluster-aad-client.md         
+      href: how-to-managed-cluster-azure-active-directory-client.md         
     - name: Configure autoscaling on a managed cluster
       href: how-to-managed-cluster-autoscale.md
     - name: Configure node types on a managed cluster
