@@ -52,7 +52,7 @@ Identified database performance degradations are recorded in the SQLInsights log
 | Impacted queries and error codes | Query hash or error code. These can be used to easily correlate to affected queries. Metrics that consist of either query duration increase, waiting time, timeout counts, or error codes are provided. |
 | Detections | Detection identified at the database during the time of an event. There are 15 detection patterns. For more information, see [Troubleshoot database performance issues with Intelligent Insights](intelligent-insights-troubleshoot-performance.md). |
 | Root cause analysis | Root cause analysis of the issue identified in a human-readable format. Some insights might contain a performance improvement recommendation where possible. |
-|||
+
 
 Intelligent Insights shines in discovering and troubleshooting database performance issues. In order to use Intelligent Insights to troubleshoot database performance issues, see [Troubleshoot performance issues with Intelligent Insights](intelligent-insights-troubleshoot-performance.md).
 

@@ -61,7 +61,7 @@ For example, if the machine is registered with Azure Arc in the East US region, 
 
 ## Supported environments
 
-Azure Arc-enabled servers support the management of physical servers and virtual machines hosted *outside* of Azure. For specific details of which hybrid cloud environments hosting VMs are supported, see [Connected Machine agent prerequisites](agent-overview.md#supported-environments).
+Azure Arc-enabled servers support the management of physical servers and virtual machines hosted *outside* of Azure. For specific details of which hybrid cloud environments hosting VMs are supported, see [Connected Machine agent prerequisites](prerequisites.md#supported-environments).
 
 > [!NOTE]
 > Azure Arc-enabled servers is not designed or supported to enable management of virtual machines running in Azure.
