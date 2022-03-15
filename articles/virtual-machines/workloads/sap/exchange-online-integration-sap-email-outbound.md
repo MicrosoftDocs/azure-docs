@@ -243,11 +243,11 @@ Mail host: yourdomain.mail.protection.outlook.com
 
 Port: 25
 
-![SMTP config in SCOT](media/exchange-online-integration/SCOT_SMTP_sec1.5.1.png)
+![SMTP config in SCOT](media/exchange-online-integration/SCOT_SMTP_connection_Relay_sec3.3.png)
 
 4. Click "Settings" next to the Security field and make sure TLS is enabled if possible. Also make sure no prior logon data regarding SMTP AUTH is present. Otherwise delete existing records with the corresponding button underneath.
 
-![SMTP security config in SCOT](media/exchange-online-integration/SCOT_SMTP_security_serttings_sec1.5.png)
+![SMTP security config in SCOT](media/exchange-online-integration/SCOT_SMTP_connection_Relay_TLS_sec3.4.png)
 
 5. Test the configuration using a test email from your SAP application with transaction SBWP and check the status in SOST transaction.
 
