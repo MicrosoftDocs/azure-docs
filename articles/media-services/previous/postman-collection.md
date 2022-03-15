@@ -2916,7 +2916,7 @@ This article contains a definition of the **Postman** collection that contains g
         },
         {
             "name": "Functions",
-            "description": "Rest API Functions\nhttps://msdn.microsoft.com/library/azure/jj683097.aspx\n",
+            "description": "REST API Functions\nhttps://msdn.microsoft.com/library/azure/jj683097.aspx\n",
             "item": [
                 {
                     "name": "CreateFileInfos  Function",

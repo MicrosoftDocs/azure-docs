@@ -122,7 +122,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     ```azurecli
     az ad sp show --id <clientId-of-your-service-principal>
-    az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
+    az role assignment create --role "App Configuration Data Reader" --scope /subscriptions/<subscriptionId>/resourceGroups/<group-name> --assignee-principal-type --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
 1. Create the environment variables **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET**, and **AZURE_TENANT_ID**. Use the values for the service principal that were displayed in the previous steps. At the command line, run the following commands and restart the command prompt to allow the change to take effect:

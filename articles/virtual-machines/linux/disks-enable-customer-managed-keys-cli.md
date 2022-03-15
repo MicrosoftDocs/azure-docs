@@ -2,7 +2,7 @@
 title: Azure CLI - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks with the Azure CLI.
 author: roygara
-ms.date: 06/29/2021
+ms.date: 03/15/2022
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -24,9 +24,9 @@ For now, customer-managed keys have the following restrictions:
     If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## Set up your Azure Key Vault and DiskEncryptionSet optionally with automatic key rotation
+## Create resources
 
-First, you must set up an Azure Key Vault and a diskencryptionset resource.
+Once the feature is enabled, you'll need to set up a DiskEncryptionSet and either an [Azure Key Vault](../../key-vault/general/overview.md) or an [Azure Key Vault Managed HSM](../../key-vault/managed-hsm/overview.md).
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 

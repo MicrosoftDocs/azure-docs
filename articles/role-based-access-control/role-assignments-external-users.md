@@ -43,7 +43,7 @@ Follow these steps to add a guest user to your directory using the Azure Active 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. For more information, see [Enable B2B external collaboration and manage who can invite guests](../active-directory/external-identities/delegate-invitations.md).
+1. Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. For more information, see [Configure external collaboration settings](../active-directory/external-identities/external-collaboration-settings-configure.md).
 
 1. Click **Azure Active Directory** > **Users** > **New guest user**.
 

@@ -116,7 +116,7 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
 // Then, choose your implementation of distributed cache
 // -----------------------------------------------------
 
-// For instance, the distributed in-memory cache (not cleared when you stop the app)
+// good for prototyping and testing, but this is NOT persisted and it is NOT distributed - do not use in production
 services.AddDistributedMemoryCache();
 
 // Or a Redis cache
@@ -163,10 +163,10 @@ services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>
 ```
 
 For more information, see:
-- [Difference between in-memory and distributed in memory caches](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#inmemory-vs-distributedmemory-cache-options)
 - [Distributed cache advanced options](https://github.com/AzureAD/microsoft-identity-web/wiki/L1-Cache-in-Distributed-(L2)-Token-Cache)
 - [Handle L2 cache eviction](https://github.com/AzureAD/microsoft-identity-web/wiki/Handle-L2-cache-eviction)
 - [Set up a Redis cache in Docker](https://github.com/AzureAD/microsoft-identity-web/wiki/Set-up-a-Redis-cache-in-Docker)
+- [Troubleshooting](https://github.com/AzureAD/microsoft-identity-web/wiki/Token-Cache-Troubleshooting)
 
 The usage of distributed cache is featured in the [ASP.NET Core web app tutorial](/aspnet/core/tutorials/first-mvc-app/) in the [phase 2-2 token cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache).
 
@@ -275,7 +275,6 @@ You can also specify options to limit the size of the in-memory token cache:
   }
   );
 ```
-
 
 #### Distributed caches
 
@@ -386,10 +385,10 @@ Here's the code for an Azure Cosmos DB cache:
 
 For more information about distributed caches, see:
 
-- [Difference between in-memory and distributed in-memory caches](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#inmemory-vs-distributedmemory-cache-options)
 - [Distributed cache advanced options](https://github.com/AzureAD/microsoft-identity-web/wiki/L1-Cache-in-Distributed-(L2)-Token-Cache)
 - [Handle L2 cache eviction](https://github.com/AzureAD/microsoft-identity-web/wiki/Handle-L2-cache-eviction)
 - [Set up a Redis cache in Docker](https://github.com/AzureAD/microsoft-identity-web/wiki/Set-up-a-Redis-cache-in-Docker)
+- [Troubleshooting](https://github.com/AzureAD/microsoft-identity-web/wiki/Token-Cache-Troubleshooting)
 
 ### Disabling a legacy token cache
 

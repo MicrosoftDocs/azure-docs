@@ -98,7 +98,7 @@ You can choose whether to connect your Self-Hosted Integration Runtime (SHIR) to
 
 You can change the selection anytime after creation from the data factory portal page on the Networking blade.  After you enable private endpoints there, you must also add a private endpoint to the data factory.
 
-A private endpoint requires a virtual network and subnet for the link, and a virtual machine within the subnet, which will be used to run the Self-Hosted Integration Runtime (SHIR), connecting via the private endpoint link.
+A private endpoint requires a virtual network and subnet for the link. In this example, a virtual machine within the subnet will be used to run the Self-Hosted Integration Runtime (SHIR), connecting via the private endpoint link.
 
 ### Create the virtual network
 If you do not have an existing virtual network to use with your private endpoint link, you must create a one, and assign a subnet.  
@@ -225,7 +225,7 @@ Finally, you must create the private endpoint in your data factory.
     | **Private DNS integration** |  |
     | Integrate with private DNS zone | Leave the default of **Yes**. |
     | Subscription | Select your subscription. |
-    | Private DNS zones | Leave the default of **(New) privatelink.azurewebsites.net**.
+    | Private DNS zones | Leave the default value in both Target sub-resources:  1. datafactory: **(New) privatelink.datafactory.azure.net**. 2. portal: **(New) privatelink.adf.azure.com**.|
     
 
 7. Select **Review + create**.

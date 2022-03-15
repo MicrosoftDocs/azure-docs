@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Sentiment analysis with Cognitive Services'
 description: Learn how to use Cognitive Services for sentiment analysis in Azure Synapse Analytics
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial

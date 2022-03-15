@@ -3,13 +3,14 @@ title: Azure Application Insights Transaction Diagnostics | Microsoft Docs
 description: Application Insights end-to-end transaction diagnostics
 ms.topic: conceptual
 ms.date: 01/19/2018
-
 ms.reviewer: sdash
 ---
 
 # Unified cross-component transaction diagnostics
 
 The unified diagnostics experience automatically correlates server-side telemetry from across all your Application Insights monitored components into a single view. It doesn't matter if you have multiple resources with separate instrumentation keys. Application Insights detects the underlying relationship and allows you to easily diagnose the application component, dependency, or exception that caused a transaction slowdown or failure.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## What is a Component?
 

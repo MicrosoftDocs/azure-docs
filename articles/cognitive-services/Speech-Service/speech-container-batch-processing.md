@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: eur
 ---
@@ -129,7 +129,7 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 #### [REST](#tab/rest)
 
-`REST` mode is an API server mode that provides a basic set of HTTP endpoints for audio file batch submission, status checking, and long polling. Also enables programmatic consumption using a python module extension, or importing as a submodule.
+`REST` mode is an API server mode that provides a basic set of HTTP endpoints for audio file batch submission, status checking, and long polling. Also enables programmatic consumption using a Python module extension, or importing as a submodule.
 
 :::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="A diagram showing the batch-kit container processing files in REST mode.":::
 

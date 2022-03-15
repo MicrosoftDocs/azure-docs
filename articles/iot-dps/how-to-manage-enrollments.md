@@ -1,8 +1,8 @@
 ---
 title: Manage device enrollments for Azure IoT Hub Device Provisioning Service in the Azure portal 
 description: How to manage device enrollments for your Device Provisioning Service (DPS) in the Azure portal
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 10/25/2021
 ms.topic: how-to
 ms.service: iot-dps
@@ -43,7 +43,7 @@ To create a symmetric key enrollment group:
 
    | Field | Description |
     | :--- | :--- |
-    | **Group name** | The name of the group of devices.|
+    | **Group name** | The name of the group of devices. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).|
     | **Attestation Type** |Select **Symmetric Key**.|
     | **Auto Generate Keys** |Check this box.|
     | **Select how you want to assign devices to hubs** |Select *Static configuration* so that you can assign to a specific hub|

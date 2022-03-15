@@ -1,11 +1,11 @@
 ---
 title: Performance guide for Azure SignalR Service
 description: An overview of the performance and benchmark of Azure SignalR Service. Key metrics to consider when planning the capacity.
-author: sffamily
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.author: zhshang
+ms.author: lianwei
 ---
 # Performance guide for Azure SignalR Service
 

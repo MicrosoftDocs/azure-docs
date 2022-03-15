@@ -114,7 +114,7 @@ If you get an 'Access Forbidden' error in the Video Analyzer widget, then you sh
 
 ## Collect logs for submitting a support ticket
    
-When self-guided troubleshooting steps don't resolve your problem and there are any more issues that you may need help with, please open a support ticket using the Azure portal with the relevant details & logs. You can also reach out to us by sending an email at videoanalyzerhelp@microsoft.com.
+When self-guided troubleshooting steps doesnt resolve your problem and there are more issues that you may need help with, please open a support ticket using the Azure portal with the relevant details about the issue & attach the [diagnostic](#view-diagnostics) JSON log files downloaded from your storage account. You can also reach out to us by sending an email at videoanalyzerhelp@microsoft.com.
    
 > [!WARNING]
 > The logs may contain personally identifiable information (PII) such as your IP address. All local copies of the logs will be deleted as soon as we complete examining them and close the support ticket.

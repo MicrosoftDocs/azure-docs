@@ -15,13 +15,65 @@ ms.date: 12/10/2021
 
 # Input validation in Azure Stream Analytics queries
 
-**Input validation** is a technique to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure the schema we submit to the core business logic matches its expectations. It also adds a second stage, in which we triage exceptions. In this stage, we can reject invalid records into a secondary output. This article illustrates how to implement this technic.
+**Input validation** is a technique to use to protect the main query logic from malformed or unexpected events. The query is upgraded to explicitly process and check records so they can't break the main logic.
 
-To see an example of a query set up with input validation, see the section: [Example of query with input validation](#example-of-query-with-input-validation)
+To implement input validation, we add two initial steps to a query. We first make sure the schema submitted to the core business logic matches its expectations. We then triage exceptions, and optionally route invalid records into a secondary output.
+
+A query with input validation will be structured as follows:
+
+```SQL
+WITH preProcessingStage AS (
+	SELECT
+		-- Rename incoming fields, used for audit and debugging
+		field1 AS in_field1,
+		field2 AS in_field2,
+		...
+
+		-- Try casting fields in their expected type
+		TRY_CAST(field1 AS bigint) as field1,
+		TRY_CAST(field2 AS array) as field2,
+		...
+
+	FROM myInput TIMESTAMP BY myTimestamp
+),
+
+triagedOK AS (
+	SELECT -- Only fields in their new expected type
+		field1,
+		field2,
+		...
+	FROM preProcessingStage
+	WHERE ( ... ) -- Clauses make sure that the core business logic expectations are satisfied
+),
+
+triagedOut AS (
+	SELECT -- All fields to ease diagnostic
+		*
+	FROM preProcessingStage
+	WHERE NOT (...) -- Same clauses as triagedOK, opposed with NOT
+)
+
+-- Core business logic
+SELECT
+	...
+INTO myOutput
+FROM triagedOK
+...
+
+-- Audit output. For human review, correction, and manual re-insertion downstream
+SELECT
+	*
+INTO BlobOutput -- To a storage adapter that doesn't require strong typing, here blob/adls
+FROM triagedOut
+```
+
+To see a comprehensive example of a query set up with input validation, see the section: [Example of query with input validation](#example-of-query-with-input-validation).
+
+This article illustrates how to implement this technique.
 
 ## Context
 
-Azure Stream Analytics (ASA) jobs process data coming from streams. Streams are sequences of raw data that are transmitted [serialized](https://en.wikipedia.org/wiki/Serialization) (CSV, JSON, AVRO...). To read from a stream, an application will need to know the specific serialization format used. In ASA, the **event serialization format** has to be defined when configuring a [streaming input](/azure/stream-analytics/stream-analytics-define-inputs).
+Azure Stream Analytics (ASA) jobs process data coming from streams. Streams are sequences of raw data that are transmitted [serialized](https://en.wikipedia.org/wiki/Serialization) (CSV, JSON, AVRO...). To read from a stream, an application will need to know the specific serialization format used. In ASA, the **event serialization format** has to be defined when configuring a [streaming input](./stream-analytics-define-inputs.md).
 
 Once the data is deserialized, **a schema needs to be applied to give it meaning**. By schema we mean the list of fields in the stream, and their respective data types. With ASA, the schema of the incoming data doesn't need to be set at the input level. ASA instead supports **dynamic input schemas** natively. It expects **the list of fields (columns), and their types, to change between events (rows)**. ASA will also infer data types when none is provided explicitly, and try to implicitly cast types when needed.
 
@@ -33,7 +85,7 @@ But the capabilities offered by dynamic schema handling come with a potential do
 
 With input validation, we add preliminary steps to our query to handle such malformed events. We'll primarily use [WITH](/stream-analytics-query/with-azure-stream-analytics) and [TRY_CAST](/stream-analytics-query/try-cast-azure-stream-analytics) to implement it.
 
-## Problem statement
+## Scenario: input validation for unreliable event producers
 
 We'll be building a new ASA job that will ingest data from a single event hub. As is most often the case, we aren't responsible for the data producers. Here the producers are IoT devices sold by multiple hardware vendors.
 
@@ -67,7 +119,7 @@ There's another discrepancy. **ASA uses its own type system** that doesn't match
 
 Back to our query, here we intend to:
 
-- Pass `readingStr` to a [JavaScript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions)
+- Pass `readingStr` to a [JavaScript UDF](./stream-analytics-javascript-user-defined-functions.md)
 - Count the number of records in the array
 - Round `readingNum` to the second decimal place
 - Insert the data into a SQL table
@@ -96,15 +148,15 @@ It's a good practice to map what happens to each field as it goes through the jo
 
 ## Prerequisites
 
-We'll develop the query in **Visual Studio Code** using the **ASA Tools** extension. The first steps of this [tutorial](/azure/stream-analytics/quick-create-visual-studio-code) will guide you through installing the required components.
+We'll develop the query in **Visual Studio Code** using the **ASA Tools** extension. The first steps of this [tutorial](./quick-create-visual-studio-code.md) will guide you through installing the required components.
 
-In VS Code, we'll use [local runs](/azure/stream-analytics/visual-studio-code-local-run-all) with **local** input/output to not incur any cost, and speed up the debugging loop. **We won't need** to set up an event hub or an Azure SQL Database.
+In VS Code, we'll use [local runs](./visual-studio-code-local-run-all.md) with **local** input/output to not incur any cost, and speed up the debugging loop. **We won't need** to set up an event hub or an Azure SQL Database.
 
 ## Base query
 
 Let's start with a basic implementation, with **no input validation**. We'll add it in the next section.
 
-In VS Code, we'll [create a new ASA project](/azure/stream-analytics/quick-create-visual-studio-code#create-a-stream-analytics-project)
+In VS Code, we'll [create a new ASA project](./quick-create-visual-studio-code.md#create-a-stream-analytics-project)
 
 In the `input` folder, we'll create a new JSON file called `data_readings.json` and add the following records to it:
 
@@ -141,7 +193,7 @@ In the `input` folder, we'll create a new JSON file called `data_readings.json` 
 ]
 ```
 
-Then we'll [define a local input](/azure/stream-analytics/visual-studio-code-local-run#define-a-local-input), called `readings`, referencing the JSON file we created above.
+Then we'll [define a local input](./visual-studio-code-local-run.md#define-a-local-input), called `readings`, referencing the JSON file we created above.
 
 Once configured it should look like this:
 
@@ -166,7 +218,7 @@ function main(arg1) {
 }
 ```
 
-In [local runs](/azure/stream-analytics/visual-studio-code-local-run-all), we don't need to define outputs. We don't even need to use `INTO` unless there are more than one output. In the `.asaql` file, we can replace the existing query by:
+In [local runs](./visual-studio-code-local-run-all.md), we don't need to define outputs. We don't even need to use `INTO` unless there are more than one output. In the `.asaql` file, we can replace the existing query by:
 
 ```SQL
 SELECT
@@ -188,15 +240,15 @@ GROUP BY
 
 Let's quickly go through the query we submitted:
 
-- To count the number of records in each array, we first need to unpack them. We'll use **[CROSS APPLY](/stream-analytics-query/apply-azure-stream-analytics)** and [GetArrayElements()](/stream-analytics-query/getarrayelements-azure-stream-analytics) (more [samples here](/azure/stream-analytics/stream-analytics-parsing-json))
+- To count the number of records in each array, we first need to unpack them. We'll use **[CROSS APPLY](/stream-analytics-query/apply-azure-stream-analytics)** and [GetArrayElements()](/stream-analytics-query/getarrayelements-azure-stream-analytics) (more [samples here](./stream-analytics-parsing-json.md))
   - Doing so, we surface two data sets in the query: the original input and the array values. To make sure we don't mix up fields, we define aliases (`AS r`) and use them everywhere
   - Then to actually `COUNT` the array values, we need to aggregate with **[GROUP BY](/stream-analytics-query/group-by-azure-stream-analytics)**
-  - For that we must define a [time window](/azure/stream-analytics/stream-analytics-window-functions). Here since we don't need one for our logic, the [snapshot window](/stream-analytics-query/snapshot-window-azure-stream-analytics) is the  right choice
+  - For that we must define a [time window](./stream-analytics-window-functions.md). Here since we don't need one for our logic, the [snapshot window](/stream-analytics-query/snapshot-window-azure-stream-analytics) is the  right choice
 - We also have to `GROUP BY` all the fields, and project them all in the `SELECT`. Explicitly projecting fields is a good practice, as `SELECT *` will let errors flow through from the input to the output
   - If we define a time window, we may want to define a timestamp with **[TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics)**. Here it's not necessary for our logic to work. For local runs, without `TIMESTAMP BY` all records are loaded on a single timestamp, the run start time.
 - We use the UDF to filter readings where `readingStr` has fewer than two characters. We should have used [LEN](/stream-analytics-query/len-azure-stream-analytics) here. We're using a UDF for demonstration purpose only
 
-We can [start a run](/azure/stream-analytics/visual-studio-code-local-run#run-queries-locally) and observe the data being processed:
+We can [start a run](./visual-studio-code-local-run.md#run-queries-locally) and observe the data being processed:
 
 |deviceId|readingTimestamp|readingStr|readingNum|arrayCount|
 |-|-|-|-|-|
@@ -277,7 +329,7 @@ Let's extend our query to validate the input.
 
 The first step of input validation is to define the schema expectations of the core business logic. Looking back at original requirement, our main logic is to:
 
-- Pass `readingStr` to a [JavaScript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) to measure its length
+- Pass `readingStr` to a [JavaScript UDF](./stream-analytics-javascript-user-defined-functions.md) to measure its length
 - Count the number of records in the array
 - Round `readingNum` to the second decimal place
 - Insert the data into a SQL table
@@ -499,9 +551,9 @@ FROM readingsToBeRejected
 
 [GetType](/stream-analytics-query/gettype-azure-stream-analytics) can be used to explicitly check for a type. It works well with [CASE](/stream-analytics-query/case-azure-stream-analytics) in the projection, or [WHERE](/stream-analytics-query/where-azure-stream-analytics) at the set level. `GetType` can also be used to dynamically check the incoming schema against a metadata repository. The repository can be loaded via a reference data set.
 
-[Unit-testing](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#automated-test) is a good practice to ensure our query is resilient. We'll build a series of tests that consist of input files and their expected output. Our query will have to match the output it generates to pass. In ASA, unit-testing is done via the [asa-streamanalytics-cicd](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#installation) npm module. Test cases with various malformed events should be created and tested in the deployment pipeline.
+[Unit-testing](./cicd-tools.md?tabs=visual-studio-code#automated-test) is a good practice to ensure our query is resilient. We'll build a series of tests that consist of input files and their expected output. Our query will have to match the output it generates to pass. In ASA, unit-testing is done via the [asa-streamanalytics-cicd](./cicd-tools.md?tabs=visual-studio-code#installation) npm module. Test cases with various malformed events should be created and tested in the deployment pipeline.
 
-Finally, we can do some light integration testing in VS Code. We can insert records into the SQL table via a [local run to a live output](/azure/stream-analytics/visual-studio-code-local-run-all).
+Finally, we can do some light integration testing in VS Code. We can insert records into the SQL table via a [local run to a live output](./visual-studio-code-local-run-all.md).
 
 ## Get support
 

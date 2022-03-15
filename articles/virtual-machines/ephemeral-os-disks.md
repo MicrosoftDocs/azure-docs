@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: aarthiv
 ms.subservice: disks 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Ephemeral OS disks for Azure VMs
@@ -252,7 +252,7 @@ A: No, ephemeral OS disk can only be used during VM and scale set creation.
 
 A: No, you can't have a mix of ephemeral and persistent OS disk instances within the same scale set. 
 
-**Q: Can the ephemeral OS disk be created using Powershell or CLI?**
+**Q: Can the ephemeral OS disk be created using PowerShell or CLI?**
 
 A: Yes, you can create VMs with Ephemeral OS Disk using REST, Templates, PowerShell, and CLI.
 

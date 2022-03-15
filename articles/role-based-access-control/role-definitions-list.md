@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/15/2021
 ms.author: rolyon 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # List Azure role definitions

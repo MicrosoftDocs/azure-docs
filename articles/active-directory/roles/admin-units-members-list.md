@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 12/17/2021
+ms.date: 01/12/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -69,14 +69,14 @@ Use the [Get-AzureADMSAdministrativeUnit](/powershell/module/azuread/get-azuread
 
 ```powershell
 $userObj = Get-AzureADUser -Filter "UserPrincipalName eq 'bill@example.com'"
-Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObj.ObjectId} }
+Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.Id | where {$_.Id -eq $userObj.ObjectId} }
 ```
 
 ### List the administrative units for a group
 
 ```powershell
 $groupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
-Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObj.ObjectId} }
+Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.Id | where {$_.Id -eq $groupObj.ObjectId} }
 ```
 
 ### List the users and groups for an administrative unit
@@ -92,9 +92,9 @@ Get-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
 foreach ($member in (Get-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id)) 
 {
-    if($member.ObjectType -eq "Group")
+    if($member.OdataType -eq "#microsoft.graph.group")
     {
-        Get-AzureADGroup -ObjectId $member.ObjectId
+        Get-AzureADGroup -ObjectId $member.Id
     }
 }
 ```

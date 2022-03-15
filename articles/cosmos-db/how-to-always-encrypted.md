@@ -3,7 +3,7 @@ title: Use client-side encryption with Always Encrypted for Azure Cosmos DB
 description: Learn how to use client-side encryption with Always Encrypted for Azure Cosmos DB
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 01/26/2022
 ms.author: thweiss
 author: ThomasWeiss
 ---
@@ -86,14 +86,12 @@ The first step to get started with Always Encrypted is to create your CMKs in Az
 1. Create a new key in the **Keys** section.
 1. Once the key is created, browse to its current version, and copy its full key identifier:<br>`https://<my-key-vault>.vault.azure.net/keys/<key>/<version>`. If you omit the key version at the end of the key identifier, the latest version of the key is used.
 
-Next, you need to configure how the Azure Cosmos DB SDK will access your Azure Key Vault instance. This authentication is done through an Azure Active Directory (AD) identity. Most likely, you'll use the identity of an Azure AD application or a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) as the proxy between your client code and your Azure Key Vault instance, although any kind of identity could be used. Use the following steps to use an Azure AD application as the proxy:
+Next, you need to configure how the Azure Cosmos DB SDK will access your Azure Key Vault instance. This authentication is done through an Azure Active Directory (AD) identity. Most likely, you'll use the identity of an Azure AD application or a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) as the proxy between your client code and your Azure Key Vault instance, although any kind of identity could be used. Use the following steps to use your Azure AD identity as the proxy:
 
-1. Create a new application and add a client secret as described in [this quickstart](../active-directory/develop/quickstart-register-app.md).
-
-1. Go back to your Azure Key Vault instance, browse to the **Access policies** section, and add a new policy:
+1. From your Azure Key Vault instance, browse to the **Access policies** section, and add a new policy:
 
    1. In **Key permissions**, select **Get**, **List**, **Unwrap Key**, **Wrap Key**, **Verify** and **Sign**.
-   1. In **Select principal**, search for the AAD application you've created before.
+   1. In **Select principal**, search for your Azure AD identity.
 
 ### Protect your CMK from accidental deletion
 
@@ -115,9 +113,9 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
 > - In **.NET** with the [Microsoft.Azure.Cosmos.Encryption package](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Encryption).
 > -	In **Java** with the [azure.cosmos.encryption package](https://mvnrepository.com/artifact/com.azure/azure-cosmos-encryption).
 
-To use Always Encrypted, an instance of an `EncryptionKeyStoreProvider` must be attached to your Azure Cosmos DB SDK instance. This object is used to interact with the key store hosting your CMKs. The default key store provider for Azure Key Vault is named `AzureKeyVaultKeyStoreProvider`.
+To use Always Encrypted, an instance of an `EncryptionKeyWrapProvider` must be attached to your Azure Cosmos DB SDK instance. This object is used to interact with the key store hosting your CMKs. The default key store provider for Azure Key Vault is named `AzureKeyVaultKeyWrapProvider`.
 
-The following snippets show how to use the identity of an Azure AD application with a client secret. You can find examples of creating different kinds of `TokenCredential` classes:
+The following snippets use the `DefaultAzureCredential` class to retrieve the Azure AD identity to use when accessing your Azure Key Vault instance. You can find examples of creating different kinds of `TokenCredential` classes:
 
 - [In .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [In Java](/java/api/overview/azure/identity-readme#credential-classes)
@@ -125,12 +123,11 @@ The following snippets show how to use the identity of an Azure AD application w
 # [.NET](#tab/dotnet)
 
 > [!NOTE]
-> In .NET, you will need the additional [Microsoft.Data.Encryption.AzureKeyVaultProvider package](https://www.nuget.org/packages/Microsoft.Data.Encryption.AzureKeyVaultProvider) to access the `AzureKeyVaultKeyStoreProvider` class.
+> You will need the additional [Azure.Identity package](https://www.nuget.org/packages/Azure.Identity/) to access the `TokenCredential` classes.
 
 ```csharp
-var tokenCredential = new ClientSecretCredential(
-    "<aad-app-tenant-id>", "<aad-app-client-id>", "<aad-app-secret>");
-var keyStoreProvider = new AzureKeyVaultKeyStoreProvider(tokenCredential);
+var tokenCredential = new DefaultAzureCredential();
+var keyWrapProvider = new AzureKeyVaultKeyWrapProvider(tokenCredential);
 var client = new CosmosClient("<connection-string>")
     .WithEncryption(keyStoreProvider);
 ```
@@ -138,11 +135,7 @@ var client = new CosmosClient("<connection-string>")
 # [Java](#tab/java)
 
 ```java
-TokenCredential tokenCredential = new ClientSecretCredentialBuilder()
-    .authorityHost("https://login.microsoftonline.com")
-    .tenantId("<aad-app-tenant-id>")
-    .clientId("<aad-app-client-id>")
-    .clientSecret("<aad-app-secret>")
+TokenCredential tokenCredential = new DefaultAzureCredentialBuilder()
     .build();
 AzureKeyVaultKeyStoreProvider encryptionKeyStoreProvider =
     new AzureKeyVaultKeyStoreProvider(tokenCredential);
@@ -169,9 +162,9 @@ Before data can be encrypted in a container, a [data encryption key](#data-encry
 var database = client.GetDatabase("my-database");
 await database.CreateClientEncryptionKeyAsync(
     "my-key",
-    DataEncryptionKeyAlgorithm.AEAD_AES_256_CBC_HMAC_SHA256,
+    DataEncryptionKeyAlgorithm.AeadAes256CbcHmacSha256,
     new EncryptionKeyWrapMetadata(
-        keyStoreProvider.ProviderName,
+        keyWrapProvider.ProviderName,
         "akvKey",
         "https://<my-key-vault>.vault.azure.net/keys/<key>/<version>"));
 ```
@@ -202,14 +195,14 @@ var path1 = new ClientEncryptionIncludedPath
     Path = "/property1",
     ClientEncryptionKeyId = "my-key",
     EncryptionType = EncryptionType.Deterministic.ToString(),
-    EncryptionAlgorithm = DataEncryptionKeyAlgorithm.AEAD_AES_256_CBC_HMAC_SHA256.ToString()
+    EncryptionAlgorithm = DataEncryptionKeyAlgorithm.AeadAes256CbcHmacSha256
 };
 var path2 = new ClientEncryptionIncludedPath
 {
     Path = "/property2",
     ClientEncryptionKeyId = "my-key",
     EncryptionType = EncryptionType.Randomized.ToString(),
-    EncryptionAlgorithm = DataEncryptionKeyAlgorithm.AEAD_AES_256_CBC_HMAC_SHA256.ToString()
+    EncryptionAlgorithm = DataEncryptionKeyAlgorithm.AeadAes256CbcHmacSha256
 };
 await database.DefineContainer("my-container", "/partition-key")
     .WithClientEncryptionPolicy()
@@ -312,7 +305,7 @@ You may want to "rotate" your CMK (that is, use a new CMK instead of the current
 await database.RewrapClientEncryptionKeyAsync(
     "my-key",
     new EncryptionKeyWrapMetadata(
-        keyStoreProvider.ProviderName,
+        keyWrapProvider.ProviderName,
         "akvKey",
         " https://<my-key-vault>.vault.azure.net/keys/<new-key>/<version>"));
 ```

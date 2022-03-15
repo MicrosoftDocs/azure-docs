@@ -3,7 +3,7 @@ title: Monitor the health of your backups using Azure Backup Metrics (preview)
 description: In this article, learn about the metrics available for Azure Backup to monitor your backup health
 ms.topic: conceptual
 author: v-amallick
-ms.date: 10/20/2021
+ms.date: 02/14/2022
 ms.author: v-amallick
 ms.service: backup
 ---
@@ -151,7 +151,36 @@ Based on the alert rules configuration, the fired alert appears under the **Data
 
 You can use the different programmatic clients, such as PowerShell, CLI, or REST API, to access the metrics functionality. See [Azure Monitor REST API documentation](../azure-monitor/essentials/rest-api-walkthrough.md) for more details.
 
+### Sample alert scenarios
+
+#### Fire a single alert if all backups for a vault were successful in last 24 hours
+
+**Alert Rule: Fire an alert if Backup Health Events < 1 in last 24 hours for**:
+
+Dimensions["HealthStatus"]="Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
+	 
+#### Fire an alert after every failed backup job
+
+**Alert Rule: Fire an alert if Backup Health Events > 0 in last 5 minutes for**:
+ 
+- Dimensions["HealthStatus"]= "Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
+- Dimensions["DatasourceId"]= "All current and future values"
+
+#### Fire an alert if there were consecutive backup failures for the same item in last 24 hours
+
+**Alert Rule: Fire an alert if Backup Health Events > 1 in last 24 hours for**:
+
+- Dimensions["HealthStatus"]= "Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
+- Dimensions["DatasourceId"]= "All current and future values"
+	 
+#### Fire an alert if no backup job was executed for an item in last 24 hours
+
+**Alert Rule: Fire an alert if Backup Health Events < 1 in the last 24 hours for**:
+
+Dimensions["DatasourceId"]= "All current and future values"
+
 ## Next steps
+
 - [Learn more about monitoring and reporting in Azure Backup](monitoring-and-alerts-overview.md).
 - [Learn more about Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
 - [Learn more about Azure alerts](../azure-monitor/alerts/alerts-overview.md).

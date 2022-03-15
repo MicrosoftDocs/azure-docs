@@ -2,11 +2,13 @@
 title: Troubleshoot Azure Database for PostgreSQL backup
 description: Troubleshooting information for backing up Azure Database for PostgreSQL.
 ms.topic: troubleshooting
-ms.date: 09/22/2021
-
+ms.date: 01/24/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
-# Troubleshoot PostgreSQL database backup by using Azure Backup (preview)
+# Troubleshoot PostgreSQL database backup using Azure Backup
 
 This article provides troubleshooting information for backing up Azure PostgreSQL databases with Azure Backup.
 
@@ -94,4 +96,4 @@ Establish network line of sight by enabling the **Allow access to Azure services
 
 ## Next steps
 
-[About Azure Database for PostgreSQL backup (preview)](backup-azure-database-postgresql-overview.md)
+[About Azure Database for PostgreSQL backup](backup-azure-database-postgresql-overview.md)

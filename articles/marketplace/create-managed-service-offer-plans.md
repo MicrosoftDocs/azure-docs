@@ -7,7 +7,7 @@ ms.reviewer: brwrigh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 02/02/2022
 ---
 
 # Create plans for a Managed Service offer
@@ -74,7 +74,7 @@ To add up to 10,000 subscription IDs with a .CSV file:
 
 ## Technical configuration
 
-This section creates a manifest with authorization information for managing customer resources. This information is required in order to enable [Azure delegated resource management](../lighthouse/concepts/architecture.md).
+This section creates a manifest with authorization information for Azure Active Directory (Azure AD) user accounts. This information is required in order to enable access to the customer's resources through [Azure Lighthouse](../lighthouse/overview.md).
 
 Review [Tenants, roles, and users in Azure Lighthouse scenarios](../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles) to understand which roles are supported and the best practices for defining your authorizations.
 
@@ -84,7 +84,7 @@ Review [Tenants, roles, and users in Azure Lighthouse scenarios](../lighthouse/c
 ### Manifest
 
 1. Under **Manifest**, provide a **Version** for the manifest. Use the format n.n.n (for example, 1.2.5).
-2. Enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory (Azure AD) tenant ID of your organization; that is, the managing tenant from which you will access your customers' resources. If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**.
+2. Enter your **Tenant ID**. This is a GUID associated with the Azure AD tenant ID of your organization; that is, the managing tenant from which you will access your customers' resources. If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**.
 
 If you publish a new version of your offer and need to create an updated manifest, select **+ New manifest**. Be sure to increase the version number from the previous manifest version.
 
@@ -121,5 +121,5 @@ After your offer is published, you can [publish an updated version of your offer
 
 ## Next steps
 
-- Exit plan setup and continue with optional [Co-sell with Microsoft](./co-sell-overview.md), or
+- Exit plan setup and continue with optional [Co-sell with Microsoft](/partner-center/co-sell-overview?context=/azure/marketplace/context/context), or
 - [Review and publish your offer](review-publish-offer.md)

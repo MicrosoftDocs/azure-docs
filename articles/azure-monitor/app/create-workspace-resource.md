@@ -15,6 +15,9 @@ This also allows for common Azure role-based access control (Azure RBAC) across 
 > [!NOTE]
 > Data ingestion and retention for workspace-based Application Insights resources are billed through the Log Analytics workspace where the data is located. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+
 ## New capabilities
 
 Workspace-based Application Insights allows you to take advantage of the latest capabilities of Azure Monitor and Log Analytics including:
@@ -109,7 +112,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create).
+For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az-monitor-app-insights-component-create).
 
 ### Azure PowerShell
 
@@ -153,7 +156,7 @@ The `New-AzApplicationInsights` PowerShell command does not currently support cr
             "properties": {
                 "ApplicationId": "[parameters('name')]",
                 "Application_Type": "[parameters('type')]",
-                "Flow_Type": "Redfield",
+                "Flow_Type": "Bluefield",
                 "Request_Source": "[parameters('requestSource')]",
                 "WorkspaceResourceId": "[parameters('workspaceResourceId')]"
             }

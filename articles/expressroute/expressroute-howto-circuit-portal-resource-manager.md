@@ -20,7 +20,7 @@ This quickstart shows you how to create an ExpressRoute circuit using the Azure 
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
-* You can [view a video](https://channel9.msdn.com/Blogs/Azure/Azure-ExpressRoute-How-to-create-an-ExpressRoute-circuit) before beginning to better understand the steps.
+* You can view a video before beginning to better understand the steps.
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 

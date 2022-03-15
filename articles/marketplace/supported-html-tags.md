@@ -6,9 +6,9 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/05/2020
+ms.date: 01/26/2021
 ---
 
 # HTML tags supported in commercial marketplace offer descriptions
 
-[!INCLUDE [HTML tags table for offer descriptions](./partner-center-portal/includes/long-description-3.md)]
+[!INCLUDE [HTML tags table for offer descriptions](./includes/long-description-3.md)]

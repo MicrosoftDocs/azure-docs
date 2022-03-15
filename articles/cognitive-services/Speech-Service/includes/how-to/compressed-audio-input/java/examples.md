@@ -6,9 +6,9 @@ ms.date: 03/09/2020
 ms.author: eur
 ---
 
-To configure Speech SDK to accept compressed audio input, create a `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream. Find related sample code in [Speech SDK samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/WavStream.java).
+To configure the Speech SDK to accept compressed audio input, create a `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class that specifies the compression format of the stream. Find related sample code in [Speech SDK samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/WavStream.java).
 
-Let's assume that you have an input stream class called `pullStream` and are using OPUS/OGG. Your code may look like this:
+Let's assume that you have an input stream class called `pullStream` and are using OPUS/OGG. Your code might look like this:
 
 ```java
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;

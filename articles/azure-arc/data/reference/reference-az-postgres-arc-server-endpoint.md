@@ -18,12 +18,12 @@ ms.subservice: azure-arc-data
 [az postgres arc-server endpoint list](#az-postgres-arc-server-endpoint-list) | List Azure Arc enabled PostgreSQL Hyperscale server group endpoints.
 ## az postgres arc-server endpoint list
 List Azure Arc enabled PostgreSQL Hyperscale server group endpoints.
-```bash
+```azurecli
 az postgres arc-server endpoint list 
 ```
 ### Examples
 List Azure Arc enabled PostgreSQL Hyperscale server group endpoints.
-```bash
+```azurecli
 az postgres arc-server endpoint list --name postgres01  --k8s-namespace namespace --use-k8s
 ```
 ### Global Arguments

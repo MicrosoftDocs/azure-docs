@@ -58,7 +58,7 @@ These requirements apply to buying a reserved dedicated host instance:
 
 ### Buy reserved instances for a CSP subscription
 
-CSPs that want to purchase reserved instances for their customers must use the **Admin On Behalf Of** (AOBO) procedure from the [Partner Center documentation](/partner-center/azure-plan-manage). For more information, view the [Admin on behalf of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) video.
+CSPs that want to purchase reserved instances for their customers must use the **Admin On Behalf Of** (AOBO) procedure from the [Partner Center documentation](/partner-center/azure-plan-manage). For more information, view the Admin on behalf of (AOBO) video.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com).
 

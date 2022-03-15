@@ -56,7 +56,7 @@ Because of underlying differences in the APIs, **OneDrive for Business** is not 
 Start a sync by running the following command and replacing \<group-name> and \<app-name>:
 
 ```azurecli-interactive
-az webapp deployment source sync –-resource-group <group-name> –-name <app-name>
+az webapp deployment source sync --resource-group <group-name> --name <app-name>
 ```
 
 # [Azure PowerShell](#tab/powershell)

@@ -50,6 +50,7 @@ Add the following `using` directives to the top of **Program.cs** to include the
 
 ```csharp
 using Azure.Communication.JobRouter;
+using Azure.Communication.JobRouter.Models;
 ```
 
 Update `Main` function signature to be `async` and return a `Task`.
@@ -76,79 +77,76 @@ var client = new RouterClient(connectionString);
 Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerTTL**, and a distribution **mode**.
 
 ```csharp
-var distributionPolicy = await client.SetDistributionPolicyAsync(
-    id: "Longest_Idle_45s_Min1Max10",
-    name: "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers",
-    offerTTL: TimeSpan.FromSeconds(45),
-    mode: new LongestIdleMode(
-        minConcurrentOffers: 1,
-        maxConcurrentOffers: 10)
+var distributionPolicy = await routerClient.SetDistributionPolicyAsync(
+    id: "distribution-policy-1",
+    name: "My Distribution Policy",
+    offerTTL: TimeSpan.FromSeconds(30),
+    mode: new LongestIdleMode()
 );
 ```
 
 ## Create a queue
 
-Jobs are organized into a logical Queue. Create the Queue by specifying an **ID**, **name**, and provide the **Distribution Policy** object's ID you created above.
+Create the Queue by specifying an **ID**, **name**, and provide the **Distribution Policy** object's ID you created above.
 
 ```csharp
-var queue = await client.SetQueueAsync(
-    id: "XBOX_Queue",
-    name: "XBOX Queue",
+var queue = await routerClient.SetQueueAsync(
+    id: "queue-1",
+    name: "My Queue",
     distributionPolicyId: distributionPolicy.Value.Id
 );
 ```
 
 ## Submit a job
-The quickest way to get started is to specify the ID of the Queue, the priority, and worker requirements when submitting a Job. In the example below, a Job will be submitted directly to the **XBOX Queue** where the workers in that queue require a `Location` label matching the name `Edmonton`.
+
+Now, we can submit a job directly to that queue, with a worker selector the requires the worker to have the label `Some-Skill` greater than 10.
 
 ```csharp
-var job = await client.CreateJobAsync(
-    channelId: ManagedChannels.AcsChatChannel,
-    channelReference: "12345",
+var job = await routerClient.CreateJobAsync(
+    channelId: "my-channel",
     queueId: queue.Value.Id,
     priority: 1,
-    workerSelector: new List<LabelSelector>
+    workerSelectors: new List<LabelSelector>
     {
-        new (
-            key: "Location", 
-            @operator: LabelOperator.Equal, 
-            value: "Edmonton")
+        new LabelSelector(
+            key: "Some-Skill", 
+            @operator: LabelOperator.GreaterThan, 
+            value: 10)
     });
 ```
 
 ## Register a worker
-Register a Worker by referencing the Queue ID created previously along with a **capacity** value, **labels**, and **channel configuration** to ensure the `EdmontonWorker` is assigned to the `XBOX_Queue'.
+
+Now, we register a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.
 
 ```csharp
-var edmontonWorker = await client.RegisterWorkerAsync(
-    id: "EdmontonWorker",
-    queueIds: new []{ queue.Value.Id },
-    totalCapacity: 100,
+var worker = await routerClient.RegisterWorkerAsync(
+    id: "worker-1",
+    queueIds: new[] { queue.Value.Id },
+    totalCapacity: 1,
     labels: new LabelCollection()
     {
-        {"Location", "Edmonton"}
+        ["Some-Skill"] = 11
     },
     channelConfigurations: new List<ChannelConfiguration>
     {
-        new (
-            channelId: ManagedChannels.AcsVoiceChannel,
-            capacityCostPerJob: 100)
+        new ChannelConfiguration("my-channel", 1)
     }
 );
 ```
 
-## Query the worker to observe the job offer
-Use the Job Router client connection to query the Worker and observe the ID of the Job against the ID 
+### Offer
+
+We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [EventGrid subscription][subscribe_events].
+However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```csharp
-    // wait 500ms for the Job Router to offer the Job to the Worker
-    Task.Delay(500).Wait();
-
-    var result = await client.GetWorkerAsync(edmontonWorker.Value.Id);
-
-    Console.WriteLine(
-        $"Job ID: {job.Value.Id} offered to {edmontonWorker.Value.Id} " +
-        $"should match Job ID attached to worker: {result.}");
+await Task.Delay(TimeSpan.FromSeconds(2));
+var result = await routerClient.GetWorkerAsync(worker.Value.Id);
+foreach (var offer in result.Value.Offers)
+{
+    Console.WriteLine($"Worker {worker.Value.Id} has an active offer for job {offer.JobId}");
+}
 ```
 
 Run the application using `dotnet run` and observe the results.
@@ -156,8 +154,16 @@ Run the application using `dotnet run` and observe the results.
 ```console
 dotnet run
 
-Job 6b83c5ad-5a92-4aa8-b986-3989c791be91 offered to EdmontonWorker should match Job ID from offer attached to worker: 6b83c5ad-5a92-4aa8-b986-3989c791be91
+
+Worker worker-1 has an active offer for job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 ```
 
 > [!NOTE]
 > Running the application more than once will cause a new Job to be placed in the queue each time. This can cause the Worker to be offered a Job other than the one created when you run the above code. Since this can skew your request, considering removing Jobs in the queue each time. Refer to the SDK documentation for managing a Queue or a Job.
+
+<!-- LINKS -->
+[subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
+[worker_registered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered
+[job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified
+[offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued
+[offer_accepted_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferaccepted

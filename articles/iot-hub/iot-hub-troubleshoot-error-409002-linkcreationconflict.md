@@ -1,12 +1,12 @@
 ---
 title: Troubleshooting Azure IoT Hub error 409002 LinkCreationConflict
 description: Understand how to fix error 409002 LinkCreationConflict 
-author: jlian
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 07/07/2021
-ms.author: jlian
+ms.author: kgremban
 ms.custom: amqp
 #Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 409002 LinkCreationConflict errors.
 ---

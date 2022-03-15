@@ -126,7 +126,7 @@ Application gateway supports the following server variables:
 | ssl_enabled               | "On" if the connection operates in TLS mode. Otherwise, an   empty string. |
 | uri_path                  | Identifies the specific resource in the host that the web   client wants to access. This is the part of the request URI without the   arguments. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   uri_path value will be `/article.aspx` |
 
-### Mutual authentication server variables (Preview)
+### Mutual authentication server variables
 
 Application Gateway supports the following server variables for mutual authentication scenarios. Use these server variables the same way as above with the other server variables. 
 

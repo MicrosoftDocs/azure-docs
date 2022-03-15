@@ -29,7 +29,7 @@ The scenario outlined in this tutorial assumes that you have:
 *   A user account in Tableau Online with admin permissions.
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Tableau Online Rest API](https://onlinehelp.tableau.com/current/api/rest_api/en-us/help.htm). This API is available to Tableau Online developers.
+> The Azure AD provisioning integration relies on the [Tableau Online REST API](https://onlinehelp.tableau.com/current/api/rest_api/en-us/help.htm). This API is available to Tableau Online developers.
 
 ## Add Tableau Online from the Azure Marketplace
 Before you configure Tableau Online for automatic user provisioning with Azure AD, add Tableau Online from the Azure Marketplace to your list of managed SaaS applications.

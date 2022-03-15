@@ -29,7 +29,7 @@ In Azure Database for MySQL service, gateway nodes listens on port 3308 for v5.7
 
 ## Azure Database for MySQL currently supports the following major and minor versions of MySQL:
 
-| Version | [Single Server](overview.md) <br/> Current minor version |[Flexible Server (Preview)](./flexible-server/overview.md) <br/> Current minor version  |
+| Version | [Single Server](overview.md) <br/> Current minor version |[Flexible Server](./flexible-server/overview.md) <br/> Current minor version  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL Version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (Retired) | Not supported|
 |MySQL Version 5.7 | [5.7.32](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-32.html) | [5.7.32](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-32.html)|

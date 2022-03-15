@@ -33,11 +33,8 @@ The ExpressRoute partner can list all port pairs within the target provider subs
 
 ### To get a list of all port pairs for a provider
 
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts 
-
-#### Get Operation
-
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts
 {
     "parameters": {
       "api-version": "2020-03-01",
@@ -95,15 +92,10 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 * 200 (OK)  The request is success. It will fetch list of ports.
 * 4XX (Bad Request)  One of validations failed – for example: Provider subid isn't valid.
 
-### List of all port for a provider for a particular peering location
-
-#### GET
-
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}
-
-#### GET Operation
+### To get a list of all port pairs by location
 
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}
 {
   "parameters": {
     "api-version": "2020-03-01",
@@ -143,15 +135,11 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 * 200 (OK) The request is success. It will fetch list of ports.
 * 4XX (Bad Request) One of validations failed – for example: Provider subid isn't valid or location isn't valid.
 
-To get port details of a particular port using port pair descriptor ID.
-
-#### GET
-
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts/{portPairDescriptor}
-
-#### GET Operation
+### To get a specific port pair using the port pair descriptor ID.
 
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts/{portPairDescriptor}
+
 {
   "parameters": {
     "api-version": "2020-03-01",
@@ -192,7 +180,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 * 204 The port pair with the mentioned descriptor ID isn't available.
 * 4XX (Bad Request) One of validations failed – For example: Provider subid isn't valid.
 
-### PUT expressRouteCrossConnection API to move a circuit to a specific port pair
+### Move a target ExpressRoute Circuit to a specific port pair
 
 Once the portPairDescriptor of the target port pair is identified, the ExpressRoute partner can use the [ExpressRouteCrossConnection API](/rest/api/expressroute/express-route-cross-connections/create-or-update) to move the ExpressRoute circuit to a specific port pair.
 
@@ -200,13 +188,8 @@ Currently this API is used by providers to update provisioning state of circuit.
 
 Currently the primaryAzurePort and secondaryAzurePort are read-only properties. Now we've disabled the read-only properties for these ports.
 
-#### PUT
-
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}?api-version=2021-02-01
-
-#### PUT Operation
-
 ```rest
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}?api-version=2021-02-01
 {
 "parameters": {
     "api-version": "2020-03-01",

@@ -1,11 +1,11 @@
 ---
 title: Move an Azure SignalR resource to another region | Microsoft Docs
 description: Shows you how to move an Azure SignalR resource to another region.
-author: juniwang
+author: vicancy
 ms.service: signalr
 ms.topic: how-to
 ms.date: 12/22/2021
-ms.author: juniwang 
+ms.author: lianwei 
 ms.custom: subject-moving-resources
 ---
 

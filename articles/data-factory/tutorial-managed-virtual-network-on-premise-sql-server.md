@@ -265,6 +265,9 @@ data factory from the resources list.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-3.png" alt-text="Screenshot that shows the SQL server linked service creation page.":::
 
+> [!Note] 
+> If you have more than one SQL Server and need to define multiple load balancer rules and IP table records with different ports, make sure you explicitly add the port name after the FQDN when you edit Linked Service. The NAT VM will handle the port translation. If it's not explicitly specified, the connection will always time-out.
+
 ## Troubleshooting
 
 Go to the backend server VM, confirm telnet the SQL Server works: **telnet **<**FQDN**>** 1433**.

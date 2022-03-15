@@ -129,7 +129,7 @@ Subscribers can register for events published to a topic. To receive any event, 
 
 Update the edge hub's route to forward event subscription's events to be forwarded to IoTHub as follows:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Navigate to the **IoT Hub**.
 1. Select **IoT Edge** from the menu
 1. Select the ID of the target device from the list of devices.

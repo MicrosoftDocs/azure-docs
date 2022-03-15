@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ExponentHR | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with ExponentHR'
 description: Learn how to configure single sign-on between Azure Active Directory and ExponentHR.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 02/11/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with ExponentHR
+# Tutorial: Azure AD SSO integration with ExponentHR
 
 In this tutorial, you'll learn how to integrate ExponentHR with Azure Active Directory (Azure AD). When you integrate ExponentHR with Azure AD, you can:
 
@@ -76,7 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, perform the following step:
 
     In the **Sign-on URL** text box, type the URL: 
-    `https://www.exponenthr.com/service/saml/login.aspx`
+    `https://www.exponenthr.com/service/saml/login`
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 3/14/2019
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Filter telemetry in your Java web app

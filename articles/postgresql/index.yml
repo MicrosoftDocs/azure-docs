@@ -92,7 +92,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: PostgreSQL extensions - Hyperscale
-            url: hyperscale/concepts-extensions.md
+            url: hyperscale/reference-extensions.md
           - text: Understand distributed data
             url: hyperscale/concepts-distributed-data.md
       - linkListType: quickstart

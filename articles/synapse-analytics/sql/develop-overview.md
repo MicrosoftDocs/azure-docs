@@ -1,7 +1,6 @@
 ---
 title: Resources for developing Synapse SQL features
 description: Development concepts, design decisions, recommendations, and coding techniques for Synapse SQL.
-services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
