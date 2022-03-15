@@ -62,6 +62,44 @@ C#:
 this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
+## Reporting move cost for a partition
+
+The previous section describes how service replicas or instances report MoveCost themselves. We provided Service Fabric API for reporting MoveCost values on behalf of other partitions. Sometimes service replica or instance can't determine the best MoveCost value by itself, and must relay on other services logic. Reporting MoveCost on behalf of other partitions, alongside with [reporting load on behalf of other partitions](service-fabric-cluster-resource-manager-metrics.md#reporting-load-for-a-partition), allows you to completely manage partitions from outside. These APIs eliminate needs for [the Sidecar pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar), from the perspective of Cluster Resource Manager.
+
+You can report MoveCost updates for a different partitions with same API call. You need to specify PartitionMoveCostDescription object for each partition that you want to update with new values of MoveCost. The API allows multiple ways to update MoveCost:
+
+  - A stateful service partition can update its primary replica MoveCost.
+  - Both stateless and stateful services can update the MoveCost of all its secondary replicas or instances.
+  - Both stateless and stateful services can update the MoveCost of a specific replica or instance on a node.
+
+C#:
+
+```csharp
+Guid partitionId = Guid.Parse("53df3d7f-5471-403b-b736-bde6ad584f42");
+string nodeName0 = "NodeName0";
+
+OperationResult<UpdatePartitionMoveCostResultList> updatePartitionMoveCostResults =
+    await this.FabricClient.UpdatePartitionMoveCostAsync(
+        new UpdatePartitionMoveCostQueryDescription
+        {
+            new List<PartitionMoveCostDescription>()
+            {
+                new PartitionMoveCostDescription(
+                    partitionId,
+                    MoveCost.VeryHigh,
+                    MoveCost.Zero,
+                    new List<ReplicaMoveCostDescription>()
+                    {
+                        new ReplicaMoveCostDescription(nodeName0, MoveCost.Medium)
+                    })
+            }
+        },
+        this.Timeout,
+        cancellationToken);
+```
+
+With this example, you will perform an update of the last reported move cost for a partition _53df3d7f-5471-403b-b736-bde6ad584f42_. Primary replica move cost will be _VeryHigh_. All secondary replicas move cost will be _Zero_, except move cost for a specific secondary replica located at the node _NodeName0_. Move cost for a specific replica will be _Medium_. If you want to skip updating move cost for primary replica or all secondary replicas, you could leave corresponding entry as _null_.
+
 ## Impact of move cost
 MoveCost has five levels: Zero, Low, Medium, High and VeryHigh. The following rules apply:
 
