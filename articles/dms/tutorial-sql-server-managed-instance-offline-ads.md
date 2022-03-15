@@ -94,7 +94,7 @@ To complete this tutorial, you need to:
 
 1. Select **Online migration** as the migration mode.
     > [!NOTE]
-    > In the offline migration mode, the source SQL Server database is not available for read and write activity while database backups are restored on target Azure SQL Managed Instance. Application downtime needs to be considered till the migration completes.
+    > In the online migration mode, the source SQL Server database can continue to be used for read and write activity while database backups are restored on target Azure SQL Managed Instance. Source SQL Server database should not be used for any transactions during the cutover operation.
 1. Select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
 
     > [!NOTE]
