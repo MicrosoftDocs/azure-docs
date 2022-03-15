@@ -155,19 +155,17 @@ Analyze and extract text, tables, structure, key-value pairs, and named entities
 ### Add the following code to the Program.cs file:
 
 ```csharp
-
-/* Set `your-endpoint` and `your-key` environment variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance.*/
-
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
+//Set `your-endpoint` and `your-key` environment variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance.
 string endpoint = "<your-endpoint>";
 string key = "<your-key>";
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
 
-// sample form document
+//sample form document
 Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
 AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-document", fileUri);
@@ -286,18 +284,16 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 #### Add the following code to the Program.cs file:
 
 ```csharp
-
-/* Set `your-endpoint` and `your-key` environment variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance.*/
-
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
+//Set `your-endpoint` and `your-key` environment variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance.
 string endpoint = "<your-endpoint>";
 string key = "<your-key>";
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
-// sample document
+//sample document
 Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
 AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-layout", fileUri);
@@ -382,7 +378,6 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > [!TIP]
 > You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../concept-model-overview.md#model-data-extraction).
 
-
 > [!div class="checklist"]
 >
 > * Analyze an invoice using the prebuilt-invoice model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
@@ -394,17 +389,17 @@ Analyze and extract common fields from specific document types using a prebuilt 
 
 ```csharp
 
-/* Set `your-endpoint` and `your-key` environment variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance.*/
 
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
+//Set `your-endpoint` and `your-key` environment variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance.
 string endpoint = "<your-endpoint>";
 string key = "<your-key>";
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
-// sample invoice document
+//sample invoice document
 
 Uri invoiceUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf");
 
