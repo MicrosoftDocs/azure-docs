@@ -64,7 +64,9 @@ pip install azure-ai-formrecognizer==3.2.0b3
 
 To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your key from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
-1. Create a new Python file called **form_recognizer_quickstart.py** in your preferred editor or IDE and select one of the following code samples to copy and pasted into your application:
+1. Create a new Python file called **form_recognizer_quickstart.py** in your preferred editor or IDE.
+ 
+1. Open the **form_recognizer_quickstart.py** file and select one of the following code samples to copy and pasted into your application:
 
 * [**General document**](#general-document-model)
 
