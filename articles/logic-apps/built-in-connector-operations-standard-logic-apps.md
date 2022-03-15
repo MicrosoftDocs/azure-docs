@@ -23,6 +23,9 @@ For more information about connectors, review the following documentation:
 
 * [About connectors in Azure Logic Apps](../connectors/apis-list.md)
 
+## Prerequisites
+
+
 ## Built-in connector plugin model
 
 The Azure Logic Apps built-in connector extensibility model uses the Azure Functions extensibility model, which enables the capability to add built-in connector implementations, such as Azure Functions extensions. You can use this capability to create, build, and package your own built-in connectors as Azure Functions extensions that anyone can use.
@@ -39,5 +42,25 @@ In this built-in connector extensibility model, you have to implement the follow
 
 After you finish your custom built-in connector extension, you also have to register the your custom built-in connector with the Azure Functions runtime extension, which is described later in this article.
 
+## Service provider interface implementation
+
+The webjob extension Nuget package which was added to the class library project provides the service provider interface IServiceOperationsTriggerProvider which needs to be implemented.
+
+As part of operation description, the IServiceOperationsTriggerProvider interface provides methods GetService() and GetOperations() which are required to be implemented by the custom built-in connector. These operations are used by the logic app designer to describe the actions/triggers by the custom built-in connector on the logic app designer surface.  Please note that the GetService() method also specifies the connection parameters needed by the Logic app designer.
+
+For action operation, you need to implement the InvokeActionOperation() method, which is invoked during the action execution. If you would like to use the Azure function binding for azure triggers, then you need to provide connection information and trigger bindings as needed by Azure function. There are two methods which need to be implemented for Azure function binding, GetBindingConnectionInformation() method which provides the connection information to the Azure function binding and GetTriggerType() which is same as “type” binding parameter for Azure function.
+
+The picture below shows the implementation of methods as required by the Logic app designer and Logic app runtime.
+
+
 ## Example custom built-in connector
 
+The following sample custom built-in Cosmos DB connector has only one trigger and no actions:
+
+| Operation | Operation details | Description |
+|-----------|-------------------|-------------|
+| Trigger | Receive document | This trigger operation runs when an insert or update operation happens in the specified Cosmos DB database and collection. |
+| Action | None | This connector doesn't define any action operations. |
+|||
+
+To develop your own built-in connector, you need to add the work flow webjob extension package. , I am creating the .NET Core 3.1 class library project in visual studio and added the Microsoft.Azure.Workflows.Webjobs.Extension package as Nuget reference to the project. The Service provider interface is implemented to provide the operations of the CosmosDB connector.  
