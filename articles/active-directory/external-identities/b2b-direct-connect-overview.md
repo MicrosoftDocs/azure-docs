@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 03/21/2022
 
 ms.author: mimart
 author: msmimart
@@ -81,7 +81,7 @@ Fabrikam will also need to configure their outbound cross-tenant access settings
 
 ## Authentication
 
-In a B2B direct connect scenario, authentication involves a user from an Azure AD organization attempting to sign in to a file or app in the external resource tenant. The user signs in with Azure AD credentials from their home tenant. The sign-in attempt is evaluated against cross-tenant access settings in both the external tenant and the resource tenant. If all access requirements are met, a token is issued to the user that allows the user to access the resource. This token is valid for 1 hour.
+In a B2B direct connect scenario, authentication involves a user from an Azure AD organization (the user's home tenant) attempting to sign in to a file or app in another Azure AD organization (the resource tenant). The user signs in with Azure AD credentials from their home tenant. The sign-in attempt is evaluated against cross-tenant access settings in both the user's home tenant and the resource tenant. If all access requirements are met, a token is issued to the user that allows the user to access the resource. This token is valid for 1 hour.
 
 For details about how authentication works in a cross-tenant scenario with Conditional Access policies, see [Authentication and Conditional Access in cross-tenant scenarios](authentication-conditional-access.md).
 
@@ -90,7 +90,7 @@ For details about how authentication works in a cross-tenant scenario with Condi
 
 If you want to allow B2B direct connect with an external organization and your Conditional Access policies require MFA, you must configure your trust settings so that your Conditional Access policies will accept MFA claims from the external organization. This configuration ensures that B2B direct connect users from the external organization are compliant with your Conditional Access policies, and it provides a more seamless user experience.
 
-For example, say Contoso (the resource tenant) trusts MFA claims from Fabrikam. Contoso has a Conditional Access policy requiring MFA. This policy is scoped to all guest and external users, as well as all SharePoint Online cloud apps. As a prerequisite for B2B direct connect, Contoso must configure trust settings in their cross-tenant access settings to accept MFA claims from Fabrikam. When a Fabrikam user access a B2B direct connect-enabled app (for example, a Teams Connect shared channel), the user is subject to the MFA requirement enforced by Contoso:
+For example, say Contoso (the resource tenant) trusts MFA claims from Fabrikam. Contoso has a Conditional Access policy requiring MFA. This policy is scoped to all guest and external users, as well as SharePoint Online. As a prerequisite for B2B direct connect, Contoso must configure trust settings in their cross-tenant access settings to accept MFA claims from Fabrikam. When a Fabrikam user access a B2B direct connect-enabled app (for example, a Teams Connect shared channel), the user is subject to the MFA requirement enforced by Contoso:
 
 - If the Fabrikam user has already performed MFA in their home tenant, they’ll be able to access the resource within the shared channel.
 - If the Fabrikam user hasn’t completed MFA, they’ll be blocked from accessing the resource.
@@ -119,8 +119,7 @@ Within the context of Teams, there are differences in how resources can be share
 
 - With B2B direct connect, you add the external user to a shared channel within a team. This user can access the resources within the shared channel, but they don’t have access to the entire team or any other resources outside the shared channel. For example, they don’t have access to the Azure AD admin portal. B2B direct connect users don’t have access to other resources outside the shared channel. They do, however, have access to My apps portal, where they can choose to leave an organization. B2B direct connect users don’t have a presence in your Azure AD organization, so these users are managed in the Teams client by the shared channel owner. For details, see the [Assign team owners and members in Microsoft Teams](/microsoftteams/assign-roles-permissions).
 
-
-- With B2B collaboration, you can invite the guest user to a team. The B2B collaboration guest user signs into the resource tenant using the guest account that was used to invite them. Their access is determined by the permissions assigned to guest users in the resource tenant. Guest users can’t see or participate in any shared channels in the team.
+- With B2B collaboration, you can invite the guest user to a team. The B2B collaboration guest user signs into the resource tenant using the email address that was used to invite them. Their access is determined by the permissions assigned to guest users in the resource tenant. Guest users can’t see or participate in any shared channels in the team.
 
 For more information about differences between B2B collaboration and B2B direct connect in Teams, see [Guest access in Microsoft Teams](/microsoftteams/guest-access).
 
@@ -138,7 +137,7 @@ Azure AD includes information about cross-tenant access and B2B direct connect i
 
 - **Azure AD sign-in logs** Azure AD sign-in logs are available in both the home organization and the resource organization. The information reported in each organization varies, for example:
 
-  - In both organizations, B2B direct connect sign-ins are labeled with a cross-tenant access type of B2B direct connect. Sign-in logs are recorded when a B2B direct connect first accesses a resource organization, and then again when a refresh token is issued for the user. Users can access their own sign-in logs. Admins can view their sign-ins for their entire organization to see how B2B connect users are accessing resources in their tenant.  
+  - In both organizations, B2B direct connect sign-ins are labeled with a cross-tenant access type of B2B direct connect. A sign-in event is recorded when a B2B direct connect user first accesses a resource organization, and again when a refresh token is issued for the user. Users can access their own sign-in logs. Admins can view sign-ins for their entire organization to see how B2B direct connect users are accessing resources in their tenant.  
 
   - In the home organization, the logs include client application information.
 
@@ -156,13 +155,13 @@ The Microsoft Teams admin center displays reporting for shared channels, includi
 
 - **Teams access reviews**: Access reviews of Groups that are Teams can now detect B2B direct connect users who are using Teams shared channels. When creating an access review, you can scope the review to all internal users, guest users, and external B2B direct connect users who have been added directly to a shared channel. The reviewer is then presented with users who have direct access to the shared channel.  
 
-- **Current limitations**: Reviewers can review individual internal users or external B2B direct connect users, but not other teams that have been added to the shared channel. As a workaround, the Teams shared channel owner can view and remove the other teams that a channel is shared with.  
+- **Current limitations**: An access review can detect internal users and external B2B direct connect users, but not other teams, that have been added to a shared channel. To view and remove teams that have been added to a shared channel, the shared channel owner can manage membership from within Teams.
 
 For more details about Microsoft Teams audit logs, see the [Microsoft Teams auditing documentation](/microsoftteams/audit-log-events).
 
 ## Privacy and data handling
 
-B2B direct connect lets your users and groups access apps and resources that are hosted by an external organization. To establish a connection, an admin from the external organization must also enable B2B direct connect. 
+B2B direct connect lets your users and groups access apps and resources that are hosted by an external organization. To establish a connection, an admin from the external organization must also enable B2B direct connect.
 
 By enabling B2B connect with an external organization, you're allowing the external organizations that you have enabled outbound settings with to access limited contact data about your users. Microsoft shares this data with those organizations to help them send a request to connect with your users. Data collected by external organizations, including limited contact data, is subject to the privacy policies and practices of those organizations.
 

@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/07/2022
+ms.date: 03/21/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -35,7 +35,7 @@ Depending on how you want to interact with external organizations and the types 
 
 ## B2B collaboration
 
-With B2B collaboration, you can invite anyone to sign in to your Azure AD organization using their own credentials so they can access the apps and resources you want to share with them. Use B2B collaboration when you need to let external users access your Office 365 apps, software-as-a-service (SaaS) apps, and line-of-business applications, especially when the partner doesn't use Azure AD or it's impractical for administrators to set up a mutual connection through B2B direct connect. There are no credentials associated with B2B collaboration users. Instead, they authenticate with their home organization or identity provider, and then your organization checks the guest user’s eligibility for B2B collaboration.
+With [B2B collaboration](what-is-b2b.md), you can invite anyone to sign in to your Azure AD organization using their own credentials so they can access the apps and resources you want to share with them. Use B2B collaboration when you need to let external users access your Office 365 apps, software-as-a-service (SaaS) apps, and line-of-business applications, especially when the partner doesn't use Azure AD or it's impractical for administrators to set up a mutual connection through B2B direct connect. There are no credentials associated with B2B collaboration users. Instead, they authenticate with their home organization or identity provider, and then your organization checks the guest user’s eligibility for B2B collaboration.
 
 There are various ways to add external users to your organization for B2B collaboration:
 
@@ -48,8 +48,6 @@ There are various ways to add external users to your organization for B2B collab
 A user object is created for the B2B collaboration user in the same directory as your employees. This user object can be managed like other user objects in your directory, added to groups, and so on. You can assign permissions to the user object (for authorization) while letting them use their existing credentials (for authentication).
 
 You can use [cross-tenant access settings](cross-tenant-access-overview.md) to manage B2B collaboration with other Azure AD organizations. For B2B collaboration with non-Azure AD external users and organizations, use [external collaboration settings](external-collaboration-settings-configure.md).
-
-Learn more about [B2B collaboration in Azure AD](what-is-b2b.md).
 
 ## B2B direct connect
 

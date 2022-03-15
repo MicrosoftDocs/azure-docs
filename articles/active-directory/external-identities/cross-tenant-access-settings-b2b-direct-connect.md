@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 03/21/2022
 
 ms.author: mimart
 author: msmimart
@@ -254,5 +254,20 @@ With outbound settings, you select which of your users and groups will be able t
     ![Screenshot showing adding external applications for outbound b2b direct connect](media/cross-tenant-access-settings-b2b-direct-connect/outbound-b2b-direct-connect-add-apps.png)
 
 1. Select **Save**.
+
+## Remove an organization
+
+When you remove an organization from your Organizational settings, the default cross-tenant access settings will go into effect for all B2B collaboration with that organization.
+
+> [!NOTE]
+> If the organization is a Cloud Service Provider for your organization (the isServiceProvider property in the Microsoft Graph [partner-specific configuration](/graph/api/resources/crosstenantaccesspolicyconfigurationpartner) is true), you won't be able to remove the organization.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
+
+1. Select **External Identities**, and then select **Cross-tenant access settings (Preview)**.
+
+1. Select the **Organizational settings** tab.
+
+2. Find the organization in the list, and then select the trash can icon on that row.
 
 ## Next steps

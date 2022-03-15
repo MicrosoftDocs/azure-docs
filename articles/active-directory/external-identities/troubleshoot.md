@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 02/14/2022
+ms.date: 03/21/2022
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -22,6 +22,17 @@ Here are some remedies for common problems with Azure Active Directory (Azure AD
    > - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **Starting July 2022**, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. As part of this change, Microsoft will stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
+
+
+## B2B direct connect user is unable to access a shared channel (error AADSTS90071)
+
+When a B2B direct connect sees the following error message when trying to access another organization's Teams shared channel, multi-factor authentication trust settings haven't been configured by the external organization:
+
+> The organization you're trying to reach needs to update their settings to let you sign in.
+>
+> AADSTS90071: An admin from *&lt;organization&gt;* must update their access settings to accept inbound multifactor authentication.
+
+The organization hosting the Teams shared channel must enable the trust setting for multi-factor authentication to allow access to B2B direct connect users. Trust settings are configurable in an organization's [cross-tenant access settings](cross-tenant-access-settings-b2b-direct-connect.md).
 
 ## An error similar to "Failure to update policy due to object limit" appears while configuring cross-tenant access settings
 
