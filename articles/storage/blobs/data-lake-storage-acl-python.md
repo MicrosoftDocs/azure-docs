@@ -133,7 +133,7 @@ The entries of the ACL give the owning user read, write, and execute permissions
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_SetACLRecursively":::
 
-To see an example that processes ACLs recursively in batches by specifying a batch size, see the python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
+To see an example that processes ACLs recursively in batches by specifying a batch size, see the Python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
 
 ## Update ACLs recursively
 
@@ -147,7 +147,7 @@ This example sets the ACL of a directory named `my-parent-directory`. This metho
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_UpdateACLsRecursively":::
 
-To see an example that processes ACLs recursively in batches by specifying a batch size, see the python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
+To see an example that processes ACLs recursively in batches by specifying a batch size, see the Python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
 
 ## Remove ACL entries recursively
 
@@ -176,7 +176,7 @@ def remove_permission_recursively(is_default_scope):
      print(e)
 ```
 
-To see an example that processes ACLs recursively in batches by specifying a batch size, see the python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
+To see an example that processes ACLs recursively in batches by specifying a batch size, see the Python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
 
 ## Recover from failures
 
@@ -186,7 +186,7 @@ This example returns a continuation token in the event of a failure. The applica
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_ResumeContinuationToken":::
 
-To see an example that processes ACLs recursively in batches by specifying a batch size, see the python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
+To see an example that processes ACLs recursively in batches by specifying a batch size, see the Python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
 
 If you want the process to complete uninterrupted by permission errors, you can specify that.
 
@@ -196,7 +196,7 @@ This example sets ACL entries recursively. If this code encounters a permission 
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_ContinueOnFailure":::
 
-To see an example that processes ACLs recursively in batches by specifying a batch size, see the python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
+To see an example that processes ACLs recursively in batches by specifying a batch size, see the Python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
 
 [!INCLUDE [updated-for-az](../../../includes/recursive-acl-best-practices.md)]
 
