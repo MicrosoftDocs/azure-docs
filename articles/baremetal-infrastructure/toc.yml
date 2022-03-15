@@ -100,5 +100,7 @@
         href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
   - name: Oracle
     href: ./workloads/oracle/toc.yml
-  - name: Nutanix
+      - name: Nutanix (ported Oracle ToC)
     href: ./workloads/nutanix/toc.yml
+  - name: Nutanix (ported Oracle ToC)
+    href: ./workloads/nutanix/toc-port.yml
