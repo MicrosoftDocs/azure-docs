@@ -3,8 +3,8 @@ title: Set up AutoML for NLP
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train natural language processing models with the Azure Machine Learning Python SDK.
 services: machine-learning
-author: nibaccam
-ms.author: nibaccam
+author: wenxwei
+ms.author: wenxwei
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
@@ -33,9 +33,10 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
    > [!Warning]
    > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
   
-* The Azure Machine Learning Python SDK installed. If you would like to explore more about the NLP specific package, you can do ``` pip install azureml-automl-dnn-nlp ```. 
+* The Azure Machine Learning Python SDK installed. 
+
     To install the SDK you can either, 
-    * Create a compute instance, which automatically installs the SDK and is preconfigured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
+    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
 
     * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
@@ -178,11 +179,11 @@ As part of the NLP functionality, automated ML supports 104 languages leveraging
 
  The following table summarizes what model is applied based on task type and language. See  the full list of [supported languages and their codes](/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages#azureml-automl-core-constants-textdnnlanguages-supported).
 
- Task type |Language code syntax| Text model algorithm
+ Task type |Syntax for `dataset_language` | Text model algorithm
 ----|----|---
-Multi-label text classification| <li> `'eng'` <li>`'deu'` | <li>English&nbsp;BERT&nbsp;[uncased](https://huggingface.co/bert-base-uncased) <li> [German BERT](https://huggingface.co/bert-base-german-cased) <br><br>For all other languages, automated ML applies [multilingual BERT](https://huggingface.co/bert-base-multilingual-cased)
-Multi-class text classification|  <li>`'eng'`  <li>`'deu'`|  <li> English BERT [cased](https://huggingface.co/bert-base-cased)  <li>[German BERT](https://huggingface.co/bert-base-german-cased) <br><br>For all other languages, automated ML applies [multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) 
-Named entity recognition (NER)|  <li>`'eng'`  <li> `'deu'`|  <li> English BERT [cased](https://huggingface.co/bert-base-cased)  <li>[German BERT](https://huggingface.co/bert-base-german-cased)<br><br> For all other languages, automated ML applies [multilingual BERT](https://huggingface.co/bert-base-multilingual-cased).
+Multi-label text classification| <li> `'eng'` <li>`'deu'` <li>`'mul'`| <li>English&nbsp;BERT&nbsp;[uncased](https://huggingface.co/bert-base-uncased) <li> [German BERT](https://huggingface.co/bert-base-german-cased)<li> [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) <br><br>For all other languages, automated ML applies multilingual BERT
+Multi-class text classification|  <li>`'eng'`  <li>`'deu'` <li>`'mul'`|  <li> English BERT [cased](https://huggingface.co/bert-base-cased)  <li>[German BERT](https://huggingface.co/bert-base-german-cased) <li> [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased)<br><br>For all other languages, automated ML applies [multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) 
+Named entity recognition (NER)|  <li>`'eng'`  <li> `'deu'` <li>`'mul'`|  <li> English BERT [cased](https://huggingface.co/bert-base-cased)  <li>[German BERT](https://huggingface.co/bert-base-german-cased) <li> [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased)<br><br> For all other languages, automated ML applies [multilingual BERT](https://huggingface.co/bert-base-multilingual-cased).
 
 
 You can specify your dataset language in your `FeaturizationConfig`. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML](how-to-configure-auto-features.md#bert-integration-in-automated-ml).
@@ -194,7 +195,7 @@ featurization_config = FeaturizationConfig(dataset_language='{your language code
 automl_config = AutomlConfig("featurization": featurization_config)
 ```
 
-## Distributed training with Horovod 
+## Distributed training
 
 You can also run your NLP experiments with distributed training on an Azure ML compute cluster. This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment set up. 
 
@@ -203,7 +204,7 @@ max_concurrent_iterations = number_of_vms
 enable_distributed_dnn_training = True
 ```
 
-Doing so, schedules distributed training of the NLP models and automatically scales to every GPU on your virtual machine. The max number of virtual machines allowed is 32. The training is scheduled with number of virtual machines that is in powers of two.
+Doing so, schedules distributed training of the NLP models and automatically scales to every GPU on your virtual machine or cluster of virtual machines. The max number of virtual machines allowed is 32. The training is scheduled with number of virtual machines that is in powers of two.
 
 ## Example notebooks
 
