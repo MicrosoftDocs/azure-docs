@@ -84,5 +84,5 @@ A Windows device with the following minimum requirements:
 
 * Virtualization support
   * On Windows 10, enable Hyper-V. For more information, see [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
-  * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](.nested-virtualization.md).
-  * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](.nested-virtualization.md).
+  * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](./nested-virtualization.md).
+  * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](./nested-virtualization.md).
