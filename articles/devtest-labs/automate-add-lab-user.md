@@ -183,7 +183,7 @@ The object that is being granted access can be specified by the `objectId`, `sig
 The following Azure CLI example shows you how to add a person to the DevTest Labs User role for the specified Lab.  
 
 ```azurecli
-az role assignment create --roleName "DevTest Labs User" --signInName <email@company.com> -–resource-name "<Lab Name>" --resource-type "Microsoft.DevTestLab/labs" --resource-group "<Resource Group Name>"
+az role assignment create --roleName "DevTest Labs User" --signInName <email@company.com> -–resource-name "<Lab Name>" --resource-type "Microsoft.DevTestLab/labs" --resource-group "<Resource Group Name>" --role Contributor --scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>
 ```
 
 ## Next steps

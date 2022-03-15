@@ -13,6 +13,8 @@ Azure Application Insights displays data about your application in a Microsoft A
 > [!IMPORTANT]
 > [Classic Application Insights has been deprecated](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024/). Please follow these [instructions on how upgrade to workspace-based Application Insights](convert-classic-resource.md).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Sign in to Microsoft Azure
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.

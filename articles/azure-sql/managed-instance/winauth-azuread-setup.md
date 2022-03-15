@@ -60,7 +60,7 @@ The following prerequisites are required to implement the modern interactive aut
 |Application must connect to the managed instance via an interactive session. | This supports applications such as SQL Server Management Studio (SSMS) and web applications, but won't work for applications that run as a service. |
 |Azure AD tenant. |         |
 |Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and AD. |
-| | |
+
 
 See [How to set up Windows Authentication for Azure Active Directory with the modern interactive flow (Preview)](winauth-azuread-setup-modern-interactive-flow.md) for steps to enable this authentication flow.
 
@@ -76,7 +76,7 @@ The following prerequisites are required to implement the incoming trust-based a
 |Azure tenant.  |         |
 |Azure subscription under the same Azure AD tenant you plan to use for authentication.|         |
 |Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and AD. |
-| | |
+
 
 See [How to set up Windows Authentication for Azure Active Directory with the incoming trust based flow (Preview)](winauth-azuread-setup-incoming-trust-based-flow.md) for instructions on enabling this authentication flow.
 
