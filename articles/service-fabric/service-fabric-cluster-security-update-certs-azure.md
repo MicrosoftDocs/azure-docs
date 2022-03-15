@@ -22,7 +22,7 @@ Service fabric lets you specify two cluster certificates, a primary and a second
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Add a secondary cluster certificate using the portal
-Secondary cluster certificate cannot be added through the Azure portal; use Azure PowerShell. The process is outlined later in this document.
+Secondary cluster certificate cannot be added through the Azure portal; use [Azure Resource Manager](#add-a-secondary-certificate-using-azure-resource-manager).
 
 ## Remove a cluster certificate using the portal
 For a secure cluster, you will always need at least one valid (not revoked and not expired) certificate. The certificate deployed with the furthest into the future expiring date will be in use, and removing it will make your cluster stop functioning; ensure to only remove the certificate that is expired, or an unused certificate that expires the soonest.
