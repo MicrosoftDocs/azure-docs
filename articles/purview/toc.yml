@@ -293,10 +293,10 @@ items:
       href: catalog-conditional-access.md
   - name: Data policies
     items:
-    - name: Authoring and publishing data owner access policies
-      href: how-to-data-owner-policy-authoring-generic.md
     - name: Registering data sources for Data use governance
       href: how-to-enable-data-use-governance.md
+    - name: Authoring and publishing data owner access policies
+      href: how-to-data-owner-policy-authoring-generic.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
     - name: View Self-service data access policy

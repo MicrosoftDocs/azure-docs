@@ -42,7 +42,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Application and service logs**     |    -      |    Collection only     |
 |**Sysmon**     |    Collection only      |      Collection only   |
 |**DNS logs**     |   -       | Collection only        |
-| | | |
+
 
 ### Linux logs
 
@@ -53,7 +53,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Sysmon**     |   Collection only    |  Collection only      |
 |**Custom logs**     |   -       |  Collection only       |
 |**Multi-homing**     |   Collection only      |     -     |
-| | | |
+
 
 ## Recommended migration plan
 
