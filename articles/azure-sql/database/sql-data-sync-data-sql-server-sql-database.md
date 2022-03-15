@@ -58,7 +58,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 | Read Scale | [Use read-only replicas to load balance read-only query workloads](read-scale-out.md) |
 | ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | Migration from SQL Server to Azure SQL Database. However, SQL Data Sync can be used after the migration is completed, to ensure that the source and target are kept in sync.  | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
-|||
+
 
 ## How it works
 
