@@ -52,9 +52,18 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 # [Azure Data Factory](#tab/data-factory)
 
-1.  Create a new **Pipeline from template**. The template gallery provides a pipeline template that makes it easy to get started with teams notifications.
-    
-    :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-from-template.png" alt-text="Shows the &quot;Pipeline from template&quot; menu in the Azure Data Factory Studio.":::
+
+1.  Select **Author** tab from the left pane.
+
+1.  Select the + (plus) button, and then select **New pipeline**.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/new-pipeline.png" alt-text="Shows the &quot;New pipeline&quot; menu in the Azure Data Factory Studio.":::
+
+1.  In the Properties panel under "General", specify **NotifiyTeamsChannelPipeline** for **Name**. Then collapse the panel by clicking the **Properties** icon in the top-right corner.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/name-pipeline.png" alt-text="Shows the &quot;Properties&quot; panel.":::
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/hide-properties-panel.png" alt-text="Shows the &quot;Properties&quot; pannel hidden.":::
 
 1.  Search for "teams", then select and use the **Send notification to a channel in Microsoft Teams** template.
     
@@ -66,10 +75,19 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 # [Synapse Analytics](#tab/synapse-analytics)
 
-1.  Create a new **Pipeline from template**. The template gallery provides a pipeline template that makes it easy to get started with teams notifications.
-    
-    :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-from-template-synapse.png" alt-text="Shows the &quot;Pipeline from template&quot; menu in the Azure Data Factory Studio.":::
 
+1.  Select **Integrate** tab from the left pane.
+
+1.  Select the + (plus) button, and then select **Pipeline**.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/new-pipeline-synapse.png" alt-text="Shows the &quot;New pipeline&quot; menu in the Synapse Studio.":::
+
+1.  In the Properties panel under "General", specify **NotifiyTeamsChannelPipeline** for **Name**. Then collapse the panel by clicking the **Properties** icon in the top-right corner.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/name-pipeline-synapse.png" alt-text="Shows the &quot;Properties&quot; panel.":::
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/hide-properties-panel-synapse.png" alt-text="Shows the &quot;Properties&quot; pannel hidden.":::
+    
 1.  Search for "teams", then select and use the **Send notification to a channel in Microsoft Teams** template.
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-dialog-synapse.png" alt-text="Shows the &quot;Send notification to a channel in Microsoft Teams&quot; template in the template gallery.":::
