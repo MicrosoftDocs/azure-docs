@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 03/10/2022
+ms.date: 03/15/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 # Manage inbound NAT rules for Azure Load Balancer using the Azure portal
@@ -20,9 +20,9 @@ There are two types of inbound NAT rule:
 
 In this article, you'll learn how to add and remove an inbound NAT rule for both types. You'll learn how to change the frontend port allocation in a multiple instance inbound NAT rule.
 
-## Prerequisites
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## Prerequisites
 
 - A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 
