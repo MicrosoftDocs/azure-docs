@@ -348,7 +348,7 @@ $lb | Set-AzLoadBalancer
 
 In this example, you'll remove an inbound NAT rule.
 
-Use [az network lb inbound-nat-rule delete](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-delete) to remove the NAT rule.
+Use [az network lb inbound-nat-rule delete](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-delete) to remove the rule.
 
 ```azurecli
     az network lb inbound-nat-rule delete \
