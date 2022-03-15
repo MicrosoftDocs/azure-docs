@@ -45,8 +45,10 @@ You can run two concurrent queries per user.
 You cannot [purge personal data](personal-data-mgmt.md#how-to-export-and-delete-private-data) from Basic Logs tables. 
 
 
-## Run a query from the Azure portal
+## Run a query on a Basic Logs table
 Creating a query using Basic Logs is the same as any other query in Log Analytics. See [Get started with Azure Monitor Log Analytics](./log-analytics-tutorial.md) if you aren't familiar with this process.
+
+# [Portal](#tab/portal-1)
 
 Open Log Analytics in the Azure portal and open the **Tables** tab. When browsing the list of tables, Basic Logs tables are identified with a unique icon: 
 
@@ -61,13 +63,15 @@ When you add a table to the query, Log Analytics will identify a Basic Logs tabl
 
 ![Screenshot of Query on Basic Logs limitations.](./media/basic-logs-query/query-validator.png)
 
-## Run a query from REST API
+# [API](#tab/api-1)
+
 Use **/search** from the [Log Analytics API](api/overview.md) to run a query with Basic Logs using a REST API. This is similar to the [/query](api/request-format.md) API with the following differences:
 
 - The query is subject to the language limitations described above.
 - The time span must be specified in the header of the request and not in the query statement.
 
-### Sample Request
+**Sample Request**
+
 ```http
 https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 ```
@@ -80,6 +84,7 @@ https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 }
 ```
 
+---
 ## Pricing model
 The charge for a query on Basic Logs is based on the amount of data the query scans, not just the amount of data the query returns. For example, a query that scans three days of data in a table that ingests 100 GB each day, would be charged for 300 GB. Calculation is based on chunks of up to one day of data. 
 
