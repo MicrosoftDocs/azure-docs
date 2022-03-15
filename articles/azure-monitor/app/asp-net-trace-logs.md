@@ -193,7 +193,9 @@ You can, for example:
 ## Troubleshooting
 
 ### Delayed telemetry, overloading network, or inefficient transmission
-System.Diagnostics.Tracing has an [Autoflush feature](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.trace.autoflush?view=netframework-4.8). This causes SDK to flush with every telemetry item, which is undesirable, and can cause logging adapter issues like delayed telemetry, overloading network, inefficient transmission, etc.
+System.Diagnostics.Tracing has an [Autoflush feature](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace.autoflush). This causes SDK to flush with every telemetry item, which is undesirable, and can cause logging adapter issues like delayed telemetry, overloading network, inefficient transmission, etc.
+
+
 
 ### How do I do this for Java?
 In Java codeless instrumentation (recommended) the logs are collected out of the box, use [Java 3.0 agent](./java-in-process-agent.md).
