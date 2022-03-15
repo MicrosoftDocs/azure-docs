@@ -18,7 +18,7 @@ This article describes some patterns appropriate for use with Table service solu
 
 ![to look up related data](media/storage-table-design-guide/storage-table-design-IMAGE05.png)
 
-The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to use the [Materialized View Pattern](/previous-versions/msp-n-p/dn589782(v=pandp.10)) from the [Command Query Responsibility Segregation (CQRS)](/previous-versions/msp-n-p/jj554200(v=pandp.10)) pattern.  
+The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to use the [Materialized View Pattern](/previous-versions/msp-n-p/dn589782(v=pandp.10)) from the [Command Query Responsibility Segregation (CQRS)](/previous-versions/msp-n-p/jj554200(v=pandp.10)) pattern.  
 
 ## Intra-partition secondary index pattern
 
