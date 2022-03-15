@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 03/15/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -31,20 +31,14 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 Deploying a model hosts it and makes it available for predictions through an endpoint.
 
+
+
 When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated with it.
 
 > [!NOTE]
 > You can only have ten deployment names.
 
-1. Go to your project in [Language studio](https://aka.ms/custom-classification).
-2. From the left panel, select **Deploy model**.
-3. Click on **Add deployment** to submit a new deployment job.
-
-    :::image type="content" source="../../custom-named-entity-recognition/media/deploy-model.png" alt-text="run-inference" lightbox="../../custom-named-entity-recognition/media/deploy-model.png":::
-
-4. In the window that appears, you can create a new deployment name by or override an existing one. Then, you can add a trained model to this deployment name.
-
-   :::image type="content" source="../../custom-named-entity-recognition/media/add-deployment.png" alt-text="run-inference" lightbox="../../custom-named-entity-recognition/media/add-deployment.png":::
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
    
 ### Delete deployment
 
