@@ -42,8 +42,8 @@ The Defender for IoT sensor and on-premises management console update packages i
 ## March 2022
 
 - [More device properties in the Device inventory](#more-device-properties-in-the-device-inventory)
-- [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal)
-- [Key state alert updates](#key-state-alert-updates-preview)
+- [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
+- [Key state alert updates](#key-state-alert-updates-public-preview)
 
 ### More device properties in the Device inventory
 
@@ -61,7 +61,7 @@ For more information, see [Manage your device inventory from the Azure portal](h
 > The extended data in these fields is only available for sensors with software versions 22.1.x or higher. If you have earlier sensor versions installed, we recommend updating to the latest version. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
 >
 
-### Edit and delete devices from the Azure portal
+### Edit and delete devices from the Azure portal (Public preview)
 
 The **Device inventory** page in the Azure portal now supports the ability to edit device details, such as security, classification, location, and more:
 
@@ -71,7 +71,7 @@ For more information, see [Edit device details](how-to-manage-device-inventory-f
 
 You can also delete devices from Defender for IoT, if they've been inactive for more than 14 days.  For more information, see [Delete a device](how-to-manage-device-inventory-for-organizations.md#delete-a-device).
 
-### Key state alert updates (Preview)
+### Key state alert updates (Public preview)
 
 Defender for IoT now supports the Rockwell protocol for PLC operating mode detections.
 
