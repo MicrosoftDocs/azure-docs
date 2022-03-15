@@ -88,7 +88,7 @@ Within your selected organization, create a _project_. If you don't have any pro
 
 1. You can leave the image name and the service port set to the defaults.
 
-1. Set the **Enable Review App for Pull Requests** checkbox for [review app](azure/devops/pipelines/process/environments-kubernetes) related configuration to be included in the pipeline YAML auto-generated in subsequent steps.
+1. Set the **Enable Review App for Pull Requests** checkbox for [review app](/azure/devops/pipelines/process/environments-kubernetes) related configuration to be included in the pipeline YAML auto-generated in subsequent steps.
 
 1. Select **Validate and configure**.
 
