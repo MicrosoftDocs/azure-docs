@@ -7,7 +7,7 @@ ms.date: 03/08/2022
 
 # Sensor connection methods
 
-This article describes the architectures and connection methods supported for connecting your sensors to Microsoft Defender for IoTS.
+This article describes the architectures and connection methods supported for connecting your sensors to Microsoft Defender for IoT in the Azure portal.
 
 All supported connection methods provide:
 
@@ -21,7 +21,7 @@ All supported connection methods provide:
 
 For more information, see [Choose a sensor connection method](connect-sensors.md#choose-a-sensor-connection-method).
 
-The methods described in this article are supported only for sensor versions 10.x and higher.
+The methods described in this article are supported only for sensor versions 22.1.x and higher.
 
 ## Working with a mixture of sensor software versions
 
@@ -39,7 +39,7 @@ For more information, see [Update a standalone sensor version](how-to-manage-ind
 
 ## Proxy connections with an Azure proxy
 
-The following image shows how you can connect your sensors to Microsoft cloud services through a proxy in the Azure VNET, ensuring confidentiality for all communications between your sensor and Azure.
+The following image shows how you can connect your sensors to the Defender for IoT portal in Azure through a proxy in the Azure VNET, ensuring confidentiality for all communications between your sensor and Azure.
 
 :::image type="content" source="media/architecture-connections/proxy.png" alt-text="Diagram of a proxy connection using an Azure proxy." border="false":::
 
@@ -51,7 +51,7 @@ For more information, see [Connect via an Azure proxy](connect-sensors.md#connec
 
 ## Proxy connections with proxy chaining
 
-The following image shows how you can connect your sensors to Microsoft cloud services through multiple proxies, using different levels of the Purdue model and the enterprise network hierarchy.
+The following image shows how you can connect your sensors to the Defender for IoT portal in Azure through multiple proxies, using different levels of the Purdue model and the enterprise network hierarchy.
 
 :::image type="content" source="media/architecture-connections/proxy-chaining.png" alt-text="Diagram of a proxy connection using proxy chaining." border="false":::
 
@@ -63,7 +63,7 @@ For more information, see [Connect via proxy chaining](connect-sensors.md#connec
 
 ## Direct connections
 
-The following image shows how you can connect your sensors to Microsoft cloud services directly over the internet from remote sites, without transversing the enterprise network.
+The following image shows how you can connect your sensors to the Defender for IoT portal in Azure directly over the internet from remote sites, without transversing the enterprise network.
 
 :::image type="content" source="media/architecture-connections/direct.png" alt-text="Diagram of a direct connection to Azure.":::
 
@@ -77,7 +77,7 @@ For more information, see [Connect directly](connect-sensors.md#connect-directly
 
 ## Multi-cloud connections
 
-You can connect your sensors to Microsoft cloud services from other public clouds for OT/IoT management process monitoring.
+You can connect your sensors to the Defender for IoT portal in Azure from other public clouds for OT/IoT management process monitoring.
 
 Depending on your environment configuration, you might connect using one of the following methods:
 

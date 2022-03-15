@@ -7,13 +7,13 @@ ms.date: 03/13/2022
 
 # Connect your sensors to Microsoft Defender for IoT
 
-This article describes how to connect your sensors to Microsoft Defender for IoT.
+This article describes how to connect your sensors to the Defender for IoT portal in Azure.
 
 For more information about each connection method, see [Sensor connection methods](architecture-connections.md).
 
 > [!NOTE]
-> The procedures in this article are supported for sensor software versions 10.x and higher.
-> 
+> The procedures in this article are supported for sensor software versions 22.1.x and higher.
+>
 
 ## Migration for existing customers
 
@@ -27,11 +27,11 @@ If you're an existing customer with a production deployment and sensors connecte
 
     For any connectivity resources outside of Defender for IoT, such as a VPN or proxy, consult with Microsoft solution architects to ensure correct configurations, security, and high availability.
 
-1. **If you have legacy sensor versions installed**, you'll need to update your sensors at least to a version 10.x or higher. We recommend that you upgrade to version 22.1.x or higher, and reactivate each updated sensor.
-
-    For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
+1. **If you have legacy sensor versions installed**, you'll need to update your sensors at least to a version 22.1.x or higher. Make sure that you reactivate each sensor and update your firewall rules.
 
     Sign in to each sensor after the update to verify that the activation file was applied successfully. Also check the Defender for IoT **Sites and sensors** page in the Azure portal to make sure that the updated sensors show as **Connected**.
+
+    For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
 
 1. **Start migrating with a test lab or reference project** where you can validate your connection and fix any issues found.
 
@@ -39,7 +39,7 @@ If you're an existing customer with a production deployment and sensors connecte
 
 1. **After the migration in your production environment**, you can delete any private IoT Hubs that you had used before the migration. Make sure that any IoT Hubs you delete are not used by any other services:
 
-    - All updated sensors should indicate software version 10.x or higher, and recommended 22.1.x or higher.
+    - All updated sensors should indicate software version 22.1.x or higher.
     - Check the active resources in your account and make sure there are no other services connected to your IoT Hub.
 
 While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versions-and-support-dates), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
