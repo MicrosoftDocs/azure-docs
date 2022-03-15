@@ -23,6 +23,7 @@ Here's the current list of Azure services that support creation of system topics
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure FarmBeats](event-schema-farmbeats.md)
+- [Azure Health Data Services](event-schema-azure-health-data-services.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
 - [Azure Kubernetes Service](event-schema-aks.md)

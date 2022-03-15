@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 2/10/2022
+ms.date: 3/14/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -19,13 +19,22 @@ App Service can now automate migration of your App Service Environment v2 to an 
 
 At this time, App Service Environment migrations to v3 using the migration feature support both [Internal Load Balancer (ILB)](create-ilb-ase.md) and [external (internet facing with public IP)](create-external-ase.md) App Service Environment v2 in the following regions:
 
-- West Central US
-- Canada Central
-- UK South
-- Germany West Central
-- East Asia
 - Australia East
+- Australia Central
 - Australia Southeast
+- Canada Central
+- Central India
+- East Asia
+- East US
+- East US 2
+- France Central
+- Germany West Central
+- Korea Central
+- Norway East
+- Switzerland North
+- UAE North
+- UK South
+- West Central US
 
 You can find the version of your App Service Environment by navigating to your App Service Environment in the [Azure portal](https://portal.azure.com) and selecting **Configuration** under **Settings** on the left-hand side. You can also use [Azure Resource Explorer](https://resources.azure.com/) and review the value of the `kind` property for your App Service Environment.
 
