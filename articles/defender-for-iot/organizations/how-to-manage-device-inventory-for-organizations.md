@@ -13,7 +13,7 @@ The device inventory can be used to view device systems, and network information
 
 Some of the benefits of the device inventory include:
 
-- Identify all IOT, and OT devices from different inputs. For example, allowing you to understand which devices in your environment are not communicating, and will require troubleshooting.
+- Identify all IOT, and OT devices from different inputs. For example, allowing you to understand which devices in your environment aren't communicating, and will require troubleshooting.
 
 - Group, and filter devices by site, type, or vendor.
 
@@ -75,7 +75,7 @@ You can search, and filter the device inventory to define what information the t
 
 1. Select the **Apply button**.
 
-Multiple filters can be applied at one time. The filters are not saved when you leave the Device inventory page.
+Multiple filters can be applied at one time. The filters aren't saved when you leave the Device inventory page.
 
 ## View device information
 
@@ -144,9 +144,9 @@ You can export your device inventory to a CSV file. Any filters that you apply t
 
 Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
 
-## How to identify devices that have not recently communicated with the Azure cloud
+## How to identify devices that haven't recently communicated with the Azure cloud
 
-If you are under the impression that certain devices are not actively communicating, there is a way to check, and see which devices have not communicated in a specified time period.
+If you are under the impression that certain devices aren't actively communicating, there's a way to check, and see which devices haven't communicated in a specified time period.
 
 **To identify all devices that have not communicated recently**:
 
@@ -154,19 +154,13 @@ If you are under the impression that certain devices are not actively communicat
 
 1. Navigate to **Defender for IoT** > **Device inventory**.
 
-1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: button.
-
-1. Add a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-column-icon.png" border="false"::: button.
-
-1. Select **Last Activity**.
-
-1. Select **Save**
+1. Select **Edit columns** > **Add column** > **Last Activity** > **Save**.
 
 1. On the main Device inventory page, select **Last activity** to sort the page by last activity.
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/last-activity.png" alt-text="Screenshot of the device inventory organized by last activity." lightbox="media/how-to-manage-device-inventory-on-the-cloud/last-activity.png":::
 
-1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter-icon.png" border="false"::: to add a filter on the last activity column.
+1. Select **Add filter** to add a filter on the last activity column.
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/last-activity-filter.png" alt-text="Screenshot of the add filter screen where you can select the time period to see the last activity.":::
 
@@ -174,7 +168,7 @@ If you are under the impression that certain devices are not actively communicat
 
 ## Delete a device (Public preview)
 
-If you have devices no longer in use, delete them from the device inventory so that they are no longer connected to Defender for IoT.
+If you have devices no longer in use, delete them from the device inventory so that they're no longer connected to Defender for IoT.
 
 Devices must be inactive for 14 days or more in order for you to be able to delete them.
 
@@ -182,7 +176,7 @@ Devices must be inactive for 14 days or more in order for you to be able to dele
 
 In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
-If your device has had activity in the past 14 days, it is not considered inactive, and the **Delete** button will be greyed-out.
+If your device has had activity in the past 14 days, it isn't considered inactive, and the **Delete** button will be grayed-out.
 
 At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
 
@@ -194,9 +188,9 @@ Starred items are fully supported only for sensor [software versions 22.1.x and 
 
 | Parameter | Description |
 |--|--|
-| **Application** | The application the exists on the device. |
+| **Application** | The application that exists on the device. |
 | **Class** | The class of the device. <br>Default: `IoT`|
-| **Data source** | The source of the data, such as Micro Agent, OtSensor, and Mde. <br>Default: `MicroAgent`|
+| **Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|
 | **Description*** | The description of the device. |
 | **Firmware vendor** | The vendor of the device's firmware. |
 | **Firmware version** | The version of the firmware. |
@@ -214,8 +208,8 @@ Starred items are fully supported only for sensor [software versions 22.1.x and 
 | **OS distribution** | The distribution of the operating system, such as Android, Linux, and Haiku. |
 | **OS platform** | The OS of the device, if detected. |
 | **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. |
-| **PLC mode** | The PLC operating mode which includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. |
-| **PLC secured** | Determines if the PLC mode is in a secure state. A possible secure state is `Run`. A possible unsecured state cab be either `Program`, or `Remote`. |
+| **PLC mode** | The PLC operating mode that includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. |
+| **PLC secured** | Determines if the PLC mode is in a secure state. A possible secure state is `Run`. A possible unsecured state can be either `Program`, or `Remote`. |
 | **Programming time** | The last time the device was programmed.  |
 | **Protocols*** | The protocols that the device uses. |
 | **Purdue level** | The Purdue level in which the device exists. |
