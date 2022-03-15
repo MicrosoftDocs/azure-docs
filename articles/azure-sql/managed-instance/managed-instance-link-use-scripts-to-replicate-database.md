@@ -18,7 +18,7 @@ ms.date: 03/15/2022
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you to use scripts, T-SQL and PowerShell, to setup [Managed Instance link feature](link-feature.md) to replicate your database from SQL Server to Azure SQL Managed Instance.
+This article teaches you to use scripts, T-SQL and PowerShell, to set up [Managed Instance link feature](link-feature.md) to replicate your database from SQL Server to Azure SQL Managed Instance.
 
 Before configuring replication for your database through the link feature, make sure you've [prepared your environment](managed-instance-link-preparation.md). 
 
@@ -29,7 +29,7 @@ Before configuring replication for your database through the link feature, make 
 > Configuration on Azure side is done with PowerShell that calls SQL Managed Instance REST API. Support for Azure PowerShell and CLI will be released in the upcomming weeks. At that point this article will be updated with the simplified PowerShell scripts.
 
 > [!TIP]
-> SQL Managed Instance link database replication can be setup with [SSMS wizard](managed-instance-link-use-ssms-to-replicate-database.md).
+> SQL Managed Instance link database replication can be set up with [SSMS wizard](managed-instance-link-use-ssms-to-replicate-database.md).
 
 ## Prerequisites 
 
@@ -140,7 +140,7 @@ $PublicKeyEncoded = "<PublicKeyEncoded>"
 # ===============================================================================
 # INVOKING THE API CALL -- REST OF THE SCRIPT IS NOT USER CONFIGURABLE
 # ===============================================================================
-# Login and select Subscription if needed.
+# Log in and select Subscription if needed.
 #
 if ((Get-AzContext ) -eq $null)
 {
@@ -212,7 +212,7 @@ Finally, verify all created certificates by viewing the following DMV.
 SELECT * FROM sys.certificates
 ```
 
-## Mirroring endpoing on SQL Server
+## Mirroring endpoint on SQL Server
 
 If you don’t have existing Availability Group nor mirroring endpoint, the next step is to create a mirroring endpoint on SQL Server and secure it with the certificate. If you do have existing Availability Group or mirroring endpoint, go straight to the next section “Altering existing database mirroring endpoint”
 To verify that you don't have an existing database mirroring endpoint created, use the following script.
@@ -312,7 +312,7 @@ With this you've successfully modified your database mirroring endpoint for SQL 
 
 ## Availability Group on SQL Server
 
-If you don't have existing AG the next step is to create an AG on SQL Server. If you do have existing AG go straight to the next section “Use existing Availability Group (AG) on SQL Serer”. A new AG needs to be created with the following parameters for Managed Instance link:
+If you don't have existing AG the next step is to create an AG on SQL Server. If you do have existing AG go straight to the next section “Use existing Availability Group (AG) on SQL Server”. A new AG needs to be created with the following parameters for Managed Instance link:
 -	Specify SQL Server name
 -	Specify database name
 -	Failover mode MANUAL
@@ -365,11 +365,11 @@ Alternatively, in SSMS object explorer, expand the “Always On High Availabilit
 
 ## Creating SQL Managed Instance link
 
-The final step of the setup is to create the SQL Managed Instance link. To accomplish this, a REST API call will be made. Invoking direct API calls will be replaced with PowerShell and CLI clients, which will be delivered in one of our next releases.
+The final step of the set up is to create the SQL Managed Instance link. To accomplish this, a REST API call will be made. Invoking direct API calls will be replaced with PowerShell and CLI clients, which will be delivered in one of our next releases.
 
 Invoking direct API call to Azure can be accomplished with various API clients. However, for simplicity of the process, execute the below PowerShell script from Azure Cloud Shell.
 
-Login to Azure portal and execute the below PowerShell scripts in Azure Cloud Shell. Make the following replacements with the actual values in the script: Replace `<SubscriptionID>` with your Azure Subscription ID. Replace `<ManagedInstanceName>` with the short name of your managed instance. Replace `<AGName>` with the name of Availability Group created on SQL Server. Replace `<DAGName>` with the name of Distributed Availability Group create on SQL Server. Replace `<DatabaseName>` with the database replicated in Availability Group on SQL Server. Replace `<SQLServerAddress>` with the address address of the SQL Server. This can be a DNS name, or public IP or even private IP address, as long as the address provided can be resolved from the backend node hosting the SQL Managed Instance.
+Log in to Azure portal and execute the below PowerShell scripts in Azure Cloud Shell. Make the following replacements with the actual values in the script: Replace `<SubscriptionID>` with your Azure Subscription ID. Replace `<ManagedInstanceName>` with the short name of your managed instance. Replace `<AGName>` with the name of Availability Group created on SQL Server. Replace `<DAGName>` with the name of Distributed Availability Group create on SQL Server. Replace `<DatabaseName>` with the database replicated in Availability Group on SQL Server. Replace `<SQLServerAddress>` with the address of the SQL Server. This can be a DNS name, or public IP or even private IP address, as long as the address provided can be resolved from the backend node hosting the SQL Managed Instance.
   
 ```powershell
 # =============================================================================
@@ -393,7 +393,7 @@ $ SQLServerAddress = "<SQLServerAddress>"
 # =============================================================================
 # INVOKING THE API CALL -- THIS PART IS NOT USER CONFIGURABLE
 # =============================================================================
-# Login to subscription if needed
+# Log in to subscription if needed
 if ((Get-AzContext ) -eq $null)
 {
     echo "Logging to Azure subscription"
