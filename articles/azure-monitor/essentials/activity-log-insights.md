@@ -22,15 +22,15 @@ In an Azure subscription, many activity can occur. Administrators can delete, up
 Activity log data in a Log Analytics workspace is stored in a table called AzureActivity that you can retrieve with a log query in Log Analytics. 
 * Use the Azure activities by Category Value to view a count of Activity log records for each category.
  
-![Azure Activity Logs dashboard](media/activity-log/activity-logs-insights-categoryvalue.png)
+![Azure Activity Logs by Category Value](media/activity-log/activity-logs-insights-categoryvalue.png)
 
 * Use the Azure activities by Category status to view a count of Activity log records by each status.
 
-![Azure Activity Logs dashboard](media/activity-log/activity-logs-insights-status.png)
+![Azure Activity Logs by Status](media/activity-log/activity-logs-insights-status.png)
 
 * If you are on a scale level - a subscription or a resource group, use the Azure activities by Resource and by resource provider to view a count of Activity log records for each selected resource and provider.
 
-![Azure Activity Logs dashboard](media/activity-log/activity-logs-insights-resource.png)
+![Azure Activity Logs by Resource](media/activity-log/activity-logs-insights-resource.png)
 
 ## Next steps
 * [Read an overview of platform logs](./platform-logs-overview.md)
