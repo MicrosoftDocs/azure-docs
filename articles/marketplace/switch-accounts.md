@@ -7,7 +7,7 @@ ms.topic: how-to
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.date: 01/20/2022
+ms.date: 03/28/2022
 ---
 
 # Switch accounts in Partner Center
@@ -38,9 +38,16 @@ You can then select any of account on the list to switch to that account. After 
 > [!NOTE]
 > Partner Center uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process.
 
-In the following example, the signed-in user is part of the four highlighted accounts. The user can switch between them by clicking on an account.
+In the following example, the signed-in user is part of the four highlighted accounts. The user can switch between them by selecting an account.
 
 [ ![Screenshot of accounts that can be selected with the account picker.](./media/manage-accounts/account-picker-two-workspaces.png) ](./media/manage-accounts/account-picker-two-workspaces.png#lightbox)
+
+## Manage offers across company accounts
+
+In the marketplace offers workspace, you no longer have to switch accounts to see the offers created under a specific account. The workspace lets you manage offers across all the accounts you have access to in a single view. You can associate new offers with specific publishers who are eligible to publish in either the commercial marketplace or Office Store programs.
+
+> [!IMPORTANT]
+> The account picker may still be required in some scenarios within the _Marketplace offers_ workspace. Publishers enrolled in a single program, either the commercial marketplace or Office Store, must switch accounts to access offers in a different program. Companies with more than 75 unique publishers can’t manage offers across company accounts.
 
 ## Next steps
 
