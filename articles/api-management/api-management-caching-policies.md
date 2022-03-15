@@ -36,6 +36,8 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 > [!NOTE]
 > This policy must have a corresponding [Store to cache](#StoreToCache) policy.
 
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -128,6 +130,8 @@ The `cache-store` policy caches responses according to the specified cache setti
 
 > [!NOTE]
 > This policy must have a corresponding [Get from cache](api-management-caching-policies.md#GetFromCache) policy.
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 ### Policy statement
 

@@ -37,7 +37,7 @@ If you don't already have an API Management instance and a backend API, see:
 The following example shows how to configure a policy using two options in the policy editor in the portal:
 
 * A guided form-based editor to simplify configuring many policies
-* A code editor where     you can add or edit XML directly 
+* A code editor where you can add or edit XML directly 
 
 In this example, the policy filters requests from certain incoming IP addresses. It's scoped to a selected API.
 

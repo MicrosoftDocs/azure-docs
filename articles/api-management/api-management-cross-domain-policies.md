@@ -62,6 +62,8 @@ CORS allows a browser and a server to interact and determine whether or not to a
 
 You need to apply the CORS policy to enable the interactive console in the developer portal. Refer to the [developer portal documentation](./developer-portal-faq.md#cors) for details.
 
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
 ### Policy statement
 
 ```xml
