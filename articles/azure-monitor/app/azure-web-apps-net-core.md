@@ -13,8 +13,7 @@ Enabling monitoring on your ASP.NET Core based web applications running on [Azur
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-
-## Enable agent-based monitoring
+## Enable auto-instrumentation monitoring
 
 # [Windows](#tab/Windows)
 
@@ -110,7 +109,7 @@ To check which version of the extension you're running, go to `https://yoursiten
 
 Starting with version 2.8.9 the pre-installed site extension is used. If you're using an earlier version, you can update via one of two ways:
 
-* [Upgrade by enabling via the portal](#enable-agent-based-monitoring). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes, the old private site extension will be removed.)
+* [Upgrade by enabling via the portal](#enable-auto-instrumentation-monitoring). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes, the old private site extension will be removed.)
 
 * [Upgrade through PowerShell](#enable-through-powershell):
 
@@ -135,7 +134,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     
     - Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.` 
     
-         If it isn't running, follow the [enable Application Insights monitoring instructions](#enable-agent-based-monitoring).
+         If it isn't running, follow the [enable Application Insights monitoring instructions](#enable-auto-instrumentation-monitoring).
 
     - Confirm that the status source exists and looks like: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
 

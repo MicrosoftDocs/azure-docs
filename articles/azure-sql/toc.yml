@@ -95,6 +95,8 @@
           href: database/authentication-mfa-ssms-configure.md
         - name: Conditional Access
           href: database/conditional-access-configure.md
+        - name: Server principals (logins)
+          href: database/authentication-azure-ad-logins.md
         - name: Service principals (Applications)
           href: database/authentication-aad-service-principal.md
         - name: Directory Readers role
@@ -200,6 +202,8 @@
           href: database/authentication-azure-ad-only-authentication-policy-how-to.md
         - name: Create server with Azure AD-only authentication enabled
           href: database/authentication-azure-ad-only-authentication-create-server.md
+        - name: Create and utilize Azure AD server logins
+          href: database/authentication-azure-ad-logins-tutorial.md  
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md
       - name: Always Encrypted
@@ -1213,8 +1217,6 @@
         href: managed-instance/custom-dns-configure.md
       - name: Sync DNS configuration
         href: managed-instance/synchronize-vnet-dns-servers-setting-on-virtual-cluster.md
-      - name: Sync network configuration
-        href: managed-instance/azure-app-sync-network-configuration.md
       - name: Find management endpoint IP address
         href: managed-instance/management-endpoint-find-ip-address.md
       - name: Verify built-in firewall protection
