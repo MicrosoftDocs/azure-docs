@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 06/01/2021
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: jesakowi
+ms.reviewer: ardhanap, jesakowi
 ---
 
 # Publisher verification

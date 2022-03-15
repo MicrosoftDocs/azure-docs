@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 10/21/2021
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: jesakowi
+ms.reviewer: ardhanap, jesakowi
 ---
 
 # Troubleshoot publisher verification
