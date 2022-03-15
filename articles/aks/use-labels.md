@@ -129,7 +129,7 @@ The following list of prefixes are reserved for usage by AKS and can't be used f
 
 ### Deprecated labels
 
-The following lists of labels are planned for deprecated. Customers should change any label references to the recommended substitute. 
+The following lists of labels are planned for deprecated with the relase of Kubernetes v1.24 in July 2022. Customers should change any label references to the recommended substitute. 
 
 | Label | Recommended substitute | Maintainer |
 | --- | --- | --- |
@@ -146,6 +146,10 @@ The following lists of labels are planned for deprecated. Customers should chang
 | Accelerator* | kubernetes.azure.com/accelerator | Azure Kubernetes Service
 
 *Newly deprecated. For more information, see [Release Notes][aks-release-notes-gh] on when these labels will no longer be maintained.
+
+## Next steps
+
+Learn more about Kubernetes labels at the [Kubernetes labels documentation][kubernetes-labels].
 
 <!-- LINKS - external -->
 [aks-release-2021-gh]: https://github.com/Azure/AKS/releases/tag/2021-08-19
