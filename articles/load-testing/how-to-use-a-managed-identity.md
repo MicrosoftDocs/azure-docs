@@ -104,4 +104,5 @@ You've now granted access to your Azure Load Testing resource to read the secret
 
 ## Next steps
 
-To learn how to parameterize a load test by using secrets, see [Parameterize a load test](./how-to-parameterize-load-tests.md).
+* To learn how to parameterize a load test by using secrets, see [Parameterize a load test](./how-to-parameterize-load-tests.md).
+* Learn how to [Manage users and roles in Azure Load Testing](./how-to-assign-roles.md).
