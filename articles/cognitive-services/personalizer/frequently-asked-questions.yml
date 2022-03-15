@@ -17,7 +17,7 @@ sections:
   - name: Single region data residency
     questions: 
       - question: |
-          How is my data replicatedin a region wiht single region data residency? 
+          How is my data replicated in a region with single region data residency? 
         answer:  |
           Personalizer doesn't store/process customer data outside the region the customer deploys the service instance in.
           
