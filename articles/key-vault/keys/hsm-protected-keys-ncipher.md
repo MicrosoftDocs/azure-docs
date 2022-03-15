@@ -240,7 +240,7 @@ The toolset includes:
 
 * A Key Exchange Key (KEK) package that has a name beginning with **BYOK-KEK-pkg-.**
 * A Security World package that has a name beginning with **BYOK-SecurityWorld-pkg-.**
-* A python script named **verifykeypackage.py.**
+* A Python script named **verifykeypackage.py.**
 * A command-line executable file named **KeyTransferRemote.exe** and associated DLLs.
 * A Visual C++ Redistributable Package, named **vcredist_x64.exe.**
 
