@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Meeting identity requirements of Memorandum 22-09 with Azure Active Directory
 
-This series of articles offer guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles as described by the US Federal Government’s Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Throughout this document wee refer to it as "The memo."
+This series of articles offer guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles as described by the US Federal Government’s Office of Management and Budget (OMB) [Memorandum M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). Throughout this document we refer to it as "The memo."
 
 The release of Memorandum 22-09 is designed to support Zero trust initiatives within federal agencies; it also provides regulatory guidance in supporting Federal Cybersecurity and Data Privacy Laws. The Memo cites the [Department of Defense (DoD) Zero Trust Reference Architecture](https://dodcio.defense.gov/Portals/0/Documents/Library/(U)ZT_RA_v1.1(U)_Mar21.pdf), 
 
