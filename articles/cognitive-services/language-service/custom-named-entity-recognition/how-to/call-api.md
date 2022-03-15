@@ -37,15 +37,7 @@ When a model is deployed, you will be able to test the model directly in the por
 > [!NOTE]
 > You can only have ten deployment names
 
-1. Go to your project in [Language studio](https://aka.ms/custom-extraction).
-2. From the left panel, select **Deploy model**.
-3. Click on **Add deployment** to submit a new deployment job.
-
-    :::image type="content" source="../../custom-named-entity-recognition/media/deploy-model.png" alt-text="run-inference" lightbox="../../custom-named-entity-recognition/media/deploy-model.png":::
-
-4. In the window that appears, you can create a new deployment name or override an existing one. Then, you can add a trained model to this deployment name.
-
-   :::image type="content" source="../../custom-named-entity-recognition/media/add-deployment.png" alt-text="run-inference" lightbox="../../custom-named-entity-recognition/media/add-deployment.png":::
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
    
 ### Delete deployment
 
