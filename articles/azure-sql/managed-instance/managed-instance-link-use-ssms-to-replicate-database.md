@@ -40,7 +40,7 @@ Use the **New Managed Instance link** wizard in SSMS to create the link between 
 1. Open SSMS and connect to your SQL Server instance. 
 1. In **Object Explorer**, right-click your database, hover over **Azure SQL Managed Instance link** and select **Replicate database** to open the **New Managed Instance link** wizard. If your SQL Server version isn't supported, this option won't be available in the context menu.
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-ssms-database-context-replicate-database.png" alt-text="Screenshot that shows a database's context menu option to replicate a database.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-ssms-database-context-replicate-database.png" alt-text="Screenshot that shows a database's context menu option for replication.":::
 
 1. On the **Introduction** page of the wizard, select **Next**. 
 
@@ -74,7 +74,7 @@ Use the **New Managed Instance link** wizard in SSMS to create the link between 
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-executing-actions.png" alt-text="Screenshot that shows the page for executing actions.":::
 
-1. After all steps are complete, the **Results** page shows checkmarks next to the successfully completed actions. You can now close the window. 
+1. After all steps finish, the **Results** page shows check marks next to the successfully completed actions. You can now close the window. 
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-results.png" alt-text="Screenshot that shows the Results page with completed status.":::
 
