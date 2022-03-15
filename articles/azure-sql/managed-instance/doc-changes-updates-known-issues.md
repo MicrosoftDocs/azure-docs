@@ -57,7 +57,7 @@ This article lists the currently known issues with [Azure SQL Managed Instance](
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
 |Database mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in SQL Managed Instance||Resolved|Aug 2019|
-||||| 
+
 
 ## Resolved
 
