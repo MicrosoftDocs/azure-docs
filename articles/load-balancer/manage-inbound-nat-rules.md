@@ -34,7 +34,7 @@ In this article, you'll learn how to add and remove an inbound NAT rule for both
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-In this example, you'll create an inbound NAT rule to forward port 500 to backend port 443.
+In this example, you'll create an inbound NAT rule to forward port 500 to backend port 443. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -121,7 +121,7 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-In this example, you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. 
+In this example, you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. The maximum number of machines in the backend pool is set by the parameter **Maximum number of machines in backend pool** with a value of **500**. This setting will limit the backend pool to **500** virtual machines.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
