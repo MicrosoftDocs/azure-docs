@@ -60,7 +60,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 ## Set up
 
-#### Create a new Gradle project
+### Create a new Gradle project
 
 1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **form-recognizer-app**, and navigate to it.
 
@@ -78,7 +78,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 1. Accept the default project name (form-recognizer-app)
 
-#### Install the client library
+### Install the client library
 
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
@@ -100,7 +100,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
     }
     ```
 
-#### Create a Java application
+### Create a Java application
 
 To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your key from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
@@ -145,7 +145,7 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-**Add the following code sample to the `FormRecognizer` class. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:
+**Add the following code sample to the `FormRecognizer` class. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```java
 
@@ -164,16 +164,19 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 
     public class FormRecognizer {
 
-      private static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
-      private static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
+      // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+      private static final String endpoint = "<your-endpoint>";
+      private static final String key = "<your-key>";
 
       public static void main(String[] args) {
 
+          // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
           DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
               .credential(new AzureKeyCredential(key))
               .endpoint(endpoint)
               .buildClient();
 
+          // sample document
           String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
           String modelId = "prebuilt-document";
           SyncPoller < DocumentOperationResult, AnalyzeResult> analyzeDocumentPoller =
@@ -237,8 +240,6 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
         }
     }
 ```
-
-
 
 ## Layout model
 
