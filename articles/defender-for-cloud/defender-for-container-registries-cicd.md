@@ -65,9 +65,10 @@ To enable vulnerability scans of images in your GitHub workflows:
     >  The push to the registry must happen prior to the results being published.
 
     ```yml
-    - run: |
-      echo "github.sha=$GITHUB_SHA"
-      docker build -t githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+    - name: Build and Tag Image
+      run: |
+        echo "github.sha=$GITHUB_SHA"
+        docker build -t githubdemo1.azurecr.io/k8sdemo:${{ github.sha }} .
     
     - uses: Azure/container-scan@v0 
       name: Scan image for vulnerabilities
@@ -76,9 +77,9 @@ To enable vulnerability scans of images in your GitHub workflows:
       with:
         image-name: githubdemo1.azurecr.io/k8sdemo:${{ github.sha }} 
     
-    - name: Push Docker image - githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+    - name: Push Docker image 
       run: |
-      docker push githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+        docker push githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
     
     - name: Post logs to appinsights
       uses: Azure/publish-security-assessments@v0

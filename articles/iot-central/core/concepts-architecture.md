@@ -100,4 +100,4 @@ Build integrations that let other applications and services manage your applicat
 
 ## Next steps
 
-Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [scalability and high availability](concepts-scalability-availability.md) in Azure IoT Central.
+Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-developer.md) in Azure IoT Central.
