@@ -3,7 +3,7 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 03/14/2022
+ms.date: 03/15/2022
 ---
 # Enable Microsoft Defender for Containers
 

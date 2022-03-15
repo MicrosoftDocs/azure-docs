@@ -188,6 +188,8 @@ Microsoft Defender for Containers brings threat detection, and advanced defences
     - Defender for Cloud recommendations, for per cluster installation, which will appear on the Microsoft Defender for Cloud's Recommendations page. Learn how to [deploy the solution to specific clusters](defender-for-containers-enable.md?tabs=defender-for-container-gke#deploy-the-solution-to-specific-clusters).
     - Manual installation for [Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md), and [extensions](../azure-arc/kubernetes/extensions.md).
 
+If you choose to disable all of available configuration options, no agents, or components will be deployed to your clusters. Learn more about the [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
+
 **To configure the Containers plan**:
 
 1. Follow the steps to [Connect your GCP project](#connect-your-gcp-project).
