@@ -38,7 +38,7 @@ For additional information on diagnostics log, visit [Application Gateway resour
 |**WAF Custom Rule Matches**|Count of total requests that match a specific custom rule. The request count can be further filtered to show count per Action, Country/Region, Mode, Rule Group, and Rule Name| Action, Country/Region, Mode, Rule Group and Rule Name|
 |**WAF Bot Protection Matches**|Count of total requests that have been blocked or logged from malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. The request count can be further filtered to show count per Action, Country/Region, Bot Type, and Mode| Action, Country/Region, Bot Type and Mode |
 
-For Metrics supported by Application Gateway V2 SKU, see [Application Gateway v2 metrics](../../application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku.md)
+For Metrics supported by Application Gateway V2 SKU, see [Application Gateway v2 metrics](../../application-gateway/application-gateway-metrics.md#metrics-supported-by-application-gateway-v2-sku)
 
 ## Metrics supported by Application Gateway V1 SKU
 
@@ -48,7 +48,7 @@ For Metrics supported by Application Gateway V2 SKU, see [Application Gateway v2
 |**Web Application Firewall Blocked Requests Distribution**|Total number of rules hit distribution for the blocked requests by Rule Group and Rule ID|Rule Group, Rule ID|
 |**Web Application Firewall Total Rule Distribution**|Count of total matched requests distribution by Rule Group and Rule ID |Rule Group, Rule ID|  
 
-For Metrics supported by Application Gateway V1 SKU, see [Application Gateway v1 metrics](../../application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v1-sku.md)
+For Metrics supported by Application Gateway V1 SKU, see [Application Gateway v1 metrics](../../application-gateway/application-gateway-metrics.md#metrics-supported-by-application-gateway-v1-sku.md)
 
 &nbsp;
 
