@@ -172,24 +172,6 @@ If there's a firewall between your servers and Azure AD, configure the following
 - If you are unable to add connections, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
 
 
-
-
-     
-
-
-
-
-## US government cloud firewall and proxy requirements
-Use the following information for URLS when installing the Azure AD Connect provisioning agent against the government cloud.
-
-If your firewall or proxy allows you to specify safe suffixes, add the following connections: 
-
- |URL |How it's used|
- |-----|-----|
- |&#42;.msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
- |`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| The agent uses these URLs to verify certificates.|
- |login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctldl.windowsupdate.us:80| The agent uses these URLs during the registration process.
-
 ## NTLM requirement
 
 You should not enable NTLM on the Windows Server that is running the Azure AD Connect Provisioning Agent and if it is enabled you should make sure you disable it. 
