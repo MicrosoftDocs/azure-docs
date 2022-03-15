@@ -225,6 +225,8 @@ Additional properties are available via the cmdlets:
 
 Refer to the [detailed documentation](/powershell/module/az.applicationinsights) for the parameters for these cmdlets.  
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Set the data retention
 
 Below are three methods to programmatically set the data retention on an Application Insights resource.

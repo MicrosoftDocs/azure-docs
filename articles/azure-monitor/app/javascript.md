@@ -13,6 +13,8 @@ Find out about the performance and usage of your web page or app. If you add [Ap
 
 Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](java-in-process-agent.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Adding the JavaScript SDK
 
 > [!IMPORTANT]
