@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: azure-import-export
 ms.topic: how-to
-ms.date: 03/14/22
+ms.date: 03/15/2022
 ms.author: alkohli
 ---
 
