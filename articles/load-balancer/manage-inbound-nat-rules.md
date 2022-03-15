@@ -20,13 +20,15 @@ There are two types of inbound NAT rule:
 
 In this article, you'll learn how to add and remove an inbound NAT rule for both types. You'll learn how to change the frontend port allocation in a multiple instance inbound NAT rule.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
-- This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+## Prerequisites
 
 - A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Add a single VM inbound NAT rule
 
@@ -63,6 +65,38 @@ In this example, you'll create an inbound NAT rule to forward port 500 to backen
 7. Leave the rest of the settings at the defaults and select **Add**.
 
     :::image type="content" source="./media/manage-inbound-nat-rules/add-single-instance-rule.png" alt-text="Screenshot of the create inbound NAT rule page":::
+
+# [**PowerShell**](#tab/inbound-nat-rule-powershell)
+
+In this example, you'll create an inbound NAT rule to forward port 500 to backend port 443.
+
+Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
+
+Use [New-AzLoadBalancerInboundNatRuleConfig] to create the inbound NAT rule.
+
+To save the configuration to the load balancer, use [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer) 
+
+```azurepowershell
+## Place the load balancer information into a variable for later use. ##
+$slb = @{
+    ResourceGroupName = 'myResourceGroup'
+    Name = 'myLoadBalancer'
+}
+$lb = Get-AzLoadBalancer @slb
+
+## Create the single virtual machine inbound NAT rule. ##
+$rule = @{
+    Name = 'myInboundNATrule'
+    Protocol = 'Tcp'
+    FrontendIpConfiguration = $lb.FrontendIpConfigurations[0]
+    FrontendPort = '500'
+    BackendPort = '443'
+}
+$lb | Add-AzLoadBalancerInboundNatRuleConfig @rule
+
+$lb | Set-AzLoadBalancer
+
+```
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
@@ -110,7 +144,7 @@ In this example, you'll create an inbound NAT rule to forward a range of ports s
     | Target backend pool | Select your backend pool. In this example, it's **myBackendPool**. |
     | Frontend IP address | Select your frontend IP address. In this example, it's **myFrontend**. |
     | Frontend port range start | Enter **500**. |
-    | Maximum number of machines in backend pool | Enter **1000**. |
+    | Maximum number of machines in backend pool | Enter **500**. |
     | Backend port | Enter **443**. |
     | Protocol | Select **TCP**. |
 
@@ -118,9 +152,43 @@ In this example, you'll create an inbound NAT rule to forward a range of ports s
     
     :::image type="content" source="./media/manage-inbound-nat-rules/add-inbound-nat-rule.png" alt-text="Screenshot of the add inbound NAT rules page":::
 
+# [**PowerShell**](#tab/inbound-nat-rule-powershell)
+
+In this example, you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. The maximum number of machines in the backend pool is set by the parameter `-FrontendPortRangeEnd` with a value of **1000**. This setting will limit the backend pool to **500** virtual machines.
+
+Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
+
+Use [New-AzLoadBalancerInboundNatRuleConfig] to create the inbound NAT rule.
+
+To save the configuration to the load balancer, use [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer) 
+
+```azurepowershell
+## Place the load balancer information into a variable for later use. ##
+$slb = @{
+    ResourceGroupName = 'myResourceGroup'
+    Name = 'myLoadBalancer'
+}
+$lb = Get-AzLoadBalancer @slb
+
+## Create the multiple virtual machines inbound NAT rule. ##
+$rule = @{
+    Name = 'myInboundNATrule'
+    Protocol = 'Tcp'
+    BackendPort = '443'
+    FrontendIpConfiguration = $lb.FrontendIpConfigurations[0]
+    FrontendPortRangeStart = '500'
+    FrontendPortRangeEnd = '1000'
+    BackendAddressPool = $lb.BackendAddressPools[0]
+}
+$lb | Add-AzLoadBalancerInboundNatRuleConfig @rule
+
+$lb | Set-AzLoadBalancer
+
+```
+
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-In this example, you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443.
+In this example, you'll create an inbound NAT rule to forward a range of ports starting at port 500 to backend port 443. The maximum number of machines in the backend pool is set by the parameter `--frontend-port-range-end` with a value of **1000**. This setting will limit the backend pool to **500** virtual machines.
 
 Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) to create the NAT rule.
 
@@ -144,7 +212,7 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the frontend port allocation from 500 to 1000.
+To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the **Maximum number of machines in backend pool** from 1000 to 1500.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -158,21 +226,51 @@ To accommodate more virtual machines in the backend pool in a multiple instance 
 
     :::image type="content" source="./media/manage-inbound-nat-rules/select-inbound-nat-rule.png" alt-text="Screenshot of inbound NAT rule overview.":::
 
-6. In the properties of the inbound NAT rule, change the value in **Frontend port range start** to **1000**.
+6. In the properties of the inbound NAT rule, change the value in **Maximum number of machines in backend pool** to **1500**.
 
 7. Select **Save**.
 
     :::image type="content" source="./media/manage-inbound-nat-rules/change-frontend-ports.png" alt-text="Screenshot of inbound NAT rule properties page.":::
 
+# [**PowerShell**](#tab/inbound-nat-rule-powershell)
+
+To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the parameter `-FrontendPortRangeEnd' to **1500**. This setting will increase the maximum number of machines in the backend pool to a **1000**
+
+Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
+
+To change the port allocation, use [Set-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/set-azloadbalancerinboundnatruleconfig).
+
+```azurepowershell
+## Place the load balancer information into a variable for later use. ##
+$slb = @{
+    ResourceGroupName = 'myResourceGroup'
+    Name = 'myLoadBalancer'
+}
+$lb = Get-AzLoadBalancer @slb
+
+## Set the new port allocation
+$rule = @{
+    Name = 'myInboundNATrule'
+    Protocol = 'Tcp'
+    BackendPort = '443'
+    FrontendIpConfiguration = $lb.FrontendIpConfigurations[0]
+    FrontendPortRangeStart = '500'
+    FrontendPortRangeEnd = '1500'
+    BackendAddressPool = $lb.BackendAddressPools[0]
+}
+$lb | Set-AzLoadBalancerInboundNatRuleConfig @rule
+
+```
+
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-To accommodate more virtual machines in the backend pool, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the frontend port allocation from 500 to 1000.
+To accommodate more virtual machines in the backend pool, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the frontend port allocation from 500 to 1500. This setting will increase the maximum number of machines in the backend pool to a **1000**
 
 Use [az network lb inbound-nat-rule update](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-update) to change the frontend port allocation.
 
 ```azurecli
     az network lb inbound-nat-rule update \
-        --frontend-port-range-start 1000 \
+        --frontend-port-range-end 1500 \
         --lb-name myLoadBalancer \
         --name myInboundNATrule \
         --resource-group myResourceGroup
@@ -220,6 +318,31 @@ In this example, you'll remove an inbound NAT rule.
 6. Select **Delete**.
 
     :::image type="content" source="./media/manage-inbound-nat-rules/remove-inbound-nat-rule.png" alt-text="Screenshot of inbound NAT rule removal.":::
+
+# [**PowerShell**](#tab/inbound-nat-rule-powershell)
+
+In this example, you'll remove an inbound NAT rule.
+
+Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
+
+To remove the inbound NAT rule, use [Remove-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/remove-azloadbalancerinboundnatruleconfig).
+
+To save the configuration to the load balancer, use [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer) 
+
+```azurepowershell
+## Place the load balancer information into a variable for later use. ##
+$slb = @{
+    ResourceGroupName = 'myResourceGroup'
+    Name = 'myLoadBalancer'
+}
+$lb = Get-AzLoadBalancer @slb
+
+## Remove the inbound NAT rule
+$lb | Remove-AzLoadBalancerInboundNatRuleConfig -Name 'myInboundNATrule'
+
+$lb | Set-AzLoadBalancer
+
+```
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
