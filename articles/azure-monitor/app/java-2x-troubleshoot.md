@@ -35,6 +35,8 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Please also look at [GitHub issues page](https://github.com/microsoft/ApplicationInsights-Java/issues) for known issues with the SDK.
 * Please ensure to use same version of Application Insights core, web, agent and logging appenders to avoid any version conflict issues.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 #### I used to see data, but it has stopped
 * Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 * Have you recently upgraded your SDK? Please ensure that only Unique SDK jars are present inside the project directory. There should not be two different versions of SDK present.
