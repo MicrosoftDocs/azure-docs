@@ -23,6 +23,9 @@ This article provides a reference for API Management policies used to enable cro
 ## <a name="AllowCrossDomainCalls"></a> Allow cross-domain calls
 Use the `cross-domain` policy to make the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -147,6 +150,8 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="JSONP"></a> JSONP
 The `jsonp` policy adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients. JSONP is a method used in JavaScript programs to request data from a server in a different domain. JSONP bypasses the limitation enforced by most web browsers where access to web pages must be in the same domain.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 

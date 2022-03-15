@@ -27,6 +27,9 @@ This article provides a reference for an API Management policy to validate and a
 
 The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths. An invalid query is a "request error". Authorization is only done for valid requests. 
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 **Permissions**  
 Because GraphQL queries use a flattened schema:
 * Permissions may be applied at any leaf node of an output type: 

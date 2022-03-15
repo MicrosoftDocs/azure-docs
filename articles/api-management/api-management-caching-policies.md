@@ -206,6 +206,8 @@ Use the `cache-lookup-value` policy to perform cache lookup by key and return a 
 > [!NOTE]
 > This policy must have a corresponding [Store value in cache](#StoreToCacheByKey) policy.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -250,7 +252,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 The `cache-store-value` performs cache storage by key. The key can have an arbitrary string value and is typically provided using a policy expression.
 
 > [!NOTE]
-> The operation of storing the value in cache performed by this policy is asynchronous. The stored value can be retrieved using [Get value from cache](#GetFromCacheByKey) policy. However, the stored value may not be immediately available for retrieval since the asynchronous operation that stores the value in cache may still be in progress. 
+> The operation of storing the value in cache performed by this policy is asynchronous. The stored value can be retrieved using [Get value from cache](#GetFromCacheByKey) policy. However, the stored value may not be immediately available for retrieval since the asynchronous operation that stores the value in cache may still be in progress.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)] 
 
 ### Policy statement
 
@@ -290,6 +294,8 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="RemoveCacheByKey"></a> Remove value from cache
 The `cache-remove-value` deletes a cached item identified by its key. The key can have an arbitrary string value and is typically provided using a policy expression.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 #### Policy statement
 

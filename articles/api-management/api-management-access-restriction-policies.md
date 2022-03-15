@@ -35,6 +35,8 @@ This article provides a reference for API Management access restriction policies
 
 Use the `check-header` policy to enforce that a request has a specified HTTP header. You can optionally check to see if the header has a specific value or check for a range of allowed values. If the check fails, the policy terminates request processing and returns the HTTP status code and error message specified by the policy.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -80,16 +82,16 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `rate-limit` policy prevents API usage spikes on a per subscription basis by limiting the call rate to a specified number per a specified time period. When the call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
+To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+
 > [!IMPORTANT]
-> This policy can be used only once per policy document.
->
-> [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
+> * This policy can be used only once per policy document.
+> * [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
 
 > [!CAUTION]
-> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
+> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests varyies based on request volume and rate, backend latency, and other factors.
 
-> [!NOTE]
-> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -158,15 +160,14 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
-[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
 > [!CAUTION]
 > Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
 
-> [!NOTE]
-> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 ### Policy statement
 
@@ -281,13 +282,13 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 
-> [!IMPORTANT]
-> This policy can be used only once per policy document.
->
-> [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
+To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
-> [!NOTE]
-> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+> [!IMPORTANT]
+> * This policy can be used only once per policy document.
+> * [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -346,8 +347,7 @@ The `quota-by-key` policy enforces a renewable or lifetime call volume and/or ba
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
-> [!NOTE]
-> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
@@ -608,7 +608,9 @@ Use this policy to check incoming certificate properties against desired propert
 * If you have uploaded custom CA certificates to validate client requests to the managed gateway
 * If you configured custom certificate authorities to validate client requests to a self-managed gateway
 
-For more information about custom CA certificates and certificate authorities, see [How to add a custom CA certificate in Azure API Management](api-management-howto-ca-certificates.md). 
+For more information about custom CA certificates and certificate authorities, see [How to add a custom CA certificate in Azure API Management](api-management-howto-ca-certificates.md).
+ 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 

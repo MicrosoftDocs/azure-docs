@@ -40,6 +40,8 @@ This article provides a reference for API Management policies used to transform 
 ##  <a name="ConvertJSONtoXML"></a> Convert JSON to XML
  The `json-to-xml` policy converts a request or response body from JSON to XML.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -83,6 +85,8 @@ This article provides a reference for API Management policies used to transform 
 
 ##  <a name="ConvertXMLtoJSON"></a> Convert XML to JSON
  The `xml-to-json` policy converts a request or response body from XML to JSON. This policy can be used to modernize APIs based on XML-only backend web services.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -128,6 +132,9 @@ This article provides a reference for API Management policies used to transform 
 ##  <a name="Findandreplacestringinbody"></a> Find and replace string in body
  The `find-and-replace` policy finds a request or response substring and replaces it with a different substring.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -166,6 +173,8 @@ This article provides a reference for API Management policies used to transform 
 > [!NOTE]
 >  This policy does not change any header values such as `Location` headers. To change header values, use the [set-header](api-management-transformation-policies.md#SetHTTPheader) policy.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -193,6 +202,8 @@ This article provides a reference for API Management policies used to transform 
 
 ##  <a name="SetBackendService"></a> Set backend service
  Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to the one specified in the policy.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -290,6 +301,8 @@ In this example the policy routes the request to a service fabric backend, using
 >   -   If this policy is used when there is no message body, for example in an inbound GET, an exception is thrown.
 
  For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessage` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -595,6 +608,8 @@ OriginalUrl.
 > [!NOTE]
 >  You can only add query string parameters using the policy. You cannot add extra template path parameters in the rewrite URL.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -663,6 +678,8 @@ OriginalUrl.
 
 ##  <a name="XSLTransform"></a> Transform XML using an XSLT
  The `Transform XML using an XSLT` policy applies an XSL transformation to XML in the request or response body.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
