@@ -145,6 +145,7 @@ If there's a firewall between your servers and Azure AD, configure the following
  
 - If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
 - If your firewall or proxy allows you to specify safe suffixes, add connections: 
+     
      |URL |How it's used|
      |-----|-----|
      |&#42;.msappproxy.net</br>&#42;.servicebus.windows.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
@@ -161,6 +162,7 @@ Use the following information for URLS when installing the Azure AD Connect prov
 
 
 - If your firewall or proxy allows you to specify safe suffixes, add connections: 
+     
      |URL |How it's used|
      |-----|-----|
      |&#42;.msappproxy.net</br>&#42;.servicebus.windows.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
