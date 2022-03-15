@@ -85,7 +85,7 @@ Use the following steps to guide you through the process to onboard in Arc for A
     ```
     
     - Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
-    - `isStatic` and `isAVS` are always true. 
+    - `isStatic` is always true. 
     - `networkForApplianceVM` is the name for the segment for Arc appliance VM. One will be created if it doesn't already exist.  
     - `networkCIDRForApplianceVM` is the IP CIDR of the segment for Arc appliance VM. It should be unique and not affect other networks of Azure VMware Solution management IP CIDR. 
     - `GatewayIPAddress` is the gateway for the segment for Arc appliance VM. 
@@ -267,7 +267,7 @@ Near the top of the **Virtual machines** page, you'll find five tabs labeled: **
   - In this section, you can add tags to the VM resource.
     
 **Review + create**
-  - Review the data and properties you've set up for your VM. When everything is set up how you want it, select **Create**. The VM should be provisioned in a few minutes.
+  - Review the data and properties you've set up for your VM. When everything is set up how you want it, select **Create**. The VM should be created in a few minutes.
  
 ## Enable guest management and extension installation
 
