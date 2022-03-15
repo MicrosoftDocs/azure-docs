@@ -1,10 +1,10 @@
 ---
 title: Create a Java function in Azure Functions using IntelliJ 
 description: Learn how to use IntelliJ to create a simple HTTP-triggered Java function, which you then publish to run in a serverless environment in Azure.
-author: silenceJialuo
+author: jialuogan
 ms.topic: how-to
-ms.date: 04/03/2022
-ms.author: silenceJialuo
+ms.date: 03/15/2022
+ms.author: jialuogan
 ms.devlang: java
 ms.custom: mvc, devcenter, devx-track-java
 ---
@@ -22,6 +22,8 @@ This article shows you:
 
 ## Set up your development environment
 
+
+
 To create and publish Java functions to Azure using IntelliJ, install the following software:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -30,6 +32,12 @@ To create and publish Java functions to Azure using IntelliJ, install the follow
 + [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 + Latest [Function Core Tools](https://github.com/Azure/azure-functions-core-tools)
 
+> [!TIP]
+> The following versions of Java are supported for Azure functions:
+> * Java 8 
+> * Java 11
+
+The functions supports Java 18 and Java 17. 
 
 ## Installation and sign in
 
