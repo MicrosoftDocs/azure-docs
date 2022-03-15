@@ -158,6 +158,8 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
 > [!CAUTION]
@@ -230,6 +232,8 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="RestrictCallerIPs"></a> Restrict caller IPs
 
 The `ip-filter` policy filters (allows/denies) calls from specific IP addresses and/or address ranges.
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 ### Policy statement
 
@@ -345,6 +349,9 @@ For more information and examples of this policy, see [Advanced request throttli
 > [!NOTE]
 > To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -409,6 +416,9 @@ The `validate-jwt` policy enforces existence and validity of a JSON web token (J
 > The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
 > The `validate-jwt` policy supports HS256 and RS256 signing algorithms. For HS256 the key must be provided inline within the policy in the base64 encoded form. For RS256 the key may be provided either via an Open ID configuration endpoint, or by providing the ID of an uploaded certificate that contains the public key or modulus-exponent pair of the public key.
 > The `validate-jwt` policy supports tokens encrypted with symmetric keys using the following encryption algorithms: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
 
 ### Policy statement
 

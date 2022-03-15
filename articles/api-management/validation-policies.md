@@ -64,6 +64,8 @@ We recommend performing load tests with your expected production workloads to as
 
 The `validate-content` policy validates the size or content of a request or response body against one or more [supported schemas](#schemas-for-content-validation).
 
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
 The following table shows the schema formats and request or response content types that the policy supports. Content type values are case insensitive.
 
 | Format  | Content types | 
@@ -180,6 +182,8 @@ The `validate-parameters` policy validates the header, query, or path parameters
 > [!IMPORTANT]
 > If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-parameters` policy might not work. You may need to [reimport your API](/rest/api/apimanagement/current-ga/apis/create-or-update) using management API version `2021-01-01-preview` or later.
 
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
 
 ### Policy statement
 
@@ -247,6 +251,9 @@ The `validate-headers` policy validates the response headers against the API sch
 > [!IMPORTANT]
 > If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-headers` policy might not work. You may need to reimport your API using management API version `2021-01-01-preview` or later.
 
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -287,7 +294,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## Validate status code
 
-The `validate-status-code` policy validates the HTTP status codes in responses against the API schema. This policy may be used to prevent leakage of backend errors, which can contain stack traces. 
+The `validate-status-code` policy validates the HTTP status codes in responses against the API schema. This policy may be used to prevent leakage of backend errors, which can contain stack traces.
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)] 
 
 ### Policy statement
 
