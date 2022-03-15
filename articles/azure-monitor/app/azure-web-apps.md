@@ -31,7 +31,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
     * If you need to make custom API calls to track events/dependencies not captured by default with auto-instrumentation monitoring, you would need to use this method. Check out the [API for custom events and metrics article](./api-custom-events-metrics.md) to learn more. 
 
 > [!NOTE]
-> If both auto-instrumentation monitoring and manual SDK-based instrumentation are detected, in .NET only the manual instrumentation settings will be honored, while in Java only the auto-instrumentation instrumentation will be emitting the telemetry. This is to prevent duplicate data from being sent.
+> If both auto-instrumentation monitoring and manual SDK-based instrumentation are detected, in .NET only the manual instrumentation settings will be honored, while in Java only the auto-instrumentation will be emitting the telemetry. This is to prevent duplicate data from being sent.
 
 > [!NOTE]
 > Snapshot debugger and profiler are only available in .NET and .NET Core
