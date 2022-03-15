@@ -171,6 +171,8 @@ In the preceding code, `ApplicationInsightsLoggerProvider` is configured with yo
 >
 > A connection string identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints that your resource will use as a destination for your telemetry. You'll need to copy the connection string and add it to your application's code or to an environment variable.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 #### Example Startup.cs
 
 ```csharp

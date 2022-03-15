@@ -17,6 +17,8 @@ ms.author: mmcc
 > Please review all the configuration options below carefully, as the json structure has completely changed,
 > in addition to the file name itself which went all lowercase.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Connection string and role name
 
 Connection string and role name are the most common settings needed to get started:

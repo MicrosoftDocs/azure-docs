@@ -37,6 +37,7 @@ The best experience is obtained by installing Application Insights both in your 
     }});
     </script>
     ```
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
     To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
 
