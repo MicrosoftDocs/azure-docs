@@ -266,23 +266,6 @@ Complete the following steps to build the application image:
 
 # [with DB connection](#tab/with-mysql-image)
 
-After successfully running the app in the Liberty Docker container, you're ready to build the image.
-
-```bash
-cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
-
-# Fetch maven artifactId as image name, maven build version as image version
-IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
-IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
-cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql/target
-
-# If you are building with Open Liberty base image, the existing Dockerfile is ready for you
-
-# If you are building with WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
-# mv Dockerfile Dockerfile.backup
-# mv Dockerfile-wlp Dockerfile
-```
-
 #### Log in to the OpenShift CLI as the Azure AD user
 
 To build image remotely on the cluster, you need to sign in to the OpenShift CLI as the Azure AD user.
@@ -305,6 +288,23 @@ To build image remotely on the cluster, you need to sign in to the OpenShift CLI
        ```
 
 #### Build the application and push to the image stream of the OpenShift
+
+After successfully running the app in the Liberty Docker container, you're ready to build the image.
+
+```bash
+cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
+
+# Fetch maven artifactId as image name, maven build version as image version
+IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
+IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql/target
+
+# If you are building with Open Liberty base image, the existing Dockerfile is ready for you
+
+# If you are building with WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
+# mv Dockerfile Dockerfile.backup
+# mv Dockerfile-wlp Dockerfile
+```
 
 Next, you're able to build the image remotely on the cluster by executing the following commands.
 
@@ -323,22 +323,10 @@ Next, you're able to build the image remotely on the cluster by executing the fo
 3. Start the build to upload local contents, containerize, and output to the image stream tag specified before.
 
    ```bash
-   oc oc start-build ${IMAGE_NAME}-config --from-dir . --follow
+   oc start-build ${IMAGE_NAME}-config --from-dir . --follow
    ```
 
 # [without DB connection](#tab/without-mysql-mage)
-
-After successfully running the app locally, you're ready to build the image.
-
-```bash
-cd <path-to-your-repo>/open-liberty-on-aro/2-simple
-
-# If you are building with Open Liberty base image, the existing Dockerfile is ready for you
-
-# If you are building with WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
-# mv Dockerfile Dockerfile.backup
-# mv Dockerfile-wlp Dockerfile
-```
 
 #### Log in to the OpenShift CLI as the Azure AD user
 
@@ -363,6 +351,18 @@ To build image remotely on the cluster, you need to sign in to the OpenShift CLI
 
 #### Build the application and push to the image stream of the OpenShift
 
+After successfully running the app locally, you're ready to build the image.
+
+```bash
+cd <path-to-your-repo>/open-liberty-on-aro/2-simple
+
+# If you are building with Open Liberty base image, the existing Dockerfile is ready for you
+
+# If you are building with WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
+# mv Dockerfile Dockerfile.backup
+# mv Dockerfile-wlp Dockerfile
+```
+
 Next, you're able to build the image remotely on the cluster by executing the following commands.
 
 1. Create an image stream.
@@ -380,7 +380,7 @@ Next, you're able to build the image remotely on the cluster by executing the fo
 3. Start the build to upload local contents, containerize, and output to the image stream tag specified before.
 
    ```bash
-   oc oc start-build javaee-cafe-simple-config --from-dir . --follow
+   oc start-build javaee-cafe-simple-config --from-dir . --follow
    ```
 
 ---
