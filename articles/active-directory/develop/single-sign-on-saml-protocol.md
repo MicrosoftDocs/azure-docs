@@ -86,7 +86,7 @@ If `SPNameQualifier` is specified, Azure AD will include the same `SPNameQualifi
 
 Azure AD ignores the `AllowCreate` attribute.
 
-### RequestAuthnContext
+### RequestedAuthnContext
 The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Azure AD. Azure AD supports `AuthnContextClassRef` values such as `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### Scoping
