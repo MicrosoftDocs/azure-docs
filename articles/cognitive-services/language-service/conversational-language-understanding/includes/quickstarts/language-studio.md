@@ -102,7 +102,7 @@ When you're done, select **Save Changes** to save the utterances and labels to t
 Select **train model** on the left of the screen. Select **Start a training job**. To train your model, you need to provide a name for the model. Write a name like "*v1*" and press the enter key.
 
 > [!NOTE]
-> If you did not [tag utterances](#tag-utterances) you will only be allowed to train using the **Automatically split the testing set from all data** option. See [Add utterances to testing set](../../how-to/tag-utterances#tag-utterances) for more information.
+> If you did not [tag utterances](#tag-utterances) you will only be allowed to train using the **Automatically split the testing set from all data** option. See [Add utterances to testing set](../../how-to/tag-utterances.md#tag-utterances) for more information.
 
 When the training job is complete, which may take some time, you should see the output model performance in the **View model details** page.
 
