@@ -166,19 +166,7 @@ If there's a firewall between your servers and Azure AD, configure the following
  |`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| The agent uses these URLs to verify certificates.|
  |login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctldl.windowsupdate.us:80| The agent uses these URLs during the registration process.
 
-#### [China Government Cloud](#tab/china-government-cloud)
 
-```
-aadcdn.msauth.cn
-aadcdn.msftauth.cn
-login.live.com
-*.azure.cn
-*.microsoft.cn
-*.microsoftonline.cn
-*.chinacloudapi.cn
-*.trafficmanager.cn
-*.windowsazure.cn
-```
 
 
 - If you are unable to add connections, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
