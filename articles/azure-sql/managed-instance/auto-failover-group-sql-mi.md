@@ -190,7 +190,7 @@ Auto-failover group reports its status describing the current state of the data 
 
 - Seeding - [Initial seeding](auto-failover-group-sql-mi.md#initial-seeding) is taking place after creation of the failover group, until all user databases are initialized on the secondary instance. Failover process cannot be initiated while auto-failover group is in the Seeding status, since user databases are not copied to secondary instance yet.
 - Synchronizing - the usual status of auto-failover group. It means that data changes on the primary instance are being replicated asynchronously to the secondary instance. This status doesn't guarantee that the data is fully synchronized at every moment. There may be data changes from primary still to be replicated to the secondary due to asynchronous nature of the replication process between instances in the auto-failover group. Both automatic and manual failovers can be initiated while the auto-failover group is in the Seeding status.
-- Failover in progress - this status indicates that either automatically or manuallly initiated failover process is in progress. No changes to the failover group or additional failovers can be initiated while auto-failover group is in this status.
+- Failover in progress - this status indicates that either automatically or manually initiated failover process is in progress. No changes to the failover group or additional failovers can be initiated while the auto-failover group is in this status.
 
 ## Permissions
 
