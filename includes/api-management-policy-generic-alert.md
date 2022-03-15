@@ -6,4 +6,4 @@ ms.date: 03/15/2022
 ms.author: danlep
 ---
 > [!TIP]
-> Learn more about [how to set or edit API Management policies](../articles/api-management/set-edit-policies.md).	
+> Learn [how to set or edit API Management policies](../articles/api-management/set-edit-policies.md).	

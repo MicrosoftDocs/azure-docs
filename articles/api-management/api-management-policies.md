@@ -17,8 +17,7 @@ More information about policies:
 + [Set or edit policies](set-edit-policies.md)
 + [Policy expressions](api-management-policy-expressions.md)
 
-
-## [Access restriction policies](api-management-access-restriction-policies.md#AccessRestrictionPolicies)
+## [Access restriction policies](api-management-access-restriction-policies.md)
 -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of an HTTP Header.
 -   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
 -   [Limit call rate by key](api-management-access-restriction-policies.md#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.
@@ -28,7 +27,7 @@ More information about policies:
 -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
 -   [Validate client certificate](api-management-access-restriction-policies.md#validate-client-certificate) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 
-## [Advanced policies](api-management-advanced-policies.md#AdvancedPolicies)
+## [Advanced policies](api-management-advanced-policies.md)
 -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the evaluation of Boolean expressions.
 -   [Forward request](api-management-advanced-policies.md#ForwardRequest) - Forwards the request to the backend service.
 -   [Limit concurrency](api-management-advanced-policies.md#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
@@ -46,19 +45,19 @@ More information about policies:
 -   [Trace](api-management-advanced-policies.md#Trace) - Adds custom traces into the [API Inspector](./api-management-howto-api-inspector.md) output, Application Insights telemetries, and Resource Logs.
 -   [Wait](api-management-advanced-policies.md#Wait) - Waits for enclosed [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](api-management-advanced-policies.md#choose) policies to complete before proceeding.
 
-## [Authentication policies](api-management-authentication-policies.md#AuthenticationPolicies)
+## [Authentication policies](api-management-authentication-policies.md)
 -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) - Authenticate with a backend service using Basic authentication.
 -   [Authenticate with client certificate](api-management-authentication-policies.md#ClientCertificate) - Authenticate with a backend service using client certificates.
 -   [Authenticate with managed identity](api-management-authentication-policies.md#ManagedIdentity) - Authenticate with a backend service using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
-## [Caching policies](api-management-caching-policies.md#CachingPolicies)
+## [Caching policies](api-management-caching-policies.md)
 -   [Get from cache](api-management-caching-policies.md#GetFromCache) - Perform cache lookup and return a valid cached response when available.
 -   [Store to cache](api-management-caching-policies.md#StoreToCache) - Caches response according to the specified cache control configuration.
 -   [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) - Retrieve a cached item by key.
 -   [Store value in cache](api-management-caching-policies.md#StoreToCacheByKey) - Store an item in the cache by key.
 -   [Remove value from cache](api-management-caching-policies.md#RemoveCacheByKey) - Remove an item in the cache by key.
 
-## [Cross domain policies](api-management-cross-domain-policies.md#CrossDomainPolicies)
+## [Cross domain policies](api-management-cross-domain-policies.md)
 -   [Allow cross-domain calls](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
 -   [CORS](api-management-cross-domain-policies.md#CORS) - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) - Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.
@@ -71,7 +70,7 @@ More information about policies:
 ## [Graph QL validation policy](graphql-validation-policies.md)
 - [Validate GraphQL request](graphql-validation-policies.md#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
 
-##  [Transformation policies](api-management-transformation-policies.md#TransformationPolicies)
+##  [Transformation policies](api-management-transformation-policies.md)
 -   [Convert JSON to XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converts request or response body from JSON to XML.
 -   [Convert XML to JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) - Converts request or response body from XML to JSON.
 -   [Find and replace string in body](api-management-transformation-policies.md#Findandreplacestringinbody) - Finds a request or response substring and replaces it with a different substring.
