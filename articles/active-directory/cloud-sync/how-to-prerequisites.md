@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 03/04/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -115,6 +115,12 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 
     - If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
     - If your firewall or proxy allows you to specify safe suffixes, add connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
+   - If you are installing against the **US government** cloud, and your firewall or proxy allows you to specify safe suffixes, add connections to:
+       - *.microsoftonline.us
+       - *.microsoft.us
+       - *.msappproxy.us 
+       - *.windowsazure.us
+    
     - Your agents need access to login.windows.net and login.microsoftonline.com for initial registration. Open your firewall for those URLs as well.
     - For certificate validation, unblock the following URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80, and www\.microsoft.com:80. These URLs are used for certificate validation with other Microsoft products, so you might already have these URLs unblocked.
 

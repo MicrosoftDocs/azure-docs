@@ -23,4 +23,8 @@ The Media Services account can be updated in the portal using the Media Services
 
 [!INCLUDE [update a media services account CLI](./includes/task-update-media-services-account-cli.md)]
 
+## [REST](#tab/rest/)
+
+See the Media Services [REST API](/rest/api/media/mediaservices/update).
+
 ---

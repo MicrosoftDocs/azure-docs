@@ -221,7 +221,7 @@ Follow these steps to construct and send a request to this endpoint. This exampl
 1. In Visual Studio, place any desired breakpoints in your code, and press **F5** to run the debugger.
 1. In Postman, select the **Send** button to send the request to the endpoint.
 
-When you send the request, Event Grid calls your Azure Function, and you can debug it normally. For additional information and examples, see [Manually post the request](../../azure-functions/functions-bindings-event-grid-trigger.md#manually-post-the-request) in the Azure Functions documentation.
+When you send the request, Event Grid calls your Azure Function, and you can debug it normally. For additional information and examples, see [Manually post the request](../../azure-functions/event-grid-how-tos.md#manually-post-the-request) in the Azure Functions documentation.
 
 The request that triggers the event is simulated, but the Azure Function that runs when the event fires writes log information to a new blob in your storage account. You can verify the contents of the blob and view its last modified time in the Azure portal, as shown in the following image:
 

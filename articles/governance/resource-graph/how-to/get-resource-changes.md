@@ -1,14 +1,14 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed and query the list of resource configuration changes at scale
-ms.date: 02/18/2022
+ms.date: 03/08/2022
 ms.topic: how-to
 ---
 # Get resource changes
 
 Resources get changed through the course of daily use, reconfiguration, and even redeployment.
 Change can come from an individual or by an automated process. Most change is by design, but
-sometimes it isn't. With the last seven days of changes, Resource configuration changes enables you to:
+sometimes it isn't. With the **last seven days** of changes, Resource configuration changes enables you to:
 
 - Find when changes were detected on an Azure Resource Manager property
 - For each resource change, see property change details
@@ -40,7 +40,7 @@ Monitor.
 > [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
-> Resource configuration changes is in Public Preview and only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Management groups, Subscriptions, and Resource groups.
+> Resource configuration changes is in Public Preview and only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Management groups, Subscriptions, and Resource groups. Changes are queryable for seven days.
 
 ## Find detected change events and view change details
 

@@ -420,7 +420,7 @@ Server variables are supported on the following actions:
 
 ::: zone pivot="front-door-classic"
 
-In Azure Front Door (classic), a [Rules Engine](front-door-rules-engine.md) can consist up to 25 rules containing matching conditions and associated actions. This article provides a detailed description of each action you can define in a rule.
+In Azure Front Door, a [Rules Engine](front-door-rules-engine.md) can consist up to 25 rules containing matching conditions and associated actions. This article provides a detailed description of each action you can define in a rule.
 
 An action defines the behavior that gets applied to the request type that matches the condition or set of match conditions. In the Rules engine configuration, a rule can have up to 10 matching conditions and 5 actions. You can only have one *Override Routing Configuration* action in a single rule.
 

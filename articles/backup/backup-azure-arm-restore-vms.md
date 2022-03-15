@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 03/14/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -110,7 +110,7 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 1. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
 1. In **Staging location**, specify the storage account to which to copy the VHDs. [Learn more](#storage-accounts).
 
-    ![Select Resource group and Staging location](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+   :::image type="content" source="./media/backup-azure-arm-restore-vms/trigger-restore-operation-disks.png" alt-text="Screenshot showing to select Resource disks.":::
 
 1. Select **Restore** to trigger the restore operation.
 
