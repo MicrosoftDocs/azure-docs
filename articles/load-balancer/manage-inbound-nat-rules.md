@@ -34,7 +34,7 @@ In this article, you'll learn how to add and remove an inbound NAT rule for both
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-In this example, you'll create an inbound NAT rule to forward port 500 to backend port 443. 
+In this example, you'll create an inbound NAT rule to forward port **500** to backend port **443**. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -68,7 +68,7 @@ In this example, you'll create an inbound NAT rule to forward port 500 to backen
 
 # [**PowerShell**](#tab/inbound-nat-rule-powershell)
 
-In this example, you'll create an inbound NAT rule to forward port 500 to backend port 443.
+In this example, you'll create an inbound NAT rule to forward port **500** to backend port **443**.
 
 Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
 
@@ -100,7 +100,7 @@ $lb | Set-AzLoadBalancer
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-In this example, you'll create an inbound NAT rule to forward port 500 to backend port 443.
+In this example, you'll create an inbound NAT rule to forward port **500** to backend port **443**.
 
 Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) to create the NAT rule.
 
@@ -212,7 +212,7 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
 
 # [**Portal**](#tab/inbound-nat-rule-portal)
 
-To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the **Maximum number of machines in backend pool** from **500** to **1000**. This setting will increase the maximum number of machines in the backend pool to a **1000**
+To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the **Maximum number of machines in backend pool** from **500** to **1000**. This setting will increase the maximum number of machines in the backend pool to **1000**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -234,7 +234,7 @@ To accommodate more virtual machines in the backend pool in a multiple instance 
 
 # [**PowerShell**](#tab/inbound-nat-rule-powershell)
 
-To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the parameter `-FrontendPortRangeEnd' to **1500**. This setting will increase the maximum number of machines in the backend pool to a **1000**
+To accommodate more virtual machines in the backend pool in a multiple instance rule, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the parameter `-FrontendPortRangeEnd` to **1500**. This setting will increase the maximum number of machines in the backend pool to **1000**.
 
 Use [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) to place the load balancer information into a variable.
 
@@ -264,7 +264,7 @@ $lb | Set-AzLoadBalancerInboundNatRuleConfig @rule
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-To accommodate more virtual machines in the backend pool, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the frontend port allocation from **500** to **1500**. This setting will increase the maximum number of machines in the backend pool to a **1000**
+To accommodate more virtual machines in the backend pool, change the frontend port allocation in the inbound NAT rule. In this example, you'll change the parameter `--frontend-port-range-end` to **1500**. This setting will increase the maximum number of machines in the backend pool to **1000**
 
 Use [az network lb inbound-nat-rule update](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-update) to change the frontend port allocation.
 
