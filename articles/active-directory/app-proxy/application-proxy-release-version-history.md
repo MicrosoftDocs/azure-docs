@@ -37,7 +37,7 @@ This version is only available for install via the download page.
 ### New features and improvements
 
 **General flow improvements:**
-- Maximum number of HTTP headers supported on a HTTP requests increased from 41 to 60.
+- Maximum number of HTTP headers supported on an HTTP request increased from 41 to 60.
 - Trigger request retry for GET requests on SSL failures.
 - Change default ServicePoint connection limit from 2 to 200.
 
