@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 03/15/2022
 ms.author: anfdocs
 ---
 # Configure ADDS LDAP over TLS for Azure NetApp Files

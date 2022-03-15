@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 03/15/2022
 ms.author: anfdocs
 ---
 
@@ -28,7 +28,7 @@ Once you have [created an Active Directory connection](create-active-directory-c
 
 ## Options for Active Directory connections
 
-| Field Name | What it is | Can it be modified? | Considerations & Impact | Effect |
+|Field Name |What it is |Can it be modified? |Considerations & Impacts |Effect |
 |:-:|:--|:-:|:--|:--|
 | Primary DNS | Primary DNS server IP addresses for the Active Directory domain. | Yes | None* | New DNS IP will be used for DNS resolution. |
 | Secondary DNS | Secondary DNS server IP addresses for the Active Directory domain. | Yes | None* | New DNS IP will be used for DNS resolution in case primary DNS fails. |
@@ -53,7 +53,7 @@ Once you have [created an Active Directory connection](create-active-directory-c
 | Group Membership Filter | The custom LDAP search filter to be used when looking up group membership from LDAP server.​  `groupMembershipFilter` can be specified with the `(gidNumber=*)` format. | Yes | None* | Group membership filter will be used while querying group membership of a user from LDAP server. |
 | Security Privilege Users | You can grant security privilege (`SeSecurityPrivilege`) to users that require elevated privilege to access the Azure NetApp Files volumes. The specified user accounts will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users. See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) for more information. | Yes | Using this feature is optional and supported only for SQL Server. The domain account used for installing SQL Server must already exist before you add it to the Security privilege users field. When you add the SQL Server installer's account to Security privilege users, the Azure NetApp Files service might validate the account by contacting the domain controller. The command might fail if it cannot contact the domain controller. For more information about `SeSecurityPrivilege` and SQL Server, see [SQL Server installation fails if the Setup account doesn't have certain user rights](/troubleshoot/sql/install/installation-fails-if-remove-user-right.md).* | Allows non-administrator accounts to use SQL severs on top of ANF volumes.  |
 
-**\*There is only no impact on a modified entry if the modifications are entered correctly. If you enter data incorrectly, users and applications will lose access.**
+**\*There is no impact on a modified entry only if the modifications are entered correctly. If you enter data incorrectly, users and applications will lose access.**
 
 ## Next Steps
 

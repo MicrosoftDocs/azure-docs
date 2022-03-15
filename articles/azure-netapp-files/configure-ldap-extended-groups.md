@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 03/15/2022
 ms.author: anfdocs
 ---
 # Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes
