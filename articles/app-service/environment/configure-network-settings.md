@@ -8,9 +8,9 @@ ms.date: 03/20/2022
 ms.author: madsd
 ---
 
-# Network configuration settings for App Service Environments v3
+# Network configuration settings
 
-Because App Service Environments are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific network customizations that are available for App Service Environment v3.
+Because App Service Environments are isolated to the individual customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific network customizations that are available for App Service Environment v3.
 
 > [!NOTE]
 > This article is about App Service Environment v3, which is used with isolated v2 App Service plans.
@@ -26,7 +26,7 @@ The following abbreviated Resource Manager template snippet shows the **networki
 {
     "apiVersion": "2021-03-01",
     "type": "Microsoft.Web/hostingEnvironments",
-    "name": "[parameter('aseName')]"
+    "name": "[parameter('aseName')]",
     "location": ...,
     "properties": {
         "internalLoadBalancingMode": ...,
@@ -52,7 +52,7 @@ The following abbreviated Resource Manager template snippet shows the **networki
 
 The **networking** resource can be included in a Resource Manager template to update the App Service Environment.
 
-## Use Azure Resource Explorer to update an App Service Environment
+## Configure using Azure Resource Explorer
 Alternatively, you can update the App Service Environment by using [Azure Resource Explorer](https://resources.azure.com).  
 
 1. In Resource Explorer, go to the node for the App Service Environment (**subscriptions** > **{your Subscription}** > **resourceGroups** > **{your Resource Group}** > **providers** > **Microsoft.Web** > **hostingEnvironments** > **App Service Environment name** > **configurations** > **networking**).
