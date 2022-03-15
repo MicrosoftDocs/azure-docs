@@ -149,28 +149,22 @@ If there's a firewall between your servers and Azure AD, configure the following
 #### [Public Cloud](#tab/public-cloud)
 
 
-     |URL |How it's used|
-     |-----|-----|
-     |&#42;.msappproxy.net</br>&#42;.servicebus.windows.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
-     |&#42;.microsoftonline.com</br>&#42;.microsoft.com</br>&#42;.msappproxy.com</br>&#42;.windowsazure.com|The agent uses these URLs to communicate with the Azure AD cloud service. |
-     |`mscrl.microsoft.com:80` </br>`crl.microsoft.com:80` </br>`ocsp.msocsp.com:80` </br>`www.microsoft.com:80`| The agent uses these URLs to verify certificates.|
-     |login.windows.net</br>|The agent uses these URLs during the registration process.
+  |URL |How it's used|
+  |-----|-----|
+  |&#42;.msappproxy.net</br>&#42;.servicebus.windows.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
+  |&#42;.microsoftonline.com</br>&#42;.microsoft.com</br>&#42;.msappproxy.com</br>&#42;.windowsazure.com|The agent uses these URLs to communicate with the Azure AD cloud service. |
+   |`mscrl.microsoft.com:80` </br>`crl.microsoft.com:80` </br>`ocsp.msocsp.com:80` </br>`www.microsoft.com:80`| The agent uses these URLs to verify certificates.|
+   |login.windows.net</br>|The agent uses these URLs during the registration process.
 
 
 
 #### [U.S. Government Cloud](#tab/us-government-cloud)
 
-```
-*.applicationinsights.us
-*.azure.us
-*.loganalytics.us
-*.microsoft.us
-*.microsoftonline.us
-*.msauth.net
-*.usgovcloudapi.net
-*.usgovtrafficmanager.net
-*.windowsazure.us
-```
+ |URL |How it's used|
+ |-----|-----|
+ |&#42;.msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
+ |`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| The agent uses these URLs to verify certificates.|
+ |login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctldl.windowsupdate.us:80| The agent uses these URLs during the registration process.
 
 #### [China Government Cloud](#tab/china-government-cloud)
 
