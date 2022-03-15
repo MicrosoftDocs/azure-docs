@@ -15,7 +15,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
-Azure IoT Edge for Linux on Windows benefits from all the security offerings from running on a Windows Client/Server host and ensures all the additional components keep the same security premises.
+Azure IoT Edge for Linux on Windows benefits from all the security offerings from running on a Windows Client/Server host and ensures all the extra components keep the same security premises.
 
 ## Virtual Machine security
 
@@ -42,12 +42,12 @@ The EFLOW virtual machine is built on a four-point comprehensive security platfo
 <!-- end 1.2 -->
 
 ### Servicing updates
-When security vulnerabilities arise, CBL-Mariner makes the latest security patches and fixes available for being serviced through ELOW monthly updates. The virtual machine has no package manager, so it's not possible to manually download and install RPM packages. ALl updates to the virtual machine are installed using EFLOW A/B update mechanism. For more information on EFLOW updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows.md)
+When security vulnerabilities arise, CBL-Mariner makes the latest security patches and fixes available for being serviced through ELOW monthly updates. The virtual machine has no package manager, so it's not possible to manually download and install RPM packages. All updates to the virtual machine are installed using EFLOW A/B update mechanism. For more information on EFLOW updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows.md)
 
 ### Read-only root filesystem
 The EFLOW virtual machine is made up of two main partitions *rootfs*, and *data*. The rootFS-A or rootFS-B partitions are interchangeable and one of the two is mounted as a read-only filesystem at “/”, which means that no changes are allowed on files stored inside this partition. On the other hand, the *data* partition mounted under “/var” is readable and writeable, allowing the user to modify the content inside the partition. The data stored on this partition isn’t manipulated by the update process and hence won't be modified across updates.
 
-Because you may need write access to */etc*, */home*, */root*, */var* for specific use cases, write access for these directories is done by overlaying them onto our data partition specifically to the directory */var/.eflow/overlays*. The end result of this is that users can write anything to the previous mentioned directories. For more information about overlays, see [overlayfs](https://docs.kernel.org/filesystems/overlayfs.html).
+Because you may need write access to */etc*, */home*, */root*, */var* for specific use cases, write access for these directories is done by overlaying them onto our data partition specifically to the directory */var/.eflow/overlays*. The end result of this is that users can write anything to the previous mentioned directories. For more information about overlays, see [*overlayfs*](https://docs.kernel.org/filesystems/overlayfs.html).
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -59,7 +59,7 @@ Because you may need write access to */etc*, */home*, */root*, */var* for specif
 | Boot | 192 MB | Contains the bootloader |
 | RootFS A | 2048 MB | One of two active/passive partitions holding the root file system |
 | RootFS B | 2048 MB | One of two active/passive partitions holding the root file system |
-| ABUpdate | 2048 MB | Holds the update files. Ensure there's always enough space in the VM for updates |
+| AB Update | 2048 MB | Holds the update files. Ensure there's always enough space in the VM for updates |
 | Data | 2 GB to 2 TB | Stateful partition for storing persistent data across updates. Expandable according to the deployment configuration |
 
 :::moniker-end
