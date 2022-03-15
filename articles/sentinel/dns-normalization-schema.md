@@ -1,14 +1,13 @@
 ---
-title: Microsoft Sentinel DNS normalization schema reference | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) DNS normalization schema reference (Public preview) | Microsoft Docs
 description: This article describes the Microsoft Sentinel DNS normalization schema.
-author: batamig
+author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
-ms.author: bagol
-ms.custom: ignite-fall-2021
+ms.author: ofshezaf
 ---
 
-# Microsoft Sentinel DNS normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) DNS normalization schema reference (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -126,6 +125,9 @@ To filter only DNS queries for a specified list of domain names, use:
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
 _Im_Dns (domain_has_any = torProxies)
 ```
+> [!TIP]
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+>
 
 ## Normalized content
 
@@ -137,11 +139,17 @@ The DNS information model is aligned with the [OSSEM DNS entity schema](https://
 
 For more information, see the [Internet Assigned Numbers Authority (IANA) DNS parameter reference](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).
 
-### Common fields
+### Common ASIM fields
 
 > [!IMPORTANT]
-> Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following list mentions only fields that have specific guidelines for DNS events.
+> Fields common to all schemas are described in detail in the [ASIM Common Fields](normalization-common-fields.md) article.
 >
+
+
+
+#### Common fields with specific guidelines
+
+The following list mentions fields that have specific guidelines for DNS events:
 
 | **Field** | **Class** | **Type**  | **Description** |
 | --- | --- | --- | --- |
@@ -153,6 +161,16 @@ For more information, see the [Internet Assigned Numbers Authority (IANA) DNS pa
 | **Dvc** fields| -      | -    | For DNS events, device fields refer to the system that reports the DNS event. |
 | | | | |
 
+#### All common fields
+
+Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
+
+| **Class** | **Fields** |
+| --------- | ---------- |
+| Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
+| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)|
+|||
 
 ### DNS-specific fields
 
@@ -206,7 +224,7 @@ The fields listed in this section are specific to DNS events, although many are 
 | <a name="dstdvcid"></a>**DstDvcId** | Optional | String | The ID of the destination device as reported in the record.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the  **DstDvcAzureResourceId** or **DstDvcMDEid** fields, respectively.<br><br>Required if **DstDeviceId** is used.|
 | **DstDeviceType** | Optional | Enumerated | The type of the destination device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
-| <a name=query></a>**DnsQuery** | Mandatory | FQDN | The domain that the request tries to resolve. <br><br>**Note**: Some sources send the query in different formats. For example, in the DNS protocol itself, the query includes a dot (**.**)at the end, which must be removed.<br><br>While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](normalization-about-schemas.md#additionalfields) field.<br><br>Example: `www.malicious.com` |
+| <a name=query></a>**DnsQuery** | Mandatory | FQDN | The domain that the request tries to resolve. <br><br>**Note**: Some sources send the query in different formats. For example, in the DNS protocol itself, the query includes a dot (**.**)at the end, which must be removed.<br><br>While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](normalization-common-fields.md#additionalfields) field.<br><br>Example: `www.malicious.com` |
 | **Domain** | Alias | | Alias to [DnsQuery](#query). |
 | **DnsQueryType** | Optional | Integer | The [DNS Resource Record Type codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `28`|
 | **DnsQueryTypeName** | Recommended | Enumerated | The [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Note**: IANA doesn't define the case for the values, so analytics must normalize the case as needed. If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value.<br><br>Example: `AAAA`|

@@ -6,7 +6,7 @@ ms.service: bastion
 ms.topic: include
 
 ---
-| Connect |  Documentation|
+| Connect to VM |  Steps |
 | --- |   --- |
 | Windows - RDP |   [Article](../articles/bastion/bastion-connect-vm-rdp-windows.md) |
 | Windows - SSH|   [Article](../articles/bastion/bastion-connect-vm-ssh-windows.md) |

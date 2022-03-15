@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel Web Session normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Web Session normalization schema reference (Public preview) | Microsoft Docs
 description: This article displays the Microsoft Sentinel Web Session normalization schema.
 services: sentinel
 cloud: na
@@ -11,7 +11,7 @@ ms.author: ofshezaf
 
 ---
 
-# Microsoft Sentinel Web Session normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) Web Session normalization schema reference (Public preview)
 
 The Web Session normalization schema is used to describe an IP network activity. For example, IP network activities are reported by web servers, web proxies, and web security gateways.
 
@@ -96,8 +96,12 @@ For example, to filter only Web sessions for a specified list of domain names, u
 
 ```kql
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
-imWebSession (url_has_any = torProxies)
+_Im_WebSession (url_has_any = torProxies)
 ```
+
+> [!TIP]
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+>
 
 ## Schema details
 
@@ -112,9 +116,15 @@ Fields that describe the user and application associated with the source and des
 Other ASIM schemas typically use **Target** instead of **Dst**.
 
 
-### Common fields
+### Common ASIM fields
 
-Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following fields have specific guidelines for Web Session events:
+> [!IMPORTANT]
+> Fields common to all schemas are described in detail in the [ASIM Common Fields](normalization-common-fields.md) article.
+>
+
+#### Common fields with specific guidelines
+
+The following list mentions fields that have specific guidelines for Web Session events:
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
@@ -126,13 +136,24 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 | **Dvc** fields|        |      | For Web Session events,  device fields refer to the system reporting the Web Session event.  |
 | | | | |
 
+#### All common fields
+
+Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
+
+| **Class** | **Fields** |
+| --------- | ---------- |
+| Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
+| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)|
+|||
+
 ### Network session fields
 
 HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session. The Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all [Network Session Fields](network-normalization-schema.md#network-session-fields) are also included in the Web Session schema.
 
 The following ASIM Network Session schema fields have specific guidelines when used for a Web Session event:
 - The alias User should refer to the [SrcUsername](network-normalization-schema.md#srcusername) and not to [DstUsername](network-normalization-schema.md#dstusername).
-- The field [EventOriginalResultDetails](normalization-about-schemas.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails).
+- The field [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails).
 - For Web Sessions, the primary destination field is the [Url Field](#url). The [DstDomain](network-normalization-schema.md#dstdomain) is optional rather than recommended. Specifically, if not available, there is no need to extract it from the URL in the parser.
 
 ### <a name="Intermediary"></a>Intermediary device fields
@@ -169,8 +190,8 @@ The following are additional fields that are specific to web sessions:
 | **FileHashType** | Optional | Enumerated | The type of the hash in the [Hash](#hash) field. Possible values include: `MD5`, `SHA1`, `SHA256`, and `SHA512`. |
 | **FileSize** | Optional | Integer | For HTTP uploads, the size in bytes of the uploaded file. |
 | **FileContentType** | Optional | String | For HTTP uploads, the content type of the uploaded file. |
-| **RuleName** | Optional | String | The name or ID of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br>Example: `AnyAnyDrop`|
-| **RuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br> Example: `23`|
+| **RuleName** | Optional | String | The name or ID of the rule by which [DvcAction](normalization-common-fields.md#dvcaction) was decided upon.<br><br>Example: `AnyAnyDrop`|
+| **RuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](normalization-common-fields.md#dvcaction) was decided upon.<br><br> Example: `23`|
 | **Rule** | Mandatory | String | Either `NetworkRuleName` or `NetworkRuleNumber`|
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the Web session.<br><br>Example:&nbsp;`Tr.124`|
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the Web session.<br><br>Example:&nbsp;`EICAR Test File`|

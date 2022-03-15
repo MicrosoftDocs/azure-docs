@@ -37,16 +37,16 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | EC2 | Preview | X | Log Analytics agent | Defender for Servers |
-| VA | Registry scan | N/A | - | - | - | - |
-| VA | View vulnerabilities for running images | N/A | - | - | - | - |
-| Hardening | Control plane recommendations | N/A | - | - | - | - |
+| VA | Registry scan | - | - | - | - | - |
+| VA | View vulnerabilities for running images | - | - | - | - | - |
+| Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | EKS | Preview | X | Azure Policy extension | Defender for Containers |
 | Runtime Threat Detection | Agentless threat detection | EKS | Preview | X | Agentless | Defender for Containers |
 | Runtime Threat Detection | Agent-based threat detection | EKS | Preview | X | Defender extension | Defender for Containers |
 | Discovery and Auto provisioning | Discovery of uncovered/unprotected clusters | EKS | Preview | X | Agentless | Free |
 | Discovery and Auto provisioning | Auditlog collection for agentless threat detection | EKS | Preview | X | Agentless | Defender for Containers |
-| Discovery and Auto provisioning | Auto provisioning of Defender extension | N/A | N/A | X | - | - |
-| Discovery and Auto provisioning | Auto provisioning of Azure policy extension | N/A | N/A | X | - | - |
+| Discovery and Auto provisioning | Auto provisioning of Defender extension | - | - | - | - | - |
+| Discovery and Auto provisioning | Auto provisioning of Azure policy extension | - | - | - | - | - |
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -55,9 +55,9 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | GCP VMs | Preview | X | Log Analytics agent | Defender for Servers |
-| VA | Registry scan | N/A | - | - | - | - |
-| VA | View vulnerabilities for running images | N/A | - | - | - | - |
-| Hardening | Control plane recommendations | N/A | - | - | - | - |
+| VA | Registry scan | - | - | - | - | - |
+| VA | View vulnerabilities for running images | - | - | - | - | - |
+| Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | GKE | Preview | X | Azure Policy extension | Defender for Containers |
 | Runtime Threat Detection | Agentless threat detection | GKE | Preview | X | Agentless | Defender for Containers |
 | Runtime Threat Detection | Agent-based threat detection | GKE | Preview | X | Defender extension | Defender for Containers |
@@ -75,11 +75,11 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Compliance | Docker CIS | Arc enabled VMs | Preview | X | Log Analytics agent | Defender for Servers |
 | VA | Registry scan | ACR, Private ACR | Preview | ✓ | Agentless | Defender for Containers |
 | VA | View vulnerabilities for running images | Arc enabled K8s clusters | Preview | X | Defender extension | Defender for Containers |
-| Hardening | Control plane recommendations | N/A | - | - | - | - |
+| Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | Arc enabled K8s clusters | Preview | X | Azure Policy extension | Defender for Containers |
-| Runtime Threat Detection | Threat detection via auditlog | Arc enabled K8s clusters | - | ✓ | Defender extension | Defender for Containers |
+| Runtime Threat Detection | Agentless threat detection | Arc enabled K8s clusters | Preview | X | Defender extension | Defender for Containers |
 | Runtime Threat Detection | Agent-based threat detection | Arc enabled K8s clusters | Preview | X | Defender extension | Defender for Containers |
-| Discovery and Auto provisioning | Discovery of uncovered/unprotected clusters | Arc enabled K8s clusters | Preview | - | Agentless | Free |
+| Discovery and Auto provisioning | Discovery of uncovered/unprotected clusters | Arc enabled K8s clusters | Preview | X | Agentless | Free |
 | Discovery and Auto  provisioning | Auditlog collection for threat detection | Arc enabled K8s clusters | Preview | ✓ | Defender extension | Defender for Containers |
 | Discovery and Auto provisioning | Auto provisioning of Defender extension | Arc enabled K8s clusters | Preview | ✓ | Agentless | Defender for Containers |
 | Discovery and Auto provisioning | Auto provisioning of Azure policy extension | Arc enabled K8s clusters | Preview | X | Agentless | Defender for Containers |

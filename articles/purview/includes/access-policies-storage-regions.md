@@ -11,5 +11,6 @@ ms.custom: references_regions
 Currently, Azure Purview access policies can only be enforced in the following Azure Storage regions:
 -   France Central
 -   Canada Central
+-   East US
 -   East US2
 -   West Europe

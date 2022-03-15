@@ -27,7 +27,7 @@ The extension NuGet package you install depends on the C# mode you're using in y
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.RabbitMQ).
+Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus).
 
 # [Isolated process](#tab/isolated-process)
 

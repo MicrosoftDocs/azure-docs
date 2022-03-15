@@ -27,7 +27,11 @@ To create the Azure Arc data controller using Kubernetes tools you will need to 
 
 ### Cleanup from past installations
 
-If you installed the Azure Arc data controller in the past on the same cluster and deleted the Azure Arc data controller, there may be some cluster level objects that would still need to be deleted. Run the following commands to delete the Azure Arc data controller cluster level objects:
+If you installed the Azure Arc data controller in the past on the same cluster and deleted the Azure Arc data controller, there may be some cluster level objects that would still need to be deleted. 
+
+For some of the tasks, you'll need to replace `{namespace}` with the value for your namespace. Substitute the name of the namespace the data controller was deployed in into `{namespace}`. If unsure, get the name of the `mutatingwebhookconfiguration` using `kubectl get clusterrolebinding`.
+
+Run the following commands to delete the Azure Arc data controller cluster level objects:
 
 ```console
 # Cleanup azure arc data service artifacts
@@ -42,6 +46,9 @@ kubectl delete crd sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.co
 kubectl delete crd dags.sql.arcdata.microsoft.com
 kubectl delete crd exporttasks.tasks.arcdata.microsoft.com
 kubectl delete crd monitors.arcdata.microsoft.com
+kubectl delete crd activedirectoryconnectors.arcdata.microsoft.com
+
+# Substitute the name of the namespace the data controller was deployed in into {namespace}.
 
 # Cluster roles and role bindings
 kubectl delete clusterrole arcdataservices-extension

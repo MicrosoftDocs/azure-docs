@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel Network Session normalization schema reference (preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Network Session normalization schema reference (Public preview) | Microsoft Docs
 description: This article displays the Microsoft Sentinel Network Session normalization schema.
 author: oshezaf
 ms.topic: reference
@@ -8,7 +8,7 @@ ms.author: ofshezaf
 
 ---
 
-# Microsoft Sentinel Network Session normalization schema reference (preview)
+# The Advanced Security Information Model (ASIM) Network Session normalization schema reference (Public preview)
 
 The Microsoft Sentinel Network Session normalization schema is used to describe an IP network activity. Network connections and network sessions are included. Such events are reported, for example, by operating systems, routers, firewalls, intrusion prevention systems, and web security gateways.
 
@@ -81,7 +81,7 @@ The following filtering parameters are available:
 | **eventresult** | String | Filter only network sessions with a specific **EventResult** value. |
 | | | |
 
-For example, to filter only web sessions for a specified list of domain names, use:
+For example, to filter only network sessions for a specified list of domain names, use:
 
 ```kql
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
@@ -104,11 +104,15 @@ The descriptor `Dvc` is used for the reporting device, which is the local system
 
 ## Schema details
 
-### Common fields
+### Common ASIM fields
 
 > [!IMPORTANT]
-> Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following list mentions only fields that have specific guidelines for network session events.
+> Fields common to all schemas are described in detail in the [ASIM Common Fields](normalization-common-fields.md) article.
 >
+#### Common fields with specific guidelines
+
+The following list mentions fields that have specific guidelines for Network Session events:
+
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
@@ -118,11 +122,22 @@ The descriptor `Dvc` is used for the reporting device, which is the local system
 | **EventResult** | Mandatory | Enumerated | If the source device does not provide an event result, **EventResult** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventResult** should be `Failure`. Otherwise, **EventResult** should be `Success`. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `NetworkSession`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.2`.        |
-| <a name="dvcaction"></a>**DvcAction** | Optional | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](normalization-about-schemas.md#dvcoriginalaction) field.<br><br>Example: `drop` |
+| <a name="dvcaction"></a>**DvcAction** | Optional | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction) field.<br><br>Example: `drop` |
 | **EventSeverity** | Optional | Enumerated | If the source device does not provide an event severity, **EventSeverity** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventSeverity** should be `Low`. Otherwise, **EventSeverity** should be `Informational`. |
 | **DvcInterface** | | | The DvcInterface field should alias either the [DvcInboundInterface](#dvcinboundinterface) or the [DvcOutboundInterface](#dvcoutboundinterface) fields. |
 | **Dvc** fields|        |      | For Network Session events, device fields refer to the system reporting the Network Session event.  |
 | | | | |
+
+#### All common fields
+
+Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
+
+| **Class** | **Fields** |
+| --------- | ---------- |
+| Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
+| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)|
+|||
 
 ### Network session fields
 
