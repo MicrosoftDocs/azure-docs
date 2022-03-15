@@ -50,7 +50,7 @@ Once a service connection is created. Developers can validate and check connecti
 
 * Azure App Configuration
 * Azure Cache for Redis (Basic, Standard and Premium and Enterprise tiers)
-* Azure Cosmos DB (SQL, MangoDB, Gremlin, Cassandra, Table)
+* Azure Cosmos DB (Core, Gremlin, Cassandra, Table)
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure Event Hubs
