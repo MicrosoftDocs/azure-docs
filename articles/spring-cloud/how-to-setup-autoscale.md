@@ -81,7 +81,7 @@ For information on the available metrics, see the [User metrics options](https:/
 
 ## Upgrade to the Standard tier
 
-If you're on the Basic tier and constrained by one or more of these limits, you can upgrade to the Standard tier. To do this, go to the **Pricing** tier menu by first selecting the **Standard tier** column and then selecting the **Upgrade** button.
+If you're on the Basic tier and constrained by one or more of these limits, you can upgrade to the Standard tier. To upgrade, go to the **Pricing** tier menu by first selecting the **Standard tier** column and then selecting the **Upgrade** button.
 
 ## Next steps
 
