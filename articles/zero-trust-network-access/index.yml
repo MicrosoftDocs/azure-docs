@@ -6,7 +6,7 @@ summary: Azure Zero Trust Network Access provides secure network access for both
 metadata: 
    title: Zero Trust Network Access documentation
    description: Azure Zero Trust Network Access provides secure network access for both public Internet and private clouds.
-   ms.service: zero-trust-network-access
+   ms.service: network-access
    ms.subservice: app-proxy
    ms.workload: identity
    ms.topic: landing-page
