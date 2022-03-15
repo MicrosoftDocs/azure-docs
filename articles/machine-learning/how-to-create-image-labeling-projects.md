@@ -112,8 +112,11 @@ For bounding boxes, important questions include:
 
 * How is the bounding box defined for this task? Should it be entirely on the interior of the object, or should it be on the exterior? Should it be cropped as closely as possible, or is some clearance acceptable?
 * What level of care and consistency do you expect the labelers to apply in defining bounding boxes?
+* What should the labelers do if the object is tiny? Should it be labeled as an object or should it be ignored as background?
 * How to label the object that is partially shown in the image? 
 * How to label the object that partially covered by other object?
+* How to label the object if there is no clear boundary of the object?
+* How to label the object which is not object class of interest but visually similar to an interested object types?
 
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
