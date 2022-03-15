@@ -242,7 +242,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 
 
 ### Step 4. Complete Azure Arc prerequisites
-1. Make sure the appropriate [Azure resources providers](../azure-arc/servers/agent-overview.md#register-azure-resource-providers) are registered:
+1. Make sure the appropriate [Azure resources providers](../azure-arc/servers/prerequisites.md#azure-resource-providers) are registered:
     - Microsoft.HybridCompute
     - Microsoft.GuestConfiguration
 

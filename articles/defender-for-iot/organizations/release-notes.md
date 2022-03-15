@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 02/15/2022
+ms.date: 03/13/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -29,25 +29,34 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.1 | 02/2022 | 10/2022 |
+| 22.1.1 | 02/2022 | 10/2022 |
+| 10.5.5 | 12/2021 | 09/2022 |
+| 10.5.4 | 12/2021 | 09/2022 |
+| 10.5.3 | 10/2021 | 07/2022 |
+| 10.5.2 | 10/2021 | 07/2022 |
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 01/2022 |
-| 10.5.2 | 10/2021 | 07/2022 |
-| 10.5.3 | 10/2021 | 07/2022 |
-| 10.5.4 | 12/2021 | 09/2022 |
 
 ## February 2022
 
+- [New sensor installation wizard](#new-sensor-installation-wizard)
 - [Sensor redesign and unified Microsoft product experience](#sensor-redesign-and-unified-microsoft-product-experience)
 - [Enhanced sensor Overview page](#enhanced-sensor-overview-page)
 - [New support diagnostics log](#new-support-diagnostics-log)
 - [Alert updates](#alert-updates)
-- [New sensor installation wizard](#new-sensor-installation-wizard)
-- [Containerized sensor installation](#containerized-sensor-installation)
-- [Upgrade to version 22.1](#upgrade-to-version-221)
+- [CLI command updates](#cli-command-updates)
+- [Update to version 22.1.x](#update-to-version-221x)
 - [New connectivity model and firewall requirements](#new-connectivity-model-and-firewall-requirements)
 - [Protocol improvements](#protocol-improvements)
 - [Modified, replaced, or removed options and configurations](#modified-replaced-or-removed-options-and-configurations)
+
+### New sensor installation wizard
+
+Previously, you needed to use separate dialogs to upload a sensor activation file, verify your sensor network configuration, and configure your SSL/TLS certificates.
+
+Now, when installing a new sensor or a new sensor version, our installation wizard provides a streamlined interface to do all these tasks from a single location. 
+
+For more information, see [Defender for IoT installation](how-to-install-software.md).
 
 ### Sensor redesign and unified Microsoft product experience
 
@@ -159,15 +168,7 @@ The sensor console's **Custom alert rules** page now provides:
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png" alt-text="Screenshot of the updated Custom alerts dialog. "lightbox="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png":::
 
-### New sensor installation wizard
-
-Previously, you needed to use separate dialogs to upload a sensor activation file, verify your sensor network configuration, and configure your SSL/TLS certificates.
-
-Now, when installing a new sensor or a new sensor version, our installation wizard provides a streamlined interface to do all these tasks from a single location. 
-
-For more information, see [Defender for IoT installation](how-to-install-software.md).
-
-### Containerized sensor installation
+### CLI command updates
 
 The Defender for Iot sensor software installation is now containerized. With the now-containerized sensor, you can use the *cyberx_host* user to investigate issues with other containers or the operating system, or to send files via FTP.
 
@@ -181,22 +182,25 @@ As part of the containerized sensor, the following CLI commands have been modifi
 |`cyberx-xsense-reload-interfaces`     |  `sudo dpkg-reconfigure iot-sensor`      |
 |`cyberx-xsense-reconfigure-hostname`     | `sudo dpkg-reconfigure iot-sensor`       |
 | `cyberx-xsense-system-remount-disks` |`sudo dpkg-reconfigure iot-sensor` |
-| | |
+
 
 The `sudo cyberx-xsense-limit-interface-I eth0 -l value` CLI command was removed. This command was used to limit the interface bandwidth that the sensor uses for day-to-day procedures, and is no longer supported.
 
 For more information, see [Defender for IoT installation](how-to-install-software.md) and [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
 
-### Upgrade to version 22.1
+### Update to version 22.1.x
 
-Upgrade your sensor versions directly to 22.1. Make sure that you've downloaded and upgraded your sensor machine, and then reactivated your sensor from the Azure portal using the new activation file.
+To use all of Defender for IoT's latest features, make sure to update your sensor software versions to 22.1.x.
 
-For more information, see:
-
-- [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version)
-- [Reactivate a sensor for upgrades to version 22.x from a legacy version](how-to-manage-sensors-on-the-cloud.md#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version)
+If you're on a legacy version, you may need to run a series of updates in order to get to the latest version. You'll also need to update your firewall rules and re-activate your sensor with a new activation file.
 
 After you've upgraded to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
+
+For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
+
+> [!NOTE]
+> Upgrading to version 22.1.x is a large update, and you should expect the update process to require more time than previous updates.
+>
 
 ### New connectivity model and firewall requirements
 

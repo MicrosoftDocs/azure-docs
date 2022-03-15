@@ -20,7 +20,7 @@ The ID document model combines Optical Character Recognition (OCR) with deep lea
 
 ***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
 
-:::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="Image of a sample driver's license." lightbox="media/overview-id.jpg":::
+:::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="Image of a sample driver's license.":::
 
 ## Development options
 
