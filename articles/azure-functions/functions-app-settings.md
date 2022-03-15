@@ -413,7 +413,7 @@ Connection string for storage account where the function app code and configurat
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Only used when deploying to a Windows or Linux Premium plan or to a Windows Consumption plan. Not supported for Linux Consumption plans or Windows or Linux Dedicated plans. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 ## WEBSITE\_CONTENTOVERVNET
 
@@ -433,7 +433,7 @@ The file path to the function app code and configuration in an event-driven scal
 |---|------------|
 |WEBSITE_CONTENTSHARE|`functionapp091999e2`|
 
-Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Only used when deploying to a Windows or Linux Premium plan or to a Windows Consumption plan. Not supported for Linux Consumption plans or Windows or Linux Dedicated plans. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This slot setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
@@ -501,6 +501,9 @@ Allows you to set the timezone for your function app.
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## WEBSITE\_VNET\_ROUTE\_ALL
+
+> [!IMPORTANT]
+> WEBSITE_VNET_ROUTE_ALL is a legacy app setting that has been replaced by the [vnetRouteAllEnabled configuration setting](../app-service/configure-vnet-integration-routing.md).
 
 Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md).
 

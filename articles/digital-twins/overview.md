@@ -42,11 +42,12 @@ You can think of these model definitions as a specialized vocabulary to describe
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
-*Models* are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md), and they describe twins by their state properties, telemetry events, commands, components, and relationships.
+*Models* are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md), and they describe twins by their state properties, telemetry events, commands, components, and relationships. Here are some other capabilities of models:
 * Models define semantic *relationships* between your entities so that you can connect your twins into a graph that reflects their interactions. You can think of the models as nouns in a description of your world, and the relationships as verbs.
-* You can also specialize twins using model *inheritance*. One model can inherit from another.
+* You can specialize twins using model *inheritance*. One model can inherit from another.
+* You can design your own model sets from scratch, or get started with a pre-existing set of [DTDL industry ontologies](concepts-ontologies.md) based on common vocabulary for your industry.
 
-DTDL is used for data models throughout other Azure IoT services, including [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) and [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). This type of commonality helps you keep your Azure Digital Twins solution connected and compatible with other parts of the Azure ecosystem.
+DTDL is also used for data models throughout other Azure IoT services, including [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) and [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). This type of commonality helps you keep your Azure Digital Twins solution connected and compatible with other parts of the Azure ecosystem.
 
 ### Live execution environment
 

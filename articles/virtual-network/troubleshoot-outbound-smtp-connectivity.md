@@ -31,7 +31,7 @@ Using these email delivery services isn't restricted in Azure, regardless of the
 For VMs that are deployed in standard Enterprise Agreement subscriptions, the outbound SMTP connections on TCP port 25 will not be blocked. However, there is no guarantee that external domains will accept the incoming emails from the VMs. If your emails are rejected or filtered by the external domains, you should contact the email service providers of the external domains to resolve the problems. These problems are not covered by Azure support.
 
 For Enterprise Dev/Test subscriptions, port 25 is blocked by default.
-It is possible to have this block removed. To request to have the block removed, go to the **Cannot send email (SMTP-Port 25)** section of the **Diagnose and Solve** blade in the Azure Virtual Network resource in the Azure portal and open a support request.
+It is possible to have this block removed. To request to have the block removed, go to the **Cannot send email (SMTP-Port 25)** section of the **Diagnose and Solve** blade in the Azure Virtual Network resource in the Azure portal and run the diagnostic. This will exempt the qualified enterprise dev/test subscriptions automatically.
 
 After the subscription is exempted from this block and the VMs are stopped and restarted, all VMs in that subscription are exempted going forward. The exemption applies only to the subscription requested and only to VM traffic that is routed directly to the internet. 
 
@@ -39,7 +39,7 @@ After the subscription is exempted from this block and the VMs are stopped and r
 
 The Azure platform will block outbound SMTP connections on TCP port 25 for deployed VMs.  This is to ensure better security for Microsoft partners and customers, protect Microsoft’s Azure platform, and conform to industry standards. 
 
-If you're using these subscription types, we encourage you to use an authenticated SMTP relay service, as outlined earlier in this article. 
+If you're using a non-enterprise subscription type, we encourage you to use an authenticated SMTP relay service, as outlined earlier in this article.
 
 ## Changing subscription type
 
@@ -48,4 +48,4 @@ If you change your subscription type from Enterprise Agreement to another type o
 
 ## Need help? Contact support
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly. Use this issue type: **Technical** > **Virtual Network** > **Cannot send email (SMTP/Port 25)**.
+If you are using an Enterprise Agreement subscription and still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly. Use this issue type: **Technical** > **Virtual Network** > **Cannot send email (SMTP/Port 25)**.
