@@ -37,11 +37,15 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 
 ## Schema details
 
-### Common fields
+### Common ASIM fields
 
 > [!IMPORTANT]
-> Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following list mentions only fields that have specific guidelines for user management events.
+> Fields common to all schemas are described in detail in the [ASIM Common Fields](normalization-common-fields.md) article.
 >
+
+#### Common fields with specific guidelines
+
+The following list mentions fields that have specific guidelines for process activity events:
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
@@ -54,6 +58,17 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1.1`.        |
 | **Dvc** fields| | | For user management events, device fields refer to the system reporting the event. This is usually the system on which the user is managed. |
 | | | | |
+
+#### All common fields
+
+Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
+
+| **Class** | **Fields** |
+| --------- | ---------- |
+| Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
+| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)|
+|||
 
 ### Updated property fields
 
@@ -137,7 +152,7 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="hostname"></a>**Hostname** | Alias | | Alias to [DvcHostname](normalization-about-schemas.md#dvchostname). |
+| <a name="hostname"></a>**Hostname** | Alias | | Alias to [DvcHostname](normalization-common-fields.md#dvchostname). |
 |||||
 
 

@@ -15,6 +15,9 @@ Send diagnostic tracing logs for your ASP.NET/ASP.NET Core application from ILog
 > Do you need the log-capture module? It's a useful adapter for third-party loggers. But if you aren't already using NLog, log4Net, or System.Diagnostics.Trace, consider just calling [**Application Insights TrackTrace()**](./api-custom-events-metrics.md#tracktrace) directly.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Install logging on your app
 Install your chosen logging framework in your project, which should result in an entry in app.config or web.config.
 

@@ -25,7 +25,8 @@ Updates in March include:
 - [Defender for Containers can now scan for vulnerabilities in Windows images (preview)](#defender-for-containers-can-now-scan-for-vulnerabilities-in-windows-images-preview)
 - [New alert for Microsoft Defender for Storage (preview)](#new-alert-for-microsoft-defender-for-storage-preview)
 - [Configure email notifications settings from an alert](#configure-email-notifications-settings-from-an-alert)
- 
+- [Deprecated preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecated-preview-alert-armmcas_activityfromanonymousipaddresses)
+
 ### Deprecated the recommendations to install the network traffic data collection agent
 
 Changes in our roadmap and priorities have removed the need for the network traffic data collection agent. Consequently, the following two recommendations and their related policies were deprecated.  
@@ -61,6 +62,18 @@ A new section has been added to the alert User Interface (UI) which allows you t
 :::image type="content" source="media/release-notes/configure-email.png" alt-text="Screenshot of the new UI showing how to configure email notification.":::
 
 Learn how to [Configure email notifications for security alerts](configure-email-notifications.md).
+
+### Deprecated preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
+
+The following preview alert has been deprecated:
+
+|Alert name| Description|
+|----------------------|---------------------------|
+|**PREVIEW - Activity from a risky IP address**<br>(ARM.MCAS_ActivityFromAnonymousIPAddresses)|Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected.<br>These proxies are used by people who want to hide their device's IP address, and can be used for malicious intent. This detection uses a machine learning algorithm that reduces false positives, such as mis-tagged IP addresses that are widely used by users in the organization.<br>Requires an active Microsoft Defender for Cloud Apps license.|
+
+A new alert has been created that provides this information and adds to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) doesn't require a license for Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security).
+
+See more alerts for [Resource Manager](alerts-reference.md#alerts-resourcemanager).
 
 ## February 2022
 
