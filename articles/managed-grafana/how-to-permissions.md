@@ -1,6 +1,6 @@
 ---
 title: How to configure permissions for Azure Managed Grafana Preview
-description: How to configure permissions for Azure Managed Grafana  
+description: Learn how to manually configure access permissions with roles for your Azure Managed Grafana workspaces  
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
@@ -12,7 +12,7 @@ ms.date: 3/31/2022
 
 By default, Managed Grafana grants a Log Analytics Reader access role for all resources within a subscription. It means that Managed Grafana can access and search all monitoring data and access monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.
 
-In this article, you will learn how to manually edit permissions for a specific resource.
+In this article, you'll learn how to manually edit permissions for a specific resource.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 To edit permissions for a specific resource, follow these steps:
 
-1. Open a resource that contains the monitoring data you want to visualize. In this example, we are configuring an Application Insights resource.
+1. Open a resource that contains the monitoring data you want to visualize. In this example, we're configuring an Application Insights resource.
 1. Select **Access Control (IAM)**.
 1. Under **Grant access to this resource**, select **Add role assignment**.
 1. The portal lists various roles you can give to your Managed Grafana resource. Select a role. For instance, **Monitoring Reader**.

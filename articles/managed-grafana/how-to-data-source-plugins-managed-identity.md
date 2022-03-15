@@ -28,10 +28,9 @@ Azure specific data source plugins supported are:
 - Azure Monitor
 - Azure Data Explorer
 
-The full list of available Grafana data source plugins can be found from the left menu in **Configuration** > **Data sources** > **Add a data source**. Search for the data source you need from the available list. Fore more information about data source plugins, go to [Data sources](https://grafana.com/grafana/plugins/) on the Grafana plugins page.
+The full list of available Grafana data source plugins can be found from the left menu in **Configuration** > **Data sources** > **Add a data source**. Search for the data source you need from the available list. Fore more information about data source plugins, go to [Data sources](https://grafana.com/grafana/plugins/) on the Grafana Labs website's plugins page.
 
    :::image type="content" source="media/how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
-
 
 ## Default data source plugins in Azure Grafana workspace
 
