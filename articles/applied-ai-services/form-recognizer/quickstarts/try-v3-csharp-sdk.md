@@ -7,10 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/08/2022
+ms.date: 03/14/2022
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021, mode-api
 ---
 <!-- markdownlint-disable MD025 -->
 # Get started: Form Recognizer C# SDK v3.0 | Preview
@@ -49,7 +48,7 @@ In this quickstart, you'll use following features to analyze and extract data an
 
 ## Set up
 
-<!--- 
+<!---
 ### [Option 1: .NET Command-line interface (CLI)](#tab/cli)
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
@@ -111,7 +110,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
     :::image type="content" source="../media/quickstarts/select-nuget-package.png" alt-text="Screenshot: select-nuget-package.png":::
 
- 1. Select the Browse tab and type Azure.AI.FormRecognizer. 
+ 1. Select the Browse tab and type Azure.AI.FormRecognizer.
 
      :::image type="content" source="../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
@@ -119,7 +118,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
 <!-- --- -->
 ## Build your application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your apiKey and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your key from the Azure portal and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 > [!NOTE]
 >
@@ -130,64 +129,43 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 1. Open the **Program.cs** file.
 
-1. Include the following using directives:
+1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and select one of the following code samples to copy and paste into your application's Program.cs file:
 
-    ```csharp
-    using Azure;
-    using Azure.AI.FormRecognizer.DocumentAnalysis;
-    ```
+    * [**General document model**](#general-document-model)
 
-1. Add the following code snippet to your Program.cs file. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance:
+    * [**Layout model**](#layout-model)
 
-    ```csharp
-    string endpoint = "<your-endpoint>";
-    string apiKey = "<your-apiKey>";
-    AzureKeyCredential credential = new AzureKeyCredential(apiKey);
-    DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
-    ```
-
-1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the code sample scripts to the file:
-
-    :::image type="content" source="../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
-
-> [!TIP]
-> If you would like to try more than one code sample:
->
-> * Select one of the sample code blocks below to copy and paste into your application.
-> * [**Run your application**](#run-your-application).
-> * Comment out that sample code block but keep the set-up code and library directives.
-> * Select another sample code block to copy and paste into your application.
-> * [**Run your application**](#run-your-application).
-> * You can continue to comment out, copy/paste, and run the sample blocks of code.
-
-### Select one of the following code samples to copy and paste into your application Program.cs file:
-
-* [**General document model**](#general-document-model)
-
-* [**Layout model**](#layout-model)
-
-* [**Prebuilt model**](#prebuilt-model)
+    * [**Prebuilt model**](#prebuilt-model)
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article.
+> * Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
 ## General document model
 
-Extract text, tables, structure, key-value pairs, and named entities from documents.
+Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
 > [!div class="checklist"]
 >
 > * For this example, you'll need a **form document file from a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * To analyze a given file at a URI, you'll use the `StartAnalyzeDocumentFromUri` method. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `Uri fileUri` variable at the top of the script.
-> * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
+> * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see the [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-#### Add the following code to the Program.cs file:
+### Add the following code to the Program.cs file:
 
 ```csharp
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-// sample form document
+//set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string endpoint = "<your-endpoint>";
+string key = "<your-key>";
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
+
+//sample form document
 Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
 AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-document", fileUri);
@@ -287,6 +265,11 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
+### General document model output
+
+Visit the Azure samples repository on GitHub to  view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-general-document-output.md).
+
+
 ## Layout model
 
 Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
@@ -300,7 +283,16 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 #### Add the following code to the Program.cs file:
 
 ```csharp
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
 
+//set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string endpoint = "<your-endpoint>";
+string key = "<your-key>";
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
+//sample document
 Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
 AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-layout", fileUri);
@@ -372,14 +364,17 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
+### Layout model output
+
+Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-layout-output.md).
+
+
 ## Prebuilt model
 
-In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
+Analyze and extract common fields from specific document types using a prebuilt model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
 > You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../concept-model-overview.md#model-data-extraction).
-
-#### Try the prebuilt invoice model
 
 > [!div class="checklist"]
 >
@@ -391,7 +386,18 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 #### Add the following code to your Program.cs file:
 
 ```csharp
-// sample invoice document
+
+
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
+
+//set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string endpoint = "<your-endpoint>";
+string key = "<your-key>";
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
+//sample invoice document
 
 Uri invoiceUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf");
 
@@ -490,6 +496,11 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 
 ```
+
+### Prebuilt model output
+
+Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-prebuilt-invoice-output.md).
+
 
 ## Run your application
 
