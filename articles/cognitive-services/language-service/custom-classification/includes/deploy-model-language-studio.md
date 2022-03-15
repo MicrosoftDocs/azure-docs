@@ -12,8 +12,8 @@ ms.author: aahi
 2. From the left panel, select **Deploy model**.
 3. Click on **Add deployment** to submit a new deployment job.
 
-    :::image type="content" source="../../custom-named-entity-recognition/media/deploy-model.png" alt-text="run-inference" lightbox="../../custom-named-entity-recognition/media/deploy-model.png":::
+    :::image type="content" source="../../custom-named-entity-recognition/media/deploy-model.png" alt-text="A screenshot showing the deployment button." lightbox="../../custom-named-entity-recognition/media/deploy-model.png":::
 
 4. In the window that appears, you can create a new deployment name by or override an existing one. Then, you can add a trained model to this deployment name.
 
-   :::image type="content" source="../../custom-named-entity-recognition/media/add-deployment.png" alt-text="run-inference" lightbox="../../custom-named-entity-recognition/media/add-deployment.png":::
+   :::image type="content" source="../../custom-named-entity-recognition/media/add-deployment.png" alt-text="A screenshot showing the screen for a new deployment" lightbox="../../custom-named-entity-recognition/media/add-deployment.png":::
