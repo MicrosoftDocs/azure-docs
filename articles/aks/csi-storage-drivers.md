@@ -3,7 +3,7 @@ title: Enable Container Storage Interface (CSI) drivers on Azure Kubernetes Serv
 description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure disks and Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 03/10/2022
+ms.date: 03/11/2022
 author: palma21
 
 ---
@@ -17,17 +17,11 @@ The CSI storage driver support on AKS allows you to natively use:
 - [*Azure Files*](azure-files-csi.md), which can be used to mount an SMB 3.0/3.1 share backed by an Azure Storage account to pods. With Azure Files, you can share data across multiple nodes and pods. Azure Files can use Azure Standard Storage backed by regular HDDs or Azure Premium Storage backed by high-performance SSDs.
 
 > [!IMPORTANT]
-> Starting in Kubernetes version 1.21, Kubernetes will use CSI drivers only and by default. These drivers are the future of storage support in Kubernetes.
+> Starting in Kubernetes version 1.21, AKS will use CSI drivers only and by default. CSI migration is also turned on starting from AKS 1.21, existing in-tree persistent volumes continue to function as they always have; however, behind the scenes Kubernetes hands control of all storage management operations (previously targeting in-tree drivers) to CSI drivers.
 > 
 > Please remove manual installed open source Azure Disk and Azure File CSI drivers before upgrading to AKS 1.21.
 > 
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
-
-## Limitations
-
-- This feature can only be set at cluster creation time.
-- The minimum Kubernetes minor version that supports CSI drivers is v1.17.
-- The default storage class will be the `managed-csi` storage class.
 
 ## Install CSI storage drivers on a new cluster with version < 1.21
 
@@ -67,14 +61,9 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
  - [Set up Azure File CSI driver on AKS cluster](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/install-driver-on-aks.md)
 
 ## Migrating custom in-tree storage classes to CSI
-If you have created custom storage classes based on the in-tree storage drivers, these will need to be migrated when you have upgraded your cluster to 1.21.x.
+If you have created in-tree driver storage classes, those storage classes will continue to work since CSI migration is turned on after upgrading your cluster to 1.21.x, while if you want to use CSI features (snapshotting etc.) you will need to carry out the migration.
 
-Whilst explicit migration to the CSI provider is not needed for your storage classes to still be valid, to be able to use CSI features (snapshotting etc.) you will need to carry out the migration.
-
-Migration of these storage classes will involve deleting the existing storage classes, and re-provisioning them with the provisioner set to **disk.csi.azure.com** if using Azure Disks, and **files.csi.azure.com** if using Azure Files.  
-
-Whilst this will update the mapping of the storage classes, the binding of the Persistent Volume to the CSI provisioner will only take place at provisioning time. This could be during a cordon & drain operation (cluster update) or by detaching and reattaching the Volume.
-
+Migration of these storage classes will involve deleting the existing storage classes, and re-creating them with the provisioner set to **disk.csi.azure.com** if using Azure Disks, and **files.csi.azure.com** if using Azure Files.  
 
 ### Migrating Storage Class provisioner
 
@@ -86,12 +75,11 @@ As an example for Azure disks:
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: managed-premium-retain
+  name: custom-managed-premium
 provisioner: kubernetes.io/azure-disk
-reclaimPolicy: Retain
+reclaimPolicy: Delete
 parameters:
-  storageaccounttype: Premium_LRS
-  kind: Managed
+  storageAccountType: Premium_LRS
 ```
 
 #### CSI storage class definition
@@ -100,18 +88,16 @@ parameters:
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: managed-premium-retain
+  name: custom-managed-premium
 provisioner: disk.csi.azure.com
-reclaimPolicy: Retain
+reclaimPolicy: Delete
 parameters:
-  storageaccounttype: Premium_LRS
-  kind: Managed
+  storageAccountType: Premium_LRS
 ```
 
 The CSI storage system supports the same features as the In-tree drivers, so the only change needed would be the provisioner.
 
-
-### Migrating in-tree disk persistent volumes
+## Migrating in-tree persistent volumes
 
 > [!IMPORTANT]
 > If your in-tree Persistent Volume reclaimPolicy is set to Delete you will need to change the Persistent Volume to Retain to persist your data.  This can be achieved via a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
@@ -119,7 +105,13 @@ The CSI storage system supports the same features as the In-tree drivers, so the
 > $ kubectl patch pv pv-azuredisk --type merge --patch '{"spec": {"persistentVolumeReclaimPolicy": "Retain"}}'
 > ```
 
-If you have in-tree persistent volumes, get disk ID from `azureDisk.diskURI` and then follow this [guide][azure-disk-static-mount] to set up CSI driver persistent volumes
+### Migrating in-tree Azure Disk persistent volumes
+
+If you have in-tree Azure Disk persistent volumes, get `diskURI` from in-tree persistent volumes and then follow this [guide][azure-disk-static-mount] to set up CSI driver persistent volumes
+
+### Migrating in-tree Azure File persistent volumes
+
+If you have in-tree Azure File persistent volumes, get `secretName`, `shareName` from in-tree persistent volumes and then follow this [guide][azure-file-static-mount] to set up CSI driver persistent volumes
 
 ## Next steps
 
@@ -140,6 +132,7 @@ If you have in-tree persistent volumes, get disk ID from `azureDisk.diskURI` and
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-disk-static-mount]: azure-disk-volume.md#mount-disk-as-volume
+[azure-file-static-mount]: azure-files-volume.md#mount-file-share-as-a-persistent-volume
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az_disk_list

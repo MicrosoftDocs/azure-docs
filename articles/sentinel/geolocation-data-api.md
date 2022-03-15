@@ -52,7 +52,7 @@ This command retrieves geolocation data for a given IP Address.
 |**400**     |      IP address not provided or is in invalid format    |
 |**404**     | Geolocation data not found for this IP address         |
 |**429**     |      Too many requests, try again in the specified timeframe    |
-|     |         |
+
 
 ### Fields returned in the response
 
@@ -75,7 +75,7 @@ This command retrieves geolocation data for a given IP Address.
 |**state**     |  The state where this IP address is located       |
 |**stateCf**     | A numeric rating of confidence that the value in the 'state' field is correct on a scale of 0-100        |
 |**stateCode**     |   The abbreviated name for the state where this IP address is located      |
-|     |         |
+
 
 
 ## Throttling limits for the API

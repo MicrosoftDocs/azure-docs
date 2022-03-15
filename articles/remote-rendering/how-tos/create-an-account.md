@@ -27,6 +27,9 @@ The following steps are needed to create an account for the Azure Remote Renderi
 1. Once the account is created, navigate to it and:
     1. In the *Overview* tab, note the 'Account ID'
     1. In the *Settings > Access Keys* tab, note the 'Primary key' - this is the account's secret account key
+    1. Make sure, that in the *Settings > Identity* tab, the option *System assigned > Status* is turned on.
+
+:::image type="content" source="./media/azure-identity-add.png" alt-text="Screenshot of Remote Rendering Account Page in sub menu settings, identity, with the option System assigned status turned on.":::
 
 ### Account regions
 The location that is specified during account creation time of an account determines which region the account resource is assigned to. This cannot be changed after creation. However, the account can be used to connect to a Remote Rendering session in any [supported region](./../reference/regions.md), regardless of the account's location.
@@ -50,15 +53,15 @@ The values for **`arrAccountId`** and **`arrAccountKey`** can be found in the po
 * Go to the [Azure portal](https://www.portal.azure.com)
 * Find your **"Remote Rendering Account"** - it should be in the **"Recent Resources"** list. You can also search for it in the search bar at the top. In that case, make sure that the subscription you want to use is selected in the Default subscription filter (filter icon next to search bar):
 
-![Subscription filter](./media/azure-subscription-filter.png)
+:::image type="content" source="./media/azure-subscription-filter.png" alt-text="Screenshot of the Azure Portal Subscription filter list.":::
 
-Clicking on your account brings you to this screen, which shows the  **Account ID** right away:
+Clicking on your account brings you to this screen, which shows the **Account ID** right away:
 
-![Azure account ID](./media/azure-account-id.png)
+:::image type="content" source="./media/azure-account-id.png" alt-text="Screenshot of the Remote Rendering Account in the Overview sub menu.":::
 
 For the key, select **Access Keys** in the panel on the left. The next page shows a primary and a secondary key:
 
-![Azure access keys](./media/azure-account-primary-key.png)
+:::image type="content" source="./media/azure-account-primary-key.png" alt-text="Screenshot of the Remote Rendering Account in the Access Keys sub menu.":::
 
 The value for **`arrAccountKey`** can either be primary or secondary key.
 
@@ -70,18 +73,28 @@ The steps in this paragraph have to be performed for each storage account that s
 
 Now it is assumed you have a storage account. Navigate to the storage account in the portal and go to the **Access Control (IAM)** tab for that storage account:
 
-![Storage account IAM](./media/azure-storage-account.png)
+:::image type="content" source="./media/azure-storage-account.png" alt-text="Screenshot of the Storage Account in the Access control (IAM) sub menu.":::
 
 Ensure you have owner permissions over this storage account to ensure that you can add role assignments. If you don't have access, the **Add a role assignment** option will be disabled.
 
 Click on the **Add** button in the "Add a role assignment" tile to add the role.
 
-![Storage account IAM add role assignment](./media/azure-add-role-assignment.png)
+:::image type="content" source="./media/azure-add-role-assignment-choose-role.png" alt-text="Screenshot of the Storage Account Add role assignment sub page in the tab Role.":::
 
-* Assign **Storage Blob Data Contributor** role as shown in the screenshot above.
-* Select **Remote Rendering Account**  system assigned managed identity from the **Assign access to** dropdown.
-* Select your subscription and Remote Rendering account in the last dropdowns.
-* Click "Save" to save your changes.
+Search for the role **Storage Blob Data Contributor** in the list or by typing it in the search field. Select the role by clicking on the item in the list and click **Next**.
+
+:::image type="content" source="./media/azure-add-role-assignment-choose-member.png" alt-text="Screenshot of the Storage Account Add role assignment sub page in the tab Members.":::
+
+Now select the new member for this role assignment:
+
+1. Click **+ Select members**.
+2. Search for the account name of your **Remote Rendering Account** in the *Select members* panel and click on the item corresponding to your **Remote Rendering Account** in the list.
+3. Confirm your selection with a click on **Select**.
+4. Click on **Next** until you are in the **Review + assign** tab.
+
+:::image type="content" source="./media/azure-add-role-assignment-finish-up.png" alt-text="Screenshot of the Storage Account Add role assignment sub page in the tab Review + assign.":::
+
+Finally check that the correct member is listed under *Members > Name* and then finish up the assignment by clicking **Review + assign**.
 
 > [!WARNING]
 > In case your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).

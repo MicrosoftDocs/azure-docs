@@ -333,6 +333,8 @@ items:
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
       href: power-bi-visual-add-bubble-layer.md
+    - name: Add a pie chart layer
+      href: power-bi-visual-add-pie-chart-layer.md
     - name: Add a bar chart layer
       href: power-bi-visual-add-bar-chart-layer.md
     - name: Add a heat map layer

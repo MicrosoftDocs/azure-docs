@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/08/2022
+ms.date: 03/10/2022
 ---
 
 # Copy and transform data to and from SQL Server by using Azure Data Factory or Azure Synapse Analytics
@@ -738,7 +738,9 @@ When you copy data from and to SQL Server, the following mappings are used from 
 | xml |String |
 
 >[!NOTE]
-> For data types that map to the Decimal interim type, currently Copy activity supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.
+> For data types that map to the Decimal interim type, currently Copy activity supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.  
+>
+> When copying data from SQL Server using Azure Data Factory, the bit data type is mapped to the Boolean interim data type. If you have data that need to be kept as the bit data type, use queries with [T-SQL CAST or CONVERT](/sql/t-sql/functions/cast-and-convert-transact-sql?view=sql-server-ver15&preserve-view=true). 
 
 ## Lookup activity properties
 

@@ -65,7 +65,7 @@ Reading this series of articles will guide you in how to use your models in your
 ## Next steps
 
 Read more about the strategies of adopting, converting, and authoring ontologies:
-* [Adopting industry-standard ontologies](concepts-ontologies-adopt.md)
+* [Adopting DTDL-based industry ontologies](concepts-ontologies-adopt.md)
 * [Converting ontologies](concepts-ontologies-convert.md)
 * [Manage DTDL models](how-to-manage-model.md)
 

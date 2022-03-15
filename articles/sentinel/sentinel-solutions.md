@@ -98,7 +98,7 @@ Microsoft Sentinel out-of-the-box content can be applied with one or more of the
 | **Storage**      | File stores and file sharing products and services                 |
 | **Training and Tutorials**  | Training, tutorials, and onboarding assets |
 | **User Behavior (UEBA)**    | User behavior analytics products and services|
-| | |
+
 
 ### Industry vertical categories
 
@@ -110,7 +110,7 @@ Microsoft Sentinel out-of-the-box content can be applied with one or more of the
 | **Healthcare**   | Products, services, and content specific for the healthcare industry  |
 | **Manufacturing** | Products, services, and content specific for the manufacturing industry |
 | **Retail**       | Products, services, and content specific for the retail industry       |
-| | |
+
 
 ## Microsoft Sentinel out-of-the-box content and solution support models
 
@@ -121,7 +121,7 @@ Both Microsoft and other organizations author Microsoft Sentinel out-of-the-box 
 | **Microsoft-supported**| Applies to: <br>- Content/solutions where Microsoft is the data provider, where relevant, and author. <br> - Some Microsoft-authored content/solutions for non-Microsoft data sources. <br><br>    Microsoft supports and maintains content/solutions in this support model in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview). <br>Partners or the Community support content/solutions that are authored by any party other than Microsoft.|
 |**Partner-supported** | Applies to content/solutions authored by parties other than Microsoft.  <br><br>   The partner company provides support or maintenance for these pieces of content/solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Microsoft Sentinel page for the selected content/solutions.<br><br>    For any issues with a partner-supported solution, contact the specified support contact.|
 |**Community-supported** |Applies to content/solutions authored by Microsoft or partner developers that don't have listed contacts for support and maintenance in Microsoft Sentinel.<br><br>    For questions or issues with these solutions, [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Microsoft Sentinel GitHub community](https://aka.ms/threathunters). |
-| | |
+
 
 ## Next steps
 

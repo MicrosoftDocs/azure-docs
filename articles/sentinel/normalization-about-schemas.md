@@ -28,7 +28,7 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | [Registry Event](registry-event-normalization-schema.md) | 0.1 | Preview |
 | [User Management](user-management-normalization-schema.md) | 0.1 | Preview |
 | [Web Session](web-normalization-schema.md) | 0.2.2 | Preview |
-|||
+
 
 > [!IMPORTANT]
 > ASIM schemas and parsers are currently in *preview*. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -46,7 +46,7 @@ The following concepts help to understand the schema reference documents and ext
 |[**Common fields**](normalization-common-fields.md) | Some fields are common to all ASIM schemas. Each schema might add guidelines for using some of the common fields in the context of the specific schema. For example, permitted values for the **EventType** field might vary per schema, as might the value of the **EventSchemaVersion** field. |
 |**Entities**     | Events evolve around entities, such as users, hosts, processes, or files. Each entity might require several fields to describe it. For example, a host might have a name and an IP address. <br><br>A single record might include multiple entities of the same type, such as both a source and destination host. <br><br>ASIM defines how to describe entities consistently, and entities allow for extending the schemas. <br><br>For example, while the Network Session schema doesn't include process information, some event sources do provide process information that can be added. For more information, see [Entities](#entities). |
 |**Aliases**     |  In some cases, different users expect a field to have different names. For example, in DNS terminology, you might expect a field named `query`, while more generally, it holds a domain name. Aliases solve this issue of ambiguity by allowing multiple names for a specified value. The alias class would be the same as the field that it aliases.<br><br>Log Analytics doesn't support aliasing. To implement aliases parsers, create a copy of the original value by using the `extend` operator.        |
-| | |
+
 
 ## Logical types
 
@@ -78,7 +78,7 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |**SHA1**     |   String      | 40-hex characters.        |
 |**SHA256**     | String        |  64-hex characters.       |
 |**SHA512**     |   String      |  128-hex characters.       |
-| | | |
+
 
 ## Entities
 
@@ -91,7 +91,7 @@ To enable entity functionality, entity representation has the following guidelin
 |**Descriptors and aliasing**     | Since a single event often includes more than one entity of the same type, such as source and destination hosts, *descriptors* are used as a prefix to identify all of the fields that are associated with a specific entity. <br><br>To maintain normalization, ASIM uses a small set of standard descriptors, picking the most appropriate ones for the specific role of the entities. <br><br>If a single entity of a type is relevant for an event, there's no need to use a descriptor. Also, a set of fields without a descriptor aliases the most used entity for each type.  |
 |**Identifiers and types**     | A normalized schema allows for several identifiers for each entity, which we expect to coexist in events. If the source event has other entity identifiers that can't be mapped to the normalized schema, keep them in the source form or use the **AdditionalFields** dynamic field. <br><br>To maintain the type information for the identifiers, store the type, when applicable, in a field with the same name and a suffix of **Type**. For example, **UserIdType**.         |
 |**Attributes**     |   Entities often have other attributes that don't serve as an identifier and can also be qualified with a descriptor. For example, if the source user has domain information, the normalized field is **SrcUserDomain**.      |
-| | |
+
 
 Each schema explicitly defines the central entities and entity fields. The following guidelines enable you to understand the central schema fields, and how to extend schemas in a normalized manner by using other entities or entity fields that aren't explicitly defined in the schema.
 
@@ -108,7 +108,7 @@ The descriptors used for a user are Actor, Target User, and Updated User, as des
 |**Sign-in**     |    An Actor signed in to a system as a Target User.     |A (Target) User signed in.         |
 |**Process creation**     |  An Actor (the user associated with the initiating process) has initiated process creation. The process created runs under the credentials of a Target User (the user related to the target process).      |  The process created runs under the credentials of a (Target) User.       |
 |**Email**     |    An Actor sends an email to a Target User.    |         |
-| | | |
+
 
 The following table describes the supported identifiers for a user:
 
@@ -116,7 +116,7 @@ The following table describes the supported identifiers for a user:
 |---------|---------|---------|
 |**UserId**     |    String     |  A machine-readable, alphanumeric, unique representation of a user in a system. <br><br>Format and supported types include:<br>    -	**SID** (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>    -	**UID** (Linux): `4578`<br>    -	**AADID** (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>    -	**OktaId**: `00urjk4znu3BcncfY0h7`<br>    -	**AWSId**: `72643944673`<br><br>    Store the ID type in the **UserIdType** field. If other IDs are available, we recommend that you normalize the field names to **UserSid**, **UserUid**, **UserAADID**, **UserOktaId**, and **UserAwsId**, respectively.       |
 |**Username**     |  String       |   A username, including domain information when available, in one of the following formats and in the following order of priority: <br> -	**Upn/Email**: `johndow@contoso.com` <br>  -	**Windows**: `Contoso\johndow` <br> -	**DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM` <br>  -	**Simple**: `johndow`. Use this form only if domain information is not available. <br><br> Store the Username type in the **UsernameType** field.    |
-| | | |
+
 
 ### The Process entity
 
@@ -135,7 +135,7 @@ The following table describes the supported identifiers for processes:
 |**Guid**     |  String       |   The OS-assigned process GUID. The GUID is commonly unique across system restarts, while the ID is often reused.   |
 |**Path**     |    String     |   The full pathname of the process, including directory and file name.       |
 |**Name**     |  Alias       |  The process name is an alias to the path.   |
-| | | |
+
 
 For more information, see [Microsoft Sentinel Process Event normalization schema reference (preview)](process-events-normalization-schema.md).
 
@@ -163,7 +163,7 @@ The following table describes the supported identifiers for devices:
 |**FQDN**     |  String       |   A fully qualified domain name.   |
 |**IpAddr**     |    IP address     |   While devices might have multiple IP addresses, events usually have a single identifying IP address. The exception is a gateway device that might have two relevant IP addresses. For a gateway device, use `UpstreamIpAddr` and `DownstreamIpAddr`.      |
 |**HostId**     |  String       |     |
-| | | |
+
 
 
 > [!NOTE]
@@ -184,7 +184,7 @@ This event has the following entities:
 |**New Logon**     |    `Target`     |  `TargetUser`       |  The user for which the sign-in was performed.       |
 |**Process**     |    -     |     `ActingProcess`    |   The process that attempted the sign-in.      |
 |**Network information**     |   -      |   `Src`      |     The machine from which a sign-in attempt was performed.    |
-| | | | |
+
 
 Based on these entities, [Windows event 4624](/windows/security/threat-protection/auditing/event-4624) is normalized as follows (some fields are optional):
 
@@ -209,7 +209,7 @@ Based on these entities, [Windows event 4624](/windows/security/threat-protectio
 |**SrcPortNumber**     |  IpPort       |  0       |         |
 |**TargetHostname**     |   Computer      |  WIN-GG82ULGC9GO	       |         |
 |**Hostname**     |     Computer    |     Alias    |         |
-| | | | |
+
 
 ## Next steps
 
