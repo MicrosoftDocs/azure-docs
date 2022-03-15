@@ -21,7 +21,7 @@ In this article, you learn how to manage access (authorization) to an Azure Load
 
 To assign Azure roles, you must have:
 
-* `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](../role-based-access-control/built-in-roles#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles#owner).
+* `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
 ## Default roles
 
