@@ -24,7 +24,6 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 | Changes | Details |
 | --- | --- |
 | **Security best practices** | The [SQL Server VM security best practices](security-considerations-best-practices.md) have been rewritten and refreshed! | 
-| &nbsp; | &nbsp; |
 
 
 ## January 2022
@@ -32,7 +31,6 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 | Changes | Details |
 | --- | --- |
 | **Migrate with distributed AG** | It's now possible to migrate your database(s) from a [standalone instance](../../migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-standalone-instance.md) of SQL Server or an [entire availability group](../../migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-ag.md) over to SQL Server on Azure VMs using a distributed availability group! See the [prerequisites](../../migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-prerequisites.md) to get started. | 
-| &nbsp; | &nbsp; |
 
 
 
@@ -52,7 +50,6 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 | **HADR content refresh** | We've refreshed and enhanced our high availability and disaster recovery (HADR) content! There's now an [Overview of the Windows Server Failover Cluster](hadr-windows-server-failover-cluster-overview.md), as well as a consolidated [how-to configure quorum](hadr-cluster-quorum-configure-how-to.md) for SQL Server VMs.  Additionally, we've enhanced the [cluster best practices](hadr-cluster-best-practices.md) with more comprehensive setting recommendations adopted to the cloud.| 
 | **Migrate high availability to VM** | Azure Migrate brings support to lift and shift your entire high availability solution to SQL Server on Azure VMs! Bring your [availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) or your [failover cluster instance](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) to SQL Server VMs using Azure Migrate today! 
 | **Performance best practices refresh** | We've rewritten, refreshed, and updated the performance best practices documentation, splitting one article into a series that contain: [a checklist](performance-guidelines-best-practices-checklist.md), [VM size guidance](performance-guidelines-best-practices-vm-size.md), [Storage guidance](performance-guidelines-best-practices-storage.md), and [collecting baseline instructions](performance-guidelines-best-practices-collect-baseline.md).   | 
-| &nbsp; | &nbsp; |
 
 
 
@@ -70,7 +67,7 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 | **Configure ag in portal** | It is now possible to [configure your availability group via the Azure portal](availability-group-azure-portal-configure.md). This feature is currently in preview and being deployed so if your desired region is unavailable, check back soon. | 
 | **Automatic extension registration** | You can now enable the [Automatic registration](sql-agent-extension-automatic-registration-all-vms.md) feature to automatically register all SQL Server VMs already deployed to your subscription with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md). This applies to all existing VMs, and will also automatically register all SQL Server VMs added in the future.   | 
 | **DNN for AG** | You can now configure a [distributed network name (DNN) listener)](availability-group-distributed-network-name-dnn-listener-configure.md) for SQL Server 2019 CU8 and later to replace the traditional [VNN listener](availability-group-overview.md#connectivity), negating the need for an Azure Load Balancer.   | 
-| &nbsp; | &nbsp; |
+
 
 ## 2019
 
@@ -92,8 +89,7 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 | **Named instance supportability** | You can now use the [SQL Server IaaS extension](sql-server-iaas-agent-extension-automate-management.md#installation) with a named instance, if the default instance has been uninstalled properly. | 
 | **Portal enhancement** | The Azure portal experience for deploying a SQL Server VM has been revamped to improve usability. For more information, see the brief [quickstart](sql-vm-create-portal-quickstart.md) and more thorough [how-to guide](create-sql-vm-portal.md) to deploy a SQL Server VM.|
 | **Portal improvement** | It's now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license by using the [Azure portal](licensing-model-azure-hybrid-benefit-ahb-change.md#change-license-model).|
-| **Simplification of availability group deployment to a SQL Server VM through the Azure CLI** | It's now easier than ever to deploy an availability group to a SQL Server VM in Azure. You can use the [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) to create the Windows failover cluster, internal load balancer, and availability group listeners, all from the command line. For more information, see [Use the Azure CLI to configure an Always On availability group for SQL Server on an Azure VM](./availability-group-az-commandline-configure.md). | 
-| &nbsp; | &nbsp; |
+| **Simplification of availability group deployment to a SQL Server VM through the Azure CLI** | It's now easier than ever to deploy an availability group to a SQL Server VM in Azure. You can use the [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) to create the Windows failover cluster, internal load balancer, and availability group listeners, all from the command line. For more information, see [Use the Azure CLI to configure an Always On availability group for SQL Server on an Azure VM](./
 
 ## 2018 
 
@@ -104,7 +100,7 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 | **Automatic registration to the SQL IaaS Agent extension** | SQL Server VMs deployed after this month are automatically registered with the new SQL IaaS Agent extension. SQL Server VMs deployed before this month still need to be manually registered. For more information, see [Register a SQL Server virtual machine in Azure with the SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md).|
 |**New SQL IaaS Agent extension** |  A new resource provider (Microsoft.SqlVirtualMachine) provides better management of your SQL Server VMs. For more information on registering your VMs, see [Register a SQL Server virtual machine in Azure with the SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md). |
 |**Switch licensing model** | You can now switch between the pay-per-usage and bring-your-own-license models for your SQL Server VM by using the Azure CLI or PowerShell. For more information, see [How to change the licensing model for a SQL Server virtual machine in Azure](licensing-model-azure-hybrid-benefit-ahb-change.md). | 
-| &nbsp; | &nbsp; |
+
 
 ## Additional resources
 
