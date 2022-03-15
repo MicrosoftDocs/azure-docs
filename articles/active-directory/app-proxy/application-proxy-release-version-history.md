@@ -31,6 +31,7 @@ Here is a list of related resources:
 ### Release status
 
 March 21, 2022: Released for download
+
 This version is only available for install via the download page. 
 
 ### New features and improvements
