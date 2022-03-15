@@ -44,6 +44,7 @@ The Defender for IoT sensor and on-premises management console update packages i
 - [Enhanced sensor Overview page](#enhanced-sensor-overview-page)
 - [New support diagnostics log](#new-support-diagnostics-log)
 - [Alert updates](#alert-updates)
+- [Custom alert updates](#custom-alert-updates)
 - [CLI command updates](#cli-command-updates)
 - [Update to version 22.1.x](#update-to-version-221x)
 - [New connectivity model and firewall requirements](#new-connectivity-model-and-firewall-requirements)
