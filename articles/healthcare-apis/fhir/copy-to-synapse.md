@@ -48,7 +48,7 @@ In this approach, you use the FHIR `$export` operation to copy FHIR resources in
 
 #### Configuring `$export` in the FHIR server
 
-Azure API for FHIR implements the `$export` operation defined by the FHIR specification to export all or a filtered subset of FHIR data in `NDJSON` format. In addition, it supports [de-identified export](./de-identified-export.md) to anonymize FHIR data during the export.
+The FHIR server in Azure Health Data Services implements the `$export` operation defined by the FHIR specification to export all or a filtered subset of FHIR data in `NDJSON` format. In addition, it supports [de-identified export](./de-identified-export.md) to anonymize FHIR data during the export.
 
 To export FHIR data to Azure blob storage, you first need to configure your FHIR server to export data to the storage account. You'll need to (1) enable Managed Identity, (2) go to Access Control in the storage account and add role assignment, (3) select your storage account for `$export`. More step by step can be found [here](./configure-export-data.md).
 
