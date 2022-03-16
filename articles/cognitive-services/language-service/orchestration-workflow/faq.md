@@ -44,7 +44,7 @@ See the [language support](./language-support.md) article.
 -->
 ## How do I get more accurate results for my project?
 
-Take a look at the [recommended guidelines](./how-to/create-projects.md) for information on improving accuracy.
+Take a look at the [recommended guidelines](./how-to/create-project.md) for information on improving accuracy.
 <!--
 ## How many intents, and utterances can I add to a project?
 
