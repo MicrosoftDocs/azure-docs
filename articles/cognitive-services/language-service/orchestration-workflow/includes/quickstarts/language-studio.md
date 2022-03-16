@@ -22,7 +22,7 @@ ms.author: aahi
     > [!NOTE]
     > Currently only resources with the standard (**S**) pricing tier can be used with the Conversational Language Understanding service.
     
-    :::image type="content" source="../../media/quickstart-language-resource.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../../media/quickstart-language-resource.png":::
+    :::image type="content" source="../../../conversational-language-understanding/media/quickstart-language-resource.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../../../conversational-language-understanding/media/quickstart-language-resource.png":::
 
 ## Create an orchestration project
 
@@ -30,12 +30,12 @@ Once you have a Language resource associated with your account, create an orches
 
 1. In [Language Studio](https://aka.ms/languageStudio), find the section labelled **Understand questions and conversational language** and select **Orchestration Workflow**.  
    
-   :::image type="content" source="../../media/select-custom-clu.png" alt-text="A screenshot showing the location of Custom Language Understanding in the Language Studio landing page." lightbox="../../media/select-custom-clu.png"::: 
+   :::image type="content" source="../../../conversational-language-understanding/media/select-custom-clu.png" alt-text="A screenshot showing the location of Custom Language Understanding in the Language Studio landing page." lightbox="../../../conversational-language-understanding/media/select-custom-clu.png"::: 
     
 
 2. This will bring you to the **Orchestration workflow project** page. Select **Create new project**.
 
-    :::image type="content" source="../../media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="../../media/projects-page.png":::
+    :::image type="content" source="../../../conversational-language-understanding/media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="../../../conversational-language-understanding/media/projects-page.png":::
 
 
 You then need to provide the following details:
@@ -58,7 +58,7 @@ Once you're done, select **Next** and review the details. Select **create projec
 When you select the intent, you will see the [tag utterances](../../how-to/tag-utterances.md) page, where you can add examples for intents.
 
 
-:::image type="content" source="../../media/quickstart-intents.png" alt-text="A screenshot showing the schema page in Language studio." lightbox="../../media/quickstart-intents.png":::
+:::image type="content" source="../../../conversational-language-understanding/media/quickstart-intents.png" alt-text="A screenshot showing the schema page in Language studio." lightbox="../../../conversational-language-understanding/media/quickstart-intents.png":::
 
 ## Tag utterances
 
@@ -77,7 +77,7 @@ Add the rest of these utterances to the **Greeting** intent to the Training set.
 
 When you're done, select **Save Changes** to save the utterances and labels to the project. The icon next to the button will turn green when the changes are saved. Next, go to the **Train Model** page.
 
-:::image type="content" source="../../media/quickstart-utterances.png" alt-text="A screenshot showing the intents tagging screen in Language Studio." lightbox="../../media/quickstart-utterances.png":::
+:::image type="content" source="../../../conversational-language-understanding/media/quickstart-utterances.png" alt-text="A screenshot showing the intents tagging screen in Language Studio." lightbox="../../../conversational-language-understanding/media/quickstart-utterances.png":::
 
 ## Train your model and view its details
 

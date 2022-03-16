@@ -32,4 +32,4 @@ Use this article to get started with Orchestration workflow projects using Langu
 
 ## Next steps
 
-* [Learn about entity components](concepts/entity-components.md)
+* [Learn about orchestration workflows](overview.md)

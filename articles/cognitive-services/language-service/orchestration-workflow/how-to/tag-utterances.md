@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-orchestration
 ---
 
-# How to tag utterances
+# How to tag utterances in orchestration workflow projects
 
 Once you have [built a schema](create-project.md) for your project, you should add training utterances to your project. The utterances should be similar to what your users will use when interacting with the project. When you add an utterance you have to assign which intent it belongs to. You can only add utterances to the created intents within the project and not the connected intents.
 

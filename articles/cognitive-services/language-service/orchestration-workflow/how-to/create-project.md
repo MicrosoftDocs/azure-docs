@@ -38,9 +38,9 @@ Select **Create new project**. When creating your workflow project, you need to 
 - Description: Optional project description
 - Utterances primary language: The primary language of your utterances.
 
-## Bulding schema and adding intents
+## Building schema and adding intents
 
-Once you're done, you now have the option to connect to the other projects and services you wish to orchestrate to. Each connection is represented by its type and relevant data. 
+Once you're done creating a project, you can connect it to the other projects and services you want to orchestrate to. Each connection is represented by its type and relevant data. 
 
 To create a new intent, click on *+Add* button and start by giving your intent a **name**. You will see two options, to connect to a project or not. You can connect to (LUIS, question answering (QnA), or Conversational Language Understanding) projects, or choose the **no** option. 
 
