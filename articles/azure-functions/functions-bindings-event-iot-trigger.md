@@ -26,7 +26,7 @@ The connection string must have at least "read" permissions to activate the func
 This connection string should be stored in an application setting with a name matching the value specified by the `connection` property of the binding configuration.
 
 > [!NOTE]  
-> Identity-based connections aren't supported by the IoT Hub trigger.
+> Identity-based connections aren't supported by the IoT Hub trigger. If you need to use managed identities end-to-end, you can instead use IoT Hub Routing to send data to an event hub you control. In that way, outbound routing can be authenticated with managed identity the event can be read [from that event hub using managed identity](functions-bindings-event-hubs-trigger.md?tabs=extensionv5#identity-based-connections).
 
 ## host.json properties
 
