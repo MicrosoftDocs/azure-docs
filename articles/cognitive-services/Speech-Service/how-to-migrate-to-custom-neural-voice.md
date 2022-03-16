@@ -92,67 +92,6 @@ If you've created a custom voice font, use the endpoint that you've created. You
 | West US | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 
- ## Custom Text-to-Speech container image tags (deprecated)
-
-The [Custom Text-to-Speech][sp-ctts] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech`. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-text-to-speech/tags/list).
-
-
-# [Latest version](#tab/current)
-
-Release note for `1.15.0-amd64`:
-
-Regular monthly release
-
-| Image Tags                    | Notes | Digest                                                                    |
-|-------------------------------|:------|:--------------------------------------------------------------------------|
-| `latest`                      |       | `sha256:06eef68482a917a5c405b61146dc159cff6aef0bd8e13cfd8f669a79c6b1a071` |
-| `1.15.0-amd64`                |       | `sha256:06eef68482a917a5c405b61146dc159cff6aef0bd8e13cfd8f669a79c6b1a071` |
-
-
-# [Previous version](#tab/previous)
-
-Release note for `1.14.1-amd64`:
-
-Regular monthly release
-
-Release note for `1.13.0-amd64`:
-
-**Fixes**
-* Keep user's inputs case-sensitive.
-
-Release note for `1.12.0-amd64`:
-
-Regular monthly release
-
-Release note for `1.11.0-amd64`:
-
-**Features**
-* More error details for issues when fetching custom models by ID.
-
-Release note for `1.9.0-amd64`:
-
-Regular monthly release
-
-Release note for `1.8.0-amd64`:
-
-**Features**
-* Fully migrated to .NET 3.1
-
-Release note for `1.7.0-amd64`:
-
-**Features**
-* Partially migrated to .NET 3.1
-
-| Image Tags                    | Notes               |
-|-------------------------------|:--------------------|
-| `1.13.0-amd64`                |                     |
-| `1.12.0-amd64`                |                     |
-| `1.11.0-amd64`                |                     |
-| `1.9.0-amd64`                 |                     |
-| `1.8.0-amd64`                 |                     |
-| `1.7.0-amd64`                 |   1st GA version    |
-
----
 
 ## Next steps
 
