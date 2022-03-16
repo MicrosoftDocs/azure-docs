@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/03/2022
+ms.date: 03/04/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro 2 is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -41,11 +41,11 @@ Azure Stack Edge Pro 2 has the following capabilities:
 |Offline upload     | Disconnected mode supports offline upload scenarios.|
 |Supported file transfer protocols      | Support for standard Server Message Block (SMB), Network File System (NFS), and Representational state transfer (REST) protocols for data ingestion. <br> For more information on supported versions, see [Azure Stack Edge Pro 2 system requirements](azure-stack-edge-placeholder.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud. <br> For more information, see [Refresh a share on your Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md#refresh-shares).|
-|Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
+|Double encryption    | Use self-encrypting drives to provide a layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https*. For more information, see [Configure encryption-at-rest](azure-stack-edge-pro-2-deploy-configure-certificates.md#configure-encryption-at-rest)|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours. <br> For more information, see [Manage bandwidth schedules on your Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
 |Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center. <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-pro-2-deploy-prep.md#create-a-new-resource).|
 |Specialized network functions|Use the Marketplace experience from Azure Network Function Manager to rapidly deploy network functions. The functions deployed on Azure Stack Edge include mobile packet core, SD-WAN edge, and VPN services. <br>For more information, see [What is Azure Network Function Manager? (Preview)](../network-function-manager/overview.md).|
-|Scale out file server|The device is available as a single node or a two-node cluster. For more information, see [What is clustering on Azure Stack Edge devices? (Preview)](azure-stack-edge-placeholder.md).|
+|Scale out file server|The device is available as a single node or a two-node cluster. For more information, see [What is clustering on Azure Stack Edge devices? (Preview)](azure-stack-edge-gpu-clustering-overview.md).|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
 
@@ -54,7 +54,7 @@ Azure Stack Edge Pro 2 has the following capabilities:
 
 The Azure Stack Edge Pro 2 solution consists of Azure Stack Edge resource, Azure Stack Edge Pro 2 physical device, and a local web UI.
 
-* **Azure Stack Edge Pro 2 physical device** - A 2U compact size device supplied by Microsoft that can be configured to send data to Azure.
+* **Azure Stack Edge Pro 2 physical device** - A compact 2U device supplied by Microsoft that can be configured to send data to Azure.
 
     ![Perspective view of Azure Stack Edge Pro 2 physical device](./media/azure-stack-edge-pro-2-overview/azure-stack-edge-pro-2-perspective-view-1.png)
 

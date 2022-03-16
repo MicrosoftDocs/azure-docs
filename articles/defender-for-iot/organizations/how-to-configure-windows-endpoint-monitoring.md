@@ -32,3 +32,6 @@ Before you begin scanning, create a firewall rule that allows outgoing traffic f
 1. Select **Save** to save the automatic scan settings.
 1. When the scan is finished, select to view/export scan results.
 
+## Next steps
+
+For more information, see [Work with device notifications](how-to-work-with-device-notifications.md).

@@ -10,6 +10,11 @@
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
 
+- name: Security posture management
+  items:
+  - name: Zero Trust
+    href: zero-trust.md
+
 - name: Detect and mitigate threats
   items:
   - name: Protect against ransomware and extortion 

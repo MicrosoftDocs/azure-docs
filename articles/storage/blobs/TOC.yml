@@ -119,7 +119,15 @@ items:
     - name: Azure PowerShell
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
-      href: storage-samples-blobs-cli.md
+      items:
+      - name: Overview
+        href: storage-samples-blobs-cli.md
+      - name: Retrieve/rotate the access keys
+        href: ../scripts/storage-common-rotate-account-keys-cli.md
+      - name: Calculate size of Blob storage container
+        href: ../scripts/storage-blobs-container-calculate-size-cli.md
+      - name: Delete containers with a specific prefix
+        href: ../scripts/storage-blobs-container-delete-by-prefix-cli.md
     - name: Azure Resource Graph queries
       href: ../common/resource-graph-samples.md
   - name: Concepts
@@ -128,7 +136,7 @@ items:
       items:
       - name: Overview
         href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Premium performance 
+      - name: Premium performance
         href: storage-blob-block-blob-premium.md
     - name: Authorization
       items:
@@ -283,13 +291,13 @@ items:
           href: network-file-system-protocol-support.md
         - name: Performance considerations
           href: network-file-system-protocol-support-performance.md
-        - name: Known issues
+        - name: Limitations and known issues
           href: network-file-system-protocol-known-issues.md
       - name: SFTP
         items:
         - name: Overview
           href: secure-file-transfer-protocol-support.md
-        - name: Known issues
+        - name: Limitations and known issues
           href: secure-file-transfer-protocol-known-issues.md
     - name: Event handling
       href: storage-blob-event-overview.md
@@ -317,7 +325,7 @@ items:
     - name: Create and manage containers
       items:
       - name: Manage containers (CLI)
-        href: blob-containers-cli.md      
+        href: blob-containers-cli.md
       - name: Manage containers (PowerShell)
         href: blob-containers-powershell.md
       - name: Create or delete a container (.NET)
@@ -501,7 +509,7 @@ items:
       - name: Configure object replication policies
         href: object-replication-configure.md
       - name: Prevent object replication across tenants
-        href: object-replication-prevent-cross-tenant-policies.md  
+        href: object-replication-prevent-cross-tenant-policies.md
     - name: Manage concurrency
       href: concurrency-manage.md
     - name: Use a storage emulator
@@ -560,8 +568,6 @@ items:
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Develop with blobs
       items:
-      - name: iOS
-        href: storage-ios-how-to-use-blob-storage.md
       - name: Java
         items:
         - name: Use the Spring Boot Starter
