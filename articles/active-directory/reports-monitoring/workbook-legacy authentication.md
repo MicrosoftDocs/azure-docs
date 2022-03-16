@@ -1,7 +1,7 @@
 ---
 
-title: Identity protection risk analysis workbook in Azure AD | Microsoft Docs
-description: Learn how to use the identity protection risk analysis workbook.
+title: Sign-ins using legacy authentication workbook in Azure AD | Microsoft Docs
+description: Learn how to use the sign-ins using legacy authentication workbook.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
