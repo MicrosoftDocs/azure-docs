@@ -3,7 +3,7 @@ title: Tutorial - End-to-end Observability for IoT Edge
 description: Learn how to build an observability solution for an IoT Edge System
 author: eedorenko
 ms.author: iefedore
-ms.date: 08/07/2022
+ms.date: 03/16/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -33,7 +33,7 @@ In order to go beyond just abstract considerations, the tutorial flow is based o
 
 ### La Niña
 
-![ete-sample-la-nina-high-level](media/tutorial-end-to-end-observability/ete-sample-la-nina-high-level.png)
+![ete sample la nina high level](media/tutorial-end-to-end-observability/ete-sample-la-nina-high-level.png)
 
 The La Niña service measures surface temperature in Pacific Ocean to predict La Niña winters. There is a number of buoys in the ocean with IoT Edge devices sending the surface temperature to Azure Cloud. The telemetry data with the temperature is pre-processed by a custom module on the IoT Edge device before sending it to the cloud. In the cloud the data is processed by backend Azure Functions and saved to Azure Blob Storage. The clients of the service (ML inference workflows, decision making systems, various UIs, etc.) can pick up messages with temperature data from the Blob Storage.
 
@@ -61,7 +61,7 @@ The next step is to define instruments to measure values of these factors. This 
 
 With that done, we can position a slider on each indicator and define exact threshold values that represent what it means for the client to be "satisfied". The result of this exercise is a list of formal Service Level Objectives (SLOs):
 
-**Statement**|**Factor**|
+|**Statement**|**Factor**|
 |-------------|----------|
 |90% of devices reported metrics no longer than 10 mins ago (were online) for the observation interval| Coverage |
 |95% of online devices send temperature 10 times per minute for the observation interval| Freshness, Throughput |
@@ -84,20 +84,20 @@ It's a common practice to measure service level indicators, like the ones we hav
 
 Let's clarify what components the La Niña service consists of.
 
-![ete-sample-la-nina-metrics](media/tutorial-end-to-end-observability/ete-sample-la-nina-metrics.png)
+![ete sample la nina metrics](media/tutorial-end-to-end-observability/ete-sample-la-nina-metrics.png)
 
 There is an IoT Edge device with `Temperature Sensor` custom module (C#) that generates some temperature value and sends it upstream with a telemetry message. This message is routed to another custom module `Filter` (C#). This module checks the received temperature against a threshold window (0-100 degrees) and if it the temperature is within the window, the FilterModule sends the telemetry message to the cloud.
 
 In the cloud the message is processed by the backend. The backend consists of a chain of two Azure Functions and a Storage Account. 
 Azure .Net Function picks up the telemetry message from the IoT Hub events endpoint, processes it and sends it to Azure Java Function. The Java function saves the message to the storage account blob container.
 
-An IoT Hub device comes with system modules `edgeHub` and `edgeAgent`. These modules expose through a Prometheus endpoint [a list of built-in metrics](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-access-built-in-metrics?view=iotedge-2020-11#available-metrics). These metrics are collected and pushed to Azure Monitor Log Analytics service by the [Metrics Collector module](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-collect-and-transport-metrics?view=iotedge-2020-11&tabs=iothub) running on the IoT Edge device. In addition to the system modules, the `Temperature Sensor` and `Filter` modules can be instrumented with some business specific metrics too. However, the service level indicators that we have defined can be measured with the built-in metrics only, so we don't really need to implement anything else at this point. 
+An IoT Hub device comes with system modules `edgeHub` and `edgeAgent`. These modules expose through a Prometheus endpoint [a list of built-in metrics](https://docs.microsoft.com/azure/iot-edge/how-to-access-built-in-metrics). These metrics are collected and pushed to Azure Monitor Log Analytics service by the [Metrics Collector module](https://docs.microsoft.com/azure/iot-edge/how-to-collect-and-transport-metrics) running on the IoT Edge device. In addition to the system modules, the `Temperature Sensor` and `Filter` modules can be instrumented with some business specific metrics too. However, the service level indicators that we have defined can be measured with the built-in metrics only, so we don't really need to implement anything else at this point. 
 
 ### How do we monitor
 
 We're going to monitor Service Level Objectives (SLO) and corresponding Service Level Indicators (SLI) with Azure Monitor Workbooks. This tutorial deploys the "La Nina SLO/SLI" workbook assigned to the IoT Hub. 
 
-![ete-sample-dashboard-path](media/tutorial-end-to-end-observability/ete-sample-dashboard-path.png)
+![ete sample dashboard path](media/tutorial-end-to-end-observability/ete-sample-dashboard-path.png)
 
 To achieve the best user experience the workbooks are designed to follow the _glance_ -> _scan_ -> _commit_ concept:
 
@@ -105,7 +105,7 @@ To achieve the best user experience the workbooks are designed to follow the _gl
  
 At this level we can see the whole picture at a single glance. The data is aggregated and represented at the fleet level:
 
-![ete-sample-glance](media/tutorial-end-to-end-observability/ete-sample-glance.png)
+![ete sample glance](media/tutorial-end-to-end-observability/ete-sample-glance.png)
 
 From what we can see, the service is not functioning according to the expectations. There is a violation of the "Data Freshness" SLO.
 Only 90% of the devices send the data frequently, and the service clients expect 95%.
@@ -114,7 +114,7 @@ Only 90% of the devices send the data frequently, and the service clients expect
 
 By clicking on the violated SLO we can drill down to the Scan level and see how the devices contribute to the aggregated SLI value. 
 
-![ete-sample-scan](media/tutorial-end-to-end-observability/ete-sample-scan.png)
+![ete sample scan](media/tutorial-end-to-end-observability/ete-sample-scan.png)
 
 There is a single device (out of 10) that sends the telemetry data to the cloud "rarely". In our SLO definition we have stated that "frequently" means at least 10 times per minute. The frequency of this device is way below that threshold.
 
@@ -122,7 +122,7 @@ There is a single device (out of 10) that sends the telemetry data to the cloud 
 
 By clicking on the problematic device, we're drilling down to the Commit level. This is a curated workbook "Device Details" that comes out of the box with IoT Hub monitoring offering. The "La Nina SLO/SLI" workbook reuses it to bring the details of the specific device performance. 
 
-![ete-sample-commit](media/tutorial-end-to-end-observability/ete-sample-commit.png)
+![ete sample commit](media/tutorial-end-to-end-observability/ete-sample-commit.png)
 
 ## Troubleshooting
 
@@ -134,13 +134,13 @@ The Commit level workbook gives a lot of detailed information about the device h
 
 In this tutorial all parameters of the trouble device look normal and it's not clear why the device sends messages less frequent than expected. This fact is also confirmed by the Messaging tab of the device-level workbook:
 
-![ete-sample-messages](media/tutorial-end-to-end-observability/ete-sample-messages.png)
+![ete sample messages](media/tutorial-end-to-end-observability/ete-sample-messages.png)
 
 The `Temperature` module produced 120 telemetry messages, but only 49 of them went upstream to the cloud.
 
 The first thing we want to do is to check the logs produced by the `Filter` module. We can click the `Troubleshoot live!` button and select the the `Filter` module.
 
-![ete-sample-basic-logs](media/tutorial-end-to-end-observability/ete-sample-basic-logs.png)
+![ete sample basic logs](media/tutorial-end-to-end-observability/ete-sample-basic-logs.png)
 
 Analysis of the module logs doesn't bring the light on the issue. The module receives messages, there is no errors. Everything looks good here.
 
@@ -150,23 +150,23 @@ There are two observability instruments serving the deep troubleshooting purpose
 
 The La Niña service leverages [OpenTelemetry](https://opentelemetry.io) to produce and collect traces and logs in Azure Monitor.
 
-![e2e-sample-la-nina-detailed](media/tutorial-end-to-end-observability/e2e-sample-la-nina-detailed.png)
+![e2e sample la nina detailed](media/tutorial-end-to-end-observability/e2e-sample-la-nina-detailed.png)
 
 IoT Edge modules `Tempperature Sensor` and `Filter` export the logs and tracing data via OTLP protocol to the [OpenTelemetryCollector](https://opentelemetry.io/docs/collector/) module, running on the same edge device. The `OpenTelemetryCollector` module, in its turn, exports logs and traces to Azure Monitor Application Insights service.
 
-The Azure .Net backend Function sends the tracing data to Application Insights with [Azure Monitor Open Telemetry direct exporter](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=net). It also sends correlated logs directly to Application Insights with a configured ILogger instance.
+The Azure .Net backend Function sends the tracing data to Application Insights with [Azure Monitor Open Telemetry direct exporter](https://docs.microsoft.com/azure/azure-monitor/app/opentelemetry-enable). It also sends correlated logs directly to Application Insights with a configured ILogger instance.
 
-The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent) to produce and export tracing data and correlated logs to the Application Insights instance.
+The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](../azure-monitor/app/java-in-process-agent) to produce and export tracing data and correlated logs to the Application Insights instance.
 
 By default IoT Edge modules on the devices of the La Niña service are configured to not produce any tracing data and the logging level is set to `Information`. So the devices don't flood the Azure Monitor with the detailed observability data if it's not requested.
 
 We have analyzed the `Information` level logs of the `Filter` module and realized that we need to dive deeper to locate the cause of the issue. We're going to update properties in the `Temperature Sensor` and `Filter` module twins and increase the logging level to `Debug` and change the traces sampling ratio from 0 to 1:
 
-![e2e-sample-update-twin](media/tutorial-end-to-end-observability/e2e-sample-update-twin.png)
+![e2e sample update twin](media/tutorial-end-to-end-observability/e2e-sample-update-twin.png)
 
 With that in place, we have to restart the `Temperature Sensor` and `Filter` modules:
 
-![e2e-sample-restart-module](media/tutorial-end-to-end-observability/e2e-sample-restart-module.png)
+![e2e sample restart module](media/tutorial-end-to-end-observability/e2e-sample-restart-module.png)
 
 In a few minutes the traces and detailed logs will arrive to Azure Monitor from the trouble device. The entire end-to-end message flow from the sensor on the device to the storage in the cloud will be available for monitoring with Application Map in Application Insights:
 
@@ -174,13 +174,13 @@ In a few minutes the traces and detailed logs will arrive to Azure Monitor from 
 
 From this map we can drill down to the traces and we can see that some of them look normal and contain all the steps of the flow, and some of them, are very short, so nothing happens after the `Filter` module. 
 
-![e2e-sample-traces](media/tutorial-end-to-end-observability/e2e-sample-traces.png)
+![e2e sample traces](media/tutorial-end-to-end-observability/e2e-sample-traces.png)
 
 Let's analyze one of those short traces and find out what was happening in the `Filter` module, why it didn't send the message upstream to the cloud. 
 
 Our logs are correlated with the traces, so we can query logs specifying the `TraceId` and `SpanId` to retrieve logs corresponding exactly to this execution instance of the `Filter` module:
 
-![e2e-sample-logs](media/tutorial-end-to-end-observability/ete-sample-logs.png)
+![e2e sample logs](media/tutorial-end-to-end-observability/ete-sample-logs.png)
 
 The logs show that the module received a message with 70.465 degrees temperature, but the filtering threshold configured on this device is 30 to 70. So the message simply didn't pass the threshold. Apparently this specific device was configured wrong. This is the cause of the issue we detected while monitoring the La Niña service performance with the workbook.
 
