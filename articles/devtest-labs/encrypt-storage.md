@@ -38,7 +38,7 @@ The information in the lab storage account persists for the life of the lab and 
 
 - Removing uploaded VHDs makes it no longer possible to create custom images from these VHDs.
 - Deleting formula documents can lead to errors when creating VMs from formulas, updating formulas, or creating new formulas.
-- DevTest Labs refreshes the artifact and ARM template caches whenever the lab connects to the artifact or template repositories. If you remove the caches manually, DevTest Labs recreates the caches the next time it connects to the repositories.
+- DevTest Labs refreshes the artifact and ARM template caches whenever the lab connects to the artifact or template repositories. If you remove the caches manually, DevTest Labs recreates the caches the next time the lab connects to the repositories.
 
 ### Set expiration for artifact results
 
@@ -80,8 +80,8 @@ Azure Storage encrypts lab data with a Microsoft-managed key. Optionally, you ca
 
 For more information and instructions on configuring customer-managed keys for Azure Storage encryption, see:
 
-- [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview.md).
-- [Configure encryption with customer-managed keys stored in Azure Key Vault](/azure/storage/common/customer-managed-keys-configure-key-vault).
+- [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview.md)
+- [Configure encryption with customer-managed keys stored in Azure Key Vault](/azure/storage/common/customer-managed-keys-configure-key-vault)
 
 ## Next steps
 

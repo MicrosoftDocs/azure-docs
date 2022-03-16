@@ -48,7 +48,7 @@ This DevTest Labs enterprise reference architecture has the following components
 
 - [Azure networking topology](../networking/fundamentals/networking-overview.md) to control how lab resources access and communicate with on-premises networks and the internet.
 
-  This architecture shows a common way enterprises network DevTest Labs. The labs connect via [peered virtual networks](../virtual-network/virtual-network-peering-overview.md) in a [hub-spoke configuration](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), through the ExpressRoute or site-to-site VPN connection, to the on-premises network.
+  This architecture shows a common way that enterprises network DevTest Labs. The labs connect via [peered virtual networks](../virtual-network/virtual-network-peering-overview.md) in a [hub-spoke configuration](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), through the ExpressRoute or site-to-site VPN connection, to the on-premises network.
 
   Because DevTest Labs uses Azure Virtual Network directly, there are no restrictions on how you set up the networking infrastructure.
 
@@ -63,7 +63,7 @@ DevTest Labs has no built-in quotas or limits, but other Azure resources that la
   Two strategies can help you stay under resource group limits:
 
   - [All VMs go in the same resource group](resource-group-control.md). This strategy helps you meet the resource group limit, but it affects the resource-type-per-resource-group limit.
-  - Use shared Public IPs. If VMs are allowed to have public IP addresses, put all VMs of the same size and region into the same resource group. This configuration helps meet both resource group quotas and resource-type-per-resource-group quotas.
+  - [Use shared Public IPs](devtest-lab-shared-ip.md). If VMs are allowed to have public IP addresses, put all VMs of the same size and region into the same resource group. This configuration helps meet both resource group quotas and resource-type-per-resource-group quotas.
 
 - Resources per resource group per resource type. The default limit for [resources per resource group per resource type is 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Putting all VMs in the same resource group hits this limit much sooner, especially if the VMs have many extra disks.
 

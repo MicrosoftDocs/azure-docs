@@ -134,7 +134,7 @@ While ($current -le 10) {
 
 - In an enterprise scenario that has several subscriptions with multiple labs, you can store the parameter information for different labs and subscriptions in a file. Pass the file to the script instead of passing the individual parameters.
 
-- This example uses Azure Automation to run the PowerShell script, but you can also use other options, like a task in a build/release pipeline.
+- This example uses Azure Automation to run the PowerShell script, but you can also use other options, like a [build/release pipeline](use-devtest-labs-build-release-pipelines.md).
 
 ## Next steps
 
