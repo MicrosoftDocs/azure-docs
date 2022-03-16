@@ -1,6 +1,7 @@
 ### YamlMime:Landing
 
 title: Basic Load Balancer documentation
+titleSuffix: Azure Load Balancer
 summary: Documentation for the basic SKU of Azure Load Balancer.
 
 metadata:
