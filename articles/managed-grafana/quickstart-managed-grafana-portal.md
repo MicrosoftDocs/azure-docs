@@ -26,7 +26,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
     :::image type="content" source="media/quickstart-portal-grafana-create.png" alt-text="Screenshot of the Azure portal. Create Grafana workspace.":::
 
-2. In the Create Grafana Workspace pane, enter the following settings.
+1. In the Create Grafana Workspace pane, enter the following settings.
 
     :::image type="content" source="media/quickstart-portal-form.png" alt-text="Screenshot of the Azure portal. Create workspace form.":::
 
@@ -37,22 +37,20 @@ An Azure account with an active subscription. [Create an account for free](https
     | Location            | East US          | Use Location to specify the geographic location in which to host your resource. Choose the location closest to you. |
     | Name                | GrafanaWorkspace | Enter a unique resource name. It will be used as the domain name in your workspace URL.                             |
 
-3. Select **Next : Permission >** to access rights for your Grafana dashboard and data sources:
+1. Select **Next : Permission >** to access rights for your Grafana dashboard and data sources:
    1. Make sure **System assigned identity** is set on to **On** so that Log Analytics reader can access your subscription.
-   2. Make sure that you're listed as a Grafana administrator. You can also add more users as administrators at the point or later.
+   1. Make sure that you're listed as a Grafana administrator. You can also add more users as administrators at this point or later.
 
    For advanced scenarios, you can uncheck these options and configure data permissions later. The user who created the workspace is automatically assigned Admin permission to the workspace.
 
     > [!NOTE]
     > If creating a Grafana workspace fails the first time, please try again. The failure might be due to a limitation in our backend, and we are actively working to fix.
 
-4. Optionally select **Next : Tags** and add tags to categorize resources.
+1. Optionally select **Next : Tags** and add tags to categorize resources.
 
-5. Select **Next : Review + create >** and on **Create**.
+1. Select **Next : Review + create >** and then **Create**. Your Azure Managed Grafana resource is deploying.
 
-Wait for the creation of the Azure Managed Grafana resource.
-
-## Sign in to your Managed Grafana workspace console
+## Connect to your Managed Grafana workspace console
 
 1. Once the deployment is complete, select **Go to resource** to open your resource.  
 
@@ -65,3 +63,9 @@ Wait for the creation of the Azure Managed Grafana resource.
     :::image type="content" source="media/quickstart-portal-grafana-workspace.png" alt-text="Screenshot of a Managed Grafana dashboard.":::
 
 You can now start interacting with the Grafana console to configure data sources, create dashboards, reporting and alerts.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Configure permissions for Managed Grafana](./how-to-data-source-plugins-managed-identity.md).
+> [Configure data source plugins for Azure Managed Grafana with Managed Identity](./how-to-data-source-plugins-managed-identity.md).

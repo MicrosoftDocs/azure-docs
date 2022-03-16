@@ -13,7 +13,6 @@ metadata:
   ms.date: 03/31/2022
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
   - title: About Azure Managed Grafana Preview
     linkLists:
       - linkListType: overview
@@ -27,4 +26,17 @@ landingContent:
         links:
           - text: Create a Managed Grafana workspace from the Azure portal
             url: quickstart-managed-grafana-portal.md
-            
+
+  - title: Configure a dashboard
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure data source plugins with Managed Identity
+            url: how-to-data-source-plugins-managed-identity.md
+
+  - title: Manage Access
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Permissions for Managed Grafana
+            url: how-to-permissions.md

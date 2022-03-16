@@ -10,3 +10,9 @@ items:
   items:
   - name: Create a Managed Grafana workspace from the portal
     href: quickstart-managed-grafana-portal.md
+- name: How-to guides
+  items:
+  - name: Configure Permissions for Managed Grafana
+    href: how-to-permissions.md
+  - name: Configure data source plugins with Managed Identity
+    href: how-to-data-source-plugins-managed-identity.md
