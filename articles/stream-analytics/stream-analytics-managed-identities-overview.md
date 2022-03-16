@@ -17,7 +17,6 @@ The Azure Active Directory (Azure AD) managed identities for Azure resources fea
 
 Here are some of the benefits of using Managed identities:
 *	You don't need to manage credentials. Credentials are not even accessible to you.
-*	You can use managed identities without any additional cost.
 
 
 ## Managed Identity types
