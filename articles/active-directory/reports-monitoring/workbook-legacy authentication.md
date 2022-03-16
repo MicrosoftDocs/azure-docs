@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/08/2022
+ms.date: 03/16/2022
 ms.author: markvi
 ms.reviewer: sahandle 
 
