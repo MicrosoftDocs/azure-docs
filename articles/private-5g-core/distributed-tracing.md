@@ -22,13 +22,14 @@ To sign in to the distributed tracing web GUI:
 
     :::image type="content" source="media\distributed-tracing\distributed-tracing-sign-in.png" alt-text="Screenshot of the distributed tracing web G U I sign in page, with fields for the username and password." lightbox="media\distributed-tracing\distributed-tracing-sign-in.png":::
 
-1. If you're accessing the distributed tracing web GUI for the first time after installing or reinstalling Packet Core:
-    1. Use the default username and password to sign in. <!-- username and password -->
-    1. Follow the prompts to change your credentials.
+1. Sign in using your credentials. 
 
-Once you're signed in to the distributed tracing web GUI, you can use the top-level menu to sign out or change your credentials:
-- Select **Logout** to end your current session.
-- Select **Change Password** to update your password.
+    If you're accessing the distributed tracing web GUI for the first time after installing or reinstalling Packet Core, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
+
+      - **Name**: *admin*
+      - **Password**: *packetCoreAdmin*
+
+Once you're signed in to the distributed tracing web GUI, you can use the top-level menu to sign out or change your credentials. Select **Logout** to end your current session, and **Change Password** to update your password.
 
 ## Searching for specific information
 

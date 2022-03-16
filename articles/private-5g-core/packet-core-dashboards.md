@@ -24,9 +24,12 @@ To sign in to the packet core dashboards:
 
     :::image type="content" source="media\packet-core-dashboards\grafana-sign-in.png" alt-text="Screenshot of the Grafana sign in page, with fields for the username and password.":::
 
-1. If you're accessing the packet core dashboards for the first time after installing or reinstalling Packet Core:
-    1. Use the default username and password to sign in. <!-- username and password -->
-    1. Follow the prompts to change your credentials.
+1. Sign in using your credentials. 
+
+    If you're accessing the packet core dashboards for the first time after installing or reinstalling Packet Core, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
+
+      - **Email or username**: *admin*
+      - **Password**: *admin*
 
 Once you're signed in to the packet core dashboards, you can hover over your user icon in the left pane to access the options to sign out or change your password.
 
