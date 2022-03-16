@@ -143,10 +143,10 @@ Before training, automated ML applies data validation checks on the input data t
 Task | Data validation check
 ---|---
 All tasks | At least 50 training samples are required 
-Multi-class and Multi-label | The training data and validation data must have <li> The same set of columns <li> The same order of columns from left to right <li>The same data type for columns with the same name <li>  At least two unique labels   <li> Unique column names within each dataset (For example, the training set can't have multiple columns named **Age**)
+Multi-class and Multi-label | The training data and validation data must have <br> * The same set of columns <br>* The same order of columns from left to right <br>* The same data type for columns with the same name <br>* At least two unique labels   * Unique column names within each dataset (For example, the training set can't have multiple columns named **Age**)
 Multi-class only | None
-Multi-label only | <li> The label column format must be in [accepted format](#multi-label) <li> At least one sample should have 0 or 2+ labels, otherwise it should be a `multiclass` task <li> All labels should be in `str` or `int` format, with no overlapping. You should not have both label `1` and label `'1'`
-NER only | <li> The file should not start with an empty line. <li> Each line must be an empty line, or follow format `{token} {label}`, where there is exactly one space between the token and the label and no white space after the label <li> All labels must start with `I-`, `B-`, or be exactly `O`. Case sensitive <li>  Exactly one empty line between two samples <li> Exactly one empty line at the end of the file
+Multi-label only | * The label column format must be in [accepted format](#multi-label) <br> * At least one sample should have 0 or 2+ labels, otherwise it should be a `multiclass` task <br> * All labels should be in `str` or `int` format, with no overlapping. You should not have both label `1` and label `'1'`
+NER only | * The file should not start with an empty line <br> * Each line must be an empty line, or follow format `{token} {label}`, where there is exactly one space between the token and the label and no white space after the label <br> * All labels must start with `I-`, `B-`, or be exactly `O`. Case sensitive <br> *  Exactly one empty line between two samples <br> * Exactly one empty line at the end of the file
    
 ## Configure experiment
 
@@ -181,9 +181,9 @@ As part of the NLP functionality, automated ML supports 104 languages leveraging
 
  Task type |Syntax for `dataset_language` | Text model algorithm
 ----|----|---
-Multi-label text classification| <li> `'eng'` <li>`'deu'` <li>`'mul'`| <li>English&nbsp;BERT&nbsp;[uncased](https://huggingface.co/bert-base-uncased) <li> [German BERT](https://huggingface.co/bert-base-german-cased)<li> [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) <br><br>For all other languages, automated ML applies multilingual BERT
-Multi-class text classification|  <li>`'eng'`  <li>`'deu'` <li>`'mul'`|  <li> English BERT [cased](https://huggingface.co/bert-base-cased)  <li>[German BERT](https://huggingface.co/bert-base-german-cased) <li> [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased)<br><br>For all other languages, automated ML applies [multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) 
-Named entity recognition (NER)|  <li>`'eng'`  <li> `'deu'` <li>`'mul'`|  <li> English BERT [cased](https://huggingface.co/bert-base-cased)  <li>[German BERT](https://huggingface.co/bert-base-german-cased) <li> [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased)<br><br> For all other languages, automated ML applies [multilingual BERT](https://huggingface.co/bert-base-multilingual-cased).
+Multi-label text classification|  * `'eng'` <br> * `'deu'` <br> *`'mul'`| * English&nbsp;BERT&nbsp;[uncased](https://huggingface.co/bert-base-uncased) <br> * [German BERT](https://huggingface.co/bert-base-german-cased)<br> * [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) <br><br>For all other languages, automated ML applies multilingual BERT
+Multi-class text classification|   * `'eng'` <br> * `'deu'` <br> *`'mul'`| * English&nbsp;BERT&nbsp;[uncased](https://huggingface.co/bert-base-uncased) <br> * [German BERT](https://huggingface.co/bert-base-german-cased)<br> * [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) <br><br>For all other languages, automated ML applies multilingual BERT
+Named entity recognition (NER)|   * `'eng'` <br> * `'deu'` <br> *`'mul'`| * English&nbsp;BERT&nbsp;[uncased](https://huggingface.co/bert-base-uncased) <br> * [German BERT](https://huggingface.co/bert-base-german-cased)<br> * [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) <br><br>For all other languages, automated ML applies multilingual BERT
 
 
 You can specify your dataset language in your `FeaturizationConfig`. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML](how-to-configure-auto-features.md#bert-integration-in-automated-ml).
