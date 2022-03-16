@@ -34,15 +34,20 @@ With a gallery, you can share your resources to everyone, or limit sharing to di
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-Community Galleries is a new capability in Azure Compute Gallery to support making public galleries, which lets you make your images available publicly to all Azure customers. Only an owner of a subscription can enable their gallery to go Public to the community. When an gallery is marked as community-enabled, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Yyour original resources of type `Microsoft.Compute/galleries` is still under your subscription, and private. You can continue to use it as you did before.
+Community Galleries is a new capability in Azure Compute Gallery to support making public galleries, where you can make your images available to all Azure customers. When an gallery is marked as community-enabled, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private. You can continue to use it as you did before.
 
-Be aware that Microsoft does not provide support for images in the Community Galleries.
+Only an owner of a subscription can enable their gallery to go Public to the community.
+
+If you want to stop sharing a gallery publicly, you can update the gallery but making the gallery private will prevent existing virtual machine scale set users from scaling their resources
 
 
 Community galleries don't support:
 - encrypted images
 - Image resources that aren't created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available during the public preview.
 - [VM Applications](vm-applications.md)
+
+> [!IMPORTANT]
+> Microsoft does not provide support for images in the Community Gallery.
 
 ## Images 
 
