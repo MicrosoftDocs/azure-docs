@@ -145,7 +145,7 @@ Save the `pom.xml` file.
     notepad src\main\java\org\apache\hadoop\examples\WordCount.java
     ```
 
-2. Then copy and paste the java code below into the new file. Then close the file.
+2. Then copy and paste the Java code below into the new file. Then close the file.
 
     ```java
     package org.apache.hadoop.examples;
