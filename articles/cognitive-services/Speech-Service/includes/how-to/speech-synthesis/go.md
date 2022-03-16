@@ -297,7 +297,7 @@ First, create a new XML file for the SSML configuration in your root project dir
 Next, you need to change the speech synthesis request to reference your XML file. The request is mostly the same, but instead of using the `SpeakTextAsync()` function, you use `SpeakSsmlAsync()`. This function expects an XML string, so you first load your SSML configuration as a string. From here, the result object is exactly the same as previous examples.
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on  `SpeechConfig` by using `speechConfig.SetSpeechSynthesisVoiceName("en-US-JennyNeural")`.
+> To set the voice without using SSML, you can set the property on  `SpeechConfig` by using `speechConfig.SetSpeechSynthesisVoiceName("en-US-JennyNeural")`.
 
 ## Get facial pose events
 

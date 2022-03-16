@@ -77,7 +77,6 @@ Follow these steps to create a new console application and install the Speech SD
             var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);      
     
             // The language of the voice that speaks.
-            speechConfig.SpeechSynthesisLanguage = "en-US";
             speechConfig.SpeechSynthesisVoiceName = "en-US-JennyNeural"; 
     
             using (var speechSynthesizer = new SpeechSynthesizer(speechConfig))
@@ -98,8 +97,7 @@ Follow these steps to create a new console application and install the Speech SD
     ```
 
 1. In `Program.cs`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
-
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 
 Run your new console application to start speech synthesis to the default speaker.:
 
@@ -107,42 +105,16 @@ Run your new console application to start speech synthesis to the default speake
 dotnet run
 ```
 
-Type some input text when prompted. Press the Enter key to hear the synthesized speech. 
+Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
 
 ```console
-Type some text that you want to speak...
-> good morning
+Enter some text that you want to speak...
+> I'm excited to try text to speech
 ```
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
 
-## Remarks
-
-Here are some additional considerations.
-
-### Voice and language
-If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default `en-US` voice will speak. If both are set, the language of the `SpeechSynthesisVoiceName` will overwrite the `SpeechSynthesisLanguage`.  For example, if you set `SpeechSynthesisVoiceName` to `es-ES-ElviraNeural` and `SpeechSynthesisLanguage` to `en-US`, the `es-ES-ElviraNeural` voice will speak. 
-
-The input text is not translated for speech. The voice language implies accent. For example, if the input text in English is "Good morning" and the `SpeechSynthesisLanguage` is `es-ES`, the text is spoken in English with a Spanish accent. 
-
-## File output
-            
-For synthesis to a file, include an `AudioConfig` with your `SpeechSynthesizer` as shown in this code snippet:
-```csharp
-using var audioConfig = AudioConfig.FromWavFileOutput("audio.wav"); 
-using (var speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig))  
-{
-    Console.WriteLine("Type some text that you want to speak...");
-    Console.Write("> ");
-    string text = Console.ReadLine();
-
-    var speechSynthesisResult = await speechSynthesizer.SpeakTextAsync(text);
-    OutputSpeechSynthesisResult(speechSynthesisResult, text);
-}
-```
-
-## File input 
 This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
 - For information about speech synthesis from a file, see [Speech synthesis](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
 - For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 

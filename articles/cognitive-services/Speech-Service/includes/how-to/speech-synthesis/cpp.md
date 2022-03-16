@@ -33,13 +33,15 @@ Specify the language or voice of [`SpeechConfig`](/cpp/cognitive-services/speech
 void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    // Note: if only language is set, the default voice of that language is chosen.
-    config->SetSpeechSynthesisLanguage("<your-synthesis-language>"); // For example, "de-DE"
-    // The voice setting will overwrite the language setting.
-    // The voice setting will not overwrite the voice element in input SSML.
-    config->SetSpeechSynthesisVoiceName("<your-wanted-voice>");
+    // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
+    config->SetSpeechSynthesisLanguage("en-US"); 
+    config->SetSpeechSynthesisVoiceName("en-US-JennyNeural");
 }
 ```
+
+If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default `en-US` voice will speak. If both are set, the language of the `SpeechSynthesisVoiceName` will overwrite the `SpeechSynthesisLanguage`.  For example, if you set `SpeechSynthesisVoiceName` to `es-ES-ElviraNeural` and `SpeechSynthesisLanguage` to `en-US`, the `es-ES-ElviraNeural` voice will speak. If the voice element is set via SSML, the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are ignored.
+
+The input text is not translated for speech. The voice language implies accent. For example, if the input text in English is "Good morning" and the `SpeechSynthesisLanguage` is `es-ES`, the text is spoken in English with a Spanish accent. 
 
 ## Synthesize speech to a file
 
