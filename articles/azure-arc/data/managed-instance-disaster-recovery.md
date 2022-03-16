@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 01/27/2022
+ms.date: 03/16/2022
 ms.topic: conceptual
 ---
 
@@ -117,3 +117,6 @@ On the geo-secondary DR instance, run the following command to promote it to pri
 ```azurecli
 az sql mi-arc dag update -k test --name dagtests --use-k8s --role force-primary-allow-data-loss
 ```
+## Limitation
+
+Creating a new database using SQL Server Management Studio currently throws an error. New databases can be created using T-SQL.
