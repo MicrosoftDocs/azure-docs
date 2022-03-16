@@ -292,6 +292,7 @@ In this quickstart, you:
 * Tested the load balancer.
 
 To learn more about Azure Load Balancer, continue to:
+
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](../load-balancer-overview.md)
 
