@@ -14,7 +14,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Publish your Azure AD B2C app to the Azure AD app gallery
+# Publish your Azure Active Directory B2C app to the Azure Active Directory app gallery
 
 The Azure Active Directory (Azure AD) app gallery is a catalog of thousands of apps. The app gallery makes it easy to deploy and configure single sign-on (SSO) and automate user setup. You can find popular cloud apps in the gallery, such as Workday, ServiceNow, and Zoom.
 
@@ -34,10 +34,10 @@ Here are some benefits of adding your Azure AD B2C app to the app gallery:
 
 The sign in flow involves the following steps:
 
-1. Users go to the [My Apps portal](https://myapps.microsoft.com/) and select your app, which opens the app sign in URL.
+1. Users go to the [My Apps portal](https://myapps.microsoft.com/) and select your app. The app opens the app sign in URL.
 1. The app sign in URL starts an authorization request and redirects users to the Azure AD B2C authorization endpoint.
 1. Users choose to sign in with their Azure AD "Corporate" account. Azure AD B2C takes them to the Azure AD authorization endpoint, where they sign in with their work account.
-1. If the Azure AD SSO session is active, Azure AD issues an access token without prompting users to sign in again. If the Azure AD session expires or becomes invalid, users are prompted to sign in again.
+1. If the Azure AD SSO session is active, Azure AD issues an access token without prompting users to sign in again. Otherwise, users are prompted to sign in again.
 
 ![Diagram of the sign-in OpenID connect flow.](./media/publish-app-to-azure-ad-app-gallery/app-gallery-sign-in-flow.png)
 
