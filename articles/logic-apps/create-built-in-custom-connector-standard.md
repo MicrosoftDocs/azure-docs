@@ -167,7 +167,7 @@ namespace ServiceProviders.CosmosDb.Extensions
       }
       public void Initialize(ExtensionConfigContext context)
       {
-         // Converts the Cosmos Document list to a JObject array.
+         // Convert the Cosmos Document list to a JObject array.
          context.AddConverter<IReadOnlyList<Document>, JObject[]>(ConvertDocumentToJObject);
       }
       public static JObject[] ConvertDocumentToJObject(IReadOnlyList<Document> data)
@@ -188,7 +188,7 @@ namespace ServiceProviders.CosmosDb.Extensions
 Add Converter: Logic app has implemented the generic way to handle any function built-in trigger using the JObject array, we may need (optional) to add a converter to convert the read only list of Azure Cosmos DB document into JObject array. Once the converter is ready as shown in above example, we need to register the converter as part of ExtensionConfigContext.
 
 ```csharp
-// Converts the Cosmos Document list to a JObject array.
+// Convert the Cosmos Document list to a JObject array.
 context.AddConverter<IReadOnlyList<Document>, JObject[]>(ConvertDocumentToJObject);
 ```
 
@@ -202,7 +202,7 @@ When you're done, review the following code map diagram that shows the implement
 
 ![Conceptual code map diagram that shows complete class implementation.](./media/create-built-in-custom-connector-standard/methods-implementation-code-map-diagram.png)
 
-## Test your custom built-in connector
+## Install your custom built-in connector in Azure
 
 To add the NuGet reference from the previous section, update the **extensions.json** file in **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB** extension bundle. You can refer the add-extension.ps1 script.
 
@@ -258,8 +258,33 @@ To add the NuGet reference from the previous section, update the **extensions.js
 
 1. If any **func.exe** process is running, make sure to close or exit that process before you continue to the next step.
 
-1. In Visual Studio Code, open the designer for your Standard logic app workflow.
+## Test your custom built-in connector
+
+1. In Visual Studio Code or the Azure portal, open the designer for your Standard logic app workflow.
 
    The connector picker should now show your new custom built-in connector, for example:
 
-1. 
+   ![Screenshot showing the Azure portal and designer for Standard logic app workflow with new custom built-in Cosmos DB connector.](./media/create-built-in-custom-connector-standard/portal-built-in-connector-picker.png)
+
+1. Select the your new custom built-in trigger to start your workflow.
+
+1. Provide the following property values for your Cosmos DB connection. When you're done, select **Create**.
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Connection name** | Yes | <*Cosmos-DB-connection-ma,e*> | The name for the Cosmos DB connection to create |
+   | **Connection String** | Yes | <*Cosmos-DB-connection-string*> | The connection string for the Azure Cosmos DB database collection or lease collection where you want to add each new received document. |
+   |||||
+
+   ![Screenshot showing the "Create Connection" pane for the new custom built-in Cosmos DB connector.](./media/create-built-in-custom-connector-standard/portal-built-in-connector-create-connection.png)
+
+1. Provide the following property values for your Cosmos DB trigger operation. trigger database name and collection name for the trigger to use:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **database name** | Yes | <*Cosmos-DB-database-name*> | The name for the Cosmos DB database to use |
+   | **collection name** | Yes | <*Cosmos-DB-collection-name*> | The name for the Cosmos DB collection where you want to add each new received document. |
+   |||||
+
+   ![Screenshot showing the "Receive document" properties in the custom built-in Cosmos DB trigger.](./media/create-built-in-custom-connector-standard/portal-built-in-connector-trigger-properties.png)
+
