@@ -128,7 +128,7 @@ To learn more, review the [syntax for enabling trace flags](/sql/t-sql/database-
 
 ### Restart SQL Server and validate the configuration
 
-After you've validated that you're on a supported version of SQL Server, enabled the Always On availability groups feature, and added your startup trace flags, restart your SQL Server instance to apply all of these changes:
+After you've ensured that you're on a supported version of SQL Server, enabled the Always On availability groups feature, and added your startup trace flags, restart your SQL Server instance to apply all of these changes:
 
 1. Open **SQL Server Configuration Manager**. 
 1. Choose the SQL Server service from the left pane. 
@@ -136,9 +136,7 @@ After you've validated that you're on a supported version of SQL Server, enabled
 
     :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-restart.png" alt-text="Screenshot that shows the SQL Server restart command call.":::
 
-After the restart, use Transact-SQL to validate the configuration of your SQL Server instance. Your SQL Server version should be 15.0.4198.2 or later, the Always On availability groups feature should be enabled, and you should have the trace flags `-T1800` and `-T9567` enabled.
-
-To validate your configuration, run the following T-SQL script: 
+After the restart, run the following Transact-SQL script to validate the configuration of your SQL Server instance. Your SQL Server version should be 15.0.4198.2 or later, the Always On availability groups feature should be enabled, and you should have the trace flags `-T1800` and `-T9567` enabled.
 
 ```sql
 -- Shows the version and CU of SQL Server
@@ -158,7 +156,7 @@ The following screenshot is an example of the expected outcome for a SQL Server 
 
 ### Set up database recovery and backup
 
-All databases that will be replicated via SQL Managed Instance link must be in full recovery mode and have at least one backup.
+All databases that will be replicated via SQL Managed Instance link must be in full recovery mode and have at least one backup. Use these commands:
 
 ```sql
 -- Set full recovery mode for all databases you want to replicate.
@@ -192,7 +190,7 @@ If your SQL Server instance is hosted outside Azure, establish a VPN connection 
 - [Azure ExpressRoute connection](../../expressroute/expressroute-introduction.md)
 
 > [!TIP]
-> We recommend ExpressRoute to sustain network performance when you're replicating data. Provision a gateway with enough bandwidth for your use case. 
+> We recommend ExpressRoute for the best network performance when you're replicating data. Provision a gateway with enough bandwidth for your use case. 
 
 ### Open network ports between the environments
 
@@ -204,7 +202,7 @@ The following table describes port actions for each environment:
 |:---|:-----|
 |SQL Server (in Azure) | Open both inbound and outbound traffic on port 5022 for the network firewall to the entire subnet of SQL Managed Instance. If necessary, do the same on the Windows firewall. Create a network security group (NSG) rule in the virtual network that hosts the VM to allow communication on port 5022.  |
 |SQL Server (outside Azure) | Open both inbound and outbound traffic on port 5022 for the network firewall to the entire subnet of SQL Managed Instance. If necessary, do the same on the Windows firewall.  |
-|SQL Managed Instance |[Create an NSG rule](../../virtual-network/manage-network-security-group.md#create-a-security-rule) in the Azure portal to allow inbound and outbound traffic from the IP address of SQL Server on port 5022 to the virtual network that hosts the SQL Managed Instance. |
+|SQL Managed Instance |[Create an NSG rule](../../virtual-network/manage-network-security-group.md#create-a-security-rule) in the Azure portal to allow inbound and outbound traffic from the IP address of SQL Server on port 5022 to the virtual network that hosts SQL Managed Instance. |
 
 Use the following PowerShell script on the host SQL Server instance to open ports in the Windows firewall: 
 
@@ -215,12 +213,12 @@ New-NetFirewallRule -DisplayName "Allow TCP port 5022 outbound" -Direction outbo
 
 ## Test bidirectional network connectivity
 
-Bidirectional network connectivity between SQL Server and SQL Managed Instance is necessary for the SQL Managed Instance link feature to work. After opening your ports on the SQL Server side and configuring an NSG rule on the SQL Managed Instance side, test connectivity. 
+Bidirectional network connectivity between SQL Server and SQL Managed Instance is necessary for the SQL Managed Instance link feature to work. After you open ports on the SQL Server side and configure an NSG rule on the SQL Managed Instance side, test connectivity. 
 
 
 ### Test the connection from SQL Server to SQL Managed Instance 
 
-To check if SQL Server can reach SQL Managed Instance, use the `tnc` command in PowerShell from the SQL Server host machine. Replace `<ManagedInstanceFQDN>` with the fully qualified domain name of the managed instance.
+To check if SQL Server can reach SQL Managed Instance, use the `tnc` command in PowerShell from the SQL Server host machine. In the following example, replace `<ManagedInstanceFQDN>` with the fully qualified domain name of the managed instance.
 
 ```powershell
 tnc <ManagedInstanceFQDN> -port 5022
@@ -294,13 +292,13 @@ EXEC msdb.dbo.sp_start_job @job_name = N'NetHelper'
 ```
 
 
-Execute the SQL Agent job by running the following T-SQL command: 
+Run the SQL Agent job by running the following T-SQL command: 
 
 ```sql
 EXEC msdb.dbo.sp_start_job @job_name = N'NetHelper'
 ```
 
-Execute the following query to show the log of the SQL Agent job: 
+Run the following query to show the log of the SQL Agent job: 
 
 ```sql
 SELECT 
@@ -331,8 +329,8 @@ GO
 If the connection is unsuccessful, verify the following items: 
 
 - The firewall on the host SQL Server instance allows inbound and outbound communication on port 5022. 
-- There's an NSG rule for the virtual network that hosts SQL Managed Instance to allow communication on port 5022. 
-- If your SQL Server instance is on an Azure VM, there's an NSG rule that allows communication on port 5022 on the virtual network that hosts the VM.
+- An NSG rule for the virtual network that hosts SQL Managed Instance allows communication on port 5022. 
+- If your SQL Server instance is on an Azure VM, an NSG rule allows communication on port 5022 on the virtual network that hosts the VM.
 - SQL Server is running. 
 
 > [!CAUTION]
@@ -343,7 +341,7 @@ If the connection is unsuccessful, verify the following items:
 
 SQL Server Management Studio (SSMS) v18.11.1 is the easiest way to use a SQL Managed Instance link. [Download SSMS version 18.11.1 or later](/sql/ssms/download-sql-server-management-studio-ssms) and install it to your client machine. 
 
-After installation finishes, open SSMS and connect to your supported SQL Server instance. Right-click a user database, and validate that the **Azure SQL Managed Instance link** option appears on the menu: 
+After installation finishes, open SSMS and connect to your supported SQL Server instance. Right-click a user database, and validate that the **Azure SQL Managed Instance link** option appears on the menu. 
 
 :::image type="content" source="./media/managed-instance-link-preparation/ssms-database-context-menu-managed-instance-link.png" alt-text="Screenshot that shows the Azure SQL Managed Instance link option on the context menu.":::
 
