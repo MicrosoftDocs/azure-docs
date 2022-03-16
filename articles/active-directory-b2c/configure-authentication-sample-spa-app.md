@@ -97,7 +97,7 @@ Record the **Application (client) ID** to use later, when you configure the web 
 
 ### Step 2.4: Enable the implicit grant flow
 
-In your own environment, if your SPA app uses MSAL.js 1.3 or earlier and the implicit grant flow or you configure the `jwt.ms` app for testing a user flow, you need to enable the implicit grant flow in the app registration:
+In your own environment, if your SPA app uses MSAL.js 1.3 or earlier and the implicit grant flow or you configure [https://jwt.ms/](https://jwt.ms/) app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
 
 1. In the left menu, under **Manage**, select **Authentication**.
 
