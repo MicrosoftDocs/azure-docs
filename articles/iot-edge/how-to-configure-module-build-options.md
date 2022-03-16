@@ -19,6 +19,8 @@ and Visual Studio Code projects include the *module.json* file. The file contain
 configuration details including the version and platform that is used when building an IoT Edge
 module.
 
+## *module.json* settings
+
 The *module.json* file includes the following settings:
 
 | Setting | Description |
