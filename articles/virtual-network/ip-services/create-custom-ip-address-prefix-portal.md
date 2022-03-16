@@ -161,7 +161,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 6. Select **Add**.
 
-7. Select **Public IP prefixes** in **Settings** to view the created prefix.  You can now allocate Public IP addresses from this prefix.  For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-IP-address-from-a-prefix)].
+7. Select **Public IP prefixes** in **Settings** to view the created prefix.  You can now allocate Public IP addresses from this prefix.  For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix)].
 
 ## Commission the custom IP address prefix
 
