@@ -31,7 +31,7 @@ The following items are needed to ensure you're set up to begin the onboarding p
 - On the vCenter Server, allow inbound connections on TCP port 443, so that the Arc resource bridge and VMware cluster extension can communicate with the vCenter server. 
 
 > [!NOTE]
-> Only the default port of 443 is supported if you use a different port, Appliance VM creation will fail. 
+> Only the default port of 443 is supported. If you use a different port, Appliance VM creation will fail. 
 
 At this point, you should have already deployed an Azure VMware Solution private cluster. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
 
@@ -143,7 +143,7 @@ When Arc appliance is successfully deployed on your private cloud, you can do th
 
 - View the status from within the private cloud under **Operations > Azure Arc**, located in the left navigation. 
 - View the VMware infrastructure resources from the private cloud left navigation under **Private cloud** then select **Azure Arc vCenter resources**.
-- Discover your VMware infrastructure resources and  Project them to Azure using the same browser experience, **Private cloud > Arc vCenter resources > Virtual Machines**.
+- Discover your VMware infrastructure resources and  project them to Azure using the same browser experience, **Private cloud > Arc vCenter resources > Virtual Machines**.
 - Similar to VMs, customers can enable networks, templates, resource pools, and data-stores in Azure.
 
 After you've enabled VMs to be managed from Azure, you can install guest management and do the following actions.
