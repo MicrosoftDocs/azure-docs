@@ -151,4 +151,4 @@ A: Yes, you can create VMs with Ephemeral OS Disk using REST, Templates, PowerSh
 > 
  
 ## Next steps
-You can create a VM with an ephemeral OS disk using the [Azure Portal/CLI/Powershell/ARM template](ephemeral-os-disks-how-to-ps-cli-portal.md).
+You can create a VM with an ephemeral OS disk using the [Azure Portal/CLI/Powershell/ARM template](ephemeral-os-disks-deploy.md).
