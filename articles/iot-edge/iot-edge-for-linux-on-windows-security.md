@@ -17,7 +17,7 @@ services: iot-edge
 
 Azure IoT Edge for Linux on Windows benefits from all the security offerings from running on a Windows Client/Server host and ensures all the extra components keep the same security premises.
 
-## Virtual Machine security
+## Virtual machine security
 
 The IoT Edge for Linux (EFLOW) curated virtual machine is based on [Microsoft CBL-Mariner](https://github.com/microsoft/CBL-Mariner). CBL-Mariner is an internal Linux distribution for Microsoft’s cloud infrastructure and edge products and services. CBL-Mariner is designed to provide a consistent platform for these devices and services and  enhances Microsoft’s ability to stay current on Linux updates. For more information, see [CBL-Mariner security](https://github.com/microsoft/CBL-Mariner/blob/1.0/SECURITY.md). 
 
@@ -108,15 +108,15 @@ By default, the EFLOW virtual machine uses [*iptables*](https://git.netfilter.or
 :::moniker range=">=iotedge-2020-11"
 ### Verified boot
 
-The EFLOW virtual machine supports **Verified Boot** through the included *device-mapper-verity (dm-verity)* kernel feature, which provides transparent integrity checking of block devices. *dm-verity* helps prevent persistent rootkits that can hold onto root privileges and compromise devices. This feature assures the virtual machine it is in the same state as when it was last booted. The virtual machine uses the *dm-verity* feature to check specific block device, the underlying storage layer of the file system, and determine if it matches its expected configuration.
+The EFLOW virtual machine supports **Verified boot** through the included *device-mapper-verity (dm-verity)* kernel feature, which provides transparent integrity checking of block devices. *dm-verity* helps prevent persistent rootkits that can hold onto root privileges and compromise devices. This feature assures the virtual machine it is in the same state as when it was last booted. The virtual machine uses the *dm-verity* feature to check specific block device, the underlying storage layer of the file system, and determine if it matches its expected configuration.
 
 By default, this feature is enabled in the virtual machine, and can't be turned off. For more information, see [dm-verity](https://www.kernel.org/doc/html/latest/admin-guide/device-mapper/verity.html#).
 
 :::moniker-end
 <!-- end 1.2 -->
 
-## Trusted Platform Module (TPM)
-[Trusted Platform Module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-top-node) technology is designed to provide hardware-based, security-related functions. A TPM chip is a secure crypto-processor that is designed to carry out cryptographic operations. The chip includes multiple physical security mechanisms to make it tamper resistant, and malicious software is unable to tamper with the security functions of the TPM.
+## Trusted platform module (TPM)
+[Trusted platform module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-top-node) technology is designed to provide hardware-based, security-related functions. A TPM chip is a secure crypto-processor that is designed to carry out cryptographic operations. The chip includes multiple physical security mechanisms to make it tamper resistant, and malicious software is unable to tamper with the security functions of the TPM.
 
 By providing a TPM passthrough feature, the EFLOW virtual machine uses the Windows host OS TPM. This enables two main scenarios:
 * Use TPM technology for IoT Edge device provisioning using Device Provision Service (DPS). For more information, see [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](./how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
