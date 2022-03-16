@@ -74,11 +74,11 @@ To create an Azure Front Door profile, see [Create a Azure Front Door](create-fr
 
 1. Select **+ Add a policy**, in the *Security policy* pane to apply or create a new web application firewall policy to your domains.
 
-    :::image type="content" source="./media/how-to-configure-endpoints/add-policy.png" alt-text="Screenshot of add a policy button from endpoint configuration pane.":::
+    :::image type="content" source="./media/how-to-configure-endpoints/add-policy.png" alt-text="Screenshot of add a policy button from endpoint configuration pane." lightbox="./media/how-to-configure-endpoints/add-policy.png":::
 
 1. On the **Add security policy** page, enter, or select the following information:
 
-    :::image type="content" source="./media/how-to-configure-endpoints/add-security-policy.png" alt-text="Screenshot of add security policy page." lightbox="./media/how-to-configure-endpoints/add-security-policy-expanded.png":::
+    :::image type="content" source="./media/how-to-configure-endpoints/add-security-policy.png" alt-text="Screenshot of add security policy page." :::
 
     | Setting | Description |
     |--|--|
