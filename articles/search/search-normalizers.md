@@ -16,7 +16,7 @@ ms.date: 03/23/2022
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-In Azure Cognitive Search, a *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching in filters, facets, and sorts. Normalizers behave similar to [analyzers](earch-analyzers.md) in how they process text, except they do not tokenize the query. Some of the transformations that can be achieved using normalizers are:
+In Azure Cognitive Search, a *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching in filters, facets, and sorts. Normalizers behave similar to [analyzers](search-analyzers.md) in how they process text, except they do not tokenize the query. Some of the transformations that can be achieved using normalizers are:
 
 + Convert to lowercase or upper-case
 + Normalize accents and diacritics like ö or ê to ASCII equivalent characters "o" and "e"
