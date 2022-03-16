@@ -59,7 +59,7 @@ To get started with SQL Server on Azure VMs, review the following resources:
 
 On top of the built-in [high availability provided by Azure virtual machines](../../../virtual-machines/availability.md), you can also leverage the high availability and disaster recovery features provided by SQL Server. 
 
-To learn more, see the overview of [Always On availability groups](availability-group-overview.md), and [Always On failover cluster instances](failover-cluster-instance-overview.md). 
+To learn more, see the overview of [Always On availability groups](availability-group-overview.md), and [Always On failover cluster instances](failover-cluster-instance-overview.md). For more details, see the [business continuity overview](business-continuity-high-availability-disaster-recovery-hadr-overview.md). 
 
 To get started, see the tutorials for [availability groups](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) or [preparing your VM for a failover cluster instance](failover-cluster-instance-vm.md). 
 
