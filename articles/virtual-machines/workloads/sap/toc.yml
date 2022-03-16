@@ -122,6 +122,8 @@
     href: cal-ides-erp6-erp7-sp3-sql.md   
   - name: SAP ILM
     href: sap-information-lifecycle-management.md
+  - name: SAP RISE integration
+    href: sap-rise-integration.md
   - name: SAP BOBI Platform on Azure
     items:
     - name: SAPI BOBI planning and implementation guide on Azure 

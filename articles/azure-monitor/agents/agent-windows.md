@@ -105,7 +105,7 @@ The following table highlights the specific parameters supported by setup for th
 |OPINSIGHTS_WORKSPACE_ID                | Workspace ID (guid) for the workspace to add                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Workspace key used to initially authenticate with the workspace |
 |OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Specify the cloud environment where the workspace is located <br> 0 = Azure commercial cloud (default) <br> 1 = Azure Government |
-|OPINSIGHTS_PROXY_URL               | URI for the proxy to use |
+|OPINSIGHTS_PROXY_URL               | URI for the proxy to use. Example: OPINSIGHTS_PROXY_URL=IPAddress:Port or OPINSIGHTS_PROXY_URL=FQDN:Port |
 |OPINSIGHTS_PROXY_USERNAME               | Username to access an authenticated proxy |
 |OPINSIGHTS_PROXY_PASSWORD               | Password to access an authenticated proxy |
 
