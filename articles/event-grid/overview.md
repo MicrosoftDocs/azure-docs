@@ -31,15 +31,7 @@ Currently, the following Azure services support sending events to Event Grid. Fo
 
 For full details on the capabilities of each handler as well as related articles, see [event handlers](event-handlers.md). Currently, the following Azure services support handling events from Event Grid: 
 
-* [Azure Automation](handler-webhooks.md#azure-automation)
-* [Azure Functions](handler-functions.md)
-* [Event Hubs](handler-event-hubs.md)
-* [Relay Hybrid Connections](handler-relay-hybrid-connections.md)
-* [Logic Apps](handler-webhooks.md#logic-apps)
-* [Power Automate (Formerly known as Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Service Bus](handler-service-bus.md)
-* [Queue Storage](handler-storage-queues.md)
-* [WebHooks](handler-webhooks.md)
+[!INCLUDE [event-handlers.md](includes/event-handlers.md)]
 
 ## Concepts
 
