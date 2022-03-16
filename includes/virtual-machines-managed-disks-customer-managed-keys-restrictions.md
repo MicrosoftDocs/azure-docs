@@ -14,7 +14,7 @@
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Most resources related to your customer-managed keys (disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
-    - Azure Key Vaults may be used from a different subscription but must be in the same region.
+    - Azure Key Vaults may be used from a different subscription but must be in the same region and tenant as your disk encryption set.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another resource group and subscription.
 - Managed disks currently or previously encrypted using Azure Disk Encryption cannot be encrypted using customer-managed keys.
 - Can only create up to 1000 disk encryption sets per region per subscription.
