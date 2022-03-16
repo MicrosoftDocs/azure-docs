@@ -45,7 +45,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 Diagnostic settings available include:
 
 - **log**: SQLInsights, AutomaticTuning, QueryStoreRuntimeStatistics, QueryStoreWaitStatistics, Errors, DatabaseWaitStatistics, Timeouts, Blocks, Deadlocks    
-- **metric**: Basic, InstanceAndAppAdvanced, WorkloadManagement
+- **metric**: All Azure Monitor metrics in the **Basic** and **InstanceAndAppAdvanced** categories
 - **destination details**: Send to Log Analytics workspace, Archive to a storage account, Stream to an event hub, Send to partner solution
     - For more information on these options, see [Create diagnostic settings in Azure portal](../../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal).
 
@@ -135,10 +135,10 @@ The following table lists common and recommended alert rules for Azure SQL Datab
 |:---|:---|:---|:---|:---|
 | DTU Percentage | Greater than | Average | 80 | Whenever the average DTU percentage is greater than 80% |
 | Log IO percentage | Greater than | Average | 80 | Whenever the average log io percentage is greater than 80% | 
-| Deadlocks/* | Greater than | Count | 1 | Whenever the count of deadlocks is greater than 1. |
+| Deadlocks\* | Greater than | Count | 1 | Whenever the count of deadlocks is greater than 1. |
 | CPU percentage | Greater than | Average | 80 | Whenever the average cpu percentage is greater than 80% | 
 
-/* Alerting on deadlocks may be unnecessary and noisy in some applications where deadlocks are expected and properly handled.
+\* Alerting on deadlocks may be unnecessary and noisy in some applications where deadlocks are expected and properly handled.
 
 ## Next steps
 
