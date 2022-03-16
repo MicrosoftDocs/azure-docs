@@ -114,7 +114,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     :::image type="content" source="../media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure":::
 
-1. Navigate to the `java` directory and create a file called *FormRecognizer.java*.
+1. Navigate to the `java` directory and create a file called **`FormRecognizer.java`**.
 
     > [!TIP]
     >
@@ -122,13 +122,13 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item FormRecognizer.java**.
 
-1. Open the `FormRecognizer.java` file and select one of the following code samples to copy and pasted into your application:
+1. Open the `FormRecognizer.java` file and select one of the following code samples to copy and paste your into your application:
 
-* [**General document**](#general-document-model)
+    * [**General document**](#general-document-model)
 
-* [**Layout**](#layout-model)
+    * [**Layout**](#layout-model)
 
-* [**Prebuilt Invoice**](#prebuilt-model)
+    * [**Prebuilt Invoice**](#prebuilt-model)
 
 > [!IMPORTANT]
 >
@@ -241,6 +241,10 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
     }
 ```
 
+### General document model output
+
+Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-general-document-output.md).
+
 ## Layout model
 
 Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
@@ -251,71 +255,95 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-layout` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-#### Update the **FormRecognizer** class:
-
-Add the following code to the `FormRecognizer` class. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:
+**Add the following code sample to the `FormRecognizer` class. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```java
-public static void main(String[] args) {
 
-        DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
-            .credential(new AzureKeyCredential(key))
-            .endpoint(endpoint)
-            .buildClient();
+    import com.azure.ai.formrecognizer.*;
+    import com.azure.ai.formrecognizer.models.AnalyzeResult;
+    import com.azure.ai.formrecognizer.models.DocumentLine;
+    import com.azure.ai.formrecognizer.models.AnalyzedDocument;
+    import com.azure.ai.formrecognizer.models.DocumentOperationResult;
+    import com.azure.ai.formrecognizer.models.DocumentWord;
+    import com.azure.ai.formrecognizer.models.DocumentTable;
+    import com.azure.core.credential.AzureKeyCredential;
+    import com.azure.core.util.polling.SyncPoller;
 
-        String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
-        String modelId = "prebuilt-layout";
+    import java.util.List;
+    import java.util.Arrays;
 
-        SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeLayoutResultPoller =
-            client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
+    public class FormRecognizer {
 
-        AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult();
+      // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+      private static final String endpoint = "<your-endpoint>";
+      private static final String key = "<your-key>";
 
-            // pages
-            analyzeLayoutResult.getPages().forEach(documentPage -> {
-                System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
-                    documentPage.getWidth(),
-                    documentPage.getHeight(),
-                    documentPage.getUnit());
+           public static void main(String[] args) {
 
-            // lines
-            documentPage.getLines().forEach(documentLine ->
-                System.out.printf("Line %s is within a bounding box %s.%n",
-                    documentLine.getContent(),
-                    documentLine.getBoundingBox().toString()));
+           // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+            DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+                .credential(new AzureKeyCredential(key))
+                .endpoint(endpoint)
+                .buildClient();
 
-            // words
-            documentPage.getWords().forEach(documentWord ->
-                System.out.printf("Word '%s' has a confidence score of %.2f.%n",
-                    documentWord.getContent(),
-                    documentWord.getConfidence()));
+            String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
+            String modelId = "prebuilt-layout";
 
-            // selection marks
-            documentPage.getSelectionMarks().forEach(documentSelectionMark ->
-                System.out.printf("Selection mark is %s and is within a bounding box %s with confidence %.2f.%n",
-                    documentSelectionMark.getState().toString(),
-                    documentSelectionMark.getBoundingBox().toString(),
-                    documentSelectionMark.getConfidence()));
-        });
+            SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeLayoutResultPoller =
+                client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
 
-        // tables
-        List < DocumentTable > tables = analyzeLayoutResult.getTables();
-        for (int i = 0; i < tables.size(); i++) {
-            DocumentTable documentTable = tables.get(i);
-            System.out.printf("Table %d has %d rows and %d columns.%n", i, documentTable.getRowCount(),
-                documentTable.getColumnCount());
-            documentTable.getCells().forEach(documentTableCell -> {
-                System.out.printf("Cell '%s', has row index %d and column index %d.%n", documentTableCell.getContent(),
-                    documentTableCell.getRowIndex(), documentTableCell.getColumnIndex());
+            AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult();
+
+                // pages
+                analyzeLayoutResult.getPages().forEach(documentPage -> {
+                    System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
+                        documentPage.getWidth(),
+                        documentPage.getHeight(),
+                        documentPage.getUnit());
+
+                // lines
+                documentPage.getLines().forEach(documentLine ->
+                    System.out.printf("Line %s is within a bounding box %s.%n",
+                        documentLine.getContent(),
+                        documentLine.getBoundingBox().toString()));
+
+                // words
+                documentPage.getWords().forEach(documentWord ->
+                    System.out.printf("Word '%s' has a confidence score of %.2f.%n",
+                        documentWord.getContent(),
+                        documentWord.getConfidence()));
+
+                // selection marks
+                documentPage.getSelectionMarks().forEach(documentSelectionMark ->
+                    System.out.printf("Selection mark is %s and is within a bounding box %s with confidence %.2f.%n",
+                        documentSelectionMark.getState().toString(),
+                        documentSelectionMark.getBoundingBox().toString(),
+                        documentSelectionMark.getConfidence()));
             });
-            System.out.println();
+
+            // tables
+            List < DocumentTable > tables = analyzeLayoutResult.getTables();
+            for (int i = 0; i < tables.size(); i++) {
+                DocumentTable documentTable = tables.get(i);
+                System.out.printf("Table %d has %d rows and %d columns.%n", i, documentTable.getRowCount(),
+                    documentTable.getColumnCount());
+                documentTable.getCells().forEach(documentTableCell -> {
+                    System.out.printf("Cell '%s', has row index %d and column index %d.%n", documentTableCell.getContent(),
+                        documentTableCell.getRowIndex(), documentTableCell.getColumnIndex());
+                });
+                System.out.println();
+            }
         }
     }
 ```
 
+### Layout model output
+
+Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-layout-output.md).
+
 ## Prebuilt model
 
-In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
+Analyze and extract common fields from specific document types using a prebuilt model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
 > You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../concept-model-overview.md#model-data-extraction).
@@ -329,157 +357,165 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
-#### Update the **FormRecognizer** class:
-
-Replace the existing FormRecognizer class with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
+**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```java
 
-public class FormRecognizer {
+      import com.azure.ai.formrecognizer.*;
+      import com.azure.ai.formrecognizer.models.AnalyzeResult;
+      import com.azure.ai.formrecognizer.models.DocumentLine;
+      import com.azure.ai.formrecognizer.models.AnalyzedDocument;
+      import com.azure.ai.formrecognizer.models.DocumentOperationResult;
+      import com.azure.ai.formrecognizer.models.DocumentWord;
+      import com.azure.ai.formrecognizer.models.DocumentTable;
+      import com.azure.core.credential.AzureKeyCredential;
+      import com.azure.core.util.polling.SyncPoller;
 
-    static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
-    static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
+      import java.util.List;
+      import java.util.Arrays;
 
-    public static void main(String[] args) {
+      public class FormRecognizer {
 
-        DocumentAnalysisClient documentAnalysisClient = new DocumentAnalysisClientBuilder()
-            .credential(new AzureKeyCredential("{key}"))
-            .endpoint("{endpoint}")
-            .buildClient();
+      // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+      private static final String endpoint = "<your-endpoint>";
+      private static final String key = "<your-key>";
 
-        String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
+      public static void main(final String[] args) throws IOException {
+
+        DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+          .credential(new AzureKeyCredential(key))
+          .endpoint(endpoint)
+          .buildClient();
+
+        String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
         String modelId = "prebuilt-invoice";
 
-        PollerFlux < DocumentOperationResult, AnalyzeResult > analyzeInvoicePoller = client.beginAnalyzeDocumentFromUrl("prebuilt-invoice", invoiceUrl);
+        SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeInvoicePoller = client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
 
-        Mono < AnalyzeResult > analyzeInvoiceResultMono = analyzeInvoicePoller
-            .last()
-            .flatMap(pollResponse - > {
-                if (pollResponse.getStatus().isComplete()) {
-                    System.out.println("Polling completed successfully");
-                    return pollResponse.getFinalResult();
-                } else {
-                    return Mono.error(new RuntimeException("Polling completed unsuccessfully with status:" +
-                        pollResponse.getStatus()));
-                }
-            });
+        AnalyzeResult analyzeInvoiceResult = analyzeInvoicePoller.getFinalResult();
 
-        analyzeInvoiceResultMono.subscribe(analyzeInvoiceResult - > {
-            for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
-                AnalyzedDocument analyzedInvoice = analyzeInvoiceResult.getDocuments().get(i);
-                Map < String, DocumentField > invoiceFields = analyzedInvoice.getFields();
-                System.out.printf("----------- Analyzing invoice  %d -----------%n", i);
-                DocumentField vendorNameField = invoiceFields.get("VendorName");
-                if (vendorNameField != null) {
-                    if (DocumentFieldType.STRING == vendorNameField.getType()) {
-                        String merchantName = vendorNameField.getValueString();
-                        System.out.printf("Vendor Name: %s, confidence: %.2f%n",
-                            merchantName, vendorNameField.getConfidence());
-                    }
-                }
+        for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
+          AnalyzedDocument analyzedInvoice = analyzeInvoiceResult.getDocuments().get(i);
+          Map < String, DocumentField > invoiceFields = analyzedInvoice.getFields();
+          System.out.printf("----------- Analyzing invoice  %d -----------%n", i);
+          System.out.printf("Analyzed document has doc type %s with confidence : %.2f%n.",
+            analyzedInvoice.getDocType(), analyzedInvoice.getConfidence());
 
-                DocumentField vendorAddressField = invoiceFields.get("VendorAddress");
-                if (vendorAddressField != null) {
-                    if (DocumentFieldType.STRING == vendorAddressField.getType()) {
-                        String merchantAddress = vendorAddressField.getValueString();
-                        System.out.printf("Vendor address: %s, confidence: %.2f%n",
-                            merchantAddress, vendorAddressField.getConfidence());
-                    }
-                }
-
-                DocumentField customerNameField = invoiceFields.get("CustomerName");
-                if (customerNameField != null) {
-                    if (DocumentFieldType.STRING == customerNameField.getType()) {
-                        String merchantAddress = customerNameField.getValueString();
-                        System.out.printf("Customer Name: %s, confidence: %.2f%n",
-                            merchantAddress, customerNameField.getConfidence());
-                    }
-                }
-
-                DocumentField customerAddressRecipientField = invoiceFields.get("CustomerAddressRecipient");
-                if (customerAddressRecipientField != null) {
-                    if (DocumentFieldType.STRING == customerAddressRecipientField.getType()) {
-                        String customerAddr = customerAddressRecipientField.getValueString();
-                        System.out.printf("Customer Address Recipient: %s, confidence: %.2f%n",
-                            customerAddr, customerAddressRecipientField.getConfidence());
-                    }
-                }
-
-                DocumentField invoiceIdField = invoiceFields.get("InvoiceId");
-                if (invoiceIdField != null) {
-                    if (DocumentFieldType.STRING == invoiceIdField.getType()) {
-                        String invoiceId = invoiceIdField.getValueString();
-                        System.out.printf("Invoice ID: %s, confidence: %.2f%n",
-                            invoiceId, invoiceIdField.getConfidence());
-                    }
-                }
-
-                DocumentField invoiceDateField = invoiceFields.get("InvoiceDate");
-                if (customerNameField != null) {
-                    if (DocumentFieldType.DATE == invoiceDateField.getType()) {
-                        LocalDate invoiceDate = invoiceDateField.getValueDate();
-                        System.out.printf("Invoice Date: %s, confidence: %.2f%n",
-                            invoiceDate, invoiceDateField.getConfidence());
-                    }
-                }
-
-                DocumentField invoiceTotalField = invoiceFields.get("InvoiceTotal");
-                if (customerAddressRecipientField != null) {
-                    if (DocumentFieldType.FLOAT == invoiceTotalField.getType()) {
-                        Float invoiceTotal = invoiceTotalField.getValueFloat();
-                        System.out.printf("Invoice Total: %.2f, confidence: %.2f%n",
-                            invoiceTotal, invoiceTotalField.getConfidence());
-                    }
-                }
-
-                DocumentField invoiceItemsField = invoiceFields.get("Items");
-                if (invoiceItemsField != null) {
-                    System.out.printf("Invoice Items: %n");
-                    if (DocumentFieldType.LIST == invoiceItemsField.getType()) {
-                        List < DocumentField > invoiceItems = invoiceItemsField.getValueList();
-                        invoiceItems.stream()
-                            .filter(invoiceItem - > DocumentFieldType.MAP == invoiceItem.getType())
-                            .map(formField - > formField.getValueMap())
-                            .forEach(formFieldMap - > formFieldMap.forEach((key, formField) - > {
-                                // See a full list of fields found on an invoice here:
-                                // https://aka.ms/formrecognizer/invoicefields
-                                if ("Description".equals(key)) {
-                                    if (DocumentFieldType.STRING == formField.getType()) {
-                                        String name = formField.getValueString();
-                                        System.out.printf("Description: %s, confidence: %.2fs%n",
-                                            name, formField.getConfidence());
-                                    }
-                                }
-                                if ("Quantity".equals(key)) {
-                                    if (DocumentFieldType.FLOAT == formField.getType()) {
-                                        Float quantity = formField.getValueFloat();
-                                        System.out.printf("Quantity: %f, confidence: %.2f%n",
-                                            quantity, formField.getConfidence());
-                                    }
-                                }
-                                if ("UnitPrice".equals(key)) {
-                                    if (DocumentFieldType.FLOAT == formField.getType()) {
-                                        Float unitPrice = formField.getValueFloat();
-                                        System.out.printf("Unit Price: %f, confidence: %.2f%n",
-                                            unitPrice, formField.getConfidence());
-                                    }
-                                }
-                                if ("ProductCode".equals(key)) {
-                                    if (DocumentFieldType.FLOAT == formField.getType()) {
-                                        Float productCode = formField.getValueFloat();
-                                        System.out.printf("Product Code: %f, confidence: %.2f%n",
-                                            productCode, formField.getConfidence());
-                                    }
-                                }
-                            }));
-                    }
-                }
+          DocumentField vendorNameField = invoiceFields.get("VendorName");
+          if (vendorNameField != null) {
+            if (DocumentFieldType.STRING == vendorNameField.getType()) {
+              String merchantName = vendorNameField.getValueString();
+              Float confidence = vendorNameField.getConfidence();
+              System.out.printf("Vendor Name: %s, confidence: %.2f%n",
+                merchantName, vendorNameField.getConfidence());
             }
-        });
+          }
+
+          DocumentField vendorAddressField = invoiceFields.get("VendorAddress");
+          if (vendorAddressField != null) {
+            if (DocumentFieldType.STRING == vendorAddressField.getType()) {
+              String merchantAddress = vendorAddressField.getValueString();
+              System.out.printf("Vendor address: %s, confidence: %.2f%n",
+                merchantAddress, vendorAddressField.getConfidence());
+            }
+          }
+
+          DocumentField customerNameField = invoiceFields.get("CustomerName");
+          if (customerNameField != null) {
+            if (DocumentFieldType.STRING == customerNameField.getType()) {
+              String merchantAddress = customerNameField.getValueString();
+              System.out.printf("Customer Name: %s, confidence: %.2f%n",
+                merchantAddress, customerNameField.getConfidence());
+            }
+          }
+
+          DocumentField customerAddressRecipientField = invoiceFields.get("CustomerAddressRecipient");
+          if (customerAddressRecipientField != null) {
+            if (DocumentFieldType.STRING == customerAddressRecipientField.getType()) {
+              String customerAddr = customerAddressRecipientField.getValueString();
+              System.out.printf("Customer Address Recipient: %s, confidence: %.2f%n",
+                customerAddr, customerAddressRecipientField.getConfidence());
+            }
+          }
+
+          DocumentField invoiceIdField = invoiceFields.get("InvoiceId");
+          if (invoiceIdField != null) {
+            if (DocumentFieldType.STRING == invoiceIdField.getType()) {
+              String invoiceId = invoiceIdField.getValueString();
+              System.out.printf("Invoice ID: %s, confidence: %.2f%n",
+                invoiceId, invoiceIdField.getConfidence());
+            }
+          }
+
+          DocumentField invoiceDateField = invoiceFields.get("InvoiceDate");
+          if (customerNameField != null) {
+            if (DocumentFieldType.DATE == invoiceDateField.getType()) {
+              LocalDate invoiceDate = invoiceDateField.getValueDate();
+              System.out.printf("Invoice Date: %s, confidence: %.2f%n",
+                invoiceDate, invoiceDateField.getConfidence());
+            }
+          }
+
+          DocumentField invoiceTotalField = invoiceFields.get("InvoiceTotal");
+          if (customerAddressRecipientField != null) {
+            if (DocumentFieldType.FLOAT == invoiceTotalField.getType()) {
+              Float invoiceTotal = invoiceTotalField.getValueFloat();
+              System.out.printf("Invoice Total: %.2f, confidence: %.2f%n",
+                invoiceTotal, invoiceTotalField.getConfidence());
+            }
+          }
+
+          DocumentField invoiceItemsField = invoiceFields.get("Items");
+          if (invoiceItemsField != null) {
+            System.out.printf("Invoice Items: %n");
+            if (DocumentFieldType.LIST == invoiceItemsField.getType()) {
+              List < DocumentField > invoiceItems = invoiceItemsField.getValueList();
+              invoiceItems.stream()
+                .filter(invoiceItem -> DocumentFieldType.MAP == invoiceItem.getType())
+                .map(formField -> formField.getValueMap())
+                .forEach(formFieldMap -> formFieldMap.forEach((key, formField) -> {
+                  // See a full list of fields found on an invoice here:
+                  // https://aka.ms/formrecognizer/invoicefields
+                  if ("Description".equals(key)) {
+                    if (DocumentFieldType.STRING == formField.getType()) {
+                      String name = formField.getValueString();
+                      System.out.printf("Description: %s, confidence: %.2fs%n",
+                        name, formField.getConfidence());
+                    }
+                  }
+                  if ("Quantity".equals(key)) {
+                    if (DocumentFieldType.FLOAT == formField.getType()) {
+                      Float quantity = formField.getValueFloat();
+                      System.out.printf("Quantity: %f, confidence: %.2f%n",
+                        quantity, formField.getConfidence());
+                    }
+                  }
+                  if ("UnitPrice".equals(key)) {
+                    if (DocumentFieldType.FLOAT == formField.getType()) {
+                      Float unitPrice = formField.getValueFloat();
+                      System.out.printf("Unit Price: %f, confidence: %.2f%n",
+                        unitPrice, formField.getConfidence());
+                    }
+                  }
+                  if ("ProductCode".equals(key)) {
+                    if (DocumentFieldType.FLOAT == formField.getType()) {
+                      Float productCode = formField.getValueFloat();
+                      System.out.printf("Product Code: %f, confidence: %.2f%n",
+                        productCode, formField.getConfidence());
+                    }
+                  }
+                }));
+             }
+          }
+        }
+      }
     }
-}
 
 ```
+
+### Prebuilt model output
+
+Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/FormRecognizer)
 
 ## Build and run your application
 

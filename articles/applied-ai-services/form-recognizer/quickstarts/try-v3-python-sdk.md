@@ -65,7 +65,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 1. Create a new Python file called **form_recognizer_quickstart.py** in your preferred editor or IDE.
 
-1. Open the **form_recognizer_quickstart.py** file and select one of the following code samples to copy and pasted into your application:
+1. Open the **form_recognizer_quickstart.py** file and select one of the following code samples to copy and paste into your application:
 
 * [**General document**](#general-document-model)
 
@@ -225,7 +225,7 @@ if __name__ == "__main__":
 
 ### General document model output
 
-Visit the Azure samples repository on GitHub to  view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-general-document-output.md)
+Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-general-document-output.md)
 
 ___
 
