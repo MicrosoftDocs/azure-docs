@@ -89,7 +89,7 @@ To take advantage of this flow, your application can use an authentication libra
 
 ### Implicit grant flow
 
-Some libraries, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow or your applications is implemented to use implicit flow. In these cases, Azure AD B2C supports the [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow doesn't return a **Refresh token**. 
+Some libraries, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow or your application is implemented to use implicit flow. In these cases, Azure AD B2C supports the [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow doesn't return a **Refresh token**. 
 
 This authentication flow doesn't include application scenarios that use cross-platform JavaScript frameworks such as Electron and React-Native. Those scenarios require further capabilities for interaction with the native platforms.
 
@@ -135,7 +135,7 @@ In this flow, the application executes [policies](user-flow-overview.md) and rec
 
 #### Daemons/server-side applications
 
-Applications that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These applications can authenticate and get tokens by using the application's identity (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow. Client credential flow isn't the same as on-behalf-flow and on-behalf-flow shouldn't be used for server-to-server authentication.
+Applications that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These applications can authenticate and get tokens by using their identities (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow. Client credential flow isn't the same as on-behalf-flow and on-behalf-flow shouldn't be used for server-to-server authentication.
 
 Although the OAuth 2.0 client credentials grant flow isn't currently directly supported by the Azure AD B2C authentication service, you can set up client credential flow using Azure AD and the Microsoft identity platform /token (https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token) endpoint for an application in your Azure AD B2C tenant. An Azure AD B2C tenant shares some functionality with Azure AD enterprise tenants.
 
