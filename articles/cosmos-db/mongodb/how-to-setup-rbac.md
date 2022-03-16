@@ -203,6 +203,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 - Azure AD group resolution is not currently supported for identities that belong to more than 200 groups.
 - The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
 - listCollections, listDatabases, killCursors are excluded from RBAC in the preview.
+- Backup/Restore and Synapse link are not supported in the preview``
 
 ## Frequently asked questions
 
