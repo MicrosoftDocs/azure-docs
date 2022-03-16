@@ -13,7 +13,7 @@ ms.date: 03/02/2022
 Azure Stream Analytics currently allows you to use managed identities for Azure resources.
 A common challenge when building cloud applications is credential management in your code to authenticate cloud services. Keeping the credentials secure is an important task. The credentials shouldn't be stored in developer workstations or checked into source control. Azure Key Vault provides a way to store credentials, secrets securely, and other keys, but your code must authenticate to Key Vault to retrieve them. 
 
-The Azure Active Directory (Azure AD) managed identities for Azure resources feature solves this problem. The feature provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code. See [managed identities for Azure resources overview page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for more information about this service.
+The Azure Active Directory (Azure AD) managed identities for Azure resources feature solves this problem. The feature provides Azure services with an automatically managed identity in Azure AD. This allows you to assign an identity to your Stream Analytics job which can then authenticate to any input or outputs that supports Azure AD authentication, without any credentials. See [managed identities for Azure resources overview page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for more information about this service.
 
 Here are some of the benefits of using Managed identities:
 
