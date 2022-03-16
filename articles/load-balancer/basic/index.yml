@@ -4,7 +4,7 @@ title: Basic Azure Load Balancer documentation
 summary: Documentation for the basic SKU of Azure Load Balancer.
 
 metadata:
-  title: Basic Load Balancer
+  title: Basic Azure Load Balancer documentation
   description: Documentation for the basic SKU of Azure Load Balancer.
   services: load-balancer
   ms.service: load-balancer
