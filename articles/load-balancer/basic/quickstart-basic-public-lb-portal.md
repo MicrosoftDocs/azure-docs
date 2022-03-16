@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a basic public load balancer - Azure portal'
 titleSuffix: Azure Load Balancer
-description: Learn how to create a basic SKU public Azure Load Balancer in this quickstart. 
+description: Learn how to create a public basic SKU Azure Load Balancer in this quickstart. 
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
@@ -287,7 +287,7 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 In this quickstart, you:
 
-* Created an basic public load balancer.
+* Created a basic public load balancer.
 * Attached 2 VMs to the load balancer.
 * Tested the load balancer.
 
