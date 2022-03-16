@@ -97,11 +97,7 @@ This workbook supports multiple filters:
 
 - Many email protocols that once relied on legacy authentication now support more secure modern authentication methods. If you see legacy email authentication protocols in this workbook, consider migrating to modern authentication for email instead. For more information, see [Deprecation of Basic authentication in Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online).
 
-- **[Enable risky sign-in policies](../identity-protection/concept-identity-protection-policies.md)** - To prompt for multi-factor authentication (MFA) on medium risk or above. Enabling the policy reduces the proportion of active real-time risk detections by allowing legitimate users to self-remediate the risk detections with MFA.
-
-
-
-
+- Some clients can use both legacy authentication or modern authentication depending on client configuration. If you see “modern mobile/desktop client” or “browser” for a client in the Azure AD logs, it is using modern authentication. If it has a specific client or protocol name, such as “Exchange ActiveSync”, it is using legacy authentication to connect to Azure AD. The client types in conditional access, and the Azure AD reporting page in the Azure Portal demarcate modern authentication clients and legacy authentication clients for you, and only legacy authentication is captured in this workbook. 
 
 
 ## Next steps
