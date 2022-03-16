@@ -180,10 +180,10 @@ SMTP relay lets Microsoft 365 relay emails on your behalf by using a connector t
 
 1. Obtain the public (static) IP address of the endpoint which will be sending the mail using one of the methods listed in the [article](/azure/load-balancer/load-balancer-outbound-connections) above. A dynamic IP address isn\'t supported or allowed. You can share your static IP address with other devices and users, but don't share the IP address with anyone outside of your company. Make a note of this IP address for later.
 
-> [!NOTE]
-> Find this information on the Azure portal using the Virtual Machine overview of the SAP application server.
-
    :::image type="content" source="media/exchange-online-integration/azure-portal-pip-sec-3-1.png" alt-text="Where to retrieve the public ip on the Azure Portal":::
+
+> [!NOTE]
+> Find above information on the Azure portal using the Virtual Machine overview of the SAP application server.
 
 2. Sign in to the [Microsoft 365 Admin Center](https://admin.microsoft.com/).
 
@@ -241,15 +241,15 @@ SMTP relay lets Microsoft 365 relay emails on your behalf by using a connector t
 2. Go to SCOT transaction in SMTP node as shown in previous steps of Option 1.
 3. Add mail Host as Mail Exchanger (MX) record value noted in Step 4 (i.e. yourdomain.mail.protection.outlook.com).
 
+:::image type="content" source="media/exchange-online-integration/scot-smtp-connection-relay-sec-3-3.png" alt-text="SMTP config in SCOT":::
+
 Mail host: yourdomain.mail.protection.outlook.com
 
 Port: 25
 
-:::image type="content" source="media/exchange-online-integration/scot-smtp-connection-relay-sec-3-3.png" alt-text="SMTP config in SCOT":::
-
 4. Click "Settings" next to the Security field and make sure TLS is enabled if possible. Also make sure no prior logon data regarding SMTP AUTH is present. Otherwise delete existing records with the corresponding button underneath.
 
-:::image type="content" source="media/exchange-online-integration/scot-smtp-connection-relay-tls-sec-3-4.png" alt-text="SMTP security config in SCOT":::
+   :::image type="content" source="media/exchange-online-integration/scot-smtp-connection-relay-tls-sec-3-4.png" alt-text="SMTP security config in SCOT":::
 
 5. Test the configuration using a test email from your SAP application with transaction SBWP and check the status in SOST transaction.
 
