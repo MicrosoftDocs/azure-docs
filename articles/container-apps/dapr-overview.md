@@ -10,18 +10,17 @@ ms.date: 03/10/2022
 
 # Dapr integration with Azure Container Apps
 
-With Azure Container Apps, you get a fully managed version of [Dapr][dapr-concepts] (Distributed Application Runtime) APIs that simplify microservice development and implementation. Dapr is an incrementally adoptable set of APIs that makes it easy for you to write distributed applications. When you use Dapr in Azure Container Apps, using the sidecar pattern, Dapr provides HTTP and gRPC APIs that solve common distributed app challenges, such as:
+Distributed Application Runtime ([Dapr][dapr-concepts]) is a portable, efficient, event-driven runtime that consists of open, independent HTTP or gRPC APIs, called building blocks. Dapr exposes these APIs as a sidecar, running as a separate process alongside your application.
 
-- [Service to Service calls][dapr-serviceinvo] 
-    - mTLS authentication / encryption
-    - Resiliency / retries
-    - Service discovery
-- [Pub/Sub][dapr-pubsub]
-- [Event Bindings][dapr-bindings]
-- [State Stores][dapr-statemgmt]
+Dapr is an incrementally adoptable set of APIs that makes it easy for you to write distributed applications. Dapr's sidecar architecture helps you build simple, portable, resilient, and secured microservices that embrace the diversity of languages and developer frameworks.
+
+With Dapr in Azure Container Apps, you get a fully managed version of the Dapr APIs. Dapr's HTTP and gRPC APIs address the common complexities developers regularly encounter when building and implementing distributed applications, such as:
+
+- Inter-service communication, like [direct service-to-service invocation][dapr-serviceinvo] or [pub/sub messaging][dapr-pubsub]
+- Input and output [event binding][dapr-bindings]
+- [State stores][dapr-statemgmt]
 - [Actors][dapr-actors]
 
-These APIs provide generic abstractions over popular industry technologies, which ensures app code is decoupled from the technologies you choose.
 
 To learn how to deploy Dapr to Container Apps, see [Build microservices with Dapr][dapr-quickstart].
 
@@ -31,38 +30,22 @@ Currently, Azure Container Apps supports Dapr version 1.4.2.
 
 ## Supported Dapr capabilities and features
 
-Azure Container Apps offers a fully managed version of the Dapr APIs. With Dapr for Container Apps, you enable Dapr sidecars to run next to your application instances.
+With Dapr for Container Apps, you can enable the following Dapr sidecars to run next to your application instances.
 
 ### Service-to-service invocation
 
-Dapr addresses challenges around encryption, resiliency, service discovery, and more by:
-- Providing a service invocation API that acts as a combination of a reverse proxy with built-in service discovery.
-- Leveraging built-in distributed tracing, metrics, error handling, encryption, and more.
+Dapr addresses challenges around encryption, resiliency, service discovery, and more with their service invocation building block.
 
 :::image type="content" source="./media/dapr-overview/service-invocation.png" alt-text="Service-to-service invocation diagram" :::
 
-#### mTLS authentication / encryption
+| Capability | Description |
+| ---------- | ----------- |
+| mTLS authentication | Calls between Dapr sidecars are secured with an "on-by-default" mTLS on hosted platforms, including automatic certificate rollover, via the Dapr Sentry service. |
+| Resiliency | Dapr service invocation performs automatic retries with back-off time periods with network and authentication errors. |
+| Service discovery | Dapr uses pluggable [name resolution components][dapr-pluggable] to enable service discovery and service invocation.
+ |
 
-One of the security mechanisms that Dapr employs for encrypting data in transit is mutual authentication TLS (mTLS). Calls between Dapr sidecars are secured with an "on-by-default" mTLS on hosted platforms, including automatic certificate rollover, via the Dapr Sentry service. 
-
-Dapr enables mTLS with no extra code or complex configuration inside your production systems. With Dapr, operators and developers can either:
-- Bring in their own certificates, or 
-- Let Dapr automatically create and persist self-signed root and issuer certificates. 
-
-#### Resiliency / retries
-
-Dapr service invocation performs automatic retries with back-off time periods with errors like: 
-
-- Network errors, including endpoint unavailability and refused connections.
-- Authentication errors, due to a renewing certificate on the calling/callee Dapr sidecars.
-
-Per-call retries are performed with a back-off interval of one second up to a threshold of three times. Connection establishment via gRPC to the target sidecar has a timeout of five seconds.
-
-#### Service discovery
-
-Dapr can run on various hosting platforms. To enable service discovery and service invocation, Dapr uses pluggable [name resolution components][dapr-pluggable].
-
-[Learn more about Dapr's Service Invocation capabilities.][dapr-serviceinvo]
+[Learn more about Dapr's service invocation capabilities.][dapr-serviceinvo]
 
 ### State management
 
@@ -72,36 +55,31 @@ Dapr integrates with existing databases to provide apps with state management ca
 - Transactions 
 - Configuration of multiple, named, state store components per application. 
 
-A state store in Dapr is described using a Component file.
-
 :::image type="content" source="./media/dapr-overview/state-management.png" alt-text="State management diagram" :::
 
-[Learn more about Dapr's State Management capabilities.][dapr-statemgmt]
+[Learn more about Dapr's state management capabilities.][dapr-statemgmt]
 
 ### Pub/sub broker
 
-Dapr's Pub/sub pattern allows publisher and subscriber microservices to communicate with each other. 
+Dapr's Pub/sub pattern allows publisher and subscriber microservices to communicate with each other while remaining decoupled. An intermediary message broker copies each message from an input channel to an output channel for all subscribers interested in that message. 
 
-- The publisher writes messages to an input channel and sends them to a topic.
-- The subscriber subscribes to the topic to receive its messages from an output channel. 
-
-An intermediary message broker copies each message from an input channel to an output channel for all subscribers interested in that message. This pattern is especially useful when you need to decouple microservices from one another.
-
-[Learn more about Dapr's Pub/sub capabilities.][dapr-pubsub]
+[Learn more about Dapr's pub/sub capabilities.][dapr-pubsub]
 
 :::image type="content" source="./media/dapr-overview/pubsub.png" alt-text="Pub/sub broker diagram" :::
 
 ### Bindings
 
+With Dapr's input and output bindings, you can trigger your application with incoming or outgoing events, without taking dependencies from SDKs or libraries.
+
 ### Actors
+
+Write your Dapr actors according to the Actor model while Dapr leverages the scalability and reliability that the underlying platform provides.
 
 ## Semi-supported Dapr capabilities
 
 ### Observability
 
-Dapr's sidecar architecture enables built-in observability features. As services communicate, Dapr sidecars intercept the traffic and extract tracing, metrics, and logging information. Telemetry is published in an open standards format. By default, Dapr supports OpenTelemetry and Zipkin.
-
-With the OpenTelemetry collector, you can then configure Azure Application Insights for distributed tracing across your services.
+Dapr's sidecar architecture enables built-in observability features. By default, Dapr supports OpenTelemetry and Zipkin. With the OpenTelemetry collector, you can then configure Azure Application Insights for distributed tracing across your services.
 
 :::image type="content" source="./media/dapr-overview/observability.png" alt-text="Observability diagram" :::
 
