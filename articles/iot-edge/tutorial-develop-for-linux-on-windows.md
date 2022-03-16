@@ -17,7 +17,7 @@ ms.custom: mvc
 
 Use Visual Studio 2019 to develop, debug and deploy code to devices running IoT Edge for Linux on Windows.
 
-In the quickstart, you created an IoT Edge device and deployed a module from the Azure Marketplace. This tutorial walks through developing, debugging and deploying your own code to an IoT Edge device using IoT Edge for Linux on Windows. This article is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
+This tutorial walks through developing, debugging and deploying your own code to an IoT Edge device using IoT Edge for Linux on Windows. This article is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
 
 This tutorial uses the example of deploying a **C# module to a Linux device**. This example was chosen because it's the most common developer scenario for IoT Edge solutions. Even if you plan on using a different language or deploying an Azure service, this tutorial is still useful to learn about the development tools and concepts. Complete this introduction to the development process, then choose your preferred language or Azure service to dive into the details.
 
@@ -92,11 +92,11 @@ The first step is to configure docker-cli on the Windows development machine to 
 1. Download the precompiled **docker.exe** version of the docker-cli from [docker-cli Chocolatey](https://download.docker.com/win/static/stable/x86_64/docker-20.10.12.zip). You can also download the official **cli** project from [docker/cli GitHub](https://github.com/docker/cli) and compile it following the repo instructions.
 2. Extract the **docker.exe** to a directory in your development machine. For example, _C:\Docker\bin_
 3. Open **About your PC** -> **System Info** -> **Advanced system settings**
-4. Select **Advanced** -> **Environment variables** -> **Path**
+4. Select **Advanced** -> **Environment variables** -> Under **User variables** check **Path**
 5. Edit the **Path** variable and add the location of the **docker.exe**
 6. Open an elevated PowerShell session
 7. Check that Docker CLI is accessible using the command
-   ```powerhsell
+   ```powershell
    docker --version
    ```
 If everything was successfully configurated, the previous command should output the docker version, something like _Docker version 20.10.12, build e91ed57_. 
@@ -106,50 +106,106 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
 >[!WARNING]
 >Exposing Docker engine to external connections may increase security risks. This configuration should only be used for development purposes. Make sure to revert the configuration to default settings after development is finished.
 
-1. Open an elevated PowerShell session.
-2. Add the appropriate firewall to open Docker 2375 port inside the EFLOW VM.
-   ```powershell
-   Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 2375 -j ACCEPT"
-   ```
-3. Create a copy of the EFLOW VM _docker.service_ in the system folder.
-   ```powershell
-   Invoke-EflowVmCommand "sudo cp /lib/systemd/system/docker.service /etc/systemd/system/docker.service"
-   ```
-4. Replace the service execution line to listen for external connections.
-   ```powershell
-   Invoke-EflowVmCommand "sudo sed -i 's/-H fd:\/\// -H fd:\/\/ -H tcp:\/\/0.0.0.0:2375/g'  /etc/systemd/system/docker.service"
-   ```
-5. Reload the EFLOW VM services configurations.
-   ```powershell
-   Invoke-EflowVmCommand "sudo systemctl daemon-reload"
-   ```
-6. Reload the Docker engine service.
+1. Open an elevated PowerShell session and run the following commands
+
     ```powershell
+   # Configure the EFLOW virtual machine Docker engine to accept external connections, and add the appropriate firewall rules.
+   Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 2375 -j ACCEPT"
+
+   # Create a copy of the EFLOW VM _docker.service_ in the system folder.
+   Invoke-EflowVmCommand "sudo cp /lib/systemd/system/docker.service /etc/systemd/system/docker.service"
+
+   # Replace the service execution line to listen for external connections.
+   Invoke-EflowVmCommand "sudo sed -i 's/-H fd:\/\// -H fd:\/\/ -H tcp:\/\/0.0.0.0:2375/g'  /etc/systemd/system/docker.service"
+
+   # Reload the EFLOW VM services configurations.
+   Invoke-EflowVmCommand "sudo systemctl daemon-reload"
+
+   # Reload the Docker engine service.
    Invoke-EflowVmCommand "sudo systemctl restart docker.service"
-   ```
-7. Check that the Docker engine is listening to external connections.
-   ```powershell
+
+   # Check that the Docker engine is listening to external connections.
    Invoke-EflowVmCommand "sudo netstat -lntp | grep dockerd"
+    ```
+
+   The following is example output.
+
+   ```output
+   PS C:\> # Configure the EFLOW virtual machine Docker engine to accept external connections, and add the appropriate firewall rules.
+   PS C:\> Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 2375 -j ACCEPT"
+   PS C:\>
+   PS C:\> # Create a copy of the EFLOW VM docker.service in the system folder.
+   PS C:\> Invoke-EflowVmCommand "sudo cp /lib/systemd/system/docker.service /etc/systemd/system/docker.service"
+   PS C:\>
+   PS C:\> # Replace the service execution line to listen for external connections.
+   PS C:\> Invoke-EflowVmCommand "sudo sed -i 's/-H fd:\/\// -H fd:\/\/ -H tcp:\/\/0.0.0.0:2375/g' /etc/systemd/system/docker.service"
+   PS C:\>
+   PS C:\> # Reload the EFLOW VM services configurations.
+   PS C:\> Invoke-EflowVmCommand "sudo systemctl daemon-reload"
+   PS C:\>
+   PS C:\> # Reload the Docker engine service.
+   PS C:\> Invoke-EflowVmCommand "sudo systemctl restart docker.service"
+   PS C:\>
+   PS C:\> # Check that the Docker engine is listening to external connections.
+   PS C:\> Invoke-EflowVmCommand "sudo netstat -lntp | grep dockerd"
+   tcp6       0      0 :::2375                 :::*                    LISTEN      2790/dockerd
    ```
 
-If everything was successfully configurated, the previous command should output the dockerd service network status. Should be something like:  `tcp6       0      0 :::2375                 :::*                    LISTEN      3752/dockerd`.
 
-The final step is to test the Docker connection to the EFLOW VM Docker engine. 
 
-1. Open an elevated PowerShell session.
-2. Get the EFLOW VM IP address.
+1. The final step is to test the Docker connection to the EFLOW VM Docker engine. First, you will need the EFLOW VM IP address.
    ```powershell
    Get-EflowVmAddr
    ```
    >[!TIP]
    >If the EFLOW VM was deployed without Static IP, the IP address may change across Windows host OS reboots or networking changes. Make sure you are using the correct EFLOW VM IP address every time you want to establish a remote Docker engine connection. 
 
+   The following is example output.
 
-3. Using the obtained IP address, connect to the EFLOW VM Docker engine, and run the Hello-World sample container.
-   ```powershell
-   docker -H tcp://eflow-vm-ip:2375 run --rm hello-world
+   ```output
+   PS C:\> Get-EflowVmAddr
+   [03/15/2022 15:22:30] Querying IP and MAC addresses from virtual machine (DESKTOP-J1842A1-EFLOW)
+    - Virtual machine MAC: 00:15:5d:6f:da:78
+    - Virtual machine IP : 172.31.24.105 retrieved directly from virtual machine
+   00:15:5d:6f:da:78
+   172.31.24.105 
    ```
-You should see that the container is being downloaded, and after will run and output: _"Hello from Docker!"_.
+
+1. Using the obtained IP address, connect to the EFLOW VM Docker engine, and run the Hello-World sample container.Replace <EFLOW-VM-IP> with the EFLOW VM IP address obtained in the previous step.
+   ```powershell
+   docker -H tcp://<EFLOW-VM-IP>:2375 run --rm hello-world
+   ```
+You should see that the container is being downloaded, and after will run and output the following.
+
+    ```output
+    PS C:\> docker -H tcp://172.31.24.105:2375 run --rm hello-world
+    Unable to find image 'hello-world:latest' locally
+    latest: Pulling from library/hello-world
+    2db29710123e: Pull complete
+    Digest: sha256:4c5f3db4f8a54eb1e017c385f683a2de6e06f75be442dc32698c9bbe6c861edd
+    Status: Downloaded newer image for hello-world:latest
+    
+    Hello from Docker!
+    This message shows that your installation appears to be working correctly.
+    
+    To generate this message, Docker took the following steps:
+     1. The Docker client contacted the Docker daemon.
+     2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+        (amd64)
+     3. The Docker daemon created a new container from that image which runs the
+        executable that produces the output you are currently reading.
+     4. The Docker daemon streamed that output to the Docker client, which sent it
+        to your terminal.
+    
+    To try something more ambitious, you can run an Ubuntu container with:
+     $ docker run -it ubuntu bash
+    
+    Share images, automate workflows, and more with a free Docker ID:
+     https://hub.docker.com/
+    
+    For more examples and ideas, visit:
+     https://docs.docker.com/get-started/
+    ```
 
 ## Create an Azure IoT Edge project
 
