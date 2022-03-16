@@ -57,9 +57,9 @@ The sign-ins using legacy authentication workbook lets you see all legacy authen
 
 ## Sections
 
-With this workbook, you can distinguish between interactive and non-interactive sign-ins. This workbooks highlights which legacy authentication protocols are used throughout your tenant. 
+With this workbook, you can distinguish between interactive and non-interactive sign-ins. This workbook highlights which legacy authentication protocols are used throughout your tenant. 
 
-Gathering the required information, consists of three steps:
+The data collection consists of three steps:
 
 1. Select a legacy authentication protocol, and then select an application to filter by users accessing that application.
 
