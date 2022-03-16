@@ -41,7 +41,7 @@ The REST API lets you create organizations in your IoT Central application. Use 
 PUT https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.1-preview
 ```
 
-* organizationId - Unique Id of the organization
+* organizationId - Unique ID of the organization
 
 The following example shows a request body that adds an organization to a IoT Central application.  
 
@@ -59,7 +59,7 @@ The request body has some optional fields:
 
 * `@parent`:  ID of the parent of the organization.
 
- If you don't specify a parent, then the organization gets the default top-level organization as it's parent.
+ If you don't specify a parent, then the organization gets the default top-level organization as its parent.
 
 The response to this request looks like the following example:
 
@@ -95,7 +95,7 @@ The response to this request looks like the following example:
 
 ### Get an organization
 
-Use the following request to retrieve details of a individual organization from your application:
+Use the following request to retrieve details of an individual organization from your application:
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.1-preview
