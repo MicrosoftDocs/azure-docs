@@ -108,8 +108,9 @@ When your Azure DevOps is not in the same tenant as the Synapse workspace, you c
 
     ![Choose the directory ](media/cross-tenant-aad.png)
 
-> [!NOTE]
-> To login the workspace, you need to use the first sign-in to log into to your Synapse workspace user account. Your cross tenant Azure DevOps account is only used for signing into and getting access to the Azure DevOps repo associated with this Synapse workspace.
+    > [!NOTE]
+    > To login the workspace, you need to use the first sign-in to log into to your Synapse workspace user account. Your cross tenant Azure DevOps account is only used for signing into and getting access to the Azure DevOps repo associated with this Synapse workspace.
+
 
 ## Connect with GitHub 
 
