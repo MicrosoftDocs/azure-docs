@@ -491,6 +491,20 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. Restart the top-level parent Edge device first, make sure it's up and running
 1. Restart each device in hierarchy level by level from top to the bottom
 
+## Security daemon couldn't start successfully
+
+**Observed behavior:**
+
+The security daemon failed to start and module containers aren't being created. The edgeAgent, edgeHub and other custom modules aren't being started by IoT Edge service.
+
+**Root cause:**
+
+The URLs in the configuration file need to be up to date. For example, if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, the `iotedge` user won't be able to write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself. 
+
+**Resolution:**
+
+Make sure you update the URLs in the configuration file to ensure the `iotedge` user can write to `/var/run/iotedge`.
+
 :::moniker-end
 <!-- end 1.2 -->
 
