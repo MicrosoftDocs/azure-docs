@@ -151,4 +151,4 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -DiffDiskPlacement ResourceDisk 
 ```
 
 ## Next steps
-For more information on Ephemeral OS disk, [click here](ephemeral-os-disks.md).
+For more information on [Ephemeral OS disk](ephemeral-os-disks.md).

@@ -72,7 +72,7 @@ With this feature, when a Windows VM is provisioned, we configure the pagefile t
 - OS Disk Swap 
 
  ## Trusted Launch for Ephemeral OS disks (Preview)
-Ephemeral OS disks can be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [here](trusted-launch.md#limitations) for supported sizes and regions.
+Ephemeral OS disks can be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [limitations of trusted launch](trusted-launch.md#limitations) for supported sizes and regions.
 VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
 For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) using temp disk placement you would get an error as 
@@ -84,7 +84,7 @@ For the same example above if you create a standard Ephemeral OS disk VM you wou
 > 
 > While using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after VM creation may not be persisted for operations like reimaging and platform events like service healing.
 > 
-For further information on how to deploy a trusted launch VM, click [here](trusted-launch-portal.md)
+For more information on [how to deploy a trusted launch VM](trusted-launch-portal.md)
 
 ## Frequently asked questions
 
@@ -151,4 +151,4 @@ A: Yes, you can create VMs with Ephemeral OS Disk using REST, Templates, PowerSh
 > 
  
 ## Next steps
-You can create a VM with an ephemeral OS disk using the [Azure Portal/CLI/Powershell/ARM template](ephemeral-os-disks-deploy.md).
+Create a VM with ephemeral OS disk using [Azure Portal/CLI/Powershell/ARM template](ephemeral-os-disks-deploy.md).
