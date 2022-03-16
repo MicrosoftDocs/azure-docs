@@ -3,7 +3,7 @@ title: Azure Virtual Desktop user connection latency - Azure
 description: Connection latency for Azure Virtual Desktop users.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/14/2022
+ms.date: 03/16/2022
 ms.author: helohr
 manager: femila
 ---
@@ -26,7 +26,7 @@ If you're already using [Azure Log Analytics](diagnostics-log-analytics.md), you
 
 To start collecting this data, you’ll need to make sure you have diagnostics and the **NetworkData** table enabled in your Azure Virtual Desktop host pools.
 
-To check and modify your diagnostics settings in the Azure Portal:
+To check and modify your diagnostics settings in the Azure portal:
 
 1. Sign in to the Azure portal, then go to **Azure Virtual Desktop** and select **Host pools**.
 
@@ -42,7 +42,7 @@ To check and modify your diagnostics settings in the Azure Portal:
 
 7. Repeat this process for all other host pools you want to measure.
 
-8. Make sure the network data is going to your selected destination by returning to the host pool's resource page, selecting **Logs**, then running one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who've been connecting to sessions. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
+8. Make sure the network data is going to your selected destination by returning to the host pool's resource page, selecting **Logs**, then running one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who have been connecting to sessions. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
 
 ### Connection network data
 
