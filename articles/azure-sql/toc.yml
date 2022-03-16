@@ -30,16 +30,6 @@
       href: database/features-comparison.md
     - name: Multi-model features
       href: multi-model-features.md
-    - name: Scheduled maintenance
-      items:
-      - name: Maintenance window
-        href: database/maintenance-window.md
-      - name: Configure maintenance window
-        href: database/maintenance-window-configure.md
-      - name: Maintenance window FAQ
-        href: database/maintenance-window-faq.yml
-      - name: Advance notifications
-        href: database/advance-notifications.md
     - name: In-memory OLTP
       href: in-memory-oltp-overview.md
     - name: Temporal tables
@@ -50,6 +40,16 @@
       href: database/read-scale-out.md
     - name: Distributed transactions
       href: database/elastic-transactions-overview.md
+    - name: Scheduled maintenance
+      items:
+      - name: Maintenance window
+        href: database/maintenance-window.md
+      - name: Configure maintenance window
+        href: database/maintenance-window-configure.md
+      - name: Maintenance window FAQ
+        href: database/maintenance-window-faq.yml
+      - name: Advance notifications
+        href: database/advance-notifications.md
     - name: Security
       items:
       - name: Overview
@@ -159,10 +159,6 @@
 
   - name: Shared how-to's
     items:
-    - name: Job automation with elastic jobs
-      href: database/job-automation-overview.md
-    - name: Job automation with SQL Agent 
-      href: managed-instance/job-automation-managed-instance.md
     - name: Connect and query from apps
       items:
       - name: .NET with Visual Studio
@@ -228,10 +224,6 @@
         href: database/performance-guidance.md
       - name: Use DMVs to monitor performance
         href: database/monitoring-with-dmvs.md
-      - name: Understand and resolve blocking
-        href: database/understand-resolve-blocking.md
-      - name: Configure the max degree of parallelism (MAXDOP)
-        href: database/configure-max-degree-of-parallelism.md
       - name: Log diagnostic telemetry
         href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
       - name: In-memory OLTP
@@ -481,6 +473,8 @@
       items:
       - name: Database sharding
         href: database/elastic-scale-introduction.md
+      - name: Job automation with elastic jobs
+        href: database/job-automation-overview.md
       - name: Elastic transactions
         href: database/elastic-transactions-overview.md
       - name: Elastic queries
@@ -543,8 +537,7 @@
     items:
     - name: T-SQL differences
       href: database/transact-sql-tsql-differences-sql-server.md
-    - name: Azure Automation
-      href: database/automation-manage.md
+
     - name: Plan and manage costs 
       href: database/cost-management.md
     - name: Connect and query
@@ -574,7 +567,9 @@
           href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
 
     - name: Manage
-      items:         
+      items:
+      - name: Azure Automation
+        href: database/automation-manage.md
       - name: Management API reference
         href: database/single-database-manage.md
       - name: DNS alias PowerShell
@@ -652,7 +647,10 @@
         href: database/stream-data-stream-analytics-integration.md
       - name: Diagnose and troubleshoot high CPU
         href: database/high-cpu-diagnose-troubleshoot.md
-
+      - name: Understand and resolve blocking
+        href: database/understand-resolve-blocking.md
+      - name: Configure the max degree of parallelism (MAXDOP)
+        href: database/configure-max-degree-of-parallelism.md
 
     - name: Load and move data 
       items: 
@@ -710,6 +708,8 @@
         href: database/elastic-query-vertical-partitioning.md
     - name: Elastic jobs (preview)
       items:
+      - name: Job automation with elastic jobs
+        href: database/job-automation-overview.md
       - name: Configure jobs
         href: database/elastic-jobs-overview.md
       - name: Create and manage (PowerShell)
@@ -1183,9 +1183,11 @@
   - name: How to
     items:
     - name: How-to documentation
-      href: managed-instance/how-to-content-reference-guide.md
+      href: managed-instance/how-to-content-reference-guide.md      
     - name: Connect applications
       href: managed-instance/connect-application-instance.md
+    - name: Job automation with SQL Agent 
+      href: managed-instance/job-automation-managed-instance.md
     - name: Configure settings
       items: 
       - name: Customize time zone
