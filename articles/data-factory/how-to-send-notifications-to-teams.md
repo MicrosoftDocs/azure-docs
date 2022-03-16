@@ -95,9 +95,9 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  Search for "Set variable" in the pipeline "Activities" pane, and drag a **Set Variable** activity to the pipeline canvas.
 
-1.  Select the "Set variable" activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
+1.  Select the **Set Variable** activity on the canvas if it is not already selected, and its "General" tab, to edit its details.
 
-1.  In the "General" tab, specify **Set JSON schema** for **Name** of the "Set variable" activity.
+1.  In the "General" tab, specify **Set JSON schema** for **Name** of the **Set Variable** activity.
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/set-variable-activity-name.png" alt-text="Shows the &quot;Set variable&quot; activity general tab.":::
 
@@ -180,11 +180,11 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  Search for "Web" in the pipeline "Activities" pane, and drag a **Web** activity to the pipeline canvas. 
 
-1.  Create a dependency condition for the **Web** activity so that it only runs if the **Set variable** activity succeeds. To create this dependency, click the green handle on the right side of the **Set variable** activity, drag it, and connect it to the **Web** activity.
+1.  Create a dependency condition for the **Web** activity so that it only runs if the **Set Variable** activity succeeds. To create this dependency, click the green handle on the right side of the **Set Variable** activity, drag it, and connect it to the **Web** activity.
 
-1.  Select the new "Web" activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
+1.  Select the new **Web** activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
 
-1.  In the "General" pane, specify **Invoke Teams Webhook Url** for **Name** of the "Web" activity.
+1.  In the "General" pane, specify **Invoke Teams Webhook Url** for **Name** of the **Web** activity.
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-name.png" alt-text="Shows the &quot;Web&quot; activity general pane.":::
 
