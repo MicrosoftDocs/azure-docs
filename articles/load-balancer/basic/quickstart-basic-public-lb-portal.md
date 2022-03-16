@@ -18,7 +18,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a basic
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 >[!NOTE]
->Standard SKU load balancer is recommended for production workloads. For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
+>Standard SKU load balancer is recommended for production workloads. For more information about SKUs, see **[Azure Load Balancer SKUs](../skus.md)**.
 
 ## Sign in to Azure
 
@@ -103,9 +103,6 @@ During the creation of the load balancer, you'll configure:
     | Region         | Select **West US 3**.                                        |
     | SKU           | Select **Basic**. |
     | Type          | Select **Public**.                                        |
-    
-
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Screenshot of create basic load balancer basics tab." border="true":::
  
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
@@ -230,7 +227,7 @@ The two VMs will be added to an availability set named **myAvailabilitySet**.
     | Availability set | Select **myAvailabilitySet** |
     | Network security group | Select the existing **myNSG** |
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 
@@ -277,8 +274,6 @@ The two VMs will be added to an availability set named **myAvailabilitySet**.
 
 3. Copy the public IP address, and then paste it into the address bar of your browser. The custom VM page of the IIS Web server is displayed in the browser.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Screenshot of load balancer test":::
-
 ## Clean up resources
 
 When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group **CreatePubLBQS-rg** that contains the resources and then select **Delete**.
@@ -293,5 +288,5 @@ In this quickstart, you:
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
-> [What is Azure Load Balancer?](load-balancer-overview.md)
+> [What is Azure Load Balancer?](../load-balancer-overview.md)
 
