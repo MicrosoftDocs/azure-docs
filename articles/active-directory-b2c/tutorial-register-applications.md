@@ -105,7 +105,7 @@ For a web application, you need to create an application secret. The client secr
 
 ## Enable ID token implicit grant
 
-If you register this app and configure the [https://jwt.ms/](https://jwt.ms/) app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
+If you register this app and configure it with [https://jwt.ms/](https://jwt.ms/) app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
 
 1. In the left menu, under **Manage**, select **Authentication**.
 
