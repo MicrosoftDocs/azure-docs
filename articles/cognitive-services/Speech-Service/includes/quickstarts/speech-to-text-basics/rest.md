@@ -19,18 +19,18 @@ ms.author: eur
 
 ## Recognize speech from a file
 
-At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and replace `YourAudioFile.wav` with the path and name of your audio file.
 
 ```console
-# curl
-speech_key="YourSubscriptionKey"
+key="YourSubscriptionKey"
 region="YourServiceRegion"
+audio_file=@'YourAudioFile.wav'
 
 curl --location --request POST \
-"https://YourServiceRegion.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" \
---header "Ocp-Apim-Subscription-Key: YourSubscriptionKey" \
+"https://$region.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" \
+--header "Ocp-Apim-Subscription-Key: $key" \
 --header "Content-Type: audio/wav" \
---data-binary @'YourAudioFile.wav'
+--data-binary $audio_file
 ```
 
 You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file.
