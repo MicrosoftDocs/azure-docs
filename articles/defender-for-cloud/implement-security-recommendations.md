@@ -37,7 +37,7 @@ To implement a **Fix**:
 
 1. From the list of recommendations that have the **Fix** action icon, :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::, select a recommendation.
 
-    :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-quick-fix-view.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-quick-fix-view.png":::
+    :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action":::
 
 1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and select **Remediate**.
 
