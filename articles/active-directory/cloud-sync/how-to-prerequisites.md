@@ -104,7 +104,7 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 
 2. The PowerShell execution policy on the local server must be set to Undefined or RemoteSigned.
 
-3. If there's a firewall between your servers and Azure AD, configure see [Firewall and proxy requirements](#firewall-and-proxy-requirements) below.  If you are installing against the US government cloud see [US government cloud firewall and proxy requirements](#us-government-cloud-firewall-and-proxy-requirements) below.
+3. If there's a firewall between your servers and Azure AD, configure see [Firewall and proxy requirements](#firewall-and-proxy-requirements) below.  
 
 >[!NOTE]
 > Installing the cloud provisioning agent on Windows Server Core is not supported.
