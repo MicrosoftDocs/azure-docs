@@ -290,17 +290,17 @@ If the key is being stored somewhere or hardcoded in your application, you can m
 
 ## How to test your application to determine if it will be affected
 
-You can validate whether your application supports automatic key rollover using the following PowerShell scripts.
+You can validate whether your application supports automatic key rollover by using the following PowerShell scripts.
 
 To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
 
-1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
+1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module:
 
     ```powershell
     Install-Module -Name MSIdentityTools
     ```
 
-1. Sign-in using the Connect-MgGraph command with an admin account to consent to the required scopes:
+1. Sign in by using the Connect-MgGraph command with an admin account to consent to the required scopes:
 
    ```powershell
     Connect-MgGraph -Scope "Application.ReadWrite.All"
@@ -312,17 +312,17 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
     Get-MsIdSigningKeyThumbprint
     ```
 
-1. Pick any of the key thumbprints and configure Azure Active Directory to use that key with your application (get the app ID from the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps):
+1. Pick any of the key thumbprints and configure Azure Active Directory to use that key with your application (get the app ID from the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)):
 
     ```powershell
     Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -KeyThumbprint <Thumbprint>
     ```
 
-1. Test the web application by signing in to get a new token. The key update change is instantaneous, but make sure you use a new browser session (using, for example, Internet Explorer's "InPrivate", Chrome's "Incognito", or Firefox's "Private" mode) to ensure you are issued a new token.
+1. Test the web application by signing in to get a new token. The key update change is instantaneous, but make sure you use a new browser session (using, for example, Internet Explorer's "InPrivate," Chrome's "Incognito," or Firefox's "Private" mode) to ensure you are issued a new token.
 
-1. For each of the returned signing key thumbprints, run the `Update-MsIdApplicationSigningKeyThumbprint` cmdlet and test your web application sign in process.
+1. For each of the returned signing key thumbprints, run the `Update-MsIdApplicationSigningKeyThumbprint` cmdlet and test your web application sign-in process.
 
-1. If the web application signs you in properly, it supports automatic rollover. If it does not, modify your application to support manual rollover. Check out [Establishing a manual rollover process](#how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover) for more information.
+1. If the web application signs you in properly, it supports automatic rollover. If it doesn't, modify your application to support manual rollover. Check out [Establishing a manual rollover process](#how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover) for more information.
 
 1. Run the following script to revert to normal behavior:
 
@@ -331,11 +331,11 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
     ```
 
 ## How to perform a manual rollover if your application does not support automatic rollover
-If your application does **not** support automatic rollover, you need to establish a process that periodically monitors Microsoft identity platform's signing keys and performs a manual rollover accordingly.
+If your application doesn't support automatic rollover, you need to establish a process that periodically monitors Microsoft identity platform's signing keys and performs a manual rollover accordingly.
 
 To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
 
-1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
+1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module:
 
     ```powershell
     Install-Module -Name MSIdentityTools
@@ -357,13 +357,13 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
 
 1. Update your application's code or configuration to use the new key.
 
-1. Configure Azure Active Directory to use that latest key with your application (get the app ID from the [portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps):
+1. Configure Azure Active Directory to use that latest key with your application (get the app ID from the [portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)):
 
     ```powershell
     Get-MsIdSigningKeyThumbprint -Latest | Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId>
     ```
 
-1. Test the web application by signing in to get a new token. The key update change is instantaneous, but make sure you use a new browser session (using, for example, Internet Explorer's "InPrivate", Chrome's "Incognito", or Firefox's "Private" mode) to ensure you are issued a new token.
+1. Test the web application by signing in to get a new token. The key update change is instantaneous, but make sure you use a new browser session (using, for example, Internet Explorer's "InPrivate," Chrome's "Incognito," or Firefox's "Private" mode) to ensure you are issued a new token.
 
 1. If you experience any issues, revert to the previous key you were using and contact Azure support:
 
@@ -371,7 +371,7 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
     Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -KeyThumbprint <PreviousKeyThumbprint>
     ```
 
-1. Once you update your application to support manual rollover, revert to normal behavior:
+1. After you update your application to support manual rollover, revert to normal behavior:
 
     ```powershell
     Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -Default
