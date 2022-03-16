@@ -59,7 +59,7 @@ After you complete the setup, return to this document and sign in to the cluster
    1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console. The window will look different after having enabled OIDC.
    
       :::image type="content" source="media/built-in-container-registry/oidc-enabled-login-window.png" alt-text="OpenID Connect enabled sign in window.":::
-   1. Select **openid**
+   1. Select **AAD**
 
    > [!NOTE]
    > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this article.
@@ -260,20 +260,18 @@ The directory `2-simple` of your local clone shows the Maven project with the ab
 
 To deploy and run your Liberty application on an ARO 4 cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
 
-### Build application image
-
 Complete the following steps to build the application image:
 
 # [with DB connection](#tab/with-mysql-image)
 
-#### Log in to the OpenShift CLI as the Azure AD user
+### Log in to the OpenShift CLI as the Azure AD user
 
-To build image remotely on the cluster, you need to sign in to the OpenShift CLI as the Azure AD user.
+Since you have already successfully run the app in the Liberty Docker container, sign in to the OpenShift CLI as the Azure AD user in order to build image remotely on the cluster.
 
 1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user.
 
    1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console.
-   1. Select **openid**
+   1. Select **AAD**
 
    > [!NOTE]
    > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.
@@ -287,26 +285,26 @@ To build image remotely on the cluster, you need to sign in to the OpenShift CLI
        oc login --token=<login-token> --server=<server-url>
        ```
 
-#### Build the application and push to the image stream of the OpenShift
+### Build the application and push to the image stream
 
-After successfully running the app in the Liberty Docker container, you're ready to build the image.
+Next, you're going to build the image remotely on the cluster by executing the following commands.
 
-```bash
-cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
+1. Identify the source directory and Dockerfile.
 
-# Fetch maven artifactId as image name, maven build version as image version
-IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
-IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
-cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql/target
+   ```bash
+   cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
+   
+   # Fetch maven artifactId as image name, maven build version as image version
+   IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
+   IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+   cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql/target
 
-# If you are building with Open Liberty base image, the existing Dockerfile is ready for you
+   # If you are building with Open Liberty base image, the existing Dockerfile is ready for you
 
-# If you are building with WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
-# mv Dockerfile Dockerfile.backup
-# mv Dockerfile-wlp Dockerfile
-```
-
-Next, you're able to build the image remotely on the cluster by executing the following commands.
+   # If you are building with WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
+   # mv Dockerfile Dockerfile.backup
+   # mv Dockerfile-wlp Dockerfile
+   ```
 
 1. Create an image stream.
 
@@ -320,7 +318,7 @@ Next, you're able to build the image remotely on the cluster by executing the fo
    oc new-build --name ${IMAGE_NAME}-config --binary --strategy docker --to ${IMAGE_NAME}:${IMAGE_VERSION}
    ```
 
-3. Start the build to upload local contents, containerize, and output to the image stream tag specified before.
+1. Start the build to upload local contents, containerize, and output to the image stream tag specified before.
 
    ```bash
    oc start-build ${IMAGE_NAME}-config --from-dir . --follow
@@ -328,14 +326,40 @@ Next, you're able to build the image remotely on the cluster by executing the fo
 
 # [without DB connection](#tab/without-mysql-mage)
 
-#### Log in to the OpenShift CLI as the Azure AD user
+### Build and run the application locally with Docker
 
-To build image remotely on the cluster, you need to sign in to the OpenShift CLI as the Azure AD user.
+Before deploying the containerized application to a remote cluster, build and run with your local Docker to verify whether it works:
+
+1. Change directory to `2-simple` of your local clone.
+1. Run `mvn clean package` to package the application.
+1. Run one of the following commands to build the application image.
+   * Build with Open Liberty base image:
+
+     ```bash
+     # Build and tag application image. This will cause Docker to pull the necessary Open Liberty base images.
+     docker build -t javaee-cafe-simple:1.0.0 --pull .
+     ```
+
+   * Build with WebSphere Liberty base image:
+
+     ```bash
+     # Build and tag application image. This will cause Docker to pull the necessary WebSphere Liberty base images.
+     docker build -t javaee-cafe-simple:1.0.0 --pull --file=Dockerfile-wlp .
+     ```
+
+1. Run `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` in your console.
+1. Wait for Liberty server to start and the application to deploy successfully.
+1. Open `http://localhost:9080/` in your browser to visit the application home page.
+1. Press **Control-C** to stop the application and Liberty server.
+
+### Log in to the OpenShift CLI as the Azure AD user
+
+When you're satisfied with the state of the application, sign in to the OpenShift CLI as the Azure AD user in order to build image remotely on the cluster.
 
 1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user.
 
    1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console.
-   1. Select **openid**
+   1. Select **AAD**
 
    > [!NOTE]
    > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.
@@ -349,21 +373,21 @@ To build image remotely on the cluster, you need to sign in to the OpenShift CLI
        oc login --token=<login-token> --server=<server-url>
        ```
 
-#### Build the application and push to the image stream of the OpenShift
+### Build the application and push to the image stream
 
-After successfully running the app locally, you're ready to build the image.
+Next, you're going to build the image remotely on the cluster by executing the following commands.
 
-```bash
-cd <path-to-your-repo>/open-liberty-on-aro/2-simple
+1. Identity the source directory and the Dockerfile.
 
-# If you are building with Open Liberty base image, the existing Dockerfile is ready for you
+   ```bash
+   cd <path-to-your-repo>/open-liberty-on-aro/2-simple
 
-# If you are building with WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
-# mv Dockerfile Dockerfile.backup
-# mv Dockerfile-wlp Dockerfile
-```
+   # If you are building with Open Liberty base image, the existing Dockerfile is ready for you
 
-Next, you're able to build the image remotely on the cluster by executing the following commands.
+   # If you are building with WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
+   # mv Dockerfile Dockerfile.backup
+   # mv Dockerfile-wlp Dockerfile
+   ```
 
 1. Create an image stream.
 
@@ -377,7 +401,7 @@ Next, you're able to build the image remotely on the cluster by executing the fo
    oc new-build --name javaee-cafe-simple-config --binary --strategy docker --to javaee-cafe-simple:1.0.0
    ```
 
-3. Start the build to upload local contents, containerize, and output to the image stream tag specified before.
+1. Start the build to upload local contents, containerize, and output to the image stream tag specified before.
 
    ```bash
    oc start-build javaee-cafe-simple-config --from-dir . --follow
