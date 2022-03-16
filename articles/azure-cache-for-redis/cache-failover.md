@@ -89,9 +89,6 @@ Azure Cache for Redis publishes runtime maintenance notifications on a publish/s
 > [!NOTE]
 > The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming planned server maintenance events that might affect server availability.
 
-<!-- Shruti - this is how I understood the conversation with Michelle. Remove all this and replace it with blurb. Later, move the information from the other repo to here. Does that sound right?
- -->
-
 <!-- 
 
 Azure Cache for Redis publishes notifications on a publish/subscribe (pub/sub) channel called [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) around 30 seconds before planned updates. The notifications are runtime notifications.
