@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 The Azure Active Directory (Azure AD) app gallery is a catalog of thousands of apps. The app gallery makes it easy to deploy and configure single sign-on (SSO) and automate user setup. You can find popular cloud apps in the gallery, such as Workday, ServiceNow, and Zoom.
 
-This article describes how to publish your Azure Active Directory B2C (Azure AD B2C) app in the Azure AD app gallery. When your app is published, it's listed among the options that customers can choose from when they're adding apps to their Azure AD tenant.
+This article describes how to publish your Azure Active Directory B2C (Azure AD B2C) app in the Azure AD app gallery. When you publish your app, it's listed among the options that customers can choose from when they're adding apps to their Azure AD tenant.
 
 Here are some benefits of adding your Azure AD B2C app to the app gallery:  
 

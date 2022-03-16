@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Set up sign-in for a desktop app"
+title: "Quickstart: Set up sign in for a desktop app using Azure Active Directory B2C"
 titleSuffix: Azure AD B2C
-description: In this Quickstart, run a sample WPF desktop application that uses Azure Active Directory B2C to provide account sign-in.
+description: In this Quickstart, run a sample WPF desktop application that uses Azure Active Directory B2C to provide account sign in.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -14,7 +14,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Quickstart: Set up sign-in for a desktop app using Azure Active Directory B2C
+# Quickstart: Set up sign in for a desktop app using Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your applications to authenticate to social accounts and enterprise accounts using open standard protocols. In this quickstart, you use a Windows Presentation Foundation (WPF) desktop application to sign in using a social identity provider and call an Azure AD B2C protected web API.
 
@@ -38,20 +38,20 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 
 ## Sign in using your account
 
-1. Click **Sign in** to start the **Sign Up or Sign In** workflow.
+1. Select **Sign in** to start the **Sign Up or Sign In** workflow.
 
     ![Screenshot of the sample WPF application](./media/quickstart-native-app-desktop/wpf-sample-application.png)
 
     The sample supports several sign-up options. These options include using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, or Microsoft.
 
 
-2. Azure AD B2C presents a sign-in page for a fictitious company called Fabrikam for the sample web application. To sign up using a social identity provider, click the button of the identity provider you want to use.
+2. Azure AD B2C presents a sign in page for a fictitious company called Fabrikam for the sample web application. To sign up using a social identity provider, select the button of the identity provider you want to use.
 
     ![Sign In or Sign Up page showing identity providers](./media/quickstart-native-app-desktop/sign-in-or-sign-up-wpf.png)
 
     You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city.
 
-2. Finish the sign-in process for the identity provider.
+2. Finish the sign in process for the identity provider.
 
     Your new account profile details are pre-populated with information from your social account.
 
@@ -59,19 +59,19 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 
 Azure AD B2C provides functionality to allow users to update their profiles. The sample web app uses an Azure AD B2C edit profile user flow for the workflow.
 
-1. In the application menu bar, click **Edit profile** to edit the profile you created.
+1. In the application menu bar, select **Edit profile** to edit the profile you created.
 
     ![Edit profile button highlighted in WPF sample app](./media/quickstart-native-app-desktop/edit-profile-wpf.png)
 
 2. Choose the identity provider associated with the account you created. For example, if you used Facebook as the identity provider when you created your account, choose Facebook to modify the associated profile details.
 
-3. Change your **Display name** or **City**, and then click **Continue**.
+3. Change your **Display name** or **City**, and then select **Continue**.
 
     A new access token is displayed in the *Token info* text box. If you want to verify the changes to your profile, copy and paste the access token into the token decoder https://jwt.ms.
 
 ## Access a protected API resource
 
-Click **Call API** to make a request to the protected resource.
+Select **Call API** to make a request to the protected resource.
 
 ![Call API](./media/quickstart-native-app-desktop/call-api-wpf.png)
 
@@ -87,7 +87,7 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quick
 
 In this quickstart, you used a sample desktop application to:
 
-* Sign in with a custom login page
+* Sign in with a custom sign in page
 * Sign in with a social identity provider
 * Create an Azure AD B2C account
 * Call a web API protected by Azure AD B2C
