@@ -23,7 +23,6 @@ Azure Stream Analytics currently allows you to use user-assigned managed identit
 To create a user-assigned managed identity, your account needs the [Managed Identity Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) assignment.
 
 
-There are two types of managed identities:
 
 1.	Sign in to the Azure portal by using an account associated with the Azure subscription to create the user-assigned managed identity.
 2.	In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
