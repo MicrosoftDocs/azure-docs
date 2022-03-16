@@ -4,6 +4,8 @@
   href: about-the-public-preview.md
 - name: Requirements
   href: requirements.md
+- name: Supported instances
+  href: supported-instances.md
 - name: BareMetal SKUs 
   href: nutanix-baremetal-skus.md
 - name: Storage
