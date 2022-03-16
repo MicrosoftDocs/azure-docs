@@ -21,7 +21,7 @@ zone_pivot_groups: b2c-policy-type
 
 
 
-In this sample tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security's](https://www.transmitsecurity.com/bindid) passwordless authentication solution **BindID**. BindID is a passwordless authentication service that uses strong Fast Identity Online (FIDO2) biometric authentication for a reliable omni-channel authentication experience. The solution ensures a smooth sign in experience for all customers across every device and channel eliminating fraud, phishing, and credential reuse.
+In this sample tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security's](https://www.transmitsecurity.com/bindid) passwordless authentication solution **BindID**. BindID is a passwordless authentication service that uses strong Fast Identity Online (FIDO2) biometric authentication for a reliable omni-channel authentication experience. The solution ensures a smooth sign in experience for all customers across every device and channel, and it eliminates fraud, phishing, and credential reuse.
 
 
 ## Scenario description
@@ -73,7 +73,7 @@ After you register the app in BindID, you'll get a **Client ID** and a **Client 
 
 ::: zone pivot="b2c-user-flow"
 
-## Step 2 : Configure BindID as an identity provider in Azure AD B2C
+## Step 2: Configure BindID as an identity provider in Azure AD B2C
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
 
@@ -120,7 +120,7 @@ After you register the app in BindID, you'll get a **Client ID** and a **Client 
 
 1. Under **Identity providers**:
    
-    1. For **Local Accounts** select **None** to disable email and password-based authentication.
+    1. For **Local Accounts**, select **None** to disable email and password-based authentication.
     
     1. For **Custom identity providers**, select your newly created BindID Identity provider such as **Login with BindID**.  
 
@@ -249,7 +249,7 @@ At this point, you've set up the identity provider, but it's not yet available i
 
 Now that you have a user journey, add the new identity provider to the user journey.
 
-1. Find the orchestration step element that includes `Type=CombinedSignInAndSignUp`, or `Type=ClaimsProviderSelection` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers that a user can sign in with. The order of the elements controls the order of the sign-in buttons presented to the user. Add a **ClaimsProviderSelection** XML element. Set the value of **TargetClaimsExchangeId** to a friendly name, such as `BindIDExchange`.
+1. Find the orchestration step element that includes `Type=CombinedSignInAndSignUp`, or `Type=ClaimsProviderSelection` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers that a user can sign in with. The order of the elements controls the order of the sign in buttons presented to the user. Add a **ClaimsProviderSelection** XML element. Set the value of **TargetClaimsExchangeId** to a friendly name, such as `BindIDExchange`.
 
 1. In the next orchestration step, add a **ClaimsExchange** element. Set the **Id** to the value of the target claims exchange ID to link the BindID button to `BindID-SignIn` action. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier while adding the claims provider.
 
@@ -274,7 +274,7 @@ The following XML demonstrates orchestration steps of a user journey with the id
 
 ## Step 6: Configure the relying party policy
 
-The relying party policy, for example [SignUpOrSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/LocalAccounts/SignUpOrSignin.xml), specifies the user journey which Azure AD B2C will execute. You can also control what claims are passed to your application by adjusting the **OutputClaims** element of the **PolicyProfile** TechnicalProfile element.  In this sample, the application will receive the user attributes such as display name, given name, surname, email, objectId, identity provider, and tenantId.  
+The relying party policy, for example [SignUpOrSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/LocalAccounts/SignUpOrSignin.xml), specifies the user journey which Azure AD B2C will execute. You can also control what claims are passed to your application by adjusting the **OutputClaims** element of the **PolicyProfile** TechnicalProfile element.  In this sample, the application receives the user attributes such as display name, given name, surname, email, objectId, identity provider, and tenantId.  
 
 ```xml
   <RelyingParty>
