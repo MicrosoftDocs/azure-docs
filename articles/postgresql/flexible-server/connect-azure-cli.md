@@ -4,6 +4,7 @@ description: This quickstart provides several ways to connect with Azure CLI wit
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.custom: mvc, devx-track-azurecli, mode-api
 ms.topic: quickstart
 ms.date: 11/30/2021
@@ -35,7 +36,7 @@ You can provide additional arguments for this command to customize it. See all a
 You can view all the arguments for this command with ```--help``` argument. 
 
 ```azurecli
-az postgresql flexible-server connect --help
+az postgres flexible-server connect --help
 ```
 
 ## Test database server connection

@@ -13,7 +13,7 @@ This article describes how to define output values in your Azure Resource Manage
 The format of each output value must resolve to one of the [data types](data-types.md).
 
 > [!TIP]
-> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [outputs](../bicep/outputs.md).
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [outputs](../bicep/outputs.md).
 
 ## Define output values
 

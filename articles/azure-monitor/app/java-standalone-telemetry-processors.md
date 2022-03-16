@@ -3,10 +3,8 @@ title: Telemetry processors (preview) - Azure Monitor Application Insights for J
 description: Learn to configure telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
 ms.date: 10/29/2020
-author: kryalama
 ms.devlang: java
 ms.custom: devx-track-java
-ms.author: kryalama
 ---
 
 # Telemetry processors (preview) - Azure Monitor Application Insights for Java
@@ -238,7 +236,9 @@ To configure this option, under `include` or `exclude` (or both), specify at lea
 The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
-* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted.
+  Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value,
+  so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 * **Optional fields**: 
     * `spanNames` must match at least one of the items. 
@@ -385,7 +385,9 @@ To configure this option, under `include` or `exclude` (or both), specify at lea
 The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
-* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted.
+  Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value,
+  so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 * **Optional fields**: 
     * `spanNames` must match at least one of the items. 
@@ -508,7 +510,9 @@ The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
 * **Required field**: 
-  * `matchType` controls how items in `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+  * `matchType` controls how items in `attributes` arrays are interpreted. Possible values are `regexp` and `strict`.
+     Regular expression matches are performed against the entire attribute value,
+     so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
   * `attributes` specifies the list of attributes to match. All of these attributes must match exactly to result in a match.
     
 > [!NOTE]
@@ -568,7 +572,9 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
 
 * **Required field**:
   * `matchType` controls how items in `metricNames` are matched. Possible values are `regexp` and `strict`.
-  * `metricNames` must match at least one of the items.
+     Regular expression matches are performed against the entire attribute value,
+     so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
+   * `metricNames` must match at least one of the items.
 
 ### Sample usage
 

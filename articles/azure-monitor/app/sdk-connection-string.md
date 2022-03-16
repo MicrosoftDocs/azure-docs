@@ -2,8 +2,6 @@
 title: Connection strings in Azure Application Insights | Microsoft Docs
 description: How to use connection strings.
 ms.topic: conceptual
-author: CourtGoodson
-ms.author: cogoodson
 ms.date: 01/17/2020
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: mbullwin
@@ -22,6 +20,8 @@ The key value pairs provide an easy way for users to define a prefix suffix comb
 
 > [!TIP]
 > We recommend the use of connection strings over instrumentation keys.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Scenario overview 
 

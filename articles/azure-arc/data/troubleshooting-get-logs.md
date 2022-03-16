@@ -57,8 +57,8 @@ az arcdata dc debug copy-logs --target-folder <desired folder> --exclude-dumps -
 
 For example:
 
-```console
-#az arcdata dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --use-k8s --k8s-namespace
+```azurecli
+az arcdata dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --use-k8s --k8s-namespace
 ```
 
 The following folder hierarchy is an example. It's organized by pod name, then container, and then by directory hierarchy within the container.

@@ -96,7 +96,7 @@ After you acquire your on-premises management console appliance:
 
 **To install and set up**:
 
-1. Go to [Defender for IoT: Getting Started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal].
+1. Go to [Defender for IoT: Getting Started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
 
 1. Select the **On-premises management console** tab.
 
@@ -118,7 +118,7 @@ Onboard a sensor by registering it with Microsoft Defender for IoT and downloadi
 
    - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
 
-1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Microsoft Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [Sites and Sensors page](how-to-manage-sensors-on-the-cloud.md#view-onboarded-sensors).
+1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Microsoft Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [Sites and Sensors page](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
 
 1. Select **Register**.
 
@@ -152,9 +152,6 @@ We recommend that you group multiple sensors monitoring the same networks in one
 
 For more information, see [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console).
 
-## Populate Microsoft Sentinel with alert information (optional)
-
-Send alert information to Microsoft Sentinel by configuring Microsoft Sentinel. See [Connect your data from Defender for IoT to Microsoft Sentinel](how-to-configure-with-sentinel.md).  
 
 ## Next steps ##
 

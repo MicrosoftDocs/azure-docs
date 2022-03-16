@@ -5,7 +5,7 @@ author: ut-karsh
 ms.author: umaheshwari
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual 
+ms.topic: how-to 
 ms.date: 01/26/2022 
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 ---

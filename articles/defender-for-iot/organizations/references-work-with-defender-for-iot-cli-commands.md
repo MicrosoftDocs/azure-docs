@@ -12,6 +12,7 @@ This article describes CLI commands for sensors and on-premises management conso
 - Administrator
 - CyberX 
 - Support
+- cyberx_host
 
 To start working in the CLI, connect using a terminal. For example, terminal name `Putty`, and `Support` user. 
 
@@ -286,6 +287,6 @@ When you're using the tool:
 
 - Confirm with IT the appliance domain (as it appears in the certificate) with your DNS server and the corresponding IP address. 
     
-## See also
+## Next steps
 
-[Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md)
+For more information, see [Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md).

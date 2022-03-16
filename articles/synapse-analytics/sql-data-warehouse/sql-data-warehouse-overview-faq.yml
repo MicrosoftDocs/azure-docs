@@ -4,12 +4,11 @@ metadata:
   description: This article lists out frequently asked questions about dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics from customers and developers.
   author: mlee3gsd
   ms.service: synapse-analytics
-  ms.topic: conceptual
+  ms.topic: faq
   ms.subservice: sql-dw 
   ms.date: 11/04/2019
   ms.author: martinle
   ms.reviewer: igorstan
-    
 title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics frequently asked questions
 summary: |
 

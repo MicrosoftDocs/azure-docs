@@ -109,6 +109,44 @@ To use the investigation graph:
 
     ![Use timeline in map to investigate alerts](media/tutorial-investigate-cases/use-timeline.png)
 
+## Comment on incidents
+
+As a security operations analyst, when investigating an incident you will want to thoroughly document the steps you take, both to ensure accurate reporting to management and to enable seamless cooperation and collaboration amongst coworkers. Microsoft Sentinel gives you a rich commenting environment to help you accomplish this.
+
+Another important thing that you can do with comments is enrich your incidents automatically. When you run a playbook on an incident that fetches relevant information from external sources (say, checking a file for malware at VirusTotal), you can have the playbook place the external source's response - along with any other information you define - in the incident's comments.
+
+Comments are simple to use. You access them through the **Comments** tab on the incident details page.
+
+:::image type="content" source="media/tutorial-investigate-cases/comments-screen.png" alt-text="Screenshot of viewing and entering comments.":::
+
+### Frequently asked questions
+
+There are several considerations to take into account when using incident comments. The following list of questions points to these considerations.
+
+#### What kinds of input are supported?
+
+- **Text:** Comments in Microsoft Sentinel support text inputs in plain text, basic HTML, and Markdown. You can also paste copied text, HTML, and Markdown into the comment window.
+
+- **Images:** You can insert links to images in comments and the images will be displayed inline, but the images must already be hosted in a publicly accessible location such as Dropbox, OneDrive, Google Drive and the like. Images can't be uploaded directly to comments.
+
+#### Is there a size limit on comments?
+
+- **Per comment:** A single comment can contain up to **30,000 characters**. 
+
+- **Per incident:** A single incident can contain up to **100 comments**.  
+
+    > [!NOTE]
+    > The size limit of a single incident record in the *SecurityIncident* table in Log Analytics is 64 KB. If this limit is exceeded, comments (starting with the earliest) will be truncated, which may affect the comments that will appear in [advanced search](#search-for-incidents) results.
+    >
+    > The actual incident records in the incidents database will not be affected.
+
+#### Who can edit or delete comments?
+
+- **Editing:** Only the author of a comment has permission to edit it.
+
+- **Deleting:** Only users with the [Microsoft Sentinel Contributor](roles.md) role have permission to delete comments. Even the comment's author must have this role in order to delete it.
+
+
 
 ## Closing an incident
 
@@ -147,15 +185,15 @@ By default, incident searches run across the **Incident ID**, **Title**, **Tags*
 
 Using advanced search options changes the search behavior as follows:
 
-|Search behavior  |Description  |
+| Search behavior  | Description  |
 |---------|---------|
-|**Search button color**     |The color of the search button changes, depending on the types of parameters currently being used in the search. <br><br>- As long as only the default parameters are selected, the button is grey. <br>- As soon as different parameters are selected, such as advanced search parameters, the button turns blue.         |
-|**Auto-refresh**     | Using advanced search parameters prevents you from selecting to automatically refresh your results.        |
-|**Entity parameters**     |All entity parameters are supported for advanced searches. When searching in any entity parameter, the search runs in all entity parameters.         |
-|**Search strings**     |    Searching for a string of words includes all of the words in the search query. Search strings are case sensitive.     |
-|**Cross workspace support**     |    Advanced searches are not supported for cross-workspace views.     |
+| **Search button color**     | The color of the search button changes, depending on the types of parameters currently being used in the search. <ul><li>As long as only the default parameters are selected, the button is grey. <li>As soon as different parameters are selected, such as advanced search parameters, the button turns blue.         |
+| **Auto-refresh**     | Using advanced search parameters prevents you from selecting to automatically refresh your results.        |
+| **Entity parameters**     | All entity parameters are supported for advanced searches. When searching in any entity parameter, the search runs in all entity parameters.         |
+| **Search strings**     | Searching for a string of words includes all of the words in the search query. Search strings are case sensitive.     |
+| **Cross workspace support**     | Advanced searches are not supported for cross-workspace views.     |
 | **Number of search results displayed** | When you're using advanced search parameters, only 50 results are shown at a time. |
-|     |         |
+
 
 > [!TIP]
 >  If you're unable to find the incident you're looking for, remove search parameters to expand your search. If your search results in too many items, add more filters to narrow down your results.

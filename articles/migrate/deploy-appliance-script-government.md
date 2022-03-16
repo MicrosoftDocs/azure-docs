@@ -57,7 +57,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
 
 
 ### Run the script
@@ -118,7 +118,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) | 7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
 
 ### Run the script
 
@@ -178,7 +178,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | 7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for Azure Government cloud with either public or private endpoint connectivity.

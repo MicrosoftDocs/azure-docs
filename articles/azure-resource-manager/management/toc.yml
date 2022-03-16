@@ -72,7 +72,7 @@
         - name: Azure Cognitive Search
           href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Container Registry
-          href: https://docs.microsoft.com/azure/container-registry/manual-regional-move
+          href: ../../container-registry/manual-regional-move.md
         - name: Azure Cosmos DB
           href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for MariaDB Server
@@ -93,6 +93,12 @@
           href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure SQL DB & MI
           href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Azure Stream Analytics
+          items:
+          - name: Move Stream Analytics jobs
+            href: ../../stream-analytics/copy-job.md
+          - name: Move Stream Analytics cluster
+            href: ../../stream-analytics/move-cluster.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure VMs
           href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Logic apps

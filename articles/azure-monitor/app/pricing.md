@@ -3,8 +3,6 @@ title: Manage usage and costs for Azure Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-author: DaleKoetke
-ms.author: dalek
 ms.date: 02/17/2021
 ms.reviewer: aaronmax
 ---
@@ -212,6 +210,8 @@ The volume of data you send can be managed using the following techniques:
     We've removed the restriction on some subscription types that have credit that couldn't be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog has instructions to remove the spending limit and enable the daily cap to be raised beyond 32.3 MB/day.
     
 * **Throttling**: Throttling limits the data rate to 32,000 events per second, averaged over 1 minute per instrumentation key. The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend it. It spreads out a surge over several minutes. If your app consistently sends data at more than the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend data this way; other SDKs might drop throttled data.) If throttling occurs, a notification warning alerts you that this has occurred.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Manage your maximum daily data volume
 

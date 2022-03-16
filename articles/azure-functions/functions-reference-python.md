@@ -351,25 +351,25 @@ First, the function.json file must be updated to include a `route` in the HTTP t
 
 ```json
 {
-"scriptFile": "__init__.py",
-"bindings": [
-  {
-  "authLevel": "anonymous",
-  "type": "httpTrigger",
-  "direction": "in",
-  "name": "req",
-  "methods": [
-  "get",
-  "post"
-  ],
-  "route": "/{*route}"
-  },
-  {
-  "type": "http",
-  "direction": "out",
-  "name": "$return"
-  }
-]
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+       "authLevel": "anonymous",
+       "type": "httpTrigger",
+       "direction": "in",
+       "name": "req",
+       "methods": [
+           "get",
+           "post"
+       ],
+       "route": "/{*route}"
+    },
+    {
+       "type": "http",
+       "direction": "out",
+       "name": "$return"
+    }
+  ]
 }
 ```
 
@@ -409,15 +409,16 @@ Update the Python code file `init.py`, depending on the interface used by your f
 # [ASGI](#tab/asgi)
 
 ```python
-app=FastAPI("Test")
+app=fastapi.FastAPI()
 
-@app.route("/api/HandleApproach")
-def test():
-  return "Hello!"
+@app.get("/hello/{name}")
+async def get_name(
+  name: str,):
+  return {
+      "name": name,}
 
-def main(req: func.HttpRequest, context) -> func.HttpResponse:
-  logging.info('Python HTTP trigger function processed a request.')
-  return func.AsgiMiddleware(app).handle(req, context)
+def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
+    return AsgiMiddleware(app).handle(req, context)
 ```
 
 # [WSGI](#tab/wsgi)
@@ -425,14 +426,15 @@ def main(req: func.HttpRequest, context) -> func.HttpResponse:
 ```python
 app=Flask("Test")
 
-@app.route("/api/WrapperApproach")
-def test():
-  return "Hello!"
+@app.route("/hello/<name>", methods=['GET'])
+def hello(name: str):
+    return f"hello {name}"
 
 def main(req: func.HttpRequest, context) -> func.HttpResponse:
   logging.info('Python HTTP trigger function processed a request.')
   return func.WsgiMiddleware(app).handle(req, context)
 ```
+For a full example, see [Using Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/).
 
 ---
 
@@ -579,7 +581,7 @@ az functionapp config set --name <FUNCTION_APP> \
 --linux-fx-version <LINUX_FX_VERSION>
 ```
 
-Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<LINUX_FX_VERSION>` with the python version you want to use, prefixed by `python|`  e.g. `python|3.9`
+Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<LINUX_FX_VERSION>` with the Python version you want to use, prefixed by `python|`  e.g. `python|3.9`
 
 You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
 

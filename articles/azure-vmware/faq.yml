@@ -2,11 +2,10 @@
 metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
-  ms.topic: article
+  ms.topic: faq
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
   ms.date:  09/29/2021
-    
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 
@@ -213,7 +212,11 @@ sections:
         answer: Azure VMware Solution uses the officially registered Public 4-byte ASNs to ensure there is never a conflict with your on-premises use of Private ASNs in the customer's routing path to Azure VMware Solution.
 
       - question: How can I use ExpressRoute to connect to Azure VMware Solution if the on-premises ExpressRoute-carrier partners/ISPs don't support 4-byte ASN?
-        answer: The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4 byte to 2-byte ASN in the BGP prefix ASN path advertisement.        
+        answer: |
+          The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4-byte to 2-byte ASN in the BGP prefix ASN path advertisement.        
+
+          > [!NOTE]
+          > Currently, private ASN (64512 - 65534) prepending from a customer on-premises environment isn't supported by Azure VMware Solution. This scenario might lead to intermittent connection drops from on-premises to Azure VMware Solution. To prepend a public ASN from on-premises, create a support request.
 
       - question: What network IP address planning is required to incorporate private clouds with on-premises environments?
         answer: A private network /22 address space is required to deploy an Azure VMware Solution private cloud. This private address space shouldn't overlap with other virtual networks in a subscription or with on-premises networks.

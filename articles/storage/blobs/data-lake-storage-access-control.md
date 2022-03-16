@@ -223,7 +223,7 @@ The mask may be specified on a per-call basis. This allows different consuming s
 
 ### The sticky bit
 
-The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user.
+The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user, the directory's owner, or the Superuser ($superuser).
 
 The sticky bit isn't shown in the Azure portal.
 
@@ -336,7 +336,7 @@ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 OID will be displayed.
 
-When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**.
+When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**
 
 ### Can I set the ACL of a container?
 
@@ -349,7 +349,7 @@ The Azure Storage REST API does contain an operation named [Set Container ACL](/
 - [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
 - [HDFS permission guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 - [POSIX FAQ](https://www.opengroup.org/austin/papers/posix_faq.html)
-- [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+- [POSIX 1003.1 2008](https://standards.ieee.org/wp-content/uploads/import/documents/interpretations/1003.1-2008_interp.pdf)
 - [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 - [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 - [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
