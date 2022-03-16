@@ -12,7 +12,7 @@ This article shows you how to perform tasks related to configuring your function
 
 ## Restrict your storage account to a virtual network 
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoints. 
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoints. When configuring your storage account with private endpoints, public access to your storage account is not automatically disabled. In order to disable public access to your storage account, configure your storage firewall to allow access from only selected networks.
 
 
 
