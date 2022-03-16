@@ -430,4 +430,4 @@ The response should be handled in the same way as explained above for [full shar
 
 ## Next steps
 
-* Learn how to [manage Azure file shares backup using Rest API](manage-azure-file-share-rest-api.md).
+* Learn how to [manage Azure file shares backup using REST API](manage-azure-file-share-rest-api.md).

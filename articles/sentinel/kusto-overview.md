@@ -105,7 +105,7 @@ In Kusto Query Language, most of the data types follow standard conventions and 
 | `string`   |                    | `System.String`                   |
 | `timespan` | `Time`             | `System.TimeSpan`                 |
 | `decimal`  |                    | `System.Data.SqlTypes.SqlDecimal` |
-| | | |
+
 
 While most of the data types are standard, you might be less familiar with types like *dynamic*, *timespan*, and *guid*.
 
@@ -136,7 +136,7 @@ While most of the data types are standard, you might be less familiar with types
 | `Ms` | milliseconds |
 | `Microsecond` | microseconds |
 | `Tick` | nanoseconds |
-| | |
+
 
 ***Guid*** is a datatype representing a 128-bit, globally-unique identifier, which follows the standard format of [8]-[4]-[4]-[4]-[12], where each [number] represents the number of characters and each character can range from 0-9 or a-f.
 

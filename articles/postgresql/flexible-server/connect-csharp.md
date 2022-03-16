@@ -4,6 +4,7 @@ description: "This quickstart provides a C# (.NET) code sample you can use to co
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.custom: mvc, devcenter, devx-track-csharp, mode-other
 ms.devlang: csharp
 ms.topic: quickstart

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins query plugin for Azure Data Explorer
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/06/2021
+ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -84,7 +84,7 @@ If you're ingesting time series data directly into Azure Data Explorer, you'll l
 
 An [update policy](/azure/data-explorer/kusto/management/updatepolicy) in Azure Data Explorer allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
 
-You can use an update policy to enrich your raw time series data with the corresponding **twin ID** from Azure Digital Twins, and persist it to a target table. Using the twin ID, the target table can then be joined against the digital twins selected by the Azure Digital Twins plugin. 
+You can use an update policy to enrich your raw time series data with the corresponding twin ID from Azure Digital Twins, and persist it to a target table. Using the twin ID, the target table can then be joined against the digital twins selected by the Azure Digital Twins plugin. 
 
 For example, say you created the following table to hold the raw time series data flowing into your Azure Data Explorer instance. 
 

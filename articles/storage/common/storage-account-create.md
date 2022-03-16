@@ -100,7 +100,7 @@ Every Resource Manager resource, including an Azure storage account, must belong
 
 To create an Azure storage account with the Azure portal, follow these steps:
 
-1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts.
+1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, click the menu button to toggle it on.
 :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Image of the Azure Portal homepage showing the location of the Menu button near the top left corner of the browser" lightbox="media/storage-account-create/menu-expand-lrg.png":::
 1. On the **Storage accounts** page, select **Create**.
 

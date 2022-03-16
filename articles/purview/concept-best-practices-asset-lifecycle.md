@@ -64,7 +64,7 @@ This process describes the high-level steps and suggested roles to capture and m
 | 1 | [Azure Purview collections architecture and best practices](concept-best-practices-collections.md) |  
 | 2 | [How to create and manage collections](how-to-create-and-manage-collections.md)
 | 3 & 4 | [Understand Azure Purview access and permissions](catalog-permissions.md)
-| 5 | [Azure Purview connector overview](purview-connector-overview.md) <br> [Azure Purview private endpoint networking](catalog-private-link.md) |
+| 5 | [Azure Purview supported sources](purview-connector-overview.md) <br> [Azure Purview private endpoint networking](catalog-private-link.md) |
 | 6 | [How to manage multi-cloud data sources](manage-data-sources.md)
 | 7 | [Best practices for scanning data sources in Azure Purview](concept-best-practices-scanning.md)
 | 8, 9 & 10 | [Search the data catalog](how-to-search-catalog.md)  <br>   [Browse the data catalog](how-to-browse-catalog.md)

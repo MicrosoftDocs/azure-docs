@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 04/03/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -250,7 +250,7 @@ You're now ready to test the web application's scoped access to the web API. Run
 
 1. To call the protected API endpoint, select the **Sign in to call PROTECTED API** button. You're prompted to sign in. 
 
-1. Enter your sign-in credentials, such as email address and password. If you don't have an account, select **Sign up now** to create an account. If you have an account but have forgotten your password, select **Forgot your password?** to recover your password. After you successfully sign in or sign up, you should see the following page with **Call the PROTECTED API** button.
+1. Enter your sign-in credentials, such as email address and password. If you don't have an account, select **Sign up now** to create an account. After you successfully sign in or sign up, you should see the following page with **Call the PROTECTED API** button.
 
 
     :::image type="content" source="./media/tutorial-call-api-using-access-token/signed-in-to-call-api.png" alt-text="Web page for signed to call protected A P I.":::
