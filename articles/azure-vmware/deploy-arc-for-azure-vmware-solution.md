@@ -30,8 +30,8 @@ The following items are needed to ensure you're set up to begin the onboarding p
 - A datastore with minimum 100 GB of free disk space that is available through the resource pool. 
 - On the vCenter Server, allow inbound connections on TCP port 443, so that the Arc resource bridge and VMware cluster extension can communicate with the vCenter server. 
 
-    > [!NOTE]
-    > Only the default port of 443 is supported if you use a different port, Appliance VM creation will fail. 
+> [!NOTE]
+> Only the default port of 443 is supported if you use a different port, Appliance VM creation will fail. 
 
 At this point, you should have already deployed an Azure VMware Solution private cluster. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
 
