@@ -136,7 +136,7 @@ After you've ensured that you're on a supported version of SQL Server, enabled t
 
     :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-restart.png" alt-text="Screenshot that shows the SQL Server restart command call.":::
 
-After the restart, run the following Transact-SQL script to validate the configuration of your SQL Server instance. Your SQL Server version should be 15.0.4198.2 or later, the Always On availability groups feature should be enabled, and you should have the trace flags `-T1800` and `-T9567` enabled.
+After the restart, run the following Transact-SQL script to validate the configuration of your SQL Server instance: 
 
 ```sql
 -- Shows the version and CU of SQL Server
@@ -149,8 +149,7 @@ SELECT SERVERPROPERTY ('IsHadrEnabled')
 DBCC TRACESTATUS
 ```
 
-The following screenshot is an example of the expected outcome for a SQL Server instance that's been properly configured: 
-
+Your SQL Server version should be 15.0.4198.2 or later, the Always On availability groups feature should be enabled, and you should have the trace flags `-T1800` and `-T9567` enabled. The following screenshot is an example of the expected outcome for a SQL Server instance that has been properly configured: 
 
 :::image type="content" source="./media/managed-instance-link-preparation/ssms-results-expected-outcome.png" alt-text="Screenshot that shows the expected outcome in S S M S.":::
 
@@ -224,7 +223,7 @@ To check if SQL Server can reach SQL Managed Instance, use the `tnc` command in 
 tnc <ManagedInstanceFQDN> -port 5022
 ```
 
-A successful test shows `TcpTestSucceeded : True`: 
+A successful test shows `TcpTestSucceeded : True`. 
 
 
 :::image type="content" source="./media/managed-instance-link-preparation/powershell-output-tnc-command.png" alt-text="Screenshot that shows the output of the command for testing a network connection in PowerShell.":::
@@ -347,4 +346,4 @@ After installation finishes, open SSMS and connect to your supported SQL Server 
 
 ## Next steps
 
-After you've prepared your environment, you're ready to start [replicating your database](managed-instance-link-use-ssms-to-replicate-database.md). To learn more, review [Link feature in Azure SQL Managed Instance](link-feature.md). 
+After you've prepared your environment, you're ready to start [replicating your database](managed-instance-link-use-ssms-to-replicate-database.md). To learn more, review [Link feature for Azure SQL Managed Instance](link-feature.md). 

@@ -26,7 +26,7 @@ Failing over your database from SQL Server to SQL Managed Instance breaks the li
 
 ## Prerequisites 
 
-To fail over your databases to Azure SQL Managed Instance, you need the following prerequisites: 
+To fail over your databases to SQL Managed Instance, you need the following prerequisites: 
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - [SQL Server 2019 Enterprise or Developer edition](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019), starting with [CU15 (15.0.4198.2)](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6).
@@ -43,7 +43,7 @@ In the following steps, you use the **Failover database to Managed Instance** wi
 > If you're performing a planned manual failover, stop the workload on the source SQL Server database to allow the SQL Managed Instance replicated database to completely catch up and fail over without data loss. If you're performing a forced failover, you might lose data. 
 
 1. Open SSMS and connect to your SQL Server instance. 
-1. In **Object Explorer**, right-click your database, hover over **Azure SQL Managed Instance link**, and select **Failover database** to open the **Failover database to Managed Instance** wizard. 
+1. In Object Explorer, right-click your database, hover over **Azure SQL Managed Instance link**, and select **Failover database** to open the **Failover database to Managed Instance** wizard. 
 
    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-ssms-database-context-failover-database.png" alt-text="Screenshot that shows a database's context menu option for failover.":::
 
@@ -60,7 +60,7 @@ In the following steps, you use the **Failover database to Managed Instance** wi
 
    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-failover-type.png" alt-text="Screenshot that shows the Failover Type page.":::
 
-1. On the **Clean up (optional)** page, choose to drop the availability group if you created it solely for the purpose of migrating your database to Azure and you no longer need it. If you want to keep the availability group, leave the boxes cleared. Select **Next**. 
+1. On the **Clean-up (optional)** page, choose to drop the availability group if you created it solely for the purpose of migrating your database to Azure and you no longer need it. If you want to keep the availability group, leave the boxes cleared. Select **Next**. 
 
 
    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-cleanup-optional.png" alt-text="Screenshot that shows the page for the option of deleting an availability group.":::
@@ -81,11 +81,11 @@ In the following steps, you use the **Failover database to Managed Instance** wi
 
 During the failover process, the SQL Managed Instance link is dropped and no longer exists. The source SQL Server database and the target SQL Managed Instance database can both execute a read/write workload. They're completely independent. 
 
-You can validate that the link is gone by reviewing the database on SQL Server: 
+You can validate that the link is gone by reviewing the database on SQL Server. 
 
 :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-ssms-sql-server-database.png" alt-text="Screenshot that shows a database on SQL Server in S S M S.":::
 
-Then, review the database on SQL Managed Instance: 
+Then, review the database on SQL Managed Instance. 
 
 :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-ssms-managed-instance-database.png" alt-text="Screenshot that shows a database on SQL Managed Instance in S S M S.":::
 
