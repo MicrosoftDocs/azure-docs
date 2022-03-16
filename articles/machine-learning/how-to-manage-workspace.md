@@ -378,7 +378,6 @@ Customize the display of columns in the search results table. These views can be
 
 If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
 
-
 ---
 
 ## Delete a workspace
