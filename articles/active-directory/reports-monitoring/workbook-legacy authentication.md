@@ -87,6 +87,9 @@ This workbook supports multiple filters:
 - Status of the sign-in (success or failure)
 
 
+![Filter options](./media/workbook-legacy-authentication/filter-options.png)
+
+
 ## Best practices
 
 
