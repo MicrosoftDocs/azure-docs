@@ -82,6 +82,9 @@ Before you can send notifications to Teams from your pipelines you must create a
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-parameters.png" alt-text="Shows the &quot;Pipeline parameters&quot;.":::
 
+    > [!NOTE]
+    > These parameters are used to construct the monitoring URL. Suppose you do not provide a valid subscription and resource group (of the same data factory where the pipelines belong). In that case, the notification will not contain a valid pipeline monitoring URL, but the messages will still work.  Additionally, adding these parameters helps prevent the need to always pass those values from another pipeline. If you intend to control those values through a metadata-driven approach, then you should modify them accordingly.
+
 1.  In the "Configurations" pane, select **Variables**, and then select the **+ New** button define following variables for your pipeline.
 
     | Name                  | Type                  | Default Value             |
@@ -92,13 +95,98 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  Search for "Set variable" in the pipeline "Activities" pane, and drag a **Set Variable** activity to the pipeline canvas.
 
-1.  Select the Set variable activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
+1.  Select the "Set variable" activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
 
 1.  In the "General" tab, specify **Set JSON schema** for **Name** of the "Set variable" activity.
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/set-variable-activity-name.png" alt-text="Shows the &quot;Set variable&quot; activity general tab.":::
 
-1.  Select **Variables** tab, and choose **messageCard** variable.
+1.  In the "Variables" tab, select **messageCard** variable for the **Name** property and enter the following **JSON** for its **Value** property:
+
+    ```json
+    {
+        "@type": "MessageCard",
+        "@context": "http://schema.org/extensions",
+        "themeColor": "0076D7",
+        "summary": "Pipeline status alert message​​​​",
+        "sections": [
+            {
+                "activityTitle": "Pipeline execution alert​​​​",
+                "facts": [
+                    {
+                        "name": "Subscription Id:",
+                        "value": "@{pipeline().parameters.subscription}"
+                    },
+                    {
+                        "name": "Resource Group:",
+                        "value": "@{pipeline().parameters.resourceGroup}"
+                    },
+                    {
+                        "name": "Data Factory Name:",
+                        "value": "@{pipeline().DataFactory}"
+                    },
+                    {
+                        "name": "Pipeline RunId:",
+                        "value": "@{pipeline().parameters.runId}"
+                    },
+                    {
+                        "name": "Pipline Name:",
+                        "value": "@{pipeline().parameters.name}"
+                    },
+                    {
+                        "name": "Pipeline Status:",
+                        "value": "@{pipeline().parameters.status}"
+                    },
+                    {
+                        "name": "Execution Start Time (UTC):",
+                        "value": "@{pipeline().parameters.triggerTime}"
+                    },
+                    {
+                        "name": "Execution Finish Time (UTC):",
+                        "value": "@{pipeline().parameters.executionEndTime}"
+                    },
+                    {
+                        "name": "Execution Duration (s):",
+                        "value": "@{pipeline().parameters.runDuration}"
+                    },
+                    {
+                        "name": "Message:",
+                        "value": "@{pipeline().parameters.message}"
+                    },
+                    {
+                        "name": "Notification Time (UTC):",
+                        "value": "@{utcnow()}"
+                    }
+                ],
+                "markdown": true
+            }
+        ],
+        "potentialAction": [
+            {
+                "@type": "OpenUri",
+                "name": "View pipeline run",
+                "targets": [
+                    {
+                        "os": "default",
+                        "uri": "@{concat('https://adf.azure.com/monitoring/pipelineruns/',pipeline().parameters.runId,'?factory=/subscriptions/',pipeline().parameters.subscription,'/resourceGroups/',pipeline().parameters.resourceGroup,'/providers/Microsoft.DataFactory/factories/',pipeline().DataFactory)}"
+                    }
+                ]
+            }
+        ]
+    }
+    ```
+ 
+    :::image type="content" source="media/how-to-send-notifications-to-teams/set-variable-activity-variables-tab.png" alt-text="Shows the &quot;Set variable&quot; activity variables tab.":::
+
+1.  Search for "Web" in the pipeline "Activities" pane, and drag a **Web** activity to the pipeline canvas. 
+
+1.  Create a dependency condition for the **Web** activity so that it only runs if the **Set variable** activity succeeds. To create this dependency, click the green handle on the right side of the **Set variable** activity, drag it, and connect it to the **Web** activity.
+
+1.  Select the new "Web" activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
+
+1.  In the "General" tab, specify **Invoke Teams Webhook Url** for **Name** of the "Web" activity.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-name.png" alt-text="Shows the &quot;Web&quot; activity general tab.":::
 
 1.  Search for "teams", then select and use the **Send notification to a channel in Microsoft Teams** template.
     
@@ -139,7 +227,9 @@ Before you can send notifications to Teams from your pipelines you must create a
     | teamWebhookUrl        | String                | Specify Team Webhook URL                                                      |
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-parameters-synapse.png" alt-text="Shows the &quot;Pipeline parameters&quot;.":::
-    
+
+    > [!NOTE]
+    > These parameters are used to construct the monitoring URL. Suppose you do not provide a valid subscription and resource group (of the same data factory where the pipelines belong). In that case, the notification will not contain a valid pipeline monitoring URL, but the messages will still work.  Additionally, adding these parameters helps prevent the need to always pass those values from another pipeline. If you intend to control those values through a metadata-driven approach, then you should modify them accordingly.
 
 1.  In the "Configurations" pane, select **Variables**, and then select the **+ New** button define following variables for your pipeline.
 
@@ -151,11 +241,89 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  Search for "Set variable" in the pipeline "Activities" pane, and drag a **Set Variable** activity to the pipeline canvas.
 
-1.  Select the Set variable activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
+1.  Select the "Set variable" activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
 
 1.  In the "General" tab, specify **Set JSON schema** for **Name** of the "Set variable" activity.
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/set-variable-activity-name-synapse.png" alt-text="Shows the &quot;Set variable&quot; activity general tab.":::
+
+1.  In the "Variables" tab, select **messageCard** variable for the **Name** property and enter the following **JSON** for its **Value** property:
+
+    ```json
+    {
+        "@type": "MessageCard",
+        "@context": "http://schema.org/extensions",
+        "themeColor": "0076D7",
+        "summary": "Pipeline status alert message​​​​",
+        "sections": [
+            {
+                "activityTitle": "Pipeline execution alert​​​​",
+                "facts": [
+                    {
+                        "name": "Subscription Id:",
+                        "value": "@{pipeline().parameters.subscription}"
+                    },
+                    {
+                        "name": "Resource Group:",
+                        "value": "@{pipeline().parameters.resourceGroup}"
+                    },
+                    {
+                        "name": "Data Factory Name:",
+                        "value": "@{pipeline().DataFactory}"
+                    },
+                    {
+                        "name": "Pipeline RunId:",
+                        "value": "@{pipeline().parameters.runId}"
+                    },
+                    {
+                        "name": "Pipline Name:",
+                        "value": "@{pipeline().parameters.name}"
+                    },
+                    {
+                        "name": "Pipeline Status:",
+                        "value": "@{pipeline().parameters.status}"
+                    },
+                    {
+                        "name": "Execution Start Time (UTC):",
+                        "value": "@{pipeline().parameters.triggerTime}"
+                    },
+                    {
+                        "name": "Execution Finish Time (UTC):",
+                        "value": "@{pipeline().parameters.executionEndTime}"
+                    },
+                    {
+                        "name": "Execution Duration (s):",
+                        "value": "@{pipeline().parameters.runDuration}"
+                    },
+                    {
+                        "name": "Message:",
+                        "value": "@{pipeline().parameters.message}"
+                    },
+                    {
+                        "name": "Notification Time (UTC):",
+                        "value": "@{utcnow()}"
+                    }
+                ],
+                "markdown": true
+            }
+        ],
+        "potentialAction": [
+            {
+                "@type": "OpenUri",
+                "name": "View pipeline run",
+                "targets": [
+                    {
+                        "os": "default",
+                        "uri": "@{concat('https://adf.azure.com/monitoring/pipelineruns/',pipeline().parameters.runId,'?factory=/subscriptions/',pipeline().parameters.subscription,'/resourceGroups/',pipeline().parameters.resourceGroup,'/providers/Microsoft.DataFactory/factories/',pipeline().DataFactory)}"
+                    }
+                ]
+            }
+        ]
+    }
+    ```
+ 
+    :::image type="content" source="media/how-to-send-notifications-to-teams/set-variable-activity-variables-tab-synapse.png" alt-text="Shows the &quot;Set variable&quot; activity variables tab.":::
+
 
 1.  Search for "teams", then select and use the **Send notification to a channel in Microsoft Teams** template.
     
