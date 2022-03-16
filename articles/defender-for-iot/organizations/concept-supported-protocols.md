@@ -72,7 +72,7 @@ Horizon provides:
 - Extra visibility and control over your OT assets without needing to update your Defender for IoT version
 - The security of allowing proprietary development without divulging sensitive information
 
-:::image type="content" source="media/concept-supported-protocols/sdk-horizon.png" alt-text="Infographic that describes features provided by the Horizon SDK." lightbox="media/concept-supported-protocols/sdk-horizon.png":::
+:::image type="content" source="media/concept-supported-protocols/sdk-horizon.png" alt-text="Infographic that describes features provided by the Horizon SDK." lightbox="media/concept-supported-protocols/sdk-horizon.png" border="false":::
 
 ### Collaborate with the Horizon community
 
