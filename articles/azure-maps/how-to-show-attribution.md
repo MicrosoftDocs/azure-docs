@@ -30,25 +30,25 @@ The [Get Map Attribution API](/rest/api/maps/render-v2/get-map-attribution) enab
 
 The map copyright attribution information must be displayed on the map in any applications that use the Render V2 API, including web and mobile applications.
 
-When using any of the Azure Maps SDKs, the map copyright attribution information is automatically displayed and updated on the map. This includes the [Web SDK](how-to-use-map-control.md), [Android SDK](how-to-use-android-map-control-library.md) and the [iOS SDK](how-to-use-ios-map-control-library.md).
+The attribution is automatically displayed and updated on the map When using any of the Azure Maps SDKs. This includes the [Web SDK](how-to-use-map-control.md), [Android SDK](how-to-use-android-map-control-library.md) and the [iOS SDK](how-to-use-ios-map-control-library.md).
 
 When using map tiles from the Render service in a third-party map, you must display and update the copyright attribution information on the map.
 
-Map content changes whenever an end user selects a different style, zooms in or out, or pans the map. Each of these user actions causes an event to fire and when any of these events fire, you need to call the Get Map Attribution API to update the map copyright attribution information displayed in the lower right-hand corner of the map.
+Map content changes whenever an end user selects a different style, zooms in or out, or pans the map. Each of these user actions causes an event to fire. When any of these events fire, you need to call the Get Map Attribution API. Once you have the updated copyright attribution information, you then need to display it in the lower right-hand corner of the map.
 
 Since the data providers can differ depending on the *region* and *zoom* level, the Get Map Attribution API takes these parameters as input and returns the corresponding attribution text.
 
 ### How to use the Get Map Attribution API
 
-You will need the following information to run the `attribution` command:
+You'll need the following information to run the `attribution` command:
 
 | Parameter   | Type   | Description                                              |
 | ----------- | ------ | -------------------------------------------------------- |
 | api-version | string | Version number of Azure Maps API. Current version is 2.1 |
-| bounds      | array  | A string that represents the rectangular area of a bounding box. The bounds parameter is defined by the four bounding box coordinates, with WGS84 longitude and latitude of the southwest corner followed by WGS84 longitude and latitude of the northeast corner. The string is presented in the following format: [SouthwestCorner_Longitude, SouthwestCorner_Latitude, NortheastCorner_Longitude, NortheastCorner_Latitude]. |
+| bounds      | array  | A string that represents the rectangular area of a bounding box. The bounds parameter is defined by the four bounding box coordinates. The first 2 are the WGS84 longitude and latitude defining the southwest corner and the last 2 are the WGS84 longitude and latitude defining the northeast corner. The string is presented in the following format: [SouthwestCorner_Longitude, SouthwestCorner_Latitude, NortheastCorner_Longitude, NortheastCorner_Latitude]. |
 | tilesetId | TilesetID | A tileset is a collection of raster or vector data broken up into a uniform grid of square tiles at preset zoom levels. Every tileset has a tilesetId to use when making requests. The tilesetId for tilesets created using Azure Maps Creator are generated through the [Tileset Create API](/rest/api/maps/v2/tileset/create). There are ready-to-use tilesets supplied by Azure Maps, such as `microsoft.base.road`, `microsoft.base.hybrid` and `microsoft.weather.radar.main`, a complete list can be found the [Get Map Attribution](/rest/api/maps/render-v2/get-map-attribution#tilesetid) REST API documentation. |
-| zoom | integer | Zoom level for the selected tile. The valid range depends on the tile, see the [TilesetID](/rest/api/maps/render-v2/get-map-attribution#tilesetid) table for valid values for a specific tileset. For additional information, see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) article. |
-| subscription-key | string | One of the Azure Maps keys provided from an Azure Map Account. For additional information, see the [Authentication with Azure Maps](azure-maps-authentication.md) article. |
+| zoom | integer | Zoom level for the selected tile. The valid range depends on the tile, see the [TilesetID](/rest/api/maps/render-v2/get-map-attribution#tilesetid) table for valid values for a specific tileset. For more information, see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) article. |
+| subscription-key | string | One of the Azure Maps keys provided from an Azure Map Account. For more information, see the [Authentication with Azure Maps](azure-maps-authentication.md) article. |
 
 Run the following GET request to get the corresponding copyright attribution to display on the map:
 
@@ -58,4 +58,4 @@ https://atlas.microsoft.com/map/attribution?subscription-key={Azure-Maps-Primary
 
 ## Additional information
 
-* For additional information, see the [Azure Maps Render service V2](/rest/api/maps/render-v2) documentation.
+* For more information, see the [Azure Maps Render service V2](/rest/api/maps/render-v2) documentation.
