@@ -67,5 +67,5 @@ You can now start interacting with the Grafana console to configure data sources
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to configure permissions for Managed Grafana](./how-to-data-source-plugins-managed-identity.md).
-> [How to configure data source plugins for Azure Managed Grafana with Managed Identity](./how-to-data-source-plugins-managed-identity.md).
+> [Configure permissions for Managed Grafana](./how-to-data-source-plugins-managed-identity.md).
+> [Configure data source plugins for Azure Managed Grafana with Managed Identity](./how-to-data-source-plugins-managed-identity.md).
