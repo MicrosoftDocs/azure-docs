@@ -66,6 +66,8 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [**Prebuilt Model**](#prebuilt-model)—Analyze and extract data from common document types, using a pre-trained model.
 
+* [**Read**](#read-model)—Extract printed and handwritten text lines, words, their locations, detected languages, and handwritten style if detected from documents and images.
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
