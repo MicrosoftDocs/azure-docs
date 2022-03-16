@@ -69,7 +69,7 @@ For [Applications](https://admin.bindid-sandbox.io/console/#/applications) to co
 | Name | Azure AD B2C/your desired application name|
 | Domain | name.onmicrosoft.com|
 | Redirect URIs| https://jwt.ms |
-| Redirect URLs |Specify the page to which users are redirected after BindID authentication: https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp<br>For Example: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br>If you use a custom domain, enter https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp.<br>Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant.|
+| Redirect URLs |Specify the page to which users are redirected after BindID authentication: `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`<br>For Example: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br>If you use a custom domain, enter https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp.<br>Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant.|
 
 >[!NOTE]
 >BindID will provide you Client ID and Client Secret, which you'll need later to configure the Identity provider in Azure AD B2C.

@@ -27,7 +27,7 @@ The script in this article creates a MongoDB database with shared throughput and
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/mongodb/throughput.sh" range="4-98":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/mongodb/throughput.sh" id="FullScript":::
 
 ## Clean up resources
 

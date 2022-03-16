@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/08/2022
+ms.date: 03/09/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -28,27 +28,6 @@ For complete release version information, see [Version log](version-log.md).
 
 ### Data Controller
 - Fixed the issue "ConfigMap sql-config-[SQL MI] does not exist" from the February 2022 release. This issue occurs when deploying a SQL Managed Instance with service type of `loadBalancer` with certain load balancers. 
-
-### SQL Managed Instance
-
-- Support for readable secondary replicas:
-    - To set readable secondary replicas use `--readable-secondaries` when you create or update an Arc-enabled SQL Managed Instance deployment. 
-    - Set `--readable secondaries` to any value between 0 and the number of replicas minus 1.
-    - `--readable-secondaries` only applies to Business Critical tier. 
-- Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
-- RWX capable storage class is required for backups, for both General Purpose and Business Critical service tiers.
-- Billing support when using multiple read replicas.
-
-For additional information about service tiers, see [High Availability with Azure Arc-enabled SQL Managed Instance (preview)](managed-instance-high-availability.md).
-
-### User experience improvements
-
-The following improvements are available in [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
-
-- Azure Arc and Azure CLI extensions now generally available. 
-- Changed edit commands for SQL Managed Instance for Azure Arc dashboard to use `update`, reflecting Azure CLI changes. This works in indirect or direct mode. 
-- Data controller deployment wizard step for connectivity mode is now earlier in the process.
-- Removed an extra backups field in SQL MI deployment wizard.
 
 ## February 2022
 

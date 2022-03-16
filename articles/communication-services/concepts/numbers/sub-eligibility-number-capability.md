@@ -69,6 +69,8 @@ The tables below summarize current availability:
 | :------ | :-------- | :------------ | :------------ | :------------- | :--------------- |
 | Denmark | Toll-Free | Not Available | Not Available | Public Preview | Public Preview\* |
 | Denmark | Local     | Not Available | Not Available | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
 
 \* Available through Azure Bot Framework and Dynamics only
 
