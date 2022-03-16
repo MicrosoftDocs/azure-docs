@@ -1,7 +1,7 @@
 ---
 title: Protocols supported by Microsoft Defender for IoT
 description: Learn about protocols that are supported by Microsoft Defender for IoT.
-ms.date: 11/09/2021
+ms.date: 03/16/2022
 ms.topic: article
 ---
 
@@ -76,11 +76,11 @@ Horizon provides:
 
 ### Collaborate with the Horizon community
 
-Be part of a community that is leading the way toward digital transformation and industry-wide collaboration for protocol support. The Horizon ICS community allows knowledge sharing for domain experts in critical infrastructures, building management, production lines, transportation systems, and other industrial leaders.
+Join our community to help lead the way towards digital transformation and industry-wide collaboration for protocol support!
 
-The community provides tutorials, discussion forums, instructor-led training, educational white papers, webinars, and more.
+The Horizon ICS community shares knowledge between domain experts in critical infrastructures, building management, production lines, transportation systems, and leading industries. For example, our community shares tutorials, discussion forums, instructor-led training, educational white papers, and more.
 
-We invite you to join our community here: <horizon-community@microsoft.com>
+To join the Horizon community, email us at: [horizon-community@microsoft.com](mailto:horizon-community@microsoft.com)
 
 ## Next steps
 
