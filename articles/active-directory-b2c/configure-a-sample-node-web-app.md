@@ -142,7 +142,7 @@ You can now test the sample app. You need to start the Node server and access it
 
 ### Test sign in
 
-1. After the page with the **Sign in** button finishes loading, select **Sign in**. You're prompted to sign in.
+1. After the page with the **Sign in** button completes loading, select **Sign in**. You're prompted to sign in.
 1. Enter your sign-in credentials, such as email address and password. If you don't have an account, select **Sign up now** to create an account. After you successfully sign in or sign up, you should see the following page that shows sign-in status.
 
    :::image type="content" source="./media/configure-a-sample-node-web-app/tutorial-dashboard-page.png" alt-text="Screenshot shows web app sign-in status.":::
