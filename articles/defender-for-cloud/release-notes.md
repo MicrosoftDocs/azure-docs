@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 03/10/2022
+ms.date: 03/16/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -26,6 +26,7 @@ Updates in March include:
 - [New alert for Microsoft Defender for Storage (preview)](#new-alert-for-microsoft-defender-for-storage-preview)
 - [Configure email notifications settings from an alert](#configure-email-notifications-settings-from-an-alert)
 - [Deprecated preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecated-preview-alert-armmcas_activityfromanonymousipaddresses)
+- [Moved the recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices](#moved-the-recommendation-vulnerabilities-in-container-security-configurations-should-be-remediated-from-the-secure-score-to-best-practices)
 
 ### Deprecated the recommendations to install the network traffic data collection agent
 
@@ -74,6 +75,12 @@ The following preview alert has been deprecated:
 A new alert has been created that provides this information and adds to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) doesn't require a license for Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security).
 
 See more alerts for [Resource Manager](alerts-reference.md#alerts-resourcemanager).
+
+### Moved the recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices
+
+The recommendation `Vulnerabilities in container security configurations should be remediated` has been moved from the secure score section to best practices section.
+
+We have improved the experience for this recommendation which has now been moved back to the secure score section.
 
 ## February 2022
 
