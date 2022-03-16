@@ -16,7 +16,7 @@ ms.date: 03/23/2022
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-In Azure Cognitive Search, a *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching in filters, facets, and sorts. Normalizers behave similar to [analyzers](search-analyzers.md) in how they process text, except they do not tokenize the query. Some of the transformations that can be achieved using normalizers are:
+In Azure Cognitive Search, a *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching in filters, facets, and sorts. Normalizers behave similar to [analyzers](search-analyzers.md) in how they process text, except they don't tokenize the query. Some of the transformations that can be achieved using normalizers are:
 
 + Convert to lowercase or upper-case
 + Normalize accents and diacritics like ö or ê to ASCII equivalent characters "o" and "e"
@@ -45,13 +45,13 @@ Azure Cognitive Search provides built-in normalizers for common use-cases along 
 | [Predefined normalizers](#predefined-normalizers) | Provided out-of-the-box and can be used without any configuration. |
 |[Custom normalizers](#add-custom-normalizers) <sup>1</sup> | For advanced scenarios. Requires user-defined configuration of a combination of existing elements, consisting of char and token filters.|
 
-<sup>(1)</sup> Custom normalizers do not specify tokenizers since normalizers always produce a single token.
+<sup>(1)</sup> Custom normalizers don't specify tokenizers since normalizers always produce a single token.
 
 ## How to specify normalizers
 
 Normalizers are specified in an index definition, on a per-field basis, on text fields (`Edm.String` and `Collection(Edm.String)`) that have at least one of "filterable", "sortable", or "facetable" properties set to true. Setting a normalizer is optional and it's null by default. We recommend evaluating predefined normalizers before configuring a custom one.
 
-Normalizers can only be specified when a new field is added to the index. Try to assess the normalization needs upfront and assign normalizers in the initial stages of development when dropping and recreating indexes is routine. Normalizers cannot be specified on a field that has already been created.
+Normalizers can only be specified when a new field is added to the index. Try to assess the normalization needs upfront and assign normalizers in the initial stages of development when dropping and recreating indexes is routine. Normalizers can't be specified on a field that has already been created.
 
 1. When creating a field definition in the [index](/rest/api/searchservice/create-index), set the  "normalizer" property to one of the following: a [predefined normalizer](#predefined-normalizers) such as "lowercase", or a custom normalizer (defined in the same index schema).  
  
@@ -140,7 +140,7 @@ Custom normalizers can be added during index creation or later by updating an ex
 |standard| Lowercases the text followed by asciifolding.|  
 |lowercase| Transforms characters to lowercase.|
 |uppercase| Transforms characters to uppercase.|
-|asciifolding| Transforms characters that are not in the Basic Latin Unicode block to their ASCII equivalent, if one exists. For example, changing à to a.|
+|asciifolding| Transforms characters that aren't in the Basic Latin Unicode block to their ASCII equivalent, if one exists. For example, changing à to a.|
 |elision| Removes elision from beginning of the tokens.|
 
 ### Supported char filters
