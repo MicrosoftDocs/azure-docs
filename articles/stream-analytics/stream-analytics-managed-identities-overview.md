@@ -23,7 +23,7 @@ Here are some of the benefits of using Managed identities:
 
 Stream Analytics supports two types of managed identities:
 
-*	System-assigned Identity: Some Azure services allow you to enable a managed identity directly on a service instance. When you enable a system-assigned managed identity, you create an identity in Azure AD that is tied to the lifecycle of that service instance. So when you delete the resource, Azure automatically deletes the identity for you. By design, only that Azure resource can use this identity to request tokens from Azure AD.
+*	System-assigned Identity: When you enable a system-assigned managed identity for your job, you create an identity in Azure AD that is tied to the lifecycle of that job. So when you delete the resource, Azure automatically deletes the identity for you. 
 *	User-assigned Identity: You may also create a managed identity as a standalone Azure resource. You can create a user-assigned managed identity and assign it to one or more instances of an Azure service. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it.
 
 To learn more about managed identities, see [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
