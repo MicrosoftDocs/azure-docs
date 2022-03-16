@@ -69,7 +69,7 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
   "publisherId": "contoso",
   "offerId": "offer2 ",
   "planId": "gold",
-  "quantity": "20",
+  "quantity": 20,
   "timeStamp": "2019-04-15T20:17:31.7350641Z",
   "action": "Reinstate",
   "status": "InProgress"
