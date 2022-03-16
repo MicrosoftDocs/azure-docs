@@ -16,6 +16,20 @@ The *packet core dashboards* provide a flexible way to monitor key statistics re
 
 The packet core dashboards are powered by *Grafana*, an open-source, metric analytics and visualization suite. For more information, see the [Grafana documentation](https://grafana.com/docs/grafana/v6.1/).
 
+## Access the packet core dashboards
+
+To sign in to the packet core dashboards:
+
+1. In your browser, enter https://*LocalMonitoringIP*/grafana, where *LocalMonitoringIP* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
+
+    :::image type="content" source="media\packet-core-dashboards\grafana-sign-in.png" alt-text="Screenshot of the Grafana sign in page, with fields for the username and password.":::
+
+1. If you're accessing the packet core dashboards for the first time after installing or reinstalling Packet Core:
+    1. Use the default username and password to sign in. <!-- username and password -->
+    1. Follow the prompts to change your credentials.
+
+Once you're signed in to the packet core dashboards, you can hover over your user icon in the left pane to access the options to sign out or change your password.
+
 ## Use the packet core dashboards
 
 We'll go through the common concepts and operations you'll need to understand before you can use the packet core dashboards. If you need more information on using Grafana, see the [Grafana documentation](https://grafana.com/docs/grafana/v6.1/).

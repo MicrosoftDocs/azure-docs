@@ -14,6 +14,22 @@ ms.custom: template-concept
 
 Azure Private 5G Core Preview offers a *distributed tracing web GUI*, which you can use to collect detailed traces for signaling flows involving packet core instances. You can use *traces* to diagnose many common configuration, network, and interoperability problems affecting user service.
 
+## Accessing the distributed tracing web GUI
+
+To sign in to the distributed tracing web GUI:
+
+1. In your browser, enter https://*LocalMonitoringIP*/sas, where *LocalMonitoringIP* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
+
+    :::image type="content" source="media\distributed-tracing\distributed-tracing-sign-in.png" alt-text="Screenshot of the distributed tracing web G U I sign in page, with fields for the username and password." lightbox="media\distributed-tracing\distributed-tracing-sign-in.png":::
+
+1. If you're accessing the distributed tracing web GUI for the first time after installing or reinstalling Packet Core:
+    1. Use the default username and password to sign in. <!-- username and password -->
+    1. Follow the prompts to change your credentials.
+
+Once you're signed in to the distributed tracing web GUI, you can use the top-level menu to sign out or change your credentials:
+- Select **Logout** to end your current session.
+- Select **Change Password** to update your password.
+
 ## Searching for specific information
 
 The distributed tracing web GUI provides two search tabs to allow you to search for diagnostics.
