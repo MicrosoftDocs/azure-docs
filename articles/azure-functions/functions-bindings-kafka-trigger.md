@@ -5,17 +5,39 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 06/14/2021
 ms.author: cshoe
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Apache Kafka trigger for Azure Functions
 
 Trigger a function based on a new Kafka event.
 
-Kafka messages can be serialized to multiple formats. Currently the following formats are supported: `string`, [Avro](http://avro.apache.org/docs/current/), and [Protobuf](https://developers.google.com/protocol-buffers/).
+Kafka messages can be serialized to multiple formats. Currently the following formats are supported: 
 
-## String binding
+# [JSON](#tab/string)
 
-# [C#](#tab/csharp)
+String format is supported for JSON payloads.
+
+# [Avro](#tab/avro)
+
+The Kafka trigger supports two methods for consuming [Avro format](http://avro.apache.org/docs/current/):
+
+- **Specific**: A concrete user-defined class is instantiated during message de-serialization.
+- **Generic**: An Avro schema and a generic record instance are created during message de-serialization.
+
+# [Protobuf](#tab/protobuf)
+
+[Protobuf](https://developers.google.com/protocol-buffers/
+
+---
+
+## Example
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+
+# [JSON](#tab/string/in-process)
 
 ```csharp
 public static void StringTopic(
@@ -29,40 +51,9 @@ public static void StringTopic(
 }
 ```
 
-# [C# Script](#tab/csharp-script)
+# [Avro](#tab/avro/in-process)
 
-**TODO**
-
-# [Java](#tab/Java)
-
-**TODO**
-
-# [JavaScript](#tab/JavaScript)
-
-**TODO**
-
-# [PowerShell](#tab/PowerShell)
-
-**TODO**
-
-# [Python](#tab/python)
-
-**TODO**
-
----
-
-## Avro binding
-
-The Kafka trigger supports two methods for consuming Avro format:
-
-- **Specific**: A concrete user-defined class is instantiated during message de-serialization.
-- **Generic**: An Avro schema and a generic record instance are created during message de-serialization.
-
-### Avro specific
-
-# [C#](#tab/csharp)
-
-1. Define a class that inherits from `ISpecificRecord`.
+In the first example, a `UserRecord` class, which inherits from `ISpecificRecord`, is instantiated during message de-serialization.
 1. The parameter where `KafkaTrigger` is added should have a value type of the class defined in previous step: `KafkaEventData<MySpecificRecord>`
 
 ```csharp
@@ -138,28 +129,6 @@ public static void User(
 }
 ```
 
-# [C# Script](#tab/csharp-script)
-
-**TODO**
-
-# [Java](#tab/Java)
-
-**TODO**
-
-# [JavaScript](#tab/JavaScript)
-
-**TODO**
-
-# [PowerShell](#tab/PowerShell)
-
-**TODO**
-
-# [Python](#tab/python)
-
-**TODO**
-
----
-
 ### Avro generic
 
 # [C#](#tab/csharp)
@@ -204,31 +173,8 @@ public static void PageViews(
 }
 ```
 
-# [C# Script](#tab/csharp-script)
 
-**TODO**
-
-# [Java](#tab/Java)
-
-**TODO**
-
-# [JavaScript](#tab/JavaScript)
-
-**TODO**
-
-# [PowerShell](#tab/PowerShell)
-
-**TODO**
-
-# [Python](#tab/python)
-
-**TODO**
-
----
-
-## Protobuf binding
-
-# [C#](#tab/csharp)
+# [Protobuf](#tab/protobuf/in-process)
 
 Protobuf is supported in the trigger based on the `Google.Protobuf` NuGet package. To consume a topic using protobuf serialization, set the `TValue` generic argument to be of a type that implements `Google.Protobuf.IMessage`. The sample producer has a producer for topic `protoUser` (must be created). The sample function has a trigger handler for this topic in class `ProtobufTriggers`.
 
@@ -249,27 +195,85 @@ public static class ProtobufTriggers
 }
 ```
 
-# [C# Script](#tab/csharp-script)
+# [JSON](#tab/string/isolated-process)
 
-**TODO**
+Here is some code 
 
-# [Java](#tab/Java)
+:::code language="csharp" source="~/azure-functions-kafka-extension/test/Microsoft.Azure.WebJobs.Extensions.Kafka.LangEndToEndTests/FunctionApps/dotnet-isolated/EventHub/SingleKafkaTriggerQueueOutput.cs" range="18-34" :::
 
-**TODO**
 
-# [JavaScript](#tab/JavaScript)
 
-**TODO**
+# [Avro](#tab/avro/isolated-process)
 
-# [PowerShell](#tab/PowerShell)
+# [Protobuf](#tab/protobuf/isolated-process)
 
-**TODO**
+# [JSON](#tab/string/csharp-script)
 
-# [Python](#tab/python)
+# [Avro](#tab/avro/csharp-script)
 
-**TODO**
+# [Protobuf](#tab/protobuf/csharp-script)
 
 ---
+
+::: zone-end
+::: zone pivot="programming-language-javascript"
+
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+
+
+
+---
+ 
+Complete PowerShell examples are pending.
+::: zone-end 
+::: zone pivot="programming-language-python"  
+
+
+
+---
+
+
+::: zone-end
+::: zone pivot="programming-language-java"
+
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-csharp"
+## Attributes
+
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the `KafkaTriggerAttribute` to define the function trigger. C# script instead uses a function.json configuration file.
+
+# [In-process](#tab/in-process)
+
+The following table explains the properties you can set using this trigger attribute:
+
+| Property |Description|
+| --- | --- |
+| 
+
+# [Isolated process](#tab/isolated-process)
+
+The following table explains the properties you can set using this trigger attribute:
+
+| Property |Description|
+| --- | --- |
+
+# [C# script](#tab/csharp-script)
+
+C# script uses a *function.json* file for configuration instead of attributes. The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Description|
+|---------|----------------------|
+
+---
+
+::: zone-end
 
 ## Next steps
 
