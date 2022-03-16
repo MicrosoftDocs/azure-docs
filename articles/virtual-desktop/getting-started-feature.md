@@ -104,7 +104,7 @@ To deploy Azure Virtual Desktop on a subscription without Azure AD DS or AD DS:
 
     - For **Subscription**, select the subscription you want to deploy Azure Virtual Desktop in.
 
-    - For **How is your subscription configured**, select **Empty subscription**. An "empty" subscription is a subscription that doesn't require an identity provider like Azure AD or AD DS.
+    - For **How is your subscription configured**, select **Empty subscription**. An "empty" subscription is a subscription that doesn't require an identity provider like Azure AD DS or AD DS.
 
     - For **Resource group prefix**, enter the prefixes for the resource group you're going to create: *-prerequisite*, *-deployment*, and *-avd*.
 
