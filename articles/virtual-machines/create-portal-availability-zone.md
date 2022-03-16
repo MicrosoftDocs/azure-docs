@@ -78,15 +78,14 @@ Some users will now see the option to create VMs in multiple zones. If you see t
    2. To create a new gateway, type the name for the application gateway. The Application Gateway can load balance multiple applications. Consider naming the Application Gateway according to the workloads you wish to load balance, rather than specific to the virtual machine name.
    3. In **Routing rule**, type a rule name. The rule name should describe the workload you are load balancing.
    4. For HTTP load balancing, you can leave the defaults and then select **Create**. For HTTPS load balancing, you have two options:
+     - Upload a certificate and add the password (application gateway will manage certificate storage). For certificate name, type a friendly name for the certificate.
+     - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**. 
         
-        - Upload a certificate and add the password (application gateway will manage certificate storage). For certificate name, type a friendly name for the certificate.
-        - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**. 
-        
-        > [!IMPORTANT]
-        > After the VMs and application gateway are deployed, log in to the VMs to ensure that either the application gateway certificate is uploaded onto the VMs or the domain name of the VM certificate matches with the domain name of the application gateway.
+   > [!IMPORTANT]
+   > After the VMs and application gateway are deployed, log in to the VMs to ensure that either the application gateway certificate is uploaded onto the VMs or the domain name of the VM certificate matches with the domain name of the application gateway.
 
-        > [!NOTE]
-        > A separate subnet will be defined for Application Gateway upon creation. For more information, see [Application Gateway infrastructure configuration](../application-gateway/configuration-infrastructure.md).
+   > [!NOTE]
+   > A separate subnet will be defined for Application Gateway upon creation. For more information, see [Application Gateway infrastructure configuration](../application-gateway/configuration-infrastructure.md).
 
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
