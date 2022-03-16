@@ -19,7 +19,7 @@ For information on setup and configuration details, see the [overview](functions
 
 ## Connections
 
-The `connection` property is a reference to environment configuration that contains name of an application setting containing a [connection string](#connection-string). Obtain this connection string by selecting the **Connection Information** button for the [namespace](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. The connection string must be for an Event Hubs namespace, not the event hub itself.
+The `connection` property is a reference to environment configuration that contains name of an application setting containing a connection string. You can get this connection string by selecting the **Connection Information** button for the [namespace](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). The connection string must be for an Event Hubs namespace, not the event hub itself.
 
 The connection string must have at least "read" permissions to activate the function. 
 
