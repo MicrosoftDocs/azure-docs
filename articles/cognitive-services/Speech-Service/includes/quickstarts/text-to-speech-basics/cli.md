@@ -24,45 +24,21 @@ ms.author: eur
 
 ## Synthesize to speaker output
 
-Run the following command to start speech recognition from a microphone:
+Run the following command for speech synthesis to the default speaker output:
 
 ```console
-spx recognize --microphone --source en-US
+ spx synthesize --text "I'm excited to try text to speech" --voice "en-US-JennyNeural"
 ```
 
-Speak into the microphone, and you see transcription of your words into text in real time. The Speech CLI stops after a period of silence, or when you press Ctrl+C.
-
-```console
-Connection CONNECTED...
-RECOGNIZED: Text=I'm excited to try speech to text.
-```
-
-This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+If you don't set `--voice` with a voice name, the default `en-US` voice will speak. The input text is not translated for speech. The voice language implies accent. For example, if the input text in English is "I'm excited to try text to speech" and you set `--voice "es-ES-ElviraNeural"`, the text is spoken in English with a Spanish accent. 
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
-
-Now that you've transcribed speech to text, here are some suggested modifications to try out:
-- To recognize speech from an audio file, use `--file` instead of `--microphone`:
-    ```console
-    spx recognize --file YourAudioFile.wav
-    ```
-- To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You include a phrase list in-line or with a text file along with the recognize command:
-    # [Terminal](#tab/terminal)
-    ```console
-    spx recognize --microphone --phrases "Contoso;Jessie;Rehaan;"
-    spx recognize --microphone --phrases @phrases.txt
-    ```
-    # [PowerShell](#tab/powershell)
-    ```powershell
-    spx --% recognize --microphone --phrases "Contoso;Jessie;Rehaan;"
-    spx --% recognize --microphone --phrases @phrases.txt
-    ```
-    ***
-- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language.
-    ```csharp
-    spx recognize --microphone --source es-ES
-    ```
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
+            
+Run this command for information about additional speech synthesis options such as file input and output:
+```console
+spx help synthesize
+```
 
 ## Clean up resources
 
