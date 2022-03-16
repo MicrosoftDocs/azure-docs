@@ -82,7 +82,7 @@ USE MASTER
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<strong_password>'
 GO
 
--- Create the SQL Server certificate for SQL Managed Instance link
+-- Create the SQL Server certificate for the instance link
 USE MASTER
 GO
 
@@ -190,16 +190,17 @@ Certificate for securing the endpoint for SQL Managed Instance link is automatic
 Use SSMS to connect to the SQL Managed Instance and execute stored procedure [sp_get_endpoint_certificate](/sql/relational-databases/system-stored-procedures/sp-get-endpoint-certificate-transact-sql) to get the certificate public key.
 
 ```sql
--- Execute stored procedure on SQL Managed Instance to get public key of the instance certificate.
+-- Execute on Managed Instance
 EXEC sp_get_endpoint_certificate @endpoint_type = 4
 ```
 
-Copy the entire public key from Managed Instance starting with “0x” shown in the previous step and use it in the below query by replacing `<InstanceCertificate>` with the key value. No quotations need to be used.
+Copy the entire public key from Managed Instance starting with “0x” shown in the previous step and use it in the below query on SQL Server by replacing `<InstanceCertificate>` with the key value. No quotations need to be used.
 
 > [!IMPORTANT]
 > Name of the certificate must be SQL Managed Instance FQDN.
 
 ```sql
+-- Execute on SQL Server
 USE MASTER
 CREATE CERTIFICATE [<SQLManagedInstanceFQDN>]
 FROM BINARY = <InstanceCertificate>
@@ -208,6 +209,7 @@ FROM BINARY = <InstanceCertificate>
 Finally, verify all created certificates by viewing the following DMV.
 
 ```sql
+-- Execute on SQL Server
 SELECT * FROM sys.certificates
 ```
 
