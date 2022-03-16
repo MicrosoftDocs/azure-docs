@@ -14,14 +14,14 @@ ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 03/16/2022
 ms.author: markvi
-ms.reviewer: sahandle 
+ms.reviewer: besiler 
 
 ms.collection: M365-identity-device-management
 ---
 
 # Sign-ins using legacy authentication workbook
 
-Have you ever wondered how you can determine whether it is safe to turn legacy authentication off in your tenant? The sign-ins using legacy authentication workbook helps you to answer this question.
+Have you ever wondered how you can determine whether it is safe to turn off legacy authentication in your tenant? The sign-ins using legacy authentication workbook helps you to answer this question.
 
 This article gives you an overview of this workbook.
 
@@ -48,7 +48,7 @@ Unfortunately, legacy authentication:
 
 - Makes it impossible for your organization to move to passwordless authentication. 
 
-To improve the security of your Azure AD tenant and experience of your users, you should disable legacy authentication. However, important user experiences in your tenant might depend on legacy authentication. Before shutting legacy authentication off, you may want to find those cases so you can migrate them to more secure authentication. 
+To improve the security of your Azure AD tenant and experience of your users, you should disable legacy authentication. However, important user experiences in your tenant might depend on legacy authentication. Before shutting off legacy authentication, you may want to find those cases so you can migrate them to more secure authentication. 
 
 The sign-ins using legacy authentication workbook lets you see all legacy authentication sign-ins in your environment so you can find and migrate critical workflows to more secure authentication methods before you shut off legacy authentication.
 
