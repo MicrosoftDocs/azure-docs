@@ -109,7 +109,7 @@ In this quickstart you'll use following features to analyze and extract data and
 #### Request
 
 ```bash
-curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'urlSource': '{your-document-url}'}"
+curl -v -i POST "{endpoint}/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 ```
 
 #### Operation-Location
@@ -130,7 +130,7 @@ After you've called the **[Analyze document](https://westus.dev.cognitive.micros
 #### Request
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 ### Examine the response
@@ -366,7 +366,7 @@ The `"analyzeResults"` node contains all of the recognized text. Text is organiz
 #### Request
 
 ```bash
-curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'urlSource': '{your-document-url}'}"
+curl -v -i POST "{endpoint}/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 
 ```
 
@@ -388,7 +388,7 @@ After you've called the **[Analyze document](https://westus.api.cognitive.micros
 #### Request
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 ### Examine the response
@@ -413,7 +413,7 @@ Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
-1. Replace `\"{your-document-url}` with a sample invoice URL:
+1. Replace `{your-document-url}` with a sample invoice URL:
 
     ```http
     https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf
@@ -422,7 +422,7 @@ Before you run the command, make these changes:
 #### Request
 
 ```bash
-curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'urlSource': '{your-document-url}'}"
+curl -v -i POST "{endpoint}/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 ```
 
 #### Operation-Location
@@ -443,7 +443,7 @@ After you've called the **[Analyze document](https://westus.api.cognitive.micros
 #### Request
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/prebuilt-invoice/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 ### Examine the response
@@ -461,7 +461,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 The preview v3.0  [List models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels) request returns a paged list of prebuilt models in addition to custom models. Only models with status of succeeded are included. In-progress or failed models can be enumerated via the [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations) request. Use the nextLink property to access the next page of models, if any. To get more information about each returned model, including the list of supported documents and their fields, pass the modelId to the [Get Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations)request.
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels?api-version=2022-01-30-preview"
+curl -v -X GET "{endpoint}/formrecognizer/documentModels?api-version=2022-01-30-preview"
 ```
 
 ### Get a specific model
@@ -469,7 +469,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels?api-version=202
 The preview v3.0 [Get model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModel) retrieves information about a specific model with a status of succeeded. For failed and in-progress models, use the [Get Operation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperation) to track the status of model creation operations and any resulting errors.
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 ### Delete a Model
@@ -477,7 +477,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-v
 The preview v3.0 [Delete model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/DeleteModel) request removes the custom model and the modelId can no longer be accessed by future operations.  New models can be created using the same modelId without conflict.
 
 ```bash
-curl -v -X DELETE "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X DELETE "{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 ## Next steps
