@@ -79,7 +79,7 @@ You can validate the crlDistributionPoint value you provide in the above PowerSh
 
 The below table and graphic indicate how to map information from the CA Certificate to the attributes of the downloaded CRL.
 
-| CA Certificate Info | |Downloaded CRL Info|
+| CA Certificate Info |=|Downloaded CRL Info|
 |----|:-:|----|
 |Subject |=|Issuer |
 |Subject Key Identifier |=|Authority Key Identifier (KeyID) |
@@ -87,7 +87,7 @@ The below table and graphic indicate how to map information from the CA Certific
 :::image type="content" border="false" source="./media/how-to-certificate-based-authentication/certificate-crl-compare.png" alt-text="Compare CA Certificate with CRL Information.":::
 
 >[!TIP]
->The value for crlDistributionPoint in the above is the http location for the CA’s Certificate Revocation List (CRL). This can be found in a few places.
+>The value for crlDistributionPoint in the above is the http location for the CA's Certificate Revocation List (CRL). This can be found in a few places.
 >
 >- In the CRL Distribution Point (CDP) attribute of a certificate issued from the CA
 >
@@ -165,7 +165,7 @@ An admin can override the default and create a custom mapping. Currently, we sup
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/username-binding-policy.png" alt-text="Screenshot of a username binding policy.":::
 
-   If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails. Azure AD doesn’t try the next binding in the list.
+   If the specified X.509 certificate field is found on the certificate, but Azure AD doesn't find a user object using that value, the authentication fails. Azure AD doesn't try the next binding in the list.
 
    The next priority is attempted only if the X.509 certificate field is not in the certificate.
 
@@ -192,7 +192,7 @@ To enable the certificate-based authentication in the Azure MyApps portal, compl
 1. Sign in to the [MyApps portal](https://myapps.microsoft.com/) as an Authentication Policy Administrator.
 1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
-1.	Under **Basics**, select **Yes** to enable CBA.
+1.    Under **Basics**, select **Yes** to enable CBA.
 1. CBA can be enabled for a targeted set of users.
    1. Click **All users** to enable all users.
    1. Click **Select users** to enable selected users or groups. 
@@ -204,7 +204,7 @@ To enable the certificate-based authentication in the Azure MyApps portal, compl
 Once certificate-based authentication is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate using the X.509 certificate. 
 
 >[!NOTE]
->The network administrator should allow access to certauth endpoint for the customer’s cloud environment in addition to login.microsoftonline.com. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
+>The network administrator should allow access to certauth endpoint for the customer's cloud environment in addition to login.microsoftonline.com. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
 
 ## Step 5: Test your configuration
 
@@ -228,7 +228,7 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 
 1. Select **Sign in with a certificate**.
 
-1.	Pick the correct user certificate in the client certificate picker UI and click **OK**.
+1.    Pick the correct user certificate in the client certificate picker UI and click **OK**.
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/picker.png" alt-text="Screenshot of the certificate picker UI.":::
 
 1. Users should be signed into [MyApps portal](https://myapps.microsoft.com/). 
@@ -247,7 +247,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
    `CN=ContosoCA,DC=Contoso,DC=org`
 
-1. Create a policy OID rule, with protection level as multi-factor authentication and value set to one of the policy OID’s in your certificate. For example, 1.2.3.4.
+1. Create a policy OID rule, with protection level as multi-factor authentication and value set to one of the policy OID's in your certificate. For example, 1.2.3.4.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/policy-oid-rule.png" alt-text="Screenshot of the Policy OID rule.":::
 
