@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 03/16/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -48,16 +48,6 @@ It's easy to list your own permissions as well. Select **Your Role** on the **Ro
 
 ### Download role assignments
 
-To download all assignments for a specific role, follow these steps.
-
-1. On the **Roles and administrators** page, select a role.
-
-1. Select **Download role assignments**.
-
-    A CSV file that lists assignments at all scopes for that role is downloaded.
-
-    ![Screenshot showing download all assignments for a specific role](./media/view-assignments/download-role-assignments.png)
-
 To download all active role assignments across all roles, including built-in and custom roles, follow these steps (currently in Preview).
 
 1. On the **Roles and administrators** page, select **All roles**.
@@ -67,6 +57,16 @@ To download all active role assignments across all roles, including built-in and
     A CSV file that lists assignments at all scopes for all roles is downloaded.
 
     ![Screenshot showing download all role assignments.](./media/view-assignments/download-role-assignments-all.png)
+
+To download all assignments for a specific role, follow these steps.
+
+1. On the **Roles and administrators** page, select a role.
+
+1. Select **Download role assignments**.
+
+    A CSV file that lists assignments at all scopes for that role is downloaded.
+
+    ![Screenshot showing download all assignments for a specific role](./media/view-assignments/download-role-assignments.png)
 
 ### List role assignments with single-application scope
 
