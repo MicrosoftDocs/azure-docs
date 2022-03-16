@@ -102,8 +102,8 @@
     items:
     href: ./workloads/oracle/toc.yml
   - name: Nutanix (Public Preview prototype)
-    items:
-    href: ./workloads/nutanix/toc.yml
+    items: 
+    href: ./workloads/nutanix-public-preview-prototype/toc.yml
   - name: Nutanix (ported Oracle ToC)
     items:
     href: ./workloads/nutanix-port/toc.yml
