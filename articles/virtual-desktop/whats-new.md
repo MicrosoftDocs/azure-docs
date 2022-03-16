@@ -118,7 +118,7 @@ We've increased number of Azure Virtual Desktop application groups you can have 
 
 ### Updates to required URLs
 
-We've updated the required URL list for Azure Virtual Desktop to accomodate Azure Virtual Desktop agent traffic. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/important-new-changes-in-required-urls/m-p/3094897#M8529).
+We've updated the required URL list for Azure Virtual Desktop to accommodate Azure Virtual Desktop agent traffic. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/important-new-changes-in-required-urls/m-p/3094897#M8529).
 
 ## December 2021
 
