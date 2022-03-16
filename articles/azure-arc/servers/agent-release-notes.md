@@ -28,6 +28,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
   - Azure Arc network endpoints are now required, onboarding will abort if they are not accessible
   - New `--skip-network-check` flag to override the new network check behavior
 - [Proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) is now available for customers using private endpoints. This allows you to send Azure Active Directory and Azure Resource Manager traffic through a proxy server, but skip the proxy server for traffic that should stay on the local network to reach private endpoints.
+- Oracle Linux 8 is now supported
 
 ### Fixed
 
@@ -56,7 +57,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 - Local configuration of agent settings now available using the [azcmagent config command](manage-agent.md#config).
 - Proxy server settings can be [configured using agent-specific settings](manage-agent.md#update-or-remove-proxy-settings) instead of environment variables.
-- Extension operations will execute faster using a new notification pipeline. You may need to adjust your firewall or proxy server rules to allow the new network addresses for this notification service (see [networking configuration](agent-overview.md#networking-configuration)). The extension manager will fall back to the existing behavior of checking every 5 minutes when the notification service cannot be reached.
+- Extension operations will execute faster using a new notification pipeline. You may need to adjust your firewall or proxy server rules to allow the new network addresses for this notification service (see [networking configuration](network-requirements.md)). The extension manager will fall back to the existing behavior of checking every 5 minutes when the notification service cannot be reached.
 - Detection of the AWS account ID, instance ID, and region information for servers running in Amazon Web Services.
 
 ## Version 1.12 - October 2021

@@ -28,7 +28,7 @@ With Speech containers, you can build a speech application architecture that's o
 | Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 3.0.0 | Generally available |
 | Custom speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 3.0.0 | Generally available |
 | Speech language identification | Detects the language spoken in audio files. | 1.5.0 | Preview |
-| Neural text-to-speech | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | 1.12.0 | Generally available |
+| Neural text-to-speech | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | 2.0.0 | Generally available |
 
 ## Prerequisites
 
@@ -220,6 +220,8 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 ## Run the container in disconnected environments
 
 Starting in container version 3.0.0, select customers can run speech-to-text containers in an environment without internet accessibility. For more information, see [Run Cognitive Services containers in disconnected environments](../containers/disconnected-containers.md).
+
+Starting in container version 2.0.0, select customers can run neural-text-to-speech containers in an environment without internet accessibility. For more information, see [Run Cognitive Services containers in disconnected environments](../containers/disconnected-containers.md).
 
 # [Speech-to-text](#tab/stt)
 

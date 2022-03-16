@@ -4,6 +4,7 @@ description: Learn how to configure scheduled maintenance settings for an Azure 
 author: niklarin
 ms.author: nlarin
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/30/2021
 ---

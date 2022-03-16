@@ -169,8 +169,8 @@ SUSE Linux Enterprise Server 15, SP1, SP2 | [9.43](https://support.microsoft.com
 **Component** | **Supported**
 --- | ---
 File systems | ext3, ext4, XFS, BTRFS (conditions applicable as per this table)
-Logical volume management (LVM) provisioning| Thick provision - Yes <br></br> Thin provision - No
-Volume manager | - LVM is supported.<br/> - /boot on LVM is supported from [Update Rollup 31](https://support.microsoft.com/help/4478871/) (version 9.20 of the Mobility service) onwards. It isn't supported in earlier Mobility service versions.<br/> - Multiple OS disks aren't supported.
+Logical volume management (LVM) provisioning| Thick provision - Yes <br></br> Thin provision - Yes, it is supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
+Volume manager | - LVM is supported.<br/> - /boot on LVM is supported from [Update Rollup 31](https://support.microsoft.com/help/4478871/) (version 9.20 of the Mobility service) onwards. It wasn't supported in earlier Mobility service versions.<br/> - Multiple OS disks aren't supported.
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.

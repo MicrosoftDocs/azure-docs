@@ -25,7 +25,7 @@ See the list of [languages supported](../language-support.md) when using Transla
 > [!IMPORTANT]
 >
 > * Translator container is in gated preview and to use it you must submit an online request, and have it approved. See [Request approval to run container](#request-approval-to-run-container) below for more information.
-> * Translator container supports limited features compared to the cloud offerings.  Please refer to **Container: Translate** for more details.
+> * Translator container supports limited features compared to the cloud offerings.  *See* [**Container translate methods**](translator-container-supported-parameters.md) for more details.
 
 <!-- markdownlint-disable MD033 -->
 

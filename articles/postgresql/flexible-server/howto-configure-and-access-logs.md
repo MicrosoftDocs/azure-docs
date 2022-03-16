@@ -4,6 +4,7 @@ description: How to access database logs for Azure Database for PostgreSQL - Fle
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/30/2021
 ---

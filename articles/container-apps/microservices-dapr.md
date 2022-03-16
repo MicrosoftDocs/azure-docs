@@ -139,7 +139,7 @@ Get the storage account key with the following command:
 
 # [Bash](#tab/bash)
 
-```bash
+```azurecli
 STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
 ```
 

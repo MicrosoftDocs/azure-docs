@@ -146,7 +146,7 @@ These routes are necessary to ensure that management traffic is routed directly 
 |mi-storage-REGION-internet|Storage.REGION|Internet|
 |mi-storage-REGION_PAIR-internet|Storage.REGION_PAIR|Internet|
 |mi-azureactivedirectory-internet|AzureActiveDirectory|Internet|
-||||
+
 
 \* MI SUBNET refers to the IP address range for the subnet in the form x.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
 

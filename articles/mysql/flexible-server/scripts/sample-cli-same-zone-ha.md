@@ -25,7 +25,7 @@ Currently, Same-Zone high availability is supported only for the General purpose
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/high-availability/same-zone-ha.sh" range="4-44":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/high-availability/same-zone-ha.sh" id="FullScript":::
 
 ## Clean up resources
 
