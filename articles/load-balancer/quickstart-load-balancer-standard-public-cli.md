@@ -5,11 +5,12 @@ description: This quickstart shows how to create a public load balancer using th
 author: asudbring
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 11/23/2020
+ms.date: 03/16/2022
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
+
 # Quickstart: Create a public load balancer to load balance VMs using Azure CLI
 
 Get started with Azure Load Balancer by using Azure CLI to create a public load balancer and two virtual machines.
@@ -77,8 +78,11 @@ To create a zonal public IP address in Zone 1 use the following command:
 This section details how you can create and configure the following components of the load balancer:
 
   * A frontend IP pool that receives the incoming network traffic on the load balancer.
+
   * A backend IP pool where the frontend pool sends the load balanced network traffic.
+
   * A health probe that determines health of the backend VM instances.
+
   * A load balancer rule that defines how traffic is distributed to the VMs.
 
 ### Create the load balancer resource
@@ -109,7 +113,7 @@ Create a health probe with [az network lb probe create](/cli/azure/network/lb/pr
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### Create the load balancer rule
@@ -117,7 +121,9 @@ Create a health probe with [az network lb probe create](/cli/azure/network/lb/pr
 A load balancer rule defines:
 
 * Frontend IP configuration for the incoming traffic.
+
 * The backend IP pool to receive the traffic.
+
 * The required source and destination port. 
 
 Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create):
@@ -136,7 +142,6 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
     --disable-outbound-snat true \
     --idle-timeout 15 \
     --enable-tcp-reset true
-
 ```
 
 ## Create a network security group
@@ -216,12 +221,13 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 In this section, you create:
 
-* Three network interfaces for the virtual machines.
+* Two network interfaces for the virtual machines.
+
 * Two virtual machines to be used as backend servers for the load balancer.
 
 ### Create network interfaces for the virtual machines
 
-Create three network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create):
+Create two network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create):
 
 ```azurecli
   array=(myNicVM1 myNicVM2)
@@ -261,7 +267,8 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create):
     --zone 2 \
     --no-wait
 ```
-It may take a few minutes for the VMs to deploy.
+
+It may take a few minutes for the VMs to deploy. You can continue to the next steps while the VMs are creating.
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
@@ -285,7 +292,6 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
 ## Create NAT gateway
 
 To provide outbound internet access for resources in the backend pool, create a NAT gateway.  
-
 
 ### Create public IP
 
@@ -349,7 +355,6 @@ Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to instal
        --resource-group CreatePubLBQS-rg \
        --settings '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
   done
-
 ```
 
 ## Test the load balancer
@@ -378,11 +383,14 @@ When no longer needed, use the [az group delete](/cli/azure/group#az_group_delet
 
 ## Next steps
 
-In this quickstart
+In this quickstart:
 
 * You created a standard public load balancer
-* Attached virtual machines
+
+* Attached two virtual machines
+
 * Configured the load balancer traffic rule and health probe
+
 * Tested the load balancer
 
 To learn more about Azure Load Balancer, continue to:
