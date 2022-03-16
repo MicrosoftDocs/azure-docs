@@ -80,7 +80,7 @@ See more alerts for [Resource Manager](alerts-reference.md#alerts-resourcemanage
 
 The recommendation `Vulnerabilities in container security configurations should be remediated` has been moved from the secure score section to best practices section.
 
-We have improved the experience for this recommendation which has now been moved back to the secure score section.
+The current user experience only provides the score when all compliance checks have passed. Most customers have difficulties with meeting all the required checks. We are working on an improved experience for this recommendation, and once released the recommendation will be moved back to the secure score.
 
 ## February 2022
 
