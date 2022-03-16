@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/16/2022
 ---
 
 # Creating queries in Azure Cognitive Search
 
-If you are building a query for the first time, this article describes approaches and methods for setting up queries. It also introduces a query request, and explains how field attributes and linguistic analyzers can impact query outcomes.
+If you are building a query for the first time, this article describes approaches and methods for setting up the request. It also introduces a query structure, and explains how field attributes and linguistic analyzers can impact query outcomes.
 
 ## What's a query request?
 
@@ -95,7 +95,7 @@ Search is fundamentally a user-driven exercise, where terms or phrases are colle
 | [Faceted navigation](/rest/api/searchservice/search-documents#query-parameters) | A page shows clickable navigation links or breadcrumbs that narrow the scope of the search. A faceted navigation structure is composed dynamically based on an initial query. For example, `search=*` to populate a faceted navigation tree composed of every possible category. A faceted navigation structure is created from a query response, but it's also a mechanism for expressing the next query. n REST API reference, `facets` is documented as a query parameter of a Search Documents operation, but it can be used without the `search` parameter.|
 | [Filter method](/rest/api/searchservice/search-documents#query-parameters) | Filters are used with facets to narrow results. You can also implement a filter behind the page, for example to initialize the page with language-specific fields. In REST API reference, `$filter` is documented as a query parameter of a Search Documents operation, but it can be used without the `search` parameter.|
 
-## Know your field attributes
+## Affect of field attributes on queries
 
 If you previously reviewed [query types and composition](search-query-overview.md), you might remember that the parameters on the query request depend on how fields are attributed in an index. For example, to be used in a query, filter, or sort order, a field must be *searchable*, *filterable*, and *sortable*. Similarly, only fields marked as *retrievable* can appear in results. As you begin to specify the `search`, `filter`, and `orderby` parameters in your request, be sure to check attributes as you go to avoid unexpected results.
 
@@ -105,7 +105,7 @@ In the portal screenshot below of the [hotels sample index](search-get-started-p
 
 For a description of field attributes, see [Create Index (REST API)](/rest/api/searchservice/create-index).
 
-## Know your tokens
+## Affect of tokens on queries
 
 During indexing, the search engine uses an analyzer to perform text analysis on strings, maximizing the potential for matching at query time. At a minimum, strings are lower-cased, but might also undergo lemmatization and stop word removal. Larger strings or compound words are typically broken up by whitespace, hyphens, or dashes, and indexed as separate tokens. 
 
