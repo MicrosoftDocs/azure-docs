@@ -119,4 +119,4 @@ az sql mi-arc dag update -k test --name dagtests --use-k8s --role force-primary-
 ```
 ## Limitation
 
-Creating a new database using SQL Server Management Studio currently throws an error. New databases can be created using T-SQL.
+When you use [SQL Server Management Studio Object Explorer to create a database](/sql/relational-databases/databases/create-a-database#SSMSProcedure), the application returns an error. You can [create new databases with T-SQL](/sql/relational-databases/databases/create-a-database#TsqlProcedure).
