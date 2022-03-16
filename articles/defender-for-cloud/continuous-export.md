@@ -2,6 +2,8 @@
 title: Continuous export can send Microsoft Defender for Cloud's alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
 description: Learn how to configure continuous export of security alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ms.date: 12/09/2021
 
 ---
