@@ -7,11 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/14/2022
+ms.date: 03/16/2022
 ms.author: lajanuar
 recommendations: false
 ---
+
 <!-- markdownlint-disable MD025 -->
+<!-- markdownlint-disable MD036 -->
+
 # Get started: Form Recognizer C# SDK v3.0 | Preview
 
 >[!NOTE]
@@ -152,7 +155,7 @@ Analyze and extract text, tables, structure, key-value pairs, and named entities
 > * We've added the file URI value to the `Uri fileUri` variable at the top of the script.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see the [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-**Add the following code sample to the Program.cs file:**
+**Add the following code sample to the Program.cs file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```csharp
 using Azure;
@@ -280,7 +283,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * We've added the file URI value to the `Uri fileUri` variable at the top of the script.
 > * To extract the layout from a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-layout` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
 
-**Add the following code sample to the Program.cs file:**
+**Add the following code sample to the Program.cs file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```csharp
 using Azure;
@@ -368,7 +371,6 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-layout-output.md).
 
-
 ## Prebuilt model
 
 Analyze and extract common fields from specific document types using a prebuilt model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
@@ -383,7 +385,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * To analyze a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-invoice` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
-**Add the following code sample to your Program.cs file:**
+**Add the following code sample to your Program.cs file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```csharp
 
@@ -524,10 +526,7 @@ That's it, congratulations!
 
 In this quickstart, you used the Form Recognizer C# SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [REST API v3.0 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer C#/.NET reference library](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet&preserve-view=true)
+> [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
