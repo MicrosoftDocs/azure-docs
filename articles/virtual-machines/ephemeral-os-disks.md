@@ -31,7 +31,7 @@ Key differences between persistent and ephemeral OS disks:
 |   | Persistent OS Disk | Ephemeral OS Disk |
 |---|---|---|
 | **Size limit for OS disk** | 2 TiB | Cache size or temp size for the VM size or 2040 GiB, whichever is smaller. For the **cache or temp size in GiB**, see [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series) |
-| **VM sizes supported** | All | VM sizes that support Premium storage such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M, Mdsv2,Bs, Dav4, Eav4 |
+| **VM sizes supported** | All | VM sizes that support Premium storage such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M, Mdsv2, Bs, Dav4, Eav4 |
 | **Disk type support**| Managed and unmanaged OS disk| Managed OS disk only|
 | **Region support**| All regions| All regions|
 | **Data persistence**| OS disk data written to OS disk are stored in Azure Storage| Data written to OS disk is stored on local VM storage and isn't persisted to Azure Storage. |
