@@ -5,7 +5,7 @@ description: This quickstart shows how to create a load balancer by using the Az
 author: asudbring
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 02/16/2022
+ms.date: 03/16/2022
 ms.author: allensu
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.

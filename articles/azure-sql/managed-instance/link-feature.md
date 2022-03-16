@@ -33,13 +33,13 @@ To use the link feature, you'll need:
 
 The underlying technology of near real-time data replication between SQL Server and SQL Managed Instance is based on distributed availability groups, part of the well-known and proven Always On availability group technology stack. Extend your SQL Server on-premises availability group to SQL Managed Instance in Azure in a safe and secure manner. 
 
-There's no need to have an existing availability group or multiple nodes. The link supports single node SQL Server instances without existing availability groups, and also multiple-node SQL Server instances with existing availability groups. Through the link, you can leverage the modern benefits of Azure without migrating your entire SQL Server data estate to the cloud.
+There's no need to have an existing availability group or multiple nodes. The link supports single node SQL Server instances without existing availability groups, and also multiple-node SQL Server instances with existing availability groups. Through the link, you can use the modern benefits of Azure without migrating your entire SQL Server data estate to the cloud.
 
 You can keep running the link for as long as you need it, for months and even years at a time. And for your modernization journey, if or when you're ready to migrate to Azure, the link enables a considerably-improved migration experience with the minimum possible downtime compared to all other options available today, providing a true online migration to SQL Managed Instance.
 
 ## Supported scenarios
 
-Data replicated through the link feature from SQL Server to Azure SQL Managed Instance can be used with a number of scenarios, such as: 
+Data replicated through the link feature from SQL Server to Azure SQL Managed Instance can be used with several scenarios, such as: 
 
 - **Use Azure services without migrating to the cloud** 
 - **Offload read-only workloads to Azure** 
@@ -54,7 +54,7 @@ Use the link feature to leverage Azure services using SQL Server data without mi
 
 ### Offload workloads to Azure 
 
-You can also use the link feature to offload workloads to Azure. For example, an application could use SQL Server for read / write workloads, while offloading read-only workloads to SQL Managed Instance in any of Azure's 60+ regions worldwide. Once the link is established, the primary database on SQL Server is read/write accessible, while replicated data to SQL Managed Instance in Azure is read-only accessible. This allows for various scenarios where replicated databases on SQL Managed Instance can be used for read scale-out and offloading read-only workloads to Azure. SQL Managed Instance, in parallel, can also host independent read/write databases. This allows for copying the replicated database to another read/write database on the same managed instance for further data processing.
+You can also use the link feature to offload workloads to Azure. For example, an application could use SQL Server for read-write workloads, while offloading read-only workloads to SQL Managed Instance in any of Azure's 60+ regions worldwide. Once the link is established, the primary database on SQL Server is read/write accessible, while replicated data to SQL Managed Instance in Azure is read-only accessible. This allows for various scenarios where replicated databases on SQL Managed Instance can be used for read scale-out and offloading read-only workloads to Azure. SQL Managed Instance, in parallel, can also host independent read/write databases. This allows for copying the replicated database to another read/write database on the same managed instance for further data processing.
 
 The link is database scoped (one link per one database), allowing for consolidation and deconsolidation of workloads in Azure. For example, you can replicate databases from multiple SQL Servers to a single SQL Managed Instance in Azure (consolidation), or replicate databases from a single SQL Server to multiple managed instances via a 1 to 1 relationship between a database and a managed instance -  to any of Azure's regions worldwide (deconsolidation). The latter provides you with an efficient way to quickly bring your workloads closer to your customers in any region worldwide, which you can use as read-only replicas.
 
@@ -93,8 +93,8 @@ Managed Instance link has a set of general limitations, and those are listed in 
   - Replicating Databases using Hekaton (In-Memory OLTP) isn't supported on Managed Instance General Purpose service tier. Hekaton is only supported on Managed Instance Business Critical service tier.
   - For the full list of differences between SQL Server and Managed Instance, see [this article](./transact-sql-tsql-differences-sql-server.md).
 - In case Change data capture (CDC), log shipping, or service broker are used with database replicated on the SQL Server, and in case of database migration to Managed Instance, on the failover to the Azure, clients will need to connect using instance name of the current global primary replica. you'll need to manually re-configure these settings.
-- In case Transactional Replication is used with database replicated on the SQL Server, and in case of migration scenario, on failover to Azure, transactional replication on Azure SQL Managed instance will not continue. you'll need to manually re-configure Transactional Replication.
-- In case distributed transactions are used with database replicated from the SQL Server, and in case of migration scenario, on the cutover to the cloud, the DTC capabilities will not be transferred. There will be no possibility for migrated database to get involved in distributed transactions with SQL Server, as Managed Instance doesn't support distributed transactions with SQL Server at this time. For reference, Managed Instance today supports distributed transactions only between other Managed Instances, see [this article](../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance).
+- In case Transactional Replication is used with database replicated on the SQL Server, and in case of migration scenario, on failover to Azure, transactional replication on Azure SQL Managed instance won't continue. you'll need to manually re-configure Transactional Replication.
+- In case distributed transactions are used with database replicated from the SQL Server, and in case of migration scenario, on the cutover to the cloud, the DTC capabilities won't be transferred. There will be no possibility for migrated database to get involved in distributed transactions with SQL Server, as Managed Instance doesn't support distributed transactions with SQL Server at this time. For reference, Managed Instance today supports distributed transactions only between other Managed Instances, see [this article](../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance).
 - Managed Instance link can replicate database of any size if it fits into chosen storage size of target Managed Instance.
 
 ### Additional limitations
@@ -105,10 +105,11 @@ Some Managed Instance link features and capabilities are limited **at this time*
 - Managed Instance Link authentication between SQL Server instance and Managed Instance is certificate-based, available only through exchange of certificates. Windows authentication between instances isn't supported.
 - Replication of user databases from SQL Server to Managed Instance is one-way. User databases from Managed Instance can't be replicated back to SQL Server.
 - Auto failover groups replication to secondary Managed Instance can't be used in parallel while operating the Managed Instance Link with SQL Server.
+- Replicated databases aren't part of auto-backup process on SQL Managed Instance.
 
 ## Next steps
 
-If you are interested in using Link feature for Azure SQL Managed Instance with versions and editions that are currently not supported, sign-up [here](https://aka.ms/mi-link-signup).
+If you're interested in using Link feature for Azure SQL Managed Instance with versions and editions that are currently not supported, sign-up [here](https://aka.ms/mi-link-signup).
 
 For more information on the link feature, see the following:
 

@@ -62,7 +62,7 @@ The query output looks like the following example below for sample database **tp
 
 :::image type="content" source="./media/link-feature-best-practices/database-log-file-size.png" alt-text="Screenshot with results of the command showing log file size and space used":::
 
-In this example, the database has used 76% of the available log, with an absolute log file size of approximately 27 GB (27,971 MB). The thresholds for action may vary based on your workload, but it's typically an indication that you should take a log backup to truncate log file and free up some space. 
+In this example, the database has used 76% of the available log, with an absolute log file size of approximately 27 GB (27,971 MB). The thresholds for action may vary based on your workload, but it's typically an indication that you should take a log backup to truncate the log file and free up some space. 
 
 ## Add startup trace flags
 
