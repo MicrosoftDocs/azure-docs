@@ -13,7 +13,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/16/2022
+ms.date: 03/10/2022
 ms.author: nicholak
 ms.reviewer: Nicholak-MS
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -32,7 +32,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 - **Service plans included (friendly names)**: A list of service plans (friendly names) in the product that correspond to the string ID and GUID
 
 >[!NOTE]
->This information last updated on February 16th, 2022.<br/>You can also download a CSV version of this table [here](https://download.microsoft.com/download/e/3/e/e3e9faf2-f28b-490a-9ada-c6089a1fc5b0/Product%20names%20and%20service%20plan%20identifiers%20for%20licensing.csv).
+>This information last updated on March 10th, 2022.<br/>You can also download a CSV version of this table [here](https://download.microsoft.com/download/e/3/e/e3e9faf2-f28b-490a-9ada-c6089a1fc5b0/Product%20names%20and%20service%20plan%20identifiers%20for%20licensing.csv).
 ><br/>
 
 | Product name | String ID | GUID | Service plans included | Service plans included (friendly names) |
@@ -289,6 +289,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 | SKYPE FOR BUSINESS PSTN DOMESTIC CALLING	| MCOPSTN1	| 0dab259f-bf13-4952-b7f8-7db8f131b28d	| MCOPSTN1 (4ed3ff63-69d7-4fb7-b984-5aec7f605ca8) | DOMESTIC CALLING PLAN (4ed3ff63-69d7-4fb7-b984-5aec7f605ca8) |
 | SKYPE FOR BUSINESS PSTN DOMESTIC CALLING (120 Minutes)| MCOPSTN5	| 54a152dc-90de-4996-93d2-bc47e670fc06	| MCOPSTN5 (54a152dc-90de-4996-93d2-bc47e670fc06) | DOMESTIC CALLING PLAN (54a152dc-90de-4996-93d2-bc47e670fc06) |
 | Skype for Business PSTN Usage Calling Plan | MCOPSTNPP | 06b48c5f-01d9-4b18-9015-03b52040f51a | MCOPSTN3 (6b340437-d6f9-4dc5-8cc2-99163f7f83d6) | MCOPSTN3 (6b340437-d6f9-4dc5-8cc2-99163f7f83d6) |
+| Teams Phone with Calling Plan | MCOTEAMS_ESSENTIALS | ae2343d1-0999-43f6-ae18-d816516f6e78 | MCOPSTN1 (4ed3ff63-69d7-4fb7-b984-5aec7f605ca8)<br/>MCOEV (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) | Microsoft 365 Domestic Calling Plan (4ed3ff63-69d7-4fb7-b984-5aec7f605ca8)<br/>Microsoft 365 Phone System (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) |
 | Teams Rooms Premium | MTR_PREM | 4fb214cb-a430-4a91-9c91-4976763aa78f | MMR_P1 (bdaa59a3-74fd-4137-981a-31d4f84eb8a0)<br/>MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40)<br/>MCOEV (4828c8ec-dc2e-4779-b502-87ac9ce28ab7)<br/>INTUNE_A (c1ec4a95-1f05-45b3-a911-aa3fa01094f5)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>WHITEBOARD_PLAN3 (4a51bca5-1eff-43f5-878c-177680f191af) | Meeting Room Managed Services (bdaa59a3-74fd-4137-981a-31d4f84eb8a0)<br/>Microsoft 365 Audio Conferencing (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40)<br/>Microsoft 365 Phone System (4828c8ec-dc2e-4779-b502-87ac9ce28ab7)<br/>Microsoft Intune (c1ec4a95-1f05-45b3-a911-aa3fa01094f5)<br/>Microsoft Teams (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>Skype for Business Online (Plan 2) (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>Whiteboard (Plan 3) (4a51bca5-1eff-43f5-878c-177680f191af) |
 | TELSTRA CALLING FOR O365 | MCOPSTNEAU2 | de3312e1-c7b0-46e6-a7c3-a515ff90bc86 | MCOPSTNEAU (7861360b-dc3b-4eba-a3fc-0d323a035746) | AUSTRALIA CALLING PLAN (7861360b-dc3b-4eba-a3fc-0d323a035746) |
 | Universal Print | UNIVERSAL_PRINT |	9f3d9c1d-25a5-4aaa-8e59-23a1e6450a67 | EXCHANGE_S_FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>UNIVERSAL_PRINT_01 (795f6fe0-cc4d-4773-b050-5dde4dc704c9) | Exchange Foundation (113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>Universal Print (795f6fe0-cc4d-4773-b050-5dde4dc704c9) |

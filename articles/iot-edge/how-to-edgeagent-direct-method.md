@@ -1,9 +1,9 @@
 ---
 title: Built-in edgeAgent direct methods - Azure IoT Edge
 description: Monitor and manage an IoT Edge deployment using built-in direct methods in the IoT Edge agent runtime module
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.reviewer: veyalla

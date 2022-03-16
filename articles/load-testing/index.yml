@@ -52,7 +52,7 @@ conceptualContent:
         - url: how-to-read-csv-data.md
           itemType: how-to-guide
           text: Read a CSV file in load tests
-        - url: how-to-update-rerun-test.md
+        - url: how-to-monitor-server-side-metrics.md
           itemType: how-to-guide
           text: Configure server-side monitoring
         - url: how-to-define-test-criteria.md
@@ -61,6 +61,9 @@ conceptualContent:
         - url: how-to-use-a-managed-identity.md
           itemType: how-to-guide
           text: Use a managed identity
+        - url: how-to-assign-roles.md
+          itemType: how-to-guide
+          text: Manage users and roles
     
     # Card
     - title: Analyze test results

@@ -448,18 +448,6 @@
           href: troubleshoot-performance-degradation.md
         - name: Troubleshoot domain and certificate issues
           href: troubleshoot-domain-ssl-certificates.md
-    - name: FAQ
-      items:
-      - name: Availability, performance, and application FAQ
-        href: faq-availability-performance-application-issues.yml
-      - name: Deployment FAQ
-        href: faq-deployment.yml
-      - name: Open-source technologies FAQ
-        href: faq-open-source-technologies.yml
-      - name: Configuration and management FAQ
-        href: faq-configuration-and-management.yml
-      - name: App Service on Linux
-        href: faq-app-service-linux.yml
     - name: IP address change
       items:
       - name: Inbound IP address

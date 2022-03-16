@@ -496,7 +496,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |connectedclients7|Yes|Connected Clients (Shard 7)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
 |connectedclients8|Yes|Connected Clients (Shard 8)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
 |connectedclients9|Yes|Connected Clients (Shard 9)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
-|errors|Yes|Errors|Count|Maximum|The number errors that occured on the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, ErrorType|
+|errors|Yes|Errors|Count|Maximum|The number errors that occurred on the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, ErrorType|
 |evictedkeys|Yes|Evicted Keys|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
 |evictedkeys0|Yes|Evicted Keys (Shard 0)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
 |evictedkeys1|Yes|Evicted Keys (Shard 1)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|

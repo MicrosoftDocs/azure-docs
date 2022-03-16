@@ -34,6 +34,8 @@ Application Insights is an extensible analytics service for web developers that 
 
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/java-get-started/instrumentation-key-001.png)
 
+    [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Add the Application Insights SDK for Java to your project
 
 *Choose your project type.*
