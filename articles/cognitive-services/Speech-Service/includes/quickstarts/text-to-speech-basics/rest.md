@@ -2,8 +2,8 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/14/2022
-author: eur
+ms.date: 03/15/2022
+ms.author: eur
 ---
 
 [!INCLUDE [Header](../../common/rest.md)]
@@ -14,69 +14,42 @@ author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-## Convert text to speech
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-At a command prompt, run the following command. Insert these values into the command:
-- Your subscription key for the Speech service
-- Your Speech service region
+## Synthesize to speaker output
 
-You might also want to change the following values:
-- The `X-Microsoft-OutputFormat` header value, which controls the audio output format. You can find a list of supported audio output formats in the [text-to-speech REST API reference](../../../rest-text-to-speech.md#audio-outputs).
-- The output voice. To get a list of voices available for your Speech service endpoint, see the next section.
-- The output file. In this example, we direct the response from the server into a file named *output.mp3*.
+At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
-:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/text-to-speech.sh":::
+```console
+# curl
+speech_key="YourSubscriptionKey"
+region="YourServiceRegion"
 
-## List available voices for your Speech service endpoint
-
-To list the available voices for your Speech service endpoint, run the following command:
-
-:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/get-voices.sh" id="request":::
-
-You should receive a response like the following one:
-
-```http
-[
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)",
-        "DisplayName": "Christopher",
-        "LocalName": "Christopher",
-        "ShortName": "en-US-ChristopherNeural",
-        "Gender": "Male",
-        "Locale": "en-US",
-        "LocaleName": "English (United States)",
-        "SampleRateHertz": "24000",
-        "VoiceType": "Neural",
-        "Status": "GA"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-        "DisplayName": "Jenny",
-        "LocalName": "Jenny",
-        "ShortName": "en-US-JennyNeural",
-        "Gender": "Female",
-        "Locale": "en-US",
-        "LocaleName": "English (United States)",
-        "SampleRateHertz": "24000",
-        "VoiceType": "Neural",
-        "Status": "GA"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)",
-        "DisplayName": "Xiaoxiao",
-        "LocalName": "晓晓",
-        "ShortName": "zh-CN-XiaoxiaoNeural",
-        "Gender": "Female",
-        "Locale": "zh-CN",
-        "LocaleName": "Chinese (Mandarin, Simplified)",
-        "SampleRateHertz": "24000",
-        "VoiceType": "Neural",
-        "Status": "GA"
-    },
-    {
-        // This response is truncated. The response will include 
-        // a complete list of supported languages and specific 
-        // details like short name, gender, etc. 
-    }
-]
+curl --location --request POST \
+"https://YourServiceRegion.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" \
+--header "Ocp-Apim-Subscription-Key: YourSubscriptionKey" \
+--header "Content-Type: audio/wav" \
+--data-binary @'YourAudioFile.wav'
 ```
+
+You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file.
+
+```console
+{
+    "RecognitionStatus": "Success",
+    "DisplayText": "My voice is my passport, verify me.",
+    "Offset": 6600000,
+    "Duration": 32100000
+}
+```
+
+For more information, see [speech-to-text REST API for short audio](../../../rest-speech-to-text.md).
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
+
+## Clean up resources
+
+[!INCLUDE [Delete resource](../../common/delete-resource.md)]
