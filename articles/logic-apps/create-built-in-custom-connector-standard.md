@@ -204,3 +204,56 @@ When you're done, review the following code map diagram that shows the implement
 
 ## Test your custom built-in connector
 
+To add the NuGet reference from the previous section, update the **extensions.json** file in **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB** extension bundle. You can refer the add-extension.ps1 script.
+
+1. Update the extension bundle to include the custom built-in connector.
+
+1. With Visual Studio Code and the **Azure Logic Apps (Standard) extension for Visual Studio Code**, create a logic app project, and install the extension package given below:
+
+   `dotnet add package "Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB" --version 1.0.0  --source $extensionPath`
+
+   Alternatively, open in your logic app project directory, run the following PowerShell script:
+
+   `powershell -file add-extension.ps1 <CosmosDB output bin Nuget folder path> CosmosDB`
+
+   The following output confirms that the extension for your custom built-in connector is successfully installed:
+
+   `C:\Users\{your-user-name}\Desktop\demoproj\cdbproj>powershell - file C:\myrepo\github\logicapps-connector-extensions\src\Common\tools\add-extension.ps1 C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\CosmosDB`<br>
+
+   `Nuget extension path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\`<br>
+
+   `Extension dll path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\netcoreapp3.1\Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB.dll`<br>
+
+   `Extension bundle module path is C:\Users\{your-user-name}\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows1.1.9`<br>
+
+   `EXTENSION PATH is C:\Users\{your-user-name}\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.9\bin\extensions.json and dll Path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\netcoreapp3.1\Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB.dll`<br>
+
+   `SUCCESS: The process "func.exe" with PID 26692 has been terminated.`<br>
+
+     `Determining projects to restore...`<br>
+
+     `Writing C:\Users\{your-user-name}\AppData\Local\Temp\tmpD343.tmp`<br>
+
+   `info : Adding PackageReference for package 'Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB' into project 'C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj'.`<br>
+
+   `info : Restoring packages for C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj...`<br>
+
+   `info : Package 'Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB' is compatible with all the specified frameworks in project 'C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj'.`<br>
+
+   `info : PackageReference for package 'Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB' version '1.0.0' updated in file 'C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj'.`<br>
+
+   `info : Committing restore...`<br>
+
+   `info : Generating MSBuild file C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\obj\cdbproj.csproj.nuget.g.props.`<br>
+
+   `info : Generating MSBuild file C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\obj\cdbproj.csproj.nuget.g.targets.`<br>
+
+   `info : Writing assets file to disk. Path: C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\obj\project.assets.json.`<br>
+
+   `log : Restored C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\cdbproj.csproj (in 1.5 sec).`
+
+   `Extension CosmosDB is successfully added.`
+
+   `C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\>`
+
+
