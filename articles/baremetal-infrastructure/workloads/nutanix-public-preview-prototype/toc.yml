@@ -2,6 +2,8 @@
   href: nutanix-baremetal-overview.md
 - name: About the Public Preview
   href: about-the-public-preview.md
+- name: Requirements
+  href: requirements.md
 - name: BareMetal SKUs 
   href: nutanix-baremetal-skus.md
 - name: Storage
