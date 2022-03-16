@@ -33,7 +33,7 @@ To learn more about managed identities, see [What are managed identities for Azu
 > [!IMPORTANT] 
 > Regardless of the type of identity chosen, a managed identity is a service principal of a special type that may only be used with Azure resources. The corresponding service principal is automatically removed when the managed identity is deleted.
 
-## Supported Inputs and Outputs
+## Connecting your job to other Azure resources using Managed Identity
 
 Below is a table that shows Azure Stream Analytics inputs and outputs that support System Assigned Managed Identity or User Assigned Managed Identity:
 
