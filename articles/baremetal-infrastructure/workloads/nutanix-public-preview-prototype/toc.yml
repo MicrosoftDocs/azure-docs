@@ -1,5 +1,7 @@
 - name: What is BareMetal Infrastructure for Nutanix?
   href: nutanix-baremetal-overview.md
+- name: About the Public Preview
+  href: about-the-public-preview.md
 - name: BareMetal SKUs 
   href: nutanix-baremetal-skus.md
 - name: Storage
@@ -12,16 +14,6 @@
   href: nutanix-baremetal-architecture.md
 - name: Provision
   href: nutanix-baremetal-provision.md
-- name: High availability and disaster recovery
-  items: 
-    - name: HA/DR Overview
-      href: concepts-nutanix-high-availability.md
-    - name: High availability features
-      href: high-availability-features.md
-    - name: Options and considerations
-      href: options-considerations-high-availability.md
-    - name: Choose how to recover 
-      href: nutanix-high-availability-recovery.md
 - name: SnapCenter integration
   items:
     - name: SnapCenter overview
