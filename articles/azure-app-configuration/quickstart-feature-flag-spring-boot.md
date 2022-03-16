@@ -59,12 +59,12 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-        <version>2.0.0</version>
+        <version>2.4.0</version>
     </dependency>
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-feature-management-web</artifactId>
-        <version>2.0.0</version>
+        <version>2.3.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -284,6 +284,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 In this quickstart, you created a new App Configuration store and used it to manage features in a Spring Boot web app via the [Feature Management libraries](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
+* Library [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917)
 * Learn more about [feature management](./concept-feature-management.md).
 * [Manage feature flags](./manage-feature-flags.md).
 * [Use feature flags in a Spring Boot Core app](./use-feature-flags-spring-boot.md).

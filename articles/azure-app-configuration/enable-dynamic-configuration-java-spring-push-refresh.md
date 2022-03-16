@@ -55,7 +55,7 @@ In this tutorial, you learn how to:
            <dependency>
                <groupId>com.azure.spring</groupId>
                <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-               <version>2.0.0</version>
+               <version>2.4.0</version>
            </dependency>
    
            <!-- Adds the Ability to Push Refresh -->
@@ -173,7 +173,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
 ## Next steps
 
-In this tutorial, you enabled your Java app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your Java app to dynamically refresh configuration settings from App Configuration. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917) has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

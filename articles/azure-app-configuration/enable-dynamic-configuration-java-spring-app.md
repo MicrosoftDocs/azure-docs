@@ -17,7 +17,7 @@ ms.author: mametcal
 
 App Configuration has two libraries for Spring. `azure-spring-cloud-appconfiguration-config` requires Spring Boot and takes a dependency on `spring-cloud-context`. `azure-spring-cloud-appconfiguration-config-web` requires Spring Web along with Spring Boot. Both libraries support manual triggering to check for refreshed configuration values. `azure-spring-cloud-appconfiguration-config-web` also adds support for automatic checking of configuration refresh.
 
-Refresh allows you to refresh your configuration values without having to restart your application, though it will cause all beans in the `@RefreshScope` to be recreated. The client library caches a hash ID of the currently loaded configurations to avoid too many calls to the configuration store. The refresh operation doesn't update the value until the cached value has expired, even when the value has changed in the configuration store. The default expiration time for each request is 30 seconds. It can be overridden if necessary.
+Refresh allows you to refresh your configuration values without having to restart your application, though it will cause all beans in the `@RefreshScope` to be recreated. The client library checks for changes on a refresh interval. Refresh checks the etag of keys that have been configured to trigger a refresh when they are changed in any way. The default refresh interval for each request is 30 seconds, which is configurable.
 
 `azure-spring-cloud-appconfiguration-config-web`'s automated refresh is triggered based off activity, specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` is not triggered, `azure-spring-cloud-appconfiguration-config-web`'s automated refresh will not trigger a refresh even if the cache expiration time has expired.
 
@@ -54,7 +54,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-    <version>2.0.0</version>
+    <version>2.4.0</version>
 </dependency>
 ```
 
@@ -109,7 +109,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
 
 ## Next steps
 
-In this tutorial, you enabled your Spring Boot app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your Spring Boot app to dynamically refresh configuration settings from App Configuration. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917) has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
