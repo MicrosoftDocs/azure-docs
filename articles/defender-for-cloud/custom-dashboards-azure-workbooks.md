@@ -2,6 +2,8 @@
 title: Workbooks gallery in Microsoft Defender for Cloud
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
+ms.author: benmansheim
+author: bmansheim
 ms.date: 01/23/2022
 ---
 
