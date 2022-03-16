@@ -14,6 +14,9 @@ services: iot-central
 
 The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to manage organizations in your IoT Central application.
 
+> [!TIP]
+> The [organizations feature](howto-create-organizations.md) is currently available in [preview API](/rest/api/iotcentral/1.1-previewdataplane/users).
+
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
@@ -55,6 +58,8 @@ The request body has some required fields:
 The request body has some optional fields:
 
 * `@parent`:  ID of the parent of the organization.
+
+ If you don't specify a parent, then the organization gets the default top-level organization as it's parent.
 
 The response to this request looks like the following example:
 
@@ -172,6 +177,8 @@ The response to this request looks like the following example.
     ]
 }
 ```
+
+ The organizations Washington, Redmond, and Bellevue will automatically have the application's default top-level organization as their parent.
 
 ### Delete an organization
 
