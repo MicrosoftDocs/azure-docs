@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/15/2022
+ms.date: 03/16/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -114,7 +114,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     :::image type="content" source="../media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure":::
 
-1. Navigate to the `java` directory and create a file called **`FormRecognizer.java`**.
+1. Navigate to the `java` directory and create a file named **`FormRecognizer.java`**.
 
     > [!TIP]
     >
@@ -122,7 +122,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item FormRecognizer.java**.
 
-1. Open the `FormRecognizer.java` file and select one of the following code samples to copy and paste your into your application:
+1. Open the `FormRecognizer.java` file and select one of the following code samples to copy and paste into your application:
 
     * [**General document**](#general-document-model)
 
@@ -145,7 +145,7 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-**Add the following code sample to the `FormRecognizer` class. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```java
 
@@ -255,7 +255,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-layout` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-**Add the following code sample to the `FormRecognizer` class. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```java
 
@@ -286,6 +286,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
                 .endpoint(endpoint)
                 .buildClient();
 
+            // sample document 
             String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
             String modelId = "prebuilt-layout";
 
@@ -343,7 +344,7 @@ Visit the Azure samples repository on GitHub to view the [layout model output](h
 
 ## Prebuilt model
 
-Analyze and extract common fields from specific document types using a prebuilt model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
+Analyze and extract common fields from specific document types using a prebuilt model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
 > You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../concept-model-overview.md#model-data-extraction).
@@ -357,7 +358,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
-**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```java
 
@@ -381,12 +382,14 @@ Analyze and extract common fields from specific document types using a prebuilt 
       private static final String key = "<your-key>";
 
       public static void main(final String[] args) throws IOException {
-
+        
+        // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
         DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
           .credential(new AzureKeyCredential(key))
           .endpoint(endpoint)
           .buildClient();
-
+        
+        // sample document
         String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
         String modelId = "prebuilt-invoice";
 
@@ -515,7 +518,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 
 ### Prebuilt model output
 
-Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/FormRecognizer)
+Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-prebuilt-invoice-output.md)
 
 ## Build and run your application
 
@@ -537,10 +540,7 @@ That's it, congratulations!
 
 In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [REST API v3.0 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer Java library reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.1/index.html)
+> [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)

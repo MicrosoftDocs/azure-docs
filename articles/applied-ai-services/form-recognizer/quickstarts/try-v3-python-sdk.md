@@ -675,10 +675,7 @@ That's it, congratulations!
 
 In this quickstart, you used the Form Recognizer Python SDK to analyze various forms in different ways. Next, explore the reference documentation to learn more about Form Recognizer v3.0 API.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [REST API v3.0 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer Python reference library](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b1/index.html)
+> [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)

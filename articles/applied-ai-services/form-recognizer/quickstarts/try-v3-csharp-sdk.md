@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/14/2022
+ms.date: 03/16/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -526,10 +526,7 @@ That's it, congratulations!
 
 In this quickstart, you used the Form Recognizer C# SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [REST API v3.0 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer C#/.NET reference library](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet&preserve-view=true)
+> [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
