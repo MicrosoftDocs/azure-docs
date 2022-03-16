@@ -11,16 +11,11 @@ ms.date: 10/21/2021
 ms.custom: data4ml, ignite-fall-2021
 ---
 
-# Create a text labeling project and export labels (preview)
+# Create a text labeling project and export labels 
 
 Learn how to create and run data labeling projects to label text data in Azure Machine Learning.  Specify either a single label or multiple labels to be applied to each text item.
 
 You can also use the data labeling tool to [create an image labeling project](how-to-create-image-labeling-projects.md).
-
-> [!IMPORTANT]
-> Text labeling is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Text labeling capabilities
 
@@ -51,10 +46,16 @@ Data formats available for text data:
 
 1. Select **Text** to create a text labeling project.
 
-    :::image type="content" source="media/how-to-create-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
+    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
 
-    * Choose **Text Classification Multi-class (Preview)** for projects when you want to apply only a *single label* from a set of labels to each piece of text.
-    * Choose **Text Classification Multi-label (Preview)** for projects when you want to apply *one or more* labels from a set of labels to each piece of text.
+    * Choose **Text Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to each piece of text.
+    * Choose **Text Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to each piece of text. 
+    * Choose **Text Named Entity Recognition (Preview)** for projects when you want to apply labels to individual or multiple words of text in each entry.
+
+> [!IMPORTANT]
+> Text Named Entity Recognition is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 1. Select **Next** when you're ready to continue.
 
@@ -62,7 +63,7 @@ Data formats available for text data:
 
 [!INCLUDE [outsource](../../includes/machine-learning-data-labeling-outsource.md)]
 
-## Specify the data to label
+## Select or create a dataset
 
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
 
@@ -78,7 +79,7 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**:
-    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response.
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response. Tabular is not available for Text Named Entity Recognition projects. 
     * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
@@ -96,7 +97,7 @@ To directly upload your data:
 1. Select **Create a dataset** > **From local files**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**.
-    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response.
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response. Tabular is not available for Text Named Entity Recognition projects. 
     * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description of your dataset.
 1. Select **Next**
@@ -131,7 +132,6 @@ To directly upload your data:
 ## Use ML-assisted data labeling
 
 The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. ML-assisted labeling is available for both file (.txt) and tabular (.csv) text data inputs.
-
 To use **ML-assisted labeling**:
 
 * Select **Enable ML assisted labeling**.
@@ -170,7 +170,7 @@ Once a machine learning model has been trained on your manually labeled data, th
 
 The **Dashboard** tab shows the progress of the labeling task.
 
-:::image type="content" source="./media/how-to-create-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
+:::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
 
 
 The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of item in each section.
@@ -189,7 +189,7 @@ On the **Data** tab, you can see your dataset and review labeled data. Scroll th
 View and change details of your project.  In this tab you can:
 
 * View project details and input datasets
-* Enable or disable **incremental refresh at regular intervals** or request an immediate refresh
+* Enable or disable **incremental refresh at regular intervals**, or request an immediate refresh. Incremental refresh is not available for **Text Named Entity Recognition** projects.
 * View details of the storage container used to store labeled outputs in your project
 * Add labels to your project
 * Edit instructions you give to your labels
@@ -206,10 +206,16 @@ View and change details of your project.  In this tab you can:
  
 Use the **Export** button on the **Project details** page of your labeling project. You can export the label data for Machine Learning experimentation at any time.
 
-You can export:
-
+For all project types other than **Text Named Entity Recognition**, you can export:
 * A CSV file. The CSV file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/csv*. 
 * An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
+
+
+For **Text Named Entity Recognition** projects, you can export:
+* An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
+* A CoNLL file.  For this export, you will also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run.  When the file is ready to download, you'll see a notification on the top right.  Click on this to open the notification, which includes the link to the file.
+
+    :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::
 
 Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 
