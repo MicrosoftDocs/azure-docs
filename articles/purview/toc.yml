@@ -22,6 +22,8 @@ items:
     href: quickstart-create-collection.md
 - name: Tutorials
   items:
+  - name: Azure Purview deployment checklist
+    href: tutorial-azure-purview-checklist.md
   - name: Onboard Azure sources at scale
     items:
     - name: Azure source readiness at scale
