@@ -91,16 +91,12 @@ $exclusion = New-AzApplicationGatewayFirewallPolicyExclusion `
    -ExclusionManagedRuleSet $ruleSet
 ```
 
----
-
 # [Azure CLI](#tab/cli)
 
 <!-- TODO -->
 ```azurecli
 
 ```
-
----
 
 # [Bicep](#tab/bicep)
 
@@ -130,16 +126,12 @@ $exclusion = New-AzApplicationGatewayFirewallExclusionConfig `
    -Selector 'user'
 ```
 
----
-
 # [Azure CLI](#tab/cli)
 
 <!-- TODO -->
 ```azurecli
 
 ```
-
----
 
 # [Bicep](#tab/bicep)
 
