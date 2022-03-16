@@ -10,7 +10,7 @@ ms.date: 03/02/2022
 
 # User Assigned Managed Identities for Azure Stream Analytics
 
-Azure Stream Analytics currently allows you to use user-assigned managed identities for Azure resources.
+Azure Stream Analytics currently allows you to use user-assigned managed identities to authenticate to your job's inputs and outputs.
 User-assigned managed identities can be used on multiple resources. To learn more about managed identities, see [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 **In this article, you learn how to create a user-assigned managed identity for your Azure Stream Analytics job by using the Azure portal.**
