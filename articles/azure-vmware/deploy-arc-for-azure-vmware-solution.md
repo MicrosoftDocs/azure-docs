@@ -404,7 +404,8 @@ For the final step, you'll need to delete the resource bridge VM and the VM temp
 
 **Is the preview available in all regions?**
 
-Arc for Azure VMware Solution is currently available in East US and West EU.
+Not currently.
+<!-- Waiting for ACOM page link to update this section -->
 
 **How do you onboard a customer?**
  
