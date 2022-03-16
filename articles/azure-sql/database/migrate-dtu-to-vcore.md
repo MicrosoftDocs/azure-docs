@@ -178,7 +178,7 @@ The following table provides guidance for specific migration scenarios:
 |General purpose|Premium|Upgrade|Must migrate secondary first|
 |Business critical|General purpose|Downgrade|Must migrate primary first|
 |General purpose|Business critical|Upgrade|Must migrate secondary first|
-||||
+
 
 ## Migrate failover groups
 
