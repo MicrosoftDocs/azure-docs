@@ -127,7 +127,7 @@ The **SAPConnectorOverview** function shows row counts of each SAP table per Sys
 | Field           | Description |
 | --------------- | ----------- |
 | TimeGenerated | A datetime value of the timestamp of the record's generation |
-| SystemID_s | A string representing the ***?????*** |
+| SystemID_s | A string representing the SAP System ID |
 
 Use the following Kusto query to perform a daily trend analysis:
 
@@ -162,9 +162,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
 ### ABAP Application log
 
-- **Name in Microsoft Sentinel**: `ABAPAppLog_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPAppLog
+- **Microsoft Sentinel function for querying this log**: SAPAppLog
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcc9f36611d3a6510000e835363f.html)
 
@@ -211,9 +209,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
 ### ABAP Change Documents log
 
-- **Name in Microsoft Sentinel**: `ABAPChangeDocsLog_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPChangeDocsLog
+- **Microsoft Sentinel function for querying this log**: SAPChangeDocsLog
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/6f51f5216c4b10149358d088a0b7029c/7.01.22/en-US/b8686150ed102f1ae10000000a44176f.html)
 
@@ -261,9 +257,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
 ### ABAP CR log
 
-- **Name in Microsoft Sentinel**: `ABAPCRLog_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPCRLog
+- **Microsoft Sentinel function for querying this log**: SAPCRLog
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcd5f36611d3a6510000e835363f.html)
 
@@ -301,9 +295,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
-- **Name in Microsoft Sentinel**: `ABAPTableDataLog_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPTableDataLog
+- **Microsoft Sentinel function for querying this log**: SAPTableDataLog
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcd2f36611d3a6510000e835363f.html)
 
@@ -337,10 +329,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
-
-- **Name in Microsoft Sentinel**: `ABAPOS_GW_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPOS_GW
+- **Microsoft Sentinel function for querying this log**: SAPOS_GW
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/62b4de4187cb43668d15dac48fc00732/7.5.7/en-US/48b2a710ca1c3079e10000000a42189b.html)
 
@@ -362,10 +351,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
-
-- **Name in Microsoft Sentinel**: `ABAPOS_ICM_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPOS_ICM
+- **Microsoft Sentinel function for querying this log**: SAPOS_ICM
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/7.52.4/en-US/a10ec40d01e740b58d0a5231736c434e.html)
 
@@ -387,9 +373,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### ABAP Job log
 
-- **Name in Microsoft Sentinel**: `ABAPJobLog_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPJobLog
+- **Microsoft Sentinel function for querying this log**: SAPJobLog
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/b07e7195f03f438b8e7ed273099d74f3/7.31.19/en-US/4b2bc0974c594ba2e10000000a42189c.html)
 
@@ -433,9 +417,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### ABAP Security Audit log
 
-- **Name in Microsoft Sentinel**: `ABAPAuditLog_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPAuditLog
+- **Microsoft Sentinel function for querying this log**: SAPAuditLog
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/280f016edb8049e998237fcbd80558e7/7.5.7/en-US/4d41bec4aa601c86e10000000a42189b.html)
 
@@ -481,13 +463,11 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | Variable2                  | Message variable 2               |
 | Variable3                  | Message variable 3               |
 | Variable4                  | Message variable 4               |
-| | |
+
 
 ### ABAP Spool log
 
-- **Name in Microsoft Sentinel**: `ABAPSpoolLog_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPSpoolLog
+- **Microsoft Sentinel function for querying this log**: SAPSpoolLog
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/290ce8983cbc4848a9d7b6f5e77491b9/7.52.1/en-US/4eae791c40f72045e10000000a421937.html)
 
@@ -546,9 +526,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### APAB Spool Output log
 
-- **Name in Microsoft Sentinel**: `ABAPSpoolOutputLog_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPSpoolOutputLog
+- **Microsoft Sentinel function for querying this log**: SAPSpoolOutputLog
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/290ce8983cbc4848a9d7b6f5e77491b9/7.52.1/en-US/4eae779e40f72045e10000000a421937.html)
 
@@ -601,10 +579,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
-
-- **Name in Microsoft Sentinel**: `ABAPOS_Syslog_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPOS_Syslog
+- **Microsoft Sentinel function for querying this log**: SAPOS_Syslog
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcbaf36611d3a6510000e835363f.html)
 
@@ -633,9 +608,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### ABAP Workflow log
 
-- **Name in Microsoft Sentinel**: `ABAPWorkflowLog_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPWorkflowLog
+- **Microsoft Sentinel function for querying this log**: SAPWorkflowLog
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcccf36611d3a6510000e835363f.html)
 
@@ -688,10 +661,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
-
-- **Name in Microsoft Sentinel**: `ABAPOS_WP_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPOS_WP
+- **Microsoft Sentinel function for querying this log**: SAPOS_WP
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/d0739d980ecf42ae9f3b4c19e21a4b6e/7.3.15/en-US/46fb763b6d4c5515e10000000a1553f6.html)
 
@@ -721,7 +691,7 @@ To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Manage
 
 - **Name in Microsoft Sentinel**: `Syslog`
 
-- **Microsoft Sentinel function for querying data**: 
+- **Microsoft Sentinel function for querying this log**: 
 
 - **Related SAP documentation**: [General](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/48fd6586304c4f859bf92d64d0cd8b08.html) |  [Audit Trail](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.03/en-US/0a57444d217649bf94a19c0b68b470cc.html)
 
@@ -750,7 +720,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Name in Microsoft Sentinel**: `JavaFilesLogsCL`
 
-- **Microsoft Sentinel function for querying data**: SAPJAVAFilesLogs
+- **Microsoft Sentinel function for querying this log**: SAPJAVAFilesLogs
 
 - **Related SAP documentation**: [General](https://help.sap.com/viewer/2f8b1599655d4544a3d9c6d1a9b6546b/7.5.9/en-US/485059dfe31672d4e10000000a42189c.html) | [Java Security Audit Log](https://help.sap.com/viewer/1531c8a1792f45ab95a4c49ba16dc50b/7.5.9/en-US/4b6013583840584ae10000000a42189c.html)
 
@@ -792,14 +762,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### SAP Heartbeat Log
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
-
-
-- **Name in Microsoft Sentinel**: `SAP_HeartBeat_CL`
-
-- **Microsoft Sentinel function for querying data**: SAPConnectorHealth
-
-- **Related SAP documentation**: ***???***
+- **Microsoft Sentinel function for querying this log**: SAPConnectorHealth
 
 - **Log purpose**: Provides heartbeat and other health information on the connectivity between the agents and the different SAP systems.
 
