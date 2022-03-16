@@ -8,6 +8,8 @@
   href: supported-instances.md
 - name: BareMetal SKUs 
   href: nutanix-baremetal-skus.md
+- name: Architecture
+  href: nutanix-baremetal-architecture.md  
 - name: Storage
   href: nutanix-baremetal-storage.md
 
