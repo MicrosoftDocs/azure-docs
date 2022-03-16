@@ -174,8 +174,6 @@ After the private cloud is Arc-enabled, vCenter resources should appear under **
 - From the left navigation, under **Azure Arc VMware resources (preview)**, locate **Virtual machines**.
 - Choose **Virtual machines** to view the vCenter resources.
 
-    :::image type="content" source="media/deploy-arc-for-azure-vmware-solution/arc-vmware-resources.png" alt-text="Image showing navigation to Azure Arc VMware virtual machines to view the vCenter resources."lightbox="media/deploy-arc-for-azure-vmware-solution/arc-vmware-resources.png"::: 
-
 ### Manage access to VMware resources through Azure Role-Based Access Control
 
 After your Azure VMware Solution vCenter resources have been enabled for access through Azure, there's one final step in setting up a self-service experience for your teams. You'll need to provide your teams with access to: compute, storage, networking, and other vCenter resources used to configure VMs.
@@ -426,7 +424,7 @@ Yes
 
 **Is DHCP support available?**
 
-DHCP support is on the road map and will soon be available for customers. Currently, we only support static IP.
+DHCP support is not available to customers at this time, we only support static IP.
 
 >[!NOTE]
 > This is Azure VMware Solution 2.0 only. It's not available for Azure VMware Solution by Cloudsimple.
@@ -478,29 +476,25 @@ Use the following tips as a self-help guide.
 
 Appendix 1 shows proxy URLs required by the Azure Arc-enabled private cloud. The URLs will get pre-fixed when the script runs and can be run from the jumpbox VM to ping them.  
 
+
 | **Azure Arc Service** | **URL** |
 | :-- | :-- |
-|Microsoft container registry | `https://mcr.microsoft.com` |
+| Microsoft container registry | `https://mcr.microsoft.com` |
 | Azure Arc Identity service | `https://*.his.arc.azure.com` |
 | Azure Arc configuration service | `https://*.dp.kubernetesconfiguration.azure.com` |
 | Cluster connect | `https://*.servicebus.windows.net` |
 | Guest Notification service | `https://guestnotificationservice.azure.com` |
-|Resource bridge (appliance) Dataplate service | `https://*.dp.prod.appliances.azure.com` |
+| Resource bridge (appliance) Dataplate service | `https://*.dp.prod.appliances.azure.com` |
 | Resource bridge (appliance) container image download | `https://ecpacr.azurecr.io` |
-|Resource bridge (appliance) image download | `https://.blob.core.windows.net https://*.dl.delivery.mp.microsoft.com https://*.do.dsp.mp.microsoft.com` |
+| Resource bridge (appliance) image download | `https://.blob.core.windows.net https://*.dl.delivery.mp.microsoft.com https://*.do.dsp.mp.microsoft.com` |
 | Azure Resource Manager | `https://management.azure.com`  |
-|Azure Active Directory | `https://login.mirosoftonline.com`  |
-| **Other Resources** | **URL** |
-|  | `https://*.blob.core.windows.net` |
-|  | [files.pythonhosted.org](http://files.pythonhosted.org/)  |
-|  | `https://*.api.cdp.microsoft.com`  |
-|  | [gcr.io](http://gcr.io/)  |
-|  | [storage.googleapis.com](http://storage.googleapis.com/)  |
-|  | [registry-1.docker.io](http://registry-1.docker.io/)  |
-|  | [auth.docker.io](http://auth.docker.io/)  |
-|  | [production.cloudflare.docker.com](http://production.cloudflare.docker.com/)  |
-|  | [quay.io](http://quay.io/)  |
----
+| Azure Active Directory | `https://login.mirosoftonline.com`  |
+
+
+**Additional URL resources**
+
+- [Google Container Registry](http://gcr.io/)
+- [Red Hat Quay.io](http://quay.io/)
 
 
 
