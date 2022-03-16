@@ -124,6 +124,7 @@ Execute the following PowerShell script in Azure Cloud Shell (fill out necessary
 Replace `<SubscriptionID>` with your Azure Subscription ID. Replace `<ManagedInstanceName>` with the short name  of your managed instance. Replace `<PublicKeyEncoded>` below with the public portion of the SQL Server certificate in binary format generated in the previous step. That will be a long string value starting with 0x, that you've obtained from SQL Server.
 
 ```powershell
+# Execute in Azure Cloud Shell
 # ===============================================================================
 # POWERSHELL SCRIPT TO IMPORT SQL SERVER CERTIFICATE TO MANAGED INSTANCE
 # USER CONFIGURABLE VALUES
@@ -377,6 +378,7 @@ Invoking direct API call to Azure can be accomplished with various API clients. 
 Log in to Azure portal and execute the below PowerShell scripts in Azure Cloud Shell. Make the following replacements with the actual values in the script: Replace `<SubscriptionID>` with your Azure Subscription ID. Replace `<ManagedInstanceName>` with the short name of your managed instance. Replace `<AGName>` with the name of Availability Group created on SQL Server. Replace `<DAGName>` with the name of Distributed Availability Group create on SQL Server. Replace `<DatabaseName>` with the database replicated in Availability Group on SQL Server. Replace `<SQLServerAddress>` with the address of the SQL Server. This can be a DNS name, or public IP or even private IP address, as long as the address provided can be resolved from the backend node hosting the SQL Managed Instance.
   
 ```powershell
+# Execute in Azure Cloud Shell
 # =============================================================================
 # POWERSHELL SCRIPT FOR CREATING MANAGED INSTANCE LINK
 # USER CONFIGURABLE VALUES
