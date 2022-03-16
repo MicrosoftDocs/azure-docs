@@ -5,9 +5,9 @@ ms.topic: how-to
 ms.date: 03/15/2022
 ---
 
-# Manage storage accounts in Azure DevTest Labs
+# Manage Azure DevTest Labs storage accounts
 
-This article explains how to view and manage the Azure Storage accounts associated with Azure DevTest Labs instances.
+This article explains how to view and manage the Azure Storage accounts associated with Azure DevTest Labs.
 
 ## View storage account contents
 
@@ -76,9 +76,12 @@ The following rule sets a 90-day expiration specifically for artifact results:
 
 Azure Storage automatically encrypts all data in the lab storage account. Azure Storage encryption protects your data and helps meet organizational security and compliance commitments. For more information, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
 
-Azure Storage encrypts lab data with a Microsoft-managed key. Optionally, you can manage encryption with your own keys. If you choose to manage lab storage account encryption with your own keys, you can specify a customer-managed key with Azure Key Vault to use for encrypting and decrypting data. For more information, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../storage/common/customer-managed-keys-overview.md).
+Azure Storage encrypts lab data with a Microsoft-managed key. Optionally, you can manage encryption with your own keys. If you choose to manage lab storage account encryption with your own keys, you can specify a customer-managed key with Azure Key Vault to use for encrypting and decrypting data.
 
-For instructions on configuring customer-managed keys for Azure Storage encryption, see [Configure encryption with customer-managed keys stored in Azure Key Vault](/azure/storage/common/customer-managed-keys-configure-key-vault).
+For more information and instructions on configuring customer-managed keys for Azure Storage encryption, see:
+
+- [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview.md).
+- [Configure encryption with customer-managed keys stored in Azure Key Vault](/azure/storage/common/customer-managed-keys-configure-key-vault).
 
 ## Next steps
 

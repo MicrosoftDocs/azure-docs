@@ -8,19 +8,18 @@ ms.reviewer: christianreddington,anthdela,juselph
 
 # DevTest Labs enterprise reference architecture
 
-This article provides a reference architecture for deploying Azure DevTest Labs in an enterprise. The architecture includes the following components:
+This article provides a reference architecture for deploying Azure DevTest Labs in an enterprise. The architecture includes the following key elements:
 
 - On-premises connectivity via Azure ExpressRoute
 - A remote desktop gateway to remotely sign in to virtual machines (VMs)
 - Connectivity to a private artifact repository
 - Other platform-as-a-service (PaaS) components that labs use
 
-
 ## Architecture
 
 ![Diagram that shows a reference architecture for an enterprise DevTest Labs deployment.](./media/devtest-lab-reference-architecture/reference-architecture.png)
 
-This reference architecture has the following key elements:
+This DevTest Labs enterprise reference architecture has the following components:
 
 - DevTest Labs. DevTest Labs makes it easy and fast for enterprises to provide access to Azure resources. For more information, see [About DevTest Labs](devtest-lab-overview.md).
 
@@ -30,7 +29,7 @@ This reference architecture has the following key elements:
 
 - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity management.
 
-  Lab VMs usually have a local admin account. If there's an Azure AD, on-premises, or [Azure AD Domain Services](../active-directory-domain-services/overview.md) domain available, you can join lab VMs to the domain. Users can then use their domain-based identities to connect to the VMs.
+  Lab VMs usually have a local administrative account. If there's an Azure AD, on-premises, or [Azure AD Domain Services](../active-directory-domain-services/overview.md) domain available, you can join lab VMs to the domain. Users can then use their domain-based identities to connect to the VMs.
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) for on-premises connectivity. You can also use a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md). You need on-premises connectivity only if your labs need access to on-premises corporate resources.
 
@@ -43,9 +42,9 @@ This reference architecture has the following key elements:
 - A [remote desktop gateway](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) to enable outgoing remote desktop protocol (RDP) connections to DevTest Labs.
 
   Enterprise corporate firewalls usually block outgoing connections at the corporate firewall. To enable connectivity, you can:
-
+  
   - Use a remote desktop gateway, and allow the static IP address of the gateway load balancer.
-  - [Use forced tunneling](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) to redirect all RDP traffic back over the ExpressRoute or site-to-site VPN connection. This is common functionality for enterprise-scale DevTest Labs deployments.
+  - Use [forced tunneling](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) to redirect all RDP traffic back over the ExpressRoute or site-to-site VPN connection. Forced tunneling is common functionality for enterprise-scale DevTest Labs deployments.
 
 - [Azure networking topology](../networking/fundamentals/networking-overview.md) to control how lab resources access and communicate with on-premises networks and the internet.
 
@@ -78,23 +77,23 @@ DevTest Labs has no built-in quotas or limits, but other Azure resources that la
 
 ## Manageability considerations
 
-You can use the DevTest Labs user interface in the Azure portal to administer a single lab at a time. Enterprises might have multiple Azure subscriptions and many labs to administer. Making changes consistently to all labs requires scripting automation.
+You can use the Azure portal to manage a single DevTest Labs instance at a time, but enterprises might have multiple Azure subscriptions and many labs to administer. Making changes consistently to all labs requires scripting automation.
 
 Here are some examples of using scripting in DevTest Labs deployments:
 
-- Change lab settings. Update a specific lab setting across all labs by using PowerShell scripts, Azure CLI, or REST APIs. For example, update all labs to allow a new VM instance size.
+- Changing lab settings. Update a specific lab setting across all labs by using PowerShell scripts, Azure CLI, or REST APIs. For example, update all labs to allow a new VM instance size.
 
-- Update artifact repository personal access tokens (PATs). PATs for Git repositories typically expire in 90 days, one year, or two years. To ensure continuity, it's important to extend the PAT. Or, create a new PAT and use automation to apply it to all labs.
+- Updating artifact repository personal access tokens (PATs). PATs for Git repositories typically expire in 90 days, one year, or two years. To ensure continuity, it's important to extend the PAT. Or, create a new PAT and use automation to apply it to all labs.
 
-- Restrict changes to lab settings. To restrict certain settings, such as allowing marketplace image use, you can use Azure Policy to prevent changes to a resource type. Or you can create a custom role, and grant users that role instead of a built-in lab role. You can restrict changes for most lab settings, such as internal support, lab announcements, and allowed VM sizes.
+- Restricting changes to lab settings. To restrict certain settings, such as allowing marketplace image use, you can use Azure Policy to prevent changes to a resource type. Or you can create a custom role, and grant users that role instead of a built-in lab role. You can restrict changes for most lab settings, such as internal support, lab announcements, and allowed VM sizes.
 
-- Require VMs to follow a naming convention. You can use Azure Policy to [specify a naming pattern](https://github.com/Azure/azure-policy/tree/master/samples/TextPatterns/allow-multiple-name-patterns) that helps identify VMs in cloud-based environments.
+- Applying a naming convention for VMs. You can use Azure Policy to [specify a naming pattern](https://github.com/Azure/azure-policy/tree/master/samples/TextPatterns/allow-multiple-name-patterns) that helps identify VMs in cloud-based environments.
 
-You manage underlying Azure resources for DevTest Labs the same as for other purposes. For example, Azure Policy applies to VMs you create in a lab. Microsoft Defender for Cloud can report on lab VM compliance. Azure Backup can provide regular backups for lab VMs.
+You manage Azure resources for DevTest Labs the same way as for other purposes. For example, Azure Policy applies to VMs you create in a lab. Microsoft Defender for Cloud can report on lab VM compliance. Azure Backup can provide regular backups for lab VMs.
 
 ## Security considerations
 
-DevTest Labs automatically benefits from built-in Azure security features. For example, to require incoming remote desktop connections to originate only from the corporate network, you can add a network security group to the virtual network on the remote desktop gateway.
+DevTest Labs automatically benefits from built-in Azure security features. To require incoming remote desktop connections to originate only from the corporate network, you can add a network security group to the virtual network on the remote desktop gateway.
 
 Another security consideration is the permission level you grant to lab users. Lab owners use Azure role-based access control (Azure RBAC) to assign roles to users and set resource and access-level permissions. The most common DevTest Labs permissions are Owner, Contributor, and User. You can also create and assign [custom roles](devtest-lab-grant-user-permissions-to-specific-lab-policies.md). For more information, see [Add owners and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 

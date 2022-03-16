@@ -1,22 +1,22 @@
 ---
-title: Start machines in order with Azure Automation runbooks
-description: Learn how to start virtual machines in order by using Azure Automation runbooks in Azure DevTest Labs.
+title: Start machines in sequence with an Azure Automation runbook
+description: Learn how to start virtual machines in a specific order by using Azure Automation runbooks in Azure DevTest Labs.
 ms.topic: how-to
 ms.date: 03/15/2022
 ms.custom: devx-track-azurepowershell
 ---
 
-# Start DevTest Labs VMs in order with Azure Automation runbooks
+# Start DevTest Labs VMs in sequence with an Azure Automation runbook
 
 This article explains how to start up DevTest Labs virtual machines (VMs) in a specific order by using a PowerShell runbook in Azure Automation. The PowerShell script uses tags on lab VMs, so you can change the startup order without having to change the script.
 
-The DevTest Labs [autostart](devtest-lab-set-lab-policy.md#set-autostart) feature can configure lab VMs to start automatically at a specified time. However, sometimes you might want lab VMs to start in a specific order. For example, if a jumpbox VM in a lab is the access point to the other VMs, the jumpbox VM must start before the other VMs.
+The DevTest Labs [autostart](devtest-lab-set-lab-policy.md#set-autostart) feature can configure lab VMs to start automatically at a specified time. However, sometimes you might want lab VMs to start in a specific sequence. For example, if a jumpbox VM in a lab is the access point to the other VMs, the jumpbox VM must start before the other VMs.
 
 ## Prerequisites
 
 - Apply the tag **StartupOrder** to all lab VMs with an appropriate startup value, 0 through 10. Designate any machines that don't need starting as -1.
 
-- Create an Azure Automation account by following instructions in [Create a standalone Azure Automation account](/azure/automation/automation-create-standalone-account). Choose the **Run As Accounts** option when creating the account.
+- Create an Azure Automation account by following instructions in [Create a standalone Azure Automation account](/azure/automation/automation-create-standalone-account). Choose the **Run As Accounts** option when you create the account.
 
 ## Create the PowerShell runbook
 
@@ -132,7 +132,7 @@ While ($current -le 10) {
 
 - To run this script daily, [create a schedule](../automation/shared-resources/schedules.md#create-a-schedule) in the Automation Account, and [link the schedule to the runbook](../automation/shared-resources/schedules.md#link-a-schedule-to-a-runbook).
 
-- In an enterprise scenario that has several subscriptions with multiple labs, you can store the parameter information in a file for different labs and subscriptions. Pass the file to the script instead of passing the individual parameters.
+- In an enterprise scenario that has several subscriptions with multiple labs, you can store the parameter information for different labs and subscriptions in a file. Pass the file to the script instead of passing the individual parameters.
 
 - This example uses Azure Automation to run the PowerShell script, but you can also use other options, like a task in a build/release pipeline.
 
