@@ -361,7 +361,7 @@ The `"analyzeResults"` node contains all of the recognized text. Text is organiz
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
-1. Replace `"{your-document-url}` with one of the example URLs.
+1. Replace `{your-document-url}` with one of the example URLs.
 
 #### Request
 
