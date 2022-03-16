@@ -93,6 +93,10 @@ This workbook supports multiple filters:
 ## Best practices
 
 
+- For guidance on blocking legacy authentication in your environment, see [Block legacy authentication to Azure AD with conditional access](../conditional-access/block-legacy-authentication.md).
+
+- Many email protocols that once relied on legacy authentication now support more secure modern authentication methods. If you see legacy email authentication protocols in this workbook, consider migrating to modern authentication for email instead. For more information, see [Deprecation of Basic authentication in Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online).
+
 - **[Enable risky sign-in policies](../identity-protection/concept-identity-protection-policies.md)** - To prompt for multi-factor authentication (MFA) on medium risk or above. Enabling the policy reduces the proportion of active real-time risk detections by allowing legitimate users to self-remediate the risk detections with MFA.
 
 - **[Enable a risky user policy](../identity-protection/howto-identity-protection-configure-risk-policies.md#user-risk-with-conditional-access)** - To enable users to securely remediate their accounts when they are high risk. Enabling the policy reduces the number of active at-risk users in your organization by returning the user’s credentials to a safe state.
