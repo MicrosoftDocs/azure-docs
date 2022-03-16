@@ -11,6 +11,7 @@ ms.custom: template-quickstart
 ---
 
 # Quickstart: Create a basic public load balancer using the Azure portal
+
 Get started with Azure Load Balancer by using the Azure portal to create a basic public load balancer and two virtual machines.
 
 ## Prerequisites
@@ -137,11 +138,11 @@ During the creation of the load balancer, you'll configure:
 
 16. Select **Add**. 
 
-23. Select the **Next: Inbound rules** button at the bottom of the page.
+17. Select the **Next: Inbound rules** button at the bottom of the page.
 
-24. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
+18. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
 
-25. In **Add load balancing rule**, enter or select the following information:
+19. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -157,11 +158,11 @@ During the creation of the load balancer, you'll configure:
     | Idle timeout (minutes) | Enter or select **15**. |
     | Floating IP | Select **Disabled**. |
 
-26. Select **Add**.
+20. Select **Add**.
 
-27. Select the blue **Review + create** button at the bottom of the page.
+21. Select the blue **Review + create** button at the bottom of the page.
 
-28. Select **Create**.
+22. Select **Create**.
 
 ## Create virtual machines
 
@@ -215,11 +216,11 @@ The two VMs will be added to an availability set named **myAvailabilitySet**.
     | Select a load balancer | Select **myLoadBalancer**. |
     | Select a backend pool | Select **myBackendPool**. |
 
-8. Select **Review + create**. 
+6. Select **Review + create**. 
   
-9. Review the settings, and then select **Create**.
+7. Review the settings, and then select **Create**.
 
-10. Follow the steps 1 through 9 to create two more VMs with the following values and all the other settings the same as **myVM1**:
+8. Follow the steps 1 through 7 to create one more VM with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 |
     | ------- | ----- |
@@ -235,20 +236,22 @@ The two VMs will be added to an availability set named **myAvailabilitySet**.
 
 2. Select **myVM1**.
 
-2. On the **Overview** page, select **Connect**, then **Bastion**.
+3. On the **Overview** page, select **Connect**, then **Bastion**.
 
-3. Select **Use Bastion**.
+4. Select **Use Bastion**.
 
-4. Enter the username and password entered during VM creation.
+5. Enter the username and password entered during VM creation.
 
-5. Select **Connect**.
+6. Select **Connect**.
 
-6. On the server desktop, navigate to **Windows Administrative Tools** > **Windows PowerShell**.
+7. On the server desktop, navigate to **Windows Administrative Tools** > **Windows PowerShell**.
 
-7. In the PowerShell Window, run the following commands to:
+8. In the PowerShell Window, run the following commands to:
 
     * Install the IIS server
+
     * Remove the default iisstart.htm file
+
     * Add a new iisstart.htm file that displays the name of the VM:
 
    ```powershell
@@ -262,9 +265,9 @@ The two VMs will be added to an availability set named **myAvailabilitySet**.
     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
 
-8. Close the bastion session with **myVM1**.
+9. Close the bastion session with **myVM1**.
 
-9. Repeat steps 1 to 8 to install IIS and the updated iisstart.htm file on **myVM2** and **myVM3**.
+10. Repeat steps 1 to 9 to install IIS and the updated iisstart.htm file on **myVM2**.
 
 ## Test the load balancer
 
@@ -283,7 +286,9 @@ When no longer needed, delete the resource group, load balancer, and all related
 In this quickstart, you:
 
 * Created a basic public load balancer.
+
 * Attached 2 VMs to the load balancer.
+
 * Tested the load balancer.
 
 To learn more about Azure Load Balancer, continue to:

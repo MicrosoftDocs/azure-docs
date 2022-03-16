@@ -1,5 +1,5 @@
 items:
-- name: Basic load balancer documentation
+- name: Basic Load Balancer documentation
   href: index.yml
 - name: Quickstarts
   items:
