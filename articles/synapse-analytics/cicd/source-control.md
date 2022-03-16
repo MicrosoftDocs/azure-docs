@@ -48,7 +48,7 @@ You can associate a Synapse workspace with an Azure DevOps Repository for source
 
 When connecting to your git repository, first select your repository type as Azure DevOps git, and then select one Azure AD tenant from the dropdown list, and click **Continue**.
 
-![Configure the code repository settings](media/connect-with-azuredevops-repo-selected.png)
+![Configure the code repository settings](media/connect-with-azure-devops-repo-selected.png)
 
 The configuration pane shows the following Azure DevOps git settings:
 
@@ -94,11 +94,11 @@ When your Azure DevOps is not in the same tenant as the Synapse workspace, you c
 
 1. Select the **Cross tenant sign in** option and click **Continue** 
 
-    ![Select the cross tenant sign in ](media/cross-tenant-signin.png)
+    ![Select the cross tenant sign in ](media/cross-tenant-sign-in.png)
 
 1. Select **OK** in the dialog box.
 
-    ![Confirm the cross tenant sign in ](media/cross-tenant-signin-confirm.png)
+    ![Confirm the cross tenant sign in ](media/cross-tenant-sign-in-confirm.png)
 
 1. click **Use another account** and login with your Azure DevOps account.
 
