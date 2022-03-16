@@ -105,7 +105,6 @@ After you register the app in BindID, you'll get a **Client ID** and a **Client 
  
     1. **User ID**: `sub`
     1. **Email**: `email`
-    1. **Display name**: `value is needed when adding an OIDC identity provider`
 
 1. Select **Save**. 
 
