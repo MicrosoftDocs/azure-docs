@@ -47,7 +47,7 @@ For more information on how to manager user-assigned managed identities please v
 ## Switching to User Assigned Managed Identity
 **If you have an existing job, you can switch to a user assigned identity by following the instructions below:**
 
-After creating your user-assigned identity and configuring your input and output, you can switch to user-assigned identity on the Managed Identity tab on the left side under Configure.
+After creating your user-assigned identity and configuring your input and output, you can switch to user-assigned identity by navigating to the **Managed Identity** tab on the left side under **Configure**.
 
    ![Configure Stream Analytics managed identity](./media/common/stream-analytics-enable-managed-identity-new.png)
 
