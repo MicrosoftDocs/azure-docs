@@ -5,7 +5,8 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/3/2021
+ms.date: 03/15/2022
+
 ---
 
 # Failover and patching for Azure Cache for Redis
@@ -83,6 +84,16 @@ Most client libraries attempt to reconnect to the cache if they're configured to
 
 ### Can I be notified in advance of planned maintenance?
 
+Azure Cache for Redis publishes runtime maintenance notifications on a publish/subscribe (pub/sub) channel called `AzureRedisEvents`. Many popular Redis client libraries support subscribing to pub/sub channels. Receiving notifications from the `AzureRedisEvents` channel is usually a simple addition to your client application. For more information about maintenance events, please see [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md).
+
+> [!NOTE]
+> The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming planned server maintenance events that might affect server availability.
+
+<!-- Shruti - this is how I understood the conversation with Michelle. Remove all this and replace it with blurb. Later, move the information from the other repo to here. Does that sound right?
+ -->
+
+<!-- 
+
 Azure Cache for Redis publishes notifications on a publish/subscribe (pub/sub) channel called [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) around 30 seconds before planned updates. The notifications are runtime notifications.
 
 The notifications are for applications that use circuit breakers to bypass the cache or applications that buffer commands. For example, the cache could be bypassed during any planned updates.
@@ -106,6 +117,8 @@ We only recommend subscribing to `AzureRedisEvents` in a few noteworthy cases:
 - Applications with extreme performance requirements, where even minor delays must be avoided. In such scenarios, traffic could be seamlessly rerouted to a backup cache before maintenance begins on the current cache.
 - Applications that explicitly read data from replica rather than primary nodes. During maintenance on a replica node, the application could temporarily switch to read data from primary nodes.
 - Applications that can't risk write operations failing silently or succeeding without confirmation, which can happen as connections are being closed for maintenance. If those cases would result in dangerous data loss, the application can proactively pause or redirect write commands before the maintenance is scheduled to begin.
+
+-->
 
 ### Client network-configuration changes
 

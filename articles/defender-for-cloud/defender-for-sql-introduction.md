@@ -3,6 +3,8 @@ title: Microsoft Defender for SQL - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for SQL.
 ms.date: 01/06/2022
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ms.custom: references_regions
 ---
 
