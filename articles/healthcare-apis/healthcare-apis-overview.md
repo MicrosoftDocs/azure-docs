@@ -5,7 +5,7 @@ services: healthcare-apis
 author: stevewohl
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 03/01/2022
+ms.date: 03/15/2022
 ms.author: ginle
 ---
 
@@ -30,17 +30,20 @@ Azure Health Data Services enables you to:
 
 **Linked Services**
 
-Azure Health Data Services now supports multiple health data standards for the exchange of structured data. A single collection of Azure Health Data Services enables you to deploy multiple instances of different service types (FHIR service, DICOM service, and IoT connector) that seamlessly work with one another.
+Azure Health Data Services now supports multiple health data standards for the exchange of structured data. A single collection of Azure Health Data Services enables you to deploy multiple instances of different service types (FHIR, DICOM, and MedTech) that seamlessly work with one another. Services deployed within a workspace also share a compliance boundary and common configuration settings. The product scales automatically to meet the varying demands of your workloads, so you spend less time managing infrastructure and more time generating insights from health data. 
 
 **Introducing DICOM service**
 
-Azure Health Data Services now includes support for DICOM services. DICOM enables the secure exchange of image data and its associated metadata. DICOM is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare. For more information about the DICOM service, see [Overview of DICOM](./dicom/dicom-services-overview.md).
+Azure Health Data Services now includes support for DICOM service. DICOM enables the secure exchange of image data and its associated metadata. DICOM is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare. For more information about the DICOM service, see [Overview of DICOM](./dicom/dicom-services-overview.md).
 
 **Incremental changes to the FHIR Service**
 
-For the secure exchange of FHIR data, Azure Health Data Services offers a few incremental capabilities that aren't available in the Azure API for FHIR. 
-* Support for Transactions: In Azure Health Data Services, the FHIR service supports transaction bundles. For more information about transaction bundles, visit [HL7.org](http://www.hl7.org/) and refer to batch/transaction interactions.
-* Chained Search Improvements: Chained Search & Reserve Chained Search are no longer limited by 100 items per sub query.
+For the secure exchange of FHIR data, Azure Health Data Services offers a few incremental capabilities that aren't available in Azure API for FHIR.
+ 
+* **Support for Transactions**: In Azure Health Data Services, the FHIR service supports transaction bundles. For more information about transaction bundles, visit [HL7.org](http://www.hl7.org/) and refer to batch/transaction interactions.
+* [Chained Search Improvements](./././fhir/overview-of-search.md#chained--reverse-chained-searching): Chained Search & Reserve Chained Search are no longer limited by 100 items per sub query.
+* The $convert-data operation can now transform JSON objects to FHIR R4.
+* Events: Trigger new workflows when resources are created, updated, or deleted in a FHIR service.
 
 
 ## Next steps
