@@ -39,8 +39,8 @@ There is another feature in Azure Cognitive Service for Language, [key phrases e
 * key phrase extraction returns phrases while extractive summarization returns sentences
 * extractive summarization returns sentences together with a rank score, and. Top ranked sentences will be returned per request
 * extractive summarization also returns the following positional information:
-    * offset: The start position of one extracted sentence, and
-    * Length: is the length of one extracted sentence
+    * offset: The start position of each extracted sentence, and
+    * Length: is the length of each extracted sentence.
 
 
 ## Determine how to process the data (optional)
