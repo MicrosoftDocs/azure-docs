@@ -32,14 +32,12 @@ The following architecture diagram shows the implementation.
 
 |Step | Description |
 |:-----| :-----------|
-
 | 1. | User opens Azure AD B2C's sign in page, and then signs in or signs up by entering their username.
 | 2. | Azure AD B2C redirects the user to BindID using an OpenID Connect (OIDC) request.
-
 | 3. | BindID authenticates the user using appless FIDO2 biometrics, such as fingerprint.
 | 4. | A decentralized authentication response is returned to BindID.  
 | 5. | The OIDC response is passed on to Azure AD B2C.
-| 6.| User is either granted or denied access to the customer application based on the verification results.
+| 6. |  User is either granted or denied access to the customer application based on the verification results.
 
 ## Prerequisites
 
@@ -67,6 +65,7 @@ Follow the steps in [Configure Your Application](https://developer.bindid.io/doc
 |:---------|:---------------------|
 | Name | Name of your application such as `Azure AD B2C BindID app`| 
 | Domain | Enter `your-B2C-tenant-name.onmicrosoft.com`. Replace `your-B2C-tenant` with the name of your Azure AD B2C tenant.|
+| Redirect URIs | [https://jwt.ms/](https://jwt.ms/)
 | Redirect URLs | Enter `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-B2C-tenant` with the name of your Azure AD B2C tenant. If you use a custom domain, replace `your-B2C-tenant-name.b2clogin.com` with your custom domain such as `contoso.com`.|
 
 
