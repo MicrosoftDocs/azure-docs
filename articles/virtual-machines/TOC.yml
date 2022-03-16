@@ -743,7 +743,7 @@
         href: ./windows/ps-template.md
       - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
-  - name: Delete a VM and it's resources
+  - name: Delete a VM and its resources
     href: delete.md
   - name: Connect to Virtual Machines
     items:
@@ -987,7 +987,7 @@
       href: ./windows/create-powershell-availability-zone.md
     - name: Portal
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
-      href: ./windows/create-portal-availability-zone.md
+      href: ./create-portal-availability-zone.md
   - name: Proximity Placement Groups
     items:
     - name: Overview
