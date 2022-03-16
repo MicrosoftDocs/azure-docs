@@ -80,7 +80,7 @@ We should also define parameters of how the indicator values are measured:
 
 At this point, it's clear what we're going to measure and what threshold values we're going to use to determine if the service performs according to the expectations.  
 
-It's a common practice to measure service level indicators, like the ones we have defined, by the means of **_Metrics_**. This type of observability data is considered to be relatively small in values. It's produced by various system components and collected in a central observability backend to be monitored with dashboards, workbooks and alerts.
+It's a common practice to measure service level indicators, like the ones we've defined, by the means of **_Metrics_**. This type of observability data is considered to be relatively small in values. It's produced by various system components and collected in a central observability backend to be monitored with dashboards, workbooks and alerts.
 
 Let's clarify what components the La Niña service consists of.
 
@@ -91,7 +91,7 @@ There is an IoT Edge device with `Temperature Sensor` custom module (C#) that ge
 In the cloud the message is processed by the backend. The backend consists of a chain of two Azure Functions and a Storage Account. 
 Azure .Net Function picks up the telemetry message from the IoT Hub events endpoint, processes it and sends it to Azure Java Function. The Java function saves the message to the storage account blob container.
 
-An IoT Hub device comes with system modules `edgeHub` and `edgeAgent`. These modules expose through a Prometheus endpoint [a list of built-in metrics](how-to-access-built-in-metrics.md). These metrics are collected and pushed to Azure Monitor Log Analytics service by the [Metrics Collector module](how-to-collect-and-transport-metrics.md) running on the IoT Edge device. In addition to the system modules, the `Temperature Sensor` and `Filter` modules can be instrumented with some business specific metrics too. However, the service level indicators that we have defined can be measured with the built-in metrics only. So we don't really need to implement anything else at this point. 
+An IoT Hub device comes with system modules `edgeHub` and `edgeAgent`. These modules expose through a Prometheus endpoint [a list of built-in metrics](how-to-access-built-in-metrics.md). These metrics are collected and pushed to Azure Monitor Log Analytics service by the [Metrics Collector module](how-to-collect-and-transport-metrics.md) running on the IoT Edge device. In addition to the system modules, the `Temperature Sensor` and `Filter` modules can be instrumented with some business specific metrics too. However, the service level indicators that we've defined can be measured with the built-in metrics only. So we don't really need to implement anything else at this point. 
 
 ### How do we monitor
 
@@ -112,11 +112,11 @@ Only 90% of the devices send the data frequently, and the service clients expect
 
 **_Scan_**
 
-By clicking on the violated SLO we can drill down to the Scan level and see how the devices contribute to the aggregated SLI value. 
+By clicking on the violated SLO, we can drill down to the Scan level and see how the devices contribute to the aggregated SLI value. 
 
 ![ete sample scan](media/tutorial-end-to-end-observability/ete-sample-scan.png)
 
-There is a single device (out of 10) that sends the telemetry data to the cloud "rarely". In our SLO definition we have stated that "frequently" means at least 10 times per minute. The frequency of this device is way below that threshold.
+There is a single device (out of 10) that sends the telemetry data to the cloud "rarely". In our SLO definition we've stated that "frequently" means at least 10 times per minute. The frequency of this device is way below that threshold.
 
 **_Commit_**
 
@@ -126,11 +126,11 @@ By clicking on the problematic device, we're drilling down to the Commit level. 
 
 ## Troubleshooting
 
-While Measuring and Monitoring allows us to observe and predict the system behavior, compare it to the defined expectations and ultimately detect existing or potential issues, the Troubleshooting lets identify and locate the cause of the issue.
+Measuring and Monitoring allows us to observe and predict the system behavior, compare it to the defined expectations and ultimately detect existing or potential issues. The Troubleshooting, on the other hand, lets identify and locate the cause of the issue.
 
 ### Basic Troubleshooting
 
-The Commit level workbook gives a lot of detailed information about the device health. That includes resources consumption at the module and device level, message latency, frequency, QLen, etc. In many cases this information may help locate the root of the issue. 
+The Commit level workbook gives a lot of detailed information about the device health. That includes resources consumption at the module and device level, message latency, frequency, QLen, etc. In many cases, this information may help locate the root of the issue. 
 
 In this tutorial all parameters of the trouble device look normal and it's not clear why the device sends messages less frequent than expected. This fact is also confirmed by the Messaging tab of the device-level workbook:
 
@@ -146,9 +146,9 @@ Analysis of the module logs doesn't bring the light on the issue. The module rec
 
 ### Deep Troubleshooting
 
-There are two observability instruments serving the deep troubleshooting purposes: Traces and Logs. In this tutorial Traces show how a telemetry message with the ocean surface temperature is traveling from the sensor to the storage in the cloud, what is invoking what and with what parameters. Logs give information on what is happening inside each system component during this process. The real power of Traces and Logs comes when they are correlated. With that it's possible to read the logs of a specific system component, such as a module on IoT device or a backend function, while it was processing a specific telemetry message.
+There are two observability instruments serving the deep troubleshooting purposes: Traces and Logs. In this tutorial Traces show how a telemetry message with the ocean surface temperature is traveling from the sensor to the storage in the cloud, what is invoking what and with what parameters. Logs give information on what is happening inside each system component during this process. The real power of Traces and Logs comes when they're correlated. With that it's possible to read the logs of a specific system component, such as a module on IoT device or a backend function, while it was processing a specific telemetry message.
 
-The La Niña service leverages [OpenTelemetry](https://opentelemetry.io) to produce and collect traces and logs in Azure Monitor.
+The La Niña service uses [OpenTelemetry](https://opentelemetry.io) to produce and collect traces and logs in Azure Monitor.
 
 ![e2e sample la nina detailed](media/tutorial-end-to-end-observability/e2e-sample-la-nina-detailed.png)
 
@@ -160,7 +160,7 @@ The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](.
 
 By default IoT Edge modules on the devices of the La Niña service are configured to not produce any tracing data and the logging level is set to `Information`. So the devices don't flood the Azure Monitor with the detailed observability data if it's not requested.
 
-We have analyzed the `Information` level logs of the `Filter` module and realized that we need to dive deeper to locate the cause of the issue. We're going to update properties in the `Temperature Sensor` and `Filter` module twins and increase the logging level to `Debug` and change the traces sampling ratio from 0 to 1:
+We've analyzed the `Information` level logs of the `Filter` module and realized that we need to dive deeper to locate the cause of the issue. We're going to update properties in the `Temperature Sensor` and `Filter` module twins and increase the logging level to `Debug` and change the traces sampling ratio from 0 to 1:
 
 ![e2e sample update twin](media/tutorial-end-to-end-observability/e2e-sample-update-twin.png)
 
@@ -182,7 +182,7 @@ Our logs are correlated with the traces, so we can query logs specifying the `Tr
 
 ![e2e sample logs](media/tutorial-end-to-end-observability/ete-sample-logs.png)
 
-The logs show that the module received a message with 70.465 degrees temperature, but the filtering threshold configured on this device is 30 to 70. So the message simply didn't pass the threshold. Apparently this specific device was configured wrong. This is the cause of the issue we detected while monitoring the La Niña service performance with the workbook.
+The logs show that the module received a message with 70.465 degrees temperature. But the filtering threshold configured on this device is 30 to 70. So the message simply didn't pass the threshold. Apparently this specific device was configured wrong. This is the cause of the issue we detected while monitoring the La Niña service performance with the workbook.
 
 ## Clean up resources
 
