@@ -67,9 +67,9 @@ The **Device inventory** page in the Azure portal now supports the ability to ed
 
 :::image type="content" source="media/release-notes/edit-device-details.png" alt-text="Screenshot of the Device inventory page showing the Edit pane." lightbox="media/release-notes/edit-device-details.png":::
 
-For more information, see [Edit device details](how-to-manage-device-inventory-for-organizations.md#edit-device-details-public-preview).
+For more information, see [Edit device details](how-to-manage-device-inventory-for-organizations.md#edit-device-details).
 
-You can also delete devices from Defender for IoT, if they've been inactive for more than 14 days.  For more information, see [Delete a device](how-to-manage-device-inventory-for-organizations.md#delete-a-device-public-preview).
+You can also delete devices from Defender for IoT, if they've been inactive for more than 14 days.  For more information, see [Delete a device](how-to-manage-device-inventory-for-organizations.md#delete-a-device).
 
 ### Key state alert updates (Public preview)
 

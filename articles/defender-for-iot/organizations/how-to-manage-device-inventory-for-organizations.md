@@ -7,6 +7,10 @@ ms.topic: how-to
 
 # Manage your IoT devices with the device inventory for organizations
 
+> [!NOTE]
+> The **Device inventory** page in Defender for IoT on the Azure portal is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
 The device inventory can be used to view device systems, and network information. The search, filter, edit columns, and export tools can be used to manage this information.
 
 :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png" alt-text="A total overview of Defender for IoT's device inventory screen."  lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png":::
@@ -21,10 +25,6 @@ Some of the benefits of the device inventory include:
 
 - Export the entire device inventory to a CSV file for your reports.
 
-
-> [!NOTE]
-> Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> 
 ## View the device inventory
 
 1. Open the [Azure portal](https://portal.azure.com).
@@ -84,7 +84,7 @@ To view a specific devices information, select the device and the device informa
 
 :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
 
-## Edit device details (Public preview)
+## Edit device details
 
 As you manage your devices, you may need to update their details, such as to modify security value as assets change, to personalize an inventory so that you can better identify specific devices, or if a device was classified incorrectly.
 
@@ -167,7 +167,7 @@ If you are under the impression that certain devices aren't actively communicati
 
 1. Enter a time period, or a custom date range, and select **Apply**.
 
-## Delete a device (Public preview)
+## Delete a device
 
 If you have devices no longer in use, delete them from the device inventory so that they're no longer connected to Defender for IoT.
 
