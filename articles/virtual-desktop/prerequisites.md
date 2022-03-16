@@ -97,7 +97,7 @@ You have a choice of operating systems that you can use for session hosts to pro
 |Operating system |Applicable license|
 |---|---|
 |<ul><li>Windows 11 Enterprise multi-session</li><li>Windows 11 Enterprise</li><li>Windows 10 Enterprise multi-session, version 1909 and later</li><li>Windows 10 Enterprise, version 1909 and later</li><li>Windows 7 Enterprise</li></ul>|<ul><li>Microsoft 365 E5, E3, A5, A3, F3, Business Premium</li><li>Windows E5, E3, A5, A3</li></ul>|
-|<ul><li>Windows Server 2022</li><li>Windows Server 2019</li><li>Windows Server 2016</li><li>Windows Server 2012 R2</li></ul>|<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance</li></ul>|
+|<ul><li>Windows Server 2022</li><li>Windows Server 2019</li><li>Windows Server 2016</li><li>Windows Server 2012 R2</li></ul>|<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses</li></ul>|
 
 > [!NOTE]
 > Azure Virtual Desktop doesn't support 32-bit operating systems or SKUs not listed in the previous table. In addition, Windows 7 doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
@@ -140,7 +140,7 @@ To successfully deploy Azure Virtual Desktop, you'll need to meet the following 
 
 - Make sure this virtual network can connect to your domain controllers and relevant DNS servers if you're using AD DS or Azure AD DS, since you'll need to join session hosts to the domain.
 
-- Your session hosts and users need to be able to connect to the Azure Virtual Desktop service. This connection also uses TCP on port 443 to a specific list of URLs. For more information, see [Required URL list](safe-url-list.md). You must make sure these URLs aren't blocked by network filtering or a firewall in order for your deployment to work properly and be supported.
+- Your session hosts and users need to be able to connect to the Azure Virtual Desktop service. This connection also uses TCP on port 443 to a specific list of URLs. For more information, see [Required URL list](safe-url-list.md). You must make sure these URLs aren't blocked by network filtering or a firewall in order for your deployment to work properly and be supported. If your users need to access Microsoft 365, make sure your session hosts can connect to [Microsoft 365 endpoints](/microsoft-365/enterprise/microsoft-365-endpoints?view=o365-worldwide).
 
 Also consider the following:
 
@@ -149,6 +149,8 @@ Also consider the following:
 - Round-trip time (RTT) latency from the client's network to the Azure region that contains the host pools should be less than 150 ms. Use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to view your connection health and recommended Azure region. To optimize for network performance, we recommend you create session hosts in the Azure region closest to your users.
 
 - Use [Azure Firewall for Azure Virtual Desktop deployments](../firewall/protect-azure-virtual-desktop.md) to help you lock down your environment and filter outbound traffic.
+
+- If you 
 
 > [!NOTE]
 > To keep Azure Virtual Desktop reliable and scalable, we aggregate traffic patterns and usage to check the health and performance of the infrastructure control plane. We aggregate this information from all locations where the service infrastructure is, then send it to the US region. The data sent to the US region includes scrubbed data, but not customer data. For more information, see [Data locations for Azure Virtual Desktop](data-locations.md).
