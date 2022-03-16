@@ -138,7 +138,7 @@ The following sample shows a public client application running on a device witho
 
 ## Microsoft Teams applications
 
-The following sample illustrates Microsoft Teams Tab application that signs in users. Additionally it demonstrates how to call Microsoft Graph, or your own web API with the user's identity using the Microsoft Authentication Library (MSAL).
+The following sample illustrates Microsoft Teams Tab application that signs in users. Additionally it demonstrates how to call Microsoft Graph API with the user's identity using the Microsoft Authentication Library (MSAL).
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample(s) <br/>on GitHub | Auth<br/> libraries | Auth flow |  
