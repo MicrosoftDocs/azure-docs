@@ -208,15 +208,15 @@ To add the NuGet reference from the previous section, update the **extensions.js
 
 1. Update the extension bundle to include the custom built-in connector.
 
-1. With Visual Studio Code and the **Azure Logic Apps (Standard) extension for Visual Studio Code**, create a logic app project, and install the extension package given below:
+1. In Visual Studio Code, which should have the **Azure Logic Apps (Standard) for Visual Studio Code** extension installed, create a logic app project, and install the extension package using the following command:
 
    `dotnet add package "Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB" --version 1.0.0  --source $extensionPath`
 
-   Alternatively, open in your logic app project directory, run the following PowerShell script:
+   Alternatively, in your logic app project's directory, run the PowerShell script, [add-extension.ps1](https://github.com/Azure/logicapps-connector-extensions/blob/main/src/Common/tools/add-extension.ps1):
 
-   `powershell -file add-extension.ps1 <CosmosDB output bin Nuget folder path> CosmosDB`
+   `powershell -file add-extension.ps1 {Cosmos-DB-output-bin-NuGet-folder-path} CosmosDB`
 
-   The following output confirms that the extension for your custom built-in connector is successfully installed:
+   If the extension for your custom built-in connector was successfully installed, you get output that looks similar to the the following example: 
 
    `C:\Users\{your-user-name}\Desktop\demoproj\cdbproj>powershell - file C:\myrepo\github\logicapps-connector-extensions\src\Common\tools\add-extension.ps1 C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\CosmosDB`<br>
 
@@ -256,4 +256,10 @@ To add the NuGet reference from the previous section, update the **extensions.js
 
    `C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\>`
 
+1. If any **func.exe** process is running, make sure to close or exit that process before you continue to the next step.
 
+1. In Visual Studio Code, open the designer for your Standard logic app workflow.
+
+   The connector picker should now show your new custom built-in connector, for example:
+
+1. 
