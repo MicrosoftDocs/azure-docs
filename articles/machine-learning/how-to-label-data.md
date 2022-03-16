@@ -7,7 +7,7 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 03/18/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -192,7 +192,7 @@ To see the project-specific directions, select **Instructions** and go to **View
 
 ### Tag words and phrases (preview)
 
-If your project is set up for named entity recognition, you tag different words or phrases in each text item. To label text: 
+If your project is set up for named entity recognition, you tag different words or phrases in each text item. To label text:
 
 1. Select the label or type the number corresponding to the appropriate label
 1. Double-click on a word, or use your mouse to select multiple words.

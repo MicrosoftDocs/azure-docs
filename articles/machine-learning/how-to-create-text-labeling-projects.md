@@ -7,11 +7,11 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 03/18/2022
 ms.custom: data4ml, ignite-fall-2021
 ---
 
-# Create a text labeling project and export labels 
+# Create a text labeling project and export labels
 
 Learn how to create and run data labeling projects to label text data in Azure Machine Learning.  Specify either a single label or multiple labels to be applied to each text item.
 
@@ -21,7 +21,7 @@ You can also use the data labeling tool to [create an image labeling project](ho
 
 Azure Machine Learning data labeling is a central place to create, manage, and monitor data labeling projects:
 
-- Coordinate data, labels, and team members to efficiently manage labeling tasks. 
+- Coordinate data, labels, and team members to efficiently manage labeling tasks.
 - Tracks progress and maintains the queue of incomplete labeling tasks.
 - Start and stop the project and control the labeling progress.
 - Review the labeled data and export labeled as an Azure Machine Learning dataset.
@@ -189,7 +189,7 @@ On the **Data** tab, you can see your dataset and review labeled data. Scroll th
 View and change details of your project.  In this tab you can:
 
 * View project details and input datasets
-* Enable or disable **incremental refresh at regular intervals**, or request an immediate refresh. Incremental refresh is not available for **Text Named Entity Recognition** projects.
+* Enable or disable **incremental refresh at regular intervals**, or request an immediate refresh.
 * View details of the storage container used to store labeled outputs in your project
 * Add labels to your project
 * Edit instructions you give to your labels
