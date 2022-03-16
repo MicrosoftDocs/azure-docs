@@ -20,7 +20,9 @@ zone_pivot_groups: b2c-policy-type
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 
+
 In this sample tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security's](https://www.transmitsecurity.com/bindid) passwordless authentication solution **BindID**. BindID is a passwordless authentication service that uses strong Fast Identity Online (FIDO2) biometric authentication for a reliable omni-channel authentication experience. The solution ensures a smooth sign in experience for all customers across every device and channel eliminating fraud, phishing, and credential reuse.
+
 
 ## Scenario description
 
@@ -30,8 +32,10 @@ The following architecture diagram shows the implementation.
 
 |Step | Description |
 |:-----| :-----------|
+
 | 1. | User opens Azure AD B2C's sign in page, and then signs in or signs up by entering their username.
 | 2. | Azure AD B2C redirects the user to BindID using an OpenID Connect (OIDC) request.
+
 | 3. | BindID authenticates the user using appless FIDO2 biometrics, such as fingerprint.
 | 4. | A decentralized authentication response is returned to BindID.  
 | 5. | The OIDC response is passed on to Azure AD B2C.
@@ -313,9 +317,11 @@ The relying party policy, for example [SignUpOrSignIn.xml](https://github.com/Az
 
 ## Step 8: Test your custom policy
 
+
 1. In your Azure AD B2C tenant blade, and under **Policies**, select **Identity Experience Framework**.
  
 1. Under **Custom policies**, select **B2C_1A_signup_signin**.
+
 
 1. For **Application**, select the web application that you previously registered as part of this article's prerequisites. The **Reply URL** should show `https://jwt.ms`.
 

@@ -124,7 +124,7 @@ Application Gateway supports certificates referenced in Key Vault via the Role-b
 > [!Note]
 > Specifying Azure Key Vault certificates that are subject to the role-based access control permission model is not supported via the portal.
 
-In this example, we’ll use PowerShell to reference a new Key Vault certificate.
+In this example, we’ll use PowerShell to reference a new Key Vault secret.
 ```
 # Get the Application Gateway we want to modify
 $appgw = Get-AzApplicationGateway -Name MyApplicationGateway -ResourceGroupName MyResourceGroup

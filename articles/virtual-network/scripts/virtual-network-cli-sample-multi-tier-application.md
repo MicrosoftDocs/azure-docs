@@ -29,7 +29,7 @@ This script sample creates a virtual network with front-end and back-end subnets
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh" range="4-99":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh" id="FullScript":::
 
 ## Clean up deployment
 

@@ -14,7 +14,7 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-standard-premium"
 
-In Azure Front Door Standard/Premium [rule sets](standard-premium/concept-rule-set.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door rule sets.
+In Azure Front Door Standard/Premium [rule sets](front-door-rules-engine.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door rule sets.
 
 ::: zone-end
 
@@ -1502,14 +1502,14 @@ For rules that can transform strings, the following transforms are valid:
 
 * Learn more about Azure Front Door [Rules Engine](front-door-rules-engine.md)
 * Learn how to [configure your first Rules Engine](front-door-tutorial-rules-engine.md). 
-* Learn more about [Rules Engine actions](front-door-rules-engine-actions.md)
+* Learn more about [Rules actions](front-door-rules-engine-actions.md)
 
 ::: zone-end
 
 ::: zone pivot="front-door-standard-premium"
 
-* Learn more about Azure Front Door Standard/Premium [Rule Set](standard-premium/concept-rule-set.md).
+* Learn more about Azure Front Door Standard/Premium [Rule Set](front-door-rules-engine.md).
 * Learn how to [configure your first Rule Set](standard-premium/how-to-configure-rule-set.md).
-* Learn more about [Rule Set actions](standard-premium/concept-rule-set-actions.md).
+* Learn more about [Rule actions](front-door-rules-engine-actions.md).
 
 ::: zone-end

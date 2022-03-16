@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/25/2022
+ms.date: 03/13/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -147,7 +147,7 @@ To configure the session behavior in your custom policy, follow these steps:
 
 ## Enable Keep me signed in (KMSI)
 
-You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users can opt to stay signed in so the session remains active after they close the browser. The session is maintained by setting a [persistent cookie](cookie-definitions.md). Users who select KMSI, can reopen the browser without being prompted to reenter their username and password. This access (persistent cookie) is revoked when a user signs out. 
+You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users can opt to stay signed in so the session remains active after they close the browser. The session is maintained by setting a [persistent cookie](cookie-definitions.md). Users who select KMSI, can reopen the browser without being prompted to reenter their username and password. This access (persistent cookie) is revoked when a user signs out. For more information, check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/session#enable-keep-me-signed-in-kmsi).
 
 ![Example sign-up sign-in page showing a Keep me signed in checkbox](./media/session-behavior/keep-me-signed-in.png)
 
@@ -401,7 +401,7 @@ To require an ID Token in logout requests:
 
 ::: zone pivot="b2c-custom-policy"
 
-To require an ID Token in logout requests, add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element. Then set the **EnforceIdTokenHintOnLogout** of the **SingleSignOn** element to `true`. Your **UserJourneyBehaviors** element should look like this example:
+To require an ID Token in logout requests, add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element. Then set the **EnforceIdTokenHintOnLogout** of the **SingleSignOn** element to `true`. For more information, check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/session#enforce-id-token-hint-on-logout). Your **UserJourneyBehaviors** element should look like this example:
 
 ```xml
 <UserJourneyBehaviors>
