@@ -1,5 +1,5 @@
 ---
-title: Copy data from FHIR service to Azure Synapse Analytics
+title: Copy data from FHIR service in Azure Health Data Services to Azure Synapse Analytics
 description: This article describes copying FHIR data into Synapse
 author: ginalee-dotcom
 ms.service: healthcare-apis
@@ -10,7 +10,7 @@ ms.author: ginle
 ---
 # Copy data from FHIR service to Azure Synapse Analytics
 
-In this article, you’ll learn three ways to copy data from the FHIR service to [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), which is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. 
+In this article, you’ll learn three ways to copy data from the FHIR service in Azure Health Data Services to [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), which is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. 
 
 * Use the [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md) OSS tool
 * Use the [FHIR to CDM pipeline generator](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToCdm/docs/fhir-to-cdm.md) OSS tool
