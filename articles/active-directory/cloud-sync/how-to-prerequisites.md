@@ -135,7 +135,8 @@ To enable TLS 1.2, follow these steps.
 
 ## Firewall and Proxy requirements
 If there's a firewall between your servers and Azure AD, configure the following items:
-    - Ensure that agents can make *outbound* requests to Azure AD over the following ports:
+
+- Ensure that agents can make *outbound* requests to Azure AD over the following ports:
 
    | Port number | How it's used |
    | --- | --- |
@@ -171,7 +172,7 @@ If there's a firewall between your servers and Azure AD, configure the following
 
 - If you are unable to add connections, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
 
-
+---
 ## NTLM requirement
 
 You should not enable NTLM on the Windows Server that is running the Azure AD Connect Provisioning Agent and if it is enabled you should make sure you disable it. 
