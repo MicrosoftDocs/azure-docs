@@ -6,6 +6,7 @@ items:
   - name: Create a basic public load balancer
     items:
     - name: Portal
+      href: quickstart-basic-public-lb-portal.md
   expanded: true
 - name: Reference
   items:
