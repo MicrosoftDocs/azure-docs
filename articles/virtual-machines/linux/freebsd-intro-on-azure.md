@@ -42,7 +42,7 @@ If bash is not installed on your FreeBSD machine, run following command before t
 sudo pkg install bash
 ```
 
-If python is not installed on your FreeBSD machine, run following commands before the installation. 
+If Python is not installed on your FreeBSD machine, run following commands before the installation. 
 
 ```bash
 sudo pkg install python38
