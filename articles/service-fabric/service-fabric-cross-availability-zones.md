@@ -4,8 +4,8 @@ description: Learn how to create an Azure Service Fabric cluster across Availabi
 author: peterpogorski
 
 ms.topic: conceptual
-ms.date: 05/24/2021
-ms.author: pepogors
+ms.date: 03/16/2022
+ms.author: ashank
 ---
 
 # Deploy an Azure Service Fabric cluster across Availability Zones
