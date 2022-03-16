@@ -18,12 +18,12 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 
 ## Prerequisites
 
-- You need an SSH key pair. If you don't already have one Azure will create one during the deployment process. If you need help creating one manually, see [Create and use an SSH public-private key pair for Linux VMs in Azure](linux/mac-create-ssh-keys.md).
+- You need an SSH key pair. If you don't already have one Azure will create one during the deployment process. If you need help with creating one manually, see [Create and use an SSH public-private key pair for Linux VMs in Azure](linux/mac-create-ssh-keys.md).
 
 - In order to connect to a Linux Virtual Machine you need the appropriate port open, normally this will be port 22. The following instructions assume port 22 but the process is the same for other port numbers. You can validate an appropriate port is open for SSH using the troubleshooter or by checking manually in your VM settings. To check if port 22 is open: 
 
     1.	On the page for the VM, select **Networking** from the left menu. 
-    1.	On the **Networking** page, check to see if there is a rule which allows TCP on port 22 from the IP address of the computer you are using to connect to the VM. If the rules exists, you can move to the next section.
+    1.	On the **Networking** page, check to see if there is a rule which allows TCP on port 22 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
     1. If there isn't a rule, add one by selecting **Add inbound port rule**.
     1. From the service dropdown select ‘SSH’
     1. For **Name**, type SSH.
@@ -48,7 +48,7 @@ Open your SSH client of choice.
 ## Native Linux connection client like WSL, terminal, or shell
 
 SSH With existing public key
-1.	Run the following command in in your SSH client. In this example, *20.51.230.13* is the public IP Address of your VM and *username* is the user name you created when you created the VM.
+1.	Run the following command in your SSH client. In this example, *20.51.230.13* is the public IP Address of your VM and *username* is the user name you created when you created the VM.
     ```bash
     ssh  <username>@<20.51.230.13>
     ```
