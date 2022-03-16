@@ -14,7 +14,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-In this tutorial, you will build an observability solution for a common IoT Edge service. You will learn the concepts and techniques of implementing both observability pillars _Measuring and Monitoring_ and _Troubleshooting_. You will accomplish the following tasks:
+In this tutorial, you'll build an observability solution for a common IoT Edge service. You'll learn the concepts and techniques of implementing both observability pillars _Measuring and Monitoring_ and _Troubleshooting_. You'll accomplish the following tasks:
 * Define what indicators of the service performance to monitor 
 * Measure service performance indicators with metrics 
 * Monitor service measurements and detect issues with Azure Monitor workbooks  
@@ -23,32 +23,32 @@ In this tutorial, you will build an observability solution for a common IoT Edge
 
 ## Prerequisites
 
-It is recommended to work with this tutorial in the following order:
+It's recommended to work with this tutorial in the following order:
 * Read it. Follow the considerations and steps to understand the concept and the approach.
-* Optionally, `Deploy the Tutorial sample to Azure with this blue button` to reproduce the tutorial steps and play with your own use cases. You will need an Azure Subscription for this.
+* Optionally, `Deploy the Tutorial sample to Azure with this blue button` to reproduce the tutorial steps and play with your own use cases. You'll need an Azure Subscription for this option.
 
 ## Use Case 
 
-In order to go beyond just abstract considerations, the tutorial flow is based on a "real-life" use case:
+In order to go beyond abstract considerations, the tutorial flow is based on a "real-life" use case:
 
 ### La Niña
 
 ![ete sample la nina high level](media/tutorial-end-to-end-observability/ete-sample-la-nina-high-level.png)
 
-The La Niña service measures surface temperature in Pacific Ocean to predict La Niña winters. There is a number of buoys in the ocean with IoT Edge devices sending the surface temperature to Azure Cloud. The telemetry data with the temperature is pre-processed by a custom module on the IoT Edge device before sending it to the cloud. In the cloud the data is processed by backend Azure Functions and saved to Azure Blob Storage. The clients of the service (ML inference workflows, decision making systems, various UIs, etc.) can pick up messages with temperature data from the Blob Storage.
+The La Niña service measures surface temperature in Pacific Ocean to predict La Niña winters. There is a number of buoys in the ocean with IoT Edge devices that send the surface temperature to Azure Cloud. The telemetry data with the temperature is pre-processed by a custom module on the IoT Edge device before sending it to the cloud. In the cloud, the data is processed by backend Azure Functions and saved to Azure Blob Storage. The clients of the service (ML inference workflows, decision making systems, various UIs, etc.) can pick up messages with temperature data from the Blob Storage.
 
 ## Measuring and Monitoring
 
 ### What do we measure and monitor
 
-We are building measuring and monitoring solution for the La Niña service focusing on its business value. To understand what we're going to monitor, we must understand what the service actually does and what the service clients expect from the system. In this use case the expectations of a common La Niña service consumer may be categorized by the following factors:
+We're building measuring and monitoring solution for the La Niña service focusing on its business value. To understand what we're going to monitor, we must understand what the service actually does and what the service clients expect from the system. In this use case the expectations of a common La Niña service consumer may be categorized by the following factors:
 
-* **_Coverage_**. The data is coming from the majority of installed buoys
+* **_Coverage_**. The data is coming from most installed buoys
 * **_Freshness_**. The data coming from the buoys is fresh and relevant
 * **_Throughput_**. The temperature data is delivered from the buoys without significant delays
 * **_Correctness_**. The ratio of lost messages (errors) is small
 
-The satisfaction regarding these factors means that the service works according to the client's expetactions.
+The satisfaction regarding these factors means that the service works according to the client's expectations.
 
 The next step is to define instruments to measure values of these factors. This job ca be done by the following Service Level Indicators (SLI):
 
@@ -78,20 +78,20 @@ We should also define parameters of how the indicator values are measured:
 
 ### How do we measure
 
-At this point it's clear what we're going to measure and what threshold values we're going to use to determine if the service performs according to the expectations.  
+At this point, it's clear what we're going to measure and what threshold values we're going to use to determine if the service performs according to the expectations.  
 
-It's a common practice to measure service level indicators, like the ones we have defined, by the means of **_Metrics_**. This type of observability data is considered to be relatively small in values. It's produced by various system components and collected in a central observability backend to be monitored and analyzed with dashboards, workbooks and alerts.
+It's a common practice to measure service level indicators, like the ones we have defined, by the means of **_Metrics_**. This type of observability data is considered to be relatively small in values. It's produced by various system components and collected in a central observability backend to be monitored with dashboards, workbooks and alerts.
 
 Let's clarify what components the La Niña service consists of.
 
 ![ete sample la nina metrics](media/tutorial-end-to-end-observability/ete-sample-la-nina-metrics.png)
 
-There is an IoT Edge device with `Temperature Sensor` custom module (C#) that generates some temperature value and sends it upstream with a telemetry message. This message is routed to another custom module `Filter` (C#). This module checks the received temperature against a threshold window (0-100 degrees) and if it the temperature is within the window, the FilterModule sends the telemetry message to the cloud.
+There is an IoT Edge device with `Temperature Sensor` custom module (C#) that generates some temperature value and sends it upstream with a telemetry message. This message is routed to another custom module `Filter` (C#). This module checks the received temperature against a threshold window (0-100 degrees). If the temperature is within the window, the FilterModule sends the telemetry message to the cloud.
 
 In the cloud the message is processed by the backend. The backend consists of a chain of two Azure Functions and a Storage Account. 
 Azure .Net Function picks up the telemetry message from the IoT Hub events endpoint, processes it and sends it to Azure Java Function. The Java function saves the message to the storage account blob container.
 
-An IoT Hub device comes with system modules `edgeHub` and `edgeAgent`. These modules expose through a Prometheus endpoint [a list of built-in metrics](https://docs.microsoft.com/azure/iot-edge/how-to-access-built-in-metrics). These metrics are collected and pushed to Azure Monitor Log Analytics service by the [Metrics Collector module](https://docs.microsoft.com/azure/iot-edge/how-to-collect-and-transport-metrics) running on the IoT Edge device. In addition to the system modules, the `Temperature Sensor` and `Filter` modules can be instrumented with some business specific metrics too. However, the service level indicators that we have defined can be measured with the built-in metrics only, so we don't really need to implement anything else at this point. 
+An IoT Hub device comes with system modules `edgeHub` and `edgeAgent`. These modules expose through a Prometheus endpoint [a list of built-in metrics](how-to-access-built-in-metrics.md). These metrics are collected and pushed to Azure Monitor Log Analytics service by the [Metrics Collector module](how-to-collect-and-transport-metrics.md) running on the IoT Edge device. In addition to the system modules, the `Temperature Sensor` and `Filter` modules can be instrumented with some business specific metrics too. However, the service level indicators that we have defined can be measured with the built-in metrics only. So we don't really need to implement anything else at this point. 
 
 ### How do we monitor
 
@@ -103,7 +103,7 @@ To achieve the best user experience the workbooks are designed to follow the _gl
 
 **_Glance_**
  
-At this level we can see the whole picture at a single glance. The data is aggregated and represented at the fleet level:
+At this level, we can see the whole picture at a single glance. The data is aggregated and represented at the fleet level:
 
 ![ete sample glance](media/tutorial-end-to-end-observability/ete-sample-glance.png)
 
@@ -154,9 +154,9 @@ The La Niña service leverages [OpenTelemetry](https://opentelemetry.io) to prod
 
 IoT Edge modules `Tempperature Sensor` and `Filter` export the logs and tracing data via OTLP protocol to the [OpenTelemetryCollector](https://opentelemetry.io/docs/collector/) module, running on the same edge device. The `OpenTelemetryCollector` module, in its turn, exports logs and traces to Azure Monitor Application Insights service.
 
-The Azure .Net backend Function sends the tracing data to Application Insights with [Azure Monitor Open Telemetry direct exporter](https://docs.microsoft.com/azure/azure-monitor/app/opentelemetry-enable). It also sends correlated logs directly to Application Insights with a configured ILogger instance.
+The Azure .Net backend Function sends the tracing data to Application Insights with [Azure Monitor Open Telemetry direct exporter](../azure-monitor/app/opentelemetry-enable.md). It also sends correlated logs directly to Application Insights with a configured ILogger instance.
 
-The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](../azure-monitor/app/java-in-process-agent) to produce and export tracing data and correlated logs to the Application Insights instance.
+The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](../azure-monitor/app/java-in-process-agent.md) to produce and export tracing data and correlated logs to the Application Insights instance.
 
 By default IoT Edge modules on the devices of the La Niña service are configured to not produce any tracing data and the logging level is set to `Information`. So the devices don't flood the Azure Monitor with the detailed observability data if it's not requested.
 
@@ -170,7 +170,7 @@ With that in place, we have to restart the `Temperature Sensor` and `Filter` mod
 
 In a few minutes the traces and detailed logs will arrive to Azure Monitor from the trouble device. The entire end-to-end message flow from the sensor on the device to the storage in the cloud will be available for monitoring with Application Map in Application Insights:
 
-![e2e-sample-application-map](media/tutorial-end-to-end-observability/e2e-sample-application-map.png)
+![e2e sample application map](media/tutorial-end-to-end-observability/e2e-sample-application-map.png)
 
 From this map we can drill down to the traces and we can see that some of them look normal and contain all the steps of the flow, and some of them, are very short, so nothing happens after the `Filter` module. 
 
