@@ -2,6 +2,8 @@
 title: Adaptive network hardening in Microsoft Defender for Cloud | Microsoft Docs
 description: Learn how to use actual traffic patterns to harden your network security groups (NSG) rules and further improve your security posture.
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 # Improve your network security posture with adaptive network hardening
