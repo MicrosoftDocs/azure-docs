@@ -13,13 +13,14 @@ The device inventory can be used to view device systems, and network information
 
 Some of the benefits of the device inventory include:
 
-- Identify all IOT, and OT devices from different inputs. For example, allowing you to understand which devices in your environment aren't communicating, and will require troubleshooting.
+- Identify all IT, IoT, and OT devices from different inputs. For example, to identify new devices detected in the last day or which devices aren't communicating and might require troubleshooting.
 
 - Group, and filter devices by site, type, or vendor.
 
 - Gain visibility into each device, and investigate the different threats, and alerts for each one.
 
 - Export the entire device inventory to a CSV file for your reports.
+
 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
