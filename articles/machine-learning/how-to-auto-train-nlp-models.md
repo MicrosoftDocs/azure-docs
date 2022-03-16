@@ -135,15 +135,15 @@ rings O
 
 ### Data validation
 
-Before training, automated ML applies data validation checks on the input data to ensure that the data can be preprocessed correctly. If any of these checks fail, the run fails with the relevant error message. The following are the requirements to pass data validation checks for each task
+Before training, automated ML applies data validation checks on the input data to ensure that the data can be preprocessed correctly. If any of these checks fail, the run fails with the relevant error message. The following are the requirements to pass data validation checks for each task.
 
 > [!Note]
-> Some data validation checks are applicable to both the training and the validation set, whereas others are applicable only to the training set. If the test dataset could not pass the data validation, that means that automated ML couldn't capture it, and the model's inference might fail, or the model's performance would decline.
+> Some data validation checks are applicable to both the training and the validation set, whereas others are applicable only to the training set. If the test dataset could not pass the data validation, that means that automated ML couldn't capture it and there is a possibility of model inference failure, or a decline in model performance.
 
 Task | Data validation check
 ---|---
 All tasks | At least 50 training samples are required 
-Multi-class and Multi-label | <li> Same set of columns <li> Same order of columns <li> Same data type for columns with the same name <li> Unique column names within each dataset <li>  At least two unique labels
+Multi-class and Multi-label | The training data and validation data must have <li> The same set of columns <li> The same order of columns from left to right <li>The same data type for columns with the same name <li>  At least two unique labels   <li> Unique column names within each dataset (For example, the training set can't have multiple columns named **Age**)
 Multi-class only | None
 Multi-label only | <li> The label column format must be in [accepted format](#multi-label) <li> At least one sample should have 0 or 2+ labels, otherwise it should be a `multiclass` task <li> All labels should be in `str` or `int` format, with no overlapping. You should not have both label `1` and label `'1'`
 NER only | <li> The file should not start with an empty line. <li> Each line must be an empty line, or follow format `{token} {label}`, where there is exactly one space between the token and the label and no white space after the label <li> All labels must start with `I-`, `B-`, or be exactly `O`. Case sensitive <li>  Exactly one empty line between two samples <li> Exactly one empty line at the end of the file
