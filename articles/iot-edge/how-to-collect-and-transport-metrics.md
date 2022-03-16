@@ -17,6 +17,10 @@ services: iot-edge
 
 You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration. To enable this capability on your device, add the metrics-collector module to your deployment and configure it to collect and transport module metrics to Azure Monitor.
 
+> [!VIDEO https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee]
+
+<a href="https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee" target="_blank">IoT Edge integration with Azure Monitor</a>(4:06)
+
 ## Architecture
 
 # [IoT Hub](#tab/iothub)
@@ -50,7 +54,7 @@ You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in me
 
 ## Metrics collector module
 
-A Microsoft-supplied metrics-collector module can be added to an IoT Edge deployment to collect module metrics and send them to Azure Monitor. The module code is open-source and available in the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/release/1.1/edge-modules/azure-monitor).
+A Microsoft-supplied metrics-collector module can be added to an IoT Edge deployment to collect module metrics and send them to Azure Monitor. The module code is open-source and available in the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/release/1.1/edge-modules/metrics-collector).
 
 The metrics-collector module is provided as a multi-arch Docker container image that supports Linux X64, ARM32, ARM64, and Windows X64 (version 1809). It's publicly available at **[`mcr.microsoft.com/azureiotedge-metrics-collector`](https://aka.ms/edgemon-metrics-collector)**.
 
