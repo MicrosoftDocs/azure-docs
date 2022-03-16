@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 02/25/2022
+ms.date: 03/07/2022
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -29,7 +29,7 @@ Microsoft Azure cloud environments meet demanding US government compliance requi
 - [DoD IL4](/azure/compliance/offerings/offering-dod-il4) PA issued by DISA
 - [DoD IL5](/azure/compliance/offerings/offering-dod-il5) PA issued by DISA
 
-For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
+For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
 > [!NOTE]
 >

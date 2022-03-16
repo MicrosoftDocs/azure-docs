@@ -386,7 +386,7 @@ The possible status codes are:
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
-The python code snippet below, demonstrates the twin reported properties update process over MQTT (using Paho MQTT client):
+The Python code snippet below, demonstrates the twin reported properties update process over MQTT (using Paho MQTT client):
 
 ```python
 from paho.mqtt import client as mqtt

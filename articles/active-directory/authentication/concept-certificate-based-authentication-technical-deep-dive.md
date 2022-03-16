@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 03/11/2022
 
 ms.author: justinha
 author: vimrang
-manager: daveba
+manager: karenhoran
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
@@ -196,7 +196,7 @@ For the first test scenario, configure the authentication policy where the Issue
 
 ### Test multifactor authentication
 
-For the next test scenario, configure the authentication policy where the Issuer subject rule satisfies multifactor authentication.
+For the next test scenario, configure the authentication policy where the **policyOID** rule satisfies multifactor authentication.
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 

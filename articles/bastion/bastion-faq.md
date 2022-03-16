@@ -136,7 +136,9 @@ Azure Bastion currently supports the following keyboard layouts inside the VM:
 * sv-se-qwerty
 * tr-tr-qwerty
 
-To establish the correct key mappings for your target language, you must set either your language on your local computer or your language inside the target VM to English (United States). That is, your local computer language must be set to English (United States) while your target VM language is set to your target language, or vice versa. You can add English (United States) language to your machine in your computer settings.
+To establish the correct key mappings for your target language, you must set either the keyboard layout on your local computer to English (United States) or the keyboard layout inside the target VM to English (United States). That is, the keyboard layout on your local computer must be set to English (United States) while the keyboard layout on your target VM is set to your target language, or vice versa. 
+
+To set English (United States) as your keyboard layout on a Windows workstation, navigate to Settings > Time & Language > Lanugage & Region. Under "Preferred languages," select "Add a language" and add English (United States). You will then be able to see your keyboard layouts on your toolbar. To set English (United States) as your keyboard layout, select "ENG" on your toolbar or click Windows + Spacebar to open keyboard layouts.
 
 ### <a name="res"></a>What is the maximum screen resolution supported via Bastion?
 

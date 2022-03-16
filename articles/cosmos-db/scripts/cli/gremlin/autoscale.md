@@ -27,7 +27,7 @@ The script in this article demonstrates creating a Gremlin API database and grap
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/autoscale.sh" range="4-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/autoscale.sh" id="FullScript":::
 
 ## Clean up resources
 

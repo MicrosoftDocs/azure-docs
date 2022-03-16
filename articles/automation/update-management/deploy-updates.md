@@ -95,7 +95,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
    * If you want to install only security and critical updates, along with one or more optional updates, you should select **Security** and **Critical** under **Update classifications**. Then for the **Include** option, specify the KBIDs for the optional updates.
 
-   * If you want to install only security and critical updates, but skip one or more updates for python to avoid breaking your legacy application, you should select **Security** and **Critical** under **Update classifications**. Then for the **Exclude** option add the python packages to skip.
+   * If you want to install only security and critical updates, but skip one or more updates for Python to avoid breaking your legacy application, you should select **Security** and **Critical** under **Update classifications**. Then for the **Exclude** option add the Python packages to skip.
 
 9. Select **Schedule settings**. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 

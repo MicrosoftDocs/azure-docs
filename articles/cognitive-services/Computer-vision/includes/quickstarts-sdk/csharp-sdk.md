@@ -133,11 +133,11 @@ Define the new method for reading text. Add the code below, which calls the **Re
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readfileurl_1)]
 
-As an optional step, to specify a model version, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model-version=`2022-01-30-preview` parameter, edit the ReadAsync call as shown:
+As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model-version=`2022-01-30-preview` parameter, edit the ReadAsync call as shown:
 
 ```csharp
   // Read text from URL with a specific model version
-  var textHeaders = await client.ReadAsync(urlFile,null,null,"2021-09-30-preview");
+  var textHeaders = await client.ReadAsync(urlFile,null,null,"2022-01-30-preview");
 ```
 
 ### Get Read results
