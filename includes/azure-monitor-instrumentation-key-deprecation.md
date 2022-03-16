@@ -1,5 +1,5 @@
 ---
-title: "include file for instrumentation key depprecation" 
+title: "include file for instrumentation key deprecation" 
 description: "include file" 
 services: azure-monitor
 author: v-jandrew
