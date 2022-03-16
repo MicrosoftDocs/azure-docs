@@ -98,7 +98,7 @@
         href: ../virtual-machines/workloads/sap/hana-setup-smt.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Buy an SAP HANA Large Instances reservation
         href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
-  - name: ./workloads/oracle/toc.yml
+  - name: Oracle
     items:
     href: ./workloads/oracle/toc.yml
   - name: Nutanix (Public Preview prototype)
