@@ -749,6 +749,8 @@
     items:
     - name: Linux
       items:
+      - name: Connect to a Linux VM
+        href: linux-vm-connect.md
       - name: Create and manage SSH keys locally
         href: ./linux/create-ssh-keys-detailed.md
       - name: Create and manage SSH keys in the portal
