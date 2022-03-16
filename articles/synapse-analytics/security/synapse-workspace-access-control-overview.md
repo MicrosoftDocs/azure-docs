@@ -64,7 +64,7 @@ Azure Synapse roles can be assigned at the workspace scope or at finer-grained s
 
 ### Git permissions
 
-When using Git-enabled development in Git mode, you need Git permissions in addition to the Synapse User or Synapse RBAC (role-based access control) roles to read code artifacts, including linked service and credential definitions. To commit changes to code artifacts in Git mode, you need Git permissions, Azure Contributor (Azure RBAC) role on the workspace, and the Synapse Artifact Publisher (Synapse RBAC) role.
+When using Git-enabled development in Git mode, you need Git permissions in addition to the Synapse User or Synapse RBAC (role-based access control) roles to read code artifacts, including linked service and credential definitions. To commit changes to code artifacts in Git mode, you need Git permissions, and the Synapse Artifact Publisher (Synapse RBAC) role.
 
    
 ### Access data in SQL

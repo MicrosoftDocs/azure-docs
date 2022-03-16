@@ -38,7 +38,7 @@ To implement the incoming trust-based authentication flow, first ensure that the
 |Azure tenant.  |         |
 |Azure subscription under the same Azure AD tenant you plan to use for authentication.|         |
 |Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and AD. |
-| | |
+
 
 ## Create and configure the Azure AD Kerberos Trusted Domain Object
 

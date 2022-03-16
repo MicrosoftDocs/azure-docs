@@ -404,6 +404,7 @@ Insert a line like `samplingPercentage: 10,` before the instrumentation key:
     appInsights.trackPageView(); 
 </script>
 ```
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 For the sampling percentage, choose a percentage that is close to 100/N where N is an integer. Currently sampling doesn't support other values.
 
