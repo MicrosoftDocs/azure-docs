@@ -69,7 +69,7 @@ In this section, we have a list of queries that will help you review connection 
 
 ### Query average RTT and bandwidth
 
-To look up the average round-trip time and bandwidth:
+To look up the average round trip time and bandwidth:
 
 ```kusto
 // 90th, 50th, 10th Percentile for RTT in 10 min increments
