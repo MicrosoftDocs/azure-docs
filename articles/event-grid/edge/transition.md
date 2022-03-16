@@ -20,7 +20,7 @@ Here's the list of the features that will be removed with the retirement of Even
 
 | Event Grid on Azure IoT Edge | MQTT broker on Azure IoT Edge |
 | ---------------------------- | ----------------------------- | 
-| <ul><li>Publishing and subscribing to events locally/cloud</li><li>Forwarding events to Event Grid</li><li>Forwarding events to IoT Hub</li><li>React to Blob Storage events locally</li></ul> | <ul><li>Connectivity to IoT Edge hub</li><li>Publish and subscribe on user-defined topics</li><li>Publish and subscribe on IoT Hub topics</li><li>Publish and subscribe between MQTT brokers</li></ul> | 
+| - Publishing and subscribing to events locally/cloud<br/>- Forwarding events to Event Grid<br/>- Forwarding events to IoT Hub<br/>- React to Blob Storage events locally | - Connectivity to IoT Edge hub<br/>- Publish and subscribe on user-defined topics<br/>- Publish and subscribe on IoT Hub topics<br/>- Publish and subscribe between MQTT brokers | 
 
 
 ## How to transition to Azure IoT Edge features
