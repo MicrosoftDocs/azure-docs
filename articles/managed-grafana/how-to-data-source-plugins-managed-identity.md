@@ -39,7 +39,7 @@ The Azure Monitor plugin is automatically added to your Managed Grafana workspac
 1. From the left menu, select **Configuration** > **Data Sources**. You can see that Azure Monitor is already listed as an existing data source for your workspace. 
 1. Select **Azure Monitor** and select a subscription to finish configuring this plugin.
 
-As you can see, the authentication and authorization is using Managed Identity - you can go to Azure portal or use Azure CLI to assign permissions for the Azure Grafana workspace to be able to access Monitor data, without having to manually manage service principals in Azure Active Directory (AAD).
+As you can see, the authentication and authorization is using Managed Identity - you can go to Azure portal or use Azure CLI to assign permissions for the Azure Grafana workspace to be able to access Monitor data, without having to manually manage service principals in Microsoft Azure Active Directory (Azure AD).
 
 ## Manually assign permissions for Managed Grafana to access data in Azure
 

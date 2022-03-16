@@ -39,7 +39,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. Select **Next : Permission >** to access rights for your Grafana dashboard and data sources:
    1. Make sure **System assigned identity** is set on to **On** so that Log Analytics reader can access your subscription.
-   1. Make sure that you're listed as a Grafana administrator. You can also add more users as administrators at the point or later.
+   1. Make sure that you're listed as a Grafana administrator. You can also add more users as administrators at this point or later.
 
    For advanced scenarios, you can uncheck these options and configure data permissions later. The user who created the workspace is automatically assigned Admin permission to the workspace.
 
