@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 03/16/2022
 ms.author: duau
 ---
 
@@ -25,7 +25,7 @@ To create an Azure Front Door profile, see [Create a Azure Front Door](create-fr
 
 1. Select **Front Door manager**. Then select **+ Add an endpoint** to create a new endpoint.
    
-    :::image type="content" source="./media/how-to-configure-endpoints/select-create-endpoint.png" alt-text="Screenshot of add an endpoint through Front Door manager.":::
+    :::image type="content" source="./media/how-to-configure-endpoints/select-create-endpoint.png" alt-text="Screenshot of add an endpoint through Front Door manager." lightbox="./media/how-to-configure-endpoints/select-create-endpoint-expanded.png":::
 
 1. On the **Add an endpoint** page, enter, and select the following settings.
     
@@ -40,28 +40,31 @@ To create an Azure Front Door profile, see [Create a Azure Front Door](create-fr
 
 1. To add a **Route**, first expand an **Endpoint** from the list of endpoints on the Front Door manager page.
 
-    :::image type="content" source="./media/how-to-configure-endpoints/select-endpoint.png" alt-text="Screenshot of list of endpoints in Front Door manager.":::
+    :::image type="content" source="./media/how-to-configure-endpoints/select-endpoint.png" alt-text="Screenshot of list of endpoints in Front Door manager." lightbox="./media/how-to-configure-endpoints/select-endpoint-expanded.png":::
 
 1. In the endpoint configuration pane, select **+ Add a route** to configure the mapping of your domains and matching URL path patterns to an origin group.
 
-    :::image type="content" source="./media/how-to-configure-endpoints/add-route.png" alt-text="Screenshot of add a route button from endpoint configuration pane.":::
+    :::image type="content" source="./media/how-to-configure-endpoints/add-route.png" alt-text="Screenshot of add a route button from endpoint configuration pane." lightbox="./media/how-to-configure-endpoints/add-route-expanded.png":::
 
 1. On the **Add a route** page, enter, or select the following information:
    
     :::image type="content" source="./media/how-to-configure-endpoints/create-route.png" alt-text="Screenshot of the add a route page.":::
 
-    | | Setting | Description |
-    |--|--|--|
-    | | Name | Enter a unique name for the new route. |
-    | **Domains** | Domains | Select one or more domains that have been validated and isn't associated to another Route. To add a new Domain or a Custom Domain, see [Add a Custom Domain](standard-premium/how-to-add-custom-domain.md) |
-    | | Patterns to match | Configure all URL path patterns that this route will accept. For example, you can set the pattern to match to `/images/*` to accept all requests on the URL `www.contoso.com/images/*`. Azure Front Door will try to determine the traffic based on Exact Match first, if no exact match Paths, then look for a wildcard Path that matches. If no routing rules are found with a matching Path, then reject the request and return a 400: Bad Request error HTTP response. Patterns to match paths are case insensitive, meaning paths with different casings are treated as duplicates. For example, you have the same host using the same protocol with paths /FOO and /foo. These paths are considered duplicates, which isn't allowed in the *Patterns to match* setting. |
-    | | Accepted protocols | Specify the protocols you want Azure Front Door to accept when the client is making the request. |
-    | **Redirect** | Redirect all traffic to use HTTPS | Specify whether HTTPS is enforced for the incoming request with HTTP request |
-    | **Origin group** | Origin group | Select which origin group should be forwarded to when the back to origin request occurs. To add a new Origin Group, see [Configure an origin group](standard-premium/how-to-create-origin.md). |
-    | | Origin path | This path is used to rewrite the URL that Azure Front Door will use when constructing the request forwarded to the origin. By default, this path isn't provided. As such, Azure Front Door will use the incoming URL path in the request to the origin. You can also specify a wildcard path, which will copy any matching part of the incoming path to the request path to the origin. Origin path is case sensitive. <br><br/> Pattern to match: /foo/* <br/> Origin path: /fwd/ <br><br/> Incoming URL path: /foo/a/b/c/ <br/> URL from Azure Front Door to origin: fwd/a/b/c. |
-    | | Forwarding protocol | Select the protocol used for forwarding request. |
-    | | Caching | Select this option to enable caching of static content with Azure Front Door. |
-    | | Rules | Select Rule Sets that will be applied to this Route. For more information about how to configure Rules, see [Configure a Rule Set for Azure Front Door](standard-premium/how-to-configure-rule-set.md). |
+    | Setting | Description |
+    |--|--|
+    | Name | Enter a unique name for the new route. |
+    | **Domains** | |
+    | Domains | Select one or more domains that have been validated and isn't associated to another Route. To add a new Domain or a Custom Domain, see [Add a Custom Domain](standard-premium/how-to-add-custom-domain.md) |
+    | Patterns to match | Configure all URL path patterns that this route will accept. For example, you can set the pattern to match to `/images/*` to accept all requests on the URL `www.contoso.com/images/*`. Azure Front Door will try to determine the traffic based on Exact Match first, if no exact match Paths, then look for a wildcard Path that matches. If no routing rules are found with a matching Path, then reject the request and return a 400: Bad Request error HTTP response. Patterns to match paths are case insensitive, meaning paths with different casings are treated as duplicates. For example, you have the same host using the same protocol with paths /FOO and /foo. These paths are considered duplicates, which isn't allowed in the *Patterns to match* setting. |
+    | Accepted protocols | Specify the protocols you want Azure Front Door to accept when the client is making the request. |
+    | **Redirect** | |
+    | Redirect all traffic to use HTTPS | Specify whether HTTPS is enforced for the incoming request with HTTP request |
+    | **Origin group** | |
+    | Origin group | Select which origin group should be forwarded to when the back to origin request occurs. To add a new Origin Group, see [Configure an origin group](standard-premium/how-to-create-origin.md). |
+    | Origin path | This path is used to rewrite the URL that Azure Front Door will use when constructing the request forwarded to the origin. By default, this path isn't provided. As such, Azure Front Door will use the incoming URL path in the request to the origin. You can also specify a wildcard path, which will copy any matching part of the incoming path to the request path to the origin. Origin path is case sensitive. <br><br/> Pattern to match: /foo/* <br/> Origin path: /fwd/ <br><br/> Incoming URL path: /foo/a/b/c/ <br/> URL from Azure Front Door to origin: fwd/a/b/c. |
+    | Forwarding protocol | Select the protocol used for forwarding request. |
+    | Caching | Select this option to enable caching of static content with Azure Front Door. |
+    | Rules | Select Rule Sets that will be applied to this Route. For more information about how to configure Rules, see [Configure a Rule Set for Azure Front Door](standard-premium/how-to-configure-rule-set.md). |
 
 1. Select **Add** to create the new route. The route will appear in the list of Routes for the endpoints.
 
@@ -75,23 +78,24 @@ To create an Azure Front Door profile, see [Create a Azure Front Door](create-fr
 
 1. On the **Add security policy** page, enter, or select the following information:
 
-    :::image type="content" source="./media/how-to-configure-endpoints/add-security-policy.png" alt-text="Screenshot of add security policy page.":::
+    :::image type="content" source="./media/how-to-configure-endpoints/add-security-policy.png" alt-text="Screenshot of add security policy page." lightbox="./media/how-to-configure-endpoints/add-security-policy-expanded.png":::
 
-    | | Setting | Description |
-    |--|--|--|
-    | | Name | Enter a unique name within this Front Door profile for the security policy. |
-    | **Web application firewall policy** | Domains | Select one or more domains you wish to apply this web application firewall (WAF) policy to. |
-    | | WAF Policy | Select or create a new WAF policy. When you select an existing WAF policy, it must be the same tier as the Azure Front Door profile. For more information about how to create a WAF policy to use with Azure Front Door, see [Configure WAF policy](../web-application-firewall/afds/waf-front-door-create-portal.md). |
+    | Setting | Description |
+    |--|--|
+    | Name | Enter a unique name within this Front Door profile for the security policy. |
+    | **Web application firewall policy** | | 
+    | Domains | Select one or more domains you wish to apply this web application firewall (WAF) policy to. |
+    | WAF Policy | Select or create a new WAF policy. When you select an existing WAF policy, it must be the same tier as the Azure Front Door profile. For more information about how to create a WAF policy to use with Azure Front Door, see [Configure WAF policy](../web-application-firewall/afds/waf-front-door-create-portal.md). |
 
 1. Select **Save** to create the security policy and associate it with the endpoint.
 
-    :::image type="content" source="./media/how-to-configure-endpoints/associated-security-policy.png" alt-text="Screenshot of security policy associated with an endpoint.":::
+    :::image type="content" source="./media/how-to-configure-endpoints/associated-security-policy.png" alt-text="Screenshot of security policy associated with an endpoint." lightbox="./media/how-to-configure-endpoints/associated-security-policy-expanded.png":::
 
 ## Clean up resources
 
-To delete an endpoint when you no longer need it, select **Delete endpoint** from the list of endpoints.
+First, remove any security policies associated with the endpoint. Then select **Delete endpoint** to remove the endpoint from the Azure Front Door profile.
 
-:::image type="content" source="./media/how-to-configure-endpoints/delete-endpoint.png" alt-text="Screenshot of the delete endpoint button from inside an endpoint.":::
+:::image type="content" source="./media/how-to-configure-endpoints/delete-endpoint.png" alt-text="Screenshot of the delete endpoint button from inside an endpoint." lightbox="./media/how-to-configure-endpoints/delete-endpoint-expanded.png":::
 
 ## Next steps
 
