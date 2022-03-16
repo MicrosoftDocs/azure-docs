@@ -8,8 +8,8 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: guide
-author: MladjoA, danimir
-ms.author: mlandzic, danil
+author: danimir
+ms.author: danil
 ms.reviewer: mathoma, danil
 ms.date: 03/11/2022
 ---
