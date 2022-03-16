@@ -52,8 +52,7 @@ az aks create \
     --name myapp \
     --node-count 1 \
     --enable-addons monitoring \
-    --generate-ssh-keys \
-    --kubernetes-version 1.16.10
+    --generate-ssh-keys
 ```
 
 ## Sign in to Azure Pipelines
@@ -77,6 +76,8 @@ Within your selected organization, create a _project_. If you don't have any pro
 1. When you see the list of repositories, select your repository.
 
 1. You might be redirected to GitHub to install the Azure Pipelines app. If so, select **Approve & install**.
+
+1. Select **Deploy to Azure Kubernetes Service**. 
 
 1. If you're prompted, select the subscription in which you created your registry and cluster.
 
@@ -260,8 +261,7 @@ az aks create \
     --name myapp \
     --node-count 1 \
     --enable-addons monitoring \
-    --generate-ssh-keys \
-    --kubernetes-version 1.16.10
+    --generate-ssh-keys 
 ```
 
 
