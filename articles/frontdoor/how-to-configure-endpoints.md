@@ -9,36 +9,36 @@ ms.date: 03/15/2022
 ms.author: duau
 ---
 
-# Configure an endpoint with Front Door Manager
+# Configure an endpoint with Front Door manager
 
-This article shows you how to create an endpoint for an existing Azure Front Door Standard/Premium profile with Front Door manager.
+This article shows you how to create an endpoint for an existing Azure Front Door profile with Front Door manager.
 
 ## Prerequisites
 
 Before you can create an Azure Front Door endpoint with Front Door manager, you must have an Azure Front Door profile created. The profile must have at least one or more endpoints. To organize your Azure Front Door endpoints by internet domains, web applications, or other criteria, you can use multiple profiles. 
 
-To create an Azure Front Door profile, see [Create a new Azure Front Door profile](create-front-door-portal.md).
+To create an Azure Front Door profile, see [Create a Azure Front Door](create-front-door-portal.md).
 
 ## Create a new Azure Front Door endpoint
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Front Door profile.
 
-1. Select **Front Door manager**. Then select **Add an endpoint** to create a new endpoint.
+1. Select **Front Door manager**. Then select **+ Add an endpoint** to create a new endpoint.
    
     :::image type="content" source="./media/how-to-configure-endpoints/select-create-endpoint.png" alt-text="Screenshot of add an endpoint through Front Door manager.":::
 
-1. On the *Add an endpoint* page, enter, and select the following settings.
+1. On the **Add an endpoint** page, enter, and select the following settings.
     
     :::image type="content" source="./media/how-to-configure-endpoints/create-endpoint-page.png" alt-text="Screenshot of add an endpoint page.":::
 
     | Setting | Description |
     |--|--|
-    | Name | Enter a unique name for the new Azure Front Door Standard/Premium endpoint. This name is used to access your cached resources at the domain `<endpointname>.az01.azurefd.net` |
+    | Name | Enter a unique name for the new Azure Front Door endpoint. This name is used to access your cached resources at the domain `<endpointname>.az01.azurefd.net` |
     | Status | Select the checkbox to enable this endpoint. |
 
-## Add Domains, Origin Group, Routes, and Security
+### Add a route
 
-1. To add a **Route**, first expand an **Endpoint** from the endpoints listed on the Front Door manager page.
+1. To add a **Route**, first expand an **Endpoint** from the list of endpoints on the Front Door manager page.
 
     :::image type="content" source="./media/how-to-configure-endpoints/select-endpoint.png" alt-text="Screenshot of list of endpoints in Front Door manager.":::
 
@@ -46,103 +46,56 @@ To create an Azure Front Door profile, see [Create a new Azure Front Door profil
 
     :::image type="content" source="./media/how-to-configure-endpoints/add-route.png" alt-text="Screenshot of add a route button from endpoint configuration pane.":::
 
-1. On the *Add a route* page, enter, or select the following information:
+1. On the **Add a route** page, enter, or select the following information:
    
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/select-add-domain.png" alt-text="Screenshot of select domain on Edit Endpoint page.":::
+    :::image type="content" source="./media/how-to-configure-endpoints/create-route.png" alt-text="Screenshot of the add a route page.":::
 
     | | Setting | Description |
     |--|--|--|
-    | | Name | Enter a unique name for the new Route. |
-    | **Domains** | | |
-    | | Domains | |
-    | | Patterns to match | |
-    | | Accepted protocols | | 
+    | | Name | Enter a unique name for the new route. |
+    | **Domains** | Domains | Select one or more domains that have been validated and isn't associated to another Route. To add a new Domain or a Custom Domain, see [Add a Custom Domain](standard-premium/how-to-add-custom-domain.md) |
+    | | Patterns to match | Configure all URL path patterns that this route will accept. For example, you can set the pattern to match to `/images/*` to accept all requests on the URL `www.contoso.com/images/*`. Azure Front Door will try to determine the traffic based on Exact Match first, if no exact match Paths, then look for a wildcard Path that matches. If no routing rules are found with a matching Path, then reject the request and return a 400: Bad Request error HTTP response. Patterns to match paths are case insensitive, meaning paths with different casings are treated as duplicates. For example, you have the same host using the same protocol with paths /FOO and /foo. These paths are considered duplicates, which isn't allowed in the *Patterns to match* setting. |
+    | | Accepted protocols | Specify the protocols you want Azure Front Door to accept when the client is making the request. |
+    | **Redirect** | Redirect all traffic to use HTTPS | Specify whether HTTPS is enforced for the incoming request with HTTP request |
+    | **Origin group** | Origin group | Select which origin group should be forwarded to when the back to origin request occurs. To add a new Origin Group, see [Configure an origin group](standard-premium/how-to-create-origin.md). |
+    | | Origin path | This path is used to rewrite the URL that Azure Front Door will use when constructing the request forwarded to the origin. By default, this path isn't provided. As such, Azure Front Door will use the incoming URL path in the request to the origin. You can also specify a wildcard path, which will copy any matching part of the incoming path to the request path to the origin. Origin path is case sensitive. <br><br/> Pattern to match: /foo/* <br/> Origin path: /fwd/ <br><br/> Incoming URL path: /foo/a/b/c/ <br/> URL from Azure Front Door to origin: fwd/a/b/c. |
+    | | Forwarding protocol | Select the protocol used for forwarding request. |
+    | | Caching | Select this option to enable caching of static content with Azure Front Door. |
+    | | Rules | Select Rule Sets that will be applied to this Route. For more information about how to configure Rules, see [Configure a Rule Set for Azure Front Door](standard-premium/how-to-configure-rule-set.md). |
 
-### Add Domain
+1. Select **Add** to create the new route. The route will appear in the list of Routes for the endpoints.
 
-1. On the **Add Domain** page, choose to associate a domain *from your Azure Front Door profile* or *add a new domain*. For information about how to create a brand new domain, see [Create a new Azure Front Door Standard/Premium custom domain](how-to-add-custom-domain.md).
+    :::image type="content" source="./media/how-to-configure-endpoints/endpoint-route.png" alt-text="Screenshot of new created route in an endpoint.":::
 
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/add-domain-page.png" alt-text="Screenshot of Add a domain page.":::
+### Add security policy
 
-1. Select **Add** to add the domain to current endpoint. The selected domain should appear within the Domain panel.
+1. Select **+ Add a policy**, in the *Security policy* pane to apply or create a new web application firewall policy to your domains.
 
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/domain-in-domainview.png" alt-text="Screenshot of domains in domain view.":::
+    :::image type="content" source="./media/how-to-configure-endpoints/add-policy.png" alt-text="Screenshot of add a policy button from endpoint configuration pane.":::
 
-### Add Origin Group
+1. On the **Add security policy** page, enter, or select the following information:
 
-1. Select **Add** at the Origin groups view. The **Add an origin group** page appears 
+    :::image type="content" source="./media/how-to-configure-endpoints/add-security-policy.png" alt-text="Screenshot of add security policy page.":::
 
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/add-origin-group-view.png" alt-text="Screenshot of add an origin group page":::
+    | | Setting | Description |
+    |--|--|--|
+    | | Name | Enter a unique name within this Front Door profile for the security policy. |
+    | **Web application firewall policy** | Domains | Select one or more domains you wish to apply this web application firewall (WAF) policy to. |
+    | | WAF Policy | Select or create a new WAF policy. When you select an existing WAF policy, it must be the same tier as the Azure Front Door profile. For more information about how to create a WAF policy to use with Azure Front Door, see [Configure WAF policy](../web-application-firewall/afds/waf-front-door-create-portal.md). |
 
-1. For **Name**, enter a unique name for the new origin group
+1. Select **Save** to create the security policy and associate it with the endpoint.
 
-1. Select **Add an Origin** to add a new origin to current group.
- 
-#### Health Probes
-Front Door sends periodic HTTP/HTTPS probe requests to each of your origin. Probe requests determine the proximity and health of each origin to load balance your end-user requests. Health probe settings for an origin group define how we poll the health status of app origin. The following settings are available for load-balancing configuration:
-
-> [!WARNING]
-> Since Front Door has many edge environments globally, health probe volume for your origin can be quite high - ranging from 25 requests every minute to as high as 1200 requests per minute, depending on the health probe frequency configured. With the default probe frequency of 30 seconds, the probe volume on your origin should be about 200 requests per minute.
-
-* **Status**: Specify whether to turn on the health probing. If you have a single origin in your origin group, you can choose to disable the health probes reducing the load on your application backend. Even if you have multiple origins in the group but only one of them is in enabled state, you can disable health probes.
-   
-* **Path**: The URL used for probe requests for all the origin in this origin group. For example, if one of your origins is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door environments, assuming the protocol is set to HTTP, will send health probe requests to `http://contoso-westus.azurewebsites.net/probe/test.aspx`. 
-   
-* **Protocol**: Defines whether to send the health probe requests from Front Door to your origin with HTTP or HTTPS protocol.
-   
-* **Probe Method**: The HTTP method to be used for sending health probes. Options include GET or HEAD (default).
-
-    > [!NOTE]
-    > For lower load and cost on your origin, Front Door recommends using HEAD requests for health probes.
-
-* **Interval(in seconds)**: Defines the frequency of health probes to your origin, or the intervals in which each of the Front Door environments sends a probe.
-   
-    >[!NOTE]
-    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your origin receive. For example, if the interval is set to 30 seconds with say, 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
-
-#### Load balancing
-Load-balancing settings for the origin group define how we evaluate health probes. These settings determine if the backend is healthy or unhealthy. They also check how to load-balance traffic between different origins in the origin group. The following settings are available for load-balancing configuration:
-
-- **Sample size**. Identifies how many samples of health probes we need to consider for origin health evaluation.
-
-- **Successful sample size**. Defines the sample size as previously mentioned, the number of successful samples needed to call the origin healthy. For example, assume a Front Door health probe interval is 30 seconds, sample size is 5, and successful sample size is 3. Each time we evaluate the health probes for your origin, we look at the last five samples over 150 seconds (5 x 30). At least three successful probes are required to declare the backend as healthy.
-
-- **Latency sensitivity (extra latency)**. Defines whether you want Front Door to send the request to origin within the latency measurement sensitivity range or forward the request to the closest backend.
-
-Select **Add** to add the origin group to current endpoint. The origin group should appear within the Origin group panel
-
-:::image type="content" source="../media/how-to-configure-endpoint-manager/origin-in-origin-group.png" alt-text="Screenshot of origins in origin group.":::
-
-### Add Route
-
-Select **Add** at the Routes view, the **Add a route** page appears. For information how to associate the domain and origin group, see [Create a new Azure Front Door route](how-to-configure-route.md)
-
-### Add Security
-
-1. Select **Add** at the Security view, The **Add a WAF policy** page appears
- 
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/add-waf-policy-page.png" alt-text="Screenshot of add a WAF policy page.":::
-
-1. **WAF Policy**: select a WAF policy you like apply for the selected domain within this endpoint. 
-  
-   Select **Create New** to create a brand new WAF policy.
-
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/create-new-waf-policy.png" alt-text="Screenshot of create a new WAF policy.":::
-   
-    **Name**: enter a unique name for the new WAF policy. You could edit this policy with more configuration from the Web Application Firewall page.
-
-    **Domains**: select the domain to apply the WAF policy.
-
-1. Select **Add** button. The WAF policy should appear within the Security panel
-
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/waf-in-security-view.png" alt-text="Screenshot of WAF policy in security view.":::
+    :::image type="content" source="./media/how-to-configure-endpoints/associated-security-policy.png" alt-text="Screenshot of security policy associated with an endpoint.":::
 
 ## Clean up resources
 
-To delete an endpoint when it's no longer needed, select **Delete Endpoint** at the end of the endpoint row 
+To delete an endpoint when you no longer need it, select **Delete endpoint** from the list of endpoints.
 
-:::image type="content" source="../media/how-to-configure-endpoint-manager/delete-endpoint.png" alt-text="Screenshot of how to delete an endpoint.":::
+:::image type="content" source="./media/how-to-configure-endpoints/delete-endpoint.png" alt-text="Screenshot of the delete endpoint button from inside an endpoint.":::
 
 ## Next steps
 
-To learn about custom domains, continue to [Adding a custom domain](how-to-add-custom-domain.md).
+* Learn about the use of [origins and origin groups](origin.md) in an Azure Front Door configuration.
+* Learn about [rules match conditions](rules-match-conditions.md) in an Azure Front Door rule set.
+* Learn more about [policy settings](../web-application-firewall/afds/waf-front-door-policy-settings.md) for WAF with Azure Front Door.
+* Learn how to create [custom rules](../web-application-firewall/afds/waf-front-door-custom-rules.md) to protect your Azure Front Door profile.
