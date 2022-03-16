@@ -59,33 +59,34 @@ A valid email address will be required to authenticate with Microsoft 365. The e
 - **Authentication**: Use Basic Authentication (which is simply a username and password) to send email from SAP application. If SMTP AUTH is intentionally disabled for the organization, you must use Option 2, 3 or 4 below.
 - **Mailbox**: You must have a licensed Microsoft 365 mailbox to send email from.
 - **Transport Layer Security (TLS)**: Your SAP Application must be able to use TLS version 1.2 and above.
-- **Port**: Port 587 (recommended) or port 25 is required and must be unblocked on your network. Some network firewalls or ISPs block ports, especially port 25, because that\'s the port that email servers use to send mail.
+- **Port**: Port 587 (recommended) or port 25 is required and must be unblocked on your network. Some network firewalls or Internet Service Providers block ports, especially port 25, because that\'s the port that email servers use to send mail.
 - **DNS**: Use the DNS name smtp.office365.com. Don't use an IP address for the Microsoft 365 server, as IP Addresses aren't supported.
 
-### How to Enable SMTP auth for mailboxes in Exchange online
+### How to Enable SMTP auth for mailboxes in Exchange Online
 
 There are two ways to enable SMTP AUTH in Exchange online:
 
 1.  For a single account (per mailbox) that overrides the tenant-wide setting or
 2.  at organization level.
 
-> Note: if your authentication policy disables basic authentication for SMTP, clients cannot use the SMTP AUTH protocol even if you enable the settings outlined in this article.
+> [!NOTE]
+> if your authentication policy disables basic authentication for SMTP, clients cannot use the SMTP AUTH protocol even if you enable the settings outlined in this article.
 
 The per-mailbox setting to enable SMTP AUTH is available in the [Microsoft 365 Admin Center](https://admin.microsoft.com/) or via [Exchange Online PowerShell](/powershell/exchange/connect-to-exchange-online-powershell).
 
 1. Open the [Microsoft 365 admin center](https://admin.microsoft.com/) and go to **Users** -> **Active users**.
 
-![Admin Center - Active Users](media/exchange-online-integration/admin_center_Active_user_sec1.1.png)
+   :::image type="content" source="media/exchange-online-integration/admin-center-active-user-sec-1-1.png" alt-text="Admin Center - Active Users":::
 
 2. Select the user, follow the wizard, click **Mail**.
 
 3. In the **Email apps** section, click **Manage email apps**.
 
-![Admin Center - Manage email](media/exchange-online-integration/admin_center_sec1.3.png)
+   :::image type="content" source="media/exchange-online-integration/admin-center-sec-1-3.png" alt-text="Admin Center - Manage email":::
 
 4. Verify the **Authenticated SMTP** setting (unchecked = disabled, checked = enabled)
 
-![Admin Center - SMTP setting](media/exchange-online-integration/admin_center_sec1.4.png)
+   :::image type="content" source="media/exchange-online-integration/admin-center-sec-1-4.png" alt-text="Admin Center - SMTP setting":::
 
 5. **Save changes**.
 
@@ -93,59 +94,59 @@ This will enable SMTP AUTH for that individual user in Exchange Online that you 
 
 ### Configure SMTP Auth with SCOT
 
-1. Ping or telnet smtp.office365.com on port 587 from your SAP application server to make sure ports are open and accessible.
+1. Ping or telnet **smtp.office365.com** on port **587** from your SAP application server to make sure ports are open and accessible.
 
-![Screenshot of ping](media/exchange-online-integration/telnet_SCOT_sec1.1.png)
+   :::image type="content" source="media/exchange-online-integration/telnet-scot-sec-1-1.png" alt-text="Screenshot of ping":::
 
-2. Make sure ICM parameter is set in your instance profile. See below an example:
+2. Make sure SAP Internet Communication Manager (ICM) parameter is set in your instance profile. See below an example:
 
-| parameter | value |
-|---|---|
-| icm/server_port_1 | PROT=SMTP,PORT=25000,TIMEOUT=180,TLS=1 |
+   | parameter | value |
+   |---|---|
+   | icm/server-port-1 | PROT=SMTP,PORT=25000,TIMEOUT=180,TLS=1 |
 
 3. Restart ICM service from SMICM transaction and make sure SMTP service is active.
 
-![Screenshot of ICM setting](media/exchange-online-integration/SCOT_SMICM_Sec1.3.png)
+   :::image type="content" source="media/exchange-online-integration/scot-smicm-sec-1-3.png" alt-text="Screenshot of ICM setting":::
 
 4. Activate SAPConnect service in SICF transaction.
 
-![SAP Connect setting in SICF](media/exchange-online-integration/SCOT_SMTP_sec1.4.png)
+   :::image type="content" source="media/exchange-online-integration/scot-smtp-sec-1-4.png" alt-text="SAP Connect setting in SICF":::
 
 5. Go to SCOT and select SMTP node (double click) as shown below to proceed with configuration:
 
-![SMTP config](media/exchange-online-integration/SCOT_SMTP_sec1.5.png)
+   :::image type="content" source="media/exchange-online-integration/scot-smtp-sec-1-5.png" alt-text="SMTP config":::
 
-Add mail host **smtp.office365.com** with port **587**. Check the [Exchange Online docs](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365#how-to-set-up-smtp-auth-client-submission) for reference.
+   Add mail host **smtp.office365.com** with port **587**. Check the [Exchange Online docs](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365#how-to-set-up-smtp-auth-client-submission) for reference.
 
-![SMTP config continued](media/exchange-online-integration/SCOT_SMTP_sec1.5.1.png)
-
-Click on the "Settings" button (next to the Security field) to add TLS settings and basic authentication details as mentioned in point 2 if required. Make sure your ICM parameter is set accordingly.
-
-Make sure to use a valid Microsoft 365 email ID and password. In addition to that it needs to be the same user that you've enabled for SMTP Auth at the beginning. This email ID will show up as the sender.
-
-![SMTP security config](media/exchange-online-integration/SCOT_SMTP_security_serttings_sec1.5.png)
-
-Coming back to the previous screen: Click on "Set" button and check "Internet" under "Supported Address Types". Using the wildcard "\*" option will allow to send emails to all domains without restriction.
-
-![SMTP address type](media/exchange-online-integration/SCOT_SMTP_address_type_sec1.5.png)
-
-![SMTP address area](media/exchange-online-integration/SCOT_SMTP_adress_areas_sec1.5.png)
-
-Next Step: set default Domain in SCOT.
-
-![SMTP default domain](media/exchange-online-integration/SCOT_Default_Domain_sec1.5.png)
-
-![SMTP default address](media/exchange-online-integration/SCOT_Default_Domain_address_sec1.5.png)
+   :::image type="content" source="media/exchange-online-integration/scot-smtp-sec-1-5-1.png" alt-text="SMTP config continued":::
+    
+   Click on the "Settings" button (next to the Security field) to add TLS settings and basic authentication details as mentioned in point 2 if required. Make sure your ICM parameter is set accordingly.
+    
+   Make sure to use a valid Microsoft 365 email ID and password. In addition to that it needs to be the same user that you've enabled for SMTP Auth at the beginning. This email ID will show up as the sender.
+    
+   :::image type="content" source="media/exchange-online-integration/scot-smtp-security-serttings-sec-1-5.png" alt-text="SMTP security config":::
+    
+   Coming back to the previous screen: Click on "Set" button and check "Internet" under "Supported Address Types". Using the wildcard "\*" option will allow to send emails to all domains without restriction.
+    
+   :::image type="content" source="media/exchange-online-integration/scot-smtp-address-type-sec-1-5.png" alt-text="SMTP address type":::
+    
+   :::image type="content" source="media/exchange-online-integration/scot-smtp-address-areas-sec-1-5.png" alt-text="SMTP address area":::
+    
+   Next Step: set default Domain in SCOT.
+    
+   :::image type="content" source="media/exchange-online-integration/scot-default-domain-sec-1-5.png" alt-text="SMTP default domain":::
+    
+   :::image type="content" source="media/exchange-online-integration/scot-default-domain-address-sec-1-5.png" alt-text="SMTP default address":::
 
 6. Schedule Job to send email to the submission queue. From SCOT select "Send Job":
 
-![SMTP schedule job to send](media/exchange-online-integration/SCOT_send_job_sec1.6.png)
-
-Provide a Job name and variant if appropriate.
-
-![SMTP schedule job variant](media/exchange-online-integration/SCOT_send_job_varient_sec1.6.png)
-
-Test mail submission using transaction code SBWP and check the status using SOST transaction.
+   :::image type="content" source="media/exchange-online-integration/scot-send-job-sec-1-6.png" alt-text="SMTP schedule job to send":::
+    
+   Provide a Job name and variant if appropriate.
+    
+   :::image type="content" source="media/exchange-online-integration/scot-send-job-varient-sec-1-6.png" alt-text="SMTP schedule job variant":::
+    
+   Test mail submission using transaction code SBWP and check the status using SOST transaction.
 
 ### Limitations of SMTP AUTH client submission
 
@@ -172,82 +173,83 @@ SMTP relay lets Microsoft 365 relay emails on your behalf by using a connector t
 - **Email Address**: Any email address in one of your Microsoft 365 verified domains. This email address doesn't need a mailbox. For example, `noreply@*yourdomain*.com`.
 - **Transport Layer Security (TLS)**: SAP application must be able to use TLS version 1.2 and above.
 - **Port**: port 25 is required and must be unblocked on your network. Some network firewalls or ISPs block ports, especially port 25 due to the risk of misuse for spamming.
-- **MX record**: your MX endpoint, for e.g., yourdomain.mail.protection.outlook.com. Find more information on the next section.
+- **MX record**: your Mail Exchanger (MX) endpoint, for e.g., yourdomain.mail.protection.outlook.com. Find more information on the next section.
 - **Relay Access**: A Public IP address or SSL certificate is required to authenticate against the relay connector. To avoid configuring direct access it's recommended to use Source Network Translation (SNAT) as described in this article. [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections).
 
 ### Step-by-step configuration instructions for SMTP relay in Microsoft 365
 
 1. Obtain the public (static) IP address of the endpoint which will be sending the mail using one of the methods listed in the [article](/azure/load-balancer/load-balancer-outbound-connections) above. A dynamic IP address isn\'t supported or allowed. You can share your static IP address with other devices and users, but don't share the IP address with anyone outside of your company. Make a note of this IP address for later.
 
+> [!NOTE]
 > Find this information on the Azure portal using the Virtual Machine overview of the SAP application server.
 
-![Where to retrieve the public ip on the Azure Portal](media/exchange-online-integration/Azure_Portal_PIP_sec3.1.png)
+   :::image type="content" source="media/exchange-online-integration/azure-portal-pip-sec-3-1.png" alt-text="Where to retrieve the public ip on the Azure Portal":::
 
 2. Sign in to the [Microsoft 365 Admin Center](https://admin.microsoft.com/).
 
-![Microsoft 365 AC sign in](media/exchange-online-integration/M365_admin_center_sec3.2.png)
+   :::image type="content" source="media/exchange-online-integration/m365-admin-center-sec-3-2.png" alt-text="Microsoft 365 AC sign in":::
 
-3. Go to **Settings** -> **Domains**, select your domain (for example, contoso.com), and find the MX record.
+3. Go to **Settings** -> **Domains**, select your domain (for example, contoso.com), and find the Mail Exchanger (MX) record.
 
-![Where to retrieve the domain mx record](media/exchange-online-integration/M365_admin_center_Domains_sec3.3.png)
+   :::image type="content" source="media/exchange-online-integration/m365-admin-center-domains-sec-3-3.png" alt-text="Where to retrieve the domain mx record":::
 
-The MX record will have data for **Points to address or value** that looks similar to `yourdomain.mail.protection.outlook.com`.
+   The Mail Exchanger (MX) record will have data for **Points to address or value** that looks similar to `yourdomain.mail.protection.outlook.com`.
 
-4. Make a note of the data of **Points to address or value** for the MX record, which we refer to as your MX endpoint.
+4. Make a note of the data of **Points to address or value** for the Mail Exchanger (MX) record, which we refer to as your MX endpoint.
 
 5. In Microsoft 365, select **Admin** and then **Exchange** to go to the new Exchange Admin Center.
 
-![Microsoft 365 Admin Center](media/exchange-online-integration/M365_admin_center_exchange_sec3.5.png)
+   :::image type="content" source="media/exchange-online-integration/m365-admin-center-exchange-sec-3-5.png" alt-text="Microsoft 365 Admin Center":::
 
 6. Choose Mailboxes.
 
-![Microsoft 365 Admin Center mailbox](media/exchange-online-integration/Exchange_admin_center_sec3.6.png)
+   :::image type="content" source="media/exchange-online-integration/exchange-admin-center-sec-3-6.png" alt-text="Microsoft 365 Admin Center mailbox":::
 
 7. In the Exchange Admin Center (EAC), go to **Mail flow** -> **Connectors**. The **Connectors** screen is depicted below. If you are working with the classical EAC follow step 8 as described on our [docs](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365#step-by-step-configuration-instructions-for-smtp-relay).
 
-![Microsoft 365 Admin Center connector](media/exchange-online-integration/Exchange_admin_center_add_connector_sec3.7.png)
+   :::image type="content" source="media/exchange-online-integration/exchange-admin-center-add-connector-sec-3-7.png" alt-text="Microsoft 365 Admin Center connector":::
 
 8. Click **Add a connector**
 
-![Microsoft 365 Admin Center connector add](media/exchange-online-integration/Exchange_relay_connector_add_sec3.8.png)
+   :::image type="content" source="media/exchange-online-integration/exchange-relay-connector-add-sec-3-8.png" alt-text="Microsoft 365 Admin Center connector add":::
 
-Choose "Your organization's email server".
+   Choose "Your organization's email server".
 
-![Microsoft 365 Admin Center mail server](media/exchange-online-integration/New_connector_sec3.8.png)
+   :::image type="content" source="media/exchange-online-integration/new-connector-sec-3-8.png" alt-text="Microsoft 365 Admin Center mail server":::
 
 9. Click **Next**. The **Connector name** screen appears.
 
-![Microsoft 365 Admin Center connector name](media/exchange-online-integration/Connector_Name_Section3.9.png)
+   :::image type="content" source="media/exchange-online-integration/connector-name-section-3-9.png" alt-text="Microsoft 365 Admin Center connector name":::
 
 10. Provide a name for the connector and click **Next**. The **Authenticating sent email** screen appears.
 
-Choose *By verifying that the IP address of the sending server matches one of these IP addresses which belong exclusively to your organization* and add the IP address from Step 1 of the **Step-by-step configuration instructions for SMTP relay in Microsoft 365** section.
+    Choose *By verifying that the IP address of the sending server matches one of these IP addresses which belong exclusively to your organization* and add the IP address from Step 1 of the **Step-by-step configuration instructions for SMTP relay in Microsoft 365** section.
 
-![Microsoft 365 Admin Center verify IP](media/exchange-online-integration/connector_authenticate_IP_add_section3.10.1.png)
+    :::image type="content" source="media/exchange-online-integration/connector-authenticate-ip-add-section-3-10-1.png" alt-text="Microsoft 365 Admin Center verify IP":::
+    
+    Review and click on **Create connector**.
+    
+    :::image type="content" source="media/exchange-online-integration/review-connector-section-3-10-2.png" alt-text="Microsoft 365 Admin Center review":::
+    
+    :::image type="content" source="media/exchange-online-integration/connector-created-sec-3-10-3.png" alt-text="Microsoft 365 Admin Center review security settings":::
 
-Review and click on **Create connector**.
-
-![Microsoft 365 Admin Center review](media/exchange-online-integration/Review_Connector_section3.10.2.png)
-
-![Microsoft 365 Admin Center review security settings](media/exchange-online-integration/Connector_created_sec3.10.3.png)
-
-11. Now that you're done with configuring your Microsoft 365 settings, go to your domain registrar's website to update your DNS records. Edit your SPF record. Include the IP address that you noted in step 1. The finished string should look similar to this `v=spf1 ip4:10.5.3.2 include:spf.protection.outlook.com \~all`, where 10.5.3.2 is your public IP address. Skipping this step may cause emails to be flagged as spam and end up in the recipient's Junk Email folder.
+11. Now that you're done with configuring your Microsoft 365 settings, go to your domain registrar's website to update your DNS records. Edit your **Sender Policy Framework** (SPF) record. Include the IP address that you noted in step 1. The finished string should look similar to this `v=spf1 ip4:10.5.3.2 include:spf.protection.outlook.com \~all`, where 10.5.3.2 is your public IP address. Skipping this step may cause emails to be flagged as spam and end up in the recipient's Junk Email folder.
 
 ### Steps in SAP Application server
 
 1. Make sure SAP ICM Parameter and SMTP service is activated as explained in Option 1 (steps 2-4)
 2. Go to SCOT transaction in SMTP node as shown in previous steps of Option 1.
-3. Add mail Host as MX record value noted in Step 4 (i.e. yourdomain.mail.protection.outlook.com).
+3. Add mail Host as Mail Exchanger (MX) record value noted in Step 4 (i.e. yourdomain.mail.protection.outlook.com).
 
 Mail host: yourdomain.mail.protection.outlook.com
 
 Port: 25
 
-![SMTP config in SCOT](media/exchange-online-integration/SCOT_SMTP_connection_Relay_sec3.3.png)
+:::image type="content" source="media/exchange-online-integration/scot-smtp-connection-relay-sec-3-3.png" alt-text="SMTP config in SCOT":::
 
 4. Click "Settings" next to the Security field and make sure TLS is enabled if possible. Also make sure no prior logon data regarding SMTP AUTH is present. Otherwise delete existing records with the corresponding button underneath.
 
-![SMTP security config in SCOT](media/exchange-online-integration/SCOT_SMTP_connection_Relay_TLS_sec3.4.png)
+:::image type="content" source="media/exchange-online-integration/scot-smtp-connection-relay-tls-sec-3-4.png" alt-text="SMTP security config in SCOT":::
 
 5. Test the configuration using a test email from your SAP application with transaction SBWP and check the status in SOST transaction.
 
@@ -259,7 +261,7 @@ The advantage of this solution is that it can be deployed in the hub of a hub-sp
 
 The configuration steps are the same as for the Microsoft 365 SMTP Relay Connector (Option 3) with the only differences being that the SCOT configuration should reference the mail host that will perform the relay rather than direct to Microsoft 365. Depending on the mail system that is being used for the relay it will also be configured directly to connect to Microsoft 365 using one of the supported methods and a valid user with password. It is recommended to send a test mail from the relay directly to ensure it can communicate successfully with Microsoft 365 before completing the SAP SCOT configuration and testing as normal.
 
-![Relay Server Architecture](media/exchange-online-integration/SAP_outbound_mail_with_SMTP_relay_in_hub_architecture.png)
+:::image type="content" source="media/exchange-online-integration/sap-outbound-mail-with-smtp-relay.png" alt-text="Relay Server Architecture":::
 
 The example architecture shown illustrates multiple SAP application servers with a single mail relay host in the hub. Depending on the volume of mail to be sent it is recommended to follow a detailed sizing guide for the mail vendor to be used as the relay. This may require multiple mail relay hosts which operate with an Azure Load Balancer.
 
