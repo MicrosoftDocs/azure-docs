@@ -21,17 +21,16 @@ All supported connection methods provide:
 
 For more information, see [Choose a sensor connection method](connect-sensors.md#choose-a-sensor-connection-method).
 
-The methods described in this article are supported only for sensor versions 22.1.x and higher.
-
 ## Working with a mixture of sensor software versions
 
-If you are a customer with an existing production deployment, you may still need to upgrade your sensors to version 22.1.x.
+If you are a customer with an existing production deployment, we recommend that upgrade any legacy sensor versions to version 22.1.x.
 
 While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versions-and-support-dates), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
 
 After migrating, you can remove any relevant IoT Hubs from your subscription as they'll no longer be required for your sensor connections.
 
 For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Migration for existing customers](connect-sensors.md#migration-for-existing-customers).
+
 
 > [!IMPORTANT]
 > To ensure that your network is ready, we recommend that you first run the the migration in a lab or testing environment so that you can safely validate your Azure service configurations.
