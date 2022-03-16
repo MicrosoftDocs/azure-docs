@@ -150,7 +150,7 @@ sections:
 
       - question: How can I restore an App Configuration store that I deleted mistakenly?
         answer: |
-          All App Configuration stores in the standard tier have automatically enabled the [soft-delete](./concept-soft-delete) feature. You can recover a soft-deleted store within its retention period. Follow these [instructions](./howto-recover-deleted-stores-in-azure-app-configuration) to recover a mistakenly deleted App Configuration store.
+          All App Configuration stores in the standard tier support the [soft-delete](./concept-soft-delete) feature, which cannot be disabled. You can recover a deleted store within its retention period. Follow these [instructions](./howto-recover-deleted-stores-in-azure-app-configuration) to recover a mistakenly deleted App Configuration store.
 
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |
