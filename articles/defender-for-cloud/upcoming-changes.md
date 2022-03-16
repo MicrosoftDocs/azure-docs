@@ -25,7 +25,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Deprecating the recommendation to use service principals to protect your subscriptions](#deprecating-the-recommendation-to-use-service-principals-to-protect-your-subscriptions) | February 2022 |
 | [Moving recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices](#moving-recommendation-vulnerabilities-in-container-security-configurations-should-be-remediated-from-the-secure-score-to-best-practices) | February 2022 |
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
-| [AWS recommendations to GA](#aws-recommendations-to-ga) | March 2022 |
+| [AWS and GCP recommendations to GA](#aws-and-gcp-recommendations-to-ga) | March 2022 |
 | [Relocation of custom recommendations](#relocation-of-custom-recommendations) | March 2022 |
 | [Deprecating Microsoft Defender for IoT device recommendations](#deprecating-microsoft-defender-for-iot-device-recommendations)| March 2022 |
 | [Deprecating Microsoft Defender for IoT device alerts](#deprecating-microsoft-defender-for-iot-device-alerts) | March 2022 |
@@ -84,13 +84,15 @@ Learn more:
 - [Defender for Cloud's supported endpoint protection solutions](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported)
 - [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
 
-### AWS recommendations to GA
+### AWS and GCP recommendations to GA
 
 **Estimated date for change:** March 2022
 
-There are currently AWS recommendations in the preview stage. These recommendations come from the AWS Foundational Security Best Practices standard which is assigned by default. All of the recommendations will become Generally Available (GA) in March 2022.
+There are currently AWS and GCP recommendations in the preview stage. These recommendations come from the AWS Foundational Security Best Practices and GCP default standards which are assigned by default. All of the recommendations will become Generally Available (GA) in March 2022.
 
 When these recommendations go live, their impact will be included in the calculations of your secure score. Expect changes to your secure score.
+
+#### AWS recommendations
 
 **To find these recommendations**:
 
@@ -99,11 +101,20 @@ When these recommendations go live, their impact will be included in the calcula
 
 :::image type="content" source="media/release-notes/aws-foundational.png" alt-text="Screenshot showing the location of the AWS Foundational Security Best Practices (preview).":::
 
+#### GCP recommendations
+
+**To find these recommendations**:
+
+1. Navigate to **Environment settings** > **`GCP connector`** > **Standards (preview)**.
+1. Right click on **GCP Default (preview)**, and select **view assessments**.
+
+:::image type="content" source="media/release-notes/gcp-foundational.png" alt-text="Screenshot showing the location of the GCP Default (preview).":::
+
 ### Relocation of custom recommendations
 
 **Estimated date for change:** March 2022
 
-Custom recommendation are those created by a user, and have no impact on the secure score. Therefore, the custom recommendations are being relocated from the Secure score recommendations tab to the All recommendations tab.
+Custom recommendations are those created by a user, and have no impact on the secure score. Therefore, the custom recommendations are being relocated from the Secure score recommendations tab to the All recommendations tab.
 
 When the move occurs, the custom recommendations will be found via a new "recommendation type" filter.
 

@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 03/14/2022
 ms.author: banders
 ---
 
@@ -35,6 +35,9 @@ Before you begin, make sure that the person you're requesting billing ownership 
 - For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 - For an Enterprise Agreement, the person must be an Account Owner.
 - For a Microsoft Online Subscription Agreement, the person must be an Account Administrator.
+
+> [!NOTE]
+> To perform a transfer, the destination account must be a paid account with a valid form of payment. For example, if the destination is an Azure free account, you can upgrade it to a pay-as-you-go Azure plan under a Microsoft Customer Agreement. Then you can make the transfer.
 
 When you're ready, use the following instructions. You can also go along with the following video that outlines each step of the process.
 
