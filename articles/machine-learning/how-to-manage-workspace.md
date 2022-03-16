@@ -370,12 +370,6 @@ You can view your search results in the individual **Jobs**, **Models** and **Co
 
 :::image type="content" source="./media/how-to-manage-workspace/results.png" alt-text="Results":::
 
-To add more specificity to the search results, use the column filters sidebar.
-
-Customize the display of columns in the search results table. These views can be saved and shared as well.
-
-#### Known issues
-
 If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
 
 ---
