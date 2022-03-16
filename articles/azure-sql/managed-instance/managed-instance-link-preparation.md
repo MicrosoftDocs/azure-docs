@@ -265,6 +265,14 @@ CREATE ENDPOINT TEST_ENDPOINT
     )
 ```
 
+To verify that SQL Server endpoint is receiving connections on the port 5022, execute the following PowerShell command on the host OS of your SQL Server:
+
+```powershell
+tnc localhost -port 5022
+```
+
+A successful test shows `TcpTestSucceeded : True`. We can then proceed creating an SQL Agent job on Managed Instance to attempt testing the SQL Server test endpoint on port 5022 from the managed instance.
+
 Next, create a new SQL Agent job on managed instance called `NetHelper`, using the public IP address or DNS name that can be resolved from the SQL Managed Instance for `SQL_SERVER_ADDRESS`. 
 
 To create the SQL Agent Job, run the following Transact-SQL (T-SQL) script on managed instance: 
