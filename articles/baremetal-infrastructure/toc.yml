@@ -102,7 +102,7 @@
     items:
     href: ./workloads/oracle/toc.yml
   - name: Nutanix (proto)
-  items
+    items:
     href: ./workloads/nutanix/toc.yml
   - name: Nutanix (ported Oracle ToC)
     items:
