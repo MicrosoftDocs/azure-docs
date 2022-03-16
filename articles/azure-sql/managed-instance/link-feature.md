@@ -76,11 +76,11 @@ Secure connectivity, such as VPN or Express Route is used between an on-premises
 
 There could exist up to 100 links from the same, or various SQL Server sources to a single SQL Managed Instance. This limit is governed by the number of databases that could be hosted on a managed instance at this time. Likewise, a single SQL Server can establish multiple parallel database replication links with several managed instances in different Azure regions in a 1 to 1 relationship between a database and a managed instance . The feature requires CU13 or higher to be installed on SQL Server 2019.
 
-## Using the link feature
+## Use the link feature
 
-To use the link feature between SQL Server and Managed Instance, you first need to enable Always On on your SQL Server. In addition, you need to ensure there exists networking connectivity between SQL Server and Managed Instance, and that firewalls are configured to allow bi-directional traffic on the port 5022. Follow instructions described at this page:
+To use the link feature to create a link between SQL Server and Managed Instance, you first need to enable Always On on your SQL Server, and to enable recommended trace flags. In addition, you need to ensure there exists networking connectivity between SQL Server and Managed Instance, and that firewalls are configured to allow bi-directional traffic on the port 5022. Follow instructions described at this page:
 
-* [Prepare environment for link](managed-instance-link-preparation.md)
+* [Prepare environment for the link](managed-instance-link-preparation.md)
 
 Once you have ensured the pre-requirements have been meet, you can create the link using an automated wizard in SSMS, or you can choose to setup the link manually using scripts. Create the link using one of the following instructions:
 
@@ -91,7 +91,7 @@ Once the link has been created, ensure that you regularly backup logs on SQL Ser
 
 * [Best practices with link feature for Azure SQL Managed Instance](link-feature-best-practices.md)
 
-If and when you are ready to migrate a database to Azure with minimum downtime, you can do this using an automated wizard in SSMS, or you can choose to do this manually with scripts. Migrate database to Azure link using one of the following instructions:
+If and when you are ready to migrate a database to Azure with a minimum downtime, you can do this using an automated wizard in SSMS, or you can choose to do this manually with scripts. Migrate database to Azure link using one of the following instructions:
 
 * [Failover database with link feature in SSMS](managed-instance-link-use-ssms-to-failover-database.md)
 * [Failover (migrate) database with Azure SQL Managed Instance link feature with T-SQL and PowerShell scripts](managed-instance-link-use-scripts-to-failover-database.md)
