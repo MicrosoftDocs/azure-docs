@@ -25,7 +25,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a basic public load balancer to load balance VMs
-            url: quickstart-basic-public-lb-portal.md
+            url: /quickstart-basic-public-lb-portal.md
      # Card
   - title: Reference
     linkLists:
