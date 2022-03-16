@@ -79,7 +79,17 @@ To see the status and stage of a multi-stage access review:
 1. Once you are on the results page, under **Status** it will tell you which stage the multi-stage review is in. The next stage of the review won't become active until the duration specified during the access review setup has passed. 
 
 1. If a decision has been made, but the review duration for this stage has not expired yet, you can select **Stop current stage** button on the results page. This will trigger the next stage of review.
- 
+
+### View status of Teams Shared Channels and groups review (preview)
+
+To see the status and manage a Teams Shared Channels and groups access review:
+
+1. Once you are on the **Access Reviews** menu option on the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), select the name of the access review you want to view the status of in the list of reviews.  
+
+1. From the review overview, you can see the progress of the reviewers, as well as stop the review early and apply the results. For more information about completing a review, go to [Apply the changes](#apply-the-changes). 
+
+After the review ends and results are applied, B2B Direct Connect users and Teams that the reviewer denied, as well as internal users and B2B Collaboration users the reviewer denied, will be removed from the Team that was reviewed. Once the users are removed from the team, the users will also lose access to all shared channels in that Team. 
+
 ## Retrieve the results
  
 To view the results for a review, click the **Results** page. To view just a user's access, in the Search box, type the display name or user principal name of a user whose access was reviewed.

@@ -199,6 +199,40 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
 1. Continue on to the **settings tab** and finish the rest of the settings and create the review. Follow the instructions in [Next: Settings](#next-settings).
 
+## Create review of Teams Shared Channels and Microsoft 365 groups (preview)
+
+With an increase in external collaboration, you may need to use access reviews to monitor user access to sensitive resources to make sure Azure AD B2B guest users and collaborators should have access to those resources.
+
+You can use Azure AD Access Reviews to review B2B Direct Connect users and the Teams Shared Channels B2B Direct Connect users can access. When you create an access review on a Team or Microsoft 365 group, your reviewers can review continued need for access by B2B Direct Connect users and Teams, in addition to previously support B2B Collaboration users and non-B2B internal users. Reviewers can perform the review directly on Teams. 
+
+Use the following steps to create an access review of a Teams Shared Channel or Microsoft 365 group. To create the review you must be a Global Administrator (Admin), User administrator, or Identity Governance Administrator:
+
+1. Sign in to the Azure Portal as a Global Admin, User Admin or Identity Governance Admin.
+  
+1. Open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
+
+1. On the left menu, select **Access reviews**.
+
+1. Select **+ New access review**.
+
+1. Select **Teams + Groups** and then click **Select teams + groups** to set the **Review scope**. 
+ 
+1. Select a team that has shared channels with 1 or more B2B Direct Connect users or Teams.  
+
+1. Set the **Scope**. 
+    
+    ![Screenshot that shows setting the review scope to for shared channels review.](./media/create-access-review/create-shared-channels-review.png)
+
+    1. Choose **All users** to include internal users as well as the B2B Direct Connect users or Teams and the original B2B Collaboration users.
+    1. Or, chose **Guest users only** to only include B2B Direct Connect users and Teams and B2B Collaboration users. 
+
+1. Continue on to the **Reviews** tab. Select a reviewer to complete the review, then specify the **Duration** and **Review recurrence**. 
+
+> [!NOTE]
+> If you set **Select reviewers** to **Users review their own access**, B2B Direct Connect users and Teams won't be able to review their own access in your tenant. The owner of the Team under review will be asked to review in the B2B Direct Connect user or Team’s place.
+
+1. Go on to the **Settings** tab and congifure additional settings. Then go to the **Review and Create** tab to start your access review. For more detailed information about creating a review and configuration settings, see our [Create a single-stage access review](#create-a-single-stage-access-review).
+
 ## Allow group owners to create and manage access reviews of their groups (preview)
 
 The prerequisite role is a Global or User administrator.
