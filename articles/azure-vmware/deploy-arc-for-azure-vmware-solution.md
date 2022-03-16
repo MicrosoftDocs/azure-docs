@@ -166,7 +166,7 @@ When the script has run successfully, you can check the status to see if Azure A
 - In the left navigation, locate **Operations**.
 - Choose **Azure Arc (preview)**. Azure Arc state will show as **Configured**.
 
-    :::image type="content" source="media/deploy-arc-for-avs/arc-avs-private-cloud-configured.png" alt-text="Image showing navigation to Azure Arc state to verify it's configured."lightbox="media/deploy-arc-for-avs/arc-avs-private-cloud-configured.png":::
+    :::image type="content" source="media/deploy-arc-for-azure-vmware-solution/arc-private-cloud-configured.png" alt-text="Image showing navigation to Azure Arc state to verify it's configured."lightbox="media/deploy-arc-for-azure-vmware-solution/arc-private-cloud-configured.png":::
 
 **Arc enabled VMware resources**
 
@@ -174,7 +174,7 @@ After the private cloud is Arc-enabled, vCenter resources should appear under **
 - From the left navigation, under **Azure Arc VMware resources (preview)**, locate **Virtual machines**.
 - Choose **Virtual machines** to view the vCenter resources.
 
-    :::image type="content" source="media/deploy-arc-for-avs/arc-avs-vmware-resources.png" alt-text="Image showing navigation to Azure Arc VMware virtual machines to view the vCenter resources."lightbox="media/deploy-arc-for-avs/arc-avs-vmware-resources.png"::: 
+    :::image type="content" source="media/deploy-arc-for-azure-vmware-solution/arc-vmware-resources.png" alt-text="Image showing navigation to Azure Arc VMware virtual machines to view the vCenter resources."lightbox="media/deploy-arc-for-azure-vmware-solution/arc-vmware-resources.png"::: 
 
 ### Manage access to VMware resources through Azure Role-Based Access Control
 
@@ -217,7 +217,7 @@ We recommend assigning this role at the subscription level or resource group you
     1. Search for "Azure VMware Solution".
 1. Select **Access control (IAM)** in the table of contents located on the left navigation.
 1. Select **Add role assignment** from the **Grant access to this resource**. 
-   :::image type="content" source="media/deploy-arc-for-avs/assign-custom-role-user-groups.png" alt-text="Image showing navigation to access control IAM and add role assignment."lightbox="media/deploy-arc-for-avs/assign-custom-role-user-groups.png":::
+   :::image type="content" source="media/deploy-arc-for-azure-vmware-solution/assign-custom-role-user-groups.png" alt-text="Image showing navigation to access control IAM and add role assignment."lightbox="media/deploy-arc-for-azure-vmware-solution/assign-custom-role-user-groups.png":::
 1. Select the custom role you want to assign, Azure Arc VMware Solution: **Administrator**, **Private Cloud User**, or **VM Contributor**.
 1. Search for **AAD user** or **group name** that you want to assign this role to.
 1. Select the **AAD user** or **group name**. Repeat this step for each user or group you want to give permission to.
@@ -239,10 +239,10 @@ This section shows users how to create a virtual machine (VM) on VMware vCenter 
 
 - Open the [Azure portal](https://ms.portal.azure.com/)
 - On the **Home** page, search for **virtual machines**. Once you've navigated to **Virtual machines**, select the **+ Create** drop down and select **Azure VMware Solution virtual machine**.
-    :::image type="content" source="media/deploy-arc-for-avs/deploy-vm-arc-avs-1.2.png" alt-text="Image showing the location of the plus Create drop down menu and Azure VMware Solution virtual machine selection option."lightbox="media/deploy-arc-for-avs/deploy-vm-arc-avs-1.2.png"::: 
+    :::image type="content" source="media/deploy-arc-for-azure-vmware-solution/deploy-vm-arc-1.2.png" alt-text="Image showing the location of the plus Create drop down menu and Azure VMware Solution virtual machine selection option."lightbox="media/deploy-arc-for-azure-vmware-solution/deploy-vm-arc-1.2.png"::: 
 
 Near the top of the **Virtual machines** page, you'll find five tabs labeled: **Basics**, **Disks**, **Networking**, **Tags**, and **Review + create**. Follow the steps or options provided in each tab to create your Azure VMware Solution virtual machine.
-:::image type="content" source="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png" alt-text="Image showing the five tabs used in the walk-through steps listed."lightbox="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png":::
+:::image type="content" source="media/deploy-arc-for-azure-vmware-solution/deploy-vm-arc-tabs.png" alt-text="Image showing the five tabs used in the walk-through steps listed."lightbox="media/deploy-arc-for-azure-vmware-solution/deploy-vm-arc-tabs.png":::
 
 **Basics**
 1. In **Project details**, select the **Subscription** and **Resource group** where you want to deploy your VM.
