@@ -1,5 +1,5 @@
 ---
-title: Create a site
+title: Create a site - Azure portal
 titleSuffix: Azure Private 5G Core Preview
 description: This how-to guide shows how to create a site in your private mobile network. 
 author: djrmetaswitch
@@ -10,9 +10,9 @@ ms.date: 01/27/2022
 ms.custom: template-how-to 
 ---
 
-# Create a site - Azure Private 5G Core Preview
+# Create a site using the Azure portal
 
-Azure Private 5G Core private mobile networks include one or more *sites*. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. In this how-to guide, you'll learn how to create a site in your private mobile network.
+Azure Private 5G Core Preview private mobile networks include one or more *sites*. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. In this how-to guide, you'll learn how to create a site in your private mobile network using the Azure portal.
 
 ## Prerequisites
 
