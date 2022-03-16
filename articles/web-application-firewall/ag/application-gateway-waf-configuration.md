@@ -37,7 +37,7 @@ You can configure a WAF exclusion for the following request attributes:
 * Request headers
 * Request cookies
 * Form fields
-* JSON entites
+* JSON entities
 * URL query string arguments
 
 You can specify an exact request header, body, cookie, or query string attribute match. Or, you can optionally specify partial matches. Use the following operators to configure the exclusion:
@@ -68,27 +68,48 @@ Per-rule exclusions are available when you use the OWASP (CRS) Ruleset version 3
 
 #### Example
 
-In this example, you want to exclude the user-agent header. The user-agent request header contains a characteristic string that allows the network protocol peers to identify the application type, operating system, software vendor, or software version of the requesting software user agent. For more information, see [User-Agent](https://developer.mozilla.org/docs/Web/HTTP/Headers/User-Agent).
+In this example, you want to exclude the `User-Agent` request header. The `User-Agent` header contains a characteristic string that allows the network protocol peers to identify the application type, operating system, software vendor, or software version of the requesting software user agent. For more information, see [User-Agent](https://developer.mozilla.org/docs/Web/HTTP/Headers/User-Agent).
 
 There can be any number of reasons to disable evaluating this header. There could be a string that the WAF sees and assumes it’s malicious. For example, the classic SQL attack “x=x” in a string. In some cases, this can be legitimate traffic. So you might need to exclude this header from WAF evaluation.
 
-The following Azure PowerShell cmdlet excludes the `User-Agent` header from evaluation:
+You can use the folllowing code to exclude the `User-Agent` header from evaluation:
 
-<!-- TODO
+# [Azure PowerShell](#tab/powershell)
+
+<!-- TODO -->
+```azurepowershell
 $ruleSet = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleSet `
    -RuleSetType TODO `
    -RuleSetVersion TODO
 
 $ruleGroup = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleGroup -RuleGroupName REQUEST-942-APPLICATION-ATTACK-SQLI
--->
 
-```azurepowershell
 $exclusion = New-AzApplicationGatewayFirewallPolicyExclusion `
    -MatchVariable 'RequestHeaderNames' `
    -SelectorMatchOperator 'Equals' `
    -Selector 'User-Agent' `
    -ExclusionManagedRuleSet $ruleSet
 ```
+
+---
+
+# [Azure CLI](#tab/cli)
+
+<!-- TODO -->
+```azurecli
+
+```
+
+---
+
+# [Bicep](#tab/bicep)
+
+<!-- TODO -->
+```bicep
+
+```
+
+---
 
 ### Global exclusions
 
@@ -98,7 +119,9 @@ You can configure an exclusion to apply across all WAF rules.
 
 This example excludes the value in the *user* parameter that is passed in the request via the URL. For example, say it’s common in your environment for the `user` query string argument to contain a string that the WAF views as malicious content, so it blocks it. You can exclude the `user` query string argument so that the WAF doesn't evaluate the field's value.
 
-The following Azure PowerShell cmdlet excludes the `user` query string argument from evaluation:
+The following example shows how you can exclude the `user` query string argument from evaluation:
+
+# [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell
 $exclusion = New-AzApplicationGatewayFirewallExclusionConfig `
@@ -106,7 +129,26 @@ $exclusion = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator 'StartsWith' `
    -Selector 'user'
 ```
-<!-- TODO presumably it should be Equals, not StartsWith? -->
+
+---
+
+# [Azure CLI](#tab/cli)
+
+<!-- TODO -->
+```azurecli
+
+```
+
+---
+
+# [Bicep](#tab/bicep)
+
+<!-- TODO -->
+```bicep
+
+```
+
+---
 
 If the URL `http://www.contoso.com/?user%281%29=fdafdasfda` is scanned by the WAF, it won't evaluate the string **fdafdasfda**, but it will still evaluate the parameter name **user%281%29**.
 
