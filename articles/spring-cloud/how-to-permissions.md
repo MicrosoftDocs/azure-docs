@@ -69,6 +69,34 @@ The Developer role includes permissions to restart apps and see their log stream
    * **Read : Get Azure Spring Cloud service instance**
    * **Other : List Azure Spring Cloud service instance test keys**
 
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Build Services**
+   * **Other : Get an Upload URL in Azure Spring Cloud**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Builds**
+   * **Write : Write Microsoft Azure Spring Cloud Builds**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Build Results**
+   * **Other : Get an Log File URL in Azure Spring Cloud**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Builders**
+   * **Write : Write Microsoft Azure Spring Cloud Builders**
+   * **Delete : Delete Microsoft Azure Spring Cloud Builders**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Builder BuildpackBinding**
+   * **Write : Write Microsoft Azure Spring Cloud Builder BuildpackBinding**
+   * **Delete : Delete Microsoft Azure Spring Cloud Builder BuildpackBinding**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Supported Buildpacks**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Supported Stacks**
+
    Under **Microsoft.AppPlatform/Spring/apps**, select:
    * **Read : Read Microsoft Azure Spring Cloud application**
    * **Other : Get Microsoft Azure Spring Cloud application resource upload URL**
@@ -119,7 +147,7 @@ The Developer role includes permissions to restart apps and see their log stream
    ![Screenshot that shows the default JSON text.](media/spring-cloud-permissions/create-custom-role-edit-json.png)
 
 8. Paste in the following JSON to define the Developer role:
-
+  - Standard/Basic Tier
    ```json
    {
      "properties": {
@@ -156,7 +184,57 @@ The Developer role includes permissions to restart apps and see their log stream
      }
    }
    ```
-
+  - Enterprise Tier
+   ```json
+   {
+     "properties": {
+       "roleName": "Developer",
+       "description": "",
+       "assignableScopes": [
+         "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+       ],
+       "permissions": [
+         {
+           "actions": [
+             "Microsoft.AppPlatform/Spring/write",
+             "Microsoft.AppPlatform/Spring/read",
+             "Microsoft.AppPlatform/Spring/listTestKeys/action",
+             "Microsoft.AppPlatform/Spring/buildServices/read",
+             "Microsoft.AppPlatform/Spring/buildServices/getResourceUploadUrl/action",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/write",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/results/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/results/getLogFileUrl/action",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/write",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/delete",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/write",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/delete",
+             "Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks/read",
+             "Microsoft.AppPlatform/Spring/buildServices/supportedStacks/read",
+             "Microsoft.AppPlatform/Spring/apps/read",
+             "Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action",
+             "Microsoft.AppPlatform/Spring/apps/bindings/read",
+             "Microsoft.AppPlatform/Spring/apps/domains/read",
+             "Microsoft.AppPlatform/Spring/apps/deployments/write",
+             "Microsoft.AppPlatform/Spring/apps/deployments/read",
+             "Microsoft.AppPlatform/Spring/apps/deployments/start/action",
+             "Microsoft.AppPlatform/Spring/apps/deployments/stop/action",
+             "Microsoft.AppPlatform/Spring/apps/deployments/restart/action",
+             "Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action",
+             "Microsoft.AppPlatform/Spring/certificates/read",
+             "Microsoft.AppPlatform/locations/operationResults/Spring/read",
+             "Microsoft.AppPlatform/locations/operationStatus/operationId/read"
+           ],
+           "notActions": [],
+           "dataActions": [],
+           "notDataActions": []
+         }
+       ]
+     }
+   }
+   ```
    ![Screenshot that shows the JSON for the Developer role.](media/spring-cloud-permissions/create-custom-role-json.png)
 
 9. Select **Save**.
@@ -185,6 +263,38 @@ This procedure defines a role that has permissions to deploy, test, and restart 
    * **Other : Disable Azure Spring Cloud service instance test endpoint**
    * **Other : List Azure Spring Cloud service instance test keys**
    * **Other : Regenerate Azure Spring Cloud service instance test key**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Build Services**
+   * **Other : Get an Upload URL in Azure Spring Cloud**
+  
+  (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/agentPools**, select:
+  * **Read : Read Microsoft Azure Spring Cloud Agent Pools**
+  * **Write : Write Microsoft Azure Spring Cloud Agent Pools**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Builds**
+   * **Write : Write Microsoft Azure Spring Cloud Builds**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Build Results**
+   * **Other : Get an Log File URL in Azure Spring Cloud**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Builders**
+   * **Write : Write Microsoft Azure Spring Cloud Builders**
+   * **Delete : Delete Microsoft Azure Spring Cloud Builders**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Builder BuildpackBinding**
+   * **Write : Write Microsoft Azure Spring Cloud Builder BuildpackBinding**
+   * **Delete : Delete Microsoft Azure Spring Cloud Builder BuildpackBinding**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Supported Buildpacks**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Supported Stacks**
 
    Under **Microsoft.AppPlatform/Spring/apps**, select:
    * **Write : Write Microsoft Azure Spring Cloud application**
@@ -242,7 +352,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
    ![Screenshot that shows the default JSON text.](media/spring-cloud-permissions/create-custom-role-edit-json.png)
 
 5. Paste in the following JSON to define the DevOps Engineer role:
-
+  - Standard/Basic Tier
    ```json
    {
      "properties": {
@@ -261,6 +371,71 @@ This procedure defines a role that has permissions to deploy, test, and restart 
              "Microsoft.AppPlatform/Spring/disableTestEndpoint/action",
              "Microsoft.AppPlatform/Spring/listTestKeys/action",
              "Microsoft.AppPlatform/Spring/regenerateTestKey/action",
+             "Microsoft.AppPlatform/Spring/apps/write",
+             "Microsoft.AppPlatform/Spring/apps/delete",
+             "Microsoft.AppPlatform/Spring/apps/read",
+             "Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action",
+             "Microsoft.AppPlatform/Spring/apps/validateDomain/action",
+             "Microsoft.AppPlatform/Spring/apps/bindings/write",
+             "Microsoft.AppPlatform/Spring/apps/bindings/delete",
+             "Microsoft.AppPlatform/Spring/apps/bindings/read",
+             "Microsoft.AppPlatform/Spring/apps/deployments/write",
+             "Microsoft.AppPlatform/Spring/apps/deployments/delete",
+             "Microsoft.AppPlatform/Spring/apps/deployments/read",
+             "Microsoft.AppPlatform/Spring/apps/deployments/start/action",
+             "Microsoft.AppPlatform/Spring/apps/deployments/stop/action",
+             "Microsoft.AppPlatform/Spring/apps/deployments/restart/action",
+             "Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action",
+             "Microsoft.AppPlatform/Spring/apps/deployments/skus/read",
+             "Microsoft.AppPlatform/locations/checkNameAvailability/action",
+             "Microsoft.AppPlatform/locations/operationResults/Spring/read",
+             "Microsoft.AppPlatform/locations/operationStatus/operationId/read",
+             "Microsoft.AppPlatform/skus/read"
+           ],
+           "notActions": [],
+           "dataActions": [],
+           "notDataActions": []
+         }
+       ]
+     }
+   }
+   ```
+
+   - Enterprise Tier
+   ```json
+   {
+     "properties": {
+       "roleName": "DevOps engineer",
+       "description": "",
+       "assignableScopes": [
+         "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+       ],
+       "permissions": [
+         {
+           "actions": [
+             "Microsoft.AppPlatform/Spring/write",
+             "Microsoft.AppPlatform/Spring/delete",
+             "Microsoft.AppPlatform/Spring/read",
+             "Microsoft.AppPlatform/Spring/enableTestEndpoint/action",
+             "Microsoft.AppPlatform/Spring/disableTestEndpoint/action",
+             "Microsoft.AppPlatform/Spring/listTestKeys/action",
+             "Microsoft.AppPlatform/Spring/regenerateTestKey/action",
+             "Microsoft.AppPlatform/Spring/buildServices/read",
+             "Microsoft.AppPlatform/Spring/buildServices/getResourceUploadUrl/action",
+             "Microsoft.AppPlatform/Spring/buildServices/agentPools/read",
+             "Microsoft.AppPlatform/Spring/buildServices/agentPools/write",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/write",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/results/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/results/getLogFileUrl/action",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/write",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/delete",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/write",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/delete",
+             "Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks/read",
+             "Microsoft.AppPlatform/Spring/buildServices/supportedStacks/read",
              "Microsoft.AppPlatform/Spring/apps/write",
              "Microsoft.AppPlatform/Spring/apps/delete",
              "Microsoft.AppPlatform/Spring/apps/read",
@@ -345,7 +520,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
    ![Screenshot that shows the default JSON text.](media/spring-cloud-permissions/create-custom-role-edit-json.png)
 
 5. Paste in the following JSON to define the Ops - Site Reliability Engineering role:
-
+   - Enterprise/Standard/Basic Tier
    ```json
    {
      "properties": {
@@ -402,6 +577,34 @@ This role can create and configure everything in Azure Spring Cloud and apps wit
    * **Other : Disable Azure Spring Cloud service instance test endpoint**
    * **Other : List Azure Spring Cloud service instance test keys**
    * **Other : Regenerate Azure Spring Cloud service instance test key**
+  
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Build Services**
+   * **Other : Get an Upload URL in Azure Spring Cloud**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Builds**
+   * **Write : Write Microsoft Azure Spring Cloud Builds**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Build Results**
+   * **Other : Get an Log File URL in Azure Spring Cloud**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Builders**
+   * **Write : Write Microsoft Azure Spring Cloud Builders**
+   * **Delete : Delete Microsoft Azure Spring Cloud Builders**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Builder BuildpackBinding**
+   * **Write : Write Microsoft Azure Spring Cloud Builder BuildpackBinding**
+   * **Delete : Delete Microsoft Azure Spring Cloud Builder BuildpackBinding**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Supported Buildpacks**
+
+   (For Enterprise Tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
+   * **Read : Read Microsoft Azure Spring Cloud Supported Stacks**
 
    Under **Microsoft.AppPlatform/Spring/apps**, select:
    * **Write : Write Microsoft Azure Spring Cloud application**
@@ -459,7 +662,7 @@ This role can create and configure everything in Azure Spring Cloud and apps wit
    ![Screenshot that shows the default JSON text.](media/spring-cloud-permissions/create-custom-role-edit-json.png)
 
 5. Paste in the following JSON to define the Azure Pipelines / Jenkins / GitHub Actions role:
-
+   - Standard/Basic Tier
    ```json
    {
      "properties": {
@@ -478,6 +681,68 @@ This role can create and configure everything in Azure Spring Cloud and apps wit
              "Microsoft.AppPlatform/Spring/disableTestEndpoint/action",
              "Microsoft.AppPlatform/Spring/listTestKeys/action",
              "Microsoft.AppPlatform/Spring/regenerateTestKey/action",
+             "Microsoft.AppPlatform/Spring/apps/write",
+             "Microsoft.AppPlatform/Spring/apps/delete",
+             "Microsoft.AppPlatform/Spring/apps/read",
+             "Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action",
+             "Microsoft.AppPlatform/Spring/apps/validateDomain/action",
+             "Microsoft.AppPlatform/Spring/apps/bindings/write",
+             "Microsoft.AppPlatform/Spring/apps/bindings/delete",
+             "Microsoft.AppPlatform/Spring/apps/bindings/read",
+             "Microsoft.AppPlatform/Spring/apps/deployments/write",
+             "Microsoft.AppPlatform/Spring/apps/deployments/delete",
+             "Microsoft.AppPlatform/Spring/apps/deployments/read",
+             "Microsoft.AppPlatform/Spring/apps/deployments/start/action",
+             "Microsoft.AppPlatform/Spring/apps/deployments/stop/action",
+             "Microsoft.AppPlatform/Spring/apps/deployments/restart/action",
+             "Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action",
+             "Microsoft.AppPlatform/skus/read",
+             "Microsoft.AppPlatform/locations/checkNameAvailability/action",
+             "Microsoft.AppPlatform/locations/operationResults/Spring/read",
+             "Microsoft.AppPlatform/locations/operationStatus/operationId/read"
+           ],
+           "notActions": [],
+           "dataActions": [],
+           "notDataActions": []
+         }
+       ]
+     }
+   }
+   ```
+
+  - Enterprise Tier
+   ```json
+   {
+     "properties": {
+       "roleName": "Azure Pipelines/Provisioning",
+       "description": "",
+       "assignableScopes": [
+         "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+       ],
+       "permissions": [
+         {
+           "actions": [
+             "Microsoft.AppPlatform/Spring/write",
+             "Microsoft.AppPlatform/Spring/delete",
+             "Microsoft.AppPlatform/Spring/read",
+             "Microsoft.AppPlatform/Spring/enableTestEndpoint/action",
+             "Microsoft.AppPlatform/Spring/disableTestEndpoint/action",
+             "Microsoft.AppPlatform/Spring/listTestKeys/action",
+             "Microsoft.AppPlatform/Spring/regenerateTestKey/action",
+             "Microsoft.AppPlatform/Spring/buildServices/read",
+             "Microsoft.AppPlatform/Spring/buildServices/getResourceUploadUrl/action",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/write",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/results/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builds/results/getLogFileUrl/action",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/write",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/delete",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/read",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/write",
+             "Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/delete",
+             "Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks/read",
+             "Microsoft.AppPlatform/Spring/buildServices/supportedStacks/read",
              "Microsoft.AppPlatform/Spring/apps/write",
              "Microsoft.AppPlatform/Spring/apps/delete",
              "Microsoft.AppPlatform/Spring/apps/read",
