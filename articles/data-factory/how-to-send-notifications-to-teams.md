@@ -184,9 +184,19 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  Select the new "Web" activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
 
-1.  In the "General" tab, specify **Invoke Teams Webhook Url** for **Name** of the "Web" activity.
+1.  In the "General" pane, specify **Invoke Teams Webhook Url** for **Name** of the "Web" activity.
 
-    :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-name.png" alt-text="Shows the &quot;Web&quot; activity general tab.":::
+    :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-name.png" alt-text="Shows the &quot;Web&quot; activity general pane.":::
+
+1.  In the "Settings" pane, set following properties as follows:
+
+    | Property     | value                                          | 
+    | :----------- | :--------------------------------------------- |
+    | URL          | ``@pipeline().parameters.teamWebhookUrl``      |
+    | Method       | POST                                           |
+    | Body         | ``@json(variables('messageCard'))``            |
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-settings-pane.png" alt-text="Shows the &quot;Web&quot; activity settings pane.":::
 
 1.  Search for "teams", then select and use the **Send notification to a channel in Microsoft Teams** template.
     
