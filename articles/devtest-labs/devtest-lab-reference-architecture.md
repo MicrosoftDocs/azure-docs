@@ -25,7 +25,7 @@ This DevTest Labs enterprise reference architecture has the following components
 
 - VMs and other software-as-a-service (SaaS), infrastructure-as-a-service (IaaS), and PaaS resources.
 
-  DevTest Labs instances contain VMs and other Azure resources like PaaS environments and VM artifacts. Artifacts are tools, actions, or software to add to lab VMs. 
+  DevTest Labs instances contain VMs and other Azure resources like PaaS environments and VM artifacts. Artifacts are actions to take or tools and software to add to lab VMs.
 
 - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity management.
 
@@ -63,7 +63,7 @@ DevTest Labs has no built-in quotas or limits, but other Azure resources that la
   Two strategies can help you stay under resource group limits:
 
   - [All VMs go in the same resource group](resource-group-control.md). This strategy helps you meet the resource group limit, but it affects the resource-type-per-resource-group limit.
-  - [Use shared Public IPs](devtest-lab-shared-ip.md). If VMs are allowed to have public IP addresses, put all VMs of the same size and region into the same resource group. This configuration helps meet both resource group quotas and resource-type-per-resource-group quotas.
+  - [Use shared public IPs](devtest-lab-shared-ip.md). If VMs are allowed to have public IP addresses, put all VMs of the same size and region into the same resource group. This configuration helps meet both resource group quotas and resource-type-per-resource-group quotas.
 
 - Resources per resource group per resource type. The default limit for [resources per resource group per resource type is 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Putting all VMs in the same resource group hits this limit much sooner, especially if the VMs have many extra disks.
 
@@ -71,7 +71,7 @@ DevTest Labs has no built-in quotas or limits, but other Azure resources that la
 
 - Role assignments. A role assignment gives a user or principal access to a resource. Azure has a limit of [2,000 role assignments per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
 
-  By default, DevTest Labs creates a resource group for each VM. The VM creator gets *owner* permission for the VM and *reader* permission to the resource group. So each new VM uses two role assignments. Granting user permissions to the lab also uses role assignments.
+  By default, DevTest Labs creates a resource group for each lab VM. The VM creator gets *owner* permission for the VM and *reader* permission to the resource group. So each lab VM uses two role assignments. Granting user permissions to the lab also uses role assignments.
   
 - API reads/writes. You can automate Azure and DevTest Labs by using REST APIs, PowerShell, Azure CLI, and Azure SDK. Each Azure subscription allows up to [12,000 read requests and 1,200 write requests per hour](../azure-resource-manager/management/request-limits-and-throttling.md). By automating DevTest Labs, you might hit the limit on API requests.
 

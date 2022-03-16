@@ -112,18 +112,17 @@ Save the preceding script in a file named *Create-LabVirtualMachine.ps1*. Run th
 
 This section shows how to get the specific properties for the type of VM you want to create. You can get the properties from an Azure Resource Manager (ARM) template in the Azure portal, or by calling the DevTest Labs Azure REST API.
 
-### Get properties from the Azure portal
+### Get VM properties from the Azure portal
 
-Creating a VM in the Azure portal generates an Azure Resource Manager (ARM) template that shows the VM's properties. Once you choose a VM base, you can see the ARM template and get the properties without actually creating the VM. This is the easiest way to get the JSON VM description if you don't already have a lab VM of that type.
+Creating a VM in the Azure portal generates an Azure Resource Manager (ARM) template that shows the VM's properties. Once you choose a VM base, you can see the ARM template and get the properties without actually creating the VM. This method is the easiest way to get the JSON VM description if you don't already have a lab VM of that type.
 
 1. In the [Azure portal](https://portal.azure.com), on the **Overview** page for your lab, select **Add** on the top toolbar.
 1. On the **Choose a base** page, select the VM type you want. Depending on lab settings, the VM base can be an Azure Marketplace image, a custom image, a formula, or an environment.
-1. On the **Create lab resource** page:
-   - Optionally, add artifacts and configure any other settings you want on the **Basic settings** and **Advanced settings** tabs.
-   - On the **Advanced settings** tab, select **View ARM template** at the bottom of the page.
-1. On the **View Azure Resource Manager template** page, review the JSON template for creating the VM. The **resources** section has the VM properties to use in the PowerShell script.
+1. On the **Create lab resource** page, optionally [add artifacts](add-artifact-vm.md) and configure any other settings you want on the **Basic settings** and **Advanced settings** tabs.
+1. On the **Advanced settings** tab, select **View ARM template** at the bottom of the page.
+1. On the **View Azure Resource Manager template** page, review the JSON template for creating the VM. The **resources** section has the VM properties.
 
-   For example, the following snippet shows the properties for a Windows Server 2022 Datacenter VM:
+   For example, the following `resources` section has the properties for a Windows Server 2022 Datacenter VM:
    ```json
      "resources": [
           {
@@ -164,7 +163,7 @@ Creating a VM in the Azure portal generates an Azure Resource Manager (ARM) temp
      ],
    ```
 
-1. Copy and save the template to use in future PowerShell automation, and transfer the needed properties to the PowerShell VM creation script.
+1. Copy and save the template to use in future PowerShell automation, and transfer the properties to the PowerShell VM creation script.
 
    
 
@@ -178,11 +177,11 @@ You can also call the DevTest Labs REST API to get the properties of existing la
    - Under **labResourceGroup**, enter the lab resource group name.
    - Under **subscriptionId**, select the lab's Azure subscription.
 1. Select **Run**. 
-1. In the **Response** section under **Body**, view the properties for all the VMs in the lab.
+1. In the **Response** section under **Body**, view the properties for all the existing VMs in the lab.
 
 ## Set VM expiration date
 
-In training, demo, and trial scenarios, you can avoid unnecessary costs by deleting VMs automatically after a certain time. You can set the VM `expirationDate` property when you create a VM. The PowerShell VM creation script earlier in this article sets an expiration date under `properties`:
+In training, demo, and trial scenarios, you can avoid unnecessary costs by deleting VMs automatically on a certain date. You can set the VM `expirationDate` property when you create a VM. The PowerShell VM creation script earlier in this article sets an expiration date under `properties`:
 
 ```json
           "expirationDate"          = "2022-12-01"
@@ -220,4 +219,4 @@ Set-AzResource -ResourceId $VmResourceId -Properties $VmProperties -Force
 
 ## Next steps
 
-See the following content: [Azure PowerShell documentation for Azure DevTest Labs](/powershell/module/az.devtestlabs/)
+[Az.DevTestLabs PowerShell reference](/powershell/module/az.devtestlabs/)
