@@ -481,10 +481,10 @@ items:
     href: orchestration-workflow/faq.md
   - name: How-to guides
     items:
-      - name: Create projects
+      - name: Create project and build schema
         href: orchestration-workflow/how-to/create-project.md
-      - name: Build a schema
-        href: orchestration-workflow/how-to/build-schema.md
+      - name: Tag utterances
+        href: orchestration-workflow/how-to/tag-utterances.md
       - name: Train a model
         href: orchestration-workflow/how-to/train-model.md
       - name: Deploy a model and get predictions
