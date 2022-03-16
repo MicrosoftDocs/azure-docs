@@ -8,8 +8,8 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: guide
-author: sasapopo
-ms.author: sasapopo
+author: sasapopo, danimir
+ms.author: sasapopo, danil
 ms.reviewer: mathoma
 ms.date: 03/10/2022
 ---
