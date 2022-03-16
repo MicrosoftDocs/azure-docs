@@ -74,7 +74,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     The Network Security Groups (NSGs) and firewalls must have appropriately configured rules to allow for Active Directory and DNS traffic requests. 
 
-* The Azure NetApp Files delegated subnet must be able to reach all Active Directory Domain Services (ADDS) domain controllers in the domain, including all local and remote domain controllers. Otherwise, service interruption can occur.  
+* The Azure NetApp Files delegated subnet must be able to reach all Active Directory Domain Services (AD DS) domain controllers in the domain, including all local and remote domain controllers. Otherwise, service interruption can occur.  
 
     If you have domain controllers that are unreachable by the Azure NetApp Files delegated subnet, you can specify an Active Directory site during creation of the Active Directory connection.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space is.
 
@@ -111,15 +111,15 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 ## Decide which Domain Services to use 
 
-Azure NetApp Files supports both [Active Directory Domain Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (ADDS) and Azure Active Directory Domain Services (AADDS) for AD connections.  Before you create an AD connection, you need to decide whether to use ADDS or AADDS.  
+Azure NetApp Files supports both [Active Directory Domain Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (AD DS) and Azure Active Directory Domain Services (AADDS) for AD connections.  Before you create an AD connection, you need to decide whether to use AD DS or AADDS.  
 
 For more information, see [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](../active-directory-domain-services/compare-identity-solutions.md). 
 
 ### Active Directory Domain Services
 
-You can use your preferred [Active Directory Sites and Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) scope for Azure NetApp Files. This option enables reads and writes to Active Directory Domain Services (ADDS) domain controllers that are [accessible by Azure NetApp Files](azure-netapp-files-network-topologies.md). It also prevents the service from communicating with domain controllers that are not in the specified Active Directory Sites and Services site. 
+You can use your preferred [Active Directory Sites and Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) scope for Azure NetApp Files. This option enables reads and writes to Active Directory Domain Services (AD DS) domain controllers that are [accessible by Azure NetApp Files](azure-netapp-files-network-topologies.md). It also prevents the service from communicating with domain controllers that are not in the specified Active Directory Sites and Services site. 
 
-To find your site name when you use ADDS, you can contact the administrative group in your organization that is responsible for Active Directory Domain Services. The example below shows the Active Directory Sites and Services plugin where the site name is displayed: 
+To find your site name when you use AD DS, you can contact the administrative group in your organization that is responsible for Active Directory Domain Services. The example below shows the Active Directory Sites and Services plugin where the site name is displayed: 
 
 ![Active Directory Sites and Services](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-services.png)
 
@@ -226,10 +226,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
 
     * **LDAP over TLS**   
-        See [Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) for information about this option.
+        See [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) for information about this option.
 
     * **LDAP Search Scope**, **User DN**, **Group DN**, and **Group Membership Filter**   
-        See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
+        See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
 
      * **Security privilege users**   <!-- SMB CA share feature -->   
         You can grant security privilege (`SeSecurityPrivilege`) to AD users or groups that require elevated privilege to access the Azure NetApp Files volumes. The specified AD users or groups will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users.   
@@ -337,5 +337,5 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm) 
-* [Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
-* [ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
+* [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
+* [AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
