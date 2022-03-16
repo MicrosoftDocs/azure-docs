@@ -3,16 +3,16 @@ title: 'Quickstart: Run a custom container on App Service'
 description: Get started with containers on Azure App Service by deploying your first custom container.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 06/30/2021
+ms.date: 03/11/2022
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-other, devdivchpfy22
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
 # Run a custom container in Azure
 
 ::: zone pivot="container-windows"
-[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the preconfigured application stacks [lock down the operating system and prevent low-level access](operating-system-functionality.md). Custom Windows containers do not have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
+[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the pre-configured application stacks [lock down the operating system and prevent low-level access](operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
 This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Azure Container Registry](../container-registry/container-registry-intro.md) from Visual Studio. You run the app in a custom container in Azure App Service.
 
@@ -62,11 +62,11 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Solution Explorer**, right-click the **myfirstazurewebapp** project and select **Publish**.
 
-1. In **Target**, select **Docker Container Registry**, and then click **Next**.
+1. In **Target**, select **Docker Container Registry**, and then select **Next**.
 
     :::image type="content" source="./media/quickstart-custom-container/select-docker-container-registry-visual-studio-2022.png?text=Select Docker Container Registry" alt-text="Select Docker Container Registry":::
 
-1. In **Specific Target**, select **Azure Container Registry**, and then click **Next**.
+1. In **Specific Target**, select **Azure Container Registry**, and then select **Next**.
 
     :::image type="content" source="./media/quickstart-custom-container/publish-to-azure-container-registry-visual-studio-2022.png?text=Publish to Azure Container Registry" alt-text="Publish from project overview page":::
 
@@ -74,7 +74,7 @@ Create an ASP.NET web app by following these steps:
 
     :::image type="content" source="./media/quickstart-custom-container/create-new-azure-container-registry.png?text=Create new Azure Container Registry" alt-text="Create new Azure Container Registry":::
 
-1. In **Create new**, make sure the correct subscription is chosen. Under **Resource group**, select **New** and type *myResourceGroup* for the name, and click **OK**. Under **SKU**, select **Basic**. Under **Registry location**, select a location of the registry then select **Create**.
+1. In **Create new**, make sure the correct subscription is chosen. Under **Resource group**, select **New** and type *myResourceGroup* for the name, and select **OK**. Under **SKU**, select **Basic**. Under **Registry location**, select a location of the registry then select **Create**.
 
     :::image type="content" source="./media/quickstart-custom-container/new-azure-container-registry-details.png?text=Azure Container Registry details" alt-text="Azure Container Registry details":::
 
@@ -104,9 +104,10 @@ Create an ASP.NET web app by following these steps:
 
    ![Configure your a Web App for Containers](media/quickstart-custom-container/configure-web-app-container.png)
 
-    If you have a custom image elsewhere for your web application, such as in [Azure Container Registry](../container-registry/index.yml) or in any other private repository, you can configure it here.
+    If you have a custom image elsewhere for your web application, such as in [Azure Container Registry](../container-registry/index.yml) or in any other private repository, you can configure it here. Select **Review + Create** to continue.
 
-1. Select **Review and Create** and then **Create** and wait for Azure to create the required resources.
+1. Verify all the details and then select **Create** and wait for Azure to create the required resources.
+![Create your a Web App for Containers](media/quickstart-custom-container/web-app-container-create-start.png)
 
 ## Browse to the custom container
 
@@ -135,7 +136,7 @@ It may take some time for the Windows container to load. To see the progress, na
 https://<app_name>.scm.azurewebsites.net/api/logstream
 ```
 
-The streamed logs looks like this:
+The streamed logs look like this:
 
 ```
 2018-07-27T12:03:11  Welcome, you are now connected to log-streaming service.
@@ -183,7 +184,7 @@ Or, check out other resources:
 ::: zone-end  
 
 ::: zone pivot="container-linux"
-App Service on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that is not already defined in Azure. This quickstart shows you how to deploy an image from an [Azure Container Registry](../container-registry/index.yml) (ACR) to App Service.
+App Service on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from an [Azure Container Registry](../container-registry/index.yml) (ACR) to App Service.
 
 ## Prerequisites
 
@@ -217,7 +218,7 @@ Create a container registry by following the instructions in [Quickstart: Create
 
 ## Check prerequisites
 
-Verify that you have Docker installed and running. The following command will display the Docker version if it is running.
+Verify that you have Docker installed and running. The following command will display the Docker version if it's running.
 
 ```bash
 docker --version
@@ -298,7 +299,7 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 
 ## Deploy to container registry
 
-1. In the Activity Bar, click the **Docker** icon. In the **IMAGES** explorer, find the image you just built.
+1. In the Activity Bar, click the **Docker** icon. In the **IMAGES** explorer, find the image you built.
 1. Expand the image, right-click on the tag you want, and click **Push**.
 1. Make sure the image tag begins with `<acr-name>.azurecr.io` and press **Enter**.
 1. When Visual Studio Code finishes pushing the image to your container registry, click **Refresh** at the top of the **REGISTRIES** explorer and verify that the image is pushed successfully.
@@ -307,7 +308,7 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 
 ## Deploy to App Service
 
-1. In the **REGISTRIES** explorer, expand the image, right-click the tag, and click **Deploy image to Azure App Service**.
+1. In the **REGISTRIES** explorer, expand the image, right-click the tag, and select **Deploy image to Azure App Service**.
 1. Follow the prompts to choose a subscription, a globally unique app name, a resource group, and an App Service plan. Choose **B1 Basic** for the pricing tier, and a region near you.
 
 After deployment, your app is available at `http://<app-name>.azurewebsites.net`.
@@ -318,7 +319,7 @@ An **App Service Plan** defines the physical resources that will be used to host
 
 ## Browse the website
 
-The **Output** panel shows the status of the deployment operations. When the operation completes, click **Open Site** in the pop-up notification to open the site in your browser.
+The **Output** panel shows the status of the deployment operations. When the operation completes, select **Open Site** in the pop-up notification to open the site in your browser.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)
