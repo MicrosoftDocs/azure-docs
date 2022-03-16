@@ -43,11 +43,6 @@ If you're using a [custom domain](custom-domain.md), replace `{tenant}.b2clogin.
 
 In nearly all OAuth and OpenID Connect flows, four parties are involved in the exchange:
 
-
-
-
-In nearly all OAuth and OpenID Connect flows, four parties are involved in the exchange:
-
 :::image type="content" source="./media/protocols-overview/protocols_roles.png" alt-text="Diagram showing the four OAuth 2.0 Roles.":::
 
 * The **authorization server** is the Azure AD B2C endpoint. It securely handles anything related to user information and access. It also handles the trust relationships between the parties in a flow. It is responsible for verifying the user's identity, granting and revoking access to resources, and issuing tokens. It is also known as the identity provider.
