@@ -22,7 +22,7 @@ This article will walk you through the setup process for creating a host pool fo
 
 ## Prerequisites
 
-Before you can create a host pool, make sure you've completed the prerequisites.  For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md).
+Before you can create a host pool, make sure you've completed the prerequisites. For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md).
 
 ## Begin the host pool setup process
 
@@ -33,9 +33,9 @@ To start creating your new host pool:
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
    
    >[!NOTE]
-   > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
+   > If you need to access the Azure US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
    > 
-   >If you're accessing the Azure China portal, go to [https://portal.azure.cn/](https://portal.azure.cn/).
+   > If you need to access the Azure China portal, go to [https://portal.azure.cn/](https://portal.azure.cn/) instead.
 
 2. Enter **Azure Virtual Desktop** into the search bar, then find and select **Azure Virtual Desktop** under Services.
 
