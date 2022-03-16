@@ -84,7 +84,7 @@ Bursting: Supported<br>
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
+More information on Disks Types: [Disk Types](./disks-types.md#ultra-disks)
 
 
 ## Next steps
