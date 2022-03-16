@@ -26,7 +26,6 @@ Stream Analytics supports two types of managed identities:
 *	System-assigned Identity: When you enable a system-assigned managed identity for your job, you create an identity in Azure AD that is tied to the lifecycle of that job. So when you delete the resource, Azure automatically deletes the identity for you. 
 *	User-assigned Identity: You may also create a managed identity as a standalone Azure resource and assign it to your Stream Analytics job. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it.
 
-To learn more about managed identities, see [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 
 
