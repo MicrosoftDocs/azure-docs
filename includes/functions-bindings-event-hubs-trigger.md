@@ -460,6 +460,4 @@ The Event Hubs trigger provides several [metadata properties](../articles/azure-
 
 See [code examples](#example) that use these properties earlier in this article.
 
-[!INCLUDE [functions-event-hubs-connections](./functions-event-hubs-connections.md)]
-
 [EventHubTriggerAttribute]: /dotnet/api/microsoft.azure.webjobs.eventhubtriggerattribute
