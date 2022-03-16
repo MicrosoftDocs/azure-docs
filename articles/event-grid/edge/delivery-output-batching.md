@@ -13,11 +13,7 @@ ms.topic: article
 Event Grid has support to deliver more than one event in a single delivery request. This feature makes it possible to increase the overall delivery throughput without paying the HTTP per-request overheads. Batching is turned off by default and can be turned on per-subscription.
 
 > [!IMPORTANT]
-> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge ](transition.md). 
-
-> [!IMPORTANT]
-> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge ](transition.md). 
-
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
 
 
 > [!WARNING]
