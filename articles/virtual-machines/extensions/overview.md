@@ -4,8 +4,8 @@ description: Learn more about Azure VM extensions
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.date: 08/03/2020
 
 ---

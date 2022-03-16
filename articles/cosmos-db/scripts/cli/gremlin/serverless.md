@@ -27,7 +27,7 @@ The script in this article demonstrates creating a Gremlin serverless account, d
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/serverless.sh" range="4-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/serverless.sh" id="FullScript":::
 
 ## Clean up resources
 

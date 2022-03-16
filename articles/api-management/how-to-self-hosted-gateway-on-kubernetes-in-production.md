@@ -28,7 +28,7 @@ The Azure portal provides commands to create self-hosted gateway resources in th
 Consider [creating and deploying](https://www.kubernetesbyexample.com/) a self-hosted gateway into a separate namespace in production.
 
 ## Number of replicas
-The minimum number of replicas suitable for production is two.
+The minimum number of replicas suitable for production is three, preferably combined with [high-available scheduling of the instances](#high-availability).
 
 By default, a self-hosted gateway is deployed with a **RollingUpdate** deployment [strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy). Review the default values and consider explicitly setting the [maxUnavailable](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#max-unavailable) and [maxSurge](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#max-surge) fields, especially when you're using a high replica count.
 

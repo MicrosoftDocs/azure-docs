@@ -1,19 +1,19 @@
 ---
 title: Indexer access to protected resources
 titleSuffix: Azure Cognitive Search
-description: Conceptual overview of the network-level security options for Azure data access by indexers in Azure Cognitive Search.
+description: Learn import concepts and requirements related to network-level security options for outbound requests made by indexers in Azure Cognitive Search.
 
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 03/10/2022
 ---
 
 # Indexer access to content protected by Azure network security features
 
-Azure Cognitive Search indexers can make outbound calls to various Azure resources during execution. This article explains the concepts behind indexer access to content that is protected by IP firewalls, private endpoints, or other Azure network-level security mechanisms. 
+Azure Cognitive Search indexers can make outbound calls to various Azure resources during execution. This article explains the concepts behind indexer access to content that's protected by IP firewalls, private endpoints, or other Azure network-level security mechanisms. 
 
 An indexer makes outbound calls in two situations:
 
@@ -30,17 +30,18 @@ A list of all possible resource types that an indexer might access in a typical 
 | Azure SQL Database | Data source |
 | SQL Server on Azure virtual machines | Data source |
 | SQL Managed Instance | Data source |
-| Azure Functions | Host for custom web api skills |
-| Cognitive Services | Attached to skillset that will be used to bill enrichment beyond the 20 free documents limit |
+| Azure Functions | Attached to a skillset and used to host for custom web api skills |
+| Cognitive Services | Attached to a skillset and used to bill enrichment beyond the 20 free documents limit |
 
 > [!NOTE]
-> The Cognitive Service resource attached to a skillset is used for billing, based on the enrichments performed and written into the search index. It is not used for accessing the Cognitive Services APIs. Access from an indexer's enrichment pipeline to Cognitive Services APIs occurs via an internal secure communication channel, where data is strongly encrypted in transit and is never stored at rest.
+> A Cognitive Service resource attached to a skillset is used for billing, based on the enrichments performed and written into the search index or a knowledge store. It isn't used for accessing the Cognitive Services APIs. Access from an indexer's enrichment pipeline to Cognitive Services APIs occurs via an internal secure communication channel, where data is strongly encrypted in transit and is never stored at rest.
 
-Customers can secure these resources via several network isolation mechanisms offered by Azure. With the exception of a Cognitive Service resource, indexers have limited ability to access all other resources even if they are network-isolated, outlined in the table below.
+Your Azure resources could be protected using any number of the network isolation mechanisms offered by Azure. Depending on the resource and region, Cognitive Search indexers can make outbound connections through IP firewalls and private endpoints, subject to the limitations indicated in the following table.
 
 | Resource | IP Restriction | Private endpoint |
 | --- | --- | ---- |
-| Azure Storage (blobs, tables, ADLS Gen 2) | Supported only if the storage account and search service are in different regions | Supported |
+| Azure Storage for text-based indexing (blobs, tables, ADLS Gen 2) | Supported only if the storage account and search service are in different regions. | Supported |
+| Azure Storage for AI enrichment (caching, knowledge store, debug sessions) | Supported only if the storage account and search service are in different regions, and when the search service connects using a full access connection string. Managed identity is not currently supported for write back operations to an IP restricted storage account. | Unsupported |
 | Azure Cosmos DB - SQL API | Supported | Supported |
 | Azure Cosmos DB - MongoDB API | Supported | Unsupported |
 | Azure Cosmos DB - Gremlin API | Supported | Unsupported |
@@ -50,19 +51,13 @@ Customers can secure these resources via several network isolation mechanisms of
 | Azure Functions | Supported | Supported, only for certain tiers of Azure functions |
 
 > [!NOTE]
-> In addition to the options listed above, for network-secured Azure Storage accounts, customers can leverage the fact that Azure Cognitive Search is a [trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services). This means that a specific search service can bypass virtual network or IP restrictions on the storage account and can access data in the storage account, if the appropriate role-based access control is enabled on the storage account. For more information, see [Indexer connections using the trusted service exception](search-indexer-howto-access-trusted-service-exception.md). This option can be utilized instead of the IP restriction route, in case either the storage account or the search service cannot be moved to a different region.
-
-When choosing a secure access mechanism, consider the following constraints:
-
-- An indexer cannot connect to a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md). Public endpoints with credentials, private endpoints, trusted service, and IP addressing are the only supported methodologies for indexer connections.
-- A search service always runs in the cloud and cannot be provisioned into a specific virtual network, running natively on a virtual machine. This functionality will not be offered by Azure Cognitive Search.
-- When indexers utilize (outbound) private endpoints to access resources, additional [private link charges](https://azure.microsoft.com/pricing/details/search/) may apply.
+> In addition to the options listed above, for network-secured Azure Storage accounts, you can make Azure Cognitive Search a [trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services). This means that a specific search service can bypass virtual network or IP restrictions on the storage account and can access data in the storage account, if the appropriate role-based access control is enabled on the storage account. For more information, see [Indexer connections using the trusted service exception](search-indexer-howto-access-trusted-service-exception.md). This option can be utilized instead of the IP restriction route, in case either the storage account or the search service can't be moved to a different region.
 
 ## Indexer execution environment
 
 Azure Cognitive Search indexers are capable of efficiently extracting content from data sources, adding enrichments to the extracted content, optionally generating projections before writing the results to the search index.
 
-For optimum processing, a search service will determine an internal execution environment to set up the operation. You cannot control or configure the environment, but it's important to know they exist so that you can account for them when setting up IP firewall rules.
+For optimum processing, a search service will determine an internal execution environment to set up the operation. You can't control or configure the environment, but it's important to know they exist so that you can account for them when setting up IP firewall rules.
 
 Depending on the number and types of tasks assigned, the indexer will run in one of two environments:
 
@@ -70,11 +65,11 @@ Depending on the number and types of tasks assigned, the indexer will run in one
 
 - A multi-tenant environment hosting indexers that are resource intensive, such as those with skillsets. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. This multi-tenant environment is managed and secured by Microsoft, at no extra cost to the customer.
 
-For any given indexer run, Azure Cognitive Search determines the best environment in which to run the indexer. If you are using an IP firewall to control access to Azure resources, knowing about execution environments will help you set up an IP range that is inclusive of both, as discussed in the next section.
+For any given indexer run, Azure Cognitive Search determines the best environment in which to run the indexer. If you're using an IP firewall to control access to Azure resources, knowing about execution environments will help you set up an IP range that is inclusive of both, as discussed in the next section.
 
 ## Granting access to indexer IP ranges
 
-If the resource that your indexer pulls data from exists behind a firewall, you'll need [inbound rules that admit indexer connections](search-indexer-howto-access-ip-restricted.md). Make sure that the IP ranges in inbound rules include all of the IPs from which an indexer request can originate. As stated above, there are two possible environments in which indexers run and from which access requests can originate. You will need to add the IP addresses of **both** environments for indexer access to work.
+If the resource that your indexer pulls data from exists behind a firewall, you'll need [inbound rules that admit indexer connections](search-indexer-howto-access-ip-restricted.md). Make sure that the IP ranges in inbound rules include all of the IPs from which an indexer request can originate. As stated above, there are two possible environments in which indexers run and from which access requests can originate. You'll need to add the IP addresses of **both** environments for indexer access to work.
 
 - To obtain the IP address of the search service private environment, use `nslookup` (or `ping`) the fully qualified domain name (FQDN) of your search service. The FQDN of a search service in the public cloud would be `<service-name>.search.windows.net`.
 
@@ -88,13 +83,26 @@ For certain data sources, the service tag itself can be used directly instead of
 
 ## Granting access via private endpoints
 
-Indexers can use [private endpoints](../private-link/private-endpoint-overview.md) on connections to resources that are locked down (running on a protected virtual network, or just not available over a public connection).
+When integrating Azure Cognitive Search into a solution that runs on a virtual network, consider the following constraints:
 
-This functionality is only available in billable search services (Basic and above), subject to tier limits on the number of private endpoints that can be created for text-based and skill-based indexing. For more information, see the["Shared private link resource limits" section](search-limits-quotas-capacity.md#shared-private-link-resource-limits)in the service limits documentation.
+- An indexer can't make a direct connection to a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md). Public endpoints with credentials, private endpoints, trusted service, and IP addressing are the only supported methodologies for indexer connections.
+- A search service always runs in the cloud and can't be provisioned into a specific virtual network, running natively on a virtual machine. This functionality will not be offered by Azure Cognitive Search.
+
+To achieve integration, you can use [private endpoints](../private-link/private-endpoint-overview.md) on outbound connections to resources that are locked down (running on a protected virtual network, or just not available over a public connection). 
+
+The mechanism by which a search service connects to your protected resource is through a shared private link. A shared private link is [Azure Private Link](../private-link/private-link-overview.md) resource that's created, managed, and used from within Cognitive Search.
+
+### Billing impact 
+
+- A shared private link requires a billable search service, where the minimum tier is either Basic for text-based indexing or Standard 2 (S2) for skills-based indexing. See [tier limits on the number of private endpoints](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details. 
+
+- Inbound and outbound connections are subject to [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 ### Step 1: Create a private endpoint to the secure resource
 
-Customers should call the search management operation, [CreateOrUpdate API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) on a **shared private link resource**,  in order to create a private endpoint connection to their secure resource (for example, a storage account). Traffic that goes over this (outbound) private endpoint connection will originate only from the virtual network that's in the search service specific "private" indexer execution environment.
+In Azure Cognitive Search, you can create a shared private link using either the portal or a [management API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update). 
+
+Traffic that goes over this (outbound) private endpoint connection will originate only from the virtual network that's in the search service specific "private" indexer execution environment.
 
 Azure Cognitive Search will validate that callers of this API have Azure RBAC role permissions to approve private endpoint connection requests to the secure resource. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
 
@@ -109,9 +117,9 @@ The customer is then expected to locate this request on their secure resource an
 An approved private endpoint allows outgoing calls from the search service to a resource that has some form of network level access restrictions (for example a storage account data source that is configured to only be accessed from certain virtual networks) to succeed.
 
 This means any indexer that is able to reach out to such a data source over the private endpoint will succeed.
-If the private endpoint is not approved, or if the indexer does not utilize the private endpoint connection then the indexer run will end up in `transientFailure`.
+If the private endpoint isn't approved, or if the indexer doesn't utilize the private endpoint connection then the indexer run will end up in `transientFailure`.
 
-To enable indexers to access resources via private endpoint connections, it is mandatory to set the `executionEnvironment` of the indexer to `"Private"` to ensure that all indexer runs will be able to utilize the private endpoint. This is because private endpoints are provisioned within the private search service-specific environment.
+To enable indexers to access resources via private endpoint connections, it's mandatory to set the `executionEnvironment` of the indexer to `"Private"` to ensure that all indexer runs will be able to utilize the private endpoint. This is because private endpoints are provisioned within the private search service-specific environment.
 
 ```json
     {

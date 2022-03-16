@@ -87,10 +87,10 @@ With the information in this phase, you will be able to decide how your servers 
 
 ### Mounting an Azure file share
 
-Before you can use RoboCopy, you need to make the Azure file share accessible over SMB. The easiest way is to mount the share as a local network drive to the Windows Server you are planning on using for RoboCopy. 
+Before you can use RoboCopy, you need to make the Azure file share accessible over SMB. The easiest way is to mount the share as a local network drive to the Windows Server you are planning on using for RoboCopy.
 
 > [!IMPORTANT]
-> Before you can successfully mount an Azure file share to a local Windows Server, you need to have completed Phase 3: Preparing to use Azure file shares.
+> Make sure you mount the Azure file share using the storage account access key. Don't use a domain identity. Before you can successfully mount an Azure file share to a local Windows Server, you need to have completed Phase 3: Preparing to use Azure file shares.
 
 Once you are ready, review the [Use an Azure file share with Windows how-to article](storage-how-to-use-files-windows.md). Then mount the Azure file share you want to start the RoboCopy for.
 

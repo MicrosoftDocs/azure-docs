@@ -4,8 +4,8 @@ description: Learn how to install and configure Linux Agent (waagent) to manage 
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: amjads
-author: amjads1
+ms.author: gabsta
+author: MsGabsta
 ms.collection: linux
 ms.date: 10/17/2016
 

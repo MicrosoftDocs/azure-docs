@@ -4,6 +4,7 @@ description: Describes the server parameters in Azure Database for PostgreSQL - 
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---

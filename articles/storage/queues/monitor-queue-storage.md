@@ -123,6 +123,8 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
    > [!div class="mx-imgBorder"]
    > ![Diagnostic settings page log analytics](media/monitor-queue-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
+[!INCLUDE [no retention policy log analytics](../../../includes/azure-storage-logs-retention-policy-log-analytics.md)]
+
 ### [PowerShell](#tab/azure-powershell)
 
 1. Open a Windows PowerShell command window, and sign in to your Azure subscription by using the `Connect-AzAccount` command. Then, follow the on-screen directions.
@@ -166,7 +168,7 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `EventHubAuthorizationRuleId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log>
 ```
 
 Here's an example:
@@ -180,8 +182,10 @@ For a description of each parameter, see [Stream data to Event Hubs via PowerShe
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `WorkspaceId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log>
 ```
+
+[!INCLUDE [no retention policy log analytics](../../../includes/azure-storage-logs-retention-policy-log-analytics.md)]
 
 Here's an example:
 
@@ -230,7 +234,7 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
 Enable logs by using the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
 Here's an example:
@@ -244,8 +248,10 @@ For a description of each parameter, see [Stream data to Event Hubs via Azure CL
 Enable logs by using the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true}]'
 ```
+
+[!INCLUDE [no retention policy log analytics](../../../includes/azure-storage-logs-retention-policy-log-analytics.md)]
 
 Here's an example:
 

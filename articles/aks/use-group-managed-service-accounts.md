@@ -77,6 +77,10 @@ Use `az keyvault secret set` to store the standard domain user credential as a s
 az keyvault secret set --vault-name MyAKSGMSAVault --name "GMSADomainUserCred" --value "$Domain\\$DomainUsername:$DomainUserPassword"
 ```
 
+> [!NOTE]
+> Use the Fully Qualified Domain Name for the Domain rather than the Partially Qualified Domain Name that may be used on internal networks.
+
+
 ## Optional: Use a custom VNET with custom DNS
 
 Your domain controller needs to be configured through DNS so it is reachable by the AKS cluster. You can configure your network and DNS outside of your AKS cluster to allow your cluster to access the domain controller. Alternatively, you can configure a custom VNET with a custom DNS using Azure CNI with your AKS cluster to provide access to your domain controller. For more details, see [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][aks-cni].
@@ -200,6 +204,8 @@ credspec:
     NetBiosName: $NETBIOS_DOMAIN_NAME
     Sid: $GMSA_SID
 ```
+
+
 
 Create a *gmsa-role.yaml* with the following.
 

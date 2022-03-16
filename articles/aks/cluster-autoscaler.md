@@ -215,7 +215,7 @@ If you wish to re-enable the cluster autoscaler on an existing cluster, you can 
 
 ## Retrieve cluster autoscaler logs and status
 
-To diagnose and debug autoscaler events, logs and status can be retrieved from the autoscaler add-on.
+To diagnose and debug autoscaler events, logs and status can be retrieved from the cluster autoscaler.
 
 AKS manages the cluster autoscaler on your behalf and runs it in the managed control plane. You can enable control plane node to see the logs and operations from CA.
 

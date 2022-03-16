@@ -204,7 +204,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 ## Enroll in ExpressRoute FastPath features (preview)
 
-FastPath support for virtual network peering is now in Public preview.
+FastPath support for virtual network peering is now in Public preview, both IPv4 and IPv6 scenarios are supported. IPv4 FastPath and Vnet peering can be enabled on connections associated to both ExpressRoute Direct and ExpressRoute Partner circuits. IPv6 FastPath and Vnet peering support is limited to connections associated to ExpressRoute Direct.
 
 ### FastPath and virtual network peering
 

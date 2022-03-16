@@ -108,11 +108,11 @@ To use a container registry, you first define the required fields to the [config
 ```json
 {
   ...
-  "registries": {
+  "registries": [{
     "server": "docker.io",
     "username": "my-registry-user-name",
     "passwordSecretRef": "my-password-secretref-name"
-  }
+  }]
 }
 ```
 

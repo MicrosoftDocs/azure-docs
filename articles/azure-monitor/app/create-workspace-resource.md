@@ -15,6 +15,9 @@ This also allows for common Azure role-based access control (Azure RBAC) across 
 > [!NOTE]
 > Data ingestion and retention for workspace-based Application Insights resources are billed through the Log Analytics workspace where the data is located. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+
 ## New capabilities
 
 Workspace-based Application Insights allows you to take advantage of the latest capabilities of Azure Monitor and Log Analytics including:
@@ -153,7 +156,7 @@ The `New-AzApplicationInsights` PowerShell command does not currently support cr
             "properties": {
                 "ApplicationId": "[parameters('name')]",
                 "Application_Type": "[parameters('type')]",
-                "Flow_Type": "Redfield",
+                "Flow_Type": "Bluefield",
                 "Request_Source": "[parameters('requestSource')]",
                 "WorkspaceResourceId": "[parameters('workspaceResourceId')]"
             }

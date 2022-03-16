@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 01/28/2022
+ms.date: 03/15/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -11,6 +11,9 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 You apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name _Environment_ and the value _Production_ to all the resources in production.
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
+
+> [!WARNING]
+> Tags are stored as plain text. Never add sensitive values to tags. Sensitive values could be exposed through many methods, including cost reports, tag taxonomies, deployment histories, exported templates, and monitoring logs.
 
 > [!IMPORTANT]
 > Tag names are case-insensitive for operations. A tag with a tag name, regardless of casing, is updated or retrieved. However, the resource provider might keep the casing you provide for the tag name. You'll see that casing in cost reports.

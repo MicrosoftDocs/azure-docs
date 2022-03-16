@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the data ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/07/2021
+ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -39,7 +39,7 @@ You may want to send Azure Digital Twins data to other downstream services for s
 
 To send twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), set up a [data history connection](concepts-data-history.md) that automatically historizes digital twin property updates from your Azure Digital Twins instance to an Azure Data Explorer cluster. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
 
-To send data to other services, such as [Azure Maps](../azure-maps/about-azure-maps.md), [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), or [Azure Storage](../storage/common/storage-introduction.md), start by attaching the destination service to an **endpoint**. 
+To send data to other services, such as [Azure Maps](../azure-maps/about-azure-maps.md), [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), or [Azure Storage](../storage/common/storage-introduction.md), start by attaching the destination service to an *endpoint*. 
 
 Endpoints can be instances of any of these Azure services:
 * [Event Hubs](../event-hubs/event-hubs-about.md)
@@ -50,7 +50,7 @@ The endpoint is attached to an Azure Digital Twins instance using management API
 
 For detailed instructions on how to send Azure Digital Twins data to Azure Maps, see [Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md). For detailed instructions on how to send Azure Digital Twins data to Time Series Insights, see [Integrate with Time Series Insights](how-to-integrate-time-series-insights.md).
 
-Azure Digital Twins implements **at least once** delivery for data emitted to egress services. 
+Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
 
 ## Next steps
 

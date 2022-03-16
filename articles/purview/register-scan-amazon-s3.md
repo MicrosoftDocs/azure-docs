@@ -309,7 +309,7 @@ You'll need the name of your Amazon S3 bucket to copy it in to Azure Purview whe
 
     ![Retrieve and copy the S3 bucket URL.](./media/register-scan-amazon-s3/retrieve-bucket-url-amazon.png)
 
-    Paste your bucket name in a secure file, and add an `s3://` prefix to it to create the value you'll need to enter when configuring your bucket as an Azure Purview resource.
+    Paste your bucket name in a secure file, and add an `s3://` prefix to it to create the value you'll need to enter when configuring your bucket as an Azure Purview account.
 
     For example: `s3://purview-tutorial-bucket`
 
@@ -330,7 +330,7 @@ For example:
 ![Retrieve your AWS account ID.](./media/register-scan-amazon-s3/aws-locate-account-id.png)
 
 
-## Add a single Amazon S3 bucket as an Azure Purview resource
+## Add a single Amazon S3 bucket as an Azure Purview account
 
 Use this procedure if you only have a single S3 bucket that you want to register to Azure Purview as a data source, or if you have multiple buckets in your AWS account, but do not want to register all of them to Azure Purview.
 
@@ -357,7 +357,7 @@ Use this procedure if you only have a single S3 bucket that you want to register
 
 Continue with [Create a scan for one or more Amazon S3 buckets.](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
-## Add an AWS account as an Azure Purview resource
+## Add an AWS account as an Azure Purview account
 
 Use this procedure if you have multiple S3 buckets in your Amazon account, and you want to register all of them  as Azure Purview data sources.
 
