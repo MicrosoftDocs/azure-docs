@@ -182,7 +182,7 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  Create a dependency condition for the **Web** activity so that it only runs if the **Set Variable** activity succeeds. To create this dependency, click the green handle on the right side of the **Set Variable** activity, drag it, and connect it to the **Web** activity.
 
-1.  Select the new **Web** activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
+1.  Select the new **Web** activity on the canvas if it is not already selected, and its "General" tab, to edit its details.
 
 1.  In the "General" pane, specify **Invoke Teams Webhook Url** for **Name** of the **Web** activity.
 
@@ -198,13 +198,12 @@ Before you can send notifications to Teams from your pipelines you must create a
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-settings-pane.png" alt-text="Shows the &quot;Web&quot; activity settings pane.":::
 
-1.  Search for "teams", then select and use the **Send notification to a channel in Microsoft Teams** template.
-    
-    :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-dialog.png" alt-text="Shows the &quot;Send notification to a channel in Microsoft Teams&quot; template in the template gallery.":::
-    
-    :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-template.png" alt-text="Shows the &quot;Send notification to a channel in Microsoft Teams&quot; template details after it is selected in the template gallery.":::
-    
-    :::image type="content" source="media/how-to-send-notifications-to-teams/teams-webhook-properties.png" alt-text="Shows the properties of the pipeline created by the &quot;Send notification to a channel in Microsoft Teams&quot; template.":::
+1. All set and now you are ready to validate, debug, and then publish your **NotifiyTeamsChannelPipeline** pipeline. 
+    -   To validate the pipeline, select **Validate** from the tool bar. 
+    -   To debug the pipeline, select **Debug** on the toolbar. You can see the status of the pipeline run in the "Output" tab at the bottom of the window.
+    -   Once the pipeline can run successfully, in the top toolbar, select **Publish all**. This action publishes entities you created to Data Factory. Wait until you see the **Successfully** published message.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/validate-debug-publish.png" alt-text="Shows the &quot;Validate, Debug, Publish&quot; buttons to validate, debug, and then publish your pipeline.":::
 
 # [Synapse Analytics](#tab/synapse-analytics)
 
@@ -334,14 +333,32 @@ Before you can send notifications to Teams from your pipelines you must create a
  
     :::image type="content" source="media/how-to-send-notifications-to-teams/set-variable-activity-variables-tab-synapse.png" alt-text="Shows the &quot;Set variable&quot; activity variables tab.":::
 
+1.  Search for "Web" in the pipeline "Activities" pane, and drag a **Web** activity to the pipeline canvas. 
 
-1.  Search for "teams", then select and use the **Send notification to a channel in Microsoft Teams** template.
-    
-    :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-dialog-synapse.png" alt-text="Shows the &quot;Send notification to a channel in Microsoft Teams&quot; template in the template gallery.":::
-    
-    :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-template-synapse.png" alt-text="Shows the &quot;Send notification to a channel in Microsoft Teams&quot; template details after it is selected in the template gallery.":::
-    
-    :::image type="content" source="media/how-to-send-notifications-to-teams/teams-webhook-properties.png" alt-text="Shows the properties of the pipeline created by the &quot;Send notification to a channel in Microsoft Teams&quot; template.":::
+1.  Create a dependency condition for the **Web** activity so that it only runs if the **Set Variable** activity succeeds. To create this dependency, click the green handle on the right side of the **Set Variable** activity, drag it, and connect it to the **Web** activity.
+
+1.  Select the new **Web** activity on the canvas if it is not already selected, and its "General" tab, to edit its details.
+
+1.  In the "General" pane, specify **Invoke Teams Webhook Url** for **Name** of the **Web** activity.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-name-synapse.png" alt-text="Shows the &quot;Web&quot; activity general pane.":::
+
+1.  In the "Settings" pane, set following properties as follows:
+
+    | Property     | value                                          | 
+    | :----------- | :--------------------------------------------- |
+    | URL          | ``@pipeline().parameters.teamWebhookUrl``      |
+    | Method       | POST                                           |
+    | Body         | ``@json(variables('messageCard'))``            |
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-settings-pane-synapse.png" alt-text="Shows the &quot;Web&quot; activity settings pane.":::
+
+1. All set and now you are ready to validate, debug, and then publish your **NotifiyTeamsChannelPipeline** pipeline. 
+    -   To validate the pipeline, select **Validate** from the tool bar. 
+    -   To debug the pipeline, select **Debug** on the toolbar. You can see the status of the pipeline run in the "Output" tab at the bottom of the window.
+    -   Once the pipeline can run successfully, in the top toolbar, select **Publish all**. This action publishes entities you created to Data Factory. Wait until you see the **Successfully** published message.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/validate-debug-publish-synapse.png" alt-text="Shows the &quot;Validate, Debug, Publish&quot; buttons to validate, debug, and then publish your pipeline.":::
 
 ---
 
