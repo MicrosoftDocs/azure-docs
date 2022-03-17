@@ -39,14 +39,17 @@ If you are using a custom (non-standard) image that was created with Jetpack, yo
 
 CycleCloud currently includes the following images:
 
-| Operating System | Image              | Name                  | Service    |
-| ---------------- | ------------------ | --------------------- | ---------- |
-| CentOS 6         | Cycle CentOS 6     | cycle.image.centos6   | IaaS       |
-| CentOS 7         | Cycle CentOS 7     | cycle.image.centos7   | IaaS       |
-| Ubuntu 14.04     | Cycle Ubuntu 14    | cycle.image.ubuntu14  | IaaS       |
-| Ubuntu 16.04     | Cycle Ubuntu 16    | cycle.image.ubuntu16  | IaaS       |
-| Windows 2012 R2  | Cycle Windows 2012 | cycle.image.win2012   | IaaS       |
-| Windows 2016 R2  | Cycle Windows 2016 | cycle.image.win2016   | IaaS       |
+| Operating System | Label | Name |
+| ---------------- | ------------------ | --------------------- |
+| CentOS 7         | CentOS 7     | cycle.image.centos7   |
+| CentOS 8         | CentOS 8     | cycle.image.centos8   |
+| Ubuntu 16.04     | Ubuntu 16    | cycle.image.ubuntu16  |
+| Ubuntu 18.04     | Ubuntu 18    | cycle.image.ubuntu18  |
+| Ubuntu 20.04     | Ubuntu 20    | cycle.image.ubuntu20  |
+| Alma Linux 8.5 HPC | Alma Linux 8 | almalinux-8 |
+| Windows 2008 R2  | Windows 2008 R2 | cycle.image.win2008   |
+| Windows 2012 R2  | Windows 2012 R2 | cycle.image.win2012   |
+| Windows 2016 DataCenter | Windows 2016 DataCenter | cycle.image.win2016   |
 
 > [!NOTE]
-> Standard images referenced in CycleCloud are the latest known versions of publicly-available operating system images hosted by the cloud service provider and are not created, maintained, or supported by Cycle Computing.
+> Standard images referenced in CycleCloud are the latest known versions of publicly-available operating system images hosted by the cloud service provider and are not created, maintained, or supported by Microsoft for the CycleCloud product.
