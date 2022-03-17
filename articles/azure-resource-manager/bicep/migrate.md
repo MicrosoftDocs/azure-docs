@@ -74,7 +74,7 @@ The deploy phase consists of eight steps, which you complete in any order:
 
 In the _test_ phase of migrating your resources to Bicep, the goal is to verify the integrity of your migrated templates and to perform a test deployment.
 
-The test phase consists of two steps:, which you complete in sequence:
+The test phase consists of two steps, which you complete in sequence:
 
 1. **Run the ARM template deployment what-if operation.** To help you verify your converted templates before deployment, you can use the [Azure Resource Manager template deployment what-if operation](../templates/deploy-what-if.md). It compares the current state of your environment with the desired state that is defined in the template. The tool outputs the list of changes that will occur *without* applying the changes to your environment. You can use what-if with both incremental and complete mode deployments. Even if you plan to deploy your template using incremental mode, it's a good idea to run your what-if operation in complete mode.
 
