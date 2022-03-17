@@ -183,19 +183,19 @@ The result of this operation will be a time stamp of the successful upload of th
 
 ### Get the SQL Managed Instance public certificate public key and import it to SQL Server
 
-Certificate for securing the endpoint for SQL Managed Instance link is automatically generated. This section describes how to get the SQL Managed Instance certificate public key, and how import is to SQL Server.
+The certificate for securing the endpoint for a SQL Managed Instance link is automatically generated. This section describes how to get the SQL Managed Instance certificate public key, and how to import it to SQL Server.
 
-Use SSMS to connect to the SQL Managed Instance and execute stored procedure [sp_get_endpoint_certificate](/sql/relational-databases/system-stored-procedures/sp-get-endpoint-certificate-transact-sql) to get the certificate public key.
+Use SSMS to connect to SQL Managed Instance. Run the stored procedure [sp_get_endpoint_certificate](/sql/relational-databases/system-stored-procedures/sp-get-endpoint-certificate-transact-sql) to get the certificate public key:
 
 ```sql
 -- Run on a managed instance
 EXEC sp_get_endpoint_certificate @endpoint_type = 4
 ```
 
-Copy the entire public key from Managed Instance starting with “0x” shown in the previous step and use it in the below query on SQL Server by replacing `<InstanceCertificate>` with the key value. No quotations need to be used.
+Copy the entire public key (which starts with `0x`) from SQL Managed Instance. Run the following query on SQL Server by replacing `<InstanceCertificate>` with the key value. You don't need to use quotation marks.
 
 > [!IMPORTANT]
-> Name of the certificate must be SQL Managed Instance FQDN.
+> The name of the certificate must be the SQL Managed Instance FQDN.
 
 ```sql
 -- Run on SQL Server
@@ -204,7 +204,7 @@ CREATE CERTIFICATE [<SQLManagedInstanceFQDN>]
 FROM BINARY = <InstanceCertificate>
 ```
 
-Finally, verify all created certificates by viewing the following DMV.
+Finally, verify all created certificates by viewing the following dynamic management view (DMV):
 
 ```sql
 -- Run on SQL Server
@@ -213,8 +213,9 @@ SELECT * FROM sys.certificates
 
 ## Mirroring endpoint on SQL Server
 
-If you don’t have existing Availability Group nor mirroring endpoint on SQL Server, the next step is to create a mirroring endpoint on SQL Server and secure it with the certificate. If you do have existing Availability Group or mirroring endpoint, go straight to the next section “Altering existing database mirroring endpoint”
-To verify that you don't have an existing database mirroring endpoint created, use the following script.
+If you don't have an existing availability group or a mirroring endpoint on SQL Server, the next step is to create a mirroring endpoint on SQL Server and secure it with the certificate. If you do have an existing availability group or mirroring endpoint, go straight to the next section "Altering an existing database mirroring endpoint."
+
+To verify that you don't have an existing database mirroring endpoint created, use the following script:
 
 ```sql
 -- Run on SQL Server
@@ -222,11 +223,11 @@ To verify that you don't have an existing database mirroring endpoint created, u
 SELECT * FROM sys.database_mirroring_endpoints WHERE type_desc = 'DATABASE_MIRRORING'
 ```
 
-In case that the above query doesn't show there exists a previous database mirroring endpoint, execute the following script on SQL Server to create a new database mirroring endpoint on the port 5022 and secure it with a certificate.
+If the preceding query doesn't show an existing database mirroring endpoint, run the following script on SQL Server. It will create a new database mirroring endpoint on port 5022 and secure it with a certificate.
 
 ```sql
 -- Run on SQL Server
--- Create connection endpoint listener on SQL Server
+-- Create a connection endpoint listener on SQL Server
 USE MASTER
 CREATE ENDPOINT database_mirroring_endpoint
     STATE=STARTED   
@@ -239,7 +240,7 @@ CREATE ENDPOINT database_mirroring_endpoint
 GO
 ```
 
-Validate that the mirroring endpoint was created by executing the following on SQL Server.
+Validate that the mirroring endpoint was created by running the following script on SQL Server:
 
 ```sql
 -- Run on SQL Server
@@ -251,20 +252,21 @@ FROM
     sys.database_mirroring_endpoints
 ```
 
-New mirroring endpoint was created with CERTIFICATE authentication, and AES encryption enabled.
+A new mirroring endpoint was created with certificate authentication and AES encryption enabled.
 
-### Altering existing database mirroring endpoint
+### Altering an existing database mirroring endpoint
 
 > [!NOTE]
-> Skip this step if you've just created a new mirroring endpoint. Use this step only if using existing Availability Groups with existing database mirroring endpoint.
+> Skip this step if you've just created a new mirroring endpoint. Use this step only if you're using existing availability groups with an existing database mirroring endpoint.
 
-In case existing Availability Groups are used for SQL Managed Instance link, or in case there's an existing database mirroring endpoint, first validate it satisfies the following mandatory conditions for SQL Managed Instance Link:
-- Type must be “DATABASE_MIRRORING”.
-- Connection authentication must be “CERTIFICATE”.
+If you're using existing availability groups for the SQL Managed Instance link, or if there's an existing database mirroring endpoint, first validate that it satisfies the following mandatory conditions for the SQL Managed Instance link:
+
+- Type must be `DATABASE_MIRRORING`.
+- Connection authentication must be `CERTIFICATE`.
 - Encryption must be enabled.
-- Encryption algorithm must be “AES”.
+- Encryption algorithm must be `AES`.
 
-Execute the following query on SQL Server to view details for an existing database mirroring endpoint.
+Run the following query on SQL Server to view details for an existing database mirroring endpoint:
 
 ```sql
 -- Run on SQL Server
@@ -276,9 +278,9 @@ FROM
     sys.database_mirroring_endpoints
 ```
 
-In case that the output shows that the existing DATABASE_MIRRORING endpoint connection_auth_desc isn't “CERTIFICATE”, or encryption_algorthm_desc isn't “AES”, the **endpoint needs to be altered to meet the requirements**.
+If the output shows that the existing `DATABASE_MIRRORING` endpoint `connection_auth_desc` isn't `CERTIFICATE`, or `encryption_algorthm_desc` isn't `AES`, the *endpoint needs to be altered to meet the requirements*.
 
-On SQL Server, one database mirroring endpoint is used for both Availability Groups and Distributed Availability Groups. In case your connection_auth_desc is NTLM (Windows authentication) or KERBEROS, and you need Windows authentication for an existing Availability Groups, it's possible to alter the endpoint to use multiple authentication methods by switching the auth option to NEGOTIATE CERTIFICATE. This will allow the existing AG to use Windows authentication, while using certificate authentication for SQL Managed Instance. See details of possible options at documentation page for [sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
+On SQL Server, one database mirroring endpoint is used for both availability groups and distributed availability groups. If your `connection_auth_desc` endpoint is `NTLM` (Windows authentication) or `KERBEROS`, and you need Windows authentication for an existing availability groups, it's possible to alter the endpoint to use multiple authentication methods by switching the authentication option to `NEGOTIATE CERTIFICATE`. This will allow the existing AG to use Windows authentication, while using certificate authentication for SQL Managed Instance. See details of possible options at documentation page for [sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
 
 Similarly, if encryption doesn't include AES and you need RC4 encryption, it's possible to alter the endpoint to use both algorithms. See details of possible options at documentation page for [sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
 
