@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a basic public load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
-description: Learn how to create a public basic SKU Azure Load Balancer in this quickstart. 
+description: Learn how to create a public basic SKU Azure Load Balancer in this quickstart using the Azure CLI.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
@@ -14,9 +14,9 @@ ms.custom: template-quickstart
 
 Get started with Azure Load Balancer by using the Azure portal to create a basic public load balancer and two virtual machines.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -274,7 +274,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create):
 
 It may take a few minutes for the VMs to deploy. You can continue to the next steps while the VMs are creating.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ### Add virtual machines to load balancer backend pool
 
@@ -348,4 +348,4 @@ In this quickstart:
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
-> [What is Azure Load Balancer?](load-balancer-overview.md)
+> [What is Azure Load Balancer?](../load-balancer-overview.md)
