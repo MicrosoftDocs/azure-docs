@@ -1,9 +1,10 @@
 ---
 title: Troubleshoot data encryption - Azure Database for PostgreSQL - Single Server 
 description: Learn how to troubleshoot the data encryption on your Azure Database for PostgreSQL - Single Server
+ms.service: postgresql
+ms.subservice: single-server
 author: mksuni
 ms.author: sumuth
-ms.service: postgresql
 ms.topic: how-to
 ms.date: 02/13/2020
 ---

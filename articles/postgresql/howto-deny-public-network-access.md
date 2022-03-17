@@ -1,9 +1,10 @@
 ---
 title: Deny Public Network Access - Azure portal - Azure Database for PostgreSQL - Single server
 description: Learn how to configure Deny Public Network Access using Azure portal for your Azure Database for PostgreSQL Single server 
+ms.service: postgresql
+ms.subservice: single-server
 author: mksuni
 ms.author: sumuth
-ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
 ---
