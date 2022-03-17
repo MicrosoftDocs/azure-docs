@@ -77,13 +77,13 @@ To create a zonal public IP address in Zone 1, use the following command:
 
 This section details how you can create and configure the following components of the load balancer:
 
-  * A frontend IP pool that receives the incoming network traffic on the load balancer.
+  * A frontend IP pool that receives the incoming network traffic on the load balancer
 
-  * A backend IP pool where the frontend pool sends the load balanced network traffic.
+  * A backend IP pool where the frontend pool sends the load balanced network traffic
 
-  * A health probe that determines health of the backend VM instances.
+  * A health probe that determines health of the backend VM instances
 
-  * A load balancer rule that defines how traffic is distributed to the VMs.
+  * A load balancer rule that defines how traffic is distributed to the VMs
 
 ### Create the load balancer resource
 
@@ -120,11 +120,11 @@ Create a health probe with [az network lb probe create](/cli/azure/network/lb/pr
 
 A load balancer rule defines:
 
-* Frontend IP configuration for the incoming traffic.
+* Frontend IP configuration for the incoming traffic
 
-* The backend IP pool to receive the traffic.
+* The backend IP pool to receive the traffic
 
-* The required source and destination port. 
+* The required source and destination port
 
 Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create):
 
@@ -221,9 +221,9 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 In this section, you create:
 
-* Two network interfaces for the virtual machines.
+* Two network interfaces for the virtual machines
 
-* Two virtual machines to be used as backend servers for the load balancer.
+* Two virtual machines to be used as backend servers for the load balancer
 
 ### Create network interfaces for the virtual machines
 
