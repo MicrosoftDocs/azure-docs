@@ -61,8 +61,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public
   az network public-ip create \
     --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
-    --sku Standard \
-    --zone 1 2 3
+    --sku Basic \
 ```
 
 ## Create a load balancer
