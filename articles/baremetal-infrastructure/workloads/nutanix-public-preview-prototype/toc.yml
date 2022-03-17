@@ -29,11 +29,15 @@
   items: 
   - name: Architecture
     href: nutanix-baremetal-architecture.md  
-
 - name: Cluster Management
-  href: cluster-management
+  href: cluster-management.md
   items:
   - name: Storage
     href: nutanix-baremetal-storage.md
+- name: Cluster Administration
+  href: cluster-administration.md
+  items:
+  - name: Storage
+    href: nutanix-baremetal-storage.md    
 
   
