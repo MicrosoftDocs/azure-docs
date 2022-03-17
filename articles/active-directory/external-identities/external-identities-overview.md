@@ -25,7 +25,7 @@ The following capabilities make up External Identities:
 
 - **B2B collaboration** - Collaborate with external users by letting them use their preferred identity to sign in to your Microsoft applications or other enterprise applications (SaaS apps, custom-developed apps, etc.). B2B collaboration users are represented in your directory, typically as guest users.
 
-- **B2B direct connect** - Establish a mutual, two-way trust with another Azure AD organization for seamless collaboration. B2B direct connect currently supports Teams shared channels, enabling external users to access your resources from within their home instances of Teams. B2B direct connect users are not represented in your directory, but they're visible from within the Teams shared channel and can be monitored in Teams admin center reports.
+- **B2B direct connect** - Establish a mutual, two-way trust with another Azure AD organization for seamless collaboration. B2B direct connect currently supports Teams shared channels, enabling external users to access your resources from within their home instances of Teams. B2B direct connect users aren't represented in your directory, but they're visible from within the Teams shared channel and can be monitored in Teams admin center reports.
 
 - **Azure AD B2C** - Publish modern SaaS apps or custom-developed apps (excluding Microsoft apps) to consumers and customers, while using Azure AD B2C for identity and access management.
 
@@ -51,7 +51,7 @@ You can use [cross-tenant access settings](cross-tenant-access-overview.md) to m
 
 ## B2B direct connect
 
-B2B direct connect is a new way to collaborate with other Azure AD organizations. With B2B direct connect, you create two-way trust relationships with other Azure AD organizations to allow users to seamlessly sign in to your shared resources and vice versa. B2B direct connect users are not added as guests to your Azure AD directory. When two organizations mutually enable B2B direct connect, users authenticate in their home organization and receive a token from the resource organization for access. Learn more about [B2B direct connect in Azure AD](b2b-direct-connect-overview.md).
+B2B direct connect is a new way to collaborate with other Azure AD organizations. With B2B direct connect, you create two-way trust relationships with other Azure AD organizations to allow users to seamlessly sign in to your shared resources and vice versa. B2B direct connect users aren't added as guests to your Azure AD directory. When two organizations mutually enable B2B direct connect, users authenticate in their home organization and receive a token from the resource organization for access. Learn more about [B2B direct connect in Azure AD](b2b-direct-connect-overview.md).
 
 Currently, B2B direct connect enables the Teams Connect shared channels feature, which lets your users collaborate with external users from multiple organizations with a Teams shared channel for chat, calls, file-sharing, and app-sharing. Once you’ve set up B2B direct connect with an external organization, the following Teams shared channels capabilities become available:
 
@@ -73,7 +73,7 @@ Although Azure AD B2C is built on the same technology as Azure AD, it's a separa
 
 ## Comparing External Identities feature sets
 
-The following table gives a detailed comparison of the scenarios you can enable with Azure AD External Identities. In the B2B scenarios, an external user is anyone who is not homed in your Azure AD organization.
+The following table gives a detailed comparison of the scenarios you can enable with Azure AD External Identities. In the B2B scenarios, an external user is anyone who isn't homed in your Azure AD organization.
 
 |   | B2B collaboration | B2B direct connect |  Azure AD B2C  |
 | ---- | --- |  --- | --- |
@@ -132,7 +132,7 @@ For details about configuring and managing Azure AD B2C, see the [Azure AD B2C d
 
 ## Related Azure AD technologies
 
-There are several Azure AD technologies that are related to collaboration with external users and organizations. As you design your External Identities collaboration model, consider these additional features.
+There are several Azure AD technologies that are related to collaboration with external users and organizations. As you design your External Identities collaboration model, consider these other features.
 
 ### Azure AD entitlement management for B2B guest user sign-up
 

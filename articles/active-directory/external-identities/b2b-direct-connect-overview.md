@@ -1,6 +1,6 @@
 ---
 title: B2B direct connect overview - Azure AD
-description: Azure Active Directory B2B direct connect lets users from other Azure AD tenants seamlessly sign in to your shared resources via Teams shared channels without the need for a guest user object in your Azure AD directory.
+description: Azure Active Directory B2B direct connect lets users from other Azure AD tenants seamlessly sign in to your shared resources via Teams shared channels. There's no need for a guest user object in your Azure AD directory.
 
 services: active-directory
 ms.service: active-directory
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # B2B direct connect overview
 
-Azure Active Directory (Azure AD) B2B direct connect is a feature of External Identities that lets you set up a mutual trust relationship with another Azure AD organization for seamless collaboration. With B2B direct connect, users from both organizations can work together using their home credentials and B2B direct connect-enabled apps, without having to be added to each other’s organizations as guests. Use B2B direct connect to share resources with external Azure AD organizations, or use it to share resources across multiple Azure AD tenants within your own organization.
+Azure Active Directory (Azure AD) B2B direct connect is a feature of External Identities that lets you set up a mutual trust relationship with another Azure AD organization for seamless collaboration. With B2B direct connect, users from both organizations can work together using their home credentials and B2B direct connect-enabled apps, without having to be added to each other’s organizations as guests. Use B2B direct connect to share resources with external Azure AD organizations. Or use it to share resources across multiple Azure AD tenants within your own organization.
 
 ![Diagram illustrating B2B direct connect](media/b2b-direct-connect-overview/b2b-direct-connect-overview.png)
 
@@ -26,7 +26,7 @@ Currently, B2B direct connect capabilities work with Teams Connect shared channe
 
 For licensing and pricing information related to B2B direct connect users, refer to [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## Managing cross-tenant access
+## Managing cross-tenant access for B2B direct connect
 
 Azure AD organizations can manage their trust relationships with other Azure AD organizations by defining inbound and outbound [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md). Cross-tenant access settings give you granular control over how other organizations collaborate with you (inbound access) and how your users collaborate with other organizations (outbound access).
 
@@ -70,7 +70,7 @@ For this scenario to work, Fabrikam also needs to allow B2B direct connect with 
 
 ### Example 2: Enable B2B direct connect with Fabrikam's Marketing group only
 
-Using the example above, Contoso could also choose to allow only the Fabrikam Marketing group to collaborate with Contoso's users through B2B direct connect. In this case, Contoso will need to obtain the Marketing group's object ID from Fabrikam. Then, instead of allowing inbound access to all Fabrikam's users, they'll configure their Fabrikam-specific access settings as follows:
+Starting from the example above, Contoso could also choose to allow only the Fabrikam Marketing group to collaborate with Contoso's users through B2B direct connect. In this case, Contoso will need to obtain the Marketing group's object ID from Fabrikam. Then, instead of allowing inbound access to all Fabrikam's users, they'll configure their Fabrikam-specific access settings as follows:
 
 - Allow inbound access to B2B direct connect for Fabrikam's Marketing group only. Contoso specifies Fabrikam's Marketing group object ID in the allowed users and groups list.
 - Allow inbound access to all internal Contoso applications by Fabrikam B2B direct connect users.
@@ -88,14 +88,14 @@ For details about how authentication works in a cross-tenant scenario with Condi
 
 ## Multi-factor authentication (MFA)
 
-If you want to allow B2B direct connect with an external organization and your Conditional Access policies require MFA, you must configure your trust settings so that your Conditional Access policies will accept MFA claims from the external organization. This configuration ensures that B2B direct connect users from the external organization are compliant with your Conditional Access policies, and it provides a more seamless user experience.
+If you want to allow B2B direct connect with an external organization and your Conditional Access policies require MFA, you ***must*** configure your inbound [trust settings](#to-change-inbound-trust-settings-for-mfa-and-device-state) so that your Conditional Access policies will accept MFA claims from the external organization. This configuration ensures that B2B direct connect users from the external organization are compliant with your Conditional Access policies, and it provides a more seamless user experience.
 
-For example, say Contoso (the resource tenant) trusts MFA claims from Fabrikam. Contoso has a Conditional Access policy requiring MFA. This policy is scoped to all guest and external users, as well as SharePoint Online. As a prerequisite for B2B direct connect, Contoso must configure trust settings in their cross-tenant access settings to accept MFA claims from Fabrikam. When a Fabrikam user access a B2B direct connect-enabled app (for example, a Teams Connect shared channel), the user is subject to the MFA requirement enforced by Contoso:
+For example, say Contoso (the resource tenant) trusts MFA claims from Fabrikam. Contoso has a Conditional Access policy requiring MFA. This policy is scoped to all guests, external users, and SharePoint Online. As a prerequisite for B2B direct connect, Contoso must configure trust settings in their cross-tenant access settings to accept MFA claims from Fabrikam. When a Fabrikam user accesses a B2B direct connect-enabled app (for example, a Teams Connect shared channel), the user is subject to the MFA requirement enforced by Contoso:
 
 - If the Fabrikam user has already performed MFA in their home tenant, they’ll be able to access the resource within the shared channel.
 - If the Fabrikam user hasn’t completed MFA, they’ll be blocked from accessing the resource.
 
-For more information about Conditional Access and Teams, see [Overview of security and compliance](/microsoftteams/security-compliance-overview) in the Microsoft Teams documentation.
+For information about Conditional Access and Teams, see [Overview of security and compliance](/microsoftteams/security-compliance-overview) in the Microsoft Teams documentation.
 
 ## B2B direct connect user experience
 
@@ -157,7 +157,7 @@ The Microsoft Teams admin center displays reporting for shared channels, includi
 
 - **Current limitations**: An access review can detect internal users and external B2B direct connect users, but not other teams, that have been added to a shared channel. To view and remove teams that have been added to a shared channel, the shared channel owner can manage membership from within Teams.
 
-For more details about Microsoft Teams audit logs, see the [Microsoft Teams auditing documentation](/microsoftteams/audit-log-events).
+For more information about Microsoft Teams audit logs, see the [Microsoft Teams auditing documentation](/microsoftteams/audit-log-events).
 
 ## Privacy and data handling
 
@@ -180,4 +180,4 @@ You might want to consider using cross-tenant access settings to restrict B2B di
 ## Next steps
 
 - [Configure cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md)
-- See the Microsoft Teams documentation for details about [data loss prevention](/microsoft-365/compliance.md), [retention policies](/microsoftteams/retention-policies.md), and [eDiscovery](/microsoftteams/ediscovery-investigation.md).
+- See the Microsoft Teams documentation for details about [data loss prevention](/microsoft-365/compliance), [retention policies](/microsoftteams/retention-policies), and [eDiscovery](/microsoftteams/ediscovery-investigation).

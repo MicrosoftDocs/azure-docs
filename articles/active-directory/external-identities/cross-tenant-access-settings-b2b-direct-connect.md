@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 > Cross-tenant access settings are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 Use cross-tenant access settings to manage how you collaborate with other Azure AD organizations through B2B direct connect. These settings let you determine the level of outbound access your users have to external organizations. They also let you control the level of inbound access that users in external Azure AD organizations will have to your internal resources.
 
-- **Default settings**: The default cross-tenant access settings apply to all external Azure AD organizations, except those for which you've configured individual settings. You can change these default settings. For B2B direct connect, you'll typically leave the default settings as-is and enable B2B direct connect access with organization-specific settings. Initially, your default values are as follows:
+- **Default settings**: The default cross-tenant access settings apply to all external Azure AD organizations, except organizations for which you've configured individual settings. You can change these default settings. For B2B direct connect, you'll typically leave the default settings as-is and enable B2B direct connect access with organization-specific settings. Initially, your default values are as follows:
 
   - **B2B direct connect initial default settings** - By default, outbound B2B direct connect is blocked for your entire tenant, and inbound B2B direct connect is blocked for all external Azure AD organizations.
   - **Organizational settings** - No organizations are added by default.
@@ -101,7 +101,7 @@ With inbound settings, you select which external users and groups will be able t
 
 1. Select the **B2B direct connect** tab
 
-1. If you're configuring settings for an organization, select one of the following:
+1. If you're configuring settings for an organization, select one of these options:
 
    - **Default settings**: The organization will use the settings configured on the **Default** settings tab. If customized settings were already configured for this organization, you'll need to select **Yes** to confirm that you want all settings to be replaced by the default settings. Then select **Save**, and skip the rest of the steps in this procedure.
 
@@ -109,10 +109,10 @@ With inbound settings, you select which external users and groups will be able t
 
 1. Select **External users and groups**.
 
-1. Under **Access status**, select one of the following:
+1. Under **Access status**, select one of these options:
 
    - **Allow access**: Allows the users and groups specified under **Target** to access B2B direct connect.
-   - **Block access**: Blocks the users and groups specified under **Target** from accessing B2B direct connect. If you block access for all external users and groups, this will also block all your internal applications from being shared via B2B direct connect.
+   - **Block access**: Blocks the users and groups specified under **Target** from accessing B2B direct connect. Blocking access for all external users and groups also blocks all your internal applications from being shared via B2B direct connect.
 
    ![Screenshot showing inbound access status for b2b direct connect users](media/cross-tenant-access-settings-b2b-direct-connect/generic-inbound-external-users-groups-access.png)
 
@@ -164,7 +164,7 @@ With inbound settings, you select which external users and groups will be able t
 
 1. Select the **Trust settings** tab.
 
-1. If you're configuring settings for an organization, select one of the following:
+1. If you're configuring settings for an organization, select one of these options:
 
    - **Default settings**: The organization will use the settings configured on the **Default** settings tab. If customized settings were already configured for this organization, you'll need to select **Yes** to confirm that you want all settings to be replaced by the default settings. Then select **Save**, and skip the rest of the steps in this procedure.
 
@@ -200,7 +200,7 @@ With outbound settings, you select which of your users and groups will be able t
 
 1. Select the **B2B direct connect** tab.
 
-1. If you're configuring settings for an organization, select one of the following:
+1. If you're configuring settings for an organization, select one of these options:
 
    - **Default settings**: The organization will use the settings configured on the **Default** settings tab. If customized settings were already configured for this organization, you'll need to select **Yes** to confirm that you want all settings to be replaced by the default settings. Then select **Save**, and skip the rest of the steps in this procedure.
 
@@ -211,7 +211,7 @@ With outbound settings, you select which of your users and groups will be able t
 1. Under **Access status**, select one of the following:
 
    - **Allow access**: Allows your users and groups specified under **Target** to access B2B direct connect.
-   - **Block access**: Blocks your users and groups specified under **Target** from accessing B2B direct connect. If you block access for all your users and groups, this will also block all external applications from being shared via B2B direct connect.
+   - **Block access**: Blocks your users and groups specified under **Target** from accessing B2B direct connect. Blocking access for all your users and groups  also blocks all external applications from being shared via B2B direct connect.
 
     ![Screenshot showing users and groups access status for outbound b2b direct connect](media/cross-tenant-access-settings-b2b-direct-connect/generic-outbound-external-users-groups-access.png)
 
@@ -260,7 +260,7 @@ With outbound settings, you select which of your users and groups will be able t
 When you remove an organization from your Organizational settings, the default cross-tenant access settings will go into effect for all B2B collaboration with that organization.
 
 > [!NOTE]
-> If the organization is a Cloud Service Provider for your organization (the isServiceProvider property in the Microsoft Graph [partner-specific configuration](/graph/api/resources/crosstenantaccesspolicyconfigurationpartner) is true), you won't be able to remove the organization.
+> If the organization is a cloud service provider for your organization (the isServiceProvider property in the Microsoft Graph [partner-specific configuration](/graph/api/resources/crosstenantaccesspolicyconfigurationpartner) is true), you won't be able to remove the organization.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
 
