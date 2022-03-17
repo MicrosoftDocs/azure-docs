@@ -131,7 +131,7 @@
         href: how-to-enable-private-link-internal-load-balancer.md
       - name: Connect to a storage account
         href: how-to-enable-private-link-storage-account.md
-      - name: Connect to a web app
+      - name: Connect to an App Service
         href: how-to-enable-private-link-web-app.md
   - name: Monitor and reports
     items:
