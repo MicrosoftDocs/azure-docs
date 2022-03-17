@@ -286,7 +286,7 @@ using (var scope = new TransactionScope())
 
 ### When using SQL Server authentication, usernames with '@' are not supported
 
-Usernames that contain the '@' symbol in the middle (e.g. 'abc@xy') are not able to login using SQL Server authentication.
+Usernames that contain the '@' symbol in the middle (e.g. 'abc@xy') are not able to log in using SQL Server authentication.
 
 ### Azure AD logins and users are not supported in SSDT
 
