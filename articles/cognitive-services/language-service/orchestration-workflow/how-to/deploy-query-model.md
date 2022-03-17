@@ -40,6 +40,18 @@ When a model is deployed, you will be able to test the model directly in the por
 
     LUIS projects **must be published** to the slot configured during the Orchestration deployment, and custom question answering KBs must also be published to their Production slots.
 
+1.	Click on **Add deployment** to submit a new deployment job.
+
+    Like conversation projects, In the window that appears, you can create a new deployment name by giving the deployment a name or override an existing deployment name. Then, you can add a trained model to this deployment name and press next.
+
+    <!--:::image type="content" source="../media/create-deployment-job-orch.png" alt-text="A screenshot showing deployment job creation in Language Studio." lightbox="../media/create-deployment-job-orch.png":::-->
+
+2. If you're connecting one or more LUIS applications or conversational language understanding projects, specify the deployment name.
+
+    No configurations are required for custom question answering or unlinked intents.
+
+    LUIS projects **must be published** to the slot configured during the Orchestration deployment, and custom question answering KBs must also be published to their Production slots.
+
     :::image type="content" source="../media/deploy-connected-services.png" alt-text="A screenshot showing the deployment screen for orchestration workflow projects." lightbox="../media/deploy-connected-services.png":::
 
 ## Send a request to your model
