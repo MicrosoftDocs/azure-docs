@@ -52,7 +52,7 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
       ![Screenshot of the Private Endpoint connections.](./media/troubleshoot-network-connectivity/private-endpoint.png)
 
-  - Go to Settings > DNS configuration to obtain the storage account FQDN and private IP address.    
+  - Go to **Settings** > **DNS configuration** to obtain the storage account FQDN and private IP address.    
 
       ![Screenshot showing the Private Link FQDN information.](./media/troubleshoot-network-connectivity/private-link-info.png)
 

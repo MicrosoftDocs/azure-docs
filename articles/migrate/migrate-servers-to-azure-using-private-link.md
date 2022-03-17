@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 12/29/2021
 ---
 
-# Migrate servers to Azure by using Private Link
+# Migrate servers to Azure using Private Link
 
 This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
 
@@ -84,6 +84,8 @@ Enable replication as follows:
     - Select **No** if you don't want to apply Azure Hybrid Benefit and click **Next**. 
 
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating and click **Next**. 
+
+     ![Screenshot shows the options in Azure Hybrid Benefit.](./media/how-to-use-azure-migrate-with-private-endpoints/azure-hybrid-benefit-agentless.png)   
 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements). 
 
