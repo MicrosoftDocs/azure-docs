@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 03/15/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -29,11 +29,20 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 ## Deploy your model
 
-After your model is [trained](train-model.md), you can deploy it. Deploying your model lets you start using it to classify text. You can deploy your model using the [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) or Language Studio. To use Language Studio, see the steps below:
+Deploying a model hosts it and makes it available for predictions through an endpoint.
+
+
+
+When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated with it.
+
+> [!NOTE]
+> You can only have ten deployment names.
 
 [!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
+   
+### Delete deployment
 
-If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
+To delete a deployment, select the deployment you want to delete and click **Delete deployment**
 
 > [!TIP]
 > You can [test your model in Language Studio](../quickstart.md?pivots=language-studio#test-your-model) by sending samples of text for it to classify. 
@@ -58,7 +67,7 @@ If you deploy your model through the Language Studio, your `deployment-name` is 
 
 5. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId}>`
 
-6. Copy the retrieve request and replace `<OPERATION-ID>` with `jobId` received form last step and submit the request.
+6. Copy the retrieve request and replace `<OPERATION-ID>` with `jobId` received from the last step and submit the request.
 
     :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
 

@@ -82,15 +82,15 @@ The following table describes the JSON properties used in the JSON definition:
 | getDebugInfo          | Specifies when the Spark log files are copied to the Azure storage used by HDInsight cluster (or) specified by sparkJobLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
 
 ## Folder structure
-Spark jobs are more extensible than Pig/Hive jobs. For Spark jobs, you can provide multiple dependencies such as jar packages (placed in the java CLASSPATH), python files (placed on the PYTHONPATH), and any other files.
+Spark jobs are more extensible than Pig/Hive jobs. For Spark jobs, you can provide multiple dependencies such as jar packages (placed in the Java CLASSPATH), Python files (placed on the PYTHONPATH), and any other files.
 
-Create the following folder structure in the Azure Blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate sub folders in the root folder represented by **entryFilePath**. For example, upload python files to the pyFiles subfolder and jar files to the jars subfolder of the root folder. At runtime, the service expects the following folder structure in the Azure Blob storage:     
+Create the following folder structure in the Azure Blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate sub folders in the root folder represented by **entryFilePath**. For example, upload Python files to the pyFiles subfolder and jar files to the jars subfolder of the root folder. At runtime, the service expects the following folder structure in the Azure Blob storage:     
 
 | Path                  | Description                              | Required | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (root)            | The root path of the Spark job in the storage linked service | Yes      | Folder |
 | &lt;user defined &gt; | The path pointing to the entry file of the Spark job | Yes      | File   |
-| ./jars                | All files under this folder are uploaded and placed on the java classpath of the cluster | No       | Folder |
+| ./jars                | All files under this folder are uploaded and placed on the Java classpath of the cluster | No       | Folder |
 | ./pyFiles             | All files under this folder are uploaded and placed on the PYTHONPATH of the cluster | No       | Folder |
 | ./files               | All files under this folder are uploaded and placed on executor working directory | No       | Folder |
 | ./archives            | All files under this folder are uncompressed | No       | Folder |
