@@ -203,7 +203,7 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
 With an increase in external collaboration, you may need to use access reviews to monitor user access to sensitive resources to make sure Azure AD B2B guest users and collaborators should have access to those resources.
 
-You can use Azure AD Access Reviews to review B2B Direct Connect users and the Teams Shared Channels B2B Direct Connect users can access. When you create an access review on a Team or Microsoft 365 group, your reviewers can review continued need for access by B2B Direct Connect users and Teams, in addition to previously support B2B Collaboration users and non-B2B internal users. Reviewers can perform the review directly on Teams. 
+When you create an access review on a Team with shared channels, your reviewers can review continued need for access of those external users and Teams in the shared channels, known as B2B direct connect users, in addition to reviewing the currently supported B2B collaboration users and non-B2B internal users.
 
 Use the following steps to create an access review of a Teams Shared Channel or Microsoft 365 group. To create the review you must be a Global Administrator (Admin), User administrator, or Identity Governance Administrator:
 
