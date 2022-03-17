@@ -3,6 +3,7 @@ title: Deploy Arc for Azure VMware Solution (Preview)
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.date: 01/31/2022
+ms.custom: references_regions
 ---
 
 
@@ -401,11 +402,6 @@ At this point, all of your Arc-enabled VMware vSphere resources have been remove
 For the final step, you'll need to delete the resource bridge VM and the VM template that were created during the onboarding process. Once that step is done, Arc won't work on the Azure VMware Solution SDDC. When you delete Arc resources from vCenter, it won't affect the Azure VMware Solution private cloud for the customer. 
 
 ## Preview FAQ
-
-**Is the preview available in all regions?**
-
-Not currently.
-<!-- Waiting for ACOM page link to update this section -->
 
 **How do you onboard a customer?**
  
