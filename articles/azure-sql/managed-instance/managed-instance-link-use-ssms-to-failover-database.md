@@ -31,7 +31,7 @@ To fail over your databases to SQL Managed Instance, you need the following prer
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - [SQL Server 2019 Enterprise or Developer edition](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019), starting with [CU15 (15.0.4198.2)](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6).
 - Azure SQL Managed Instance. [Get started](instance-create-quickstart.md) if you don't have it. 
-- [SQL Server Management Studio (SSMS) v18.11.1 or later](/sql/ssms/download-sql-server-management-studio-ssms).
+- [SQL Server Management Studio v18.11.1 or later](/sql/ssms/download-sql-server-management-studio-ssms).
 - [An environment that's prepared for replication](managed-instance-link-preparation.md).
 - [Setup of the link feature and replication of your database to your managed instance in Azure](managed-instance-link-use-ssms-to-replicate-database.md). 
 

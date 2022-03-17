@@ -1,7 +1,7 @@
 ---
-title: Fail over database with link feature with T-SQL and PowerShell scripts
+title: Fail over a database by using the link feature via T-SQL and PowerShell scripts
 titleSuffix: Azure SQL Managed Instance
-description: This guide teaches you how to use the SQL Managed Instance link with scripts to fail over database from SQL Server to Azure SQL Managed Instance.
+description: Learn how to use an Azure SQL Managed Instance link with scripts to fail over a database from SQL Server to SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -14,7 +14,7 @@ ms.reviewer: mathoma, danil
 ms.date: 03/15/2022
 ---
 
-# Failover (migrate) database with Azure SQL Managed Instance link feature with T-SQL and PowerShell scripts
+# Fail over (migrate) a database by using a SQL Managed Instance link via T-SQL and PowerShell scripts
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
@@ -110,7 +110,7 @@ Invoke-WebRequest -Method PATCH -Headers $headers -Uri $uriFull -ContentType "ap
 Use the following T-SQL script on SQL Server to change the replication mode of Distributed Availability Group on SQL Server from async to sync. Replace `<DAGName>` with the name of Distributed Availability Group, and replace `<AGName>` with the name of Availability Group created on SQL Server. In addition, replace `<ManagedInstanceName>` with the name of your SQL Managed Instance.
 
 ```sql
--- Execute on SQL Server
+-- Run on SQL Server
 -- Sets the Distributed Availability Group to synchronous commit.
 -- ManagedInstanceName example 'sqlmi1'
 USE master
@@ -127,7 +127,7 @@ AVAILABILITY GROUP ON
 To validate change of the link replication, execute the following DMV, and expected results are shown below. They're indicating SYNCHRONOUS_COMIT state.
 
 ```sql
--- Execute on SQL Server
+-- Run on SQL Server
 -- Verifies the state of the distributed availability group
 SELECT
     ag.name, ag.is_distributed, ar.replica_server_name,
@@ -152,7 +152,7 @@ To complete the migration, we need to ensure that the replication has completed.
 Use the following T-SQL query on SQL Server to read the LSN number of the last recorded transaction log. Replace `<DatabaseName>` with your database name and look for the last hardened LSN number, as shown below.
 
 ```sql
--- Execute on SQL Server
+-- Run on SQL Server
 -- Obtain last hardened LSN for a database on SQL Server.
 SELECT
     ag.name AS [Replication group],
@@ -176,7 +176,7 @@ Use the following T-SQL query on SQL Managed Instance to read the LSN number of 
 Query shown below will work on General Purpose SQL Managed Instance. For Business Critical Managed Instance, you will need to uncomment `and drs.is_primary_replica = 1` at the end of the script. On Business Critical, this filter will make sure that only primary replica details are read.
 
 ```sql
--- Execute on Managed Instance
+-- Run on a managed instance
 -- Obtain LSN for a database on SQL Managed Instance.
 SELECT
     db.name AS [Database name],
@@ -206,7 +206,7 @@ Use the following API to initiate database failover to Azure. Replace `<YourSubs
 ```PowerShell
 # Execute in Azure Cloud Shell
 # ====================================================================================
-# POWERSHELL SCRIPT TO FAILOVER AND MIGRATE DATABASE WITH SQL MANAGED INSTANCE LINK
+# POWERSHELL SCRIPT TO FAIL OVER AND MIGRATE DATABASE WITH SQL MANAGED INSTANCE LINK
 # USER CONFIGURABLE VALUES
 # (C) 2021-2022 SQL Managed Instance product group
 # ====================================================================================
@@ -255,7 +255,7 @@ After breaking the link and migrating database to Azure SQL Managed Instance, co
 Replace `<DAGName>` with the name of the Distributed Availability Group on SQL Server and replace `<AGName>` with Availability Group name on the SQL Server.
 
 ``` sql
--- Execute on SQL Server
+-- Run on SQL Server
 DROP AVAILABILITY GROUP <DAGName>
 GO
 DROP AVAILABILITY GROUP <AGName>
