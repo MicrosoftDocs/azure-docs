@@ -67,18 +67,18 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  In the "Configurations" pane, select **Parameters**, and then select the **+ New** button define following parameters for your pipeline.
 
-    | Name                  | Type                  | Default Value                                                                 |
-    | :-------------------- | :-------------------- |:----------------------------------------------------------------------------- |
-    | subscription          | String                | Specify subscription id for the pipeline                                      |
-    | resourceGroup         | String                | Specify resource group name for the pipeline                                  |
-    | runId                 | String                | @activity('Specify name of the calling pipeline').output['pipelineRunId']     |
-    | name                  | String                | @activity('Specify name of the calling pipeline').output['pipelineName']      |
-    | triggerTime           | String                | @activity('Specify name of the calling pipeline').ExecutionStartTime          |
-    | status                | String                | @activity('Specify name of the calling pipeline').Status                      |
-    | message               | String                | @activity('Specify name of the calling pipeline').Error['message']            |
-    | executionEndTime      | String                | @activity('Specify name of the calling pipeline').ExecutionEndTime            |
-    | runDuration           | String                | @activity('Specify name of the calling pipeline').Duration                    |
-    | teamWebhookUrl        | String                | Specify Team Webhook URL                                                      |
+    | Name                  | Type                      | Default Value                                                                     |
+    | :-------------------- | :------------------------ |:--------------------------------------------------------------------------------- |
+    | subscription          | ``String``                | ``Specify subscription id for the pipeline``                                      |
+    | resourceGroup         | ``String``                | ``Specify resource group name for the pipeline``                                  |
+    | runId                 | ``String``                | ``@activity('Specify name of the calling pipeline').output['pipelineRunId']``     |
+    | name                  | ``String``                | ``@activity('Specify name of the calling pipeline').output['pipelineName']``      |
+    | triggerTime           | ``String``                | ``@activity('Specify name of the calling pipeline').ExecutionStartTime``          |
+    | status                | ``String``                | ``@activity('Specify name of the calling pipeline').Status``                      |
+    | message               | ``String``                | ``@activity('Specify name of the calling pipeline').Error['message']``            |
+    | executionEndTime      | ``String``                | ``@activity('Specify name of the calling pipeline').ExecutionEndTime``            |
+    | runDuration           | ``String``                | ``@activity('Specify name of the calling pipeline').Duration``                    |
+    | teamWebhookUrl        | ``String``                | ``Specify Team Webhook URL``                                                      |
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-parameters.png" alt-text="Shows the &quot;Pipeline parameters&quot;.":::
 
@@ -87,9 +87,9 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  In the "Configurations" pane, select **Variables**, and then select the **+ New** button define following variables for your pipeline.
 
-    | Name                  | Type                  | Default Value             |
-    | :-------------------- | :-------------------- |:------------------------- |
-    | messageCard           | String                |                           |
+    | Name                  | Type                      |    Default Value          |
+    | :-------------------- | :------------------------ |:------------------------- |
+    | messageCard           | ``String``                |                           |
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-variables.png" alt-text="Shows the &quot;Pipeline variables&quot;.":::
 
@@ -193,7 +193,7 @@ Before you can send notifications to Teams from your pipelines you must create a
     | Property     | value                                          | 
     | :----------- | :--------------------------------------------- |
     | URL          | ``@pipeline().parameters.teamWebhookUrl``      |
-    | Method       | POST                                           |
+    | Method       | ``POST``                                       |
     | Body         | ``@json(variables('messageCard'))``            |
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-settings-pane.png" alt-text="Shows the &quot;Web&quot; activity settings pane.":::
@@ -214,7 +214,7 @@ Before you can send notifications to Teams from your pipelines you must create a
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/new-pipeline-synapse.png" alt-text="Shows the &quot;New pipeline&quot; menu in the Synapse Studio.":::
 
-1.  In the Properties panel under "General", specify **NotifiyTeamsChannelPipeline** for **Name**. Then collapse the panel by clicking the **Properties** icon in the top-right corner.
+1.  In the "Properties" panel under "General", specify **NotifiyTeamsChannelPipeline** for **Name**. Then collapse the panel by clicking the **Properties** icon in the top-right corner.
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/name-pipeline-synapse.png" alt-text="Shows the &quot;Properties&quot; panel.":::
 
@@ -222,18 +222,18 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  In the "Configurations" pane, select **Parameters**, and then select the **+ New** button define following parameters for your pipeline.
 
-    | Name                  | Type                  | Default Value                                                                 |
-    | :-------------------- | :-------------------- |:----------------------------------------------------------------------------- |
-    | subscription          | String                | Specify subscription id for the pipeline                                      |
-    | resourceGroup         | String                | Specify resource group name for the pipeline                                  |
-    | runId                 | String                | @activity('Specify name of the calling pipeline').output['pipelineRunId']     |
-    | name                  | String                | @activity('Specify name of the calling pipeline').output['pipelineName']      |
-    | triggerTime           | String                | @activity('Specify name of the calling pipeline').ExecutionStartTime          |
-    | status                | String                | @activity('Specify name of the calling pipeline').Status                      |
-    | message               | String                | @activity('Specify name of the calling pipeline').Error['message']            |
-    | executionEndTime      | String                | @activity('Specify name of the calling pipeline').ExecutionEndTime            |
-    | runDuration           | String                | @activity('Specify name of the calling pipeline').Duration                    |
-    | teamWebhookUrl        | String                | Specify Team Webhook URL                                                      |
+    | Name                  | Type                      | Default Value                                                                         |
+    | :-------------------- | :------------------------ |:------------------------------------------------------------------------------------- |
+    | subscription          | ``String``                | ``Specify subscription id for the pipeline``                                          |
+    | resourceGroup         | ``String``                | ``Specify resource group name for the pipeline``                                      |
+    | runId                 | ``String``                | ``@activity('Specify name of the calling pipeline').output['pipelineRunId']``         |
+    | name                  | ``String``                | ``@activity('Specify name of the calling pipeline').output['pipelineName']``          |
+    | triggerTime           | ``String``                | ``@activity('Specify name of the calling pipeline').ExecutionStartTime``              |
+    | status                | ``String``                | ``@activity('Specify name of the calling pipeline').Status``                          |
+    | message               | ``String``                | ``@activity('Specify name of the calling pipeline').Error['message']``                |
+    | executionEndTime      | ``String``                | ``@activity('Specify name of the calling pipeline').ExecutionEndTime``                |
+    | runDuration           | ``String``                | ``@activity('Specify name of the calling pipeline').Duration``                        |
+    | teamWebhookUrl        | ``String``                | ``Specify Team Webhook URL``                                                          |
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-parameters-synapse.png" alt-text="Shows the &quot;Pipeline parameters&quot;.":::
 
@@ -242,9 +242,9 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  In the "Configurations" pane, select **Variables**, and then select the **+ New** button define following variables for your pipeline.
 
-    | Name                  | Type                  | Default Value             |
-    | :-------------------- | :-------------------- |:------------------------- |
-    | messageCard           | String                |                           |
+    | Name                  | Type                      | Default Value             |
+    | :-------------------- | :------------------------ |:------------------------- |
+    | messageCard           | ``String``                |                           |
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-variables-synapse.png" alt-text="Shows the &quot;Pipeline variables&quot;.":::
 
@@ -348,7 +348,7 @@ Before you can send notifications to Teams from your pipelines you must create a
     | Property     | value                                          | 
     | :----------- | :--------------------------------------------- |
     | URL          | ``@pipeline().parameters.teamWebhookUrl``      |
-    | Method       | POST                                           |
+    | Method       | ``POST``                                       |
     | Body         | ``@json(variables('messageCard'))``            |
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-settings-pane-synapse.png" alt-text="Shows the &quot;Web&quot; activity settings pane.":::
@@ -364,11 +364,43 @@ Before you can send notifications to Teams from your pipelines you must create a
 ## Sample Usage
 In this sample usage scenario, we will create a master pipeline with three **Execute Pipeline** activities. The first **Execute Pipeline** activity will invoke our ETL pipeline and the remaining two **Execute Pipeline** activities will invoke the "NotifiyTeamsChannelPipeline" pipeline to send relevant success or failure notifications to the Teams channel depending on the execution state of our ETL pipeline.
 
-1.  Search for pipeline in the pipeline Activities pane, and drag three **Execute Pipeline** activities to the pipeline canvas.
+1.  Select **Author** tab from the left pane in **Data Factory** or **Integrate** tab from the left pane in **Synapse Studio**. Next, select the + (plus) button, and then select **Pipeline** to create a new pipeline.
+
+1.  In the "General" panel under Properties, specify **MasterPipeline** for **Name**. Then collapse the panel by clicking the **Properties** icon in the top-right corner.
+
+1.  Search for pipeline in the pipeline "Activities" pane, and drag three **Execute Pipeline** activities to the pipeline canvas.
 
 1.  Select first **Execute Pipeline** activity on the canvas if it is not already selected, and its "General" pane, to edit its details. 
-- For Name property of the **Execute Pipeline** activity, we recommend to use the name of your invoked ETL pipeline for which you want to send notifications. For example, we used **LoadDataPipeline** for the **Name** of our **Execute Pipeline** activity because it is the name of our invoked pipeline. 
-- In the "Settings" pane, select an existing pipeline or create a new one using the **+ New** button for the **Invoked pipeline** property. For example, in our case, we selected "LoadDataPipeline" for the "Invoked pipeline" property. Select other options and configure any parameters for the pipeline as required to complete your configuration.
+    - For **Name** property of the **Execute Pipeline** activity, we recommend to use the name of your invoked ETL pipeline for which you want to send notifications. For example, we used **LoadDataPipeline** for the **Name** of our **Execute Pipeline** activity because it is the name of our invoked pipeline. 
+    - In the "Settings" pane, select an existing pipeline or create a new one using the **+ New** button for the **Invoked pipeline** property. For example, in our case, we selected **LoadDataPipeline** pipeline for the "Invoked pipeline" property. Select other options and configure any parameters for the pipeline as required to complete your configuration.
+
+     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-1-general.png" alt-text="Shows the &quot;Execute pipeline&quot; activity general pane for &quot;LoadDataPipeline&quot; pipeline.":::
+     
+     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-1-settings.png" alt-text="Shows the &quot;Execute pipeline&quot; activity setting pane for &quot;LoadDataPipeline&quot; pipeline.":::
+
+1.  Select second **Execute Pipeline** activity on the canvas, and its "General" pane, to edit its details. 
+    -   Specify **OnSuccess Notification** for **Name** of the **Execute Pipeline** activity. 
+    -   In the "Settings" pane, select **NotifiyTeamsChannelPipeline** pipeline, which we created earlier, for the **Invoked pipeline** property. Customize the parameters as required based on activity type. For example, I customised the parameters as follows:
+
+        | Name              | Value                                                                                                             | 
+        | :---------------- | :---------------------------------------------------------------------------------------------------------------- |
+        | subscription      | ``11111111-0000-aaaa-bbbb-0000000000``                                                                            |
+        | resourceGroup     | ``contosorg``                                                                                                     |
+        | runId             | ``@activity('LoadDataPipeline').output['pipelineRunId']``                                                         | 
+        | name              | ``@activity('LoadDataPipeline').output['pipelineName']``                                                          |
+        | triggerTime       | ``@activity('LoadDataPipeline').ExecutionStartTime``                                                              |
+        | status            | ``@activity('LoadDataPipeline').Status``                                                                          |
+        | message           | ``Pipeline - LoadDataPipeline ran with success.``                                                                 |
+        | executionEndTime  | ``@activity('LoadDataPipeline').ExecutionEndTime``                                                                |
+        | runDuration       | ``@activity('LoadDataPipeline').Duration``                                                                        |
+        | teamWebhookUrl	| ``https://microsoft.webhook.office.com/webhookb2/1234abcd-1x11-2ff1-ab2c-1234d0699a9e@72f988bf-32b1-41af-91ab-2d7cd011db47/IncomingWebhook/8212f66ad80040ab83cf68b554d9232a/17d524d0-ed5c-44ed-98a0-35c12dd89a6d``                                        |
+
+    -   Create a dependency condition for the second **Execute Pipeline** activity so that it only runs if the first **Execute Pipeline** activity succeeds. To create this dependency, click the green handle on the right side of the first **Execute Pipeline** activity, drag it, and connect it to the second **Execute Pipeline** activity.
+
+     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-2-general.png" alt-text="Shows the &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; general pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
+
+     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-2-settings.png" alt-text="Shows the &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; setting pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
+
 
 3.  **Invoke Teams Webhook Url** for **Name** of the **Web** activity.
 4.  We recommend adding the current Data Factory **Subscription ID**, **Resource Group**, and the **Teams webhook URL** (refer to 
