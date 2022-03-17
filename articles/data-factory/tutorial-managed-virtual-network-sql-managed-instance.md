@@ -236,7 +236,7 @@ the page.
     >|**SQL MI 2**|1434 |1434 |sudo ./ip_fwd.sh -i eth0 -f 1434 -a <FQDN/IP> -b 1433|
     
     >[!Note]
-    > Run the script in step 2 above again every time you restart the VMs behind the load balancer.
+    > Run the script again every time you restart the VMs behind the load balancer.
 
 ## Create a Private Endpoint to Private Link Service
 
