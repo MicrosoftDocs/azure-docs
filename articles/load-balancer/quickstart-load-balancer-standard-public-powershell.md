@@ -2,17 +2,11 @@
 title: 'Quickstart: Create a public load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer using Azure PowerShell
-services: load-balancer
-documentationcenter: na
 author: asudbring
 ms.author: allensu
-manager: KumudD
-ms.date: 11/22/2020
-ms.assetid: 
+ms.date: 03/16/2022
 ms.topic: quickstart
 ms.service: load-balancer
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
@@ -37,7 +31,6 @@ Create a resource group with [New-AzResourceGroup](/powershell/module/az.resourc
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name 'CreatePubLBQS-rg' -Location 'eastus'
-
 ```
 
 ## Create a public IP address
@@ -54,7 +47,6 @@ $publicip = @{
     Zone = 1,2,3
 }
 New-AzPublicIpAddress @publicip
-
 ```
 
 To create a zonal public IP address in zone 1, use the following command:
@@ -69,7 +61,6 @@ $publicip = @{
     Zone = 1
 }
 New-AzPublicIpAddress @publicip
-
 ```
 
 ## Create a load balancer
@@ -130,7 +121,6 @@ $loadbalancer = @{
     Probe = $healthprobe
 }
 New-AzLoadBalancer @loadbalancer
-
 ```
 
 ## Configure virtual network
@@ -218,7 +208,6 @@ $nsg = @{
     SecurityRules = $rule1
 }
 New-AzNetworkSecurityGroup @nsg
-
 ```
 
 ## Create NAT gateway
@@ -259,7 +248,6 @@ $subnet = @{
     NatGateway = $natGateway
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet
-
 ```
 
 ## Create virtual machines
@@ -342,7 +330,6 @@ $vm = @{
 }
 New-AzVM @vm -AsJob
 }
-
 ```
 
 The deployments of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
@@ -360,9 +347,6 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
-
-
-
 ## Test the load balancer
 
 Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the load balancer:
@@ -373,14 +357,11 @@ $ip = @{
     Name = 'myPublicIP'
 }  
 Get-AzPublicIPAddress @ip | select IpAddress
-
 ```
 
 Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
-   ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
-
-To see the load balancer distribute traffic across all three VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
+   :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Screenshot of load balancer test":::
 
 ## Clean up resources
 
@@ -388,17 +369,17 @@ When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/modu
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name 'CreatePubLBQS-rg'
-
 ```
 
 ## Next steps
 
-In this quickstart:
+In this quickstart, you:
 
-* You created a standard or basic public load balancer
-* Attached virtual machines. 
-* Configured the load balancer traffic rule and health probe.
-* Tested the load balancer.
+* Created an Azure Load Balancer
+
+* Attached 2 VMs to the load balancer
+
+* Tested the load balancer
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
