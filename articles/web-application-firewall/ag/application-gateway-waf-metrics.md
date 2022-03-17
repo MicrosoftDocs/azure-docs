@@ -40,7 +40,7 @@ New WAF metrics are only available for Core Rule Set 3.2 or greater, or with bot
 
 For metrics supported by Application Gateway V2 SKU, see [Application Gateway v2 metrics](../../application-gateway/application-gateway-metrics.md#metrics-supported-by-application-gateway-v2-sku)
 
-## Application Gateway v1 Metrics
+## Application Gateway WAF v1 Metrics
 
 |**Metrics**|**Description**|**Dimension**|
 | :------------------| :-------------------------------------| :-----------------|
