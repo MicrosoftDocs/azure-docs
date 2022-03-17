@@ -238,6 +238,8 @@ To deploy a large number of parsers, we recommend using parser ARM templates, as
 
 1. Use the [ASIM Yaml to ARM template converter](https://aka.ms/ASimYaml2ARM) to convert your YAML file to an ARM template. 
 
+1. If deploying an update, delete older versions of the functions using the portal or the [function delete PowerShell tool](https://aka.ms/ASimDelFunctionScript). 
+
 1. Deploy your template using the [Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template) or [PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
 You can also combine multiple templates to a single deploy process using [linked templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell#linked-template)

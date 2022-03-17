@@ -663,7 +663,7 @@ The tables listed below are required to enable functions that identify privilege
 
 ## Functions available from the SAP solution
 
-This section describes the [functions](/azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
+This section describes the [functions](/azure/azure-monitor/logs/functions) that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
 
 ### SAPUsersAssignments
 

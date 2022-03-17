@@ -8,7 +8,7 @@ ms.author: juliako
 
 ### Get the sample code
 
-1. Clone the [AVA python samples repository](https://github.com/Azure-Samples/video-analyzer-iot-edge-python).
+1. Clone the [AVA Python samples repository](https://github.com/Azure-Samples/video-analyzer-iot-edge-python).
 1. Start Visual Studio Code, and open the folder where the repo has been downloaded.
 1. In Visual Studio Code, browse to the src/cloud-to-device-console-app folder and create a file named **appsettings.json**. This file contains the settings needed to run the program.
 1. Browse to the file share in the storage account created in the setup step above, and locate the **appsettings.json** file under the "deployment-output" file share. Click on the file, and then hit the "Download" button. The contents should open in a new browser tab, which should look like:

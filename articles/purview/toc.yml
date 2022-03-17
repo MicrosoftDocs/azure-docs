@@ -80,7 +80,6 @@ items:
         href: concept-best-practices-scanning.md
       - name: Security best practices
         href: concept-best-practices-security.md  
-
   - name: Azure Purview permissions
     href: catalog-permissions.md
   - name: Data map
@@ -101,6 +100,8 @@ items:
       href: concept-business-glossary.md 
     - name: Asset normalization
       href: concept-asset-normalization.md
+    - name: Workflows
+      href: concept-workflow.md
   - name: Data insights
     href: concept-insights.md
 - name: How-to guides
@@ -120,6 +121,8 @@ items:
       href: manage-integration-runtimes.md
     - name: Create Service Principal
       href: create-service-principal-azure.md
+    - name: Request access to data asset
+      href: how-to-request-access.md
   - name: Sources
     items: 
     - name: Azure Multiple Source
@@ -236,10 +239,10 @@ items:
       href: how-to-lineage-sql-server-integration-services.md
   - name: Business glossary
     items:
-    - name: Create, import, & export glossary terms
+    - name: Create & manage terms
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
-      href: how-to-manage-term-templates.md  
+      href: how-to-manage-term-templates.md   
   - name: Classify
     items: 
     - name: Create custom classifications
@@ -289,9 +292,21 @@ items:
     - name: Conditional access
       href: catalog-conditional-access.md
   - name: Data owner policies
-    href: how-to-data-owner-policy-authoring-generic.md
-  - name: Data use governance
-    href: how-to-enable-data-use-governance.md
+    items:
+    - name: Authoring and publishing data owner access policies
+      href: how-to-data-owner-policy-authoring-generic.md
+    - name: Data use governance
+      href: how-to-enable-data-use-governance.md
+  - name: Workflows
+    items:
+    - name: Self-service hybrid data access
+      href: how-to-workflow-self-service-data-access-hybrid.md
+    - name: Approval for business terms
+      href: how-to-workflow-business-terms-approval.md
+    - name: Manage requests and approvals
+      href: how-to-workflow-manage-requests-approvals.md
+    - name: Manage workflow runs
+      href: how-to-workflow-manage-runs.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery

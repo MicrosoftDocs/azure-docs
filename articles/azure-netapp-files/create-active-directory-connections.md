@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 03/11/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -35,6 +35,9 @@ Several features of Azure NetApp Files require that you have an Active Directory
 * The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify.  
 
 * The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify. In some cases, `msDS-SupportedEncryptionTypes` write permission is required to set account attributes within AD.
+
+
+* Group Managed Service Accounts (GMSA) cannot be used with the Active Directory connection user account.
 
 * If you change the password of the Active Directory user account that is used in Azure NetApp Files, be sure to update the password configured in the [Active Directory Connections](#create-an-active-directory-connection). Otherwise, you will not be able to create new volumes, and your access to existing volumes might also be affected depending on the setup.  
 

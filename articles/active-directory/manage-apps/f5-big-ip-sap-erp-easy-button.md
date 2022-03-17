@@ -259,7 +259,7 @@ Selected policies should either have an **Include** or **Exclude** option checke
 ![ Screenshot for CA policies](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
 
 >[!NOTE]
->The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
+>The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed. 
 
 ### Virtual Server Properties
 

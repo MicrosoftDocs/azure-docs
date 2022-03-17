@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 03/09/2022
 ms.author: v-ydequadros
 ---
 
@@ -20,6 +20,11 @@ To view step-by-step training videos on how to use CloudKnox Permissions Managem
 
 To view a video on how to enable CloudKnox in your Azure AD tenant, select
 [Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
+
+## Configure and onboard Amazon Web Services (AWS) accounts
+
+To view a video on how to configure and onboard Amazon Web Services (AWS) accounts in CloudKnox Permissions Management, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?v=R6K21wiWYmE).
+
 
 <!---## Privilege on demand (POD) work flows
 

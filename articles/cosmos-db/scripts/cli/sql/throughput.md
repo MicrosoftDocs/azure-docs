@@ -27,7 +27,7 @@ The script in this article creates a Core (SQL) API database with shared through
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/sql/throughput.sh" range="4-94":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/sql/throughput.sh" id="FullScript":::
 
 ## Clean up resources
 

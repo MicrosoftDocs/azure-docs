@@ -107,7 +107,7 @@ The descriptor `Dvc` is used for the reporting device, which is the local system
 ### Common fields
 
 > [!IMPORTANT]
-> Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following list mentions only fields that have specific guidelines for user management events.
+> Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following list mentions only fields that have specific guidelines for network session events.
 >
 
 | Field               | Class       | Type       |  Description        |
