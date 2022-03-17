@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/11/2021
+ms.date: 01/24/2022
 ms.author: radeltch
 
 ---
@@ -377,7 +377,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create vip_<b>NW1</b>_ASCS IPaddr2 \
-     ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.7</b> \
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b> \
@@ -429,7 +429,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create vip_<b>NW1</b>_AERS IPaddr2 \
-     ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.8</b> \
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create nc_<b>NW1</b>_AERS azure-lb port=621<b>02</b> \

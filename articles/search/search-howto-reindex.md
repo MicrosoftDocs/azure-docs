@@ -7,13 +7,13 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/10/2022
 ---
 
 # Drop and rebuild an index in Azure Cognitive Search
 
-This article explains how to drop and rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests.
+This article explains how to drop and rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests. If you frequently have to rebuild your search index, we recommend using [index aliases](search-how-to-alias.md) to make it easier to swap which index your application is pointing to. 
 
 A search index is a collection of physical folders and field-based inverted indexes of your content, distributed in shards across the number of partitions allocated to your search index. In Azure Cognitive Search, you cannot drop and recreate individual fields. If you want to fully rebuild a field, all field storage must be deleted, recreated based on an existing or revised index schema, and then repopulated with data pushed to the index or pulled from external sources. 
 
@@ -53,8 +53,6 @@ During development, the index schema changes frequently. You can plan for it by 
 
 For applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime. Your application code provides redirection to the new index.
 
-Indexing does not run in the background and the service will balance the additional indexing against ongoing queries. During indexing, you can [monitor query requests](search-monitor-queries.md) in the portal to ensure queries are completing in a timely manner.
-
 1. Determine whether a rebuild is required. If you are just adding fields, or changing some part of the index that is unrelated to fields, you might be able to simply [update the definition](/rest/api/searchservice/update-index) without deleting, recreating, and fully reloading it.
 
 1. [Get an index definition](/rest/api/searchservice/get-index) in case you need it for future reference.
@@ -71,8 +69,11 @@ When you create the index, physical storage is allocated for each field in the i
 
 When you load the index, each field's inverted index is populated with all of the unique, tokenized words from each document, with a map to corresponding document IDs. For example, when indexing a hotels data set, an inverted index created for a City field might contain terms for Seattle, Portland, and so forth. Documents that include Seattle or Portland in the City field would have their document ID listed alongside the term. On any [Add, Update or Delete](/rest/api/searchservice/addupdate-or-delete-documents) operation, the terms and document ID list are updated accordingly.
 
-> [!NOTE]
-> If you have stringent SLA requirements, you might consider provisioning a new service specifically for this work, with development and indexing occurring in full isolation from a production index. A separate service runs on its own hardware, eliminating any possibility of resource contention. When development is complete, you would either leave the new index in place, redirecting queries to the new endpoint and index, or you would run finished code to publish a revised index on your original Azure Cognitive Search service. There is currently no mechanism for moving a ready-to-use index to another service.
+## Balancing workloads
+
+Indexing does not run in the background, but the search service will balance any indexing jobs against ongoing queries. During indexing, you can [monitor query requests](search-monitor-queries.md) in the portal to ensure queries are completing in a timely manner.
+
+If indexing workloads introduce unacceptable levels of query latency, conduct [performance analysis](search-performance-analysis.md) and review these [performance tips](search-performance-tips.md) for potential mitigation.
 
 ## Check for updates
 

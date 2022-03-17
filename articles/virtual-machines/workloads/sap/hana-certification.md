@@ -3,7 +3,7 @@ title: Certification of SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about certification of SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: msjuergent
+author: mamccrea
 manager: bburns
 editor: ''
 ms.service: virtual-machines-sap
@@ -11,8 +11,8 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/14/2021
-ms.author: madhukan
+ms.date: 02/11/2022
+ms.author: mamccrea
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -22,7 +22,7 @@ Besides the NetWeaver certification, SAP requires a special certification for SA
 
 The core SAP Note on NetWeaver, and to a degree SAP HANA certification, is [SAP Note #1928533 – SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533).
 
-The certification records for SAP HANA on Azure Large Instances can be found in the [SAP HANA certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. 
+The certification records for SAP HANA on Azure Large Instances can be found in the [SAP HANA certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120) site. 
 
 The SAP HANA on Azure (Large Instances) types, referred to in SAP HANA certified IaaS Platforms site, provides Microsoft and SAP customers the ability to deploy:
 

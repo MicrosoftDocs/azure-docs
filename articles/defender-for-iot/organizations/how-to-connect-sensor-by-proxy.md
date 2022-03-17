@@ -2,7 +2,7 @@
 title: Connect sensors with a proxy
 description: Learn how to configure Microsoft Defender for IoT to communicate with a sensor through a proxy with no direct internet access.
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 02/06/2022
 ---
 
 # Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy 
@@ -11,7 +11,7 @@ This article describes how to configure Microsoft Defender for IoT to communicat
 
 The proxy uses an encrypted SSL tunnel to transfer data from the sensors to the service. The proxy doesn't inspect, analyze, or cache any data. 
 
-The following diagram shows data going from Microsoft Defender for Cloud to IoT sensor in the OT segment to cloud via a proxy located in the IT network, and industrial DMZ.
+The following diagram shows data going from Microsoft Defender for IoT to the IoT sensor in the OT segment to cloud via a proxy located in the IT network, and industrial DMZ.
 
 :::image type="content" source="media/how-to-connect-sensor-by-proxy/cloud-access.png" alt-text="Connect the sensor to a proxy through the cloud.":::
 
@@ -66,15 +66,15 @@ For this scenario we will be installing, and configuring the latest version of [
 
 ## Set up a sensor to use Squid
 
+This section describes how to set up a sensor to use Squid.
+
 **To set up a sensor to use Squid**:
 
 1. Sign in to the sensor.
 
-1. Navigate to **System settings** > **Network**.
+1. Navigate to **System settings** > **Basic**> **Sensor Network Settings**.
 
-1. Select **Enable Proxy**.
-
-    :::image type="content" source="media/how-to-connect-sensor-by-proxy/enable-proxy.png" alt-text="Select enable proxy from the Sensor Network Configuration window.":::
+1. Turn on the **Enable Proxy** toggle.
 
 1. Enter the proxy address.
 
@@ -84,6 +84,6 @@ For this scenario we will be installing, and configuring the latest version of [
 
 1. Select **Save**.
 
-## See also
+## Next steps
 
-[Manage your subscriptions](how-to-manage-subscriptions.md).
+For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).

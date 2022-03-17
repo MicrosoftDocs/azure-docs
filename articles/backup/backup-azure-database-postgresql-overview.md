@@ -1,12 +1,14 @@
 ---
 title: About Azure Database for PostgreSQL backup
-description: An overview on Azure Database for PostgreSQL backup (preview)
+description: An overview on Azure Database for PostgreSQL backup
 ms.topic: conceptual
-ms.date: 09/28/2021
-ms.custom: references_regions
+ms.date: 01/24/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
-# About Azure Database for PostgreSQL backup (preview)
+# About Azure Database for PostgreSQL backup
 
 Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years. Besides long-term retention, the solution offers the following capabilities:
 
@@ -17,22 +19,6 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 - Use of **pg_dump** allows a greater flexibility in restores. This helps you restore across database versions 
 
 You can use this solution independently or in addition to the [native backup solution offered by Azure PostgreSQL](../postgresql/concepts-backup.md) that offers retention up to 35 days. The native solution is suited for operational recoveries, such as when you want to recover from the latest backups. The Azure Backup solution helps you with your compliance needs and more granular and flexible backup/restore.
-
-## Support matrix
-
-|Support  |Details  |
-|---------|---------|
-|Supported deployments   |  [Azure Database for PostgreSQL - Single Server](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
-|Supported Azure regions |  East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, Brazil South, Canada Central, North Europe, West Europe, UK South, UK West, Germany West Central, Switzerland North, Switzerland West, East Asia, Southeast Asia, Japan East, Japan West, Korea Central, Korea South, India Central, Australia East, Australia Central, Australia Central 2, UAE North  |
-|Supported Azure PostgreSQL versions    |   9.5, 9.6, 10, 11      |
-
-## Feature considerations and limitations
-
-- All operations are supported from the Azure portal only. 
-- Recommended limit for the maximum database size is 400 GB.
-- Cross-region backup isn't supported. Therefore, you can't back up an Azure PostgreSQL server to a vault in another region. Similarly, you can only restore a backup to a server within the same region as the vault. However, we support cross-subscription backup and restore. 
-- Only the data is recovered during restore; "roles" aren't restored.
-- In preview, we recommend you to run the solution only on your test environment.
 
 ## Backup process
 
@@ -54,7 +40,7 @@ The Azure Backup service needs to connect to the Azure PostgreSQL while taking e
  
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-based-authentication-model.png" alt-text="Diagram showing the workload or database flow.":::
 
-#### Set of Permissions needed for Azure PostgreSQL database backup
+#### Set of permissions needed for Azure PostgreSQL database backup
 
 1. Grant the following access permissions to the Backup vault’s MSI:
 
@@ -71,7 +57,7 @@ The Azure Backup service needs to connect to the Azure PostgreSQL while taking e
 >[!Note]
 >You can grant these permissions within the [configure backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases) flow with a single click if you (the backup admin) have ‘write’ access on the intended resources, or use an ARM template if you don’t have the required permissions (when multiple personas are involved). 
 
-#### Set of Permissions needed for Azure PostgreSQL database restore
+#### Set of permissions needed for Azure PostgreSQL database restore
 
 Permissions for restore are similar to the ones needed for backup and you need to grant the permissions on the target PostgreSQL server and its corresponding key vault. Unlike in configure backup flow, the experience to grant these permissions inline is currently not available. Therefore, you need to [manually grant the access on the Postgres server and the corresponding key vault](#grant-access-on-the-azure-postgresql-server-and-key-vault-manually).
 
@@ -93,17 +79,17 @@ We had earlier launched a different authentication model that was entirely based
 
 To grant all the access permissions needed by Azure Backup, refer to the following sections:
 
-### Access Permissions on the Azure PostgreSQL server
+### Access permissions on the Azure PostgreSQL server
 
 1. Set Backup vault’s MSI **Reader** access on the Azure PostgreSQL server.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql-overview/set-reader-access-on-azure-postgresql-server-inline.png" alt-text="Screenshot showing the option to set Backup vault’s MSI Reader access on the Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/set-reader-access-on-azure-postgresql-server-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-overview/set-reader-access-on-azure-postgresql-server-inline.png" alt-text="Screenshot showing the option to set Backup vault’s M S I Reader access on the Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/set-reader-access-on-azure-postgresql-server-expanded.png":::
 
 1. Network line of sight access on the Azure PostgreSQL server: Set ‘Allow access to Azure services’ flag to ‘Yes’.
 
    :::image type="content" source="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server-inline.png" alt-text="Screenshot showing the option to set network line of sight access on the Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server-expanded.png":::
 
-### Access Permissions on the Azure Key vault (associated with the PostgreSQL server)
+### Access permissions on the Azure Key vault (associated with the PostgreSQL server)
 
 1. Set Backup vault’s MSI **Key Vault Secrets User** (or **get**, **list** secrets) access on the Azure key vault. To assign permissions, you can use role assignments or access policies. It’s not required to add the permission using both the options as it doesn’t help.
 
@@ -114,7 +100,7 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
 
    :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-inline.png" alt-text="Screenshot showing the option to provide secret user access." lightbox="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-expanded.png":::
 
-   :::image type="content" source="./media/backup-azure-database-postgresql-overview/grant-permission-to-applications-azure-rbac-inline.png" alt-text="Screenshot showing the option to grant the backup vault’s MSI Key Vault Secrets User access on the key vault." lightbox="./media/backup-azure-database-postgresql-overview/grant-permission-to-applications-azure-rbac-expanded.png":::  
+   :::image type="content" source="./media/backup-azure-database-postgresql-overview/grant-permission-to-applications-azure-rbac-inline.png" alt-text="Screenshot showing the option to grant the backup vault’s M S I Key Vault Secrets User access on the key vault." lightbox="./media/backup-azure-database-postgresql-overview/grant-permission-to-applications-azure-rbac-expanded.png":::  
 
    - Using access policies (that is, Permission model is set to Vault access policy):
 
@@ -130,7 +116,7 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
 
 ### Database user’s backup privileges on the database
 
-Run the following query in [PG admin](#using-the-pg-admin-tool) tool (replace _username_ with the database user ID):
+Run the following query in [PG admin](#use-the-pg-admin-tool) tool (replace _username_ with the database user ID):
 
 ```
 DO $do$
@@ -150,21 +136,21 @@ END;
 $do$
 ```
 
-## Using the PG admin tool
+## Use the PG admin tool
 
 [Download PG admin tool](https://www.pgadmin.org/download/) if you don’t have it already. You can connect to the Azure PostgreSQL server through this tool. Also, you can add databases and new users to this server.
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/connect-to-azure-postgresql-server-using-pg-admin-tool-inline.png" alt-text="Screenshot showing the process to connect to Azure PostgreSQL server using PG admin tool." lightbox="./media/backup-azure-database-postgresql-overview/connect-to-azure-postgresql-server-using-pg-admin-tool-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/connect-to-azure-postgresql-server-using-pg-admin-tool-inline.png" alt-text="Screenshot showing the process to connect to Azure PostgreSQL server using P G admin tool." lightbox="./media/backup-azure-database-postgresql-overview/connect-to-azure-postgresql-server-using-pg-admin-tool-expanded.png":::
 
 Create new server with a name of your choice. Enter the Host name/address name same as the **Server name** displayed in the Azure PostgreSQL resource view in the Azure portal.
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/create-new-server-using-pg-admin-tool-inline.png" alt-text="Screenshot showing the option to create new server using PG admin tool." lightbox="./media/backup-azure-database-postgresql-overview/create-new-server-using-pg-admin-tool-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/create-new-server-using-pg-admin-tool-inline.png" alt-text="Screenshot showing the option to create new server using P G admin tool." lightbox="./media/backup-azure-database-postgresql-overview/create-new-server-using-pg-admin-tool-expanded.png":::
 
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/enter-host-name-or-address-name-same-as--server-name-inline.png" alt-text="Screenshot showing the option to enter the Host name or address name same as the Server name." lightbox="./media/backup-azure-database-postgresql-overview/enter-host-name-or-address-name-same-as--server-name-expanded.png":::
 
 Ensure that you add the _current client ID address_ to the Firewall rules for the connection to go through.
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-inline.png" alt-text="Screenshot showing the process to add the current client ID address to the Firewall rules." lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-inline.png" alt-text="Screenshot showing the process to add the current client I D address to the Firewall rules." lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-expanded.png":::
 
 You can add new databases and database users to the server. For database users, add a new **Login/Group Roles**’. Ensure **Can login?** is set to **Yes**.
 

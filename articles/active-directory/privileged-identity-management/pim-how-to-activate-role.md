@@ -1,5 +1,5 @@
 ---
-title: Activate my Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+title: Activate Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to activate Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,13 +11,13 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 02/02/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
-# Activate my Azure AD roles in PIM
+# Activate an Azure AD role in PIM
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure AD and other Microsoft online services like Microsoft 365 or Microsoft Intune.  
 
@@ -49,7 +49,7 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Screen to provide security verification such as a PIN code](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
-1. After multi-factor authentication, select **Activate before proceeding**.
+1. After multifactor authentication, select **Activate before proceeding**.
 
     ![Verify my identity with MFA before role activates](./media/pim-how-to-activate-role/activate-role-mfa-banner.png)
 
@@ -79,7 +79,7 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilitySch
 
 #### HTTP response
 
-To save space we're showing only the response for one roles, but all eligible role assignments that you can activate will be listed.
+To save space we're showing only the response for one role, but all eligible role assignments that you can activate will be listed.
 
 ````HTTP
 { 
@@ -199,7 +199,7 @@ You can view the status of your pending requests to activate.
 
 ## Cancel a pending request for new version
 
-If you do not require activation of a role that requires approval, you can cancel a pending request at any time.
+If you don't require activation of a role that requires approval, you can cancel a pending request at any time.
 
 1. Open Azure AD Privileged Identity Management.
 
@@ -207,15 +207,19 @@ If you do not require activation of a role that requires approval, you can cance
 
 1. For the role that you want to cancel, select the **Cancel** link.
 
-    When you select Cancel, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
+    When you select Cancel, the request will be canceled. To activate the role again, you'll have to submit a new request for activation.
 
    ![My request list with Cancel action highlighted](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+
+## Deactivate a role assignment
+
+When a role assignment is activated, you'll see a **Deactivate** option in the PIM portal for the role assignment. When you select **Deactivate**, there's a short time lag before the role is deactivated. Also, you can't deactivate a role assignment within five minutes after activation.
 
 ## Troubleshoot portal delay
 
 ### Permissions aren't granted after activating a role
 
-When you activate a role in Privileged Identity Management, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, sign out of the portal you are trying to perform the action and then sign back in. In the Azure portal, PIM signs you out and back in automatically.
+When you activate a role in Privileged Identity Management, the activation might not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may cause a delay before the change takes effect. If your activation is delayed, sign out of the portal you're trying to perform the action and then sign back in. In the Azure portal, PIM signs you out and back in automatically.
 
 ## Next steps
 

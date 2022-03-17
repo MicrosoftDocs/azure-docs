@@ -1,18 +1,19 @@
 ---
 title: 'Quickstart: Create a HoloLens app with Unity'
 description: In this quickstart, you learn how to build a HoloLens app with Unity using Spatial Anchors.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
-# Quickstart: Create a Unity HoloLens app that uses Azure Spatial Anchors
+# Run the sample app: HoloLens - Unity (C#)
 
-In this quickstart, you'll create a Unity HoloLens app that uses [Azure Spatial Anchors](../overview.md). Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences with objects that persist their location across devices over time. When you're finished, you'll have a HoloLens app built with Unity that can save and recall a spatial anchor.
+In this quickstart, you'll run the [Azure Spatial Anchors](../overview.md) sample app for HoloLens using Unity (C#). Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences with objects that persist their location across devices over time. When you're finished, you'll have a HoloLens app built with Unity that can save and recall a spatial anchor.
 
 You'll learn how to:
 
@@ -37,9 +38,15 @@ To complete this quickstart:
 
 ## Download and open the Unity sample project
 
+### Clone Samples Repository
+
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
+### Import ASA SDK
+
 Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-packages) to download and import the ASA SDK packages required for the HoloLens platform.
+
+### Configure Unity
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 

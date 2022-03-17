@@ -6,7 +6,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 author: mrbullwinkle
 ms.author: mbullwin
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/23/2021
 ---
 
@@ -281,7 +281,7 @@ curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applicat
         "value": [
           {
             "displayName": "source1",
-            "sourceUri": "https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/overview",
+            "sourceUri": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview",
             "sourceKind": "url",
             "lastUpdatedDateTime": "2021-05-01T15:13:22Z"
           },

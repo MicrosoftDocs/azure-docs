@@ -1,12 +1,12 @@
 ---
 title: Find and use marketplace purchase plan information using the CLI    
 description: Learn how to use the Azure CLI to find image URNs and purchase plan parameters, like the publisher, offer, SKU, and version, for Marketplace VM images.
-author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.date: 03/22/2021
-ms.author: cynthn
+author: ebolton-cyber
+ms.author: edewebolton
 ms.collection: linux
 ms.custom: contperf-fy21q3-portal, devx-track-azurecli
 ---
@@ -268,7 +268,7 @@ If you still have the original VM, or another VM created using the same marketpl
 az vm get-instance-view -g myResourceGroup -n myVM --query plan
 ```
 
-If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
+If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
 
 Once you have the plan information, you can create the new VM using the `--attach-os-disk` parameter to specify the VHD.
 

@@ -7,7 +7,7 @@ author: yulin-li
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: yulili
 ms.custom: references_regions
@@ -15,9 +15,6 @@ zone_pivot_groups: programming-languages-set-nineteen
 ---
 
 # Lower speech synthesis latency using Speech SDK
-
-> [!NOTE]
-> This article requires Speech SDK 1.17.0 or later.
 
 The synthesis latency is critical to your applications.
 In this article, we will introduce the best practices to lower the latency and bring the best performance to your end users.
@@ -330,8 +327,7 @@ See [How to configure OpenSSL for Linux](how-to-configure-openssl-linux.md#certi
 
 ### Use latest Speech SDK
 
-We keep improving the Speech SDK's performance, so try to use the latest Speech SDK in your application.
-For example, we fixed a `TCP_NODELAY` setting issue in [1.16.0](releasenotes.md#speech-sdk-1160-2021-march-release), which reduced extra one route trip time.
+We keep improving the Speech SDK's performance, so try to use the latest Speech SDK in your application. 
 
 ## Load test guideline
 

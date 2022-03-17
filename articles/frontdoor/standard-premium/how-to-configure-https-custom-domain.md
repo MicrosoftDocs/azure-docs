@@ -129,4 +129,4 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
 
 ## Next steps
 
-Learn about [caching with Azure Front Door Standard/Premium](concept-caching.md).
+Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md).

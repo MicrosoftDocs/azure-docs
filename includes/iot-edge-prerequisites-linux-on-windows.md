@@ -38,6 +38,9 @@ A Windows device with the following minimum requirements:
 
 ### Developer tools
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 You can use either **PowerShell** or **Windows Admin Center** to manage your IoT Edge devices. Each utility has its own prerequisites:
 
 # [PowerShell](#tab/powershell)
@@ -79,3 +82,27 @@ If you want to use Windows Admin Center, use the following steps to download and
    1. After the installation completes, you should see Azure IoT Edge in the list of installed extensions on the **Installed extensions** tab.
 
 ---
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Prepare your target device for the installation of Azure IoT Edge for Linux on Windows and the deployment of the Linux virtual machine:
+
+1. Set the execution policy on the target device to `AllSigned`. You can check the current execution policy in an elevated PowerShell prompt using the following command:
+
+   ```powershell
+   Get-ExecutionPolicy -List
+   ```
+
+   If the execution policy of `local machine` is not `AllSigned`, you can set the execution policy using:
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
+   ```
+
+For more information on the Azure IoT Edge for Linux on Windows PowerShell module, see the [PowerShell functions reference](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md).
+
+:::moniker-end
+<!-- end 1.2 -->

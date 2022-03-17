@@ -175,7 +175,7 @@ To make your portal and its latest changes available to visitors, you need to *p
 ### Publish from the administrative interface
 
 1. Make sure you saved your changes by selecting the **Save** icon.
-1. In the **Operations** section of the menu, select **Publish website** . This operation may take a few minutes.  
+1. In the **Operations** section of the menu, select **Publish website**. This operation may take a few minutes.  
 
     :::image type="content" source="media/api-management-howto-developer-portal-customize/publish-portal.png" alt-text="Publish portal" border="false":::
 

@@ -102,7 +102,7 @@ Following are some of the error codes used at the detail level.
 |409|	ResourceValidationError|	Referenced resource (example: video resource) is not in a valid state.|
 
 ## Supported direct methods  
-Following are the direct methods exposed by the Video Analyzer edge module. The schema for the direct methods can be found [here](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.1.0/AzureVideoAnalyzerSdkDefinitions.json).
+Following are the direct methods exposed by the Video Analyzer edge module. The schema for the direct methods can be found [here](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.1.0/AzureVideoAnalyzerSdkDefinitions.json).
 
 ### pipelineTopologyList
 

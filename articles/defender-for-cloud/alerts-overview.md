@@ -2,6 +2,8 @@
 title: Security alerts and incidents in Microsoft Defender for Cloud
 description: Learn how Microsoft Defender for Cloud generates security alerts and correlates them into incidents.
 ms.topic: conceptual
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 # Security alerts and incidents in Microsoft Defender for Cloud
@@ -10,7 +12,7 @@ ms.date: 11/09/2021
 
 Defender for Cloud generates alerts for resources deployed on your Azure, on-premises, and hybrid cloud environments.
 
-Security alerts are triggered by advanced detections and are available only with enhanced security features enabled. You can upgrade from the **Environment settings** page, as described in [Quickstart: Enable enhanced security features](enable-enhanced-security.md). A free 30-day trial is available. For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+Security alerts are triggered by advanced detections and are available only with enhanced security features enabled. You can upgrade from the **Environment settings** page, as described in [Quickstart: Enable enhanced security features](enable-enhanced-security.md). A free 30-day trial is available. For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ## What are security alerts and security incidents? 
 

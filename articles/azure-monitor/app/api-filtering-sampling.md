@@ -129,6 +129,8 @@ For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetry-proces
     }
 ```
 
+To register telemetry processors that need parameters in ASP.NET Core, create a custom class implementing **ITelemetryProcessorFactory**. Call the constructor with the desired parameters in the **Create** method and then use **AddSingleton<ITelemetryProcessorFactory, MyTelemetryProcessorFactory>()**.
+
 ### Example filters
 
 #### Synthetic requests

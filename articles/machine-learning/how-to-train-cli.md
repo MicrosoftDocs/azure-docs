@@ -15,6 +15,8 @@ ms.custom: devx-track-azurecli, devplatv2
 
 # Train models with the CLI (v2) (preview)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 The Azure Machine Learning CLI (v2) is an Azure CLI extension enabling you to accelerate the model training process while scaling up and out on Azure compute, with the model lifecycle tracked and auditable.
 
 Training a machine learning model is typically an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. Previously tedious manual processes like hyperparameter tuning and even algorithm selection are often automated. With the Azure Machine Learning CLI (v2), you can track your jobs (and models) in a [workspace](concept-workspace.md) with hyperparameter sweeps, scale-up on high-performance Azure compute, and scale-out utilizing distributed training.
@@ -39,7 +41,7 @@ Using `--depth 1` clones only the latest commit to the repository, which reduces
 
 ### Create compute
 
-You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
+You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.  (This code assumes you've first followed the steps in [the v2 installation prerequisite](how-to-configure-cli.md#set-up) to configure the default --workspace/-w and --resource-group/-g parameters.)
 
 :::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-compute.sh" id="create_computes":::
 

@@ -4,6 +4,7 @@ description: This article provides an overview with the built-in PgBouncer exten
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---

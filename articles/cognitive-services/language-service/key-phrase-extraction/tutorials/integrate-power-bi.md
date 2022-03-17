@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to:
 
 - Microsoft Power BI Desktop. [Download at no charge](https://powerbi.microsoft.com/get-started/).
 - A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
-- A Language resource. If you don't have one, you can [create one](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
+- A Language resource. If you don't have one, you can [create one](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
 - The [Language resource key](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 - Customer comments. You can use [our example data](https://aka.ms/cogsvc/ta) or your own data. This tutorial assumes you're using our example data.
 

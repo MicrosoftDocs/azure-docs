@@ -7,7 +7,8 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/01/2021
 ms.author: duau
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Create and configure Route Server using Azure CLI 

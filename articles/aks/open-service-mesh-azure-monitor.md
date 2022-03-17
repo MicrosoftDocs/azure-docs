@@ -34,7 +34,7 @@ For metrics to be scraped from a particular namespace monitored by the mesh, the
 osm metrics enable --namespace <namespace>
 ```
 
-For instance, if you are running the [bookstore demo](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/), you would run the `osm metrics enable` command on the following namespaces:
+For instance, if you are running the [bookstore demo](https://docs.openservicemesh.io/docs/getting_started/install_apps/), you would run the `osm metrics enable` command on the following namespaces:
 
 ```sh
 osm metrics enable --namespace bookbuyer
@@ -45,7 +45,7 @@ osm metrics enable --namespace bookwarehouse
 
 ## Apply ConfigMap
 
-Create the following ConfigMap in `kube-system`, which will tell AzMon what namespaces should be monitored. For instance, for the bookbuyer / bookstore demo, the ConfigMap would look as follows:
+Create the following ConfigMap in `kube-system`, which will tell Azure Monitor what namespaces should be monitored. For instance, for the bookbuyer / bookstore demo, the ConfigMap would look as follows:
 
 ```yaml
 kind: ConfigMap

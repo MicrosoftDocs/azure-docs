@@ -767,7 +767,7 @@ Here are some cloud service sample applications that demonstrate more real-world
 
 For general information about developing for the cloud, see [Building Real-World Cloud Apps with Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
-For a video introduction to Azure Storage best practices and patterns, see [Microsoft Azure Storage – What's New, Best Practices and Patterns](https://channel9.msdn.com/Events/Build/2014/3-628).
+For a video introduction to Azure Storage best practices and patterns, see Microsoft Azure Storage – What's New, Best Practices and Patterns.
 
 For more information, see the following resources:
 

@@ -81,7 +81,7 @@ Create a new cluster, and don't use Uptime SLA:
 
 ```azurecli-interactive
 # Create a new cluster without uptime SLA
-az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1
 ```
 
 Use the [`az aks update`][az-aks-update] command to update the existing cluster:
@@ -125,7 +125,7 @@ Use [Availability Zones][availability-zones] to increase high availability with 
 Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 [region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 
 <!-- LINKS - Internal -->

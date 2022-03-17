@@ -34,7 +34,7 @@ Located in the virtual machine blade, the boot diagnostics option is under the *
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Screenshot of Windows boot diagnostics":::
 
 ## Enable managed boot diagnostics 
-Managed boot diagnostics can be enabled through the Azure portal, CLI and ARM Templates. Enabling through PowerShell is not yet supported. 
+Managed boot diagnostics can be enabled through the Azure portal, CLI and ARM Templates.
 
 ### Enable managed boot diagnostics using the Azure portal
 When creating a VM in the Azure portal, the default setting is to have boot diagnostics enabled using a managed storage account. To view this, navigate to the *Management* tab during the VM creation. 

@@ -5,12 +5,11 @@ metadata:
   author: suzizuber
   ms.author: v-szuber
   ms.date: 08/15/2019 
-  ms.topic: article 
+  ms.topic: faq
   ms.service: azure-vmware-cloudsimple 
   ms.reviewer: cynthn 
   manager: dikamath
   ms.custom: references_regions
-    
 title: Frequently asked questions about VMware Solution by CloudSimple
 summary: |
 
@@ -190,4 +189,3 @@ sections:
           What licensing benefits do I get with Azure?
         answer: |
           With CloudSimple, you can take advantage of the Azure Hybrid Usage Benefit and save up to 90% on licenses. This benefit preserves your investment in Microsoft licenses and lowers your TCO relative to other cloud solutions. You also get extended security updates for Windows Server 2008 and Microsoft SQL Server 2008.  The bring-your-own-license (BYOL) model helps you keep costs low for common apps such as Veeam and Zerto.  
-

@@ -83,9 +83,9 @@ The dedicated gateway is available in the following sizes:
 There are many different ways to provision a dedicated gateway:
 
 - [Provision a dedicated gateway using the Azure Portal](how-to-configure-integrated-cache.md#provision-a-dedicated-gateway-cluster)
-- [Use Azure Cosmos DB's REAT API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/2021-04-01-preview/service/create)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/service?view=azure-cli-latest#az_cosmosdb_service_create)
-- [ARM template](https://docs.microsoft.com/azure/templates/microsoft.documentdb/databaseaccounts/services?tabs=bicep)
+- [Use Azure Cosmos DB's REAT API](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/service/create)
+- [Azure CLI](/cli/azure/cosmosdb/service?view=azure-cli-latest#az_cosmosdb_service_create)
+- [ARM template](/azure/templates/microsoft.documentdb/databaseaccounts/services?tabs=bicep)
     - Note: You cannot deprovision a dedicated gateway using ARM templates
 
 ## Dedicated gateway in multi-region accounts

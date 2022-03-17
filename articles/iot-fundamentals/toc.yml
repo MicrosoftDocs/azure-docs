@@ -4,6 +4,8 @@
   items:
   - name: Introduction
     href: iot-introduction.md
+  - name: aPaaS and PaaS solution offerings
+    href: iot-solution-apaas-paas.md
   - name: Choose the right IoT solution
     href: iot-solution-options.md
   - name: Azure IoT services and technologies

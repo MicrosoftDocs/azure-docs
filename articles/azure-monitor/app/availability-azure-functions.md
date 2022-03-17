@@ -24,7 +24,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
     - If you do not have an Application Insights Resource created yet for your timer triggered function:
         - By default when you are creating your Azure Functions application it will create an Application Insights resource for you. Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
     > [!NOTE]
-    > You can host your functions on a Consumption, Premium, or App Service plan. If you are testing behind a V-Net or testing non public endpoints then you will need to use the premium plan in place of the consumption. Select your plan on the **Hosting** tab.
+    > You can host your functions on a Consumption, Premium, or App Service plan. If you are testing behind a V-Net or testing non public endpoints then you will need to use the premium plan in place of the consumption. Select your plan on the **Hosting** tab. Please ensure the latest .NET version is selected when creating the Function App.
 2. Create a timer trigger function.
     1. In your function app, select the **Functions** tab.
     1. Select **Add** and in the Add function tab select the follow configurations:

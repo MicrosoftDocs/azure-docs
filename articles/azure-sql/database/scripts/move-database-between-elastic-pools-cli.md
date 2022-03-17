@@ -10,14 +10,16 @@ ms.topic: sample
 author: arvindshmicrosoft 
 ms.author: arvindsh
 ms.reviewer: kendralittle, mathoma
-ms.date: 01/05/2022
+ms.date: 01/26/2022 
 ---
 
-# Use Azure CLI to move a database in SQL Database in a SQL elastic pool
+# Move a database in SQL Database in a SQL elastic pool using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure CLI script example creates two elastic pools, moves a pooled database in SQL Database from one SQL elastic pool into another SQL elastic pool, and then moves the pooled database out of the SQL elastic pool to be a single database in SQL Database.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -27,7 +29,7 @@ This Azure CLI script example creates two elastic pools, moves a pooled database
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh" range="4-39":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh" id="FullScript":::
 
 ## Clean up resources
 

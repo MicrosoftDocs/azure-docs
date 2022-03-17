@@ -1,9 +1,9 @@
 ---
 title: Call service endpoints by using HTTP or HTTPS
-description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps
+description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2021
 tags: connectors
@@ -25,7 +25,7 @@ For information about encryption, security, and authorization for outbound calls
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The URL for the target endpoint that you want to call
 
@@ -271,7 +271,7 @@ For *stateless* workflows in single-tenant Azure Logic Apps, HTTP-based actions 
 
 ## Disable asynchronous operations
 
-Sometimes, you might want to the HTTP action's asynchronous behavior in specific scenarios, for example, when you want to:
+Sometimes, you might want to disable the HTTP action's asynchronous behavior in specific scenarios, for example, when you want to:
 
 * [Avoid HTTP timeouts for long-running tasks](#avoid-http-timeouts)
 * [Disable checking location headers](#disable-location-header-check)

@@ -4,7 +4,7 @@ description: Learn about Azure Analysis Services, a fully managed platform as a 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/12/2021
+ms.date: 02/15/2022
 ms.author: owend
 ms.reviewer: minewiskan
 recommendations: false
@@ -24,8 +24,6 @@ Azure Analysis Services is a fully managed platform as a service (PaaS) that pro
 ## Get up and running quickly
 
 In Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And with Azure Resource Manager [templates](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) and PowerShell, you can create servers using a declarative template. With a single template, you can deploy server resources along with other Azure components such as storage accounts and Azure Functions. 
-
-**Video:** Check out [Automating deployment](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) to learn more about how you can use Azure Automation to speed server creation.
 
 Azure Analysis Services integrates with many Azure services enabling you to build sophisticated analytics solutions. Integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) provides secure, role-based access to your critical data. Integrate with [Azure Data Factory](../data-factory/introduction.md) pipelines by including an activity that loads data into the model. [Azure Automation](../automation/automation-intro.md) and [Azure Functions](../azure-functions/functions-overview.md) can be used for lightweight orchestration of models using custom code. 
 
@@ -258,9 +256,9 @@ Azure Analysis Services documentation also uses [GitHub Issues](/teamblog/a-new-
 
 Things are changing rapidly. Get the latest information on the [Power BI blog](https://powerbi.microsoft.com/blog/category/analysis-services/) and [Azure blog](https://azure.microsoft.com/blog/).
 
-## Community
+## Q&A
 
-Analysis Services has a vibrant community of users. Join the conversation on [Azure Analysis Services forum](https://aka.ms/azureanalysisservicesforum).
+Microsoft [Q&A](/answers/products/) is a technical community platform part of Microsoft Docs that provides a rich online experience in answering your technical questions. Join the conversation on [Q&A - Azure Analysis Services forum](/answers/topics/azure-analysis-services.html).
 
 ## Next steps
 

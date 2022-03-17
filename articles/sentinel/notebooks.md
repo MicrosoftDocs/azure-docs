@@ -71,7 +71,7 @@ While you can run Microsoft Sentinel notebooks in JupyterLab or Jupyter classic,
 |---------|---------|
 |**Microsoft Sentinel permissions**     |   Like other Microsoft Sentinel resources, to access notebooks on Microsoft Sentinel Notebooks blade, a Microsoft Sentinel Reader, Microsoft Sentinel Responder, or Microsoft Sentinel Contributor role is required. <br><br>For more information, see [Permissions in Microsoft Sentinel](roles.md).|
 |**Azure Machine Learning permissions**     | An Azure Machine Learning workspace is an Azure resource. Like other Azure resources, when a new Azure Machine Learning workspace is created, it comes with default roles. You can add users to the workspace and assign them to one of these built-in roles. For more information, see [Azure Machine Learning default roles](../machine-learning/how-to-assign-roles.md) and [Azure built-in roles](../role-based-access-control/built-in-roles.md). <br><br>   **Important**: Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md). <br><br>If you're an owner of an Azure ML workspace, you can add and remove roles for the workspace and assign roles to users. For more information, see:<br>    - [Azure portal](../role-based-access-control/role-assignments-portal.md)<br>    - [PowerShell](../role-based-access-control/role-assignments-powershell.md)<br>    - [Azure CLI](../role-based-access-control/role-assignments-cli.md)<br>   - [REST API](../role-based-access-control/role-assignments-rest.md)<br>    - [Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)<br> - [Azure Machine Learning CLI ](../machine-learning/how-to-assign-roles.md#manage-workspace-access)<br><br>If the built-in roles are insufficient, you can also create custom roles. Custom roles might have read, write, delete, and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Create custom role](../machine-learning/how-to-assign-roles.md#create-custom-role). |
-|     |         |
+
 
 ## Create an Azure ML workspace from Microsoft Sentinel
 
@@ -100,7 +100,7 @@ Select one of the following tabs, depending on whether you'll be using a public 
     |**KeyVault**| A key vault is used to store secrets and other sensitive information that is needed by the workspace. You may create a new Azure Key Vault resource or select an existing one in your subscription.|
     |**Application insights**| The workspace uses Azure Application Insights to store monitoring information about your deployed models. You may create a new Azure Application Insights resource or select an existing one in your subscription.|
     |**Container registry**| A container registry is used to register docker images used in training and deployments. To minimize costs, a new Azure Container Registry resource is created only after you build your first image. Alternatively, you may choose to create the resource now or select an existing one in your subscription, or select **None** if you don't want to use any container registry.|
-    | | |
+
 
 1. On the **Networking** tab, select **Public endpoint (all networks)**.
 
@@ -115,11 +115,11 @@ Select one of the following tabs, depending on whether you'll be using a public 
 
 # [Private endpoint](#tab/private-endpoint)
 
-The steps in this procedure reference specific articles in the Azure Machine Learning documentation when relevant. For more information, see [How to create a secure Azure ML workspace](/azure/machine-learning/tutorial-create-secure-workspace).
+The steps in this procedure reference specific articles in the Azure Machine Learning documentation when relevant. For more information, see [How to create a secure Azure ML workspace](../machine-learning/tutorial-create-secure-workspace.md).
 
 1.	Create a VM jump box within a VNet. Since the VNet restricts access from the public internet, the jump box is used as a way to connect to resources behind the VNet.
 
-1.	Access the jump box, and then go to your Microsoft Sentinel workspace. We recommend using [Azure Bastion](/azure/bastion/bastion-overview) to access the VM.
+1.	Access the jump box, and then go to your Microsoft Sentinel workspace. We recommend using [Azure Bastion](../bastion/bastion-overview.md) to access the VM.
 
 1. In Microsoft Sentinel, select **Threat management** > **Notebooks** and then select **Create a new AML workspace**.
 
@@ -135,7 +135,7 @@ The steps in this procedure reference specific articles in the Azure Machine Lea
     |**KeyVault**| A key vault is used to store secrets and other sensitive information that is needed by the workspace. You may create a new Azure Key Vault resource or select an existing one in your subscription.|
     |**Application insights**| The workspace uses Azure Application Insights to store monitoring information about your deployed models. You may create a new Azure Application Insights resource or select an existing one in your subscription.|
     |**Container registry**| A container registry is used to register docker images used in training and deployments. To minimize costs, a new Azure Container Registry resource is created only after you build your first image. Alternatively, you may choose to create the resource now or select an existing one in your subscription, or select **None** if you don't want to use any container registry.|
-    | | |
+
 
 1. On the **Networking** tab, select **Private endpoint**. Make sure to use the same VNet as you have in the VM jump box. For example:
 
@@ -149,9 +149,9 @@ The steps in this procedure reference specific articles in the Azure Machine Lea
 
     It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
 
-1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNet that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](/azure/machine-learning/how-to-create-manage-compute-instance?tabs=python).
+1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNet that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](../machine-learning/how-to-create-manage-compute-instance.md?tabs=python).
 
-1.	Configure your network traffic to access Azure ML from behind a firewall. For more information, see [Configure inbound and outbound network traffic](/azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress%2Cpublic).
+1.	Configure your network traffic to access Azure ML from behind a firewall. For more information, see [Configure inbound and outbound network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md?tabs=ipaddress%2cpublic).
 
 Continue with one of the following sets of steps:
 
@@ -169,12 +169,12 @@ Continue with one of the following sets of steps:
 
     1. For each resource, including both **privatelink.api.azureml.ms** and **privatelink.notebooks.azure.ms**, add a virtual network link.
 
-        Select the resource > **Virtual network links** > **Add**. For more information, see [Link the virtual network](/azure/dns/private-dns-getstarted-portal).
+        Select the resource > **Virtual network links** > **Add**. For more information, see [Link the virtual network](../dns/private-dns-getstarted-portal.md).
 
 For more information, see:
 
-- [Network traffic flow when using a secured workspace](/azure/machine-learning/concept-secure-network-traffic-flow)
-- [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](/azure/machine-learning/how-to-network-security-overview)
+- [Network traffic flow when using a secured workspace](../machine-learning/concept-secure-network-traffic-flow.md)
+- [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](../machine-learning/how-to-network-security-overview.md)
 
 ---
 

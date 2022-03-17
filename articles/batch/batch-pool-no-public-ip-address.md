@@ -1,12 +1,17 @@
 ---
-title: Create an Azure Batch pool without public IP addresses
-description: Learn how to create a pool without public IP addresses
+title: Create an Azure Batch pool without public IP addresses (preview)
+description: Learn how to create an Azure Batch pool without public IP addresses.
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 01/11/2022
 ms.custom: references_regions
 ---
 
-# Create an Azure Batch pool without public IP addresses
+# Create an Azure Batch pool without public IP addresses (preview)
+
+> [!IMPORTANT]
+> Support for pools without public IP addresses in Azure Batch is currently in public preview for the following regions: France Central, East Asia, West Central US, South Central US, West US 2, East US, North Europe, East US 2, Central US, West Europe, North Central US, West US, Australia East, Japan East, Japan West.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 When you create an Azure Batch pool, you can provision the virtual machine configuration pool without a public IP address. This article explains how to set up a Batch pool without public IP addresses.
 
@@ -15,11 +20,6 @@ When you create an Azure Batch pool, you can provision the virtual machine confi
 By default, all the compute nodes in an Azure Batch virtual machine configuration pool are assigned a public IP address. This address is used by the Batch service to schedule tasks and for communication with compute nodes, including outbound access to the internet.
 
 To restrict access to these nodes and reduce the discoverability of these nodes from the internet, you can provision the pool without public IP addresses.
-
-> [!IMPORTANT]
-> Support for pools without public IP addresses in Azure Batch is currently in public preview for the following regions: France Central, East Asia, West Central US, South Central US, West US 2, East US, North Europe, East US 2, Central US, West Europe, North Central US, West US, Australia East, Japan East, Japan West.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

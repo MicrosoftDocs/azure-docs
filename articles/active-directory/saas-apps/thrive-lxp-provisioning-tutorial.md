@@ -45,7 +45,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Thrive LXP to support provisioning with Azure AD
 
-Reach out to your Thrive LXP contact to generate your **Tenant url** and **Secret Token**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your Thrive LXP application in the Azure portal.
+Reach out to your [Thrive LXP Client support team](mailto:support@thrivelearning.com) to generate your **Tenant url** and **Secret Token**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your Thrive LXP application in the Azure portal.
 
 ## Step 3. Add Thrive LXP from the Azure AD application gallery
 

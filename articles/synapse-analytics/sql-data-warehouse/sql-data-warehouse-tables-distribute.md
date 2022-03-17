@@ -1,7 +1,6 @@
 ---
 title: Distributed tables design guidance
 description: Recommendations for designing hash-distributed and round-robin distributed tables using dedicated SQL pool.
-services: synapse-analytics
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual

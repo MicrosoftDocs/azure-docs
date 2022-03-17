@@ -1,13 +1,16 @@
 ---
-title: Validate schema when sending and receiving events - AMQP and .NET
+title: Validate schema when sending or receiving events
 description: This article provides a walkthrough to create a .NET Core application that sends/receives events to/from Azure Event Hubs with schema validation using Schema Registry.
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 01/12/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp, ignite-fall-2021, mode-other
 ---
 
-# Validate schema when sending and receiving events - AMQP and .NET 
+# Quickstart: Validate schema when sending and receiving events - AMQP and .NET 
+
+**Azure Schema Registry** is a feature of Event Hubs, which provides a central repository for schemas for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to **exchange data without having to manage and share the schema**. It also provides a simple governance framework for reusable schemas and defines relationship between schemas through a grouping construct (schema groups). For more information, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
+
 This quickstart shows how to send events to and receive events from an event hub with schema validation using the **Azure.Messaging.EventHubs** .NET library. 
 
 ## Prerequisites
@@ -349,4 +352,6 @@ This section shows how to write a .NET Core console application that receives ev
 
 
 ## Next steps
-Check out [Azure Schema Registry client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry/Azure.Data.SchemaRegistry) for additional information. 
+
+> [!div class="nextstepaction"]
+> Checkout [Azure Schema Registry client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/schemaregistry/Azure.Data.SchemaRegistry)

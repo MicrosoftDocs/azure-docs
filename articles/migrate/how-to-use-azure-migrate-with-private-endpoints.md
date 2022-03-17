@@ -22,7 +22,7 @@ Review the following required permissions and the supported scenarios and tools.
 
 ### Supported geographies
 
-The functionality is now in preview in supported [public cloud](./migrate-support-matrix.md#supported-geographies-public-cloud) and [government cloud geographies.](./migrate-support-matrix.md#supported-geographies-azure-government)
+The functionality is now in preview in supported [public cloud](./migrate-support-matrix.md#public-cloud) and [government cloud geographies.](./migrate-support-matrix.md#azure-government)
 
 ### Required permissions
 
@@ -52,6 +52,7 @@ To enable public network access for the Azure Migrate project, sign in to the Az
 --- | ---
 **Pricing** | For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 **Virtual network requirements** | The ExpressRoute/VPN gateway endpoint should reside in the selected virtual network or a virtual network connected to it. You might need about 15 IP addresses in the virtual network.
+
 
 This three-part article series illustrates how to: 
 

@@ -12,7 +12,7 @@ Windows Admin Center is a management tool for your Windows servers. It's a singl
 
 > [!NOTE]
 > Your Azure subscription and the associated Log Analytics workspace both need to have Microsoft Defender for Cloud's enhanced security features enabled in order to enable the Windows Admin Center integration.
-> Enhanced security features are free for the first 30 days if you haven't previously used it on the subscription and workspace. For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+> Enhanced security features are free for the first 30 days if you haven't previously used it on the subscription and workspace. For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 >
 
 When you've successfully onboarded a server from Windows Admin Center to Microsoft Defender for Cloud, you can:

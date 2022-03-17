@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 01/25/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -22,7 +22,7 @@ Before you can use custom text classification, you will need to create a Languag
 >
 > If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/create-project.md#using-a-pre-existing-azure-resource)  for information.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
+1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
 
     |Azure resource requirement  |Required value  |
     |---------|---------|
@@ -36,23 +36,17 @@ Before you can use custom text classification, you will need to create a Languag
     | Name | Any name |
     | Performance | Standard | 
     | Account kind| Storage (general purpose v1) |
-    | Replication | Locally-redundant storage (LRS)
+    | Replication | Locally redundant storage (LRS)
     |Location | Any location closest to you, for best latency.        |
 
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
-
-1. [Download sample data](https://go.microsoft.com/fwlink/?linkid=2175083) for this quickstart from GitHub.
-
-2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
-
-The provided sample dataset contains around 200 movie summaries that belongs to one or more of the following classes: "Mystery", "Drama", "Thriller", "Comedy", "Action".
+[!INCLUDE [Uploading sample data for custom classification](blob-storage-upload.md)]
 
 ### Get your resource keys and endpoint
 
-* Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+* Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
 * From the menu on the left side, select **Keys and Endpoint**. You will use the endpoint and key for the API requests 
 
@@ -270,7 +264,8 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 
 ```json
 {
-  "trainedModelLabel": "MyModel"
+  "trainedModelLabel": "MyModel",
+  "deploymentName": "prod"
 }
 ```
 

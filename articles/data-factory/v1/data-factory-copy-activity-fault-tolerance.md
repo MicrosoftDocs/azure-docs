@@ -1,12 +1,12 @@
 ---
 title: Add fault tolerance in Azure Data Factory Copy Activity by skipping incompatible rows 
 description: Learn how to add fault tolerance in Azure Data Factory Copy Activity by skipping incompatible rows during copy
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.author: jingwang
+ms.author: jianleishen
 robots: noindex
 ---
 # Add fault tolerance in Copy Activity by skipping incompatible rows

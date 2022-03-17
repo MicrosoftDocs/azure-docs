@@ -118,37 +118,37 @@ DNS:mi1-svc, DNS:mi1-svc.test.svc.cluster.local, DNS:mi1-svc.test.svc
 
 Use the following command by providing Kubernetes secret that you created previously to rotate the certificate: 
 
-```console
+```azurecli
 az sql mi-arc update -n <managed instance name> --k8s-namespace <arc> --use-k8s --service-cert-secret <your-cert-secret>
 ```
 
 For example:
 
-```console
+```azurecli
 az sql mi-arc update -n mysqlmi --k8s-namespace <arc> --use-k8s --service-cert-secret mymi-cert-secret
 ```
 
 Use the following command to rotate the certificate with the PEM formatted certificate public and private keys. The command generates a default service certificate name. 
 
-```console
+```azurecli
 az sql mi-arc update -n <managed instance name> --k8s-namespace arc --use-k8s --cert-public-key-file <path-to-my-cert-public-key> --cert-private-key-file <path-to-my-cert-private-key> --k8s-namespace <your-k8s-namespace>
 ```
 
 For example:
 
-```console
+```azurecli
 az sql mi-arc update -n mysqlmi --k8s-namespace arc --use-k8s --cert-public-key-file ./mi1-1-cert --cert-private-key-file ./mi1-1-pvt
 ```
 
 You can also provide a Kubernetes service cert secret name for `--service-cert-secret` parameter. In this case, it's taken as an updated secret name. The command checks if the secret exists. If not, the command creates a secret name and then rotates the secret in the managed instance.
 
-```console
+```azurecli
 az sql mi-arc update -n <managed instance name> --k8s-namespace <arc> --use-k8s --cert-public-key-file <path-to-my-cert-public-key> --cert-private-key-file <path-to-my-cert-private-key> --service-cert-secret <path-to-mymi-cert-secret>
 ```
 
 For example:
 
-```console
+```azurecli
 az sql mi-arc update -n mysqlmi --k8s-namespace arc --use-k8s --cert-public-key-file ./mi1-1-cert --cert-private-key-file ./mi1-1-pvt --service-cert-secret mi1-12-1-cert-secret
 ```
 
