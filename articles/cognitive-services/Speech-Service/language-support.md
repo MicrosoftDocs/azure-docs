@@ -486,7 +486,7 @@ The following table lists the prebuilt neural voices supported in each language.
 
 > If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30,2021, all requests with previous versions will be rejected.
 
-> Two styles for `fr-FR-DeniseNeural` now are available for public preview: `sad` and `cheerful` in 3 regions: East US, West Europe, and Southeast Asia.
+> Two styles for `fr-FR-DeniseNeural` now are available for public preview:  `cheerful` and `sad` in 3 regions: East US, West Europe, and Southeast Asia.
 
 ### Prebuilt neural voices in preview
 
