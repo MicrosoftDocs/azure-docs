@@ -62,11 +62,21 @@ On the left navigation, choose **Containers**.
 
 :::image type="content" source="./media/blob-upload-storage-function/portal-storage-containers-small.png" lightbox="./media/blob-upload-storage-function/portal-storage-containers.png" alt-text="A screenshot showing how to navigate to the Storage Account containers." :::
 
-On the **Containers** page, select **+ Container** at the top. In the slide out panel, enter a **Name** of *ImageAnalysis*, and then leave the **Public access level** at **Private (no anonymous access)**.  Then click **Create**.
+On the **Containers** page, select **+ Container** at the top. In the slide out panel, enter a **Name** of *ImageAnalysis*, and then leave the **Public access level** at **Blob (anonymous read access for blobs only**.  Then click **Create**.
 
 :::image type="content" source="./media/blob-upload-storage-function/portal-container-create.png" alt-text="A screenshot showing how to create a new Storage Container." :::
 
 You should see your new container populate in the list of containers.
+
+The last step is to retrieve our Connection String for the storage account. 
+
+On the left navigation panel, select **Access Keys**.
+
+On the **Access Keys page**, select **Show keys**.  Copy the value of the **Connection String** under the key1 section and paste this somewhere to use for later.  You'll also want to make a note of the storage account name `msdocsstoragefunction` for later as well.
+
+:::image type="content" source="./media/blob-upload-storage-function/storage-account-access.png" alt-text="A screenshot showing how to create a new Storage Container." :::
+
+These values will be necessary when we need to connect our Azure Function to this Storage Account.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -83,6 +93,14 @@ az storage container create --name imageanalysis --account-name msdocsstorageacc
 ```
 
 You may need to wait a few moments for Azure to provision these resources.
+
+After the commands complete, we also need to retrieve the connection string for our Storage Account.  This will be used later to connect our Azure Function to the Storage Account.
+
+```azurecli-interactive
+az storage account show-connection-string -g msdocs-storage-function -n msdocsstoragefunction
+```
+
+Copy the value of the `connectionString` property and paste it somewhere to use for later. You'll also want to make a note of the storage account name `msdocsstoragefunction` for later as well. 
 
 ---
 
@@ -174,7 +192,7 @@ The `BlobTrigger` attribute is used to bind our function to the upload event in 
 [FunctionName("ProcessImageUpload")]
 [return: Table("ImageText", Connection = "StorageConnection")]
 // Trigger binding runs when an image is uploaded to the blob container below
-public async Task<ImageContent> Run([BlobTrigger("testblobs/{name}", Connection = "StorageConnection")]Stream myBlob, string name, ILogger log)
+public async Task<ImageContent> Run([BlobTrigger("imageanalysis/{name}", Connection = "StorageConnection")]Stream myBlob, string name, ILogger log)
 {
     // Get connection configurations
     string subscriptionKey = Environment.GetEnvironmentVariable("ComputerVisionKey");
@@ -297,7 +315,7 @@ Next, let's repeat this process for the endpoint of our Computer Vision service,
 Repeat this step again for the Storage Account connection, using the following values:
 
 - **Name**: Enter a value of *StorageConnection*.
-- **Value**: Paste in the access key you saved from earlier.
+- **Value**: Paste in the connection string you saved from earlier.
 
 Finally, repeat this process one more time for the Endpoint URL of our Computer Vision service, using the following values:
 
