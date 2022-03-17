@@ -13,7 +13,7 @@ Data Collection Endpoints (DCEs) allow you to uniquely configure ingestion setti
 ## Workflows that use DCEs
 The following workflows currently use DCEs:
 
-- [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md))
+- [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md)
 - [Custom logs](../logs/custom-logs-overview.md)
 
 ## Components of a data collection endpoint

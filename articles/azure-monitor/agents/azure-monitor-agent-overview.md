@@ -143,12 +143,7 @@ The Azure Monitor agent extensions for Windows and Linux can communicate either 
 
     ![Flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
-2. After the values for the *settings* and *protectedSettings* parameters are determined, provide these additional parameters when you deploy the Azure Monitor agent by using PowerShell commands. The following examples are for Azure virtual machines.
-
-    | Parameter | Value |
-    |:---|:---|
-    | settingsString | A JSON string value from the preceding flowchart. Skip if not applicable. |
-    | protectedSettingsHashtable | A JSON string value from the preceding flowchart. Skip if not applicable. |
+2. After the values for the *settings* and *protectedSettings* parameters are determined, **provide these additional parameters** when you deploy the Azure Monitor agent by using PowerShell commands. Refer the following examples.
 
 # [Windows VM](#tab/PowerShellWindows)
 
