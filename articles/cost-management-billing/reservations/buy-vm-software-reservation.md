@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/09/2022
+ms.date: 03/17/2022
 ms.author: banders
 ---
 
@@ -21,7 +21,8 @@ You can buy virtual machine software reservation in the Azure portal. To buy a r
 - For the Cloud Solution Provider (CSP) program, the admin agents or sales agents can buy the software plans.
 
 ## Buy a virtual machine software reservation
-1. Select your desired plan from Azure Marketplace that has reservation pricing
+
+1. Select your desired plan from Azure Marketplace that has reservation pricing.
 2. Select **Add** and then select the Virtual machine software reservation that you want to buy.
 Fill in the required fields. Any virtual machine software reservation that matches the attributes of what you buy gets a discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
 3. Select a subscription. It's used to pay for the plan.
