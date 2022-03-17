@@ -143,7 +143,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
 
-- When the display scale factor of the screen is not at 100% for specific video window sizes, you might see a gray patch on the screen. In most cases, you can get rid of the gray patch by resizing the window.
+- When the display scale factor of the screen isn't at 100% and you've set the video window to a certain size, you might see a gray patch on the screen. In most cases, you can get rid of the gray patch by resizing the window.
 
 ## Next steps
 
