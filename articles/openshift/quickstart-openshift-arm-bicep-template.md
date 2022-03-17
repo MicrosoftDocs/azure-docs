@@ -603,7 +603,7 @@ The template parameters below have default values. They can be specified, but th
 | `apiServerVisibility` | The visibility of the API server (`Public` or `Private`). | | Public
 | `ingressVisibility` | The ingress (entrance) visibility (`Public` or `Private`). | | Public
 
-# [PowerShell](#tab/powershell)
+The following sections provide instructions using Powershell or Azure CLI.
 
 ### Before you begin - PowerShell
 
@@ -616,7 +616,7 @@ Before running the commands in this quickstart, you might need to run `Connect-A
 $rhosPullSecret= Get-Content .\pull-secret.txt -Raw # the pull secret text that was obtained from the Red Hat OpenShift Cluster Manager website
 ```
 
-### Define the following parameters as environment variables
+### Define the following parameters as environment variables - Powershell
 
 ```powershell
 $resourceGroup="aro-rg"	     # the new resource group for the cluster
@@ -642,7 +642,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Authorization
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### Create a new service principal and assign roles
+### Create a new service principal and assign roles  - Powershell
 
 ```powershell
 $suffix=Get-Random # random suffix for the Service Principal
@@ -653,20 +653,20 @@ New-AzRoleAssignment -ObjectId $azureADAppSp.Id -RoleDefinitionName 'User Access
 New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
 ```
 
-### Get the Service Principal password
+### Get the Service Principal password  - Powershell
 
 ```powershell
 $aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 $aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 ```
 
-### Get the service principal for the OpenShift resource provider
+### Get the service principal for the OpenShift resource provider - Powershell
 
 ```powershell
 $rpOpenShift =  Get-AzADServicePrincipal -DisplayName 'Azure Red Hat OpenShift RP' | Select-Object -ExpandProperty Id -Property Id -First 1
 ```
 
-### Check the parameters before deploying the cluster
+### Check the parameters before deploying the cluster - Powershell
 
 ```powershell
 # setup the parameters for the deployment
@@ -684,7 +684,7 @@ $templateParams = @{
 Write-Verbose (ConvertTo-Json $templateParams) -Verbose
 ```
 
-### Deploy the Azure Red Hat OpenShift cluster using the ARM template
+### Deploy the Azure Red Hat OpenShift cluster using the ARM template - Powershell
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams `
@@ -704,7 +704,6 @@ Once you're done, run the following command to delete your resource group and al
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup -Force
 ```
-# [Azure CLI](#tab/azure-cli)
 
 ### Before you begin - Azure CLI
 
@@ -718,7 +717,7 @@ You might need to run `az login` before running the commands in this quickstart.
 PULL_SECRET=$(cat pull-secret.txt)    # the pull secret text 
 ```
 
-### Define the following parameters as environment variables with azure-cli
+### Define the following parameters as environment variables - Azure CLI
 
 ```azurecli-interactive
 RESOURCEGROUP=aro-rg   # the new resource group for the cluster
@@ -744,7 +743,8 @@ az provider register --namespace 'Microsoft.Authorization' --wait
 az group create --name $RESOURCEGROUP --location $LOCATION
 ```
 
-### Create a service principal for the new Azure AD application
+### Create a service principal for the new Azure AD application 
+- Azure CLI
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "sp-$RG_NAME-${RANDOM}" --role Contributor > app-service-principal.json
@@ -803,8 +803,6 @@ Once you're done, run the following command to delete your resource group and al
 ```azurecli-interactive
 az aro delete --resource-group $RESOURCEGROUP --name $ARO_CLUSTER_NAME
 ```
-
----
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
