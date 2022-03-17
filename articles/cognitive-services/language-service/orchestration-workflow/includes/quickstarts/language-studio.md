@@ -28,7 +28,7 @@ ms.author: aahi
 
 Once you have a Language resource associated with your account, create an orchestration workflow project. In this quickstart, you'll create a project that connects between different Conversation Language Understanding projects and Custom Question Answering projects.
 
-1. In [Language Studio](https://aka.ms/languageStudio), find the section labelled **Understand questions and conversational language** and select **Orchestration Workflow**.  
+1. In [Language Studio](https://aka.ms/languageStudio), find the section labeled **Understand questions and conversational language** and select **Orchestration Workflow**.  
    
    :::image type="content" source="../../../conversational-language-understanding/media/select-custom-clu.png" alt-text="A screenshot showing the location of Custom Language Understanding in the Language Studio landing page." lightbox="../../../conversational-language-understanding/media/select-custom-clu.png"::: 
     
@@ -89,10 +89,10 @@ You should see the **View model details** page. Wait until training completes, w
 
 From the **Deploy model** page on the left of te screen, Select **Add deployment**. To deploy your model, you need to create a new deployment name. Write a name like "*staging*" and press the next button. 
 
-Once you're done, select **Next** and review the details. For the connected projects, select which deployment name from the drop down and press *Submit*.
+Once you're done, select **Next** and review the details. For the connected projects, select which deployment name from the drop-down menu and press *Submit*.
 
 ## Test your model
 
-Select **Test model** on the left of the screen, and select the deployment name from the drop down list. Add your test, for example *Good morning* in the text field and click on **Run the test**. 
+Select **Test model** on the left of the screen, and select the deployment name from the drop-down menu. Add your test, for example *Good morning* in the text field and click on **Run the test**. 
 
 You now see the top intent as **Greeting**.
