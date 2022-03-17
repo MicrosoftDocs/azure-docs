@@ -28,7 +28,7 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Open a command prompt where you want the new project, and create a new file named `speech-recognition.py`.
+1. Open a command prompt where you want the new project, and create a new file named `speech-synthesis.py`.
 1. Install the Speech SDK.
     ```console
     pip install azure-cognitiveservices-speech
@@ -38,7 +38,7 @@ Follow these steps to create a new console application and install the Speech SD
     ```Python
     import azure.cognitiveservices.speech as speechsdk
     
-    speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+    speech_config = speechsdk.SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
     audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
     
     # The language of the voice that speaks.
@@ -47,7 +47,7 @@ Follow these steps to create a new console application and install the Speech SD
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
     
     # Get text from the console and synthesize to the default speaker.
-    print("Type some text that you want to speak > ")
+    print("Enter some text that you want to speak > ")
     text = input()
     
     speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
@@ -65,17 +65,17 @@ Follow these steps to create a new console application and install the Speech SD
 1. In `speech_synthesis.py`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 
-Run your new console application to start speech recognition from a microphone:
+Run your new console application to start speech synthesis to the default speaker.
 
 ```console
 python speech_synthesis.py
 ```
 
-Speak into your microphone when prompted. What you speak should be output as text: 
+Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
 
 ```console
-Speak into your microphone.
-RECOGNIZED: Text=I'm excited to try speech to text.
+Enter some text that you want to speak > 
+> I'm excited to try text to speech
 ```
 
 > [!div class="nextstepaction"]
