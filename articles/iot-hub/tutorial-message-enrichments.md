@@ -321,16 +321,18 @@ One of the message enrichments configured on your IoT hub specifies a key of Dev
 
 Follow these steps to add a location tag to your device's twin with the portal.
 
-1. Go to your IoT hub by selecting **Resource groups**. Then select the resource group set up for this tutorial (**ContosoResourcesMsgEn**). Find the IoT hub in the list, and select it. Select **Devices** on the left-pane of your IoT hub, then select your device (**Contoso-Test-Device**).
+1. Go to your IoT hub by selecting **Resource groups**. Then select the resource group set up for this tutorial (**ContosoResourcesMsgEn**). Find the IoT hub in the list, and select it. Select **Devices** on the left-pane of the IoT hub, then select your device (**Contoso-Test-Device**).
 
 1. Select the **Device twin** tab at the top of the device page and add the following line just before the closing brace at the bottom of the device twin. Then select **Save**.
 
-  ```json
-  		, "tags": {"location": "Plant 43"}
+    ```json
+    		, "tags": {"location": "Plant 43"}
 
-  ```
+    ```
   
-  :::image type="content" source="./media/tutorial-message-enrichments/add-location-tag-to-device-twin.png" alt-text="Screenshot of adding location tag to device twin in Azure portal":::
+    :::image type="content" source="./media/tutorial-message-enrichments/add-location-tag-to-device-twin.png" alt-text="Screenshot of adding location tag to device twin in Azure portal":::
+
+1. Wait about five minutes before continuing to the next section. It can take that long for updates to the device twin to be reflected in the message enrichment value.
 
 To learn more about how device twin paths are handled with message enrichments, see [Message enrichments limitations](iot-hub-message-enrichments-overview.md#limitations). To learn more about device twins, see [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md).
 
