@@ -56,6 +56,7 @@ On the **Create a storage account** page, enter the following values:
  
 Select **Review + Create** at the bottom. Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create** and Azure will begin provisioning the Storage Account, which make take a moment.
 
+### Create the container
 After the Storage Account is provisioned, select **Go to Resource**. We need to create a Storage Container inside of it to hold our uploaded images for analysis. 
 
 On the left navigation, choose **Containers**.
@@ -67,6 +68,8 @@ On the **Containers** page, select **+ Container** at the top. In the slide out 
 :::image type="content" source="./media/blob-upload-storage-function/portal-container-create.png" alt-text="A screenshot showing how to create a new Storage Container." :::
 
 You should see your new container populate in the list of containers.
+
+## Retrieve the connection string
 
 The last step is to retrieve our Connection String for the storage account. 
 
@@ -127,6 +130,8 @@ On the **Create Computer Vision** page, enter the following values:
 Select **Review + Create** at the bottom. Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create** and Azure will begin provisioning the the Computer Vision service, which may take a moment.
 
 When the operation has completed, click **Go to Resource**.
+
+### Retrieve the keys
 
 Next, we need to find the secret key and endpoint URL for the Computer Vision service to use in our Azure Function app. On the **Computer Vision** overview page, select **Keys and Endpoint**.
 
