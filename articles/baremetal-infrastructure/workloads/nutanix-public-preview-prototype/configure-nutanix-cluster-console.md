@@ -1,12 +1,12 @@
 ---
-title: Setup Nutanix Cluster Console
+title: Configure Nutanix Cluster Console
 description: tba
 ms.topic: how-to
 ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
-# Setup Nutanix Cluster Console
+# Configure Nutanix Cluster Console
 
 1. Work with Nutanix to enable the Azure option in the Nutanix Clusters console. See Enabling Azure in Nutanix Clusters Console. 
 2. Create an Organization in the Nutanix Clusters console. See Creating an Organization in the Nutanix Clusters Console. 

@@ -7,14 +7,17 @@
 - name: Supported instances
   href: supported-instances.md
 - name: Deploying Nutanix Clusters in Azure
-  href: deploying-nutanix-clusters-in-azure
+  href: deploying-nutanix-clusters-in-azure.md
   items:
   - name: Deployment Overview
     href: nutanix-deployment-overview.md
   - name: Setup an Account
     href: setup-an-account.md
-  - name: Setup networking infrasstructure in Azure
-    href: setup-networking-infrastructure-in-azure
+  - name: Setup networking infrastructure in Azure
+    href: setup-networking-infrastructure-in-azure.md
+  - name: Configure the Nutanix Cluster Console  
+    href: configure-nutanix-cluster-console.md
+
 - name: BareMetal SKUs 
   href: nutanix-baremetal-skus.md
 - name: Architecture
