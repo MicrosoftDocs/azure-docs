@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/08/2022
+ms.date: 03/16/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021, mode-api
@@ -18,7 +18,7 @@ ms.custom: ignite-fall-2021, mode-api
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
 
-[Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.3/index.html) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.3/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/README.md)
+[Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.3/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/README.md)
 
 Get started with Azure Form Recognizer using the JavaScript programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -73,7 +73,7 @@ In this quickstart you'll use following features to analyze and extract data and
 1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
 
     ```console
-    npm install @azure/ai-form-recognizer@4.0.0-beta.2 @azure/identity
+    npm install @azure/ai-form-recognizer@4.0.0-beta.3 @azure/identity
     ```
 
     * Your app's `package.json` file will be updated with the dependencies.
@@ -86,49 +86,21 @@ In this quickstart you'll use following features to analyze and extract data and
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item index.js**.
 
-1. Open the `index.js` file in Visual Studio Code or your favorite IDE. First, we'll add the necessary libraries. Copy the following and paste it at the top of the file:
+### Build your application
 
-    ```javascript
-   const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
-    ```
+To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
-1. Next, we'll create variables for your Azure Form Recognizer resource endpoint and API key.  Copy the following and paste it below the library declaration:
+1. Open the `index.js` file in Visual Studio Code or your favorite IDE and select one of the following code samples to copy and paste into your application:
 
-    ```javascript
-    const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
-    const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
-    ```
+    * [**General document**](#general-document-model)
 
-At this point, your JavaScript application should contain the following lines of code:
+    * [**Layout**](#layout-model)
 
-```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
-
-const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
-const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
-```
-
-> [!TIP]
-> If you would like to try more than one code sample:
->
-> * Select one of the sample code blocks below to copy and paste into your application.
-> * [**Run your application**](#run-your-application).
-> * Comment out that sample code block but keep the set-up code and library directives.
-> * Select another sample code block to copy and paste into your application.
-> * [**Build and run your application**](#run-your-application).
-> * You can continue to comment out, copy/paste, and run the sample blocks of code.
-
-### Select a code sample to copy and paste into your application:
-
-* [**General document**](#general-document-model)
-
-* [**Layout**](#layout-model)
-
-* [**Prebuilt Invoice**](#prebuilt-model)
+    * [**Prebuilt Invoice**](#prebuilt-model)
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See our Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, see* the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
 ## General document model
 
@@ -141,53 +113,67 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 > * To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-#### Add the following code to your general document application on the line below the `apiKey` variable
+**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```javascript
 
-async function main() {
-    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(apiKey));
+  const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
-    const poller = await client.beginAnalyzeDocuments("prebuilt-document", formUrl);
+  // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+  const key = "<your-endpoint>";
+  const endpoint = "<your-key>";
 
-    const {
-        keyValuePairs,
-        entities
-    } = await poller.pollUntilDone();
+  // sample document
+  const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
-    if (keyValuePairs.length <= 0) {
-        console.log("No key-value pairs were extracted from the document.");
-    } else {
-        console.log("Key-Value Pairs:");
-        for (const {
-                key,
-                value,
-                confidence
-            } of keyValuePairs) {
-            console.log("- Key  :", `"${key.content}"`);
-            console.log("  Value:", `"${value?.content ?? "<undefined>"}" (${confidence})`);
-        }
-    }
+  async function main() {
+       // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(apiKey));
 
-    if (entities.length <= 0) {
-        console.log("No entities were extracted from the document.");
-    } else {
-        console.log("Entities:");
-        for (const entity of entities) {
-            console.log(
-                `- "${entity.content}" ${entity.category} - ${entity.subCategory ?? "<none>"} (${
-          entity.confidence
-        })`
-            );
-        }
-    }
-}
+      const poller = await client.beginAnalyzeDocuments("prebuilt-document", formUrl);
 
-main().catch((error) => {
-    console.error("An error occurred:", error);
-    process.exit(1);
-});
+      const {
+          keyValuePairs,
+          entities
+      } = await poller.pollUntilDone();
+
+      if (keyValuePairs.length <= 0) {
+          console.log("No key-value pairs were extracted from the document.");
+      } else {
+          console.log("Key-Value Pairs:");
+          for (const {
+                  key,
+                  value,
+                  confidence
+              } of keyValuePairs) {
+              console.log("- Key  :", `"${key.content}"`);
+              console.log("  Value:", `"${value?.content ?? "<undefined>"}" (${confidence})`);
+          }
+      }
+
+      if (entities.length <= 0) {
+          console.log("No entities were extracted from the document.");
+      } else {
+          console.log("Entities:");
+          for (const entity of entities) {
+              console.log(
+                  `- "${entity.content}" ${entity.category} - ${entity.subCategory ?? "<none>"} (${
+            entity.confidence
+          })`
+              );
+          }
+      }
+  }
+
+  main().catch((error) => {
+      console.error("An error occurred:", error);
+      process.exit(1);
+  });
 ```
+
+### General document model output
+
+Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-general-document-output.md)
 
 ## Layout model
 
@@ -199,51 +185,62 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 > * To analyze a given file from a URL, you'll use the `beginAnalyzeDocuments` method and pass in `prebuilt-layout` as the model Id.
 
-#### Add the following code to your layout application on the line below the `apiKey` variable
+**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```javascript
 
-const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+ const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
-async function main() {
-    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(apiKey));
+    // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+    const key = "<your-endpoint>";
+    const endpoint = "<your-key>";
 
-    const poller = await client.beginAnalyzeDocuments("prebuilt-layout", formUrl);
+    // sample document
+  const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
-    const {
-        pages,
-        tables
-    } = await poller.pollUntilDone();
+  async function main() {
+      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(apiKey));
 
-    if (pages.length <= 0) {
-        console.log("No pages were extracted from the document.");
-    } else {
-        console.log("Pages:");
-        for (const page of pages) {
-            console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
-            console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
-            console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
-        }
-    }
+      const poller = await client.beginAnalyzeDocuments("prebuilt-layout", formUrl);
 
-    if (tables.length <= 0) {
-        console.log("No tables were extracted from the document.");
-    } else {
-        console.log("Tables:");
-        for (const table of tables) {
-            console.log(
-                `- Extracted table: ${table.columnCount} columns, ${table.rowCount} rows (${table.cells.length} cells)`
-            );
-        }
-    }
-}
+      const {
+          pages,
+          tables
+      } = await poller.pollUntilDone();
 
-main().catch((error) => {
-    console.error("An error occurred:", error);
-    process.exit(1);
-});
+      if (pages.length <= 0) {
+          console.log("No pages were extracted from the document.");
+      } else {
+          console.log("Pages:");
+          for (const page of pages) {
+              console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
+              console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
+              console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
+          }
+      }
+
+      if (tables.length <= 0) {
+          console.log("No tables were extracted from the document.");
+      } else {
+          console.log("Tables:");
+          for (const table of tables) {
+              console.log(
+                  `- Extracted table: ${table.columnCount} columns, ${table.rowCount} rows (${table.cells.length} cells)`
+              );
+          }
+      }
+  }
+
+  main().catch((error) => {
+      console.error("An error occurred:", error);
+      process.exit(1);
+  });
 
 ```
+
+### Layout model output
+
+Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-layout-output.md)
 
 ## Prebuilt model
 
@@ -265,57 +262,66 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
 ```javascript
 
-const { PrebuiltModels } = require("@azure/ai-form-recognizer");
-// Using the PrebuiltModels object, rather than the raw model ID, adds strong typing to the model's output.
+  // Using the PrebuiltModels object, rather than the raw model ID, adds strong typing to the model's output.
+  const { PrebuiltModels } = require("@azure/ai-form-recognizer");
 
-const invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
+  // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+      const key = "<your-endpoint>";
+      const endpoint = "<your-key>";
 
-async function main() {
+  // sample document
+  const invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
-    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(apiKey));
+  async function main() {
 
-    const poller = await client.beginAnalyzeDocuments(PrebuiltModels.Invoice, invoiceUrl);
+      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(apiKey));
 
-    const {
-        documents: [result]
-    } = await poller.pollUntilDone();
+      const poller = await client.beginAnalyzeDocuments(PrebuiltModels.Invoice, invoiceUrl);
 
-    if (result) {
-        const invoice = result.fields;
+      const {
+          documents: [result]
+      } = await poller.pollUntilDone();
 
-        console.log("Vendor Name:", invoice.vendorName?.value);
-        console.log("Customer Name:", invoice.customerName?.value);
-        console.log("Invoice Date:", invoice.invoiceDate?.value);
-        console.log("Due Date:", invoice.dueDate?.value);
+      if (result) {
+          const invoice = result.fields;
 
-        console.log("Items:");
-        for (const {
-                properties: item
-            } of invoice.items?.values ?? []) {
-            console.log("-", item.productCode?.value ?? "<no product code>");
-            console.log("  Description:", item.description?.value);
-            console.log("  Quantity:", item.quantity?.value);
-            console.log("  Date:", item.date?.value);
-            console.log("  Unit:", item.unit?.value);
-            console.log("  Unit Price:", item.unitPrice?.value);
-            console.log("  Tax:", item.tax?.value);
-            console.log("  Amount:", item.amount?.value);
-        }
+          console.log("Vendor Name:", invoice.vendorName?.value);
+          console.log("Customer Name:", invoice.customerName?.value);
+          console.log("Invoice Date:", invoice.invoiceDate?.value);
+          console.log("Due Date:", invoice.dueDate?.value);
 
-        console.log("Subtotal:", invoice.subTotal?.value);
-        console.log("Previous Unpaid Balance:", invoice.previousUnpaidBalance?.value);
-        console.log("Tax:", invoice.totalTax?.value);
-        console.log("Amount Due:", invoice.amountDue?.value);
-    } else {
-        throw new Error("Expected at least one receipt in the result.");
-    }
-}
+          console.log("Items:");
+          for (const {
+                  properties: item
+              } of invoice.items?.values ?? []) {
+              console.log("-", item.productCode?.value ?? "<no product code>");
+              console.log("  Description:", item.description?.value);
+              console.log("  Quantity:", item.quantity?.value);
+              console.log("  Date:", item.date?.value);
+              console.log("  Unit:", item.unit?.value);
+              console.log("  Unit Price:", item.unitPrice?.value);
+              console.log("  Tax:", item.tax?.value);
+              console.log("  Amount:", item.amount?.value);
+          }
 
-main().catch((error) => {
-    console.error("An error occurred:", error);
-    process.exit(1);
-});
+          console.log("Subtotal:", invoice.subTotal?.value);
+          console.log("Previous Unpaid Balance:", invoice.previousUnpaidBalance?.value);
+          console.log("Tax:", invoice.totalTax?.value);
+          console.log("Amount Due:", invoice.amountDue?.value);
+      } else {
+          throw new Error("Expected at least one receipt in the result.");
+      }
+  }
+
+  main().catch((error) => {
+      console.error("An error occurred:", error);
+      process.exit(1);
+  });
 ```
+
+### Prebuilt model output
+
+Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-prebuilt-invoice-output.md)
 
 ## Run your application
 

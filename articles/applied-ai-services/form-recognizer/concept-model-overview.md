@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 03/16/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -22,7 +22,7 @@ Azure Form Recognizer prebuilt models enable you to add intelligent document pro
 
 | **Model**   | **Description**   |
 | --- | --- |
-| 🆕[Read (preview)](#read-preview) | Extract text lines, words, their locations, detected languages, and handwritten style if detected.  |
+| 🆕[Read (preview)](#read-preview) | Extract printed and handwritten text lines, words, locations, and detected languages.|
 | 🆕[W-2 (preview)](#w-2-preview) | Extract employee, employer, wage information, etc. from US W-2 forms.  |
 | 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.  |
 | [Layout](#layout)  | Extracts text and layout information from documents.  |
