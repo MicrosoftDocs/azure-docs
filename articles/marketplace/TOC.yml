@@ -420,7 +420,9 @@
       - name: Plans
         href: create-new-saas-offer-plans.md
       - name: Create a test SaaS offer
-        href: create-saas-dev-test-offer.md          
+        href: create-saas-dev-test-offer.md
+    - name: Test the offer
+      items:            
       - name: Preview and subscribe
         href: test-publish-saas-offer.md
       - name: Test a SaaS plan
