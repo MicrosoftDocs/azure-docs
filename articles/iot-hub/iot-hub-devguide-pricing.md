@@ -7,7 +7,7 @@ ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/11/2022
+ms.date: 03/17/2022
 ms.custom: [amqp, mqtt]
 ---
 
@@ -30,7 +30,7 @@ Use the following table to help determine which operations are charged. All bill
 | Operation category | Billing information |
 | --------- | ------------------- |
 | Identity registry operations <br/> (create, update, get, list, delete, bulk update, statistics) | Not charged. |
-| Device-to-cloud messages | Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 100-byte message is charged as one message, and a 6-KB message is charged as two messages. <br/><br/> [Send Device Event](/rest/api/iothub/device/send-device-event), *Device to Cloud Telemetry*, *Device to Cloud Telemetry Routing* <br/> **REVIEWER NEED EXPLICIT DETAILS ABOUT WHEN/HOW Device to Cloud Telemetry Routing GETS CHARGED** |
+| Device-to-cloud messages | Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 100-byte message is charged as one message, and a 6-KB message is charged as two messages. <br/><br/> [Send Device Event](/rest/api/iothub/device/send-device-event), Either *Device to Cloud Telemetry* or *Device to Cloud Telemetry Routing* depending on whether the IoT hub has message routing features configured. In either case, messages are only charged on ingress into IoT Hub. |
 | Cloud-to-device messages | Successfully sent messages are charged in 4-KB chunks. For example, a 6-KB message is charged as 2 messages. <br/><br/> [Receive Device Bound Notification](/rest/api/iothub/device/receive-device-bound-notification), *Cloud To Device Command* |
 | File uploads | File transfer to Azure Storage is not metered by IoT Hub. File transfer initiation and completion messages are charged as messaged metered in 4-KB increments. For example, transferring a 10-MB file is charged as two messages in addition to the Azure Storage cost. <br/><br/> [Create File Upload Sas Uri](/rest/api/iothub/device/create-file-upload-sas-uri), *Device To Cloud File Upload* <br/> [Update File Upload Status](/rest/api/iothub/device/update-file-upload-status), *Device To Cloud File Upload* |
 | Direct methods | Successful method requests are charged in 4-KB chunks, and responses are charged in 4-KB chunks as additional messages. Requests or responses with no payload are charged as one message. For example, a method with a 4-KB body that results in a response with no payload from the device is charged as two messages. A method with a 6-KB body that results in a 1-KB response from the device is charged as two messages for the request plus another message for the response. Requests to disconnected devices are charged as messages in 4-KB chunks plus one message for a response. <br/><br/> [Device - Invoke Method](/rest/api/iothub/service/devices/invoke-method), *Device Direct Invoke Method*, <br/> [Module - Invoke Method](/rest/api/iothub/service/modules/invoke-method), *Module Direct Invoke Method* |
