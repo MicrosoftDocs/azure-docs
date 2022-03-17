@@ -361,8 +361,13 @@ Before you can send notifications to Teams from your pipelines you must create a
     :::image type="content" source="media/how-to-send-notifications-to-teams/validate-debug-publish-synapse.png" alt-text="Shows the &quot;Validate, Debug, Publish&quot; buttons to validate, debug, and then publish your pipeline.":::
 
 ---
+## Sample Usage
+In this sample usage scenario, we will create a master pipeline with three **Execute Pipeline** activities. The first **Execute Pipeline** activity will invoke our ETL pipeline and the remaining two **Execute Pipeline** activities will invoke the "NotifiyTeamsChannelPipeline" pipeline to send relevant success or failure notifications to the Teams channel depending on the execution state of our ETL pipeline.
 
-3.  We recommend adding the current Data Factory **Subscription ID**, **Resource Group**, and the **Teams webhook URL** (refer to 
+1.  Search for pipeline in the pipeline Activities pane, and drag three **Execute Pipeline** activities to the pipeline canvas.
+2.  Select first **Execute Pipeline** activity on the canvas if it is not already selected, and its "General" tab, to edit its details. For Name property of the **Execute Pipeline** activity, we recommend to use the name of your invoked ETL pipeline for which you want to send notifications. For example, we used LoadDataPipeline for the Name of our Execute Pipeline activity because it is the name of our invoked pipeline. 
+3.  **Invoke Teams Webhook Url** for **Name** of the **Web** activity.
+4.  We recommend adding the current Data Factory **Subscription ID**, **Resource Group**, and the **Teams webhook URL** (refer to 
     [prerequisites](#prerequisites)) for the default value of the relevant parameters.
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/webhook-recommended-properties.png" alt-text="Shows the recommended properties of the pipeline created by the &quot;Send notification to a channel in Microsoft Teams&quot; template.":::
