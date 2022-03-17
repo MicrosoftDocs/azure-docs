@@ -1,12 +1,10 @@
 ---
 title: HB-series retirement
 description: HB-series retirement started September 1, 2021.
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.author: amverma
 ---
 
 # Migrate your HB-series virtual machines by August 31, 2024

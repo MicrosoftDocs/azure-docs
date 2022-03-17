@@ -4,9 +4,9 @@ description: Learn about plans for Microsoft commercial marketplace offers in Pa
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/05/2021
+ms.date: 02/03/2022
 ---
 
 # Plans and pricing for commercial marketplace offers
@@ -37,9 +37,9 @@ Plans are not supported for the following offer types:
 
 - Consulting service
 - Dynamics 365 Business Central
-- Dynamics 365 Customer Engagement & Power Apps
-- Dynamics 365 for Operations
+- Dynamics 365 Operations Apps
 - Power BI app
+- Power BI Visual
 
 ## Plan information
 
@@ -50,11 +50,11 @@ Each offer type requires different information when you create a new plan. You c
 There are a few common details to complete for a new plan:
 
 - **Plan ID**: Create a unique ID for each plan in this offer. Use a maximum of 50 characters: only lowercase, alphanumeric characters, dashes, and underscores. This ID will be visible to customers in the product URL and Azure Resource Manager templates (if applicable). You can’t change this ID after you publish the offer.
-- **Plan Name**: (Callout 1 in the image above.) Create a unique name for each plan in this offer. Use a maximum of 50 characters. The plan name is used to differentiate software plans that may be a part of the same offer (for example, Offer name: Standard plan, and Enterprise plan). Customers will see this name when deciding which plan to select within your offer.
+- **Plan Name**: (Callout 1 in the image above.) Create a unique name for each plan in this offer. Use a maximum of 200 characters. The plan name is used to differentiate software plans that may be a part of the same offer (for example, Offer name: Standard plan, and Enterprise plan). Customers will see this name when deciding which plan to select within your offer.
 - **Plan summary**: (Callout 2 in the image above.) This summary appears in Azure Marketplace search results and can contain up to 100 characters.
    > [!NOTE]
    > This field doesn't apply to SaaS offers.
-- **Plan description**: (Callout 3 in the image above.) Add a plan description that explains what makes this plan unique from other plans for your offer. Use a maximum of 500 characters. This content will appear to your customers on the offer listing page(s) as they browse through and select a plan for your offer.
+- **Plan description**: (Callout 3 in the image above.) Add a plan description that explains what makes this plan unique from other plans for your offer. Use a maximum of 3,000 characters. This content will appear to your customers on the offer listing page(s) as they browse through and select a plan for your offer.
 
 The plan name and description appear on the offer listing page in the commercial marketplace online store(s). The following screenshot shows three plans for a SaaS offer listing in Azure Marketplace.
 
@@ -74,8 +74,8 @@ The following screenshot shows two draft offers.
 The commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to publishers while withholding an agency fee. You define your offer’s markets, visibility, and pricing (when applicable) on the **Pricing and availability** or **Availability** tab.
 
 - **Markets**: Every plan must be available in at least one market.  You have the option to select only "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf.
-- **Pricing**: Pricing models only apply to plans for Azure managed application, SaaS, and Azure virtual machine offers. All plans for the same offer must use the same pricing model.  
-- **Plan visibility**: Depending on the offer type, you can define a private audience or hide the offer or plan from the Azure Marketplace. This is explained in more detail in [Plan visibility](#plan-visibility) later in this article.
+- **Pricing**: Pricing models only apply to plans for Azure managed application, SaaS, and Azure virtual machine offers. An offer can have only one pricing model. For example, a SaaS offer cannot have one plan that's flat rate and another plan that’s per user.  
+- **Plan visibility**: Depending on the offer type, you can define a private audience or hide the offer or plan from Azure Marketplace. This is explained in more detail in [Plan visibility](#plan-visibility) later in this article.
 
 > [!TIP]
 > We recommend that you create plans that are best suited to the usage patterns of your target customer base. This reduces users from frequently switching plans based on their changes in usage. For an example of a SaaS offer with three metered billing plans, see [Sample offer](./partner-center-portal/saas-metered-billing.md#sample-offer).
@@ -88,7 +88,7 @@ You must associate a pricing model with each plan for the following offer types.
 - **Software as a service**: flat rate (monthly or annual), per user, and usage-based pricing (metering service dimensions). 
 - **Azure virtual machine**: Bring your own license (BYOL) and usage-based pricing. For a usage-based pricing model, you can charge per core, per core size, or per market and core size. A BYOL license model does not allow for additional, usage-based charges.   (BYOL virtual machine offers do not require a pricing model.)
 
-All plans for the same offer must use the same pricing model. For example, a SaaS offer cannot have one plan that's flat rate and another plan that’s per user. See specific offer documentation for detailed information.
+An offer can have only one pricing model. For example, a SaaS offer cannot have one plan that's flat rate and another plan that’s per user. However, a SaaS offer can have some plans with flat rate with metered billing and other flat rate plans without metered billing. See specific offer documentation for detailed information.
 
 If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. After saving your changes, you will see an **Export prices (xlsx)** link that you can use to review and change the price for each market before publishing.
 
@@ -121,7 +121,7 @@ Prices set in United States Dollars (USD) are converted into the local currency 
 
 ## Plan visibility
 
-You can make plans for some offer types publicly available or available to only a specific (private) audience. Offers with private plans will be published to the Azure portal. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
+You can make plans for some offer types publicly available or available to only a specific (private) audience. Offers with private plans will be published to the Azure portal. Learn more about private plans in [Private plans in the Microsoft commercial marketplace](private-plans.md).
 
 You define your private audience by using Azure tenant IDs or Azure subscription IDs, depending on the offer type. You can enter up to 10 IDs manually or import up to 10,00 subscription IDs or 20,000 tenant IDs (as applicable) with a .csv file. You can also define private audiences for consulting services and Dynamics 365 offers that do not have plans.
 
@@ -130,7 +130,7 @@ After your offer is published with a private plan, you can update the audience o
 > [!NOTE]
 > A private audience differs from a preview audience. On the **Availability** page for some offer types, you can define an audience who can preview your offer prior to the offer being published live in the commercial marketplace. While the private audience designation only applies to a specific plan, the preview audience can view all plans (private or not), but only during the limited preview period while the plan is being tested and validated.
 
-You can also choose to hide the plan entirely from the Azure Marketplace if your offer will be deployed as part of a managed application or solution template.
+You can also choose to hide the plan entirely from Azure Marketplace if your offer will be deployed as part of a managed application or solution template.
 
 ## Free trials
 
@@ -139,10 +139,10 @@ You can enable a free trial on plans for transactable Azure virtual machine and 
 > [!NOTE]
 > This section explains free trials on paid plans for offers that are sold through Microsoft. This is different than free trial listings from partners who choose to process their transactions independently. You can create a free trial listing (that is not associated with a plan) for the following offer types:
 > - Azure virtual machine 
-> - SaaS 
+> - SaaS
 > - Dynamics 365 Business Central
-> - Dynamics 365 for Customer Engagement & Power Apps
-> - Dynamics 365 for Operations
+> - Dynamics 365 apps on Dataverse and Power Apps
+> - Dynamics 365 Operations Apps
 >
 > For more information about listing options, see [Determine your publishing option](determine-your-listing-type.md).
 
@@ -157,7 +157,7 @@ After a customer selects a free trial for a plan, they can't convert to a paid s
 > [!NOTE]
 > After a customer starts paying for a plan, they can’t get a free trial on the same offer again, even if they switch to another plan that supports free trials.
 
-To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#get-subscription).
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-subscription).
 
 ## Next steps
 

@@ -98,8 +98,19 @@ param
     [object] $WebhookData
 )
 
-if ($WebhookData.RequestBody) { 
-    $names = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
+write-output "start"
+write-output ("object type: {0}" -f $WebhookData.gettype())
+write-output $WebhookData
+#write-warning (Test-Json -Json $WebhookData)
+$Payload = $WebhookData | ConvertFrom-Json
+write-output "`n`n"
+write-output $Payload.WebhookName
+write-output $Payload.RequestBody
+write-output $Payload.RequestHeader
+write-output "end"
+
+if ($Payload.RequestBody) { 
+    $names = (ConvertFrom-Json -InputObject $Payload.RequestBody)
 
         foreach ($x in $names)
         {
@@ -134,7 +145,7 @@ Then save and publish the revised runbook. The examples below show to create a w
 
 1. Enter in the **Name** for the webhook. The expiration date for the field **Expires** defaults to one year from the current date.
 
-1. Click the copy icon or press <kbd>Ctrl+C to</kbd> copy the URL of the webhook. Then save the URL to a secure location.
+1. Click the copy icon or press <kbd>Ctrl + C</kbd> copy the URL of the webhook. Then save the URL to a secure location.
 
     :::image type="content" source="media/automation-webhooks/create-new-webhook.png" alt-text="Creaye webhook page with URL highlighted.":::
 

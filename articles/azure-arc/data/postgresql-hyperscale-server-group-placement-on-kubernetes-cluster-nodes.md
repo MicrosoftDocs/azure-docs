@@ -4,10 +4,10 @@ description: Explains how PostgreSQL instances forming a PostgreSQL Hyperscale s
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
@@ -136,7 +136,7 @@ Now, let’s scale out to add a third worker node to the server group and observ
 To scale out run the command:
 
 ```azurecli
-az postgres arc-server edit --name postgres01 --workers 3 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit --name postgres01 --workers 3 --k8s-namespace arc3 --use-k8s
 ```
 
 That produces the following output:
@@ -149,15 +149,20 @@ postgres01 is Ready
 List the server groups deployed in the Azure Arc Data Controller and verify that the server group now runs with three workers. Run the command:
 
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+az postgres arc-server list --k8s-namespace arc3 --use-k8s
 ```
 
 And observe that it did scale out from two workers to three workers:
 
 ```output
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    3
+[
+  {
+    "name": "postgres01",
+    "replicas": 1,
+    "state": "Ready",
+    "workers": 3
+  }
+]
 ```
 
 As we did earlier, observe that the server group now uses a total of four pods:
@@ -195,10 +200,10 @@ The placement of the PostgreSQL instances on the physical nodes of the cluster i
 
 |Server group role|Server group pod|Kubernetes physical node hosting the pod
 |-----|-----|-----
-|Coordinator|postgres01-0|aks-agentpool-42715708-vmss000000
-|Worker|postgres01-1|aks-agentpool-42715708-vmss000002
-|Worker|postgres01-2|aks-agentpool-42715708-vmss000003
-|Worker|postgres01-3|aks-agentpool-42715708-vmss000000
+|Coordinator|postgres01c-0|aks-agentpool-42715708-vmss000000
+|Worker|postgres01w-1|aks-agentpool-42715708-vmss000002
+|Worker|postgres01w-2|aks-agentpool-42715708-vmss000003
+|Worker|postgres01w-3|aks-agentpool-42715708-vmss000000
 
 And notice that the pod of the new worker (postgres01w-2) has been placed on the same node as the coordinator. 
 
@@ -235,7 +240,7 @@ The architecture looks like:
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="All pods in namespace on various nodes":::
 
-As described above, the coordinator nodes (Pod 1) of the Azure Arc-enabled Postgres Hyperscale server group shares the same physical resources as the third worker node (Pod 4) of the server group. That is acceptable because the coordinator node typically uses very few resources in comparison to what a worker node may be using. For this reason, carefully chose:
+As described above, the coordinator nodes (Pod 1) of the Azure Arc-enabled PostgreSQL Hyperscale server group shares the same physical resources as the third worker node (Pod 4) of the server group. That is acceptable because the coordinator node typically uses very few resources in comparison to what a worker node may be using. For this reason, carefully chose:
 - the size of the Kubernetes cluster and the characteristics of each of its physical nodes (memory, vCore)
 - the number of physical nodes inside the Kubernetes cluster
 - the applications or workloads you host on the Kubernetes cluster.
@@ -287,7 +292,7 @@ The fifth physical node is not hosting any workload yet. As we scale out the Azu
 Run the following command to scale the Azure Arc-enabled PostgreSQL Hyperscale from 3 to 4 workers. At the end of the operation, the server group will be constituted and distributed across five PostgreSQL instances, one coordinator and four workers.
 
 ```azurecli
-az postgres arc-server edit --name postgres01 --workers 4 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit --name postgres01 --workers 4 --k8s-namespace arc3 --use-k8s
 ```
 
 That produces the following output:
@@ -300,15 +305,20 @@ postgres01 is Ready
 List the server groups deployed in the Data Controller and verify the server group now runs with four workers:
 
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+az postgres arc-server list --k8s-namespace arc3 --use-k8s
 ```
 
 And observe that it did scale out from three to four workers. 
 
 ```console
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    4
+[
+  {
+    "name": "postgres01",
+    "replicas": 1,
+    "state": "Ready",
+    "workers": 4
+  }
+]
 ```
 
 As we did earlier, observe the server group now uses four pods:
@@ -364,8 +374,8 @@ To benefit the most from the scalability and the performance of scaling Azure Ar
 - between all the PostgreSQL instances that constitute the Azure Arc-enabled PostgreSQL Hyperscale server group
 
 You can achieve this in several ways:
-- Scale out both Kubernetes and Azure Arc-enabled Postgres Hyperscale: consider scaling horizontally the Kubernetes cluster the same way you are scaling the Azure Arc-enabled PostgreSQL Hyperscale server group. Add a physical node to the cluster for each worker you add to the server group.
-- Scale out Azure Arc-enabled Postgres Hyperscale without scaling out Kubernetes: by setting the right resource constraints (request and limits on memory and vCore) on the workloads hosted in Kubernetes (Azure Arc-enabled PostgreSQL Hyperscale included), you will enable the colocation of workloads on Kubernetes and reduce the risk of resource contention. You need to make sure that the physical characteristics of the physical nodes of the Kubernetes cluster can honor the resources constraints you define. You should also ensure that equilibrium remains as the workloads evolve over time or as more workloads are added in the Kubernetes cluster.
+- Scale out both Kubernetes and Azure Arc-enabled PostgreSQL Hyperscale: consider scaling horizontally the Kubernetes cluster the same way you are scaling the Azure Arc-enabled PostgreSQL Hyperscale server group. Add a physical node to the cluster for each worker you add to the server group.
+- Scale out Azure Arc-enabled PostgreSQL Hyperscale without scaling out Kubernetes: by setting the right resource constraints (request and limits on memory and vCore) on the workloads hosted in Kubernetes (Azure Arc-enabled PostgreSQL Hyperscale included), you will enable the colocation of workloads on Kubernetes and reduce the risk of resource contention. You need to make sure that the physical characteristics of the physical nodes of the Kubernetes cluster can honor the resources constraints you define. You should also ensure that equilibrium remains as the workloads evolve over time or as more workloads are added in the Kubernetes cluster.
 - Use the Kubernetes mechanisms (pod selector, affinity, anti-affinity) to influence the placement of the pods.
 
 ## Next steps

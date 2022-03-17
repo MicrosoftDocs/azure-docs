@@ -4,12 +4,11 @@ description: Manage Azure AD roles using PowerShell cmdlets in Azure AD Privileg
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
 ms.subservice: pim
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/10/2020
+ms.date: 02/01/2022
 ms.author: lajanuar
 ---
 # Translator language support
@@ -23,6 +23,8 @@ ms.author: lajanuar
 
 **Dictionary:** Use the [Dictionary Lookup](reference/v3-0-dictionary-lookup.md) or [Dictionary Examples](reference/v3-0-dictionary-examples.md) operations from the Text Translation feature to display alternative translations from or to English and examples of words in context.
 
+## Translation
+
 | Language | Language code | Cloud – Text Translation and Document Translation| Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|
 | Afrikaans | `af` |✔|✔|✔|✔|✔|
@@ -30,7 +32,7 @@ ms.author: lajanuar
 | Amharic | `am` |✔|✔||||
 | Arabic | `ar` |✔|✔|✔|✔|✔|
 | Armenian | `hy` |✔|✔||✔||
-| Assamese | `as` |✔|✔||||
+| Assamese | `as` |✔|✔|✔|||
 | Azerbaijani | `az` |✔|✔||||
 | Bangla | `bn` |✔|✔|✔||✔|
 | Bashkir | `ba` |✔|||||
@@ -65,7 +67,9 @@ ms.author: lajanuar
 | Hungarian | `hu` |✔|✔|✔|✔|✔|
 | Icelandic | `is` |✔|✔|✔|✔|✔|
 | Indonesian | `id` |✔|✔|✔|✔|✔|
+| Inuinnaqtun | `ikt` |✔|||||
 | Inuktitut | `iu` |✔|✔|✔|✔||
+| Inuktitut (Latin) | `iu-Latn` |✔||||| 
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
@@ -84,7 +88,7 @@ ms.author: lajanuar
 | Macedonian | `mk` |✔|||✔||
 | Malagasy | `mg` |✔|✔|✔|||
 | Malay | `ms` |✔|✔|✔|✔|✔|
-| Malayalam | `ml` |✔|✔||||
+| Malayalam | `ml` |✔|✔|✔|||
 | Maltese | `mt` |✔|✔|✔|✔|✔|
 | Maori | `mi` |✔|✔|✔|||
 | Marathi | `mr` |✔|✔|✔|||
@@ -93,7 +97,7 @@ ms.author: lajanuar
 | Myanmar | `my` |✔|✔||✔||
 | Nepali | `ne` |✔|✔||||
 | Norwegian | `nb` |✔|✔|✔|✔|✔|
-| Odia | `or` |✔|✔||||
+| Odia | `or` |✔|✔|✔|||
 | Pashto | `ps` |✔|✔||✔||
 | Persian | `fa` |✔|✔|✔|✔|✔|
 | Polish | `pl` |✔|✔|✔|✔|✔|
@@ -108,13 +112,14 @@ ms.author: lajanuar
 | Serbian (Latin) | `sr-Latn` |✔|✔|✔|✔|✔|
 | Slovak | `sk` |✔|✔|✔|✔|✔|
 | Slovenian | `sl` |✔|✔|✔|✔|✔|
+| Somali | `so` |✔|||✔||
 | Spanish | `es` |✔|✔|✔|✔|✔|
 | Swahili | `sw` |✔|✔|✔|✔|✔|
 | Swedish | `sv` |✔|✔|✔|✔|✔|
 | Tahitian | `ty` |✔| |✔|✔||
-| Tamil | `ta` |✔|✔|||✔|
+| Tamil | `ta` |✔|✔|✔||✔|
 | Tatar | `tt` |✔|||||
-| Telugu | `te` |✔|✔||||
+| Telugu | `te` |✔|✔|✔|||
 | Thai | `th` |✔| |✔|✔|✔|
 | Tibetan | `bo` |✔||||
 | Tigrinya | `ti` |✔|✔||||
@@ -122,6 +127,7 @@ ms.author: lajanuar
 | Turkish | `tr` |✔|✔|✔|✔|✔|
 | Turkmen | `tk` |✔||||
 | Ukrainian | `uk` |✔|✔|✔|✔|✔|
+| Upper Sorbian | `hsb` |✔|||||
 | Urdu | `ur` |✔|✔|✔|✔|✔|
 | Uyghur | `ug` |✔||||
 | Uzbek (Latin | `uz` |✔|||✔||
@@ -179,7 +185,8 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 Add additional capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for additional services are below.
 * [Computer Vision](../computer-vision/language-support.md) 
 * [Speech](../speech-service/language-support.md) 
-* [Text Analytics ](../text-analytics/language-support.md) 
+* [Language service](../language-service/index.yml) 
+    * Select the feature you want to use, and then **Language support** on the left navigation menu.
 
 View all [Cognitive Services](../index.yml). 
 

@@ -1,7 +1,7 @@
 ---
 title: Manage a VM pool in Azure Lab Services from Teams
 description: Learn how to manage a VM pool in Azure Lab Services from Teams. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/07/2020
 ---
 

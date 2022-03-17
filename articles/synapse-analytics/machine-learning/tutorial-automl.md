@@ -1,11 +1,10 @@
 ---
 title: 'Tutorial: Train a model by using automated machine learning'
 description: Tutorial on how to train a machine learning model without code in Azure Synapse Analytics.
-services: synapse-analytics
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: jrasnick, garye
+ms.reviewer: sngun, garye
 
 ms.date: 09/03/2021
 author: nelgson

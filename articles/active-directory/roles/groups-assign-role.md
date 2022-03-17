@@ -3,12 +3,12 @@ title: Assign Azure AD roles to groups - Azure Active Directory
 description: Assign Azure AD roles to role-assignable groups in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 07/30/2021
+ms.date: 02/04/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -54,7 +54,7 @@ For more information on assigning role permissions, see [Assign administrator an
 ### Create a group that can be assigned to role
 
 ```powershell
-$group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $true -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true 
+$group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $false -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true 
 ```
 
 ### Get the role definition for the role you want to assign
@@ -73,33 +73,44 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId '/' -RoleDefinit
 
 ### Create a group that can be assigned Azure AD role
 
-```
-POST https://graph.microsoft.com/beta/groups
+Use the [Create group](/graph/api/group-post-groups) API to create a group.
+
+```http
+POST https://graph.microsoft.com/v1.0/groups
+
 {
-"description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
-"displayName": "Contoso_Helpdesk_Administrators",
-"groupTypes": [],
-"mailEnabled": false,
-"securityEnabled": true,
-"mailNickname": "contosohelpdeskadministrators",
-"isAssignableToRole": true
+    "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
+    "displayName": "Contoso_Helpdesk_Administrators",
+    "groupTypes": [
+        "Unified"
+    ],
+    "isAssignableToRole": true,
+    "mailEnabled": true,
+    "mailNickname": "contosohelpdeskadministrators",
+    "securityEnabled": true
 }
 ```
 
 ### Get the role definition
 
-```
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq 'Helpdesk Administrator'
+Use the [List unifiedRoleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API to get a role definition.
+
+```http
+GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions?$filter = displayName eq 'Helpdesk Administrator'
 ```
 
 ### Create the role assignment
 
-```
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the role.
+
+```http
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
+
 {
-"principalId":"<Object Id of Group>",
-"roleDefinitionId":"<ID of role definition>",
-"directoryScopeId":"/"
+    "@odata.type": "#microsoft.graph.unifiedRoleAssignment",
+    "principalId": "<Object Id of Group>",
+    "roleDefinitionId": "<ID of role definition>",
+    "directoryScopeId": "/"
 }
 ```
 ## Next steps

@@ -171,7 +171,7 @@ To back up to Azure Files, complete these steps:
 
 ### Set up Azure Files
 
-In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure Files. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [Mount Blob storage by using the NFS 3.0 protocol](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
+In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure Files. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [How to create an NFS share](../../../storage/files/storage-files-how-to-create-nfs-shares.md).
 
 When mounting the Azure Files, we will use the `cache=none` to disable caching of file share data. And to ensure files created in the share are owned by the oracle user set the `uid=oracle` and `gid=oinstall` options as well. 
 

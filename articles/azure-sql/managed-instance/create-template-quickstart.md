@@ -4,8 +4,7 @@ description: Learn how to create an Azure SQL Managed Instance by using an Azure
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: subject-armqs, devx-track-azurepowershell
-ms.devlang:
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
@@ -102,7 +101,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az group delete --name $resourceGroupName

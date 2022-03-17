@@ -44,9 +44,9 @@ The queue-based trigger functions are required in support of this feature. All t
 
 - **Sequenced** - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop. 
 
-    The proper way to use the sequence functionality is to create a tag named **sequencestart** on each VM you wish to be started in a sequence. The tag value needs to be an integer ranging from 1 to N for each VM in the respective scope. The tag is optional and if not present, the VM simply won't participate in the sequencing. The same criteria applies to stopping VMs with only the tag name being different and use **sequencestop** in this case. You have to configure both the tags in each VM to get start and stop action.
+    The proper way to use the sequence functionality is to create a tag named **sequencestart** on each VM you wish to be started in a sequence. The tag value needs to be an integer ranging from 1 to N for each VM in the respective scope. The tag is optional and if not present, the VM simply won't participate in the sequencing. The same criteria applies to stopping VMs with only the tag name being different and use **sequencestop** in this case. You have to configure both the tags in each VM to get start and stop action. If two or more VMs share the same tag value, those VMs would be started or stopped at the same time.
 
-    For example, the following table shows how two VMs with opposite sequences end up running in the same order:
+    For example, the following table shows that both start and stop actions are processed in ascending order by the value of the tag.
 
     :::image type="content" source="media/overview/sequence-settings-table.png" alt-text="Table that shows sequence settings tag examples":::
 

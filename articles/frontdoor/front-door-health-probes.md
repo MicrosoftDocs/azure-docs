@@ -1,11 +1,10 @@
 ---
 title: Azure Front Door - backend health monitoring | Microsoft Docs
-description: This article helps you understand how Azure Front Door monitors the health of your backends
+description: This article helps you understand how Azure Front Door monitors the health of your backends.
 services: frontdoor
 documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -64,7 +63,7 @@ Azure Front Door uses the same three-step process below across all algorithms to
 
 ## Complete health probe failure
 
-If health probes fail for every backend in a backend pool, then Front Door considers all backends healthy and routes traffic in a round robin distribution across all of them.
+If health probes fail for every backend in a backend pool, then Front Door considers all backends unhealthy and routes traffic in a round robin distribution across all of them.
 
 Once any backend returns to a healthy state, then Front Door will resume the normal load-balancing algorithm.
 
@@ -75,4 +74,5 @@ If you have a single backend in your backend pool, you can choose to disable the
 ## Next steps
 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn how to [create a Front Door Standard/Premium](standard-premium/create-front-door-portal.md).
 - Learn [how Front Door works](front-door-routing-architecture.md).

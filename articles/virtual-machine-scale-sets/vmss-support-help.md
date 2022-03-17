@@ -20,7 +20,7 @@ Here are suggestions for where you can get help when developing your Azure virtu
 
 Various articles explain how to determine, diagnose, and fix issues that you might encounter when using [Azure Virtual Machines](../virtual-machines/index.yml) and [virtual machine scale sets](overview.md).
 
--  [Azure Virtual Machine troubleshooting documentation](/troubleshoot/azure/virtual-machines/welcome-virtual-machines) 
+-  [Azure Virtual Machine scale set troubleshooting documentation](/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) 
 - [Frequently asked questions about Azure virtual machine scale sets](virtual-machine-scale-sets-faq.yml)
 
 

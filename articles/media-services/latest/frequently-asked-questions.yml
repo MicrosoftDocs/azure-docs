@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure Media Services."
   ms.service: media-services
   ms.custom: contperf-fy21q4
-    
+  ms.topic: faq
 title: Common questions about Azure Media Services
 summary: This article answers commonly asked questions about Azure Media Services.
 sections:
@@ -158,6 +158,13 @@ sections:
         
         When you're scaling up with this approach, you should monitor the streaming endpoint's CPU load. If you're planning to go to production with a large library of MP4 files that are pre-encoded outside Media Services, file a support ticket to have your architecture reviewed and
         ask about ways to improve the origin server performance of pre-encoded MP4 content. 
+    - question: Will v2 streaming locators continue to work after February 2024?
+      answer: |
+       Streaming locators created with v2 API will continue to work after our v2 API is turned off. Once the Streaming Locator data is created in the Media Services backend database, there is no dependency on the v2 REST API for streaming. We will not remove v2 specific records from the database when v2 is turned off in February 2024.
+       
+       There are some properties of assets and locators created with v2 that cannot be accessed or updated using the new v3 API. For example, v2 exposes an **Asset Files** API that does not have an equivalent feature in the v3 API. Often this is not a problem for most of our customers, since it is not a widely used feature and you can still stream old locators and delete them when they are no longer needed.
+       
+       After migration, you should avoid making any calls to the v2 API to modify streaming locators or assets.
 
   - name: Content protection
     questions:
@@ -314,7 +321,7 @@ sections:
           
           Additional data associated with a Media Services account (including content encryption keys, token verification keys, JobInputHttp URLs, and other entity metadata) is stored in Microsoft-owned storage within the region selected for the Media Services account. 
           
-          Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, additional account data is stored in a zone-redundant fashion and is contained in a single region. For Southeast Asia, all the additional account data is stored in Singapore. For Brazil South, the data is stored in Brazil. In regions other than Brazil South and Southeast Asia, additional account data might also be stored in Microsoft-owned storage in the [paired region](../../best-practices-availability-paired-regions.md).
+          Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, additional account data is stored in a zone-redundant fashion and is contained in a single region. For Southeast Asia, all the additional account data is stored in Singapore. For Brazil South, the data is stored in Brazil. In regions other than Brazil South and Southeast Asia, additional account data might also be stored in Microsoft-owned storage in the [paired region](../../availability-zones/cross-region-replication-azure.md).
                     
       - question: Does Media Services provide high availability or data replication? 
         answer: |

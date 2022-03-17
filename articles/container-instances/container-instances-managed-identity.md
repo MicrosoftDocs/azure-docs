@@ -38,7 +38,6 @@ To use a managed identity, the identity must be granted access to one or more Az
 ### Limitations
 
 * Currently you can't use a managed identity in a container group deployed to a virtual network.
-* You can't use a managed identity to pull an image from Azure Container Registry when creating a container group. The identity is only available within a running container.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -353,7 +352,7 @@ A user-assigned identity is a resource ID of the form
 
 You can enable one or more user-assigned identities.
 
-```YAML
+```yaml
 identity:
   type: UserAssigned
   userAssignedIdentities:
@@ -362,7 +361,7 @@ identity:
 
 ### System-assigned identity
 
-```YAML
+```yaml
 identity:
   type: SystemAssigned
 ```
@@ -371,7 +370,7 @@ identity:
 
 On a container group, you can enable both a system-assigned identity and one or more user-assigned identities.
 
-```YAML
+```yml
 identity:
   type: SystemAssigned, UserAssigned
   userAssignedIdentities:

@@ -13,6 +13,8 @@ ms.author: rifox
 - Get the latest version of the [.NET Identity SDK](/dotnet/api/azure.identity).
 - Get the latest version of the [.NET Management SDK](../../concepts/sdk-options.md).
 
+Note that if you're planning on using phone numbers, you can't use the free trial account. Check that your subscription meets all the [requirements](../../concepts/telephony/plan-solution.md) if you plan to purchase phone numbers before creating your resource. 
+
 ## Installing the SDK
 
 First, include the Communication Services Management SDK in your C# project:

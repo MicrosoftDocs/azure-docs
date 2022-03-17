@@ -7,10 +7,10 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
-ms.reviewer: mathoma
-ms.date: 09/23/2021
+author: emlisa
+ms.author: emlisa
+ms.reviewer: kendralittle, mathoma
+ms.date: 1/20/2022
 ---
 # Use read-only replicas to offload read-only query workloads
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -19,7 +19,7 @@ As part of [High Availability architecture](high-availability-sla.md#premium-and
 
 The *read scale-out* feature is also available in the Hyperscale service tier when at least one [secondary replica](service-tier-hyperscale-replicas.md) is added. Hyperscale secondary [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview) provide independent scaling, access isolation, workload isolation, massive read scale-out, and other benefits. Multiple secondary [HA replicas](service-tier-hyperscale-replicas.md#high-availability-replica) can be used for load-balancing read-only workloads that require more resources than available on one secondary HA replica. 
 
-The High Availability architecture of Basic, Standard, and General Purpose service tiers does not include any replicas. The *read scale-out* feature is not available in these service tiers.
+The High Availability architecture of Basic, Standard, and General Purpose service tiers does not include any replicas. The *read scale-out* feature is not available in these service tiers. However, [geo-replicas](active-geo-replication-overview.md) can provide similar functionality in these service tiers.
 
 The following diagram illustrates the feature for Premium and Business Critical databases and managed instances.
 
@@ -39,7 +39,7 @@ If you wish to ensure that the application connects to the primary replica regar
 
 ## Data consistency
 
-Data changes made on the primary replica propagate to read-only replicas asynchronously. Within a session connected to a read-only replica, reads are always transactionally consistent. However, because data propagation latency is variable, different replicas can return data at slightly different points in time relative to the primary and each other. If a read-only replica becomes unavailable and the session reconnects, it may connect to a replica that is at a different point in time than the original replica. Likewise, if an application changes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest changes are not immediately visible on the read-only replica.
+Data changes made on the primary replica are persisted on read-only replicas synchronously or asynchronously depending on replica type. However, for all replica types, reads from a read-only replica are always asynchronous with respect to the primary. Within a session connected to a read-only replica, reads are always transactionally consistent. Because data propagation latency is variable, different replicas can return data at slightly different points in time relative to the primary and each other. If a read-only replica becomes unavailable and a session reconnects, it may connect to a replica that is at a different point in time than the original replica. Likewise, if an application changes data using a read-write session on the primary and immediately reads it using a read-only session on a read-only replica, it is possible that the latest changes will not be immediately visible.
 
 Typical data propagation latency between the primary replica and read-only replicas varies in the range from tens of milliseconds to single-digit seconds. However, there is no fixed upper bound on data propagation latency. Conditions such as high resource utilization on the replica can increase latency substantially. Applications that require guaranteed data consistency across sessions, or require committed data to be readable immediately should use the primary replica.
 
@@ -190,6 +190,13 @@ In this fashion, creating a geo-replica can provide multiple additional read-onl
 
 > [!NOTE]
 > There is no automatic round-robin or any other load-balanced routing between the replicas of a geo-replicated secondary database, with the exception of a Hyperscale geo-replica with more than one HA replica. In that case, sessions with read-only intent are distributed over all HA replicas of a geo-replica.
+
+## Feature support on read-only replicas
+
+A list of the behavior of some features on read-only replicas is below:
+* Auditing on read-only replicas is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see [SQL Database Audit Log Format](audit-log-format.md).
+* [Query Performance Insight](query-performance-insight-use.md) relies on data from the [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store), which currently does not track activity on the read-only replica. Query Performance Insight will not show queries which execute on the read-only replica.
+* Automatic tuning relies on the Query Store, as detailed in the [Automatic tuning paper](https://www.microsoft.com/en-us/research/uploads/prod/2019/02/autoindexing_azuredb.pdf). Automatic tuning only works for workloads running on the primary replica.
 
 ## Next steps
 

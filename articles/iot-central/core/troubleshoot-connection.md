@@ -4,7 +4,7 @@ description: Troubleshoot why you're not seeing data from your devices in IoT Ce
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/13/2020
+ms.date: 12/21/2021
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
@@ -131,11 +131,11 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | - | - | - |
 | Provisioned | No immediately recognizable issue. | N/A |
 | Registered | The device has not yet connected to IoT Central. | Check your device logs for connectivity issues. |
-| Blocked | The device is blocked from connecting to IoT Central. | Device is blocked from connecting to the IoT Central application. Unblock the device in IoT Central and retry. To learn more, see [Block devices](concepts-get-connected.md#device-status-values). |
-| Unapproved | The device is not approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Approve devices](concepts-get-connected.md#device-registration) |
-| Unassociated | The device is not associated with a device template. | Associate the device with a device template so that IoT Central knows how to parse the data. |
+| Blocked | The device is blocked from connecting to IoT Central. | Device is blocked from connecting to the IoT Central application. Unblock the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values). |
+| Unapproved | The device is not approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values) |
+| Unassigned | The device is not assigned to a device template. | Assign the device to a device template so that IoT Central knows how to parse the data. |
 
-Learn more about [device status codes](concepts-get-connected.md#device-status-values).
+Learn more about [Device status values](howto-manage-devices-individually.md#device-status-values).
 
 ### Error codes
 
@@ -151,10 +151,22 @@ If you are seeing issues related to your authentication flow:
 | - | - | - |
 | 400 | The body of the request is not valid. For example, it cannot be parsed, or the object cannot be validated. | Ensure that you're sending the correct request body as part of the attestation flow, or use a device SDK. |
 | 401 | The authorization token cannot be validated. For example, it has expired or doesn't apply to the request's URI. This error code is also returned to devices as part of the TPM attestation flow. | Ensure that your device has the correct credentials. |
-| 404 | The Device Provisioning Service instance, or a resource such as an enrollment doesn't exist. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
-| 412 | The `ETag` in the request doesn't match the `ETag` of the existing resource, as per RFC7232. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
+| 404 | The Device Provisioning Service instance, or a resource such as an enrollment doesn't exist. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
+| 412 | The `ETag` in the request doesn't match the `ETag` of the existing resource, as per RFC7232. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
-| 500 | An internal error occurred. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to see if they can help you further. |
+| 500 | An internal error occurred. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to see if they can help you further. |
+
+### Detailed authorization error codes
+
+| Error | Sub error code | Notes |
+| - | - | - |
+| 401 Unauthorized | 401002 | The device is using invalid or expired credentials. This error is reported by DPS. |
+| 401 Unauthorized | 400209 | The device is either waiting for approval by an operator or has been blocked by an operator. |
+| 401 IoTHubUnauthorized |  | The device is using expired security token. This error is reported by IoT Hub. |
+| 401 IoTHubUnauthorized | DEVICE_DISABLED | The device is disabled in this IoT hub and has moved to another IoT hub. Re-provision the device. |
+| 401 IoTHubUnauthorized | DEVICE_BLOCKED | An operator has blocked this device. |
+
+
 
 ### File upload error codes
 
@@ -217,6 +229,6 @@ If you chose to create a new template that models the data correctly, migrate de
 
 ## Next steps
 
-If you need more help, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
+If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
 For more information, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).

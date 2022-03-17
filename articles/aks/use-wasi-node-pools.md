@@ -59,12 +59,12 @@ az extension update --name aks-preview
 
 ### Limitations
 
-* You can't run WebAssebmlies and containers in the same node pool.
+* You can't run WebAssemblies and containers in the same node pool.
 * Only the WebAssembly(WASI) runtime is available, using the Wasmtime provider.
 * The WASM/WASI node pools can't be used for system node pool.
 * The *os-type* for WASM/WASI node pools must be Linux.
 * Krustlet doesn't work with Azure CNI at this time. For more information, see the [CNI Support for Kruslet GitHub issue][krustlet-cni-support].
-* Krustlet doesn't provide networking configuration for WebAssemblies. The WebAssebmly manifest must provide the networking configuration, such as IP address.
+* Krustlet doesn't provide networking configuration for WebAssemblies. The WebAssembly manifest must provide the networking configuration, such as IP address.
 
 ## Add a WASM/WASI node pool to an existing AKS Cluster
 

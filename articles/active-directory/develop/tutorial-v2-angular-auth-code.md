@@ -261,7 +261,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
 
 Add the code from the following sections to invoke login using a pop-up window or a full-frame redirect: 
 
-### Sign in using popups
+### Sign in using pop-ups
 
 1. Change the code in *src/app/app.component.ts* to the following to sign in a user using a pop-up window:
 
@@ -551,7 +551,7 @@ In order to render certain UI only for authenticated users, components have to s
 
 ### Angular Guard
 
-MSAL Angular provides `MsalGuard`, a class you can use to protect routes and require authentication before accessing the protected route. The steps below add the `MsalGuard` to the `Profile` route. Protecting the `Profile` route means that even if a user does not sign in using the `Login` button, if they try to access the `Profile` route or click the `Profile` button, the `MsalGuard` will prompt the user to authenticate via popup or redirect before showing the `Profile` page.
+MSAL Angular provides `MsalGuard`, a class you can use to protect routes and require authentication before accessing the protected route. The steps below add the `MsalGuard` to the `Profile` route. Protecting the `Profile` route means that even if a user does not sign in using the `Login` button, if they try to access the `Profile` route or click the `Profile` button, the `MsalGuard` will prompt the user to authenticate via pop-up or redirect before showing the `Profile` page.
 
 `MsalGuard` is a convenience class you can use improve the user experience, but it should not be relied upon for security. Attackers can potentially get around client-side guards, and you should ensure that the server does not return any data the user should not access.
 
@@ -926,9 +926,9 @@ export class AppComponent implements OnInit, OnDestroy {
 }
 ```
 
-### Sign out using popups
+### Sign out using pop-ups
 
-Update the code in *src/app/app.component.ts* to sign out a user using popups:
+Update the code in *src/app/app.component.ts* to sign out a user using pop-ups:
 
 ```javascript
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';

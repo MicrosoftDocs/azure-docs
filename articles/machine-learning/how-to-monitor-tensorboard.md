@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: minxia
 ms.author: minxia
-ms.date: 02/27/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 
 ---

@@ -111,9 +111,9 @@ Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) to enable disk 
 
 ### Azure portal
 
-1. Select your key vault, go to **Access Policies**, and **Click to show advanced access policies**.
-2. Select the box labeled **Enable access to Azure Disk Encryption for volume encryption**.
-3. Select **Enable access to Azure Virtual Machines for deployment** and/or **Enable Access to Azure Resource Manager for template deployment**, if needed. 
+1. Select your key vault and go to **Access Policies**.
+2. Under "Enable Access to", select the box labeled **Azure Disk Encryption for volume encryption**.
+3. Select **Azure Virtual Machines for deployment** and/or **Azure Resource Manager for template deployment**, if needed. 
 4. Click **Save**.
 
     ![Azure key vault advanced access policies](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
@@ -145,7 +145,7 @@ Azure Disk Encryption doesn't support specifying port numbers as part of key vau
 Use the Azure CLI [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create) command to generate a new KEK and store it in your key vault.
 
 ```azurecli-interactive
-az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
+az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA --size 4096
 ```
 
 You may instead import a private key using the Azure CLI [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) command:
@@ -161,7 +161,7 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 Use the Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to generate a new KEK and store it in your key vault.
 
  ```powershell-interactive
-Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
+Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM" -Size 4096
 ```
 
 You may instead import a private key using the Azure PowerShell [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) command.

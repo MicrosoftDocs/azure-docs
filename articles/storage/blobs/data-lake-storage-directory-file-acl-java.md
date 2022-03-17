@@ -4,6 +4,7 @@ description: Use Azure Storage libraries for Java to manage directories and file
 author: normesta
 ms.service: storage
 ms.date: 02/17/2021
+ms.devlang: java
 ms.custom: devx-track-java
 ms.author: normesta
 ms.topic: how-to
@@ -133,7 +134,7 @@ Use the **DataLakeFileClient.uploadFromFile** method to upload large files witho
 
 ## Download from a directory
 
-First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **DataLakeFileClient.read** method to read the file. Use any .NET file processing API to save bytes from the stream to a file.
+First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **DataLakeFileClient.read** method to read the file. Use any Java file processing API to save bytes from the stream to a file.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_DownloadFile":::
 

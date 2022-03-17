@@ -1,19 +1,55 @@
 ---
 title: "What's new in Azure Active Directory application proxy"
 description: "New and updated documentation for the Azure Active Directory application proxy."
-ms.date: 10/05/2021
+ms.date: 03/09/2022
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ---
 
 # Azure Active Directory application proxy: What's new
 
 Welcome to what's new in Azure Active Directory application proxy documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## February 2022
+
+### Updated articles
+
+- [Plan an Azure AD Application Proxy deployment](application-proxy-deployment-plan.md)
+- [Secure access to on-premises APIs with Azure Active Directory Application Proxy](application-proxy-secure-api-access.md)
+
+## January 2022
+
+### Updated articles
+
+- [Secure access to on-premises APIs with Azure Active Directory Application Proxy](application-proxy-secure-api-access.md)
+
+
+## December 2021
+
+### Updated articles
+
+- [Configure custom domains with Azure AD Application Proxy](application-proxy-configure-custom-domain.md)
+- [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.yml)
+
+
+## November 2021
+
+### Updated articles
+
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
+
+## October 2021
+
+### Updated articles
+
+- [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md)
+- [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.yml)
+
 
 ## September 2021
 

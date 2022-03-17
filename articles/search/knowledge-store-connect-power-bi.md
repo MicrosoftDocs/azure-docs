@@ -8,16 +8,16 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2021
+ms.date: 10/18/2021
 ---
 
 # Connect a knowledge store with Power BI
 
-In this article, learn how to connect to and explore a knowledge store using Power Query in the Power BI Desktop app. You can get started faster with templates, or build a custom dashboard from scratch.
+In this article, learn how to connect to and query a knowledge store using Power Query in the Power BI Desktop app. You can get started faster with templates, or build a custom dashboard from scratch.
 
 A knowledge store that's composed of tables in Azure Storage work best in Power BI. If the tables contain projections from the same skillset and projection group, you can easily "join" them to build table visualizations that include fields from related tables.
 
-Follow along with the steps in this article using the sample data and knowledge store [created in the Azure portal](knowledge-store-create-portal.md) or through [Postman and REST APIs](knowledge-store-create-rest.md). 
+Follow the steps in this article using sample data and a knowledge store as [created in this portal quickstart](knowledge-store-create-portal.md) or through [Postman and REST APIs](knowledge-store-create-rest.md). 
 
 ## Connect to Azure Storage
 
@@ -41,11 +41,11 @@ Follow along with the steps in this article using the sample data and knowledge 
 
    ![Open Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Open Power Query")
 
-1. Select *hotelReviewsSsDocument*, and then remove the *PartitionKey*, *RowKey*, and *Timestamp* columns. 
+1. Open *hotelReviewsDocument* and remove its *PartitionKey*, *RowKey*, and *Timestamp* columns. Those columns are used for table relationships in Azure Table Storage. Power BI doesn't need them. You should be left with one column named "Content" showing *Record* in each one. 
 
    ![Edit tables](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Edit tables")
 
-1. Click the icon with opposing arrows at the upper right side of the table to expand the *Content*. When the list of columns appears, select all columns, and then deselect columns that start with 'metadata'. Click **OK** to show the selected columns.
+1. Click the icon with opposing arrows at the upper right side of the table to expand *Content*. When the list of columns appears, select all columns. Clear columns starting with 'metadata'. Click **OK** to include the selected columns.
 
    ![Expand content](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expand content")
 
@@ -56,9 +56,9 @@ Follow along with the steps in this article using the sample data and knowledge 
 
    ![Change data types](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Change data types")
 
-1. Select *hotelReviewsSsPages*, and then repeat steps 9 and 10 to delete the columns and expand the *Content*.
+1. Open *hotelReviewsSsPages* and repeat column deletion steps, expanding *Content* to select columns from the records. There are no data type modifications for this table.
 
-1. Select *hotelReviewsSsKeyPhrases* and repeat steps 9 and 10 to delete the columns and expand the *Content*. There are no data type modifications for this table.
+1. Open *hotelReviewsSsKeyPhrases* and repeat column deletion steps, expanding *Content* to select columns from the records. There are no data type modifications for this table.
 
 1. On the command bar, click **Close and Apply**.
 

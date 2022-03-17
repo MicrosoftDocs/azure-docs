@@ -4,18 +4,17 @@ metadata:
   description: Learn some common questions and troubleshooting tips for assigning roles to groups in Azure Active Directory.
   services: active-directory
   author: rolyon
-  manager: daveba
+  manager: karenhoran
   ms.service: active-directory
   ms.workload: identity
   ms.subservice: roles
-  ms.topic: article
+  ms.topic: faq
   ms.date: 11/05/2020
   ms.author: rolyon
   ms.reviewer: vincesm
   ms.custom: it-pro
   
   ms.collection: M365-identity-device-management
-    
 title: Troubleshoot Azure AD roles assigned to groups
 summary: Here are some common questions and troubleshooting tips for assigning Azure Active Directory (Azure AD) roles to Azure AD groups.
 
@@ -48,7 +47,7 @@ sections:
       - question: |
           Can I create an access review on groups that can be assigned to Azure AD roles (specifically, groups with isAssignableToRole property set to true)?  
         answer: |
-          Yes, you can. If you are on newest version of Access Review, then your reviewers are directed to My Access by default, and only Global Administrators can create access reviews on role-assignable groups. However, if you are on the older version of Access Review, then your reviewers are directed to the Access Panel by default, and both Global Administrators and User Administrator can create access reviews on role-assignable groups. The new experience will be rolled out to all customers on July 28, 2020 but if you’d like to upgrade sooner, make a request to [Azure AD Access Reviews - Updated reviewer experience in My Access Signup](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+          Yes, you can. Global Administrators and Privileged Role Administrators can create access reviews on role-assignable groups.
           
       - question: |
           Can I create an access package and put groups that can be assigned to Azure AD roles in it?

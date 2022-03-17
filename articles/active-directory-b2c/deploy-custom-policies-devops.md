@@ -3,14 +3,14 @@ title: Deploy custom policies with Azure Pipelines
 titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure Pipelines.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -77,7 +77,7 @@ try {
         $FileExists = Test-Path -Path $filePath -PathType Leaf
 
         if ($FileExists) {
-            $policycontent = Get-Content $filePath
+            $policycontent = Get-Content $filePath -Encoding UTF8
 
             # Optional: Change the content of the policy. For example, replace the tenant-name with your tenant name.
             # $policycontent = $policycontent.Replace("your-tenant.onmicrosoft.com", "contoso.onmicrosoft.com")     

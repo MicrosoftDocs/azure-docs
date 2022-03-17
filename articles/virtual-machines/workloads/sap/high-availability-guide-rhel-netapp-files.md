@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/11/2021
+ms.date: 02/13/2022
 ms.author: radeltch
 
 ---
@@ -152,11 +152,11 @@ The SAP Netweaver architecture presented in this article uses single Azure NetAp
    6. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/usrsap<b>QAS</b>pas)
    7. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/usrsap<b>QAS</b>aas)
   
-In this example, we used Azure NetApp Files for all SAP Netweaver file systems to demonstrate how Azure NetApp Files can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](../../disks-types.md#premium-ssd) . In this example <b>a-e</b> must be on Azure NetApp Files and <b>f-g</b> (that is, /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) could be deployed as Azure disk storage. 
+In this example, we used Azure NetApp Files for all SAP Netweaver file systems to demonstrate how Azure NetApp Files can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](../../disks-types.md#premium-ssds) . In this example <b>a-e</b> must be on Azure NetApp Files and <b>f-g</b> (that is, /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) could be deployed as Azure disk storage. 
 
 ### Important considerations
 
-When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availability architecture, be aware of the following important considerations:
+When considering Azure NetApp Files for the SAP Netweaver on RHEL High Availability architecture, be aware of the following important considerations:
 
 - The minimum capacity pool is 4 TiB. The capacity pool size can be increased in 1 TiB increments.
 - The minimum volume is 100 GiB
@@ -472,7 +472,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      --group g-QAS_ASCS
    
    sudo pcs resource create vip_QAS_ASCS IPaddr2 \
-     ip=192.168.14.9 cidr_netmask=24 \
+     ip=192.168.14.9 \
      --group g-QAS_ASCS
    
    sudo pcs resource create nc_QAS_ASCS azure-lb port=62000 \
@@ -535,7 +535,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     --group g-QAS_AERS
    
    sudo pcs resource create vip_QAS_AERS IPaddr2 \
-     ip=192.168.14.10 cidr_netmask=24 \
+     ip=192.168.14.10 \
     --group g-QAS_AERS
    
    sudo pcs resource create nc_QAS_AERS azure-lb port=62101 \

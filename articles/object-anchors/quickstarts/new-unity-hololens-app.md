@@ -7,6 +7,7 @@ ms.author: rgarcia
 ms.date: 06/23/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
+ms.custom: mode-other
 ---
 # Quickstart: Step-by-step instructions to create a new HoloLens Unity app using Azure Object Anchors
 

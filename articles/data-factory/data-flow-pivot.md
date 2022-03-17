@@ -17,7 +17,7 @@ ms.date: 09/09/2021
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-Use the pivot transformation to create multiple columns from the unique row values of a single column. Pivot is an aggregation transformation where you select group by columns and generate pivot columns using [aggregate functions](data-flow-expression-functions.md#aggregate-functions).
+Use the pivot transformation to create multiple columns from the unique row values of a single column. Pivot is an aggregation transformation where you select group by columns and generate pivot columns using [aggregate functions](data-flow-aggregate-functions.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4C4YN]
 
@@ -45,7 +45,7 @@ In the section labeled **Value**, you can enter specific row values to be pivote
 
 :::image type="content" source="media/data-flow/pivot4.png" alt-text="Pivoted columns":::
 
-For each unique pivot key value that becomes a column, generate an aggregated row value for each group. You can create multiple columns per pivot key. Each pivot column must contain at least one [aggregate function](data-flow-expression-functions.md#aggregate-functions).
+For each unique pivot key value that becomes a column, generate an aggregated row value for each group. You can create multiple columns per pivot key. Each pivot column must contain at least one [aggregate function](data-flow-aggregate-functions.md).
 
 **Column name pattern:** Select how to format the column name of each pivot column. The outputted column name will be a combination of the pivot key value, column prefix and optional prefix, suffice, middle characters. 
 

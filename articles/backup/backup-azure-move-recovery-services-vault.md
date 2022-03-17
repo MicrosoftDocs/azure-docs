@@ -2,8 +2,12 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 02/11/2022
 ms.custom: references_regions 
+ms.reviewer: caishwarya
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Move a Recovery Services vault across Azure Subscriptions and Resource Groups
@@ -12,13 +16,13 @@ This article explains how to move a Recovery Services vault configured for Azure
 
 ## Supported regions
 
-All public regions and sovereign regions are supported, except France Central, France South, Germany Northeast, Germany Central, China North, China North2, China East, and China East2.
+All public regions and sovereign regions are supported, except France South, France Central, Germany Northeast and Germany Central.
 
 ## Prerequisites for moving Recovery Services vault
 
 - During vault move across resource groups, both the source and target resource groups are locked preventing the write and delete operations. For more information, see this [article](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Only admin subscription has the permissions to move a vault.
-- For moving vaults across subscriptions, the target subscription must reside in the same tenant as the source subscription and its state must be enabled. To move a vault to a different Azure AD, see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md) and [Recovery Service vault FAQs](/azure/backup/backup-azure-backup-faq#recovery-services-vault).
+- For moving vaults across subscriptions, the target subscription must reside in the same tenant as the source subscription and its state must be enabled. To move a vault to a different Azure AD, see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md) and [Recovery Service vault FAQs](./backup-azure-backup-faq.yml).
 - You must have permission to perform write operations on the target resource group.
 - Moving the vault only changes the resource group. The Recovery Services vault will reside on the same location and it can't be changed.
 - You can move only one Recovery Services vault, per region, at a time.
@@ -106,7 +110,8 @@ Azure Resource Mover supports the movement of multiple resources across regions.
 To understand the detailed steps to achieve this, refer to the sections below.
 
 >[!Note]
->Azure Backup currently doesn’t support the movement of backup data from one Recovery Services vault to another. To protect your resource in the new region, the resource needs to be registered and backed up to a new/existing vault in the new region. When moving your resources from one region to another, backup data in your existing Recovery Services vaults in the older region can be retained/deleted based on your requirement. If you choose to retain data in the old vaults, you will incur backup charges accordingly.
+>- Azure Backup currently doesn’t support the movement of backup data from one Recovery Services vault to another. To protect your resource in the new region, the resource needs to be registered and backed up to a new/existing vault in the new region. When moving your resources from one region to another, backup data in your existing Recovery Services vaults in the older region can be retained/deleted based on your requirement. If you choose to retain data in the old vaults, you will incur backup charges accordingly.
+>- After resource move, to ensure continued security for backed-up resources in a vault that was configured with Multi-User Authorization (MUA), the destination vault should be configured with MUA using a Resource Guard in the destination region. This is because the Resource Guard and the vault must be located in the same region; therefore, the Resource Guard for the source vault can't be used to enable MUA on the destination vault.
 
 ### Back up Azure Virtual Machine after moving across regions
 
@@ -116,7 +121,7 @@ When an Azure Virtual Machine (VM) that’s been protected by a Recovery Service
 
 Before you move a VM, ensure the following prerequisites are met:
 
-1. See the [prerequisites associated with VM move](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) and ensure that the VM is eligible for move.
+1. See the [prerequisites associated with VM move](../resource-mover/tutorial-move-region-virtual-machines.md#prerequisites) and ensure that the VM is eligible for move.
 1. [Select the VM on the **Backup Items** tab](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) of existing vault’s dashboard and select **Stop protection** followed by retain/delete data as per your requirement. When the backup data for a VM is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures you always have your backup data ready for restore.
    >[!Note]
    >Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using the  [Delete data option](./backup-azure-manage-vms.md#delete-backup-data).
@@ -125,8 +130,8 @@ Before you move a VM, ensure the following prerequisites are met:
    - On Windows VMs, install the latest Windows updates.
    - On Linux VMs, refer to distributor guidance to ensure that machines have the latest certificates and CRL.
 1. Allow outbound connectivity from VMs:
-   - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
-   - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
+   - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](../resource-mover/support-matrix-move-region-azure-vm.md#url-access).
+   - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules).
 
 #### Move Azure VMs
 
@@ -146,8 +151,8 @@ Azure Backup offers [a snapshot management solution](./backup-afs.md) for your A
 
 Before you move the Storage Account, ensure the following prerequisites are met:
 
-1.	See the [prerequisites to move Storage Account](/azure/storage/common/storage-account-move?tabs=azure-portal#prerequisites). 
-1. Export and modify a Resource Move template. For more information, see [Prepare Storage Account for region move](/azure/storage/common/storage-account-move?tabs=azure-portal#prepare).
+1.	See the [prerequisites to move Storage Account](../storage/common/storage-account-move.md?tabs=azure-portal#prerequisites). 
+1. Export and modify a Resource Move template. For more information, see [Prepare Storage Account for region move](../storage/common/storage-account-move.md?tabs=azure-portal#prepare).
 
 #### Move Azure File Share
 
@@ -166,13 +171,13 @@ This ensures that you will always have your snapshots ready for restore from the
  
 ### Back up SQL Server/SAP HANA in Azure VM after moving across regions
 
-When you move a VM running SQL or SAP HANA servers to another region, the SQL and SAP HANA databases in those VMs can no longer be backed up in the vault of the earlier region. To protect the SQL and SAP HANA servers running in Azure VM in the new region, see the follow sections.
+When you move a VM running SQL or SAP HANA servers to another region, the SQL and SAP HANA databases in those VMs can no longer be backed up in the vault of the earlier region. To protect the SQL and SAP HANA servers running in Azure VM in the new region, see the following sections.
 
 #### Prepare to move SQL Server/SAP HANA in Azure VM
 
 Before you move SQL Server/SAP HANA running in a VM to a new region, ensure the following prerequisites are met:
 
-1. See the [prerequisites associated with VM move](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) and ensure that the VM is eligible for move. 
+1. See the [prerequisites associated with VM move](../resource-mover/tutorial-move-region-virtual-machines.md#prerequisites) and ensure that the VM is eligible for move. 
 1. Select the VM on the [Backup Items tab](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) of the existing vault’s dashboard and select _the databases_ for which backup needs to be stopped. Select **Stop protection** followed by retain/delete data as per your requirement. When the backup data is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures that you always have your backup data ready for restore.
    >[!Note]
    >Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using [Delete data option](./backup-azure-manage-vms.md#delete-backup-data).
@@ -181,8 +186,8 @@ Before you move SQL Server/SAP HANA running in a VM to a new region, ensure the 
    - On Windows VMs, install the latest Windows updates.
    - On Linux VMs, refer to the distributor guidance and ensure that machines have the latest certificates and CRL.
 1. Allow outbound connectivity from VMs:
-   - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
-   - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
+   - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](../resource-mover/support-matrix-move-region-azure-vm.md#url-access).
+   - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules).
 
 #### Move SQL Server/SAP HANA in Azure VM
 
@@ -229,7 +234,7 @@ To move to a new subscription, provide the `--destination-subscription-id` param
 
 ## Move an Azure virtual machine to a different recovery service vault. 
 
-If you want to move an Azure virtual machine that has Azure backup enabled, then you have two choices. They depend on your business requirements:
+If you want to move an Azure virtual machine that has backup enabled, then you have two choices. They depend on your business requirements:
 
 - [Don’t need to preserve previous backed-up data](#dont-need-to-preserve-previous-backed-up-data)
 - [Must preserve previous backed-up data](#must-preserve-previous-backed-up-data)

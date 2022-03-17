@@ -10,7 +10,7 @@ ms.date: 07/01/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4

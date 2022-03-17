@@ -5,11 +5,14 @@
   items:
   - name: About Network Function Manager
     href: overview.md
-- name: Tutorials
+- name: Quickstarts
   expanded: true
   items:
   - name: Create a device resource
     href: create-device.md
+- name: Tutorials
+  expanded: true
+  items:
   - name: Deploy network functions
     href: deploy-functions.md
 - name: Concepts
@@ -19,6 +22,13 @@
     href: partners.md
   - name: FAQ
     href: faq.md
+  - name: Prerequisites and requirements
+    href: requirements.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Configure permissions and register resources
+    href: resources-permissions.md
 - name: Reference
   items:
   - name: REST

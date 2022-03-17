@@ -3,7 +3,7 @@ title: Use the REST API to manage devices in Azure IoT Central
 description: How to use the IoT Central REST API to control devices in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/28/2021
+ms.date: 12/28/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -421,7 +421,7 @@ The request body looks like the following example:
 
 ```json
 {
-  "since": "2021-03-24T12:55:20.789Z"
+  "request": "2021-03-24T12:55:20.789Z"
 }
 ```
 

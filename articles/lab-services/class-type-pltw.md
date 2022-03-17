@@ -1,7 +1,7 @@
 ---
 title: Set up Project Lead The Way labs with Azure Lab Services
 description: Learn how to set up labs to teach Project Lead The Way classes. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/28/2020
 ---
 

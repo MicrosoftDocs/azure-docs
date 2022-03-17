@@ -60,6 +60,26 @@ Though the details of authentication differ between Fluid services, several valu
 }.[Signature]
 ```
 
+The mode of the user indicates whether the connection is in read or read/write mode. This can be viewed from the `connections` field in `AzureAudience`. The token scope permissions can be updated in your serverless Azure Function under the `generateToken` function.
+
+```ts
+const token = generateToken(
+  tenantId,
+  documentId,
+  key,
+  scopes ?? [ "Token Scope" ],
+  user
+);
+```
+
+The token scopes along with the container behavior and modes are as follows:
+
+| Token Scope | My Document Behavior | Audience Document Behavior | 
+|-------------|----------------------|----------------------------|
+| DocRead     | Read and write to the document. Changes made to the document are not reflected in any other audience document. <br /> Mode: Read | Read and write to document. Changes not reflected in any other audience document. <br /> Mode: Write | 
+| DocWrite    | Read and write to the document. Changes made are reflected in all other audience document. <br />Mode: Write | Read and write to the document. Changes made are reflected in all other audience document. <br />Mode: Write |
+| DocRead, DocWrite | Read and write to the document. Changes made are reflected in all other audience document. <br />Mode: Write | Read and write to the document. Changes made are reflected in all other audience document. <br />Mode: Write |
+
 > [!NOTE]
 > Note that the token also includes user information (see lines 7-9 above). You can use this to augment the user information that is automatically available to Fluid code using the [audience](../how-tos/connect-fluid-azure-service.md#getting-audience-details) feature. See [Adding custom data to tokens](../how-tos/connect-fluid-azure-service.md#adding-custom-data-to-tokens) for more information.
 

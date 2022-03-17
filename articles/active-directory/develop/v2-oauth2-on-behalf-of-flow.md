@@ -3,7 +3,7 @@ title: Microsoft identity platform and OAuth2.0 On-Behalf-Of flow | Azure
 titleSuffix: Microsoft identity platform
 description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.author: hirsin
-ms.reviewer: hirsin
+ms.author: ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 
@@ -24,9 +24,15 @@ The OBO flow only works for user principals at this time. A service principal ca
 
 This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
-As of May 2018, some implicit-flow derived `id_token` can't be used for OBO flow. Single-page apps (SPAs) should pass an **access** token to a middle-tier confidential client to perform OBO flows instead. For more info about which clients can perform OBO calls, see [limitations](#client-limitations).
-
 [!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
+
+## Client limitations
+
+As of May 2018, some implicit-flow derived `id_token` can't be used for OBO flow. Single-page apps (SPAs) should pass an **access** token to a middle-tier confidential client to perform OBO flows instead.
+
+If a client uses the implicit flow to get an id_token, and that client also has wildcards in a reply URL, the id_token can't be used for an OBO flow.  However, access tokens acquired through the implicit grant flow can still be redeemed by a confidential client even if the initiating client has a wildcard reply URL registered.
+
+Additionally, applications with custom signing keys cannot be used as middle-tier API's in the OBO flow (this includes enterprise applications configured for single sign-on). This will result in an error because tokens signed with a key controlled by the client cannot be safely accepted.
 
 ## Protocol diagram
 
@@ -51,6 +57,8 @@ To request an access token, make an HTTP POST to the tenant-specific Microsoft i
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 ```
+
+[!INCLUDE [remind-not-to-relay-token-nonaud](includes/remind-not-to-relay-token-nonaud.md)]
 
 There are two cases depending on whether the client application chooses to be secured by a shared secret or a certificate.
 
@@ -240,9 +248,13 @@ Depending on the architecture or usage of your application, you may consider dif
 > [!NOTE]
 > Previously the Microsoft account system (personal accounts) did not support the "Known client application" field, nor could it show combined consent.  This has been added and all apps in the Microsoft identity platform can use the known client application approach for getting consent for OBO calls.
 
-### /.default and combined consent
+### .default and combined consent
 
-The middle tier application adds the client to the known client applications list in its manifest, and then the client can trigger a combined consent flow for both itself and the middle tier application. On the Microsoft identity platform, this is done using the [`/.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `/.default`, the consent screen will show permissions for **both** the client to the middle tier API, and also request whatever permissions are required by the middle-tier API. The user provides consent for both applications, and then the OBO flow works.
+The middle tier application adds the client to the known client applications list in its manifest. If a consent prompt is triggered by the client, the consent flow will be both for itself and the middle tier application. On the Microsoft identity platform, this is done using the [`.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `.default`, the consent screen will show permissions for **both** the client to the middle tier API, and also request whatever permissions are required by the middle-tier API. The user provides consent for both applications, and then the OBO flow works.
+
+The resource service (API) identified in the request should be the API for which the client application is requesting an access token as a result of the user's sign-in. For example, `scope=openid https://middle-tier-api.example.com/.default` (to request an access token for the middle tier API), or `scope=openid offline_access .default` (when a resource is not identified, it defaults to Microsoft Graph).
+
+Regardless of which API is identified in the authorization request, the consent prompt will be a combined consent prompt including all required permissions configured for the client app, as well as all required permissions configured for each middle tier API listed in the client's required permissions list, and which have identified the client as a known client application. 
 
 ### Pre-authorized applications
 
@@ -255,10 +267,6 @@ A tenant admin can guarantee that applications have permission to call their req
 ### Use of a single application
 
 In some scenarios, you may only have a single pairing of middle-tier and front-end client. In this scenario, you may find it easier to make this a single application, negating the need for a middle-tier application altogether. To authenticate between the front-end and the web API, you can use cookies, an id_token, or an access token requested for the application itself. Then, request consent from this single application to the back-end resource.
-
-## Client limitations
-
-If a client uses the implicit flow to get an id_token, and that client also has wildcards in a reply URL, the id_token can't be used for an OBO flow.  However, access tokens acquired through the implicit grant flow can still be redeemed by a confidential client even if the initiating client has a wildcard reply URL registered.
 
 ## Next steps
 

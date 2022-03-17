@@ -12,7 +12,7 @@ In this article, we'll show what you can do in the [Azure portal](https://portal
 ## Register the resource provider
 An Azure resource provider for BareMetal instances lets you see the instances in the Azure portal. By default, the Azure subscription you use for BareMetal instance deployments registers the *BareMetalInfrastructure* resource provider. If you don't see your deployed BareMetal instances, register the resource provider with your subscription. 
 
-You can register the BareMetal instance resource provider by using the Azure portal or Azure command-line interface (CLI).
+You can register the BareMetal instance resource provider via the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
  

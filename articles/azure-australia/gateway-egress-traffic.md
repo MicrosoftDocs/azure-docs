@@ -172,7 +172,7 @@ Network interfaces are the source for all egress traffic from a virtual machine.
 |Resource|Link|
 |---|---|
 |*Create, Change, or Delete a Network Interface* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface](../virtual-network/virtual-network-network-interface.md) |
-|*Network Interface IP Addressing*               | [https://docs.microsoft.com/azure/virtual-network/private-ip-addresses](../virtual-network/private-ip-addresses.md)
+|*Network Interface IP Addressing*               | [https://docs.microsoft.com/azure/virtual-network/private-ip-addresses](../virtual-network/ip-services/private-ip-addresses.md)
 |
 
 ### VNet integrated PaaS
@@ -186,7 +186,7 @@ When deploying PaaS into a virtual network where routing and NSG controls have b
 | Resource  | Link  |
 | --- | --- |
 | *Virtual network integration for Azure services* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services](../virtual-network/virtual-network-for-azure-services.md) |
-| *Integrate your app with an Azure Virtual Network How-to guide* | [https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet](../app-service/web-sites-integrate-with-vnet.md)
+| *Integrate your app with an Azure Virtual Network How-to guide* | [https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet](../app-service/overview-vnet-integration.md)
 |
 
 ### Public IP
@@ -195,8 +195,8 @@ Public IP addresses are used when communicating outside a virtual network. This 
 
 |Resource|Link|
 |---|---|
-|*Public IP Addresses Overview*  | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](../virtual-network/public-ip-addresses.md#public-ip-addresses) |
-|*Create, change, or delete a public IP address* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](../virtual-network/virtual-network-public-ip-address.md)
+|*Public IP Addresses Overview*  | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses) |
+|*Create, change, or delete a public IP address* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
 |
 
 ## Effective routes

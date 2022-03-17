@@ -141,9 +141,9 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 
 You can set the configuration options in one of the following ways:
 
-* **Azure portal**: Under **Settings** on your IoT hub, select **Built-in endpoints** and expand **Cloud to device messaging**. (Setting the **feedback.maxDeliveryCount** and **feedback.lockDurationAsIso8601** properties is not currently supported in Azure portal.)
+* **Azure portal**: Under **Hub settings** on your IoT hub, select **Built-in endpoints** and go to **Cloud to device messaging**. (Setting the **feedback.maxDeliveryCount** and **feedback.lockDurationAsIso8601** properties is not currently supported in Azure portal.)
 
-    ![Set configuration options for cloud-to-device messaging in the portal](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
+:::image type="content" source="./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png" alt-text="Set configuration options for cloud-to-device messaging in the portal" border="true":::
 
 * **Azure CLI**: Use the [az iot hub update](/cli/azure/iot/hub#az_iot_hub_update) command:
 

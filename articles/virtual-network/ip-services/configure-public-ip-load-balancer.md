@@ -33,9 +33,9 @@ Finally, the article reviews unique aspects of using public IPs and public IP pr
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](../../virtual-network/create-public-ip-portal.md).
+- Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
-- A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](../../virtual-network/create-public-ip-prefix-portal.md).
+- A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](./create-public-ip-prefix-portal.md).
     - For the purposes of the example in this article, name the new public IP prefix **myPublicIPPrefixOutbound**.
 
 ## Create load balancer existing public IP
@@ -150,7 +150,7 @@ In this section, you'll change the frontend configuration used for outbound conn
 
 ## Caveats
 
-* Standard public load balancers can use standard SKU static IPv6 addresses as their frontend public IPs or public IP prefixes.  Every deployment must be dual-stack with both IPv4 and IPv6 frontends. NAT64 translation is unavailable. For more information, see [Deploy an IPv6 dual stack application in Azure - PowerShell](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)  (Note that Basic public load balancers can use basic SKU dynamic IPv6 addresses as their frontend public IPs.)
+* Standard public load balancers can use standard SKU static IPv6 addresses as their frontend public IPs or public IP prefixes.  Every deployment must be dual-stack with both IPv4 and IPv6 frontends. NAT64 translation is unavailable. For more information, see [Deploy an IPv6 dual stack application in Azure - PowerShell](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)  (Note that Basic public load balancers can use basic SKU dynamic IPv6 addresses as their frontend public IPs.)
 
 * When multiple frontends are assigned to a public load balancer, there isn't a method to assign flows from particular backend instances to egress on a specific IP.  For more information, see [Multiple frontends for Azure Load Balancer](../../load-balancer/load-balancer-multivip-overview.md)
 ## Next steps
@@ -162,4 +162,4 @@ You replaced the IP address in a load balancer frontend configuration.
 Finally, you changed an outbound frontend configuration to use a public IP prefix.
 
 - For more information about Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md)
-- To learn more about public IP addresses in Azure, see [Public IP addresses](../../virtual-network/public-ip-addresses.md).
+- To learn more about public IP addresses in Azure, see [Public IP addresses](./public-ip-addresses.md).

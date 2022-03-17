@@ -13,6 +13,8 @@ ms.date: 09/28/2020
 
 # Connect Azure Time Series Insights Gen 2 to Power BI
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 Are you looking for a solution to help correlate your time-series data, create vivid visualizations, and share insights across your organization?
 
 Azure Time Series Insights now seamlessly integrates with [Power BI](https://powerbi.microsoft.com/), providing you with more powerful visualization and dashboarding capabilities over your streaming data and allows you to share insights and results across your organization.
@@ -21,7 +23,7 @@ Azure Time Series Insights now seamlessly integrates with [Power BI](https://pow
 
 ### Learn more about integrating Azure Time Series Insights with Power BI.</br>
 
-> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Power-BI-integration-with-TSI/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Power-BI-integration-with-TSI/player]
 
 ## Summary
 

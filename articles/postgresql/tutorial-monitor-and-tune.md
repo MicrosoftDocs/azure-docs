@@ -1,10 +1,11 @@
 ---
 title: 'Tutorial: Monitor and tune - Azure Database for PostgreSQL - Single Server'
 description: This tutorial walks through monitoring and tuning in Azure Database for PostgreSQL - Single Server.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server 
 ms.topic: tutorial
+ms.author: sunila
+author: sunilagarwal
 ms.date: 5/6/2019
 ---
 
@@ -60,9 +61,6 @@ The [Query Performance Insight](concepts-query-performance-insight.md) view in t
 6. Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
    
    :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight wait statistics":::
-
-### Permissions
-**Owner** or **Contributor** permissions required to view the text of the queries in Query Performance Insight. **Reader** can view charts and tables but not query text.
 
 
 ## Performance recommendations

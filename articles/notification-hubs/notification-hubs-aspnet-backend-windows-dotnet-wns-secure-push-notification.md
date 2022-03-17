@@ -9,7 +9,7 @@ services: notification-hubs
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: windows
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: sethm

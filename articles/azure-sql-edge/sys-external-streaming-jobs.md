@@ -5,9 +5,9 @@ keywords: sys.external_streaming_jobs, SQL Edge
 services: sql-edge
 ms.service: sql-edge
 ms.topic: reference
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
 ms.date: 05/19/2019
 ---
 
@@ -30,7 +30,7 @@ Returns a row for each external streaming job created within the scope of the da
 |**is_published**|**bit**| Object is published.|  
 |**is_schema_published**|**bit**|Only the schema of the object is published.|
 |**uses_ansi_nulls**|**bit**| Stream object was created with the SET ANSI_NULLS database option ON|
-|**statement**|**varchar(max)**| The stream analytics query text for the streaming job. For more information, see [sp_create_streaming_job](overview.md) |
+|**statement**|**nvarchar(max)**| The stream analytics query text for the streaming job. For more information, see [sp_create_streaming_job](overview.md) |
 |**status**|**int**| The current status of the streaming job. The possible values are <br /><br /> **Created** = 0. The streaming job was created, but has not yet been started. <br /><br /> **Starting** = 1. The streaming job is in the starting phase. <br /><br /> **Failed** = 6. The streaming job Failed. This is generally an indication of a fatal error during processing. <br /><br /> **Stopped** = 4. The streaming job has been stopped. <br /><br /> **Idle** = 7. The streaming job is running, however there is no input to process. <br /><br /> **Processing** = 8. The streaming job is running, and is processing inputs. This state indicates a healthy state for the streaming job. <br /><br /> **Degraded** = 9. The streaming job is running, however there were some non-fatal input/output serialization/de-serialization errors during input processing. The input job will continue to run, but will drop inputs that encounter errors.|
 
 ## Permissions

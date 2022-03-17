@@ -15,7 +15,7 @@ Searching a data catalog is a great tool for data discovery if a data consumer k
 
 To access the browse experience, select “Browse assets” from the data catalog home page.
 
-:::image type="content" source="media/how-to-browse-catalog/studio-home-page.png" alt-text="Purview home page" border="true":::
+:::image type="content" source="media/how-to-browse-catalog/studio-home-page.png" alt-text="Azure Purview home page" border="true":::
 
 ## Browse by collection
 
@@ -26,7 +26,7 @@ Browse by collection allows you to explore the different collections you are a d
 
 :::image type="content" source="media/how-to-browse-catalog/browse-by-collection.png" alt-text="Screenshot showing the browse by collection page" border="true":::
 
-Once a collection is selected, you will get a list of assets in that collection with the facets and filters available in search. As a collection can have thousands of assets, browse uses the Purview search relevance engine to boost the most important assets to the top.
+Once a collection is selected, you will get a list of assets in that collection with the facets and filters available in search. As a collection can have thousands of assets, browse uses the Azure Purview search relevance engine to boost the most important assets to the top.
 
 :::image type="content" source="media/how-to-browse-catalog/browse-collection-results.png" alt-text="Screenshot showing the browse by collection results" border="true":::
 
@@ -77,4 +77,4 @@ A native browsing experience with hierarchical namespace is provided for each co
 
 - [How to create, import, and export glossary terms](how-to-create-import-export-glossary.md)
 - [How to manage term templates for business glossary](how-to-manage-term-templates.md)
-- [How to search the Purview data catalog](how-to-search-catalog.md)
+- [How to search the Azure Purview data catalog](how-to-search-catalog.md)

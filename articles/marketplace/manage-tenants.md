@@ -26,7 +26,7 @@ Any user with the Manager role in the Partner Center account will have the optio
 
 To associate another Azure AD tenant with your Partner Center account:
 
-1. In the top-right of Partner Center, select **Settings** > **Account settings**.
+1. In the upper-right of Partner Center, select **Settings** > **Account settings**.
 1. Under **Organization profile**, select **Tenants**. The current tenant associations are shown.
 1. On the **Developer** tab, select **Associate**.
 1. Enter your Azure AD credentials for the tenant that you want to associate.
@@ -38,14 +38,14 @@ If the association is successful, you will then be ready to add and manage accou
 
 To create a brand new Azure AD tenant with your Partner Center account:
 
-1. In the top-right of Partner Center, select **Settings** > **Account settings**.
+1. In the upper-right of Partner Center, select **Settings** > **Account settings**.
 1. Under **Organization profile**, select **Tenants**. The current tenant associations are shown.
 1. On the Developer tab, select **Create**.
 1. Enter the directory information for your new Azure AD:
     - **Domain name**: The unique name that we'll use for your Azure AD domain, along with ".onmicrosoft.com". For example, if you entered "example", your Azure AD domain would be "example.onmicrosoft.com".
     - **Contact email**: An email address where we can contact you about your account if necessary.
     - **Global administrator user account info**: The first name, last name, username, and password that you want to use for the new global administrator account.
-1. Select Create to confirm the new domain and account info.
+1. Select **Create** to confirm the new domain and account info.
 1. Sign in with your new Azure AD global administrator username and password to begin [adding and managing users](add-manage-users.md).
 
 For more information about creating new tenants inside your Azure portal, instead of the Partner Center portal, see the article [Create a new tenant in Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).

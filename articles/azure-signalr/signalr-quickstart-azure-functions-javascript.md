@@ -1,15 +1,13 @@
 ---
 title: Use JavaScript to create a chat room with Azure Functions and SignalR Service
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using JavaScript.
-author: sffamily
-ms.author: zhshang
+author: vicancy
+ms.author: lianwei
 ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: javascript
-ms.custom:
-  - devx-track-js
-  - mode-api
+ms.custom: devx-track-js, mode-api
 ---
 # Quickstart: Use JavaScript to create an App showing GitHub star count with Azure Functions and SignalR Service
 
@@ -178,21 +176,32 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         ```javascript
         var https = require('https');
         
+        var etag = '';
+        var star = 0;
+        
         module.exports = function (context) {
             var req = https.request("https://api.github.com/repos/azure/azure-signalr", {
                 method: 'GET',
-                headers: {'User-Agent': 'serverless'}
+                headers: {'User-Agent': 'serverless', 'If-None-Match': etag}
             }, res => {
+                if (res.headers['etag']) {
+                    etag = res.headers['etag']
+                }
+        
                 var body = "";
         
                 res.on('data', data => {
                     body += data;
                 });
                 res.on("end", () => {
-                    var jbody = JSON.parse(body);
+                    if (res.statusCode === 200) {
+                        var jbody = JSON.parse(body);
+                        star = jbody['stargazers_count'];
+                    }
+                    
                     context.bindings.signalRMessages = [{
                         "target": "newMessage",
-                        "arguments": [ `Current star count of https://github.com/Azure/azure-signalr is: ${jbody['stargazers_count']}` ]
+                        "arguments": [ `Current star count of https://github.com/Azure/azure-signalr is: ${star}` ]
                     }]
                     context.done();
                 });
@@ -205,7 +214,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
                 context.done();
             });
             req.end();
-        }    
+        }
         ```
 
 3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `index.html` in `content` directory under your project root folder. And copy the following content.

@@ -1,13 +1,12 @@
 ---
 title:  Deploy an IPv6 dual stack application using Standard Internal Load Balancer in Azure - PowerShell
 titlesuffix: Azure Virtual Network
-description: This article shows how to deploy an IPv6 dual stack application with Standard Internal Load Balancer in Azure virtual network using Azure Powershell.
+description: This article shows how to deploy an IPv6 dual stack application with Standard Internal Load Balancer in Azure virtual network using Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

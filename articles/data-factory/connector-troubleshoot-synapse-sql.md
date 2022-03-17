@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -88,10 +88,12 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Message**: `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
-- **Cause**: The specified stored procedure is invalid. The cause might be that the stored procedure doesn't return any data.
+- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
 
-- **Recommendation**:  Validate the stored procedure by using SQL Tools. Make sure that the stored procedure can return data.
-
+  | Cause analysis                                               | Recommendation                                             |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | The specified stored procedure is invalid. | Validate the stored procedure by using SQL Tools. Make sure that the stored procedure can return data.  |
+  | The Lookup activity requires the stored procedure to return some value, but the stored procedure code doesn't return any value. | Use the Stored Procedure Activity if the stored procedure is expected to return no data. |
 
 ## Error code: SqlInvalidDbQueryString
 

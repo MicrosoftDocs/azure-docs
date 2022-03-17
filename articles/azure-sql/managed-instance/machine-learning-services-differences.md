@@ -7,8 +7,8 @@ ms.subservice: machine-learning
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: garyericson
-ms.author: garye
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: mathoma, davidph
 manager: cgronlun
 ms.date: 03/17/2021

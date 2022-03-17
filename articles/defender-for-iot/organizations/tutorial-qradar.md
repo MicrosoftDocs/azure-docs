@@ -1,16 +1,14 @@
 ---
-title: Integrate Qradar with Azure Defender for IoT
-description: In this tutorial, learn how to integrate Qradar with Azure Defender for IoT.
-author: ElazarK
-ms.author: v-ekrieg
+title: Integrate Qradar with Microsoft Defender for IoT
+description: In this tutorial, learn how to integrate Qradar with Microsoft Defender for IoT.
 ms.topic: tutorial
-ms.date: 09/12/2021
+ms.date: 02/07/2022
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Integrate Qradar with Azure Defender for IoT
+# Tutorial: Integrate Qradar with Microsoft Defender for IoT
 
-This tutorial will help you learn how to integrate, and use QRadar with Azure Defender for IoT.
+This tutorial will help you learn how to integrate, and use QRadar with Microsoft Defender for IoT.
 
 Defender for IoT delivers the only ICS, and IoT cybersecurity platform with patented ICS-aware threat analytics and machine learning.
 
@@ -18,7 +16,7 @@ Defender for IoT has integrated its continuous ICS threat monitoring platform wi
 
 Some of the benefits of the integration include:
 
-- The ability to forward Azure Defender for IoT alerts to IBM QRadar for unified IT, and OT security monitoring, and governance.
+- The ability to forward Microsoft Defender for IoT alerts to IBM QRadar for unified IT, and OT security monitoring, and governance.
 
 - The ability to gain an overview of both IT, and OT environments. Allowing you to detect, and respond to multi-stage attacks that often cross IT, and OT boundaries.
 
@@ -80,7 +78,7 @@ There are no prerequisites of this tutorial.
 
 ## Deploy Defender for IoT platform QID
 
-QID is an event identifier in QRadar. All of Defenders for IoT platform reports are tagged under the same event (Sensor Alert).
+QID is an event identifier in QRadar. All of Defender for IoT platform reports are tagged under the same event (Sensor Alert).
 
 **To deploy Defender for IoT platform QID**:
 
@@ -100,15 +98,16 @@ For the integration to work, you will need to setup in the Defender for IoT appl
 
 1. In the side menu, select **Forwarding**.
 
-1. Select **Create Forwarding Rule**.
-
-1. Set the Action to **QRadar**.
+1. Select **Create new rule**.
+1. Define a rule name.
+1. Define the rule conditions.
+1. In the Actions section, select **QRadar** .
 
     :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Screenshot of, create a Forwarding Rule window.":::
 
-1. Configure the QRadar IP address, and the timezone.
+1. Define the QRadar IP address, and the timezone.
 
-1. Select **Submit**.
+1. Select **Save**.
 
 ## Map notifications to QRadar
 
@@ -187,7 +186,7 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the QRadar integration. Continue on to learn how to [Integrate ServiceNow with Azure Defender for IoT](tutorial-servicenow.md).
+In this tutorial, you learned how to get started with the QRadar integration. Continue on to learn how to [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md).
 
 > [!div class="nextstepaction"]
-> [Integrate ServiceNow with Azure Defender for IoT](tutorial-servicenow.md)
+> [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)

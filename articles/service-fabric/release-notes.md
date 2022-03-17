@@ -19,6 +19,19 @@ The following resources are also available:
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Code Samples</a>
 
 
+## Service Fabric 8.2
+
+We are excited to announce that 8.2 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK and Service Fabric runtime are available through Web Platform Installer, NuGet packages and Maven repositories.
+
+### Key announcements
+- Expose an API in Cluster Manager to note if upgrade is impactful
+
+### Service Fabric 8.2 releases
+| Release date | Release | More info |
+|---|---|---|
+| October 29, 2021 | [Azure Service Fabric 8.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-2-release/ba-p/2895108)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82.md)|
+
+
 ## Service Fabric 8.1
 
 We are excited to announce that 8.1 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK and Service Fabric runtime are available through Web Platform Installer, NuGet packages and Maven repositories.

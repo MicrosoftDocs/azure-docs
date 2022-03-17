@@ -1,8 +1,8 @@
 ---
 title: Azure Percept DK update experience
 description: Learn more about how to keep the Azure Percept DK up-to-date
-author: EthanChangAED
-ms.author: amiyouss
+author: nkhuyent
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/24/2021

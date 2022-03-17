@@ -1,5 +1,5 @@
 ---
-title: Restore Azure Database for MySQL - Flexible Server with Azure CLI 
+title: Restore Azure Database for MySQL - Flexible Server with Azure CLI
 description: This article describes how to perform restore operations in Azure Database for MySQL through the Azure CLI.
 author: mksuni
 ms.author: sumuth
@@ -8,12 +8,9 @@ ms.topic: how-to
 ms.date: 04/01/2021
 ---
 
-# Point-in-time restore of a Azure Database for MySQL - Flexible Server with Azure CLI
+# Point-in-time restore of a Azure Database for MySQL Flexible Server with Azure CLI
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
 
@@ -61,10 +58,10 @@ az mysql flexible-server restore --restore-time
 Restore a server from this ```2021-03-03T13:10:00Z``` backup snapshot.
 
 ```azurecli
-az mysql server restore \
+az mysql flexible-server restore \
 --name mydemoserver-restored \
 --resource-group myresourcegroup \
---restore-point-in-time "2021-03-03T13:10:00Z" \
+--restore-time "2021-03-03T13:10:00Z" \
 --source-server mydemoserver
 ```
 Time taken to restore will depend on the size of the data stored in the server.

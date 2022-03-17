@@ -8,9 +8,7 @@ ms.author: victorh
 ms.date: 06/14/2021
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom: devx-track-azurepowershell
-  - mvc
-  - mode-api
+ms.custom: devx-track-azurepowershell, mvc, mode-api
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway using Azure PowerShell

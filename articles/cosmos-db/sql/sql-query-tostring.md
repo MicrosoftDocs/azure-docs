@@ -83,8 +83,9 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
-Here is the result set.  
- ```json
+Here is the result set:
+
+```json
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
 {"nutrientID":"307","nutritionVal":"912"},

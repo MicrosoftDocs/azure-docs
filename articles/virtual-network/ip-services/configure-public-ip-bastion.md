@@ -24,7 +24,7 @@ In this article, you'll learn how to create an Azure Bastion host using an exist
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- One standard SKU public IP address in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](../../virtual-network/create-public-ip-portal.md).
+- One standard SKU public IP address in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP address **myStandardPublicIP**.
 
 ## Create Azure Bastion using existing IP
@@ -80,4 +80,4 @@ Azure Bastion doesn't support the changing of the public IP address after creati
 In this article, you learned how to create an Azure Bastion and use an existing public IP. 
 
 - For more information about Azure Bastion, see [What is Azure Bastion?](../../bastion/bastion-overview.md)
-- To learn more about public IP addresses in Azure, see [Public IP addresses](../../virtual-network/public-ip-addresses.md).
+- To learn more about public IP addresses in Azure, see [Public IP addresses](./public-ip-addresses.md).

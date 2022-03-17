@@ -8,7 +8,7 @@ ms.workload: identity
 ms.topic: how-to
 author: barbaraselden
 ms.author: baselden
-manager: mtillman
+manager: martinco
 ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro

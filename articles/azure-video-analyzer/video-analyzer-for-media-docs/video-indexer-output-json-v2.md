@@ -255,7 +255,7 @@ Example:
     "end":"0:00:17.03"
      }
   ]
-},
+}
 ```
 
 #### ocr
@@ -267,10 +267,11 @@ Example:
 |confidence|The recognition confidence.|
 |language|The OCR language.|
 |instances|A list of time ranges where this OCR appeared (the same OCR can appear multiple times).|
-|height|The height of the OCR rectangle|
-|top|The top location in px|
-|left| The left location in px|
-|width|The width of the  OCR rectangle|
+|height|The height of the OCR rectangle.|
+|top|The top location in px.|
+|left|The left location in px.|
+|width|The width of the OCR rectangle.|
+|angle|The angle of the OCR rectangle, from -180 to 180. 0 means left to right horizontal, 90 means top to bottom vertical, 180 means right to left horizontal, and -90 means bottom to top vertical. 30 means from top left to bottom right. |
 
 ```json
 "ocr": [
@@ -282,7 +283,8 @@ Example:
       "language": "en-US",
       "left": 31,
       "top": 97,
-      "width": 400,      
+      "width": 400,
+      "angle": 30,
       "instances": [
         {
           "start": "00:00:26",
@@ -881,6 +883,7 @@ Video Analyzer for Media makes inference of main topics from transcripts. When p
 },
 ` ` `
 ```
+
 ## Next steps
 
 [Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai)

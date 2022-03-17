@@ -164,7 +164,7 @@ Azure SQL Database offers the following three purchasing models:
 
   The DTU-based purchasing model offers a blend of compute, memory, and I/O resources in three service tiers, to support light and heavy database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources. It's best suited for customers who want simple, pre-configure resource options.
 
-  [Service Tiers](../../../azure-sql/database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers) in the DTU-based purchase model is differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period of backups, and fixed price.
+  [Service Tiers](../../../azure-sql/database/service-tiers-dtu.md#compare-service-tiers) in the DTU-based purchasing model is differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period of backups, and fixed price.
 
 - Serverless
 
@@ -239,7 +239,7 @@ Azure Storage has different Storage types available for customers and details fo
 
 - Azure-managed disks
 
-  It's a block-level storage volume that is managed by Azure. You can use the disks for SAP BOBI Platform application servers and databases, when installed on Azure virtual machines. There are different types of [Azure Managed Disks](../../managed-disks-overview.md) available, but it's recommended to use [Premium SSDs](../../disks-types.md#premium-ssd) for SAP BOBI Platform application and database.
+  It's a block-level storage volume that is managed by Azure. You can use the disks for SAP BOBI Platform application servers and databases, when installed on Azure virtual machines. There are different types of [Azure Managed Disks](../../managed-disks-overview.md) available, but it's recommended to use [Premium SSDs](../../disks-types.md#premium-ssds) for SAP BOBI Platform application and database.
 
   In below example, Premium SSDs are used for BOBI Platform installation directory. For database installed on virtual machine, you can use managed disks for data and log volume as per the guidelines. CMS and Audit databases are typically small and it doesn’t have the same storage performance requirements as that of other SAP OLTP/OLAP databases.
 

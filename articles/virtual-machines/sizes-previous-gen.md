@@ -50,6 +50,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_F1s  | 1  | 2  | 4  | 4  | 4000/32 (12)    | 3200/48   | 2/750   |
@@ -70,6 +72,8 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 The NVv2-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology with Intel Broadwell CPUs. These virtual machines are targeted for GPU accelerated graphics applications and virtual desktops where customers want to visualize their data, simulate results to view, work on CAD, or render and stream content. Additionally, these virtual machines can run single precision workloads such as encoding and rendering. NVv2 virtual machines support Premium Storage and come with twice the system memory (RAM) when compared with its predecessor NV-series.  
 
 Each GPU in NVv2 instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
+
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |
 |---|---|---|---|---|---|---|---|---|---|
@@ -217,6 +221,8 @@ Premium Storage: Supported
 
 Premium Storage caching: Supported
 
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+
 The DC-series uses the latest generation of 3.7GHz Intel XEON E-2176G Processor with SGX technology, and with the Intel Turbo Boost Technology can go up to 4.7GHz. 
 
 | Size          | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
@@ -286,6 +292,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Not Supported
 
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+
 | Size | vCPU | Memory (GiB) | Temp storage (GiB) | Max data disks | Max temp storage throughput (IOPS/MBps) | Max uncached disk throughput (IOPS/MBps) | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_L4s   | 4  | 32  | 678  | 16 | 20000/200 | 5000/125  | 2/4000  |
@@ -306,6 +314,8 @@ ACU: 180 - 240 <sup>1</sup>
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
+
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -407,6 +417,7 @@ The NC24rs v2 configuration provides a low latency, high-throughput network inte
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 
 > For this VM series, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../azure-portal/supportability/regional-quota-requests.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
 >
@@ -433,6 +444,7 @@ The ND-series virtual machines are a new addition to the GPU family designed for
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 
 > For this VM series, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../azure-portal/supportability/regional-quota-requests.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
 >

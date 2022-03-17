@@ -3,12 +3,12 @@ title: 'About Highly Available gateway configurations'
 titleSuffix: Azure VPN Gateway
 description: Learn about highly available configuration options using Azure VPN Gateways.
 services: vpn-gateway
-author: yushwang
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 05/27/2021
-ms.author: yushwang
+ms.author: cherylmc
 
 ---
 # Highly Available cross-premises and VNet-to-VNet connectivity

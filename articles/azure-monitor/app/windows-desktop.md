@@ -3,6 +3,7 @@ title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
+ms.devlang: csharp
 ms.custom: fasttrack-edit
 ---
 
@@ -25,6 +26,8 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
     If you use ApplicationInsights.config, make sure its properties in Solution Explorer are set to **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Use the API](./api-custom-events-metrics.md) to send telemetry.
 6. Run your app, and see the telemetry in the resource you created in the Azure portal.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## <a name="telemetry"></a>Example code
 

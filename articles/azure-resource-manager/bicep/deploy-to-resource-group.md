@@ -29,7 +29,7 @@ To deploy to a resource group, use the resource group deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment group create \

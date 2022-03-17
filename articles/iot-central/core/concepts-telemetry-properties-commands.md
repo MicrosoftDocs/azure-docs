@@ -3,7 +3,7 @@ title: Telemetry, property, and command payloads in Azure IoT Central | Microsof
 description: Azure IoT Central device templates let you specify the telemetry, properties, and commands of a device must implement. Understand the format of the data a device can exchange with IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/25/2021
+ms.date: 12/27/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -1131,4 +1131,4 @@ If you enable the **Queue if offline** option in the device template UI for the 
 
 ## Next steps
 
-Now that you've learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+Now that you've learned about device templates, a suggested next steps is to read [IoT Central device connectivity guide](overview-iot-central-developer.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.

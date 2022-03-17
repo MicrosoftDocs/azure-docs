@@ -2,7 +2,7 @@
 title: Security agent local configuration (C)
 description: Learn about Defender  for agent local configurations for C.
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 11/09/2021
 ---
 
 # Understanding the LocalConfiguration.json file - C agent

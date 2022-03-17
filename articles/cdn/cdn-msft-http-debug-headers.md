@@ -3,7 +3,7 @@ title:  Debug HTTP headers for Azure CDN from Microsoft | Microsoft Docs
 description: Debug cache request headers provides additional information about the cache policy applied to the requested asset. These headers are specific to Azure CDN from Microsoft.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: allensu
+ms.author: duau
 
 ---
 # Debug HTTP header for Azure CDN from Microsoft

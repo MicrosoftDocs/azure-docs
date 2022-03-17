@@ -11,6 +11,7 @@ ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
+ms.devlang: csharp
 ---
 
 # Create a user delegation SAS for a container, directory, or blob with .NET

@@ -9,7 +9,7 @@ ms.date: 09/01/2021
 
 # Upgrade Mobility Service and Appliance components (Preview)
 
-From this preview, you do not need to maintain source machine's Root/Admin credentials are not required for performing upgrades. The credentials are required only for the initial installation of the agent. Once done, you can remove the credentials.
+From this preview, you do not need to maintain source machine's Root/Admin credentials for performing upgrades. The credentials are required only for the initial installation of the agent on source machines. Once done, you can remove the credentials and the upgrades will occur automatically.
 
 
 ## Update mobility agent automatically
@@ -113,6 +113,25 @@ To check the update status of any of the components, navigate to appliance serve
 If any of these need to be updated, then the **Status** reflects the same. Click the status message to upgrade the component.
 
   ![replication appliance components](./media/upgrade-mobility-service-preview/appliance-components.png)
+
+### Turn off auto-update
+
+1. On the server running the appliance, open the Registry Editor.
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. To turn off auto-update, create a registry key **AutoUpdate** key with DWORD value of 0.
+
+    ![Set registry key](./media/upgrade-mobility-service-preview/registry-key.png)
+
+
+### Turn on auto-update
+
+You can turn on auto-update by deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+
+To delete the registry key:
+
+1. On the server running the appliance, open the Registry Editor.
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. Delete the registry key **AutoUpdate**, that was previously created to turn off auto-update.
 
 ### Resolve issues with component upgrade
 

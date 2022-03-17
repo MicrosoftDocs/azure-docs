@@ -68,7 +68,7 @@ App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`
 App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
-> The format of redirect uris must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
+> The format of redirect URIs must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
 
 ### Setup keychain sharing between applications
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language functions
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/22/2021
+ms.date: 02/25/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,11 +17,34 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: Functions
 
-This document contains reference information on **functions** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on *functions* for the [Azure Digital Twins query language](concepts-query-language.md).
+
+## CONTAINS
+
+A string function to determine whether a string property of a twin contains another specified string value.
+
+### Syntax
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="ContainsSyntax":::
+
+### Arguments
+
+* `<string-to-check>`: A string-type twin property that you want to check for the specified value
+* `<contained-string>`: A string representing the value to check for
+
+### Returns
+
+A Boolean value indicating whether the first string expression contains the sequence of characters defined in the second string expression.
+
+### Example
+
+The following query returns all digital twins whose IDs contain `-route`. The string to check is the `$dtId` of each twin in the collection, and the contained string is `-route`.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="ContainsExample":::
 
 ## ENDSWITH
 
-A string function used to determine whether a given string ends in a certain other string. 
+A string function to determine whether a string property of a twin ends in a certain other string. 
 
 ### Syntax
 
@@ -29,7 +52,7 @@ A string function used to determine whether a given string ends in a certain oth
 
 ### Arguments
 
-* `<string-to-check>`: A string to check the ending of
+* `<string-to-check>`: A string-type twin property that you want to check the ending of
 * `<ending-string>`: A string representing the ending to check for
 
 ### Returns
@@ -38,60 +61,9 @@ A Boolean value indicating whether the first string expression ends with the sec
 
 ### Example
 
-The following query returns all digital twins whose IDs end in `-small`.
+The following query returns all digital twins whose IDs end in `-small`. The string to check is the `$dtId` of each twin in the collection, and the ending string is `-small`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="EndsWithExample":::
-
-## IS_DEFINED
-
-A type checking and casting function to check whether a property is defined.
-
-This is only supported when the property value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. `DateTime`, object types, and arrays are not supported.
-
-### Syntax
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsDefinedSyntax":::
-
-### Arguments
-
-`<property>`, a property to determine whether it is defined. The property must be of a primitive type.
-
-### Returns
-
-A Boolean value indicating if the property has been assigned a value.
-
-### Example
-
-The following query returns all digital twins who have a defined *Location* property.
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsDefinedExample":::
-
-## IS_OF_MODEL
-
-A type checking and casting function to determine whether a twin is of a particular model type. Includes models that inherit from the specified model.
-
-### Syntax
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsOfModelSyntax":::
-
-### Arguments
-
-Required:
-* `<model-ID>`: The model ID to check for.
-
-Optional:
-* `<twin-collection>`: Specify a twin collection to search when there is more than one (like when a `JOIN` is used).
-* `exact`: Require an exact match. If this parameter is not set, the result set will include twins with models that inherit from the specified model.
-
-### Returns
-
-A Boolean value indicating if the specified twin matches the specified model type.
-
-### Example
-
-The following query returns twins from the DT collection that are exactly of the model type `dtmi:example:room;1`.
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsOfModelExample":::
 
 ## IS_BOOL
 
@@ -121,6 +93,52 @@ The following query builds on the above example to select the digital twins that
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsBoolNotFalseExample":::
 
+## IS_DEFINED
+
+A type checking and casting function to check whether a property is defined.
+
+This is only supported when the property value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. `DateTime`, object types, and arrays are not supported.
+
+### Syntax
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsDefinedSyntax":::
+
+### Arguments
+
+`<property>`, a property to determine whether it is defined. The property must be of a primitive type.
+
+### Returns
+
+A Boolean value indicating if the property has been assigned a value.
+
+### Example
+
+The following query returns all digital twins who have a defined `Location` property.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsDefinedExample":::
+
+## IS_NULL
+
+A type checking and casting function for determining whether an expression's value is `null`.
+
+### Syntax
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsNullSyntax":::
+
+### Arguments
+
+`<expression>`, an expression to check whether it is null.
+
+### Returns
+
+A Boolean value indicating if the type of the specified expression is `null`.
+
+### Example
+
+The following query returns twins who do not have a null value for Temperature. For more information about the `NOT` operator used in this query, see [Azure Digital Twins query language reference: Operators](reference-query-operators.md#logical-operators).
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsNullExample":::
+
 ## IS_NUMBER
 
 A type checking and casting function for determining whether an expression has a number value.
@@ -145,51 +163,56 @@ The following query selects the digital twins that have a numeric `Capacity` pro
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsNumberExample":::
 
-## IS_STRING
+## IS_OBJECT
 
-A type checking and casting function for determining whether an expression has a string value. 
+A type checking and casting function for determining whether an expression's value is of a JSON object type.
 
-This function is often combined with other predicates if the program processing the query results requires a string value, and you want to filter out cases where the property is not a string.
-
-### Syntax
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsStringSyntax":::
-
-### Arguments
-
-`<expression>`, an expression to check whether it is a string.
-
-### Returns
-
-A Boolean value indicating if the type of the specified expression is a string.
-
-### Example
-
-The following query selects the digital twins that have a string property `Status` property and its value is not equal to `Completed`.
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsStringExample":::
-
-## IS_NULL
-
-A type checking and casting function for determining whether an expression's value is `null`.
+This function is often combined with other predicates if the program processing the query results requires a JSON object, and you want to filter out cases where the value is not a JSON object.
 
 ### Syntax
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsNullSyntax":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsObjectSyntax":::
 
 ### Arguments
 
-`<expression>`, an expression to check whether it is null.
+`<expression>`, an expression to check whether it is of an object type.
 
 ### Returns
 
-A Boolean value indicating if the type of the specified expression is `null`.
+A Boolean value indicating if the type of the specified expression is a JSON object.
 
 ### Example
 
-The following query returns twins who do not have a null value for Temperature. For more information about the `NOT` operator used in this query, see [Azure Digital Twins query language reference: Operators](reference-query-operators.md#logical-operators).
+The following query selects all of the digital twins where this is an object called `MapObject`, and it does not have a child property `TemperatureReading`.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsNullExample":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsObjectExample":::
+
+## IS_OF_MODEL
+
+A type checking and casting function to determine whether a twin is of a particular model type. Includes models that inherit from the specified model.
+
+### Syntax
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsOfModelSyntax":::
+
+### Arguments
+
+Required:
+* `<model-ID>`: The model ID to check for.
+
+Optional:
+* `<twin-collection>`: Specify a twin collection to search when there is more than one (like when a `JOIN` is used).
+* `exact`: Require an exact match. If this parameter is not set, the result set will include twins with models that inherit from the specified model.
+
+### Returns
+
+A Boolean value indicating if the specified twin matches the specified model type.
+
+### Example
+
+The following query returns twins from the DT collection that are exactly of the model type `dtmi:example:room;1`.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsOfModelExample":::
 
 ## IS_PRIMITIVE
 
@@ -215,33 +238,33 @@ The following query returns the `area` property of the Factory with the ID of 'A
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsPrimitiveExample":::
 
-## IS_OBJECT
+## IS_STRING
 
-A type checking and casting function for determining whether an expression's value is of a JSON object type.
+A type checking and casting function for determining whether an expression has a string value. 
 
-This function is often combined with other predicates if the program processing the query results requires a JSON object, and you want to filter out cases where the value is not a JSON object.
+This function is often combined with other predicates if the program processing the query results requires a string value, and you want to filter out cases where the property is not a string.
 
 ### Syntax
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsObjectSyntax":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsStringSyntax":::
 
 ### Arguments
 
-`<expression>`, an expression to check whether it is of an object type.
+`<expression>`, an expression to check whether it is a string.
 
 ### Returns
 
-A Boolean value indicating if the type of the specified expression is a JSON object.
+A Boolean value indicating if the type of the specified expression is a string.
 
 ### Example
 
-The following query selects all of the digital twins where this is an object called `MapObject`, and does not have a child property `TemperatureReading`.
+The following query selects the digital twins that have a string property `Status` property and its value is not equal to `Completed`.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsObjectExample":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsStringExample":::
 
 ## STARTSWITH
 
-A string function used to determine whether a given string begins with a certain other string. 
+A string function to determine whether a string property of a twin begins with a certain other string. 
 
 ### Syntax
 
@@ -249,7 +272,7 @@ A string function used to determine whether a given string begins with a certain
 
 ### Arguments
 
-* `<string-to-check>`: A string to check the beginning of
+* `<string-to-check>`: A string-type twin property that you want to check the beginning of
 * `<beginning-string>`: A string representing the beginning to check for
 
 ### Returns
@@ -258,6 +281,6 @@ A Boolean value indicating whether the first string expression starts with the s
 
 ### Example
 
-The following query returns all digital twins whose IDs begin with `area1-`.
+The following query returns all digital twins whose IDs begin with `area1-`. The string to check is the `$dtId` of each twin in the collection, and the beginning string is `area1-`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="StartsWithExample":::

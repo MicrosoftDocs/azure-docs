@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
+ms.custom: mode-other
 ---
 
 # Quickstart: Render a model with Unity

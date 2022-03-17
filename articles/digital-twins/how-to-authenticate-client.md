@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Write app authentication code
 titleSuffix: Azure Digital Twins
-description: See how to write authentication code in a client application
+description: Learn how to write authentication code in a client application
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/1/2021
+ms.date: 02/22/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -25,7 +25,7 @@ This article describes how to obtain credentials using the `Azure.Identity` clie
 
 ## Prerequisites
 
-First, complete the setup steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). This setup will ensure that you have an Azure Digital Twins instance and that your user has access permissions. After that setup, you're ready to write client app code.
+First, complete the setup steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). This setup will ensure you have an Azure Digital Twins instance and your user has access permissions. After that setup, you're ready to write client app code.
 
 To continue, you'll need a client app project in which you write your code. If you don't already have a client app project set up, create a basic project in your language of choice to use with this tutorial.
 
@@ -50,7 +50,7 @@ The rest of this article shows how to use these methods with the [.NET (C#) SDK]
 
 To set up your .NET project to authenticate with `Azure.Identity`, complete the following steps:
 
-1. Include the SDK package `Azure.DigitalTwins.Core` and the `Azure.Identity` package in your project. Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command line tool. 
+1. Include the SDK package `Azure.DigitalTwins.Core` and the `Azure.Identity` package in your project. Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command-line tool. 
 
 1. Add the following using statements to your project code:
 
@@ -67,6 +67,8 @@ To use the default Azure credentials, you'll need the Azure Digital Twins instan
 Here's a code sample to add a `DefaultAzureCredential` to your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_full":::
+
+[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](../../includes/digital-twins-defaultazurecredential-note.md)]
 
 #### Set up local Azure credentials
 
@@ -88,7 +90,7 @@ In an Azure function, you can use the managed identity credentials like this:
 
 The [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method is intended for interactive applications and will bring up a web browser for authentication. You can use this method instead of `DefaultAzureCredential` in cases where you require interactive authentication.
 
-To use the interactive browser credentials, you'll need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see [Create an app registration](./how-to-create-app-registration-portal.md). Once the app registration is set up, you'll need...
+To use the interactive browser credentials, you'll need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see [Create an app registration with Azure Digital Twins access](./how-to-create-app-registration-portal.md). Once the app registration is set up, you'll need...
 * [the app registration's Application (client) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
 * [the app registration's Directory (tenant) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
 * [the Azure Digital Twins instance's URL](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)

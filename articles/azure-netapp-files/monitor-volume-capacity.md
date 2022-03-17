@@ -3,7 +3,7 @@ title: Monitor the capacity of an Azure NetApp Files volume | Microsoft Docs
 description: Describes ways to monitor the capacity utilization of an Azure NetApp Files volume.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 04/30/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Monitor the capacity of a volume  
 
@@ -55,7 +54,7 @@ Azure NetApp Files leverages the standard [Azure Monitor](../azure-monitor/overv
 
 ## Using Azure CLI  
 
-You can use the [`az netappfiles volume`](/cli/azure/netappfiles/volume?view=azure-cli-latest&preserve-view=true) commands of the [Azure command line (CLI) tools](azure-netapp-files-sdk-cli.md) to monitor a volume.
+You can use the [`az netappfiles volume`](/cli/azure/netappfiles/volume) commands of the [Azure command line (CLI) tools](azure-netapp-files-sdk-cli.md) to monitor a volume.
  
 ## Using REST API  
 
@@ -68,4 +67,4 @@ The REST API specification and example code for Azure NetApp Files are available
 * [Understand volume quota](volume-quota-introduction.md)
 * [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
 * [Resize the capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)
-* [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs)
+* [Capacity management FAQs](faq-capacity-management.md)

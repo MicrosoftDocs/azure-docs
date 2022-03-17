@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
+ms.devlang: csharp
 ---
 
 # Upload large amounts of random data in parallel to Azure storage

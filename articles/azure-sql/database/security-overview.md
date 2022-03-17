@@ -1,7 +1,7 @@
 ---
 title: Security Overview
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: Learn about security in Azure SQL Database and Azure SQL Managed Instance, including how it differs from SQL Server. 
+description: Learn about security in Azure SQL Database and Azure SQL Managed Instance, including how it differs from SQL Server.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
-ms.reviewer: vanto, emlisa
+ms.reviewer: kendralittle, vanto, emlisa, mathoma
 ms.date: 08/23/2021
 ---
 # An overview of Azure SQL Database and SQL Managed Instance security capabilities
@@ -44,7 +44,7 @@ IP firewall rules grant access to databases based on the originating IP address 
 
 ### Authentication
 
-Authentication is the process of proving the user is who they claim to be. Azure SQL Database and SQL Managed Instance support two types of authentication:
+Authentication is the process of proving the user is who they claim to be. Azure SQL Database and SQL Managed Instance support SQL authentication and Azure AD authentication. SQL Managed instance additionally supports Windows Authentication for Azure AD principals.
 
 - **SQL authentication**:
 
@@ -56,7 +56,13 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
      A server admin called the **Active Directory administrator** must be created to use Azure AD authentication with SQL Database. For more information, see [Connecting to SQL Database By Using Azure Active Directory Authentication](authentication-aad-overview.md). Azure AD authentication supports both managed and federated accounts. The federated accounts support Windows users and groups for a customer domain federated with Azure AD.
 
-    Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](authentication-mfa-ssms-overview.md) connections including [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](conditional-access-configure.md).
+    Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](authentication-mfa-ssms-overview.md) connections including [multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](conditional-access-configure.md).
+
+- **Windows Authentication for Azure AD Principals (Preview)**:
+
+    [Kerberos authentication for Azure AD Principals](../managed-instance/winauth-azuread-overview.md) (Preview) enables Windows Authentication for Azure SQL Managed Instance. Windows Authentication for managed instances empowers customers to move existing services to the cloud while maintaining a seamless user experience and provides the basis for infrastructure modernization.
+
+    To enable Windows Authentication for Azure Active Directory (Azure AD) principals, you will turn your Azure AD tenant into an independent Kerberos realm and create an incoming trust in the customer domain. Learn [how Windows Authentication for Azure SQL Managed Instance is implemented with Azure Active Directory and Kerberos](../managed-instance/winauth-implementation-aad-kerberos.md).
 
 > [!IMPORTANT]
 > Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Azure role-based access control in Azure portal](../../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **SQL Managed Instance**. Please see the following article on [connecting to a managed instance](../managed-instance/connect-application-instance.md) for more information about the networking configuration needed.
@@ -83,7 +89,7 @@ SQL Database and SQL Managed Instance auditing tracks database activities and he
 
 ### Advanced Threat Protection
 
-Advanced Threat Protection is analyzing your logs to detect unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities such as SQL injection, potential data infiltration, and brute force attacks or for anomalies in access patterns to catch privilege escalations and breached credentials use. Alerts are viewed from the  [Azure Security Center](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Advanced Threat Protection can be enabled per server for an additional fee. For more information, see [Get started with SQL Database Advanced Threat Protection](threat-detection-configure.md).
+Advanced Threat Protection is analyzing your logs to detect unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities such as SQL injection, potential data infiltration, and brute force attacks or for anomalies in access patterns to catch privilege escalations and breached credentials use. Alerts are viewed from the  [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Advanced Threat Protection can be enabled per server for an additional fee. For more information, see [Get started with SQL Database Advanced Threat Protection](threat-detection-configure.md).
 
 ![Diagram showing SQL Threat Detection monitoring access to the SQL database for a web app from an external attacker and malicious insider.](./media/security-overview/azure-database-td.jpg)
 
@@ -130,7 +136,7 @@ Dynamic data masking limits sensitive data exposure by masking it to non-privile
 
 ### Vulnerability assessment
 
-[Vulnerability assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help remediate potential database vulnerabilities with the goal to proactively improve overall database security. Vulnerability assessment (VA) is part of the Azure Defender for SQL offering, which is a unified package for advanced SQL security capabilities. Vulnerability assessment can be accessed and managed via the central Azure Defender for SQL portal.
+[Vulnerability assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help remediate potential database vulnerabilities with the goal to proactively improve overall database security. Vulnerability assessment (VA) is part of the Microsoft Defender for SQL offering, which is a unified package for advanced SQL security capabilities. Vulnerability assessment can be accessed and managed via the central Microsoft Defender for SQL portal.
 
 ### Data discovery and classification
 

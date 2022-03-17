@@ -8,9 +8,9 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang:
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
-ms.reviewer: mathoma
+author: emlisa
+ms.author: emlisa
+ms.reviewer: kendralittle, mathoma
 ms.date: 10/13/2020
 ---
 # Save costs for resources with reserved capacity - Azure SQL Database & SQL Managed Instance

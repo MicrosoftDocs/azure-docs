@@ -2,14 +2,16 @@
 title: Linter rule - no unused parameters
 description: Linter rule - no unused parameters
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/18/2021
 ---
 
 # Linter rule - no unused parameters
 
-This rule finds parameters that aren't reference anywhere in the Bicep file.
+This rule finds parameters that aren't referenced anywhere in the Bicep file.
 
-## Returned code
+## Linter rule code
+
+Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
 
 `no-unused-params`
 
@@ -19,12 +21,4 @@ To reduce confusion in your template, delete any parameters that are defined but
 
 ## Next steps
 
-* For more information about the linter, see [Use Bicep linter](./linter.md).
-* The current linter rules are:
-
-  * [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
-  * [no-unused-params](./linter-rule-no-unused-parameters.md)
-  * [no-unused-vars](./linter-rule-no-unused-variables.md)
-  * [prefer-interpolation](./linter-rule-prefer-interpolation.md)
-  * [secure-parameter-default](./linter-rule-secure-parameter-default.md)
-  * [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+For more information about the linter, see [Use Bicep linter](./linter.md).

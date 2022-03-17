@@ -1,7 +1,7 @@
 ---
 title: Configure usage settings in labs of Azure Lab Services
 description: Learn how to configure the number of students for a lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/01/2020
 ---
 

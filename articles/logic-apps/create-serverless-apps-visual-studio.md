@@ -1,6 +1,6 @@
 ---
 title: Create an example serverless app with Visual Studio
-description: Using an Azure quickstart template, create, deploy, and manage an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio
+description: Create, deploy, and manage an example serverless app with an Azure quickstart template, Azure Logic Apps and Azure Functions in Visual Studio.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla

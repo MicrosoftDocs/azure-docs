@@ -2,13 +2,12 @@
 metadata:
   title: Frequently asked questions about the Table API in Azure Cosmos DB
   description: Get answers to frequently asked questions about the Table API in Azure Cosmos DB
-  author: SnehaGunda
+  author: sakash279
+  ms.author: akshanka
   ms.service: cosmos-db
   ms.subservice: cosmosdb-table
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 08/12/2020
-  ms.author: sngun
-    
 title: Frequently asked questions about the Table API in Azure Cosmos DB
 summary: |
   [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]

@@ -4,12 +4,11 @@ description: Learn how to create a new container of resources and access package
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: 
+manager: karenhoran
 editor: HANKI
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 8/31/2021
@@ -62,7 +61,7 @@ There are two ways to create a catalog programmatically.
 
 ### Create a catalog with Microsoft Graph
 
-You can create a catalog by using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [create an accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta&preserve-view=true).
+You can create a catalog by using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [create an accessPackageCatalog](/graph/api/entitlementmanagement-post-accesspackagecatalogs?view=graph-rest-beta&preserve-view=true).
 
 ### Create a catalog with PowerShell
 
@@ -81,6 +80,8 @@ To include resources in an access package, the resources must exist in a catalog
 * Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups. Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either.
 * Applications can be Azure AD enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Azure AD. For more information on how to select appropriate resources for applications with multiple roles, see [Add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
 * Sites can be SharePoint Online sites or SharePoint Online site collections.
+> [!NOTE]
+> Search SharePoint Site by site name or an exact URL as the search box is case sensitive.
 
 **Prerequisite roles:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
@@ -166,7 +167,25 @@ To require attributes for access requests:
 
 ### Add a resource to a catalog programmatically
 
-You can also add a resource to a catalog by using Microsoft Graph. A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&preserve-view=true). An application with application permissions can't yet programmatically add a resource without a user context at the time of the request, however.
+You can also add a resource to a catalog by using Microsoft Graph. A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](/graph/api/entitlementmanagement-post-accesspackageresourcerequests?view=graph-rest-beta&preserve-view=true). An application with the application permission `EntitlementManagement.ReadWrite.All` and permissions to change resources, such as `Group.ReadWrite.All`, can also add resources to the catalog.
+
+### Add a resource to a catalog with PowerShell
+
+You can also add a resource to a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageResourceRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.  The following example shows how to add a group to a catalog as a resource.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Group.ReadWrite.All"
+Select-MgProfile -Name "beta"
+$g = Get-MgGroup -Filter "displayName eq 'Marketing'"
+Import-Module Microsoft.Graph.Identity.Governance
+$catalog = Get-MgEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
+$nr = New-Object Microsoft.Graph.PowerShell.Models.MicrosoftGraphAccessPackageResource
+$nr.OriginId = $g.Id
+$nr.OriginSystem = "AadGroup"
+$rr = New-MgEntitlementManagementAccessPackageResourceRequest -CatalogId $catalog.Id -AccessPackageResource $nr
+$ar = Get-MgEntitlementManagementAccessPackageCatalog -AccessPackageCatalogId $catalog.Id -ExpandProperty accessPackageResources
+$ar.AccessPackageResources
+```
 
 ## Remove resources from a catalog
 
@@ -244,7 +263,7 @@ To delete a catalog:
 
 ### Delete a catalog programmatically
 
-You can also delete a catalog by using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [delete an accessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta&preserve-view=true).
+You can also delete a catalog by using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [delete an accessPackageCatalog](/graph/api/accesspackagecatalog-delete).
 
 ## Next steps
 

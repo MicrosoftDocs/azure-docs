@@ -4,14 +4,14 @@ description: Create and manage virtual networks for Azure Database for PostgreSQ
 author: sunilagarwal 
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 11/30/2021
 ---
 
 # Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure CLI
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 

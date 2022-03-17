@@ -5,9 +5,9 @@ description: Learn how to use Azure Machine Learning reinforcement learning (pre
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: peterlu
-author: peterclu
-ms.date: 05/05/2020
+ms.author: cgronlun
+author: cjgronlund
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q2
 
@@ -20,7 +20,7 @@ ms.custom: devx-track-python, contperf-fy21q2
 > [!NOTE]
 > Azure Machine Learning reinforcement learning is currently a preview feature. Only Ray and RLlib frameworks are supported at this time.
 
-In this article, you learn how to train a reinforcement learning (RL) agent to play the video game Pong. You use the open-source Python library [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html) with Azure Machine Learning to manage the complexity of distributed RL.
+In this article, you learn how to train a reinforcement learning (RL) agent to play the video game Pong. You use the open-source Python library [Ray RLlib](https://docs.ray.io/en/master/rllib/) with Azure Machine Learning to manage the complexity of distributed RL.
 
 In this article you learn how to:
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ Run this code in either of these environments. We recommend you try Azure Machin
 
  - Azure Machine Learning compute instance
 
-     - Learn how to clone sample notebooks in [Tutorial: Setup environment and workspace](tutorial-train-models-with-aml.md).
+     - Learn how to clone sample notebooks in [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md).
          - Clone the **how-to-use-azureml** folder instead of **tutorials**
      - Run the virtual network setup notebook located at `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` to open network ports used for distributed reinforcement learning.
      - Run the sample notebook `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`

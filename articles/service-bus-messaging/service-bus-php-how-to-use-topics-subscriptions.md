@@ -1,7 +1,7 @@
 ---
 title: How to use Azure Service Bus topics with PHP
 description: In this article, you learn how to use Azure Service Bus topics and subscriptions from a PHP application. 
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: how-to
 ms.date: 07/27/2021
 ---
@@ -256,7 +256,7 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 100 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a cap on the total size of the messages held by a topic. This upper limit on topic size is 5 GB. For more information about quotas, see [Service Bus quotas][Service Bus quotas].
 
 ## Receive messages from a subscription

@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 07/17/2019
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: include file
 ---
 <!-- This contains intro text for the "Get an IoT hub connection string" section in the iot-hub-lang-lang-schedule-jobs.md files-->

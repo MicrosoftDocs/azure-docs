@@ -5,6 +5,7 @@ description: Learn how to dynamically update configuration data for Spring Boot 
 services: azure-app-configuration
 author: mrm9084
 ms.service: azure-app-configuration
+ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/09/2020
 ms.custom: devx-track-java
@@ -98,7 +99,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
     |---|---|
     | /application/config.message | Hello - Updated |
 
-1. Update the sentinel key you created earlier to a new value. This change will trigger the application to refresh all configuration keys once the the refresh interval has passed.
+1. Update the sentinel key you created earlier to a new value. This change will trigger the application to refresh all configuration keys once the refresh interval has passed.
 
     | Key | Value |
     |---|---|

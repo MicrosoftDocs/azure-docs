@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 01/17/2022
 ---
 
 # Create an Azure Cognitive Search service in the portal
 
-[Azure Cognitive Search](search-what-is-azure-search.md) is an Azure resource used for adding a full text search experience to custom apps. You can integrate it easily with other Azure services that provide data or additional processing, with apps on network servers, or with software running on other cloud platforms.
+[**Azure Cognitive Search**](search-what-is-azure-search.md) is an Azure resource used for adding a full text search experience to custom apps.
 
 You can create search service using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), the [Management REST API](/rest/api/searchmanagement/), or an [Azure Resource Manager service template](https://azure.microsoft.com/resources/templates/azure-search-create/).
 
@@ -91,7 +91,7 @@ As a general rule, if you're using multiple Azure services, choose a region that
 
   :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Regional availability" border="true":::
 
-+ Business continuity and disaster recovery (BCDR) requirements should be met by creating multiple search services in [regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
++ Business continuity and disaster recovery (BCDR) requirements should be met by creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
 
 Features that have limited availability based on regions are listed below. Supported regions are listed in the feature article: 
 
@@ -102,6 +102,8 @@ Features that have limited availability based on regions are listed below. Suppo
 Azure Cognitive Search is currently offered in [multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, Standard, or Storage Optimized. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). Also the tier you select may impact the availability of certain features. See [Feature availability by tier](search-sku-tier.md#feature-availability-by-tier) for guidance.
 
 Basic and Standard are the most common choices for production workloads, but initially many customers start with the Free service for evaluation purposes. Among the billable tiers, key differences are partition size and speed, and limits on the number of objects you can create.
+
+:::image type="content" source="media/search-create-service-portal/select-pricing-tier.png" alt-text="Screenshot of Select a pricing tier page" border="true":::
 
 Remember, a pricing tier cannot be changed once the service is created. If you need a higher or lower tier, you will have to re-create the service.
 
@@ -155,7 +157,7 @@ Most customers use just one service provisioned at a tier providing the [right b
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
-+ [Business continuity and disaster recovery (BCDR)](../best-practices-availability-paired-regions.md). Azure Cognitive Search does not provide instant failover in the event of an outage.
++ [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md). Azure Cognitive Search does not provide instant failover in the event of an outage.
 
 + [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
 
@@ -165,6 +167,32 @@ Although most customers use just one service, service redundancy might be necess
 > In Azure Cognitive Search, you cannot segregate indexing and querying operations; thus, you would never create multiple services for segregated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
 
 A second service is not required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+
+## Add more services to a subscription
+
+Cognitive Search restricts the [number of resources](search-limits-quotas-capacity.md#subscription-limits) you can initially create in a subscription. If you exhaust your maximum limit, file a new support request to add more search services.
+
+1. Sign in to the Azure portal and find your search service.
+
+1. On the left-navigation pane, scroll down and select **New Support Request.**
+
+1. In **Issue type**, choose **Service and subscription limits (quotas).**
+
+1. Select the subscription that needs more quota.
+
+1. Under **Quota type**, select **Search** and then select **Next**.
+
+1. In the **Problem details** section, select **Enter details**.
+
+1. Follow the prompts to select the location and tier for which you want to increase the limit.
+
+1. Add the number of new services you would like to add to your quota. The value must not be empty and must between 0 to 100. For example, the maximum number of S2 services is 8. If you want 12 services, you would request 4 of S2 services.
+
+1. When you're finished, select **Save and continue** to continue creating your support request.
+
+1. Provide the additional information required to file the request, and then select **Next**.
+
+1. On **Review + create**, review the details that you'll send to support, and then select **Create**. 
 
 ## Next steps
 

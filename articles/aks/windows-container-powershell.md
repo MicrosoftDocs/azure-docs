@@ -300,8 +300,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 ## Next steps
 
 In this article, you deployed a Kubernetes cluster and deployed an `ASP.NET` sample application in a
-Windows Server container to it. [Access the Kubernetes web dashboard][kubernetes-dashboard] for the
-cluster you created.
+Windows Server container to it.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the
 Kubernetes cluster tutorial.
@@ -329,5 +328,4 @@ Kubernetes cluster tutorial.
 [kubernetes-service]: concepts-network.md#services
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[kubernetes-dashboard]: kubernetes-dashboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md

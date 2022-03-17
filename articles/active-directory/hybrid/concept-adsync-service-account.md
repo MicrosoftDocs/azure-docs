@@ -4,14 +4,13 @@ description: This topic describes the ADSync service account and provides best p
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -28,7 +27,7 @@ The sync service can run under different accounts. It can run under a Virtual Se
 |Type of account|Installation option|Description| 
 |-----|------|-----|
 |Virtual Service Account|Express and custom, 2017 April and later| A Virtual Service Account is used for all express installations, except for installations on a Domain Controller. When using custom installation, it is the default option unless another option is used.| 
-|Managed Service Account|Custom, 2017 April and later|If you use a remote SQL Server, then we recommend using a group Managed Service Account. |
+|Managed Service Account|Custom, 2017 April and later|If you use a remote SQL Server, then we recommend using a group managed service account. |
 |Managed Service Account|Express and custom, 2021 March and later|A standalone Managed Service Account prefixed with ADSyncMSA_ is created during installation for express installations when installed on a Domain Controller. When using custom installation, it is the default option unless another option is used.|
 |User Account|Express and custom, 2017 April to 2021 March|A User Account prefixed with AAD_ is created during installation for express installations when installed on a Domain Controller. When using custom installation, it is the default option unless another option is used.|
 |User Account|Express and custom, 2017 March and earlier|A User Account prefixed with AAD_ is created during installation for express installations. When using custom installation, another account can be specified.| 
@@ -62,13 +61,13 @@ A Virtual Service Account is a special type of managed local account that does n
 
  ![Virtual service account](media/concept-adsync-service-account/account-1.png)
 
-The Virtual Service Account is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend using a group Managed Service Account instead. 
+The Virtual Service Account is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend using a group managed service account instead. 
 
 The Virtual Service Account cannot be used on a Domain Controller due to [Windows Data Protection API (DPAPI)](/previous-versions/ms995355(v=msdn.10)) issues. 
 
 ## Managed Service Account 
 
-If you use a remote SQL Server, then we recommend to using a group Managed Service Account. For more information on how to prepare your Active Directory for group Managed Service account, see [Group Managed Service Accounts Overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
+If you use a remote SQL Server, then we recommend to using a group managed service account. For more information on how to prepare your Active Directory for group Managed Service account, see [Group Managed Service Accounts Overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
 
 To use this option, on the [Install required components](how-to-connect-install-custom.md#install-required-components) page, select **Use an existing service account**, and select **Managed Service Account**. 
 
@@ -87,8 +86,8 @@ This account is intended to be used with scenarios where the sync engine and SQL
 ## User Account 
 
 A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed AAD_ and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the account is created in the domain. The AAD_ service account must be located in the domain if: 
-- you use a remote server running SQL Server 
-- you use a proxy that requires authentication 
+- You use a remote server running SQL Server 
+- You use a proxy that requires authentication 
 
  ![user account](media/concept-adsync-service-account/account-3.png)
 

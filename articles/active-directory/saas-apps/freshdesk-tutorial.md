@@ -51,10 +51,10 @@ Configure and test Azure AD SSO with FreshDesk using a test user called **B.Simo
 To configure and test Azure AD SSO with FreshDesk, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Configure FreshDesk SSO](#configure-freshdesk-sso)** - to configure the Single Sign-On settings on application side.
-	1. **[Create FreshDesk test user](#create-freshdesk-test-user)** - to have a counterpart of Britta Simon in FreshDesk that is linked to the Azure AD representation of user.
+    1. **[Create FreshDesk test user](#create-freshdesk-test-user)** - to have a counterpart of Britta Simon in FreshDesk that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -67,29 +67,29 @@ To configure and test Azure AD SSO with FreshDesk, perform the following steps:
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign-on URL** text box, type a URL using the following pattern:
+    1. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
      
-	c. In the **Reply URL** text box, type a URL using the following pattern:
+    1. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<tenant-name>.freshdesk.com/login/saml`
-	
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. FreshDesk application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **Unique User Identifier** is mapped with **user.userprincipalname** but FreshDesk expects this claim to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on Edit icon and change the attribute mapping.
 
-	![image](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set-up FreshDesk** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 
 ### Create an Azure AD test user 
@@ -122,23 +122,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Select the **Security icon** and in the **Security** section, perform the following steps:
 
-	![Single Sign On](./media/freshdesk-tutorial/configure-1.png "Single Sign On")
+    ![Single Sign On](./media/freshdesk-tutorial/configure-1.png "Single Sign On")
   
-	a. For **Single Sign On**, select **On**.
+    1. For **Single Sign On**, select **On**.
 
-	b. In the **Login Method**, select **SAML SSO**.
+    1. In the **Login Method**, select **SAML SSO**.
 
-    c. In the **Entity ID provided by the IdP** textbox, paste **Entity ID** value, which you have copied from the Azure portal.
+    1. In the **Entity ID provided by the IdP** textbox, paste **Entity ID** value, which you have copied from the Azure portal.
 
-	d. In the **SAML SSO URL** textbox, paste **Login URL** value, which you have copied from the Azure portal.
+    1. In the **SAML SSO URL** textbox, paste **Login URL** value, which you have copied from the Azure portal.
 
-	e. In the **Signing Options**, select **Only Signed Assertions** from the dropdown.
+    1. In the **Signing Options**, select **Only Signed Assertions** from the dropdown.
 
-    f. In the **Logout URL** textbox, paste **Logout URL** value, which you have copied from the Azure portal.
+    1. In the **Logout URL** textbox, paste **Logout URL** value, which you have copied from the Azure portal.
 
-    g. In the **Security Certificate** textbox, paste **Certificate (Base64)** value, which you have obtained earlier.
+    1. In the **Security Certificate** textbox, paste **Certificate (Base64)** value, which you have obtained earlier.
   
-	h. Click **Save**.
+    1. Click **Save**.
 
 ## Create FreshDesk test user
 
@@ -151,7 +151,7 @@ In the case of FreshDesk, provisioning is a manual task.
 
 1. In the menu on the left, click **Admin** and in the **General Settings** tab, click **Agents**.
   
-	![Agents](./media/freshdesk-tutorial/create-user-1.png "Agents")
+    ![Agents](./media/freshdesk-tutorial/create-user-1.png "Agents")
 
 1. Click **New Agent**.
 
@@ -159,13 +159,13 @@ In the case of FreshDesk, provisioning is a manual task.
 
 1. On the Agent Information dialog, enter the required fields and click on **Create agent**.
 
-	![Agent Information](./media/freshdesk-tutorial/create-user-3.png "Agent Information")
+    ![Agent Information](./media/freshdesk-tutorial/create-user-3.png "Agent Information")
 
-	>[!NOTE]
-	>The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
-	>
-	>[!NOTE]
-	>You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision Azure AD user accounts to FreshDesk.
+    >[!NOTE]
+    >The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
+    >
+    >[!NOTE]
+    >You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision Azure AD user accounts to FreshDesk.
 
 ### Test SSO
 
@@ -179,4 +179,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure FreshDesk you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure FreshDesk you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

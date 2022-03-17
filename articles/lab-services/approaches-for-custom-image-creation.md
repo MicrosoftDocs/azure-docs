@@ -1,8 +1,8 @@
 ---
-title: Azure Lab Services - Recommended approaches for creating custom images for labs
+title: Recommended approaches for creating custom images for labs
 description: Describes approaches for creating custom images for labs.
 ms.date: 07/27/2021
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Recommended approaches for creating custom images

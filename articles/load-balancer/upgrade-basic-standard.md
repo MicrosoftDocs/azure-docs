@@ -26,7 +26,7 @@ An Azure PowerShell script is available that does the following:
 * Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly create Standard Load Balancer.
 * Creates a default outbound rule which enables outbound connectivity.
 
-### Caveats\Limitations
+### Caveats/Limitations
 
 * Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, refer to [this page](./upgrade-basicinternal-standard.md) for instructions.
 * The allocation method of the Public IP Address has to be changed to "static" before running the script. 
@@ -34,7 +34,7 @@ An Azure PowerShell script is available that does the following:
 
 ### Change Allocation method of the Public IP Address to Static
 
-* **Here are our recommended steps:
+* **Here are our recommended steps:**
 
     1. To do the tasks in this quickstart, sign in to the [Azure portal](https://portal.azure.com).
  
@@ -53,7 +53,7 @@ An Azure PowerShell script is available that does the following:
 
 ## Download the script
 
-Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/5.0).
+Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/6.0).
 ## Use the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
@@ -110,7 +110,7 @@ Yes. See [Caveats/Limitations](#caveatslimitations).
 
 ### How long does the upgrade take?
 
-It usually take about 5-10 minutes for the script to finish and it could take longer depending on the complexity of your Load Balancer configuration. Therefore, keep the downtime in mind and plan for failover if necessary.
+It usually take about a few minutes for the script to finish and it could take longer depending on the complexity of your Load Balancer configuration. Therefore, keep the downtime in mind and plan for failover if necessary.
 
 ### Does the Azure PowerShell script also switch over the traffic from my Basic Load Balancer to the newly created Standard Load Balancer?
 

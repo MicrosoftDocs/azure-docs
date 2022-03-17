@@ -4,7 +4,7 @@ description: Understand the different ways to view costs for Lab Services.
 author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Cost management for Azure Lab Services

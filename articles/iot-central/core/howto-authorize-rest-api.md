@@ -3,7 +3,7 @@ title: Authorize REST API in Azure IoT Central
 description: How to authenticate and authorize IoT Central REST API calls
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/25/2021
+ms.date: 12/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -63,8 +63,8 @@ To get an API token, you can use the IoT Central UI or a REST API call. Administ
 
 In the IoT Central UI:
 
-1. Navigate to **Administration > API tokens**.
-1. Select **+ Create token**.
+1. Navigate to **Permissions > API tokens**.
+1. Click **+ New** or **Create an API token**.
 1. Enter a name for the token and select a role and [organization](howto-create-organizations.md).
 1. Select **Generate**.
 1. IoT Central displays the token that looks like the following example:
@@ -109,7 +109,7 @@ Using the REST API:
 1. Use the REST API to create an API token for a role. For example, to create an API token called `operator-token` for the operator role:
 
     ```http
-    PUT https://{your app subdomain}.azureiotcentral.com/api/roles/operator-token?api-version=1.0
+    PUT https://{your app subdomain}.azureiotcentral.com/api/apiToken/operator-token?api-version=1.0
     ```
 
     Request body:
@@ -160,4 +160,4 @@ To use an API token when you make a REST API call, your authorization header loo
 
 ## Next steps
 
-Now that you've learned how to authorize REST API calls, a suggested next step is to [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).
+Now that you've learned how to authorize REST API calls, a suggested next step is to [How to use the IoT Central REST API to query devices](howto-query-with-rest-api.md).

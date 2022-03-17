@@ -8,12 +8,9 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ---
 
-# Use the Azure portal to set up alerts on metrics for Azure Database for MySQL - Flexible Server 
+# Set up alerts on metrics for Azure Database for MySQL - Flexible Server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article shows you how to set up Azure Database for MySQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 
@@ -49,14 +46,14 @@ You can configure and get information about alert rules using:
 12. You can also create a new action group to receive notifications on the alert. Refer to [create and manage action group](../../azure-monitor/alerts/action-groups.md) for more information.
 13. To create a new action group, choose **+ Create action group**. Fill out the "Create action group" form with a **Subscription**, **Resource group**, **Action group name** and **Display Name**.
 14. Configure **Notifications** for action group.
-    
+
     In **Notification type**, choose "Email Azure Resource Manager Role" to select subscription Owners, Contributors, and Readers to receive notifications. Choose the **Azure Resource Manager Role** for sending the email.
     You can also choose **Email/SMS message/Push/Voice** to send notifications to specific recipients.
 
     Provide **Name** to the notification type and select **Review + Create** when completed.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Action group":::-->
-    
+
 15. Fill in **Alert rule details** like **Alert rule name**, **Description**, **Save alert rule to resource group** and **Severity**.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group":::-->

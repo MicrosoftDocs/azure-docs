@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/08/2020
 ms.author: RamaKoni
-ms.reviewer: sqlblt, daleche
+ms.reviewer: sqlblt, daleche, mathoma
 ms.custom: "seo-lt-2019"
 ---
 

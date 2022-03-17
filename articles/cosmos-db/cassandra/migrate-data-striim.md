@@ -1,12 +1,12 @@
 ---
 title: Migrate data to Azure Cosmos DB Cassandra API account using Striim 
 description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB Cassandra API account. 
-author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 07/22/2019
-ms.author: sngun
+ms.date: 12/09/2021
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ---
 
@@ -56,9 +56,7 @@ This article shows how to use Striim to migrate data from an **Oracle database**
 
 ## Configure the source database
 
-In this section, you configure the Oracle database as the source for data movement.  You’ll need the [Oracle JDBC driver](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html) to connect to Oracle. To read changes from your source Oracle database, you can either use the [LogMiner](https://www.oracle.com/technetwork/database/features/availability/logmineroverview-088844.html) or the [XStream APIs](https://docs.oracle.com/cd/E11882_01/server.112/e16545/xstrm_intro.htm#XSTRM72647). The Oracle JDBC driver must be present in Striim's Java classpath to read, write, or persist data from Oracle database.
-
-Download the [ojdbc8.jar](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html) driver onto your local machine. You will install it in the Striim cluster later.
+In this section, you configure the Oracle database as the source for data movement. Striim server comes with the Oracle JDBC driver that's used to connect to Oracle. To read changes from your source Oracle database, you can either use the [LogMiner](https://www.oracle.com/technetwork/database/features/availability/logmineroverview-088844.html) or the [XStream APIs](https://docs.oracle.com/cd/E11882_01/server.112/e16545/xstrm_intro.htm#XSTRM72647). The Oracle JDBC driver is present in Striim's Java classpath to read, write, or persist data from Oracle database.
 
 ## Configure target database
 
@@ -72,8 +70,6 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
 ## Configure Oracle to Azure Cosmos DB data flow
 
-1. Now, let’s get back to Striim. Before interacting with Striim, install the Oracle JDBC driver that you downloaded earlier.
-
 1. Navigate to the Striim instance that you deployed in the Azure portal. Select the **Connect** button in the upper menu bar and from the **SSH** tab, copy the URL in **Login using VM local account** field.
 
    :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png" alt-text="Get the SSH URL":::
@@ -81,27 +77,6 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 1. Open a new terminal window and run the SSH command you copied from the Azure portal. This article uses terminal in a MacOS, you can follow the similar instructions using PuTTY or a different SSH client on a Windows machine. When prompted, type **yes** to continue and enter the **password** you have set for the virtual machine in the previous step.
 
    :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/striim-vm-connect.png" alt-text="Connect to Striim VM":::
-
-1. Now, open a new terminal tab to copy the **ojdbc8.jar** file you downloaded previously. Use the following SCP command to copy the jar file from your local machine to the tmp folder of the Striim instance running in Azure:
-
-   ```bash
-   cd <Directory_path_where_the_Jar_file_exists> 
-   scp ojdbc8.jar striimdemo@striimdemo.westus.cloudapp.azure.com:/tmp
-   ```
-
-   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/copy-jar-file.png" alt-text="Copy the Jar file from location machine to Striim":::
-
-1. Next, navigate back to the window where you did SSH to the Striim instance and Login as sudo. Move the **ojdbc8.jar** file from the **/tmp** directory into the **lib** directory of your Striim instance with the following commands:
-
-   ```bash
-   sudo su
-   cd /tmp
-   mv ojdbc8.jar /opt/striim/lib
-   chmod +x ojdbc8.jar
-   ```
-
-   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/move-jar-file.png" alt-text="Move the Jar file to lib folder":::
-
 
 1. From the same terminal window, restart the Striim server by executing the following commands:
 

@@ -21,59 +21,17 @@
       displayName: permissions, scp, scp claims
       href: quickstart-configure-app-access-web-apis.md
   - name: Single-page app (SPA)
-    items:
-    - name: Angular
-      href: quickstart-v2-javascript-auth-code-angular.md
-    - name: JavaScript
-      href: quickstart-v2-javascript-auth-code.md
-    - name: React
-      href: quickstart-v2-javascript-auth-code-react.md
+    href: single-page-app-quickstart.md
   - name: Web app
-    items:
-    - name: ASP.NET
-      href: quickstart-v2-aspnet-webapp.md
-    - name: ASP.NET Core (sign in users)
-      href: quickstart-v2-aspnet-core-webapp.md
-    - name: ASP.NET Core (call Microsoft Graph)
-      href: quickstart-v2-aspnet-core-webapp-calls-graph.md
-    - name: Node.js - MSAL
-      href: quickstart-v2-nodejs-webapp-msal.md
-    - name: Node.js - Passport.js
-      displayName: OIDC, express
-      href: quickstart-v2-nodejs-webapp.md
-    - name: Java
-      href: quickstart-v2-java-webapp.md
-    - name: Python
-      href: quickstart-v2-python-webapp.md
+    href: web-app-quickstart.md
   - name: Web API
-    items:
-    - name: ASP.NET
-      href: quickstart-v2-dotnet-native-aspnet.md
-    - name: ASP.NET Core
-      href: quickstart-v2-aspnet-core-web-api.md
-  - name: Mobile and desktop
-    items:
-    - name: Android
-      href: quickstart-v2-android.md
-    - name: iOS and macOS
-      href: quickstart-v2-ios.md
-    - name: Universal Windows Platform
-      displayName: UWP
-      href: quickstart-v2-uwp.md
-    - name: Windows Desktop .NET
-      href: quickstart-v2-windows-desktop.md
-    - name: Node.js Electron
-      href: quickstart-v2-nodejs-desktop.md
+    href: web-api-quickstart.md
+  - name: Mobile app
+    href: mobile-app-quickstart.md
+  - name: Desktop app
+    href: desktop-app-quickstart.md
   - name: Daemon or back-end service
-    items:
-    - name: .NET Core console (daemon)
-      href: quickstart-v2-netcore-daemon.md
-    - name: Python console daemon
-      href: quickstart-v2-python-daemon.md
-    - name: Node.js console daemon
-      href: quickstart-v2-nodejs-console.md
-    - name: Java console daemon
-      href: quickstart-v2-java-daemon.md
+    href: console-app-quickstart.md
 - name: Tutorials
   items:
   - name: Single-page app (SPA)
@@ -156,15 +114,23 @@
     href: authentication-flows-app-scenarios.md
   - name: Applications and service principals
     href: app-objects-and-service-principals.md
+  - name: Workload identities
+    href: workload-identities-overview.md
+  - name: Workload identity federation
+    href: workload-identity-federation.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
   - name: App security
     displayName: least privilege, secure app configuration, conditional access
     items:
+    - name: Zero trust best practices for app developers
+      href: zero-trust-for-developers.md
     - name: Best practices for least privileged access for apps
       href: secure-least-privileged-access.md
-    - name: Security best practices for Azure AD application registration
+    - name: Security best practices for Azure AD app registration
       href: security-best-practices-for-app-registration.md
+    - name: Secure access control using groups in Azure AD
+      href: secure-group-access-control.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
   - name: Use the Microsoft Graph API
@@ -328,6 +294,8 @@
       href: test-setup-environment.md
     - name: Throttling and service limits
       href: test-throttle-service-limits.md
+    - name: Run automated integration tests as a user
+      href: test-automate-integration-testing.md
   - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:
@@ -421,6 +389,8 @@
         href: msal-compare-msal-js-and-adal-js.md
       - name: Migrate to MSAL Node
         href: msal-node-migration.md
+      - name: MSAL Node extension
+        href: msal-node-extensions.md
       - name: Single sign-on with MSAL.js
         href: msal-js-sso.md
       - name: Considerations - IE
@@ -544,7 +514,13 @@
     - name: Create a service principal using Azure PowerShell
       href: howto-authenticate-service-principal-powershell.md
     - name: Create a service principal using the Azure portal
-      href: howto-create-service-principal-portal.md
+      href: howto-create-service-principal-portal.md   
+    - name: Configure an app to trust a GitHub repo
+      href: workload-identity-federation-create-trust-github.md 
+    - name: Access Azure AD protected resources from Google Cloud
+      href: workload-identity-federation-create-trust-gcp.md 
+    - name: Configure an app to trust an external identity provider
+      href: workload-identity-federation-create-trust.md
   - name: Accept sign-ins from multiple tenants
     items:
     - name: Modify accounts supported by an app
@@ -561,7 +537,7 @@
     - name: Add app roles in your application
       href: howto-add-app-roles-in-azure-ad-apps.md
     - name: Implement RBAC in your application
-      href: howto-implement-rbac-for-apps.md
+      href: howto-implement-rbac-for-apps.md      
   - name: Build for resilience
     items:
     - name: Development Overview
@@ -588,23 +564,9 @@
     - name: Publish to App Source
       href: v2-howto-get-appsource-certified.md
     - name: Publish to Azure AD App Gallery
-      href: v2-howto-app-gallery-listing.md
+      href: ../manage-apps/v2-howto-app-gallery-listing.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Publish to the Office 365 Seller Dashboard
-      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
-  - name: Work with Visual Studio
-    items:
-    - name: Use the Active Directory connected service
-      href: vs-active-directory-add-connected-service.md
-    - name: Get started with .NET MVC projects
-      href: vs-active-directory-dotnet-getting-started.md
-    - name: What happened to my .NET MVC project?
-      href: vs-active-directory-dotnet-what-happened.md
-    - name: Get started with WebAPI projects
-      href: vs-active-directory-webapi-getting-started.md
-    - name: What happened to my WebAPI project?
-      href: vs-active-directory-webapi-what-happened.md
-    - name: Diagnose errors during authentication
-      href: vs-active-directory-error.md
+      href: /office/dev/store/add-in-submission-guide
   - name: Remove an app registration
     href: ./howto-remove-app.md
   - name: Restore or remove a deleted app registration
@@ -681,7 +643,7 @@
   - name: Azure CLI
     href: /cli/azure/identity
   - name: Azure PowerShell
-    href: /powershell/module/az.managedserviceidentity
+    href: /powershell/module/az.managedserviceidentity/
   - name: Application types and OAuth 2.0
     displayName: App types, OAuth
     href: v2-app-types.md
@@ -732,14 +694,14 @@
   items:
   - name: Videos
     href: identity-videos.md
-  - name: Microsoft identity platform developer blog
-    href: https://developer.microsoft.com/en-us/identity/blogs/
-  - name: Azure AD blog
-    href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+  - name: Microsoft identity platform - Microsoft 365 Developer Blog
+    href: https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/
+  - name: Azure Active Directory Identity Blog
+    href: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Try Sign in with Microsoft
-    href: https://azure.microsoft.com/develop/identity/signin/
+    href: https://developer.microsoft.com/identity/add-sign-in-with-microsoft
   - name: Managed identities for Azure resources
     href: ../managed-identities-azure-resources/overview.md
   - name: Getting help

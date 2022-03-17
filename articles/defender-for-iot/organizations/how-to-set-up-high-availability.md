@@ -1,7 +1,7 @@
 ---
 title: Set up high availability
 description: Increase the resiliency of your Defender for IoT deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
-ms.date: 07/11/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 # About high availability
@@ -14,7 +14,7 @@ This deployment is implemented with an on-premises management console pair that 
 
 When a primary and secondary on-premises management console is paired:
 
-- An on-premises management console SLL certificate is applied to create a secure connection between the primary and secondary appliances. The SLL may be the self-signed certificate installed by default or a certificate installed by the customer.
+- An on-premises management console SSL certificate is applied to create a secure connection between the primary and secondary appliances. The SLL may be the self-signed certificate installed by default or a certificate installed by the customer.
 
     When validation is `ON`, the appliance should be able to establish connection to the CRL server defined by the certificate.
 
@@ -147,6 +147,6 @@ Perform the high availability update in the following order. Make sure each step
 
 1. Update the sensors.
 
-## See also
+## Next steps
 
-[Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
+For more information, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).

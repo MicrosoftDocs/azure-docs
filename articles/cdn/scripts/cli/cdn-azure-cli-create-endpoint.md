@@ -1,8 +1,8 @@
 ---
 title: Create an Azure Content Delivery Network (CDN) profile and endpoint using the Azure CLI
 description: Azure CLI sample scripts to create an Azure CDN profile, endpoint, origin group, origin, and custom domain.
-author: asudbring
-ms.author: allensu
+author: duongau
+ms.author: duau
 manager: danielgi
 ms.date: 03/09/2021
 ms.topic: sample

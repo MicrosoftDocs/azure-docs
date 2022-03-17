@@ -2,14 +2,13 @@
 metadata:
   title: Frequently asked questions for to Azure Cloud Services (extended support)
   description: Frequently asked questions for to Azure Cloud Services (extended support)
-  ms.topic: conceptual
+  ms.topic: faq
   ms.service: cloud-services-extended-support
   author: gachandw
   ms.author: gachandw
   ms.reviewer: mimckitt
   ms.date: 10/13/2020
   ms.custom: references_regions
-    
 title: Frequently asked questions for Azure Cloud Services (extended support)
 summary: This article covers frequently asked questions related to Azure Cloud Services (extended support).
 
@@ -58,6 +57,11 @@ sections:
         answer: |
           There are no changes to the design, architecture or components of web and worker roles. 
 
+      - question: |
+          Role Instance Scaling keeps failing, how to mitigate this ?
+        answer: |
+          When multiple Scale calls happen on the same Cloud Service (for different roles) at the same approximate time, due to a race condition, the Microsoft Platform components go out of sync leading to failures. Microsoft is actively working on resolving this issue. The workaround suggested for the interim is not to auto scale all roles simultaneously.
+          
       - question: |
           How are role instances changing?
         answer: |
@@ -200,6 +204,13 @@ sections:
           When specifying secrets/certificates to be installed to a Cloud Service, must the KeyVault resource be in the same region as the Cloud Service resource?
         answer: |
           Yes. The reason that we enforce region boundaries is to prevent users from creating architectures that have cross region dependencies. Regional isolation is a key design principle of cloud based applications. However, you can use the Key Vault extension to get cross subscription and cross region support for your certificates. Please refer to the documentation [here](./enable-key-vault-virtual-machine.md)
+          
+  - name: Known Issues
+    questions:
+      - question: |
+          Role Instance Scaling keeps failing, how to mitigate this ?
+        answer: |
+          When multiple Scale calls happen on the same Cloud Service (for different roles) at the same approximate time, due to a race condition, the Microsoft Platform components go out of sync leading to failures. Microsoft is actively working on resolving this issue. The workaround suggested for the interim is not to auto scale all roles simultaneously.
           
 additionalContent: |
 

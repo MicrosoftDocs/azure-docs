@@ -7,10 +7,10 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: overview
-author: MladjoA
-ms.author: mlandzic
-ms.reviewer: mathoma
-ms.date: 12/05/2019
+author: scoriani
+ms.author: scoriani
+ms.reviewer: kendralittle, mathoma
+ms.date: 12/15/2021
 ---
 
 # Azure SQL Database elastic query overview (preview)
@@ -24,9 +24,9 @@ The elastic query feature (in preview) enables you to run a Transact-SQL query t
 
 Query across databases in Azure SQL Database completely in T-SQL. This allows for read-only querying of remote databases and provides an option for current SQL Server customers to migrate applications using three- and four-part names or linked server to SQL Database.
 
-### Available on standard tier
+### Available on all service tiers
 
-Elastic query is supported on both the Standard and Premium service tiers. See the section on Preview Limitations below on performance limitations for lower service tiers.
+Elastic query is supported in all service tiers of Azure SQL Database. See the section on Preview Limitations below on performance limitations for lower service tiers.
 
 ### Push parameters to remote databases
 
@@ -126,7 +126,7 @@ Once you have defined your external data sources and your external tables, you c
 You can use regular SQL Server connection strings to connect your applications and BI or data integration tools to databases that have external tables. Make sure that SQL Server is supported as a data source for your tool. Once connected, refer to the elastic query database and the external tables in that database just like you would do with any other SQL Server database that you connect to with your tool.
 
 > [!IMPORTANT]
-> Authentication using Azure Active Directory with elastic queries is not currently supported.
+> Elastic queries are only supported when connecting with SQL Server Authentication.
 
 ## Cost
 
@@ -134,13 +134,14 @@ Elastic query is included in the cost of Azure SQL Database. Note that topologie
 
 ## Preview limitations
 
-* Running your first elastic query can take up to a few minutes on the Standard service tier. This time is necessary to load the elastic query functionality; loading performance improves with higher service tiers and compute sizes.
+* Running your first elastic query can take up to a few minutes on smaller resources and Standard and General Purpose service tier. This time is necessary to load the elastic query functionality; loading performance improves with higher service tiers and compute sizes.
 * Scripting of external data sources or external tables from SSMS or SSDT is not yet supported.
 * Import/Export for SQL Database does not yet support external data sources and external tables. If you need to use Import/Export, drop these objects before exporting and then re-create them after importing.
-* Elastic query currently only supports read-only access to external tables. You can, however, use full T-SQL functionality on the database where the external table is defined. This can be useful to, e.g., persist temporary results using, for example, SELECT <column_list> INTO <local_table>, or to define stored procedures on the elastic query database that refer to external tables.
+* Elastic query currently only supports read-only access to external tables. You can, however, use full Transact-SQL functionality on the database where the external table is defined. This can be useful to, e.g., persist temporary results using, for example, SELECT <column_list> INTO <local_table>, or to define stored procedures on the elastic query database that refer to external tables.
 * Except for nvarchar(max), LOB types (including spatial types) are not supported in external table definitions. As a workaround, you can create a view on the remote database that casts the LOB type into nvarchar(max), define your external table over the view instead of the base table and then cast it back into the original LOB type in your queries.
 * Columns of nvarchar(max) data type in result set disable advanced batching technics used in Elastic Query implementation and may affect performance of query for an order of magnitude, or even two orders of magnitude in non-canonical use cases where large amount of non-aggregated data is being transferred as a result of query.
 * Column statistics over external tables are currently not supported. Table statistics are supported, but need to be created manually.
+* Cursors are not supported for external tables in Azure SQL Database.
 * Elastic query works with Azure SQL Database only. You cannot use it for querying a SQL Server instance.
 
 ## Share your Feedback

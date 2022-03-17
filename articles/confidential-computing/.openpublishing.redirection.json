@@ -1,0 +1,14 @@
+{
+    "redirections": [
+        {
+            "source_path": "virtual-machine-solutions.md",
+            "redirect_url": "virtual-machine-solutions-sgx.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "faq.md",
+            "redirect_url": "faq-application-enclaves.md",
+            "redirect_document_id": true
+        }
+    ]
+}

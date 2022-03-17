@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: OCR and image analysis"
 titleSuffix: Azure Cognitive Search
-description: Use the Import Data wizard and AI cognitive skills to apply OCR and image analysis to identify and extract searchable text from image files. 
-
+description: Use the Import Data wizard and AI cognitive skills to apply OCR and image analysis to identify and extract searchable text from image files.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/07/2021
+ms.custom: mode-ui
 ---
 
 # Quickstart: Apply OCR and image analysis using the Import data wizard
@@ -27,9 +27,9 @@ Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-+ Azure Storage account with Blob Storage. [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
++ Azure Storage account with Blob Storage. [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
   + Choose the same subscription if you want the wizard to find your storage account and set up the connection.
   + Choose the same region as Azure Cognitive Search to avoid bandwidth charges.
@@ -51,7 +51,9 @@ In the following steps, set up a blob container in Azure Storage to store hetero
    1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) named "signs". Use the default public access level.
    1. In the "signs" container, select **Upload** to upload the files from your local **unsplash-images\jpg-signs** folder.
 
-You should have 10 files containing photographs of signs. There is a second subfolder that includes landmark buildings. If your search service is Basic or above, include the second set of files if you want to evaluate image analysis on files that do not include pictures of text.
+You should have 10 files containing photographs of signs.
+
+There is a second subfolder that includes landmark buildings. If you want to [attach a Cognitive Services key](cognitive-search-attach-cognitive-services.md), you can include these files as well to see how image analysis works over image files that do not include embedded text. The key is necessary for jobs that exceed the free allotment.
 
 You are now ready to move on the Import data wizard.
 
@@ -59,7 +61,7 @@ You are now ready to move on the Import data wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to set up cognitive enrichment in four steps.
+1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to set up cognitive enrichment in four steps.
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 

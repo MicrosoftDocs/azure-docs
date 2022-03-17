@@ -1,149 +1,102 @@
 ---
-title: Deploy Open Service Mesh
-description: Deploy Open Service Mesh on Azure Kubernetes Service (AKS) using Azure CLI
+title: Install the Open Service Mesh add-on by using the Azure CLI
+description: Use Azure CLI commands to install the Open Service Mesh (OSM) add-on on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 8/26/2021
-ms.custom: mvc, devx-track-azurecli
+ms.date: 11/10/2021
 ms.author: pgibson
 ---
 
-# Deploy the Open Service Mesh AKS add-on using Azure CLI
+# Install the Open Service Mesh add-on by using the Azure CLI
 
-This article will discuss how to deploy the OSM add-on to AKS.
+This article shows you how to install the Open Service Mesh (OSM) add-on on an Azure Kubernetes Service (AKS) cluster and verify that it's installed and running.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+> [!IMPORTANT]
+> The OSM add-on installs version *1.0.0* of OSM on your cluster.
 
 ## Prerequisites
 
-- The Azure CLI, version 2.20.0 or later
-- The `aks-preview` extension version 0.5.5 or later
-- OSM version v0.9.1 or later
+* An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
+* [Azure CLI installed](/cli/azure/install-azure-cli).
 
-## Install the aks-preview extension
+## Install the OSM add-on on your cluster
 
-You will need the _aks-preview_ Azure CLI extension version 0.5.24 or greater. Install the _aks-preview_ Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+To install the OSM add-on, use `--enable-addons open-service-mesh` when creating or updating a cluster.
 
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-## Register the `AKS-OpenServiceMesh` preview feature
-
-To create an AKS cluster that can use the Open Service Mesh add-on, you must enable the `AKS-OpenServiceMesh` feature flag on your subscription.
-
-Register the `AKS-OpenServiceMesh` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+The following example creates a *myResourceGroup* resource group. Then it creates a *myAKSCluster* cluster with three nodes and the OSM add-on.
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-OpenServiceMesh"
+az group create --name myResourceGroup --location eastus
+
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --enable-addons open-service-mesh
 ```
 
-It takes a few minutes for the status to show _Registered_. Verify the registration status by using the [az feature list][az-feature-list] command:
+For existing clusters, use `az aks enable-addons`. The following code shows an example.
+
+> [!IMPORTANT]
+> You can't enable the OSM add-on on an existing cluster if an OSM mesh is already on your cluster. Uninstall any existing OSM meshes on your cluster before enabling the OSM add-on.
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-OpenServiceMesh')].{Name:name,State:properties.state}"
+az aks enable-addons \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --addons open-service-mesh
 ```
 
-When ready, refresh the registration of the _Microsoft.ContainerService_ resource provider by using the [az provider register][az-provider-register] command:
+## Get the credentials for your cluster
+
+Get the credentials for your AKS cluster by using the `az aks get-credentials` command. The following example command gets the credentials for *myAKSCluster* in the *myResourceGroup* resource group:
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## Install Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for a new AKS cluster
+## Verify that the OSM add-on is installed on your cluster
 
-For a new AKS cluster deployment scenario, you will start with a brand new deployment of an AKS cluster enabling the OSM add-on at the cluster create operation.
-
-### Create a resource group
-
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example is used to create a resource group in a specified location (region):
+To see if the OSM add-on is installed on your cluster, verify that the `enabled` value is `true` for `openServiceMesh` under `addonProfiles`. The following example shows the status of the OSM add-on for *myAKSCluster* in *myResourceGroup*:
 
 ```azurecli-interactive
-az group create --name <my-osm-aks-cluster-rg> --location <azure-region>
+az aks show --resource-group myResourceGroup --name myAKSCluster  --query 'addonProfiles.openServiceMesh.enabled'
 ```
 
-### Deploy an AKS cluster with the OSM add-on enabled
+## Verify that the OSM mesh is running on your cluster
 
-You'll now deploy a new AKS cluster with the OSM add-on enabled.
-
-> [!NOTE]
-> Please be aware the following AKS deployment command utilizes OS ephemeral disks. You can find more information here about [Ephemeral OS disks for AKS](./cluster-configuration.md#ephemeral-os)
+You can verify the version, status, and configuration of the OSM mesh that's running on your cluster. Use `kubectl` to display the image version of the *osm-controller* deployment. For example:
 
 ```azurecli-interactive
-az aks create -n <my-osm-aks-cluster-name> -g <my-osm-aks-cluster-rg> --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
+kubectl get deployment -n kube-system osm-controller -o=jsonpath='{$.spec.template.spec.containers[:1].image}'
 ```
 
-#### Get AKS Cluster Access Credentials
+The following example output shows version *0.11.1* of the OSM mesh:
 
-Get access credentials for the new managed Kubernetes cluster.
+```output
+$ kubectl get deployment -n kube-system osm-controller -o=jsonpath='{$.spec.template.spec.containers[:1].image}'
+mcr.microsoft.com/oss/openservicemesh/osm-controller:v0.11.1
+```
+
+To verify the status of the OSM components running on your cluster, use `kubectl` to show the status of the `app.kubernetes.io/name=openservicemesh.io` deployments, pods, and services. For example:
 
 ```azurecli-interactive
-az aks get-credentials -n <my-osm-aks-cluster-name> -g <my-osm-aks-cluster-rg>
+kubectl get deployments -n kube-system --selector app.kubernetes.io/name=openservicemesh.io
+kubectl get pods -n kube-system --selector app.kubernetes.io/name=openservicemesh.io
+kubectl get services -n kube-system --selector app.kubernetes.io/name=openservicemesh.io
 ```
 
-## Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for an existing AKS cluster
+> [!IMPORTANT]
+> If any pods have a status other than `Running`, such as `Pending`, your cluster might not have enough resources to run OSM. Review the sizing for your cluster, such as the number of nodes and the virtual machine's SKU, before continuing to use OSM on your cluster.
 
-For an existing AKS cluster scenario, you will enable the OSM add-on to an existing AKS cluster that has already been deployed.
-
-### Enable the OSM add-on to existing AKS cluster
-
-To enable the AKS OSM add-on, you will need to run the `az aks enable-addons --addons` command passing the parameter `open-service-mesh`
-
-```azurecli-interactive
-az aks enable-addons --addons open-service-mesh -g <my-osm-aks-cluster-rg> -n <my-osm-aks-cluster-name>
-```
-
-You should see output similar to the output shown below to confirm the AKS OSM add-on has been installed.
-
-```json
-{- Finished ..
-  "aadProfile": null,
-  "addonProfiles": {
-    "KubeDashboard": {
-      "config": null,
-      "enabled": false,
-      "identity": null
-    },
-    "openServiceMesh": {
-      "config": {},
-      "enabled": true,
-      "identity": {
-...
-```
-
-## Validate the AKS OSM add-on installation
-
-There are several commands to run to check all of the components of the AKS OSM add-on are enabled and running:
-
-First we can query the add-on profiles of the cluster to check the enabled state of the add-ons installed. The following command should return "true".
-
-```azurecli-interactive
-az aks list -g <my-osm-aks-cluster-rg> -o json | jq -r '.[].addonProfiles.openServiceMesh.enabled'
-```
-
-The following `kubectl` commands will report the status of the osm-controller.
-
-```azurecli-interactive
-kubectl get deployments -n kube-system --selector app=osm-controller
-kubectl get pods -n kube-system --selector app=osm-controller
-kubectl get services -n kube-system --selector app=osm-controller
-```
-
-## Accessing the AKS OSM add-on configuration
-
-Currently you can access and configure the OSM controller configuration via the OSM MeshConfig resource. To view the OSM controller configuration settings via the CLI use the **kubectl** get command as shown below.
+To verify the configuration of your OSM mesh, use `kubectl get meshconfig`. For example:
 
 ```azurecli-interactive
 kubectl get meshconfig osm-mesh-config -n kube-system -o yaml
 ```
 
-Output of the MeshConfig should look like the following:
+The following example output shows the configuration of an OSM mesh:
 
-```
+```yaml
 apiVersion: config.openservicemesh.io/v1alpha1
 kind: MeshConfig
 metadata:
@@ -187,20 +140,29 @@ spec:
     useHTTPSIngress: false
 ```
 
-Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+The preceding example shows `enablePermissiveTrafficPolicyMode: true`, which means OSM has permissive traffic policy mode enabled. With this mode enabled in your OSM mesh:
 
-> [!WARNING]
-> Before proceeding please verify that your permissive traffic policy mode is set to true, if not please change it to **true** using the command below
+* The [SMI][smi] traffic policy enforcement is bypassed.
+* OSM automatically discovers services that are a part of the service mesh.
+* OSM creates traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
-```OSM Permissive Mode to True
-kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}' --type=merge
+## Delete your cluster
+
+When you no longer need the cluster, use the `az group delete` command to remove the resource group, the cluster, and all related resources:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
 ```
 
-<!-- Links -->
-<!-- Internal -->
+Alternatively, you can uninstall the OSM add-on and the related resources from your cluster. For more information, see [Uninstall the Open Service Mesh add-on from your AKS cluster][osm-uninstall].
 
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
+## Next steps
+
+This article showed you how to install the OSM add-on on an AKS cluster, and then verify that it's installed and running. With the OSM add-on installed on your cluster, you can [deploy a sample application][osm-deploy-sample-app] or [onboard an existing application][osm-onboard-app] to work with your OSM mesh.
+
+[aks-ephemeral]: cluster-configuration.md#ephemeral-os
+[osm-sample]: open-service-mesh-deploy-new-application.md
+[osm-uninstall]: open-service-mesh-uninstall-add-on.md
+[smi]: https://smi-spec.io/
+[osm-deploy-sample-app]: https://release-v1-0.docs.openservicemesh.io/docs/getting_started/install_apps/
+[osm-onboard-app]: https://release-v1-0.docs.openservicemesh.io/docs/guides/app_onboarding/

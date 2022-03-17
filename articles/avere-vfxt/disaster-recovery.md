@@ -56,7 +56,7 @@ Best practices for protecting data in Azure Blob storage include:
 
 * Copy your critical data to another storage account in another region frequently (as often as determined by your disaster recovery plan).
 * Control access to data on all target systems to prevent accidental deletion or corruption. Consider using [resource locks](../azure-resource-manager/management/lock-resources.md) on data storage.
-* Enable the Avere vFXT for Azure [cloud snapshot](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>) feature for your Blob core filers.
+* Enable the Avere vFXT for Azure [cloud snapshot](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html) feature for your Blob core filers.
 
 ### Copy Avere vFXT core filer data to a backup account
 
@@ -68,7 +68,7 @@ Follow these steps to establish a data backup in another account.
 
    You must supply this key when adding the container to a cluster - even if you are re-adding it to its original cluster.
 
-   Read [Cloud encryption settings](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_encryption_settings.html>)<!-- link to legacy doc site --> for detailed information.
+   Read [Cloud encryption settings](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_encryption_settings.html)<!-- link to legacy doc site --> for detailed information.
 
    If your container uses Azure's built-in encryption only, you can skip this step.
 

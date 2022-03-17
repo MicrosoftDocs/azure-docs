@@ -10,10 +10,17 @@ ms.custom: devx-track-java
 ---
 
 # Self-diagnose running Azure Spring Cloud in VNET
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to use Azure Spring Cloud diagnostics to diagnose and solve problems in Azure Spring Cloud running in VNET.
+
 Azure Spring Cloud diagnostics supports interactive troubleshooting apps running in virtual networks without configuration. Azure Spring Cloud diagnostics identifies problems and guides you to information that helps troubleshoot and resolve them.
 
 ## Navigate to the diagnostics page
+
 The following procedure starts diagnostics for networked applications.
+
 1. Sign in to the Azure portal.
 1. Go to your Azure Spring Cloud Overview page.
 1. Select **Diagnose and solve problems** in the menu on the left navigation pane.
@@ -67,6 +74,6 @@ Maybe your network is blocked or the log service is down.
 
 ![Diagnostic endpoint unknown](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-unknown.png)
 
-## See also
+## Next steps
 
 * [How to self diagnose Azure Spring Cloud](./how-to-self-diagnose-solve.md)

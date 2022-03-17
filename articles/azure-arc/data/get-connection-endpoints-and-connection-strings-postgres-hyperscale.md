@@ -1,20 +1,20 @@
---- 
-title: Get connection endpoints and form the connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+---
+title: Get connection endpoints and create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
 titleSuffix: Azure Arc-enabled data services
-description: Get connection endpoints and form connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+description: Get connection endpoints & create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Get connection endpoints and form the connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+# Get connection endpoints & create the connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
 
-This article explains how you can retrieve the connection endpoints for your server group and how you can form the connection strings which can be used with your applications and/or tools.
+This article explains how you can retrieve the connection endpoints for your server group and how you can form the connection strings, which can be used with your applications and/or tools.
 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
@@ -27,27 +27,43 @@ az postgres arc-server endpoint list -n <server group name> --k8s-namespace <nam
 ```
 For example:
 ```azurecli
-az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server endpoint list -n postgres01 --k8s-namespace arc --use-k8s
 ```
 
-It shows the list of endpoints: the PostgreSQL endpoint that you use to connect your application and use the database, Kibana and Grafana endpoints for log analytics and monitoring. For example: 
-```console
-Arc
- ===================================================================================================================
- Postgres01 Instance
- -------------------------------------------------------------------------------------------------------------------
- Description           Endpoint
+It returns the list of endpoints: the PostgreSQL endpoint, the log search dashboard (Kibana), and the metrics dashboard (Grafana). For example: 
 
- PostgreSQL Instance   postgresql://postgres:<replace with password>@12.345.567.89:5432
- Log Search Dashboard  https://89.345.712.81:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))
- Metrics Dashboard     https://89.345.712.81:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
-
+```output
+{
+  "instances": [
+    {
+      "endpoints": [
+        {
+          "description": "PostgreSQL Instance",
+          "endpoint": "postgresql://postgres:<replace with password>@12.345.567.89:5432"
+        },
+        {
+          "description": "Log Search Dashboard",
+          "endpoint": "https://23.456.78.99:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))"
+        },
+        {
+          "description": "Metrics Dashboard",
+          "endpoint": "https://34.567.890.12:3000/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01"
+        }
+      ],
+      "engine": "PostgreSql",
+      "name": "postgres01"
+    }
+  ],
+  "namespace": "arc"
+}
 ```
+
 Use these end points to:
+
 - Form your connection strings and connect with your client tools or applications
 - Access the Grafana and Kibana dashboards from your browser
 
-For example, you can use the end point named _PostgreSQL Instance_ to connect with psql to your server group. For example:
+For example, you can use the end point named _PostgreSQL Instance_ to connect with psql to your server group:
 ```console
 psql postgresql://postgres:MyPassworkd@12.345.567.89:5432
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
@@ -61,25 +77,28 @@ postgres=#
 > [!NOTE]
 >
 > - The password of the _postgres_ user indicated in the end point named "_PostgreSQL Instance_" is the password you chose when deploying the server group.
-> _ERROR: (401)_
-> _Reason: Unauthorized_
-> _HTTP response headers: HTTPHeaderDict({'Date': 'Sun, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_
-> _Basic realm="Login_ credentials required", Bearer error="invalid_token", error_description="The token is expired"'})_
-> When this happens, you need to reconnect with azdata as explained above.
+
 
 ## From CLI with kubectl
 ```console
 kubectl get postgresqls/<server group name> -n <namespace name>
 ```
 
-Those commands will produce output like the one below. You can use that information to form your connection strings:
-```console
-NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
-postgres01   Ready   3/3          123.456.789.4:31066      5d20h
-``` 
+For example:
+```azurecli
+kubectl get postgresqls/postgres01 -n arc
+```
 
-## Form connection strings:
-Use the below table of templates of connections strings for your server group. You can then copy/paste and customize them as further needed:
+Those commands will produce output like the one below. You can use that information to form your connection strings:
+
+```console
+NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
+postgres01   Ready   3/3          12.345.567.89:5432   9d
+```
+
+## Form connection strings
+
+Use the connections string examples below for your server group. Copy, paste, and customize them as needed:
 
 ### ADO.NET
 

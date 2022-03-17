@@ -4,8 +4,8 @@ description: Learn how to create an Azure Files StorageClass on Azure Red Hat Op
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 10/16/2020
-author: grantomation
-ms.author: b-grodel
+author: georgewallace
+ms.author: gwallace
 keywords: aro, openshift, az aro, red hat, cli, azure file
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an operator, I need to create a StorageClass on Azure Red Hat OpenShift using Azure File dynamic provisioner
@@ -55,7 +55,7 @@ ARO_RESOURCE_GROUP=aro-rg
 CLUSTER=cluster
 ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER --query servicePrincipalProfile.clientId -o tsv)
 
-az role assignment create --role Contributor --assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
+az role assignment create --role Contributor --scope /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName --assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
 ```
 
 ### Set ARO cluster permissions

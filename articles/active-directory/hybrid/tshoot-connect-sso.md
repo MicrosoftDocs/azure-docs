@@ -4,7 +4,7 @@ description: This topic describes how to troubleshoot Azure Active Directory Sea
 services: active-directory
 author: billmath
 ms.reviewer: swkrish
-manager: daveba
+manager: karenhoran
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -110,7 +110,7 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
 
 ### Step 2: Get the list of Active Directory forests on which Seamless SSO has been enabled
 
-1. Run PowerShell as an administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your tenant's global administrator credentials.
+1. Run PowerShell as an administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your tenant's global administrator or hybrid identity administrator credentials.
 2. Call `Get-AzureADSSOStatus`. This command provides you with the list of Active Directory forests (look at the "Domains" list) on which this feature has been enabled.
 
 ### Step 3: Disable Seamless SSO for each Active Directory forest where you've set up the feature

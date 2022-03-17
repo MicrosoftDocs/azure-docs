@@ -20,7 +20,7 @@ ms.author: danlep
 Azure API Management supports multiple versions of Transport Layer Security (TLS) protocol for:
 * Client side
 * Backend side
-* The 3DES cipher
+* The 3DES ciphe
 
 This guide shows you how to manage protocols and ciphers configuration for an Azure API Management instance.
 
@@ -39,7 +39,7 @@ This guide shows you how to manage protocols and ciphers configuration for an Az
 1. Click **Save**. Changes will be applied within an hour.  
 
 > [!NOTE]
-> Some protocols or cipher suites (like backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST call. Use the `properties.customProperties` structure in the [Create/Update API Management Service REST API](/rest/api/apimanagement/2021-01-01-preview/api-management-service/create-or-update) article.
+> Some protocols or cipher suites (like backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST call. Use the `properties.customProperties` structure in the [Create/Update API Management Service REST API](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) article.
 
 ## Next steps
 

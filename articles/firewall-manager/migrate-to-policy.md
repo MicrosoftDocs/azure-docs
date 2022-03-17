@@ -10,7 +10,7 @@ ms.author: victorh
 ms.custom: devx-track-azurepowershell
 ---
 
-# Migrate Azure Firewall configurations to Azure Firewall policy using Powershell
+# Migrate Azure Firewall configurations to Azure Firewall policy using PowerShell
 
 You can use an Azure PowerShell script to migrate existing Azure Firewall configurations to an Azure Firewall policy resource. You can then use Azure Firewall Manager to deploy the policy.
 
@@ -38,7 +38,7 @@ $ApplicationRuleGroupPriority = 300
 $NetworkRuleGroupPriority = 200
 $NatRuleGroupPriority = 100
 
-#Helper functions for tanslatating ApplicationProtocol and ApplicationRule
+#Helper functions for translating ApplicationProtocol and ApplicationRule
 Function GetApplicationProtocolsString
 {
 	Param([Object[]] $Protocols)
@@ -121,13 +121,13 @@ If ($azfw.NetworkRuleCollections.Count -gt 0) {
                     }
                     elseif($rule.DestinationIpGroups)
                     {
-                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceIpGroup $rule.SourceIpGroups -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceAddress $rule.SourceAddresses -DestinationIpGroup $rule.DestinationIpGroups -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
                     }
                 }
                 elseif($rule.SourceIpGroups){
                     If($rule.DestinationAddresses)
                     {
-                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceAddress $rule.SourceAddresses -DestinationIpGroup $rule.DestinationIpGroups -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceIpGroup $rule.SourceIpGroups -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
                     }
                     elseif($rule.DestinationIpGroups)
                     {
@@ -147,8 +147,8 @@ If ($azfw.NetworkRuleCollections.Count -gt 0) {
 }
 
 #Translate NatRuleCollection
-# Hierarchy for NAT rule collection is different for AZFW and FirewallPOlicy. In AZFW you can have a NatRuleCollection with multiple NatRules
-# where each NatRule will have its own set of source , dest, tranlated IPs and ports. 
+# Hierarchy for NAT rule collection is different for AZFW and FirewallPolicy. In AZFW you can have a NatRuleCollection with multiple NatRules
+# where each NatRule will have its own set of source , dest, translated IPs and ports. 
 # In FirewallPolicy a NatRuleCollection has a a set of rules which has one condition (source and dest IPs and Ports) and the translated IP and ports 
 # as part of NatRuleCollection.
 # So when translating NAT rules we will have to create separate ruleCollection for each rule in AZFW and every ruleCollection will have only 1 rule.

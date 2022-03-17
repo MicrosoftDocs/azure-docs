@@ -10,7 +10,7 @@ ms.date: 12/16/2020
 
 The Azure portal includes a Kubernetes resource view for easy access to the Kubernetes resources in your Azure Kubernetes Service (AKS) cluster. Viewing Kubernetes resources from the Azure portal reduces context switching between the Azure portal and the `kubectl` command-line tool, streamlining the experience for viewing and editing your Kubernetes resources. The resource viewer currently includes multiple resource types, such as deployments, pods, and replica sets.
 
-The Kubernetes resource view from the Azure portal replaces the [AKS dashboard add-on][kubernetes-dashboard], which is deprecated.
+The Kubernetes resource view from the Azure portal replaces the AKS dashboard add-on, which is deprecated.
 
 ## Prerequisites
 
@@ -74,13 +74,15 @@ For existing clusters, you may need to enable the Kubernetes resource view. To e
 
 > [!TIP]
 > The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. Another option for such clusters is updating `--api-server-authorized-ip-ranges` to include access for a local client computer or IP address range (from which portal is being browsed). To allow this access, you need the computer's public IPv4 address. You can find this address with below command or by searching "what is my IP address" in an internet browser.
+
 ```bash
 # Retrieve your IP address
 CURRENT_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+```
 
+```azurecli
 # Add to AKS approved list
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
-
 ```
 
 ## Next steps
@@ -88,7 +90,6 @@ az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/3
 This article showed you how to access Kubernetes resources for your AKS cluster. See [Deployments and YAML manifests][deployments] for a deeper understanding of cluster resources and the YAML files that are accessed with the Kubernetes resource viewer.
 
 <!-- LINKS - internal -->
-[kubernetes-dashboard]: kubernetes-dashboard.md
 [concepts-identity]: concepts-identity.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md#run-the-application
 [deployments]: concepts-clusters-workloads.md#deployments-and-yaml-manifests

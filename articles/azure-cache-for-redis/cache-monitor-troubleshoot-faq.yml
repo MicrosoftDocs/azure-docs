@@ -1,13 +1,12 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Cache for Redis monitoring and troubleshooting FAQs
-  description: Learn the answers to common questions that help you monitor and troubleshoot Azure Cache for Redis
-  author: curib
-  ms.author: cauribeg
+  title: Azure Cache for Redis common error FAQs
+  description: Learn the answers to common questions that help you monitor and troubleshoot Azure Cache for Redis.
+  author: flang-msft
+  ms.author: franlanglois
   ms.service: cache
-  ms.topic: conceptual
-  ms.date: 08/06/2020
-    
+  ms.topic: faq
+  ms.date: 12/01/2021
 title: Azure Cache for Redis monitoring and troubleshooting FAQs
 summary: This article provides answers to common questions about how to monitor and troubleshoot Azure Cache for Redis.
 
@@ -49,6 +48,16 @@ sections:
           * Server-side causes
             * On the standard cache offering, the Azure Cache for Redis service started a fail-over from the primary node to the replica node.
             * Azure was patching the instance where the cache was deployed during a Redis server update or general VM maintenance.
+
+      - question: |
+          Why am I seeing "Cache is busy processing a previous update request or is undergoing system maintenance. As such, it is currently unable to accept the update request. Please try again later."
+        answer: |
+          This message indicates that a management operation, like scaling or patching, is in progress on your cache. All other management operations are blocked until the ongoing operation is completed. During this time, you can expect your Azure Cache For Redis to be fully functional for client operations.
+      - question: |
+          Why is my cache in "Failed" state?
+        answer: |
+          Azure Cache For Redis can end up in a *Failed* state if a management operation fails. Despite this state, you can expect your Azure Cache For Redis to be fully functional for client operations.
+          
           
 additionalContent: |
 

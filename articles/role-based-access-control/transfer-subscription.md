@@ -3,9 +3,8 @@ title: Transfer an Azure subscription to a different Azure AD directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Azure Active Directory (Azure AD) directory.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
 ms.date: 09/04/2021
@@ -14,7 +13,7 @@ ms.author: rolyon
 
 # Transfer an Azure subscription to a different Azure AD directory
 
-Organizations might have several Azure subscriptions. Each subscription is associated with a particular Azure Active Directory (Azure AD) directory. To make management easier, you might want to transfer a subscription to a different Azure AD directory. When you transfer a subscription to a different Azure AD directory, some resources are not transferred to the target directory. For example, all role assignments and custom roles in Azure role-based access control (Azure RBAC) are **permanently** deleted from the source directory and are not be transferred to the target directory.
+Organizations might have several Azure subscriptions. Each subscription is associated with a particular Azure Active Directory (Azure AD) directory. To make management easier, you might want to transfer a subscription to a different Azure AD directory. When you transfer a subscription to a different Azure AD directory, some resources are not transferred to the target directory. For example, all role assignments and custom roles in Azure role-based access control (Azure RBAC) are **permanently** deleted from the source directory and are not transferred to the target directory.
 
 This article describes the basic steps you can follow to transfer a subscription to a different Azure AD directory and re-create some of the resources after the transfer.
 
@@ -251,7 +250,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID (in `bash`).
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//' -e 's/\r$//')
+    subscriptionId=$(az account show --output tsv --query id)
     ```
     
 1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Azure AD directory dependencies (in `bash`).

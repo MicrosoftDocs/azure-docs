@@ -3,7 +3,7 @@ title: Assign custom roles using Azure AD PowerShell - Azure AD | Microsoft Docs
 description: Manage members of an Azure AD administrator custom role with Azure AD PowerShell.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -141,6 +141,6 @@ Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-
 
 ## Next steps
 
-- Share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+- Share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 - For more about roles and Azure AD administrator role assignments, see [Assign administrator roles](permissions-reference.md)
 - For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md)

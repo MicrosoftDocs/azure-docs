@@ -17,7 +17,7 @@ This article provides an overview of assessments in the [Azure Migrate: Discover
 An assessment with the Discovery and assessment tool measures the readiness and estimates the effect of migrating on-premises servers to Azure.
 
 > [!NOTE]
-> In Azure Government, review the [supported target](migrate-support-matrix.md#supported-geographies-azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types.
+> In Azure Government, review the [supported target](migrate-support-matrix.md#azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types.
 
 ## Types of assessments
 
@@ -71,7 +71,7 @@ If you're assessing servers by using a CSV file, you don't need an appliance. In
 
 ## What data does the appliance collect?
 
-If you're using the Azure Migrate appliance for assessment, learn about the metadata and performance data that's collected for [VMware](migrate-appliance.md#collected-data---vmware) and [Hyper-V](migrate-appliance.md#collected-data---hyper-v).
+If you're using the Azure Migrate appliance for assessment, learn about the metadata and performance data that's collected for [VMware](discovered-metadata.md#collected-metadata-for-vmware-servers) and [Hyper-V](discovered-metadata.md#collected-metadata-for-hyper-v-servers).
 
 ## How does the appliance calculate performance data?
 
@@ -153,7 +153,7 @@ For an Azure VM Assessment, the assessment reviews the following properties of a
 
 Property | Details | Azure readiness status
 --- | --- | ---
-**Boot type** | Azure supports VMs with a boot type of BIOS, not UEFI. | Conditionally ready if the boot type is UEFI
+**Boot type** | Azure supports UEFI boot type for OS mentioned [here](./common-questions-server-migration.md#which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure)| Not ready if the boot type is UEFI and Operating System running on the VM is: Windows Server 2003/Windows Server 2003 R2/Windows Server 2008/Windows Server 2008 R2
 **Cores** | Each server must have no more than 128 cores, which is the maximum number an Azure VM supports.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores to apply the comfort factor. | Ready if the number of cores is within the limit
 **RAM** | Each server must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m&nbsp;<sup>2</sup> VM supports. [Learn more](../virtual-machines/sizes.md).<br/><br/> If performance history is available, Azure Migrate considers the utilized RAM for comparison. If a comfort factor is specified, the utilized RAM is multiplied by the comfort factor.<br/><br/> If there's no history, the allocated RAM is used to apply a comfort factor.<br/><br/> | Ready if the amount of RAM is within the limit
 **Storage disk** | The allocated size of a disk must be no more than 64 TB.<br/><br/> The number of disks attached to the server, including the OS disk, must be 65 or fewer. | Ready if the disk size and number are within the limits
@@ -232,7 +232,7 @@ For Ultra disks, there is a range of IOPS and throughput that is allowed for a p
     - One disk (Disk 2) is found that can satisfy total IOPS requirement
         - IOPS to be provisioned =  (source disk throughput) *1024/256
     - One disk (Disk 3) is found that can satisfy total throughput requirement
-1. Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering](../virtual-machines/disks-types.md#disk-size). This is the provisioned Ultra disk size.
+1. Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering](../virtual-machines/disks-types.md#ultra-disks). This is the provisioned Ultra disk size.
 1. Provisioned IOPS is calculated using the following logic:
     - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS is equal to source disk IOPS
     - Else, provisioned IOPS is calculated using IOPS to be provisioned =  (source disk throughput) *1024/256

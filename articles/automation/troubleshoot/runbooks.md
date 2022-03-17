@@ -261,7 +261,7 @@ If you have multifactor authentication on your Azure account, you can't use an A
 
 ### Resolution
 
-To use a Classic Run As account with Azure classic deployment model cmdlets, see [Create a Classic Run As account to manage Azure services](../automation-create-standalone-account.md#create-a-classic-run-as-account). To use a service principal with Azure Resource Manager cmdlets, see [Creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [Authenticating a service principal with Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+To use a service principal with Azure Resource Manager cmdlets, see [Creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [Authenticating a service principal with Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="task-was-cancelled"></a>Scenario: Runbook fails with "A task was canceled" error message
 
@@ -391,25 +391,31 @@ If the stream contains objects, `Start-AzAutomationRunbook` doesn't handle the O
 Implement a polling logic, and use the [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) cmdlet to retrieve the output. A sample of this logic is defined here:
 
 ```powershell
-$automationAccountName = "ContosoAutomationAccount"
-$runbookName = "ChildRunbookExample"
-$resourceGroupName = "ContosoRG"
+$AutomationAccountName = "ContosoAutomationAccount"
+$RunbookName = "ChildRunbookExample"
+$ResourceGroupName = "ContosoRG"
 
-function IsJobTerminalState([string] $status) {
-    return $status -eq "Completed" -or $status -eq "Failed" -or $status -eq "Stopped" -or $status -eq "Suspended"
+function IsJobTerminalState([string]$Status) {
+  $TerminalStates = @("Completed", "Failed", "Stopped", "Suspended")
+  return $Status -in $TerminalStates
 }
 
-$job = Start-AzAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
-$pollingSeconds = 5
-$maxTimeout = 10800
-$waitTime = 0
-while($false -eq (IsJobTerminalState $job.Status) -and $waitTime -lt $maxTimeout) {
-   Start-Sleep -Seconds $pollingSeconds
-   $waitTime += $pollingSeconds
-   $job = $job | Get-AzAutomationJob
+$StartAzAutomationRunbookParameters = @{
+  Name = $RunbookName
+  AutomationAccountName = $AutomationAccountName
+  ResourceGroupName = $ResourceGroupName
+}
+$Job = Start-AzAutomationRunbook @StartAzAutomationRunBookParameters
+$PollingSeconds = 5
+$MaxTimeout = New-TimeSpan -Hours 3 | Select-Object -ExpandProperty TotalSeconds
+$WaitTime = 0
+while((-NOT (IsJobTerminalState $Job.Status) -and $WaitTime -lt $MaxTimeout) {
+   Start-Sleep -Seconds $PollingSeconds
+   $WaitTime += $PollingSeconds
+   $Job = $Job | Get-AzAutomationJob
 }
 
-$job | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+$Job | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
 
 ## <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object

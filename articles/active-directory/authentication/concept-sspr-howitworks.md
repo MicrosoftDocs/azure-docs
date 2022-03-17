@@ -10,8 +10,8 @@ ms.date: 06/14/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
-ms.reviewer: rhicock
+manager: karenhoran
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
@@ -32,7 +32,6 @@ A user can reset or change their password using the [SSPR portal](https://aka.ms
 * Is the user account valid?
 * What organization does the user belong to?
 * Where is the user's password managed?
-* Is the user licensed to use the feature?
 
 When a user selects the **Can't access your account** link from an application or page, or goes directly to [https://aka.ms/sspr](https://passwordreset.microsoftonline.com), the language used in the SSPR portal is based on the following options:
 
@@ -42,8 +41,8 @@ When a user selects the **Can't access your account** link from an application o
 
 After the SSPR portal is displayed in the required language, the user is prompted to enter a user ID and pass a captcha. Azure AD now verifies that the user is able to use SSPR by doing the following checks:
 
-* Checks that the user has SSPR enabled and is assigned an Azure AD license.
-  * If the user isn't enabled for SSPR or doesn't have a license assigned, the user is asked to contact their administrator to reset their password.
+* Checks that the user has SSPR enabled.
+  * If the user isn't enabled for SSPR, the user is asked to contact their administrator to reset their password.
 * Checks that the user has the right authentication methods defined on their account in accordance with administrator policy.
   * If the policy requires only one method, check that the user has the appropriate data defined for at least one of the authentication methods enabled by the administrator policy.
     * If the authentication methods aren't configured, the user is advised to contact their administrator to reset their password.

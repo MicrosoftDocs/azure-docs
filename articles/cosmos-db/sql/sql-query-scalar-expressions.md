@@ -64,11 +64,11 @@ The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar e
   
 - `unary_operator <scalar_expression>`  
   
-   Represents an operator that is applied to a single value. See [Operators](sql-query-operators.md) section for details.  
+   Represents an operator that is applied to a single value.
   
 - `<scalar_expression> binary_operator <scalar_expression>`  
   
-   Represents an operator that is applied to two values. See [Operators](sql-query-operators.md) section for details.  
+   Represents an operator that is applied to two values.
   
 - `<scalar_function_expression>`  
   

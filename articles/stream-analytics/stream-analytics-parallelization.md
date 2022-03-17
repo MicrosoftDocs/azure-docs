@@ -1,9 +1,6 @@
 ---
 title: Use query parallelization and scale in Azure Stream Analytics
 description: This article describes how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
-author: JSeb225
-ms.author: jeanb
-
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020

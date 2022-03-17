@@ -10,12 +10,10 @@ ms.custom: devx-track-azurecli
 ms.date: 9/21/2020
 ---
 
-# Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure CLI
+# Manage firewall rules for Azure Database for MySQL - Flexible Server using Azure CLI
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is currently in public preview
 
 Azure Database for MySQL Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
@@ -126,8 +124,8 @@ To allow applications from Azure IP addresses to connect to your flexible server
 az mysql flexible-server firewall-rule create --name mydemoserver --start-ip-address 0.0.0.0
 ```
 
-   > [!IMPORTANT]
-   > This option configures the firewall to allow public access from Azure services and resources within Azure to this server including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+> [!IMPORTANT]
+> This option configures the firewall to allow public access from Azure services and resources within Azure to this server including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 
 Upon success, each create command output lists the details of the firewall rule you have created, in JSON format (by default). If there is a failure, the output shows error message text instead.
 

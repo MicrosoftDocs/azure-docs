@@ -7,8 +7,8 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: guide
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.date: 01/14/2020
 ---
 # Configure and manage content reference - Azure SQL Database
@@ -32,6 +32,9 @@ In this article you can find a content reference of various guides, scripts, and
 - [Configure Conditional Access](conditional-access-configure.md)
 - [Multi-factor Azure AD auth](authentication-mfa-ssms-overview.md)
 - [Configure Multi-Factor Authentication](authentication-mfa-ssms-configure.md)
+- [Configure backup retention](long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. 
+- [Configure geo-replication](active-geo-replication-overview.md) to keep a replica of your database in another region.
+- [Configure auto-failover group](auto-failover-group-configure-sql-db.md) to automatically failover a group of single or pooled databases to a secondary server in another region in the event of a disaster. 
 - [Configure temporal retention policy](temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](transparent-data-encryption-byok-key-rotation.md)
@@ -41,8 +44,6 @@ In this article you can find a content reference of various guides, scripts, and
 - [Configure transactional replication](replication-to-sql-database.md) to replicate your date between databases.
 - [Configure threat detection](threat-detection-configure.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
 - [Configure dynamic data masking](dynamic-data-masking-configure-portal.md) to protect your sensitive data.
-- [Configure backup retention](long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. 
-- [Configure geo-replication](active-geo-replication-overview.md) to keep a replica of your database in another region.
 - [Configure security for geo-replicas](active-geo-replication-security-configure.md).
 
 ## Monitor and tune your database

@@ -5,12 +5,11 @@ description: Get an overview of the audit activities that can be logged in your 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -147,7 +146,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Authorization|Create trustFramework policy with configurable prefix|
 |Authorization|Create user attribute|
 |Authorization|CreateTrustFrameworkPolicy|
-|Authorization|Creates or Update an new AdminUserJourney|
+|Authorization|Creates or Update a new AdminUserJourney|
 |Authorization|Delete IDP|
 |Authorization|Delete IdentityProvider|
 |Authorization|Delete V1 application|

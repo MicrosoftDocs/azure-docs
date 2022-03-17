@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: reference
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 06/17/2021
 ---
 # T-SQL differences between SQL Server and Azure SQL Database

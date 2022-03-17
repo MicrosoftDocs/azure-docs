@@ -4,13 +4,13 @@ description: Learn how to grant access to Azure resources for users external to 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: role-based-access-control
 ms.devlang:
 ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 06/28/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: it-pro,subject-rbac-steps
 
@@ -43,7 +43,7 @@ Follow these steps to add a guest user to your directory using the Azure Active 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. For more information, see [Enable B2B external collaboration and manage who can invite guests](../active-directory/external-identities/delegate-invitations.md).
+1. Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. For more information, see [Configure external collaboration settings](../active-directory/external-identities/external-collaboration-settings-configure.md).
 
 1. Click **Azure Active Directory** > **Users** > **New guest user**.
 
@@ -75,25 +75,25 @@ In Azure RBAC, to grant access, you assign a role. To assign a role to a guest u
 
     The following shows an example of the Access control (IAM) page for a resource group.
 
-    ![Screenshot of Access control (IAM) page for a resource group for preview experience.](./media/shared/rg-access-control.png)
+    ![Screenshot of Access control (IAM) page for a resource group.](./media/shared/rg-access-control.png)
 
 1. Click the **Role assignments** tab to view the role assignments at this scope.
 
-1. Click **Add** > **Add role assignment (Preview)**.
+1. Click **Add** > **Add role assignment**.
 
     If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-    ![Screenshot of Add > Add role assignment menu for preview experience.](./media/shared/add-role-assignment-menu-preview.png)
+    ![Screenshot of Add > Add role assignment menu.](./media/shared/add-role-assignment-menu.png)
 
     The Add role assignment page opens.
 
 1. On the **Roles** tab, select a role such as **Virtual Machine Contributor**.
 
-   ![Screenshot of Add role assignment page with Roles tab for preview experience.](./media/shared/roles.png)
+   ![Screenshot of Add role assignment page with Roles tab.](./media/shared/roles.png)
 
 1. On the **Members** tab, select **User, group, or service principal**.
 
-   ![Screenshot of Add role assignment page with Members tab for preview experience.](./media/shared/members.png)
+   ![Screenshot of Add role assignment page with Members tab.](./media/shared/members.png)
 
 1. Click **Select members**.
 
@@ -101,7 +101,7 @@ In Azure RBAC, to grant access, you assign a role. To assign a role to a guest u
 
     You can type in the **Select** box to search the directory for display name or email address.
 
-    ![Screenshot of Select members pane for preview experience.](./media/role-assignments-external-users/select-members.png)
+    ![Screenshot of Select members pane.](./media/role-assignments-external-users/select-members.png)
 
 1. Click **Select** to add the guest user to the Members list.
 
@@ -125,11 +125,11 @@ If the guest user is not yet in your directory, you can invite the user directly
 
 1. Click **Access control (IAM)**.
 
-1. Click **Add** > **Add role assignment (Preview)**.
+1. Click **Add** > **Add role assignment**.
 
     If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-    ![Screenshot of Add > Add role assignment menu for preview experience.](./media/shared/add-role-assignment-menu-preview.png)
+    ![Screenshot of Add > Add role assignment menu.](./media/shared/add-role-assignment-menu.png)
 
     The Add role assignment page opens.
 
@@ -137,7 +137,7 @@ If the guest user is not yet in your directory, you can invite the user directly
 
 1. On the **Members** tab, select **User, group, or service principal**.
 
-   ![Screenshot of Add role assignment page with Members tab for preview experience.](./media/shared/members.png)
+   ![Screenshot of Add role assignment page with Members tab.](./media/shared/members.png)
 
 1. Click **Select members**.
 

@@ -1,11 +1,10 @@
 ---
 title: Configure customer-managed keys for your Azure Batch account with Azure Key Vault and Managed Identity
 description: Learn how to encrypt Batch data using customer-managed keys. 
-author: pkshultz
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.author: peshultz
-
+ms.devlang: csharp
+ms.custom: devx-track-azurecli
 ---
 
 # Configure customer-managed keys for your Azure Batch account with Azure Key Vault and Managed Identity

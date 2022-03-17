@@ -1,26 +1,28 @@
 ---
-title: Join an Azure-SSIS integration runtime to a virtual network with UI
-description: Learn how to use the Azure Data Factory Studio UI to join an Azure-SSIS integration runtime to an Azure virtual network. 
+title: Join Azure-SSIS integration runtime to a virtual network via Azure portal
+description: Learn how to join Azure-SSIS integration runtime to a virtual network via Azure portal. 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 02/15/2022
 author: swinarko
 ms.author: sawinark 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Join an Azure-SSIS integration runtime to a virtual network with Azure Data Factory Studio UI
+# Join Azure-SSIS integration runtime to a virtual network via Azure portal
 
-This section shows you how to join an existing Azure-SSIS IR to a virtual network (classic or Azure Resource Manager) by using the Azure portal and Azure Data Factory Studio UI. 
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-Before joining your Azure-SSIS IR to the virtual network, you need to properly configure the virtual network. Follow the steps in the section that applies to your type of virtual network (classic or Azure Resource Manager). Then follow the steps in the third section to join your Azure-SSIS IR to the virtual network. 
+This article shows you how to join your existing Azure-SQL Server Integration Services (SSIS) integration runtime (IR) to a virtual network via portal. 
+
+Before joining your Azure-SSIS IR to a virtual network, you need to properly configure the virtual network first, see the [Configure a virtual network to inject Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md) article. Next, follow the steps in the section below that applies to the type of your virtual network (Azure Resource Manager/classic). Finally, follow the steps in the last section to join your Azure-SSIS IR to the virtual network. 
 
 ## Configure an Azure Resource Manager virtual network
 
-Use the portal to configure an Azure Resource Manager virtual network before you try to join an Azure-SSIS IR to it.
+Use Azure portal to configure an Azure Resource Manager virtual network before you try to join your Azure-SSIS IR to it.
 
-1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support the Data Factory UI. 
+1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support ADF UI. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
@@ -28,29 +30,19 @@ Use the portal to configure an Azure Resource Manager virtual network before you
 
 1. Filter for and select your virtual network in the list. 
 
-1. On the **Virtual network** page, select **Properties**. 
+1. On the left-hand-side menu, select **Subnets**:
 
-1. Select the copy button for **RESOURCE ID** to copy the resource ID for the virtual network to the clipboard. Save the ID from the clipboard in OneNote or a file. 
+   - Make sure that there's a proper subnet for your Azure-SSIS IR to join, see the [Select a subnet](azure-ssis-integration-runtime-standard-virtual-network-injection.md#subnet) section.
 
-1. On the left menu, select **Subnets**. Ensure that the number of available addresses is greater than the nodes in your Azure-SSIS IR. 
+   - If you use express virtual network injection method, make sure that the selected subnet is delegated to Azure Batch, see the [Delegate a subnet to Azure Batch](azure-ssis-integration-runtime-virtual-network-configuration.md#delegatesubnet) section.
 
-1. Verify that the Azure Batch provider is registered in the Azure subscription that has the virtual network. Or register the Azure Batch provider. If you already have an Azure Batch account in your subscription, your subscription is registered for Azure Batch. (If you create the Azure-SSIS IR in the Data Factory portal, the Azure Batch provider is automatically registered for you.) 
-
-   1. In the Azure portal, on the left menu, select **Subscriptions**. 
-
-   1. Select your subscription. 
-
-   1. On the left, select **Resource providers**, and confirm that **Microsoft.Batch** is a registered provider. 
-
-   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png" alt-text="Confirmation of &quot;Registered&quot; status":::
-
-   If you don't see **Microsoft.Batch** in the list, to register it, [create an empty Azure Batch account](../batch/batch-account-create-portal.md) in your subscription. You can delete it later. 
+1. Make sure that *Microsoft.Batch* is a registered resource provider in Azure subscription that has the virtual network for your Azure-SSIS IR to join. For detailed instructions, see the [Register Azure Batch as a resource provider](azure-ssis-integration-runtime-virtual-network-configuration.md#registerbatch) section.
 
 ## Configure a classic virtual network
 
-Use the portal to configure a classic virtual network before you try to join an Azure-SSIS IR to it. 
+Use Azure portal to configure a classic virtual network before you try to join your Azure-SSIS IR to it. 
 
-1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support the Data Factory UI. 
+1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support ADF UI. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
@@ -62,59 +54,49 @@ Use the portal to configure a classic virtual network before you try to join an 
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png" alt-text="Classic virtual network resource ID":::
 
-1. Select the copy button for **RESOURCE ID** to copy the resource ID for the classic network to the clipboard. Save the ID from the clipboard in OneNote or a file. 
+1. Select the copy button for **RESOURCE ID** to copy the resource ID for the classic virtual network to the clipboard. Save the ID from the clipboard in OneNote or a file. 
 
-1. On the left menu, select **Subnets**. Ensure that the number of available addresses is greater than the nodes in your Azure-SSIS IR. 
+1. On the left-hand-side menu, select **Subnets**. Make sure that the number of available IP addresses in your selected subnet is greater than twice the number of your Azure-SSIS IR nodes. 
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png" alt-text="Number of available addresses in the virtual network":::
 
 1. Join **MicrosoftAzureBatch** to the **Classic Virtual Machine Contributor** role for the virtual network. 
 
-   1. On the left menu, select **Access control (IAM)**, and select the **Role assignments** tab. 
+   1. On the left-hand-side menu, select **Access control (IAM)**, and select the **Role assignments** tab. 
 
-       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png" alt-text="&quot;Access control&quot; and &quot;Add&quot; buttons":::
+      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png" alt-text="&quot;Access control&quot; and &quot;Add&quot; buttons":::
 
    1. Select **Add role assignment**.
 
-   1. On the **Add role assignment** page, for **Role**, select **Classic Virtual Machine Contributor**. In the **Select** box, paste **ddbf3205-c6bd-46ae-8127-60eb93363864**, and then select **Microsoft Azure Batch** from the list of search results. 
+   1. On the **Add role assignment** page, for **Role**, select **Classic Virtual Machine Contributor**. In the **Select** box, paste **ddbf3205-c6bd-46ae-8127-60eb93363864**, and then select **MicrosoftAzureBatch** from the list of search results. 
 
-       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png" alt-text="Search results on the &quot;Add role assignment&quot; page":::
+      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png" alt-text="Search results on the &quot;Add role assignment&quot; page":::
 
    1. Select **Save** to save the settings and close the page. 
 
-       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png" alt-text="Save access settings":::
+      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png" alt-text="Save access settings":::
 
-   1. Confirm that you see **Microsoft Azure Batch** in the list of contributors. 
+   1. Confirm that you see **MicrosoftAzureBatch** in the list of contributors. 
 
-       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png" alt-text="Confirm Azure Batch access":::
+      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png" alt-text="Confirm Azure Batch access":::
 
-1. Verify that the Azure Batch provider is registered in the Azure subscription that has the virtual network. Or register the Azure Batch provider. If you already have an Azure Batch account in your subscription, your subscription is registered for Azure Batch. (If you create the Azure-SSIS IR in the Data Factory portal, the Azure Batch provider is automatically registered for you.) 
+1. Make sure that *Microsoft.Batch* is a registered resource provider in Azure subscription that has the virtual network for your Azure-SSIS IR to join. For detailed instructions, see the [Register Azure Batch as a resource provider](azure-ssis-integration-runtime-virtual-network-configuration.md#registerbatch) section.
 
-   1. In the Azure portal, on the left menu, select **Subscriptions**. 
+## Join Azure-SSIS IR to the virtual network
 
-   1. Select your subscription. 
+After you've configured an Azure Resource Manager/classic virtual network, you can join your Azure-SSIS IR to the virtual network:
 
-   1. On the left, select **Resource providers**, and confirm that **Microsoft.Batch** is a registered provider. 
+1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support ADF UI. 
 
-   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png" alt-text="Confirmation of &quot;Registered&quot; status":::
-
-   If you don't see **Microsoft.Batch** in the list, to register it, [create an empty Azure Batch account](../batch/batch-account-create-portal.md) in your subscription. You can delete it later. 
-
-## Join the Azure-SSIS IR to a virtual network
-
-After you've configured your Azure Resource Manager virtual network or classic virtual network, you can join the Azure-SSIS IR to the virtual network:
-
-1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support the Data Factory UI. 
-
-1. In the [Azure portal](https://portal.azure.com), on the left menu, select **Data factories**. If you don't see **Data factories** on the menu, select **More services**, and then in the **INTELLIGENCE + ANALYTICS** section, select **Data factories**. 
+1. In [Azure portal](https://portal.azure.com), on the left-hand-side menu, select **Data factories**. If you don't see **Data factories** on the menu, select **More services**, and then in the **INTELLIGENCE + ANALYTICS** section, select **Data factories**. 
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png" alt-text="List of data factories":::
 
-1. Select your data factory with the Azure-SSIS IR in the list. You see the home page for your data factory. Select the **Author & Monitor** tile. You see the Data Factory UI on a separate tab. 
+1. Select your ADF with Azure-SSIS IR in the list. You see the home page for your ADF. Select the **Author & Monitor** tile. You see ADF UI on a separate tab. 
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png" alt-text="Data factory home page":::
 
-1. In the Data Factory UI, switch to the **Edit** tab, select **Connections**, and switch to the **Integration Runtimes** tab. 
+1. In ADF UI, switch to the **Edit** tab, select **Connections**, and switch to the **Integration Runtimes** tab. 
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png" alt-text="&quot;Integration runtimes&quot; tab":::
 
@@ -126,9 +108,11 @@ After you've configured your Azure Resource Manager virtual network or classic v
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png" alt-text="Edit the integration runtime":::
 
-1. On the integration runtime setup panel, advance through the **General Settings** and **SQL Settings** sections by selecting the **Next** button. 
+1. On the **Integration runtime setup** pane, advance through the **General settings** and **Deployment settings** pages by selecting the **Next** button.
 
-1. On the **Advanced Settings** section: 
+1. On the **Advanced settings** page, complete the following steps.
+
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png" alt-text="Advanced settings with a virtual network":::
 
    1. Select the **Select a VNet for your Azure-SSIS Integration Runtime to join, allow ADF to create certain network resources, and optionally bring your own static public IP addresses** check box. 
 
@@ -136,36 +120,45 @@ After you've configured your Azure Resource Manager virtual network or classic v
 
    1. For **Location**, the same location of your integration runtime is selected.
 
-   1. For **Type**, select the type of your virtual network: classic or Azure Resource Manager. We recommend that you select an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
+   1. For **Type**, select the type of your virtual network: **Azure Resource Manager Virtual Network**/classic virtual network. We recommend that you select **Azure Resource Manager Virtual Network**, because classic virtual network will be deprecated soon.
 
-   1. For **VNet Name**, select the name of your virtual network. It should be the same one used for SQL Database with virtual network service endpoints or SQL Managed Instance with private endpoint to host SSISDB. Or it should be the same one connected to your on-premises network. Otherwise, it can be any virtual network to bring your own static public IP addresses for Azure-SSIS IR.
+   1. For **VNet Name**, select the name of your virtual network. It should be the same one used to configure a virtual network service endpoint/private endpoint for your Azure SQL Database server that hosts SSISDB. Or it should be the same one joined by your Azure SQL Managed Instance that hosts SSISDB. Or it should be the same one connected to your on-premises network. Otherwise, it can be any virtual network to bring your own static public IP addresses for Azure-SSIS IR.
 
-   1. For **Subnet Name**, select the name of subnet for your virtual network. It should be the same one used for SQL Database with virtual network service endpoints to host SSISDB. Or it should be a different subnet from the one used for SQL Managed Instance with private endpoint to host SSISDB. Otherwise, it can be any subnet to bring your own static public IP addresses for Azure-SSIS IR.
+   1. For **Subnet Name**, select the name of subnet for your virtual network. It should be the same one used to configure a virtual network service endpoint for your Azure SQL Database server that hosts SSISDB. Or it should be a different subnet from the one joined by your Azure SQL Managed Instance that hosts SSISDB. Otherwise, it can be any subnet to bring your own static public IP addresses for Azure-SSIS IR.
 
-   1. Select the **Bring static public IP addresses for your Azure-SSIS Integration Runtime** check box to choose whether you want to bring your own static public IP addresses for Azure-SSIS IR, so you can allow them on the firewall for your data sources.
+   1. For **VNet injection method**, select the method of your virtual network injection: **Express**/**Standard**. 
+   
+      To compare these methods, see the [Compare the standard and express virtual network injection methods](azure-ssis-integration-runtime-virtual-network-configuration.md#compare) article. 
+   
+      If you select **Express**, see the [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md) article. 
+      
+      If you select **Standard**, see the [Standard virtual network injection method](azure-ssis-integration-runtime-standard-virtual-network-injection.md) article.  With this method, you can also:
 
-      If you select the check box, complete the following steps.
+      1. Select the **Bring static public IP addresses for your Azure-SSIS Integration Runtime** check box to choose whether you want to bring your own static public IP addresses for Azure-SSIS IR, so you can allow them on the firewall of your data stores.
 
-      1. For **First static public IP address**, select the first static public IP address that [meets the requirements](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP) for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
+         If you select the check box, complete the following steps.
+
+         1. For **First static public IP address**, select the first static public IP address that [meets the requirements](azure-ssis-integration-runtime-standard-virtual-network-injection.md#ip) for your Azure-SSIS IR. If you don't have any, click the **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
 	  
-      1. For **Second static public IP address**, select the second static public IP address that [meets the requirements](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP) for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
+         1. For **Second static public IP address**, select the second static public IP address that [meets the requirements](azure-ssis-integration-runtime-standard-virtual-network-injection.md#ip) for your Azure-SSIS IR. If you don't have any, click the **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
 
    1. Select **VNet Validation**. If the validation is successful, select **Continue**. 
 
-   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png" alt-text="Advanced settings with a virtual network":::
+1. On the **Summary** page, review all settings for your Azure-SSIS IR and then select **Update**.
 
-1. On the **Summary** section, review all settings for your Azure-SSIS IR. Then select **Update**.
-
-1. Start your Azure-SSIS IR by selecting the **Start** button in the **Actions** column for your Azure-SSIS IR. It takes about 20 to 30 minutes to start the Azure-SSIS IR that joins a virtual network. 
+1. Start your Azure-SSIS IR by selecting the **Start** button in **Actions** column for your Azure-SSIS IR. It takes about 5/20-30 minutes to start your Azure-SSIS IR that joins a virtual network with express/standard injection method, respectively. 
 
 ## Next steps
-- [Join an Azure-SSIS integration runtime to a virtual network - Overview](join-azure-ssis-integration-runtime-virtual-network.md)
-- [Azure-SSIS integration runtime virtual network configuration details](azure-ssis-integration-runtime-virtual-network-configuration.md)
-- [Join an Azure-SSIS integration runtime to a virtual network with Azure PowerShell](join-azure-ssis-integration-runtime-virtual-network-powershell.md)
+
+- [Configure a virtual network to inject Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md)
+- [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md)
+- [Standard virtual network injection method](azure-ssis-integration-runtime-standard-virtual-network-injection.md)
+- [Join Azure-SSIS IR to a virtual network via Azure PowerShell](join-azure-ssis-integration-runtime-virtual-network-powershell.md)
 
 For more information about Azure-SSIS IR, see the following articles: 
+
 - [Azure-SSIS IR](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides general conceptual information about IRs, including Azure-SSIS IR. 
-- [Tutorial: Deploy SSIS packages to Azure](./tutorial-deploy-ssis-packages-azure.md). This tutorial provides step-by-step instructions to create your Azure-SSIS IR. It uses Azure SQL Database to host the SSIS catalog. 
-- [Create an Azure-SSIS IR](create-azure-ssis-integration-runtime.md). This article expands on the tutorial. It provides instructions about using Azure SQL Database with virtual network service endpoints or SQL Managed Instance in a virtual network to host the SSIS catalog. It shows how to join your Azure-SSIS IR to a virtual network. 
-- [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to get information about your Azure-SSIS IR. It provides status descriptions for the returned information. 
-- [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or delete your Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding nodes.
+- [Tutorial: Deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md). This tutorial provides step-by-step instructions to create your Azure-SSIS IR. It uses Azure SQL Database server to host SSISDB. 
+- [Create an Azure-SSIS IR](create-azure-ssis-integration-runtime.md). This article expands on the tutorial. It provides instructions on using Azure SQL Database server configured with a virtual network service endpoint/IP firewall rule/private endpoint or Azure SQL Managed Instance that joins a virtual network to host SSISDB. It shows you how to join your Azure-SSIS IR to a virtual network. 
+- [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to retrieve and understand information about your Azure-SSIS IR.
+- [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or delete your Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding more nodes.

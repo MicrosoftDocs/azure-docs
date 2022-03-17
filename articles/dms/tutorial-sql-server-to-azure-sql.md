@@ -215,36 +215,7 @@ To migrate the **AdventureWorks2016** schema to a single database or pooled data
 
 [!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]   
 
-## Create an Azure Database Migration Service instance
-
-1. In the Azure portal menu or on the **Home** page, select **Create a resource**. Search for and select **Azure Database Migration Service**.
-
-    ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql/portal-marketplace.png)
-
-2. On the **Azure Database Migration Service** screen, select **Create**.
-
-    ![Create Azure Database Migration Service instance](media/tutorial-sql-server-to-azure-sql/dms-create-1.png)
-  
-3. On the **Create Migration Service** basics screen:
-
-     - Select the subscription.
-     - Create a new resource group or choose an existing one.
-     - Specify a name for the instance of the Azure Database Migration Service.
-     - Select the location in which you want to create the instance of Azure Database Migration Service.
-     - Choose **Azure** as the service mode.
-     - Select a pricing tier. For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
-
-    ![Configure Azure Database Migration Service instance basics settings](media/tutorial-sql-server-to-azure-sql/dms-settings-2.png)
-
-     - Select **Next: Networking**.
-
-4. On the **Create Migration Service** networking screen:
-
-    - Select an existing virtual network or create a new one. The virtual network provides Azure Database Migration Service with access to the source SQL Server and the target Azure SQL Database instance. For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
-
-    ![Configure Azure Database Migration Service instance networking settings](media/tutorial-sql-server-to-azure-sql/dms-settings-3.png)
-
-    - Select **Review + Create** to review the details and then select **Create** to create the service.
+[!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]   
 
 ## Create a migration project
 

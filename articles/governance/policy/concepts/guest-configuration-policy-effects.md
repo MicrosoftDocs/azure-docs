@@ -14,7 +14,7 @@ Before you begin, it's a good idea to read the overview page for
 > deploy the extension at scale across all machines, assign the following policy
 > initiative: `Deploy prerequisites to enable guest configuration policies on
 > virtual machines`
-> 
+>
 > To use guest configuration packages that apply configurations, Azure VM guest
 > configuration extension version **1.29.24** or later,
 > or Arc agent **1.10.0** or later, is required.
@@ -64,7 +64,7 @@ To enable this behavior, set the
 [assignmentType property](/rest/api/guestconfiguration/guest-configuration-assignments/get#assignmenttype)
 of the guest configuration assignment to "ApplyandMonitor". Each time the
 assignment is processed within the machine, for each resource the
-[Test](/powershell/scripting/dsc/resources/get-test-set#test)
+[Test](/powershell/dsc/resources/get-test-set#test)
 method returns "true" the agent reports "Compliant"
 or if the method returns "false" the agent reports "NonCompliant".
 
@@ -76,9 +76,9 @@ To enable this behavior, set the
 [assignmentType property](/rest/api/guestconfiguration/guest-configuration-assignments/get#assignmenttype)
 of the guest configuration assignment to "ApplyandAutoCorrect". Each time the
 assignment is processed within the machine, for each resource the
-[Test](/powershell/scripting/dsc/resources/get-test-set#test)
+[Test](/powershell/dsc/resources/get-test-set#test)
 method returns "false", the
-[Set](/powershell/scripting/dsc/resources/get-test-set#set)
+[Set](/powershell/dsc/resources/get-test-set#set)
 method runs automatically.
 
 ## Disable remediation
@@ -117,7 +117,7 @@ If enforcement is set to "Disabled", the configuration assignment
 audits the state of the machine until the behavior is changed by a
 [remediation task](../how-to/remediate-resources.md). By default, guest configuration
 definitions update the
-[assignmentType property](/rest/api/guestconfiguration/guest-configuration-assignments/get#assignmenttype) from "Audit" to "ApplyandMonitor" so the configuration 
+[assignmentType property](/rest/api/guestconfiguration/guest-configuration-assignments/get#assignmenttype) from "Audit" to "ApplyandMonitor" so the configuration
 is applied one time and then it won't apply again until a remediation is
 triggered.
 

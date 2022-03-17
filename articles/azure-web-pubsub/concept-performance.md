@@ -3,7 +3,7 @@ title: Performance guide for Azure Web PubSub Service
 description: An overview of the performance and benchmark of Azure Web PubSub Service. Key metrics to consider when planning the capacity.
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 5/12/2021
+ms.date: 11/08/2021
 ms.author: biqian
 author: bjqian
 ---
@@ -155,7 +155,7 @@ In this case, the app server writes back the original message back in the http r
 
 
 
-### Rest API
+### REST API
 
 Azure Web PubSub provides powerful [APIs](/rest/api/webpubsub/) to manage clients and deliver real-time messages.
 

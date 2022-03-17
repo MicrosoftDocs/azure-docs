@@ -3,7 +3,7 @@ title: Azure AD Connect cloud sync expressions and function reference
 description: reference
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 # Writing expressions for attribute mappings in Azure Active Directory
 When you configure cloud sync, one of the types of attribute mappings that you can specify is an expression mapping. 
 
-The expression mapping allows you to customize attributes using a script-like expression.  This allows you to transform the on-premises data into an new or different value.  For example, you may want to combine two attributes into a single attribute because this single attribute is used by one of your cloud applications.
+The expression mapping allows you to customize attributes using a script-like expression.  This allows you to transform the on-premises data into a new or different value.  For example, you may want to combine two attributes into a single attribute because this single attribute is used by one of your cloud applications.
 
 The following document will cover the script-like expressions that are used to transform the data.  This is only part of the process.  Next you will need to use this expression and place it in a web request to your tenant.  For more information on that see [Transformations](how-to-transformation.md)
 

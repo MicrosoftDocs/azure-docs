@@ -7,10 +7,7 @@ ms.date: 05/26/2020
 ms.topic: quickstart
 ms.service: mariadb
 ms.devlang: azurepowershell
-ms.custom: devx-track-azurepowershell
-  - mvc
-  - devx-track-azurepowershell
-  - mode-api
+ms.custom: devx-track-azurepowershell, mvc, mode-api
 ---
 
 # Quickstart: Create an Azure Database for MariaDB server using PowerShell

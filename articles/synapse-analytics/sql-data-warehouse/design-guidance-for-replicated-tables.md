@@ -1,15 +1,14 @@
 ---
 title: Design guidance for replicated tables
 description: Recommendations for designing replicated tables in Synapse SQL pool  
-services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 03/19/2019
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: 
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -17,11 +16,9 @@ ms.custom: seo-lt-2019, azure-synapse
 
 This article gives recommendations for designing replicated tables in your Synapse SQL pool schema. Use these recommendations to improve query performance by reducing data movement and query complexity.
 
-> [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
-
 ## Prerequisites
 
-This article assumes you are familiar with data distribution and data movement concepts in SQL pool.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article.
+This article assumes you are familiar with data distribution and data movement concepts in SQL pool. For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article.
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
@@ -31,13 +28,13 @@ As part of table design, understand as much as possible about your data and how 
 
 ## What is a replicated table?
 
-A replicated table has a full copy of the table accessible on each Compute node. Replicating a table removes the need to transfer data among Compute nodes before a join or aggregation. Since the table has multiple copies, replicated tables work best when the table size is less than 2 GB compressed.  2 GB is not a hard limit.  If the data is static and does not change, you can replicate larger tables.
+A replicated table has a full copy of the table accessible on each Compute node. Replicating a table removes the need to transfer data among Compute nodes before a join or aggregation. Since the table has multiple copies, replicated tables work best when the table size is less than 2 GB compressed. 2 GB is not a hard limit.  If the data is static and does not change, you can replicate larger tables.
 
 The following diagram shows a replicated table that is accessible on each Compute node. In SQL pool, the replicated table is fully copied to a distribution database on each compute node.
 
-![Replicated table](./media/design-guidance-for-replicated-tables/replicated-table.png "Replicated table")  
+:::image type="content" source="./media/design-guidance-for-replicated-tables/replicated-table.png" alt-text="Replicated table" lightbox="./media/design-guidance-for-replicated-tables/replicated-table.png":::
 
-Replicated tables work well for dimension tables in a star schema. Dimension tables are typically joined to fact tables which are distributed differently than the dimension table.  Dimensions are usually of a size that makes it feasible to store and maintain multiple copies. Dimensions store descriptive data that changes slowly, such as customer name and address, and product details. The slowly changing nature of the data leads to less maintenance of the replicated table.
+Replicated tables work well for dimension tables in a star schema. Dimension tables are typically joined to fact tables, which are distributed differently than the dimension table.  Dimensions are usually of a size that makes it feasible to store and maintain multiple copies. Dimensions store descriptive data that changes slowly, such as customer name and address, and product details. The slowly changing nature of the data leads to less maintenance of the replicated table.
 
 Consider using a replicated table when:
 
@@ -62,18 +59,16 @@ CPU-intensive queries perform best when the work is distributed across all of th
 For example, this query has a complex predicate.  It runs faster when the data is in a distributed table instead of a replicated table. In this example, the data can be round-robin distributed.
 
 ```sql
-
 SELECT EnglishProductName
 FROM DimProduct
-WHERE EnglishDescription LIKE '%frame%comfortable%'
-
+WHERE EnglishDescription LIKE '%frame%comfortable%';
 ```
 
 ## Convert existing round-robin tables to replicated tables
 
 If you already have round-robin tables, we recommend converting them to replicated tables if they meet the criteria outlined in this article. Replicated tables improve performance over round-robin tables because they eliminate the need for data movement.  A round-robin table always requires data movement for joins.
 
-This example uses [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to change the DimSalesTerritory table to a replicated table. This example works regardless of whether DimSalesTerritory is hash-distributed or round-robin.
+This example uses [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to change the `DimSalesTerritory` table to a replicated table. This example works regardless of whether `DimSalesTerritory` is hash-distributed or round-robin.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]
@@ -96,7 +91,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 A replicated table does not require any data movement for joins because the entire table is already present on each Compute node. If the dimension tables are round-robin distributed, a join copies the dimension table in full to each Compute node. To move the data, the query plan contains an operation called BroadcastMoveOperation. This type of data movement operation slows query performance and is eliminated by using replicated tables. To view query plan steps, use the [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) system catalog view.  
 
-For example, in following query against the AdventureWorks schema, the `FactInternetSales` table is hash-distributed. The `DimDate` and `DimSalesTerritory` tables are smaller dimension tables. This query returns the total sales in North America for fiscal year 2004:
+For example, in following query against the `AdventureWorks` schema, the `FactInternetSales` table is hash-distributed. The `DimDate` and `DimSalesTerritory` tables are smaller dimension tables. This query returns the total sales in North America for fiscal year 2004:
 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
@@ -119,7 +114,7 @@ We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran th
 
 ## Performance considerations for modifying replicated tables
 
-SQL pool implements a replicated table by maintaining a master version of the table. It copies the master version to the first distribution database on each Compute node. When there is a change, the master version is updated first, then the tables on each Compute node are rebuilt. A rebuild of a replicated table includes copying the table to each Compute node and then building the indexes.  For example, a replicated table on a DW2000c has 5 copies of the data.  A master copy and a full copy on each Compute node.  All data is stored in distribution databases. SQL pool uses this model to support faster data modification statements and flexible scaling operations.
+SQL pool implements a replicated table by maintaining a master version of the table. It copies the master version to the first distribution database on each Compute node. When there is a change, the master version is updated first, then the tables on each Compute node are rebuilt. A rebuild of a replicated table includes copying the table to each Compute node and then building the indexes.  For example, a replicated table on a DW2000c has five copies of the data.  A master copy and a full copy on each Compute node.  All data is stored in distribution databases. SQL pool uses this model to support faster data modification statements and flexible scaling operations.
 
 Asynchronous rebuilds are triggered by the first query against the replicated table after:
 

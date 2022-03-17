@@ -71,7 +71,7 @@ Output displays the access token, abbreviated here:
 ```
 For registry authentication, we recommend that you store the token credential in a safe location and follow recommended practices to manage [docker login](https://docs.docker.com/engine/reference/commandline/login/) credentials. For example, store the token value in an environment variable:
 
-```bash
+```azurecli
 TOKEN=$(az acr login --name <acrName> --expose-token --output tsv --query accessToken)
 ```
 
@@ -79,6 +79,13 @@ Then, run `docker login`, passing `00000000-0000-0000-0000-000000000000` as the 
 
 ```console
 docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password $TOKEN
+```
+Likewise, you can use the token returned by `az acr login` with the `helm registry login` command to authenticate with the registry:
+
+```console
+echo $TOKEN | helm registry login myregistry.azurecr.io \
+            --username 00000000-0000-0000-0000-000000000000 \
+            --password-stdin
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -127,7 +134,7 @@ The admin account is currently required for some scenarios to deploy an image fr
 > The admin account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials among multiple users. All users authenticating with the admin account appear as a single user with push and pull access to the registry. Changing or disabling this account disables registry access for all users who use its credentials. Individual identity is recommended for users and service principals for headless scenarios.
 >
 
-The admin account is provided with two passwords, both of which can be regenerated. Two passwords allow you to maintain connection to the registry by using one password while you regenerate the other. If the admin account is enabled, you can pass the username and either password to the `docker login` command when prompted for basic authentication to the registry. For example:
+The admin account is provided with two passwords, both of which can be regenerated. New passwords created for admin accounts are available immediately. Regenerating passwords for admin accounts will take 60 seconds to replicate and be available. Two passwords allow you to maintain connection to the registry by using one password while you regenerate the other. If the admin account is enabled, you can pass the username and either password to the `docker login` command when prompted for basic authentication to the registry. For example:
 
 ```
 docker login myregistry.azurecr.io

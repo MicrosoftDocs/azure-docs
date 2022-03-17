@@ -44,12 +44,16 @@
     href: concepts-api-management.md
   - name: Hub and spoke
     href: concepts-hub-and-spoke.md
+  - name: Network design considerations
+    href: concepts-network-design-considerations.md
   - name: Networking and interconnectivity
     href: concepts-networking.md
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
   - name: Run command
     href: concepts-run-command.md
+  - name: Security recommendations
+    href: concepts-security-recommendations.md
   - name: Storage 
     href: concepts-storage.md
 - name: How-to guides
@@ -58,7 +62,7 @@
     items:
     - name: Protect, monitor, and manage VMs
       href: integrate-azure-native-services.md
-    - name: Integrate Azure Security Center
+    - name: Integrate Microsoft Defender for Cloud
       href: azure-security-integration.md
     - name: Integrate Azure NetApp Files
       href: netapp-files-with-azure-vmware-solution.md
@@ -119,15 +123,17 @@
     - name: Enable public internet access
       href: enable-public-internet-access.md
     - name: HCX Mobility Optimized Networking (MON) guidance 
-      href: vmware-hcx-mon-guidance.md  
+      href: vmware-hcx-mon-guidance.md
   - name: Configure storage policies
-    href: configure-storage-policy.md 
+    href: configure-storage-policy.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Connect multiple private clouds in same region
     href: connect-multiple-private-clouds-same-region.md
+  - name: Deploy Arc
+    href: deploy-arc-for-azure-vmware-solution.md
   - name: Deploy disaster recovery
     items:
     - name: Deploy JetStream DR
@@ -136,6 +142,14 @@
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery
       href: disaster-recovery-using-vmware-site-recovery-manager.md
+    - name: Deploy Zerto disaster recovery
+      href: deploy-zerto-disaster-recovery.md
+  - name: Deploy virtual desktops
+    items:
+    - name: Deploy Horizon on Azure VMware Solution
+      href: azure-vmware-solution-horizon.md
+    - name: Deploy Citrix on Azure VMware Solution
+      href: azure-vmware-solution-citrix.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
@@ -148,20 +162,26 @@
     href: rotate-cloudadmin-credentials.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
-  - name: VMware ecosystem
+  - name: Partner solution ecosystem
     items:
+    - name: Operating system support for VMs
+      href: ecosystem-os-vms.md
     - name: Backup solutions for VMs
       href: ecosystem-back-up-vms.md
+    - name: Disaster recovery solutions for VMs
+      href: ecosystem-disaster-recovery-vms.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
     - name: Security solutions for Azure VMware Solution
       href: ecosystem-security-solutions.md
+    - name: Application performance monitoring solutions for Azure VMware Solution
+      href: ecosystem-app-monitoring-solutions.md
     - name: Bitnami appliance deployment
       href: bitnami-appliances-deployment.md
   - name: VMware solutions
     items:
     - name: Configure HCX network extension
-      href: configure-hcx-network-extension.md    
+      href: configure-hcx-network-extension.md
     - name: Configure vRealize Operations
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon
@@ -187,31 +207,31 @@
     - name: General
       href: ./faq.yml
     - name: Billing
-      href: /azure/azure-vmware/faq#billing
+      href: ./faq.yml
     - name: Customer communication
-      href: /azure/azure-vmware/faq#customer-communication
+      href: ./faq.yml
     - name: Configuration and setup
-      href: /azure/azure-vmware/faq#configuration-and-setup
+      href: ./faq.yml
     - name: VMware software
-      href: /azure/azure-vmware/faq#vmware-software
+      href: ./faq.yml
     - name: Third-party backup solutions
-      href: /azure/azure-vmware/faq#third-party-backup-and-recovery
+      href: ./faq.yml
     - name: Compute
-      href: /azure/azure-vmware/faq#compute
+      href: ./faq.yml
     - name: Networking and interconnectivity
-      href: /azure/azure-vmware/faq#networking-and-interconnectivity
+      href: ./faq.yml
     - name: Storage
-      href: /azure/azure-vmware/faq#storage
+      href: ./faq.yml
     - name: Hosts, clusters, and private clouds
-      href: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
+      href: ./faq.yml
     - name: Identity management
-      href: /azure/azure-vmware/faq#identity-management
+      href: ./faq.yml
     - name: CSP and multi-tenancy
-      href: /azure/azure-vmware/faq#csp-and-multi-tenancy
+      href: ./faq.yml
   - name: Videos
     items:
     - name: Playlist
-      href: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
+      href: https://www.youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
     - name: Integration with Azure Service
       href: https://youtu.be/m26iLu6DHbU
     - name: Integration with Azure Application Gateway
@@ -221,7 +241,7 @@
 - name: Reference
   items:
   - name: REST API
-    href: /rest/api/avs
+    href: /rest/api/avs/
   - name: Azure CLI
     href: /cli/azure/vmware
   - name: Azure PowerShell

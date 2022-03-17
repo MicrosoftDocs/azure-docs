@@ -35,11 +35,16 @@ Key Vault has created a set of policies, which can be used to manage key vaults 
 
 # [Certificate Policies](#tab/certificates)
 
-### Certificates should have the specified maximum validity period (preview)
+### Manage certificates that are within a specified number of days of expiration 
 
-This policy allows you to manage the maximum validity period of your certificates stored in key vault. It is a good security practice to limit the maximum validity period of your certificates. If a private key of your certificate were to become compromised without detection, using short lived certificates minimizes the time frame for ongoing damage and reduces the value of the certificate to an attacker.
+Your service can experience an outage if a certificate that is not being adequately monitored is not rotated prior to its expiration. This policy is critical to making sure that your certificates stored in key vault are being monitored. It is recommended that you apply this policy multiple times with different expiration thresholds, for example, at 180, 90, 60, and 30-day thresholds. This policy can be used to monitor and triage certificate expiration in your organization. 
 
-### Certificates should use allowed key types (preview)
+
+### Certificates should have the specified lifetime action triggers  
+
+This policy allows you to manage the lifetime action specified for certificates that are either within a certain number of days of their expiration or have reached a certain percentage of their usable life.
+
+### Certificates should use allowed key types  
 
 This policy allows you to restrict the type of certificates that can be in your key vault. You can use this policy to make sure that your certificate private keys are RSA, ECC, or are HSM backed. You can choose from the following list which certificate types are allowed.
 
@@ -48,19 +53,15 @@ This policy allows you to restrict the type of certificates that can be in your 
 - ECC
 - ECC - HSM
 
-### Certificates should have the specified lifetime action triggers (preview)
-
-This policy allows you to manage the lifetime action specified for certificates that are either within a certain number of days of their expiration or have reached a certain percentage of their usable life.
-
-### Certificates should be issued by the specified integrated certificate authority (preview)
+### Certificates should be issued by the specified integrated certificate authority  
 
 If you use a Key Vault integrated certificate authority (Digicert or GlobalSign) and you want users to use one or either of these providers, you can use this policy to audit or enforce your selection. This policy will evaluate the CA selected in the issuance policy of the cert and the CA provider defined in the key vault. This policy can also be used to audit or deny the creation of self-signed certificates in key vault.
 
-### Certificates should be issued by the specified non-integrated certificate authority (preview)
+### Certificates should be issued by the specified non-integrated certificate authority  
 
 If you use an internal certificate authority or a certificate authority not integrated with key vault and you want users to use a certificate authority from a list you provide, you can use this policy to create an allowed list of certificate authorities by issuer name. This policy can also be used to audit or deny the creation of self-signed certificates in key vault.
 
-### Certificates using elliptic curve cryptography should have allowed curve names (preview)
+### Certificates using elliptic curve cryptography should have allowed curve names 
 
 If you use elliptic curve cryptography or ECC certificates, you can customize an allowed list of curve names from the list below. The default option allows all the following curve names.
 
@@ -69,7 +70,7 @@ If you use elliptic curve cryptography or ECC certificates, you can customize an
 - P-384
 - P-521
 
-## Certificates using RSA cryptography Manage minimum key size for RSA certificates (preview)
+### Certificates using RSA cryptography Manage minimum key size for RSA certificates  
 
 If you use RSA certificates, you can choose a minimum key size that your certificates must have. You may select one option from the list below.
 
@@ -77,13 +78,13 @@ If you use RSA certificates, you can choose a minimum key size that your certifi
 - 3072 bit
 - 4096 bit
 
-## Manage certificates that are within a specified number of days of expiration (preview)
+### Certificates should have the specified maximum validity period (preview)
 
-Your service can experience an outage if a certificate that is not being adequately monitored is not rotated prior to its expiration. This policy is critical to making sure that your certificates stored in key vault are being monitored. It is recommended that you apply this policy multiple times with different expiration thresholds, for example, at 180, 90, 60, and 30-day thresholds. This policy can be used to monitor and triage certificate expiration in your organization.
+This policy allows you to manage the maximum validity period of your certificates stored in key vault. It is a good security practice to limit the maximum validity period of your certificates. If a private key of your certificate were to become compromised without detection, using short lived certificates minimizes the time frame for ongoing damage and reduces the value of the certificate to an attacker.
 
 # [Key Policies](#tab/keys)
 
-### Keys should not be active for longer than the specified number of days (preview)
+### Keys should not be active for longer than the specified number of days 
 
 If you want to make sure that your keys have not been active for longer than a specified number of days, you can use this policy to audit how long your key has been active.
 
@@ -91,7 +92,7 @@ If you want to make sure that your keys have not been active for longer than a s
 
 **If your key does not have an activation date set**, this policy will calculate the number of days that have elapsed from the **creation date** of the key to the current date. If the number of days exceeds the threshold you set, the key will be marked as non-compliant with the policy.
 
-### Keys should be the specified cryptographic type RSA or EC (preview)
+### Keys should be the specified cryptographic type RSA or EC 
 
 This policy allows you to restrict the type of keys that can be in your key vault. You can use this policy to make sure that your keys are RSA, ECC, or are HSM backed. You can choose from the following list which certificate types are allowed.
 
@@ -100,7 +101,7 @@ This policy allows you to restrict the type of keys that can be in your key vaul
 - ECC
 - ECC - HSM
 
-### Keys using elliptic curve cryptography should have the specified curve names (preview)
+### Keys using elliptic curve cryptography should have the specified curve names 
 
 If you use elliptic curve cryptography or ECC keys, you can customize an allowed list of curve names from the list below. The default option allows all the following curve names.
 
@@ -109,29 +110,29 @@ If you use elliptic curve cryptography or ECC keys, you can customize an allowed
 - P-384
 - P-521
 
-### Keys should have expirations dates set (preview)
+### Keys should have expirations dates set 
 
 This policy audits all keys in your key vaults and flags keys that do not have an expiration date set as non-compliant. You can also use this policy to block the creation of keys that do not have an expiration date set.
 
-### Keys should have more than the specified number of days before expiration (preview)
+### Keys should have more than the specified number of days before expiration 
 
 If a key is too close to expiration, an organizational delay to rotate the key may result in an outage. Keys should be rotated at a specified number of days prior to expiration to provide sufficient time to react to a failure. This policy will audit keys that are too close to their expiration date and allows you to set this threshold in days. You can also use this policy to prevent the creation of new keys that are too close to their expiration date.
 
-### Keys should be backed by a hardware security module (preview)
+### Keys should be backed by a hardware security module 
 
 An HSM is a hardware security module that stores keys. An HSM provides a physical layer of protection for cryptographic keys. The cryptographic key cannot leave a physical HSM which provides a greater level of security than a software key. Some organizations have compliance requirements that mandate the use of HSM keys. Use this policy to audit any keys stored in your key vault that is not HSM backed. You can also use this policy to block the creation of new keys that are not HSM backed. This policy will apply to all key types, RSA and ECC.
 
-### Keys using RSA cryptography should have a specified minimum key size (preview)
+### Keys using RSA cryptography should have a specified minimum key size 
 
 Using RSA keys with smaller key sizes is not a secure design practice. You may be subject to audit and certification standards that mandate the use of a minimum key size. The following policy allows you to set a minimum key size requirement on your key vault. You can audit keys that do not meet this minimum requirement. This policy can also be used to block the creation of new keys that do not meet the minimum key size requirement.
 
-### Keys should have the specified maximum validity period (preview)
+### Keys should have the specified maximum validity period
 
 Manage your organizational compliance requirements by specifying the maximum amount of time in days that a key can be valid within your key vault. Keys that are valid longer than the threshold you set will be marked as non-compliant. You can also use this policy to block the creation of new keys that have an expiration date set longer than the maximum validity period you specify.
 
 # [Secret Policies](#tab/secrets)
 
-### Secrets should not be active for longer than the specified number of days (preview)
+### Secrets should not be active for longer than the specified number of days 
 
 If you want to make sure that your secrets have not been active for longer than a specified number of days, you can use this policy to audit how long your secret has been active.
 
@@ -139,19 +140,19 @@ If you want to make sure that your secrets have not been active for longer than 
 
 **If your secret does not have an activation date set**, this policy will calculate the number of days that have elapsed from the **creation date** of the secret to the current date. If the number of days exceeds the threshold you set, the secret will be marked as non-compliant with the policy.
 
-### Secrets should have content type set (preview)
+### Secrets should have content type set 
 
 Any plain text or encoded file can be stored as a key vault secret. However, your organization may want to set different rotation policies and restrictions on passwords, connection strings, or certificates stored as keys. A content type tag can help a user see what is stored in a secret object without reading the value of the secret. You can use this policy to audit secrets that don't have a content type tag set. You can also use this policy to prevent new secrets from being created if they don't have a content type tag set.
 
-### Secrets should have expiration date set (preview)
+### Secrets should have expiration date set 
 
 This policy audits all secrets in your key vault and flags secrets that do not have an expiration date set as non-compliant. You can also use this policy to block the creation of secrets that do not have an expiration date set.
 
-### Secrets should have more than the specified number of days before expiration (preview)
+### Secrets should have more than the specified number of days before expiration 
 
 If a secret is too close to expiration, an organizational delay to rotate the secret may result in an outage. Secrets should be rotated at a specified number of days prior to expiration to provide sufficient time to react to a failure. This policy will audit secrets that are too close to their expiration date and allows you to set this threshold in days. You can also use this policy to prevent the creation of new secrets that are too close to their expiration date.
 
-### Secrets should have the specified maximum validity period (preview)
+### Secrets should have the specified maximum validity period 
 
 Manage your organizational compliance requirements by specifying the maximum amount of time in days that a secret can be valid within your key vault. Secrets that are valid longer than the threshold you set will be marked as non-compliant. You can also use this policy to block the creation of new secrets that have an expiration date set longer than the maximum validity period you specify.
 
@@ -211,7 +212,7 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
     ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](../media/policy-img6.png)
 
-1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
+1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. If you need to input the parameters, you can uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
 
     ![Screenshot that shows the Parameters tab where you can specify the maximum validity period in months that you want.](../media/policy-img7.png)
 
@@ -238,12 +239,19 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
 ## Feature Limitations
 
-Assigning a policy with a "deny" effect may take up to 30 mins (average case) and 1 hour (worst case) to start denying the creation of non-compliant resources. 
+Assigning a policy with a "deny" effect may take up to 30 mins (average case) and 1 hour (worst case) to start denying the creation of non-compliant resources. The delay refers to following scenarios -
+1.	A new policy is assigned
+2.	An existing policy assignment is modified
+3.	A new KeyVault (resource) is created in a scope with existing policies.
+
 The policy evaluation of existing components in a vault may take up to 1 hour (average case) and 2 hours (worst case) before compliance results are viewable in the portal UI. 
 If the compliance results show up as "Not Started" it may be due to the following reasons:
 - The policy valuation has not completed yet. Initial evaluation latency can take up to 2 hours in the worst-case scenario. 
 - There are no key vaults in the scope of the policy assignment.
 - There are no key vaults with certificates within the scope of the policy assignment.
+
+
+
 
 > [!NOTE]
 > Azure Policy
@@ -254,6 +262,7 @@ If the compliance results show up as "Not Started" it may be due to the followin
 
 ## Next Steps
 
+- [Logging and frequently asked questions for Azure policy for key vault](../general/troubleshoot-azure-policy-for-key-vault.md)
 - Learn more about the [Azure Policy service](../../governance/policy/overview.md)
 - See Key Vault samples: [Key Vault built-in policy definitions](../../governance/policy/samples/built-in-policies.md#key-vault)
 - Learn about [Azure Security Benchmark guidance on Key vault](/security/benchmark/azure/baselines/key-vault-security-baseline?source=docs#network-security)

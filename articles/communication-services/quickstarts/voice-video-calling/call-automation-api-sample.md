@@ -5,13 +5,13 @@ description: Provides a quickstart sample for the Call Automation APIs.
 author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
-
 ms.author: jken
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
+ms.custom: mode-api
 ---
 
 # Quickstart: Use the call automation APIs
@@ -38,5 +38,5 @@ If you want to clean up and remove a Communication Services subscription, you ca
 For more information, see the following articles:
 
 - Check out our [calling hero sample](../../samples/calling-hero-sample.md)
-- Learn about [Calling SDK capabilities](./calling-client-samples.md)
+- Learn about [Calling SDK capabilities](./getting-started-with-calling.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

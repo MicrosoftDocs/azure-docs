@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 01/14/2022
 ms.author: cshoe
 ms.custom: devx-track-js
 ---
@@ -53,14 +53,18 @@ The following chart shows how requests are handled locally.
 
 - **Responses** from all services are returned to the browser as if they were all a single application.
 
+The following article details the steps for running a node-based application, but the process is the same for any language or environment. Once you start the UI and the Azure Functions API apps independently, then start the Static Web Apps CLI and point it to the running apps using the following command:
+
+```console
+swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location http://localhost:7071
+```
+
 ## Prerequisites
 
 - **Existing Azure Static Web Apps site**: If you don't have one, begin with the [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate) starter app.
 - **[Node.js](https://nodejs.org) with npm**: Run the [Node.js LTS](https://nodejs.org) version, which includes access to [npm](https://www.npmjs.com/).
 - **[Visual Studio Code](https://code.visualstudio.com/)**: Used for debugging the API application, but not required for the CLI.
-
-> [!NOTE]
-> In order to run `swa` with an [API locally](add-api.md#run-the-frontend-and-api-locally), the Azure Functions Core Tools are required.
+- **[Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)**: Required to run the API locally.
 
 ## Get started
 
@@ -68,7 +72,9 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
 1. Install the CLI.
 
-    `npm install -g @azure/static-web-apps-cli`
+    ```console
+    npm install -g @azure/static-web-apps-cli azure-functions-core-tools
+    ```
 
 1. Build your app if required by your application.
 
@@ -78,7 +84,9 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
 1. Start the CLI.
 
-    `swa start`
+    ```console
+    swa start
+    ```
 
 1. Navigate to `http://localhost:4280` to view the app in the browser.
 
@@ -88,8 +96,8 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 |--- | --- |
 | Serve a specific folder | `swa start ./output-folder` |
 | Use a running framework development server | `swa start http://localhost:3000` |
-| Start a Functions app in a folder | `swa start ./output-folder --api ./api` |
-| Use a running Functions app | `swa start ./output-folder --api http://localhost:7071` |
+| Start a Functions app in a folder | `swa start ./output-folder --api-location ./api` |
+| Use a running Functions app | `swa start ./output-folder --api-location http://localhost:7071` |
 
 ## Authorization and authentication emulation
 
@@ -126,9 +134,14 @@ The following steps show you a common scenario that uses development servers for
 
 1. Open the API application folder in Visual Studio Code and start a debugging session.
 
-1. Pass the addresses for the static server and API server to the `swa start` command by listing them in order.
+1. Start the Static Web Apps CLI using the following command.
 
-    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api=http://localhost:7071`
+
+    ```console
+    swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location http://localhost:7071
+    ```
+
+    Replace `<DEV-SERVER-PORT-NUMBER>` with the development server's port number.
 
 The following screenshots show the terminals for a typical debugging scenario:
 
@@ -147,6 +160,25 @@ The Static Web Apps CLI is launched using both development servers.
 Now requests that go through port `4280` are routed to either the static content development server, or the API debugging session.
 
 For more information on different debugging scenarios, with guidance on how to customize ports and server addresses, see the [Azure Static Web Apps CLI repository](https://github.com/Azure/static-web-apps-cli).
+
+### Sample debugging configuration
+
+Visual Studio Code uses a file to enable debugging sessions in the editor. If Visual Studio Code doesn't generate a *launch.json* file for you, you can place the following configuration in *.vscode/launch.json*.
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to Node Functions",
+            "type": "node",
+            "request": "attach",
+            "port": 9229,
+            "preLaunchTask": "func: host start"
+        }
+    ]
+}
+```
 
 ## Next steps
 

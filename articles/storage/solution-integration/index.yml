@@ -77,4 +77,6 @@ landingContent:
             url: .\validated-partners\primary-secondary-storage\partner-overview.md
           - text: ISV file services
             url: .\validated-partners\primary-secondary-storage\isv-file-services.md
+          - text: Tiger Bridge getting started guide
+            url: ./validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide.md
       

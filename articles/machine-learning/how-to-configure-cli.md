@@ -4,17 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Learn how to install and set up the Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: core
 ms.topic: how-to
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 05/25/2021
+ms.date: 02/28/2022
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
 ---
 
 # Install and set up the CLI (v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
 
@@ -71,9 +73,20 @@ If you have access to multiple Azure subscriptions, you can set your active subs
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
 
+Optionally, setup common variables in your shell for usage in subsequent commands:
+
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="set_variables":::
+
+> [!WARNING]
+> This uses Bash syntax for setting variables -- adjust as needed for your shell. You can also replace the values in commands below inline rather than using variables.
+
 If it doesn't already exist, you can create the Azure resource group:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_group_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_group_create":::
+
+And create a machine learning workspace:
+
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
 
 Machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters. To avoid typing these repeatedly, configure defaults:
 
@@ -82,12 +95,35 @@ Machine learning subcommands require the `--workspace/-w` and `--resource-group/
 > [!TIP]
 > Most code examples assume you have set a default workspace and resource group. You can override these on the command line.
 
-Now create the machine learning workspace:
+You can show your current defaults using `--list-defaults/-l`:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="list_defaults":::
+
+> [!TIP]
+> Combining with `--output/-o` allows for more readable output formats.
+
+## Secure communications
+
+The `ml` CLI extension (sometimes called 'CLI v2') for Azure Machine Learning sends operational data (YAML parameters and metadata) over the public internet. All the `ml` CLI extension commands communicate with the Azure Resource Manager. This communication is secured using HTTPS/TLS 1.2.
+
+> [!NOTE]
+> With the previous extension (`azure-cli-ml`, sometimes called 'CLI v1'), only some of the commands communicate with the Azure Resource Manager. Specifically, commands that create, update, delete, list, or show Azure resources. Operations such as submitting a training job communicate directly with the Azure Machine Learning workspace. If your workspace is [secured with a private endpoint](how-to-configure-private-link.md), that is enough to secure commands provided by the `azure-cli-ml` extension.
+
+> [!TIP]
+> Data stored in a data store that is secured in a virtual network is _not_ sent over the public internet. For example, if your training data is secured on the default storage account for the workspace, and the storage account is in the virtual network.
+
+You can increase the security of CLI communications with Azure Resource Manager by using Azure Private Link. The following links provide information on using a Private Link for managing Azure resources:
+
+1. [Secure your Azure Machine Learning workspace inside a virtual network using a private endpoint](how-to-configure-private-link.md).
+2. [Create a Private Link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md). 
+3. [Create a private endpoint](../azure-resource-manager/management/create-private-link-access-portal.md#create-private-endpoint) for the Private Link created in the previous step.
+
+> [!IMPORTANT]
+> To configure the private link for Azure Resource Manager, you must be the _subscription owner_ for the Azure subscription, and an _owner_ or _contributor_ of the root management group. For more information, see [Create a private link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md).
 
 ## Next steps
 
-- [Train models using Machine Learning CLI extension (preview)](how-to-train-cli.md)
+- [Train models using CLI (v2)](how-to-train-cli.md)
 - [Set up the Visual Studio Code Azure Machine Learning extension](how-to-setup-vs-code.md)
 - [Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)
+- [Explore Azure Machine Learning with examples](samples-notebooks.md)

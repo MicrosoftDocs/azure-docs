@@ -1,39 +1,36 @@
 ---
 title: Visualize collected data
-description: Learn how to quickly view and monitor what's happening across your environment by using Azure Sentinel.
-services: sentinel
+description: Learn how to quickly view and monitor what's happening across your environment by using Microsoft Sentinel.
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.custom: mvc, fasttrack-edit
-ms.date: 09/16/2020
+ms.custom: mvc, fasttrack-edit, ignite-fall-2021, mode-other
+ms.date: 11/09/2021
 ms.author: yelevin
-#Customer intent: As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
 ---
 
 # Visualize collected data
 
-In this article, you will learn how to quickly be able to view and monitor what's happening across your environment using Azure Sentinel. After you connected your data sources to Azure Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Azure Sentinel gives you workbooks that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use built-in workbooks or create a new workbook easily, from scratch or based on an existing workbook. 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+In this article, you will learn how to quickly be able to view and monitor what's happening across your environment using Microsoft Sentinel. After you connected your data sources to Microsoft Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Microsoft Sentinel gives you workbooks that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use built-in workbooks or create a new workbook easily, from scratch or based on an existing workbook. 
 
 ## Get visualization
 
-To visualize and get analysis of what's happening on your environment, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created. To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses a fusion technique to correlate alerts into incidents. **Incidents** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
+To visualize and get analysis of what's happening on your environment, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created. To help you reduce noise and minimize the number of alerts you have to review and investigate, Microsoft Sentinel uses a fusion technique to correlate alerts into incidents. **Incidents** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
 
-- In the Azure portal, select Azure Sentinel and then select the workspace you want to monitor.
+- In the Azure portal, select Microsoft Sentinel and then select the workspace you want to monitor.
 
-  ![Azure Sentinel overview](./media/qs-get-visibility/overview.png)
+  ![Microsoft Sentinel overview](./media/qs-get-visibility/overview.png)
 
-- The toolbar across the top tells you how many events you got over the time period selected, and it compares it to the previous 24 hours. The toolbar tells you from these events, the alerts that were triggered (the small number represents change over the last 24 hours), and then it tells you for those events, how many are open, in progress, and closed. Check to see that there isn't a dramatic increase or drop in the number of events. If there is a drop, it could be that a connection stopped reporting to Azure Sentinel. If there is an increase, something suspicious may have happened. Check to see if you have new alerts.
+- The toolbar across the top tells you how many events you got over the time period selected, and it compares it to the previous 24 hours. The toolbar tells you from these events, the alerts that were triggered (the small number represents change over the last 24 hours), and then it tells you for those events, how many are open, in progress, and closed. Check to see that there isn't a dramatic increase or drop in the number of events. If there is a drop, it could be that a connection stopped reporting to Microsoft Sentinel. If there is an increase, something suspicious may have happened. Check to see if you have new alerts.
 
-   ![Azure Sentinel counters](./media/qs-get-visibility/funnel.png)
+   ![Microsoft Sentinel counters](./media/qs-get-visibility/funnel.png)
 
 The main body of the overview page gives insight at a glance into the security status of your workspace:
 
 - **Events and alerts over time**: Lists the number of events and how many alerts were created from those events. If you see a spike that's unusual, you should see alerts for it - if there's something unusual where there is a spike in events but you don't see alerts, it might be cause for concern.
 
-- **Potential malicious events**: When traffic is detected from sources that are known to be malicious, Azure Sentinel alerts you on the map. If you see orange, it is inbound traffic: someone is trying to access your organization from a known malicious IP address. If you see Outbound (red) activity, it means that data from your network is being streamed out of your organization to a known malicious IP address.
+- **Potential malicious events**: When traffic is detected from sources that are known to be malicious, Microsoft Sentinel alerts you on the map. If you see orange, it is inbound traffic: someone is trying to access your organization from a known malicious IP address. If you see Outbound (red) activity, it means that data from your network is being streamed out of your organization to a known malicious IP address.
 
    ![Malicious traffic map](./media/qs-get-visibility/map.png)
 
@@ -49,7 +46,7 @@ Built-in workbooks provide integrated data from your connected data sources to l
 
 1. Under **Settings**, select **Workbooks**. Under **Installed**, you can see all your installed workbook. Under **All**, you can see the whole gallery of built-in workbooks that are available for installation. 
 2. Search for a specific workbook to see the whole list and description of what each offers. 
-3. Assuming you use Azure AD, to get up and running with Azure Sentinel, we recommend that you install at least the following workbooks:
+3. Assuming you use Azure AD, to get up and running with Microsoft Sentinel, we recommend that you install at least the following workbooks:
    - **Azure AD**: Use either or both of the following:
        - **Azure AD sign-ins** analyzes sign-ins over time to see if there are anomalies. This workbooks provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
        - **Azure AD audit logs** analyzes admin activities, such as changes in users (add, remove, etc.), group creation, and modifications.  
@@ -65,7 +62,7 @@ For more information on working with queries, see [Tutorial: Visual data in Log 
 
 ### Add a new tile
 
-If you want to add a new tile, you can add it to an existing workbook, either one that you create or an Azure Sentinel built-in workbook. 
+If you want to add a new tile, you can add it to an existing workbook, either one that you create or a Microsoft Sentinel built-in workbook. 
 1. In Log Analytics, create a tile using the instructions found in [Tutorial: Visual data in Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md). 
 2. After the tile is created, under **Pin**, select the workbook in which you want the tile to appear.
 
@@ -107,18 +104,18 @@ You can create different workbooks based on role of person looking at the data a
 
 ## Create new detections
 
-Generate detections on the [data sources that you connected to Azure Sentinel](connect-data-sources.md) to investigate threats in your organization.
+Generate detections on the [data sources that you connected to Microsoft Sentinel](connect-data-sources.md) to investigate threats in your organization.
 
 When you create a new detection, leverage the built-in detections crafted by Microsoft security researchers that are tailored to the data sources you connected.
 
-To view all the out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the Azure Sentinel built-in rules.
+To view all the out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the Microsoft Sentinel built-in rules.
 
-   ![Use built-in detections to find threats with Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
+   ![Use built-in detections to find threats with Microsoft Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
 For more information about getting out-of-the-box detections, see [Get built-in-analytics](detect-threats-built-in.md).
 
 ## Next steps
-In this quickstart, you learned how to get started using Azure Sentinel. Continue to the article for [how to detect threats](detect-threats-built-in.md).
+In this quickstart, you learned how to get started using Microsoft Sentinel. Continue to the article for [how to detect threats](detect-threats-built-in.md).
 
 > [!div class="nextstepaction"]
 > [Create custom threat detection rules](detect-threats-custom.md) to automate your responses to threats.

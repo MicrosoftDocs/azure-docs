@@ -3,12 +3,11 @@ title: MLflow and Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn about MLflow with Azure Machine Learning to log metrics and artifacts from ML models, and deploy your ML models as a web service.
 services: machine-learning
-author: cjgronlund
-ms.author: cgronlun
+author: nibaccam
+ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: mlops
-ms.reviewer: nibaccam
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ---
@@ -42,20 +41,19 @@ Together, MLflow Tracking and Azure Machine learning allow you to track an exper
 
 With MLflow Tracking you can connect Azure Machine Learning as the backend of your MLflow experiments. By doing so, you can do the following tasks,
 
-+ Track and log experiment metrics and artifacts in your [Azure Machine Learning workspace](./concept-azure-machine-learning-architecture.md#workspace). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store training metrics and models. 
++ Track and log experiment metrics and artifacts in your [Azure Machine Learning workspace](./concept-azure-machine-learning-architecture.md#workspace). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store training metrics and models. Learn more at [Track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
 
 + Track and manage models in MLflow and Azure Machine Learning model registry.
 
 + [Track Azure Databricks training runs](how-to-use-mlflow-azure-databricks.md).
 
-Learn more at [Track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
+## Train MLflow projects (preview)
 
-## Train MLflow projects
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 You can use MLflow's tracking URI and logging API, collectively known as MLflow Tracking, to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) and Azure Machine Learning backend support (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud like via an [Azure Machine Learning Compute](./how-to-create-attach-compute-cluster.md).
 
-Learn more at [Train ML models with MLflow projects and Azure Machine Learning](how-to-train-mlflow-projects.md).
-
+Learn more at [Train ML models with MLflow projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
 
 ## Deploy MLflow experiments
 
@@ -63,7 +61,7 @@ You can [deploy your MLflow model as an Azure web service](how-to-deploy-mlflow-
 
 ## Next steps
 * [Track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
-* [Train ML models with MLflow projects and Azure Machine Learning](how-to-train-mlflow-projects.md).
+* [Train ML models with MLflow projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
 * [Track Azure Databricks runs with MLflow](how-to-use-mlflow-azure-databricks.md).
 * [Deploy models with MLflow](how-to-deploy-mlflow-models.md).
 

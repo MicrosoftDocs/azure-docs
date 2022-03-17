@@ -12,7 +12,7 @@ ms.date: 12/09/2020
 
 # Delta copy from a database with a control table
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes a template that's available to incrementally load new or updated rows from a database table to Azure by using an external control table that stores a high-watermark value.
 
@@ -45,44 +45,44 @@ The template defines following parameters:
 
 1. Explore the source table you that want to load, and define the high-watermark column that can be used to identify new or updated rows. The type of this column might be *datetime*, *INT*, or similar. This column's value increases as new rows are added. From the following sample source table (data_source_table), we can use the *LastModifytime* column as the high-watermark column.
 
-	```sql
-			PersonID	Name	LastModifytime
-			1	aaaa	2017-09-01 00:56:00.000
-			2	bbbb	2017-09-02 05:23:00.000
-			3	cccc	2017-09-03 02:36:00.000
-			4	dddd	2017-09-04 03:21:00.000
-			5	eeee	2017-09-05 08:06:00.000
-			6	fffffff	2017-09-06 02:23:00.000
-			7	gggg	2017-09-07 09:01:00.000
-			8	hhhh	2017-09-08 09:01:00.000
-			9	iiiiiiiii	2017-09-09 09:01:00.000
-	```
-	
+    ```output
+    PersonID	Name            LastModifytime
+    1           aaaa            2017-09-01 00:56:00.000
+    2           bbbb            2017-09-02 05:23:00.000
+    3           cccc            2017-09-03 02:36:00.000
+    4           dddd            2017-09-04 03:21:00.000
+    5           eeee            2017-09-05 08:06:00.000
+    6           fffffff         2017-09-06 02:23:00.000
+    7           gggg            2017-09-07 09:01:00.000
+    8           hhhh            2017-09-08 09:01:00.000
+    9           iiiiiiiii       2017-09-09 09:01:00.000
+    ```
+
 2. Create a control table in SQL Server or Azure SQL Database to store the high-watermark value for delta data loading. In the following example, the name of the control table is *watermarktable*. In this table, *WatermarkValue* is the column that stores the high-watermark value, and its type is *datetime*.
 
-	```sql
-			create table watermarktable
-			(
-			WatermarkValue datetime,
-			);
-			INSERT INTO watermarktable
-			VALUES ('1/1/2010 12:00:00 AM')
-	```
-	
+    ```sql
+    create table watermarktable
+    (
+    WatermarkValue datetime,
+    );
+    INSERT INTO watermarktable
+    VALUES ('1/1/2010 12:00:00 AM')
+    ```
+
 3. Create a stored procedure in the same SQL Server or Azure SQL Database instance that you used to create the control table. The stored procedure is used to write the new high-watermark value to the external control table for delta data loading next time.
 
-	```sql
-			CREATE PROCEDURE update_watermark @LastModifiedtime datetime
-			AS
+    ```sql
+    CREATE PROCEDURE update_watermark @LastModifiedtime datetime
+    AS
 
-			BEGIN
+    BEGIN
 
-				UPDATE watermarktable
-				SET [WatermarkValue] = @LastModifiedtime 
+        UPDATE watermarktable
+        SET [WatermarkValue] = @LastModifiedtime 
 
-			END
-	```
-	
+    END
+    ```
+
 4. Go to the **Delta copy from Database** template. Create a **New** connection to the source database that you want to data copy from.
 
     :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png" alt-text="Create a new connection to the source table":::
@@ -119,13 +119,13 @@ The template defines following parameters:
 
 13. You can create new rows in your source table. Here is sample SQL language to create new rows:
 
-	```sql
-			INSERT INTO data_source_table
-			VALUES (10, 'newdata','9/10/2017 2:23:00 AM')
+    ```sql
+    INSERT INTO data_source_table
+    VALUES (10, 'newdata','9/10/2017 2:23:00 AM')
 
-			INSERT INTO data_source_table
-			VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
-	```
+    INSERT INTO data_source_table
+    VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
+    ```
 
 14. To run the pipeline again, select **Debug**, enter the **Parameters**, and then select **Finish**.
 

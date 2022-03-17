@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: tutorial
 author: srinia
 ms.author: srinia
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 10/21/2020
 ---
 # Create an Elastic Job agent using PowerShell (preview)

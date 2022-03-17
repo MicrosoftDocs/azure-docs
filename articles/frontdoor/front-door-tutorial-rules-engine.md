@@ -6,7 +6,6 @@ documentationcenter: ''
 author: duongau
 editor: ''
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -37,13 +36,24 @@ In this tutorial, you learn how to:
 1. Click **Add Rule** to create your first rule. Then, by clicking **Add condition** or **Add action** you can define your rule.
     
     > [!NOTE]
-    >- To delete a condition or action from rule, use the trash can on the right-hand side of the specific condition or action.
+    > - To delete a condition or action from rule, use the trash can on the right-hand side of the specific condition or action.
     > - To create a rule that applies to all incoming traffic, do not specify any conditions.
-    > - To stop evaluating rules once the first match condition is met, check **Stop evaluating remaining rule**. If this is checked and all of the match conditions of a particular rule are met, then the remaining rules in the configuration will not be executed.  
+    > - To stop evaluating rules once the first match condition is met, check **Stop evaluating remaining rule**. If this is checked and all of the match conditions of a particular rule are met, then the remaining rules in the configuration will not be executed.
+    > - All paths in Rules Engine are case sensitive.
+    > - Header names should adhere to [RFC 7230](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6).
 
     ![Rules Engine configuration](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 
 1. Determine the priority of the rules within your configuration by using the Move up, Move down, and Move to top buttons. The priority is in ascending order, meaning the rule first listed is the most important rule.
+
+
+    > [!TIP]
+    > If you like to verify when the changes are propagated to Azure Front Door, you can create a custom response header in the rule using the example below. You can add a response header `_X-<RuleName>-Version_`  and change the value each time rule is updated.
+    >  
+    > :::image type="content" source="./media/front-door-rules-engine/rules-version.png" alt-text="Screenshot of custom version header rule." lightbox="./media/front-door-rules-engine/rules-version-expanded.png":::
+    > After the changes are updated, you can go to the URL to confirm the rule version being invoked: 
+    > :::image type="content" source="./media/front-door-rules-engine/version-output.png" alt-text="Screenshot of custom header version output.":::
+
 
 1. Once you have created one or more rules, press **Save**. This action creates your Rules Engine configuration.
 

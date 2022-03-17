@@ -4,6 +4,7 @@ description: Learn the types of user accounts and how to configure them.
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.custom: seodec18
+ms.devlang: csharp, java, python
 ---
 # Run tasks under user accounts in Batch
 

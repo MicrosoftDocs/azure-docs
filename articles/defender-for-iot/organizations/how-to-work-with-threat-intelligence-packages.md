@@ -1,7 +1,7 @@
 ---
 title: Update threat intelligence data
 description: The threat intelligence data package is provided with each new Defender for IoT version, or if needed between releases.
-ms.date: 04/17/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 # Threat intelligence research and packages #
@@ -28,7 +28,7 @@ This intelligence provides contextual information to enrich Microsoft platform a
 
 Threat intelligence packages are provided approximately once a month, or if needed more frequently. Announcements about new packages are available from: https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT.
 
-You can also see the most current package delivered from the **Threat intelligence update** section of the **Updates** page on the Defender for IoT portal.  
+You can also see the most current package delivered from the **Threat intelligence update** section of the **Updates** page on Defender for IoT in the Azure portal.
 
 ## Update threat intelligence packages to your sensors ##
 
@@ -46,12 +46,11 @@ Threat intelligence packages can be automatically updated to *cloud connected* s
 
 ### Manually push threat intelligence updates to sensors ###
 
-Your *cloud connected* sensors can be automatically updated with threat intelligence packages. However, if you would like to take a more conservative approach, you can push packages from the Azure Defender for IoT portal to sensors only when you feel it is required.
-This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors.
+Your *cloud connected* sensors can be automatically updated with threat intelligence packages. However, if you would like to take a more conservative approach, you can push packages from Defender for IoT to sensors only when you feel it is required. This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors.
 
 **To manually push packages:**
 
-1. Go to the Azure Defender for IoT **Sites and Sensors** page.
+1. Go to the Microsoft Defender for IoT **Sites and Sensors** page.
 1. Select the ellipsis (...) for a sensor and then select **Push Threat Intelligence update**. The **Threat Intelligence update status** field displays the update progress.
 
 #### Change the threat intelligence update mode ####
@@ -65,15 +64,15 @@ You can change the sensor threat intelligence update mode after initial onboardi
 
 ### Download packages and upload to sensors ###
 
-Packages can be download from the Defender for IoT portal and manually uploaded to individual sensors. If the on-premises management console manages your sensors, you can download threat intelligence packages to the management console and push them to multiple sensors simultaneously.
+Packages can be downloaded the Azure portal and manually uploaded to individual sensors. If the on-premises management console manages your sensors, you can download threat intelligence packages to the management console and push them to multiple sensors simultaneously.
 
-:::image type="content" source="media/how-to-work-with-threat-intelligence-packages/download-screen.png" alt-text="Download updates through the Azure Defender for IoT portal.":::
+:::image type="content" source="media/how-to-work-with-threat-intelligence-packages/download-screen.png" alt-text="Download updates in the Azure portal.":::
 
 This option is available for both *cloud connected* and *locally managed* sensors.
 
 **To upload to a single sensor:**
 
-1. Go to the Azure Defender for IoT **Updates** page.
+1. Go to the Microsoft Defender for IoT **Updates** page.
 
 2. Download and save the **Threat Intelligence** package.
 
@@ -87,7 +86,7 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 **To upload to multiple sensors simultaneously:**
 
-1. Go to the Azure Defender for IoT **Updates** page.
+1. Go to the Microsoft Defender for IoT **Updates** page.
 
 2. Download and save the **Threat Intelligence** package.
 
@@ -115,7 +114,7 @@ Review the following information about threat intelligence packages for your clo
 
 To review threat intelligence information:
 
-1. Go to the Azure Defender for IoT **Sites and Sensors** page.
+1. Go to the Microsoft Defender for IoT **Sites and Sensors** page.
 1. Review the **Threat Intelligence version** installed on each sensor. Version naming is based on the day the package was built by Defender for IoT.
 1. Review the **Threat Intelligence mode** . *Automatic* indicates that newly available  packages will be automatically installed on sensors as they are released by Defender for IoT. *Manual* indicates that you can push newly available packages directly to sensors as needed.
 1. Review the **Threat Intelligence update status**. The following statuses may be displayed:
@@ -127,8 +126,10 @@ To review threat intelligence information:
 
 If cloud connected threat intelligence updates fail, review  connection  information in the **Sensor status** and **Last connected UTC** columns in the **Sites and Sensors** page. 
 
-## See also
+## Next steps
 
-[Onboard a sensor](getting-started.md#onboard-a-sensor)
+For more information, see:
 
-[Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Onboard a sensor](getting-started.md#onboard-a-sensor)
+
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)

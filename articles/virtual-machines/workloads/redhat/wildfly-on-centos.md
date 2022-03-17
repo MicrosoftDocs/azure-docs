@@ -8,8 +8,7 @@ ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: redhat
-ms.custom:
-  - mode-api
+ms.custom: mode-other
 ms.collection: linux
 ---
 

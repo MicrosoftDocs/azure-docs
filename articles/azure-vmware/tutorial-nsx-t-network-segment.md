@@ -24,16 +24,16 @@ In this tutorial, you learn how to:
 
 An Azure VMware Solution private cloud with access to the vCenter and NSX-T Manager interfaces. For more information, see the [Configure networking](tutorial-configure-networking.md) tutorial.
 
-## Use NSX-T Manager to add network segment 
-
-The virtual machines (VMs) created in vCenter are placed onto the network segments created in NSX-T and are visible in vCenter.
-
-[!INCLUDE [add-network-segment-steps](includes/add-network-segment-steps.md)]
 
 ## Use Azure portal to add an NSX-T segment
 
 [!INCLUDE [create-nsxt-segment-azure-portal-steps](includes/create-nsxt-segment-azure-portal-steps.md)]
 
+## Use NSX-T Manager to add network segment 
+
+The virtual machines (VMs) created in vCenter are placed onto the network segments created in NSX-T and are visible in vCenter.
+
+[!INCLUDE [add-network-segment-steps](includes/add-network-segment-steps.md)]
 
 ## Verify the new network segment
 

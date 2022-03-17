@@ -5,6 +5,7 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 06/30/2021
 ms.author: azfuncdf
+ms.devlang: csharp
 #Customer intent: As a developer, I want to learn how to use Durable Entities in .NET so I can persist object state in a serverless context.
 ---
 

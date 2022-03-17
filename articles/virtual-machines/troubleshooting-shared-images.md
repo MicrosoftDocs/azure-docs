@@ -1,18 +1,21 @@
 ---
 title: Troubleshoot problems with shared images in Azure 
-description: Learn how to troubleshoot problems with shared image galleries.
+description: Learn how to troubleshoot problems with shared images in Azure Compute Galleries.
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+author: sandeepraichura
+ms.author: saraic
+ms.reviewer: cynthn
+ms.subservice: gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 7/1/2021
 ---
 
-# Troubleshoot shared image galleries in Azure
+# Troubleshoot images in an Azure Compute Gallery
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-If you have problems performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. You activate debug mode by passing the `--debug` switch with the Azure CLI and the `-Debug` switch with PowerShell. After you've located the error, follow this article to troubleshoot it.
+If you have problems performing any operations on Azure Compute Gallery (formerly known as Shared Image Gallery) resources, like galleries, image definitions, and image versions, run the failing command again in debug mode. You activate debug mode by passing the `--debug` switch with the Azure CLI and the `-Debug` switch with PowerShell. After you've located the error, follow this article to troubleshoot it.
 
 
 ## Creating or modifying a gallery ##
@@ -197,11 +200,11 @@ If you have problems performing any operations on shared image galleries, image 
 **Workaround**: Either choose a source with the same operating system (Linux/Windows) as the image definition or create/choose a new image definition that has the same operating system generation as the image version.
 
 **Message**: *Source virtual machine \<resourceID\> cannot contain an ephemeral OS disk.*  
-**Cause**: The source at \<resourceID\> contains an ephemeral OS disk. The shared image gallery does not currently support ephemeral OS disks.  
+**Cause**: The source at \<resourceID\> contains an ephemeral OS disk. The Azure Compute Gallery does not currently support ephemeral OS disks.  
 **Workaround**: Choose a different source based on a VM that does not use an ephemeral OS disk.
 
 **Message**: *Source virtual machine \<resourceID\> cannot contain disk ['\<diskID\>'] stored in an UltraSSD account type.*  
-**Cause**: The disk \<diskID\> is an Ultra SSD disk. The shared image gallery does not currently support Ultra SSD disks.  
+**Cause**: The disk \<diskID\> is an Ultra SSD disk. The Azure Compute Gallery does not currently support Ultra SSD disks.  
 **Workaround**: Use a source that contains only Premium SSD, Standard SSD, and/or Standard HDD managed disks.
 
 **Message**: *Source virtual machine \<resourceID\> must be created from Managed Disks.*  
@@ -217,7 +220,7 @@ If you have problems performing any operations on shared image galleries, image 
 **Workaround**: Create or use an encryption set in the same subscription and region as the image version.
 
 **Message**: *Encrypted source: '\<resourceID\>' is in a different subscription ID than the current gallery image version subscription '\<subscriptionID\_1\>'. Please retry with an unencrypted source(s) or use the source's subscription '\<subcriptionID\_2\>' to create the gallery image version.*  
-**Cause**: The shared image gallery does not currently support creating image versions in another subscription from another source image if the source image is encrypted.  
+**Cause**: The Azure Compute Gallery does not currently support creating image versions in another subscription from another source image if the source image is encrypted.  
 **Workaround**: Use an unencrypted source or create the image version in the same subscription as the source.
 
 **Message**: *The disk encryption set \<diskEncryptionSetID\> was not found.*  
@@ -277,7 +280,7 @@ If you have problems performing any operations on shared image galleries, image 
 **Workaround**: Use the LUNs and data disks of the existing image version.
 
 **Message**: *The disk encryption set \<diskEncryptionSetID\> must be in the same subscription \<subscriptionID\> as the gallery resource.*  
-**Cause**: The shared image gallery does not currently support using a disk encryption set in a different subscription.  
+**Cause**: The Azure Compute Gallery does not currently support using a disk encryption set in a different subscription.  
 **Workaround**: Create the image version and disk encryption set in the same subscription.
 
 **Message**: *Replication failed in this region due to 'The GalleryImageVersion source resource size 2048 exceeds the max size 1024 supported.'*  
@@ -289,7 +292,7 @@ If you have problems performing any operations on shared image galleries, image 
 **Workaround**: Wait for the deletion event to complete and recreate the image version again.
 
 **Message**: *Encryption is not supported for source resource '\<sourceID>'. Please use a different source resource type which supports encryption or remove encryption properties.*  
-**Cause**: Currently the Shared Image Gallery only supports encryption for VMs, disks, snapshots and managed images. One of the sources provided for the image version is not in the previous list of sources that support encryption.  
+**Cause**: Currently the Azure Compute Gallery only supports encryption for VMs, disks, snapshots and managed images. One of the sources provided for the image version is not in the previous list of sources that support encryption.  
 **Workaround**: Remove the disk encryption set from the image version and contact the support team.
 
 ## Creating or updating a VM or scale sets from an image version ##
@@ -307,7 +310,7 @@ If you have problems performing any operations on shared image galleries, image 
 **Workaround**: Ensure that there is at least one image version in the region that has 'Exclude from latest' set to False. 
 
 **Message**: *The client has permission to perform action 'Microsoft.Compute/galleries/images/versions/read' on scope \<resourceID\>, however the current tenant \<tenantID\> is not authorized to access linked subscription \<subscriptionID\>.*  
-**Cause**: The virtual machine or scale set was created through a SIG image in another tenant. You've tried to make a change to the virtual machine or scale set, but you don't have access to the subscription that owns the image.  
+**Cause**: The virtual machine or scale set was created through a gallery image in another tenant. You've tried to make a change to the virtual machine or scale set, but you don't have access to the subscription that owns the image.  
 **Workaround**: Contact the owner of the subscription of the image version to grant read access to the image version.
 
 **Message**: *The gallery image \<resourceID\> is not available in \<region\> region. Please contact image owner to replicate to this region, or change your requested region.*  
@@ -326,7 +329,7 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: The current source image for the scale set is a generalized source image, but it's being updated with a source image that is specialized. The current source image and the new source image for a scale set must be of the same state.  
 **Workaround**: To update the scale set, use a generalized image version.
 
-**Message**: *Disk encryption set \<diskEncryptionSetID\> in shared image gallery \<versionID\> belongs to subscription \<subscriptionID\_1\> and cannot be used with resource '' in subscription \<subscriptionID\_2\>*  
+**Message**: *Disk encryption set \<diskEncryptionSetID\> in Azure Compute Gallery \<versionID\> belongs to subscription \<subscriptionID\_1\> and cannot be used with resource '' in subscription \<subscriptionID\_2\>*  
 **Cause**: The disk encryption set used to encrypt the image version resides in a different subscription than the subscription to host the image version.  
 **Workaround**: Use the same subscription for the image version and disk encryption set.
 
@@ -341,12 +344,12 @@ If you have problems performing any operations on shared image galleries, image 
 ## Creating a disk from an image version ##
 
 **Message**: *The value of parameter imageReference is invalid.*  
-**Cause**: You've tried to export from a SIG Image version to a disk but used a LUN position that does not exist on the image.    
+**Cause**: You've tried to export from a gallery Image version to a disk but used a LUN position that does not exist on the image.    
 **Workaround**: Check the image version to see what LUN positions are in use.
 
 ## Sharing resources
 
-The sharing of image gallery, image definition, and image version resources across subscriptions is enabled using [Azure role-based access control (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
+The sharing of gallery, image definition, and image version resources across subscriptions is enabled using [Azure role-based access control (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 ## Replication speed
 
@@ -354,9 +357,9 @@ Use the **--expand ReplicationStatus** flag to check if the replication to all t
 
 ## Azure limits and quotas 
 
-[Azure limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) apply to all shared image gallery, image definition, and image version resources. Make sure you're within the limits for your subscriptions. 
+[Azure limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) apply to all Azure Compute Gallery, image definition, and image version resources. Make sure you're within the limits for your subscriptions. 
 
 
 ## Next steps
 
-Learn more about [shared image galleries](./shared-image-galleries.md).
+Learn more about [Azure Compute Galleries](./shared-image-galleries.md).

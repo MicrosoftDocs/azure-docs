@@ -80,7 +80,7 @@ In the image capture loop, avoid repeatedly setting the same exposure setting. C
 
 When multiple depth cameras are imaging overlapping fields of view, each camera must image its own associated laser. To prevent the lasers from interfering with one another, the camera captures should be offset from one another by 160μs or more.
 
-For each depth camera capture, the laser turns on nine times and is active for only 125&mu;s each time. The laser is then idle for either 14505&mu;s or 23905&mu;s, depending on the mode of operation. This behavior means that the starting point for the offset calculation is 125&mu;s.
+For each depth camera capture, the laser turns on nine times and is active for only 125&mu;s each time. The laser is then idle for either 1450&mu;s or 2390&mu;s, depending on the mode of operation. This behavior means that the starting point for the offset calculation is 125&mu;s.
 
 Additionally, differences between the camera clock and the device firmware clock increase the minimum offset to 160&mu;s. To calculate a more precise offset for your configuration, note the depth mode that you are using and refer to the [depth sensor raw timing table](hardware-specification.md#depth-sensor-raw-timing). By using the data from this table, you can calculate the minimum offset (the exposure time of each camera) by using the following equation:
 
@@ -91,7 +91,7 @@ When you use an offset of 160&mu;s, you can configure up to nine additional dept
 In your software, use ```depth_delay_off_color_usec``` or ```subordinate_delay_off_master_usec``` to make sure that each IR laser fires in its own 160&mu;s window or has a different field of view.
 
 > [!NOTE]  
-> The actual pulse width is 125us however we state 160us to provide for some leeway. Taking NFOV UNBINNED as an example, each 125us pulse is followed by 1450us idle. Totaling these up - (9 x 125) + (8 x 1450) - yields the exposure time of 12.8ms. The closet you can interleave the exposure of 2 devices is to have the first pulse of the second camera to fall in the first idle period of the first camera. The delay between the first and second cameras could be as little as 125us (the width of a pulse) however we recommend some leeway hence the 160us. Given 160us you can interleave the exposure periods of a maximum of 10 cameras.
+> The actual pulse width is 125&mu;s however we state 160us to provide for some leeway. Taking NFOV UNBINNED as an example, each 125&mu;s pulse is followed by 1450&mu;s idle. Totaling these up - (9 x 125) + (8 x 1450) - yields the exposure time of 12.8ms. The closet you can interleave the exposure of 2 devices is to have the first pulse of the second camera to fall in the first idle period of the first camera. The delay between the first and second cameras could be as little as 125&mu;s (the width of a pulse) however we recommend some leeway hence the 160&mu;s. Given 160&mu;s you can interleave the exposure periods of a maximum of 10 cameras.
 
 ## Prepare your devices and other hardware
 

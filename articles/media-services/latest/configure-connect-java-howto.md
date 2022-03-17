@@ -6,16 +6,14 @@ documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/17/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-api
 ms.author: inhenkel
-
 ---
 # Connect to Media Services v3 API - Java
 
@@ -72,28 +70,26 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 1. Under the package statement, add these import statements:
    
    ```java
-   import com.microsoft.azure.AzureEnvironment;
-   import com.microsoft.azure.credentials.ApplicationTokenCredentials;
-   import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
-   import com.microsoft.rest.LogLevel;
+   import com.azure.core.management.AzureEnvironment;
+   import com.azure.core.management.profile.AzureProfile;
+   import com.azure.identity.ClientSecretCredential;
+   import com.azure.identity.ClientSecretCredentialBuilder;
+   import com.azure.resourcemanager.mediaservices.MediaServicesManager;
    ```
 1. To create the Active Directory credentials that you need to make requests, add following code to the main method of the App class and set the values that you got from [Access APIs](./access-api-howto.md):
    
    ```java
-   final String clientId = "00000000-0000-0000-0000-000000000000";
-   final String tenantId = "00000000-0000-0000-0000-000000000000";
-   final String clientSecret = "00000000-0000-0000-0000-000000000000";
-   final String subscriptionId = "00000000-0000-0000-0000-000000000000";
-
    try {
-      ApplicationTokenCredentials credentials = new ApplicationTokenCredentials(clientId, tenantId, clientSecret, AzureEnvironment.AZURE);
-      credentials.withDefaultSubscriptionId(subscriptionId);
-
-      MediaManager manager = MediaManager
-              .configure()
-              .withLogLevel(LogLevel.BODY_AND_HEADERS)
-              .authenticate(credentials, credentials.defaultSubscriptionId());
-      System.out.println("signed in");
+        AzureProfile azureProfile = new AzureProfile("<YOUR_TENANT_ID>", "<YOUR_SUBSCRIPTION_ID>", AzureEnvironment.AZURE);
+        ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
+            .clientId("<YOUR_CLIENT_ID>")
+            .clientSecret("<YOUR_CLIENT_SECRET>")
+            .tenantId("<YOUR_TENANT_ID>")
+            // authority host is optional
+            .authorityHost("<AZURE_AUTHORITY_HOST>")
+            .build();
+        MediaServicesManager mediaServicesManager = MediaServicesManager.authenticate(clientSecretCredential, azureProfile);
+        System.out.println("Hello Azure");
    }
    catch (Exception e) {
       System.out.println("Exception encountered.");
@@ -107,10 +103,10 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 - [Media Services concepts](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)
 - [Java reference](/java/api/overview/azure/mediaservices/management)
-- [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
+- [com.azure.resourcemanager.mediaservices](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-mediaservices)
 
 ## Next steps
 
-You can now include `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` and start manipulating entities.
+You can now include `import com.azure.resourcemanager.mediaservices.*` and start manipulating entities.
 
 For more code examples, see the [Java SDK samples](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) repo.

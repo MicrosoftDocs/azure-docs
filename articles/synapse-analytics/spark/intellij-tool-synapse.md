@@ -4,7 +4,7 @@ description: Tutorial - Use the Azure Toolkit for IntelliJ to develop Spark appl
 services: synapse-analytics 
 author: jejiang
 ms.author: jejiang
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark

@@ -3,7 +3,6 @@ title: Smart detection - performance anomalies | Microsoft Docs
 description: Smart detection analyzes your app telemetry and warns you of potential problems. This feature needs no setup.
 ms.topic: conceptual
 ms.date: 05/04/2017
-
 ms.reviewer: antonfr
 ---
 
@@ -52,7 +51,7 @@ Smart detection notifications are enabled by default. They are sent to users tha
   
   ![Smart Detection Settings](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
-  * You can use the **unsubscribe** link in the smart detection email to stop receiving the email notifications.
+  * You can disable the default notification, and replace it with a specified list of emails.
 
 Emails about smart detection performance anomalies are limited to one email per day per Application Insights resource. The email will be sent only if there is at least one new issue that was detected on that day. You won't get repeats of any message. 
 
@@ -70,7 +69,7 @@ Emails about smart detection performance anomalies are limited to one email per 
 
   * Not yet, but you can:
     * [Set up alerts](../alerts/alerts-log.md) that tell you when a metric crosses a threshold.
-    * [Export telemetry](./export-telemetry.md) to a [database](./code-sample-export-sql-stream-analytics.md) or [to Power BI](./export-power-bi.md), where you can analyze it yourself.
+    * [Export telemetry](./export-telemetry.md) to a [database](../../stream-analytics/app-insights-export-sql-stream-analytics.md) or [to Power BI](./export-power-bi.md), where you can analyze it yourself.
 * *How often is the analysis done?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/11/2021
+ms.date: 01/04/2022
 ms.author: alkohli
 ---
 
@@ -25,23 +25,24 @@ For help troubleshooting issues with accessing the shares on your device, see [T
 
 The errors in Data Box and Data Box Heavy are summarized as follows:
 
-| Error category*        | Description        | Recommended action    |
+| Error category        | Description        | Recommended action    |
 |----------------------------------------------|---------|--------------------------------------|
-| Container or share names | The container or share names do not follow the Azure naming rules.  |Download the error lists. <br> Rename the containers or shares. [Learn more](#container-or-share-name-errors).  |
-| Container or share size limit | The total data in containers or shares exceeds the Azure limit.   |Download the error lists. <br> Reduce the overall data in the container or share. [Learn more](#container-or-share-size-limit-errors).|
-| Object or file size limit | The object or files in containers or shares exceeds the Azure limit.|Download the error lists. <br> Reduce the file size in the container or share. [Learn more](#object-or-file-size-limit-errors). |    
-| Data or file type | The data format or the file type is not supported. |Download the error lists. <br> For page blobs or managed disks, ensure the data is 512-bytes aligned and copied to the pre-created folders. [Learn more](#data-or-file-type-errors). |
-| Folder or file internal errors | The file or folder have an internal error. |Download the error lists. <br> Remove the file and copy again. For a folder, modify it by renaming or adding or deleting a file. The error should go away in 30 minutes.  [Learn more](#folder-or-file-internal-errors). |
+| Container or share names<sup>*</sup> | The container or share names do not follow the Azure naming rules.  |Download the error lists. <br> Rename the containers or shares. [Learn more](#container-or-share-name-errors).  |
+| Container or share size limit<sup>*</sup> | The total data in containers or shares exceeds the Azure limit.   |Download the error lists. <br> Reduce the overall data in the container or share. [Learn more](#container-or-share-size-limit-errors).|
+| Object or file size limit<sup>*</sup> | The object or files in containers or shares exceeds the Azure limit.|Download the error lists. <br> Reduce the file size in the container or share. [Learn more](#object-or-file-size-limit-errors). |    
+| Data or file type<sup>*</sup> | The data format or the file type is not supported. |Download the error lists. <br> For page blobs or managed disks, ensure the data is 512-bytes aligned and copied to the pre-created folders. [Learn more](#data-or-file-type-errors). |
+| Folder or file internal errors<sup>*</sup> | The file or folder have an internal error. |Download the error lists. <br> Remove the file and copy again. For a folder, modify it by renaming or adding or deleting a file. The error should go away in 30 minutes.  [Learn more](#folder-or-file-internal-errors). |
+| General error<sup>*</sup> | Internal exceptions or error paths in the code caused a critical error. | Reboot the device and rerun the **Prepare to Ship** operation. If the error doesn't go away, contact Microsoft Support. [Learn more](#general-errors). |
 | Non-critical blob or file errors  | The blob or file names do not follow the Azure naming rules or the file type is not supported. | These blob or files may not be copied or the names may be changed. [Learn how to fix these errors](#non-critical-blob-or-file-errors). |
 
-\* The first five error categories are critical errors and must be fixed before you can proceed to prepare to ship.
+<sup>*</sup> Errors in this category are critical errors that must be fixed before you can proceed to **Prepare to Ship**.
 
 
 ## Container or share name errors
 
-These are errors related to container and share names.
+These errors are related to container and share names.
 
-### ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
+### ERROR_CONTAINER_OR_SHARE_NAME_LENGTH
 
 **Error description:** The container or share name must be between 3 and 63 characters. 
 
@@ -109,7 +110,7 @@ For more information, see the Azure naming conventions for [directories](/rest/
 
 ## Container or share size limit errors
 
-These are errors related to data exceeding the size of data allowed in a container or a share.
+These errors are related to data exceeding the size of data allowed in a container or a share.
 
 ### ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
@@ -118,7 +119,7 @@ These are errors related to data exceeding the size of data allowed in a contain
 **Suggested resolution:** On the **Connect and copy** page of the local web UI, download, and review the error files.
 
 - Identify the folders that have this issue from the error logs and make sure that the files in that folder are under 5 TiB.
-- The 5 TiB limit does not apply to a storage account that allows large file shares. However, you must have large file shares configured when you place your order. 
+- The 5-TiB limit does not apply to a storage account that allows large file shares. However, you must have large file shares configured when you place your order. 
   - Contact [Microsoft Support](data-box-disk-contact-microsoft-support.md) and request a new shipping label.
   - [Enable large file shares on the storage account](../storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account)
   - [Expand the file shares in the storage account](../storage/files/storage-how-to-create-file-share.md#expand-existing-file-shares) and set the quota to 100 TiB.
@@ -126,7 +127,7 @@ These are errors related to data exceeding the size of data allowed in a contain
   
 ## Object or file size limit errors
 
-These are errors related to data exceeding the maximum size of object or the file that is allowed in Azure. 
+These errors are related to data exceeding the maximum size of object or the file that is allowed in Azure. 
 
 ### ERROR_BLOB_OR_FILE_SIZE_LIMIT
 
@@ -139,7 +140,7 @@ These are errors related to data exceeding the maximum size of object or the fil
 
 ## Data or file type errors
 
-These are errors related to unsupported file type or data type found in the container or share. 
+These errors are related to unsupported file type or data type found in the container or share. 
 
 ### ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
 
@@ -182,6 +183,16 @@ For more information, see [Copy to managed disks](data-box-deploy-copy-data-from
 **Error description:** The file or folder are in an internal error state.
 
 **Suggested resolution:** If this is a file, remove the file and copy it again. If this is a folder, modify the folder. Either rename the folder or add or delete a file from the folder. The error should clear on its own in 30 minutes. Contact Microsoft Support, if the error persists.
+
+## General errors
+
+General errors are caused by internal exceptions or error paths in the code.
+
+### ERROR_GENERAL
+
+**Error description** This general error is caused by internal exceptions or error paths in the code.
+
+**Suggested resolution:** Reboot the device and rerun the **Prepare to Ship** operation. If the error doesn't go away, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## Non-critical blob or file errors
 

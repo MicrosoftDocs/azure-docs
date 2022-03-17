@@ -7,8 +7,7 @@ ms.author: cshoe
 ms.date: 05/07/2021
 ms.topic: quickstart
 ms.service: static-web-apps
-ms.custom:
-  - mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Building your first static site in the Azure portal
@@ -72,6 +71,13 @@ After you sign in with GitHub, enter the repository information.
     1. Keep the default value in the _App location_ box.
     1. Leave the _Api location_ box empty.
     1. Type **dist/angular-basic** in the _App artifact location_ box.
+
+    # [Blazor](#tab/blazor)
+
+    1. Select **Blazor** from the _Build Presets_ dropdown.
+    1. Keep the default value of **Client** in the _App location_ box.
+    1. Leave the _Api location_ box empty.
+    1. Keep the default value of **wwwroot** in the _App artifact location_ box.
 
     # [React](#tab/react)
 

@@ -7,9 +7,9 @@ ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: PowerShell
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer:
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 03/25/2019
 ---
 
@@ -51,7 +51,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | [Sync data between databases](scripts/sql-data-sync-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures Data Sync to sync between multiple databases in Azure SQL Database. |
 | [Sync data between SQL Database and SQL Server on-premises](scripts/sql-data-sync-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures Data Sync to sync between a database in Azure SQL Database and a SQL Server on-premises database. |
 | [Update the SQL Data Sync sync schema](scripts/update-sync-schema-in-sync-group.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script adds or removes items from the Data Sync sync schema. |
-|||
+
 
 Learn more about the [Single-database Azure PowerShell API](single-database-manage.md#powershell). 
 
@@ -69,7 +69,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | [Manage transparent data encryption in a managed instance using your own key from Azure Key Vault](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures transparent data encryption in a Bring Your Own Key scenario for Azure SQL Managed Instance, using a key from Azure Key Vault.|
 |**Configure a failover group**||
 | [Configure a failover group for a managed instance](../managed-instance/scripts/add-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance. |
-|||
+
 
 Learn more about [PowerShell cmdlets for Azure SQL Managed Instance](../managed-instance/api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances).
 

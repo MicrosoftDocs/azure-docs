@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/04/2018
 ---
 # Elastic Database tools glossary

@@ -3,13 +3,13 @@ title: Tutorial - Create a forest trust in Azure AD Domain Services | Microsoft 
 description: Learn how to create a one-way outbound forest to an on-premises AD DS domain in the Azure portal for Azure AD Domain Services
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 03/07/2022
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create a one-way outbound forest from an Azure Active Directory Domain Services resource forest to an on-premises Active Directory Domain Services forest to provide authentication and resource access between forests.
@@ -49,7 +49,7 @@ To complete this tutorial, you need the following resources and privileges:
 
 ## Sign in to the Azure portal
 
-In this tutorial, you create and configure the outbound forest trust from Azure AD DS using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com). Global administrator permissions are required to modify an Azure AD DS instance. 
+In this tutorial, you create and configure the outbound forest trust from Azure AD DS using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com). You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to modify an Azure AD DS instance. 
 
 ## Networking considerations
 
@@ -72,9 +72,20 @@ Before you configure a forest trust in Azure AD DS, make sure your networking be
 To correctly resolve the managed domain from the on-premises environment, you may need to add forwarders to the existing DNS servers. If you haven't configured the on-premises environment to communicate with the managed domain, complete the following steps from a management workstation for the on-premises AD DS domain:
 
 1. Select **Start** > **Administrative Tools** > **DNS**.
-1. Right-select DNS server, such as *myAD01*, then select **Properties**.
-1. Choose **Forwarders**, then **Edit** to add additional forwarders.
-1. Add the IP addresses of the managed domain, such as *10.0.2.4* and *10.0.2.5*.
+1. Select your DNS zone, such as *aaddscontoso.com*.
+1. Select **Conditional Forwarders**, then right-select and choose **New Conditional Forwarder...**
+1. Enter your other **DNS Domain**, such as *contoso.com*, then enter the IP addresses of the DNS servers for that namespace, as shown in the following example:
+
+    ![Screenshot of how to add and configure a conditional forwarder for the DNS server.](./media/manage-dns/create-conditional-forwarder.png)
+
+1. Check the box for **Store this conditional forwarder in Active Directory, and replicate it as follows**, then select the option for *All DNS servers in this domain*, as shown in the following example:
+
+    ![Screenshot of how to select All DNS servers in this domain.](./media/manage-dns/store-in-domain.png)
+
+    > [!IMPORTANT]
+    > If the conditional forwarder is stored in the *forest* instead of the *domain*, the conditional forwarder fails.
+
+1. To create the conditional forwarder, select **OK**.
 
 ## Create inbound forest trust in the on-premises domain
 

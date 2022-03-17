@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/04/2021
 ms.author: madsd
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 
@@ -44,7 +45,7 @@ The [Resource Manager deployment template][template-app-gateway-app-service-comp
 
 To apply the template you can use the Deploy to Azure button found in the description of the template, or you can use appropriate PowerShell/CLI.
 
-## Using Azure Command Line Interface
+## Using Azure CLI
 The [Azure CLI sample](../../app-service/scripts/cli-integrate-app-service-with-application-gateway.md) will provision an App Service locked down with service endpoints and access restriction to only receive traffic from Application Gateway. If you only need to isolate traffic to an existing App Service from an existing Application Gateway, the following command is sufficient.
 
 ```azurecli-interactive
@@ -87,6 +88,6 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## Next steps
-For more information on the App Service Environment, see [App Service Environment documentation](/azure/app-service/environment).
+For more information on the App Service Environment, see [App Service Environment documentation](../environment/index.yml).
 
 To further secure your web app, information about Web Application Firewall on Application Gateway can be found in the [Azure Web Application Firewall documentation](../../web-application-firewall/ag/ag-overview.md).

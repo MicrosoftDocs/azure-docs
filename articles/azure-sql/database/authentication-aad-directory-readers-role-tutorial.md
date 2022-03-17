@@ -7,8 +7,8 @@ ms.custom: azure-synapse
 ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
-ms.date: 07/30/2021
+ms.reviewer: kendralittle, vanto, mathoma
+ms.date: 12/15/2021
 ---
 
 # Tutorial: Assign Directory Readers role to an Azure AD group and manage role assignments
@@ -20,6 +20,9 @@ This article guides you through creating a group in Azure Active Directory (Azur
 This tutorial uses the feature introduced in [Use Azure AD groups to manage role assignments](../../active-directory/roles/groups-concept.md). 
 
 For more information on the benefits of assigning the Directory Readers role to an Azure AD group for Azure SQL, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
+
+> [!NOTE]
+> With [Microsoft Graph](/graph/overview) support for Azure SQL, the Directory Readers role can be replaced with using lower level permissions. For more information, see [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md).
 
 ## Prerequisites
 
@@ -73,7 +76,7 @@ For subsequent steps, the Global Administrator or Privileged Role Administrator 
    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="Screenshot of the Members page for an Azure Active Directory resource with the options highlighted for adding an SQL Managed instance as a new member.":::
 
 > [!NOTE]
-> It can take a few minutes to propagate the service principal permissions through the Azure system, and allow access to Azure AD Graph API. You may have to wait a few minutes before you provision an Azure AD admin for SQL Managed Instance.
+> It can take a few minutes to propagate the service principal permissions through the Azure system, and allow access to Microsoft Graph API. You may have to wait a few minutes before you provision an Azure AD admin for SQL Managed Instance.
 
 ### Remarks
 

@@ -4,7 +4,7 @@ description:  Delegate user management using My Staff and administrative units
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help

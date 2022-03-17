@@ -35,7 +35,6 @@ At this time, the business critical service tier is public preview. The general 
 
 -  Transactional replication is currently not supported.
 -  Log shipping is currently blocked.
--  Only SQL Server authentication is supported.
 
 ## Roles and responsibilities
 
@@ -63,7 +62,7 @@ __Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Mic
 
 - **Create your own.** Follow these steps to create on your own Kubernetes cluster: 
    1. [Install the client tools](install-client-tools.md)
-   2. [Create the Azure Arc data controller](create-data-controller.md)
+   2. [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
    3. [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md) 
 
 - **Learn**

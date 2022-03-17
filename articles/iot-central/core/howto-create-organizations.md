@@ -5,13 +5,16 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/20/2021
+ms.date: 12/27/2021
 ms.topic: how-to
+ms.custom: contperf-fy22q2
 ---
 
 # Manage IoT Central organizations
 
-Organizations let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. The user's role determines their permissions over the devices they see, and the experiences they can access.
+Organizations let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. The user's role determines their permissions over the devices they see, and the experiences they can access. Use organizations to implement a multi-tenanted application.
+
+Organizations is an optional feature that gives you more control over the [users and roles](howto-manage-users-roles.md) in your application.
 
 Organizations are hierarchical:
 
@@ -71,11 +74,11 @@ When you reassign a device to another organization, the device's data stays with
 
 Devices can self-register with your IoT Central application without first being added to the device list. In this case, IoT Central adds the device to the root organization in the hierarchy. You can then reassign the device to a different organization.
 
-Instead, you can use the CSV import feature to bulk register devices with your application and assign them to organizations. To learn more, see [Import devices](howto-manage-devices.md#import-devices).
+Instead, you can use the CSV import feature to bulk register devices with your application and assign them to organizations. To learn more, see [Import devices](howto-manage-devices-in-bulk.md#import-devices).
 
 ### Gateways
 
-You assign gateway and leaf devices to organizations. You don't have to assign a gateway and its associated leaf devices to the same organization. If you assign them to different organizations, it's possible that a user can see the gateway but not the leaf devices, or the leaf devices but not the gateway.
+You assign gateway and downstream devices to organizations. You don't have to assign a gateway and its associated downstream devices to the same organization. If you assign them to different organizations, it's possible that a user can see the gateway but not the downstream devices, or the downstream devices but not the gateway.
 
 ## Roles
 
@@ -110,6 +113,10 @@ You can assign the same user to multiple organizations. The user can have a diff
 | user1@contoso.com | Org Administrator | Contoso Inc/Lamna Health |
 | user1@contoso.com | Org Viewer | Contoso Inc/Adatum Solar |
 
+When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user has signed in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
+
+To access the application for the first time, an invited user must first navigate to the application using the link they receive from the administrator. The application isn't visible on the [My apps](https://apps.azureiotcentral.com/myapps) page on the Azure IoT Central site until then.
+
 ## Use organizations
 
 After you've created your organization hierarchy you can use organizations in areas of your application such as:
@@ -121,14 +128,15 @@ After you've created your organization hierarchy you can use organizations in ar
 
 ## Default organization
 
-You can set an organization as the default organization to use in your application. The default organization becomes the default option whenever you choose an organization, such as when you add a new user to your IoT Central application.
+> [!TIP]
+> This is a personal preference that only applies to you.
+
+You can set an organization as the default organization to use in your application as a personal preference. The default organization becomes the default option whenever you choose an organization, such as when you add a new user or add a device to your IoT Central application.
 
 To set the default organization, select **Settings** on the top menu bar:
 
 :::image type="content" source="media/howto-create-organization/set-default-organization.png" alt-text="Screenshot that shows how to set your default organization.":::
 
-> [!TIP]
-> This is a personal preference that only applies to you.
 
 ## Add organizations to an existing application
 
@@ -142,10 +150,11 @@ When you start adding organizations, all existing devices, users, and experience
 
 ## Limits
 
-To following limits apply to organizations:
+The following limits apply to organizations:
 
 - The hierarchy can be no more than five levels deep.
 - The total number of organization cannot be more than 200. Each node in the hierarchy counts as an organization.
+
 
 ## Next steps
 

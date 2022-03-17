@@ -1,4 +1,4 @@
---- 
+---
 title: Azure VMware Solution - DNS forwarding from private cloud to on-premises
 description: Describes how to enable your CloudSimple Private Cloud DNS server to forward lookup of on-premises resources
 author: suzizuber

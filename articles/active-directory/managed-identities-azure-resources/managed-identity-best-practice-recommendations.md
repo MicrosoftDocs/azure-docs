@@ -4,7 +4,7 @@ description: Recommendations on when to use user-assigned versus system-assigned
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.subservice: msi
@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 05/21/2021
+ms.date: 11/09/2021
 ms.author: barclayn
 ---
 
@@ -34,10 +34,9 @@ If your infrastructure requires that multiple resources require access to the sa
 
 If you require that each resource has its own identity, or have resources that require a unique set of permissions and want the identity to be deleted as the resource is deleted, then you should use a system-assigned identity.
 
-
 | Scenario| Recommendation|Notes|
 |---|---|---|
-| Rapid creation of resources (for example, ephemeral computing) with managed identities |  User-assigned identity | If you attempt to create multiple managed identities in a short space of time – for example, deploying multiple virtual machines each with their own system-assigned identity - you may exceed the rate limit for Azure Active Directory object creations, and the request will fail with a HTTP 429 error. <br/><br/>If resources are being created or deleted rapidly, you may also exceed the limit on the number of resources in Azure Active Directory if using system-assigned identities. While a deleted  system-assigned identity is no longer accessible by any resource, it will count towards your limit until fully purged after 30 days.<br/><br/>Deploying the resources associated with a single user-assigned identity will require the creation of only one Service Principal in Azure Active Directory, avoiding the rate limit. Using a single identity that is created in advance will also reduce the risk of replication delays that could occur if multiple resources are created each with their own identity.<br/><br/>Read more about the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits). |
+| Rapid creation of resources (for example, ephemeral computing) with managed identities |  User-assigned identity | If you attempt to create multiple managed identities in a short space of time – for example, deploying multiple virtual machines each with their own system-assigned identity - you may exceed the rate limit for Azure Active Directory object creations, and the request will fail with an HTTP 429 error. <br/><br/>If resources are being created or deleted rapidly, you may also exceed the limit on the number of resources in Azure Active Directory if using system-assigned identities. While a deleted  system-assigned identity is no longer accessible by any resource, it will count towards your limit until fully purged after 30 days.<br/><br/>Deploying the resources associated with a single user-assigned identity will require the creation of only one Service Principal in Azure Active Directory, avoiding the rate limit. Using a single identity that is created in advance will also reduce the risk of replication delays that could occur if multiple resources are created each with their own identity.<br/><br/>Read more about the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits). |
 | Replicated resources/applications | User-assigned identity  |  Resources that carry out the same task – for example, duplicated web servers or identical functionality running in an app service and in an application on a virtual machine – typically require the same permissions. <br/><br/>By using the same user-assigned identity, fewer role assignments are required which reduces the management overhead. The resources don't have to be of the same type. 
 |Compliance| User-assigned identity  | If your organization requires that all identity creation must go through an approval process, using a single user-assigned identity across multiple resources will require fewer approvals than system-assigned Identities, which are created as new resources are created. |
 Access required before a resource is deployed |User-assigned identity| Some resources may require access to certain Azure resources as part of their deployment.<br/><br/>In this case, a system-assigned identity may not be created in time so a pre-existing user-assigned identity should be used.|
@@ -76,8 +75,23 @@ In the example below, “Virtual Machine 4” has both a user-assigned identity,
 
 ## Limits 
 
-View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits)
+View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits)
 and for [custom roles and role assignments](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
+
+## Follow the principle of least privilege when granting access
+
+When granting any identity, including a managed identity, permissions to access services, always grant the least permissions needed to perform the desired actions. For example, if a managed identity is used to read data from a storage account, there is no need to allow that identity permissions to also write data to the storage account. Granting extra permissions, for example, making the managed identity a contributor on an Azure subscription when it’s not needed, increases the security blast radius associated with the identity. One must always minimize the security blast radius so that compromising that identity causes minimum damage.
+
+### Consider the effect of assigning managed identities to Azure resources
+
+It is important to note that when an Azure resource, such as an Azure Logic App, an Azure function, or a Virtual Machine, etc. is assigned a managed identity, all the permissions granted to the managed identity are now available to the Azure resource. This is important because if a user has access to install or execute code on this resource, then the user has access to all the identities assigned/associated to the Azure resource. The purpose of managed identity is to give code running on an Azure resource access to other resources, without developers needing to handle or put credentials directly into code to get that access.
+
+For example, if a managed Identity (ClientId = 1234) has been granted read/write access to ***StorageAccount7755*** and has been assigned to ***LogicApp3388***, then Alice, who does not have any direct permissions over the managed identity or the storage account but has permission to execute code within ***LogicApp3388*** can also read/write data to/from ***StorageAccount7755*** by executing the code that uses the managed identity.
+
+:::image type="content" source="media/managed-identity-best-practice-recommendations/security-considerations.png" alt-text="security scenario":::
+
+In general, when granting a user administrative access to a resource that can execute code (such as a Logic App) and has a managed identity, consider if the role being assigned to the user can install or run code on the resource, and if yes only assign that role if the user really needs it.
+
 
 ## Maintenance
 
@@ -91,3 +105,13 @@ Role assignments that are associated with deleted managed identities
 will be displayed with “Identity not found” when viewed in the portal. [Read more](../../role-based-access-control/troubleshooting.md#role-assignments-with-identity-not-found).
 
 :::image type="content" source="media/managed-identity-best-practice-recommendations/identity-not-found.png" alt-text="Identity not found for role assignment.":::
+
+## Limitation of using managed identities for authorization
+
+Using Azure AD **groups** for granting access to services is a great way to simplify the authorization process. The idea is simple – grant permissions to a group and add identities to the group so that they inherit the same permissions. This is a well-established pattern from various on-premises systems and works well when the identities represent users. Another option to control authorization in Azure AD is by using [App Roles](../develop/howto-add-app-roles-in-azure-ad-apps.md), which allows you to declare **roles** that are specific to an app (rather than groups, which are a global concept in the directory). You can then [assign app roles to managed identities](how-to-assign-app-role-managed-identity-powershell.md) (as well as users or groups).
+
+In both cases, for non-human identities such as Azure AD Applications and Managed identities, the exact mechanism of how this authorization information is presented to the application is not ideally suited today. Today's implementation with Azure AD and Azure Role Based Access Control (Azure RBAC) uses access tokens issued by Azure AD for authentication of each identity. If the identity is added to a group or role, this is expressed as claims in the access token issued by Azure AD. Azure RBAC uses these claims to further evaluate the authorization rules for allowing or denying access.
+
+Given that the identity's groups and roles are claims in the access token, any authorization changes do not take effect until the token is refreshed. For a human user that's typically not a problem, because a user can acquire a new access token by logging out and in again (or waiting for the token lifetime to expire, which is 1 hour by default). Managed identity tokens on the other hand are cached by the underlying Azure infrastructure for performance and resiliency purposes: the back-end services for managed identities maintain a cache per resource URI for around 24 hours. This means that it can take several hours for changes to a managed identity's group or role membership to take effect. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. If you change a managed identity’s group or role membership to add or remove permissions, you may therefore need to wait several hours for the Azure resource using the identity to have the correct access.
+
+If this delay is not acceptable for your requirements, consider alternatives to using groups or roles in the token. To ensure that changes to permissions for managed identities take effect quickly, we recommend that you group Azure resources using a [user-assigned managed identity](how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli) with permissions applied directly to the identity, instead of adding to or removing managed identities from an Azure AD group that has permissions. A user-assigned managed identity can be used like a group because it can be assigned to one or more Azure resources to use it. The assignment operation can be controlled using the [Managed identity contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) and [Managed identity operator role](../../role-based-access-control/built-in-roles.md#managed-identity-operator).

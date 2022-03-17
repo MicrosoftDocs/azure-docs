@@ -136,7 +136,7 @@ az vm generalize -g <resource_group> -n <vm_name>
 az image create -g <resource_group> -n <image_name> --source <vm_name>
 ```
 
-**Create an image version in a Shared Image Gallery**
+**Create an image version in a Azure Compute Gallery**
 
 ```azurecli
 az sig image-version create \

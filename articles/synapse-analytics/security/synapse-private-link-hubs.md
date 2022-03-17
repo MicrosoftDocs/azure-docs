@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.subservice: security 
 ms.date: 12/01/2020 
 ms.author: NanditaV
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Connect to Azure Synapse Studio using Azure Private Link Hubs 

@@ -1,105 +1,103 @@
 ---
-title: Tutorial - Issue Azure AD Verifiable Credentials from an Application (preview)
-description: In this tutorial, you learn how to issue verifiable credentials using a sample app
+title: Tutorial - Issue Azure AD Verifiable Credentials from an application (preview)
+description: In this tutorial, you learn how to issue verifiable credentials by using a sample app.
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-# Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
+# Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
 
-# Issue Azure AD Verifiable Credentials from an Application (preview)
+# Issue Azure AD Verifiable Credentials from an application (preview)
 
-In this tutorial, you run a sample application from your local machine that connects to your Azure Active Directory (Azure AD) tenant. Using the application, you are going to issue a Verified Credential Expert Card and verify it.
+In this tutorial, you run a sample application from your local computer that connects to your Azure Active Directory (Azure AD) tenant. Using the application, you're going to issue and verify a verified credential expert card.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Setup an Azure Blob storage for storing your Verifiable Credentials configuration files.
-> - Create and upload your Verifiable Credential configuration files.
-> - Create the Verified Credential Expert Card in Azure.
-> - Gather credentials and environment details to setup the sample application.
-> - Download the sample application code to your local machine.
-> - Update the sample application with your Verified Credentials Expert Card and environment details.
-> - Run the sample application and issue your first Verified Credentials Expert Card.
-> - Verify your Verified Credentials Expert Card.
+> - Set up Azure Blob Storage for storing your Azure AD Verifiable Credentials configuration files.
+> - Create and upload your Verifiable Credentials configuration files.
+> - Create the verified credential expert card in Azure.
+> - Gather credentials and environment details to set up the sample application.
+> - Download the sample application code to your local computer.
+> - Update the sample application with your verified credential expert card and environment details.
+> - Run the sample application and issue your first verified credential expert card.
+> - Verify your verified credential expert card.
 
-The following diagram illustrates the Azure AD verifiable credentials architecture and the component you configure.
+The following diagram illustrates the Azure AD Verifiable Credentials architecture and the component you configure.
 
-![Diagram illustrates the Azure AD verifiable credentials architecture.](media/verifiable-credentials-configure-issuer/verifiable-credentials-architecture.png)
+![Diagram that illustrates the Azure A D Verifiable Credentials architecture.](media/verifiable-credentials-configure-issuer/verifiable-credentials-architecture.png)
 
 ## Prerequisites
 
-- Before you start, it's important to [Setup a tenant for Azure AD Verifiable Credential](https://tbd-link-to-the-tenant-config-article/).
-- To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads)
-- [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor
-- [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
-- [NGROK](https://ngrok.com/) free.
-- A mobile device with Microsoft Authenticator
-  - Android version 6.2108.5654 or higher installed.
-  - iOS version 6.5.82 or higher installed.
+- [Set up a tenant for Azure AD Verifiable Credentials](./verifiable-credentials-configure-tenant.md).
+- To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads).
+- [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor.
+- [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
+- [ngrok](https://ngrok.com/) (free).
+- A mobile device with Microsoft Authenticator:
+  - Android version 6.2108.5654 or later installed.
+  - iOS version 6.5.82 or later installed.
 
 ## Create a storage account
 
-Azure Blob storage is Microsoft's object storage solution for the cloud. Azure AD verifiable credentials service uses [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) to store the verifiable credentials configuration files when issuing verifiable credentials.
+Azure Blob Storage is an object storage solution for the cloud. Azure AD Verifiable Credentials uses [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) to store the configuration files when the service is issuing verifiable credentials.
 
-Create and configure your Azure Blob Storage by following these steps:
+Create and configure Blob Storage by following these steps:
 
-1. If you don't have Azure Blob Storage account, [Create a storage account](/azure/storage/common/storage-account-create).
-1. After you created the storage account, create a container. In the left menu for the storage account, scroll to the **Data storage** section, then select **Containers**.
-1. Select the **+ Container** button.
-1. Type a **Name** for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For example, *vc-container*.
-1. Set the **Public access level** to **Private** (no anonymous access).
+1. If you don't have an Azure Blob Storage account, [create one](../../storage/common/storage-account-create.md).
+1. After you've created the storage account, create a container. In the left menu for the storage account, scroll to the **Data storage** section, and select **Containers**.
+1. Select **+ Container**.
+1. Type a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For example, *vc-container*.
+1. Set **Public access level** to **Private** (no anonymous access).
 1. Select **Create**.  
 
-    The following screenshot shows how to create a container:  
-
-   ![Screenshot showing how to create a container.](media/verifiable-credentials-configure-issuer/create-container.png)
+   ![Screenshot that shows how to create a container.](media/verifiable-credentials-configure-issuer/create-container.png)
 
 ## Grant access to the container
 
-After you create your container, grant the signed-in user the correct role assignment so they can access the files in Storage Blob.
+After you create your container, grant the signed-in user the correct role assignment so they can access the files in Blob Storage.
 
-1. Select the *vc-container* from the list of containers.
+1. From the list of containers, select **vc-container**.
 
-1. From the menu, select **Access control (IAM)**.
+1. From the menu, select **Access Control (IAM)**.
 
-1. Select **+ Add,** then select **Add role assignment**
+1. Select **+ Add,** and then select **Add role assignment**.
 
-     ![Screenshot showing how to add a new role assignment to the blob container.](media/verifiable-credentials-configure-issuer/add-role-assignment.png)
+     ![Screenshot that shows how to add a new role assignment to the blob container.](media/verifiable-credentials-configure-issuer/add-role-assignment.png)
 
-1. In the **Add role assignment** page:
+1. In **Add role assignment**:
 
     1. For the **Role**, select **Storage Blob Data Reader**.
 
     1. For the **Assign access to**, select **User, group, or service
-        principal**
+        principal**.
 
-    1. Then, search the account that you're using to perform these steps and
+    1. Then, search the account that you're using to perform these steps, and
         select it.
 
-        ![Screenshot showing how to set up the new role assignment.](media/verifiable-credentials-configure-issuer/add-role-assignment-container.png)
+        ![Screenshot that shows how to set up the new role assignment.](media/verifiable-credentials-configure-issuer/add-role-assignment-container.png)
 
 >[!IMPORTANT]
->By default, container creators get the Owner role assigned. The Owner role isn't enough on its own. Your account needs the Storage Blob Data Reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](/azure/storage/blobs/assign-azure-role-data-access).
+>By default, container creators get the owner role assigned. The owner role isn't enough on its own. Your account needs the storage blob data reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/blobs/assign-azure-role-data-access.md).
 
 ### Upload the configuration files
 
-Azure AD Verifiable Credentials service uses two JSON configuration files, the rules and display files. 
+Azure AD Verifiable Credentials uses two JSON configuration files, the rules file and the display file. 
 
-- The rules file describes important properties of verifiable credentials. In particular, it describes the claims that subjects (users) need to provide before a verifiable credential is issued for them. 
-- The display file controls the branding of the credential and styling of the claims.
+- The *rules* file describes important properties of verifiable credentials. In particular, it describes the claims that subjects (users) need to provide before a verifiable credential is issued for them. 
+- The *display* file controls the branding of the credential and styling of the claims.
 
-In this section, you upload a sample rules and display files to your storage. For more information on how to customize these files, see [How to customize your verifiable credentials](credential-design.md).
+In this section, you upload sample rules and display files to your storage. For more information, see [How to customize your verifiable credentials](credential-design.md).
 
 To upload the configuration files, follow these steps:
 
-1. Copy the following JSON and save the content into a file called, VerifiedCredentialExpertDisplay.json.
+1. Copy the following JSON, and save the content into a file called *VerifiedCredentialExpertDisplay.json*.
 
     ```json
     {
@@ -134,7 +132,7 @@ To upload the configuration files, follow these steps:
     }
     ```
 
-1. Copy the following JSON and save the content into a file called VerifiedCredentialExpertRules.json. The following Verifiable Credential defines a couple of simple claims in it: firstName and lastName.
+1. Copy the following JSON, and save the content into a file called *VerifiedCredentialExpertRules.json*. The following verifiable credential defines a couple of simple claims in it: `firstName` and `lastName`.
 
     ```json
     {
@@ -159,103 +157,103 @@ To upload the configuration files, follow these steps:
     }
     ```
     
-1. In the Azure portal, navigate to the Azure Blob Storage container [you created](#create-a-storage-account).
+1. In the Azure portal, go to the Azure Blob Storage container that [you created](#create-a-storage-account).
 
 1. In the left menu, select **Containers** to show a list of blobs it contains. Then select the **vc-container** that you created earlier.
 
-1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload. Select the **VerifiedCredentialExpertDisplay.json** and **VerifiedCredentialExpertRules.json** files. Then select **Upload** to upload the files to your container.
+1. Select **Upload** to open the upload pane and browse your local file system to find a file to upload. Select the **VerifiedCredentialExpertDisplay.json** and **VerifiedCredentialExpertRules.json** files. Then select **Upload** to upload the files to your container.
 
-## Create the verifiable credential expert card in Azure
+## Create the verified credential expert card in Azure
 
-In this step, you create the Verifiable Credential Expert Card using Azure AD Verifiable Credentials. After creating a verified credential, your Azure AD tenant can issue this credential to users that initiate a verifiable credential issuance process.
+In this step, you create the verified credential expert card by using Azure AD Verifiable Credentials. After creating a verified credential, your Azure AD tenant can issue this credential to users who initiate the process.
 
-1. Using the [Azure portal](https://portal.azure.com/) main search input, search for **verifiable credentials**. Then, select **Verifiable Credentials (Preview)**.
-1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the option to **Create a new credential** screen should appear. If it’s not opened, or you want to create more credentials, in the left menu, select **Credentials**. Then select **+ Credential**.
-1. In the create a new credential page, do the following:
+1. Using the [Azure portal](https://portal.azure.com/), search for *verifiable credentials*. Then select **Verifiable Credentials (Preview)**.
+1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the **Create a new credential** window should appear. If it’s not opened, or you want to create more credentials, in the left menu, select **Credentials**. Then select **+ Credential**.
+1. In **Create a new credential**, do the following:
 
-    1. For the credential **Name**, enter **VerifiedCredentialExpert**. This name is used in the portal to identify your verifiable credentials. It's included as part of the verifiable credentials contract.
+    1. For **Name**, enter **VerifiedCredentialExpert**. This name is used in the portal to identify your verifiable credentials. It's included as part of the verifiable credentials contract.
 
-    1. Select your Azure AD **Subscription** where you created the Azure Blob Storage.
+    1. For **Subscription**, select your Azure AD subscription where you created Blob Storage.
 
-    1. Under the **Display file**, **Select display file**. In the Storage accounts section, select the **vc-container**. Then select the **VerifiedCredentialExpertDisplay.json** file and click **Select**.
+    1. Under the **Display file**, select **Select display file**. In the Storage accounts section, select **vc-container**. Then select the **VerifiedCredentialExpertDisplay.json** file and click **Select**.
 
-    1. Under the **Rules file**, **Select rules file**. In the Storage accounts section, select the **vc-container**. Then select the **VerifiedCredentialExpertRules.json** file, and click **Select**.
+    1. Under the **Rules file**, **Select rules file**. In the Storage accounts section, select the **vc-container**. Then select the **VerifiedCredentialExpertRules.json** file, and choose **Select**.
 
-    The following screenshot demonstrates how to create a new credential:
+    1. Select **Create**.    
 
-    ![Screenshot showing how to create the new credential.](media/verifiable-credentials-configure-issuer/how-create-new-credential.png)
+The following screenshot demonstrates how to create a new credential:
 
-1. On the Create a new credential screen, select **Create**.
+  ![Screenshot that shows how to create a new credential.](media/verifiable-credentials-configure-issuer/how-create-new-credential.png)
 
-## Gather credentials and environment details to set up your sample application
+## Gather credentials and environment details
 
-Now that you have a new credential, you are going to gather some information about your environment and the credential that you created. You use these pieces of information when you set up your sample application.
+Now that you have a new credential, you're going to gather some information about your environment and the credential that you created. You use these pieces of information when you set up your sample application.
 
-1. From the verifiable credentials, select **Credentials**, then from the list of credentials, select the VerifiedCredentialExpert you created earlier.
+1. In Verifiable Credentials, select **Credentials**. From the list of credentials, select **VerifiedCredentialExpert**, which you created earlier.
 
-    ![Screenshot showing how to select the newly create verified credential.](media/verifiable-credentials-configure-issuer/select-verifiable-credential.png)
+    ![Screenshot that shows how to select the newly created verified credential.](media/verifiable-credentials-configure-issuer/select-verifiable-credential.png)
 
-1. Copy the **Issue credential URL**. This URL is the combination of the rules and display files. It's the URL that Authenticator evaluates before it displays to the user verifiable credential issuance requirements. Record it for later use.
+1. Copy the **Issue Credential URL**. This URL is the combination of the rules and display files. It's the URL that Authenticator evaluates before it displays to the user verifiable credential issuance requirements. Record it for later use.
 
-1. Copy the **Decentralized Identifier** and record it for later.
+1. Copy the **Decentralized identifier**, and record it for later.
 
-1. Copy your **Tenant ID** and record it for later. The following screenshot demonstrates how to copy the required values:
+1. Copy your **Tenant ID**, and record it for later.
 
-    ![Screenshots showing how to copying the verifiable credentials required values.](media/verifiable-credentials-configure-issuer/copy-the-issue-credential-url.png)
+   ![Screenshot that shows how to copy the verifiable credentials required values.](media/verifiable-credentials-configure-issuer/copy-the-issue-credential-url.png)
 
 ## Download the sample code
 
-The sample application is available in .NET and the code is maintained in a GitHub repository. Download our sample code from GitHub [here](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet), or clone the repository to your local machine:
+The sample application is available in .NET, and the code is maintained in a GitHub repository. Download the sample code from [GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet), or clone the repository to your local machine:
 
 
 ```bash
-git clone git@github.com:Azure-Samples/active-directory-verifiable-credentials-dotnet.git
+git clone https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet.git
 ```
 
 ## Configure the verifiable credentials app
 
-Create a client secret for the registered application you created. The sample application uses the client secret to prove its identity when it requests tokens.
+Create a client secret for the registered application that you created. The sample application uses the client secret to prove its identity when it requests tokens.
 
-1. Navigate to the **App registrations** page that is located inside **Azure Active Directory**
+1. Go to the **App registrations** page that is located inside **Azure Active Directory**.
 
 1. Select the **verifiable-credentials-app** application you created earlier.
 
-1. Select the name to go into the App registrations details
+1. Select the name to go into the registration details.
 
-1. Copy the **Application (client) ID** and store it for later.  
+1. Copy the **Application (client) ID**, and store it for later.  
 
-     ![Screenshot showing how to copy the app registration ID.](media/verifiable-credentials-configure-issuer/copy-app-id.png)
+     ![Screenshot that shows how to copy the app registration ID.](media/verifiable-credentials-configure-issuer/copy-app-id.png)
 
-1. While in the App registration details, from the main menu, under **Manage**, select **Certificates & secrets.**
+1. From the main menu, under **Manage**, select **Certificates & secrets**.
 
-1. Select **New client secret**
+1. Select **New client secret**, and do the following:
 
-    1. In the **Description** box, enter a description for the client secret (for example, **vc-sample-secret**).
+    1. In **Description**, enter a description for the client secret (for example, **vc-sample-secret**).
 
-    1. Under **Expires**, select a duration for which the secret is valid, for example 6 month, and then select **Add**.
+    1. Under **Expires**, select a duration for which the secret is valid (for example, six months). Then select **Add**.
 
-    1. Record the secret's **Value**. You'll use this value for configuration in a later step. The secret’s value will not be displayed again, and is not retrievable by any other means, record it as soon as it is visible.
+    1. Record the secret's **Value**. You'll use this value for configuration in a later step. The secret’s value won't be displayed again, and isn't retrievable by any other means. Record it as soon as it's visible.
 
 At this point, you should have all the required information that you need to set up your sample application.
 
-## Update the Sample Application
+## Update the sample application
 
 Now you'll make modifications to the sample app's issuer code to update it with your verifiable credential URL. This step allows you to issue verifiable credentials by using your own tenant.
 
-1. Under the *active-directory-verifiable-credentials-dotnet-main* folder, open Visual Studio Code and select the project inside **1.asp-net-core-api-idtokenhint** folder.
+1. Under the *active-directory-verifiable-credentials-dotnet-main* folder, open Visual Studio Code, and select the project inside the *1.asp-net-core-api-idtokenhint* folder.
 
-1. Under the project root folder, open the appsettings.json file. This file contains information about your Azure AD verifiable credentials. Update the following properties with the information that you have previously recorded during in the steps above
+1. Under the project root folder, open the *appsettings.json* file. This file contains information about your Azure AD Verifiable Credentials. Update the following properties with the information that you recorded in earlier steps:
 
     1. **Tenant ID:** your tenant ID
-    1. **Client ID:** your Client ID
+    1. **Client ID:** your client ID
     1. **Client Secret**: your client secret
-    1. **IssuerAuthority**: Your Decentralized Identifier
-    1. **VerifierAuthority**: Your Decentralized Identifier
-    1. **Credential Manifest**: Your Issue Credential URL
+    1. **IssuerAuthority**: Your decentralized identifier
+    1. **VerifierAuthority**: Your decentralized identifier
+    1. **Credential Manifest**: Your issue credential URL
 
 1. Save the *appsettings.json* file.
 
-The following JSON demonstrates a complete appsettings.json file
+The following JSON demonstrates a complete *appsettings.json* file:
 
 ```json
 {
@@ -275,101 +273,101 @@ The following JSON demonstrates a complete appsettings.json file
 }
 ```
 
-## Issuing your first Verified Expert Card
+## Issue your first verified credential expert card
 
-Now you are ready to issue your first Verified Expert Card by running the sample application.
+Now you're ready to issue your first verified credential expert card by running the sample application.
 
-1. From Visual Studio Code, run the Verifiable_credentials_DotNet project. Or from the command shell, run the following commands:
+1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from the command shell, run the following commands:
 
     ```bash
-    cd active-directory-verifiable-credentials-dotnet/1. asp-net-core-api-idtokenhint  dotnet build "asp-net-core-api-idtokenhint.csproj" -c Debug -o .\\bin\\Debug\\netcoreapp3.  dotnet run
+    cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint  dotnet build "AspNetCoreVerifiableCredentials.csproj" -c Debug -o .\\bin\\Debug\\netcoreapp3.  dotnet run
     ```
 
-1. In another terminal, run the following command. This command runs the [ngrok](https://ngrok.com/) to set up a URL on 3000 and make it publicly available on the internet.
+1. In another terminal, run the following command. This command runs [ngrok](https://ngrok.com/) to set up a URL on 3000, and make it publicly available on the internet.
 
     ```bash
-    ngrok http 3000
+    ngrok http 5000
     ```
 
     >[!NOTE]
-    > On some computers you may need to run the command in this format `./ngrok http 3000`
+    > On some computers, you might need to run the command in this format: `./ngrok http 3000`.
 
 1. Open the HTTPS URL generated by ngrok.
 
-     ![Screenshot showing how to get the ngrok public URL.](media/verifiable-credentials-configure-issuer/ngrok-url.png)
+     ![Screenshot that shows how to get the ngrok public URL.](media/verifiable-credentials-configure-issuer/ngrok-url.png)
 
 1. From a web browser, select **Get Credential**.
 
-     ![Screenshot showing how to choose get credential from the sample app.](media/verifiable-credentials-configure-issuer/get-credentials.png)
+     ![Screenshot that shows how to choose get the credential from the sample app.](media/verifiable-credentials-configure-issuer/get-credentials.png)
 
 1. Using your mobile device, scan the QR code with the Authenticator app. You can also scan the QR code directly from your camera, which will open the Authenticator app for you.
 
-    ![Screenshot showing how to scan QR code.](media/verifiable-credentials-configure-issuer/scan-issuer-qr-code.png)
+    ![Screenshot that shows how to scan the Q R code.](media/verifiable-credentials-configure-issuer/scan-issuer-qr-code.png)
 
-1. At this time, you will see a warning message about this app or website may be risky, select **Advanced**.
+1. At this time, you will see a message warning that this app or website might be risky. Select **Advanced**.
 
-     ![Screenshot showing how to choose advance on the risky authenticator app warning.](media/verifiable-credentials-configure-issuer/at-risk.png)
+     ![Screenshot that shows how to respond to the warning message.](media/verifiable-credentials-configure-issuer/at-risk.png)
 
-1. At the risky website warning, select **Proceed anyways (unsafe)**. You are seeing this warning because your domain is not linked to your DID. To verify your domain, follow the guidance in [Link your domain to your Decentralized Identifier (DID)](how-to-dnsbind.md) article. For this tutorial, you can skip the domain registration, and select **Proceed anyways (unsafe).**
+1. At the risky website warning, select **Proceed anyways (unsafe)**. You're seeing this warning because your domain isn't linked to your decentralized identifier (DID). To verify your domain, follow the guidance in [Link your domain to your decentralized identifier (DID)](how-to-dnsbind.md). For this tutorial, you can skip the domain registration, and select **Proceed anyways (unsafe).**
 
-     ![Screenshot showing how to proceed with the risky warning.](media/verifiable-credentials-configure-issuer/proceed-anyway.png)
+     ![Screenshot that shows how to proceed with the risky warning.](media/verifiable-credentials-configure-issuer/proceed-anyway.png)
 
-1. You will be prompted to enter a PIN code that is displayed in the screen where you scanned the QR code. The PIN is use add an extra layer of protection to the issuance payload. The PIN code is randomly generated every time an issuance QR code is displayed.
+1. You will be prompted to enter a PIN code that is displayed in the screen where you scanned the QR code. The PIN adds an extra layer of protection to the issuance. The PIN code is randomly generated every time an issuance QR code is displayed.
 
-     ![Screenshot showing how to type the pin code.](media/verifiable-credentials-configure-issuer/enter-verification-code.png)
+     ![Screenshot that shows how to type the pin code.](media/verifiable-credentials-configure-issuer/enter-verification-code.png)
 
-1. After entering the PIN number, the **Add a credential** screen is displayed. Notice at the top of the screen, you can see a red **Not verified** message. This warning is related to the domain validation mentioned above.
+1. After entering the PIN number, the **Add a credential** screen appears. At the top of the screen, you see a **Not verified** message (in red). This warning is related to the domain validation warning mentioned earlier.
 
 1. Select **Add** to accept your new verifiable credential.
 
-    ![Screenshot showing how to add your new credential.](media/verifiable-credentials-configure-issuer/new-verifiable-credential.png)
+    ![Screenshot that shows how to add your new credential.](media/verifiable-credentials-configure-issuer/new-verifiable-credential.png)
 
-1. Congratulations! You now have a verified credential expert verifiable credential.
+Congratulations! You now have a verified credential expert verifiable credential.
 
-    ![Screenshot showing how to newly added verifiable credential.](media/verifiable-credentials-configure-issuer/verifiable-credential-has-been-added.png)
+  ![Screenshot that shows a newly added verifiable credential.](media/verifiable-credentials-configure-issuer/verifiable-credential-has-been-added.png)
 
 Go back to the sample app. It shows you that a credential successfully issued.
 
-  ![Screenshot demonstrating a successfully issued verifiable credential.](media/verifiable-credentials-configure-issuer/credentials-issued.png)
+  ![Screenshot that shows a successfully issued verifiable credential.](media/verifiable-credentials-configure-issuer/credentials-issued.png)
 
-## Verifying the Verified Expert Card
+## Verify the verified credential expert card
 
-Now you are ready to verify your Verified Expert Card by running the sample application again.
+Now you are ready to verify your verified credential expert card by running the sample application again.
 
 1. Hit the back button in your browser to return to the sample app home page.
 
 1. Select **Verify credentials**.  
 
-   ![Screenshot showing showing how to select the verify credential button.](media/verifiable-credentials-configure-issuer/verify-credential.png)
+   ![Screenshot that shows how to select the verify credential button.](media/verifiable-credentials-configure-issuer/verify-credential.png)
 
 1. Using the authenticator app, scan the QR code, or scan it directly from your mobile camera.
 
-1. When you see the warning message about this app or website may be risky, select **Advanced**. Then select **Proceed anyways (unsafe)**.
+1. When you see the warning message, select **Advanced**. Then select **Proceed anyways (unsafe)**.
 
 1. Approve the presentation request by selecting **Allow**.
 
-    ![Screenshot showing how to approve the verifiable credentials new presentation request.](media/verifiable-credentials-configure-issuer/approve-presentation-request.jpg)
+    ![Screenshot that shows how to approve the verifiable credentials new presentation request.](media/verifiable-credentials-configure-issuer/approve-presentation-request.jpg)
 
-1. After you approve the presentation request, you can see that the request has been approved. You can also check the log. To see the log, select the verifiable credential:  
+1. After you approve the presentation request, you can see that the request has been approved. You can also check the log. To see the log, select the verifiable credential.  
 
-    ![Screenshot showing a verifiable credential expert card.](media/verifiable-credentials-configure-issuer/verifable-credential-info.png)
+    ![Screenshot that shows a verified credential expert card.](media/verifiable-credentials-configure-issuer/verifable-credential-info.png)
 
-1. Then select **Recent history**.  
+1. Then select **Recent Activity**.  
 
-    ![Screenshot showing the recent activity button that takes you to the credential history.](media/verifiable-credentials-configure-issuer/verifable-credential-history.jpg)
+    ![Screenshot that shows the recent activity button that takes you to the credential history.](media/verifiable-credentials-configure-issuer/verifable-credential-history.jpg)
 
-1. The **Recent Activity** shows you the recent activities of your verifiable credential.
+1. You can now see the recent activities of your verifiable credential.
 
-    ![Screenshot showing the history of the verifiable credential.](media/verifiable-credentials-configure-issuer/verify-credential-history.jpg)
+    ![Screenshot that shows the history of the verifiable credential.](media/verifiable-credentials-configure-issuer/verify-credential-history.jpg)
 
-1. Got back to the sample app. It shows you that the presentation of the verifiable credentials received.  
-    ![page showing that a presentation was received](media/verifiable-credentials-configure-issuer/verifiable-credential-expert-verification.png)
+1. Go back to the sample app. It shows you that the presentation of the verifiable credentials was received.  
+    ![Screenshot that shows that a presentation was received.](media/verifiable-credentials-configure-issuer/verifiable-credential-expert-verification.png)
 
-## Verifiable Credential names 
+## Verifiable credential names 
 
-Your verifiable credential contains **Megan Bowen** for the first name and last name values in the credential. These values were hardcoded in the sample application and were added to the verifiable credential at the time of issuance in the payload. 
+Your verifiable credential contains **Megan Bowen** for the first name and last name values in the credential. These values were hardcoded in the sample application, and were added to the verifiable credential at the time of issuance in the payload. 
 
-Under real case scenarios, your application will pull the user details from an identity provider. The following code snippet shows where the name is set in the sample application. In a follow-up example, we will show you how to inject the values directly from your identity provider into the verifiable credential.
+In real scenarios, your application pulls the user details from an identity provider. The following code snippet shows where the name is set in the sample application. 
 
 ```csharp
 //file: IssuerController.cs
@@ -387,10 +385,5 @@ public async Task<ActionResult> issuanceRequest()
 
 ## Next steps
 
-In this article, you learned how to:
+In the [next step](verifiable-credentials-configure-verifier.md), learn how a third-party application, also known as a relying party application, can verify your credentials with its own Azure AD tenant verifiable credentials API service.
 
-> [!div class="checklist"]
-> * Configure your Azure AD verifiable credentials service
-> * Issue and verify credentials using the same Azure AD tenant
-
-In the [next step](verifiable-credentials-configure-verifier.md) you learn how third parties application, also known as relying party application can verify your credentials with their own Azure AD tenant verifiable credentials API service.

@@ -2,22 +2,32 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 02/20/2022
 ---
 
 # Outputs in Bicep
 
 This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources.
 
-The format of each output value must resolve to one of the [data types](data-types.md).
-
 ## Define output values
 
-The following example shows how to use the `output` keyword to return a property from a deployed resource. In the example, `publicIP` is the identifier (symbolic name) of a public IP address deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
+The syntax for defining an output value is:
+
+```bicep
+output <name> <data-type> = <value>
+```
+
+An output can have the same name as a parameter, variable, module, or resource. Each output value must resolve to one of the [data types](data-types.md).
+
+The following example shows how to return a property from a deployed resource. In the example, `publicIP` is the symbolic name for a public IP address that is deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
 
 ```bicep
 output hostname string = publicIP.properties.dnsSettings.fqdn
 ```
+
+The next example shows how to return outputs of different types.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/output.bicep":::
 
 If you need to output a property that has a hyphen in the name, use brackets around the name instead of dot notation. For example, use  `['property-name']` instead of `.property-name`.
 
@@ -29,14 +39,15 @@ var user = {
 output stringOutput string = user['user-name']
 ```
 
-The next example shows how to return outputs of different types.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/output.bicep":::
-
-
 ## Conditional output
 
-You can conditionally return a value. Typically, you use a conditional output when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed:
+When the value to return depends on a condition in the deployment, use the the `?` operator.
+
+```bicep
+output <name> <data-type> = <condition> ? <true-value> : <false-value>
+```
+
+Typically, you use a conditional output when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed.
 
 To specify a conditional output in Bicep, use the `?` operator. The following example either returns an endpoint URL or an empty string depending on a condition.
 
@@ -63,46 +74,49 @@ output endpoint string = deployStorage ? myStorageAccount.properties.primaryEndp
 
 ## Dynamic number of outputs
 
-In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using iterative output.
+In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using the `for` expression.
 
-In Bicep, add a `for` expression that defines the conditions for the dynamic output. The following example iterates over an array.
+```bicep
+output <name> <data-type> = [for <item> in <collection>: {
+  ...
+}]
+```
+
+The following example iterates over an array.
 
 ```bicep
 param nsgLocation string = resourceGroup().location
-param nsgNames array = [
-  'nsg1'
-  'nsg2'
-  'nsg3'
+param orgNames array = [
+  'Contoso'
+  'Fabrikam'
+  'Coho'
 ]
 
-resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for name in nsgNames: {
-  name: name
+resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for name in orgNames: {
+  name: 'nsg-${name}'
   location: nsgLocation
 }]
 
-output nsgs array = [for (name, i) in nsgNames: {
-  name: nsg[i].name
+output deployedNSGs array = [for (name, i) in orgNames: {
+  orgName: name
+  nsgName: nsg[i].name
   resourceId: nsg[i].id
 }]
 ```
 
-You can also iterate over a range of integers. For more information, see [Output iteration in Bicep](loop-outputs.md).
+For more information about loops, see [Iterative loops in Bicep](loops.md).
 
-## Modules
+## Outputs from modules
 
-You can deploy related templates by using modules. To retrieve an output value from a module, use the following syntax:
+To get an output value from a module, use the following syntax:
 
 ```bicep
 <module-name>.outputs.<property-name>
 ```
 
-The following example shows how to set the IP address on a load balancer by retrieving a value from a module. The name of the module is `publicIP`.
+The following example shows how to set the IP address on a load balancer by retrieving a value from a module.
 
-```bicep
-publicIPAddress: {
-  id: publicIP.outputs.resourceID
-}
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/module-output.bicep" highlight="14" :::
 
 ## Get output values
 

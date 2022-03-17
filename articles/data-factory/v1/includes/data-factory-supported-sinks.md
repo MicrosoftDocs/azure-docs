@@ -1,12 +1,12 @@
 ---
  title: include file
  description: include file
- author: linda33wj
+ author: jianleishen
  ms.service: data-factory
  ms.subservice: v1
  ms.topic: include
- ms.date: 06/22/2018
- ms.author: jingwang
+ ms.date: 10/22/2021
+ ms.author: jianleishen
  ms.custom: include file
 ---
 | Category | Data store | 

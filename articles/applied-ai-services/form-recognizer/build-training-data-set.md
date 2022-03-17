@@ -4,13 +4,13 @@ titleSuffix: Azure Applied AI Services
 description: Learn how to ensure your training data set is optimized for training a Form Recognizer model.
 author: laujan
 manager: nitinme
-
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
-ms.date: 07/27/2021
+ms.topic: how-to
+ms.date: 11/02/2021
 ms.author: lajanuar
 #Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
+ms.custom: ignite-fall-2021
 ---
 
 # Build a training data set for a custom model
@@ -38,9 +38,9 @@ Follow these additional tips to further optimize your data set for training.
 
 ## Upload your training data
 
-When you've put together the set of form documents that you'll use for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
+When you've put together the set of form documents that you'll use for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
 
-If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents. You can use the [Sample labeling tool](label-tool.md) (or your own UI) to generate these files.
+If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents. You can use the [Sample Labeling tool](label-tool.md) (or your own UI) to generate these files.
 
 ### Organize your data in subfolders (optional)
 
@@ -69,7 +69,7 @@ If you add the following content to the request body, the API will train with do
 
 Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
 
-* [Train a model and extract form data using the client library or REST API](./quickstarts/client-library.md)
+* [Train a model and extract form data using the client library or REST API](quickstarts/try-sdk-rest-api.md)
 * [Train with labels using the sample labeling tool](label-tool.md)
 
 ## See also

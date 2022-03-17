@@ -140,9 +140,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	>[!NOTE]
 	> Contact [TAS support team](mailto:support@combtas.com) to get the IP Address.
 
-	f. Copy the **Single Sign On** url and paste it into the **identifier (Entity ID)** and **Sign on URL** textbox of **Basic SAML Configuration** in Azure portal. Please note that the url is case sensitive and must end with a slash (/).
+	f. Copy the **Single Sign On** URL and paste it into the **identifier (Entity ID)** and **Sign on URL** textbox of **Basic SAML Configuration** in Azure portal. Please note that the URL is case sensitive and must end with a slash (/).
 
-	g. Copy the **Assertion Service** url in the setup page and paste it into the **Reply URL** textbox of  **Basic SAML Configuration** in Azure portal.
+	g. Copy the **Assertion Service** URL in the setup page and paste it into the **Reply URL** textbox of  **Basic SAML Configuration** in Azure portal.
 
 	h. Click **Insert SSO row**.
 
@@ -168,4 +168,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure TAS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure TAS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

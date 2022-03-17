@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2021
 ms.author: lajanuar
 ---
@@ -90,7 +90,7 @@ In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_K
 ```yml
 version: "3.9"
 services:
-azure-cognitive-service-layout:
+  azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
     environment:

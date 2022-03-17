@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: tisande
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 

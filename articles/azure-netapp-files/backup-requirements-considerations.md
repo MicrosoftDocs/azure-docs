@@ -3,7 +3,7 @@ title: Requirements and considerations for Azure NetApp Files backup | Microsoft
 description: Describes the requirements and considerations you need to be aware of before using Azure NetApp Files backup.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/07/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
 
@@ -56,5 +55,5 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 * [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files backup FAQs](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Azure NetApp Files backup FAQs](faq-backup.md)
 * [How Azure NetApp Files snapshots work](snapshots-introduction.md)

@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -145,6 +144,9 @@ The following steps illustrate how to manage (add and remove) access policies fo
    * **Add a new access policy** - Select **Add**. Once generated, the **Access Policies** dialog will display the newly added access policy (with default settings).
    * **Edit an access policy** -  Make any desired edits, and select **Save**.
    * **Remove an access policy** - Select **Remove** next to the access policy you wish to remove.
+
+> [!NOTE]
+> Modifying immutability policies is not supported from Storage Explorer. 
 
 ## Set the Public Access Level for a blob container
 

@@ -7,8 +7,8 @@ ms.subservice: scale-out
 ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.date: 03/13/2019
 ---
 # Migrate to the new Elastic Database jobs (preview)

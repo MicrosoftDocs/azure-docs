@@ -105,7 +105,7 @@ The following procedures show how to prepare the external load balancer for the 
             },
         ```
 
-        For information on the differences between basic and standard SKU public IPs, see [Create, change, or delete a public IP address](../virtual-network/virtual-network-public-ip-address.md).
+        For information on the differences between basic and standard SKU public IPs, see [Create, change, or delete a public IP address](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
     * **Public IP allocation method** and **Idle timeout**. You can change the public IP allocation method by changing the **publicIPAllocationMethod** property from **Dynamic** to **Static** or from **Static** to **Dynamic**. You can change the idle timeout by changing the **idleTimeoutInMinutes** property to the desired value. The default is **4**.
 
@@ -131,7 +131,7 @@ The following procedures show how to prepare the external load balancer for the 
 
         ```
 
-        For information on the allocation methods and idle timeout values, see [Create, change, or delete a public IP address](../virtual-network/virtual-network-public-ip-address.md).
+        For information on the allocation methods and idle timeout values, see [Create, change, or delete a public IP address](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
  
 13. Select **Save** in the online editor.

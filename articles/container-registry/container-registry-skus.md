@@ -120,7 +120,7 @@ Submit and vote on new feature suggestions in [ACR UserVoice][container-registry
 <!-- LINKS - External -->
 [acr-roadmap]: https://aka.ms/acr/roadmap
 [container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
-[container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
+[container-registry-uservoice]: https://feedback.azure.com/d365community/forum/180a533d-0d25-ec11-b6e6-000d3a4f0858
 
 <!-- LINKS - Internal -->
 [az-acr-update]: /cli/azure/acr#az_acr_update

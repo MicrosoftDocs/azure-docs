@@ -4,11 +4,10 @@ description: Use Access Reviews to extend of remove access from members of partn
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
@@ -24,7 +23,7 @@ This article describes features and methods that allow you to pinpoint and selec
 
 ## Why review users from external organizations in your tenant?
 
-In most organizations, end-users initiate the process of inviting business partners and vendors for collaboration. The need to collaborate drives organizations to provide resource owners and end users with a way to evaluate and attest external users regularly. Often the process of onboarding new collaboration partners is planned and accounted for, but with many collaborations not having a clear end date, it is not always obvious when a user no longer needs access. Also, identity life-cycle management drives enterprises to keep Azure AD clean and remove users who no longer need access to the organization’s resources. Keeping only the relevant identity references for partners and vendors in the directory helps reduce the risk of your employees, inadvertently selecting and granting access to external users that should have been removed. This document walks you through several options that range from recommended proactive suggestions to reactive and clean-up activities to govern external identities.
+In most organizations, end-users initiate the process of inviting business partners and vendors for collaboration. The need to collaborate drives organizations to provide resource owners and end users with a way to evaluate and attest external users regularly. Often the process of onboarding new collaboration partners is planned and accounted for, but with many collaborations not having a clear end date, it is not always obvious when a user no longer needs access. Also, identity life-cycle management drives enterprises to keep Azure AD clean and remove users who no longer need access to the organization’s resources. Keeping only the relevant identity references for partners and vendors in the directory helps reduce the risk of your employees, inadvertently selecting and granting access to external users that should have been removed. This document walks you through several options that range from recommended proactive suggestions to reactive and cleanup activities to govern external identities.
 
 ## Use Entitlement Management to grant and revoke access
 
@@ -72,5 +71,5 @@ This setting allows you to identify, block, and delete external identities from 
 
 ## Next steps
 
-- [Access reviews - Graph API](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true)
-- [Entitlement management - Graph API](/graph/api/resources/entitlementmanagement-root)
+- [Access reviews - Graph API](/graph/api/resources/accessreviewsv2-overview)
+- [Entitlement management - Graph API](/graph/api/resources/entitlementmanagement-overview)

@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Virtual Desktop from iOS - Azure
+title: Connect to Azure Virtual Desktop with the iOS client - Azure
 description: How to connect to Azure Virtual Desktop using the iOS client.
 author: Heidilohr
 ms.topic: how-to

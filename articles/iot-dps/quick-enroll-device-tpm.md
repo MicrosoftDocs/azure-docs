@@ -1,14 +1,14 @@
 ---
 title: Quickstart - Enroll individual device to Azure Device Provisioning Service using TPM attestation
 description: Quickstart - Enroll an individual device to Azure IoT Hub Device Provisioning Service (DPS) using TPM attestation.
-author: anastasia-ms
-ms.author: v-stharr
+author: kgremban
+ms.author: kgremban
 ms.date: 08/20/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
+ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set2
 ---
  

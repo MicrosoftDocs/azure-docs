@@ -3,12 +3,12 @@ title: Set up logging to monitor logic apps in Azure Security Center
 description: Monitor the health of your Logic Apps resources in Azure Security Center by setting up diagnostic logging. 
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 12/07/2020
 ---
 
-# Set up logging to monitor logic apps in Azure Security Center
+# Set up logging to monitor logic apps in Microsoft Defender for Cloud
 
 When you monitor your Logic Apps resources in [Microsoft Azure Security Center](../security-center/security-center-introduction.md), you can [review whether your logic apps are following the default policies](#view-logic-apps-health-status). Azure shows the health status for a Logic Apps resource after you enable logging and correctly set up the logs' destination. This article explains how to configure diagnostic logging and make sure that all your logic apps are healthy resources.
 
@@ -17,8 +17,10 @@ When you monitor your Logic Apps resources in [Microsoft Azure Security Center](
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you start.
+* An Azure subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 * Existing logic apps with [diagnostic logging enabled](#enable-diagnostic-logging).
+
 * A Log Analytics workspace, which is required to enable logging for your logic app. If you don't have a workspace, first [create your workspace](../azure-monitor/logs/quick-create-workspace.md).
 
 ## Enable diagnostic logging
@@ -30,24 +32,24 @@ Before you can view the resource health status for your logic apps, you must fir
 
 ### Check diagnostic logging setting
 
-If you're not sure whether your logic apps have diagnostic logging enabled, you can check in Security Center:
+If you're not sure whether your logic apps have diagnostic logging enabled, you can check in Defender for Cloud:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search bar, enter and select **Security Center**.
-1. On the Security Center dashboard menu, under **General**, select **Recommendations**.
+1. In the search bar, enter and select **Defender for Cloud**.
+1. On the workload protection dashboard menu, under **General**, select **Recommendations**.
 1. In the table of security suggestions, find and select **Enable auditing and logging** &gt; **Diagnostic logs in Logic Apps should be enabled** in the table of security controls.
 1. On the recommendation page, expand the **Remediation steps** section and review the options. You can enable Logic Apps diagnostics by selecting the **Quick Fix!** button, or by following the manual remediation instructions.
 
 ## View logic apps' health status
 
-After you've [enabled diagnostic logging](#enable-diagnostic-logging), you can see the health status of your logic apps in Security Center.
+After you've [enabled diagnostic logging](#enable-diagnostic-logging), you can see the health status of your logic apps in Defender for Cloud.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search bar, enter and select **Security Center**.
-1. On the Security Center dashboard menu,  under **General**, select **Inventory**.
+1. In the search bar, enter and select **Defender for Cloud**.
+1. On the workload protection dashboard menu,  under **General**, select **Inventory**.
 1. On the inventory page, filter your assets list to show only Logic Apps resources. In the page menu, select **Resource types** &gt; **logic apps**.
 
-   The **Unhealthy Resources** counter shows the number of logic apps that Security Center considers unhealthy.
+   The **Unhealthy Resources** counter shows the number of logic apps that Defender for Cloud considers unhealthy.
 1.  In the list of logic apps resources, review the **Recommendations** column. To review the health details for a specific logic app, select a resource name, or select the ellipses button (**...**) &gt; **View resource**.
 1.  To remediate any potential resource health issues, follow the steps listed for your logic apps.
 
@@ -55,7 +57,7 @@ If diagnostic logging is already enabled, there might be an issue with the desti
 
 ## Fix diagnostic logging for logic apps
 
-If your [logic apps are listed as unhealthy in Security Center](#view-logic-apps-health-status), open your logic app in Code View in the Azure portal or through the Azure CLI. Then, check the destination configuration for your diagnostic logs: [Azure Log Analytics](#log-analytics-and-event-hubs-destinations), [Azure Event Hubs](#log-analytics-and-event-hubs-destinations), or [an Azure Storage account](#storage-account-destination).
+If your [logic apps are listed as unhealthy in Defender for Cloud](#view-logic-apps-health-status), open your logic app in Code View in the Azure portal or through the Azure CLI. Then, check the destination configuration for your diagnostic logs: [Azure Log Analytics](#log-analytics-and-event-hubs-destinations), [Azure Event Hubs](#log-analytics-and-event-hubs-destinations), or [an Azure Storage account](#storage-account-destination).
 
 ### Log Analytics and Event Hubs destinations
 

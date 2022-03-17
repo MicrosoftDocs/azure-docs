@@ -56,7 +56,7 @@ The following example creates the number of storage accounts specified in the `s
   "parameters": {
     "storageCount": {
       "type": "int",
-      "defaultValue": 2
+      "defaultValue": 3
     }
   },
   "resources": [

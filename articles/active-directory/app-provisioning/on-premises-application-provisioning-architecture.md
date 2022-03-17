@@ -3,20 +3,17 @@ title: 'Azure AD on-premises application provisioning architecture | Microsoft D
 description: Presents an overview of on-premises application provisioning architecture.
 services: active-directory
 author: billmath
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 05/28/2021
+ms.date: 11/29/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD on-premises application provisioning architecture
-
->[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability (GA).
+# Azure AD on-premises application provisioning architecture (preview)
 
 ## Overview
 
@@ -57,11 +54,11 @@ The following information is provided to better explain the anchor attributes an
 
 The anchor attribute is a unique attribute of an object type that does not change and represents that object in the ECMA Connector Host in-memory cache.
 
-The distinguished name (DN) is a name that uniquely identifies an object by indicating its current location in the directory hierarchy.  Or in the case of SQL, in the partition. The name is formed by concatenating the anchor attribute a the root of the directory partition. 
+The distinguished name (DN) is a name that uniquely identifies an object by indicating its current location in the directory hierarchy.  Or in the case of SQL, in the partition. The name is formed by concatenating the anchor attribute at the root of the directory partition. 
 
 When we think of traditional DNs in a traditional format, for say, Active Directory or LDAP, we think of something similar to:
 
-  CN=Lola Jacobson,CN=Users,DC=contoso,DC=com
+  `CN=Lola Jacobson,CN=Users,DC=contoso,DC=com`
 
 However, for a data source such as SQL, which is flat, not hierarchical, the DN needs to be either already present in one of the table or created from the information we provide to the ECMA Connector Host.  
 
@@ -87,12 +84,12 @@ You can define one or more matching attribute(s) and prioritize them based on th
 
 
 3. If the user does not exist, Azure AD will make a POST request to create the user.  The ECMA Connector Host will respond back to Azure AD with the HTTP 201 and provide an ID for the user. This ID is derived from the anchor value defined in the object types page. This anchor will be used by Azure AD to query the ECMA Connector Host for future and subsequent requests. 
-4. If a change happens to the user in Azure AD, then Azure AD will make a GET request to retrieve the user using the anchor from the previous step, rather than the matching attribute in step 1. This allows, for example, the UPN to change without breaking the link between the user in Azuer AD and in the app.  
+4. If a change happens to the user in Azure AD, then Azure AD will make a GET request to retrieve the user using the anchor from the previous step, rather than the matching attribute in step 1. This allows, for example, the UPN to change without breaking the link between the user in Azure AD and in the app.  
 
 
 ## Agent best practices
-- Ensure the auto Azure AD Connect Provisioning Agent Auto Update service is running. It's enabled by default when you install the agent. Auto-update is required for Microsoft to support your deployment.
-- Avoid all forms of inline inspection on outbound TLS communications between agents and Azure. This type of inline inspection causes degradation to the communication flow.
+- Using the same agent for the on-prem provisioning feature along with Workday / SuccessFactors / Azure AD Connect Cloud Sync is currently unsupported. We are actively working to support on-prem provisioning on the same agent as the other provisioning scenarios.
+- - Avoid all forms of inline inspection on outbound TLS communications between agents and Azure. This type of inline inspection causes degradation to the communication flow.
 - The agent must communicate with both Azure and your application, so the placement of the agent affects the latency of those two connections. You can minimize the latency of the end-to-end traffic by optimizing each network connection. Each connection can be optimized by:
   - Reducing the distance between the two ends of the hop.
   - Choosing the right network to traverse. For example, traversing a private network rather than the public internet might be faster because of dedicated links.
@@ -111,10 +108,6 @@ For the latest GA version of the provisioning agent, see [Azure AD connect provi
  1. Sign in to the Windows server where the provisioning agent is installed.
  2. Go to **Control Panel** > **Uninstall or Change a Program**.
  3. Look for the version that corresponds to the entry for **Microsoft Azure AD Connect Provisioning Agent**.
-
-### Does Microsoft automatically push provisioning agent updates?
-
-Yes. Microsoft automatically updates the provisioning agent if the Windows service Microsoft Azure AD Connect Agent Updater is up and running. Ensuring that your agent is up to date is required for support to troubleshoot issues.
 
 ### Can I install the provisioning agent on the same server running Azure AD Connect or Microsoft Identity Manager?
 

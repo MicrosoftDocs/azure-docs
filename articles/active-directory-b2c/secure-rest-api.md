@@ -3,14 +3,14 @@ title: Secure APIs used as API connectors in Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Secure your custom RESTful APIs used as API connectors in Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
-ms.author: mimart
+ms.date: 10/25/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -39,7 +39,7 @@ HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/r
 To configure an API Connector with HTTP basic authentication, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Under **Azure services**, select **Azure AD B2C**.
+2. Under **Azure services**, select **Azure AD B2C** or search for and select **Azure AD B2C**.
 3. Select **API connectors**, and then select the **API Connector** you want to configure.
 4. For the **Authentication type**, select **Basic**.
 5. Provide the **Username**, and **Password** of your REST API endpoint.
@@ -336,8 +336,8 @@ For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tena
     <Key Id="BasicAuthenticationPassword" StorageReferenceId="B2C_1A_SecureRESTClientSecret" />
   </CryptographicKeys>
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="client_credentials" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://graph.microsoft.com/.default" />
+    <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="client_credentials" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://graph.microsoft.com/.default" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="bearerToken" PartnerClaimType="access_token" />
@@ -345,6 +345,9 @@ For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tena
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
 </TechnicalProfile>
 ```
+
+> [!NOTE]
+> If you use the `grant_type` or `scope` claims in other technical profiles, we recommend that they also specify `DefaultValue` and use `AlwaysUseDefaultValue="true"` to avoid potential conflicts in binding against the incorrect value.
 
 ### Change the REST technical profile to use bearer token authentication
 

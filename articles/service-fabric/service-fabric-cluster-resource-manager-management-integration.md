@@ -189,9 +189,9 @@ The main thing to be aware of is that the rules – the strict constraints like 
 When an upgrade starts, the Resource Manager takes a snapshot of the current arrangement of the cluster. As each Upgrade Domain completes, it attempts to return the services that were in that Upgrade Domain to their original arrangement. This way there are at most two transitions for a service during the upgrade. There is one move out of the affected node and one move back in. Returning the cluster or service to how it was before the upgrade also ensures the upgrade doesn’t impact the layout of the cluster. 
 
 ### Reduced churn
-Another thing that happens during upgrades is that the Cluster Resource Manager turns off balancing. Preventing balancing prevents unnecessary reactions to the upgrade itself, like moving services into nodes that were emptied for the upgrade. If the upgrade in question is a Cluster upgrade, then the entire cluster is not balanced during the upgrade. Constraint checks stay active, only movement based on the proactive balancing of metrics is disabled.
+During upgrades, the Cluster Resource Manager also turns off balancing. Preventing balancing prevents unnecessary reactions to the upgrade itself, like moving services into nodes that were emptied for the upgrade. If the upgrade in question is a Cluster upgrade, then the entire cluster is not balanced during the upgrade. Constraint checks stay active, only movement based on the proactive balancing of metrics is disabled.
 
-### Buffered Capacity & Upgrade
+### Buffered capacity and upgrade
 Generally you want the upgrade to complete even if the cluster is constrained or close to full. Managing the capacity of the cluster is even more important during upgrades than usual. Depending on the number of upgrade domains, between 5 and 20 percent of capacity must be migrated as the upgrade rolls through the cluster. That work has to go somewhere. This is where the notion of [buffered capacities](service-fabric-cluster-resource-manager-cluster-description.md#node-buffer-and-overbooking-capacity) is useful. Buffered capacity is respected during normal operation. The Cluster Resource Manager may fill nodes up to their total capacity (consuming the buffer) during upgrades if necessary.
 
 ## Next steps
