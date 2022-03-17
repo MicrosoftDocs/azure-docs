@@ -100,7 +100,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
     }
     ```
 
-### Create a Java application
+## Create a Java application
 
 To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
@@ -133,6 +133,22 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, see* the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
+
+## Build and run your application
+
+Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
+
+1. Build your application with the `build` command:
+
+```console
+gradle build
+```
+
+1. Run your application with the `run` command:
+
+```console
+gradle run
+```
 
 ## General document model
 
@@ -239,22 +255,6 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
             });
         }
     }
-```
-
-### Build and run your general document application
-
-Navigate back to your main project directory—**form-recognizer-app**.
-
-1. Build your application with the `build` command:
-
-```console
-gradle build
-```
-
-1. Run your application with the `run` command:
-
-```console
-gradle run
 ```
 
 ### General document model output
@@ -371,22 +371,6 @@ Extract text, selection marks, text styles, table structures, and bounding regio
             }
         }
     }
-```
-
-### Build and run your layout application
-
-Navigate back to your main project directory—**form-recognizer-app**.
-
-1. Build your application with the `build` command:
-
-```console
-gradle build
-```
-
-1. Run your application with the `run` command:
-
-```console
-gradle run
 ```
 
 ### Layout model output
@@ -586,22 +570,6 @@ Analyze and extract common fields from specific document types using a prebuilt 
 
 ```
 
-### Build and run your prebuilt-invoice application
-
-Navigate back to your main project directory—**form-recognizer-app**.
-
-1. Build your application with the `build` command:
-
-```console
-gradle build
-```
-
-1. Run your application with the `run` command:
-
-```console
-gradle run
-```
-
 ### Prebuilt model output
 
 Here's a snippet of the expected output:
@@ -617,7 +585,7 @@ Here's a snippet of the expected output:
   Invoice Date: 2019-11-15, confidence: 0.97
 ```
 
-To view the entire output,isit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-prebuilt-invoice-output.md)
+To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-prebuilt-invoice-output.md)
 
 That's it, congratulations!
 

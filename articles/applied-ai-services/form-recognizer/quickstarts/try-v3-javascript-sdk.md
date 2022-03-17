@@ -86,7 +86,7 @@ In this quickstart you'll use following features to analyze and extract data and
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item index.js**.
 
-### Build your application
+## Build your application
 
 To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
@@ -101,6 +101,18 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, see* the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
+
+## Run your application
+
+Once you've added a code sample to your application, build and run your application:
+
+1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
+
+1. Type the following command in your terminal:
+
+```console
+node index.js
+```
 
 ## General document model
 
@@ -169,16 +181,6 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
       console.error("An error occurred:", error);
       process.exit(1);
   });
-```
-
-### Run your general document application
-
-1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
-
-1. Type the following command in your terminal:
-
-```console
-node index.js
 ```
 
 ### General document model output
@@ -274,16 +276,6 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
 ```
 
-### Run your layout application
-
-1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
-
-1. Type the following command in your terminal:
-
-```console
-node index.js
-```
-
 ### Layout model output
 
 Here's a snippet of the expected output:
@@ -372,16 +364,6 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
       console.error("An error occurred:", error);
       process.exit(1);
   });
-```
-
-### Run your prebuilt-invoice application
-
-1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
-
-1. Type the following command in your terminal:
-
-```console
-node index.js
 ```
 
 ### Prebuilt model output

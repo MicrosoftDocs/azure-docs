@@ -145,6 +145,22 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 >
 > * Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
+## Run your application
+
+Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+
+<!-- ### [.NET Command-line interface (CLI)](#tab/cli)
+
+Open your command prompt and go to the directory that contains your project and type the following:
+
+```console
+dotnet run formrecognizer-quickstart.dll
+```
+
+### [Visual Studio](#tab/vs) -->
+
 ## General document model
 
 Analyze and extract text, tables, structure, key-value pairs, and named entities.
@@ -269,12 +285,6 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-### Run your general document application
-
-Choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
-
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
-
 ### General document model output
 
 Here's a snippet of the expected output:
@@ -385,12 +395,6 @@ for (int i = 0; i < result.Tables.Count; i++)
 }
 
 ```
-
-### Run your layout application
-
-Choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
-
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Layout model output
 
@@ -541,22 +545,6 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 
 ```
-
-## Run your prebuilt-invoice application
-
-<!-- ### [.NET Command-line interface (CLI)](#tab/cli)
-
-Open your command prompt and go to the directory that contains your project and type the following:
-
-```console
-dotnet run formrecognizer-quickstart.dll
-```
-
-### [Visual Studio](#tab/vs) -->
-
-Choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
-
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Prebuilt model output
 
