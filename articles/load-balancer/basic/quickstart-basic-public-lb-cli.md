@@ -20,6 +20,9 @@ Get started with Azure Load Balancer by using the Azure portal to create a basic
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
+>[!NOTE]
+>Standard SKU load balancer is recommended for production workloads. For more information about SKUs, see **[Azure Load Balancer SKUs](../skus.md)**.
+
 ## Create a resource group
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
@@ -31,9 +34,6 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
     --name CreatePubLBQS-rg \
     --location eastus
 ```
-
->[!NOTE]
->Standard SKU load balancer is recommended for production workloads. For more information about SKUs, see **[Azure Load Balancer SKUs](../skus.md)**.
 
 ## Create a virtual network 
 
