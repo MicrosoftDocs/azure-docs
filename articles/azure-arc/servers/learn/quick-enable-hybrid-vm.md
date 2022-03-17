@@ -16,13 +16,13 @@ ms.custom: mode-other
 
 * Deploying the Azure Arc-enabled servers Hybrid Connected Machine agent requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
 
-* Before you get started, be sure to review the agent [prerequisites](../agent-overview.md#prerequisites) and verify the following:
+* Before you get started, be sure to review the agent [prerequisites](../prerequisites.md) and verify the following:
 
-    * Your target machine is running a supported [operating system](../agent-overview.md#supported-operating-systems).
+    * Your target machine is running a supported [operating system](../prerequisites.md#supported-operating-systems).
 
-    * Your account is granted assignment to the [required Azure roles](../agent-overview.md#required-permissions).
+    * Your account is granted assignment to the [required Azure roles](../prerequisites.md#required-permissions).
 
-    * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../agent-overview.md#networking-configuration) are not blocked.
+    * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../network-requirements.md#urls) are not blocked.
 
     * Azure Arc-enabled servers supports only the regions specified [here](../overview.md#supported-regions).
 

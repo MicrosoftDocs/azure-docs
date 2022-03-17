@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 01/26/2022
+ms.date: 03/15/2022
 ms.author: aahi
 ms.devlang: csharp, python
 ms.custom: language-service-clu, ignite-fall-2021
@@ -18,18 +18,41 @@ ms.custom: language-service-clu, ignite-fall-2021
 
 After you have [trained a model](./train-model.md) on your dataset, you're ready to deploy it. After deploying your model, you'll be able to query it for predictions. 
 
+> [!Tip]
+> Before deploying a model, make sure to view the model details to make sure that the model is performing as expected.
+
 ## Deploy model
 
-Deploying a model is to host it and make it available for predictions through an endpoint. You can only have 1 deployed model per project, deploying another one will overwrite the previously deployed model.
+Deploying a model hosts and makes it available for predictions through an endpoint.
 
 When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated to it.
 
-Simply select a model and click on deploy model in the Deploy model page. 
+### Conversation projects deployments
 
-:::image type="content" source="../media/deploy-model.png" alt-text="A screenshot showing the model deployment page in Language Studio." lightbox="../media/deploy-model.png":::
+1.	Click on *Add deployment* to submit a new deployment job
+
+    :::image type="content" source="../media/add-deployment-model.png" alt-text="A screenshot showing the model deployment button in Language Studio." lightbox="../media/add-deployment-model.png":::
+
+2. In the window that appears, you can create a new deployment name by giving the deployment a name or override an existing deployment name. Then, you can add a trained model to this deployment name.
+
+    :::image type="content" source="../media/create-deployment-job.png" alt-text="A screenshot showing the add deployment job screen in Language Studio." lightbox="../media/create-deployment-job.png":::
+
+
+#### Swap deployments
+
+If you would like to swap the models between two deployments, simply select the two deployment names you want to swap and click on **Swap deployments**. From the window that appears, select the deployment name you want to swap with.
+
+:::image type="content" source="../media/swap-deployment.png" alt-text="A screenshot showing a swapped deployment in Language Studio." lightbox="../media/swap-deployment.png":::
+
+#### Delete deployment
+
+To delete a deployment, select the deployment you want to delete and click on **Delete deployment**.
 
 > [!TIP]
 > If you're using the REST API, see the [quickstart](../quickstart.md?pivots=rest-api#deploy-your-model) and REST API [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) for examples and more information.
+
+> [!NOTE]
+> You can only have ten deployment names.
 
 ## Send a Conversational Language Understanding request
 
