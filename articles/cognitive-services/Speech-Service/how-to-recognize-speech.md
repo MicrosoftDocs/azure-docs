@@ -59,5 +59,6 @@ keywords: speech to text, speech to text software
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [See the quickstart samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart)
+* [Try the speech to text quickstart](get-started-speech-to-text.md)
+* [Improve recognition accuracy with custom speech](custom-speech-overview.md)
+* [Transcribe audio in batches](batch-transcription.md)

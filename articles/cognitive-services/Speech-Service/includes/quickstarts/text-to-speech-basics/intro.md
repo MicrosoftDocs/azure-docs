@@ -6,4 +6,7 @@ ms.date: 03/15/2022
 ms.author: eur
 ---
 
-In this quickstart, you run a console app that does text to speech synthesis.
+In this quickstart, you run a console app that does text to speech synthesis. 
+
+> [!TIP]
+> To try the Speech service without writing any code, create a project in [Speech Studio](https://speech.microsoft.com). 
