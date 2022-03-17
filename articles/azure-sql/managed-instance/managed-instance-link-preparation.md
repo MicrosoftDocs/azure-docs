@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: guide
 author: sasapopo
 ms.author: sasapopo
-ms.reviewer: mathoma
+ms.reviewer: mathoma, danil
 ms.date: 03/10/2022
 ---
 
@@ -43,11 +43,12 @@ You'll need to restart SQL Server for these changes to take effect.
 
 ### Install CU15 (or later)
 
-The link feature for SQL Managed Instance was introduced in CU15 of SQL Server 2019. 
+The link feature for SQL Managed Instance was introduced in CU15 of SQL Server 2019.
 
-To check your SQL Server version, run the following Transact-SQL (T-SQL) script: 
+To check your SQL Server version, run the following Transact-SQL (T-SQL) script on SQL Server: 
 
 ```sql
+-- Run on SQL Server
 -- Shows the version and CU of the SQL Server
 SELECT @@VERSION
 ```
@@ -56,17 +57,19 @@ If your SQL Server version is earlier than CU15 (15.0.4198.2), install [CU15](ht
 
 ### Create a database master key in the master database
 
-Create a database master key in the master database by running the following T-SQL script:
+Create database master key in the master database by running the following T-SQL script on SQL Server:
 
 ```sql
+-- Run on SQL Server
 -- Create a master key
 USE MASTER
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<strong_password>'
 ```
 
-To make sure that you have the database master key, use the following T-SQL script:
+To make sure that you have the database master key, use the following T-SQL script on SQL Server:
 
 ```sql
+-- Run on SQL Server
 SELECT * FROM sys.symmetric_keys WHERE name LIKE '%DatabaseMasterKey%'
 ```
 
@@ -74,9 +77,10 @@ SELECT * FROM sys.symmetric_keys WHERE name LIKE '%DatabaseMasterKey%'
 
 The link feature for SQL Managed Instance relies on the Always On availability groups feature, which isn't enabled by default. To learn more, review [Enable the Always On availability groups feature](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server). 
 
-To confirm that the Always On availability groups feature is enabled, run the following T-SQL script: 
+To confirm that the Always On availability groups feature is enabled, run the following T-SQL script on SQL Server: 
 
 ```sql
+-- Run on SQL Server
 -- Is HADR enabled on this SQL Server instance?
 declare @IsHadrEnabled sql_variant = (select SERVERPROPERTY('IsHadrEnabled'))
 select
@@ -91,7 +95,7 @@ select
 If the availability groups feature isn't enabled, follow these steps to enable it: 
 
 1. Open SQL Server Configuration Manager. 
-1. Choose the SQL Server service from the left pane. 
+1. Select **SQL Server Services** from the left pane. 
 1. Right-click the SQL Server service, and then select **Properties**. 
  
    :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-properties.png" alt-text="Screenshot that shows SQL Server Configuration Manager, with selections for opening properties for the service.":::
@@ -113,7 +117,7 @@ To optimize the performance of your SQL Managed Instance link, we recommend enab
 To enable these trace flags at startup, use the following steps: 
 
 1. Open SQL Server Configuration Manager. 
-1. Choose the SQL Server service from the left pane. 
+1. Select **SQL Server Services** from the left pane. 
 1. Right-click the SQL Server service, and then select **Properties**. 
 
    :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-properties.png" alt-text="Screenshot that shows SQL Server Configuration Manager.":::
@@ -131,14 +135,15 @@ To learn more, review the [syntax for enabling trace flags](/sql/t-sql/database-
 After you've ensured that you're on a supported version of SQL Server, enabled the Always On availability groups feature, and added your startup trace flags, restart your SQL Server instance to apply all of these changes:
 
 1. Open **SQL Server Configuration Manager**. 
-1. Choose the SQL Server service from the left pane. 
+1. Select **SQL Server Services** from the left pane. 
 1. Right-click the SQL Server service, and then select **Restart**. 
 
     :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-restart.png" alt-text="Screenshot that shows the SQL Server restart command call.":::
 
-After the restart, run the following Transact-SQL script to validate the configuration of your SQL Server instance: 
+After the restart, run the following Transact-SQL script on SQL Server to validate the configuration of your SQL Server instance: 
 
 ```sql
+-- Run on SQL Server
 -- Shows the version and CU of SQL Server
 SELECT @@VERSION
 
@@ -155,9 +160,10 @@ Your SQL Server version should be 15.0.4198.2 or later, the Always On availabili
 
 ### Set up database recovery and backup
 
-All databases that will be replicated via SQL Managed Instance link must be in full recovery mode and have at least one backup. Use these commands:
+All databases that will be replicated via SQL Managed Instance link must be in full recovery mode and have at least one backup. Run the following code on SQL Server:
 
 ```sql
+-- Run on SQL Server
 -- Set full recovery mode for all databases you want to replicate.
 ALTER DATABASE [<DatabaseName>] SET RECOVERY FULL
 GO
@@ -203,7 +209,7 @@ The following table describes port actions for each environment:
 |SQL Server (outside Azure) | Open both inbound and outbound traffic on port 5022 for the network firewall to the entire subnet of SQL Managed Instance. If necessary, do the same on the Windows firewall.  |
 |SQL Managed Instance |[Create an NSG rule](../../virtual-network/manage-network-security-group.md#create-a-security-rule) in the Azure portal to allow inbound and outbound traffic from the IP address of SQL Server on port 5022 to the virtual network that hosts SQL Managed Instance. |
 
-Use the following PowerShell script on the host SQL Server instance to open ports in the Windows firewall: 
+Use the following PowerShell script on the Windows host of the SQL Server instance to open ports in the Windows firewall: 
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow TCP port 5022 inbound" -Direction inbound -Profile Any -Action Allow -LocalPort 5022 -Protocol TCP
@@ -214,17 +220,15 @@ New-NetFirewallRule -DisplayName "Allow TCP port 5022 outbound" -Direction outbo
 
 Bidirectional network connectivity between SQL Server and SQL Managed Instance is necessary for the SQL Managed Instance link feature to work. After you open ports on the SQL Server side and configure an NSG rule on the SQL Managed Instance side, test connectivity. 
 
-
 ### Test the connection from SQL Server to SQL Managed Instance 
 
-To check if SQL Server can reach SQL Managed Instance, use the `tnc` command in PowerShell from the SQL Server host machine. In the following example, replace `<ManagedInstanceFQDN>` with the fully qualified domain name of the managed instance.
+To check if SQL Server can reach SQL Managed Instance, use the following `tnc` command in PowerShell from the SQL Server host machine. Replace `<ManagedInstanceFQDN>` with the fully qualified domain name (FQDN) of the managed instance. You can copy the FQDN from the managed instance's overview page in the Azure portal.
 
 ```powershell
 tnc <ManagedInstanceFQDN> -port 5022
 ```
 
 A successful test shows `TcpTestSucceeded : True`. 
-
 
 :::image type="content" source="./media/managed-instance-link-preparation/powershell-output-tnc-command.png" alt-text="Screenshot that shows the output of the command for testing a network connection in PowerShell.":::
 
@@ -235,11 +239,12 @@ If the response is unsuccessful, verify the following network settings:
 
 ### Test the connection from SQL Managed Instance to SQL Server
 
-To check that SQL Managed Instance can reach SQL Server, you first create a test endpoint. Then you use the SQL Agent to run a PowerShell script with the `tnc` command pinging SQL Server on port 5022.
+To check that SQL Managed Instance can reach SQL Server, you first create a test endpoint. Then you use the SQL Agent to run a PowerShell script with the `tnc` command pinging SQL Server on port 5022 from the managed instance.
 
-To create a test endpoint, connect to SQL Managed Instance and run the following T-SQL script: 
+To create a test endpoint, connect to SQL Server and run the following T-SQL script: 
 
 ```sql
+-- Run on SQL Server
 -- Create the certificate needed for the test endpoint
 USE MASTER
 CREATE CERTIFICATE TEST_CERT
@@ -247,7 +252,7 @@ WITH SUBJECT = N'Certificate for SQL Server',
 EXPIRY_DATE = N'3/30/2051'
 GO
 
--- Create the test endpoint
+-- Create the test endpoint on SQL Server
 USE MASTER
 CREATE ENDPOINT TEST_ENDPOINT
     STATE=STARTED   
@@ -259,12 +264,18 @@ CREATE ENDPOINT TEST_ENDPOINT
     )
 ```
 
-Next, create a SQL Agent job called `NetHelper` by using the public IP address or DNS name that can be resolved from SQL Managed Instance for `SQL_SERVER_ADDRESS`. 
+To verify that the SQL Server endpoint is receiving connections on port 5022, run the following PowerShell command on the host operating system of your SQL Server instance:
 
-To create the SQL Agent job, run the following T-SQL script: 
+```powershell
+tnc localhost -port 5022
+```
 
+A successful test shows `TcpTestSucceeded : True`. You can then proceed to creating a SQL Agent job on the managed instance to try testing the SQL Server test endpoint on port 5022 from the managed instance.
+
+Next, create a SQL Agent job on the managed instance called `NetHelper` by using the public IP address or DNS name that can be resolved from the managed instance for `SQL_SERVER_ADDRESS`. Run the following T-SQL script on the managed instance: 
 
 ```sql
+-- Run on the managed instance
 -- SQL_SERVER_ADDRESS should be a public IP address, or the DNS name that can be resolved from the SQL Managed Instance host machine.
 DECLARE @SQLServerIpAddress NVARCHAR(MAX) = '<SQL_SERVER_ADDRESS>'
 DECLARE @tncCommand NVARCHAR(MAX) = 'tnc ' + @SQLServerIpAddress + ' -port 5022 -InformationLevel Quiet'
@@ -291,15 +302,17 @@ EXEC msdb.dbo.sp_start_job @job_name = N'NetHelper'
 ```
 
 
-Run the SQL Agent job by running the following T-SQL command: 
+Run the SQL Agent job by running the following T-SQL command on the managed instance: 
 
 ```sql
+-- Run on the managed instance
 EXEC msdb.dbo.sp_start_job @job_name = N'NetHelper'
 ```
 
-Run the following query to show the log of the SQL Agent job: 
+Run the following query on the managed instance to show the log of the SQL Agent job: 
 
 ```sql
+-- Run on the managed instance
 SELECT 
     sj.name JobName, sjs.step_id, sjs.step_name, sjsl.log, sjsl.date_modified
 FROM
@@ -316,9 +329,10 @@ If the connection is successful, the log will show `True`. If the connection is 
 
 :::image type="content" source="./media/managed-instance-link-preparation/ssms-output-tnchelper.png" alt-text="Screenshot that shows the expected output of the NetHelper SQL Agent job.":::
 
-Finally, drop the test endpoint and certificate by using the following T-SQL commands: 
+Finally, drop the test endpoint and certificate on SQL Server by using the following T-SQL commands: 
 
 ```sql
+-- Run on SQL Server
 DROP ENDPOINT TEST_ENDPOINT
 GO
 DROP CERTIFICATE TEST_CERT
