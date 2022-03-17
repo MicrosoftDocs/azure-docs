@@ -34,7 +34,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 Create a key vault using the [az keyvault create](/cli/azure/keyvault#az_keyvault_create) Azure CLI command, the [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure PowerShell command, the [Azure portal](https://portal.azure.com), or a [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create).
 
 >[!WARNING]
-> To ensure that encryption secrets don't cross regional boundaries, Azure Disk Encryption requires the Key Vault and the VMs to be co-located in the same region and tenant. Create and use a key vault that is in the same region and tenant as the VMs to be encrypted.
+> To ensure that encryption secrets don't cross regional boundaries, you must create and use a key vault that is in the **same region and tenant** as the VMs to be encrypted.
 
 Each Key Vault must have a unique name. Replace \<your-unique-keyvault-name\> with the name of your key vault in the following examples.
 
