@@ -12,6 +12,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 Trigger a function based on a new Kafka event.
 
+::: zone pivot="programming-language-csharp"
 Kafka messages can be serialized to multiple formats. Currently the following formats are supported: 
 
 # [JSON](#tab/string)
@@ -30,6 +31,13 @@ The Kafka trigger supports two methods for consuming [Avro format](http://avro.a
 [Protobuf](https://developers.google.com/protocol-buffers/
 
 ---
+
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell" 
+
+Kafka messages are currently supported as strings that are JSON payloads.
+
+::: zone-end 
 
 ## Example
 ::: zone pivot="programming-language-csharp"
@@ -53,8 +61,7 @@ public static void StringTopic(
 
 # [Avro](#tab/avro/in-process)
 
-In the first example, a `UserRecord` class, which inherits from `ISpecificRecord`, is instantiated during message de-serialization.
-1. The parameter where `KafkaTrigger` is added should have a value type of the class defined in previous step: `KafkaEventData<MySpecificRecord>`
+In the first example, a specific `UserRecord` class, which inherits from `ISpecificRecord`, is instantiated during message de-serialization. The parameter to which the `KafkaTrigger` attribute is added should have a value type of the class defined in previous step: `KafkaEventData<UserRecord>`.
 
 ```csharp
 public class UserRecord : ISpecificRecord
@@ -80,8 +87,8 @@ public class UserRecord : ISpecificRecord
       ""name"": ""gender"",
       ""type"": ""string""
     }
-  ]
-}";
+    ]
+  }";
 
   public static Schema _SCHEMA = Schema.Parse(SchemaText);
 
@@ -129,17 +136,11 @@ public static void User(
 }
 ```
 
-### Avro generic
+The next example is a generic class set to a specific Avro schema. In this example the `KafkaTrigger` attribute sets the value of the `AvroSchema` property to the string representation of the schema name. The parameter type used with the trigger is of type `KafkaEventData<GenericRecord>`.
 
-# [C#](#tab/csharp)
-
-1. In `KafkaTrigger` attribute set the value of `AvroSchema` to the string representation of it.
-1. The parameter type used with the trigger must be of type `KafkaEventData<GenericRecord>`.
-
-The sample function contains one consumer using Avro generic. Check the class `AvroGenericTriggers`.
 
 ```csharp
-public static class AvroGenericTriggers
+public static class GenericRecord
 {
       const string PageViewsSchema = @"{
   ""type"": ""record"",
@@ -173,7 +174,6 @@ public static void PageViews(
 }
 ```
 
-
 # [Protobuf](#tab/protobuf/in-process)
 
 Protobuf is supported in the trigger based on the `Google.Protobuf` NuGet package. To consume a topic using protobuf serialization, set the `TValue` generic argument to be of a type that implements `Google.Protobuf.IMessage`. The sample producer has a producer for topic `protoUser` (must be created). The sample function has a trigger handler for this topic in class `ProtobufTriggers`.
@@ -197,21 +197,17 @@ public static class ProtobufTriggers
 
 # [JSON](#tab/string/isolated-process)
 
-Here is some code 
+The following example shows a Kafka trigger that writes output to a storage queue. 
 
 :::code language="csharp" source="~/azure-functions-kafka-extension/test/Microsoft.Azure.WebJobs.Extensions.Kafka.LangEndToEndTests/FunctionApps/dotnet-isolated/EventHub/SingleKafkaTriggerQueueOutput.cs" range="18-34" :::
 
-
-
 # [Avro](#tab/avro/isolated-process)
+
+Isolated process only supported string (JSON) payloads.
 
 # [Protobuf](#tab/protobuf/isolated-process)
 
-# [JSON](#tab/string/csharp-script)
-
-# [Avro](#tab/avro/csharp-script)
-
-# [Protobuf](#tab/protobuf/csharp-script)
+Isolated process only supported string (JSON) payloads.
 
 ---
 
@@ -247,33 +243,63 @@ Complete PowerShell examples are pending.
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the `KafkaTriggerAttribute` to define the function trigger. C# script instead uses a function.json configuration file.
-
-# [In-process](#tab/in-process)
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the `KafkaTriggerAttribute` to define the function trigger. 
 
 The following table explains the properties you can set using this trigger attribute:
 
-| Property |Description|
+| Parameter |Description|
 | --- | --- |
-| 
+| **BrokerList** | (Required) The list of Kafka brokers monitored by the trigger.  |
+| **Topic** | (Required) The topic monitored by the trigger. |
+| **ConsumerGroup** | (Optional) Kafka consumer group used by the trigger. |
+| **AvroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
+| **AuthenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
+| **Username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **Password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **Protocol** | (Optional) The security protocol used when communicating with brokers. The supported values are `plaintext` (default), `ssl`, `sasl_plaintext`, `sasl_ssl`. |
+| **SslCaLocation** | (Optional) Path to CA certificate file for verifying the broker's certificate. |
+| **SslCertificateLocation** | (Optional) Path to the client's certificate. |
+| **SslKeyLocation** | (Optional) Path to client's private key (PEM) used for authentication. |
+| **SslKeyPassword** | (Optional) Password for client's certificate. |
 
-# [Isolated process](#tab/isolated-process)
 
-The following table explains the properties you can set using this trigger attribute:
+::: zone-end  
+::: zone pivot="programming-language-java"
 
-| Property |Description|
+## Annotations
+
+TBD
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+
+## Configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| _function.json_ property |Description|
 | --- | --- |
-
-# [C# script](#tab/csharp-script)
-
-C# script uses a *function.json* file for configuration instead of attributes. The following table explains the binding configuration properties that you set in the *function.json* file.
-
-|function.json property | Description|
-|---------|----------------------|
-
----
+|**type** | Must be set to `kafkaTrigger`. |
+|**direction** | Must be set to `in`. |
+|**name** | The name of the variable that represents the brokered data in function code. |
+| **brokerList** | (Required) The list of Kafka brokers monitored by the trigger.  |
+| **topic** | (Required) The topic monitored by the trigger. |
+| **consumerGroup** | (Optional) Kafka consumer group used by the trigger. |
+| **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
+| **authenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
+| **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **protocol** | (Optional) The security protocol used when communicating with brokers. The supported values are `plaintext` (default), `ssl`, `sasl_plaintext`, `sasl_ssl`. |
+| **sslCaLocation** | (Optional) Path to CA certificate file for verifying the broker's certificate. |
+| **sslCertificateLocation** | (Optional) Path to the client's certificate. |
+| **sslKeyLocation** | (Optional) Path to client's private key (PEM) used for authentication. |
+| **sslKeyPassword** | (Optional) Password for client's certificate. |
 
 ::: zone-end
+
+## Usage
+
+TBD
 
 ## Next steps
 

@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 Invoke Azure Functions and write values out to [Apache Kafka](https://kafka.apache.org/) event streams.
 
 > [!IMPORTANT]
-> Kafka bindings are only available for Azure Functions on the [Premium Plan](functions-premium-plan.md) an on Kubernetes where scaling is handed by KEDA.
+> Kafka bindings are only available for Azure Functions on the [Premium Plan](functions-premium-plan.md) and on Kubernetes, where scaling is handed by [KEDA](functions-kubernetes-keda.md).
 
 | Action | Type |
 |---------|---------|
@@ -45,11 +45,13 @@ Functions execute in an isolated C# worker process. To learn more, see [Guide fo
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka).
 
+<!--
 # [C# script](#tab/csharp-script)
 
 Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
 
 The Kafka extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 2.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
+-->
 
 ---
 
