@@ -85,7 +85,7 @@ This section details how you can create and configure the following components o
 ## Place public IP created in previous steps into variable. ##
 $pip = @{
     Name = 'myPublicIP'
-    ResourceGroupName = 'CreatePubLBQS-rg
+    ResourceGroupName = 'CreatePubLBQS-rg'
 }
 $publicIp = Get-AzPublicIpAddress @pip
 
