@@ -24,14 +24,6 @@ Deploying a model is to host it and make it available for predictions through an
 
 When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated to it.
 
-Simply select a model and click on deploy model in the Deploy model page. 
-
-<!-- :::image type="content" source="../media/deploy-model.png" alt-text="A screenshot showing the model deployment page in Language Studio." lightbox="../media/deploy-model.png"::: 
-
-> [!TIP]
-> If you're using the REST API, see the [quickstart](../quickstart.md?pivots=rest-api#deploy-your-model) and REST API [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) for examples and more information.
--->
-
 When you're deploying an orchestration workflow project, A small window will show up for you to confirm your deployment, and configure parameters for connected services.
 
 If you're connecting one or more LUIS applications, specify the deployment name, and whether you're using *slot* or *version* type deployment.       
@@ -42,7 +34,20 @@ No configurations are required for custom question answering and conversational 
 
 LUIS projects **must be published** to the slot configured during the orchestration workflow deployment, and custom question answering KBs must also be published to their production slots.
 
-:::image type="content" source="../media/deploy-connected-services.png" alt-text="A screenshot showing the deployment screen for orchestration workflow projects." lightbox="../media/deploy-connected-services.png":::
+1.	Click on **Add deployment** to submit a new deployment job.
+
+    Like conversation projects, In the window that appears, you can create a new deployment name by giving the deployment a name or override an existing deployment name. Then, you can add a trained model to this deployment name and press next.
+
+    <!--:::image type="content" source="../media/create-deployment-job-orch.png" alt-text="A screenshot showing deployment job creation in Language Studio." lightbox="../media/create-deployment-job-orch.png":::-->
+
+2. If you're connecting one or more LUIS applications or conversational language understanding projects, specify the deployment name.
+
+    No configurations are required for custom question answering or unlinked intents.
+
+    LUIS projects **must be published** to the slot configured during the Orchestration deployment, and custom question answering KBs must also be published to their Production slots.
+
+    :::image type="content" source="../media/deploy-connected-services.png" alt-text="A screenshot showing the deployment screen for orchestration workflow projects." lightbox="../media/deploy-connected-services.png":::
+
 
 ## Send a request to your model
 
