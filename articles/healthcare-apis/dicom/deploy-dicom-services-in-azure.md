@@ -61,7 +61,7 @@ To deploy DICOM service, you must have a workspace created in the Azure portal. 
 In this quickstart, you learned how to deploy DICOM service using the Azure portal. For information about assigning roles for the DICOM service, see 
 
 >[!div class="nextstepaction"]
->[Assign roles for the DICOM service](https://docs.microsoft.com/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-dicom-service)
+>[Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
 
 For more information about  how to use the DICOMweb&trade; Standard APIs with the DICOM service, see
 
