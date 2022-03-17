@@ -12,13 +12,13 @@ ms.author: duau
 
 # What is Azure Front Door manager?
 
-The Front Door manager in Azure Front Door Standard and Premium provides an overview of endpoints you've configured for your Azure Front Door profile. With Front Door manager you can manage your collection of endpoints, routings rules along with their domains and origin groups, and security policies you want to apply to protect your web application.
+The Front Door manager in Azure Front Door Standard and Premium provides an overview of endpoints you've configured for your Azure Front Door profile. With Front Door manager, you can manage your collection of endpoints. You can also configure routings rules along with their domains and origin groups, and security policies you want to apply to protect your web application.
 
 :::image type="content" source="./media/manager/manager.png" alt-text="Screen shot of the Azure Front Door manager page.":::
 
 ## Routes within an endpoint
 
-An endpoint is a logical grouping of one or more routes with associated domains, origin groups, and routing rules between domains and origin groups. An endpoint can have one or more routes. A route can have multiple domains but only one origin group. You need to have at least one configured route in order for traffic to route between your domains and origin groups.
+An endpoint is a logical grouping of one or more routes that associates with domains. A route contains the origin group configuration and routing rules between domains and origins. An endpoint can have one or more routes. A route can have multiple domains but only one origin group. You need to have at least one configured route in order for traffic to route between your domains and the origin group.
 
 > [!NOTE]
 > * You can *enable* or *disable* an endpoint or a route. 
@@ -43,7 +43,8 @@ An endpoint domain can be reused within the same tenant, subscription, or resour
 A security policy is an association of one or more domains with a Web Application Firewall (WAF) policy. The WAF policy will provide centralized protection for your web applications. If you manage security policies using the Azure portal, you can only associate a security policy with domains that are in the Routes configuration of that endpoint. 
 
 > [!TIP]
-> If you're running a large Azure Front Door profile, review [**Azure Front Door service limits**](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standardpremium-preview-service-limits) and [**Azure Front Door routing limits**](front-door-routing-limits.md) to better manage your Azure Front Door.
+> * If you see one of your domains is unhealthy, you can select the domain to take you to the domains page. From there you can take appropriate actions to troubleshoot the unhealthy domain.
+> * If you're running a large Azure Front Door profile, review [**Azure Front Door service limits**](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standardpremium-preview-service-limits) and [**Azure Front Door routing limits**](front-door-routing-limits.md) to better manage your Azure Front Door.
 >
 
 ## Front Door manager (classic)
