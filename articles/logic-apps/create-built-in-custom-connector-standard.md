@@ -1,6 +1,6 @@
 ---
-title: Create built-in connectors for Standard logic app workflows
-description: Learn how to create built-in connectors for Standard workflows in single-tenant Azure Logic Apps.
+title: Create built-in connectors for Standard logic apps
+description: How to create built-in connectors for Standard workflows in single-tenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -9,7 +9,7 @@ ms.date: 03/15/2022
 # As a developer, I want learn how to create my own built-in connector operations to use and run in my Standard logic app workflows.
 ---
 
-# Create built-in connectors for Standard logic app workflows in single-tenant Azure Logic Apps
+# Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps
 
 In Azure Logic Apps, connectors provide triggers and actions that you use in your workflows to quickly access data, events, and actions logic app workflows across other apps, services, systems, protocols, and platforms. Triggers and actions are operations that expand the capabilities in your cloud apps and on-premises apps to work with new and existing data. Connectors are powered by the connector infrastructure that runs in Azure.
 
