@@ -42,11 +42,11 @@ To check the status of the resource provider and register if needed:
 
 ## Identity
 
-To access virtual desktops and remote apps from your session hosts, your users need to be able to authenticate and sign in. Azure Active Directory (Azure AD) is the central identity service that brings these two tasks together. You can create user accounts and join session hosts to Azure AD, or you can combine using Azure AD with Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS), providing you with a choice of flexible configuration options.
+To access virtual desktops and remote apps from your session hosts, your users need to be able to authenticate. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) is Microsoft's centralized cloud identity service that enables this capability. Azure AD is always used to authenticate users for Azure Virtual Desktop. Session hosts can be joined to the same Azure AD tenant, or to an Active Directory domain using [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (AD DS) or [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) (Azure AD DS), providing you with a choice of flexible configuration options.
 
 ### Session hosts
 
-You need to join session hosts that provide virtual desktops and remote apps to an AD DS domain, Azure AD DS domain, or Azure AD.
+You need to join session hosts that provide virtual desktops and remote apps to an AD DS domain, Azure AD DS domain, or the same Azure AD tenant as your users.
 
 - If you're joining session hosts to an AD DS domain and you want to manage them using [Intune](/mem/intune/fundamentals/what-is-intune), you'll need to configure [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to enable [hybrid Azure AD join](../active-directory/devices/hybrid-azuread-join-plan.md).
 - If you're joining session hosts to an Azure AD DS domain, you can't manage them using [Intune](/mem/intune/fundamentals/what-is-intune).
@@ -119,13 +119,13 @@ There are different automation and deployment options available depending on whi
 |Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Deploy host pools from Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 11 Enterprise multi-session|Yes|Yes|Yes|Yes|
-|Windows 11 Enterprise|Yes|Yes|Yes|Yes|
+|Windows 11 Enterprise|Yes|Yes|No|No|
 |Windows 10 Enterprise multi-session, version 1909 and later|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise, version 1909 and later|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise, version 1909 and later|Yes|Yes|No|No|
 |Windows 7 Enterprise|Yes|Yes|No|No|
 |Windows Server 2022|Yes|Yes|No|No|
-|Windows Server 2019|Yes|Yes|No|No|
-|Windows Server 2016|Yes|Yes|Yes|Yes|
+|Windows Server 2019|Yes|Yes|Yes|Yes|
+|Windows Server 2016|Yes|Yes|No|No|
 |Windows Server 2012 R2|Yes|Yes|No|No|
 
 ## Network
@@ -136,7 +136,7 @@ Users connecting to Azure Virtual Desktop use Transmission Control Protocol (TCP
 
 To successfully deploy Azure Virtual Desktop, you'll need to meet the following network requirements:
 
-- You'll need a virtual network for your session hosts. If you create your session hosts at the same time as a host pool, you must create this virtual network in advance for it to appear in the drop-down list.  Your virtual network must be in the same Azure region as the session host.
+- You'll need a virtual network for your session hosts. If you create your session hosts at the same time as a host pool, you must create this virtual network in advance for it to appear in the drop-down list. Your virtual network must be in the same Azure region as the session host.
 
 - Make sure this virtual network can connect to your domain controllers and relevant DNS servers if you're using AD DS or Azure AD DS, since you'll need to join session hosts to the domain.
 
