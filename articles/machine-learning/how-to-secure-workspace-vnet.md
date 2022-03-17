@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/01/2022
+ms.date: 03/09/2022
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
 
@@ -81,7 +81,7 @@ When ACR is behind a virtual network, Azure Machine Learning can’t use it to d
 > The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](how-to-train-with-custom-image.md) that already include the packages.
 
 > [!WARNING]
-> If your Azure Container Registry uses a private endpoint to communicate with the virtual network, you cannot use a managed identity with an Azure Machine Learning compute cluster. To use a managed identity with a compute cluster, use a service endpoint with the Azure Container Registry for the workspace.
+> If your Azure Container Registry uses a private endpoint or service endpoint to communicate with the virtual network, you cannot use a managed identity with an Azure Machine Learning compute cluster.
 
 ### Azure Monitor
 
