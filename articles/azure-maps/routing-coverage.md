@@ -20,7 +20,7 @@ In the [Azure Maps routing coverage tables](#azure-maps-routing-coverage-tables)
 
 ### Calculate Route
 
-The Calculate Route service calculates a route between an origin and a destination, passing through waypoints if they are specified. For more information, see [Get Route Directions](/rest/api/maps/route/get-route-directions) in the REST API documentation.
+The Calculate Route service calculates a route between an origin and a destination, passing through waypoints if they're specified. For more information, see [Get Route Directions](/rest/api/maps/route/get-route-directions) in the REST API documentation.
 
 ### Calculate Reachable Range
 
@@ -28,7 +28,7 @@ The Calculate Reachable Range service calculates a set of locations that can be 
 
 ### Real-time Traffic
 
-Delivers real-time information about traffic jams and road closures, and a detailed view of the current speed and travel times across the entire road network. For more information, see [Traffic](/rest/api/maps/traffic) in the REST API documentation.
+Delivers real-time information about traffic jams, road closures, and a detailed view of the current speed and travel times across the entire road network. For more information, see [Traffic](/rest/api/maps/traffic) in the REST API documentation.
 
 ### Truck routes
 
@@ -53,7 +53,7 @@ Azure Maps supports truck routing in the countries/regions indicated in the tabl
 
 ## Azure Maps routing coverage tables
 
-The following tables provides coverage information for Azure Maps routing.
+The following tables provide coverage information for Azure Maps routing.
 
 ### Americas
 
