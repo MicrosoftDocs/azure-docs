@@ -2,11 +2,11 @@
 title: Upgrade from Basic Public to Standard Public - Azure Load Balancer
 description: This article shows you how to upgrade Azure Public Load Balancer from Basic SKU to Standard SKU
 services: load-balancer
-author: irenehua
+author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.author: irenehua
+ms.author: allensu
 ---
 
 # Upgrade Azure Public Load Balancer
