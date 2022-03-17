@@ -36,18 +36,26 @@ Depending if the EFLOW VM is deployed in a Windows Client SKU or Server SKU devi
 
 | Virtual Switch Type | Client SKUs | Server SKUs | 
 | ------------------- | ----------- | ----------- |
-| External | ![External on Client](./media/support/green-check.png) | ![External on Server](./media/support/green-check.png) | 
-| Internal |  -  | ![Internal on Server](./media/support/green-check.png) | 
-| Default Switch |  ![Default on Client](./media/support/green-check.png)  | - | 
+| **External** | ![External on Client](./media/support/green-check.png) | ![External on Server](./media/support/green-check.png) | 
+| **Internal** |  -  | ![Internal on Server](./media/support/green-check.png) | 
+| **Default Switch** |  ![Default on Client](./media/support/green-check.png)  | - | 
 
 - **External virtual switch** - Connects to a wired, physical network by binding to a physical network adapter. It gives virtual machines access to a physical network to communicate with devices on an external network. In addition, it allows virtual machines on the same Hyper-V server to communicate with each other.
 - **Internal virtual switch** - Connects to a network that can be used only by the virtual machines running on the host that has the virtual switch, and between the host and the virtual machines.
 
->[!NOTE]
-> The **Default Switch** is a particular Internal Virtual Switch created by default once Hyper-V is enabled in Windows Client SKUs. The virtual switch already has a DHCP Server for IP assignments, Internet Connection Sharing (ICS) enabled, and a NAT table. For EFLOW purposes, the Default Switch is a Virtual Internal Switch that can be used without further configuration.
+  >[!NOTE]
+  > The **Default Switch** is a particular Internal Virtual Switch created by default once Hyper-V is enabled in Windows Client SKUs. The virtual switch already has a DHCP Server for IP assignments, Internet Connection Sharing (ICS) enabled, and a NAT table. For EFLOW purposes, the Default Switch is a Virtual Internal Switch that can be used without further configuration.
 
 ### IP Address assignation
 To enable EFLOW VM network IP communications, the virtual machine must have an IP assigned. This IP can be configurated by two different methods: **Static IP** or **DHCP**. 
+
+Depending on the type of virtual switch used, EFLOW VM supports different IP allocations, as shown in the following table.
+
+| Virtual Switch Type | Static IP | DHCP | 
+| ------------------- | ----------- | ----------- |
+| **External** | ![External with Static](./media/support/green-check.png) | ![External with DHCP](./media/support/green-check.png) | 
+| **Internal** | ![Internal with Static](./media/support/green-check.png)  | ![Internal with DHCP](./media/support/green-check.png) | 
+| **Default Switch** | - | ![Default with DHCP](./media/support/green-check.png) | 
 
 - **Static IP** - This IP address is permanently assigned to the EFLOW VM during installation and doesn't change across EFLOW VM or Windows Host reboots. Static IP addresses  typically have two versions: IPv4 and IPv6; however, EFLOW only supports Static IP for IPv4 addresses. On networks using static IP, each device on the network has its address with no overlap. During EFLOW installation, you must input the **EFLOW VM IP4 address**(`-ip4Address`), the **IP4 Prefix Length**(`-ip4PrefixLength`), and the **Default Gateway IP4 address**(`-ip4GatewayAddress`). All **three** parameters must be input for correct configuration.
 
@@ -65,13 +73,6 @@ To enable EFLOW VM network IP communications, the virtual machine must have an I
     >[!WARNING]
     > When deploying EFLOW using DHCP, a DHCP server must be present in the network connected to the EFLOW VM virtual switch. If no DHCP server is present, EFLOW installation with fail as the VM cant get an IP.
 
-Depending on the type of virtual switch used, EFLOW VM supports different IP allocations, as shown in the following table.
-
-| Virtual Switch Type | Static IP | DHCP | 
-| ------------------- | ----------- | ----------- |
-| External | ![External with Static](./media/support/green-check.png) | ![External with DHCP](./media/support/green-check.png) | 
-| Internal | ![Internal with Static](./media/support/green-check.png)  | ![Internal with DHCP](./media/support/green-check.png) | 
-| Default Switch | - | ![Default with DHCP](./media/support/green-check.png) | 
 
 ### DNS
 DNS, or the Domain Name System, translates human-readable domain names (for example, www.microsoft.com) to machine-readable IP addresses (for example, 192.0.2.44). The EFLOW virtual machine uses [*systemd*](https://systemd.io/) (system and service manager), so the DNS or name resolution services are provided to local applications and services via the [systemd-resolved](https://www.man7.org/linux/man-pages/man8/systemd-resolved.service.8.html) service. 
@@ -95,3 +96,5 @@ For example, there are numerous of Industrial IoT scenarios that require connect
 
 For more information about multiple NICs, see [Multiple NICs support](https://github.com/Azure/iotedge-eflow/wiki/Multiple-NICs).
 
+>[!WARNING]
+>When using EFLOW multiple NICs feature, you may want to set up the different routes priorities. By default, EFLOW will create one Default route per ehtX interface assigned to the VM and assign a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an offline network, you may want to prioritize the online NIC over the offline NIC to get the EFLOW VM connected to the internet. For more information, see [EFLOW Routting](https://github.com/Azure/iotedge-eflow/tree/main/samples/networking/routing).
