@@ -85,3 +85,13 @@ To check the DNS servers assigned to the EFLOW VM, from inside the EFLOW VM, use
 ![Resolvectl status](./media/iot-edge-for-linux-on-windows-networking/resolvctl-status.png)
 
 ### Static MAC Address
+Hyper-V allows you to create virtual machines with a static or dynamic MAC address. When using EFLOW, you can choose to use the MAC address allocation mechanism you want. By default, Hyper-V will create dynamic MAC addresses that may change across EFLOW virtual machine or Windows host OS reboots. However, during EFLOW deployment, it's possible to indicate if a static MAC address is required. To do so, 
+
+
+### Multiple Network Interface Cards (NICs)
+There are many network virtual appliances and scenarios that require multiple NICs. The EFLOW virtual machine support attaching multiple NICs. With multiple NICs you can better manage your network traffic. You can also isolate traffic between the frontend NIC and backend NICs, or separating data plane traffic from the management plane communication. 
+
+For example, there are numerous of Industrial IoT scenarios that require connecting the EFLOW virtual machine to a DMZ (demilitarized zones), and to the offline network where all the OPC UA compliant devices are connected. This is just one of the multiple scenarios that can be supported by attaching multiple NICs to the EFLOW VM. 
+
+For more information about multiple NICs, see [Multiple NICs support](https://github.com/Azure/iotedge-eflow/wiki/Multiple-NICs).
+
