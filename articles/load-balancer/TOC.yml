@@ -17,6 +17,7 @@
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    expanded: true
   - name: Create an internal load balancer
     items:
     - name: Portal

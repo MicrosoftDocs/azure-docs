@@ -283,11 +283,11 @@ $lb = @{
 $bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
 
 ## Place the network security group into a variable. ##
-$ns = {
+$ns = @{
     Name = 'myNSG'
     ResourceGroupName = 'CreatePubLBQS-rg'
 }
-$nsg = Get-AzNetworkSecurityGroup
+$nsg = Get-AzNetworkSecurityGroup @ns
 
 ## For loop with variable to create virtual machines for load balancer backend pool. ##
 for ($i=1; $i -le 2; $i++)
@@ -346,7 +346,49 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
+Ensure the **State** of the VM creation is **Completed** before moving on to the next steps.
+
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+## Install IIS
+
+Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install the Custom Script Extension. 
+
+The extension runs `PowerShell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
+
+> [!IMPORTANT]
+> Ensure the virtual machine deployments have completed from the previous steps before proceeding. Use `Get-Job` to check the status of the virtual machine deployment jobs.
+
+```azurepowershell-interactive
+## For loop with variable to install custom script extension on virtual machines. ##
+for ($i=1; $i -le 2; $i++)
+{
+$ext = @{
+    Publisher = 'Microsoft.Compute'
+    ExtensionType = 'CustomScriptExtension'
+    ExtensionName = 'IIS'
+    ResourceGroupName = 'CreatePubLBQS-rg'
+    VMName = "myVM$i"
+    Location = 'eastus'
+    TypeHandlerVersion = '1.8'
+    SettingString = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+}
+Set-AzVMExtension @ext -AsJob
+}
+```
+
+The extensions are deployed as PowerShell jobs. To view the status of the installation jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+
+```azurepowershell-interactive
+Get-Job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+8      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
+9      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
+```
+
+Ensure the **State** of the jobs is **Completed** before moving on to the next steps.
 
 ## Test the load balancer
 
