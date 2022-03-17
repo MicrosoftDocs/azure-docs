@@ -86,7 +86,11 @@ To check the DNS servers assigned to the EFLOW VM, from inside the EFLOW VM, use
 ![Resolvectl status](./media/iot-edge-for-linux-on-windows-networking/resolvctl-status.png)
 
 ### Static MAC Address
-Hyper-V allows you to create virtual machines with a static or dynamic MAC address. When using EFLOW, you can choose to use the MAC address allocation mechanism you want. By default, Hyper-V will create dynamic MAC addresses that may change across EFLOW virtual machine or Windows host OS reboots. However, during EFLOW deployment, it's possible to indicate if a static MAC address is required. To do so, 
+Hyper-V allows you to create virtual machines with a **static** or **dynamic** MAC address. During EFLOW virutal machine creation, the MAC address is generated and stored locally to keep the same MAC address as a **static** across virutal machine reboots.  To query the EFLOW virutal machine MAC address, you can use the following command.
+
+```powershell
+Get-EflowVmAddr
+```
 
 
 ### Multiple Network Interface Cards (NICs)
