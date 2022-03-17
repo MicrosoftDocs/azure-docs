@@ -45,6 +45,8 @@ With the current version of the migration feature, your new App Service Environm
 Note that App Service Environment v3 doesn't currently support the following features that you may be using with your current App Service Environment. If you require any of these features, don't migrate until they're supported.
 
 - Sending SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25.
+- Deploying your apps with FTP.
+- Using remote debug with your apps.
 - Monitoring your traffic with Network Watcher or NSG Flow.
 - Configuring an IP-based TLS/SSL binding with your apps.
 
