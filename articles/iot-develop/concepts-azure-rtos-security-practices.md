@@ -27,8 +27,8 @@ The following sections discuss the key components for cryptographic security.
   - **Renewable credentials**: Secure the device's operational identity by using renewable, short-lived credentials. X.509 certificates backed by a secure public key infrastructure (PKI) with a renewal period appropriate for the device's security posture provide an excellent solution.
 
 - **Least-privileged access:** Devices should enforce least-privileged access control on local resources across workloads. For example, a firmware component that reports battery level shouldn't be able to access a camera component.
-- **Continual updates:** A device should enable the over-the-air (OTA) feature, such as the [device update for Azure IoT Hub](/azure/iot-hub-device-update/device-update-azure-real-time-operating-system), to push the firmware that contains the patches or bug fixes.
-- **Security monitoring and responses:** A device needs to proactively report the security postures for the solution builder to monitor the potential threats for many devices. You can use [Microsoft Defender for IoT](/azure/defender-for-iot/device-builders/concept-rtos-security-module) for that purpose.
+- **Continual updates**: A device should enable the over-the-air (OTA) feature, such as the [Device Update for IoT Hub](../iot-hub-device-update/device-update-azure-real-time-operating-system.md) to push the firmware that contains the patches or bug fixes.
+- **Security monitoring and responses**: A device should be able to proactively report the security postures for the solution builder to monitor the potential threats for a large number of devices. You can use [Microsoft Defender for IoT](../defender-for-iot/device-builders/concept-rtos-security-module.md) for that purpose.
 
 ## Embedded security components: Cryptography
 
@@ -46,7 +46,7 @@ Modern embedded devices should support some form of cryptographic random number 
 
 Hardware random number generators (HRNGs) supply some of the best sources of entropy. HRNGs typically generate values based on statistically random noise signals generated in a physical process rather than from a software algorithm.
 
-Government agencies and standards bodies around the world provide guidelines for random number generators. Some examples are the National Institute of Standards and Technology (NIST) in the US, the National Cypersecurity Agency of France, and the Federal Office for Information Security in Germany.
+Government agencies and standards bodies around the world provide guidelines for random number generators. Some examples are the National Institute of Standards and Technology (NIST) in the US, the National Cybersecurity Agency of France, and the Federal Office for Information Security in Germany.
 
 **Hardware**: True entropy can only come from hardware sources. There are various methods to obtain cryptographic randomness, but all require physical processes to be considered secure.
 
@@ -232,7 +232,7 @@ Placing your application in flash makes it more difficult to change. Flash techn
 
 ### Memory buffer checking
 
-Avoiding buffer overflow problems is a primary concern for code running on connected devices. Applications written in unmanaged languages like C are susceptible to buffer overflow issues. Safe coding practices can alleviate some of the problem.
+Avoiding buffer overflow problems is a primary concern for code running on connected devices. Applications written in unmanaged languages like C are susceptible to buffer overflow issues. Safe coding practices can alleviate some of the problems.
 
 Whenever possible, try to incorporate buffer checking into your application. You might be able to make use of built-in features of the selected hardware platform, third-party libraries, and tools. Even features in the hardware itself can provide a mechanism for detecting or preventing overflow conditions.
 
@@ -351,7 +351,7 @@ Use the strongest cryptography and cipher suites available for TLS. You need the
 
 **Azure RTOS**: Azure RTOS TLS provides hardware drivers for select devices that support cryptography in hardware. For routines not supported in hardware, the [Azure RTOS cryptography library](/azure/rtos/netx/netx-crypto/chapter1) is designed specifically for embedded systems. A FIPS 140-2 certified library that uses the same code base is also available.
 
-**Application**: Applications that use TLS should choose cipher suites that use hardware-based cryptography, when it's available. They should also use the strongest keys available.
+**Application**: Applications that use TLS should choose cipher suites that use hardware-based cryptography when it's available. They should also use the strongest keys available.
 
 ### TLS mutual certificate authentication
 
@@ -409,7 +409,7 @@ Use cloud resources to record and analyze device failures remotely. Aggregate er
 
 **Azure RTOS**: No specific Azure RTOS requirements. Consider logging Azure RTOS API return codes to look for specific problems with lower-level protocols that might indicate problems. Examples include TLS alert causes and TCP failures.
 
-**Application**: Make use of logging libraries and your cloud service's client SDK to push error logs to the cloud where they can be stored and analyzed safely without using valuable device storage space. Integration with [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) provides this functionality and more.
+**Application**: Make use of logging libraries and your cloud service's client SDK to push error logs to the cloud where they can be stored and analyzed safely without using valuable device storage space. Integration with [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) provides this functionality and more. Microsoft Defender for IoT provides agentless monitoring of devices in an IoT solution. Monitoring can be enhanced by including the [Microsoft Defender for IOT micro-agent for Azure RTOS](../defender-for-iot/device-builders/iot-security-azure-rtos.md) on your device. For more information, see the [Runtime security monitoring and threat detection](#runtime-security-monitoring-and-threat-detection) recommendation.
 
 Microsoft Defender for IoT provides agentless monitoring of devices in an IoT solution. Monitoring can be enhanced by including the [Microsoft Defender for IOT micro-agent for Azure RTOS](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) on your device. For more information, see the [Runtime security monitoring and threat detection](#runtime-security-monitoring-and-threat-detection) recommendation.
 
@@ -425,7 +425,7 @@ When you design an RTOS MCU application, look closely at what networking protoco
 
 **Application**: When you design your application, try to reduce the feature set to the bare minimum. Fewer features make an application easier to analyze for security vulnerabilities. Fewer features also reduce your application attack surface.
 
-### Use all possible complier and linker security features
+### Use all possible compiler and linker security features
 
 Modern compilers and linkers provide many options for more security at build time. When you build your application, use as many compiler- and linker-based options as possible. They'll improve your application with proven security mitigations. Some options might affect size, performance, or RTOS functionality. Be careful when you enable certain features.
 
@@ -443,7 +443,7 @@ If you use other development tools, consult your documentation for appropriate o
 
 ### Make sure memory access alignment is correct
 
-Some MCU devices permit unaligned memory accesses, but others don't. Consider the properties of your specific device when you develop your application.
+Some MCU devices permit unaligned memory access, but others don't. Consider the properties of your specific device when you develop your application.
 
 **Hardware**: Memory access alignment behavior is specific to your selected device.
 
@@ -459,9 +459,17 @@ Connected IoT devices might not have the necessary resources to implement all se
 
 **Azure RTOS**: Azure RTOS supports [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/).
 
-**Application**: The [Microsoft Defender for IOT micro-agent for Azure RTOS](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) provides a comprehensive security solution for Azure RTOS devices. The module provides security services via a small software agent that's built into your device's firmware and comes as part of Azure RTOS.
+**Application**: The [Microsoft Defender for IOT micro-agent for Azure RTOS](../defender-for-iot/device-builders/iot-security-azure-rtos.md) provides a comprehensive security solution for Azure RTOS devices. The module provides security services via a small software agent that's built into your device's firmware and comes as part of Azure RTOS. The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations that will help to improve the security hygiene of your devices. Whether you're using Azure RTOS in combination with Azure Sphere or not, the Microsoft Defender for IoT micro-agent provides an extra layer of security that's built into the RTOS by default.
 
-The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations to help improve the security hygiene of your devices. Whether you're using Azure RTOS in combination with Azure Sphere or not, the Microsoft Defender for IoT micro-agent provides another layer of security that's built into the RTOS by default.
+## Azure RTOS IoT application security checklist
+
+The previous sections detailed specific design considerations with descriptions of the necessary hardware, operating system, and application requirements to help mitigate security threats. This section provides a basic checklist of security-related issues to consider when you design and implement IoT applications with Azure RTOS.
+
+This short list of measures is meant as a complement to, not a replacement for, the more detailed discussion in previous sections. You must perform a comprehensive analysis of the physical and cybersecurity threats posed by the environment your device will be deployed into. You also need to carefully consider and rigorously implement measures to mitigate those threats. The goals is to provide the highest possible level of security for your device.
+
+The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations to help improve the security hygiene of your devices.
+
+Whether you're using Azure RTOS in combination with Azure Sphere or not, the Microsoft Defender for IoT micro-agent provides another layer of security that's built into the RTOS by default.
 
 ## Azure RTOS IoT application security checklist
 
@@ -469,7 +477,7 @@ The previous sections detailed specific design considerations with descriptions 
 
 The following measures are meant as a complement to, not a replacement for, the more detailed discussion in previous sections. To provide the highest possible level of security for your device, you must perform:
 
- - A comprehensive analysis of the physical and cyber-security threats posed by the environment your device will be deployed into.
+ - A comprehensive analysis of the physical and cybersecurity threats posed by the environment your device will be deployed into.
 - Careful consideration and rigorous implementation of the measures needed to mitigate those threats.
 
 ### Security measures to take
@@ -500,7 +508,7 @@ The following measures are meant as a complement to, not a replacement for, the 
 
 - Don't use the standard C-library `rand()` function because it doesn't provide cryptographic randomness. Consult your hardware documentation for a proper source of cryptographic entropy.
 - Don't hard-code private keys or credentials like certificates, passwords, or usernames in your application. To provide a higher level of security, update private keys regularly. The actual schedule depends on several factors. Also, hard-coded values might be readable in memory or even in transit over a network if the firmware image isn't encrypted. The actual mechanism for updating keys and certificates depends on your application and the PKI being used.
-- Don't use self-signed device certificates. Instead, use a proper PKI for device identification. Some exceptions might apply, but generally this rule is for most organizations and systems.
+- Don't use self-signed device certificates. Instead, use a proper PKI for device identification. Some exceptions might apply, but this rule is for most organizations and systems.
 - Don't use any TLS extensions that aren't needed. Azure RTOS TLS disables many features by default. Only enable features you need.
 - Don't try to implement "security by obscurity." It's *not secure*. The industry is plagued with examples where a developer tried to be clever by obscuring or hiding code or algorithms. Obscuring your code or secret information like keys or passwords might prevent some intruders, but it won't stop a dedicated attacker. Obscured code provides a false sense of security.
 - Don't leave unnecessary functionality enabled or unused network or hardware ports open. If your application doesn't need a feature, disable it. Don't fall into the trap of leaving a TCP port open just in case. The more functionality that's enabled, the higher the risk that an exploit will go undetected. The interaction between different features can introduce new vulnerabilities.
@@ -521,11 +529,11 @@ The following measures are meant as a complement to, not a replacement for, the 
 
 ## Recommended security resources
 
-- [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) provides an overview of Microsoft's approach to security across all aspects of an IoT ecosystem, with an emphasis on devices.
-- [IoT Security Maturity Model](https://www.iiconsortium.org/smm.htm) proposes a standard set of security domains, subdomains, and practices and an iterative process you can use to understand, target, and implement security measures important for your device. This set of standards is targeted to all levels of IoT stakeholders. It provides a process framework for considering security in the context of a component's interactions in an IoT system.
+- [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf)  provides an overview of Microsoft's approach to security across all aspects of an IoT ecosystem, with an emphasis on devices.
+- [IoT Security Maturity Model](https://www.iiconsortium.org/smm.htm) proposes a standard set of security domains, subdomains, and practices and an iterative process you can use to understand, target, and implement security measures important for your device. This set of standards is directed to all levels of IoT stakeholders and provides a process framework for considering security in the context of a component's interactions in an IoT system.
 - [Seven properties of highly secured devices](https://www.microsoft.com/research/publication/seven-properties-2nd-edition/), published by Microsoft Research, provides an overview of security properties that must be addressed to produce highly secure devices. The seven properties are hardware root of trust, defense in depth, small trusted computing base, dynamic compartments, passwordless authentication, error reporting, and renewable security. These properties are applicable, depending on cost constraints and target application and environment, to many embedded devices.
-- [PSA certified 10 security goals explained](https://www.psacertified.org/blog/psa-certified-10-security-goals-explained/) discusses the Azure Resource Manager Platform Security Architecture. It provides a standardized framework for building secure embedded devices by using Resource Manager TrustZone technology. Microcontroller manufacturers can certify designs with the Resource Manager PSA Certified program. Certification provides a level of confidence about the security of applications built on Resource Manager technologies.
-- [Common criteria](https://www.commoncriteriaportal.org/) is an international agreement that provides standardized guidelines and an authorized laboratory program to evaluate products for IT security. Certification provides a level of confidence in the security posture of applications using devices that were evaluated by using the program guidelines.
-- [Security Evaluation Standard for IoT Platforms](https://globalplatform.org/sesip/) is a standardized methodology for evaluating the security of connected IoT products and components.
-- [ISO 27000 family](https://www.iso.org/isoiec-27001-information-security.html) is a collection of standards for the management and security of information assets. The standards provide baseline guarantees about the security of digital information in certified products.
-- [FIPS 140-2/3](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government program that standardizes cryptographic algorithms and implementations used in US government and military applications. Along with documented standards, certified laboratories provide FIPS certification to guarantee that specific cryptographic implementations adhere to regulations.
+- [PSA Certified 10 security goals explained](https://www.psacertified.org/blog/psa-certified-10-security-goals-explained/) discusses the Azure Resource Manager Platform Security Architecture (PSA). It provides a standardized framework for building secure embedded devices by using Resource Manager TrustZone technology. Microcontroller manufacturers can certify designs with the Resource Manager PSA Certified program giving a level of confidence about the security of applications built on Resource Manager technologies.
+- [Common Criteria](https://www.commoncriteriaportal.org/) is an international agreement that provides standardized guidelines and an authorized laboratory program to evaluate products for IT security. Certification provides a level of confidence in the security posture of applications using devices that were evaluated by using the program guidelines.
+- [Security Evaluation Standard for IoT Platforms (SESIP)](https://globalplatform.org/sesip/) is a standardized methodology for evaluating the security of connected IoT products and components.
+- [ISO 27000 family](https://www.iso.org/isoiec-27001-information-security.html) is a collection of standards regarding the management and security of information assets. The standards provide baseline guarantees about the security of digital information in certified products.
+- [FIPS 140-2/3](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government program that standardizes cryptographic algorithms and implementations used in US government and military applications. Along with documented standards, certified laboratories provide FIPS certification to guarantee specific cryptographic implementations adhere to regulations.

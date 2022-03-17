@@ -26,7 +26,7 @@ Before you start using Azure Monitor for Azure Virtual Desktop, you'll need to s
 
 Anyone monitoring Azure Monitor for Azure Virtual Desktop for your environment will also need the following read-access permissions:
 
-- Read-access to the Azure subscriptions that hold your Azure Virtual Desktop resources
+- Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources
 - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts
 - Read access to the Log Analytics workspace or workspaces
 
