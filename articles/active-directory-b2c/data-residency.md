@@ -21,7 +21,7 @@ Azure AD B2C identity data is stored in a geographical location or country based
 
 Region availability and data residency are two different concepts that apply to Azure AD B2C. This article explains the differences between these two concepts, and compares how they apply to Azure versus Azure AD B2C. [Region availability](#region-availability) refers to where a service is available for use whereas [Data residency](#data-residency) refers to where user data is stored.
 
-Azure AD B2C service is **generally available worldwide** with the option for **data residency** in the **United States, Europe, Asia Pacific, or Australia**. Also, with [Local data residency](#), data can be stored exclusively in a specific country.
+Azure AD B2C service is **generally available worldwide** with the option for **data residency** in the **United States, Europe, Asia Pacific, or Australia**. Also, with [Local data residency](#local-data-residency), data can be stored exclusively in a specific country.
 
 ## Region availability
 
@@ -59,7 +59,7 @@ The following countries/regions are in the process of being added to the list. F
 
 To fulfil corporate policies and compliance requirements, to store user data exclusively within specific geographical area. Azure AD B2C provides a local data residency add-on that enables you to store your data within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). 
 
-The local data residency add-on is optional, and so your data can be stored in regions as indicated in [Data residency](data-residency.md#data-residency). The local data residency is a paid ad-on on your Azure AD B2C Premium P1 or P2 licenses, see [Billing model](#). 
+The local data residency add-on is optional, and so your data can be stored in regions as indicated in [Data residency](data-residency.md#data-residency). The local data residency is a paid ad-on on your Azure AD B2C Premium P1 or P2 licenses, see [Billing model](#billing.md). 
 
 At the moment, the following countries have the local data residence option:
 - Japan
