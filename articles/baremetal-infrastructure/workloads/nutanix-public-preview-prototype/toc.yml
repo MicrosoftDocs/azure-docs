@@ -17,7 +17,13 @@
     href: setup-networking-infrastructure-in-azure.md
   - name: Configure the Nutanix Cluster Console  
     href: configure-nutanix-cluster-console.md
-
+- name: Registering Nutanix Clusters in Azure
+  href: registering-nutanix-clusters.md
+  items:
+  - name: Creating a My Nutanix Account 
+    href: creating-a-my-nutanix-account.md
+  - name: Onboarding Nutanix Clusters 
+    href: onboarding-nutanix-clusters.md
 - name: BareMetal SKUs 
   href: nutanix-baremetal-skus.md
 - name: Architecture
