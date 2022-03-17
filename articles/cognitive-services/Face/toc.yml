@@ -67,7 +67,7 @@ items:
   - name: Java
     href: /java/api/overview/azure/cognitiveservices/client/faceapi
   - name: Node.js
-    href: /rest/api/face/
+    href: /javascript/api/overview/azure/cognitiveservices/face
   - name: Python
     href: /python/api/overview/azure/cognitiveservices/face-readme
 - name: Resources
