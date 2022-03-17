@@ -42,4 +42,4 @@ We recommend that you configure your test plan as a private plan, so it’s visi
 
 ## Next steps
 
-- After you create your test plan, you’ll then [Submit your SaaS offer to publishing](test-saas-submit-to-publishing.md). From there, we’ll lead you through the remainder of the process, including how to test the offer, and how to clean up your test environment.
+- After you create your test plan, you’ll then [Preview and subscribe to your offer](test-publish-saas-offer.md). From there, we’ll lead you through the remainder of the process, including how to test the offer, and how to clean up your test environment.
