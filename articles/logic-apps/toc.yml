@@ -91,7 +91,7 @@
       href: deploy-single-tenant-logic-apps-private-storage-account.md
     - name: Estimate storage costs for single-tenant workflows
       href: estimate-storage-costs.md
-    - name: Create custom built-in connectors for logic apps in single-tenant
+    - name: Create custom built-in connectors for single-tenant workflows
       href: create-built-in-custom-connector-standard.md
   - name: Azure Arc-enabled Logic Apps
     items:

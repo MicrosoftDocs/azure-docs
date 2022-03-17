@@ -101,9 +101,9 @@ For the complete sample, review [Sample custom built-in Cosmos DB connector - Az
 
 <a name="register-connector"></a>
 
-## Register your connector as an Azure Functions extension
+## Register your connector
 
-To load your built-in connector extension during the Azure Functions runtime start process, you need to add the Azure Functions extension registration as a startup job and register the service provider as part of the service provider list. Based on the type of data that your built-in trigger needs as inputs, optionally add the converter. This example converts the **Document** data type for Cosmos DB Documents to a **JObject** array.
+To load your custom built-in connector extension during the Azure Functions runtime start process, you have to add the Azure Functions extension registration as a startup job and register your connector as a service provider in service provider list. Based on the type of data that your built-in trigger needs as inputs, optionally add the converter. This example converts the **Document** data type for Cosmos DB Documents to a **JObject** array.
 
 The following sections show how to register your custom built-in connector as an Azure Functions extension.
 
@@ -202,7 +202,7 @@ When you're done, review the following code map diagram that shows the implement
 
 ![Conceptual code map diagram that shows complete class implementation.](./media/create-built-in-custom-connector-standard/methods-implementation-code-map-diagram.png)
 
-## Install your custom built-in connector in Azure
+## Install your connector in Azure
 
 To add the NuGet reference from the previous section, update the **extensions.json** file in **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB** extension bundle. You can refer the add-extension.ps1 script.
 
@@ -258,7 +258,7 @@ To add the NuGet reference from the previous section, update the **extensions.js
 
 1. If any **func.exe** process is running, make sure to close or exit that process before you continue to the next step.
 
-## Test your custom built-in connector
+## Test your connector
 
 1. In Visual Studio Code, open your Standard logic app and blank workflow in the designer.
 
