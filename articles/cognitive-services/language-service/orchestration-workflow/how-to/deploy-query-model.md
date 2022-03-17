@@ -22,7 +22,7 @@ After you have [trained a model](./train-model.md) on your dataset, you're ready
 > Before deploying a model, make sure to view the model details to make sure that the model is performing as expected.
 > You can only have ten deployment names.
 
-## Orchestration workflow model deploymnets
+## Orchestration workflow model deployments
 
 Deploying a model hosts and makes it available for predictions through an endpoint.
 
