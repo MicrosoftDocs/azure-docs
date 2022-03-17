@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 03/28/2022
 ---
 
 # Create a test SaaS offer
@@ -87,8 +87,8 @@ To reduce your cost for testing the pricing models, including Marketplace custom
 
 | Price | Comment |
 | ------------ | ------------- |
-| $0.00 | Set a total transaction cost of zero to have no financial impact. Use this price when making calls to the metering APIs, or to test purchasing plans in your offer while developing your solution. |
-| $0.01 - $49.99 | Use this price range to test analytics, reporting, and the purchase process. |
+| $0.00 - $0.01 | Set a total transaction cost of zero to have no financial impact or one cent to have a low cost. Use this price when making calls to the metering APIs, or to test purchasing plans in your offer while developing your solution. |
+| $0.01 | Use this price range to test analytics, reporting, and the purchase process. |
 | $50.00 - $100.00 | Use this price range to test payout. For information about our payment schedule, see [Payout schedules and processes](/partner-center/payout-policy-details). |
 |||
 
