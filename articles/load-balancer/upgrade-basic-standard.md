@@ -96,9 +96,10 @@ To run the script:
    AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newLbName "LBForUpgrade"
    ```
 
-### Create an outbound rule for outbound connection
+### Create a NAT gateway for outbound access
 
-Follow the [instructions](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) to create an outbound rule so you can
+Follow the [instructions](quickstart-load-balancer-standard-public-portal.md#create-nat-gateway) to create a NAT gateway so you can:
+
 * Define outbound NAT from scratch.
 * Scale and tune the behavior of existing outbound NAT.
 

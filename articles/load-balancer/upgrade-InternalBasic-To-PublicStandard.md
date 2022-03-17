@@ -106,9 +106,10 @@ Here are a few scenarios of how you add VMs to backend pools of the newly create
 * **Creating new VMs to add to the backend pools of the newly created Standard Public Load Balancer**.
     * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
-### Create an outbound rule for outbound connection
+### Create a NAT gateway for outbound access
 
-Follow the [instructions](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) to create an outbound rule so you can
+Follow the [instructions](quickstart-load-balancer-standard-public-portal.md#create-nat-gateway) to create a NAT gateway so you can:
+
 * Define outbound NAT from scratch.
 * Scale and tune the behavior of existing outbound NAT.
 
