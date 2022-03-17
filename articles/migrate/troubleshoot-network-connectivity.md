@@ -26,7 +26,7 @@ Make sure the private endpoint is an approved state.
       b. If the connection is in a Pending state, you need to get it  approved.                         
       c. You may also navigate to the private endpoint resource and review if the virtual network matches the Migrate project private endpoint virtual network.                                                        
 
-     ![View Private Endpoint connection](./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-connection.png)
+        :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-connection.png" alt-text="Screenshot of View Private Endpoint connection.":::
 
 
 ## Validate the data flow through the private endpoints
@@ -42,19 +42,19 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 1. The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Server Migration properties pages. Select **Download DNS settings** to view the list. Note, only the private endpoints that were automatically created by Azure Migrate are listed below. 
 
- ![Azure Migrate: Discovery and Assessment Properties](./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png)
+      ![Azure Migrate: Discovery and Assessment Properties](./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png)
 
- [![Azure Migrate: Server Migration Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-expanded.png#lightbox) 
+      [![Azure Migrate: Server Migration Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-expanded.png#lightbox) 
 
 2. If you have created a private endpoint for the storage account(s) for replicating over a private network, you can obtain the private link FQDN and IP address as illustrated below. 
 
   - Go to the Storage account > **Networking** > **Private endpoint connections** and select the private endpoint created. 
 
-      ![Screenshot of the Private Endpoint connections.](./media/troubleshoot-network-connectivity/private-endpoint.png)
+      :::image type="content" source="../media/troubleshoot-network-connectivity/private-endpoint.png" alt-text="Screenshot of the Private Endpoint connections.":::
 
   - Go to **Settings** > **DNS configuration** to obtain the storage account FQDN and private IP address.    
 
-      ![Screenshot showing the Private Link FQDN information.](./media/troubleshoot-network-connectivity/private-link-info.png)
+      :::image type="content" source="./media/troubleshoot-network-connectivity/private-link-info.png" alt-text="Screenshot showing the Private Link FQDN information.":::
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
@@ -62,7 +62,7 @@ An illustrative example for DNS resolution of the storage account private link F
 
     You'll receive a message like this:  
 
-   ![DNS resolution example](./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png)
+   ![DNS resolution example](./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png) :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png" alt-text="Screenshot showing a DNS resolution example.:::
 
 -  A private IP address of 10.1.0.5 is returned for the storage account. This address belongs to the private endpoint virtual network subnet.   
 
