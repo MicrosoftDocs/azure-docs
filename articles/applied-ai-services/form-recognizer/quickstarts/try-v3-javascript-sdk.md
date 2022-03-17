@@ -66,7 +66,7 @@ In this quickstart you'll use following features to analyze and extract data and
 1. Specify your project's attributes using the prompts presented in the terminal.
 
     * The most important attributes are name, version number, and entry point.
-     * We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes—they can be skipped for this project.
+    * We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes—they can be skipped for this project.
     * Accept the suggestions in parentheses by selecting **Return** or **Enter**.
     * After you've completed the prompts, a `package.json` file will be created in your form-recognizer-app directory.
 
@@ -171,9 +171,45 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
   });
 ```
 
+### Run your general document application
+
+1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
+
+1. Type the following command in your terminal:
+
+```console
+node index.js
+```
+
 ### General document model output
 
-Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-general-document-output.md)
+Here's a snippet of the expected output:
+
+```console
+Key-Value Pairs:
+- Key  : "For the Quarterly Period Ended"
+  Value: "March 31, 2020" (0.35)
+- Key  : "From"
+  Value: "1934" (0.119)
+- Key  : "to"
+  Value: "<undefined>" (0.317)
+- Key  : "Commission File Number"
+  Value: "001-37845" (0.87)
+- Key  : "(I.R.S. ID)"
+  Value: "91-1144442" (0.87)
+- Key  : "Class"
+  Value: "Common Stock, $0.00000625 par value per share" (0.748)
+- Key  : "Outstanding as of April 24, 2020"
+  Value: "7,583,440,247 shares" (0.838)
+Entities:
+- "$0.00000625" Quantity - Currency (0.8)
+- "MSFT" Organization - <none> (0.99)
+- "NASDAQ" Organization - StockExchange (0.99)
+- "2.125%" Quantity - Percentage (0.8)
+- "2021" DateTime - DateRange (0.8)
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-general-document-output.md)
 
 ## Layout model
 
@@ -238,9 +274,30 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
 ```
 
+### Run your layout application
+
+1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
+
+1. Type the following command in your terminal:
+
+```console
+node index.js
+```
+
 ### Layout model output
 
-Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-layout-output.md)
+Here's a snippet of the expected output:
+
+```console
+Pages:
+- Page 1 (unit: inch)
+  8.5x11, angle: 0
+  69 lines, 425 words
+Tables:
+- Extracted table: 3 columns, 5 rows (15 cells)
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-layout-output.md)
 
 ## Prebuilt model
 
@@ -248,8 +305,6 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
 > You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../concept-model-overview.md#model-data-extraction).
-
-#### Try the prebuilt invoice model
 
 > [!div class="checklist"]
 >
@@ -319,11 +374,7 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
   });
 ```
 
-### Prebuilt model output
-
-Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-prebuilt-invoice-output.md)
-
-## Run your application
+### Run your prebuilt-invoice application
 
 1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
 
@@ -332,6 +383,28 @@ Visit the Azure samples repository on GitHub to view the [prebuilt invoice model
 ```console
 node index.js
 ```
+
+### Prebuilt model output
+
+Here's a snippet of the expected output:
+
+```console
+  Vendor Name: CONTOSO LTD.
+  Customer Name: MICROSOFT CORPORATION
+  Invoice Date: 2019-11-15T00:00:00.000Z
+  Due Date: 2019-12-15T00:00:00.000Z
+  Items:
+  - <no product code>
+    Description: Test for 23 fields
+    Quantity: 1
+    Date: undefined
+    Unit: undefined
+    Unit Price: 1
+    Tax: undefined
+    Amount: 100
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-prebuilt-invoice-output.md)
 
 That's it, congratulations!
 

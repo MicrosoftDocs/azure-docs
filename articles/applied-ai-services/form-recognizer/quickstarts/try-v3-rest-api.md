@@ -26,10 +26,10 @@ To learn more about Form Recognizer features and development options, visit our 
 
  The REST API supports the following models and capabilities:
 
-* 🆕 Read— Analyze and extract printed and handwritten text lines, words, locations, and detected languages.  |
+* 🆕 Read—Analyze and extract printed and handwritten text lines, words, locations, and detected languages.  |
 * 🆕General document—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 * 🆕 W-2—Analyze and extract fields from W-2 tax documents, using a pre-trained W-2 model.
-* Layout—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* Layout—Analyze and extract tables, lines, words, and selection marks from documents, without the need to train a model.
 * Custom—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
 * Invoices—Analyze and extract common fields from invoices, using a pre-trained invoice model.
 * Receipts—Analyze and extract common fields from receipts, using a pre-trained receipt model.
@@ -38,7 +38,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 ## Analyze document
 
-Form Recognizer v3.0 consolidates the analyze document (POST) and get analyze results (GET) operations for layout, prebuilt models, and custom models into a single pair of operations by assigning `modelIds` to the POST and GET operations:
+Form Recognizer v3.0 consolidates the analyze document (POST) and get results (GET) operations for layout, prebuilt models, and custom models into a single pair of operations by assigning `modelIds` to the POST and GET operations:
 
 ```http
 POST /documentModels/{modelId}:analyze
@@ -94,7 +94,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
 ## General document model
 
@@ -114,7 +114,7 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/prebuilt-document:anal
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that can be queried to get the status of the asynchronous operation:
 
 https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2022-01-30-preview
 
@@ -372,7 +372,7 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/prebuilt-layout:analyz
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that can be queried to get the status of the asynchronous operation:
 
 `https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2022-01-30-preview`
 
@@ -427,7 +427,7 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/prebuilt-invoice:analy
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that can be queried to get the status of the asynchronous operation:
 
 https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2022-01-30-preview
 

@@ -241,9 +241,43 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
     }
 ```
 
+### Build and run your general document application
+
+Navigate back to your main project directory—**form-recognizer-app**.
+
+1. Build your application with the `build` command:
+
+```console
+gradle build
+```
+
+1. Run your application with the `run` command:
+
+```console
+gradle run
+```
+
 ### General document model output
 
-Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-general-document-output.md).
+Here's a snippet of the expected output:
+
+```console
+Key content: For the Transition Period From
+Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@14c053c6]
+Key content: to Commission File Number
+Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@6c2d4cc6]
+Value content: 001-37845
+Value content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@30865a90]
+Key content: (I.R.S. ID)
+Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@6134ac4a]
+Value content: 91-1144442
+Value content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@777c9dc9]
+Key content: Securities registered pursuant to Section 12(g) of the Act:
+Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@71b1a49c]
+Value content: NONE
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-general-document-output.md).
 
 ## Layout model
 
@@ -339,9 +373,46 @@ Extract text, selection marks, text styles, table structures, and bounding regio
     }
 ```
 
+### Build and run your layout application
+
+Navigate back to your main project directory—**form-recognizer-app**.
+
+1. Build your application with the `build` command:
+
+```console
+gradle build
+```
+
+1. Run your application with the `run` command:
+
+```console
+gradle run
+```
+
 ### Layout model output
 
-Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-layout-output.md).
+Here's a snippet of the expected output:
+
+```console
+  Table 0 has 5 rows and 3 columns.
+  Cell 'Title of each class', has row index 0 and column index 0.
+  Cell 'Trading Symbol', has row index 0 and column index 1.
+  Cell 'Name of exchange on which registered', has row index 0 and column index 2.
+  Cell 'Common stock, $0.00000625 par value per share', has row index 1 and column index 0.
+  Cell 'MSFT', has row index 1 and column index 1.
+  Cell 'NASDAQ', has row index 1 and column index 2.
+  Cell '2.125% Notes due 2021', has row index 2 and column index 0.
+  Cell 'MSFT', has row index 2 and column index 1.
+  Cell 'NASDAQ', has row index 2 and column index 2.
+  Cell '3.125% Notes due 2028', has row index 3 and column index 0.
+  Cell 'MSFT', has row index 3 and column index 1.
+  Cell 'NASDAQ', has row index 3 and column index 2.
+  Cell '2.625% Notes due 2033', has row index 4 and column index 0.
+  Cell 'MSFT', has row index 4 and column index 1.
+  Cell 'NASDAQ', has row index 4 and column index 2.
+```
+
+To view the entire output,visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-layout-output.md).
 
 ## Prebuilt model
 
@@ -349,8 +420,6 @@ Analyze and extract common fields from specific document types using a prebuilt 
 
 > [!TIP]
 > You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../concept-model-overview.md#model-data-extraction).
-
-#### Try the prebuilt invoice model
 
 > [!div class="checklist"]
 >
@@ -402,7 +471,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
           AnalyzedDocument analyzedInvoice = analyzeInvoiceResult.getDocuments().get(i);
           Map < String, DocumentField > invoiceFields = analyzedInvoice.getFields();
           System.out.printf("----------- Analyzing invoice  %d -----------%n", i);
-          System.out.printf("Analyzed document has doc type %s with confidence : %.2f%n.",
+          System.out.printf("Analyzed document has doc type %s with confidence : %.2f%n",
             analyzedInvoice.getDocType(), analyzedInvoice.getConfidence());
 
           DocumentField vendorNameField = invoiceFields.get("VendorName");
@@ -517,11 +586,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 
 ```
 
-### Prebuilt model output
-
-Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-prebuilt-invoice-output.md)
-
-## Build and run your application
+### Build and run your prebuilt-invoice application
 
 Navigate back to your main project directory—**form-recognizer-app**.
 
@@ -537,6 +602,23 @@ gradle build
 gradle run
 ```
 
+### Prebuilt model output
+
+Here's a snippet of the expected output:
+
+```console
+  ----------- Analyzing invoice  0 -----------
+  Analyzed document has doc type invoice with confidence : 1.00
+  Vendor Name: CONTOSO LTD., confidence: 0.92
+  Vendor address: 123 456th St New York, NY, 10001, confidence: 0.91
+  Customer Name: MICROSOFT CORPORATION, confidence: 0.84
+  Customer Address Recipient: Microsoft Corp, confidence: 0.92
+  Invoice ID: INV-100, confidence: 0.97
+  Invoice Date: 2019-11-15, confidence: 0.97
+```
+
+To view the entire output,isit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-prebuilt-invoice-output.md)
+
 That's it, congratulations!
 
 In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
@@ -545,4 +627,3 @@ In this quickstart, you used the Form Recognizer Java SDK to analyze various for
 
 > [!div class="nextstepaction"]
 > [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
-
