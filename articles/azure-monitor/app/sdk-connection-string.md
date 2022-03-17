@@ -21,6 +21,8 @@ The key value pairs provide an easy way for users to define a prefix suffix comb
 > [!TIP]
 > We recommend the use of connection strings over instrumentation keys.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Scenario overview 
 
 Customer scenarios where we visualize this having the most impact:
