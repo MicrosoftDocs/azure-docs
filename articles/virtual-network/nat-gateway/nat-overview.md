@@ -84,11 +84,10 @@ NAT is fully scaled out from the start. There's no ramp up or scale-out operatio
 
 For Azure Virtual Network NAT pricing, see [NAT gateway pricing](https://azure.microsoft.com/pricing/details/virtual-network/#pricing).
 
-See [SLA for Virtual Network NAT](https://azure.microsoft.com/support/legal/sla/virtual-network-nat/v1_0/).
-
+For information on the SLA, see [SLA for Virtual Network NAT](https://azure.microsoft.com/support/legal/sla/virtual-network-nat/v1_0/).
 
 ## Next steps
 
-* Learn [how to get better outbound connectivity using an Azure NAT Gateway](https://www.youtube.com/watch?v=2Ng_uM0ZaB4).
+* Learn [how to get better outbound connectivity using an Azure NAT gateway](https://www.youtube.com/watch?v=2Ng_uM0ZaB4).
 * Learn about [NAT gateway resource](./nat-gateway-resource.md).
 * Learn more about [NAT gateway metrics](./nat-metrics.md).
