@@ -156,7 +156,7 @@ Azure Front Door (Premium) supports routing traffic to [Private Link origins](..
 
 ### What are the various timeouts and limits for Azure Front Door?
 
-Learn about all the documented [timeouts and limits for Azure Front Door](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits).
+Learn about all the documented [timeouts and limits for Azure Front Door](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-classic-limits).
 
 ### How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
 
