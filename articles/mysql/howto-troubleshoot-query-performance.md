@@ -1,14 +1,14 @@
 ---
-title: Troubleshoot query performance - Azure Database for MySQL 
-description: Learn how to use EXPLAIN to troubleshoot query performance in Azure Database for MySQL.
+title: Profile query performance - Azure Database for MySQL 
+description: Learn how to profile query performance in Azure Database for MySQL by using EXPLAIN.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 3/18/2020
+ms.date: 3/10/2022
 ---
 
-# How to use EXPLAIN to profile query performance in Azure Database for MySQL
+# Profile query performance in Azure Database for MySQL using EXPLAIN
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
@@ -31,7 +31,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-As can be seen from this example, the value of *key* is NULL. This output means MySQL cannot find any indexes optimized for the query and it performs a full table scan. Let's optimize this query by adding an index on the **ID** column.
+As can be seen from this example, the value of *key* is NULL. This output means MySQL can't find any indexes optimized for the query and it performs a full table scan. Let's optimize this query by adding an index on the **ID** column.
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -74,7 +74,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-As can be seen from the output, MySQL does not use any indexes because no proper indexes are available. It also shows *Using temporary; Using file sort*, which means MySQL creates a temporary table to satisfy the **GROUP BY** clause.
+As can be seen from the output, MySQL doesn't use any indexes because no proper indexes are available. It also shows *Using temporary; Using file sort*, which means MySQL creates a temporary table to satisfy the **GROUP BY** clause.
 
 Creating an index on column **c2** alone makes no difference, and MySQL still needs to create a temporary table:
 
@@ -159,11 +159,11 @@ possible_keys: NULL
         Extra: Using where; Using index
 ```
 
-The EXPLAIN now shows that MySQL is able to use combined index to avoid additional sorting since the index is already sorted.
+The EXPLAIN now shows that MySQL can use a combined index to avoid additional sorting since the index is already sorted.
 
 ## Conclusion
 
-Using EXPLAIN and different type of Indexes can increase performance significantly. Having an index on the table does not necessarily mean MySQL would be able to use it for your queries. Always validate your assumptions using EXPLAIN and optimize your queries using indexes.
+Using EXPLAIN and different type of Indexes can increase performance significantly. Having an index on the table doesn't necessarily mean MySQL would be able to use it for your queries. Always validate your assumptions using EXPLAIN and optimize your queries using indexes.
 
 ## Next steps
 

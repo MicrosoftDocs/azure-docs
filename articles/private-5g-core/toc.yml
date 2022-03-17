@@ -58,8 +58,6 @@ items:
     items:
     - name: Provision SIMs
       href: provision-sims-azure-portal.md
-    - name: Activate SIMs
-      href: activate-sims.md
   - name: Distributed tracing
     items:
     - name: Export, upload and share traces

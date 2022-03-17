@@ -1,5 +1,5 @@
 ---
-title: Known issues with SFTP in Azure Blob Storage (preview) | Microsoft Docs
+title: Limitations & known issues with SFTP in Azure Blob Storage (preview) | Microsoft Docs
 description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support for Azure Blob Storage.
 author: normesta
 ms.subservice: blobs
@@ -11,7 +11,7 @@ ms.reviewer: ylunagaria
 
 ---
 
-# Known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
+# Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
 
 This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
@@ -63,11 +63,11 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 
 - There's a 4 minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically. 
 
-- Maximum file upload size is 90 GB.
-
 ## Other
 
 - Special containers such as $logs, $blobchangefeed, $root, $web are not accessible via the SFTP endpoint. 
+
+- When using custom domains the connection string is `<accountName>.<userName>@customdomain.com`. If home directory has not been specified for the user, it is `<accountName>.<containerName>.<userName>@customdomain.com`.
 
 - Symbolic links are not supported.
 

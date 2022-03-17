@@ -56,7 +56,7 @@ With Azure Front Door Rule Set, you can create a combination of Rules Set config
 
 For more quota limit, refer to [Azure subscription and service limits, quotas and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-* *Rule Set*: A set of rules that gets associated to one or multiple [routes](standard-premium/concept-route.md).
+* *Rule Set*: A set of rules that gets associated to one or multiple [routes](front-door-route-matching.md).
 
 * *Rule Set rule*: A rule composed of up to 10 match conditions and 5 actions. Rules are local to a Rule Set and cannot be exported to use across Rule Sets. Users can create the same rule in multiple Rule Sets.
 

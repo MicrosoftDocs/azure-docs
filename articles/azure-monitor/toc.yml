@@ -1144,11 +1144,11 @@ items:
   - name: Change Analysis
     items:
     - name: Overview
-      href: app/change-analysis.md
+      href: change/change-analysis.md
     - name: Visualizations
-      href: app/change-analysis-visualizations.md
+      href: change/change-analysis-visualizations.md
     - name: Troubleshoot
-      href: app/change-analysis-troubleshoot.md
+      href: change/change-analysis-troubleshoot.md
   - name: VM insights
     items:
     - name: Overview

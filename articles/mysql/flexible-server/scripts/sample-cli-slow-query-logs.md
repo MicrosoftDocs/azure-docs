@@ -24,7 +24,7 @@ This sample CLI script configures [slow query logs](../concepts-slow-query-logs.
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/configure-logs/configure-slow-query-logs.sh" range="4-47":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/configure-logs/configure-slow-query-logs.sh" id="FullScript":::
 
 ## Clean up resources
 

@@ -113,7 +113,7 @@ If you have defined [rules engines](front-door-rules-engine.md) for the route, t
 
 ::: zone pivot="front-door-standard-premium"
 
-If the Front Door routing rule has [caching](standard-premium/concept-caching.md) enabled, and the Front Door edge location's cache includes a valid response for the request, then Front Door returns the cached response.
+If the Front Door routing rule has [caching](front-door-caching.md) enabled, and the Front Door edge location's cache includes a valid response for the request, then Front Door returns the cached response.
 
 If caching is disabled or no response is available, the request is forwarded to the origin.
 
