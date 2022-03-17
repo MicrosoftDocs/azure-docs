@@ -363,6 +363,8 @@
       href: database/elastic-pool-overview.md
     - name: Logical servers
       href: database/logical-servers.md
+    - name: Job automation with elastic jobs
+      href: database/job-automation-overview.md
     - name: Serverless
       href: database/serverless-tier-overview.md
     - name: Hyperscale
@@ -473,8 +475,6 @@
       items:
       - name: Database sharding
         href: database/elastic-scale-introduction.md
-      - name: Job automation with elastic jobs
-        href: database/job-automation-overview.md
       - name: Elastic transactions
         href: database/elastic-transactions-overview.md
       - name: Elastic queries
@@ -568,8 +568,6 @@
 
     - name: Manage
       items:
-      - name: Azure Automation
-        href: database/automation-manage.md
       - name: Management API reference
         href: database/single-database-manage.md
       - name: DNS alias PowerShell
@@ -592,6 +590,22 @@
         href: database/hyperscale-performance-diagnostics.md
       - name: Block T-SQL CRUD
         href: database/block-crud-tsql.md
+      - name: Azure Automation
+        href: database/automation-manage.md
+      - name: Elastic jobs (preview)
+        items:
+        - name: Job automation with elastic jobs
+          href: database/job-automation-overview.md
+        - name: Configure jobs
+          href: database/elastic-jobs-overview.md
+        - name: Create and manage (PowerShell)
+          href: database/elastic-jobs-powershell-create.md
+        - name: Create and manage (T-SQL)
+          href: database/elastic-jobs-tsql-create-manage.md
+        - name: Migrate (from old Elastic jobs)
+          href: database/elastic-jobs-migrate.md
+
+
     - name: Secure 
       items: 
       - name: Audit to storage account behind VNet or firewall
@@ -706,18 +720,7 @@
         href: database/elastic-query-horizontal-partitioning.md
       - name: Query across tables with different schemas
         href: database/elastic-query-vertical-partitioning.md
-    - name: Elastic jobs (preview)
-      items:
-      - name: Job automation with elastic jobs
-        href: database/job-automation-overview.md
-      - name: Configure jobs
-        href: database/elastic-jobs-overview.md
-      - name: Create and manage (PowerShell)
-        href: database/elastic-jobs-powershell-create.md
-      - name: Create and manage (T-SQL)
-        href: database/elastic-jobs-tsql-create-manage.md
-      - name: Migrate (from old Elastic jobs)
-        href: database/elastic-jobs-migrate.md
+
 
     - name: Design data applications
       items:
