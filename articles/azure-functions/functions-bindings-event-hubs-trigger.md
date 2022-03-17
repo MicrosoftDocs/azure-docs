@@ -19,7 +19,7 @@ For information on setup and configuration details, see the [overview](functions
 
 ## host.json settings
 
-The [host.json](functions-host-json.md#eventhub) file contains settings that control Event Hub trigger behavior. See the [host.json settings](functions-bindings-event-hubs.md#hostjson-settings) section for details regarding available settings.
+The [host.json](functions-host-json.md#eventhub) file contains settings that control Event Hubs trigger behavior. See the [host.json settings](functions-bindings-event-hubs.md#hostjson-settings) section for details regarding available settings.
 
 ## Next steps
 
