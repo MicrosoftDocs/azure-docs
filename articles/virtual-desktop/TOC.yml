@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Virtual Desktop?
     href: overview.md
+  - name: Prerequisites
+    href: prerequisites.md
   - name: What's new?
     href: whats-new.md
   - name: What's new for Azure Monitor
@@ -55,7 +57,7 @@
         href: rdp-bandwidth.md
       - name: Proxy support guidelines
         href: proxy-server-support.md
-      - name: Determine user connection latency
+      - name: Determine user connection quality
         href: connection-latency.md
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
@@ -287,6 +289,8 @@
     href: troubleshoot-azure-monitor.md
   - name: Azure Files authorization
     href: troubleshoot-authorization.md
+  - name: Connection quality issues
+    href: troubleshoot-connection-quality.md
 - name: Reference
   items:
   - name: Azure CLI
