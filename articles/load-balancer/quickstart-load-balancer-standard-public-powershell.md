@@ -269,7 +269,11 @@ In this section, you'll create the two virtual machines for the backend pool of 
 $cred = Get-Credential
 
 ## Place the virtual network into a variable. ##
-$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'CreatePubLBQS-rg'
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'CreatePubLBQS-rg'
+}
+$vnet = Get-AzVirtualNetwork @net
 
 ## Place the load balancer into a variable. ##
 $lb = @{
@@ -279,50 +283,54 @@ $lb = @{
 $bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
 
 ## Place the network security group into a variable. ##
-$nsg = Get-AzNetworkSecurityGroup -Name 'myNSG' -ResourceGroupName 'CreatePubLBQS-rg'
+$ns = {
+    Name = 'myNSG'
+    ResourceGroupName = 'CreatePubLBQS-rg'
+}
+$nsg = Get-AzNetworkSecurityGroup
 
 ## For loop with variable to create virtual machines for load balancer backend pool. ##
 for ($i=1; $i -le 2; $i++)
 {
-## Command to create network interface for VMs ##
-$nic = @{
-    Name = "myNicVM$i"
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    Subnet = $vnet.Subnets[0]
-    NetworkSecurityGroup = $nsg
-    LoadBalancerBackendAddressPool = $bepool
-}
-$nicVM = New-AzNetworkInterface @nic
+    ## Command to create network interface for VMs ##
+    $nic = @{
+        Name = "myNicVM$i"
+        ResourceGroupName = 'CreatePubLBQS-rg'
+        Location = 'eastus'
+        Subnet = $vnet.Subnets[0]
+        NetworkSecurityGroup = $nsg
+        LoadBalancerBackendAddressPool = $bepool
+    }
+    $nicVM = New-AzNetworkInterface @nic
 
-## Create a virtual machine configuration for VMs ##
-$vmsz = @{
-    VMName = "myVM$i"
-    VMSize = 'Standard_DS1_v2'  
-}
-$vmos = @{
-    ComputerName = "myVM$i"
-    Credential = $cred
-}
-$vmimage = @{
-    PublisherName = 'MicrosoftWindowsServer'
-    Offer = 'WindowsServer'
-    Skus = '2019-Datacenter'
-    Version = 'latest'    
-}
-$vmConfig = New-AzVMConfig @vmsz `
-    | Set-AzVMOperatingSystem @vmos -Windows `
-    | Set-AzVMSourceImage @vmimage `
-    | Add-AzVMNetworkInterface -Id $nicVM.Id
+    ## Create a virtual machine configuration for VMs ##
+    $vmsz = @{
+        VMName = "myVM$i"
+        VMSize = 'Standard_DS1_v2'  
+    }
+    $vmos = @{
+        ComputerName = "myVM$i"
+        Credential = $cred
+    }
+    $vmimage = @{
+        PublisherName = 'MicrosoftWindowsServer'
+        Offer = 'WindowsServer'
+        Skus = '2019-Datacenter'
+        Version = 'latest'    
+    }
+    $vmConfig = New-AzVMConfig @vmsz `
+        | Set-AzVMOperatingSystem @vmos -Windows `
+        | Set-AzVMSourceImage @vmimage `
+        | Add-AzVMNetworkInterface -Id $nicVM.Id
 
-## Create the virtual machine for VMs ##
-$vm = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    VM = $vmConfig
-    Zone = "$i"
-}
-New-AzVM @vm -AsJob
+    ## Create the virtual machine for VMs ##
+    $vm = @{
+        ResourceGroupName = 'CreatePubLBQS-rg'
+        Location = 'eastus'
+        VM = $vmConfig
+        Zone = "$i"
+    }
+    New-AzVM @vm -AsJob
 }
 ```
 
