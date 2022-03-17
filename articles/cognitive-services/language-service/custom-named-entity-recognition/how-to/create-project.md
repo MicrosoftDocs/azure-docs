@@ -140,6 +140,12 @@ To set proper roles on your storage account:
 
 For information on authorizing access to your Azure blob storage account and data, see [Authorize access to data in Azure storage](../../../../storage/common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
+### Enable CORS for your storage account
+
+Make sure to allow (**GET, PUT, DELETE**) methods when enabling CORS. Also, make sure to add asterisk _*_ to the rest of the fields and add the recommended value of 500 for Max age.
+
+:::image type="content" source="../../media/CORS.png" alt-text="A screenshot showing how to use CORS for storage account." lightbox="../../media/CORS.png":::
+
 ## Prepare training data
 
 * As a prerequisite for creating a custom NER project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training files from Azure directly or through using the Azure Storage Explorer tool. Using Azure Storage Explorer tool allows you to upload more data in less time.
