@@ -260,25 +260,31 @@ To add the NuGet reference from the previous section, update the **extensions.js
 
 ## Test your custom built-in connector
 
-1. In Visual Studio Code or the Azure portal, open the designer for your Standard logic app workflow.
+1. In Visual Studio Code, open your Standard logic app and blank workflow in the designer.
 
-   The connector picker should now show your new custom built-in connector, for example:
+1. On the designer surface, select **Choose an operation** to open the connector operations picker.
 
-   ![Screenshot showing the Azure portal and designer for Standard logic app workflow with new custom built-in Cosmos DB connector.](./media/create-built-in-custom-connector-standard/portal-built-in-connector-picker.png)
+1. Under the operations search box, select **Built-in**. In the search box, enter **cosmos db**.
 
-1. Select the your new custom built-in trigger to start your workflow.
+   The operations picker shows your custom built-in connector and trigger, for example:
 
-1. Provide the following property values for your Cosmos DB connection. When you're done, select **Create**.
+   ![Screenshot showing Visual Studio Code and the designer for a Standard logic app workflow with the new custom built-in Cosmos DB connector.](./media/create-built-in-custom-connector-standard/visual-studio-code-built-in-connector-picker.png)
+
+1. From the **Triggers** list, select your custom built-in trigger to start your workflow.
+
+1. On the connection pane, provide the following property values to create a connection, for example:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Connection name** | Yes | <*Cosmos-DB-connection-ma,e*> | The name for the Cosmos DB connection to create |
+   | **Connection name** | Yes | <*Cosmos-DB-connection-name*> | The name for the Cosmos DB connection to create |
    | **Connection String** | Yes | <*Cosmos-DB-connection-string*> | The connection string for the Azure Cosmos DB database collection or lease collection where you want to add each new received document. |
    |||||
 
-   ![Screenshot showing the "Create Connection" pane for the new custom built-in Cosmos DB connector.](./media/create-built-in-custom-connector-standard/portal-built-in-connector-create-connection.png)
+   ![Screenshot showing the connection pane when using the connector for the first time.](./media/create-built-in-custom-connector-standard/visual-studio-code-built-in-connector-create-connection.png)
 
-1. Provide the following property values for your Cosmos DB trigger operation. trigger database name and collection name for the trigger to use:
+1. When you're done, select **Create**.
+
+1. On the trigger properties pane, provide the following property values for your trigger, for example:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -286,5 +292,10 @@ To add the NuGet reference from the previous section, update the **extensions.js
    | **collection name** | Yes | <*Cosmos-DB-collection-name*> | The name for the Cosmos DB collection where you want to add each new received document. |
    |||||
 
-   ![Screenshot showing the "Receive document" properties in the custom built-in Cosmos DB trigger.](./media/create-built-in-custom-connector-standard/portal-built-in-connector-trigger-properties.png)
+   ![Screenshot showing the trigger properties pane.](./media/create-built-in-custom-connector-standard/visual-studio-code-built-in-connector-trigger-properties.png)
 
+1. In Visual Studio Code, on the **Run** menu, select **Start Debugging**. (Press F5)
+
+1. To trigger your workflow, in the Azure portal, open Azure Data Explorer. Browse to your Azure Cosmos DB account, database, and collection that you specified in the trigger. Add an item to the collection.
+
+   
