@@ -15,7 +15,7 @@ sections:
   - name: Backup
     questions:
       - question: |
-          How many full backups are supported per day?
+          How many backups are supported per day?
         answer: |
           You can have one schedule full backup and multiple on-demand backups in a day.
 
