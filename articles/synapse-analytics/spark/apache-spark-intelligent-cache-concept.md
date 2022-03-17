@@ -107,7 +107,7 @@ To learn more on Apache Spark, see the following articles:
   - [Apache Spark pool sizes and configurations](./spark/../apache-spark-pool-configurations.md)
 
 To learn about configuring Spark session settings
-  - [Configure Spark session settings](./spark/../apache-spark-development-using-notebooks.md#spark-session-config)
+  - [Configure Spark session settings](./spark/../apache-spark-development-using-notebooks.md)
   - [How to set Spark / Pyspark custom configs](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-set-spark-pyspark-custom-configs-in-synapse-workspace/ba-p/2114434)
 
 
