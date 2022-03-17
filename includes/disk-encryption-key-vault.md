@@ -34,7 +34,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 Create a key vault using the [az keyvault create](/cli/azure/keyvault#az_keyvault_create) Azure CLI command, the [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure PowerShell command, the [Azure portal](https://portal.azure.com), or a [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create).
 
 >[!WARNING]
-> To ensure that encryption secrets don't cross regional boundaries, Azure Disk Encryption requires the Key Vault and the VMs to be co-located in the same region and tenant. Create and use a Key Vault that is in the same region and tenant as the VMs to be encrypted.
+> To ensure that encryption secrets don't cross regional boundaries, Azure Disk Encryption requires the Key Vault and the VMs to be co-located in the same region and tenant. Create and use a key vault that is in the same region and tenant as the VMs to be encrypted.
 
 Each Key Vault must have a unique name. Replace \<your-unique-keyvault-name\> with the name of your key vault in the following examples.
 
@@ -118,11 +118,11 @@ Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) to enable disk 
 
     ![Azure key vault advanced access policies](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
-## Azure Disk Encryption and Key Vault auto-rotation
+## Azure Disk Encryption and auto-rotation
 
-Although Azure Key Vault now has [key auto-rotation in public preview](../articles/key-vault/keys/how-to-configure-key-rotation.md), it is not currently compatible with Azure Disk Encryption. Specifically, Azure Disk Encryption will continue to use the original encryption key even if the key is auto-rotated. 
+Although Azure Key Vault now has [key auto-rotation in public preview](../articles/key-vault/keys/how-to-configure-key-rotation.md), it is not currently compatible with Azure Disk Encryption. Specifically, Azure Disk Encryption will continue to use the original encryption key, even after it has been auto-rotated.
 
-While rotating the encryption key will not break Azure Disk Encryption, disabling the "old" encryption key (in other words, the key Azure Disk Encryption is still using) will.
+Rotating an encryption key will not break Azure Disk Encryption, but disabling the "old" encryption key (in other words, the key Azure Disk Encryption is still using) will.
 
 ## Set up a key encryption key (KEK)
 
