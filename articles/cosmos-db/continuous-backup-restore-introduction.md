@@ -6,9 +6,8 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/22/2021
 ms.author: govindk
-ms.reviewer: sngun
-ms.custom: references_regions
-
+ms.reviewer: wiassaf
+ms.custom: references_regions, cosmos-db-video
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB

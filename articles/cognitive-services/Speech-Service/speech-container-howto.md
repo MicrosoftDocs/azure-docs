@@ -27,7 +27,6 @@ With Speech containers, you can build a speech application architecture that's o
 |--|--|--|--|
 | Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 3.0.0 | Generally available |
 | Custom speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 3.0.0 | Generally available |
-| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.15.0 | Generally available |
 | Speech language identification | Detects the language spoken in audio files. | 1.5.0 | Preview |
 | Neural text-to-speech | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | 2.0.0 | Generally available |
 
@@ -58,7 +57,6 @@ The following table describes the minimum and recommended allocation of resource
 |-----------|---------|-------------|
 | Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
 | Custom speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
-| Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
 | Speech language identification | 1 core, 1-GB memory | 1 core, 1-GB memory |
 | Neural text-to-speech | 6 core, 12-GB memory | 8 core, 16-GB memory |
 
@@ -100,12 +98,6 @@ Container images for Speech are available in the following container registry.
 | Container | Repository |
 |-----------|------------|
 | Custom speech-to-text | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest` |
-
-# [Text-to-speech](#tab/tts)
-
-| Container | Repository |
-|-----------|------------|
-| Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech:latest` |
 
 # [Neural text-to-speech](#tab/ntts)
 
@@ -169,38 +161,6 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-spe
 
 > [!NOTE]
 > The `locale` and `voice` for custom Speech containers is determined by the custom model ingested by the container.
-
-# [Text-to-speech](#tab/tts)
-
-#### Docker pull for the text-to-speech container
-
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
-
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech:latest
-```
-
-> [!IMPORTANT]
-> The `latest` tag pulls the `en-US` locale and `ariarus` voice. For more locales, see [Text-to-speech locales](#text-to-speech-locales).
-
-#### Text-to-speech locales
-
-All tags, except for `latest`, are in the following format and are case sensitive:
-
-```
-<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
-```
-
-The following tag is an example of the format:
-
-```
-1.8.0-amd64-en-us-ariarus
-```
-
-For all the supported locales and corresponding voices of the text-to-speech container, see [Text-to-speech image tags](../containers/container-image-tags.md#text-to-speech).
-
-> [!IMPORTANT]
-> When you construct a text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, which is also known as the [short name](how-to-migrate-to-prebuilt-neural-voice.md). For example, the `latest` tag would have a voice name of `en-US-AriaRUS`.
 
 # [Neural text-to-speech](#tab/ntts)
 
@@ -456,25 +416,6 @@ Checking available base model for en-us
 
 Starting in v2.5.0 of the custom-speech-to-text container, you can get custom pronunciation results in the output. All you need to do is have your own custom pronunciation rules set up in your custom model and mount the model to a custom-speech-to-text container.
 
-# [Text-to-speech](#tab/tts)
-
-To run the standard text-to-speech container, execute the following `docker run` command:
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-This command:
-
-* Runs a standard text-to-speech container from the container image.
-* Allocates 1 CPU core and 2 GB of memory.
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
-* Automatically removes the container after it exits. The container image is still available on the host computer.
-
 # [Neural text-to-speech](#tab/ntts)
 
 To run the neural text-to-speech container, execute the following `docker run` command:
@@ -534,7 +475,7 @@ Increasing the number of concurrent calls can affect reliability and latency. Fo
 | Containers | SDK Host URL | Protocol |
 |--|--|--|
 | Standard speech-to-text and custom speech-to-text | `ws://localhost:5000` | WS |
-| Text-to-speech (including standard and neural), Speech language identification | `http://localhost:5000` | HTTP |
+| Neural Text-to-speech, Speech language identification | `http://localhost:5000` | HTTP |
 
 For more information on using WSS and HTTPS protocols, see [Container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
@@ -660,7 +601,7 @@ speech_config.set_service_property(
 )
 ```
 
-### Text-to-speech (standard and neural)
+### Neural Text-to-Speech
 
 [!INCLUDE [Query Text-to-speech container endpoint](includes/text-to-speech-container-query-endpoint.md)]
 
@@ -699,8 +640,6 @@ In this article, you learned concepts and workflow for how to download, install,
 * Speech provides four Linux containers for Docker that have various capabilities:
   * Speech-to-text
   * Custom speech-to-text
-  * Text-to-speech
-  * Custom text-to-speech
   * Neural text-to-speech
   * Speech language identification
 * Container images are downloaded from the container registry in Azure.
