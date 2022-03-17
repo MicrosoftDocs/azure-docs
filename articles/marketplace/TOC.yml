@@ -423,7 +423,7 @@
         href: create-saas-dev-test-offer.md          
       - name: Preview and subscribe
         href: test-publish-saas-offer.md
-      - name: Best practices for testing a SaaS plan
+      - name: Test a SaaS plan
         href: test-saas-plan.md
       - name: Create and publish a production plan
         href: test-saas-create-publish.md    
