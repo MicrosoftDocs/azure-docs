@@ -12,7 +12,7 @@ ms.date: 10/26/2021
 
 # Plan a SaaS offer for the commercial marketplace
 
-This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers to let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
+This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
 
 > [!TIP]
 > To see the customer's view of purchasing a SaaS offer in the Azure portal, see [Purchase a SaaS offer in the Azure portal](/marketplace/purchase-saas-offer-in-azure-portal) and [Purchase SaaS apps on Microsoft AppSource](/marketplace/purchase-software-appsource).
@@ -277,7 +277,8 @@ Before you publish your offer live, you should use the preview functionality to 
 
 To develop and test your SaaS offer with the lowest amount of risk, we recommend that you create a test and development (DEV) offer for experimentation and testing. The DEV offer will be separate from your production (PROD) offer.
 
-To prevent accidental purchases of the DEV offer, you’ll never push the **Go live** button to publish the DEV offer live.
+> [!IMPORTANT]
+> To prevent accidental purchases of the DEV offer, you’ll never push the **Go live** button to publish the DEV offer live.
 
 ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown. The View validation report link is also shown under Automated validation.](./media/review-publish-offer/publish-status-saas.png)
 
