@@ -144,4 +144,4 @@ You can also [assess your on-premises machines](./tutorial-discover-import.md#pr
 
 ## Next steps
 
-- [Migrate servers to Azure by using Private Link](migrate-servers-to-azure-using-private-link.md).
+- [Migrate servers to Azure using Private Link](migrate-servers-to-azure-using-private-link.md).
