@@ -13,7 +13,7 @@ ms.date: 03/15/2022
 
 In Azure Logic Apps, connectors provide triggers and actions, which are operations that you use in logic app workflows to quickly access data, events, and actions across other apps, services, systems, protocols, and platforms. These operations expand the capabilities in your cloud apps and on-premises apps to work with new and existing data. Connectors are powered by the connector infrastructure that runs in Azure.
 
-Connectors are either built-in or managed. Built-in connectors run natively on the Azure Logic Apps runtime, which means they're hosted in the same process as the runtime and provide higher throughput, low latency, and local connectivity. Managed connectors are deployed, hosted, and managed by Microsoft. When you use a connector operation for the first time in a workflow, some connectors don't require that you create a connection first, but many other connectors require this step. The connection is actually a separate Azure resource that provides access to the target app, service, system, protocol, or platform.
+Azure Logic Apps have both built-in connector and managed connector operations. Built-in connectors run natively on the Azure Logic Apps runtime, which means they're hosted in the same process as the runtime and provide higher throughput, low latency, and local connectivity. Managed connectors are deployed, hosted, and managed by Microsoft. When you use a connector operation for the first time in a workflow, some connectors don't require that you create a connection first, but many other connectors require this step. The connection is actually a separate Azure resource that provides access to the target app, service, system, protocol, or platform.
 
 In single-tenant Azure Logic Apps, Standard logic app workflows are powered by a redesigned runtime. This runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides a key capability for you to create and use your own built-in connectors. With a Standard logic app, a connection definition file contains the required configuration information for the connections created by these built-in connectors. When single-tenant Azure Logic Apps officially released, new built-in connectors included Azure Blob Storage, Azure Event Hubs, Azure Service Bus, and SQL Server, and this list continues to grow. However, if you need connectors that aren't available, you can create your own built-in connectors with the same Azure Functions extensibility framework used by the included built-in connectors.
 
@@ -49,7 +49,7 @@ In this built-in connector extensibility model, you have to implement the follow
 
   At runtime, the Azure Logic Apps runtime uses these implementations to call the specified operation in the workflow definition.
 
-After you finish your custom built-in connector extension, you also have to register the your custom built-in connector with the [Azure Functions runtime extension](../azure-functions/functions-bindings-register.md). These steps are described later in this article.
+When you're done, you also have to register custom built-in connector with the [Azure Functions runtime extension](../azure-functions/functions-bindings-register.md). For the steps, review [Register your connector as an Azure Functions extension](#register-connector).
 
 <a name="service-provider-interface-implementation"></a>
 
@@ -185,7 +185,7 @@ namespace ServiceProviders.CosmosDb.Extensions
 
 ### 3. Add the converter
 
-Add Converter: Logic app has implemented the generic way to handle any function built-in trigger using the JObject array, we may need (optional) to add a converter to convert the read only list of Azure Cosmos DB document into JObject array. Once the converter is ready as shown in above example, we need to register the converter as part of ExtensionConfigContext.
+Add Converter: Logic app has implemented the generic way to handle any function built-in trigger using the JObject array, we may need (optional) to add a converter to convert the read only list of Azure Cosmos DB document into a **JObject** array. Once the converter is ready as shown in above example, we need to register the converter as part of ExtensionConfigContext.
 
 ```csharp
 // Convert the Cosmos Document list to a JObject array.
@@ -216,7 +216,7 @@ To add the NuGet reference from the previous section, update the **extensions.js
 
    `powershell -file add-extension.ps1 {Cosmos-DB-output-bin-NuGet-folder-path} CosmosDB`
 
-   If the extension for your custom built-in connector was successfully installed, you get output that looks similar to the the following example: 
+   If the extension for your custom built-in connector was successfully installed, you get output that looks similar to the following example:
 
    `C:\Users\{your-user-name}\Desktop\demoproj\cdbproj>powershell - file C:\myrepo\github\logicapps-connector-extensions\src\Common\tools\add-extension.ps1 C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\CosmosDB`<br>
 
