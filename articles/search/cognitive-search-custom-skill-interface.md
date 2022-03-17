@@ -1,16 +1,16 @@
 ---
-title: Interface definition for custom skills
+title: Custom skill interface
 titleSuffix: Azure Cognitive Search
-description: Custom data extraction interface for web-api custom skill in an AI enrichment pipeline in Azure Cognitive Search.
+description: Integrate a custom skill with an AI enrichment pipeline in Azure Cognitive Search through a web interface that defines compatible inputs and outputs in a skillset.
 
-author: LiamCavanagh
-ms.author: liamca
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 01/14/2022
+ms.topic: how-to
+ms.date: 03/17/2022
 ---
 
-# How to add a custom skill to an Azure Cognitive Search enrichment pipeline
+# Add a custom skill to an Azure Cognitive Search enrichment pipeline
 
 An [enrichment pipeline](cognitive-search-concept-intro.md) can include both [built-in skills](cognitive-search-predefined-skills.md) and [custom skills](cognitive-search-custom-skill-web-api.md) that you personally create and publish. Your custom code executes externally to the search service (for example, as an Azure function), but accepts inputs and sends outputs to the skillset just like any other skill.
 
@@ -22,17 +22,19 @@ If you are building a custom skill, this article describes the interface you'll 
 
 Building a custom skill gives you a way to insert transformations unique to your content. A custom skill executes independently, applying whatever enrichment step you require. For example, you could build custom classification models to differentiate business and financial contracts and documents, or add a speech recognition skill to reach deeper into audio files for relevant content. For a step-by-step example, see [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md).
 
-## Set the endpoint and timeout interval
+## Set the endpoint, connection, and timeout interval
 
-The interface for a custom skill is specified through the [Custom WebAPI skill](cognitive-search-custom-skill-web-api.md). 
+The interface for a custom skill is specified through the [Custom Web API skill](cognitive-search-custom-skill-web-api.md).
+
+The connection string is the HTTPS endpoint of your function or app. 
 
 By default, the connection to the endpoint will time out if a response is not returned within a 30-second window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that time frame. You can increase the interval to a maximum value of 230 seconds by setting the timeout parameter:
 
 ```json
-    "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-    "description": "This skill has a 230 second timeout",
-    "uri": "https://[your custom skill uri goes here]",
-    "timeout": "PT230S",
+"@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+"description": "This skill has a 230 second timeout",
+"uri": "https://[your custom skill uri goes here]",
+"timeout": "PT230S",
 ```
 
 When setting the URI, make sure the URI is secure (HTTPS).
@@ -125,6 +127,7 @@ When you create a Web API enricher, you can describe HTTP headers and parameters
     "skills": [
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+        "name": "myCustomSkill"
         "description": "This skill calls an Azure function, which in turn calls TA sentiment",
         "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/DateExtractor?language=en",
         "context": "/document",

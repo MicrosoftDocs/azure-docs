@@ -3,11 +3,11 @@ title: Custom Web API skill in skillsets
 titleSuffix: Azure Cognitive Search
 description: Extend capabilities of Azure Cognitive Search skillsets by calling out to Web APIs. Use the Custom Web API skill to integrate your custom code.
 
-author: LiamCavanagh
-ms.author: liamca
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 03/22/2022
 ---
 
 # Custom Web API skill in an Azure Cognitive Search enrichment pipeline
@@ -22,7 +22,8 @@ The structure of the JSON payloads are described further down in this document.
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
-## @odata.type  
+## @odata.type
+
 Microsoft.Skills.Custom.WebApiSkill
 
 ## Skill parameters
@@ -31,61 +32,62 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| `uri` | The URI of the Web API to which the _JSON_ payload will be sent. Only **https** URI scheme is allowed |
+| `uri` | The URI of the Web API to which the JSON payload will be sent. Only **https** URI scheme is allowed |
+| `authResourceId` | (Optional) A string that if set, indicates that this skill should use a managed identity on the connection to the function or app hosting the code. The value is the application ID of the function or app's registration in Azure Active Directory. This value will be used to scope the authentication token retrieved by the indexer, and will be sent along with the custom Web skill API request to the function or app. |
 | `httpMethod` | The method to use while sending the payload. Allowed methods are `PUT` or `POST` |
 | `httpHeaders` | A collection of key-value pairs where the keys represent header names and values represent header values that will be sent to your Web API along with the payload. The following headers are prohibited from being in this collection:  `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | `timeout` | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
-| `batchSize` | (Optional) Indicates how many "data records" (see _JSON_ payload structure below) will be sent per API call. If not set, a default of 1000 is chosen. We recommend that you make use of this parameter to achieve a suitable tradeoff between indexing throughput and load on your API |
+| `batchSize` | (Optional) Indicates how many "data records" (see JSON payload structure below) will be sent per API call. If not set, a default of 1000 is chosen. We recommend that you make use of this parameter to achieve a suitable tradeoff between indexing throughput and load on your API |
 | `degreeOfParallelism` | (Optional) When specified, indicates the number of calls the indexer will make in parallel to the endpoint you have provided. You can decrease this value if your endpoint is failing under too high of a request load, or raise it if your endpoint is able to accept more requests and you would like an increase in the performance of the indexer.  If not set, a default value of 5 is used. The `degreeOfParallelism` can be set to a maximum of 10 and a minimum of 1. |
 
 ## Skill inputs
 
-There are no "predefined" inputs for this skill. You can choose one or more fields that would be already available at the time of this skill's execution as inputs and the _JSON_ payload sent to the Web API will have different fields.
+There are no predefined inputs for this skill. You can choose one or more fields that would be already available at the time of this skill's execution as inputs and the JSON payload sent to the Web API will have different fields.
 
 ## Skill outputs
 
-There are no "predefined" outputs for this skill. Depending on the response your Web API will return, add output fields so that they can be picked up from the _JSON_ response.
-
+There are no predefined outputs for this skill. Depending on the response your Web API will return, add output fields so that they can be picked up from the JSON response.
 
 ## Sample definition
 
 ```json
-  {
-        "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "A custom skill that can identify positions of different phrases in the source text",
-        "uri": "https://contoso.count-things.com",
-        "batchSize": 4,
-        "context": "/document",
-        "inputs": [
-          {
-            "name": "text",
-            "source": "/document/content"
-          },
-          {
-            "name": "language",
-            "source": "/document/languageCode"
-          },
-          {
-            "name": "phraseList",
-            "source": "/document/keyphrases"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "hitPositions"
-          }
-        ]
-      }
+{
+  "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+  "description": "A custom skill that can identify positions of different phrases in the source text",
+  "uri": "https://contoso.count-things.com",
+  "batchSize": 4,
+  "context": "/document",
+  "inputs": [
+    {
+      "name": "text",
+      "source": "/document/content"
+    },
+    {
+      "name": "language",
+      "source": "/document/languageCode"
+    },
+    {
+      "name": "phraseList",
+      "source": "/document/keyphrases"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "hitPositions"
+    }
+  ]
+}
 ```
+
 ## Sample input JSON structure
 
-This _JSON_ structure represents the payload that will be sent to your Web API.
+This JSON structure represents the payload that will be sent to your Web API.
 It will always follow these constraints:
 
 * The top-level entity is called `values` and will be an array of objects. The number of such objects will be at most the `batchSize`
 * Each object in the `values` array will have
     * A `recordId` property that is a **unique** string, used to identify that record.
-    * A `data` property that is a _JSON_ object. The fields of the `data` property will correspond to the "names" specified in the `inputs` section of the skill definition. The value of those fields will be from the `source` of those fields (which could be from a field in the document, or potentially from another skill)
+    * A `data` property that is a JSON object. The fields of the `data` property will correspond to the "names" specified in the `inputs` section of the skill definition. The value of those fields will be from the `source` of those fields (which could be from a field in the document, or potentially from another skill)
 
 ```json
 {
@@ -132,7 +134,7 @@ It will always follow these constraints:
 
 ## Sample output JSON structure
 
-The "output" corresponds to the response returned from your Web API. The Web API should only return a _JSON_ payload (verified by looking at the `Content-Type` response header) and should satisfy the following constraints:
+The "output" corresponds to the response returned from your Web API. The Web API should only return a JSON payload (verified by looking at the `Content-Type` response header) and should satisfy the following constraints:
 
 * There should be a top-level entity called `values` which should be an array of objects.
 * The number of objects in the array should be the same as the number of objects sent to the Web API.
@@ -189,9 +191,11 @@ The "output" corresponds to the response returned from your Web API. The Web API
 ```
 
 ## Error cases
+
 In addition to your Web API being unavailable, or sending out non-successful status codes the following are considered erroneous cases:
 
 * If the Web API returns a success status code but the response indicates that it is not `application/json` then the response is considered invalid and no enrichments will be performed.
+
 * If there are **invalid** (with `recordId` not in the original request, or with duplicate values) records in the response `values` array, no enrichment will be performed for **those** records.
 
 For cases when the Web API is unavailable or returns a HTTP error, a friendly error with any available details about the HTTP error will be added to the indexer execution history.
