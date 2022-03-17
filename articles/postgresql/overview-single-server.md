@@ -2,7 +2,7 @@
 title: Azure Database for PostgreSQL Single Server
 description: Provides an overview of Azure Database for PostgreSQL Single Server.
 ms.service: postgresql
-ms.subservice: single-erver
+ms.subservice: single-server
 ms.topic: overview
 ms.author: sunila
 author: sunilagarwal

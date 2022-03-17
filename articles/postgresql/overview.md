@@ -2,7 +2,7 @@
 title: What is Azure Database for PostgreSQL
 description: Provides an overview of Azure Database for PostgreSQL relational database service in the context of flexible server.
 ms.service: postgresql
-ms.subservice: single-erver
+ms.subservice: single-server
 ms.topic: overview
 ms.author: sunila
 author: sunilagarwal

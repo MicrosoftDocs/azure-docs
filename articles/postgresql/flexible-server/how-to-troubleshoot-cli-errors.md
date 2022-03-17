@@ -2,10 +2,9 @@
 title: Troubleshoot Azure Database for PostgreSQL Flexible Server CLI errors
 description: This topic gives guidance on troubleshooting common issues with Azure CLI when using PostgreSQL Flexible Server.
 ms.service: postgresql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.author: sumuth
 author: mksuni
-ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/30/2021
 ---
