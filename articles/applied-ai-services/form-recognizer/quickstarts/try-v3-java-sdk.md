@@ -288,6 +288,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
             // sample document
             String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
+            
             String modelId = "prebuilt-layout";
 
             SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeLayoutResultPoller =
@@ -544,3 +545,4 @@ In this quickstart, you used the Form Recognizer Java SDK to analyze various for
 
 > [!div class="nextstepaction"]
 > [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+
