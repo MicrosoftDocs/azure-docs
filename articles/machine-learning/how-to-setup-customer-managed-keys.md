@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 03/08/2022
+ms.date: 03/17/2022
 ---
 # Use customer-managed keys with Azure Machine Learning
 
@@ -52,7 +52,12 @@ For the steps to create the key vault, see [Create a key vault](/azure/key-vault
 > [!TIP]
 > If you have problems creating the key, it may be caused by Azure role-based access controls that have been applied in your subscription. Make sure that the security principal (user, managed identity, service principal, etc.) you are using to create the key has been assigned the __Contributor__ role for the key vault instance. You must also configure an __Access policy__ in key vault that grants the security principal __Create__, __Get__, __Delete__, and __Purge__ authorization.
 >
-> For more information, see [Provide access to key vault keys, certificates, and secrets](/azure/key-vault/general/rbac-guide) and [Assign a key vault access policy](/azure/key-vault/general/assign-access-policy).
+> If you plan to use a user-assigned managed identity for your workspace, the managed identity must also be assigned these roles and access policies.
+>
+> For more information, see the following articles:
+> * [Provide access to key vault keys, certificates, and secrets](/azure/key-vault/general/rbac-guide)
+> * [Assign a key vault access policy](/azure/key-vault/general/assign-access-policy)
+> * [Use managed identities with Azure Machine Learning](how-to-use-managed-identities.md)
 
 1. From the [Azure portal](https://portal.azure.com), select the key vault instance. Then select __Keys__ from the left.
 1. Select __+ Generate/import__ from the top of the page. Use the following values to create a key:
