@@ -13,6 +13,19 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 Trigger a function based on a new Kafka event.
 
 ::: zone pivot="programming-language-csharp"
+
+The usage of the binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
+
+# [In-process](#tab/in-process)
+
+An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
+ 
+# [Isolated process](#tab/isolated-process)
+
+An [isolated process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+
+---
+
 Kafka messages can be serialized to multiple formats. Currently the following formats are supported: 
 
 # [JSON](#tab/string)
@@ -28,7 +41,7 @@ The Kafka trigger supports two methods for consuming [Avro format](http://avro.a
 
 # [Protobuf](#tab/protobuf)
 
-[Protobuf](https://developers.google.com/protocol-buffers/
+[Protobuf](https://developers.google.com/protocol-buffers/)
 
 ---
 
@@ -299,7 +312,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-TBD
+
 
 ## Next steps
 
