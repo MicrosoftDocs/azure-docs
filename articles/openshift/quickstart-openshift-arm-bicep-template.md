@@ -44,7 +44,7 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
     * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org)).
     * [Azure CLI](/cli/azure/install-azure-cli).
 
----
+
 
 ## Create an ARM template or Bicep file
 
@@ -566,7 +566,6 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-
 ::: zone-end
 
 ::: zone pivot="aro-arm"
----
 
 ## Deploy the azuredeploy.json template
 
