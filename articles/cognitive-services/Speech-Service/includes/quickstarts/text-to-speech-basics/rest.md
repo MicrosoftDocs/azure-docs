@@ -19,7 +19,7 @@ ms.author: eur
 
 ## Synthesize to a file
 
-At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Optionally you can rename `output.mp3` to another output filename.
 
 ```console
 key="YourSubscriptionKey"

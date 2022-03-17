@@ -90,7 +90,7 @@ Follow these steps to create a new console application for speech synthesis.
     }());
     ```
 
-1. In `SpeechSynthesis.js`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. In `SpeechSynthesis.js`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Optionally you can rename `YourAudioFile.wav` to another output filename.
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 
 Run your new console application to start speech synthesis to a file:
@@ -99,10 +99,13 @@ Run your new console application to start speech synthesis to a file:
 node.exe SpeechSynthesis.js
 ```
 
-Speak into your microphone when prompted. What you speak should be output to an audio file: 
+The provided text should be output to an audio file:
 
 ```console
-RECOGNIZED: Text=I'm excited to try speech to text.
+Enter some text that you want to speak...
+> I'm excited to try text to speech
+Now synthesizing to: YourAudioFile.wav
+synthesis finished.
 ```
 
 > [!div class="nextstepaction"]
