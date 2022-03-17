@@ -16,7 +16,7 @@ This article shows you how to deploy the Azure Blob Storage on IoT module, which
 For an overview of the Azure Blob Storage on IoT Edge, see [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
 
 > [!IMPORTANT]
-> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge ](transition.md). 
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
 
 
 
