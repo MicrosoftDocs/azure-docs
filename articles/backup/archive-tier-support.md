@@ -2,7 +2,7 @@
 title: Azure Backup - Archive Tier overview 
 description: Learn about Archive Tier Support for Azure Backup.
 ms.topic: overview
-ms.date: 02/28/2022
+ms.date: 03/21/2022
 ms.custom: references_regions
 author: v-amallick
 ms.service: backup
@@ -15,7 +15,9 @@ Customers rely on Azure Backup to store backup data including their Long-Term Re
 
 Azure Backup supports backup of Long-Term Retention points in the archive tier, in addition to Snapshots and the Standard tier.
 
-## Supported workloads
+## Support matrix
+
+### Supported workloads
 
 Archive tier supports the following workloads:
 
@@ -25,8 +27,8 @@ Archive tier supports the following workloads:
 | SQL Server in Azure virtual machines/ SAP HANA in Azure Virtual Machines | <ul><li>Only full recovery points. Logs and differentials aren't supported. </li><li>Age >= 45 days in Vault-Standard Tier. </li><li>Retention left >= 6 months </li><li>No dependencies </li></ul> |
 
 >[!Note]
->- Archive Tier support for SQL Servers in Azure VMs and SAP HANA in Azure VM is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).
->- Archive Tier support for Azure Virtual Machines is also in limited public preview. To sign up for limited public preview, fill [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
+>- Archive Tier support for Azure Virtual Machines, SQL Servers in Azure VMs and SAP HANA in Azure VM is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).
+>- Archive Tier support for Azure Virtual Machines for the remaining regions is in limited public preview. To sign up for limited public preview, fill [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
 
 ## Supported clients
 
@@ -36,18 +38,25 @@ Archive tier supports the following clients:
 - [CLI](./use-archive-tier-support.md?pivots=client-clitier)
 - [Azure portal](./use-archive-tier-support.md?pivots=client-portaltier)
 
+### Supported regions
+
+| Workloads | Preview | Generally available |
+| --- | --- | --- |
+| SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines | None | All regions, except West US 3, West India, UAE North, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West. |
+| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South, UAE North, Germany West Central, Norway East. | Australia East, South Central US, West Central US, Southeast Asia, Central India. |
+
 ## How Azure Backup moves recovery points to the vault-archive tier?
 
 > [!VIDEO https://www.youtube.com/embed/nQnH5mpiz60?start=416]
 
 ## Archive recommendations (Only for Azure Virtual Machines)
 
-The recovery points for Azure Virtual Machines are incremental. When you move recovery points to archive tier, they are converted to full recovery points (to ensure that all recovery points in the archive tier are independent and isolated from each other). Thus, overall backup storage (Vault-Standard + Vault-Archive) may increase.
+The recovery points for Azure Virtual Machines are incremental. When you move recovery points to archive tier, they're converted to full recovery points (to ensure that all recovery points in the archive tier are independent and isolated from each other). Thus, overall backup storage (Vault-Standard + Vault-Archive) may increase.
 
 The amount of storage increase depends on the churn pattern of the Virtual Machines.
 
 - The higher the churn in the Virtual Machines, lesser is the overall backup storage when a recovery point is moved to archive tier.
-- If the churn in the Virtual Machine is low, moving to archive tier may lead to increase in Backup storage, which may offset the price difference between the Vault-Standard Tier and Vault-Archive Tier. Therefore, that might increase the overall cost.
+- If the churn in the Virtual Machine is low, moving to archive tier may lead to increase in Backup storage. This may offset the price difference between the Vault-Standard Tier and Vault-Archive Tier. Therefore, that might increase the overall cost.
 
 To resolve this, Azure Backup provides recommendation set. The recommendation set returns a list of recovery points, which if moved together to archive tier ensures cost savings.
 
@@ -75,14 +84,6 @@ Stop protection and delete data deletes all recovery points. For recovery points
 
 You can view the archive tier pricing from our [pricing page](azure-backup-pricing.md).
 
-## Support matrix
-
-| Workloads | Preview | Generally available |
-| --- | --- | --- |
-| SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines | None | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, UK South, Central US, East US 2, West US, West US 2, West Central US, East US, South Central US, North Central US, West Europe, US Gov Virginia, US Gov Texas, US Gov Arizona, UAE North, Germany West Central, China East 2, China North 2, Norway East. |
-| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South, UAE North, Germany West Central, Norway East. | None |
-
-
 ## Frequently asked questions
 
 ### What will happen to archive recovery points if I stop protection and retain data?
@@ -102,6 +103,15 @@ The recovery points for Virtual Machines meet the eligibility criteria. So, ther
 ### I have stopped protection and retained data for my workload. Can I move the recovery points to archive tier?
 
 No. Once protection is stopped for a particular workload, the corresponding recovery points can't be moved to the archive tier. To move recovery points to archive tier, you need to resume the protection on the data source.
+
+### How do I ensure that all recovery points are moved to Archive tier, if moved via Azure portal?
+
+To ensure that all recovery points are moved to Archive tier, 
+
+1. Select the required workload.
+1. Go to **Move Recovery Points** by following [these steps]().
+
+If the list is blank, then all the eligible/recommended recovery points are moved to the vault Archive tier.
 
 ## Next steps
 
