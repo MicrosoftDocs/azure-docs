@@ -183,7 +183,7 @@ Your assessment was created with an offer that is no longer valid and hence, the
 
 ## Why is my assessment showing a warning that it was created with a target Azure location that has been deprecated?
 
-Your assessment was created with an Azure region that has been deprecated and hence the **Edit** and **Recalculate** buttons are disabled. You can [create a new assessment](how-to-create-assessment.md) with any of the valid target locations. [Learn more.](../germany/germany-welcome)
+Your assessment was created with an Azure region that has been deprecated and hence the **Edit** and **Recalculate** buttons are disabled. You can [create a new assessment](how-to-create-assessment.md) with any of the valid target locations. [Learn more.](/azure/germany/germany-welcome)
 
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime, and Discount (%)?
 
