@@ -30,7 +30,7 @@ information in the Azure portal, see [Azure Resource Graph Explorer](../first-qu
 Log [Change history](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). For
 details about changes to your applications from the infrastructure layer all the way to application
 deployment, see
-[Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure
+[Use Application Change Analysis](../../../azure-monitor/app/change-analysis.md) in Azure
 Monitor.
 
 > [!NOTE]
@@ -40,7 +40,7 @@ Monitor.
 > [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
-> Resource configuration changes is in Public Preview and only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Management groups, Subscriptions, and Resource groups. Changes are queryable for seven days.
+> Resource configuration changes only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Subscriptions and Resource groups. Changes are queryable for seven days.
 
 ## Find detected change events and view change details
 
