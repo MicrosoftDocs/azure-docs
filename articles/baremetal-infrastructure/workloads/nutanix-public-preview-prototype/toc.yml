@@ -6,7 +6,8 @@
   href: requirements.md
 - name: Supported instances
   href: supported-instances.md
-- name: Deployment
+- name: Deploying Nutanix Clusters in Azure
+  href: deploying-nutanix-clusters-in-azure
   items:
   - name: Deployment Overview
     href: nutanix-deployment-overview.md
