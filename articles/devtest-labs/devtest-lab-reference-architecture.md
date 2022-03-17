@@ -17,23 +17,26 @@ This article provides a reference architecture for deploying Azure DevTest Labs 
 
 ## Architecture
 
-The following diagram shows a typical DevTest Labs enterprise deployment. This architecture connects many labs in several Azure subscriptions to the company's on-premises network.
+The following diagram shows a typical DevTest Labs enterprise deployment. This architecture connects several labs in different Azure subscriptions to a company's on-premises network.
 
 ![Diagram that shows a reference architecture for an enterprise DevTest Labs deployment.](./media/devtest-lab-reference-architecture/reference-architecture.png)
 
 ### DevTest Labs components
 
-DevTest Labs makes it easy and fast for enterprises to provide access to Azure resources. Each lab contains software-as-a-service (SaaS), infrastructure-as-a-service (IaaS), and PaaS resources. Lab users can create and configure VMs, PaaS environments, and VM [artifacts](). In the preceding diagram, **Team Lab 1** in **Azure Subscription 1** shows an example of Azure components that labs can access and use. For more information, see [About DevTest Labs](devtest-lab-overview.md).
+DevTest Labs makes it easy and fast for enterprises to provide access to Azure resources. Each lab contains software-as-a-service (SaaS), infrastructure-as-a-service (IaaS), and PaaS resources. Lab users can create and configure VMs, PaaS environments, and VM [artifacts]().
+
+In the preceding diagram, **Team Lab 1** in **Azure Subscription 1** shows an example of Azure components that labs can access and use. For more information, see [About DevTest Labs](devtest-lab-overview.md).
 
 ### Connectivity components
 
-You need on-premises connectivity if your labs need access to on-premises corporate resources. Common scenarios are:
+You need on-premises connectivity if your labs must access on-premises corporate resources. Common scenarios are:
 
 - Some on-premises data can't move to the cloud.
 - You want to join lab VMs to an on-premises domain.
 - You want to force all cloud network traffic through an on-premises firewall for security or compliance reasons.
 
 This architecture uses [ExpressRoute](../expressroute/expressroute-introduction.md) for connectivity to the on-premises network. You can also use a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md).
+
 On-premises, a [remote desktop gateway](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) enables outgoing remote desktop protocol (RDP) connections to DevTest Labs. Enterprise corporate firewalls usually block outgoing connections at the corporate firewall. To enable connectivity, you can:
 
 - Use a remote desktop gateway, and allow the static IP address of the gateway load balancer.
@@ -41,7 +44,7 @@ On-premises, a [remote desktop gateway](/windows-server/remote/remote-desktop-se
 
 ### Networking components
 
-In this architecture, [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) provides identity and access management. Lab VMs usually have a local administrative account. If there's an Azure AD, on-premises, or [Azure AD Domain Services](../active-directory-domain-services/overview.md) domain available, you can join lab VMs to the domain. Users can then use their domain-based identities to connect to the VMs.
+In this architecture, [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) provides identity and access management across all networks. Lab VMs usually have a local administrative account for access. If there's an Azure AD, on-premises, or [Azure AD Domain Services](../active-directory-domain-services/overview.md) domain available, you can join lab VMs to the domain. Users can then use their domain-based identities to connect to the VMs.
 
 [Azure networking topology](../networking/fundamentals/networking-overview.md) controls how lab resources access and communicate with on-premises networks and the internet. This architecture shows a common way that enterprises network DevTest Labs. The labs connect with [peered virtual networks](../virtual-network/virtual-network-peering-overview.md) in a [hub-spoke configuration](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), through the ExpressRoute or site-to-site VPN connection, to the on-premises network.
 
