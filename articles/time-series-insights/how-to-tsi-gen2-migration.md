@@ -12,6 +12,8 @@ ms.custom: tvilutis
 
 # Migrating Time Series Insights (TSI) Gen2 to Azure Data Explorer
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 ## Overview
 
 High-level migration recommendations.
