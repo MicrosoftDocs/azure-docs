@@ -128,7 +128,7 @@ While ($current -le 10) {
 }
 ```
 
-## Run the PowerShell script
+## Run the script
 
 - To run this script daily, [create a schedule](../automation/shared-resources/schedules.md#create-a-schedule) in the Automation Account, and [link the schedule to the runbook](../automation/shared-resources/schedules.md#link-a-schedule-to-a-runbook).
 
