@@ -37,7 +37,7 @@ In a browser, navigate to the Azure Virtual Desktop web client at <https://clien
 >We will start automatically redirecting to a new web client URL at <https://client.wvd.microsoft.com/webclient/index.html> as of April 18th, 2022. The current URLs at <https://rdweb.wvd.microsoft.com/webclient/index.html> and <https://www.wvd.microsoft.com/webclient/index.html> will still be available, but we recommend you update your bookmarks to the new URL at <https://client.wvd.microsoft.com/webclient/index.html> as soon as possible.
 
 >[!NOTE]
->If you're using Azure Virtual Desktop with Azure Resource Manager integration, connect to your resources at <https://rdweb.wvd.microsoft.com/arm/webclient> instead.
+>If you're using Azure Virtual Desktop with Azure Resource Manager integration, connect to your resources at <https://client.wvd.microsoft.com/arm/webclient/index.html> instead.
 
 >[!NOTE]
 >If you've already signed in with a different Azure Active Directory account than the one you want to use for Azure Virtual Desktop, you should either sign out or use a private browser window.
