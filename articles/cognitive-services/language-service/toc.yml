@@ -493,6 +493,10 @@ items:
         href: orchestration-workflow/how-to/deploy-query-model.md
       - name: Back up and recover your models
         href: conversational-language-understanding/fail-over.md
+  - name: Concepts
+    items: 
+      - name: Evaluation metrics
+        href: orchestration-workflow/concepts/evaluation-metrics.md
   - name: Reference
     items:
     - name: REST API

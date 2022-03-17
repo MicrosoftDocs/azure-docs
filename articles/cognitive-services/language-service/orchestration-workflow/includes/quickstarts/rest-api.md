@@ -25,7 +25,7 @@ ms.custom: ignite-fall-2021
 
 ## Import a project
 
-To get started, you can import a CLU JSON into the service. The quickstart will provide a sample JSON below that sets up a couple of intents and entities for an email application called "EmailProject". 
+To get started, you can import a CLU JSON into the service. The quickstart will provide a sample JSON below that sets up a couple of intents and entities for an email application called "OrchestrationApp". 
 
 Create a **POST** request using the following URL, headers, and JSON body to create your project.
 
@@ -34,7 +34,7 @@ Create a **POST** request using the following URL, headers, and JSON body to cre
 Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-conversations/projects/EmailProject/:import?api-version=2021-11-01-preview
+{YOUR-ENDPOINT}/language/analyze-conversations/projects/OrchestrationApp/:import?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -58,159 +58,100 @@ Use the following sample JSON as your body.
 {
     "api-version": "2021-11-01-preview",
     "metadata": {
-        "name": "EmailProject",
-        "description": "A test application",
-        "type": "Conversation",
-        "multilingual": true,
+        "name": "OrchestrationApp",
+        "description": "",
+        "type": "Workflow",
+        "multilingual": false,
         "language": "en-us",
         "settings": {
+            "confidenceThreshold": 0.7
         }
     },
     "assets": {
         "intents": [
             {
-                "name": "Read"
+                "name": "Greeting"
             },
             {
-                "name": "Delete"
+                "name": "CLU.Synonyms",
+                "orchestration": {
+                    "type": "Clu",
+                    "cluOrchestration": {
+                        "projectName": "SynonymsProject",
+                        "deploymentName": "production"
+                    }
+                }
             },
             {
-                "name": "Attach"
+                "name": "CLU.Email",
+                "orchestration": {
+                    "type": "Clu",
+                    "cluOrchestration": {
+                        "projectName": "EmailApp",
+                        "deploymentName": "production"
+                    }
+                }
+            },
+            {
+                "name": "None"
             }
         ],
-        "entities": [
-            {
-                "name": "Sender"
-            },
-            {
-                "name": "FileName"
-            },
-            {
-                "name": "FileType"
-            }
-        ],
+        "entities": [],
         "examples": [
             {
-                "text": "Open Blake's email",
+                "text": "hello Baher",
                 "language": "en-us",
-                "intent": "Read",
-                "entities": [
-                    {
-                        "entityName": "Sender",
-                        "offset": 5,
-                        "length": 5
-                    }
-                ],
-                "dataset": "Train"
-            },
-            {
-                "text": "Add the PDF file with the name signed contract",
-                "language": "en-us",
-                "intent": "Attach",
-                "entities": [
-                    {
-                        "entityName": "FileType",
-                        "offset": 8,
-                        "length": 3
-                    },
-                    {
-                        "entityName": "FileName",
-                        "offset": 31,
-                        "length": 15
-                    }
-                ],
-                "dataset": "Train"
-            },
-            {
-                "text": "Attach the PowerPoint file",
-                "language": "en-us",
-                "intent": "Attach",
-                "entities": [
-                    {
-                        "entityName": "FileType",
-                        "offset": 11,
-                        "length": 10
-                    }
-                ],
-                "dataset": "Train"
-            },
-            {
-                "text": "Attach the excel file called reports q1",
-                "language": "en-us",
-                "intent": "Attach",
-                "entities": [
-                    {
-                        "entityName": "FileType",
-                        "offset": 11,
-                        "length": 5
-                    },
-                    {
-                        "entityName": "FileName",
-                        "offset": 29,
-                        "length": 10
-                    }
-                ],
-                "dataset": "Train"
-            },
-            {
-                "text": "Move this to the deleted folder",
-                "language": "en-us",
-                "intent": "Delete",
+                "intent": "Greeting",
                 "entities": [],
                 "dataset": "Train"
             },
             {
-                "text": "Remove this one",
+                "text": "Good evening",
                 "language": "en-us",
-                "intent": "Delete",
-                "entities": [],
-                "dataset": "Train"
+                "intent": "Greeting",
+                "entities": []
             },
             {
-                "text": "Delete this",
+                "text": "Good morning",
                 "language": "en-us",
-                "intent": "Delete",
-                "entities": [],
-                "dataset": "Train"
+                "intent": "Greeting",
+                "entities": []
             },
             {
-                "text": "Delete my last email from Martha",
+                "text": "hey",
                 "language": "en-us",
-                "intent": "Delete",
-                "entities": [
-                    {
-                        "entityName": "Sender",
-                        "offset": 26,
-                        "length": 6
-                    }
-                ],
-                "dataset": "Train"
+                "intent": "Greeting",
+                "entities": []
             },
             {
-                "text": "Read John's email for me",
+                "text": "What's up",
                 "language": "en-us",
-                "intent": "Read",
-                "entities": [
-                    {
-                        "entityName": "Sender",
-                        "offset": 5,
-                        "length": 4
-                    }
-                ],
-                "dataset": "Train"
+                "intent": "Greeting",
+                "entities": []
             },
             {
-                "text": "read the email from Carol",
+                "text": "How are you doing",
                 "language": "en-us",
-                "intent": "Read",
-                "entities": [
-                    {
-                        "entityName": "Sender",
-                        "offset": 20,
-                        "length": 5
-                    }
-                ],
-                "dataset": "Train"
+                "intent": "Greeting",
+                "entities": []
+            },
+            {
+                "text": "How are you",
+                "language": "en-us",
+                "intent": "Greeting",
+                "entities": []
+            },
+            {
+                "text": "Hello",
+                "language": "en-us",
+                "intent": "Greeting",
+                "entities": []
+            },
+            {
+                "text": "Hi",
+                "language": "en-us",
+                "intent": "Greeting",
+                "entities": []
             }
         ]
     }
@@ -226,7 +167,7 @@ After your project has been imported, you can begin training a model. Create a *
 Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-conversations/projects/EmailProject/:train?api-version=2021-11-01-preview
+{YOUR-ENDPOINT}/language/analyze-conversations/projects/OrchestrationApp/:train?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -256,7 +197,7 @@ Use the following object in your request. The model will be named `MyModel` once
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-conversations/projects/EmailProject/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
+{YOUR-ENDPOINT}/language/analyze-conversations/projects/OrchestrationApp/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the training status. 
@@ -268,7 +209,7 @@ Use the following **GET** request to query the status of your model's training p
 ### Request URL
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-conversations/projects/EmailProject/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
+{YOUR-ENDPOINT}/language/analyze-conversations/projects/OrchestrationApp/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -309,13 +250,13 @@ Once you send the request, you will get the following response. Keep polling thi
 
 Once training is completed, you can deploy your model for predictions. 
 
-Create a **PUT** request using the following URL, headers, and JSON body to start deploying a conversational language understanding model.
+Create a **PUT** request using the following URL, headers, and JSON body to start deploying an orchestration model.
 
 
 ### Request URL
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-conversations/projects/EmailProject/deployments/production?api-version=2021-11-01-preview
+{YOUR-ENDPOINT}/language/analyze-conversations/projects/OrchestrationApp/deployments/production?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -344,7 +285,7 @@ Use the following header to authenticate your request.
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-conversations/projects/EmailProject/deployments/production/jobs/{JOB-ID}?api-version=2021-11-01-preview
+{YOUR-ENDPOINT}/language/analyze-conversations/projects/OrchestrationApp/deployments/production/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the training status.
@@ -356,7 +297,7 @@ Use the following **GET** request to query the status of your model's deployment
 ### Request URL
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-conversations/projects/EmailProject/deployments/production/jobs/{JOB-ID}?api-version=2021-11-01-preview
+{YOUR-ENDPOINT}/language/analyze-conversations/projects/OrchestrationApp/deployments/production/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -391,12 +332,12 @@ Once you send the request, you will get the following response. Keep polling thi
 
 Once deployment succeeds, you can begin querying your project for predictions. 
 
-Create a **POST** request using the following URL, headers, and JSON body to start deploying a conversational language understanding model.
+Create a **POST** request using the following URL, headers, and JSON body to start deploying an orchestration model.
 
 ### Request URL
 
 ```rest
-{YOUR-ENDPOINT}/language/:analyze-conversations?projectName=EmailProject&deploymentName=production&api-version=2021-11-01-preview
+{YOUR-ENDPOINT}/language/:analyze-conversations?projectName=OrchestrationApp&deploymentName=production&api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -429,7 +370,7 @@ Once you send the request, you will get the following response for the predictio
     "query":"attach a docx file",
     "prediction": {
         "topIntent":"Attach",
-        "projectKind":"conversation",
+        "projectKind":"orchestration",
         "intents":[{"category":"Attach","confidenceScore":0.9998592},{"category":"Read","confidenceScore":0.00010551753},{"category":"Delete","confidenceScore":3.5209276E-05}],
         "entities":[{"category":"FileType","text":"docx","offset":9,"length":4,"confidenceScore":1}]
      }

@@ -30,15 +30,10 @@ Once you have a Language resource associated with your account, create an orches
 
 1. In [Language Studio](https://aka.ms/languageStudio), find the section labeled **Understand questions and conversational language** and select **Orchestration Workflow**.  
    
-   :::image type="content" source="../../../conversational-language-understanding/media/select-custom-clu.png" alt-text="A screenshot showing the location of Custom Language Understanding in the Language Studio landing page." lightbox="../../../conversational-language-understanding/media/select-custom-clu.png"::: 
+   :::image type="content" source="../../media/select-orchestration.png" alt-text="A screenshot showing the location of the orchestration workflow section in the Language Studio landing page." lightbox="../../media/select-orchestration.png"::: 
     
 
-2. This will bring you to the **Orchestration workflow project** page. Select **Create new project**.
-
-    :::image type="content" source="../../../conversational-language-understanding/media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="../../../conversational-language-understanding/media/projects-page.png":::
-
-
-You then need to provide the following details:
+2. This will bring you to the **Orchestration workflow project** page. Select **+ Create new project**. To create a project, you will need to provide the following details:
 
 |Value  | Description  |
 |---------|---------|
@@ -53,20 +48,21 @@ Once you're done, select **Next** and review the details. Select **create projec
 1. Click on *+Add* button to add your intent.
 2. Give your intent a name and choose to connect the intent to an existing project.
 3. Click on *Add intent* button. 
-4. Another option is to select *no* when creating an intent and don't connect it to an existing project.
+4. Enter **Greeting** as an intent. For this quickstart, select **No, I don't want to connect to a project**.
+
+
+    :::image type="content" source="../../media/quickstart-intent.png" alt-text="A screenshot showing the schema page in Language studio." lightbox="../../media/quickstart-intent.png":::
 
 When you select the intent, you will see the [tag utterances](../../how-to/tag-utterances.md) page, where you can add examples for intents.
 
-
-:::image type="content" source="../../../conversational-language-understanding/media/quickstart-intents.png" alt-text="A screenshot showing the schema page in Language studio." lightbox="../../../conversational-language-understanding/media/quickstart-intents.png":::
 
 ## Tag utterances
 
 In the tag utterances page, let's add a few examples to the intents. Select the **Greeting** intent from the drop-down box that says **Select Intent**.
 
-In the text box that says **Write your example utterance and press enter**, write the sentence "*Good evening*" and press enter to add it as an example utterance.
+In the text box that says **Write your example utterance and press enter**, write the sentence "*Good evening*" and press enter to add it as an example utterance. 
 
-Add the rest of these utterances to the **Greeting** intent to the Training set.
+Add the rest of these utterances to the **Greeting** intent to the Training set. 
 
 |Utterance|
 |--|
@@ -77,7 +73,7 @@ Add the rest of these utterances to the **Greeting** intent to the Training set.
 
 When you're done, select **Save Changes** to save the utterances and labels to the project. The icon next to the button will turn green when the changes are saved. Next, go to the **Train Model** page.
 
-:::image type="content" source="../../../conversational-language-understanding/media/quickstart-utterances.png" alt-text="A screenshot showing the intents tagging screen in Language Studio." lightbox="../../../conversational-language-understanding/media/quickstart-utterances.png":::
+:::image type="content" source="../../media/tagged-utterances.png" alt-text="A screenshot showing the intents tagging screen in Language Studio." lightbox="../../media/tagged-utterances.png":::
 
 ## Train your model and view its details
 
@@ -95,4 +91,4 @@ Once you're done, select **Next** and review the details. For the connected proj
 
 Select **Test model** on the left of the screen, and select the deployment name from the drop-down menu. Add your test, for example *Good morning* in the text field and click on **Run the test**. 
 
-You now see the top intent as **Greeting**.
+You now see the top intent is **Greeting**.

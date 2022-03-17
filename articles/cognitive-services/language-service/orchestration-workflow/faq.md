@@ -16,22 +16,22 @@ ms.custom: ignite-fall-2021, mode-other
 # Frequently asked questions for orchestration workflows
 
 Use this article to quickly get the answers to common questions about orchestration workflows
-<!--
+
 ## How do I create a project?
 
 See the [quickstart](./quickstart.md) to quickly create your first project, or the [how-to article](./how-to/create-project.md) for more details. 
--->
+
 ## How do I connect other service applications in orchestration workflow projects?
 
 See [How to create projects and build schemas](./how-to/create-project.md) for information on connecting another project as an intent.
 
 ## Which LUIS applications can I connect to in orchestration workflow projects?
 
-LUIS applications that use the Language resource as their authoring resource will be available for connection. You can only connect to LUIS applications that are owned by the same resource. This option will only be available for resources in West Europe, as it's the only common available region between LUIS and CLU. <!--See [region limits](./service-limits.md#region-limits) for more information. -->
+LUIS applications that use the Language resource as their authoring resource will be available for connection. You can only connect to LUIS applications that are owned by the same resource. This option will only be available for resources in West Europe, as it's the only common available region between LUIS and CLU.
 
 ## Training is taking a long time, is this expected?
 
-For conversation projects, long training times are expected. Based on the number of examples you have your training times may vary from 5 minutes to 1 hour or more. 
+For orchestration projects, long training times are expected. Based on the number of examples you have your training times may vary from 5 minutes to 1 hour or more. 
 
 ## Can I add entities to orchestration workflow projects?
 
@@ -64,4 +64,4 @@ Yes, all the APIs [are available](https://aka.ms/clu-apis).
 
 ## Next steps
 
-[Conversational language understanding overview](overview.md)
+[Orchestration workflow overview](overview.md)
