@@ -29,13 +29,14 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### Can I use Azure Bastion with Azure Private DNS Zones?
 
-Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network isn't linked to a private DNS zone with the following in the name:
+Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone with the following exact names:
 
+* blob.core.windows.net
+* vault.azure.com
 * core.windows.net
 * azure.com
-* vault.azure.net
 
-If you are using a Private endpoint integrated Azure Private DNS Zone, the [recommended DNS zone name](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for several Azure services overlap with the names listed above. The use of Azure Bastion *is not* supported with these setups.
+You may use a private DNS zone ending with one of the names listed above (ex: dummy.blob.core.windows.net) as long as it is not one of the recommended DNS zone names for an Azure service listed [here](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration).
 
 The use of Azure Bastion is also not supported with Azure Private DNS Zones in national clouds.
 
