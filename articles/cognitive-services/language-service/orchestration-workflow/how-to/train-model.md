@@ -1,7 +1,7 @@
 ---
 title: How to train and evaluate models in orchestration workflow projects
 titleSuffix: Azure Cognitive Services
-description: Use this article to train a model and view its evaluation details to make improvements.
+description: Use this article to train an orchestration model and view its evaluation details to make improvements.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,13 +13,13 @@ ms.author: aahi
 ms.custom: language-service-orchestration
 ---
 
-# Train and evaluate models
+# Train and evaluate orchestration workflow models
 
 After you have completed [tagging your utterances](./tag-utterances.md), you can train your model. Training is the act of converting the current state of your project's training data to build a model that can be used for predictions. Every time you train, you have to name your training instance. 
 
 You can create and train multiple models within the same project. However, if you re-train a specific model it overwrites the last state.
 
-The training times can be anywhere from a few seconds, up to a couple of hours when you reach the [maximum limit](../service-limits.md) of utterances.
+The training times can be anywhere from a few seconds, up to a couple of hours when you reach high numbers of utterances.
 
 ## Train model
 
@@ -46,7 +46,7 @@ In the **view model details** page, you'll be able to see all your models, with 
 > [!NOTE]
 > If you don't see any of the intents you have in your model displayed here, it is because they weren't in any of the utterances that were used for the test set.
 
-You can view the [confusion matrix](../concepts/evaluation-metrics.md#confusion-matrix) for intents by clicking on the **Test set confusion matrix** tab at the top fo the screen. 
+You can view the [confusion matrix](../concepts/evaluation-metrics.md) for intents by clicking on the **Test set confusion matrix** tab at the top fo the screen. 
 
 ## Next steps
 * [Model evaluation metrics](../concepts/evaluation-metrics.md)

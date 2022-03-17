@@ -34,9 +34,7 @@ When a model is deployed, you will be able to test the model directly in the por
 
     In the window that appears, you can create a new deployment name by giving the deployment a name or override an existing deployment name. Then, you can add a trained model to this deployment name and press next.
 
-    :::image type="content" source="../media/create-deployment-job-orch.png" alt-text="A screenshot showing deployment job creation in Language Studio." lightbox="../media/create-deployment-job-orch.png":::
-
-2. If you're connecting one or more LUIS applications or conversational language understanding projects, you have to specify the deployment name.
+3. If you're connecting one or more LUIS applications or conversational language understanding projects, you have to specify the deployment name.
 
     No configurations are required for custom question answering or unlinked intents.
 
