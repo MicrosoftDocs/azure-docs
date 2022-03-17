@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 02/18/2022
+ms.date: 03/15/2022
 ---
 
 # Configure plan listing for a virtual machine offer
@@ -15,7 +15,7 @@ Configure the listing details of the plan. This pane displays specific informati
 
 ## Plan name
 
-This field is automatically filled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 100 characters.
+This field is automatically filled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 200 characters.
 
 ## Plan summary
 
@@ -23,7 +23,7 @@ Provide a short summary of your plan, not the offer. This summary is limited to 
 
 ## Plan description
 
-Describe what makes this software plan unique, and describe any differences between plans within your offer. Describe the plan only, not the offer. The plan description can contain up to 2,000 characters.
+Describe what makes this software plan unique, and describe any differences between plans within your offer. Describe the plan only, not the offer. The plan description can contain up to 3,000 characters.
 
 Select **Save draft** before continuing to the next tab in the left-nav Plan menu, **Pricing and availability**.
 

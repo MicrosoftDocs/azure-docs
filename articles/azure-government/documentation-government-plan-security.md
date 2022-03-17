@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 01/28/2022
+ms.date: 03/12/2022
 ---
 
 # Azure Government security
@@ -104,8 +104,8 @@ We're now screening all our operators at a Tier 3 Investigation (formerly Nation
 
 |Applicable screening and background check|Environment|Frequency|Description|
 |------|------|------|------|
-|Background check </br> Cloud screen|Azure </br>Azure Gov|Upon employment|- Education history (highest degree) </br>- Employment history (7-yr history)|
-|||Every two years|- Social Security Number search </br>- Criminal history check (7-yr history) </br>- Office of Foreign Assets Control (OFAC) list </br>- Bureau of Industry and Security (BIS) list </br>- Office of Defense Trade Controls (DDTC) debarred list|
+|New hire check|Azure </br>Azure Gov|Upon employment|- Education history (highest degree) </br>- Employment history (7-yr history) </br>- Social Security Number search </br>- Criminal history check (7-yr history) </br>- Office of Foreign Assets Control (OFAC) list </br>- Bureau of Industry and Security (BIS) list </br>- Office of Defense Trade Controls (DDTC) debarred list|
+|Cloud screen|Azure </br>Azure Gov|Every two years|- Social Security Number search </br>- Criminal history check (7-yr history) </br>- Office of Foreign Assets Control (OFAC) list </br>- Bureau of Industry and Security (BIS) list </br>- Office of Defense Trade Controls (DDTC) debarred list|
 |US citizenship|Azure Gov|Upon employment|- Verification of US citizenship|
 |Criminal Justice Information Services (CJIS)|Azure Gov|Upon signed CJIS agreement with State|- Adds fingerprint background check against FBI database </br>- Criminal records check and credit check|
 |Tier 3 Investigation|Azure Gov|Upon signed contract with sponsoring agency|- Detailed background and criminal history investigation (Form SF 86 required)|

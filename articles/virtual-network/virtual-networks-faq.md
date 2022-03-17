@@ -499,4 +499,4 @@ For more information, see [FAQ about classic to Azure Resource Manager migration
 
 ### How can I report an issue? 
 
-You can post your questions about your migration issues to the [Microsoft Q&A](https://aka.ms/AAflal1) page. It's recommended that you post all your questions on this forum. If you have a support contract, you can also file a support request.
+You can post your questions about your migration issues to the [Microsoft Q&A](/answers/topics/azure-virtual-network.html) page. It's recommended that you post all your questions on this forum. If you have a support contract, you can also file a support request.

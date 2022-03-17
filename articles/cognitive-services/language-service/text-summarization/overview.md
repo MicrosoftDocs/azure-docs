@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 03/01/2022
+ms.date: 03/16/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
@@ -40,6 +40,7 @@ Text summarization supports the following features:
 * **Extracted sentences**: These sentences collectively convey the main idea of the document. They’re original sentences extracted from the input document’s content.
 * **Rank score**: The rank score indicates how relevant a sentence is to a document's main topic. Text summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
 * **Maximum sentences**: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary Text summarization will return the three highest scored sentences.
+* **Positional information**: The start position and length of extracted sentences.
 
 ## Get started with text summarization
 

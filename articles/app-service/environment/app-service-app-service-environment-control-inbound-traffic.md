@@ -37,6 +37,9 @@ The following list contains the ports used by an App Service Environment. All po
 * 4016: Used for remote debugging with Visual Studio 2012.  This port can be safely blocked if the feature isn't being used.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
 * 4018: Used for remote debugging with Visual Studio 2013.  This port can be safely blocked if the feature isn't being used.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
 * 4020: Used for remote debugging with Visual Studio 2015.  This port can be safely blocked if the feature isn't being used.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
+* 4022: Used for remote debugging with Visual Studio 2017.  This port can be safely blocked if the feature isn't being used.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
+* 4024 Used for remote debugging with Visual Studio 2019.  This port can be safely blocked if the feature isn't being used.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
+* 4026: Used for remote debugging with Visual Studio 2022.  This port can be safely blocked if the feature isn't being used.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
 
 ## Outbound Connectivity and DNS Requirements
 For an App Service Environment to function properly, it also requires outbound access to various endpoints. A full list of the external endpoints used by an ASE is in the "Required Network Connectivity" section of the [Network Configuration for ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) article.
