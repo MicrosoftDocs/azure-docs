@@ -80,6 +80,13 @@ NAT is fully scaled out from the start. There's no ramp up or scale-out operatio
 
 * A default TCP idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives.
 
+## Pricing and SLA
+
+For Azure Virtual Network NAT pricing, see [NAT gateway pricing](https://azure.microsoft.com/pricing/details/virtual-network/#pricing).
+
+See [SLA for Virtual Network NAT](https://azure.microsoft.com/support/legal/sla/virtual-network-nat/v1_0/).
+
+
 ## Next steps
 
 * Learn [how to get better outbound connectivity using an Azure NAT Gateway](https://www.youtube.com/watch?v=2Ng_uM0ZaB4).
