@@ -6,10 +6,10 @@
   href: requirements.md
 - name: Supported instances
   href: supported-instances.md
-  - name: Deployment
-    items:
-    - name: Deployment Overview
-      href: nutanix-deployment-overview.md
+- name: Deployment
+  items:
+  - name: Deployment Overview
+    href: nutanix-deployment-overview.md
 - name: BareMetal SKUs 
   href: nutanix-baremetal-skus.md
 - name: Architecture
