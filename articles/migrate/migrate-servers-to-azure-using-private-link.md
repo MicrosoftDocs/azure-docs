@@ -52,7 +52,7 @@ Enable replication as follows:
 
 1. In **Target settings**, select the **target region** in which the Azure VMs will reside after migration.  
 
-    ![Screenshot of the Target settings screen.](./media/how-to-use-azure-migrate-with-private-endpoints/target-settings-agentless-vmware.png)
+    ![Screenshot of the Target settings screen.](./media/how-to-use-azure-migrate-with-private-endpoints/target-settings.png)
 
 1. In **Replication storage account**, use the dropdown list to select a storage account to replicate over a private link.  Only the storage accounts in the selected target region and Azure Migrate project subscription are listed.
 
@@ -192,7 +192,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 1. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.  
 
-    ![Screenshot of target settings.](./media/how-to-use-azure-migrate-with-private-endpoints/target-settings-agentless-hyperv.png)
+    ![Screenshot of target settings.](./media/how-to-use-azure-migrate-with-private-endpoints/target-settings.png)
 
 1. In **Replication storage account**, select the Azure storage account in which replicated data will be stored in Azure.  
 
@@ -374,11 +374,11 @@ Now, select machines for replication and migration.
 1. In **Virtual machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
 1. Select each VM you want to migrate. Then click **Next:Target settings**. 
 
-    ![Screenshot of selected VMs to be replicated.](./media/how-to-use-azure-migrate-with-private-endpoints/select-vm-agent.png) 
+    ![Screenshot of selected VMs to be replicated.](./media/how-to-use-azure-migrate-with-private-endpoints/select-vm-vmware.png) 
 
 1. In **Target settings**, select the subscription,the target region to which you'll migrate, and the resource group in which the Azure VMs will reside after migration.  
 
-    ![Screenshot of target settings.](./media/how-to-use-azure-migrate-with-private-endpoints/target-settings-agentless-hyperv.png)
+    ![Screenshot of target settings.](./media/how-to-use-azure-migrate-with-private-endpoints/target-settings.png)
 
 1. In **Virtual network**, select the Azure VNet/subnet for the migrated  Azure VMs. 
 1. In **Cache storage account**, use the dropdown list to select a storage account to replicate over a private link.  
