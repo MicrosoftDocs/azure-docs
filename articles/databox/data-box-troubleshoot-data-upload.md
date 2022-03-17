@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 03/10/2022
+ms.date: 03/17/2022
 ms.author: alkohli
 ---
 
@@ -19,7 +19,8 @@ The error notification and options vary depending on whether you can fix the err
 
 - **Retryable errors** - You can fix many types of copy error and resume the upload. The data is then successfully uploaded in your current order. 
     
-     An example of a retryable error is when a storage account has been deleted or moved. You will need to recover or re-create the storage accounts with the original set of properties, and then confirm to resume data copy. This type of error is referred to as a *retryable error* in the discussion that follows.
+    
+    An example of a retryable error is when Large File Shares are not enabled for a storage account that requires shares with data more than 5TiB. To resolve this, you will need to enable this setting and then confirm to resume data copy. This type of error is referred to as a *retryable error* in the discussion that follows.
 
 - **Non-retryable errors** - Other errors can't be fixed. For those errors, the upload pauses to give you a chance to review the errors. But the order completes without the data that failed to upload, and the data is secure erased from the device. You'll need to create a new order after you resolve the issues in your data. 
 

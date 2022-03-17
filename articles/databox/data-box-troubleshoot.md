@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 03/10/2022
+ms.date: 03/17/2022
 ms.author: alkohli
 ---
 
@@ -126,9 +126,10 @@ These errors are related to data exceeding the size of data allowed in a contain
      
     :::image type="content" source="media/data-box-troubleshoot/icon-connect-copy-settings.png" alt-text="Connect and copy settings":::
 
-1. **Enable large file shares** on your storage account(s) in the Azure portal.
+1. **Enable large file shares** on your storage account(s) in the Azure portal. 
 
-    :::image type="content" source="media/data-box-troubleshoot/icon-resolve-error.png" alt-text="Resolve error on portal":::  
+> [!NOTE]
+> If large file shares are not enabled for the indicated storage accounts on the Azure portal, the data upload to these storage accounts will fail.
   
 ## Object or file size limit errors
 
@@ -281,14 +282,13 @@ For more information, see the Azure naming conventions for blob names and file n
 
 For more information, see [Copy to managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 
+
+## Non-critical container or share errors
+
 ### ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 **Error description:**  Large file share errors were disregarded for Data Box. Remember to **enable large file shares** on your storage account(s) in the Azure portal. If you don't enable large file shares on these storage accounts in the portal, the data upload to these accounts will fail.
 
 **Suggested resolution:** Enable Large File Shares on your storage account(s) in the Azure portal. If you don't enable large file shares on these storage accounts in the portal, the data upload to these accounts will fail.
-
-:::image type="content" source="media/data-box-troubleshoot/icon-resolve-error.png" alt-text="Resolve error":::
-
-
 
 ## Next steps
 
