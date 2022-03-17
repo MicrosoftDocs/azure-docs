@@ -1,5 +1,5 @@
 ---
-title: How to create projects in orchestration workflow
+title: How to create projects and build schema in orchestration workflow
 titleSuffix: Azure Cognitive Services
 description: Use this article to learn how to create projects in orchestration workflow
 services: cognitive-services
@@ -15,7 +15,7 @@ ms.custom: language-service-orchestration
 
 # How to create projects in orchestration workflow
 
-Orchestration workflow allows you to create projects that connect your applications in:
+Orchestration workflow allows you to create projects that connect your applications to:
 * Custom Language Understanding
 * Question Answering
 * LUIS
@@ -25,7 +25,7 @@ Orchestration workflow allows you to create projects that connect your applicati
 
 To get started, you have to first sign in to [Language Studio](https://aka.ms/languageStudio) and create a Language resource. Select **Done** once selection is complete.
 
-In language studio, find the **Understand conversational language** section, and select **Orchestration workflow**.
+In language studio, find the **Understand questions and conversational language** section, and select **Orchestration workflow**.
 
 You will see the orchestration workflow projects page.
 
@@ -36,19 +36,19 @@ You will see the orchestration workflow projects page.
 Select **Create new project**. When creating your workflow project, you need to provide the following details:
 - Name: Project name
 - Description: Optional project description
-- Text primary language: The primary language of your project. Your training data should be mainly be in this language.
-- Enable multiple languages: Whether you would like to enable your project to support multiple languages at once.
+- Utterances primary language: The primary language of your utterances.
 
-Once you're done, you now have the option to connect to the other projects and services you wish to orchestrate to. Each connection is represented by its type and relevant data. The intent needs to have a **name**, a **project type** (LUIS, question answering (QnA), or Conversational Language Understanding), and then selecting the project you want to connect to by name. 
+## Building schema and adding intents
+
+Once you're done creating a project, you can connect it to the other projects and services you want to orchestrate to. Each connection is represented by its type and relevant data. 
+
+To create a new intent, click on *+Add* button and start by giving your intent a **name**. You will see two options, to connect to a project or not. You can connect to (LUIS, question answering (QnA), or Conversational Language Understanding) projects, or choose the **no** option. 
 
 > [!NOTE]
 > The list of projects you can connect to are only projects that are owned by the same Language resource you are using to create the orchestration project.
 
-This step is optional and you will still have the option to add intent connections after you create the project.
 
 :::image type="content" source="../media/orchestration-project-detail.png" alt-text="A screenshot showing the Conversational Language Understanding orchestration workflow project modal." lightbox="../media/orchestration-project-detail.png":::
-
-## Add intents
 
 In Orchestration Workflow projects, the data used to train connected intents isn't provided within the project. Instead, the project pulls the data from the connected service (such as connected LUIS applications, Conversational Language Understanding projects, or Custom Question Answering knowledge bases) during training. However, if you create intents that are not connected to any service, you still need to add utterances to those intents.
 
@@ -61,4 +61,4 @@ To import a project, select the arrow button on the projects page next to **Crea
 
 ## Next Steps
 
-[Build schema](./build-schema.md)
+[Build schema](./train-model.md)

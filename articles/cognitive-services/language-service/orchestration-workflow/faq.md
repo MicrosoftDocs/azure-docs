@@ -23,7 +23,7 @@ See the [quickstart](./quickstart.md) to quickly create your first project, or t
 -->
 ## How do I connect other service applications in orchestration workflow projects?
 
-See the [Build schema article](./how-to/build-schema.md#build-project-schema-for-orchestration-workflow-projects) for information on connecting another project as an intent.
+See [How to create projects and build schemas](./how-to/create-project.md) for information on connecting another project as an intent.
 
 ## Which LUIS applications can I connect to in orchestration workflow projects?
 
@@ -44,7 +44,7 @@ See the [language support](./language-support.md) article.
 -->
 ## How do I get more accurate results for my project?
 
-Take a look at the [recommended guidelines](./how-to/build-schema.md#guidelines-and-recommendations) for information on improving accuracy.
+Take a look at the [recommended guidelines](./how-to/create-project.md) for information on improving accuracy.
 <!--
 ## How many intents, and utterances can I add to a project?
 
