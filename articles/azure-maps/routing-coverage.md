@@ -14,9 +14,33 @@ services: azure-maps
 
 This article provides coverage information for Azure Maps routing. Upon a search query, Azure Maps returns an optimal route from location A to location B. You're provided with accurate travel times, live updates of travel information, and route instructions. You can also add more search parameters such as current traffic, vehicle type, and conditions to avoid. The optimization of the route depends on the region. That's because, Azure Maps has various levels of information and accuracy for different regions. The tables in this article list the regions and what kind of information you can request for them.
 
-- Check out coverage for [**Geocoding**](geocoding-coverage.md).
-- Check out coverage for [**Traffic**](traffic-coverage.md).  
-- Check out coverage for [**Render**](render-coverage.md).
+## Routing information supported
+
+In the [Azure Maps routing coverage tables](#azure-maps-routing-coverage-tables), the following information is available.
+
+### Calculate Route
+
+The Calculate Route service calculates a route between an origin and a destination, passing through waypoints if they are specified. For more information, see [Get Route Directions](/rest/api/maps/route/get-route-directions) in the REST API documentation.
+
+### Calculate Reachable Range
+
+The Calculate Reachable Range service calculates a set of locations that can be reached from the origin point. For more information, see [Get Route Range](/rest/api/maps/route/get-route-range) in the REST API documentation.
+
+### Real-time Traffic
+
+Delivers real-time information about traffic jams and road closures, and a detailed view of the current speed and travel times across the entire road network. For more information, see [Traffic](/rest/api/maps/traffic) in the REST API documentation.
+
+### Truck routes
+
+The Azure Maps Truck Routing API provides travel routes which take truck attributes into consideration. Truck attributes include things such as width, height, weight, turning radius and type of cargo. This is important as not all trucks can travel the same routes as other vehicles. Here are some examples:
+
+- Bridges have heights and weight limits.
+- Tunnels often have restrictions on flammable or hazardous materials.
+- Longer trucks have difficulty making tight turns.
+- Highways often have a separate speed limit for trucks.
+- Certain trucks may want to avoid roads that have steep gradients.
+
+Azure Maps supports truck routing in the countries/regions indicated in the tables below.
 
 <!------------------------------------------------------------------
 ### Legend
@@ -27,9 +51,11 @@ This article provides coverage information for Azure Maps routing. Upon a search
 |   ◑    | Region has partial routing data. |
 ---------------------------------------------------------------->
 
+## Azure Maps routing coverage tables
+
 The following tables provides coverage information for Azure Maps routing.
 
-## Americas
+### Americas
 
 | Country/Region                         | Calculate Route & Reachable Range | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
@@ -89,7 +115,7 @@ The following tables provides coverage information for Azure Maps routing.
 | Uruguay                                |                ✓                  |         ✓         |     ✓      |
 | Venezuela                              |                ✓                  |                   |             |
 
-## Asia Pacific
+### Asia Pacific
 
 | Country/Region                         | Calculate Route & Reachable Range | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
@@ -143,7 +169,7 @@ The following tables provides coverage information for Azure Maps routing.
 | Vietnam                                |                ✓                  |         ✓         |      ✓     |
 | Wallis & Futuna                        |                ✓                  |                   |             |
 
-## Europe
+### Europe
 
 | Country/Region                         | Calculate Route & Reachable Range | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
@@ -209,7 +235,7 @@ The following tables provides coverage information for Azure Maps routing.
 | Uzbekistan                             |                ✓                  |                   |             |
 | Vatican City                           |                ✓                  |         ✓         |     ✓      |
 
-## Middle East & Africa
+### Middle East & Africa
 
 | Country/Region                         | Calculate Route & Reachable Range | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
@@ -290,3 +316,9 @@ The following tables provides coverage information for Azure Maps routing.
 ## Next steps
 
 For more information about Azure Maps routing, see the [Routing](/rest/api/maps/route) reference pages.
+
+For more coverage tables, see:
+
+- Check out coverage for [**Geocoding**](geocoding-coverage.md).
+- Check out coverage for [**Traffic**](traffic-coverage.md).  
+- Check out coverage for [**Render**](render-coverage.md).
