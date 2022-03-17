@@ -21,11 +21,30 @@ In this tutorial, you'll build an observability solution for a common IoT Edge s
 * Perform basic troubleshooting with the curated workbooks
 * Perform deep troubleshooting with distributed tracing and correlated logs analysis
 
-## Prerequisites
-
 It's recommended to work with this tutorial in the following order:
 * Read it. Follow the considerations and steps to understand the concept and the approach.
-* Optionally, `Deploy the Tutorial sample to Azure with this blue button` to reproduce the tutorial steps and play with your own use cases. You'll need an Azure Subscription for this option.
+* Optionally, deploy the tutorial sample to Azure to reproduce the steps and play with your own use cases. 
+
+## Prerequisites
+
+In order to successfully deploy this solution, you will need the following:
+
+- [PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.1).
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+
+### Deploy the sample
+
+  Clone the [IoT Elms](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution) repository
+  ```cmd/sh
+    git clone https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution.git
+  ```  
+  Open a PowerShell console and run the code below:
+  ```cmd/sh
+    ./Scripts/dploy-e2e-tutorial.ps1
+  ```
+
 
 ## Use Case 
 
