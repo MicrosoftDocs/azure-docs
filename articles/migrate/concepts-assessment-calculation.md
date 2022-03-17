@@ -109,7 +109,7 @@ Calculations occur in these three stages:
 1. **Calculate sizing recommendations**: Estimate compute, storage, and network sizing.
 1. **Calculate monthly costs**: Calculate the estimated monthly compute and storage costs for running the servers in Azure after migration.
 
-Calculations are in the preceding order. A server server moves to a later stage only if it passes the previous one. For example, if a server fails the Azure readiness stage, it's marked as unsuitable for Azure. Sizing and cost calculations aren't done for that server.
+Calculations are in the preceding order. A server moves to a later stage only if it passes the previous one. For example, if a server fails the Azure readiness stage, it's marked as unsuitable for Azure. Sizing and cost calculations aren't done for that server.
 
 ## What's in an Azure VM assessment?
 
@@ -291,7 +291,7 @@ Here are a few reasons why an assessment could get a low confidence rating:
 - Assessment is not able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, please ensure that: 
     - Servers are powered on for the duration of the assessment
     - Outbound connections on ports 443 are allowed
-    - For Hyper-V servers dynamic memory is enabled 
+    - For Hyper-V servers, dynamic memory is enabled 
     
     Please 'Recalculate' the assessment to reflect the latest changes in confidence rating.
 
