@@ -71,7 +71,8 @@ The following architecture diagram shows the implementation.
 
 | Steps | Description                                                                                                                                         |
 | :---- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.    | User opens Azure AD B2C's sign in page, and then signs in or signs up by entering their username.                                                         | | |2.     | User is forwarded to Azure AD B2C’s combined sign-in and sign-up policy.                                                                            |
+| 1.    | User opens Azure AD B2C's sign in page, and then signs in or signs up by entering their username.                                                   |
+| 2.    | User is forwarded to Azure AD B2C’s combined sign-in and sign-up policy.                                                                           |
 | 3.    | Azure AD B2C redirects the user to the eID-ME identity router using the OIDC authorization code flow.                                               |
 | 4.    | The eID-Me router sends a push notification to the user’s mobile app including all context details of the authentication and authorization request. |
 | 5.    | The user reviews the authentication challenge; if accepted the user is prompted for identity claims, proving the user’s identity.                   |
