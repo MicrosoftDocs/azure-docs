@@ -1,5 +1,5 @@
 ---
-title: Region availability and data residency
+title: "Azure AD B2C: Region availability & data residency"
 titleSuffix: Azure AD B2C
 description: Region availability, data residency, high availability, SLA, and information about Azure Active Directory B2C preview tenants.
 services: active-directory-b2c
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/16/2021
+ms.date: 03/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: references_regions
@@ -17,22 +17,19 @@ ms.custom: references_regions
 
 # Azure Active Directory B2C: Region availability & data residency
 
-Azure AD B2C identity data is stored in a geographical location based on the country/region provided when you create the tenant.
+Azure AD B2C identity data is stored in a geographical location or country based on the country/region provided when you create the tenant.
 
-Region availability and data residency are two different concepts that apply to Azure AD B2C. This article explains the differences between these two concepts, and compares how they apply to Azure versus Azure AD B2C.
+Region availability and data residency are two different concepts that apply to Azure AD B2C. This article explains the differences between these two concepts, and compares how they apply to Azure versus Azure AD B2C. [Region availability](#region-availability) refers to where a service is available for use whereas [Data residency](#data-residency) refers to where user data is stored.
 
-Azure AD B2C is **generally available worldwide** with the option for **data residency** in the **United States, Europe, Asia Pacific, or Australia**.
-
-[Region availability](#region-availability) refers to where a service is available for use.
-
-[Data residency](#data-residency) refers to where user data is stored.
+Azure AD B2C service is **generally available worldwide** with the option for **data residency** in the **United States, Europe, Asia Pacific, or Australia**. Also, with [Local data residency](#), data can be stored exclusively in a specific country.
 
 ## Region availability
 
-Azure AD B2C is available worldwide via the Azure public cloud. You can see availability of this service in both Azure's [Products Available By Region](https://azure.microsoft.com/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Also, Azure AD B2C service is highly available. Learn more about [Service Level Agreement (SLA) for Azure Active Directory B2C](https://azure.microsoft.com/support/legal/sla/active-directory-b2c/v1_1).
+Azure AD B2C service is available worldwide via the Azure public cloud. You can see availability of this service in both Azure's [Products Available By Region](https://azure.microsoft.com/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Also, Azure AD B2C service is highly available. Learn more about [Service Level Agreement (SLA) for Azure Active Directory B2C](https://azure.microsoft.com/support/legal/sla/active-directory-b2c/v1_1).
+
 ## Data residency
 
-Azure AD B2C stores user data in the United States, Europe, the Asia Pacific region, or Australia.
+Azure AD B2C stores user data in the United States, Europe, the Asia Pacific region or Australia.
 
 Data residency is determined by the country/region you select when you [create an Azure AD B2C tenant](tutorial-create-tenant.md):
 
@@ -57,6 +54,16 @@ Data resides in **Australia** for the following countries/regions:
 The following countries/regions are in the process of being added to the list. For now, you can still use Azure AD B2C by picking any of the countries/regions above.
 
 > Argentina, Brazil, Chile, Colombia, Ecuador, Iraq, Paraguay, Peru, Uruguay, and Venezuela
+
+### Local data residency 
+
+To fulfil corporate policies and compliance requirements, to store user data exclusively within specific geographical area. Azure AD B2C provides a local data residency add-on that enables you to store your data within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). 
+
+The local data residency add-on is optional, and so your data can be stored in regions as indicated in [Data residency](data-residency.md#data-residency). The local data residency is a paid ad-on on your Azure AD B2C Premium P1 or P2 licenses, see [Billing model](#). 
+
+At the moment, the following countries have the local data residence option:
+- Japan
+- Australia 
 
 ## Remote profile solution
 
