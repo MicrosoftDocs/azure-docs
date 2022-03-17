@@ -14,4 +14,4 @@ ms.date: 03/31/2021
 Learn more about Nutanix:
 
 > [!div class="nextstepaction"]
-> [About the PUblic Preview](about-the-public-preview.md)
+> [About the Public Preview](about-the-public-preview.md)

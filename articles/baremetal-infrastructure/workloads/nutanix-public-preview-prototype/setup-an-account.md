@@ -19,4 +19,4 @@ For more information, see Creating a My Nutanix Account.
 Learn more about Nutanix:
 
 > [!div class="nextstepaction"]
-> [About the PUblic Preview](about-the-public-preview.md)
+> [About the Public Preview](about-the-public-preview.md)

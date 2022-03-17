@@ -27,4 +27,4 @@ See Setting up the networking infrastructure in Azure
 Learn more about Nutanix:
 
 > [!div class="nextstepaction"]
-> [About the PUblic Preview](about-the-public-preview.md)
+> [About the Public Preview](about-the-public-preview.md)
