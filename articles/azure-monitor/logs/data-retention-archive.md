@@ -118,8 +118,7 @@ To set the retention and archive duration for a table, run the [az monitor log-a
 This example sets table's interactive retention to 30 days, and the total retention to two years. This means the archive duration is 23 months:
 
 ```azurecli
-az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
---name AzureMetrics --retention-time 30 --total-retention-time 730
+az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name AzureMetrics --retention-time 30 --total-retention-time 730
 ```
 
 To reapply the workspace's default interactive retention value to the table and reset its total retention to 0, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command with the `--retention-time` and `--total-retention-time` parameters set to `-1`.
@@ -127,8 +126,7 @@ To reapply the workspace's default interactive retention value to the table and 
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name Syslog --retention-time -1 --total-retention-time -1
+az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --retention-time -1 --total-retention-time -1
 ```
 
 ---
@@ -156,8 +154,7 @@ To get the retention policy of a particular table, run the [az monitor log-analy
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name SecurityEvent
+az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name SecurityEvent
 ``` 
 
 ---
