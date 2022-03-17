@@ -139,7 +139,7 @@
       href: devtest-lab-store-secrets-in-key-vault.md
     - name: Attach and detach data disks
       href: devtest-lab-attach-detach-data-disk.md
-    - name: Start VMs using Automation runbooks
+    - name: Define start order for lab VMs
       href: start-machines-use-automation-runbooks.md
     - name: Import virtual machines from another lab
       href: import-virtual-machines-from-another-lab.md

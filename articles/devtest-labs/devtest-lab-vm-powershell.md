@@ -2,7 +2,7 @@
 title: Create a lab virtual machine by using Azure PowerShell
 description: Learn how to use Azure PowerShell to create and manage virtual machines in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 03/16/2022
+ms.date: 03/17/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -112,7 +112,7 @@ Save the preceding script in a file named *Create-LabVirtualMachine.ps1*. Run th
 
 This section shows how to get the specific properties for the type of VM you want to create. You can get the properties from an Azure Resource Manager (ARM) template in the Azure portal, or by calling the DevTest Labs Azure REST API.
 
-### Get VM properties from the Azure portal
+### Use the Azure portal to get VM properties
 
 Creating a VM in the Azure portal generates an Azure Resource Manager (ARM) template that shows the VM's properties. Once you choose a VM base, you can see the ARM template and get the properties without actually creating the VM. This method is the easiest way to get the JSON VM description if you don't already have a lab VM of that type.
 
@@ -167,7 +167,7 @@ Creating a VM in the Azure portal generates an Azure Resource Manager (ARM) temp
 
    
 
-### Get VM properties by using the DevTest Labs Azure REST API
+### Use the DevTest Labs Azure REST API to get VM properties
 
 You can also call the DevTest Labs REST API to get the properties of existing lab VMs. You can use those properties to create more lab VMs of the same types.
 

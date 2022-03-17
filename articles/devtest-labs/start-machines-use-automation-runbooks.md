@@ -1,12 +1,12 @@
 ---
-title: Start machines in sequence with an Azure Automation runbook
+title: Define VM start order with Azure Automation
 description: Learn how to start virtual machines in a specific order by using Azure Automation runbooks in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 03/17/2022
 ms.custom: devx-track-azurepowershell
 ---
 
-# Start DevTest Labs VMs in sequence with an Azure Automation runbook
+# Define the startup order for DevTest Lab VMs with Azure Automation
 
 This article explains how to start up DevTest Labs virtual machines (VMs) in a specific order by using a PowerShell runbook in Azure Automation. The PowerShell script uses tags on lab VMs, so you can change the startup order without having to change the script.
 
@@ -14,7 +14,7 @@ The DevTest Labs [autostart](devtest-lab-set-lab-policy.md#set-autostart) featur
 
 ## Prerequisites
 
-- Apply the tag **StartupOrder** to all lab VMs with an appropriate startup value, 0 through 10. Designate any machines that don't need starting as -1.
+- [Create and apply a tag](devtest-lab-add-tag.md) called **StartupOrder** to all lab VMs with an appropriate startup value, 0 through 10. Designate any machines that don't need starting as -1.
 
 - Create an Azure Automation account by following instructions in [Create a standalone Azure Automation account](/azure/automation/automation-create-standalone-account). Choose the **Run As Accounts** option when you create the account.
 
@@ -24,7 +24,7 @@ The DevTest Labs [autostart](devtest-lab-set-lab-policy.md#set-autostart) featur
 1. On the **Runbooks** page, select **Create a runbook**.
 1. Follow the instructions in [Create an Automation PowerShell runbook using managed identity](../automation/learn/powershell-runbook-managed-identity.md) to create a PowerShell runbook. Populate the runbook with the following PowerShell script.
 
-### PowerShell script
+## Prepare the PowerShell script
 
 The following script takes the subscription name and the lab name as parameters. The script gets all the VMs in the lab and parses their tag information to create a list of VM names and their startup order. The script walks through the list in order and starts the VMs.
 
@@ -128,7 +128,7 @@ While ($current -le 10) {
 }
 ```
 
-## Alternatives
+## Run the PowerShell script
 
 - To run this script daily, [create a schedule](../automation/shared-resources/schedules.md#create-a-schedule) in the Automation Account, and [link the schedule to the runbook](../automation/shared-resources/schedules.md#link-a-schedule-to-a-runbook).
 
