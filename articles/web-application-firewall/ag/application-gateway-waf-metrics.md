@@ -24,23 +24,23 @@ WAF with Application Gateway provides detailed reporting on each threat it detec
 
 ![WAFDiag](../media/waf-appgateway-metrics/waf-appgateway-diagnostic.png)
 
-For additional information on diagnostics log, visit [Application Gateway resource logs](../ag/web-application-firewall-logs.md) 
+For additional information on diagnostics log, visit [Application Gateway WAF resource logs](../ag/web-application-firewall-logs.md) 
 
 
 ## Application Gateway WAF V2 Metrics  
 
- New WAF Metrics are only available to Core Rule Set >=CRS 3.2, BotManager and Geo-filtering
+New WAF metrics are only available for Core Rule Set 3.2 or greater, or with bot protection and geo-filtering. The metrics can be further filtered on the supported dimensions
  
 |**Metrics**|**Description**|**Dimension**|
 | :------------------| :-------------------------------------| :-----------------|
-|**WAF Total Requests**|Count of successful requests that WAF engine has served. The request count can be further filtered to show count per Action, Country/Region, Method, and Mode. | Action, Country/Region, Method and Mode|
-|**WAF Managed Rule Matches**|Count of total requests that a managed rule has matched. The request count can be further filtered to show count per Action, Country/Region, Mode, Rule Group, and Rule Id| Action, Country/Region, Mode, Rule Group and Rule Id |
-|**WAF Custom Rule Matches**|Count of total requests that match a specific custom rule. The request count can be further filtered to show count per Action, Country/Region, Mode, Rule Group, and Rule Name| Action, Country/Region, Mode, Rule Group and Rule Name|
-|**WAF Bot Protection Matches**|Count of total requests that have been blocked or logged from malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. The request count can be further filtered to show count per Action, Country/Region, Bot Type, and Mode| Action, Country/Region, Bot Type and Mode |
+|**WAF Total Requests**|Count of successful requests that WAF engine has served.| Action, Country/Region, Method, Mode|
+|**WAF Managed Rule Matches**|Count of total requests that a managed rule has matched.| Action, Country/Region, Mode, Rule Group, Rule Id |
+|**WAF Custom Rule Matches**|Count of total requests that match a specific custom rule. | Action, Country/Region, Mode, Rule Group, Rule Name|
+|**WAF Bot Protection Matches**|Count of total requests that have been blocked or logged from malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed.| Action, Country/Region, Bot Type, Mode|
 
-For Metrics supported by Application Gateway V2 SKU, see [Application Gateway v2 metrics](../../application-gateway/application-gateway-metrics.md#metrics-supported-by-application-gateway-v2-sku)
+For metrics supported by Application Gateway V2 SKU, see [Application Gateway v2 metrics](../../application-gateway/application-gateway-metrics.md#metrics-supported-by-application-gateway-v2-sku)
 
-## Metrics supported by Application Gateway V1 SKU
+## Application Gateway v1 Metrics
 
 |**Metrics**|**Description**|**Dimension**|
 | :------------------| :-------------------------------------| :-----------------|
@@ -48,9 +48,8 @@ For Metrics supported by Application Gateway V2 SKU, see [Application Gateway v2
 |**Web Application Firewall Blocked Requests Distribution**|Total number of rules hit distribution for the blocked requests by Rule Group and Rule ID|Rule Group, Rule ID|
 |**Web Application Firewall Total Rule Distribution**|Count of total matched requests distribution by Rule Group and Rule ID |Rule Group, Rule ID|  
 
-For Metrics supported by Application Gateway V1 SKU, see [Application Gateway v1 metrics](../../application-gateway/application-gateway-metrics.md#metrics-supported-by-application-gateway-v1-sku)
+For metrics supported by Application Gateway V1 SKU, see [Application Gateway v1 metrics](../../application-gateway/application-gateway-metrics.md#metrics-supported-by-application-gateway-v1-sku)
 
-&nbsp;
 
  ## Access WAF Metrics in Azure portal
 
