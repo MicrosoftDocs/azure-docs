@@ -11,7 +11,7 @@ ms.author: bewatrou
 Azure CycleCloud supports deploying [Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms) in nodearrays to greatly reduce the operational cost of clusters.  
 
 > [!CAUTION]
-> Spot VMs are not appropriate for all workloads and cluster types.  They offer no SLA for availability or capacity.   They are "preemptible" or "low-priority" instances and may be evicted by the Azure fabric to manage capacity and as the Spot price changes.
+> Spot VMs are not appropriate for all workloads and cluster types.  They offer no SLA for availability or capacity. They are "preemptible" or "low-priority" instances and may be evicted by the Azure fabric to manage capacity and as the Spot price changes.
 
 ## Configuring a Nodearray for Spot
 
@@ -35,10 +35,7 @@ For full details see [Spot Virtual Machines](./cluster-templates.md#spot-virtual
 
 ## Spot VM Eviction
 
-CycleCloud monitors for spot evictions via the [Scheduled Events](https://docs.microsoft.com//azure/virtual-machines/linux/scheduled-events) endpoint on each VM.  When a spot preemption event is detected, CycleCloud is notified by the VM and the instance is moved into a "waiting for eviction" state. Spot eviction monitoring can be disabled by setting `cyclecloud.monitor_spot_eviction = False` on a node or nodearray.
-
-> [!NOTE]
-> Non-preemption events will be automatically acknowledged by CycleCloud when spot monitoring is enabled, this is to ensure that events such as reboots are not unnecessarily delayed. In the case that the acknowledging of events is not wanted (e.g. another custom process is already monitoring events), spot monitoring can be disabled.
+CycleCloud monitors for spot evictions via the [Scheduled Events](../how-to/scheduled-events.md) feature. When a spot preemption event is detected, CycleCloud is notified by the VM and the instance is moved into a "waiting for eviction" state. 
 
 ## Frequently Asked Questions
 
