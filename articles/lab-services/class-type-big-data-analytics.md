@@ -14,7 +14,7 @@ ms.author: nicolela
 
 This article shows you how to set up a lab to teach a big data analytics class. A big data analytics class helps students to learn how to handle large volumes of data. It also helps them to apply machine and statistical learning algorithms to derive data insights. A key objective for students is to learn how to use data analytics tools, such as [Apache Hadoop's open-source software package](https://hadoop.apache.org/). The software package provides tools for storing, managing, and processing big data.
 
-In this lab, students will use a popular commercial version of Hadoop provided by [Cloudera](https://www.cloudera.com/), called [Hortonworks Data Platform (HDP)](https://www.cloudera.com/products/hdp.html).  Specifically, students will use [HDP Sandbox 3.0.1](https://www.cloudera.com/tutorials/getting-started-with-hdp-sandbox/1.html) that's a simplified, easy-to-use version of the platform. HDP Sandbox 3.0.1 is also free of cost and is intended for learning and experimentation. Although this class may use either Windows or Linux virtual machines (VM) with HDP Sandbox deployed. This article will show you how to use Windows.
+In this lab, students will use a popular commercial version of Hadoop provided by [Cloudera](https://www.cloudera.com/), called [Hortonworks Data Platform (HDP)](https://www.cloudera.com/products/hdp.html). Specifically, students will use [HDP Sandbox 3.0.1](https://www.cloudera.com/tutorials/getting-started-with-hdp-sandbox/1.html) that's a simplified, easy-to-use version of the platform. HDP Sandbox 3.0.1 is also free of cost and is intended for learning and experimentation. Although this class may use either Windows or Linux virtual machines (VM) with HDP Sandbox deployed. This article will show you how to use Windows.
 
 Another interesting aspect is that we'll deploy HDP Sandbox on the lab VMs using [Docker](https://www.docker.com/) containers. Each Docker container provides its own isolated environment for software applications to run inside. Conceptually, Docker containers are like nested VMs and can be used to easily deploy and run a wide variety of software applications based on container images provided on [Docker Hub](https://www.docker.com/products/docker-hub). Cloudera's deployment script for HDP Sandbox automatically pulls the [HDP Sandbox 3.0.1 Docker image](https://hub.docker.com/r/hortonworks/sandbox-hdp) from Docker Hub and runs two Docker containers:
 
@@ -87,7 +87,7 @@ In this section, you'll deploy HDP Sandbox and then access HDP Sandbox using the
    - Verify HDP Sandbox
 
     > [!WARNING]
-    > When you download the latest .zip file for HDP, ensure that you do *not* save the .zip file in a directory path that includes whitespace.
+    > When you download the latest .zip file for HDP, ensure that you *don't* save the .zip file in a directory path that includes whitespace.
 
     > [!NOTE]
     > If you receive an exception during deployment stating **Drive has not been shared**, you need to share your C drive with Docker so that HDP's Linux containers can access local Windows files. To fix this, [click on the Docker icon in Windows System tray](https://docs.docker.com/docker-for-windows/#docker-settings-dialog) to open the Docker Desktop menu and select **Settings**. When **Docker's Settings** dialog opens, select **Resources > File Sharing** and check the **C** drive. You can then repeat the steps to deploy HDP Sandbox.
@@ -95,7 +95,7 @@ In this section, you'll deploy HDP Sandbox and then access HDP Sandbox using the
 1. When the Docker containers for HDP Sandbox are deployed and running, you can access the environment by launching your browser. Follow Cloudera's instructions for opening the [Sandbox Welcome Page](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) and launching the HDP Dashboard.
 
     > [!NOTE]
-    > These instructions assume that you have first mapped the local IP address of the sandbox environment to the sandbox-hdp.hortonworks.com in the host file on your template VM. If you do **not** do this mapping, you can access the Sandbox Welcome page by navigating to `http://localhost:8080`.
+    > These instructions assume that you have first mapped the local IP address of the sandbox environment to the sandbox-hdp.hortonworks.com in the host file on your template VM. If you **don't** do this mapping, you can access the Sandbox Welcome page by navigating to `http://localhost:8080`.
 
 ### Automatically start Docker containers when students log in
 

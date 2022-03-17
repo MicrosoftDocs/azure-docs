@@ -24,7 +24,7 @@ The following sections outline what you need to do before you can set up a lab a
 
 ### Access your Azure subscription
 
-To create a lab account, you need access to an Azure subscription that's already set up for your school. Your school might have one or more subscriptions. You can use a subscription to manage billing and security for all your Azure resources and services, including lab accounts. Azure subscriptions are managed by your IT department. For more information, see [Azure Lab Services - Administrator guide](./administrator-guide-1.md#subscription).
+To create a lab account, you need access to an Azure subscription that's already set up for your school. Your school might have one or more subscriptions. You can use a subscription to manage billing and security for all of your Azure resources and services, including lab accounts. Azure subscriptions are managed by your IT department. For more information, see [Azure Lab Services - Administrator guide](./administrator-guide-1.md#subscription).
 
 ### Estimate how many VMs and VM sizes you need
 
@@ -35,6 +35,7 @@ For guidance on structuring your labs and images, see the blog post [Moving from
 For more information on how to structure labs, see the "Lab" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#lab).
 
 ### Understand subscription VM limits and regional VM capacity
+
 After you've estimated the number of VMs and the VM sizes for your labs, you need to:
 
 - Ensure that your Azure subscription's capacity limit lets the number of VMs and the VM size that you plan to use.
@@ -94,7 +95,7 @@ For more information, see:
 
 Azure Marketplace provides hundreds of images that you can enable so that Lab Creators can use them for creating their labs. Some images might include everything that a lab already needs. In other cases, you might use an image as a starting point, and then the Lab Creator can customize it by installing more applications or tools.
 
-If you don't know which images you need, you can come back later to enable them. The best way to see which images are available is to first create a lab account. Creating a lab account gives you access so that you can review the list of available images and their contents.
+If you don't know which images you need, you can come back later to enable them. The best way to see which images are available is to first create a lab account. Creating a lab account will also give you access so that you can review the list of available images and their contents.
 
 For more information, see [Specify the Azure Marketplace images that are available to Lab Creators](./specify-marketplace-images.md).
   
@@ -104,8 +105,8 @@ When you set up a lab account, you also can peer your lab account with a virtual
 
 - **Access to a license server**
   
-   When you use Azure Marketplace images, the cost of the operating system license is bundled into the pricing for lab services. However, you don't need to provide licenses for the operating system itself. For more software and applications that are installed, you do need to provide a license, as appropriate. To access a license server:
-  - You may choose to connect to an on-premises license server.  Connecting to an on-premises license server requires more setup.
+   When you use Azure Marketplace images, the cost of the operating system license is bundled into the pricing for lab services. However, you don't need to provide licenses for the operating system itself. For any other software and applications that are installed, you do need to provide a license, as appropriate. To access a license server:
+  - You may choose to connect to an on-premises license server. Connecting to an on-premises license server requires additional setup.
   - Another option, which is faster to set up, is to create a license server that you host on an Azure VM. The Azure VM is located within a virtual network that you peer with your lab account.
 
 - **Access to other on-premises resources such as a file share or database**
