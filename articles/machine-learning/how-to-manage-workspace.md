@@ -354,6 +354,8 @@ Select any number of filters to create more specific search queries. The followi
 * Component:
 * Tags:
 * SubmittedBy:
+* Environment:
+* Dataset:
 
 If an asset filter (job, model, component) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
 
