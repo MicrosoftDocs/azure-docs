@@ -1,18 +1,18 @@
 ---
-title: Get started with the FHIR service - Azure Healthcare APIs
-description: This document describes how to get started with the FHIR service in Azure Healthcare APIs.
+title: Get started with FHIR service - Azure Health Data Services
+description: This document describes how to get started with FHIR service in Azure Health Data Services.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 01/06/2022
+ms.date: 03/01/2022
 ms.author: zxue
 ms.custom: mode-api
 ---
 
-# Get started with the FHIR service
+# Get started with FHIR service
 
-This article outlines the basic steps to get started with the FHIR service in [Azure Healthcare APIs](../healthcare-apis-overview.md).
+This article outlines the basic steps to get started with the FHIR service in [Azure Health Data Services](../healthcare-apis-overview.md).
 
 As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts.
 
@@ -37,7 +37,7 @@ The FHIR service is secured by Azure Active Directory (Azure AD) that can't be d
 
 ### Register a client application
 
-You can create or register a client application from the [Azure portal](../register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more FHIR service instances. It can also be used for other services in Azure Healthcare APIs.
+You can create or register a client application from the [Azure portal](../register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more FHIR service instances. It can also be used for other services in Azure Health Data Services.
 
 If the client application is created with a certificate or client secret, ensure that you renew the certificate or client secret before expiration and replace the client credentials in your applications.
 
@@ -67,7 +67,7 @@ You can load data directly using the POST or PUT method against the FHIR service
  
 - [FHIR Loader](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/FHIRDL) This is a .NET console app and loads data stored in Azure storage to the FHIR service. It's a single thread app, but you can run multiple copies locally or in a Docker container. 
 - [FHIR Bulk Loader](https://github.com/microsoft/fhir-loader) This tool is an Azure function app (microservice) and runs in parallel threads.
-- [Bulk import](https://github.com/microsoft/fhir-server/blob/main/docs/BulkImport.md) This tool works with the Open Source FHIR server only. However, it will be available for Azure Healthcare APIs in the future.
+- [Bulk import](https://github.com/microsoft/fhir-server/blob/main/docs/BulkImport.md) This tool works with the Open Source FHIR server only. However, it will be available for Azure Health Data Services in the future.
 
 ### CMS, search, profile validation, and reindex
 
@@ -92,7 +92,7 @@ Optionally, you can create Power BI dashboard reports with FHIR data.
 
 ## Next steps
 
-This article described the basic steps to get started using the FHIR service. For information about deploying the FHIR service in the workspace, see
+This article described the basic steps to get started using the FHIR service. For information about deploying FHIR service in the Azure Health Data Services workspace, see
 
 >[!div class="nextstepaction"]
->[Deploy a FHIR service within Azure Healthcare APIs](fhir-portal-quickstart.md)
+>[Deploy a FHIR service within Azure Health Data Services](fhir-portal-quickstart.md)
