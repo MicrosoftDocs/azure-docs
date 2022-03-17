@@ -30,7 +30,11 @@ An Azure resource group is a logical container into which Azure resources are de
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name 'CreatePubLBQS-rg' -Location 'eastus'
+$rg = @{
+    Name = 'CreatePubLBQS-rg'
+    Location = 'eastus'
+}
+New-AzResourceGroup @rg
 ```
 
 ## Create a public IP address
@@ -131,7 +135,11 @@ Create a virtual network for the backend virtual machines.
 
 Create a network security group to define inbound connections to your virtual network.
 
-### Create virtual network, network security group, and bastion host
+Create an Azure Bastion host to securely manage the virtual machines in the backend pool.
+
+Use a NAT gateway to provide outbound internet access to resources in the backend pool of your load balancer.
+
+### Create virtual network, network security group, bastion host, and NAT gateway
 
 * Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
 
@@ -141,11 +149,37 @@ Create a network security group to define inbound connections to your virtual ne
 
 * Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
+* Create the NAT gateway resource with [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway)
+
+* Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network.
+
 ```azurepowershell-interactive
+## Create public IP address for NAT gateway ##
+$ip = @{
+    Name = 'myNATgatewayIP'
+    ResourceGroupName = 'CreatePubLBQS-rg'
+    Location = 'eastus'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+}
+$publicIP = New-AzPublicIpAddress @ip
+
+## Create NAT gateway resource ##
+$nat = @{
+    ResourceGroupName = 'CreatePubLBQS-rg'
+    Name = 'myNATgateway'
+    IdleTimeoutInMinutes = '10'
+    Sku = 'Standard'
+    Location = 'eastus'
+    PublicIpAddress = $publicIP
+}
+$natGateway = New-AzNatGateway @nat
+
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'myBackendSubnet'
     AddressPrefix = '10.1.0.0/24'
+    NatGateway = $natGateway
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -208,46 +242,6 @@ $nsg = @{
     SecurityRules = $rule1
 }
 New-AzNetworkSecurityGroup @nsg
-```
-
-## Create NAT gateway
-
-Use a NAT gateway to provide outbound internet access to resources in the backend pool of your load balancer.
-
-* Create a public IP address for the NAT gateway with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
-
-* Create the NAT gateway resource with [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway)
-
-* Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network created previously.
-
-```azurepowershell-interactive
-## Create public IP address for NAT gateway ##
-$ip = @{
-    Name = 'myPublicIP'
-    ResourceGroupName = 'myResourceGroupNAT'
-    Location = 'eastus2'
-    Sku = 'Standard'
-    AllocationMethod = 'Static'
-}
-$publicIP = New-AzPublicIpAddress @ip
-
-## Create NAT gateway resource ##
-$nat = @{
-    ResourceGroupName = 'myResourceGroupNAT'
-    Name = 'myNATgateway'
-    IdleTimeoutInMinutes = '10'
-    Sku = 'Standard'
-    Location = 'eastus2'
-    PublicIpAddress = $publicIP
-}
-$natGateway = New-AzNatGateway @nat
-
-## Create subnet config and associate NAT gateway to subnet##
-$subnet = @{
-    Name = 'mySubnet'
-    NatGateway = $natGateway
-}
-$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet
 ```
 
 ## Create virtual machines
@@ -342,7 +336,6 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzBastion
 2      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
-4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
