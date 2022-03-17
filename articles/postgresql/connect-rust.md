@@ -2,6 +2,7 @@
 title: 'Quickstart: Connect with Rust - Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides Rust code samples that you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
