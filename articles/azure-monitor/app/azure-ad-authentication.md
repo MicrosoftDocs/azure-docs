@@ -80,7 +80,7 @@ config.SetAzureTokenCredential(credential);
 
 ```
 
-Below is an example of configuring the `TelemetryConfiguration` using .NetCore:
+Below is an example of configuring the `TelemetryConfiguration` using .NET Core:
 ```csharp
 services.Configure<TelemetryConfiguration>(config =>
 {
