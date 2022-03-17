@@ -61,7 +61,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public
   az network public-ip create \
     --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
-    --sku Basic \
+    --sku Basic
 ```
 
 ## Create a load balancer
@@ -130,9 +130,7 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe \
-    --disable-outbound-snat true \
-    --idle-timeout 15 \
-    --enable-tcp-reset true
+    --idle-timeout 15
 ```
 
 ## Create a network security group
@@ -237,7 +235,7 @@ Create two network interfaces with [az network nic create](/cli/azure/network/ni
 
 Create the availability set with [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create):
 
-```azurecli-interactive
+```azurecli
   az vm availability-set create \
     --name myAvSet \
     --resource-group CreatePubLBQS-rg \
