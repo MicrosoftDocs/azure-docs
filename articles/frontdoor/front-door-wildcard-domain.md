@@ -26,7 +26,9 @@ Key scenarios that are improved with support for wildcard domains include:
 
 ::: zone pivot="front-door-standard-premium"
 
-You can add a wildcard domain following guidance in [Add a custom domain](standard-premium/how-to-add-custom-domain.md) for subdomains.  
+## Add a wildcard domain and certificate binding
+
+You can add a wildcard domain following guidance in [add a custom domain](standard-premium/how-to-add-custom-domain.md) for subdomains.  
 
 > [!NOTE]
 > * Azure DNS supports wildcard records.
