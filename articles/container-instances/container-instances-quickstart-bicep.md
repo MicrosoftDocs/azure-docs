@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a container instance - Bicep file
+title: Quickstart - Create a container instance - Bicep
 description: In this quickstart, you use a Bicep file to quickly deploy a containerized web app that runs in an isolated Azure container instance.
 author: schaffererin
 services: azure-resource-manager
@@ -10,7 +10,7 @@ ms.service: container-instances
 ms.custom: subject-armqs, devx-track-js, mode-arm
 ---
 
-# Quickstart: Deploy a container instance in Azure using a Bicep file
+# Quickstart: Deploy a container instance in Azure using Bicep
 
 Use Azure Container Instances to run serverless Docker containers in Azure with simplicity and speed. Deploy an application to a container instance on-demand when you don't need a full container orchestration platform like Azure Kubernetes Service. In this quickstart, you use a Bicep file to deploy an isolated Docker container and make its web application available with a public IP address.
 
@@ -114,7 +114,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-In this quickstart, you created an Azure container instance using a Bicep file. If you'd like to build a container image and deploy it from a private Azure container registry, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure container instance using Bicep. If you'd like to build a container image and deploy it from a private Azure container registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create a container image for deployment to Azure Container Instances](./container-instances-tutorial-prepare-app.md)
