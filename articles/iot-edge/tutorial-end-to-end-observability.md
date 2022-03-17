@@ -29,8 +29,8 @@ It's recommended to work with this tutorial in the following order:
 
 In order to successfully deploy this solution, you will need the following:
 
-- [PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.1).
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- [PowerShell](powershell/scripting/install/installing-powershell).
+- [Azure CLI](cli/azure/install-azure-cli).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 
