@@ -323,7 +323,7 @@ Usually the *personIdExternal* attribute value in SuccessFactors matches the *us
 1. Ensure that an extensionAttribute *(extensionAttribute1-15)* in Azure AD always stores the *userId* of every worker's active employment record. This can be achieved by mapping SuccessFactors *userId* attribute to an extensionAttribute in Azure AD. 
     > [!div class="mx-imgBorder"]
     > ![Inbound UserID attribute mapping](./media/sap-successfactors-integration-reference/inbound-userid-attribute-mapping.png)
-1. For guidance regarding JSONPath settings, refer to the section [Handling rehire scenario](#handling-rehire-scenario) to ensure the *userId* value of the active employment record flows into Azure AD. 
+1. For guidance regarding JSONPath settings, refer to the section [Handling worker conversion and rehire scenario](#handling-worker-conversion-and-rehire-scenario) to ensure the *userId* value of the active employment record flows into Azure AD. 
 1. Save the mapping. 
 1. Run the provisioning job to ensure that the *userId* values flow into Azure AD. 
     > [!NOTE]
