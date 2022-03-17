@@ -19,11 +19,11 @@ For more information about Azure Purview, [see our overview page](overview.md). 
 
 ## Deploy a custom template
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal where you can customize values and deploy.
 The template will deploy an Azure Purview account into a new or existing resource group in your subscription.
 
-<!--- Below link needs to be updated to Purview quickstart, which I'm currently working on. --->
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datashare%2Fdata-share-share-storage-account%2Fazuredeploy.json)
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.azurepurview%2Fazure-purview-deployment%2Fazuredeploy.json)
 
 
 ## Review the template
@@ -31,7 +31,7 @@ The template will deploy an Azure Purview account into a new or existing resourc
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/data-share-share-storage-account/).
 
 <!--- Below link needs to be updated to Purview quickstart, which I'm currently working on. --->
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datashare/data-share-share-storage-account/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.azurepurview/azure-purview-deployment/azuredeploy.json":::
 
 The following resources are defined in the template:
 
@@ -63,7 +63,7 @@ At this time, these actions aren't able to be taken through an Azure Resource Ma
 ## Clean up resources
 
 To clean up the resources deployed in this quickstart, delete the resource group, which deletes the resources in the resource group.
-You can do this either through the Azure portal, or using the PowerShell script below.
+You can delete the resources either through the Azure portal, or using the PowerShell script below.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
