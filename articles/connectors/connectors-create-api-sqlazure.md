@@ -183,7 +183,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
 <a name="trigger-recurrence-shift-drift"></a>
 
-### Trigger recurrence shift and drift
+## Trigger recurrence shift and drift (daylight saving time)
 
 Recurring connection-based triggers where you need to create a connection first, such as the managed SQL Server trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior. For example, unexpected behavior can include failure to maintain the specified schedule when daylight saving time (DST) starts and ends.
 

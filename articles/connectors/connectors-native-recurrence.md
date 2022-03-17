@@ -153,7 +153,7 @@ The following example shows how to update the trigger definition so that the tri
 
 <a name="daylight-saving-standard-time"></a>
 
-## Trigger recurrence shift between daylight saving time and standard time
+## Trigger recurrence shift and drift (daylight saving time)
 
 To schedule jobs, Azure Logic Apps puts the message for processing into the queue and specifies when that message becomes available, based on the UTC time when the last job ran and the UTC time when the next job is scheduled to run. If you specify a start time with your recurrence, *make sure that you select a time zone* so that your logic app workflow runs at the specified start time. That way, the UTC time for your logic app also shifts to counter the seasonal time change. Recurring triggers honor the schedule that you set, including any time zone that you specify.
 
