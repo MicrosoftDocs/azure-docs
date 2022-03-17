@@ -239,9 +239,9 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
       Example:
 
-        ```hdbsql
-        ALTER SYSTEM STOP DATABASE HXE IMMEDIATE
-        ```
+      ```hdbsql
+      ALTER SYSTEM STOP DATABASE HXE IMMEDIATE
+      ```
 
 ### Restore to a specific point in time
 
