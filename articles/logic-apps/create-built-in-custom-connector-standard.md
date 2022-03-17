@@ -76,11 +76,11 @@ The following table has more information about the methods that require implemen
 
 | Operation method | Method details | Example |
 |------------------|----------------|---------|
-| **GetOperations()** | The Azure Logic Apps designer requires this method, which provides a high-level description for your service, including the service descriptions, brand color, icon URL, connection parameters, capabilities, and so on. | ![Screenshot showing class library file with GetOperations() method implementation.](./media/create-built-in-custom-connector-standard/get-operations-method.png) |
+| **GetOperations()** | The Azure Logic Apps designer requires this method, which provides a high-level description for your service, including the service descriptions, brand color, icon URL, connection parameters, capabilities, and so on. | ![Screenshot showing class library file with "GetOperations()" method implementation.](./media/create-built-in-custom-connector-standard/get-operations-method.png) |
 | **GetService()** | The Azure Logic Apps designer requires this method, which gets the list of operations that are implemented by your service. This operations list is based on Swagger schema. | ![Screenshot showing class library file with GetService() method implementation.](./media/create-built-in-custom-connector-standard/get-service-method.png) |
-| **InvokeOperation()** | This method is invoked for each action operation that executes during runtime. You can use any client, such as FTPClient, HTTPClient, and so on, as required by your custom built-in connector actions. If you're only implementing the trigger as in this example, you don't have to implement this method. | ![Screenshot showing class library file with InvokeOperation() method implementation.](./media/create-built-in-custom-connector-standard/invoke-operation-method.png) |
-| **GetBindingConnectionInformation()** | If you want to use the Azure Functions trigger type, this method provides the required connection parameters information to the Azure Functions trigger binding. | ![Screenshot showing class library file with GetBindingConnectionInformation() method implementation.](./media/create-built-in-custom-connector-standard/get-binding-connection-information-method.png) |
-| **GetFunctionTriggerType()** | If you want to use an Azure Functions built-in trigger as a custom built-in connector trigger, you have to return the string that's the same as the **type** parameter in the Azure Functions trigger binding, for example, `"type": "cosmosDBTrigger"`. | ![Screenshot showing class library file with GetBindingConnectionInformation() method implementation.](./media/create-built-in-custom-connector-standard/get-function-trigger-type-method.png) |
+| **InvokeOperation()** | This method is invoked for each action operation that executes during runtime. You can use any client, such as FTPClient, HTTPClient, and so on, as required by your custom built-in connector actions. If you're only implementing the trigger as in this example, you don't have to implement this method. | ![Screenshot showing class library file with "InvokeOperation()" method implementation.](./media/create-built-in-custom-connector-standard/invoke-operation-method.png) |
+| **GetBindingConnectionInformation()** | If you want to use the Azure Functions trigger type, this method provides the required connection parameters information to the Azure Functions trigger binding. | ![Screenshot showing class library file with "GetBindingConnectionInformation()" method implementation.](./media/create-built-in-custom-connector-standard/get-binding-connection-information-method.png) |
+| **GetFunctionTriggerType()** | If you want to use an Azure Functions built-in trigger as a custom built-in connector trigger, you have to return the string that's the same as the **type** parameter in the Azure Functions trigger binding, for example, `"type": "cosmosDBTrigger"`. | ![Screenshot showing class library file with "GetFunctionTriggerType()" method implementation.](./media/create-built-in-custom-connector-standard/get-function-trigger-type-method.png) |
 ||||
 
 <a name="example-custom-built-in-connector"></a>
@@ -97,7 +97,7 @@ This example creates a sample custom built-in Cosmos DB connector that has only 
 
 The sample connector uses the functionality from the [Azure Functions capability for the Cosmos DB trigger](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), based on the Azure Functions trigger binding.
 
-For the complete sample, review [Logic App built-in custom connector](https://github.com/praveensri/LogicAppCustomConnector).
+For the complete sample, review [Sample custom built-in Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB).
 
 <a name="register-connector"></a>
 
@@ -296,7 +296,12 @@ To add the NuGet reference from the previous section, update the **extensions.js
 
 1. In Visual Studio Code, on the **Run** menu, select **Start Debugging**. (Press F5)
 
-1. To trigger your workflow, in the Azure portal, open Azure Data Explorer. Browse to the Azure Cosmos DB account, database, and collection that you specified in the trigger. Add an item to the collection.
+1. To trigger your workflow, in the Azure portal, open your Azure Cosmos DB account. On the account menu, select **Data Explorer**. Browse to the database and collection that you specified in the trigger. Add an item to the collection.
 
-   ![Screenshot showing the trigger properties pane.](./media/create-built-in-custom-connector-standard/cosmos-db-account-test-add-item.png)
+   ![Screenshot showing the Azure portal, Cosmos DB account, and Data Explorer open to the specified database and collection.](./media/create-built-in-custom-connector-standard/cosmos-db-account-test-add-item.png)
 
+## Next steps
+
+* [Source for sample custom built-in Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB)
+
+* [Learn about Standard built-in connector operations in Azure Logic Apps](../connectors/built-in.md)
