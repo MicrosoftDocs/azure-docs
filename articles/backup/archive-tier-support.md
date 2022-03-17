@@ -34,9 +34,9 @@ Archive tier supports the following workloads:
 
 Archive tier supports the following clients:
 
+- [Azure portal](./use-archive-tier-support.md?pivots=client-portaltier)
 - [PowerShell](./use-archive-tier-support.md?pivots=client-powershelltier)
 - [CLI](./use-archive-tier-support.md?pivots=client-clitier)
-- [Azure portal](./use-archive-tier-support.md?pivots=client-portaltier)
 
 ### Supported regions
 
@@ -109,7 +109,7 @@ No. Once protection is stopped for a particular workload, the corresponding reco
 To ensure that all recovery points are moved to Archive tier, 
 
 1. Select the required workload.
-1. Go to **Move Recovery Points** by following [these steps]().
+1. Go to **Move Recovery Points** by following [these steps](./use-archive-tier-support.md?pivots=client-portaltier#move-recommended-recovery-points-for-a-particular-azure-virtual-machine).
 
 If the list is blank, then all the eligible/recommended recovery points are moved to the vault Archive tier.
 

@@ -86,6 +86,11 @@ You can also view the archive usage in the vault dashboard.
 
 :::image type="content" source="./media/use-archive-tier-support/view-archive-usage-in-vault-dashboard.png" alt-text="Screenshot showing the archive usage in the vault dashboard.":::
 
+## Next steps
+
+- Use Archive Tier support via [PowerShell](?pivots=client-powershelltier)/[CLI](?pivots=client-clitier).
+- [Troubleshoot Archive tier errors](troubleshoot-archive-tier.md)
+
 ::: zone-end
 
 
@@ -267,6 +272,11 @@ You can perform the following operations using the sample scripts provided by Az
  
 You can also write a script as per your requirements or modify the above sample scripts to fetch the required backup items.
 
+## Next steps
+
+- Use Archive Tier support via [Azure portal](?pivots=client-portaltier)/[CLI](?pivots=client-clitier).
+- [Troubleshoot Archive tier errors](troubleshoot-archive-tier.md)
+
 ::: zone-end
 
 
@@ -279,7 +289,7 @@ This article provides the procedure to backup of long-term retention points in t
 
 | Workloads | Operations |
 | --- | --- |
-| Azure Virtual Machines (Preview)   <br><br>  SQL Server in Azure Virtual Machines   <br><br>   SAP HANA in Azure Virtual Machines | <ul><li> View Archivable Recovery Points       </li><li>View Recommended Recovery Points (Only for Virtual Machines)    </li><li>Move Archivable Recovery Points    </li><li>Move Recommended Recovery Points (Only for Azure Virtual Machines)    </li><li>View Archived Recovery points    </li><li>Restore from archived recovery points </li></ul> |
+| Azure Virtual Machines (Preview)   <br><br>  SQL Server in Azure Virtual Machines   <br><br>   SAP HANA in Azure Virtual Machines | <ul><li> View archivable recovery points.       </li><li>View recommended recovery points (only for Virtual Machines).    </li><li>Move archivable recovery points.    </li><li>Move recommended recovery points (only for Azure Virtual Machines).    </li><li>View archived recovery points.    </li><li>Restore from archived recovery points. </li></ul> |
 
 
 ## Get started
@@ -415,9 +425,11 @@ Run the following commands:
     az backup restore restore-azurewl -g {rg} -v {vault} --recovery-config {recov_config} --rehydration-priority {Standard / High} --rehydration-duration {rehyd_dur}
     ```
 
+## Next steps
+
+- Use Archive Tier support via [Azure portal](?pivots=client-portaltier)/[PowerShell](?pivots=client-powershelltier).
+- [Troubleshoot Archive tier errors](troubleshoot-archive-tier.md)
+
 ::: zone-end
 
 
-## Next steps
-
-- [Troubleshoot Archive tier errors](troubleshoot-archive-tier.md)
