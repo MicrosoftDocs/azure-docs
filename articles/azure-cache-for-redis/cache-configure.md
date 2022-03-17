@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 03/15/2022
 ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 
@@ -104,6 +104,7 @@ Select **Access keys** to view or regenerate the access keys for your cache. The
 
 ![Azure Cache for Redis Access Keys](./media/cache-configure/redis-cache-manage-keys.png)
 
+
 ### Advanced settings
 
 The following settings are configured on the **Advanced settings** on the left.
@@ -121,11 +122,9 @@ By default, non-TLS/SSL access is disabled for new caches. To enable the non-TLS
 
 ![Azure Cache for Redis Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
-<a name="maxmemory-policy-and-maxmemory-reserved"></a>
-
 #### Memory policies
 
-The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-reserved** settings on the **Advanced settings** on the left configure the memory policies for the cache.
+The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-reserved** settings on the **Advanced settings** on the left configure the memory policies for the cache. When you create a cache, the values `maxmemory-reserved` and `maxfragmentationmemory-reserved` default to 10% of `maxmemory`, which is the new cache size.
 
 ![Azure Cache for Redis Maxmemory Policy](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
@@ -392,7 +391,9 @@ New Azure Cache for Redis instances are configured with the following default Re
 | --- | --- | --- |
 | `databases` |16 |The default number of databases is 16 but you can configure a different number based on the pricing tier.<sup>1</sup> The default database is DB 0, you can select a different one on a per-connection basis using `connection.GetDatabase(dbid)` where `dbid` is a number between `0` and `databases - 1`. |
 | `maxclients` |Depends on the pricing tier<sup>2</sup> |This value is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis closes all the new connections, returning a 'max number of clients reached' error. |
-| `maxmemory-policy` |`volatile-lru` |Maxmemory policy is the setting used by Redis to select what to remove when `maxmemory` (the size of the cache offering you selected when you created the cache) is reached. With Azure Cache for Redis the default setting is `volatile-lru`, which removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Memory policies](#memory-policies). |
+| `maxmemory-reserved` | 10% of `maxmemory` | The allowed range for `maxmemory-reserved` is 10% - 60% of `maxmemory`. If you try to set it too low, the value is set 10%. If you try to set it too high, the value is set 60%. |
+| `maxfragmentationmemory-reserved` | 10% of `maxmemory`  | The allowed range for `maxfragmentationmemory-reserved` is 10% - 60% of `maxmemory`. If you try to set it too low, the value is set 10%. If you try to set it too high, the value is set 60%. |
+| `maxmemory-policy` |`volatile-lru` | Maxmemory policy is the setting used by Redis to select what to remove when `maxmemory` (the size of the cache that you selected when you created the cache) is reached. With Azure Cache for Redis the default setting is `volatile-lru`, which removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Memory policies](#memory-policies). |
 | `maxmemory-samples` |3 |To save memory, LRU and minimal TTL algorithms are approximated algorithms instead of precise algorithms. By default Redis checks three keys and picks the one that was used less recently. |
 | `lua-time-limit` |5,000 |Max execution time of a Lua script in milliseconds. If the maximum execution time is reached, Redis logs that a script is still in execution after the maximum allowed time, and starts to reply to queries with an error. |
 | `lua-event-limit` |500 |Max size of script event queue. |
