@@ -57,7 +57,8 @@ Use the following steps to preview your offer.
 1. Sign in to [Azure portal](https://ms.portal.azure.com/#home). Make sure you’re signed in to the Azure tenant you submitted the offer to.
 1. In Partner Center, go to the **Offer overview** page, and then select the **Azure portal preview** link under the **Go live*** button.
 
-Subscribe to a test plan
+## Subscribe to a test plan
+
 1. On the offer subscribe page, from the **Plan** list, select the test plan you created earlier.
 1. Select the **Subscribe** button.
 1. Under **Project details**, from the **Subscription** list, select the SaaS test environment subscription.
